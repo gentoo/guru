@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,11 +9,11 @@ PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1
 
-hash="e261d13676a53f1909ff38edd41a5d83df84dace2625b2fe9e8a679d4ef3"
+hash="4302fe33c88dbfb572e2c1cad26735164c23f16fb8dba94ddb1867d0ef06"
 
 DESCRIPTION="Sphinx extension to generate unique OpenGraph metadata"
 HOMEPAGE="https://github.com/wpilibsuite/sphinxext-opengraph"
-SRC_URI="https://files.pythonhosted.org/packages/e7/b0/${hash}/${P}.tar.gz"
+SRC_URI="https://files.pythonhosted.org/packages/1c/5b/${hash}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
