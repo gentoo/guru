@@ -29,6 +29,10 @@ DEPEND="
 	x11-libs/libdrm
 	x11-libs/pixman
 	x11-libs/libxkbcommon[X?,wayland]
+	test? (
+		gui-libs/wlroots[x11-backend]
+		x11-wm/mutter
+	)
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -38,7 +42,6 @@ BDEPEND="
 	sys-devel/gettext
 	gtk-doc? ( dev-util/gi-docgen )
 	man? ( dev-python/docutils )
-	test? ( x11-wm/mutter )
 "
 
 src_configure() {
