@@ -51,7 +51,7 @@ src_install(){
 		dosym "../${PN}/bin/$(basename "${file}")" "/opt/bin/$(basename "${file}")"
 	done
 	for file in "${ED}/opt/${PN}/sbin"/*; do
-		dosym "../${PN}/sbin/$(basename "${file}")" "/opt/sbin/$(basename "${file}")"
+		dosym "../${PN}/sbin/$(basename "${file}")" "/opt/bin/$(basename "${file}")"
 	done
 
 	newenvd - "90${P}" <<-_EOF_
