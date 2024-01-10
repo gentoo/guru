@@ -1,7 +1,7 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="Static version of a fast very high compression read-only FUSE file system"
 HOMEPAGE="https://github.com/mhx/dwarfs"
@@ -17,14 +17,13 @@ KEYWORDS="-* ~amd64 ~arm64"
 RDEPEND="
 	${PYTHON_DEPS}
 	sys-fs/fuse:3
-	!sys-fs/dwarfs
 "
 DEPEND="
 	${RDEPEND}
 "
 QA_PREBUILT="
-	sbin/dwarfs
-	bin/*
+	opt/dwarfs-bin/bin/*
+	opt/dwarfs-bin/sbin/*
 "
 
 src_unpack() {
@@ -41,14 +40,23 @@ src_prepare() {
 	default
 	einfo "Removing legacy fuse2-related stuff..."
 	rm sbin/dwarfs2 sbin/mount.dwarfs2 || die
-	einfo "Done. Correcting man paths..."
-	mkdir -p usr/ || die
-	mv share/ usr/ || die
 	einfo "Done."
 }
 
 src_install(){
-	mv "${S}"/* "${D}"/ || die
+	mkdir -p "${ED}/opt/${PN}" || die
+	mv "${S}"/* "${ED}/opt/${PN}" || die
+
+	for file in "${ED}/opt/${PN}/bin"/*; do
+		dosym "../${PN}/bin/$(basename "${file}")" "/opt/bin/$(basename "${file}")"
+	done
+	for file in "${ED}/opt/${PN}/sbin"/*; do
+		dosym "../${PN}/sbin/$(basename "${file}")" "/opt/sbin/$(basename "${file}")"
+	done
+
+	newenvd - "90${P}" <<-_EOF_
+		MANPATH="${EPREFIX}/opt/${PN}/share/man"
+	_EOF_
 }
 
 pkg_postinst(){
