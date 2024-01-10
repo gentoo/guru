@@ -33,7 +33,7 @@ DEPEND="${RDEPEND[@]}"
 CMAKE_BUILD_TYPE=Release
 
 src_prepare() {
-	use get_kind && eapply "${FILESDIR}/${PN}-0.10.3-get_kind.patch"
+	use get-kind && eapply "${FILESDIR}/${PN}-0.10.3-get_kind.patch"
 	cmake_src_prepare
 }
 
