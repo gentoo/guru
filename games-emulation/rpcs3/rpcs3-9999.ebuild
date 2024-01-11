@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,60 +8,58 @@ inherit cmake flag-o-matic git-r3 xdg
 DESCRIPTION="PS3 emulator/debugger"
 HOMEPAGE="https://rpcs3.net/"
 EGIT_REPO_URI="https://github.com/RPCS3/rpcs3"
-EGIT_SUBMODULES=( 'asmjit' 'llvm' '3rdparty/flatbuffers' '3rdparty/wolfssl'
+EGIT_SUBMODULES=( 'asmjit' '3rdparty/miniupnp/miniupnp' '3rdparty/rtmidi/rtmidi' '3rdparty/wolfssl'
 	'3rdparty/SoundTouch/soundtouch' )
 # Delete sources when ensuring yaml-cpp compiled with fexceptions
 EGIT_SUBMODULES+=( '3rdparty/yaml-cpp' )
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+IUSE="alsa discord faudio +llvm pulseaudio vulkan wayland"
 
-DEPEND="alsa? ( media-libs/alsa-lib )
-	faudio? ( app-emulation/faudio )
-	pulseaudio? ( media-sound/pulseaudio )
+DEPEND="
 	app-arch/p7zip
+	dev-libs/flatbuffers
 	dev-libs/hidapi
 	dev-libs/libevdev
 	dev-libs/pugixml
 	dev-libs/xxhash
+	dev-qt/qtbase:6[concurrent,dbus,gui,widgets]
+	dev-qt/qtmultimedia:6
+	dev-qt/qtsvg:6
 	media-libs/cubeb
 	media-libs/glew
-	media-libs/libpng
+	media-libs/libglvnd
+	media-libs/libpng:=
 	media-libs/openal
-	sys-libs/zlib"
-#	dev-cpp/yaml-cpp
+	media-video/ffmpeg:=
+	net-misc/curl
+	sys-devel/llvm:=
+	sys-libs/zlib
+	virtual/libusb:1
+	alsa? ( media-libs/alsa-lib )
+	faudio? ( app-emulation/faudio )
+	pulseaudio? ( media-libs/libpulse )
+	vulkan? ( media-libs/vulkan-loader )
+	wayland? ( dev-libs/wayland )
+"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
-IUSE="alsa discord faudio +llvm pulseaudio vulkan wayland"
-
-src_unpack() {
-	git clone https://github.com/intel/ittapi "${WORKDIR}"/ittapi
-	git-r3_src_unpack
-}
+QA_PREBUILT="usr/share/rpcs3/test/.*"
+QA_WX_LOAD="usr/share/rpcs3/test/*"
 
 src_prepare() {
-	append-cflags -DNDEBUG -Wno-error=stringop-truncation
-	append-cppflags -DNDEBUG -Wno-error=stringop-truncation
-
-	# Disable cache
-	sed -i -e '/find_program(CCACHE_FOUND/d' -e '/set(.*_FLAGS/d' \
-		CMakeLists.txt || die
+	# Disable automagic ccache
+	sed -i -e '/find_program(CCACHE_FOUND ccache)/d' CMakeLists.txt || die
 
 	# Unbundle hidapi
 	sed -i -e '/hidapi\.h/{s:":<hidapi/:;s/"/>/}' rpcs3/Input/hid_pad_handler.h || die
-	sed -i -e '/hidapi/d' 3rdparty/CMakeLists.txt
-	sed -i -e '1afind_package(PkgConfig REQUIRED)\npkg_check_modules(hidapi-hidraw REQUIRED hidapi-hidraw)' rpcs3/CMakeLists.txt
+	sed -i -e '/hidapi/d' 3rdparty/CMakeLists.txt || die
+	sed -i -e '1afind_package(PkgConfig REQUIRED)\npkg_check_modules(hidapi-hidraw REQUIRED hidapi-hidraw)' \
+		rpcs3/CMakeLists.txt || die
 	sed -i -e 's/3rdparty::hidapi/hidapi-hidraw/' rpcs3/CMakeLists.txt rpcs3/rpcs3qt/CMakeLists.txt || die
-	sed -i -e 's/hid_write_control/hid_write/' rpcs3/Input/dualsense_pad_handler.cpp rpcs3/Input/ds4_pad_handler.cpp || die
-
-	# Move ittapi to the right place via cmake
-	local regex='/GIT_EXECUTABLE} clone/s!(.*!(COMMAND mv '
-	regex+="${WORKDIR}"
-	regex+='/ittapi \${ITTAPI_SOURCE_DIR}!'
-	sed -i -e "${regex}" \
-		llvm/lib/ExecutionEngine/IntelJITEvents/CMakeLists.txt || die ${regex}
+	sed -i -e 's/hid_write_control/hid_write/' \
+		rpcs3/Input/dualsense_pad_handler.cpp rpcs3/Input/ds4_pad_handler.cpp || die
 
 	# Unbundle cubeb
 	sed -i -e '/cubeb/d' 3rdparty/CMakeLists.txt || die
@@ -86,23 +84,27 @@ src_prepare() {
 }
 
 src_configure() {
+	filter-lto
+
 	local mycmakeargs=(
-		-DBUILD_LLVM_SUBMODULE=ON # ennoying really
 		-DBUILD_SHARED_LIBS=OFF # to remove after unbundling
-		-DUSE_DISCORD_RPC=$(usex discord)
-		-DUSE_FAUDIO=$(usex faudio)
 		-DUSE_PRECOMPILED_HEADERS=ON
 		-DUSE_SYSTEM_CURL=ON
+		-DUSE_SYSTEM_FFMPEG=ON
+		-DUSE_SYSTEM_FLATBUFFERS=ON
 		-DUSE_SYSTEM_LIBPNG=ON
 		-DUSE_SYSTEM_LIBUSB=ON
 		-DUSE_SYSTEM_PUGIXML=ON
 		-DUSE_SYSTEM_XXHASH=ON
 		-DUSE_SYSTEM_ZLIB=ON
+		-DUSE_DISCORD_RPC=$(usex discord)
+		-DUSE_FAUDIO=$(usex faudio)
 		-DUSE_VULKAN=$(usex vulkan)
 		-DWITH_LLVM=$(usex llvm)
 	)
 	use faudio && mycmakeargs+=( -DUSE_SYSTEM_FAUDIO=$(usex faudio) )
-	CMAKE_BUILD_TYPE=RELEASE cmake_src_configure
+	cmake_src_configure
+
 	sed -i -e 's/FFMPEG_LIB_AVFORMAT-NOTFOUND/avformat/' -e 's/FFMPEG_LIB_AVCODEC-NOTFOUND/avcodec/' \
 		-e 's/FFMPEG_LIB_AVUTIL-NOTFOUND/avutil/' -e 's/FFMPEG_LIB_SWSCALE-NOTFOUND/swscale/' \
 		-e 's/FFMPEG_LIB_SWRESAMPLE-NOTFOUND/swresample/' "${BUILD_DIR}"/build.ninja || die
