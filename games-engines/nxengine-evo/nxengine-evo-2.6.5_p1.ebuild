@@ -43,7 +43,7 @@ src_compile() {
 src_install() {
 	cmake_src_install
 
-	cd "${WORKDIR}/CaveStory"
+	cd "${WORKDIR}/CaveStory" || die
 
 	insinto /usr/share/nxengine
 	doins -r data
