@@ -20,7 +20,7 @@ RDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep 'dev-python/pygobject[${PYTHON_USEDEP}]')
 	x11-libs/gtk+:3[introspection]
-	>=gui-libs/gtk-layer-shell-0.5.0
+	>=gui-libs/gtk-layer-shell-0.5.0[introspection]
 "
 DEPEND="${RDEPEND}"
 
