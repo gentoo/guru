@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,9 +14,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND=""
 BDEPEND="
 	dev-python/hatch-fancy-pypi-readme[${PYTHON_USEDEP}]
+	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
 		>=dev-python/coverage-5.0.2[${PYTHON_USEDEP}]
 		dev-python/certifi[${PYTHON_USEDEP}]
