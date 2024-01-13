@@ -40,7 +40,7 @@ DEPEND="
 	>=dev-libs/cglm-0.7.8
 "
 BDEPEND="
-	dev-util/meson
+	dev-build/meson
 	$(python_gen_any_dep '
 		dev-python/zstandard[${PYTHON_USEDEP}]
 	')

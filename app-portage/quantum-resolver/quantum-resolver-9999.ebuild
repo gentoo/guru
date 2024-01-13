@@ -13,6 +13,6 @@ LICENSE="GPL-3"
 SLOT="0"
 
 DEPEND="
-	>=dev-util/meson-0.63
+	>=dev-build/meson-0.63
 	dev-libs/libfmt
 "

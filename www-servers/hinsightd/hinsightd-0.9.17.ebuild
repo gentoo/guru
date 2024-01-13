@@ -31,7 +31,7 @@ IUSE="+ssl cgi +fcgi +rproxy +ffcall"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
 BDEPEND="
-	dev-util/meson
+	dev-build/meson
 	virtual/pkgconfig
 "
 

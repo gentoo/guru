@@ -24,7 +24,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 		app-alternatives/ninja
 		>=dev-lang/vala-0.56.8
-		>=dev-util/meson-1.1.1
+		>=dev-build/meson-1.1.1
 		$(vala_depend)
 "
 

@@ -37,7 +37,7 @@ inherit flag-o-matic multiprocessing toolchain-funcs qmake-utils
 : ${QBS_COMMAND_ECHO_MODE:=command-line}
 
 BDEPEND="
-	dev-util/meson-format-array
+	dev-build/meson-format-array
 	dev-util/qbs
 "
 

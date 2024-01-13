@@ -53,7 +53,7 @@ RDEPEND="
 "
 BDEPEND="
 	>=dev-libs/wayland-protocols-1.24
-	>=dev-util/meson-0.60.0
+	>=dev-build/meson-0.60.0
 	virtual/pkgconfig
 "
 BDEPEND+="man? ( >=app-text/scdoc-1.9.3 )"

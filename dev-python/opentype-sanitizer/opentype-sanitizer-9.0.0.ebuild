@@ -27,6 +27,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-cpp/gtest
 "
-BDEPEND="dev-util/meson"
+BDEPEND="dev-build/meson"
 
 distutils_enable_tests pytest

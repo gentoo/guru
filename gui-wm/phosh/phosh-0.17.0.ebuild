@@ -43,7 +43,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-util/ctags
-	dev-util/meson
+	dev-build/meson
 "
 
 src_prepare() {

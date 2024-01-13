@@ -21,7 +21,7 @@ DEPEND="${RDEPEND}
 BDEPEND="
 		${DEPEND}
 		app-alternatives/ninja
-		dev-util/meson
+		dev-build/meson
 "
 
 src_prepare() {

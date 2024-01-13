@@ -180,7 +180,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 		app-alternatives/ninja
-		>=dev-util/meson-1.1.1
+		>=dev-build/meson-1.1.1
 		>=dev-libs/appstream-glib-0.8.2
 		>=virtual/rust-1.69.0
 		test? ( || ( dev-lang/rust[clippy]

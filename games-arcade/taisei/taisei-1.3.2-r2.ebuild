@@ -39,7 +39,7 @@ DEPEND="
 	>=dev-libs/cglm-0.7.8
 "
 BDEPEND="
-	>=dev-util/meson-0.53
+	>=dev-build/meson-0.53
 	${PYTHON_DEPS}
 	doc? ( dev-python/docutils )"
 

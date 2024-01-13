@@ -32,7 +32,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-		>=dev-util/meson-1.2.1-r1
+		>=dev-build/meson-1.2.1-r1
 "
 
 src_install() {

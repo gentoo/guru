@@ -357,14 +357,14 @@ RDEPEND="
 BDEPEND="
 	${PYTHON_DEPS}
 	dev-libs/gobject-introspection
-	>=dev-util/meson-0.63
+	>=dev-build/meson-0.63
 	dev-util/blueprint-compiler
 "
 
 src_unpack() {
 	unpack ${P}.tar.bz2
 	unpack nvtop-${NVTOP_COMMIT}.tar.gz
-	
+
 	GATHERER_BUILD_DIR=$(usex debug debug release)
 	mkdir -p "${BUILD_DIR}/src/sys_info_v2/gatherer/src/${GATHERER_BUILD_DIR}/build/native" || die
 	mv nvtop-${NVTOP_COMMIT} "${BUILD_DIR}/src/sys_info_v2/gatherer/src/${GATHERER_BUILD_DIR}/build/native" || die

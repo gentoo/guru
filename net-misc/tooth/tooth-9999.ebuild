@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/GeopJr/Tooth.git"
 LICENSE="GPL-3"
 SLOT="0"
 
-RDEPEND=">=dev-util/meson-0.50
+RDEPEND=">=dev-build/meson-0.50
 >=dev-lang/vala-0.48
 >=dev-libs/glib-2.0
 >=dev-libs/json-glib-1.4.4

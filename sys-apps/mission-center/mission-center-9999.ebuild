@@ -46,7 +46,7 @@ RDEPEND="
 BDEPEND="
 	${PYTHON_DEPS}
 	dev-libs/gobject-introspection
-	>=dev-util/meson-0.63
+	>=dev-build/meson-0.63
 	dev-util/blueprint-compiler
 "
 

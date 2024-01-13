@@ -32,7 +32,7 @@ DEPEND="
         dev-python/python-magic[${PYTHON_USEDEP}]
         dev-python/pytz[${PYTHON_USEDEP}]
         dev-python/readability-lxml[${PYTHON_USEDEP}]
-        dev-python/requests[${PYTHON_USEDEP}]   
+        dev-python/requests[${PYTHON_USEDEP}]
     ')
     dev-util/blueprint-compiler
     gui-libs/gtk:4
@@ -41,7 +41,7 @@ DEPEND="
     net-libs/webkit-gtk:6
 "
 RDEPEND="${DEPEND}"
-BDEPEND=">=dev-util/meson-0.58"
+BDEPEND=">=dev-build/meson-0.58"
 
 src_configure() {
     local emesonargs=(

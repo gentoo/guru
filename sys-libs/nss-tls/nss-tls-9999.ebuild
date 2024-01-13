@@ -21,7 +21,7 @@ DEPEND="${RDEPEND}
 BDEPEND="
 		${DEPEND}
 		app-alternatives/ninja
-		dev-util/meson
+		dev-build/meson
 "
 
 EGIT_REPO_URI="https://github.com/dimkr/nss-tls.git"

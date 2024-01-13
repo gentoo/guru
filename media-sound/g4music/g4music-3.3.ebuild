@@ -27,7 +27,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-		>=dev-util/meson-1.1.1
+		>=dev-build/meson-1.1.1
 		>=dev-lang/vala-0.56.8
 		$(vala_depend)
 "
