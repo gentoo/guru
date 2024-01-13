@@ -17,7 +17,7 @@ IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 BDEPEND="
-	sys-devel/make
+	dev-build/make
 	app-arch/tar"
 
 RDEPEND="

@@ -16,11 +16,11 @@ KEYWORDS="-* ~amd64"
 
 IUSE="doc systemd"
 
-DEPEND="sys-devel/make
+DEPEND="dev-build/make
 	kernel_linux? ( virtual/linux-sources )"
 
 BDEPEND="sys-devel/gcc
-	sys-devel/make
+	dev-build/make
 	dev-vcs/git"
 
 RDEPEND="sys-libs/glibc"
