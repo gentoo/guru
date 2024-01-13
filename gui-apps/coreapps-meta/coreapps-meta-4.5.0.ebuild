@@ -8,7 +8,7 @@ HOMEPAGE="https://gitlab.com/cubocore/coreapps"
 
 LICENSE="metapackage"
 SLOT="0"
-PROPERTIES="live"
+KEYWORDS="~amd64"
 IUSE="
 	location
 	pulseaudio
