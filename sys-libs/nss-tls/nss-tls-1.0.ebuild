@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -18,9 +18,11 @@ RDEPEND="dev-libs/glib
 		net-libs/libsoup"
 DEPEND="${RDEPEND}
 		sys-libs/glibc[nscd(+)]"
-BDEPEND="${DEPEND}
+BDEPEND="
+		${DEPEND}
+		app-alternatives/ninja
 		dev-util/meson
-		dev-util/ninja"
+"
 
 src_prepare() {
 			default

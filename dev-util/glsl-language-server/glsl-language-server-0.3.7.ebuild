@@ -14,7 +14,7 @@ KEYWORDS="~amd64"
 
 DEPEND="dev-util/glslang dev-cpp/cli11 dev-cpp/nlohmann_json dev-libs/libfmt"
 RDEPEND="${DEPEND}"
-BDEPEND="dev-util/ninja"
+BDEPEND="app-alternatives/ninja"
 
 src_install() {
 	DESTDIR="${D}" ninja -C"${S}/build" install

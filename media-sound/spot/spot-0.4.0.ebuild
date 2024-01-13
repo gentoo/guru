@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -399,8 +399,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
+		app-alternatives/ninja
 		>=dev-util/meson-1.1.1
-		>=dev-util/ninja-1.11.1-r2
 		>=dev-libs/appstream-glib-0.8.2
 		>=virtual/rust-1.69.0
 		test? ( || ( dev-lang/rust[clippy]
@@ -444,12 +444,12 @@ src_compile() {
 	# meson_src_install won't find spot binary otherwise because cargo.sh isn't used for compiling
 	if use debug; then
 		mv "${WORKDIR}/${P}/target/debug/spot" \
-	   	   "${WORKDIR}/${P}-build/src/spot" \
-	       || die
+		   "${WORKDIR}/${P}-build/src/spot" \
+		   || die
 	else
 		mv "${WORKDIR}/${P}/target/release/spot" \
-	   	   "${WORKDIR}/${P}-build/src/spot" \
-	       || die
+		   "${WORKDIR}/${P}-build/src/spot" \
+		   || die
 	fi
 }
 

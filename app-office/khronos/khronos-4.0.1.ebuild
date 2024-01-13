@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,9 +22,9 @@ IDEPEND="
 DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND="
+		app-alternatives/ninja
 		>=dev-lang/vala-0.56.8
 		>=dev-util/meson-1.1.1
-		>=dev-util/ninja-1.11.1-r2
 		$(vala_depend)
 "
 

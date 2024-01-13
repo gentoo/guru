@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,8 +21,8 @@ REQUIRE_USE="${LUA_REQUIRED_USE}"
 DEPEND="${LUA_DEPS}"
 RDEPEND="${DEPEND}"
 BDEPEND="
+	app-alternatives/ninja
 	app-arch/unzip
-	dev-util/ninja
 "
 RESTRICT="!test? ( test )"
 PATCHES=( "${FILESDIR}/linux.ninja.patch" "${FILESDIR}/build.ninja.patch" )
