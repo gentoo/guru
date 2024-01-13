@@ -3,21 +3,19 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_EXT=1
 PYTHON_COMPAT=( python3_{8..11} )
+PYPI_PN="py${PN}"
+PYPI_NO_NORMALIZE=1
 
-inherit distutils-r1
-
-MY_PN="py${PN}"
-MY_P="${MY_PN}-${PV}"
+inherit distutils-r1 pypi
 
 DESCRIPTION="Python module implementing Aho-Corasick algorithm"
 HOMEPAGE="https://github.com/WojciechMula/pyahocorasick"
-SRC_URI="https://github.com/WojciechMula/${MY_PN}/archive/${PV}.tar.gz -> ${MY_P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-
-S="${WORKDIR}/${MY_P}"
 
 distutils_enable_tests pytest
