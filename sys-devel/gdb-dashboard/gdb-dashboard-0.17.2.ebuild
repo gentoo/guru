@@ -21,7 +21,7 @@ fi
 LICENSE="MIT"
 SLOT="0"
 
-RDEPEND="sys-devel/gdb[python]"
+RDEPEND="dev-debug/gdb[python]"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 pkg_setup() {
