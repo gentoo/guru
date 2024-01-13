@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>spiderx@spiderx.dp.ua</email>
-		<name>Vladimir Pavljuchenkov</name>
+		<email>davidroman96@gmail.com</email>
+		<name>David Roman</name>
 	</maintainer>
 	<longdescription lang="en">
 	pyahocorasick is a fast and memory efficient library for exact or
