@@ -15,8 +15,14 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 #REQUIRED_USE=""
 
+# Bug 922026: `av_register_all` is deprecated and maybe not present in ffmpeg-6
+# (changelog: <https://github.com/FFmpeg/FFmpeg/blob/70d25268c21cbee5f08304da95be1f647c630c15/doc/APIchanges#L86>).
+# <https://ffmpeg.org/pipermail/ffmpeg-devel/2018-February/225051.html> says these
+# functions "don't do anything" so simply removing these call would work. However,
+# loudgain is not updated for some years and I (ebuild maintainer) am not sure
+# if it would work with ffmpeg-6, so restricting to <ffmpeg-5 here.
 COMMON_DEPEND="
-	media-video/ffmpeg
+	<media-video/ffmpeg-5
 	media-libs/libebur128
 	media-libs/taglib
 "
