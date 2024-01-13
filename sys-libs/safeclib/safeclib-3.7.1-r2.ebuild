@@ -19,7 +19,7 @@ IUSE="+constraint-handler doc +extensions modules norm-compat +nullslack test un
 RESTRICT="!test? ( test )"
 BDEPEND="
 	doc? ( app-text/doxygen[dot] )
-	valgrind? ( dev-util/valgrind )
+	valgrind? ( dev-debug/valgrind )
 "
 
 PATCHES=( "${FILESDIR}/${P}-stdarg.patch" )

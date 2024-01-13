@@ -57,7 +57,7 @@ ${IUSE_PARSEC_DEBUG} ${IUSE_PARSEC_DIST} ${IUSE_PARSEC_PROF}
 
 #TODO: opencl vite tau
 RDEPEND="
-	dev-util/valgrind
+	dev-debug/valgrind
 	sys-apps/hwloc
 	sys-cluster/temanejo
 

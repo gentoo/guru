@@ -24,7 +24,7 @@ RDEPEND="
 	dev-libs/boost:=
 	virtual/libelf
 	virtual/mpi
-	valgrind? ( dev-util/valgrind )
+	valgrind? ( dev-debug/valgrind )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="doc? ( dev-texlive/texlive-latex )"
