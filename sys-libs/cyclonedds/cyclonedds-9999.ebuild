@@ -23,7 +23,7 @@ IUSE="test ssl shm parser doc examples ipv6 idlc get-kind"
 RESTRICT="!test? ( test )"
 
 RDEPEND=(
-	"doc? ( app-doc/doxygen )"
+	"doc? ( app-text/doxygen )"
 	"ssl? ( dev-libs/openssl )"
 	"shm? ( sys-libs/iceoryx )"
 	"parser? ( sys-devel/bison )"

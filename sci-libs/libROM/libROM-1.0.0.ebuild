@@ -36,7 +36,7 @@ DEPEND="
 	${RDEPEND}
 	dev-cpp/gtest
 "
-BDEPEND="app-doc/doxygen"
+BDEPEND="app-text/doxygen"
 
 DOCS=( README.md CHANGELOG docs/libROM_Design_and_Theory.pdf )
 

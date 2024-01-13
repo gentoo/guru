@@ -33,7 +33,7 @@ RDEPEND="
 	sionlib? ( sys-cluster/sionlib )
 "
 DEPEND="${RDEPEND}"
-BDEPEND="doc? ( app-doc/doxygen )"
+BDEPEND="doc? ( app-text/doxygen )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-sionlib-includedir.patch"

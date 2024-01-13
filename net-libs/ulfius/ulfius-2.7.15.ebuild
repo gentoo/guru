@@ -21,7 +21,7 @@ BDEPEND="
 DEPEND="
 	curl? ( net-misc/curl )
 	doc? (
-	     app-doc/doxygen
+	     app-text/doxygen
 	     media-gfx/graphviz
 	)
 	jansson? ( dev-libs/jansson:= )

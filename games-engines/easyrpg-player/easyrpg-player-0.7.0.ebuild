@@ -36,7 +36,7 @@ DEPEND="
 
 	dev-ruby/asciidoctor
 
-	doc? ( app-doc/doxygen )
+	doc? ( app-text/doxygen )
 "
 RDEPEND="${DEPEND}"
 

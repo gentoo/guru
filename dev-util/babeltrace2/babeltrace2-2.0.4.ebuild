@@ -32,7 +32,7 @@ BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
 	doc? (
-		app-doc/doxygen
+		app-text/doxygen
 		python? ( dev-python/sphinx )
 	)
 	man? (

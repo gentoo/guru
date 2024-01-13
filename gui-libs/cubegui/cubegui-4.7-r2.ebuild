@@ -31,7 +31,7 @@ RDEPEND="
 	webengine? ( dev-qt/qtwebengine:5 )
 "
 DEPEND="${RDEPEND}"
-BDEPEND="app-doc/doxygen[dot]"
+BDEPEND="app-text/doxygen[dot]"
 
 # reconfigure needs custom autotools
 

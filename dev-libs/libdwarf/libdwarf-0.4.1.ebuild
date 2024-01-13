@@ -23,7 +23,7 @@ DEPEND="
 	elf? ( virtual/libelf:= )
 "
 RDEPEND="${DEPEND}"
-BDEPEND="doc? ( app-doc/doxygen )"
+BDEPEND="doc? ( app-text/doxygen )"
 
 src_configure() {
 	local emesonargs=(

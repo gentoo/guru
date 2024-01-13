@@ -81,7 +81,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 BDEPEND="
 	dev-qt/linguist-tools:5
-	doc? ( app-doc/doxygen[dot] )
+	doc? ( app-text/doxygen[dot] )
 	man? (
 		|| (
 			app-text/asciidoc

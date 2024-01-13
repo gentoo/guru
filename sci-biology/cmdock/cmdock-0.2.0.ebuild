@@ -29,7 +29,7 @@ DEPEND="
 "
 BDEPEND="
 	apidoc? (
-		app-doc/doxygen
+		app-text/doxygen
 		dev-texlive/texlive-fontutils
 	)
 	doc? (

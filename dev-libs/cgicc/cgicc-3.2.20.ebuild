@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 IUSE="doc examples static-libs"
 
 RDEPEND=""
-DEPEND="doc? ( app-doc/doxygen )"
+DEPEND="doc? ( app-text/doxygen )"
 
 PATCHES=( "${FILESDIR}/${PN}-3.2.19-optional-doc.patch" )
 

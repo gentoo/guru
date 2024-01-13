@@ -79,7 +79,7 @@ RDEPEND="
 	zlib? ( sys-libs/zlib )
 "
 DEPEND="${RDEPEND}"
-BDEPEND="app-doc/doxygen[dot]"
+BDEPEND="app-text/doxygen[dot]"
 
 PATCHES=( "${FILESDIR}/${P}-bump-cmake-version.patch" )
 RESTRICT="!test? ( test )"

@@ -4,7 +4,7 @@
 EAPI=8
 
 DOCS_BUILDER="doxygen"
-DOCS_DEPEND="app-doc/doxygen[dot]"
+DOCS_DEPEND="app-text/doxygen[dot]"
 DOCS_CONFIG_NAME="the_Foundation.doxygen"
 inherit cmake docs
 

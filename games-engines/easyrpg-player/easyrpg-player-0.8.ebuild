@@ -103,7 +103,7 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="virtual/pkgconfig
 	doc? (
-		   app-doc/doxygen
+		   app-text/doxygen
 		   media-gfx/graphviz[svg]
 		 )
 "

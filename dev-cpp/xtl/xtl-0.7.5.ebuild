@@ -22,7 +22,7 @@ IUSE="doc test"
 
 BDEPEND="
 	doc? (
-		app-doc/doxygen
+		app-text/doxygen
 		$(python_gen_any_dep '
 			dev-python/breathe[${PYTHON_USEDEP}]
 			dev-python/sphinx[${PYTHON_USEDEP}]

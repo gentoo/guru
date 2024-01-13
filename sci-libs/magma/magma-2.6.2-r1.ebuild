@@ -48,7 +48,7 @@ DEPEND="
 #	hip? ( dev-util/hip )
 BDEPEND="
 	virtual/pkgconfig
-	doc? ( >=app-doc/doxygen-1.8.14-r1[dot] )
+	doc? ( >=app-text/doxygen-1.8.14-r1[dot] )
 "
 
 REQUIRED_USE="

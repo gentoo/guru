@@ -23,7 +23,7 @@ IUSE="doc examples test"
 RDEPEND=">=net-misc/curl-7.56.0[ssl]"
 DEPEND="${RDEPEND}"
 BDEPEND="
-	doc? ( app-doc/doxygen[dot] )
+	doc? ( app-text/doxygen[dot] )
 	test? ( dev-cpp/catch )
 "
 

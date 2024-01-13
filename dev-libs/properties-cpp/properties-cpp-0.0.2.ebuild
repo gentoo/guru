@@ -23,7 +23,7 @@ RESTRICT="mirror"
 
 DEPEND="
 	dev-libs/boost
-	doc? ( app-doc/doxygen )
+	doc? ( app-text/doxygen )
 "
 
 S="${WORKDIR}/${MY_P}"

@@ -17,7 +17,7 @@ RESTRICT="test"
 
 BDEPEND="
 	doc? (
-		app-doc/doxygen
+		app-text/doxygen
 		media-gfx/graphviz
 	)
 	virtual/pkgconfig

@@ -21,7 +21,7 @@ SLOT="0/${PV}"
 #DEPEND="mpi? ( sci-libs/MeDiPack )"
 RDEPEND="${DEPEND}"
 BDEPEND="doc? (
-		app-doc/doxygen[dot]
+		app-text/doxygen[dot]
 		dev-texlive/texlive-latex
 	)
 "

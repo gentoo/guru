@@ -21,7 +21,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="doc? (
-				app-doc/doxygen
+				app-text/doxygen
 				media-gfx/graphviz[svg]
 			  )
 "

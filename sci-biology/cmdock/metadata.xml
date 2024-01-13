@@ -9,7 +9,7 @@
 	<!-- maintainer-needed -->
 	<use>
 		<flag name="apidoc">
-			Build API documentation using <pkg>app-doc/doxygen</pkg>
+			Build API documentation using <pkg>app-text/doxygen</pkg>
 		</flag>
 		<flag name="boinc">
 			Use CmDock with SiDock@home BOINC project

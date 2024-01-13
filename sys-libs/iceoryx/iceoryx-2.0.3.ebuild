@@ -25,7 +25,7 @@ IUSE="test doc examples ccache"
 RESTRICT="test"
 
 RDEPEND=(
-	"doc? ( app-doc/doxygen )"
+	"doc? ( app-text/doxygen )"
 	"dev-cpp/cpptoml"
 	"ccache? ( dev-util/ccache )"
 	)

@@ -24,7 +24,7 @@ DEPEND="
 	elf? ( virtual/libelf:= )
 "
 RDEPEND="${DEPEND}"
-BDEPEND="doc? ( app-doc/doxygen )"
+BDEPEND="doc? ( app-text/doxygen )"
 
 DOCS=( AUTHORS NEWS README.md )
 

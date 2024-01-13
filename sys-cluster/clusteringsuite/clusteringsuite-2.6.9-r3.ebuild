@@ -49,7 +49,7 @@ DEPEND="
 	${RDEPEND}
 	${PYTHON_DEPS}
 "
-BDEPEND="doc? ( app-doc/doxygen )"
+BDEPEND="doc? ( app-text/doxygen )"
 
 src_prepare() {
 	use muster && PATCHES+=( "${FILESDIR}/${P}-force-muster-discovery.patch" )

@@ -18,7 +18,7 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="doc examples"
 
-BDEPEND="doc? ( app-doc/doxygen )"
+BDEPEND="doc? ( app-text/doxygen )"
 PATCHES=(
 	"${FILESDIR}/${P}-respect-cflags.patch"
 	"${FILESDIR}/${P}-fix-clang-build.patch"

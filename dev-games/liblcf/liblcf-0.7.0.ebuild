@@ -17,7 +17,7 @@ IUSE="doc"
 RDEPEND="
 	dev-libs/expat
 	dev-libs/icu:=
-	doc? ( app-doc/doxygen )
+	doc? ( app-text/doxygen )
 "
 DEPEND="${RDEPEND}"
 

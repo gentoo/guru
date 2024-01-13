@@ -61,7 +61,7 @@ DEPEND="
 	test? ( dev-cpp/gtest )
 "
 BDEPEND="
-	doc? ( app-doc/doxygen )
+	doc? ( app-text/doxygen )
 	test? ( python? ( $(python_gen_cond_dep 'dev-python/pytest[${PYTHON_USEDEP}]') ) )
 "
 

@@ -18,7 +18,7 @@ IUSE="+constraint-handler doc +extensions modules norm-compat +nullslack test un
 
 RESTRICT="!test? ( test )"
 BDEPEND="
-	doc? ( app-doc/doxygen[dot] )
+	doc? ( app-text/doxygen[dot] )
 	valgrind? ( dev-util/valgrind )
 "
 

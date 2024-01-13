@@ -30,7 +30,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	doc? (
-		app-doc/doxygen
+		app-text/doxygen
 		dev-texlive/texlive-latex
 	)
 "

@@ -41,7 +41,7 @@ DEPEND="
 	${RDEPEND}
 	test? ( dev-cpp/gtest )
 "
-BDEPEND="doc? ( app-doc/doxygen )"
+BDEPEND="doc? ( app-text/doxygen )"
 
 PATCHES=( "${FILESDIR}"/${PN}-1.8.4-fix-test-build.patch )
 
