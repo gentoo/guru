@@ -7,13 +7,10 @@ DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit distutils-r1
-
-hash="4302fe33c88dbfb572e2c1cad26735164c23f16fb8dba94ddb1867d0ef06"
+inherit distutils-r1 pypi
 
 DESCRIPTION="Sphinx extension to generate unique OpenGraph metadata"
 HOMEPAGE="https://github.com/wpilibsuite/sphinxext-opengraph"
-SRC_URI="https://files.pythonhosted.org/packages/1c/5b/${hash}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
