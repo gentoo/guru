@@ -21,7 +21,7 @@ SLOT="0"
 IUSE="static-libs test"
 RESTRICT="!test? ( test )"
 
-BDEPEND="sys-devel/bmake"
+BDEPEND="dev-build/bmake"
 RDEPEND="
 	app-crypt/libmd
 	virtual/libcrypt

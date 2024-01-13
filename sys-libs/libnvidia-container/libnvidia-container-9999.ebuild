@@ -34,7 +34,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	net-libs/rpcsvc-proto
 	sys-apps/lsb-release
-	sys-devel/bmake
+	dev-build/bmake
 	virtual/pkgconfig
 "
 

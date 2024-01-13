@@ -13,7 +13,7 @@ EGIT_COMMIT="v${PV}"
 LICENSE="MIT"
 SLOT="0"
 
-BDEPEND="sys-devel/bmake"
+BDEPEND="dev-build/bmake"
 
 src_configure() {
 	local myconf
