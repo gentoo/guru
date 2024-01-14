@@ -5,8 +5,8 @@
 		<email>joe@wt.gd</email>
 		<name>joecool</name>
 	</maintainer>
-    <upstream>
-        <remote-id type="github">amanusk/s-tui</remote-id>
-        <remote-id type="pypi">s-tui</remote-id>
-    </upstream>
+	<upstream>
+		<remote-id type="github">amanusk/s-tui</remote-id>
+		<remote-id type="pypi">s-tui</remote-id>
+	</upstream>
 </pkgmetadata>
