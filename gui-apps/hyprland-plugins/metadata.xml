@@ -12,8 +12,8 @@
 	<upstream>
 		<bugs-to>https://github.com/hyprwm/hyprland-plugins/issues</bugs-to>
 		<changelog>https://github.com/hyprwm/hyprland-plugins/releases</changelog>
-		<remote-id type="github">hypr/hyprland-plugins</remote-id>
-		<remote-id type="github">hypr/Hyprland</remote-id>
+		<remote-id type="github">hyprwm/hyprland-plugins</remote-id>
+		<remote-id type="github">hyprwm/Hyprland</remote-id>
 	</upstream>
 	<use>
 		<flag name="borders-plus-plus">adds one or two additional borders to windows</flag>
