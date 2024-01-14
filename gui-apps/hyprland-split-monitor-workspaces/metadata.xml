@@ -13,6 +13,6 @@
 		<bugs-to>https://github.com/Duckonaut/split-monitor-workspaces/issues</bugs-to>
 		<changelog>https://github.com/hyprwm/hyprland-plugins/releases</changelog>
 		<remote-id type="github">Duckonaut/split-monitor-workspaces</remote-id>
-		<remote-id type="github">hypr/Hyprland</remote-id>
+		<remote-id type="github">hyprwm/Hyprland</remote-id>
 	</upstream>
 </pkgmetadata>
