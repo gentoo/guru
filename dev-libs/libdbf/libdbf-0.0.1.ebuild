@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Foundation
+# Copyright 1999-2024 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,11 +17,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
-RDEPEND=""
 DEPEND="${RDEPEND}
 	dev-perl/XML-Parser
 	doc? ( app-text/docbook-sgml-utils )
 	virtual/pkgconfig"
+BDEPEND="dev-util/intltool"
 
 S="${WORKDIR}/${PN}-${MY_COMMIT}"
 
