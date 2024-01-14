@@ -35,6 +35,7 @@ RDEPEND="
 	<dev-python/requests-3[${PYTHON_USEDEP}]
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
 	dev-python/tabulate[${PYTHON_USEDEP}]
+	dev-util/pkgcheck[${PYTHON_USEDEP}]
 "
 BDEPEND="test? ( dev-python/pytest-recording[${PYTHON_USEDEP}] )"
 
