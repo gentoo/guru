@@ -10,6 +10,8 @@ inherit distutils-r1 optfeature
 DESCRIPTION="Stress-Terminal UI monitoring tool"
 HOMEPAGE="https://amanusk.github.io/s-tui/"
 
+PATCHES="${FILESDIR}/${P}-setuptools-warning.patch"
+
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/amanusk/${PN}.git"
