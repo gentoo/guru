@@ -18,9 +18,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-python/bump2version[${PYTHON_USEDEP}]
 	dev-python/fonttools[${PYTHON_USEDEP}]
 	dev-python/glyphsLib[${PYTHON_USEDEP}]
 	dev-python/openstep-plist[${PYTHON_USEDEP}]
 	dev-python/ufoLib2[${PYTHON_USEDEP}]
+	dev-util/bump2version[${PYTHON_USEDEP}]
 "

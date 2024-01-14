@@ -1,1 +1,2 @@
 move sys-devel/just dev-build/just
+move dev-python/bump2version dev-util/bump2version
