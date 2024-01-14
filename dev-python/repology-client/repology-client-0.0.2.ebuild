@@ -10,7 +10,7 @@ inherit distutils-r1 pypi
 DESCRIPTION="Asynchronous wrapper for Repology API"
 HOMEPAGE="
 	https://repology-client.sysrq.in/
-	https://pypi.org/project/repology-client
+	https://pypi.org/project/repology-client/
 "
 
 LICENSE="CC-BY-SA-3.0 EUPL-1.2"
