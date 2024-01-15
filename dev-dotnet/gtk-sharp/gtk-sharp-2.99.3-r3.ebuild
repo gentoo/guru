@@ -34,7 +34,7 @@ RDEPEND="
 	!dev-dotnet/atk-sharp"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
-	sys-devel/automake:1.11"
+	dev-build/automake:1.11"
 
 src_prepare() {
 	base_src_prepare

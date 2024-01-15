@@ -21,7 +21,7 @@ DEPEND="
 	dev-libs/protobuf
 	dev-libs/openssl
 	dev-build/libtool
-	sys-devel/automake:=
+	dev-build/automake:=
 	>=dev-libs/boost-1.81.0-r1
 	dev-qt/qtcore
 	dev-qt/qtgui
@@ -37,7 +37,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	sys-devel/autoconf
-	sys-devel/automake
+	dev-build/automake
 "
 
 PATCHES=(

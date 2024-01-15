@@ -31,7 +31,7 @@ DEPEND="media-libs/libsdl
 	x11-base/xorg-server
 	x11-libs/gtk+:2"
 RDEPEND="${DEPEND}"
-BDEPEND="sys-devel/automake"
+BDEPEND="dev-build/automake"
 
 S="${WORKDIR}/NP2kai-rev.${PV}/x11"
 

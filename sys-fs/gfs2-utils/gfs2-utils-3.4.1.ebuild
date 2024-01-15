@@ -17,7 +17,7 @@ IUSE="nls test"
 RESTRICT="!test? ( test )"
 
 BDEPEND="sys-devel/autoconf
-		sys-devel/automake
+		dev-build/automake
 		dev-build/libtool
 		dev-build/make
 "

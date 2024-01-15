@@ -25,7 +25,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	$(vala_depend)
 	dev-build/libtool
-	>=sys-devel/automake-1.11
+	>=dev-build/automake-1.11
 	appindicator? ( dev-libs/libappindicator )
 	x11-libs/gtk+:3
 	>=dev-libs/glib-2
