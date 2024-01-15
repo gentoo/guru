@@ -27,7 +27,7 @@ RDEPEND="
 	media-libs/mesa
 	net-print/cups
 	sys-apps/dbus
-	sys-devel/libtool
+	dev-build/libtool
 	sys-libs/db:5.3
 	x11-libs/cairo
 	x11-libs/gtk+:3

@@ -17,7 +17,7 @@ IUSE="+man"
 DEPEND="sys-fs/cryptsetup"
 RDEPEND="${DEPEND}"
 BDEPEND="man? ( app-text/asciidoc )
-	sys-devel/libtool"
+	dev-build/libtool"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-tests.patch"

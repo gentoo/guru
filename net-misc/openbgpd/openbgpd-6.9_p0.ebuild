@@ -25,7 +25,7 @@ RDEPEND="
 	acct-user/_bgpd
 "
 BDEPEND="
-	sys-devel/libtool
+	dev-build/libtool
 "
 
 S="${WORKDIR}/${MY_P}"

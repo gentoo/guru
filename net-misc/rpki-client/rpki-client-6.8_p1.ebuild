@@ -19,7 +19,7 @@ DEPEND="
 	acct-user/_rpki-client
 "
 RDEPEND="${DEPEND}"
-BDEPEND="sys-devel/libtool"
+BDEPEND="dev-build/libtool"
 
 S="${WORKDIR}/${MY_P}"
 src_configure() {

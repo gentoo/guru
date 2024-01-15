@@ -20,7 +20,7 @@ DEPEND="
 	dev-libs/libevent:=
 	dev-libs/protobuf
 	dev-libs/openssl
-	sys-devel/libtool
+	dev-build/libtool
 	sys-devel/automake:=
 	>=dev-libs/boost-1.81.0-r1
 	dev-qt/qtcore
@@ -45,7 +45,7 @@ PATCHES=(
 	"${FILESDIR}"/"${PV}"-paymentserver.patch
 	"${FILESDIR}"/"${PV}"-transactiondesc.patch
 	"${FILESDIR}"/"${PV}"-deque.patch
-	"${FILESDIR}"/gcc13.patch	
+	"${FILESDIR}"/gcc13.patch
 )
 
 WORKDIR_="${WORKDIR}/dogecoin-${PV}"
@@ -57,7 +57,7 @@ pkg_pretend() {
 		eerror "${ROOT}/etc/portage/patches/app-crypt/intel-ipsec-mb/remove_digest_init.patch does not exist!"
 		eerror "To build with avx2 intel support, please create ${ROOT}/etc/portage/patches/app-crypt/intel-ipsec-mb directory"
 		eerror "and copy patch from package net-p2p/dogecoin-qt/files/intel-ipsec-mb/remove_digest_init.patch into that directory"
-		die     
+		die
 	fi
 }
 

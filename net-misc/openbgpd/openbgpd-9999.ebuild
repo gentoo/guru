@@ -23,7 +23,7 @@ RDEPEND="
 "
 BDEPEND="
 	dev-util/byacc
-	sys-devel/libtool
+	dev-build/libtool
 "
 
 PATCHES=(

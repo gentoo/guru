@@ -18,7 +18,7 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="sys-devel/autoconf
 		sys-devel/automake
-		sys-devel/libtool
+		dev-build/libtool
 		dev-build/make
 "
 RDEPEND="sys-libs/zlib
