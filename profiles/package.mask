@@ -14,6 +14,40 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-01-15)
+# Depend on treecleaned sys-cluster/slurm (bug #631552, #920104)
+# Masked for removal in 30 days.
+sys-cluster/libi
+sys-cluster/libyogrt
+sys-cluster/mrnet
+sys-cluster/OpenHPC-meta
+sys-cluster/portals4
+sys-cluster/redset
+sys-cluster/scr
+sys-cluster/SOS
+sys-cluster/spath
+sys-cluster/veloc
+sys-kernel/msr-safe
+# and revdeps
+sys-cluster/TCL
+sys-cluster/er
+sys-cluster/extrae
+sys-cluster/osu-micro-benchmarks
+sys-cluster/synapse
+# and revdeps of revdeps
+sys-cluster/clusteringsuite
+sys-cluster/dlb
+sys-cluster/mcxx
+sys-cluster/nanos6
+sys-cluster/nanox
+sys-cluster/paraver-kernel
+sys-cluster/spectral
+sys-cluster/wxparaver
+# and revdeps of revdeps of revdeps
+sys-cluster/temanejo
+# and... yeah
+sys-cluster/parsec
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-01-07)
 # Depends on removed dev-java/gradle-bin slot.
 net-libs/signald
