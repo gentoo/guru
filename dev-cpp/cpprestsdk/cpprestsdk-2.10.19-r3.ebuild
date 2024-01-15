@@ -20,7 +20,6 @@ DEPEND="${RDEPEND}"
 
 BDEPEND="
 		app-alternatives/ninja
-		>=dev-util/cmake-3.23
 		>=sys-devel/gcc-11.3.0
 		>=virtual/pkgconfig-2-r1
 		>=dev-cpp/websocketpp-0.8.2

@@ -24,7 +24,6 @@ LICENSE="Apache-2.0"
 
 IUSE="+wayland +X"
 
-BDEPEND=">=dev-util/cmake-3.10.2"
 DEPEND="
 	media-libs/vulkan-loader
 	media-libs/mesa

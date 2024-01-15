@@ -42,10 +42,7 @@ DEPEND="
 	media-video/ffmpeg
 "
 RDEPEND="${DEPEND}"
-BDEPEND="
-	dev-util/cmake
-	clang? ( sys-devel/clang:= )
-"
+BDEPEND="clang? ( sys-devel/clang )"
 PATCHES=(
 	"${FILESDIR}/${P}-dont-build-lz4.patch"
 	"${FILESDIR}/${P}-make-arch-independent.patch"

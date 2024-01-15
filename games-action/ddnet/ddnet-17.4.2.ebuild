@@ -62,7 +62,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	>=dev-lang/python-3.9
-	dev-util/cmake
 	dev-util/glslang
 	dev-util/spirv-tools
 "

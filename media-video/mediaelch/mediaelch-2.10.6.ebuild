@@ -48,7 +48,6 @@ DEPEND=">dev-libs/quazip-1.3[qt5?,qt6]
 		dev-qt/qtsvg:6
 		dev-qt/qttools:6
 	)
-	dev-util/cmake
 	media-video/ffmpeg
 	media-video/mediainfo"
 

@@ -15,6 +15,5 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 
 DEPEND="app-arch/zstd"
 RDEPEND="${DEPEND}"
-BDEPEND="dev-util/cmake"
 
 S="${WORKDIR}/ZArchive-${PV}"

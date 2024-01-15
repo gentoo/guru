@@ -37,7 +37,6 @@ DEPEND="
 "
 BDEPEND="
 	app-alternatives/ninja
-	dev-util/cmake
 	doc? ( app-text/doxygen )
 	python? ( ${DISTUTILS_DEPS} )
 "

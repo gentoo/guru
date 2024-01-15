@@ -22,9 +22,6 @@ RDEPEND="
 	virtual/mpi
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	>=dev-util/cmake-2.8
-"
 
 PATCHES=( "${FILESDIR}/${P}-no-static.patch" )
 RESTRICT="!test? ( test )"

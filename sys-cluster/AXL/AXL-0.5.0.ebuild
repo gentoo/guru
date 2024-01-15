@@ -19,9 +19,6 @@ RDEPEND="
 	sys-libs/zlib
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	>=dev-util/cmake-2.8
-"
 
 RESTRICT="!test? ( test )"
 PATCHES=(

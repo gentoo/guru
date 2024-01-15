@@ -20,9 +20,6 @@ RDEPEND="
 	virtual/mpi
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	>=dev-util/cmake-2.8
-"
 
 PATCHES=( "${FILESDIR}/${P}-no-static.patch" )
 # tests require access to /dev/shm, thus root permission is needed

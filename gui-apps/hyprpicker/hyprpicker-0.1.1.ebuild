@@ -16,7 +16,6 @@ KEYWORDS="~amd64"
 BDEPEND="
 	dev-libs/wayland
 	dev-libs/wayland-protocols
-	dev-util/cmake
 	dev-util/wayland-scanner
 	media-libs/libglvnd
 	media-libs/libjpeg-turbo

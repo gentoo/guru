@@ -24,7 +24,6 @@ DEPEND="wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
 	dev-util/glslang[${MULTILIB_USEDEP}]"
 BDEPEND="${BUNDLED_LLVM_DEPEND}
 	${PYTHON_DEPS}
-	dev-util/cmake
 	virtual/linux-sources"
 RDEPEND=" ${DEPEND}
 	x11-libs/libdrm[${MULTILIB_USEDEP}]

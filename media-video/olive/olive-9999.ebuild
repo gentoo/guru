@@ -36,7 +36,6 @@ RDEPEND="
 	media-libs/portaudio
 	virtual/opengl"
 DEPEND="${RDEPEND}"
-BDEPEND=">=dev-util/cmake-3.13.0"
 DOCS=( README.md )
 
 src_prepare() {

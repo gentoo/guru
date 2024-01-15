@@ -37,7 +37,6 @@ DEPEND="dev-libs/quazip
 	dev-qt/qtsql:5
 	dev-qt/qtsvg:5
 	dev-qt/qtxmlpatterns:5
-	dev-util/cmake
 	media-libs/libzen
 	media-libs/phonon
 	media-video/mediainfo"

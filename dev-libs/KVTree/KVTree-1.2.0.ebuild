@@ -19,10 +19,7 @@ RDEPEND="
 	sys-libs/zlib
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	>=dev-util/cmake-2.8
-	app-admin/chrpath
-"
+BDEPEND="app-admin/chrpath"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-no-install-readme.patch"
