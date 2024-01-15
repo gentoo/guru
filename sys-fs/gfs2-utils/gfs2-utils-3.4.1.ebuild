@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="nls test"
 RESTRICT="!test? ( test )"
 
-BDEPEND="sys-devel/autoconf
+BDEPEND="dev-build/automake
 		dev-build/automake
 		dev-build/libtool
 		dev-build/make

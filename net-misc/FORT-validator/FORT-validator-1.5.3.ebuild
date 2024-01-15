@@ -28,7 +28,7 @@ RDEPEND="
 	net-misc/rsync
 "
 BDEPEND="
-	sys-devel/autoconf
+	dev-build/automake
 	dev-build/automake
 "
 

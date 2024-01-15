@@ -21,8 +21,8 @@ IUSE=""
 DEPEND="sys-libs/ncurses"
 RDEPEND="${DEPEND}"
 [ "$PV" = 9999 ] && BDEPEND="
-	sys-devel/autoconf
-	sys-devel/autoconf-archive
+	dev-build/automake
+	dev-build/automake-archive
 "
 
 src_prepare() {

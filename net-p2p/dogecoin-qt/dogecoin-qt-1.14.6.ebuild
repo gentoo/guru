@@ -36,7 +36,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	sys-devel/autoconf
+	dev-build/automake
 	dev-build/automake
 "
 

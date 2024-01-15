@@ -61,7 +61,7 @@ BDEPEND="
 		dev-texlive/texlive-plaingeneric
 	)
 	sys-apps/coreutils
-	sys-devel/autoconf
+	dev-build/automake
 	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig

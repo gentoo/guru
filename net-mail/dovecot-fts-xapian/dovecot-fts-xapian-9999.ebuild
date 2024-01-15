@@ -31,8 +31,8 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 if [ "$PV" = 9999 ] ; then
 	BDPEND="${BDEPEND}
-		sys-devel/autoconf
-		sys-devel/autoconf-archive
+		dev-build/automake
+		dev-build/automake-archive
 	"
 fi
 
