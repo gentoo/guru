@@ -59,7 +59,7 @@ RDEPEND="${DEPEND}"
 # dependencies.
 BDEPEND="
 	dev-lang/yasm
-	dev-util/cmake
+	dev-build/cmake
 "
 
 src_prepare() {

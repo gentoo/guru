@@ -17,7 +17,7 @@ IUSE=""
 DEPEND="dev-libs/wayland
 	x11-libs/libxkbcommon"
 RDEPEND="${DEPEND}"
-BDEPEND="dev-util/cmake"
+BDEPEND="dev-build/cmake"
 
 src_configure() {
 	meson_src_configure

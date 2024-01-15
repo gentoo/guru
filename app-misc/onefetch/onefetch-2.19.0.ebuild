@@ -440,7 +440,7 @@ DEPEND="app-arch/zstd:=
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	dev-util/cmake
+	dev-build/cmake
 	virtual/pkgconfig
 	>=virtual/rust-1.70.0
 	test? (

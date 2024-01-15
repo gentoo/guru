@@ -195,7 +195,7 @@ BDEPEND="
 	${PYTHON_DEPS}
 	dev-vcs/git
 	>=dev-lang/rust-1.53.0
-	dev-util/cmake
+	dev-build/cmake
 "
 
 QA_FLAGS_IGNORED="usr/bin/.*"
