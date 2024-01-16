@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_11 )
 
 inherit distutils-r1
@@ -26,6 +27,7 @@ DEPEND="
 		dev-python/aiohttp[${PYTHON_USEDEP}]
 		dev-python/async-lru[${PYTHON_USEDEP}]
 		dev-python/mock[${PYTHON_USEDEP}]
+		<dev-python/urllib3-2.0.0[${PYTHON_USEDEP}]
 		dev-python/vcrpy[${PYTHON_USEDEP}]
 	)
 "
