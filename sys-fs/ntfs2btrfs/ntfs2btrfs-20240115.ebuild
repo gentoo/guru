@@ -25,7 +25,6 @@ DEPEND="dev-libs/libfmt
 	lzo? ( dev-libs/lzo )
 	zstd? ( app-arch/zstd )"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_prepare() {
 	cmake_src_prepare
