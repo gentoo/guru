@@ -274,9 +274,14 @@ SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="test"
 
+DEPEND="
+	dev-libs/oniguruma:=
+	dev-libs/openssl:0=
+"
+
 DOCS=( {CHANGELOG,README}.md )
 
-QA_FLAGS_IGNORED="usr/bin/xh"
+QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_configure() {
 	# high magic to allow system-libs
@@ -294,12 +299,12 @@ src_install() {
 	cargo_src_install
 
 	# See https://github.com/ducaale/xh#making-https-requests-by-default
-	dosym xh /usr/bin/xhs
+	dosym "${PN}" "/usr/bin/${PN}s"
 
 	einstalldocs
-	doman doc/xh.1
+	doman "doc/${PN}.1"
 
-	newbashcomp completions/xh.bash xh
-	dozshcomp completions/_xh
-	dofishcomp completions/xh.fish
+	newbashcomp "completions/${PN}.bash" "${PN}"
+	dozshcomp "completions/_${PN}"
+	dofishcomp "completions/${PN}.fish"
 }
