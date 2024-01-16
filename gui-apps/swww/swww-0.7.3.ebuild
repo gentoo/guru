@@ -207,8 +207,8 @@ CRATES="
 inherit cargo shell-completion
 
 DESCRIPTION="Efficient animated wallpaper daemon for wayland, controlled at runtime"
-HOMEPAGE="https://github.com/Horus645/swww"
-SRC_URI="https://github.com/Horus645/swww/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz ${CARGO_CRATE_URIS}"
+HOMEPAGE="https://github.com/LGFae/swww"
+SRC_URI="https://github.com/LGFae/swww/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz ${CARGO_CRATE_URIS}"
 
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD ISC MIT Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
