@@ -11,7 +11,7 @@ DESCRIPTION="Editor of multiple sequence alignments."
 HOMEPAGE="https://www.jalview.org/"
 SRC_URI="https://www.jalview.org/getdown/release/jalview-all-${PV}-j1.8.jar"
 
-LICENSE="Apache-2.0"
+LICENSE="GPL-3"
 SLOT="0"
 IUSE=""
 KEYWORDS="~amd64 ~x86"
