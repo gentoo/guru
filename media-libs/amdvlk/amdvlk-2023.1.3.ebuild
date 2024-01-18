@@ -74,6 +74,7 @@ PATCHES=(
 	#"${FILESDIR}/amdvlk-2022.4.2-reduced-llvm-installations.patch"
 	#"${FILESDIR}/amdvlk-2022.4.2-reduced-llvm-installations-part2.patch"
 	"${FILESDIR}/amdvlk-2022.4.4-r1-disable-Werror.patch" #887777
+	"${FILESDIR}/amdvlk-2023.1.2-gcc13-cstdint.patch" #905174
 )
 
 pkg_pretend(){
