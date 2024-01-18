@@ -12,7 +12,7 @@ DESCRIPTION="AMD Open Source Driver for Vulkan"
 HOMEPAGE="https://github.com/GPUOpen-Drivers/AMDVLK"
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="wayland +raytracing"
 REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )"
 
@@ -119,10 +119,6 @@ multilib_src_configure() {
 		-Wno-dev
 		)
 	cmake_src_configure
-}
-
-multilib_src_install() {
-	cmake_src_install --component icd
 }
 
 multilib_check_headers() {
