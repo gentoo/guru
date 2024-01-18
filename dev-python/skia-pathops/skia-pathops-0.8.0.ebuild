@@ -27,7 +27,7 @@ BDEPEND="
 	app-alternatives/ninja
 	app-arch/unzip
 	dev-python/cython[${PYTHON_USEDEP}]
-	dev-util/gn
+	dev-build/gn
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-0.7.4-no-net.patch )
