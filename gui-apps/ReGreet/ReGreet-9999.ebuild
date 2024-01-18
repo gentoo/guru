@@ -25,9 +25,15 @@ BDEPEND="
 "
 IUSE="gtk4 logs"
 
+PATCHES="${FILESDIR}/ReGreet-9999-cargo-lock-fix.diff"
+
 src_unpack() {
 	git-r3_src_unpack
 	cargo_live_src_unpack
+}
+
+src_prepare() {
+	default
 }
 
 src_configure() {
