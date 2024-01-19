@@ -2,7 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<use>
-		<flag name="gtk4">Compile with support for gtk4</flag>
 		<flag name="logs">Compile logs support ReGreet (debug)</flag>
 	</use>
 	<maintainer type="person">
