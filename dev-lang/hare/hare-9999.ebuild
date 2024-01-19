@@ -39,14 +39,16 @@ src_configure() {
 		* ) die "unsupported architecture: ${ARCH}" ;;
 	esac
 
+	# Note: PREFIX needs to be set early as it is used for HAREPATH
 	cp configs/linux.mk config.mk || die
 	sed -i \
 		-e "s;^ARCH =.*;ARCH = ${target_arch};" \
+		-e "s;^PREFIX =.*;PREFIX = ${EPREFIX}/usr;" \
 		-e 's;^AS =;AS ?=;' \
 		-e 's;^LD =;LD ?=;' \
 		config.mk || die
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
+	emake DESTDIR="${D}" install
 }
