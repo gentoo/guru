@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 if [[ "${PV}" = "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.sr.ht/~sircmpwn/harec"
@@ -27,7 +29,14 @@ src_prepare() {
 	default
 
 	cp configs/linux.mk config.mk || die
-	sed -i 's/-Werror//' config.mk || die
+	sed -i \
+		-e 's/-Werror//' \
+		-e 's/CC =/CC ?=/' \
+		-e 's/AS =/AS ?=/' \
+		-e 's/LD =/LD ?=/' \
+		config.mk || die
+
+	tc-export CC AS LD
 }
 
 src_install() {
