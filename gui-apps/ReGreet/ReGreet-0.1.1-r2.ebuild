@@ -235,7 +235,7 @@ BDEPEND="
 	virtual/rust
 	media-libs/graphene
 "
-IUSE="gtk4 logs"
+IUSE="logs"
 
 PATCHES="${FILESDIR}/ReGreet-0.1.1-cargo-lock-fix.diff"
 
