@@ -7,7 +7,7 @@ inherit font
 
 DESCRIPTION="A free and open-source typeface for developers"
 HOMEPAGE="https://github.com/ryanoasis/nerd-fonts"
-SRC_URI="https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/JetBrainsMono.tar.xz -> ${P}.tar.xz"
+SRC_URI="https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/JetBrainsMono.tar.xz -> ${P}.gh.tar.xz"
 
 LICENSE="OFL-1.1"
 SLOT="0"
