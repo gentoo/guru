@@ -20,9 +20,7 @@ KEYWORDS="~amd64"
 DEPEND="dev-libs/olm"
 RDEPEND="
 	${DEPEND}
-	$(python_gen_cond_dep '
-		dev-python/cffi[${PYTHON_USEDEP}]
-	' 'python*')
+	dev-python/cffi[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? ( dev-python/aspectlib[${PYTHON_USEDEP}] )

@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,8 +19,8 @@ KEYWORDS="~amd64"
 DEPEND="dev-libs/olm"
 RDEPEND="
 	${DEPEND}
+	dev-python/cffi[${PYTHON_USEDEP}]
 	dev-python/future[${PYTHON_USEDEP}]
-	virtual/python-cffi[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (

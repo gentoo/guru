@@ -1,4 +1,4 @@
-# Copyright 2019-2023 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,7 +24,7 @@ RDEPEND="
 	dev-python/six[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	virtual/python-cffi[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep 'dev-python/cffi[${PYTHON_USEDEP}]' 'python*')
 	test? (
 		$(epostgres --get-depend)
 	)
