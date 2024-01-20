@@ -22,7 +22,7 @@ LICENSE="MPL-2.0 GPL-3"
 
 DEPEND="
 	~dev-lang/harec-0_pre20231128
-	~sys-devel/qbe-1.1-r1
+	~sys-devel/qbe-1.1
 "
 BDEPEND="app-text/scdoc"
 RDEPEND="${DEPEND}"
