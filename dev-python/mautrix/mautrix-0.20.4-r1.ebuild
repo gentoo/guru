@@ -46,8 +46,9 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-distutils_enable_sphinx docs \
-	dev-python/sphinx-rtd-theme
+# Disabled because of https://bugs.gentoo.org/922488
+#distutils_enable_sphinx docs \
+#	dev-python/sphinx-rtd-theme
 
 src_test() {
 	local -x PGHOST="$(epostgres --get-sockdir)"
