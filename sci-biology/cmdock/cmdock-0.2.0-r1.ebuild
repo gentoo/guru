@@ -65,13 +65,6 @@ python_check_deps() {
 	python_has_version "dev-python/insipid-sphinx-theme[${PYTHON_USEDEP}]"
 }
 
-pkg_setup() {
-	if use doc || use test; then
-		python-any-r1_pkg_setup
-	fi
-	return 0
-}
-
 foreach_wrapper_job() {
 	sed -e "s:@PREFIX@:${INSTALL_PREFIX}:g" -i "${1}" || die
 }
