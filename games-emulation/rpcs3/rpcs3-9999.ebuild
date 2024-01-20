@@ -40,7 +40,10 @@ DEPEND="
 	alsa? ( media-libs/alsa-lib )
 	faudio? ( app-emulation/faudio )
 	pulseaudio? ( media-libs/libpulse )
-	vulkan? ( media-libs/vulkan-loader )
+	vulkan? (
+		~dev-util/glslang-1.3.268
+		~media-libs/vulkan-loader-1.3.268
+	)
 	wayland? ( dev-libs/wayland )
 "
 RDEPEND="${DEPEND}"
