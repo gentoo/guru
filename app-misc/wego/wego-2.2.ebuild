@@ -11,7 +11,7 @@ SRC_URI+=" https://gentoo.kropotkin.rocks/go-pkgs/${P}-vendor.tar.xz"
 HOMEPAGE="https://github.com/schachmat/wego"
 LICENSE="BSD ISC MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 
 src_compile() {
 	ego build -v -x -o wego || die
