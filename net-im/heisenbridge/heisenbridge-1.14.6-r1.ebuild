@@ -4,8 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
-
+PYTHON_COMPAT=( python3_{10..12} )
 inherit distutils-r1 systemd
 
 DESCRIPTION="A bouncer-style Matrix IRC bridge"
@@ -46,7 +45,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	[[ -f /var/lib/${PN}/registration.yaml ]] && return 0
+	[[ -f "${EPREFIX}"/var/lib/${PN}/registration.yaml ]] && return 0
 
 	einfo
 	elog "Before you can use ${PN}, you have to configure it correctly."
