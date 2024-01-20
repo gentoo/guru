@@ -20,7 +20,7 @@
 #
 # - MongoDB (via "emongod" helper)
 #
-# - MySQL/MariaDB/ (via "emysql" helper)
+# - MySQL / MariaDB (via "emysql" helper)
 #
 # - PostgreSQL (via "epostgres" helper)
 #
