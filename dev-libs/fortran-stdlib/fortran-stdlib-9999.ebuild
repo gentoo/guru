@@ -9,7 +9,6 @@ PYTHON_COMPAT=( python3_{10..11} )
 inherit cmake fortran-2 git-r3 python-any-r1
 
 EGIT_REPO_URI="https://github.com/fortran-lang/stdlib.git"
-SRC_URI=""
 
 DESCRIPTION="A community driven standard library for (modern) Fortran"
 HOMEPAGE="https://stdlib.fortran-lang.org/"
@@ -26,7 +25,7 @@ DEPEND="
 	')
 	doc? (
 		$(python_gen_any_dep '
-			app-doc/ford[${PYTHON_USEDEP}]
+			app-text/ford[${PYTHON_USEDEP}]
 		')
 	)
 	test? ( dev-util/fortran-test-drive )
