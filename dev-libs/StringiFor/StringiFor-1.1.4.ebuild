@@ -26,7 +26,7 @@ RESTRICT="!test? ( test )"
 BDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_any_dep '
-		dev-util/FoBiS[${PYTHON_USEDEP}]
+		dev-build/FoBiS[${PYTHON_USEDEP}]
 	')
 "
 
