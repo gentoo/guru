@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: databases.eclass
@@ -37,10 +37,6 @@
 #
 # 	Returns the directory where the server stores database files.
 #
-# --get-depend [use1,use2,...]
-#
-# 	Returns a dependency string (to be included in BDEPEND).
-#
 # --get-logfile
 #
 # 	Returns the path to the server's log file.
@@ -76,18 +72,21 @@
 #
 # ...
 #
+# DATABASES_REQ_USE=(
+# 	[postgres]="xml"
+# )
 # inherit databases distutils-r1
 #
 # ...
 #
-# BDEPEND="$(eredis --get-depend)"
+# BDEPEND="test? ( ${DATABASES_DEPEND[postgres]} )"
 #
 # distutils_enable_tests pytest
 #
 # src_test() {
-# 	eredis --start 16739
+# 	epostgres --start 65432
 # 	distutils-r1_src_test
-# 	eredis --stop
+# 	epostgres --stop
 # }
 # @CODE
 
@@ -99,47 +98,66 @@ esac
 if [[ ! ${_DATABASES_ECLASS} ]]; then
 _DATABASES_ECLASS=1
 
+# @ECLASS_VARIABLE: DATABASES_REQ_USE
+# @PRE_INHERIT
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Bash associative array of USE flags required to be enabled on database
+# servers, formed as a USE-dependency string.
+#
+# Keys are helper function names without the "e" prefix.
+
+# @ECLASS_VARIABLE: DATABASES_DEPEND
+# @OUTPUT_VARIABLE
+# @DESCRIPTION:
+# This is an eclass-generated bash associative array of dependency strings for
+# database servers.
+#
+# Keys are helper function names without the "e" prefix.
+declare -Ag DATABASES_DEPEND=()
+
+# @FUNCTION: _databases_set_globals
+# @INTERNAL
+_databases_set_globals() {
+		local -A db_pkgs=(
+				[memcached]="net-misc/memcached"
+				[mongod]="dev-db/mongodb"
+				[mysql]="virtual/mysql"
+				[postgres]="dev-db/postgresql"
+				[redis]="dev-db/redis"
+		)
+
+		local -A db_useflags=(
+				[mysql]="server"
+				[postgres]="server"
+		)
+		
+		if declare -p DATABASES_REQ_USE &>/dev/null; then
+				[[ $(declare -p DATABASES_REQ_USE) == "declare -A"* ]] || \
+						die "DATABASES_REQ_USE must be declared as an associative array"
+		fi
+
+		local name dep usestr
+		for name in "${!db_pkgs[@]}"; do
+				dep=${db_pkgs[${name}]?}
+				usestr=${db_useflags[${name}]}
+				usestr+=",${DATABASES_REQ_USE[${name}]}"
+				# strip leading/trailing commas
+				usestr=${usestr#,}
+				usestr=${usestr%,}
+
+				[[ ${usestr} ]] && usestr="[${usestr}]"
+				DATABASES_DEPEND[${name?}]="${dep?}${usestr}"
+		done
+
+		readonly DATABASES_DEPEND
+}
+_databases_set_globals
+unset -f _databases_set_globals
+
 # ==============================================================================
 # GENERIC FUNCTIONS
 # ==============================================================================
-
-# @FUNCTION: _databases_gen_depend
-# @USAGE: <funcname> <required use>
-# @INTERNAL
-# @DESCRIPTION:
-# Get a dependency string for the given helper function.
-_databases_gen_depend() {
-	local srvname=${1:1}
-	local req_use=${2}
-
-	local pkg_dep
-	case ${srvname} in
-		memcached)
-			pkg_dep="net-misc/memcached"
-			;;
-		mongod)
-			pkg_dep="dev-db/mongodb"
-			;;
-		mysql)
-			pkg_dep="virtual/mysql"
-			req_use="server,${req_use}"
-			;;
-		postgres)
-			pkg_dep="dev-db/postgresql"
-			req_use="server,${req_use}"
-			;;
-		redis)
-			pkg_dep="dev-db/redis"
-			;;
-		*)
-			die "${ECLASS}: unknown database: ${srvname}"
-	esac
-
-	req_use=${req_use%,}  # strip trailing comma
-	printf "%s" "${pkg_dep}"
-	[[ ${req_use} ]] && \
-		printf "[%s]" "${req_use}"
-}
 
 # @FUNCTION: _databases_die
 # @USAGE: <funcname> [msg]
@@ -197,9 +215,6 @@ _databases_dispatch() {
 	case ${cmd} in
 		--die)
 			_databases_die ${funcname} "${@}"
-			;;
-		--get-depend)
-			_databases_gen_depend ${funcname} "${@}"
 			;;
 		--get-dbpath)
 			echo "${T}"/${funcname}/db/
