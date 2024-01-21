@@ -21,7 +21,7 @@ RESTRICT="mirror !test? ( test )"
 DEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_any_dep '
-		dev-util/fypp[${PYTHON_USEDEP}]
+		dev-build/fypp[${PYTHON_USEDEP}]
 	')
 	doc? (
 		$(python_gen_any_dep '
