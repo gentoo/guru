@@ -18,9 +18,7 @@ KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-BDEPEND="test? (
-	$(eredis --get-depend)
-)"
+BDEPEND="test? ( ${DATABASES_DEPEND[redis]} )"
 
 set_package_url "https://github.com/zedeus/redis"
 
