@@ -1,12 +1,14 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DISTUTILS_USE_SETUPTOOLS=no
+DISTUTILS_EXT=1
+DISTUTILS_OPTIONAL=1
+DISTUTILS_USE_PEP517=setuptools
 MY_PV="$(ver_rs 1-2 -)"
 MY_P="${PN}-${MY_PV}"
-PYTHON_COMPAT=( python3_{10..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..12} pypy3 )
 
 inherit distutils-r1 edo flag-o-matic java-pkg-opt-2 perl-module
 
@@ -32,14 +34,23 @@ RDEPEND="
 	${DEPEND}
 	java? ( virtual/jre:1.8 )
 "
+BDEPEND="
+	python? (
+		${PYTHON_DEPS}
+		${DISTUTILS_DEPS}
+	)
+"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 DOCS=( README TUTORIAL NEWS )
 
+PATCHES=( "${FILESDIR}/${PN}-1.28.1-gcc14.patch" )
+
 src_prepare() {
+	default
 	sed -i "s|perl python||" src/extensions/Makefile.am || die
-	sed -i "s|\$(DESTDIR)\$(docdir)-\$(VERSION)-javadoc|\$(DESTDIR)\$(docdir)/html/javadoc|" src/extensions/java/Makefile.am || die
-	eapply_user
+	sed -i "s|\$(DESTDIR)\$(docdir)-\$(VERSION)-javadoc|\$(DESTDIR)\$(docdir)/html/javadoc|" \
+		src/extensions/java/Makefile.am || die
 	java-pkg_clean
 	edo ./autogen.sh
 }

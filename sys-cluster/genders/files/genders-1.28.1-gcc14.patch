@@ -1,0 +1,54 @@
+https://bugs.gentoo.org/922090
+https://github.com/chaos/genders/commit/e5920afb6ea994d86faf8055f598fe8cd77f1d11
+
+--- a/src/libgenders/genders_util.c
++++ b/src/libgenders/genders_util.c
+@@ -94,7 +94,7 @@ _genders_list_free_attrvallist(void *x)
+ {
+   genders_attrvals_container_t avc;
+ 
+-  avc = (List)x;
++  avc = (genders_attrvals_container_t)x;
+   __list_destroy(avc->attrvals);
+   free(avc);
+ }
+--- a/src/testsuite/libgenders/genders_test_functionality.c
++++ b/src/testsuite/libgenders/genders_test_functionality.c
+@@ -1009,7 +1009,7 @@ _genders_list_clear_functionality(GendersListCreateFunc funccreate,
+ {
+   genders_t handle;
+   char **list;
+-  int err, list_len, return_value, errnum, retval = 0;
++  int err, list_len, return_value, errnum;
+ 
+   assert(funccreate && funcclear && funcdestroy && funcname);
+ 
+@@ -1044,7 +1044,7 @@ _genders_list_clear_functionality(GendersListCreateFunc funccreate,
+   if (genders_handle_destroy(handle) < 0)
+     genders_err_exit("genders_handle_destroy: %s", genders_errormsg(handle));
+   
+-  return retval;
++  return err;
+ }
+ 
+ static int
+@@ -3193,8 +3193,6 @@ genders_copy_functionality(int verbose)
+ 	  err += errcount;
+ 	}
+ 
+-    cleanup_and_try_next_database:
+-
+       if (genders_nodelist_destroy(handleorig, nodelistorig) < 0)
+ 	genders_err_exit("genders_nodelist_destroy: %s", genders_errormsg(handleorig));
+ 
+--- a/src/testsuite/libgenders/genders_testlib.c
++++ b/src/testsuite/libgenders/genders_testlib.c
+@@ -321,7 +321,7 @@ genders_pointer_exist_check(char *funcname,
+   assert(funcname && pointer_str);
+ 
+   if ((expected_null == GENDERS_POINTER_NULL && pointer != NULL)
+-      || (!expected_null == GENDERS_POINTER_NON_NULL && pointer == NULL))
++      || (expected_null == GENDERS_POINTER_NON_NULL && pointer == NULL))
+     {
+       if (verbose)
+ 	{
