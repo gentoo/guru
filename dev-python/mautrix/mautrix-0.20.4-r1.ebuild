@@ -36,11 +36,11 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	test? (
+		${DATABASES_DEPEND[postgres]}
 		dev-python/aiosqlite[${PYTHON_USEDEP}]
 		dev-python/asyncpg[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/ruamel-yaml[${PYTHON_USEDEP}]
-		$(epostgres --get-depend)
 	)
 "
 
