@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit databases shards
+inherit databases edo shards
 
 DESCRIPTION="A native, non-blocking Postgres driver for Crystal"
 HOMEPAGE="https://github.com/will/crystal-pg"
@@ -16,11 +16,7 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="dev-crystal/crystal-db"
-BDEPEND="
-	test? (
-		$(epostgres --get-depend "xml")
-	)
-"
+BDEPEND="test? ( ${DATABASES_DEPEND[postgres]} )"
 
 DOCS=( CHANGELOG CONTRIBUTORS {CONTRIBUTING,README}.md )
 
