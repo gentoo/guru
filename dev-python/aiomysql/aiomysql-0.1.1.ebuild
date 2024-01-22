@@ -23,6 +23,7 @@ RDEPEND="dev-python/pymysql[${PYTHON_USEDEP}]"
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
+		${DATABASES_DEPEND[mysql]}
 		$(python_gen_impl_dep "ssl")
 		dev-python/sqlalchemy[${PYTHON_USEDEP}]
 		dev-python/uvloop[${PYTHON_USEDEP}]
