@@ -25,9 +25,7 @@ RDEPEND="
 "
 BDEPEND="
 	$(python_gen_cond_dep 'dev-python/cffi[${PYTHON_USEDEP}]' 'python*')
-	test? (
-		$(epostgres --get-depend)
-	)
+	test? ( ${DATABASES_DEPEND[postgres]} )
 "
 
 PATCHES=( "${FILESDIR}"/${P}-include-tests.patch )
