@@ -25,8 +25,8 @@ BDEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	test? (
+		${DATABASES_DEPEND[mysql]}
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		$(emysql --get-depend)
 	)
 "
 
