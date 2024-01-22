@@ -6,7 +6,7 @@ EAPI=8
 DOCS_BUILDER="doxygen"
 DOCS_DEPEND="app-text/doxygen[dot]"
 DOCS_CONFIG_NAME="the_Foundation.doxygen"
-inherit cmake docs
+inherit cmake docs flag-o-matic
 
 MY_PN="the_foundation"
 DESCRIPTION="Opinionated C11 library for low-level functionality"
@@ -38,6 +38,7 @@ src_configure() {
 		-DTFDN_ENABLE_WEBREQUEST=$(usex curl)
 	)
 
+	append-cppflags $(usex debug "-UNDEBUG" "-DNDEBUG")
 	cmake_src_configure
 }
 
