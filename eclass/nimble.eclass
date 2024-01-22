@@ -12,6 +12,7 @@
 # @EXAMPLE:
 # Typical ebuild for a Nim application:
 #
+# @CODE@
 # EAPI=8
 #
 # inherit nimble
@@ -24,17 +25,18 @@
 # 	nimble_src_compile
 # 	nimble_build scss
 # }
-#
-# ...
+# @CODE@
 #
 #
 # Typical ebuild for a Nim library:
 #
+# @CODE@
 # EAPI=8
 #
 # inherit nimble
 #
 # ...
+#
 # SLOT=${PV}
 #
 # RDEPEND="
@@ -43,6 +45,7 @@
 # "
 #
 # set_package_url "https://github.com/example/example"
+# @CODE@
 
 
 case ${EAPI} in
@@ -82,7 +85,7 @@ set_package_url() {
 	(( $# == 1 )) || \
 		die "${FUNCNAME} takes exactly one argument"
 
-	_PACKAGE_URL="${1}"
+	readonly _PACKAGE_URL="${1}"
 }
 
 # @FUNCTION: get_package_url
@@ -124,10 +127,7 @@ nimble_comment_requires() {
 nimble_src_configure() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	[[ -n "${NINJA_DEPEND}" ]] || \
-		ewarn "Unknown value '${NINJA}' for \${NINJA}"
-
-	BUILD_DIR="${BUILD_DIR:-${WORKDIR}/${P}-build}"
+	readonly BUILD_DIR="${BUILD_DIR:-${WORKDIR}/${P}-build}"
 
 	[[ -z ${mynimargs} ]] && local -a mynimargs=()
 	local mynimargstype=$(declare -p mynimargs 2>&-)
