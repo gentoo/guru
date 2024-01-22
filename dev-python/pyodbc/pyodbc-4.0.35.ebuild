@@ -23,7 +23,7 @@ RDEPEND=">=dev-db/unixODBC-2.3.0"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	test? (
-		$(emysql --get-depend)
+		${DATABASES_DEPEND[mysql]}
 		dev-db/myodbc:8.0
 	)
 "
