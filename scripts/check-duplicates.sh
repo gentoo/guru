@@ -5,15 +5,17 @@
 # This checks for potential and exact package matches within an overlay & ::gentoo
 # Note that this is not going to be 100% accurate
 
+EXCLUDE='^(.git|.github|metadata|profiles|scripts)/|^eclass/tests$|metadata.xml'
+
 GENTOO_DIR="/var/db/repos/gentoo"
 GENTOO_PACKAGES=(
 	$(find ${GENTOO_DIR} -mindepth 2 -maxdepth 2 -printf "%P\n" \
-		| sort | grep -Ev "^(.git|.github|metadata|profiles|scripts)/|metadata.xml"
+		| sort | grep -Ev "${EXCLUDE}"
 	)
 )
 REPO_PACKAGES=(
 	$(find . -mindepth 2 -maxdepth 2 -printf "%P\n" \
-		| sort | grep -Ev "^(.git|.github|metadata|profiles|scripts)/|metadata.xml"
+		| sort | grep -Ev "${EXCLUDE}"
 	)
 )
 
