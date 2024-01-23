@@ -28,6 +28,11 @@
 #
 # @SUBSECTION Helper usage
 #
+# --add-deps <use>
+#
+# 	Adds the server package to build-time dependencies under the given USE flag
+# 	(IUSE will be set automatically).
+#
 # --die [msg]
 #
 #	Prints the path to the server's log file to the console and aborts the
@@ -79,9 +84,9 @@
 #
 # ...
 #
-# BDEPEND="test? ( ${DATABASES_DEPEND[postgres]} )"
-#
 # distutils_enable_tests pytest
+#
+# epostgres --add-deps test
 #
 # src_test() {
 # 	epostgres --start 65432
@@ -118,39 +123,41 @@ declare -Ag DATABASES_DEPEND=()
 
 # @FUNCTION: _databases_set_globals
 # @INTERNAL
+# @DESCRIPTION:
+# Set the DATABASES_DEPEND variable.
 _databases_set_globals() {
-		local -A db_pkgs=(
-				[memcached]="net-misc/memcached"
-				[mongod]="dev-db/mongodb"
-				[mysql]="virtual/mysql"
-				[postgres]="dev-db/postgresql"
-				[redis]="dev-db/redis"
-		)
+	local -A db_pkgs=(
+		[memcached]="net-misc/memcached"
+		[mongod]="dev-db/mongodb"
+		[mysql]="virtual/mysql"
+		[postgres]="dev-db/postgresql"
+		[redis]="dev-db/redis"
+	)
 
-		local -A db_useflags=(
-				[mysql]="server"
-				[postgres]="server"
-		)
-		
-		if declare -p DATABASES_REQ_USE &>/dev/null; then
-				[[ $(declare -p DATABASES_REQ_USE) == "declare -A"* ]] || \
-						die "DATABASES_REQ_USE must be declared as an associative array"
-		fi
+	local -A db_useflags=(
+		[mysql]="server"
+		[postgres]="server"
+	)
 
-		local name dep usestr
-		for name in "${!db_pkgs[@]}"; do
-				dep=${db_pkgs[${name}]?}
-				usestr=${db_useflags[${name}]}
-				usestr+=",${DATABASES_REQ_USE[${name}]}"
-				# strip leading/trailing commas
-				usestr=${usestr#,}
-				usestr=${usestr%,}
+	if declare -p DATABASES_REQ_USE &>/dev/null; then
+		[[ $(declare -p DATABASES_REQ_USE) == "declare -A"* ]] || \
+			die "DATABASES_REQ_USE must be declared as an associative array"
+	fi
 
-				[[ ${usestr} ]] && usestr="[${usestr}]"
-				DATABASES_DEPEND[${name?}]="${dep?}${usestr}"
-		done
+	local name dep usestr
+	for name in "${!db_pkgs[@]}"; do
+		dep=${db_pkgs[${name}]?}
+		usestr=${db_useflags[${name}]}
+		usestr+=",${DATABASES_REQ_USE[${name}]}"
+		# strip leading/trailing commas
+		usestr=${usestr#,}
+		usestr=${usestr%,}
 
-		readonly DATABASES_DEPEND
+		[[ ${usestr} ]] && usestr="[${usestr}]"
+		DATABASES_DEPEND[${name?}]="${dep?}${usestr}"
+	done
+
+	readonly DATABASES_DEPEND
 }
 _databases_set_globals
 unset -f _databases_set_globals
@@ -174,6 +181,23 @@ _databases_die() {
 	eerror "See the server log for details:"
 	eerror "	$(${funcname} --get-logfile)"
 	die -n "${@}"
+}
+
+# @FUNCTION: _databases_add_deps
+# @USAGE: <funcname> <use>
+# @INTERNAL
+# @DESCRIPTION:
+# Set the BDEPEND, IUSE and RESTRICT variables.
+_databases_add_deps() {
+	local funcname=${1?}
+	local useflag=${2?}
+
+	BDEPEND="${useflag}? ( ${DATABASES_DEPEND[${funcname:1}]} )"
+	IUSE="${useflag}"
+	[[ ${useflag} == "test" ]] &&
+		RESTRICT="!test? ( test )"
+
+	return 0
 }
 
 # @FUNCTION: _databases_stop_service
@@ -200,19 +224,22 @@ _databases_stop_service() {
 # @DESCRIPTION:
 # Process the given command with its options.
 #
-# If "--start" command is used, `_${funcname}_start` function must be defined.
+# If "--start" command is used, "_${funcname}_start" function must be defined.
 # Note that directories will be created automatically.
 #
-# If `_${funcname}_stop` function is not declared, the internal
+# If "_${funcname}_stop" function is not declared, the internal
 # `_databases_stop_service` function will be used instead.
 #
-# No `--get` function can be overloaded.
+# "--get-*" and "-add-deps" helpers cannot be overloaded.
 _databases_dispatch() {
 	local funcname=${1?}
 	local cmd=${2?}
 	shift; shift
 
 	case ${cmd} in
+		--add-deps)
+			_databases_add_deps ${funcname} "${@}"
+			;;
 		--die)
 			_databases_die ${funcname} "${@}"
 			;;
