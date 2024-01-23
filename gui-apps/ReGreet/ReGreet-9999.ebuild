@@ -235,17 +235,16 @@ BDEPEND="
 "
 IUSE="logs"
 
-PATCHES="${FILESDIR}/ReGreet-0.1.1-cargo-lock-fix.diff"
+src_unpack() {
+	git-r3_src_unpack
+	cargo_live_src_unpack
+}
 
 src_configure() {
 	local myfeatures=(
 		gtk4_8
 	)
 	cargo_src_configure
-}
-
-src_prepare() {
-	default
 }
 
 src_compile() {
