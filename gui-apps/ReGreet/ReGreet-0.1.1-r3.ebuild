@@ -8,7 +8,6 @@ CRATES="
 	adler@1.0.2
 	ahash@0.8.7
 	aho-corasick@1.1.2
-	android-tzdata@0.1.1
 	android_system_properties@0.1.5
 	anstream@0.6.11
 	anstyle@1.0.4
@@ -27,7 +26,7 @@ CRATES="
 	cc@1.0.83
 	cfg-expr@0.15.6
 	cfg-if@1.0.0
-	chrono@0.4.31
+	chrono@0.4.23
 	clap@4.4.18
 	clap_builder@4.4.18
 	clap_derive@4.4.7
@@ -100,6 +99,7 @@ CRATES="
 	nanorand@0.7.0
 	nom8@0.2.0
 	nu-ansi-term@0.46.0
+	num-integer@0.1.45
 	num-traits@0.2.17
 	num_cpus@1.16.0
 	num_threads@0.1.6
@@ -117,11 +117,11 @@ CRATES="
 	proc-macro-crate@1.3.1
 	proc-macro-error@1.0.4
 	proc-macro-error-attr@1.0.4
-	proc-macro2@1.0.76
+	proc-macro2@1.0.78
 	pwd@1.4.0
 	quote@1.0.35
-	regex@1.10.2
-	regex-automata@0.4.3
+	regex@1.10.3
+	regex-automata@0.4.4
 	regex-syntax@0.8.2
 	relm4@0.5.1
 	relm4-macros@0.5.1
@@ -135,9 +135,9 @@ CRATES="
 	serde_json@1.0.111
 	serde_spanned@0.6.5
 	sharded-slab@0.1.7
-	shlex@1.2.0
+	shlex@1.3.0
 	slab@0.4.9
-	smallvec@1.12.0
+	smallvec@1.13.1
 	socket2@0.5.5
 	spin@0.9.8
 	strsim@0.10.0
@@ -218,14 +218,13 @@ else
 		https://github.com/rharish101/${PN}/archive/refs/tags/${PV}.tar.gz -> >${PN}.tar.gz
 		${CARGO_CRATE_URIS}
 	"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="GPL-3"
 SLOT="0"
 DEPEND="gui-libs/gtk
 "
-
-KEYWORDS="~amd64"
 
 RDEPEND="
 	${DEPEND}
@@ -251,11 +250,12 @@ src_prepare() {
 }
 
 src_compile() {
+	cargo_gen_config
 	cargo_src_compile
 }
 
 src_install() {
-	newbin "${WORKDIR}/${P}/target/release/regreet" regreet
+	cargo_src_install
 }
 
 src_post_install () {
