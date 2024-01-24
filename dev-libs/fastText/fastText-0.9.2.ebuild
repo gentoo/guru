@@ -1,11 +1,12 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
-DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{10..12} )
+DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
+DISTUTILS_USE_PEP517=setuptools
 inherit cmake distutils-r1 edo
 
 DESCRIPTION="Library for fast text representation and classification"
@@ -30,6 +31,10 @@ BDEPEND="
 "
 
 DOCS=( {CODE_OF_CONDUCT,CONTRIBUTING,README}.md python/{README.rst,doc} docs )
+PATCHES=(
+	"${FILESDIR}/${P}-gcc13.patch"
+	"${FILESDIR}/${P}-pep517.patch"
+)
 
 src_prepare() {
 	cmake_src_prepare
