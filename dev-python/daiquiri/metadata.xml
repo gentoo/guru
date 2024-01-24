@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -11,5 +11,9 @@ The daiquiri library provides an easy way to configure logging. It also provides
 	<upstream>
 		<remote-id type="github">jd/daiquiri</remote-id>
 		<remote-id type="pypi">daiquiri</remote-id>
+		<maintainer>
+			<name>Julien Danjou</name>
+			<email>julien@danjou.info</email>
+		</maintainer>
 	</upstream>
 </pkgmetadata>
