@@ -1,0 +1,43 @@
+From cfeab43e8c1ebbe952bca9b71fb8400a9947d229 Mon Sep 17 00:00:00 2001
+From: Kurt Kanzenbach <kurt@kmk-computers.de>
+Date: Sat, 15 Aug 2020 08:45:21 +0200
+Subject: [PATCH] tests: Disable failed tests
+
+The network and squashfs tests won't work within portage. Disable them.
+
+Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
+---
+ test/meson.build |   18 ------------------
+ 1 file changed, 18 deletions(-)
+
+--- a/test/meson.build
++++ b/test/meson.build
+@@ -24,10 +24,6 @@ tests = [
+   'stats',
+ ]
+ 
+-if get_option('network')
+-  tests += 'network'
+-endif
+-
+ if get_option('streaming')
+   tests += 'nbd'
+ endif
+@@ -63,17 +59,3 @@ fakerand = executable(
+   'fakerand',
+   'fakerand.c',
+ )
+-
+-rauc_t = find_program(
+-  'rauc.t'
+-)
+-
+-test(
+-  'rauc.t',
+-  rauc_t,
+-  args : '-v',
+-  is_parallel : false,
+-  timeout : 360,
+-  env : ['SHARNESS_BUILD_DIRECTORY=' + meson.build_root()],
+-  workdir : meson.current_source_dir(),
+-)
