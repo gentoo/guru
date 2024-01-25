@@ -46,7 +46,7 @@ PATCHES=( "${FILESDIR}"/more-3party.patch "${FILESDIR}"/no-dynamic-download.patc
 WORLD_FEED_TESTS_S="${WORKDIR}/world_feed_integration_tests_data-${PV}"
 
 src_unpack () {
-    git-r3_fetch
+	git-r3_fetch
 	git-r3_checkout
 	git-r3_fetch "${EGIT_WORLD_FEED_REPO_URI}"
 	git-r3_checkout "${EGIT_WORLD_FEED_REPO_URI}" "${WORLD_FEED_TESTS_S}"
