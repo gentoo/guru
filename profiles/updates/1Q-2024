@@ -3,3 +3,4 @@ move dev-python/bump2version dev-util/bump2version
 move net-misc/tooth net-misc/tuba
 move app-doc/ford app-text/ford
 move dev-util/fpm dev-build/fpm
+move dev-util/FoBiS dev-build/FoBiS
