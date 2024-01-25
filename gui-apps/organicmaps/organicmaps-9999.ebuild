@@ -3,7 +3,8 @@
 
 EAPI=8
 
-inherit git-r3 xdg cmake
+PYTHON_COMPAT=( python3_{7..12} )
+inherit git-r3 python-r1 xdg cmake
 EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 # this URL is to make the tests compile since organicmaps usually dynamically clones the repo
 # maybe a better way would be to skip the test
@@ -24,6 +25,8 @@ HOMEPAGE="https://organicmaps.app"
 LICENSE="Apache-2.0"
 SLOT="0"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 # depend on sys-libs/zlib[minizip] when it is not pulled in as subproject anymore
 RDEPEND="
 	dev-cpp/gflags
@@ -38,6 +41,7 @@ RDEPEND="
 	dev-util/vulkan-headers
 	media-libs/freetype
 	sys-libs/zlib
+	${PYTHON_DEPS}
 "
 DEPEND="${RDEPEND}"
 
