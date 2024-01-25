@@ -1,0 +1,12 @@
+certdir = "/etc/ssl/gmid"
+
+user "gemini" # drop privileges
+
+server "localhost" {
+		listen on * port 1965;
+		cert $certdir "/gmid.crt"
+		key  $certdir "/gmid.key"
+
+		root "/var/gemini/localhost"
+		auto index on
+}
