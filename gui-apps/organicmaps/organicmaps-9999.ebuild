@@ -34,6 +34,7 @@ RDEPEND="
 	dev-libs/jansson
 	dev-libs/utfcpp
 	dev-qt/qtpositioning:6
+	dev-qt/qtsvg:6
 	dev-util/vulkan-headers
 	media-libs/freetype
 	sys-libs/zlib
