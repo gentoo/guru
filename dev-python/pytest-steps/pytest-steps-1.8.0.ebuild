@@ -1,15 +1,14 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
 
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="dev-python/mkdocs-material"
-DOCS_DIR="docs"
 
 inherit distutils-r1 docs pypi
 
@@ -34,6 +33,8 @@ BDEPEND="
 		dev-python/tabulate[${PYTHON_USEDEP}]
 	)
 "
+
+PATCHES=( "${FILESDIR}/${P}-strict-mkdocs.patch" )
 
 EPYTEST_DESELECT=(
 	# tests fail with recent Pandas

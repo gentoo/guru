@@ -1,0 +1,20 @@
+https://www.mkdocs.org/about/release-notes/#stricter-directory-validation
+
+diff --git a/docs/mkdocs.yml b/mkdocs.yml
+similarity index 95%
+rename from docs/mkdocs.yml
+rename to mkdocs.yml
+index 8359d3f..b4c34c4 100644
+--- a/docs/mkdocs.yml
++++ b/mkdocs.yml
+@@ -1,8 +1,8 @@
+ site_name: pytest_steps
+ # site_description: 'A short description of my project'
+ repo_url: https://github.com/smarie/python-pytest-steps
+-docs_dir: .
+-site_dir: ../site
++docs_dir: ./docs
++site_dir: ./site
+ nav:
+     - Home: index.md
+     - API reference: api_reference.md
