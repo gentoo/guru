@@ -40,6 +40,7 @@ BDEPEND="
 "
 RDEPEND="
 	dev-libs/glib:2
+	dev-libs/libnl:3=
 	dev-libs/openssl:0=
 	json? ( dev-libs/json-glib )
 	network? ( net-misc/curl )
