@@ -30,10 +30,10 @@ DEPEND="
 		>=dev-python/testrepository-0.0.18[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 		>=dev-python/testtools-1.4.0[${PYTHON_USEDEP}]
-		>=dev-python/pifpaf-0.10.0[${PYTHON_USEDEP}]
 		>=dev-python/nose-1.3.7[${PYTHON_USEDEP}]
 		>=dev-python/pytest-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/urllib3-1.15.1[${PYTHON_USEDEP}]
+		>=dev-util/pifpaf-0.10.0[${PYTHON_USEDEP}]
 	)
 "
 

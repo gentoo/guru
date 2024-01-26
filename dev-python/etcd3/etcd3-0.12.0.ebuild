@@ -36,7 +36,7 @@ DEPEND="
 		>=dev-python/mock-2.0.0[${PYTHON_USEDEP}]
 		dev-python/grpcio-tools[${PYTHON_USEDEP}]
 		dev-python/hypothesis[${PYTHON_USEDEP}]
-		dev-python/pifpaf[${PYTHON_USEDEP}]
+		dev-util/pifpaf[${PYTHON_USEDEP}]
 	)
 "
 

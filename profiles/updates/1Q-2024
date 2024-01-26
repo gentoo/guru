@@ -5,3 +5,4 @@ move app-doc/ford app-text/ford
 move dev-util/fpm dev-build/fpm
 move dev-util/FoBiS dev-build/FoBiS
 move dev-util/fypp dev-build/fypp
+move dev-python/pifpaf dev-util/pifpaf
