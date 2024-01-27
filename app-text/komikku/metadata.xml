@@ -3,6 +3,6 @@
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
-		<remote-id type="gitlab">valos/Komikku</remote-id>
+		<remote-id type="codeberg">valos/Komikku</remote-id>
 	</upstream>
 </pkgmetadata>
