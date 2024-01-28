@@ -40,4 +40,6 @@ RDEPEND="
 	dev-python/readmdict[${PYTHON_USEDEP}]
 	dev-python/python-lzo[${PYTHON_USEDEP}]
 	dev-python/pyqtgraph[${PYTHON_USEDEP}]
+	dev-python/pynput[${PYTHON_USEDEP}]
+	dev-python/gevent[${PYTHON_USEDEP}]
 "
