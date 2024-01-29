@@ -1,0 +1,13 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index c555726..f3ea0ab 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -33,7 +33,7 @@ poetry = "^1.6.1"
+ 
+ [build-system]
+ requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+-build-backend = "poetry_dynamic_versioning.backend"
++build-backend = "poetry.core.masonry.api"
+ 
+ [tool.poetry.scripts]
+ auto-cpufreq = "auto_cpufreq.bin.auto_cpufreq:main"
