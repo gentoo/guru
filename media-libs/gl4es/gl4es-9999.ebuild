@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -17,7 +17,7 @@ DEPEND="
 	media-libs/mesa[X?,egl(+)]
 "
 RDEPEND="${DEPEND}"
-BDEPEND="test? ( dev-util/apitrace )"
+BDEPEND="test? ( dev-debug/apitrace )"
 
 # Note: Should be added into virtual/opengl if moved to ::gentoo
 
