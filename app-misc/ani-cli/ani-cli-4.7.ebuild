@@ -14,7 +14,7 @@ else
 		https://github.com/pystardust/${PN}/releases/download/v${PV}/ani-cli.1 -> ${P}.1
 	"
 	S="${WORKDIR}"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
 LICENSE="GPL-3"
