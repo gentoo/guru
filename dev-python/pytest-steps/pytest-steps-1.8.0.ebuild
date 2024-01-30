@@ -23,11 +23,13 @@ RDEPEND="
 	>=dev-python/makefun-1.5[${PYTHON_USEDEP}]
 	dev-python/wrapt[${PYTHON_USEDEP}]
 "
+# https://github.com/smarie/python-pytest-cases/issues/330
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/pandas[${PYTHON_USEDEP}]
+		<dev-python/pytest-8[${PYTHON_USEDEP}]
 		dev-python/pytest-cases[${PYTHON_USEDEP}]
 		dev-python/pytest-harvest[${PYTHON_USEDEP}]
 		dev-python/tabulate[${PYTHON_USEDEP}]
