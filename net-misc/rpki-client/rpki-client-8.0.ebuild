@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,8 +7,9 @@ MY_PV="${PV/_p/p}"
 MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="Portability shim for OpenBSD's rpki-client"
-HOMEPAGE="https://www.rpki-client.org/"
-SRC_URI="mirror://openbsd/${PN}/${PN}-${MY_PV}.tar.gz"
+HOMEPAGE="https://rpki-client.org/"
+SRC_URI="mirror://openbsd/${PN}/${PN}-${MY_PV}.tar.gz
+https://lg.breizh-ix.net/ssl/cert.pem -> ${PN}-${MY_PV}-cert.pem"
 
 LICENSE="ISC"
 SLOT="0"
@@ -18,6 +19,8 @@ IUSE=""
 DEPEND="
 	acct-group/_rpki-client
 	acct-user/_rpki-client
+	dev-libs/libretls
+	dev-libs/openssl[rfc3779]
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -36,8 +39,12 @@ src_configure() {
 
 src_install() {
 	emake DESTDIR="${D}" BINDIR="/usr/bin" MANDIR="/usr/share/man" install
+
 	insinto /etc/rpki
 	doins *.tal
 	keepdir "/var/db/${PN}/"
 	fowners -R _rpki-client "/var/db/${PN}/"
+
+	insinto /etc/ssl
+	newins "${DISTDIR}/${PN}-${MY_PV}-cert.pem" cert.pem
 }
