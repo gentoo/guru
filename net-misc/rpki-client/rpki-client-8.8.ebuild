@@ -44,6 +44,7 @@ src_install() {
 
 	insinto /etc/rpki
 	doins *.tal
+	doins *.constraints
 	keepdir "/var/db/${PN}/"
 	fowners -R _rpki-client "/var/db/${PN}/"
 
