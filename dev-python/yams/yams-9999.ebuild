@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,7 +23,7 @@ SLOT="0"
 RDEPEND="
 	dev-python/psutil[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
-	dev-python/python-mpd[${PYTHON_USEDEP}]
+	dev-python/python-mpd2[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	media-sound/mpd
 "
