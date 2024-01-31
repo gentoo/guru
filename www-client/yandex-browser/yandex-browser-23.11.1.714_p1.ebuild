@@ -18,18 +18,13 @@ DESCRIPTION="The web browser from Yandex"
 HOMEPAGE="https://browser.yandex.ru/"
 LICENSE="Yandex-EULA"
 SLOT="0"
-
-IUSE="X wayland +ffmpeg-codecs"
-
-REQUIRED_USE="|| ( X wayland )"
-
+IUSE="+ffmpeg-codecs"
 SRC_URI="
 	amd64? ( https://repo.yandex.ru/yandex-browser/deb/pool/main/y/${MY_PN}/${MY_PN}_${MY_PV}_amd64.deb -> ${P}.deb )
 "
 KEYWORDS="~amd64"
 
 RDEPEND="
-	X? ( x11-base/xorg-server )
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/nspr
