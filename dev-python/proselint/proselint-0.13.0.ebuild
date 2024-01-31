@@ -15,7 +15,7 @@ HOMEPAGE="
 	https://pypi.org/project/proselint/
 "
 
-LICENSE="BSD-3-Clause"
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
