@@ -24,11 +24,3 @@ RDEPEND="
 "
 
 distutils_enable_tests pytest
-
-python_test() {
-	epytest
-}
-
-python_install_all() {
-	distutils-r1_python_install_all
-}
