@@ -1,0 +1,61 @@
+https://bugs.gentoo.org/860057
+
+diff --git a/src/draw/draw_image.c b/src/draw/draw_image.c
+index 531101a..f225164 100644
+--- a/src/draw/draw_image.c
++++ b/src/draw/draw_image.c
+@@ -21,6 +21,8 @@ $*/
+  * AppDraw: イメージ関連
+  *****************************************/
+ 
++#include <string.h>
++
+ #include <mlk_gui.h>
+ #include <mlk_widget_def.h>
+ #include <mlk_popup_progress.h>
+@@ -798,7 +800,7 @@ mlkerr drawImage_blendImageReal_alpha(AppDraw *p,int dstbits,mPopupProgress *pro
+ 			{
+ 				//8bit は常に 8bit
+ 
+-				*((uint32_t *)pd) = *((uint32_t *)&colres);
++				memcpy(&pd, &colres, sizeof(uint32_t));
+ 
+ 				pd += 4;
+ 			}
+diff --git a/src/image/tileimage_imagefile.c b/src/image/tileimage_imagefile.c
+index e05e633..9b2d3ef 100644
+--- a/src/image/tileimage_imagefile.c
++++ b/src/image/tileimage_imagefile.c
+@@ -165,7 +165,7 @@ static void _loadimgbuf_convert_8to16(uint8_t **ppbuf,int width,int height,mlkbo
+ 			c[2] = tbl[pd8[2]];
+ 			c[3] = tbl[(ignore_alpha)? 255: pd8[3]];
+ 
+-			*((uint64_t *)pd16) = *((uint64_t *)c);
++			memcpy(&pd16, c, sizeof(uint64_t));
+ 		}
+ 	}
+ 
+diff --git a/src/other/colorvalue.c b/src/other/colorvalue.c
+index 74f8ebe..67a255c 100644
+--- a/src/other/colorvalue.c
++++ b/src/other/colorvalue.c
+@@ -22,6 +22,7 @@ $*/
+  *****************************************/
+ 
+ #include <stdlib.h>
++#include <string.h>
+ 
+ #include <mlk_gui.h>
+ #include <mlk_pixbuf.h>
+@@ -156,8 +157,10 @@ uint32_t RGBA16_to_32bit(const RGBA16 *p)
+ uint64_t RGB16_to_64bit_buf(const RGB16 *p)
+ {
+ 	uint16_t buf[4] = {p->r, p->g, p->b, 0};
++	uint64_t ret;
++	memcpy(&ret, buf, sizeof(uint64_t));
+ 
+-	return *((uint64_t *)buf);
++	return ret;
+ }
+ 
+ //-------- 32bit RGB から変換
