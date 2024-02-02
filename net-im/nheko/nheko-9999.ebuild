@@ -1,4 +1,4 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -36,6 +36,7 @@ RDEPEND="
 	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
 	>=dev-libs/re2-0.2022.04.01:=
 	dev-libs/spdlog:=
+	>=dev-qt/kdsingleapplication-1.1.0:=[qt6]
 	dev-qt/qtbase:6[concurrent,dbus,gui,widgets]
 	dev-qt/qtdeclarative:6[widgets]
 	dev-qt/qtimageformats:6
