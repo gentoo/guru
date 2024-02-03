@@ -45,6 +45,12 @@ DEPEND="${COMMON_DEPEND}
 
 DOCS=( README.md doc/. config/dicts )
 
+LANGS=( en ru )
+for lang in "${LANGS[@]}"; do
+	IUSE+=" l10n_${lang}"
+	RDEPEND+=" l10n_${lang}? ( app-dicts/rhvoice-${lang} )"
+done
+
 src_unpack() {
 	default
 	cd "${S}" || die
