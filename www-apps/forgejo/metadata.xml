@@ -9,6 +9,7 @@
 	<upstream>
 		<changelog>https://codeberg.org/forgejo/forgejo/releases</changelog>
 		<bugs-to>https://codeberg.org/forgejo/forgejo/issues</bugs-to>
+		<remote-id type="codeberg">forgejo/forgejo</remote-id>
 	</upstream>
 	<use>
 		<flag name="acct">User and group management via acct-*/git packages</flag>
