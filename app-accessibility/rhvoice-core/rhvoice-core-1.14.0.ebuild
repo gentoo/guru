@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
 MY_PN="RHVoice"
 MY_P="${MY_PN}-${PV}"
@@ -83,6 +83,9 @@ src_configure() {
 		-DHARDENING_LINK_FLAGS=
 		-DHARDENING_MACRODEFS=
 	)
+
+	use speech-dispatcher && \
+		append-cppflags -DSPD_MAJOR=1 -DSPD_MINOR=0
 
 	cmake_src_configure
 }
