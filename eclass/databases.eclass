@@ -192,12 +192,11 @@ _databases_add_deps() {
 	local funcname=${1?}
 	local useflag=${2?}
 
-	BDEPEND="${useflag}? ( ${DATABASES_DEPEND[${funcname:1}]} )"
-	IUSE="${useflag}"
-	[[ ${useflag} == "test" ]] &&
-		RESTRICT="!test? ( test )"
-
-	return 0
+	IUSE+=" ${useflag}"
+	BDEPEND+=" ${useflag}? ( ${DATABASES_DEPEND[${funcname:1}]} )"
+	if [[ ${useflag} == "test" ]]; then
+		RESTRICT+= "!test? ( test )"
+	fi
 }
 
 # @FUNCTION: _databases_stop_service
