@@ -8,6 +8,9 @@ inherit go-module
 DESCRIPTION="A TUI bluetooth manager for Linux written in Go"
 HOMEPAGE="https://darkhz.github.io/bluetuith"
 
+# MAKE SURE to change these on every update
+[[ ${PV} != 9999* ]] && \
+GIT_COMMIT="ffe8681"
 GIT_DOCUMENTATION_COMMIT="3b2ebf5a6bc8a9ed2dc48e1fa7f0df5851ddb84b"
 
 if [[ ${PV} == 9999* ]]; then
@@ -16,7 +19,7 @@ if [[ ${PV} == 9999* ]]; then
 else
 	SRC_URI="https://github.com/darkhz/bluetuith/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	SRC_URI+=" https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/deps.tar.xz -> ${P}-deps.tar.xz"
-	SRC_URI+=" https://github.com/darkhz/bluetuith/archive/${GIT_DOCUMENTATION_COMMIT}.tar.gz -> ${P}-docs.tar.gz"
+	SRC_URI+=" https://github.com/darkhz/bluetuith/archive/${GIT_DOCUMENTATION_COMMIT}.tar.gz -> ${PN}-docs-${GIT_DOCUMENTATION_COMMIT}.tar.gz"
 	KEYWORDS="~amd64 ~arm64"
 fi
 
@@ -50,7 +53,9 @@ src_unpack() {
 }
 
 src_compile() {
-	ego build
+	# mimicking behavior from https://github.com/darkhz/bluetuith/blob/master/.goreleaser.yml
+	[[ ${PV} == 9999* ]] && GIT_COMMIT=$(git rev-parse --short HEAD)
+	ego build -ldflags "-X github.com/darkhz/bluetuith/cmd.Version=${PV}@${GIT_COMMIT}"
 }
 
 src_test() {
