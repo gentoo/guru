@@ -5,11 +5,9 @@ EAPI=8
 
 inherit gnome2-utils meson xdg
 
-MY_P="${PN}-v${PV}"
 DESCRIPTION="Introduction to phosh on smartphones"
 HOMEPAGE="https://gitlab.gnome.org/guidog/phosh-tour"
-SRC_URI="https://gitlab.gnome.org/guidog/${PN}/-/archive/v${PV}/${MY_P}.tar.bz2"
-S="${WORKDIR}/${MY_P}"
+SRC_URI="https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -22,6 +20,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="sys-devel/gettext"
+
+QA_DESKTOP_FILE="usr/share/applications/mobi.phosh.PhoshTour.desktop"
 
 src_configure() {
 	local emesonargs=(
