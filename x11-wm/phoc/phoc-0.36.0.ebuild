@@ -13,21 +13,26 @@ LICENSE="|| ( GPL-3+ MIT ) GPL-3+ LGPL-2.1+ MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 IUSE="+X gtk-doc man test"
+REQUIRED_USE="test? ( X )"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	>=dev-libs/glib-2.70:2
+	>=dev-libs/glib-2.74:2
 	dev-libs/json-glib
 	dev-libs/libinput:=
 	dev-libs/wayland
 	>=gnome-base/gnome-desktop-3.26:3
 	gnome-base/gsettings-desktop-schemas
-	>=gui-libs/wlroots-0.16.0:=[X?]
-	<gui-libs/wlroots-0.17.0
+	>=gui-libs/wlroots-0.17.1:=[X?]
+	<gui-libs/wlroots-0.18.0
 	media-libs/libglvnd
 	x11-libs/libdrm
 	x11-libs/pixman
 	x11-libs/libxkbcommon[X?,wayland]
+	test? (
+		gui-libs/wlroots[x11-backend]
+		x11-wm/mutter
+	)
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -37,7 +42,6 @@ BDEPEND="
 	sys-devel/gettext
 	gtk-doc? ( dev-util/gi-docgen )
 	man? ( dev-python/docutils )
-	test? ( x11-wm/mutter )
 "
 
 src_configure() {
@@ -60,6 +64,11 @@ src_test() {
 
 src_install() {
 	meson_src_install
+
+	if use gtk-doc; then
+		mkdir -p "${ED}"/usr/share/gtk-doc/html/ || die
+		mv "${ED}"/usr/share/doc/${PN}-${SLOT} "${ED}"/usr/share/gtk-doc/html/ || die
+	fi
 
 	newbin helpers/auto-maximize phoc-auto-maximize
 	newbin helpers/scale-to-fit phoc-scale-to-fit
