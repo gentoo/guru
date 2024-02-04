@@ -6,11 +6,12 @@
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
 	<longdescription lang="en">
-	A pure Wayland shell prototype for GNOME on mobile devices. For a matching compositor see x11-wm/phoc but others implementing wlr-layer-shell should work as well.
+			A pure Wayland shell for GNOME on mobile devices. For a matching
+			compositor see gui-wm/phoc but others implementing wlr-layer-shell
+			should work as well.
 	</longdescription>
 	<upstream>
-		<doc>https://source.puri.sm/Librem5/phosh</doc>
-		<bugs-to>https://source.puri.sm/Librem5/phosh/-/issues</bugs-to>
+		<bugs-to>https://gitlab.gnome.org/World/Phosh/phosh/-/issues</bugs-to>
 		<remote-id type="gnome-gitlab">World/Phosh/phosh</remote-id>
 	</upstream>
 </pkgmetadata>
