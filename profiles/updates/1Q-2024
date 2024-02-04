@@ -7,3 +7,4 @@ move dev-util/FoBiS dev-build/FoBiS
 move dev-util/fypp dev-build/fypp
 move dev-python/pifpaf dev-util/pifpaf
 move x11-wm/phoc gui-wm/phoc
+move gui-wm/phosh phosh-base/phosh-shell
