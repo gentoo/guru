@@ -6,6 +6,6 @@
     <name>Petrus Zhao</name>
   </maintainer>
   <upstream>
-    <remote-id type="github">pavanjadhaw/betterlockscreen</remote-id>
+    <remote-id type="github">betterlockscreen/betterlockscreen</remote-id>
   </upstream>
 </pkgmetadata>
