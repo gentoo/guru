@@ -12,6 +12,11 @@
 	</longdescription>
 	<upstream>
 		<bugs-to>https://gitlab.gnome.org/World/Phosh/phosh/-/issues</bugs-to>
+		<doc>https://gitlab.gnome.org/World/Phosh/phosh/-/wikis/Home</doc>
 		<remote-id type="gnome-gitlab">World/Phosh/phosh</remote-id>
 	</upstream>
+	<use>
+		<flag name="lockscreen-plugins">Build lockscreen plugins and widgets</flag>
+		<flag name="test-full">Run integration tests</flag>
+	</use>
 </pkgmetadata>
