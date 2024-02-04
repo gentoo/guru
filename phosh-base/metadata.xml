@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<catmetadata>
+	<longdescription lang="en">
+		The phosh-base category contains core Phosh packages.
+	</longdescription>
+	<longdescription lang="ru">
+		Категория phosh-base содержит основные пакеты мобильной оболочки Phosh.
+	</longdescription>
+</catmetadata>
