@@ -3,11 +3,12 @@
 
 EAPI=8
 
-inherit gnome2-utils meson xdg
+inherit gnome2-utils meson verify-sig xdg
 
 DESCRIPTION="Introduction to phosh on smartphones"
 HOMEPAGE="https://gitlab.gnome.org/guidog/phosh-tour"
-SRC_URI="https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz"
+SRC_URI="https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz
+	verify-sig? ( https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz.asc )"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -19,7 +20,14 @@ DEPEND="
 	>=gui-libs/libadwaita-1.1:1
 "
 RDEPEND="${DEPEND}"
-BDEPEND="sys-devel/gettext"
+BDEPEND="
+	sys-devel/gettext
+	verify-sig? (
+		sec-keys/openpgp-keys-phosh
+	)
+"
+
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/phosh.asc"
 
 QA_DESKTOP_FILE="usr/share/applications/mobi.phosh.PhoshTour.desktop"
 
