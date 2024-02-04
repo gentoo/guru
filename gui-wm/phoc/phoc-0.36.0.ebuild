@@ -3,11 +3,13 @@
 
 EAPI=8
 
-inherit gnome2-utils meson virtualx xdg
+inherit gnome2-utils meson verify-sig virtualx xdg
 
 DESCRIPTION="Wayland compositor for mobile phones"
 HOMEPAGE="https://gitlab.gnome.org/World/Phosh/phoc"
-SRC_URI="https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz"
+SRC_URI="https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz
+	verify-sig? ( https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz.asc )
+"
 
 LICENSE="|| ( GPL-3+ MIT ) GPL-3+ LGPL-2.1+ MIT"
 SLOT="0"
@@ -42,7 +44,10 @@ BDEPEND="
 	sys-devel/gettext
 	gtk-doc? ( dev-util/gi-docgen )
 	man? ( dev-python/docutils )
+	verify-sig? ( sec-keys/openpgp-keys-phosh )
 "
+
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/phosh.asc"
 
 src_configure() {
 	local emesonargs=(
