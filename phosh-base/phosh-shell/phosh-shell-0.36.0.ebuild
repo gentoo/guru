@@ -3,13 +3,14 @@
 
 EAPI=8
 
-inherit gnome2-utils meson pam systemd virtualx xdg
+inherit gnome2-utils meson pam systemd verify-sig virtualx xdg
 
 MY_PN="${PN%-shell}"
 MY_P="${MY_PN}-${PV}"
 DESCRIPTION="Pure Wayland shell for mobile devices"
 HOMEPAGE="https://gitlab.gnome.org/World/Phosh/phosh/"
-SRC_URI="https://sources.phosh.mobi/releases/${MY_PN}/${MY_P}.tar.xz"
+SRC_URI="https://sources.phosh.mobi/releases/${MY_PN}/${MY_P}.tar.xz
+	verify-sig? ( https://sources.phosh.mobi/releases/${MY_PN}/${MY_P}.tar.xz.asc )"
 S="${WORKDIR}/${MY_P}"
 
 KEYWORDS="~amd64 ~arm64"
@@ -73,7 +74,10 @@ BDEPEND="
 	gtk-doc? ( dev-util/gi-docgen )
 	man? ( dev-python/docutils )
 	test-full? ( gui-wm/phoc )
+	verify-sig? ( sec-keys/openpgp-keys-phosh )
 "
+
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/phosh.asc"
 
 src_configure() {
 	local emesonargs=(
