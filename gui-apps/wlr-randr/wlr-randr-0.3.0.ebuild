@@ -14,7 +14,7 @@ if [[ ${PV} == 9999 ]]; then
 else
 	SRC_URI="https://git.sr.ht/~emersion/wlr-randr/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-v${PV}"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 LICENSE="ISC"
