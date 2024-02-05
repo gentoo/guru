@@ -267,7 +267,7 @@ CRATES="
 	zstd@0.11.2+zstd.1.5.2
 "
 
-# Download the same tree-sitter commit that is used in the Helix release
+# Download the same 'packet-builder' commit that is used in the latest release
 declare -A GIT_CRATES=(
 	[packet-builder]="https://github.com/cyqsimon/packet_builder;bf5a89ba75795f5067bb03fa8de00b833ffe4eae;packet_builder-%commit%"
 )
