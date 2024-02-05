@@ -16,7 +16,10 @@ HOMEPAGE="https://git.sr.ht/~lanodan/deblob"
 LICENSE="BSD"
 SLOT="0"
 
-DEPEND=">=dev-lang/hare-0_pre20230615:="
+DEPEND="
+	>=dev-lang/hare-0_pre20230615:=
+	<dev-lang/hare-0_pre20231127
+"
 RDEPEND=""
 
 # built by hare
