@@ -25,6 +25,7 @@ SLOT="0"
 REQUIRED_USE="|| ( ao portaudio pulseaudio )"
 
 COMMON_DEPEND="
+	dev-libs/boost:=
 	ao? ( media-libs/libao )
 	dbus? (
 		dev-libs/glib:2[dbus]
