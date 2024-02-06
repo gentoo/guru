@@ -1,30 +1,22 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit desktop optfeature xdg-utils
+inherit desktop optfeature xdg
 
 DESCRIPTION="Nyxt - the hacker's power-browser"
 HOMEPAGE="https://nyxt.atlas.engineer/"
 
-if [[ "${PV}" = *9999* ]]
-then
+if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/atlas-engineer/${PN}.git"
+	EGIT_SUBMODULES=( '*' )
+	EGIT_BRANCH="master"
+	EGIT_CHECKOUT_DIR="${S}"
 else
 	KEYWORDS="~amd64"
-	NYXTCOMMIT="27612fee394f80dee6480c045ec7da5cd1f82196"
-	S="${WORKDIR}/${PN}-${NYXTCOMMIT}"
-
-	# Specify commits for each submodules
-	# Some regex substitutions allows to automate this process...
-	# Commit hashes are obtained from -9999 version on ${NYXTCOMMIT}
-	# Full list can be found here: https://github.com/atlas-engineer/nyxt/tree/master/_build
-	# Removed the commits to reduce useless lines in -9999 version
-
-	SRC_URI="https://github.com/atlas-engineer/${PN}/archive/${NYXTCOMMIT}.tar.gz -> ${P}.gh.tar.gz"
-	# Removed the submodules SRC_URIs to reduce useless lines in -9999 version
+	SRC_URI="https://github.com/atlas-engineer/${PN}/releases/download/${PV}/nyxt-${PV}-source-with-submodules.tar.xz -> ${PF}.gh.tar.xz"
 fi
 
 # Portage replaces the nyxt binary with scbl when stripping
@@ -37,11 +29,6 @@ IUSE="doc"
 RDEPEND="
 	dev-libs/gobject-introspection
 	gnome-base/gsettings-desktop-schemas
-	media-libs/gst-plugins-bad
-	media-libs/gst-plugins-base
-	media-libs/gst-plugins-good
-	media-libs/gst-plugins-ugly
-	media-plugins/gst-plugins-libav
 	net-libs/glib-networking
 	net-libs/webkit-gtk:4.1
 	sys-libs/libfixposix
@@ -53,16 +40,14 @@ BDEPEND="
 "
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
-src_unpack() {
-	default
-
-	# Unpack the submodules in the _build directory
-	if [[ "${PV}" != *9999* ]]
-	then
-		# Removed src_unpack to reduce useless lines in -9999
-		true
-	fi
+if [[ "${PV}" != 9999 ]]; then
+	src_unpack() {
+		mkdir "${WORKDIR}/${P}" || die
+		cd "${WORKDIR}/${P}"
+		default
 }
+
+fi
 
 src_compile() {
 	emake all
@@ -78,20 +63,25 @@ src_install(){
 		dodoc "${S}/manual.html"
 	fi
 
-	doicon "${S}/assets/icon_512x512.png.ico"
+	for icon in 16x16 32x32  128x128 256x256 512x512; do
+		newicon -s ${icon} "${S}/assets/nyxt_${icon}.png" ${PN}.png
+	done
+
 	domenu "${S}/assets/nyxt.desktop"
 }
 
 pkg_postinst() {
-	xdg_mimeinfo_database_update
-	xdg_desktop_database_update
-	xdg_icon_cache_update
+	xdg_pkg_postinst
 	optfeature "for X11 clipboard support" "x11-misc/xclip"
 	optfeature "for spellchecking" "app-text/enchant"
+	optfeature "for HTML5 audio/video" "media-libs/gstreamer"
+	optfeature "for HTML5 audio/video" "media-libs/gst-plugins-bad"
+	optfeature "for HTML5 audio/video" "media-libs/gst-plugins-base"
+	optfeature "for HTML5 audio/video" "media-libs/gst-plugins-good"
+	optfeature "for HTML5 audio/video" "media-libs/gst-plugins-ugly"
+	optfeature "for HTML5 audio/video" "media-plugins/gst-plugins-libav"
 }
 
 pkg_postrm() {
-	xdg_mimeinfo_database_update
-	xdg_desktop_database_update
-	xdg_icon_cache_update
+	xdg_pkg_postrm
 }
