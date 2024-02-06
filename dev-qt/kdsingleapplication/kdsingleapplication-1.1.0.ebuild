@@ -27,7 +27,11 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	doc? (
-		app-text/doxygen
+		app-text/doxygen[dot]
+		dev-qt/qthelp:5
+		qt6? (
+			dev-qt/qttools:6[assistant]
+		)
 	)
 	examples? (
 		dev-util/patchelf
