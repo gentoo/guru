@@ -1,0 +1,36 @@
+Respect LDFLAGS.
+--- a/Makefile
++++ b/Makefile
+@@ -65,7 +65,6 @@ else
+ 	OUTPUT=cpufetch.exe
+ endif
+ 
+-all: CFLAGS += -O2
+ all: $(OUTPUT)
+ 
+ debug: CFLAGS += -g -O0
+@@ -78,19 +77,19 @@ strict: CFLAGS += -O2 -Werror -fsanitize=undefined -D_FORTIFY_SOURCE=2
+ strict: $(OUTPUT)
+ 
+ freq_nov.o: Makefile $(SRC_DIR)freq/freq_nov.c $(SRC_DIR)freq/freq_nov.h $(SRC_DIR)freq/freq.h
+-	$(CC) $(CFLAGS) $(SANITY_FLAGS) -c -pthread $(SRC_DIR)freq/freq_nov.c -o $@
++	$(CC) $(CFLAGS) $(SANITY_FLAGS) $(LDFLAGS) -c -pthread $(SRC_DIR)freq/freq_nov.c -o $@
+ 
+ freq_avx.o: Makefile $(SRC_DIR)freq/freq_avx.c $(SRC_DIR)freq/freq_avx.h $(SRC_DIR)freq/freq.h
+-	$(CC) $(CFLAGS) $(SANITY_FLAGS) -c -mavx -pthread $(SRC_DIR)freq/freq_avx.c -o $@
++	$(CC) $(CFLAGS) $(SANITY_FLAGS) $(LDFLAGS) -c -mavx -pthread $(SRC_DIR)freq/freq_avx.c -o $@
+ 
+ freq_avx512.o: Makefile $(SRC_DIR)freq/freq_avx512.c $(SRC_DIR)freq/freq_avx512.h $(SRC_DIR)freq/freq.h
+-	$(CC) $(CFLAGS) $(SANITY_FLAGS) -c -mavx512f -pthread $(SRC_DIR)freq/freq_avx512.c -o $@
++	$(CC) $(CFLAGS) $(SANITY_FLAGS) $(LDFLAGS) -c -mavx512f -pthread $(SRC_DIR)freq/freq_avx512.c -o $@
+ 
+ $(OUTPUT): Makefile $(SOURCE) $(HEADERS)
+ ifeq ($(GIT_VERSION),"")
+-	$(CC) $(CFLAGS) $(SANITY_FLAGS) $(SOURCE) -o $(OUTPUT)
++	$(CC) $(CFLAGS) $(SANITY_FLAGS) $(LDFLAGS) $(SOURCE) -o $(OUTPUT)
+ else
+-	$(CC) $(CFLAGS) $(SANITY_FLAGS) -DGIT_FULL_VERSION=\"$(GIT_VERSION)\" $(SOURCE) -o $(OUTPUT)
++	$(CC) $(CFLAGS) $(SANITY_FLAGS) $(LDFLAGS) -DGIT_FULL_VERSION=\"$(GIT_VERSION)\" $(SOURCE) -o $(OUTPUT)
+ endif
+ 
+ run: $(OUTPUT)
