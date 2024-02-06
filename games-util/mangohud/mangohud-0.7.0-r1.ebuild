@@ -15,12 +15,15 @@ HOMEPAGE="https://github.com/flightlessmango/MangoHud"
 
 VK_HEADERS_VER="1.2.158"
 VK_HEADERS_MESON_WRAP_VER="2"
+SPDLOG_VER="1.8.5"
 
 SRC_URI="
 	https://github.com/KhronosGroup/Vulkan-Headers/archive/v${VK_HEADERS_VER}.tar.gz
 		-> vulkan-headers-${VK_HEADERS_VER}.tar.gz
 	https://wrapdb.mesonbuild.com/v2/vulkan-headers_${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}/get_patch
 		-> vulkan-headers-${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}-meson-wrap.zip
+	https://github.com/gabime/spdlog/archive/refs/tags/v${SPDLOG_VER}.tar.gz -> spdlog-${SPDLOG_VER}.tar.gz
+	https://wrapdb.mesonbuild.com/v2/spdlog_${SPDLOG_VER}-1/get_patch -> spdlog-${SPDLOG_VER}-1-wrap.zip
 "
 
 if [[ ${PV} == 9999 ]]; then
@@ -93,6 +96,10 @@ src_unpack() {
 	unpack vulkan-headers-${VK_HEADERS_VER}.tar.gz
 	unpack vulkan-headers-${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}-meson-wrap.zip
 	mv "${WORKDIR}/Vulkan-Headers-${VK_HEADERS_VER}" "${S}/subprojects/" || die
+	# fix build error by using specify version of spdlog
+	unpack spdlog-${SPDLOG_VER}.tar.gz
+	unpack spdlog-${SPDLOG_VER}-1-wrap.zip
+	mv "${WORKDIR}/spdlog-${SPDLOG_VER}" "${S}/subprojects/" || die
 }
 
 src_prepare() {
@@ -107,7 +114,7 @@ src_prepare() {
 src_configure() {
 	local emesonargs=(
 		-Dappend_libdir_mangohud=false
-		-Duse_system_spdlog=enabled
+		-Duse_system_spdlog=disabled
 		-Dinclude_doc=false
 		$(meson_feature video_cards_nvidia with_nvml)
 		$(meson_feature xnvctrl with_xnvctrl)
