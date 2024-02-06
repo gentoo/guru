@@ -1,10 +1,10 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 MY_PN="${PN%-bin}"
-MY_P="${MY_PN}-${PV}-fedora-29-x86_64"
+MY_P="${MY_PN}-${PV}-ubuntu-22.04-jammy-x86_64"
 
 DESCRIPTION="Terminal based Mattermost client"
 HOMEPAGE="https://github.com/matterhorn-chat/matterhorn"
@@ -32,10 +32,13 @@ src_install() {
 
 	dodoc docs/commands.md
 	dodoc docs/keybindings.md
+	dodoc docs/sample-config.ini
 
 	insinto /usr/share/${MY_PN}
 	exeinto /usr/share/${MY_PN}/notification-scripts
 	doins -r emoji
 	doins -r syntax
+	doins -r client-scripts
 	doexe notification-scripts/notify
+	doexe notification-scripts/notifyV2
 }
