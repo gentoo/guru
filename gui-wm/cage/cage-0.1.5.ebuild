@@ -22,7 +22,7 @@ SLOT="0"
 IUSE="X"
 
 RDEPEND="
-	>=gui-libs/wlroots-0.16[X?]
+	gui-libs/wlroots:0/16[X?]
 	x11-libs/libxkbcommon[X?]
 "
 DEPEND="${RDEPEND}"
