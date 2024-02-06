@@ -19,6 +19,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+BDEPEND="test? ( app-text/poppler )"
+
 ruby_add_rdepend "
 	>=dev-ruby/asciidoctor-2.0
 	>=dev-ruby/concurrent-ruby-1.1
