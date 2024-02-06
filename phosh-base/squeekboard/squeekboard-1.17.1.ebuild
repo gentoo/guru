@@ -59,7 +59,7 @@ SRC_URI+=" $(cargo_crate_uris ${CRATES})"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~arm64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	${PYTHON_DEPS}
