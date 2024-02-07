@@ -86,7 +86,6 @@ If you find an interesting piece of software here, consider to package it, also 
 [zpp](https://github.com/jbigot/zpp) | cmake | devel | Alessandro-Barbieri | ✖ | ✔
 [enarx](https://enarx.dev/) | cargo | util | Alessandro-Barbieri | ✖ | ✖
 [ruplacer](https://github.com/dmerejkowsky/ruplacer) | cargo | sys | Alessandro-Barbieri | ✖ | ✖
-[gping](https://github.com/orf/gping) | cargo | net | Alessandro-Barbieri | ✖ | ✖
 [open-match](https://github.com/googleforgames/open-match) | go | devel | Alessandro-Barbieri | ✔ | ✖
 [gridstudio](https://github.com/ricklamers/gridstudio) | go | visualization | Alessandro-Barbieri | ✔ | ✖
 [osmosis](https://wiki.openstreetmap.org/wiki/Osmosis) | gradle | geography | Alessandro-Barbieri | ✔ | ✖
