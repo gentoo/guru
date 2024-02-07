@@ -1,11 +1,11 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit desktop go-module
 
-DEPS_DATE="2023-12-16" # when the deps archive has been created
+DEPS_DATE="2024-02-07" # when the deps archive has been created
 
 DESCRIPTION="A nonlinear 2D puzzle platformer taking place in impossible spaces"
 HOMEPAGE="https://divverent.github.io/aaaaxy/"
