@@ -5,6 +5,9 @@
     <email>me@rahil.rocks</email>
     <name>Rahil Bhimjiani</name>
   </maintainer>
+  <use>
+    <flag name="web">Enables web user interface (UI)</flag>
+  </use>
   <upstream>
     <remote-id type="github">AdguardTeam/AdGuardHome</remote-id>
     <bugs-to>https://github.com/AdguardTeam/AdGuardHome/issues</bugs-to>
