@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake-multilib
 
 DESCRIPTION="Bloat-free graphical user interface library for C++"
 HOMEPAGE="
@@ -15,7 +15,7 @@ SRC_URI="
 	https://github.com/cimgui/cimgui/archive/refs/tags/${PV}.tar.gz -> c${P}.gh.tar.gz
 "
 
-LICENSE="MIT"
+LICENSE="MIT"multilib
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="allegro bindings examples freetype glfw glut opengl sdl vulkan"
@@ -23,13 +23,13 @@ S="${WORKDIR}/c${P}"
 
 RDEPEND="
 	dev-libs/stb:=
-	allegro? ( media-libs/allegro:5 )
-	freetype? ( media-libs/freetype )
-	glfw? ( media-libs/glfw:0 )
-	glut? ( media-libs/freeglut )
-	opengl? ( virtual/opengl )
-	sdl? ( media-libs/libsdl2 )
-	vulkan? ( media-libs/vulkan-loader )
+	allegro? ( media-libs/allegro:5[${MULTILIB_USEDEP}] )
+	freetype? ( media-libs/freetype[${MULTILIB_USEDEP}] )
+	glfw? ( media-libs/glfw:0[${MULTILIB_USEDEP}] )
+	glut? ( media-libs/freeglut[${MULTILIB_USEDEP}] )
+	opengl? ( virtual/opengl[${MULTILIB_USEDEP}] )
+	sdl? ( media-libs/libsdl2[${MULTILIB_USEDEP}] )
+	vulkan? ( media-libs/vulkan-loader[${MULTILIB_USEDEP}] )
 "
 DEPEND="
 	${RDEPEND}
@@ -56,7 +56,7 @@ REQUIRED_USE="
 
 PATCHES=( "${FILESDIR}/${P}-fpermissive.patch" )
 
-src_prepare() {
+multilib_src_prepare() {
 	pushd ../ || die
 	rm -rf "${S}/imgui" || die
 	mv "${P}" "${S}/imgui" || die
@@ -78,7 +78,7 @@ src_prepare() {
 	cmake_src_prepare
 }
 
-src_configure() {
+multilib_src_configure() {
 	local mycmakeargs=(
 		-DIMGUI_ALLEGRO=$(usex allegro)
 		-DIMGUI_BINDINGS=$(usex bindings)
@@ -93,7 +93,7 @@ src_configure() {
 	cmake_src_configure
 }
 
-src_install() {
+multilib_src_install() {
 
 	cmake_src_install
 

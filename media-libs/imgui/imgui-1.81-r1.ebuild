@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson
+inherit meson-multilib
 
 MESON_WRAP_VER="1"
 
@@ -24,12 +24,12 @@ IUSE="opengl vulkan glfw sdl2 marmalade allegro5"
 
 RDEPEND="
 	dev-libs/stb:=
-	media-libs/glew
-	allegro5? ( media-libs/allegro:5 )
-	glfw? ( media-libs/glfw:0 )
-	opengl? ( virtual/opengl )
-	sdl2? ( media-libs/libsdl2 )
-	vulkan? ( media-libs/vulkan-loader )
+	media-libs/glew[${MULTILIB_USEDEP}]
+	allegro5? ( media-libs/allegro:5[${MULTILIB_USEDEP}] )
+	glfw? ( media-libs/glfw:0[${MULTILIB_USEDEP}] )
+	opengl? ( virtual/opengl[${MULTILIB_USEDEP}] )
+	sdl2? ( media-libs/libsdl2[${MULTILIB_USEDEP}] )
+	vulkan? ( media-libs/vulkan-loader[${MULTILIB_USEDEP}] )
 "
 DEPEND="
 	${RDEPEND}
@@ -50,7 +50,7 @@ src_unpack() {
 	unpack imgui-${PV}-${MESON_WRAP_VER}-meson-wrap.zip
 }
 
-src_configure() {
+multilib_src_configure() {
 	local emesonargs=(
 		-Ddx9=disabled
 		-Ddx10=disabled
