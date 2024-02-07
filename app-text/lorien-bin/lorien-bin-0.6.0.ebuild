@@ -36,3 +36,7 @@ pkg_postinst() {
 	ewarn "You also have a copy of the manual in /opt/Lorien/manual_v${PV}.md"
 	ewarn "Note: The manual is writen in Markdown format"
 }
+
+pkg_postrm() {
+	xdg_desktop_database_update
+}
