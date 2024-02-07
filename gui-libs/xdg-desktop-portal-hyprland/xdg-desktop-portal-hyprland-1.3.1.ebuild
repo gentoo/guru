@@ -22,7 +22,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="elogind systemd"
+IUSE="elogind qt6 systemd"
 REQUIRED_USE="?? ( elogind systemd )"
 
 DEPEND="
@@ -30,11 +30,16 @@ DEPEND="
 	dev-cpp/sdbus-c++
 	dev-libs/inih
 	dev-libs/wayland
-	dev-qt/qtbase
-	dev-qt/qtcore
-	dev-qt/qtgui
-	dev-qt/qtwayland:6
-	dev-qt/qtwidgets
+	qt6? (
+		dev-qt/qtbase:6[gui,widgets]
+		dev-qt/qtwayland:6
+	)
+	!qt6? (
+		dev-qt/qtcore
+		dev-qt/qtgui
+		dev-qt/qtwidgets
+		dev-qt/qtwayland:5
+	)
 	media-libs/mesa
 	sys-apps/util-linux
 	x11-libs/libdrm
