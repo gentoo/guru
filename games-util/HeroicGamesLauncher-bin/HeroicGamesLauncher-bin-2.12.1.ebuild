@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop
+inherit desktop xdg
 SRC_URI="https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/download/v${PV}/heroic-${PV}.tar.xz"
 DESCRIPTION="A Native GOG and Epic Games Launcher for Linux, Windows and Mac."
 HOMEPAGE="https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher"
@@ -56,4 +56,12 @@ src_install() {
 		#Start Heroic as gamescope window
 		domenu "${FILESDIR}/HeroicGamesLauncher-gamescope.desktop"
 	fi
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
 }
