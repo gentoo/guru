@@ -5,7 +5,11 @@
 		<email>adel.ks@zegrapher.com</email>
 		<name>Adel KARA SLIMANE</name>
 	</maintainer>
-	<upstream>
+	<maintainer type="person">
+		<email>gonegrier.duarte@gmail.com</email>
+		<name>Gonçalo Negrier Duarte</name>
+	</maintainer>
+    <upstream>
 		<remote-id type="github">flightlessmango/MangoHud</remote-id>
 		<bugs-to>https://github.com/flightlessmango/MangoHud/issues</bugs-to>
 	</upstream>

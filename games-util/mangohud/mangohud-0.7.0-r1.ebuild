@@ -96,7 +96,8 @@ src_unpack() {
 	unpack vulkan-headers-${VK_HEADERS_VER}.tar.gz
 	unpack vulkan-headers-${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}-meson-wrap.zip
 	mv "${WORKDIR}/Vulkan-Headers-${VK_HEADERS_VER}" "${S}/subprojects/" || die
-	# fix build error by using specify version of spdlog
+
+	# fix build error by using upstream submodule version of spdlog
 	unpack spdlog-${SPDLOG_VER}.tar.gz
 	unpack spdlog-${SPDLOG_VER}-1-wrap.zip
 	mv "${WORKDIR}/spdlog-${SPDLOG_VER}" "${S}/subprojects/" || die
@@ -112,6 +113,7 @@ src_prepare() {
 }
 
 src_configure() {
+	# disable system spdlog in favor of the submodule version
 	local emesonargs=(
 		-Dappend_libdir_mangohud=false
 		-Duse_system_spdlog=disabled

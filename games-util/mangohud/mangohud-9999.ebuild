@@ -18,6 +18,7 @@ VK_HEADERS_MESON_WRAP_VER="2"
 
 IMPLOT_VER="0.16"
 IMPLOT_MESON_WRAP_VER="1"
+SPDLOG_VER="1.13.0"
 
 SRC_URI="
 	https://github.com/KhronosGroup/Vulkan-Headers/archive/v${VK_HEADERS_VER}.tar.gz
@@ -28,6 +29,8 @@ SRC_URI="
 		-> implot-${IMPLOT_VER}.tar.gz
 	https://wrapdb.mesonbuild.com/v2/implot_${IMPLOT_VER}-${IMPLOT_MESON_WRAP_VER}/get_patch
 		-> implot-${IMPLOT_VER}-${IMPLOT_MESON_WRAP_VER}-meson-wrap.zip
+	https://github.com/gabime/spdlog/archive/refs/tags/v${SPDLOG_VER}.tar.gz -> spdlog-${SPDLOG_VER}.tar.gz
+	https://wrapdb.mesonbuild.com/v2/spdlog_${SPDLOG_VER}-1/get_patch -> spdlog-${SPDLOG_VER}-1-wrap.zip
 "
 
 if [[ ${PV} == 9999 ]]; then
@@ -61,7 +64,6 @@ RDEPEND="
 	${PYTHON_DEPS}
 	~media-libs/imgui-1.81[opengl,vulkan]
 	dev-cpp/nlohmann_json
-	dev-libs/spdlog
 	dev-util/glslang
 	media-fonts/lato
 	media-libs/vulkan-loader
@@ -107,6 +109,11 @@ src_unpack() {
 
 	cd "${S}/subprojects/implot-${IMPLOT_VER}" || die
 	eapply "${FILESDIR}/implot-v0.16-fix-imgui-dep.patch"
+
+	# fix build error by using upstream submodule version of spdlog
+	unpack spdlog-${SPDLOG_VER}.tar.gz
+	unpack spdlog-${SPDLOG_VER}-1-wrap.zip
+	mv "${WORKDIR}/spdlog-${SPDLOG_VER}" "${S}/subprojects/" || die
 }
 
 src_prepare() {
@@ -119,9 +126,10 @@ src_prepare() {
 }
 
 src_configure() {
+	# disable system spdlog in favor of the submodule version
 	local emesonargs=(
 		-Dappend_libdir_mangohud=false
-		-Duse_system_spdlog=enabled
+		-Duse_system_spdlog=disabled
 		-Dinclude_doc=false
 		$(meson_feature video_cards_nvidia with_nvml)
 		$(meson_feature xnvctrl with_xnvctrl)
