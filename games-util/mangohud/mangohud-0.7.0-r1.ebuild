@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit python-single-r1 meson
+inherit python-single-r1 meson-multilib
 
 MY_PV=$(ver_cut 1-3)
 [[ -n "$(ver_cut 4)" ]] && MY_PV_REV="-$(ver_cut 4)"
@@ -55,21 +55,20 @@ BDEPEND="
 
 RDEPEND="
 	${PYTHON_DEPS}
-	~media-libs/imgui-1.81[opengl,vulkan]
+	~media-libs/imgui-1.81[opengl,vulkan,${MULTILIB_USEDEP}]
 	dev-cpp/nlohmann_json
-	dev-libs/spdlog
 	dev-util/glslang
 	media-fonts/lato
-	media-libs/vulkan-loader
-	media-libs/libglvnd
-	x11-libs/libdrm
-	dbus? ( sys-apps/dbus )
-	X? ( x11-libs/libX11 )
+	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
+	media-libs/libglvnd[${MULTILIB_USEDEP}]
+	x11-libs/libdrm[${MULTILIB_USEDEP}]
+	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
+	X? ( x11-libs/libX11[${MULTILIB_USEDEP}] )
 	video_cards_nvidia? (
-		x11-drivers/nvidia-drivers
+		x11-drivers/nvidia-drivers[${MULTILIB_USEDEP}]
 		xnvctrl? ( x11-drivers/nvidia-drivers[static-libs] )
 	)
-	wayland? ( dev-libs/wayland )
+	wayland? ( dev-libs/wayland [${MULTILIB_USEDEP}] )
 	$(python_gen_cond_dep '
 		|| (
 			dev-python/matplotlib[gtk3,${PYTHON_USEDEP}]
@@ -112,7 +111,7 @@ src_prepare() {
 	find . -type f -exec sed -i 's|"imgui_internal.h"|<imgui/imgui_internal.h>|g' {} \; || die
 }
 
-src_configure() {
+multilib_src_configure() {
 	# disable system spdlog in favor of the submodule version
 	local emesonargs=(
 		-Dappend_libdir_mangohud=false
