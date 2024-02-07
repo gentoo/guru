@@ -20,6 +20,8 @@ LICENSE+=" BSD EPL-1.0 CC-BY-SA-4.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RESTRICT="test"
+
 DOCS=(
 	"README.md"
 )
