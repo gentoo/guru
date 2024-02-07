@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc64"
 
-PATCHES=( "${FILESDIR}/${P}-respect-ldflags.patch" )
+PATCHES=( "${FILESDIR}/${P}-makefile.patch" )
 
 src_prepare() {
 	default

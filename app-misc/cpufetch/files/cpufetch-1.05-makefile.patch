@@ -1,0 +1,66 @@
+Respect CFLAGS and LDFLAGS.
+--- a/Makefile
++++ b/Makefile
+@@ -24,17 +24,17 @@ ifneq ($(OS),Windows_NT)
+ 			HEADERS += $(SRC_DIR)freq/freq.h
+ 			CFLAGS += -pthread
+                 endif
+-		CFLAGS += -DARCH_X86 -std=c99 -fstack-protector-all
++		CFLAGS += -DARCH_X86 -std=c99
+ 	else ifeq ($(arch), $(filter $(arch), ppc64le ppc64 ppcle ppc))
+ 		SRC_DIR=src/ppc/
+ 		SOURCE += $(COMMON_SRC) $(SRC_DIR)ppc.c $(SRC_DIR)uarch.c $(SRC_DIR)udev.c
+ 		HEADERS += $(COMMON_HDR) $(SRC_DIR)ppc.h $(SRC_DIR)uarch.h  $(SRC_DIR)udev.c
+-		CFLAGS += -DARCH_PPC -std=gnu99 -fstack-protector-all -Wno-language-extension-token
++		CFLAGS += -DARCH_PPC -std=gnu99 -Wno-language-extension-token
+ 	else ifeq ($(arch), $(filter $(arch), arm aarch64_be aarch64 arm64 armv8b armv8l armv7l armv6l))
+ 		SRC_DIR=src/arm/
+ 		SOURCE += $(COMMON_SRC) $(SRC_DIR)midr.c $(SRC_DIR)uarch.c $(SRC_COMMON)soc.c $(SRC_DIR)soc.c $(SRC_DIR)udev.c
+ 		HEADERS += $(COMMON_HDR) $(SRC_DIR)midr.h $(SRC_DIR)uarch.h  $(SRC_COMMON)soc.h $(SRC_DIR)soc.h $(SRC_DIR)udev.c $(SRC_DIR)socs.h
+-		CFLAGS += -DARCH_ARM -Wno-unused-parameter -std=c99 -fstack-protector-all
++		CFLAGS += -DARCH_ARM -Wno-unused-parameter -std=c99
+ 
+ 		os := $(shell uname -s)
+ 		ifeq ($(os), Darwin)
+@@ -45,7 +45,7 @@ ifneq ($(OS),Windows_NT)
+                 SRC_DIR=src/riscv/
+                 SOURCE += $(COMMON_SRC) $(SRC_DIR)riscv.c $(SRC_DIR)uarch.c $(SRC_COMMON)soc.c $(SRC_DIR)soc.c $(SRC_DIR)udev.c
+                 HEADERS += $(COMMON_HDR) $(SRC_DIR)riscv.h $(SRC_DIR)uarch.h $(SRC_COMMON)soc.h $(SRC_DIR)soc.h $(SRC_DIR)udev.h $(SRC_DIR)socs.h
+-                CFLAGS += -DARCH_RISCV -Wno-unused-parameter -std=c99 -fstack-protector-all
++                CFLAGS += -DARCH_RISCV -Wno-unused-parameter -std=c99
+ 	else
+ 		# Error lines should not be tabulated because Makefile complains about it
+ $(warning Unsupported arch detected: $(arch). See https://github.com/Dr-Noob/cpufetch#1-support)
+@@ -65,7 +65,6 @@ else
+ 	OUTPUT=cpufetch.exe
+ endif
+ 
+-all: CFLAGS += -O2
+ all: $(OUTPUT)
+ 
+ debug: CFLAGS += -g -O0
+@@ -78,19 +77,19 @@ strict: CFLAGS += -O2 -Werror -fsanitize=undefined -D_FORTIFY_SOURCE=2
+ strict: $(OUTPUT)
+ 
+ freq_nov.o: Makefile $(SRC_DIR)freq/freq_nov.c $(SRC_DIR)freq/freq_nov.h $(SRC_DIR)freq/freq.h
+-	$(CC) $(CFLAGS) $(SANITY_FLAGS) -c -pthread $(SRC_DIR)freq/freq_nov.c -o $@
++	$(CC) $(CFLAGS) $(SANITY_FLAGS) $(LDFLAGS) -c -pthread $(SRC_DIR)freq/freq_nov.c -o $@
+ 
+ freq_avx.o: Makefile $(SRC_DIR)freq/freq_avx.c $(SRC_DIR)freq/freq_avx.h $(SRC_DIR)freq/freq.h
+-	$(CC) $(CFLAGS) $(SANITY_FLAGS) -c -mavx -pthread $(SRC_DIR)freq/freq_avx.c -o $@
++	$(CC) $(CFLAGS) $(SANITY_FLAGS) $(LDFLAGS) -c -mavx -pthread $(SRC_DIR)freq/freq_avx.c -o $@
+ 
+ freq_avx512.o: Makefile $(SRC_DIR)freq/freq_avx512.c $(SRC_DIR)freq/freq_avx512.h $(SRC_DIR)freq/freq.h
+-	$(CC) $(CFLAGS) $(SANITY_FLAGS) -c -mavx512f -pthread $(SRC_DIR)freq/freq_avx512.c -o $@
++	$(CC) $(CFLAGS) $(SANITY_FLAGS) $(LDFLAGS) -c -mavx512f -pthread $(SRC_DIR)freq/freq_avx512.c -o $@
+ 
+ $(OUTPUT): Makefile $(SOURCE) $(HEADERS)
+ ifeq ($(GIT_VERSION),"")
+-	$(CC) $(CFLAGS) $(SANITY_FLAGS) $(SOURCE) -o $(OUTPUT)
++	$(CC) $(CFLAGS) $(SANITY_FLAGS) $(LDFLAGS) $(SOURCE) -o $(OUTPUT)
+ else
+-	$(CC) $(CFLAGS) $(SANITY_FLAGS) -DGIT_FULL_VERSION=\"$(GIT_VERSION)\" $(SOURCE) -o $(OUTPUT)
++	$(CC) $(CFLAGS) $(SANITY_FLAGS) $(LDFLAGS) -DGIT_FULL_VERSION=\"$(GIT_VERSION)\" $(SOURCE) -o $(OUTPUT)
+ endif
+ 
+ run: $(OUTPUT)
