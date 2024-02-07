@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit linux-mod-r1
 
 MY_PN="8821cu-20210916"
-COMMIT="eb52ece92607394ecc22e96b41671ec3e5b1fa30"
+COMMIT="5b39398e2de146edeb76716420f3288f508bea61"
 DESCRIPTION="Realtek 8821CU/RTL8811CU module for Linux kernel"
 HOMEPAGE="https://github.com/morrownr/8821cu-20210916"
 SRC_URI="https://github.com/morrownr/${MY_PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
