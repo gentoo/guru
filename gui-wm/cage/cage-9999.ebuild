@@ -22,11 +22,11 @@ SLOT="0"
 IUSE="X"
 
 RDEPEND="
-	gui-libs/wlroots:0/16[X?]
+	gui-libs/wlroots:0/17[X?]
 	x11-libs/libxkbcommon[X?]
 "
 DEPEND="${RDEPEND}"
 
 src_configure() {
-	meson_src_configure $(meson_use X xwayland)
+	meson_src_configure $(meson_feature X xwayland)
 }
