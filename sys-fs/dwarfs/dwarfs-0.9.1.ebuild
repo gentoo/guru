@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit check-reqs cmake flag-o-matic python-single-r1
+inherit check-reqs cmake flag-o-matic python-any-r1
 
 DESCRIPTION="A fast very high compression read-only FUSE file system"
 HOMEPAGE="https://github.com/mhx/dwarfs"
@@ -14,20 +14,21 @@ SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/${P}.tar.xz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="python +jemalloc test man"
+IUSE="+jemalloc test man"
 S="${WORKDIR}/dwarfs-${PV}"
 
 RDEPEND="
-	${PYTHON_DEPS}
 	app-arch/libarchive
 	app-arch/lz4
 	app-arch/snappy
 	app-arch/xz-utils
 	app-arch/zstd
+	dev-cpp/range-v3
 	dev-cpp/gflags
 	dev-cpp/glog[gflags]
 	dev-cpp/parallel-hashmap:=
-	dev-libs/boost[context,python?]
+	dev-libs/boost[context]
+	dev-libs/date
 	dev-libs/double-conversion
 	dev-libs/libevent
 	dev-libs/libfmt
@@ -47,21 +48,26 @@ RDEPEND="
 
 DEPEND="${RDEPEND}"
 BDEPEND="
+	${PYTHON_DEPS}
 	dev-util/patchelf
 	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig
 	man? ( app-text/ronn-ng )
 	test? ( dev-cpp/gtest )
+	$(python_gen_any_dep 'dev-python/mistletoe[${PYTHON_USEDEP}]')
 "
 
 DOCS=( "README.md" "CHANGES.md" "TODO" )
 RESTRICT="!test? ( test )"
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 CHECKREQS_DISK_BUILD="1300M"
 CMAKE_IN_SOURCE_BUILD=1
 CMAKE_WARN_UNUSED_CLI=0
+
+python_check_deps() {
+	python_has_version -b "dev-python/mistletoe[${PYTHON_USEDEP}]"
+}
 
 src_prepare() {
 	rm -r zstd xxHash parallel-hashmap || die
@@ -78,11 +84,15 @@ src_prepare() {
 
 src_configure() {
 	append-cxxflags "-I/usr/include"
+	filter-ldflags "-Wl,--as-needed"
 	append-ldflags $(no-as-needed)
+
+	# FIXME: Requires dev-cpp/gtest to be built with -fchar8_t or -std=c++20.
+	# This is unfortunately too aggressive:
+	# append-cxxflags "-fno-char8_t"
 
 	mycmakeargs=(
 		-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
-		-DWITH_PYTHON=$(usex python ON OFF)
 		-DWITH_TESTS=$(usex test ON OFF)
 		-DWITH_MAN_PAGES=$(usex man ON OFF)
 		-DPREFER_SYSTEM_ZSTD=ON
@@ -92,26 +102,31 @@ src_configure() {
 		-DWITH_LEGACY_FUSE=OFF
 		-DDISABLE_CCACHE=ON  # Use FEATURES=ccache
 	)
-	use python && mycmakeargs+=( "-DWITH_PYTHON_VERSION=${EPYTHON#python}" )
 	cmake_src_configure
 }
 
 src_install() {
 	local libs=(
-		libdwarfs.so
-		libdwarfs_main.so
-		libdwarfs_tool.so
-		libdwarfs_compression.so
-		libthrift_light.so
-		libmetadata_thrift.so
-		libmkdwarfs_main.so
-		libdwarfsbench_main.so
-		libdwarfsck_main.so
-		libdwarfsextract_main.so
-		libdwarfsck_main.so
-		libdwarfsextract_main.so
 		folly/libfolly.so
 		folly/libfolly.so.0.58.0-dev
+		libcompression_thrift.so
+		libdwarfs.so
+		libdwarfs_categorizer.so
+		libdwarfs_compression.so
+		libdwarfs_compression_metadata.so
+		libdwarfs_main.so
+		libdwarfs_tool.so
+		libdwarfsbench_main.so
+		libdwarfsck_main.so
+		libdwarfsck_main.so
+		libdwarfsextract_main.so
+		libdwarfsextract_main.so
+		libfeatures_thrift.so
+		libhistory_thrift.so
+		libmetadata_thrift.so
+		libmkdwarfs_main.so
+		libthrift_light.so
+		ricepp/libricepp.so
 	)
 
 	cmake_src_install
