@@ -1,0 +1,10 @@
+--- a/leftwm/src/config/keybind.rs
++++ b/leftwm/src/config/keybind.rs
+@@ -6,7 +6,6 @@ use crate::Config;
+ use anyhow::{ensure, Context, Result};
+ #[cfg(feature = "lefthk")]
+ use lefthk_core::config::Command;
+-#[cfg(feature = "lefthk")]
+ use serde::{Deserialize, Serialize};
+ #[cfg(feature = "lefthk")]
+ use std::fmt::Write;
