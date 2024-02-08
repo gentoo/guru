@@ -26,6 +26,10 @@ DEPEND="dev-libs/libedit"
 RDEPEND="${DEPEND}"
 BDEPEND="
 	$(python_gen_any_dep 'dev-python/pyyaml[${PYTHON_USEDEP}]' )
+	test? (
+		dev-util/cppcheck
+		$(python_gen_any_dep 'dev-python/pylint[${PYTHON_USEDEP}]')
+	)
 	doc? ( dev-ruby/asciidoctor )
 "
 
@@ -33,6 +37,7 @@ DOCS=( NEWS.adoc hints.adoc history.adoc README.adoc notes.adoc )
 
 python_check_deps() {
 	python_has_version "dev-python/pyyaml[${PYTHON_USEDEP}]"
+	use test && python_has_version "dev-python/pylint[${PYTHON_USEDEP}]"
 }
 
 src_prepare() {
