@@ -15,7 +15,7 @@ SRC_URI="
 	https://github.com/cimgui/cimgui/archive/refs/tags/${PV}.tar.gz -> c${P}.gh.tar.gz
 "
 
-LICENSE="MIT"multilib
+LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="allegro bindings examples freetype glfw glut opengl sdl vulkan"
