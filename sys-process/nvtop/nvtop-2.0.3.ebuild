@@ -7,7 +7,7 @@ inherit cmake
 
 NVIDIA_PV="455.38"
 
-DESCRIPTION="NVIDIA GPUs htop like monitoring tool"
+DESCRIPTION="(h)top like task monitor for AMD, NVIDIA, … GPUs"
 HOMEPAGE="https://github.com/Syllo/nvtop"
 
 if [[ "${PV}" == "9999" ]] ; then
