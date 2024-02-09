@@ -40,7 +40,7 @@ src_prepare() {
 }
 
 src_compile() {
-	emake -C docs
+	use man && emake -C docs
 	distutils-r1_src_compile
 }
 
