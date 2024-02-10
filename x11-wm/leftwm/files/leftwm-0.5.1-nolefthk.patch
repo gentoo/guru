@@ -1,3 +1,6 @@
+Fix builds with USE=-lefthk
+https://github.com/leftwm/leftwm/commit/e2e35412f113358d9be35e57683d51f5b7008535
+
 --- a/leftwm/src/config/keybind.rs
 +++ b/leftwm/src/config/keybind.rs
 @@ -6,7 +6,6 @@ use crate::Config;
