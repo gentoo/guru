@@ -1,0 +1,81 @@
+Remove vulnerable time-0.1.x chrono dependency
+https://github.com/Schniz/fnm/pull/884
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -275,7 +275,6 @@ dependencies = [
+  "js-sys",
+  "num-traits",
+  "serde",
+- "time 0.1.45",
+  "wasm-bindgen",
+  "winapi",
+ ]
+@@ -737,7 +736,7 @@ checksum = "be4136b2a15dd319360be1c07d99
+ dependencies = [
+  "cfg-if",
+  "libc",
+- "wasi 0.11.0+wasi-snapshot-preview1",
++ "wasi",
+ ]
+ 
+ [[package]]
+@@ -1109,7 +1108,7 @@ source = "registry+https://github.com/ru
+ checksum = "927a765cd3fc26206e66b296465fa9d3e5ab003e651c1b3c060e7956d96b19d2"
+ dependencies = [
+  "libc",
+- "wasi 0.11.0+wasi-snapshot-preview1",
++ "wasi",
+  "windows-sys 0.48.0",
+ ]
+ 
+@@ -1755,17 +1754,6 @@ dependencies = [
+ 
+ [[package]]
+ name = "time"
+-version = "0.1.45"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "1b797afad3f312d1c66a56d11d0316f916356d11bd158fbc6ca6389ff6bf805a"
+-dependencies = [
+- "libc",
+- "wasi 0.10.0+wasi-snapshot-preview1",
+- "winapi",
+-]
+-
+-[[package]]
+-name = "time"
+ version = "0.3.22"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "ea9e1b3cf1243ae005d9e74085d4d542f3125458f3a81af210d901dcd7411efd"
+@@ -1970,12 +1958,6 @@ dependencies = [
+ 
+ [[package]]
+ name = "wasi"
+-version = "0.10.0+wasi-snapshot-preview1"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "1a143597ca7c7793eff794def352d41792a93c481eb1042423ff7ff72ba2c31f"
+-
+-[[package]]
+-name = "wasi"
+ version = "0.11.0+wasi-snapshot-preview1"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "9c8d87e72b64a3b4db28d11ce29237c246188f4f51057d65a7eab63b7987e423"
+@@ -2287,7 +2269,7 @@ dependencies = [
+  "hmac",
+  "pbkdf2",
+  "sha1",
+- "time 0.3.22",
++ "time",
+  "zstd",
+ ]
+ 
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -12,7 +12,7 @@ description = "Fast and simple Node.js v
+ serde = { version = "1.0.166", features = ["derive"] }
+ clap = { version = "4.3.10", features = ["derive", "env"] }
+ serde_json = "1.0.100"
+-chrono = { version = "0.4.26", features = ["serde"] }
++chrono = { version = "0.4.24", default-features = false, features = ["clock", "serde", "std", "wasmbind"] }
+ tar = "0.4.38"
+ xz2 = "0.1.7"
+ node-semver = "2.1.0"
