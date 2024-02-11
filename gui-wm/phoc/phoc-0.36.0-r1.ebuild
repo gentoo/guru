@@ -14,29 +14,44 @@ SRC_URI="https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz
 LICENSE="|| ( GPL-3+ MIT ) GPL-3+ LGPL-2.1+ MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="+X gtk-doc man test"
-REQUIRED_USE="test? ( X )"
+IUSE="gtk-doc man test"
 RESTRICT="!test? ( test )"
 
-DEPEND="
+WLROOTS_DEPEND="
+	>=dev-libs/libinput-1.14.0:=
+	>=dev-libs/wayland-1.22.0
+	media-libs/libdisplay-info
+	media-libs/libglvnd
+	media-libs/mesa[egl(+),gles2]
+	sys-apps/hwdata
+	sys-auth/seatd:=
+	x11-base/xwayland
+	x11-libs/cairo
+	>=x11-libs/libdrm-2.4.114
+	x11-libs/libxcb:=
+	x11-libs/libxkbcommon
+	>=x11-libs/pixman-0.42.0
+	x11-libs/xcb-util-errors
+	x11-libs/xcb-util-renderutil
+	x11-libs/xcb-util-wm
+	virtual/libudev
+	amd64? ( >=dev-libs/libliftoff-0.4 )
+"
+COMMON_DEPEND="${WLROOTS_DEPEND}
 	>=dev-libs/glib-2.74:2
 	dev-libs/json-glib
 	dev-libs/libinput:=
 	dev-libs/wayland
 	>=gnome-base/gnome-desktop-3.26:3
 	gnome-base/gsettings-desktop-schemas
-	>=gui-libs/wlroots-0.17.1:=[X?]
-	<gui-libs/wlroots-0.18.0
-	media-libs/libglvnd
-	x11-libs/libdrm
 	x11-libs/pixman
-	x11-libs/libxkbcommon[X?,wayland]
-	test? (
-		gui-libs/wlroots[x11-backend]
-		x11-wm/mutter
-	)
+	x11-libs/libxcb:=
+	x11-libs/libxkbcommon
 "
-RDEPEND="${DEPEND}"
+DEPEND="${COMMON_DEPEND}
+	test? ( x11-wm/mutter )
+"
+RDEPEND="${COMMON_DEPEND}"
 BDEPEND="
 	dev-libs/glib:2
 	dev-libs/wayland-protocols
@@ -49,13 +64,21 @@ BDEPEND="
 
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/phosh.asc"
 
+src_prepare() {
+	default
+
+	cd subprojects/wlroots || die
+	eapply "${S}"/subprojects/packagefiles/wlroots
+}
+
 src_configure() {
 	local emesonargs=(
-		$(meson_feature X xwayland)
 		$(meson_use gtk-doc gtk_doc)
 		$(meson_use man)
 		$(meson_use test tests)
-		-Dembed-wlroots=disabled
+		-Ddefault_library=static
+		-Dembed-wlroots=enabled
+		-Dxwayland=enabled
 	)
 	meson_src_configure
 }
@@ -68,7 +91,7 @@ src_test() {
 }
 
 src_install() {
-	meson_src_install
+	meson_src_install --skip-subprojects wlroots
 
 	if use gtk-doc; then
 		mkdir -p "${ED}"/usr/share/gtk-doc/html/ || die
