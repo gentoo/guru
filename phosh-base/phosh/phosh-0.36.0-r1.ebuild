@@ -14,8 +14,9 @@ RDEPEND="
 	app-alternatives/phosh-keyboard
 	app-misc/geoclue:2.0
 	dev-libs/feedbackd[daemon]
-	>=gui-wm/phoc-${PV}
+	>=gui-wm/phoc-${PV}-r1
 	>=phosh-base/phosh-mobile-settings-${PV}
 	>=phosh-base/phosh-shell-${PV}
 	>=phosh-base/phosh-tour-${PV}
+	x11-themes/gnome-backgrounds
 "
