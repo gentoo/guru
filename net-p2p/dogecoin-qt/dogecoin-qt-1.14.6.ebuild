@@ -30,7 +30,7 @@ DEPEND="
 	dev-qt/qtnetwork
 	dev-qt/qtprintsupport
 	dev-qt/linguist-tools:=
-	cpu_flags_x86_avx2? ( app-crypt/intel-ipsec-mb )
+	cpu_flags_x86_avx2? ( =app-crypt/intel-ipsec-mb-1.3 )
 	wallet? ( media-gfx/qrencode )
 	zmq? ( net-libs/cppzmq )
 "
