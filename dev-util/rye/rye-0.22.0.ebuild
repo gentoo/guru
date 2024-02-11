@@ -14,7 +14,7 @@ CRATES="
 	ahash@0.8.7
 	aho-corasick@1.1.2
 	allocator-api2@0.2.16
-	anstyle@1.0.4
+	anstyle@1.0.5
 	anyhow@1.0.79
 	arc-swap@1.6.0
 	autocfg@1.1.0
@@ -40,7 +40,7 @@ CRATES="
 	cipher@0.4.4
 	clap@4.4.18
 	clap_builder@4.4.18
-	clap_complete@4.4.9
+	clap_complete@4.4.10
 	clap_derive@4.4.7
 	clap_lex@0.6.0
 	configparser@3.0.4
@@ -54,7 +54,7 @@ CRATES="
 	crossbeam-utils@0.8.19
 	crypto-common@0.1.6
 	ctrlc@3.4.2
-	curl-sys@0.4.70+curl-8.5.0
+	curl-sys@0.4.71+curl-8.6.0
 	curl@0.4.44
 	curve25519-dalek@3.2.0
 	darling@0.14.4
@@ -108,7 +108,7 @@ CRATES="
 	i18n-embed@0.13.9
 	ident_case@1.0.1
 	idna@0.5.0
-	indexmap@2.2.0
+	indexmap@2.2.2
 	indicatif@0.17.7
 	infer@0.12.0
 	inout@0.1.3
@@ -120,7 +120,7 @@ CRATES="
 	jobserver@0.1.27
 	junction@1.0.0
 	lazy_static@1.4.0
-	libc@0.2.152
+	libc@0.2.153
 	libz-sys@1.1.15
 	license@3.2.0
 	linux-raw-sys@0.4.13
@@ -130,23 +130,24 @@ CRATES="
 	memchr@2.7.1
 	minijinja@1.0.12
 	minimal-lexical@0.2.1
-	miniz_oxide@0.7.1
+	miniz_oxide@0.7.2
 	nix@0.27.1
 	nom@7.1.3
 	ntapi@0.4.1
+	num-conv@0.1.0
 	number_prefix@0.4.0
 	object@0.32.2
 	once_cell@1.19.0
 	opaque-debug@0.3.0
 	openssl-probe@0.1.5
-	openssl-src@300.2.1+3.2.0
+	openssl-src@300.2.2+3.2.1
 	openssl-sys@0.9.99
 	parking_lot@0.12.1
 	parking_lot_core@0.9.9
 	pathdiff@0.2.1
 	pbkdf2@0.11.0
-	pep440_rs@0.3.12
-	pep508_rs@0.2.3
+	pep440_rs@0.4.0
+	pep508_rs@0.2.4
 	percent-encoding@2.3.1
 	pin-project-internal@1.1.4
 	pin-project-lite@0.2.13
@@ -185,7 +186,7 @@ CRATES="
 	rust-embed@6.8.1
 	rustc-demangle@0.1.23
 	rustc-hash@1.1.0
-	rustix@0.38.30
+	rustix@0.38.31
 	rustls-webpki@0.101.7
 	rustls@0.21.10
 	ryu@1.0.16
@@ -201,7 +202,7 @@ CRATES="
 	self_cell@1.0.3
 	serde@1.0.196
 	serde_derive@1.0.196
-	serde_json@1.0.112
+	serde_json@1.0.113
 	serde_spanned@0.6.5
 	sha2@0.10.8
 	shell-words@1.1.0
@@ -211,6 +212,7 @@ CRATES="
 	socket2@0.4.10
 	spin@0.9.8
 	stacker@0.1.15
+	static_vcruntime@2.0.0
 	strsim@0.10.0
 	subtle@2.5.0
 	syn@1.0.109
@@ -223,15 +225,15 @@ CRATES="
 	thiserror-impl@1.0.56
 	thiserror@1.0.56
 	time-core@0.1.2
-	time-macros@0.2.16
-	time@0.3.31
+	time-macros@0.2.17
+	time@0.3.34
 	tinystr@0.7.5
 	tinyvec@1.6.0
 	tinyvec_macros@0.1.1
 	toml@0.5.11
-	toml@0.8.8
+	toml@0.8.9
 	toml_datetime@0.6.5
-	toml_edit@0.21.0
+	toml_edit@0.21.1
 	tracing-attributes@0.1.27
 	tracing-core@0.1.32
 	tracing@0.1.40
@@ -260,7 +262,7 @@ CRATES="
 	wasm-bindgen-macro@0.2.90
 	wasm-bindgen-shared@0.2.90
 	wasm-bindgen@0.2.90
-	webpki-roots@0.25.3
+	webpki-roots@0.25.4
 	whattheshell@1.1.0
 	which@6.0.0
 	winapi-i686-pc-windows-gnu@0.4.0
@@ -285,7 +287,7 @@ CRATES="
 	windows_x86_64_gnullvm@0.52.0
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.0
-	winnow@0.5.35
+	winnow@0.5.37
 	winreg@0.52.0
 	x25519-dalek@1.1.1
 	xattr@1.3.1
