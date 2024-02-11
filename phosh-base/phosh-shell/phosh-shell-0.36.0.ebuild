@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~arm64"
 LICENSE="CC0-1.0 CC-BY-SA-4.0 GPL-2+ GPL-3+ LGPL-2+ LGPL-2.1+ MIT"
 SLOT="0"
 IUSE="elogind gtk-doc +lockscreen-plugins man test test-full"
-REQUIRED_USE="test-full? ( lockscreen-plugins )"
+REQUIRED_USE="test? ( lockscreen-plugins )"
 
 COMMON_DEPEND="
 	>=app-crypt/gcr-3.7.5:0
@@ -73,7 +73,7 @@ BDEPEND="
 	sys-devel/gettext
 	gtk-doc? ( dev-util/gi-docgen )
 	man? ( dev-python/docutils )
-	test-full? ( gui-wm/phoc )
+	test-full? ( >=gui-wm/phoc-0.36.0-r1 )
 	verify-sig? ( sec-keys/openpgp-keys-phosh )
 "
 

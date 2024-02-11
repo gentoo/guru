@@ -3,10 +3,6 @@
 
 # New entries go on top.
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-02-04)
-# "/phosh/drag-surface" fails in our test environment.
-phosh-base/phosh-shell test-full
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-11-21)
 # Build failure.
 # https://gitlab.com/famedly/conduit/-/issues/385
