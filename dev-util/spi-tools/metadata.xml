@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>marco@sirabella.org</email>
+		<name>Marco Sirabella</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">cpb-/spi-tools</remote-id>
+	</upstream>
+</pkgmetadata>
