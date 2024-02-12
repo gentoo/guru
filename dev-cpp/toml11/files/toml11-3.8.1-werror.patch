@@ -1,0 +1,13 @@
+Unset -Werror from the builds
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -156,9 +156,6 @@ endif()
+ if(COMPILER_SUPPORTS_WPEDANTIC)
+     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wpedantic")
+ endif()
+-if(COMPILER_SUPPORTS_WERROR)
+-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
+-endif()
+ if(COMPILER_SUPPORTS_WSHADOW)
+     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wshadow")
+ endif()
