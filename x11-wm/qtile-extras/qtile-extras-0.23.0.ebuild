@@ -9,7 +9,7 @@ PYTHON_COMPAT=(python3_{9..12})
 inherit distutils-r1
 
 SRC_URI="https://github.com/elParaguayo/qtile-extras/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 DESCRIPTION="elParaguayo's Qtile Extras"
 HOMEPAGE="https://github.com/elParaguayo/qtile-extras"
