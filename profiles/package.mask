@@ -14,6 +14,12 @@
 
 # New entries go on top.
 
+# Eric Joldasov <bratishkaerik@getgoogleoff.me> (2024-02-14)
+# Based on old yggdrasil-go 0.4.6 version, no new releases
+# since 2022, archived by upstream since 2023.
+# Removal in +30 days.
+net-p2p/popura
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-01-15)
 # Depend on treecleaned sys-cluster/slurm (bug #631552, #920104)
 # Masked for removal in 30 days.
