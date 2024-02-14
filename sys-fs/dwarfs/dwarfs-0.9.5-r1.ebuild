@@ -14,11 +14,12 @@ SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/${P}.tar.xz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+jemalloc test man" #Tests is broken at this moment 
+IUSE="+jemalloc test man" #Tests is broken at this moment
 # See https://github.com/mhx/dwarfs/issues/194
 S="${WORKDIR}/dwarfs-${PV}"
 
 RDEPEND="
+	app-arch/brotli
 	app-arch/libarchive
 	app-arch/lz4
 	app-arch/snappy
@@ -35,15 +36,16 @@ RDEPEND="
 	dev-libs/libfmt
 	dev-libs/utfcpp
 	dev-libs/xxhash
-	sys-fs/fuse:3
 	dev-libs/fsst
+	media-libs/flac
+	sys-fs/fuse:3
 	sys-libs/binutils-libs
-	sys-libs/libunwind
 	sys-libs/zlib
 	jemalloc? ( >=dev-libs/jemalloc-5.3.0-r1 )
 "
 
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	sys-libs/libunwind"
 BDEPEND="
 	${PYTHON_DEPS}
 	dev-util/patchelf
