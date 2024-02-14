@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module linux-info systemd git-r3 fcaps
+inherit fcaps git-r3 go-module linux-info systemd
 
 EGIT_REPO_URI="https://github.com/yggdrasil-network/yggdrasil-go"
 
@@ -12,28 +12,20 @@ HOMEPAGE="https://yggdrasil-network.github.io/"
 
 LICENSE="LGPL-3 MIT Apache-2.0 BSD ZLIB"
 SLOT="0"
-KEYWORDS=""
 
 DEPEND="
 	acct-user/yggdrasil
 	acct-group/yggdrasil
 "
 
-BDEPEND=">=dev-lang/go-1.17.0"
+BDEPEND=">=dev-lang/go-1.20.0"
 
 FILECAPS=(
 	cap_net_admin,cap_net_bind_service "usr/bin/yggdrasil"
 )
 
-pkg_setup() {
-	linux-info_pkg_setup
-	if ! linux_config_exists; then
-		eerror "Unable to check your kernel for TUN support"
-	else
-		CONFIG_CHECK="~TUN"
-		ERROR_TUN="Your kernel lacks TUN support."
-	fi
-}
+CONFIG_CHECK="~TUN"
+ERROR_TUN="Your kernel lacks TUN support."
 
 src_unpack() {
 	git-r3_src_unpack
@@ -41,17 +33,27 @@ src_unpack() {
 }
 
 src_compile() {
-	local package="github.com/yggdrasil-network/yggdrasil-go/src/version"
+	GOFLAGS+=" -mod=vendor -trimpath"
 
-	for CMD in yggdrasil yggdrasilctl ; do
-		ego build -buildmode=pie -ldflags "-s -linkmode external -extldflags '${LDFLAGS}' -X ${package}.buildName=${PN} -X ${package}.buildVersion=v${PV}" -trimpath ./cmd/$CMD
+	local ver_config="github.com/yggdrasil-network/yggdrasil-go/src/version"
+
+	local custom_name_version_flags="-X ${ver_config}.buildName=${PN}"
+	custom_name_version_flags+=" -X ${ver_config}.buildVersion=git-${EGIT_VERSION}"
+
+	local GO_LDFLAGS
+	GO_LDFLAGS="-s -linkmode external -extldflags \"${LDFLAGS}\" ${custom_name_version_flags}"
+
+	local cmd
+	for cmd in yggdrasil{,ctl}; do
+		ego build ${GOFLAGS} "-ldflags=${GO_LDFLAGS}" ./cmd/"${cmd}"
 	done
 }
 
 src_install() {
-	dobin {yggdrasil,yggdrasilctl}
+	dobin yggdrasil{,ctl}
 	dodoc README.md
 	dodoc CHANGELOG.md
+
 	systemd_dounit "contrib/systemd/yggdrasil.service"
 	systemd_dounit "contrib/systemd/yggdrasil-default-config.service"
 	doinitd "contrib/openrc/yggdrasil"
