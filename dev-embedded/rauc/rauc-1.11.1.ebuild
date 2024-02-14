@@ -57,6 +57,7 @@ src_configure() {
 		$(meson_feature gpt)
 		$(meson_feature json)
 		$(meson_use network)
+		$(meson_use network streaming)
 		$(meson_use service)
 	)
 	meson_src_configure
