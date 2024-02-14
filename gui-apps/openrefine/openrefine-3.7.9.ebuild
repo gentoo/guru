@@ -15,9 +15,9 @@ LICENSE="BSD"
 SLOT="0"
 
 DEPEND="
+virtual/jre
 dev-java/maven-bin
 net-libs/nodejs
-virtual/jre
 "
 
 src_install() {
