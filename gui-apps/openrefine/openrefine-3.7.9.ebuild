@@ -28,7 +28,6 @@ src_install() {
 	chmod 775 tools build || die
 	keepdir /opt/openrefine/tools
 	keepdir /opt/openrefine/build
-	# dosym "${apphome}/refine" /usr/bin/refine
 	cp -r . "${ED}/${apphome}" || die
 
 	make_wrapper refine "
