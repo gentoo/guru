@@ -13,6 +13,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/pedro00dk/nvidia-exec.git"
 else
 	SRC_URI="https://github.com/pedro00dk/nvidia-exec/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="GPU switching without login out for Nvidia Optimus laptops under Linux"
@@ -27,8 +28,6 @@ RDEPEND="
 		sys-process/lsof
 		x11-drivers/nvidia-drivers
 "
-
-KEYWORDS="~amd64 ~x86"
 
 src_install() {
 	dobin "${WORKDIR}/${P}/nvx"
