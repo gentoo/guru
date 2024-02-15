@@ -26,8 +26,8 @@ src_install() {
 	mkdir -p  "${ED}/${apphome}" || die
 	mkdir     tools build || die
 	chmod 775 tools build || die
-	keepdir /opt/openrefine/tools
-	keepdir /opt/openrefine/build
+	keepdir ${apphome}/tools
+	keepdir ${apphome}/build
 	cp -r . "${ED}/${apphome}" || die
 
 	make_wrapper refine "
