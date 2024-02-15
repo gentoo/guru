@@ -46,4 +46,5 @@ src_install() {
 
 pkg_postinst() {
 	elog "In order to use ${PN} run refine in a terminal, from Dmenu also works"
+	elog "First run better in terminal - for long installing"
 }
