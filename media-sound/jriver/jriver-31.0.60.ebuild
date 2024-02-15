@@ -17,6 +17,7 @@ LICENSE="all-rights-reserved"
 KEYWORDS="~amd64"
 
 RESTRICT="strip"
+QA_PREBUILT="*"
 
 RDEPEND="
 	app-arch/brotli
