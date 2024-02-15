@@ -31,10 +31,10 @@ src_install() {
 	cp -r . "${ED}/${apphome}" || die
 
 	make_wrapper refine "
-		env REFINE_LIB_DIR=/opt/openrefine/server/target/lib \
-		    REFINE_TOOLS_DIR=/opt/openrefine/tools \
-		    REFINE_CLASSES_DIR=/opt/openrefine/server/classes \
-		    REFINE_WEBAPP=/opt/openrefine/main/webapp /opt/openrefine/refine"
+		env REFINE_LIB_DIR=${apphome}/server/target/lib \
+		    REFINE_TOOLS_DIR=${apphome}/tools \
+		    REFINE_CLASSES_DIR=${apphome}/server/classes \
+		    REFINE_WEBAPP=${apphome}/main/webapp /opt/openrefine/refine"
 }
 
 pkg_postinst() {
