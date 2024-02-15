@@ -23,11 +23,9 @@ net-libs/nodejs
 src_install() {
 	local apphome="/opt/${PN}"
 
-	mkdir -p  "${ED}/${apphome}" || die
-	mkdir     tools build || die
+	mkdir -p  "${ED}/${apphome}" tools build || die
 	chmod 775 tools build || die
-	keepdir ${apphome}/tools
-	keepdir ${apphome}/build
+	keepdir ${apphome}/{tools,build}
 	cp -r . "${ED}/${apphome}" || die
 
 	make_wrapper refine "
