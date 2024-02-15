@@ -147,7 +147,7 @@ CRATES="
 	pathdiff@0.2.1
 	pbkdf2@0.11.0
 	pep440_rs@0.4.0
-	pep508_rs@0.2.4
+	pep508_rs@0.3.0
 	percent-encoding@2.3.1
 	pin-project-internal@1.1.4
 	pin-project-lite@0.2.13
@@ -305,7 +305,7 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[dialoguer]='https://github.com/console-rs/dialoguer;47a9d4df729db7ffc1492bd0845be786e6f20153;dialoguer-%commit%'
-	[monotrail-utils]='https://github.com/konstin/poc-monotrail;136807e1fe87e9319e0223f76b602ba5db881322;poc-monotrail-%commit%/crates/monotrail-utils'
+	[monotrail-utils]='https://github.com/konstin/poc-monotrail;e0251f68c254f834180198b8677fcf85d4b6a844;poc-monotrail-%commit%/crates/monotrail-utils'
 )
 
 inherit cargo
