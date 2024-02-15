@@ -16,7 +16,7 @@ RESTRICT="strip"
 
 S="${WORKDIR}"
 
-QA_FLAGS_IGNORED="/usr/bin/${PN}-bin"
+QA_PREBUILT="/usr/bin/${PN}-bin"
 
 src_install() {
 	newbin "${DISTDIR}/pnpm-linux-x64" ${PN}
