@@ -33,7 +33,11 @@ DEPEND="
 	media-libs/gst-plugins-base
 	media-libs/taglib
 	media-plugins/gst-plugins-meta
+	media-gfx/imagemagick
 "
+# imagemagick to generate icons, see
+# https://github.com/nulloy/nulloy/commit/9b89a9e60d68c59fa541807db68e5a1daf4110cc#r138660390
+
 RDEPEND="${DEPEND}"
 
 src_prepare() {
