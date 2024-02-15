@@ -10,7 +10,7 @@ HOMEPAGE="https://nulloy.com"
 
 NAME="nulloy-theme-night-v1.0"
 SRC_URI="https://github.com/nulloy/nulloy/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-	skins? ( https://gitlab.com/vitaly-zdanevich/nulloy-theme-night/-/archive/v1.0/${NAME}.tar.gz )"
+	skins? ( https://gitlab.com/vitaly-zdanevich/nulloy-theme-night/-/archive/v1.0/${NAME}.tar.bz2 )"
 
 LICENSE="GPL-3"
 SLOT="0"
