@@ -23,7 +23,7 @@ SLOT="0"
 
 RDEPEND="
 	|| ( gui-wm/sway gui-wm/cage )
-	systemd?( sys-apps/systemd[sysv-utils] )
+	systemd? ( sys-apps/systemd[sysv-utils] )
 	openrc? ( sys-apps/openrc[sysv-utils] )
 	gtk4? ( gui-libs/gtk ) || ( x11-libs/gtk+ )
 	gui-libs/greetd
