@@ -20,7 +20,6 @@ DEPEND="
 	acct-group/1password
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 S=${WORKDIR}
 
