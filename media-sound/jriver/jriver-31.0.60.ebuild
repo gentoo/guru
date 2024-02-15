@@ -16,6 +16,8 @@ SLOT="0"
 LICENSE="all-rights-reserved"
 KEYWORDS="~amd64"
 
+RESTRICT="strip"
+
 RDEPEND="
 	app-arch/brotli
 "
