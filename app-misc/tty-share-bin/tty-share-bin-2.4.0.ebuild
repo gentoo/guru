@@ -14,7 +14,7 @@ LICENSE="MIT"
 SLOT="0"
 RESTRICT="strip"
 
-QA_FLAGS_IGNORED="usr/bin/${PN}"
+QA_PREBUILT="usr/bin/${PN}"
 
 src_install() {
 	newbin "${DISTDIR}/tty-share_linux-amd64" ${PN}
