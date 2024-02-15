@@ -1,17 +1,17 @@
 certificate version 0.1
-pusher Vitaly Zdanevich <zdanevich.vitaly@ya.ru> 1707957372 +0400
+pusher Vitaly Zdanevich <zdanevich.vitaly@ya.ru> 1707959680 +0400
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1707957372-b3772b271b29fba4a5f58ee5aa7b285fdb211b70
+nonce 1707959680-a6d502ba35993d199468d1773ded7921a0465243
 
-23960af27ad9f4c10d886d38e85eeb686d4bf1f7 604fdb633213dfa74a810743b3a1a43e7208d0ed refs/heads/dev
+604fdb633213dfa74a810743b3a1a43e7208d0ed d651bc9f05f21227055d153d73fe1ac0fa8a2a2e refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQFLBAABCAA1FiEEeh5Dwh4/uVzsjUwn6RzFZyPuEB4FAmXNXHwXHHpkYW5ldmlj
-aC52aXRhbHlAeWEucnUACgkQ6RzFZyPuEB4ELwf/e59H7uAsVQXgZJIgplWn/1Vz
-24ANM37KXTohvr2lI/5uHxazzz49nBQq81EoRiH0t7Xn6qv468AHwO+cmtPlj8TT
-6c2mPJiItIIOhESL8A3RtNDfsQZAff3K+gKF6C41LJrT3BiZWvfEHausSXOgJlo1
-w07Mn24TO4poAEl9/Ik30HtABePtZqrlA/fWUIrYqz+sG1iiU2araPZjT+aywVIw
-wmZMeGXT0WbKQrcWkDKdOa1GR+epEwGkdFMgaxK00y+3sHntRocXIdzVWDG7wBmn
-nqgVIkEXLtRs5UUZr6AJg4e1jqoviDx8JtuKqCvu7B779Y9sEyQUxRtqLWJ1eg==
-=mNgI
+iQFLBAABCAA1FiEEeh5Dwh4/uVzsjUwn6RzFZyPuEB4FAmXNZYAXHHpkYW5ldmlj
+aC52aXRhbHlAeWEucnUACgkQ6RzFZyPuEB4B+Qf7B0UHidfWRe6VKdRNZEb0AkUu
+kQ5EwIPddEKLgwDXOah4TX1x4k+j71YTLuFTbMLLfm03m+aL61ln3yPmumhIIb0Z
+3dE/tIPufcc3L26/hChtF/Gmtz8k5lhg3tGRdXMJxCH/VeF/SZheX5muthpcqy1G
+XiNJzIAoCL8wJjHtRS7W/gWtO+6AEizZJOYjyLmOrNhm+Bo5QnIfQiRkw+wgn0wN
+ZklvJ5pyPF9/6c2ARcpKwXVsDza7CywxQQkeOy3pBSYRYifPIyEjh9Nwwr/E3hsS
+MgLN6j9PPp0wUUmJ3tzMInRrOLFG6h1gvjLR1EFfy/3k1dYPqagfJn0HOyiFoQ==
+=Xp9b
 -----END PGP SIGNATURE-----
