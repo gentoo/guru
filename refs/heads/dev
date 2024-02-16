@@ -1,13 +1,17 @@
 certificate version 0.1
-pusher 385E3E52 1708096423 +0800
+pusher 02CCA92C4FA05B80 1708110342 +0100
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1708096423-6981a8cacb276e7bdb7869537c309bc23fec4fcf
+nonce 1708110342-fa9c6fe64fabf65909e0e7f94cf28158c1d606d3
 
-fba6270dee84249da3d0ed0e7da488d64363464f c652d3cdf2f3cdb409bf7df7ae4fcb2827121d02 refs/heads/dev
+c652d3cdf2f3cdb409bf7df7ae4fcb2827121d02 2802db2c0e7a102f8a88c05f211f2a8135a737bd refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQR+/TuwzxUTAJc40CytTjSoOF4+UgUCZc97pwAKCRCtTjSoOF4+
-UkXCAP0VrVX/EadOHQg6PmK02ZApPwsD6R1X1ymYtlV36HajggD9EhxTtB5ts5sQ
-YM//cSeoRVpL9rrFpuZMbRSp/R2hEwU=
-=W6nl
+iQEzBAABCAAdFiEEO8J+J1jqinW9x3+NH6VPhusYnzwFAmXPsgYACgkQH6VPhusY
+nzzD1wf/TsdtWS76dYiHEiCsq0e5BKgUUesx0MwYdxImMjqvaFjKxRii3WhuC88c
+RRoclcMZ58T4MDRyzsOK2x9kSTayW7yABl4dox0RKatwsmbageKvieGr98+nEoye
+sXwh4r9PgjDXmutpr207bCXcneboec/VvBLIS1lthVpa7hPzhK8gc70thQf9kkSg
+RG0umpGXgie743mvOv362HiK+xgAG6kkGsekW9woxPp6Di0aDNt0TBxtCbatNOWs
+PVBtSrcDh4EfFlToZlkWPCbGT3htNr/0VnZ8XdzmFjP/umtR/7XJyrUxxdT8YJN/
+g3QnAlLh4A0KIFWDlZ4MrVg0OuF+bg==
+=mcoI
 -----END PGP SIGNATURE-----
