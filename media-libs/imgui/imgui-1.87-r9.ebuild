@@ -56,13 +56,20 @@ REQUIRED_USE="
 
 PATCHES=( "${FILESDIR}/${P}-fpermissive.patch" )
 
-multilib_src_prepare() {
-	pushd ../ || die
+src_unpack() {
+	# unpack imgui and cimgui to ${WORKDIR}
+	unpack "${P}.gh.tar.gz"
+    unpack "c${P}.gh.tar.gz"
+
+	# move imgui to the proper location before the patch (Bug #924126)
+	pushd ${WORKDIR} || die
 	rm -rf "${S}/imgui" || die
 	mv "${P}" "${S}/imgui" || die
-	pushd "${S}/imgui" || die
+}
 
+multilib_src_prepare() {
 	# imgui
+	pushd "${S}/imgui" || die
 	rm -r examples/libs || die
 	rm -r misc/*/*.ttf || die
 	rm -r misc/single_file || die
