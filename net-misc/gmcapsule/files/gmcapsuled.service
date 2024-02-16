@@ -1,0 +1,16 @@
+[Unit]
+Description=GmCapsule: extensible Gemini/Titan server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/gmcapsuled -c /etc/gmcapsule/config.ini
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+Environment="PYTHONUNBUFFERED=1"
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=gmcapsule
+
+[Install]
+WantedBy=default.target
