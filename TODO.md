@@ -104,10 +104,11 @@ If you find an interesting piece of software here, consider to package it, also 
 [TauonMusicBox](https://github.com/Taiko2k/TauonMusicBox) | setuptools | audio | | | ✖
 [mmtracking](https://github.com/open-mmlab/mmtracking) | setuptools | science | Alessandro-Barbieri | ✖
 [libensemble](https://github.com/Libensemble/libensemble) | setuptools | cluster | Alessandro-Barbieri | ✖ | ✔
-[ActivityWatch](https://github.com/ActivityWatch/activitywatch) | setuptools | utils | David Roman | ✔ | ✖ 
+[ActivityWatch](https://github.com/ActivityWatch/activitywatch) | setuptools | utils | David Roman | ✔ | ✖
 [greenclip](https://github.com/erebe/greenclip) | cabal | desktop | NRK | ✔ | ✖
 [kaitai](https://github.com/kaitai-io/kaitai_struct) | sbt | util | Alessandro-Barbieri | ✔ | ✖
 [casadi](https://web.casadi.org/) | cmake swig | science | Alessandro-Barbieri | ✖ | ✔
 [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet) | setuptools yarn | jupyter | Alessandro-Barbieri | ✔ | ✖
 [gitlab](https://gitlab.com/gitlab-org/gitlab-foss) | yarn gem | vcs | Alessandro-Barbieri | ✔ | ✖
 [HOL4](http://hol-theorem-prover.org/) | ? | math | Alessandro-Barbieri | ✔ | ✖
+[croissant](https://github.com/giann/croissant) | ? | dev-lua | NRK | ✔ | ?
