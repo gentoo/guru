@@ -294,7 +294,7 @@ src_install() {
 	elog "-----------------------------------------------------------\n"
 	elog "[terminal]\n"
 	elog "vt = 7\n"
- 	elog ""
+	elog ""
 	elog "[default_session]\n"
 	elog "command = "cage -s -- regreet"\n"
 	elog "user = "greetd"\n"
