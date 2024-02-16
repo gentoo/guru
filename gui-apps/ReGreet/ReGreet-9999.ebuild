@@ -69,31 +69,30 @@ src_install() {
 	if use systemd; then
 		insinto /etc/tmpfiles.d/ && newins "${WORKDIR}/${P}/systemd-tmpfiles.conf" regreet.conf
 	elif use openrc; then
-		dodir /var/log/regreet
-		fowners greeter:greeter /var/log/regreet
+		keepdir /var/log/regreet
+		fowners greetd:greetd /var/log/regreet
 		fperms 0755 /var/log/regreet
 
-		dodir /var/cache/regreet
-		fowners greeter:greeter /var/cache/regreet
+		keepdir /var/cache/regreet
+		fowners greetd:greetd /var/cache/regreet
 		fperms 0755 /var/cache/regreet
 	fi
 	# Install ReGreet template config file as a doc
-	docinto /usr/share/doc/regreet
 	dodoc "${WORKDIR}/${P}/regreet.sample.toml"
 
-	elog "ReGreet sample config file available on: /usr/share/regreet/regreet.sample.toml\n"
-	elog "To use copy it to /etc/greetd/regreet.toml\n"
-	elog "To configure greetd config.toml to use ReGreet use the ReGreet Readme\n"
-	elog "Or the greetd gentoo wiki page\n"
+	elog "ReGreet sample config file available on: /usr/share/doc/${P}/regreet.sample.toml.bz2"
+	elog "To use decompress it to /etc/greetd/regreet.toml"
+	elog "To configure greetd config.toml to use ReGreet use the ReGreet Readme"
+	elog "Or the greetd gentoo wiki page"
 	elog ""
-	elog "/etc/greetd/config.toml - Exemple ReGreet config using cage\n"
-	elog "-----------------------------------------------------------\n"
-	elog "[terminal]\n"
-	elog "vt = 7\n"
+	elog "/etc/greetd/config.toml - Exemple ReGreet config using cage"
+	elog "-----------------------------------------------------------"
+	elog "[terminal]"
+	elog "vt = 7"
 	elog ""
-	elog "[default_session]\n"
-	elog "command = "cage -s -- regreet"\n"
-	elog "user = "greetd"\n"
+	elog "[default_session]"
+	elog "command = \"cage -s -- regreet\""
+	elog "user = \"greetd\""
 	elog ""
 	elog "Notes:"
 	elog "1 - On single user system you can change user to your home user"
