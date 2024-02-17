@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Julian Schmidhuber</name>
+			<email>schmidhuberj2@protonmail.com</email>
+		</maintainer>
+		<remote-id type="gitlab">schmiddi-on-mobile/flare</remote-id>
+	</upstream>
+</pkgmetadata>
