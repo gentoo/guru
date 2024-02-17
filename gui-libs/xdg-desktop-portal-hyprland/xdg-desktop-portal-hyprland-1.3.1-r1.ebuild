@@ -22,7 +22,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="elogind systemd"
+IUSE="elogind qt6 systemd"
 REQUIRED_USE="?? ( elogind systemd )"
 
 DEPEND="
@@ -31,11 +31,16 @@ DEPEND="
 	dev-libs/hyprlang:=
 	dev-libs/inih
 	dev-libs/wayland
-	dev-qt/qtbase
-	dev-qt/qtcore
-	dev-qt/qtgui
-	dev-qt/qtwayland:6
-	dev-qt/qtwidgets
+	qt6? (
+		dev-qt/qtbase:6[gui,widgets]
+		dev-qt/qtwayland:6
+	)
+	!qt6? (
+		dev-qt/qtcore
+		dev-qt/qtgui
+		dev-qt/qtwidgets
+		dev-qt/qtwayland:5
+	)
 	media-libs/mesa
 	sys-apps/util-linux
 	x11-libs/libdrm
@@ -83,7 +88,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	eapply "${FILESDIR}/xdg-desktop-portal-hyprland-9999_use_sys_sdbus-c++.patch"
+	eapply "${FILESDIR}/xdg-desktop-portal-hyprland-1.3.1_use_sys_sdbus-c++.patch"
 	sed -i "/add_compile_options(-O3)/d" "${S}/CMakeLists.txt" || die
 	cmake_src_prepare
 }
