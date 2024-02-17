@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit mpv-plugin
+inherit mpv-plugin optfeature
 
 RDEPEND=">=media-video/mpv-0.33.0[lua]"
 
@@ -17,17 +17,11 @@ LICENSE="GPL-3+"
 KEYWORDS="~amd64"
 
 MPV_PLUGIN_FILES=( mfpbar.lua )
-
-src_install() {
-	mpv-plugin_src_install
-	dodoc mfpbar.conf
-	dodoc README.md
-}
+DOCS=( mfpbar.conf README.md )
 
 pkg_postinst() {
 	mpv-plugin_pkg_postinst
 	einfo "mfpbar requires disabling the default osc."
 	einfo "put 'osc=no' in your 'mpv.conf' in order to do so."
-	einfo ""
-	einfo "for thumbnail support install: https://github.com/po5/thumbfast"  # TODO(NRK): package thumbfast
+	optfeature "thumbnail support" mpv-plugin/thumbfast
 }
