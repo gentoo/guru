@@ -35,11 +35,11 @@ BDEPEND="
 "
 
 src_compile() {
+	tc-getCC
 	emake CC="${CC}" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
 }
 
 src_test() {
-	tc-export CC # For run-check.sh
 	emake CC="${CC}" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" check
 }
 
