@@ -20,7 +20,6 @@ HOMEPAGE="https://github.com/nowrep/obs-vkcapture"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE=""
 
 BDEPEND="
 	dev-util/vulkan-headers
