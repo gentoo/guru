@@ -13,7 +13,7 @@ HOMEPAGE="https://github.com/po5/thumbfast"
 SRC_URI="https://github.com/po5/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
-LICENSE="MPL-2"
+LICENSE="MPL-2.0"
 KEYWORDS="~amd64"
 
 RDEPEND="app-shells/bash"
