@@ -34,9 +34,17 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}/newsraft-0.23-hardcoded-CC.patch"
+)
+
 src_compile() {
 	tc-getCC
 	emake CC="${CC}" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
+}
+
+src_test() {
+	emake CC="${CC}" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" check
 }
 
 src_install() {
