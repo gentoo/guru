@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>nrk@disroot.org</email>
+		<name>NRK</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">po5/thumbfast</remote-id>
+	</upstream>
+</pkgmetadata>
