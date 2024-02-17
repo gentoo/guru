@@ -4,7 +4,6 @@
 	<use>
 		<flag name="systemd">Use system-tmpfiles to create cache and logs folder</flag>
 		<flag name="openrc">Manually create cache and logs folder</flag>
-		<flag name="gtk4">Compile with gtk4 support</flag>
 	</use>
 	<maintainer type="person">
 		<email>gonegrier.duarte@gmail.com</email>

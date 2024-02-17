@@ -228,14 +228,14 @@ RDEPEND="
 	|| ( gui-wm/sway gui-wm/cage )
 	systemd? ( sys-apps/systemd[sysv-utils] )
 	openrc? ( sys-apps/openrc[sysv-utils] )
-	gtk4? ( gui-libs/gtk ) || ( x11-libs/gtk+ )
+	gui-libs/gtk
 	gui-libs/greetd
 "
 BDEPEND="
 	virtual/rust
 	media-libs/graphene
 "
-IUSE="systemd openrc gtk4"
+IUSE="systemd openrc"
 
 PATCHES="${FILESDIR}/ReGreet-0.1.1-cargo-lock-fix.diff"
 
