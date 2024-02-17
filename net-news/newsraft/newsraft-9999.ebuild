@@ -1,7 +1,9 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+inherit toolchain-funcs
 
 DESCRIPTION="A lightweight feed reader with ncurses user interface inspired by Newsboat."
 HOMEPAGE="https://codeberg.org/grisha/newsraft"
@@ -34,6 +36,11 @@ BDEPEND="
 
 src_compile() {
 	emake CC="${CC}" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
+}
+
+src_test() {
+	tc-export CC # For run-check.sh
+	emake CC="${CC}" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" check
 }
 
 src_install() {
