@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,7 +24,7 @@ src_install() {
 	dobin bin/warp-cli
 	dobin bin/warp-diag
 	dobin bin/warp-svc
-	doinitd ${FILESDIR}/warp-svc
+	doinitd "${FILESDIR}"/warp-svc
 	systemd_dounit opt/cloudflare-warp/warp-svc.service
 
 	if use systray; then
@@ -40,7 +40,7 @@ src_install() {
 		desktopfile=$(\
 			usex systemd \
 			usr/share/applications/com.cloudflare.WarpTaskbar.desktop \
-			${FILESDIR}/com.cloudflare.WarpTaskbar.desktop\
+			"${FILESDIR}"/com.cloudflare.WarpTaskbar.desktop\
 		)
 		domenu $desktopfile
 
