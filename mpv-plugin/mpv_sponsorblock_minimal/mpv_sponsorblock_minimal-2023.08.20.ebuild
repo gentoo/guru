@@ -16,7 +16,6 @@ S="${WORKDIR}/${PN}"
 LICENSE="GPL-3"
 KEYWORDS="~amd64"
 
-# TODO: package Lua-cURL
 RDEPEND="net-misc/curl"
 
 MPV_PLUGIN_FILES=( sponsorblock_minimal.lua )
