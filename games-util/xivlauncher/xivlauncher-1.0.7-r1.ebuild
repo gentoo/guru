@@ -292,7 +292,7 @@ src_install() {
 	cp "${FILESDIR}/openssl.cnf" "${DOTNET_PKG_OUTPUT}/"
 
 	dotnet-pkg-base_install
-	dotnet-pkg-base_append_launchervar "OPENSSL_CONF=/usr/share/${P}/XIVLauncher.Core/openssl.cnf"
+	dotnet-pkg-base_append_launchervar "OPENSSL_CONF=/usr/share/${P}/openssl.cnf"
 	dotnet-pkg-base_dolauncher "/usr/share/${P}/XIVLauncher.Core" "xivlauncher"
 
 	domenu ../misc/linux_distrib/XIVLauncher.desktop
