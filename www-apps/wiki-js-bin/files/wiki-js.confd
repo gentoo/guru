@@ -1,0 +1,11 @@
+# /etc/conf.d/wiki-js: config file for /etc/init.d/wiki-js
+
+# User and group as which to run
+#WIKIJS_USER="wikijs"
+#WIKIJS_GROUP="wikijs"
+
+# Configuration directory
+#WIKIJS_HOMEDIR="/var/www/localhost/htdocs/wiki-js-bin/"
+
+# Extra options for wikijs
+#WIKIJS_OPTS=""
