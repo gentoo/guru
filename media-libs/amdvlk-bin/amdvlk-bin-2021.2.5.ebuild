@@ -16,7 +16,7 @@ RESTRICT="test"
 REQUIRED_USE="abi_x86_64"
 
 LICENSE="MIT"
-SLOT="legacy-polaris"
+SLOT="legacy-si"
 KEYWORDS="-* ~amd64" # The hardware is not supported pure x86 anymore
 
 RDEPEND="
@@ -26,10 +26,10 @@ RDEPEND="
 	x11-libs/libXrandr[${MULTILIB_USEDEP}]
 	x11-libs/libxcb[${MULTILIB_USEDEP}]
 	x11-libs/libxshmfence[${MULTILIB_USEDEP}]
-	>=media-libs/vulkan-loader-1.3.268[${MULTILIB_USEDEP}]
+	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
 	!media-libs/amdvlk
 	!media-libs/amdvlk-bin:0
-	!media-libs/amdvlk-bin:legacy-si
+	!media-libs/amdvlk-bin:legacy-polaris
 	"
 DEPEND="
 	${RDEPEND}
@@ -41,17 +41,18 @@ QA_PREBUILT="
 "
 # TODO: Found a correct way to disable QA_SONAME for /usr/lib/amdvlk32.so
 # I don't know why the current value is not working
-QA_SONAME="usr/lib/*"
+QA_SONAME="usr/*"
 
 S=${WORKDIR}
 
 pkg_pretend(){
-	elog "This is last version which supports AMD's legacy graphics cards such as:"
-	elog "Radeon™ RX Vega Series"
-	elog "Radeon™ RX 400/500 Series"
-	elog "Radeon™ Pro WX 9100, x200 Series"
-	elog "Radeon™ Pro W5700/W5500 Series"
-	elog "Use it at your own risk"
+	ewarn "This is extremely old version which supports AMD's legacy GPUs such as:"
+	ewarn "Radeon™ R5/R7/R9 200/300 Series"
+	ewarn "Radeon™ M200/M300/M400 Series"
+	ewarn "Radeon™ HD 8000M Series"
+	ewarn "Radeon™ HD 7000 Series"
+	ewarn "This is very (3 years+) deprecated, it only supports vulkan 1.2.179"
+	ewarn "Use it at your own risk"
 	elog "Check Gentoo Wiki for further information"
 	elog "https://wiki.gentoo.org/wiki/AMDVLK"
 	if use abi_x86_32; then

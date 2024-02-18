@@ -7,6 +7,7 @@ MULTILIB_COMPAT=( abi_x86_{32,64} )
 inherit rpm unpacker multilib-build
 
 DESCRIPTION="AMD Open Source Driver for Vulkan: official binary version"
+GENTOO_WIKI_PAGE="https://wiki.gentoo.org/wiki/AMDVLK"
 HOMEPAGE="https://github.com/GPUOpen-Drivers/AMDVLK"
 MY_PV="${PV/'.'/'.Q'}"
 FETCH_URI="https://github.com/GPUOpen-Drivers/AMDVLK/releases/download"
@@ -17,7 +18,7 @@ REQUIRED_USE="abi_x86_64"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="-* ~amd64" # The hardware is not supported x86 anymore
+KEYWORDS="-* ~amd64" # The hardware is not supported pure x86 anymore
 
 RDEPEND="
 	sys-libs/zlib[${MULTILIB_USEDEP}]
@@ -26,9 +27,10 @@ RDEPEND="
 	x11-libs/libXrandr[${MULTILIB_USEDEP}]
 	x11-libs/libxcb[${MULTILIB_USEDEP}]
 	x11-libs/libxshmfence[${MULTILIB_USEDEP}]
-	>=media-libs/vulkan-loader-1.3.224[${MULTILIB_USEDEP}]
+	>=media-libs/vulkan-loader-1.3.275[${MULTILIB_USEDEP}]
 	!media-libs/amdvlk
 	!media-libs/amdvlk-bin:legacy-polaris
+	!media-libs/amdvlk-bin:legacy-si
 	"
 DEPEND="
 	${RDEPEND}
@@ -48,21 +50,21 @@ pkg_pretend(){
 	ewarn "Mainline AMDVLK drops support for pre-NAVI graphics cards"
 	ewarn "Such as Radeon™ RX 400/500 Series"
 	ewarn "or Radeon™ RX Vega Series"
-	einfo "Check Gentoo Wiki for further information"
-	einfo "https://wiki.gentoo.org/wiki/AMDVLK"
+	elog "Check Gentoo Wiki for further information"
+	elog "${GENTOO_WIKI_PAGE}"
 	if use abi_x86_32; then
-	ewarn "32-bit amdvlk binary is untested"
-	ewarn "Work in progress"
+		ewarn "32-bit amdvlk binary is untested"
+		ewarn "Work in progress"
 	fi
 }
 
 src_unpack(){
-	elog "Unpacking abi_x86_64..."
+	einfo "Unpacking abi_x86_64..."
 	mkdir -p "${S}"/amd64
 	cd "${S}"/amd64 || die
 	rpm_unpack ${P}-amd64.rpm
 	if use abi_x86_32; then
-		elog "Unpacking abi_x86_32..."
+		einfo "Unpacking abi_x86_32..."
 		mkdir -p "${S}"/i386 || die
 		cd "${S}"/i386 || die
 		unpacker ${P}-i386.deb
@@ -72,7 +74,7 @@ src_unpack(){
 src_prepare() {
 	default
 	if use abi_x86_32; then
-		elog "Changing layout of abi_x86_32 from debian/ubuntu to Gentoo/RHEL-alike"
+		einfo "Changing layout of abi_x86_32 from debian/ubuntu to Gentoo/RHEL-alike"
 		mv "${S}/i386/usr/lib/i386-linux-gnu/amdvlk32.so" "${S}/i386/usr/lib/" || die
 		rm -d "${S}/i386/usr/lib/i386-linux-gnu/" || die
 		rm -r "${S}/i386/usr/share/" || die
@@ -83,7 +85,7 @@ src_prepare() {
 
 src_configure(){
 	if use abi_x86_32; then
-		elog "Changing configuration of abi_x86_32 from debian/ubuntu to Gentoo/RHEL-alike"
+		einfo "Changing configuration of abi_x86_32 from debian/ubuntu to Gentoo/RHEL-alike"
 		sed -i 's/\/usr\/lib\/i386-linux-gnu\/amdvlk32.so/\/usr\/lib\/amdvlk32.so/g' \
 		"${S}/i386/etc/vulkan/icd.d/amd_icd32.json" || die
 		sed -i 's/\/usr\/lib\/i386-linux-gnu\/amdvlk32.so/\/usr\/lib\/amdvlk32.so/g' \
@@ -91,7 +93,7 @@ src_configure(){
 	fi
 }
 src_compile(){
-	elog "Nothing to compile..."
+	einfo "Nothing to compile..."
 }
 
 src_install(){
@@ -110,7 +112,7 @@ pkg_postinst(){
 	ewarn "If you are using Wayland, it should be fine"
 	elog "More information about the configuration can be found here:"
 	elog "https://github.com/GPUOpen-Drivers/AMDVLK"
-	elog "See also https://wiki.gentoo.org/wiki/AMDVLK (but it might be outdated)"
+	elog "${GENTOO_WIKI_PAGE}#Configuration_and_features"
 	elog "You can use AMD_VULKAN_ICD variable to switch to the required driver."
 	elog "AMD_VULKAN_ICD=RADV application   - for using radv."
 	elog "AMD_VULKAN_ICD=AMDVLK application - for using amdvlk."
