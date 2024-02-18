@@ -16,7 +16,7 @@ RESTRICT="test"
 REQUIRED_USE="abi_x86_64"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="legacy-polaris"
 KEYWORDS="-* ~amd64" # The hardware is not supported x86 anymore
 
 RDEPEND="
@@ -28,7 +28,7 @@ RDEPEND="
 	x11-libs/libxshmfence[${MULTILIB_USEDEP}]
 	>=media-libs/vulkan-loader-1.3.224[${MULTILIB_USEDEP}]
 	!media-libs/amdvlk
-	!media-libs/amdvlk-bin:legacy-polaris
+	!media-libs/amdvlk-bin:0
 	"
 DEPEND="
 	${RDEPEND}
@@ -45,14 +45,17 @@ QA_SONAME="usr/lib/*"
 S=${WORKDIR}
 
 pkg_pretend(){
-	ewarn "Mainline AMDVLK drops support for pre-NAVI graphics cards"
-	ewarn "Such as Radeon™ RX 400/500 Series"
-	ewarn "or Radeon™ RX Vega Series"
+	einfo "This is last version which supports AMD's legacy graphics cards such as:"
+	einfo "Radeon™ RX Vega Series"
+	einfo "Radeon™ RX 400/500 Series"
+	einfo "Radeon™ Pro WX 9100, x200 Series"
+	einfo "Radeon™ Pro W5700/W5500 Series"
+	einfo "Use it at your own risk"
 	einfo "Check Gentoo Wiki for further information"
 	einfo "https://wiki.gentoo.org/wiki/AMDVLK"
 	if use abi_x86_32; then
 	ewarn "32-bit amdvlk binary is untested"
-	ewarn "Work in progress"
+	ewarn "Work in progress, use it at your risk"
 	fi
 }
 
