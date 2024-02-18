@@ -103,6 +103,7 @@ pkg_postinst(){
 	ewarn "If you are using Wayland, it should be fine"
 	elog "More information about the configuration can be found here:"
 	elog "https://github.com/GPUOpen-Drivers/AMDVLK"
+	elog "See also https://wiki.gentoo.org/wiki/AMDVLK (but it might be outdated)"
 	elog "You can use AMD_VULKAN_ICD variable to switch to the required driver."
 	elog "AMD_VULKAN_ICD=RADV application   - for using radv."
 	elog "AMD_VULKAN_ICD=AMDVLK application - for using amdvlk."
