@@ -1,4 +1,4 @@
-# Copyright 2022-2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,7 +26,7 @@ RDEPEND="
 		>=dev-python/pyclip-0.7.0[wayland,${PYTHON_USEDEP}]
 		dev-python/dbus-python[${PYTHON_USEDEP}]
 	')
-	net-firewall/nftables[modern-kernel]
+	net-firewall/nftables
 	net-dns/dnsmasq
 	>=dev-libs/libglibutil-1.0.67
 	>=dev-libs/gbinder-1.1.21
