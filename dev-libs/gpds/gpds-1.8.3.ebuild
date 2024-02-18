@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -32,8 +32,10 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DGPDS_BUILD_EXAMPLES=$(usex examples)
+		-DGPDS_BUILD_STATIC=$(usex static-libs)
+		-DGPDS_BUILD_SHARED=ON
 		-DGPDS_BUILD_TESTS=$(usex test)
+		-DGPDS_BUILD_EXAMPLES=$(usex examples)
 		-DGPDS_FEATURE_SPDLOG=$(usex spdlog)
 	)
 
@@ -42,5 +44,4 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
-	use static-libs || rm "${ED}"/usr/$(get_libdir)/*.a || die
 }
