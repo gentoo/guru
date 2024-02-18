@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 IUSE="systemd +systray"
 RDEPEND="net-firewall/nftables"
 
-QA_PREBUILT="/bin/warp-cli /bin/warp-diag /bin/warp-svc /bin/warp-taskbar"
+QA_PREBUILT="/bin/warp-cli /bin/warp-dex /bin/warp-diag /bin/warp-svc /bin/warp-taskbar"
 
 S="${WORKDIR}"
 
