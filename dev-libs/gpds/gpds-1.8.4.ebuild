@@ -38,4 +38,5 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
+	use static-libs || rm "${ED}"/usr/$(get_libdir)/*.a || die
 }
