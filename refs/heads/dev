@@ -1,15 +1,13 @@
 certificate version 0.1
-pusher Aisha Tammy <gentoo@aisha.cc> 1708228374 -0500
-pushee gentoo:repo/proj/guru.git
-nonce 1708228374-0f0ffc6b3269e9789f8d450e4b6cf433746afad6
+pusher 385E3E52 1708233179 +0800
+pushee git.gentoo.org:repo/proj/guru.git
+nonce 1708233179-cbedcbac6db66b46ae352d313a1bd290be6ee931
 
-a26b4c839e8ce5880ff3a1bce3d0e5176e07bab4 8cd9d802e71a633e7e58ab5359b1966c5c35777e refs/heads/dev
+8cd9d802e71a633e7e58ab5359b1966c5c35777e 7b19c5eec59fc80a25428745d99748e0a71facee refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iOYEABYKAI4WIQSuAZ7BB9Fi0ukZ1sPSLWk5CvPY8wUCZdF/Fl8UgAAAAAAuAChp
-c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QUUw
-MTlFQzEwN0QxNjJEMkU5MTlENkMzRDIyRDY5MzkwQUYzRDhGMxAcZ2VudG9vQGFp
-c2hhLmNjAAoJENItaTkK89jzZ8ABAMGKqne9beg1YPFFzUFI53WD8eHKVqFtvP60
-EhaBTl5gAP9WJE2t9WHzdPdGOqnPKHlFwy3H640aybg6kM+HfOkCCQ==
-=kZtj
+iHUEABYKAB0WIQR+/TuwzxUTAJc40CytTjSoOF4+UgUCZdGR2wAKCRCtTjSoOF4+
+Um5yAP9vFOwADdyFQSU+zdXTqAWSj1Z1eaysWbzCB2/EdHynPgD9EC37qiTRq+hw
+xsax/z6vxKPzv1q8JPi7xu3P2FXUVAw=
+=HJif
 -----END PGP SIGNATURE-----
