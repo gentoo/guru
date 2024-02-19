@@ -1,0 +1,90 @@
+From ea877503228e0ce17451354d47ac151cbd94dcf5 Mon Sep 17 00:00:00 2001
+From: Huang Rui <vowstar@gmail.com>
+Date: Sat, 17 Feb 2024 23:30:42 +0800
+Subject: [PATCH] fix gentoo build with qt6
+
+Signed-off-by: Huang Rui <vowstar@gmail.com>
+---
+ CMakeLists.txt                        | 1 +
+ demo/CMakeLists.txt                   | 2 ++
+ qschematic/CMakeLists.txt             | 6 +++---
+ qschematic/external.cmake             | 2 ++
+ qschematic/qschematic-config.cmake.in | 3 +++
+ 5 files changed, 11 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 926b55adb8ee..7ece589f33f0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,6 +17,7 @@ option(QSCHEMATIC_BUILD_STATIC "Whether to build a static library" ON)
+ option(QSCHEMATIC_BUILD_SHARED "Whether to build a shared library" ${OPTION_BUILD_SHARED_DEFAULT})
+ option(QSCHEMATIC_BUILD_DEMO "Whether to build the demo project" ON)
+ option(QSCHEMATIC_DEPENDENCY_GPDS_DOWNLOAD "Whether to pull the GPDS dependency via FetchContent" ON)
++option(QSCHEMATIC_BUILD_QT6 "Whether to build with QT6" ON)
+ 
+ # User settings
+ set(QSCHEMATIC_DEPENDENCY_GPDS_TARGET "gpds::gpds-static" CACHE STRING "The CMake target of the GPDS library to use")
+diff --git a/demo/CMakeLists.txt b/demo/CMakeLists.txt
+index b077470fe4d3..1f81a9c8ee8b 100644
+--- a/demo/CMakeLists.txt
++++ b/demo/CMakeLists.txt
+@@ -2,11 +2,13 @@
+ include(../qschematic/external.cmake)
+ 
+ # Qt
++if (QSCHEMATIC_BUILD_QT6)
+ find_package(
+     Qt6
+     COMPONENTS
+         PrintSupport
+ )
++endif()
+ if (NOT Qt6_FOUND)
+     find_package(
+         Qt5
+diff --git a/qschematic/external.cmake b/qschematic/external.cmake
+index 80aae6c29b94..7e57f0852ac5 100644
+--- a/qschematic/external.cmake
++++ b/qschematic/external.cmake
+@@ -35,6 +35,7 @@ endif()
+ ########################################################################################################################
+ 
+ # Try to find Qt6
++if (QSCHEMATIC_BUILD_QT6)
+ find_package(
+     Qt6
+     COMPONENTS
+@@ -42,6 +43,7 @@ find_package(
+         Gui
+         Widgets
+ )
++endif()
+ 
+ # If Qt6 was not found, fallback to Qt5
+ # Require minimum Qt 5.15 for versionless cmake targets. This can be relaxed down to Qt 5.6 (?) if needed by modifying
+diff --git a/qschematic/qschematic-config.cmake.in b/qschematic/qschematic-config.cmake.in
+index 7452408bcd09..5b2a14a4c9c2 100644
+--- a/qschematic/qschematic-config.cmake.in
++++ b/qschematic/qschematic-config.cmake.in
+@@ -6,8 +6,10 @@ include(CMakeFindDependencyMacro)
+ 
+ set(QSCHEMATIC_DEPENDENCY_GPDS_DOWNLOAD @QSCHEMATIC_DEPENDENCY_GPDS_DOWNLOAD@)
+ set(QSCHEMATIC_DEPENDENCY_GPDS_MINIMUM_VERSION @QSCHEMATIC_DEPENDENCY_GPDS_MINIMUM_VERSION@)
++set(QSCHEMATIC_BUILD_QT6 @QSCHEMATIC_BUILD_QT6@)
+ 
+ # Qt
++if (QSCHEMATIC_BUILD_QT6)
+ find_dependency(
+     Qt6
+     COMPONENTS
+@@ -15,6 +17,7 @@ find_dependency(
+         Gui
+         Widgets
+ )
++endif()
+ if (NOT Qt6_FOUND)
+     find_dependency(
+         Qt5 5.15
+-- 
+2.43.2
+
