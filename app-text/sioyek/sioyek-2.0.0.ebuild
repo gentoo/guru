@@ -7,6 +7,7 @@ inherit qmake-utils desktop xdg
 
 if [[ ${PV} != 9999 ]]; then
 	SRC_URI="https://github.com/ahrm/sioyek/archive/refs/tags/v${PV}.tar.gz -> sioyek-2.0.0.tar.gz"
+	KEYWORDS="~amd64"
 else
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ahrm/sioyek.git"
@@ -19,8 +20,8 @@ LICENSE="GPL-3"
 SLOT="0"
 
 BDEPEND="media-libs/harfbuzz
-	dev-qt/qtbase
-	dev-qt/qt3d
+	dev-qt/qtbase:6
+	dev-qt/qt3d:6
 "
 
 src_compile() {
@@ -29,7 +30,7 @@ src_compile() {
 	emake USE_SYSTEM_HARFBUZZ=yes
 	popd || die
 
-	eqmake5 "CONFIG+=linux_app_image" pdf_viewer_build_config.pro
+	eqmake6 "CONFIG+=linux_app_image" pdf_viewer_build_config.pro
 	emake
 }
 src_install() {
