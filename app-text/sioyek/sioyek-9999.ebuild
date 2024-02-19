@@ -2,11 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+MUPDF_PV=1.23.10
+ZLIB_PV=1.3.1
 
 inherit qmake-utils desktop xdg
 
 if [[ ${PV} != 9999 ]]; then
-	SRC_URI="https://github.com/ahrm/sioyek/archive/refs/tags/v${PV}.tar.gz -> sioyek-2.0.0.tar.gz"
+	SRC_URI="
+		https://github.com/ahrm/sioyek/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/ArtifexSoftware/mupdf/archive/refs/tags/${MUPDF_PV}.tar.gz -> mupdf-${MUPDF_PV}.tar.gz
+		https://github.com/madler/zlib/archive/refs/tags/v${ZLIB_PV}.tar.gz -> zlib-${ZLIB_PV}.tar.gz
+		"
 	KEYWORDS="~amd64"
 else
 	inherit git-r3
@@ -19,10 +25,21 @@ HOMEPAGE="https://github.com/ahrm/sioyek"
 LICENSE="GPL-3"
 SLOT="0"
 
-BDEPEND="media-libs/harfbuzz
+BDEPEND="
+	media-libs/harfbuzz
 	dev-qt/qtbase:6
 	dev-qt/qt3d:6
 "
+
+src_prepare() {
+	default
+
+	if [[ ${PV} != 9999 ]]; then
+		rm -r "${S}/mupdf" "${S}/zlib" || die
+		mv "${WORKDIR}/mupdf-${MUPDF_PV}" "${S}/mupdf" || die
+		mv "${WORKDIR}/zlib-${ZLIB_PV}" "${S}/zlib" || die
+	fi
+}
 
 src_compile() {
 	#Make Mupdf specific for build
@@ -33,6 +50,7 @@ src_compile() {
 	eqmake6 "CONFIG+=linux_app_image" pdf_viewer_build_config.pro
 	emake
 }
+
 src_install() {
 	#intall bin and shaders
 	insinto /opt/sioyek
