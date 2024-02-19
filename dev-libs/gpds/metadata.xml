@@ -5,9 +5,6 @@
 		<email>vowstar@gmail.com</email>
 		<name>Huang Rui</name>
 	</maintainer>
-	<use>
-		<flag name="spdlog">Enable spdlog sink feature</flag>
-	</use>
 	<upstream>
 		<remote-id type="github">simulton/gpds</remote-id>
 		<bugs-to>https://github.com/simulton/gpds/issues</bugs-to>
