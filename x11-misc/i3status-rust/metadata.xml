@@ -12,6 +12,9 @@
     <remote-id type="github">greshake/i3status-rust</remote-id>
   </upstream>
   <use>
-    <flag name="notmuch">Enable support for <pkg>net-mail/notmuch</pkg></flag>
+    <flag name="notmuch">Enable support for the notmuch block (pulls in <pkg>net-mail/notmuch</pkg>)</flag>
+    <flag name="pipewire">
+      Enable support for media detection via <pkg>media-video/pipewire</pkg> in the privacy block
+    </flag>
   </use>
 </pkgmetadata>
