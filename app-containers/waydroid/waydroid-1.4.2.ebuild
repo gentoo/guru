@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit linux-info xdg-utils python-single-r1
 
 DESCRIPTION="Container-based approach to boot a full Android system on Linux systems"
