@@ -15,6 +15,7 @@
     <remote-id type="github">v1cont/yad</remote-id>
   </upstream>
   <use>
+    <flag name="sourceview">Enable GtkSourceView support with <pkg>x11-libs/gtksourceview</pkg></flag>
     <flag name="spell">Enable spell check support with <pkg>app-text/gspell</pkg></flag>
   </use>
 </pkgmetadata>
