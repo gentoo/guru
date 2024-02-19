@@ -3,6 +3,10 @@
 
 # New entries go on top.
 
+# John-Henry Lim <johnhenrylim12@gmail.com> (2024-02-19)
+# warp-dex relies on libpcap.so.0.8 which is not in tree.
+net-vpn/cloudflare-warp dex
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-11-21)
 # Build failure.
 # https://gitlab.com/famedly/conduit/-/issues/385
