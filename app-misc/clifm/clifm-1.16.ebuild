@@ -21,7 +21,7 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="arc4random archive +bleach emoji fzf +highlight icons +inotify +lira +magic
-		+media nerdfonts nls posix +profiles qsort +tags +trash xdu"
+		+media nerdfonts nls posix +profiles qsort +suggestions +tags +trash xdu"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.12-gentoo-skip-manpage-compression.patch"
@@ -68,21 +68,21 @@ src_compile() {
 	fi
 
 	use posix && append-cflags "-DPOSIX_STRICT"
-	use archive && append-cflags "-DALLOW_ARCHIVING" || append-cflags "-D_NO_ARCHIVING"
+	use archive || append-cflags "-D_NO_ARCHIVING"
 	use arc4random || append-cflags "-D_NO_ARC4RANDOM"
 	use bleach || append-cflags "-D_NO_BLEACH"
 	use nls || append-cflags "-D_NO_GETTEXT"
 	use fzf || append-cflags "-D_NO_FZF"
 	use highlight || append-cflags "-D_NO_HIGHLIGHT"
-	use lira && append-cflags "-DALLOW_LIRA" || append-cflags "-D_NO_LIRA"
+	use lira || append-cflags "-D_NO_LIRA"
 	use magic || append-cflags "-D_NO_MAGIC"
-	# -D_NO_SUGGESTIONS causes compile error
+	use suggestions || append-cflags "-D_NO_SUGGESTIONS"
 	use tags || append-cflags "-D_NO_TAGS"
 	use profiles || append-cflags "-D_NO_PROFILES"
 	use trash || append-cflags "-D_NO_TRASH"
 	use qsort && append-cflags "-D_TOURBIN_QSORT"
 	use inotify || append-cflags "-DUSE_GENERIC_FS_MONITOR"
-	use media && append-cflags "-DALLOW_MEDIA" || append-cflags "-DNO_MEDIA_FUNC"
+	use media || append-cflags "-DNO_MEDIA_FUNC"
 	use xdu && append-cflags "-DUSE_XDU"
 
 	# makefile defaults to /usr/local

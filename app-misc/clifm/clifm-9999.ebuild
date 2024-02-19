@@ -68,13 +68,13 @@ src_compile() {
 	fi
 
 	use posix && append-cflags "-DPOSIX_STRICT"
-	use archive && append-cflags "-DALLOW_ARCHIVING" || append-cflags "-D_NO_ARCHIVING"
+	use archive || append-cflags "-D_NO_ARCHIVING"
 	use arc4random || append-cflags "-D_NO_ARC4RANDOM"
 	use bleach || append-cflags "-D_NO_BLEACH"
 	use nls || append-cflags "-D_NO_GETTEXT"
 	use fzf || append-cflags "-D_NO_FZF"
 	use highlight || append-cflags "-D_NO_HIGHLIGHT"
-	use lira && append-cflags "-DALLOW_LIRA" || append-cflags "-D_NO_LIRA"
+	use lira || append-cflags "-D_NO_LIRA"
 	use magic || append-cflags "-D_NO_MAGIC"
 	use suggestions || append-cflags "-D_NO_SUGGESTIONS"
 	use tags || append-cflags "-D_NO_TAGS"
@@ -82,7 +82,7 @@ src_compile() {
 	use trash || append-cflags "-D_NO_TRASH"
 	use qsort && append-cflags "-D_TOURBIN_QSORT"
 	use inotify || append-cflags "-DUSE_GENERIC_FS_MONITOR"
-	use media && append-cflags "-DALLOW_MEDIA" || append-cflags "-DNO_MEDIA_FUNC"
+	use media || append-cflags "-DNO_MEDIA_FUNC"
 	use xdu && append-cflags "-DUSE_XDU"
 
 	# makefile defaults to /usr/local
