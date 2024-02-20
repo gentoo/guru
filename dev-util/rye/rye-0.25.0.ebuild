@@ -89,6 +89,7 @@ CRATES="
 	form_urlencoded@1.2.1
 	fs-err@2.11.0
 	fs2@0.4.3
+	fslock@0.2.1
 	generic-array@0.14.7
 	getrandom@0.1.16
 	getrandom@0.2.12
@@ -112,6 +113,8 @@ CRATES="
 	indicatif@0.17.7
 	infer@0.12.0
 	inout@0.1.3
+	insta-cmd@0.5.0
+	insta@1.35.1
 	instant@0.1.12
 	intl-memoizer@0.5.1
 	intl_pluralrules@7.0.2
@@ -123,6 +126,7 @@ CRATES="
 	libc@0.2.153
 	libz-sys@1.1.15
 	license@3.2.0
+	linked-hash-map@0.5.6
 	linux-raw-sys@0.4.13
 	lock_api@0.4.11
 	log@0.4.20
@@ -207,6 +211,7 @@ CRATES="
 	sha2@0.10.8
 	shell-words@1.1.0
 	shlex@1.3.0
+	similar@2.4.0
 	slug@0.1.5
 	smallvec@1.13.1
 	socket2@0.4.10
@@ -291,6 +296,7 @@ CRATES="
 	winreg@0.52.0
 	x25519-dalek@1.1.1
 	xattr@1.3.1
+	yaml-rust@0.4.5
 	zerocopy-derive@0.7.32
 	zerocopy@0.7.32
 	zeroize@1.7.0
