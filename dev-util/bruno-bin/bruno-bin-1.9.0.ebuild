@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -44,6 +44,17 @@ RDEPEND="
 	dbus? ( sys-apps/dbus )
 	fontconfig? ( media-libs/fontconfig:1.0 )
 	accessibility? ( app-accessibility/at-spi2-core )
+"
+
+QA_PREBUILT="
+	opt/Bruno/bruno
+	opt/Bruno/chrome-sandbox
+	opt/Bruno/chrome_crashpad_handler
+	opt/Bruno/libEGL.so
+	opt/Bruno/libGLESv2.so
+	opt/Bruno/libffmpeg.so
+	opt/Bruno/libvk_swiftshader.so
+	opt/Bruno/libvulkan.so.1
 "
 
 S="$WORKDIR"
