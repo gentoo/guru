@@ -5,9 +5,9 @@ EAPI=8
 
 inherit cmake toolchain-funcs
 
-COMMIT="7b15d34f0af9b1c8ef49279827eee47e4dca9afa"
-DESCRIPTION="Hyprland's GPU-accelerated screen locking utility"
-HOMEPAGE="https://github.com/hyprwm/hyprlock"
+COMMIT="158c52c4a76cff7a1635be8ec1a4a369bc8674ed"
+DESCRIPTION="Hyprland's idle daemon"
+HOMEPAGE="https://github.com/hyprwm/hypridle"
 
 if [[ "${PV}" = *9999 ]]; then
 	inherit git-r3
@@ -30,7 +30,6 @@ RDEPEND="
 	dev-libs/wayland
 	gui-libs/egl-wayland
 	media-libs/mesa[egl(+),gles2]
-	sys-libs/pam
 	>=gui-wm/hyprland-0.35.0
 "
 DEPEND="
@@ -40,10 +39,7 @@ DEPEND="
 
 BDEPEND="
 	>=dev-libs/hyprlang-0.4.0
-	x11-libs/libxkbcommon
-	x11-libs/cairo
-	dev-build/cmake
-	virtual/pkgconfig
+	dev-cpp/sdbus-c++
 "
 
 src_configure() {

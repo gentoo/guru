@@ -51,7 +51,7 @@ src_configure() {
 		-DCMAKE_BUILD_TYPE:STRING=Release
 	)
 
-	meson_src_configure
+	cmake_src_configure
 }
 
 src_install() {
