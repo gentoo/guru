@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>julien@jroy.ca</email>
+		<name>Julien Roy</name>
+	</maintainer>
+	<maintainer type="person" proxied="yes">
+		<email>gonegrier.duarte@gmail.com</email>
+		<name>Gonçalo Negrier Duarte</name>
+	</maintainer>
+	<upstream>
+		<changelog>https://github.com/hyprwm/hyrlock/releases</changelog>
+		<doc>https://wiki.hyprland.org/Hypr-Ecosystem/hyprlock/</doc>
+		<bugs-to>https://github.com/hyprwm/hyrlock/issues</bugs-to>
+		<remote-id type="github">hyprwm/hyprlock</remote-id>
+	</upstream>
+</pkgmetadata>
