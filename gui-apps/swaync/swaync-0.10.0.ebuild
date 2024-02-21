@@ -17,15 +17,17 @@ KEYWORDS="~amd64 ~x86"
 IUSE="pulseaudio"
 
 DEPEND="
+	dev-lang/sassc
+	dev-libs/granite
+	dev-libs/libgee
 	dev-libs/glib:2
 	dev-libs/gobject-introspection
 	dev-libs/json-glib
 	pulseaudio? (
-		dev-libs/libgee:=
 		media-libs/libpulse
 	)
 	dev-libs/wayland
-	>=gui-libs/gtk-layer-shell-0.7.0[introspection]
+	>=gui-libs/gtk-layer-shell-0.7.0[introspection,vala]
 	gui-libs/libhandy:1
 	sys-apps/dbus
 	x11-libs/gdk-pixbuf:2
@@ -37,8 +39,14 @@ BDEPEND="
 	app-text/scdoc
 "
 
+src_configure() {
+	local emesonargs=(
+        $(meson_use pulseaudio pulse-audio)
+    )
+	meson_src_configure
+}
+
 src_prepare() {
-	! use pulseaudio && local PATCHES=( "${FILESDIR}"/${P}-pulsefree.patch )
 	default
 	vala_setup
 }
