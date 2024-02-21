@@ -18,13 +18,12 @@ SLOT="0"
 RDEPEND="
 	x11-libs/libX11
 	x11-libs/libXext
+	x11-libs/libXrandr
 "
-# NOTE: next version also depends on:
-# x11-libs/libXrandr
 DEPEND="${RDEPEND}"
 
 src_compile() {
-	$(tc-getCC) -o selx selx.c ${CFLAGS} ${LDFLAGS} -l X11 -l Xext || die "Compilation failed"
+	$(tc-getCC) -o selx selx.c ${CFLAGS} ${LDFLAGS} -l X11 -l Xext -l Xrandr || die "Compilation failed"
 }
 
 src_install() {
