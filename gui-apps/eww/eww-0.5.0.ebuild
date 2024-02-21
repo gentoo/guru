@@ -299,10 +299,16 @@ inherit cargo
 
 DESCRIPTION="Elkowars Wacky Widgets is a standalone widget system made in Rust"
 HOMEPAGE="https://github.com/elkowar/eww"
-SRC_URI="
-	https://github.com/elkowar/eww/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	${CARGO_CRATE_URIS}
-"
+
+if [[ "${PV}" == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/elkowar/${PN}.git"
+else
+	SRC_URI="
+		https://github.com/elkowar/${PV}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+		${CARGO_CRATE_URIS}
+	"
+fi
 
 LICENSE="
 	Apache-2.0
@@ -317,18 +323,18 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="wayland"
+IUSE="X wayland"
+REQUIRED_USE="|| ( X wayland )"
 
 DEPEND="
-	x11-libs/gtk+:3
+	X? ( x11-libs/gtk+:3[X] )
+	wayland? ( x11-libs/gtk+:3[wayland] )
 	x11-libs/pango
 	x11-libs/gdk-pixbuf
 	x11-libs/cairo
 	>=dev-libs/glib-2.0
 	sys-devel/gcc
-	wayland? (
 	gui-libs/gtk-layer-shell
-	)
 "
 BDEPEND="
 	$DEPEND
@@ -341,7 +347,9 @@ RDEPEND="
 QA_FLAGS_IGNORED="usr/bin/.*"
 
 src_compile() {
+	use X && features="--no-default-features --features=x11"
 	use wayland && features="--no-default-features --features=wayland"
+	use X && use wayland && features="--no-default-features --features=wayland,x11"
 	cargo_src_compile ${features}
 }
 
