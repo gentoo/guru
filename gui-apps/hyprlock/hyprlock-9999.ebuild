@@ -46,6 +46,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}/0001-fix-CFLAGS-CXXFLAGS-hyprlock.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_BUILD_TYPE:STRING=Release
