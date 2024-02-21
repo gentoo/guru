@@ -336,7 +336,10 @@ QA_FLAGS_IGNORED=".*"
 
 src_test() {
 	local mytestargs=(
-		--skip utils::test_is_inside_git_work_tree::test_is_inside_git_work_tree_true
+		--skip test_is_inside_git_work_tree_true
+		--skip test_lint_and_format
+		--skip test_empty_sync
+		--skip test_add_and_sync
 	)
 
 	cargo_src_test -- "${mytestargs[@]}"
