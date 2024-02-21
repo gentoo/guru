@@ -42,6 +42,10 @@ BDEPEND="
 	dev-cpp/sdbus-c++
 "
 
+PATCHES=(
+	"${FILESDIR}/0001-fix-CFLAGS-CXXFLAGS-hypridle.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_BUILD_TYPE:STRING=Release
