@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit toolchain-funcs edo
 
 DESCRIPTION="Minimal X11 rectangle selection tool"
 HOMEPAGE="https://codeberg.org/NRK/selx"
@@ -23,7 +23,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_compile() {
-	$(tc-getCC) -o selx selx.c ${CFLAGS} ${LDFLAGS} -l X11 -l Xext -l Xrandr || die "Compilation failed"
+	edo $(tc-getCC) -o selx selx.c ${CFLAGS} ${LDFLAGS} -l X11 -l Xext -l Xrandr
 }
 
 src_install() {
