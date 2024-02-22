@@ -19,6 +19,7 @@ DEPEND="
 	mysql? ( virtual/mysql )
 	postgres? ( dev-db/postgresql )
 	ssl? ( dev-libs/openssl )
+	dev-libs/boost
 	media-libs/libharu
 	media-gfx/graphicsmagick
 	x11-libs/pango
