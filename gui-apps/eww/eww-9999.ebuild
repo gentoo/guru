@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -308,6 +308,7 @@ else
 		https://github.com/elkowar/${PV}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 		${CARGO_CRATE_URIS}
 	"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="
@@ -322,7 +323,6 @@ LICENSE="
 	|| ( MIT Unlicense )
 "
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE="X wayland"
 REQUIRED_USE="|| ( X wayland )"
 
