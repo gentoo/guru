@@ -1,0 +1,14 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 887e5de6..a8d559ab 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -132,9 +132,6 @@ ELSE(WIN32)
+     SET(CONFIG_PREFIX ${CMAKE_INSTALL_PREFIX})
+   ENDIF()
+ 
+-  SET(RUNDIR "${CONFIG_PREFIX}/var/run/wt" CACHE PATH
+-    "Default path for wt session management (only used by FCGI connector)")
+-
+   IF(NOT DEFINED CONFIGDIR)
+     SET(CONFIGDIR "${CONFIG_PREFIX}/etc/wt" CACHE STRING "Path for the configuration files")
+   ENDIF( NOT DEFINED CONFIGDIR )
