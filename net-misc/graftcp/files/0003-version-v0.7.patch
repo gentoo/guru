@@ -1,0 +1,37 @@
+From eb0e60dc47d08fbb8e11eadc9676b4569de4b59b Mon Sep 17 00:00:00 2001
+From: "mingang.he" <dustgle@gmail.com>
+Date: Sun, 17 Dec 2023 03:44:24 +0000
+Subject: [PATCH] VERSION v0.6 => v0.7
+
+---
+ Makefile       | 2 +-
+ local/Makefile | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 1344536..64d088a 100644
+--- a/Makefile
++++ b/Makefile
+@@ -46,7 +46,7 @@ else
+ endif
+ 
+ ifneq ($(shell echo $(VERSION) | head -c 1), v)
+-	VERSION=v0.6
++	VERSION=v0.7
+ endif
+ CFLAGS += -DVERSION=\"$(VERSION)\"
+ 
+diff --git a/local/Makefile b/local/Makefile
+index a6a8793..2426ebf 100644
+--- a/local/Makefile
++++ b/local/Makefile
+@@ -1,5 +1,5 @@
+ ifneq ($(shell echo $(VERSION) | head -c 1), v)
+-	VERSION=v0.6
++	VERSION=v0.7
+ endif
+ 
+ GO_BUILD_PREFIX_FLAGS :=
+-- 
+2.43.0
+

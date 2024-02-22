@@ -1,0 +1,76 @@
+From 9f1773d02630b5390e5dc1dc213b374a17518fb1 Mon Sep 17 00:00:00 2001
+From: unlsycn <unlsycn@unlsycn.com>
+Date: Tue, 20 Feb 2024 21:55:17 +0800
+Subject: [PATCH] build: not enabling service in install_systemd
+
+Enabling service should be a post-installation behavior and is best
+performed manually by user. Invoke systemctl at installation will break
+the flow of package manager on environments without systemd as the
+service file is usually installed in such systems as well.
+
+Signed-off-by: unlsycn <unlsycn@unlsycn.com>
+---
+ README.md       | 4 +++-
+ README.zh-CN.md | 4 +++-
+ local/Makefile  | 8 ++++++--
+ 3 files changed, 12 insertions(+), 4 deletions(-)
+
+diff --git a/README.md b/README.md
+index d367aaf..ac27104 100644
+--- a/README.md
++++ b/README.md
+@@ -31,8 +31,10 @@ Optionally, you can also install them to system:
+ 
+ ```sh
+ sudo make install
+-# Enable and activate systemed unit 
++# Install systemed unit
+ sudo make install_systemd
++# Activate systemd service
++sudo make enable_systemd
+ ```
+ 
+ ### Install from binary package
+diff --git a/README.zh-CN.md b/README.zh-CN.md
+index 4759992..8fd5f61 100644
+--- a/README.zh-CN.md
++++ b/README.zh-CN.md
+@@ -25,8 +25,10 @@ make 执行完后，即可运行 `graftcp-local/graftcp-local` 和 `./graftcp`
+ 
+ ```sh
+ sudo make install
+-# Enable and activate systemed unit 
++# Install systemed unit
+ sudo make install_systemd
++# Activate systemd service
++sudo make enable_systemd
+ ```
+ 
+ ### 二进制包安装
+diff --git a/local/Makefile b/local/Makefile
+index a6a8793..39836ce 100644
+--- a/local/Makefile
++++ b/local/Makefile
+@@ -46,13 +46,17 @@ install_systemd:: install
+ ifneq ($(PREFIX),/usr/)
+ 	sed -i -re 's#/usr/bin/graftcp-local#$(subst #,\#,${PREFIX})/bin/graftcp-local#g' ${DESTDIR}/${SYSTEMD_UNIT_DIR}/graftcp-local.service
+ endif
++
++enable_systemd::
+ 	@echo "Enable and start the graftcp-local systemd unit"
+ 	systemctl daemon-reload && systemctl --now enable graftcp-local.service
+ 
+-uninstall_systemd::
+-	$(if $(SYSTEMD_UNIT_DIR),,$(error SYSTEMD_UNIT_DIR is not defined))
++disable_systemd::
+ 	@echo "Disable and stop the graftcp-local systemd unit"
+ 	systemctl disable --now graftcp-local.service
++
++uninstall_systemd:: disable_systemd
++	$(if $(SYSTEMD_UNIT_DIR),,$(error SYSTEMD_UNIT_DIR is not defined))
+ 	rm -f ${DESTDIR}/${SYSTEMD_UNIT_DIR}/graftcp-local.service
+ 
+ uninstall::
+-- 
+2.43.0
+

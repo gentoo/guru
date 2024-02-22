@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>unlsycn@unlsycn.com</email>
+		<name>unlsycn</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">hmgle/graftcp</remote-id>
+	</upstream>
+	<longdescription lang="en"> 
+		graftcp can redirect the TCP connection made by the given program
+		[application, script, shell, etc.] to SOCKS5 or HTTP proxy.
+	</longdescription>
+</pkgmetadata>

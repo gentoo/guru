@@ -1,0 +1,30 @@
+From 22399e4ba6c1e47a42fd99776d2d7ab651ced34a Mon Sep 17 00:00:00 2001
+From: unlsycn <unlsycn@unlsycn.com>
+Date: Wed, 21 Feb 2024 10:17:51 +0800
+Subject: [PATCH] build: no longer strip symbols
+
+Signed-off-by: unlsycn <unlsycn@unlsycn.com>
+---
+ local/Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/local/Makefile b/local/Makefile
+index 39836ce..7076dd2 100644
+--- a/local/Makefile
++++ b/local/Makefile
+@@ -25,10 +25,10 @@ TARGET = graftcp-local mgraftcp
+ all:: $(TARGET)
+ 
+ graftcp-local: $(wildcard *.go cmd/graftcp-local/*.go)
+-	${GO_BUILD_PREFIX_FLAGS} go build -ldflags "-s -w -X main.version=${VERSION}" ./cmd/graftcp-local
++	${GO_BUILD_PREFIX_FLAGS} go build -ldflags "-w -X main.version=${VERSION}" ./cmd/graftcp-local
+ 
+ mgraftcp: $(wildcard *.go cmd/mgraftcp/*.go) ../libgraftcp.a
+-	${GO_BUILD_PREFIX_FLAGS} ${CGO_FLAGS} go build -ldflags "-s -w -X main.version=${VERSION}" ./cmd/mgraftcp
++	${GO_BUILD_PREFIX_FLAGS} ${CGO_FLAGS} go build -ldflags "-w -X main.version=${VERSION}" ./cmd/mgraftcp
+ 
+ ../libgraftcp.a::
+ 	$(MAKE) -C .. libgraftcp.a
+-- 
+2.43.0
+
