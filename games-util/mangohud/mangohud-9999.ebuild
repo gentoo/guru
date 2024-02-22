@@ -15,22 +15,18 @@ HOMEPAGE="https://github.com/flightlessmango/MangoHud"
 
 VK_HEADERS_VER="1.2.158"
 VK_HEADERS_MESON_WRAP_VER="2"
-
-IMPLOT_VER="0.16"
-IMPLOT_MESON_WRAP_VER="1"
 SPDLOG_VER="1.13.0"
+IMPLOT_VER="0.16"
 
 SRC_URI="
 	https://github.com/KhronosGroup/Vulkan-Headers/archive/v${VK_HEADERS_VER}.tar.gz
 		-> vulkan-headers-${VK_HEADERS_VER}.tar.gz
 	https://wrapdb.mesonbuild.com/v2/vulkan-headers_${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}/get_patch
 		-> vulkan-headers-${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}-meson-wrap.zip
-	https://github.com/epezent/implot/archive/refs/tags/v${IMPLOT_VER}.tar.gz
-		-> implot-${IMPLOT_VER}.tar.gz
-	https://wrapdb.mesonbuild.com/v2/implot_${IMPLOT_VER}-${IMPLOT_MESON_WRAP_VER}/get_patch
-		-> implot-${IMPLOT_VER}-${IMPLOT_MESON_WRAP_VER}-meson-wrap.zip
 	https://github.com/gabime/spdlog/archive/refs/tags/v${SPDLOG_VER}.tar.gz -> spdlog-${SPDLOG_VER}.tar.gz
 	https://wrapdb.mesonbuild.com/v2/spdlog_${SPDLOG_VER}-1/get_patch -> spdlog-${SPDLOG_VER}-1-wrap.zip
+	https://github.com/epezent/implot/archive/refs/tags/v${IMPLOT_VER}.tar.gz -> implot-${IMPLOT_VER}.tar.gz
+	https://wrapdb.mesonbuild.com/v2/implot_${IMPLOT_VER}-1/get_patch -> implot-${IMPLOT_VER}-1-wrap.zip
 "
 
 if [[ ${PV} == 9999 ]]; then
@@ -86,7 +82,7 @@ RDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/mangohud-v0.7.0-meson-fix-imgui-dep.patch"
+	"${FILESDIR}/mangohud-v0.7.1-meson-fix-imgui-dep.patch"
 )
 
 src_unpack() {
@@ -103,17 +99,14 @@ src_unpack() {
 	unpack vulkan-headers-${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}-meson-wrap.zip
 	mv "${WORKDIR}/Vulkan-Headers-${VK_HEADERS_VER}" "${S}/subprojects/" || die
 
-	unpack implot-${IMPLOT_VER}.tar.gz
-	unpack implot-${IMPLOT_VER}-${IMPLOT_MESON_WRAP_VER}-meson-wrap.zip
-	mv "${WORKDIR}/implot-${IMPLOT_VER}" "${S}/subprojects/" || die
-
-	cd "${S}/subprojects/implot-${IMPLOT_VER}" || die
-	eapply "${FILESDIR}/implot-v0.16-fix-imgui-dep.patch"
-
 	# fix build error by using upstream submodule version of spdlog
 	unpack spdlog-${SPDLOG_VER}.tar.gz
 	unpack spdlog-${SPDLOG_VER}-1-wrap.zip
 	mv "${WORKDIR}/spdlog-${SPDLOG_VER}" "${S}/subprojects/" || die
+
+	unpack implot-${IMPLOT_VER}.tar.gz
+	unpack implot-${IMPLOT_VER}-1-wrap.zip
+	mv "${WORKDIR}/implot-${IMPLOT_VER}" "${S}/subprojects/" || die
 }
 
 src_prepare() {
@@ -123,6 +116,9 @@ src_prepare() {
 	find . -type f -exec sed -i 's|"imgui.h"|<imgui/imgui.h>|g' {} \; || die
 	find . -type f -exec sed -i 's|<imgui_internal.h>|<imgui/imgui_internal.h>|g' {} \; || die
 	find . -type f -exec sed -i 's|"imgui_internal.h"|<imgui/imgui_internal.h>|g' {} \; || die
+
+	# replace imgui_dep in implot build file
+	sed -i -r -e 's|(imgui_dep = ).*|\1dependency('\'imgui\'')|' -e '/imgui_sp/d' "${S}/subprojects/implot-${IMPLOT_VER}/meson.build" || die
 }
 
 multilib_src_configure() {
