@@ -12,7 +12,7 @@ DESCRIPTION="OBS® Studio plugin which adds many new effects."
 HOMEPAGE="https://github.com/Xaymar/obs-StreamFX"
 
 EGIT_REPO_URI="https://github.com/Xaymar/obs-StreamFX.git"
-EGIT_BRANCH="${M_PV}"
+EGIT_COMMIT="${M_PV}"
 
 #	KEYWORDS="~amd64"
 
