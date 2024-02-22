@@ -5,8 +5,7 @@ EAPI=8
 
 inherit cmake git-r3
 
-#remove when stable release (make life easy later because of new submodules)
-M_PV="0.12.0b366"
+M_PV="0.11.0"
 
 DESCRIPTION="OBS® Studio plugin which adds many new effects."
 HOMEPAGE="https://github.com/Xaymar/obs-StreamFX"
@@ -14,7 +13,7 @@ HOMEPAGE="https://github.com/Xaymar/obs-StreamFX"
 EGIT_REPO_URI="https://github.com/Xaymar/obs-StreamFX.git"
 EGIT_BRANCH="${M_PV}"
 
-#	KEYWORDS="~amd64"
+KEYWORDS="~amd64"
 
 LICENSE="GPL-2"
 SLOT="0"
