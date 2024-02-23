@@ -49,7 +49,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/0001-fix-CFLAGS-CXXFLAGS-hyprlock.patch"
-	"${FILESDIR}/0002-fix-lic++-hyprlock.patch"
 )
 
 src_configure() {
