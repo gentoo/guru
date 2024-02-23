@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>yangmame@icloud.com</email>
+		<name>Xin Yang</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">lanthora/candy</remote-id>
+		<maintainer>
+			<name>lanthora</name>
+			<email>lanthora@outlook.com</email>
+		</maintainer>
+	</upstream>
+</pkgmetadata>
