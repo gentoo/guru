@@ -43,6 +43,7 @@ BDEPEND="
 	x11-libs/libxkbcommon
 	x11-libs/cairo
 	dev-build/cmake
+	dev-libs/date
 	virtual/pkgconfig
 "
 
