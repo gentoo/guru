@@ -101,7 +101,6 @@ If you find an interesting piece of software here, consider to package it, also 
 [usbkill](https://github.com/hephaest0s/usbkill) | setuptools | util | Alessandro-Barbieri | ✖ | ✖
 [blockify](https://github.com/serialoverflow/blockify) | setuptools | audio | Alessandro-Barbieri | ✖ | ✖
 [foobnix](https://github.com/foobnix/foobnix) | setuptools | audio | | | ✖
-[TauonMusicBox](https://github.com/Taiko2k/TauonMusicBox) | setuptools | audio | | | ✖
 [mmtracking](https://github.com/open-mmlab/mmtracking) | setuptools | science | Alessandro-Barbieri | ✖
 [libensemble](https://github.com/Libensemble/libensemble) | setuptools | cluster | Alessandro-Barbieri | ✖ | ✔
 [ActivityWatch](https://github.com/ActivityWatch/activitywatch) | setuptools | utils | David Roman | ✔ | ✖
