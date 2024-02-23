@@ -97,7 +97,7 @@ python_install() {
 	doins -r assets theme templates
 	doins input.txt
 
-	sed -i 's/\/opt\/tauon-music-box\/tauonmb.sh/tauon.py/g' extra/tauonmb.desktop || die
+	sed -i 's/\/opt\/tauon-music-box\/tauonmb.sh/tauon/g' extra/tauonmb.desktop || die
 	domenu extra/tauonmb.desktop
 	doicon -s scalable extra/tauonmb.svg
 
