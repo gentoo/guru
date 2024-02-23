@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
-<pkgmetadata>
-	<maintainer type="person">
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
-	</maintainer>
-	<longdescription lang="en">Jacobi-Davidson type method for the generalized standard eigenvalue problem. Choice of standard or harmonic Rayleigh-Ritz for the extraction. Choice of GMRES or BiCGstab(l) for solving the correction equation.</longdescription>
-</pkgmetadata>

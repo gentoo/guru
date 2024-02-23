@@ -1,9 +1,0 @@
---- a/setup.py
-+++ b/setup.py
-@@ -55,6 +55,5 @@
-     extras_require={
-         "test": tests_deps
-     },
--    setup_requires=["pytest-runner"],
-     tests_require=tests_deps
- )

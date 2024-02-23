@@ -1,6 +1,0 @@
---- a/SU2_PY/pySU2/install.sh
-+++ b/SU2_PY/pySU2/install.sh
-@@ -1,2 +1,2 @@
- #!/bin/sh
--cp "$1/$2" "${MESON_INSTALL_PREFIX}/bin/$2"
-+cp "$1/$2" "${DESTDIR}/${MESON_INSTALL_PREFIX}/bin/$2"

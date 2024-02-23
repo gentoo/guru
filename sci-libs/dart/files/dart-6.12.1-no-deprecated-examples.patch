@@ -1,9 +1,0 @@
---- a/examples/CMakeLists.txt
-+++ b/examples/CMakeLists.txt
-@@ -27,6 +27,3 @@
- 
- # MJCF model based examples
- add_subdirectory(fetch)
--
--# Deprecated examples
--add_subdirectory(deprecated_examples)
