@@ -1,13 +1,13 @@
 certificate version 0.1
-pusher D7475BA08F7705F5 1708713520 +0100
-pushee git.gentoo.org:repo/proj/guru.git
-nonce 1708713520-681a03659a81ec8a98da0c3a60f7e4e15b1efdce
+pusher A8A3A601440EADA5 1708714288 -0500
+pushee git.gentoo.org:repo/proj/guru
+nonce 1708714288-85e59b73c0ef7df107b270cca148553853221fab
 
-f713e6aaf2ef17eb6d240423ee1cd5f8aec4e28c 643e32e4b1a8bcdc9a3eb03673dc1ec63bab7c43 refs/heads/dev
+643e32e4b1a8bcdc9a3eb03673dc1ec63bab7c43 8114cf2862e345ba6edfacaf1ff445c2ae6bc19f refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQQTKccLsTyR2+jUC2fXR1ugj3cF9QUCZdjmMAAKCRDXR1ugj3cF
-9a6+AQC+pzJ1ry3NYGOoON6KjUbP+I8phTdchPCSx5Vnjtij9QEA8bC9xiuxOCRH
-jj2ubKWnhEcg6NXGXSqM9Wsc+1D7SAo=
-=wLg9
+iHUEABYKAB0WIQSeurKcRaKdrMkT5Ieoo6YBRA6tpQUCZdjpMAAKCRCoo6YBRA6t
+pfJTAP99bH6r725XG8qwpvEh9j86p0StERx+724yAM0hzrOxPAD+IIqU8+orzEZs
+ovQ0ujs/GVv5d1UtsQNdBClDuNIyEAY=
+=6pCy
 -----END PGP SIGNATURE-----
