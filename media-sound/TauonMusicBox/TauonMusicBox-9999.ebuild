@@ -28,11 +28,12 @@ PHAZOR_DEPS="
 	dev-libs/miniaudio
 	media-libs/flac
 	media-libs/libopenmpt
-	media-sound/mpg123
 	media-libs/opus
 	media-libs/opusfile
-	media-sound/wavpack
 	media-libs/libsamplerate
+	media-libs/libvorbis
+	media-sound/mpg123
+	media-sound/wavpack
 	sci-libs/kissfft[-cpu_flags_x86_sse]
 "
 
@@ -85,6 +86,7 @@ src_test() {
 python_install() {
 	newbin tauon.py tauon
 	dolib.so  "${WORKDIR}/${P}_build/libphazor.so"
+	dosym "/usr/$(get_libdir)/libphazor.so" "/usr/share/${PN}/lib/libphazor.so"
 
 	install_locale() {
 		insinto "/usr/share/locale/${1}/LC_MESSAGES"
