@@ -32,8 +32,9 @@ BDEPEND="
 	dev-elixir/hex
 "
 DEPEND="
-	sys-libs/ncurses:=
+	media-libs/vips:=
 	sys-apps/file
+	sys-libs/ncurses:=
 "
 RDEPEND="
 	${DEPEND}
@@ -59,7 +60,9 @@ src_prepare() {
 		sed -i "s!source_url: .*!source_url: \"${EGIT_OVERRIDE_REPO}\",!" mix.exs || die
 	fi
 
-	sed -i -e '/include_executables_for:/a\          strip_beams: false,\n\          include_erts: false,' mix.exs || die
+	# strip_beams: Keep debug information in Erlang BEAM bytecode
+	# include_erts: Depend on system erlang for the runtime
+	sed -i '/include_executables_for:/a\          strip_beams: false,\n\          include_erts: false,' mix.exs || die
 
 	sed -i \
 		-e '/update \[OPTIONS\]/,/--tmp-dir/d' \
@@ -74,6 +77,9 @@ src_prepare() {
 
 src_compile() {
 	mkdir -p pleroma || die
+
+	export VIX_COMPILATION_MODE="PLATFORM_PROVIDED_LIBVIPS"
+
 	emix release --overwrite --path pleroma
 }
 
