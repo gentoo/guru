@@ -1,0 +1,82 @@
+From a7019631b765581b7e3549cf7cdac77496984709 Mon Sep 17 00:00:00 2001
+From: lanthora <lanthora@outlook.com>
+Date: Wed, 2 Aug 2023 13:16:43 +0800
+Subject: [PATCH] Fix server empty thread name (#478)
+
+---
+ ixwebsocket/IXWebSocket.cpp       | 11 ++++++++++-
+ ixwebsocket/IXWebSocket.h         |  5 +++++
+ ixwebsocket/IXWebSocketServer.cpp |  3 +++
+ 3 files changed, 18 insertions(+), 1 deletion(-)
+
+diff --git a/ixwebsocket/IXWebSocket.cpp b/ixwebsocket/IXWebSocket.cpp
+index 1a879a78..b74426ef 100644
+--- a/ixwebsocket/IXWebSocket.cpp
++++ b/ixwebsocket/IXWebSocket.cpp
+@@ -41,6 +41,7 @@ namespace ix
+         , _enablePong(kDefaultEnablePong)
+         , _pingIntervalSecs(kDefaultPingIntervalSecs)
+         , _pingType(SendMessageKind::Ping)
++        , _autoThreadName(true)
+     {
+         _ws.setOnCloseCallback(
+             [this](uint16_t code, const std::string& reason, size_t wireSize, bool remote)
+@@ -370,7 +371,10 @@ namespace ix
+ 
+     void WebSocket::run()
+     {
+-        setThreadName(getUrl());
++        if (_autoThreadName)
++        {
++            setThreadName(getUrl());
++        }
+ 
+         bool firstConnectionAttempt = true;
+ 
+@@ -627,4 +631,9 @@ namespace ix
+         std::lock_guard<std::mutex> lock(_configMutex);
+         return _subProtocols;
+     }
++
++    void WebSocket::setAutoThreadName(bool enabled)
++    {
++        _autoThreadName = enabled;
++    }
+ } // namespace ix
+diff --git a/ixwebsocket/IXWebSocket.h b/ixwebsocket/IXWebSocket.h
+index 7adfe166..21292e7d 100644
+--- a/ixwebsocket/IXWebSocket.h
++++ b/ixwebsocket/IXWebSocket.h
+@@ -119,6 +119,8 @@ namespace ix
+         uint32_t getMinWaitBetweenReconnectionRetries() const;
+         const std::vector<std::string>& getSubProtocols();
+ 
++        void setAutoThreadName(bool enabled);
++
+     private:
+         WebSocketSendInfo sendMessage(const IXWebSocketSendData& message,
+                                       SendMessageKind sendMessageKind,
+@@ -182,6 +184,9 @@ namespace ix
+         // Subprotocols
+         std::vector<std::string> _subProtocols;
+ 
++        // enable or disable auto set thread name
++        bool _autoThreadName;
++
+         friend class WebSocketServer;
+     };
+ } // namespace ix
+diff --git a/ixwebsocket/IXWebSocketServer.cpp b/ixwebsocket/IXWebSocketServer.cpp
+index 03b0ea50..4518389b 100644
+--- a/ixwebsocket/IXWebSocketServer.cpp
++++ b/ixwebsocket/IXWebSocketServer.cpp
+@@ -91,6 +91,9 @@ namespace ix
+         setThreadName("Srv:ws:" + connectionState->getId());
+ 
+         auto webSocket = std::make_shared<WebSocket>();
++
++        webSocket->setAutoThreadName(false);
++
+         if (_onConnectionCallback)
+         {
+             _onConnectionCallback(webSocket, connectionState);

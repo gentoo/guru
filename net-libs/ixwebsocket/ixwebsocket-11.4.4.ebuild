@@ -49,6 +49,8 @@ PATCHES=(
 	"${FILESDIR}/${P}-remove-network-tests.patch"
 	# Upstream uses git submodules
 	"${FILESDIR}/${P}-use-system-spdlog.patch"
+	# Fix Server empty thread name
+	"${FILESDIR}/${P}-fix-server-empty-thread-name.patch"
 )
 
 src_configure() {
