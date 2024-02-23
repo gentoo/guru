@@ -1,8 +1,0 @@
---- a/Makefile
-+++ b/Makefile
-@@ -1,4 +1,4 @@
--CFLAGS=-O -Wuninitialized -Werror
-+CFLAGS+=-Wuninitialized
- 
- all: example-codelock example-buffer example-small
- 

@@ -1,2 +1,0 @@
-#!/bin/sh
-cool-retro-term --fullscreen --noclose -e bash /usr/share/Fallout3Terminal/terminalscript
