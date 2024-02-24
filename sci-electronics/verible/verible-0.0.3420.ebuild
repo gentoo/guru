@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -6,7 +6,9 @@ EAPI="8"
 # From release tag name
 MY_PV="0.0-3420-g5be583bb"
 
-inherit bazel
+# Eclass dropped from ::gentoo
+# https://github.com/gentoo/gentoo/commit/8876dc1db3205682d1ed8543b7fef1ce2b619874
+# inherit bazel
 
 DESCRIPTION="SystemVerilog parser, style-linter, and formatter"
 HOMEPAGE="
