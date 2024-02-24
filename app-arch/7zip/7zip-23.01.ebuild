@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,9 +9,9 @@ NO_DOT_PV=$(ver_rs 1- '')
 DESCRIPTION="A free file archiver for extremely high compression"
 HOMEPAGE="https://www.7-zip.org/ https://sourceforge.net/projects/sevenzip/"
 SRC_URI="https://sourceforge.net/projects/sevenzip/files/7-Zip/${PV}/7z${NO_DOT_PV}-src.tar.xz/download -> ${PN}-${PV}.tar.xz"
-LICENSE="LGPL-2 BSD"
+LICENSE="LGPL-2 BSD rar? ( unRAR )"
 
-IUSE="asm"
+IUSE="asm rar"
 SLOT="0"
 KEYWORDS="~amd64"
 
@@ -20,6 +20,12 @@ RESTRICT="mirror"
 
 RDEPEND=""
 DEPEND="${RDEPEND}"
+# TODO(NRK): package asmc? since 7zip docs recommends using it over jwasm since
+# jwasm doesn't support AES instructions.
+#
+# alternatively look into packaging uasm (https://www.terraspace.co.uk/uasm.html)
+# instead which is jwasm based but also supports AES. the 7zip AUR package uses
+# uasm for reference.
 BDEPEND="asm? ( dev-lang/jwasm )"
 
 pkg_setup() {
@@ -62,7 +68,19 @@ src_compile() {
 	export G_CXXFLAGS=${CXXFLAGS}
 	export G_LDFLAGS=${LDFLAGS}
 	# USE_JWASM=1 - if asm: use JWasm assembler instead of Asmc (not a gentoo package)
-	emake DISABLE_RAR=1 USE_JWASM=1 --file "../../${mfile}"
+	local args=(
+		-f "../../${mfile}"
+		USE_JWASM=1
+	)
+	# NOTE: makefile doesn't check the value of DISABLE_RAR_COMPRESS, only
+	# whether it's defined or not. so in case user has `rar` enabled
+	# DISABLE_RAR_COMPRESS (and DISABLE_RAR) needs to stay undefined.
+	if ! use rar; then
+		# disables non-free rar code but allows listing and extracting
+		# non-compressed rar archives
+		args+=(DISABLE_RAR_COMPRESS=1)
+	fi
+	emake ${args[@]}
 	popd > /dev/null || die "Unable to switch directory"
 }
 
