@@ -5,6 +5,10 @@
 		<email>1over137@anche.no</email>
 		<name>Shaoyu Tseng</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>watermanpaint@posteo.net</email>
+		<name>Lucio Sauer</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="pypi">anki</remote-id>
 		<remote-id type="github">ankitects/anki</remote-id>
