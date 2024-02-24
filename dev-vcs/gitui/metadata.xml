@@ -2,9 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<description>co-maintainers welcome</description>
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
+		<email>pastalian46@gmail.com</email>
+		<name>Takuya Wakazono</name>
 	</maintainer>
 	<upstream>
 		<changelog>https://github.com/extrawurst/gitui/raw/master/CHANGELOG.md</changelog>
