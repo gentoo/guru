@@ -19,7 +19,23 @@ DEPEND="
 	x11-misc/xdg-utils
 	acct-group/1password
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	x11-libs/libXcomposite
+	x11-libs/libXdamage
+	x11-libs/libXfixes
+	x11-libs/libXrandr
+	media-libs/alsa-lib
+	app-accessibility/at-spi2-core
+	net-print/cups
+	x11-libs/libdrm
+	media-libs/mesa
+	x11-libs/gtk+
+	dev-libs/nspr
+	dev-libs/nss
+	x11-libs/pango
+	x11-libs/libxkbcommon
+"
 
 S=${WORKDIR}
 
@@ -33,27 +49,6 @@ src_unpack() {
 }
 
 QA_PREBUILT="opt/1Password/*"
-
-QA_SONAME="
-/usr/lib64/libXcomposite.so.1
-/usr/lib64/libXdamage.so.1
-/usr/lib64/libXfixes.so.3
-/usr/lib64/libXrandr.so.2
-/usr/lib64/libasound.so.2
-/usr/lib64/libatk-1.0.so.0
-/usr/lib64/libatk-bridge-2.0.so.0
-/usr/lib64/libatspi.so.0
-/usr/lib64/libcups.so.2
-/usr/lib64/libdrm.so.2
-/usr/lib64/libgbm.so.1
-/usr/lib64/libgtk-3.so.0
-/usr/lib64/libnspr4.so
-/usr/lib64/libnss3.so
-/usr/lib64/libnssutil3.so
-/usr/lib64/libpango-1.0.so.0
-/usr/lib64/libsmime3.so
-/usr/lib64/libxkbcommon.so.0
-"
 
 src_install() {
 	cp -ar "${S}/opt"  "${D}" || die "Install failed!"
