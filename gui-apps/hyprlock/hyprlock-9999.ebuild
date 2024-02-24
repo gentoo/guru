@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake toolchain-funcs
 
-COMMIT="8969351cba0e4a7ed91715121391f9786c2e6345"
+COMMIT="57e80006602b7857fb23feded368055df62b8cb3"
 DESCRIPTION="Hyprland's GPU-accelerated screen locking utility"
 HOMEPAGE="https://github.com/hyprwm/hyprlock"
 
@@ -29,7 +29,7 @@ SLOT="0"
 RDEPEND="
 	dev-libs/wayland
 	gui-libs/egl-wayland
-	media-libs/mesa[egl(+),gles2]
+	media-libs/mesa[opengl]
 	sys-libs/pam
 	>=gui-wm/hyprland-0.35.0
 "
@@ -41,7 +41,9 @@ DEPEND="
 BDEPEND="
 	>=dev-libs/hyprlang-0.4.0
 	x11-libs/libxkbcommon
+	x11-libs/libdrm
 	x11-libs/cairo
+	x11-libs/pango
 	dev-build/cmake
 	dev-libs/date
 	virtual/pkgconfig
