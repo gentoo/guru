@@ -26,6 +26,10 @@ BDEPEND="
 	jwasm? ( dev-lang/jwasm )
 "
 
+# TODO(NRK): also build and install the library
+# TODO(NRK): make it so this package can be used as a drop-in replacement
+# for app-arch/p7zip ??
+
 pkg_setup() {
 	# instructions in DOC/readme.txt, Compiling 7-Zip for Unix/Linux
 	# TLDR; every combination of options (clang|gcc)+(asm/noasm)
@@ -61,12 +65,14 @@ src_prepare() {
 src_compile() {
 	pushd "./Bundles/Alone2" || die "Unable to switch directory"
 	append-ldflags -Wl,-z,noexecstack
-	export G_CC=$(tc-getCC)
-	export G_CXX=$(tc-getCXX)
 	export G_CFLAGS=${CFLAGS}
 	export G_CXXFLAGS=${CXXFLAGS}
 	export G_LDFLAGS=${LDFLAGS}
-	local args=( -f "../../${mfile}" )
+	local args=(
+		-f "../../${mfile}"
+		CC=$(tc-getCC)
+		CXX=$(tc-getCXX)
+	)
 	# NOTE: makefile doesn't check the value of DISABLE_RAR_COMPRESS, only
 	# whether it's defined or not. so in case user has `rar` enabled
 	# DISABLE_RAR_COMPRESS (and DISABLE_RAR) needs to stay undefined.
