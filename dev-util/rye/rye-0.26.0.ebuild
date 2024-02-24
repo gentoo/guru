@@ -332,6 +332,7 @@ QA_FLAGS_IGNORED=".*"
 src_test() {
 	local mytestargs=(
 		--skip utils::test_is_inside_git_work_tree::test_is_inside_git_work_tree_true
+		# The following tests require network access.
 		--skip test_add_and_sync_no_auto_sync
 		--skip test_add_autosync
 		--skip test_add_flask
