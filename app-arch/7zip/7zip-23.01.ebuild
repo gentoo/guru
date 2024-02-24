@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit edos2unix toolchain-funcs
+inherit edos2unix toolchain-funcs flag-o-matic
 
 NO_DOT_PV=$(ver_rs 1- '')
 DESCRIPTION="A free file archiver for extremely high compression"
@@ -21,7 +21,6 @@ RESTRICT="mirror"
 
 RDEPEND=""
 DEPEND="${RDEPEND}"
-# TODO: disable executable stack when asm is used
 BDEPEND="
 	uasm? ( dev-lang/uasm )
 	jwasm? ( dev-lang/jwasm )
@@ -61,6 +60,7 @@ src_prepare() {
 
 src_compile() {
 	pushd "./Bundles/Alone2" || die "Unable to switch directory"
+	append-ldflags -Wl,-z,noexecstack
 	export G_CC=$(tc-getCC)
 	export G_CXX=$(tc-getCXX)
 	export G_CFLAGS=${CFLAGS}
