@@ -10,3 +10,4 @@ move x11-wm/phoc gui-wm/phoc
 move gui-wm/phosh phosh-base/phosh-shell
 move gui-apps/phosh-tour phosh-base/phosh-tour
 move x11-misc/squeekboard phosh-base/squeekboard
+move sys-devel/gdb-dashboard dev-debug/gdb-dashboard
