@@ -61,9 +61,8 @@ sys-cluster/temanejo
 sys-cluster/parsec
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-01-07)
-# Depends on removed dev-java/gradle-bin slot.
-net-libs/signald
-# and revdeps
+# Depends on dropped net-libs/signald package
+# Keeping the package since version >=0.5.0 no longer depend on it, just needs to be packaged
 net-im/mautrix-signal
 
 # Lucio Sauer <watermanpaint@posteo.net> (2024-01-04)
