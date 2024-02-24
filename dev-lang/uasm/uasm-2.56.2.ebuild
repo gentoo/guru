@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit toolchain-funcs flag-o-matic
 
 DESCRIPTION="UASM is a free MASM-compatible assembler"
 HOMEPAGE="https://www.terraspace.co.uk/uasm.html"
@@ -25,9 +25,9 @@ src_prepare() {
 }
 
 src_compile() {
-	# -fcommon: https://github.com/Terraspace/UASM/issues/143
+	append-cflags -fcommon  # Bug: https://github.com/Terraspace/UASM/issues/143
 	emake -f gccLinux64.mak CC="$(tc-getCC)" \
-		CFLAGS="${CFLAGS} -fcommon" LDFLAGS="${LDFLAGS}"
+		CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
 }
 
 src_install() {
