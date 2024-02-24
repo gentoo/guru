@@ -26,6 +26,7 @@ RDEPEND="
 	dev-cpp/gtkmm:3.0=
 	dev-db/sqlite:3
 	dev-libs/miniaudio
+	media-libs/opus
 	dev-libs/spdlog
 	>=net-libs/ixwebsocket-11.0.8
 	net-misc/curl
