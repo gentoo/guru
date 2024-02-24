@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>navi@vlhl.dev</email>
+    <name>Anna Figueiredo Gomes</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">rbreu/beeref</remote-id>
+  </upstream>
+</pkgmetadata>
+
