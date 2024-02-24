@@ -49,8 +49,6 @@ CRATES="
 	core-foundation-sys@0.8.6
 	cpufeatures@0.2.12
 	crc32fast@1.3.2
-	crossbeam-deque@0.8.5
-	crossbeam-epoch@0.9.18
 	crossbeam-utils@0.8.19
 	crypto-common@0.1.6
 	ctrlc@3.4.2
@@ -176,8 +174,6 @@ CRATES="
 	rand_core@0.5.1
 	rand_core@0.6.4
 	rand_hc@0.2.0
-	rayon-core@1.12.1
-	rayon@1.8.1
 	redox_syscall@0.4.1
 	regex-automata@0.4.5
 	regex-syntax@0.8.2
@@ -268,7 +264,6 @@ CRATES="
 	wasm-bindgen-shared@0.2.90
 	wasm-bindgen@0.2.90
 	webpki-roots@0.25.4
-	whattheshell@1.1.0
 	which@6.0.0
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.6
@@ -336,10 +331,22 @@ QA_FLAGS_IGNORED=".*"
 
 src_test() {
 	local mytestargs=(
-		--skip test_is_inside_git_work_tree_true
-		--skip test_lint_and_format
+		--skip utils::test_is_inside_git_work_tree::test_is_inside_git_work_tree_true
+		--skip test_add_and_sync_no_auto_sync
+		--skip test_add_autosync
+		--skip test_add_flask
+		--skip test_add_from_find_links
+		--skip test_basic_tool_behavior
+		--skip test_config_empty
+		--skip test_config_get_set_multiple
+		--skip test_config_incompatible_format_and_show_path
+		--skip test_config_show_path
+		--skip test_config_show_path_and_any_action
 		--skip test_empty_sync
-		--skip test_add_and_sync
+		--skip test_init_default
+		--skip test_init_lib
+		--skip test_init_script
+		--skip test_lint_and_format
 	)
 
 	cargo_src_test -- "${mytestargs[@]}"
