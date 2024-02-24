@@ -11,7 +11,8 @@ HOMEPAGE="https://www.7-zip.org/ https://sourceforge.net/projects/sevenzip/"
 SRC_URI="https://sourceforge.net/projects/sevenzip/files/7-Zip/${PV}/7z${NO_DOT_PV}-src.tar.xz/download -> ${PN}-${PV}.tar.xz"
 LICENSE="LGPL-2 BSD rar? ( unRAR )"
 
-IUSE="asm rar"
+IUSE="uasm jwasm rar"
+REQUIRED_USE="?? ( uasm jwasm )"
 SLOT="0"
 KEYWORDS="~amd64"
 
@@ -20,13 +21,11 @@ RESTRICT="mirror"
 
 RDEPEND=""
 DEPEND="${RDEPEND}"
-# TODO(NRK): package asmc? since 7zip docs recommends using it over jwasm since
-# jwasm doesn't support AES instructions.
-#
-# alternatively look into packaging uasm (https://www.terraspace.co.uk/uasm.html)
-# instead which is jwasm based but also supports AES. the 7zip AUR package uses
-# uasm for reference.
-BDEPEND="asm? ( dev-lang/jwasm )"
+# TODO: disable executable stack when asm is used
+BDEPEND="
+	uasm? ( dev-lang/uasm )
+	jwasm? ( dev-lang/jwasm )
+"
 
 pkg_setup() {
 	# instructions in DOC/readme.txt, Compiling 7-Zip for Unix/Linux
@@ -42,7 +41,7 @@ pkg_setup() {
 	else
 		die "Unsupported compiler: $(tc-getCC)"
 	fi
-	if use asm ; then
+	if use jwasm || use uasm ; then
 		mfile="${mfile}_x64"
 		bdir="${bdir}_x64"
 	fi
@@ -67,11 +66,7 @@ src_compile() {
 	export G_CFLAGS=${CFLAGS}
 	export G_CXXFLAGS=${CXXFLAGS}
 	export G_LDFLAGS=${LDFLAGS}
-	# USE_JWASM=1 - if asm: use JWasm assembler instead of Asmc (not a gentoo package)
-	local args=(
-		-f "../../${mfile}"
-		USE_JWASM=1
-	)
+	local args=( -f "../../${mfile}" )
 	# NOTE: makefile doesn't check the value of DISABLE_RAR_COMPRESS, only
 	# whether it's defined or not. so in case user has `rar` enabled
 	# DISABLE_RAR_COMPRESS (and DISABLE_RAR) needs to stay undefined.
@@ -79,6 +74,11 @@ src_compile() {
 		# disables non-free rar code but allows listing and extracting
 		# non-compressed rar archives
 		args+=(DISABLE_RAR_COMPRESS=1)
+	fi
+	if use jwasm; then
+		args+=(USE_JWASM=1)
+	elif use uasm; then
+		args+=(MY_ASM=uasm)
 	fi
 	emake ${args[@]}
 	popd > /dev/null || die "Unable to switch directory"
