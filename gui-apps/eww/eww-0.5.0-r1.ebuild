@@ -348,11 +348,11 @@ src_unpack() {
 }
 
 src_configure() {
-    local myfeatures=(
+	local myfeatures=(
 		$(usev X x11)
 		$(usev wayland wayland)
-    )
-    cargo_src_configure
+	)
+	cargo_src_configure
 }
 
 src_compile() {
