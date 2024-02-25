@@ -1,9 +1,9 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit edo toolchain-funcs
 
 DESCRIPTION="Single-header MP3 audio decoder library"
 HOMEPAGE="https://github.com/mackron/dr_libs/"
@@ -36,9 +36,8 @@ src_compile() {
 
 		pushd tests > /dev/null || die
 		for tcase in ${TESTCASES[@]}; do
-			einfo "Compiling test case ${tcase}."
 			MY_BUILD="${MY_CC} mp3/${tcase} -o bin/${tcase} ${CFLAGS} ${CPPFLAGS}"
-			${MY_BUILD} || die "Build failed: ${MY_BUILD}"
+			edo ${MY_BUILD}
 		done
 		popd || die
 	fi
@@ -47,8 +46,7 @@ src_compile() {
 src_test() {
 	pushd tests > /dev/null || die
 	for tcase in ${TESTCASES[@]}; do
-		einfo "Running test case ${tcase}."
-		./bin/${tcase} || die "Test case ${tcase} failed."
+		edo bin/${tcase}
 	done
 	popd || die
 }
