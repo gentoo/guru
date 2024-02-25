@@ -305,24 +305,16 @@ if [[ "${PV}" == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/elkowar/${PN}.git"
 else
 	SRC_URI="
-		https://github.com/elkowar/${PV}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/elkowar/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 		${CARGO_CRATE_URIS}
 	"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="
-	Apache-2.0
-	|| ( Apache-2.0 MIT )
-	|| ( Apache-2.0 BSL-1.1 )
-	|| ( Artistic-2 CC0-1.0 )
-	BSD
-	CC0-1.0
-	ISC
 	MIT
-	|| ( MIT Unlicense )
 "
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE="X wayland"
 REQUIRED_USE="|| ( X wayland )"
 
@@ -346,11 +338,26 @@ RDEPEND="
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 
+src_unpack() {
+	if [[ "${PV}" == 9999 ]]; then
+		git-r3_src_unpack
+		cargo_live_src_unpack
+	else
+		cargo_src_unpack
+	fi
+}
+
+src_configure() {
+    local myfeatures=(
+		$(usev X x11)
+		$(usev wayland wayland)
+    )
+    cargo_src_configure
+}
+
 src_compile() {
-	use X && features="--no-default-features --features=x11"
-	use wayland && features="--no-default-features --features=wayland"
-	use X && use wayland && features="--no-default-features --features=wayland,x11"
-	cargo_src_compile ${features}
+	cargo_gen_config
+	cargo_src_compile
 }
 
 src_install() {
