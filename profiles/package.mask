@@ -431,7 +431,6 @@ dev-python/github-sublee-glicko2
 dev-python/glyphsLib
 dev-python/glyphsets
 dev-python/glyphtools
-dev-python/gnuplot-py
 dev-python/googletransx
 dev-python/gpxpy
 dev-python/hstspreload

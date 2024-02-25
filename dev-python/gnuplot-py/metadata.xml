@@ -3,8 +3,8 @@
 <pkgmetadata>
 	<maintainer type="person">
 		<description>co-maintainers welcome</description>
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
+		<email>joe@wt.gd</email>
+		<name>Joe Kappus</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="sourceforge">gnuplot-py</remote-id>
