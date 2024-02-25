@@ -8,7 +8,10 @@ inherit edos2unix toolchain-funcs flag-o-matic
 NO_DOT_PV=$(ver_rs 1- '')
 DESCRIPTION="A free file archiver for extremely high compression"
 HOMEPAGE="https://www.7-zip.org/ https://sourceforge.net/projects/sevenzip/"
-SRC_URI="https://sourceforge.net/projects/sevenzip/files/7-Zip/${PV}/7z${NO_DOT_PV}-src.tar.xz/download -> ${PN}-${PV}.tar.xz"
+SRC_URI="
+	https://sourceforge.net/projects/sevenzip/files/7-Zip/${PV}/7z${NO_DOT_PV}-src.tar.xz/download -> ${PN}-${PV}.tar.xz
+	https://sourceforge.net/projects/sevenzip/files/7-Zip/${PV}/7z${NO_DOT_PV}-linux-x64.tar.xz/download -> ${PN}-${PV}-linux.tar.xz
+"
 LICENSE="LGPL-2 BSD rar? ( unRAR )"
 
 IUSE="uasm jwasm rar"
@@ -17,6 +20,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 S="${WORKDIR}/CPP/7zip/"
+DOCS=( readme.txt History.txt License.txt )
+HTML_DOCS=( MANUAL )
 RESTRICT="mirror"
 
 RDEPEND=""
@@ -92,4 +97,7 @@ src_compile() {
 
 src_install() {
 	dobin "./Bundles/Alone2/b/${bdir}/7zz"
+
+	pushd "${WORKDIR}" || die "Unable to switch directory"
+	einstalldocs
 }
