@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -34,9 +34,19 @@ RDEPEND="
 
 distutils_enable_tests pytest
 
-python_test() {
-	# Calling pytest directly causes module not to be imported correctly
-	sed "s/\"pytest\"/\"${EPYTHON}\", \"-m\", \"pytest\"/" \
+python_prepare_all() {
+	# tests need pytest_mypy_plugins.tests on the modules search path and
+	# python -m pytest preprends sys.path with ${PWD}/${S}
+	# --mypy-only-local-stub is a workaround for bug #921901
+	sed "s/\"pytest\"/\"MY_EPYTHON\", \"-m\", \"pytest\", \"--mypy-only-local-stub\"/" \
 		-i pytest_mypy_plugins/tests/test_explicit_configs.py || die
-	distutils-r1_python_test
+	distutils-r1_python_prepare_all
+}
+
+python_test() {
+	# substitute the correct interpreter
+	sed "s/MY_EPYTHON/${EPYTHON}/" -i pytest_mypy_plugins/tests/test_explicit_configs.py || die
+	epytest --mypy-only-local-stub
+	# reset for next interpreter run
+	sed "s/${EPYTHON}/MY_EPYTHON/" -i pytest_mypy_plugins/tests/test_explicit_configs.py || die
 }
