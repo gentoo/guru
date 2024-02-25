@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit edo toolchain-funcs
 
 DESCRIPTION="Single-header WAV audio loader and writer library"
 HOMEPAGE="https://github.com/mackron/dr_libs/"
@@ -55,7 +55,6 @@ src_compile() {
 
 		pushd tests > /dev/null || die
 		for tcase in ${TESTCASES[@]}; do
-			einfo "Compiling test case ${tcase}."
 			case ${tcase} in
 				*.cpp)
 					MY_C=${MY_CXX}
@@ -77,7 +76,7 @@ src_compile() {
 				*)
 					;;
 			esac
-			${MY_BUILD} || die "Build failed: ${MY_BUILD}"
+			edo ${MY_BUILD}
 		done
 		popd || die
 	fi
@@ -88,7 +87,6 @@ src_test() {
 
 	pushd tests || die
 	for tcase in ${TESTCASES[@]}; do
-		einfo "Running test case ${tcase}."
 		MY_RUN="./bin/${tcase}"
 		case ${tcase%.*} in
 			dr_wav_encoding)
@@ -97,7 +95,7 @@ src_test() {
 			*)
 				;;
 		esac
-		${MY_RUN} || die "Test case ${tcase} failed."
+		edo ${MY_RUN}
 	done
 	popd || die
 }
