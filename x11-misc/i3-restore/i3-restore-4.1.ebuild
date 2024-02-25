@@ -35,10 +35,14 @@ src_prepare() {
 }
 
 src_install() {
+	keepdir /usr/libexec/${PN}/logs || die
+	fperms 777 /usr/libexec/${PN}/logs || die
+
 	insinto "/usr/libexec/${PN}"
 	doins -r utils
 	dobin i3-save
 	dobin i3-restore
+
 	python_moduleinto "/usr/libexec/${PN}"
 	python_domodule programs
 }
