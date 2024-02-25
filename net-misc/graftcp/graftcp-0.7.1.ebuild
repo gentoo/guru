@@ -6,7 +6,7 @@ EAPI=8
 DESCRIPTION="A tool for redirecting a given program's TCP traffic to SOCKS5 or HTTP proxy"
 HOMEPAGE="https://github.com/hmgle/graftcp"
 
-GO_OPTIONAL=1
+inherit toolchain-funcs
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -22,10 +22,11 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
+IUSE="systemd"
 RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-lang/go
-	dev-util/pkgconf
+	systemd? ( dev-util/pkgconf )
 "
 
 PATCHES="
@@ -41,7 +42,11 @@ src_prepare() {
 	mv "${WORKDIR}/vendor" "${WORKDIR}/${P}/local" || die
 }
 
+src_compile() {
+	emake CC="$(tc-getCC)" CXX="$(tc-getCXX)"
+}
+
 src_install() {
 	emake DESTDIR="${D}" PREFIX="/usr" install
-	emake DESTDIR="${D}" PREFIX="/usr" install_systemd
+	use systemd && emake DESTDIR="${D}" PREFIX="/usr" install_systemd
 }
