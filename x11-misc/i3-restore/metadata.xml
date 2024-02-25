@@ -5,6 +5,9 @@
 		<email>zdanevich.vitaly@ya.ru</email>
 		<name>Vitaly Zdanevich</name>
 	</maintainer>
+	<longdescription>
+A simple Python and Bash script to restore your i3 session. It works very similar to how Firefox restores a previous session. The script can correctly restore terminal subprocesses (such as Vim and ssh) and web browser instances exactly how they were before.
+	</longdescription>
 	<upstream>
 		<remote-id type="github">jdholtz/i3-restore</remote-id>
 	</upstream>
