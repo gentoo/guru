@@ -10,7 +10,7 @@ if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="
-		https://github.com/pystardust/${PN}/archive/refs/tags/v${PV}.tar.gz
+		https://github.com/pystardust/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	"
 	S="${WORKDIR}/${P}"
 	KEYWORDS="~amd64 ~arm64 ~x86"
