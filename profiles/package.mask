@@ -576,7 +576,6 @@ sys-power/ZenStates-Linux
 sys-power/amdgpu-fan
 sys-power/disable-c6
 sys-power/geopmd
-sys-power/linux-tools-power-x86
 virtual/MASS
 virtual/Matrix
 virtual/lattice
