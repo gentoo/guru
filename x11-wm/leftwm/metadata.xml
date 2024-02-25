@@ -6,11 +6,6 @@
 		<email>rmicielski@purelymail.com</email>
 		<description>Primary maintainer</description>
 	</maintainer>
-	<maintainer type="person">
-		<name>Luciano Degni</name>
-		<email>degni.public@gmail.com</email>
-		<description>Inactive</description>
-	</maintainer>
 	<upstream>
 		<remote-id type="github">leftwm/leftwm</remote-id>
 		<doc>https://github.com/leftwm/leftwm/wiki/Config</doc>

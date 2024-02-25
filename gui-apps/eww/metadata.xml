@@ -2,10 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>degni.public@gmail.com</email>
-		<name>Luciano Degni</name>
-	</maintainer>
-	<maintainer type="person">
 		<email>pascal.jaeger@leimstift.de</email>
 		<name>Pascal Jäger</name>
 	</maintainer>

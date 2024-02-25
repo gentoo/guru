@@ -5,11 +5,6 @@
 		<email>rmicielski@purelymail.com</email>
 		<name>Remigiusz Micielski</name>
 	</maintainer>
-	<maintainer type="person">
-		<email>degni.public@gmail.com</email>
-		<name>Luciano Degni</name>
-		<description>Inactive</description>
-	</maintainer>
 	<upstream>
 		<doc>https://github.com/Macchina-CLI/macchina/wiki</doc>
 		<bugs-to>https://github.com/Macchina-CLI/macchina/issues</bugs-to>
