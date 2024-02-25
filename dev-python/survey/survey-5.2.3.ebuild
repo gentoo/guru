@@ -22,7 +22,6 @@ KEYWORDS="~amd64 ~x86"
 
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
-	doc? ( <dev-python/sphinx-autodoc-typehints-2[${PYTHON_USEDEP}] )
 "
 
 distutils_enable_sphinx docs \
