@@ -328,13 +328,6 @@ DEPEND="
 	sys-devel/gcc
 	gui-libs/gtk-layer-shell
 "
-BDEPEND="
-	$DEPEND
-	dev-lang/rust[nightly]
-"
-RDEPEND="
-	$DEPEND
-"
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 
