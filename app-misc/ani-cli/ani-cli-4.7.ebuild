@@ -6,14 +6,13 @@ EAPI=8
 DESCRIPTION="A cli to browse and watch anime."
 HOMEPAGE="https://github.com/pystardust/ani-cli"
 if [[ "${PV}" == *9999* ]]; then
-	EGIT_REPO_URI="https://github.com/pystardust/ani-cli.git"
+	EGIT_REPO_URI="https://github.com/pystardust/${PN}.git"
 	inherit git-r3
 else
 	SRC_URI="
-		https://github.com/pystardust/${PN}/releases/download/v${PV}/ani-cli -> ${P}
-		https://github.com/pystardust/${PN}/releases/download/v${PV}/ani-cli.1 -> ${P}.1
+		https://github.com/pystardust/${PN}/archive/refs/tags/v${PV}.tar.gz
 	"
-	S="${WORKDIR}"
+	S="${WORKDIR}/${P}"
 	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
@@ -29,6 +28,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_install() {
-	newbin "${DISTDIR}/${P}" "${PN}"
-	newman "${DISTDIR}/${P}.1" "${PN}.1"
+	dobin "${PN}"
+	doman "${PN}.1"
 }
