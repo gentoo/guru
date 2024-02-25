@@ -489,7 +489,6 @@ dev-util/ots
 dev-vcs/bit
 dev-vcs/git-blame-someone-else
 dev-vcs/git-repo-updater
-dev-vcs/gitui
 games-misc/Fallout3Terminal
 games-misc/bonsai
 games-misc/cbonsai
