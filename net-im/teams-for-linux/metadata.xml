@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pkgmetadata>
-	<maintainer type="person">
-		<email>casta@xwing.info</email>
-		<name>Guillaume Castagnino</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="github">IsmaelMartinez/teams-for-linux</remote-id>
 	</upstream>
