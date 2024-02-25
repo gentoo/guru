@@ -25,6 +25,7 @@ IUSE="+libhandy +rnnoise qrcodegen"
 RDEPEND="
 	dev-cpp/gtkmm:3.0=
 	dev-db/sqlite:3
+	dev-libs/libsodium
 	dev-libs/miniaudio
 	dev-libs/spdlog
 	media-libs/opus
