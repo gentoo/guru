@@ -22,6 +22,7 @@ KEYWORDS="~amd64"
 RESTRICT='strip'
 
 RDEPEND="!app-admin/bitwarden-cli"
+BDEPEND="app-arch/unzip"
 QA_PRESTRIPPED="usr/bin/bw"
 
 src_compile() {
