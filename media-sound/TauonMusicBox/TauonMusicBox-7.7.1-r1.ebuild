@@ -7,7 +7,7 @@ PLOCALES="cs de es fr_FR hu id it ja_JP nb_NO pl pt pt_BR pt_PT ru sv tr zh_CN"
 PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=setuptools
 
-inherit cmake desktop distutils-r1 plocale
+inherit cmake desktop distutils-r1 plocale xdg
 
 DESCRIPTION="The desktop music player of today!"
 HOMEPAGE="https://tauonmusicbox.rocks/"
@@ -100,6 +100,7 @@ python_install() {
 	doins input.txt
 
 	sed -i 's/\/opt\/tauon-music-box\/tauonmb.sh/tauon/g' extra/tauonmb.desktop || die
+	sed -i 's/Actions=PlayPause;Previous;Next/Actions=PlayPause;Previous;Next;Stop/g' extra/tauonmb.desktop || die
 	domenu extra/tauonmb.desktop
 	doicon -s scalable extra/tauonmb.svg
 
