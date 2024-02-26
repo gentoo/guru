@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cargo check-reqs systemd tmpfiles
+inherit cargo check-reqs readme.gentoo-r1 systemd tmpfiles
 
 DESCRIPTION="Unofficial Bitwarden compatible password manager server written in Rust"
 HOMEPAGE="https://github.com/dani-garcia/vaultwarden"
@@ -53,6 +53,16 @@ PATCHES=(
 CHECKREQS_MEMORY=3G
 CHECKREQS_DISK_BUILD=2G
 
+DOC_CONTENTS="\n
+	Configuration file: /etc/${PN}.env\n
+	Data directory: /var/lib/${PN}\n
+	\n
+	MySQL & PostgreSQL users must set DATABASE_URL in config\n
+	\n
+	Default server: http://0.0.0.0:8000\n
+	Admin interface: http://0.0.0.0:8000/admin
+"
+
 src_unpack() {
 	if [[ ${PV} == 9999* ]]; then
 		# clone vaultwarden
@@ -96,17 +106,15 @@ src_install() {
 	newtmpfiles "${FILESDIR}"/vaultwarden-tmpfiles-1.30.3.conf "${PN}".conf
 	insinto /etc
 	newins .env.template "${PN}".env
+	dosym -r /etc/"${PN}".env /etc/conf.d/"${PN}"
 	keepdir /var/lib/"${PN}"
 
+	readme.gentoo_create_doc
 	einstalldocs
 	dodoc -r ../"${PN}".wiki/*
 }
 
 pkg_postinst() {
 	tmpfiles_process "${PN}".conf
-	elog "Configuration file: /etc/${PN}.env"
-	elog "Data directory: /var/lib/${PN}"
-	use mysql || use postgres && elog "User must set DATABASE_URL in config "
-	elog "Default server: http://127.0.0.1:8000"
-	elog "Admin interface: http://127.0.0.1:8000/admin"
+	readme.gentoo_print_elog
 }
