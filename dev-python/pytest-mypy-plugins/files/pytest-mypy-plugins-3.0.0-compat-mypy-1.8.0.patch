@@ -1,0 +1,51 @@
+https://github.com/typeddjango/pytest-mypy-plugins/commit/97aff1e9ae5022384542ce98b8a401c7f4c420e7
+From: antecrescent <watermanpaint@posteo.net>
+Date: Sun, 25 Feb 2024 20:53:26 +0100
+Subject: [PATCH] Test inline mypy configuration with more stable mypy option
+ (#138)
+
+* Test inline mypy configuration with more stable mypy option
+
+The mypy configuration --no-strict-optional is discouraged and not much
+tested. It caused the test to fail with >=mypy-1.6.0.
+
+Closes #137
+
+* Update flush_errors to match the signature of >=mypy-1.8.0
+
+Necessity to bump to >=mypy-1.8.0 explained here:
+https://github.com/typeddjango/pytest-mypy-plugins/pull/139
+--- a/pytest_mypy_plugins/item.py
++++ b/pytest_mypy_plugins/item.py
+@@ -82,7 +82,10 @@ def run_mypy_typechecking(cmd_options: List[str], stdout: TextIO, stderr: TextIO
+ 
+     error_messages = []
+ 
+-    def flush_errors(new_messages: List[str], serious: bool) -> None:
++    # discard filename parameter '_'. Mypy uses it to generate
++    # one junit-xml test entry per file with failures (--junit-format per_file)
++    # and we don't support mypy's --junit-xml option in the first place.
++    def flush_errors(_: str | None, new_messages: List[str], serious: bool) -> None:
+         error_messages.extend(new_messages)
+         f = stderr if serious else stdout
+         try:
+--- a/pytest_mypy_plugins/tests/test-mypy-config.yml
++++ b/pytest_mypy_plugins/tests/test-mypy-config.yml
+@@ -1,9 +1,9 @@
+ # Also used in `test_explicit_configs.py`
+ 
+-- case: custom_mypy_config_strict_optional_true_set
++- case: custom_mypy_config_disallow_any_explicit_set
++  expect_fail: yes
+   main: |
+-    from typing import Optional
+-    a: Optional[int] = None
+-    a + 1  # should not raise an error
++    from typing import Any
++    a: Any = None  # should raise an error
+   mypy_config: |
+-    strict_optional = false
++    disallow_any_explicit = true
+-- 
+2.43.2
+
