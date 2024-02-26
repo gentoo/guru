@@ -19,8 +19,14 @@ KEYWORDS="~amd64"
 RESTRICT="strip"
 QA_PREBUILT="*"
 
+# TODO soon brotli dep will be dropped
 RDEPEND="
 	app-arch/brotli
+	media-libs/alsa-lib
+	media-libs/libglvnd
+	x11-libs/gtk+
+	x11-libs/pango
+	x11-libs/libXrandr
 "
 
 src_unpack() {
