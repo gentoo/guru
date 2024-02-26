@@ -7,8 +7,8 @@ inherit cmake
 
 # TODO(NRK):
 # - enable tests
-# - useflag to not build md2html tool
 # - useflag for static lib (?)
+# - move this under dev-libs or maybe split the md2html tool into it's own package (??)
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -25,6 +25,7 @@ HOMEPAGE="https://github.com/mity/md4c"
 
 LICENSE="MIT"
 SLOT="0"
+IUSE="+md2html"
 
 src_prepare() {
 	cmake_src_prepare
@@ -34,6 +35,7 @@ src_configure() {
 	mycmakeargs=(
 		-DCMAKE_BUILD_TYPE=Release
 		-DBUILD_SHARED_LIBS=ON
+		-DBUILD_MD2HTML_EXECUTABLE=$(usex md2html ON OFF)
 	)
 
 	cmake_src_configure
