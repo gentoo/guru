@@ -9,7 +9,5 @@
 		<remote-id type="github">bitwarden/clients</remote-id>
 		<bugs-to>https://github.com/bitwarden/clients/issues</bugs-to>
 		<doc>https://github.com/bitwarden/clients/tree/main/apps/cli</doc>
-		<doc>https://contributing.bitwarden.com/getting-started/clients/cli/</doc>
-		<doc>https://bitwarden.com/help/cli/</doc>
 	</upstream>
 </pkgmetadata>
