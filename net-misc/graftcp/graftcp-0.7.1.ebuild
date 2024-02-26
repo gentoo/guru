@@ -16,7 +16,7 @@ else
 	https://github.com/hmgle/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/unlsycn/${PN}/releases/download/vendor-${PV}/${PN}-local-vendor-${PV}.tar.xz -> vendor.tar.xz
 	"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86 "
 fi
 
 LICENSE="GPL-3"
@@ -43,7 +43,7 @@ src_prepare() {
 }
 
 src_compile() {
-	emake CC="$(tc-getCC)" CXX="$(tc-getCXX)"
+	emake CC="$(tc-getCC)" CXX="$(tc-getCXX)" AR="$(tc-getAR)" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
 }
 
 src_install() {
