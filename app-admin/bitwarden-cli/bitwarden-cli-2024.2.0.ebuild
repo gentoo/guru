@@ -50,11 +50,11 @@ src_prepare() {
 }
 
 src_compile() {
-	pushd apps/cli
+	pushd apps/cli || die
 	PKG_CACHE_PATH="${WORKDIR}"/.pkg-cache npm --verbose --offline run dist:lin \
 		|| die "Build failed! Try prebuilt from upstream ${CATEGORY}/${PN}-bin"
-	./dist/linux/bw completion --shell zsh > bw.zsh
-	popd
+	./dist/linux/bw completion --shell zsh > bw.zsh || die
+	popd || die
 }
 
 src_install() {
