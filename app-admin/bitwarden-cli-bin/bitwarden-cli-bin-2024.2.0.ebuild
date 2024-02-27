@@ -23,7 +23,7 @@ RESTRICT='strip'
 
 RDEPEND="!app-admin/bitwarden-cli"
 BDEPEND="app-arch/unzip"
-QA_PRESTRIPPED="usr/bin/bw"
+QA_PREBUILT="usr/bin/bw"
 
 src_compile() {
 	./bw completion --shell zsh > bw.zsh
