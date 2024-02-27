@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -243,14 +243,13 @@ else
 		https://github.com/gabm/Satty/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 		${CARGO_CRATE_URIS}
 	"
+	M_PN=Satty
+	S="${WORKDIR}/${M_PN}-${PV}"
 	KEYWORDS="~amd64"
 fi
 
 LICENSE="MPL-2.0"
 SLOT="0"
-
-M_PN=Satty
-S="${WORKDIR}/${M_PN}-${PV}"
 
 RDEPEND="virtual/rust
 		dev-libs/glib:2
@@ -262,6 +261,15 @@ RDEPEND="virtual/rust
 "
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
+
+src_unpack() {
+	if [[ "${PV}" == 9999 ]]; then
+		git-r3_src_unpack
+		cargo_live_src_unpack
+	else
+		cargo_src_unpack
+	fi
+}
 
 src_install() {
 	dodoc README.md
