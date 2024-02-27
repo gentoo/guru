@@ -33,10 +33,10 @@ MODULE_NAMES="corefreqk(misc:${S})"
 MODULESD_COREFREQK_ENABLED="yes"
 
 pkg_setup() {
-		get_version
-		require_configured_kernel
-		BUILD_PARAMS="KERNELDIR=/lib/modules/${KV_FULL}/build"
-		linux-mod_pkg_setup
+	get_version
+	require_configured_kernel
+	BUILD_PARAMS="KERNELDIR=/lib/modules/${KV_FULL}/build"
+	linux-mod_pkg_setup
 }
 
 QA_FLAGS_IGNORED="usr/bin/.*"
