@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit unpacker
+inherit unpacker xdg-utils
 
 DESCRIPTION="A cross-platform media center, famous for high quality of audio."
 HOMEPAGE="https://jriver.com/"
@@ -46,4 +46,9 @@ src_install() {
 	mv usr/share/appdata usr/share/metainfo
 
 	cp -R "${S}"/* "${D}" || die "Installing binary files failed"
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
 }
