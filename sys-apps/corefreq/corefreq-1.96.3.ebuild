@@ -46,7 +46,7 @@ src_install() {
 	dobin corefreqd corefreq-cli
 	newconfd "${FILESDIR}/${PN}.conf" "${PN}"
 	doinitd "${FILESDIR}/${PN}"
-	use systemd && systemd_dounit ${PN}.service
+	use systemd && systemd_dounit ${PN}d.service
 	use doc && dodoc README.md
 }
 
