@@ -13,8 +13,11 @@
 	</maintainer>
 	<use>
 		<flag name="dogecoind">Build with dogecoind daemon</flag>
+		<flag name="experimental">Allow experimental features to be configured</flag>
+		<flag name="intel-avx2">Build with intel avx2</flag>
 		<flag name="pie">Position Independent Executables - attempt to harden resulting executables, for extra security</flag>
 		<flag name="prune">Enables automatic pruning of old blocks to stay below 2.2GB target size (if ran from desktop)</flag>
+		<flag name="scrypt-sse2">Build with scrypt sse2 implementation</flag>
 		<flag name="ssp">Apply stack protector to all functions, for extra security</flag>
 		<flag name="tests">Build Dogecoin Core Qt with tests option</flag>
 		<flag name="utils">Build with client utilities dogecoin-cli and dogecoin-tx</flag> 
