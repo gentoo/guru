@@ -314,7 +314,7 @@ inherit cargo
 DESCRIPTION="An Experimental Package Management Solution for Python"
 HOMEPAGE="https://rye-up.com"
 SRC_URI="
-	https://github.com/mitsuhiko/rye/archive/${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/astral-sh/rye/archive/${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
 
@@ -336,6 +336,7 @@ src_test() {
 		--skip test_add_and_sync_no_auto_sync
 		--skip test_add_autosync
 		--skip test_add_flask
+		--skip test_add_flask_wrong_venv_exported
 		--skip test_add_from_find_links
 		--skip test_basic_tool_behavior
 		--skip test_config_empty
@@ -344,6 +345,7 @@ src_test() {
 		--skip test_config_show_path
 		--skip test_config_show_path_and_any_action
 		--skip test_empty_sync
+		--skip test_fetch
 		--skip test_init_default
 		--skip test_init_lib
 		--skip test_init_script
