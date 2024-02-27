@@ -7,7 +7,7 @@ inherit unpacker xdg-utils
 
 DESCRIPTION="A cross-platform media center, famous for high quality of audio."
 HOMEPAGE="https://jriver.com/"
-SRC_URI="https://files.jriver-cdn.com/mediacenter/test/MediaCenter-31.0.60-amd64.deb"
+SRC_URI="https://files.jriver-cdn.com/mediacenter/channels/v31/latest/MediaCenter-${PV}-amd64.deb"
 
 S="${WORKDIR}"
 
