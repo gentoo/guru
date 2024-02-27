@@ -34,5 +34,16 @@ src_unpack() {
 }
 
 src_install() {
+
+	# To solve this https://bugs.gentoo.org/915528
+	# "
+	# * This location is deprecated, it should not be used anymore by new software.
+	# * Appdata/Metainfo files should be installed into /usr/share/metainfo directory.
+	# * For more details, please see the freedesktop Upstream Metadata guidelines at
+	# * https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html
+	# "
+	# I wrote to upstream https://yabb.jriver.com/interact/index.php/topic,138293.0.html
+	mv usr/share/appdata usr/share/metainfo
+
 	cp -R "${S}"/* "${D}" || die "Installing binary files failed"
 }
