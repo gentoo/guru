@@ -99,9 +99,9 @@ src_install() {
 	dosym "${DOGEDIR}/bin/${PN}" "/usr/bin/${PN}"
 
 	if use dogecoind ; then
-        	dosym "${DOGEDIR}/bin/dogecoind" "/usr/bin/dogecoind"
-        	dosym "${DOGEDIR}/bin/dogecoin-cli" "/usr/bin/dogecoin-cli"
-    	fi
+            dosym "${DOGEDIR}/bin/dogecoind" "/usr/bin/dogecoind"
+            dosym "${DOGEDIR}/bin/dogecoin-cli" "/usr/bin/dogecoin-cli"
+        fi
 
 	if use prune ; then
 		domenu "${FILESDIR}"/"${PN}-prune.desktop"
@@ -128,7 +128,7 @@ pkg_postinst() {
             einfo "NOTE: If you wish to activate experimental avx2 or sse2 CPU support," 
             einfo "you may do so with 'intel-avx2' and/or 'scrypt-sse2' USE flags, and"
             einfo "with 'experimental' USE flag enabled for version ${PV}."
-    fi
+        fi
 }
 
 pkg_postrm() {
