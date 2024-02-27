@@ -31,6 +31,7 @@ DEPEND="
 	media-libs/gst-plugins-base
 	media-libs/taglib
 	media-plugins/gst-plugins-meta
+	media-gfx/imagemagick[svg]
 "
 RDEPEND="${DEPEND}"
 
