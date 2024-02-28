@@ -6,11 +6,11 @@ LICENSE="GPL-3"
 DESCRIPTION="Open Visualization Tool"
 HOMEPAGE="https://www.ovito.org"
 
-ICON="logo_rgb-768x737.png"
+ICON="${P}_icon.pnp"
 
 SRC_URI="
 	https://gitlab.com/stuko/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2
-	https://www.ovito.org/wp-content/uploads/${ICON}
+	https://www.ovito.org/wp-content/uploads/logo_rgb-768x737.png -> ${ICON}
 "
 KEYWORDS="~amd64"
 
