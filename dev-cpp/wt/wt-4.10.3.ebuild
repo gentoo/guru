@@ -28,6 +28,15 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+BDEPEND="
+	doc? (
+		app-text/doxygen[dot]
+		dev-qt/qtchooser
+		dev-qt/qthelp
+	)
+"
+# for qt6 dev-qt/qttools[qdoc]
+
 PATCHES=( "${FILESDIR}/wt-no-rundir.patch")
 
 src_configure() {
