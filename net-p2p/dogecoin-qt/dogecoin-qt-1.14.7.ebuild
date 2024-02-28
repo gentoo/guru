@@ -6,7 +6,7 @@ WANT_AUTOCONF="2.5"
 inherit autotools desktop xdg-utils flag-o-matic
 DESCRIPTION="Dogecoin Core Qt for desktop. Downloaded blockchain is under 2.2GB. Much secure."
 HOMEPAGE="https://github.com/dogecoin"
-SRC_URI="https://github.com/dogecoin/dogecoin/archive/refs/heads/1.14.7-dev.zip -> ${PN}-v${PV}.zip"
+SRC_URI="https://github.com/dogecoin/dogecoin/archive/refs/tags/v${PV}.tar.gz -> ${PN}-v${PV}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -40,7 +40,7 @@ BDEPEND="
 	dev-build/automake
 "
 
-WORKDIR_="${WORKDIR}/dogecoin-${PV}-dev"
+WORKDIR_="${WORKDIR}/dogecoin-${PV}"
 S=${WORKDIR_}
 
 pkg_pretend() {
