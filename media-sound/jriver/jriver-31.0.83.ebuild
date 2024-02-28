@@ -18,6 +18,7 @@ KEYWORDS="~amd64"
 
 RESTRICT="strip"
 QA_PREBUILT="*"
+REQUIRES_EXCLUDE="libcef.so" # Already inside
 
 # TODO soon brotli dep will be dropped
 RDEPEND="
