@@ -8,9 +8,9 @@ if [[ "${PV}" = 9999 ]]; then
 	EGIT_REPO_URI="https://git.sr.ht/~sircmpwn/hare"
 	SLOT="0"
 else
-	EGIT_COMMIT="29fbde4fe95db7da3ee54882f3a29a10aea53b8d"
-	MY_P="${PN}-${EGIT_COMMIT}"
-	SRC_URI="https://git.sr.ht/~sircmpwn/hare/archive/${EGIT_COMMIT}.tar.gz -> ${MY_P}.tar.gz"
+	MY_PV="$(ver_rs 3 -)"
+	MY_P="${PN}-${MY_PV}"
+	SRC_URI="https://git.sr.ht/~sircmpwn/hare/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 	S="${WORKDIR}/${MY_P}"
 	SLOT="0/${PV}"
 	KEYWORDS="~amd64 ~arm64 ~riscv"
@@ -20,9 +20,10 @@ DESCRIPTION="The Hare systems programming language"
 HOMEPAGE="https://harelang.org/"
 LICENSE="MPL-2.0 GPL-3"
 
+# release policy: https://git.sr.ht/~sircmpwn/hare/tree/master/item/docs/release.md
 DEPEND="
-	~dev-lang/harec-9999
-	~sys-devel/qbe-9999
+	>=dev-lang/harec-9999
+	>=sys-devel/qbe-1.2
 "
 BDEPEND="app-text/scdoc"
 RDEPEND="${DEPEND}"
@@ -46,6 +47,7 @@ src_configure() {
 		-e "s;^PREFIX =.*;PREFIX = ${EPREFIX}/usr;" \
 		-e 's;^AS =;AS ?=;' \
 		-e 's;^LD =;LD ?=;' \
+		-e 's;^AR =;AR ?=;' \
 		config.mk || die
 }
 
