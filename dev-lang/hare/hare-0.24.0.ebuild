@@ -13,7 +13,7 @@ else
 	SRC_URI="https://git.sr.ht/~sircmpwn/hare/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 	S="${WORKDIR}/${MY_P}"
 	SLOT="0/${PV}"
-	#KEYWORDS="~amd64 ~arm64 ~riscv"
+	KEYWORDS="~amd64 ~arm64 ~riscv"
 fi
 
 DESCRIPTION="The Hare systems programming language"
