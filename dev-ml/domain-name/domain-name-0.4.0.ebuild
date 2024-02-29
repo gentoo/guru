@@ -16,8 +16,6 @@ IUSE="ocamlopt test"
 
 RESTRICT="!test? ( test )"
 
-RDEPEND=""
 DEPEND="
-	${RDEPEND}
 	test? ( dev-ml/alcotest )
 "

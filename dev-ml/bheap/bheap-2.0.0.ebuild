@@ -14,9 +14,7 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
-RDEPEND=""
 DEPEND="
-	${RDEPEND}
 	test? ( dev-ml/stdlib-shims )
 "
 

@@ -18,4 +18,4 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt"
 
 RDEPEND="dev-ml/cstruct"
-DEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
