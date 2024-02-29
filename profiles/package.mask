@@ -273,7 +273,6 @@ dev-libs/protothreads
 dev-libs/shuffile
 dev-libs/zlib-google
 dev-lisp/PSL
-dev-ml/afl-persistent
 dev-ml/alcotest-lwt
 dev-ml/angstrom
 dev-ml/arp
@@ -290,7 +289,6 @@ dev-ml/conduit
 dev-ml/configurator
 dev-ml/cow
 dev-ml/crc
-dev-ml/crowbar
 dev-ml/diet
 dev-ml/dns
 dev-ml/domain-name
