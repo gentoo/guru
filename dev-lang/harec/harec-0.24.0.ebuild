@@ -13,7 +13,7 @@ else
 	MY_P="${PN}-${MY_PV}"
 	SRC_URI="https://git.sr.ht/~sircmpwn/harec/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 	S="${WORKDIR}/${MY_P}"
-	#KEYWORDS="~amd64 ~arm64 ~riscv"
+	KEYWORDS="~amd64 ~arm64 ~riscv"
 fi
 
 DESCRIPTION="The Hare compiler"
