@@ -4,7 +4,7 @@
 EAPI=8
 
 MYPV="$(ver_rs 3 '.gfm.')"
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit cmake python-any-r1
 

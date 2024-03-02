@@ -64,7 +64,6 @@ app-shells/nice-exit-code
 app-shells/spark-fish
 app-shells/zsh-histdb
 app-shells/zsh-history-to-fish
-app-text/cmark-gfm
 app-text/mandown
 app-text/md2mld
 app-text/noweb
