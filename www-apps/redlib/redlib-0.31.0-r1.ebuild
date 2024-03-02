@@ -247,6 +247,9 @@ RDEPEND="
 	acct-user/redlib
 "
 
+# Rust
+QA_FLAGS_IGNORED="usr/bin/${PN}"
+
 src_test() {
 	local mytestargs=(
 		# Disable tests that need network access
