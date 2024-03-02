@@ -39,7 +39,7 @@ pkg_setup() {
 	linux-mod_pkg_setup
 }
 
-QA_FLAGS_IGNORED="usr/bin/.*"
+QA_PREBUILT="usr/bin/${PN}d"
 
 src_install() {
 	linux-mod_src_install
