@@ -2,9 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<description>co-maintainers welcome</description>
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
+		<email>fogti@ytrizja.de</email>
+		<name>Alain Emilia Anna Zscheile</name>
 	</maintainer>
 	<longdescription lang="en">afl-fuzz normally works by repeatedly fork()ing the program being
 tested. using this package, you can run afl-fuzz in 'persistent mode',
