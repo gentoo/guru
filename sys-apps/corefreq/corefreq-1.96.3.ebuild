@@ -39,7 +39,10 @@ pkg_setup() {
 	linux-mod_pkg_setup
 }
 
-QA_PREBUILT="usr/bin/${PN}d"
+QA_PREBUILT="
+	usr/bin/${PN}d
+	/usr/bin/${PN}-cli
+"
 
 src_install() {
 	linux-mod_src_install
