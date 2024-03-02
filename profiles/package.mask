@@ -491,7 +491,6 @@ media-gfx/fontdiff
 media-gfx/ufolint
 media-libs/lodepng
 media-libs/sjpeg
-net-analyzer/munin-contrib
 net-analyzer/munin-plugins-mendix
 net-libs/evpath
 net-libs/udt
