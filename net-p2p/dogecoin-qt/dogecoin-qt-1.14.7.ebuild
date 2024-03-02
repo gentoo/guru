@@ -7,7 +7,7 @@ inherit autotools desktop xdg-utils flag-o-matic
 DESCRIPTION="Dogecoin Core Qt for desktop. Downloaded blockchain is under 2.2GB. Much secure."
 HOMEPAGE="https://github.com/dogecoin"
 SRC_URI="https://github.com/dogecoin/dogecoin/archive/refs/tags/v${PV}.tar.gz -> ${PN}-v${PV}.tar.gz"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 LICENSE="MIT"
 SLOT="0"
 DB_VER="5.3"
@@ -31,10 +31,14 @@ DEPEND="
 	>=dev-libs/boost-1.84.0-r3
 	wallet? ( media-gfx/qrencode )
 	zmq? ( net-libs/cppzmq )
-	intel-avx2? ( =app-crypt/intel-ipsec-mb-1.3 )
 "
 
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	cpu_flags_x86_avx2? (
+		intel-avx2? ( ~app-crypt/intel-ipsec-mb-1.3 )
+	)
+"
+
 BDEPEND="
 	dev-build/autoconf
 	dev-build/automake
@@ -99,9 +103,9 @@ src_install() {
 	dosym "${DOGEDIR}/bin/${PN}" "/usr/bin/${PN}"
 
 	if use dogecoind ; then
-            dosym "${DOGEDIR}/bin/dogecoind" "/usr/bin/dogecoind"
-            dosym "${DOGEDIR}/bin/dogecoin-cli" "/usr/bin/dogecoin-cli"
-    fi
+		dosym "${DOGEDIR}/bin/dogecoind" "/usr/bin/dogecoind"
+		dosym "${DOGEDIR}/bin/dogecoin-cli" "/usr/bin/dogecoin-cli"
+	fi
 
 	if use prune ; then
 		domenu "${FILESDIR}"/"${PN}-prune.desktop"
@@ -125,10 +129,10 @@ pkg_postinst() {
 	fi
 
 	if ( ( use cpu_flags_x86_avx2 &&  ! use intel-avx2 ) && ( use cpu_flags_x86_sse2 && ! use scrypt-sse2 ) ); then
-            einfo "NOTE: Experimental avx2 and sse2 CPU support in ${PV} can be" 
-            einfo "activated using 'intel-avx2' and/or 'scrypt-sse2' USE flags, "
-            einfo "together with 'experimental' USE flag for this version."
-    fi
+		einfo "NOTE: Experimental avx2 and sse2 CPU support in ${PV} can be"
+		einfo "activated using 'intel-avx2' and/or 'scrypt-sse2' USE flags, "
+		einfo "together with 'experimental' USE flag for this version."
+	fi
 }
 
 pkg_postrm() {
