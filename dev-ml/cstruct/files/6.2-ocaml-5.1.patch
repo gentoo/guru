@@ -1,0 +1,25 @@
+diff --git a/ppx_cstruct.opam b/ppx_cstruct.opam
+index 264ad41..5c622fc 100644
+--- a/ppx_cstruct.opam
++++ b/ppx_cstruct.opam
+@@ -26,7 +26,6 @@ depends: [
+   "cstruct-sexp" {with-test}
+   "cppo" {with-test}
+   "cstruct-unix" {with-test & =version}
+-  "ocaml-migrate-parsetree" {>= "2.1.0" & with-test}
+   "lwt_ppx" {>= "2.0.2" & with-test}
+ ]
+ synopsis: "Access C-like structures directly from OCaml"
+diff --git a/ppx_test/errors/dune b/ppx_test/errors/dune
+index ed51ce0..0712dc9 100644
+--- a/ppx_test/errors/dune
++++ b/ppx_test/errors/dune
+@@ -4,7 +4,7 @@
+  (preprocess
+   (action
+    (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+- (libraries ppx_cstruct ocaml-migrate-parsetree))
++ (libraries ppx_cstruct))
+ 
+ (executable
+  (name gen_tests)
