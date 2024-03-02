@@ -574,12 +574,6 @@ virtual/nlme
 virtual/nnet
 virtual/survival
 
-# Julien Roy <julien@jroy.ca> (2024-02-24)
-# Eclass dropped from ::gentoo
-# https://github.com/gentoo/gentoo/commit/8876dc1db3205682d1ed8543b7fef1ce2b619874
-# Removal in 30 days
-sci-electronics/verible
-
 # Eric Joldasov <bratishkaerik@getgoogleoff.me> (2024-02-14)
 # Based on old yggdrasil-go 0.4.6 version, no new releases
 # since 2022, archived by upstream since 2023.
