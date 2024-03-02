@@ -47,9 +47,9 @@ src_prepare() {
 
 	fi
 
-	awk '/Introduction/,/\*\//' dr_wav.h | sed '$d' > README.md
+	awk '/Introduction/,/\*\//' dr_flac.h | sed '$d' > README.md
 	assert
-	awk '/REVISION HISTORY/,/\*\//' dr_wav.h | sed '$d' > CHANGELOG
+	awk '/REVISION HISTORY/,/\*\//' dr_flac.h | sed '$d' > CHANGELOG
 	assert
 	default
 }
