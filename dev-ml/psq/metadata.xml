@@ -2,9 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<description>co-maintainers welcome</description>
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
+		<email>fogti@ytrizja.de</email>
+		<name>Alain Emilia Anna Zscheile</name>
 	</maintainer>
 	<longdescription lang="en">Typical applications are searches, schedulers and caches. If you ever scratched
 your head because that A* didn't look quite right, a PSQ is what you needed.</longdescription>

@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
+		<email>fogti@ytrizja.de</email>
+		<name>Alain Emilia Anna Zscheile</name>
 	</maintainer>
 	<longdescription lang="en">A sequence is an object holding a list of elements which support
 the following operations:

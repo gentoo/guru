@@ -283,7 +283,6 @@ dev-ml/async_find
 dev-ml/async_inotify
 dev-ml/async_ssl
 dev-ml/bheap
-dev-ml/bigstringaf
 dev-ml/ca-certs-nss
 dev-ml/ca-certs
 dev-ml/cdrom
@@ -293,7 +292,6 @@ dev-ml/configurator
 dev-ml/cow
 dev-ml/crc
 dev-ml/crowbar
-dev-ml/cstruct
 dev-ml/diet
 dev-ml/dns
 dev-ml/domain-name
@@ -313,7 +311,6 @@ dev-ml/io-page
 dev-ml/ipaddr
 dev-ml/js_of_ocaml
 dev-ml/lru
-dev-ml/lwt-dllist
 dev-ml/magic-mime
 dev-ml/metrics
 dev-ml/mirage-block-unix
@@ -341,7 +338,6 @@ dev-ml/pcap-format
 dev-ml/pci
 dev-ml/pecu
 dev-ml/polly
-dev-ml/psq
 dev-ml/qmp
 dev-ml/randomconv
 dev-ml/rpc
@@ -367,7 +363,6 @@ dev-ml/xen-evtchn
 dev-ml/xen-gnt
 dev-ml/xenstore-clients
 dev-ml/xenstore
-dev-ml/xmlm
 dev-octave/control
 dev-octave/dataframe
 dev-octave/fuzzy-logic-toolkit
