@@ -25,9 +25,9 @@ TESTCASES=(
 
 src_prepare() {
 	sed 's/Introducation/Introduction/' -i dr_mp3.h || die
-	awk '/Introduction/,/\*\//' dr_wav.h | sed '$d' > README.md
+	awk '/Introduction/,/\*\//' dr_mp3.h | sed '$d' > README.md
 	assert
-	awk '/REVISION HISTORY/,/\*\//' dr_wav.h | sed '$d' > CHANGELOG
+	awk '/REVISION HISTORY/,/\*\//' dr_mp3.h | sed '$d' > CHANGELOG
 	assert
 	default
 }
