@@ -113,6 +113,8 @@ src_test() {
 
 src_install() {
 	dobin "${PN}"
+	dosym -r /usr/bin/"${PN}" /usr/bin/adguardhome
+
 	einstalldocs
 
 	systemd_newunit "${FILESDIR}"/AdGuardHome-0.107.43.service "${PN}".service
