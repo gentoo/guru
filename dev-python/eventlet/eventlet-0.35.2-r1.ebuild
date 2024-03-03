@@ -24,5 +24,9 @@ RDEPEND="
 	test? (	dev-python/pyopenssl[${PYTHON_USEDEP}] )
 "
 DEPEND="${RDEPEND}"
+BDEPEND="
+	dev-python/hatch-vcs[${PYTHON_USEDEP}]
+	dev-python/hatchling[${PYTHON_USEDEP}]
+"
 
 distutils_enable_tests pytest
