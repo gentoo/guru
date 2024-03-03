@@ -1,4 +1,3 @@
-# Closes Gentoo bug 837308
 # This patch backports the master branch's test-lm-{big,one,two}.c and test-luksmeta.c
 # due to failing tests on v9 tag (see https://bugs.gentoo.org/837308)
 

@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,15 +20,19 @@ BDEPEND="man? ( app-text/asciidoc )
 	dev-build/libtool"
 
 PATCHES=(
+	# https://bugs.gentoo.org/837308
 	"${FILESDIR}/${PN}-tests.patch"
 )
 
 src_prepare() {
 	default
 	eautoreconf
+	# Bug https://bugs.gentoo.org/921710
+	sed -i -e '/^-Werror \\$/d' configure.ac || die
 }
 
 src_install() {
 	default
+	# Bug https://bugs.gentoo.org/839609
 	find "${ED}" -name '*.la' -delete || die
 }
