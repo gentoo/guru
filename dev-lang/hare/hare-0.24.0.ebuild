@@ -31,6 +31,10 @@ RDEPEND="${DEPEND}"
 # hare and haredoc are built by hare
 QA_FLAGS_IGNORED="usr/bin/hare usr/bin/haredoc"
 
+PATCHES=(
+	"${FILESDIR}/hare-0.24.0-riscv64-comment-syntax.patch"
+)
+
 src_configure() {
 	local target_arch
 	case ${ARCH} in
