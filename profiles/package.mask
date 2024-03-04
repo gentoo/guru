@@ -431,7 +431,6 @@ dev-python/openstep-plist
 dev-python/opentracing
 dev-python/opentypespec
 dev-python/os-api-ref
-dev-python/oscrypto
 dev-python/ots-python
 dev-python/pip-api
 dev-python/portio
