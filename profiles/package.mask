@@ -20,7 +20,6 @@
 # Leave a comment on this pull request: https://github.com/gentoo/guru/pull/141
 # Open a bug on https://bugs.gentoo.org
 # Talk about it on IRC in #gentoo-guru on libera.chat
-app-admin/ananicy-cpp
 app-admin/zenmonitor3
 app-crypt/tomb
 app-dicts/canna-2ch
