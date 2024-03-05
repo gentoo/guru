@@ -1,0 +1,18 @@
+Removes debug flags from RELWITHDEBINFO build.
+Bug: https://bugs.gentoo.org/887193
+Signed-off-by: Alberto Gireud <agireud@protonmail.com>
+
+index e1a041f..7e16d4c 100644
+--- a/cmake/CompilerChecks.cmake
++++ b/cmake/CompilerChecks.cmake
+@@ -22,8 +22,6 @@ set(CMAKE_MESSAGE_CONTEXT "")
+
+ if(CXX_ACCEPTS_G3)
+     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g3")
+-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_DEBUG} -g3")
+ elseif(CXX_ACCEPTS_G)
+     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
+-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_DEBUG} -g")
+ endif()
+
+ if(CXX_ACCEPTS_OG)

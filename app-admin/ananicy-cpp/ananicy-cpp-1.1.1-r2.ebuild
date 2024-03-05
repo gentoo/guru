@@ -24,6 +24,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/${P}-remove-debug-flags.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_SYSTEMD=$(usex systemd)
