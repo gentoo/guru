@@ -10,8 +10,4 @@
     <remote-id type="gitlab">ananicy-cpp/ananicy-cpp</remote-id>
     <remote-id type="github">kuche1/minq-ananicy</remote-id>
   </upstream>
-  <use>
-    <flag name="regex">Enable regex support.</flag>
-    <flag name="threads">Enable threading support.</flag>
-  </use>
 </pkgmetadata>
