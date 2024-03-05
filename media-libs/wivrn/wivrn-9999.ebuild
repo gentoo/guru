@@ -5,7 +5,7 @@ HOMEPAGE="https://github.com/meumeu/WiVRn"
 SLOT="0"
 LICENSE="GPL-3 Apache-2.0 MIT"
 
-IUSE="nvenc systemd vaapi x264"
+IUSE="nvenc systemd vaapi wireshark-plugins x264"
 REQUIRED_USE="|| ( nvenc vaapi x264 )"
 
 inherit cmake
@@ -13,9 +13,10 @@ inherit cmake
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Meumeu/WiVRn.git"
+	EGIT_BRANCH="dev"
 
 	MONADO_V=57e937383967c7e7b38b5de71297c8f537a2489d
-	PFR_V=2.0.3
+	PFR_V=2.2.0
 	SRC_URI="
 	https://github.com/boostorg/pfr/archive/refs/tags/${PFR_V}.tar.gz -> boostpfr_${PFR_V}.tar.gz
 	https://gitlab.freedesktop.org/monado/monado/-/archive/${MONADO_V}/monado-${MONADO_V}.tar.gz"
@@ -42,6 +43,9 @@ RDEPEND="
 	net-dns/avahi
 	systemd? (
 		sys-apps/systemd
+	)
+	wireshark-plugins? (
+		net-analyzer/wireshark
 	)
 "
 
@@ -80,6 +84,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DGIT_DESC=${GIT_DESC}
 		-DWIVRN_BUILD_CLIENT=OFF
+		-DWIVRN_BUILD_SERVER=ON
+		-DWIVRN_BUILD_DISSECTOR=$(usex wireshark-plugins)
 		-DWIVRN_USE_NVENC=$(usex nvenc)
 		-DWIVRN_USE_VAAPI=$(usex vaapi)
 		-DWIVRN_USE_X264=$(usex x264)
