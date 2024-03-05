@@ -24,12 +24,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	eapply "${FILESDIR}/${P}-show-version-and-use-cflags-env.patch"
-	cmake_src_prepare
-	default
-}
-
 src_install(){
 	cmake_src_install
 	default
