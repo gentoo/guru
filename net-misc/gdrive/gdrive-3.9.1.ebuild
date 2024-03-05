@@ -217,3 +217,8 @@ LICENSE+=" openssl ISC MIT"
 LICENSE+=" ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
+
+pkg_postinst() {
+	einfo "See basic usage at https://github.com/glotlabs/gdrive/blob/main/docs/basic_usage.md"
+	einfo "If you are unhappy with gdrive - you can try https://packages.gentoo.org/packages/net-misc/rclone"
+}
