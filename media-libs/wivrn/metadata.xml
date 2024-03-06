@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>patricknicolas@laposte.net</email>
+		<name>Patrick Nicolas</name>
+	</maintainer>
+	<use>
+		<flag name="wireshark-plugins">
+			Build the <pkg>net-analyzer/wireshark</pkg> plugin for the WiVRn protocol
+		</flag>
+	</use>
+	<upstream>
+			<remote-id type="github">Meumeu/WiVRn</remote-id>
+	</upstream>
+</pkgmetadata>
