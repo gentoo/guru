@@ -13,6 +13,7 @@
     <remote-id type="github">munin-monitoring/contrib</remote-id>
   </upstream>
   <use>
+    <flag name="plugins">contrib munin plugins</flag>
     <flag name="templates">contrib munin tools</flag>
     <flag name="tools">munin contrib tools</flag>
   </use>
