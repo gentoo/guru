@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
+		<email>pastalian46@gmail.com</email>
+		<name>Takuya Wakazono</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="github">sagiegurari/cargo-make</remote-id>
