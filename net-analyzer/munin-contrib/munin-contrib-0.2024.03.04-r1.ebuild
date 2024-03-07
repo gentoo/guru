@@ -80,7 +80,7 @@ src_install() {
 
 	#install documentation in subfolders
 	for i in plugins/{apt,network,}/*/example-graphs ; do
-		p="${ED}/usr/share/doc/${PF}/${i}"x
+		p="${ED}/usr/share/doc/${PF}/${i}"
 		mkdir -p "${p}" || die
 		mv "${i}" "${p}" || die
 	done
