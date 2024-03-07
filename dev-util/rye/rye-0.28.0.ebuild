@@ -311,7 +311,7 @@ declare -A GIT_CRATES=(
 
 inherit cargo
 
-DESCRIPTION="An Experimental Package Management Solution for Python"
+DESCRIPTION="a Hassle-Free Python Experience"
 HOMEPAGE="https://rye-up.com"
 SRC_URI="
 	https://github.com/astral-sh/rye/archive/${PV}.tar.gz -> ${P}.tar.gz
@@ -331,25 +331,17 @@ QA_FLAGS_IGNORED=".*"
 
 src_test() {
 	local mytestargs=(
-		--skip utils::test_is_inside_git_work_tree::test_is_inside_git_work_tree_true
+		--skip test_is_inside_git_work_tree
 		# The following tests require network access.
-		--skip test_add_and_sync_no_auto_sync
-		--skip test_add_autosync
-		--skip test_add_flask
-		--skip test_add_flask_wrong_venv_exported
-		--skip test_add_from_find_links
-		--skip test_basic_tool_behavior
-		--skip test_config_empty
-		--skip test_config_get_set_multiple
-		--skip test_config_incompatible_format_and_show_path
-		--skip test_config_show_path
-		--skip test_config_show_path_and_any_action
-		--skip test_empty_sync
-		--skip test_fetch
-		--skip test_init_default
-		--skip test_init_lib
-		--skip test_init_script
+		--skip test_add
+		--skip test_config
+		--skip test_init
 		--skip test_lint_and_format
+		--skip test_version
+		--skip test_empty_sync
+		--skip test_autosync_remember
+		--skip test_basic_tool_behavior
+		--skip test_fetch
 	)
 
 	cargo_src_test -- "${mytestargs[@]}"
