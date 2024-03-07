@@ -1,0 +1,19 @@
+diff --git a/internal/home/options.go b/internal/home/options.go
+index d32aaa1..4503dad 100644
+--- a/internal/home/options.go
++++ b/internal/home/options.go
+@@ -243,14 +243,6 @@ var cmdLineOpts = []cmdLineOpt{{
+ 	description:     "Don't check for updates.",
+ 	longName:        "no-check-update",
+ 	shortName:       "",
+-}, {
+-	updateWithValue: nil,
+-	updateNoValue:   func(o options) (options, error) { o.performUpdate = true; return o, nil },
+-	effect:          nil,
+-	serialize:       func(o options) (val string, ok bool) { return "", o.performUpdate },
+-	description:     "Update the current binary and restart the service in case it's installed.",
+-	longName:        "update",
+-	shortName:       "",
+ }, {
+ 	updateWithValue: nil,
+ 	updateNoValue:   nil,
