@@ -50,4 +50,5 @@ src_install() {
 pkg_postinst() {
 	elog "Usage: i3-save and i3-restore"
 	elog "See the documentation about automatic saving and restoring https://github.com/jdholtz/i3-restore/?tab=readme-ov-file#automating-the-script"
+	elog "Alternative software: https://github.com/JonnyHaystack/i3-resurrect"
 }
