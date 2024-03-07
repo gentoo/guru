@@ -10,4 +10,8 @@
     <remote-id type="gitlab">ananicy-cpp/ananicy-cpp</remote-id>
     <remote-id type="github">kuche1/minq-ananicy</remote-id>
   </upstream>
+  <use>
+    <flag name="bpf">Use eBPF for processing</flag>
+    <flag name="clang">Use Clang compiler instead of GCC</flag>
+  </use>
 </pkgmetadata>
