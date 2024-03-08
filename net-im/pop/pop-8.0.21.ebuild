@@ -21,10 +21,14 @@ src_unpack() {
 }
 
 src_install() {
+	rm -rf usr/share/doc/
+
 	doins -r usr
 	fperms +x /usr/bin/"${PN}"
 }
 
-pkg_postinstall() {
+pkg_postinst() {
 	xdg_desktop_database_update
+
+	einfo "If you want to share your screen - some compositor is required, like compton :("
 }
