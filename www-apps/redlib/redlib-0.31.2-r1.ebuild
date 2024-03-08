@@ -264,6 +264,7 @@ src_test() {
 		--skip user::test_fetching_user
 		--skip utils::test_fetching_nsfw_subreddit
 		--skip utils::test_fetching_subreddit_quarantined
+		--skip utils::test_fetching_ws
 	)
 
 	cargo_src_test -- "${mytestargs[@]}"
