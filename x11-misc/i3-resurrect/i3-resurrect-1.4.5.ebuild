@@ -27,5 +27,5 @@ RDEPEND="
 
 pkg_postins() {
 	elog "Documentation: https://github.com/JonnyHaystack/i3-resurrect?tab=readme-ov-file#usage"
-	elog "Alternative software: x11-misc/i3-restore TEST" 
+	elog "Alternative software: x11-misc/i3-restore"
 }
