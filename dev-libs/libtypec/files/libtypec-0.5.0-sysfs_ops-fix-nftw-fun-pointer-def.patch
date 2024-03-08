@@ -1,0 +1,55 @@
+From d11cd006700bada6ac09da4d58794474018650e4 Mon Sep 17 00:00:00 2001
+From: Adrian Ratiu <adrian.ratiu@collabora.com>
+Date: Fri, 12 Apr 2024 18:36:15 +0300
+Subject: [PATCH] libtypec_sysfs_ops: fix nftw() fun pointer def
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+According to the __ntfw_func_t definiton [1], and ftw
+documentation [2], ntfw() is being passed a wrong fun
+argument, which is expected for the deprecated ftw(),
+not for ntfw().
+
+This got hidden by the fact that _XOPEN_SOURCE >= 500
+feature flag was disabled, so the C compilers just
+issued an implicit declaration warning/error.
+
+Example:
+
+/var/tmp/portage/dev-libs/libtypec-0.5.0/work/libtypec-0.5.0-Source/libtypec_sysfs_ops.c:1064:36:
+warning: passing argument 2 of ‘nftw’ from incompatible pointer type
+[-Wincompatible-pointer-types]
+ 1064 |         if (nftw ("/dev/bus/usb/", count_billbrd_if, fd_limit, 0) != 0)
+      |                                    ^~~~~~~~~~~~~~~~
+      |                                    |
+      |                                    int (*)(const char *, const struct stat *, int)
+In file included from /var/tmp/portage/dev-libs/libtypec-0.5.0/work/libtypec-0.5.0-Source/libtypec_sysfs_ops.c:48:
+/usr/include/ftw.h:179:51: note: expected ‘__nftw_func_t’ {aka ‘int (*)(const char *, const struct stat *, int,  struct FTW *)’} but argument is of type ‘int (*)(const char *, const struct stat *, int)’
+  179 | extern int nftw (const char *__dir, __nftw_func_t __func, int __descriptors,
+      |		              ~~~~~~~~~~~~~~^~~~~~
+
+[1]
+https://www.gnu.org/software/libc/manual/html_node/Working-with-Directory-Trees.html#index-_005f_005fnftw_005ffunc_005ft
+[2] https://man7.org/linux/man-pages/man3/ftw.3.html
+Upstream-Status: In-Progress [https://github.com/Rajaram-Regupathy/libtypec/pull/32]
+---
+ libtypec_sysfs_ops.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libtypec_sysfs_ops.c b/libtypec_sysfs_ops.c
+index bfb5246..e496e5f 100644
+--- a/libtypec_sysfs_ops.c
++++ b/libtypec_sysfs_ops.c
+@@ -476,7 +476,7 @@ static unsigned int get_fixed_supply_pdo(char *path, int src_snk)
+ 
+ }
+ 
+-static int count_billbrd_if(const char *usb_path, const struct stat *sb, int typeflag)
++static int count_billbrd_if(const char *usb_path, const struct stat *sb, int typeflag, struct FTW *ftw)
+ {
+ 	FILE				*fd;
+ 
+-- 
+2.43.2
+
