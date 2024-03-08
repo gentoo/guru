@@ -1,0 +1,20 @@
+#!/sbin/openrc-run
+# Copyright 1999-2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="thelounge"
+description="Modern, responsive, cross-platform, self-hosted web IRC client"
+command="/usr/bin/${RC_SVCNAME}"
+command_args="start"
+command_user="${RC_SVCNAME}:${RC_SVCNAME}"
+command_background="true"
+pidfile="/run/${RC_SVCNAME}.pid"
+output_log="/var/log/${RC_SVCNAME}.log"
+error_log="/var/log/${RC_SVCNAME}.log"
+: "${THELOUNGE_HOME:=/var/lib/${RC_SVCNAME}}"
+directory="${THELOUNGE_HOME}"
+umask=0027
+
+depend() {
+	after net
+}

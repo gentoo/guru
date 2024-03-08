@@ -1,0 +1,3 @@
+## Sets the Data directory for thelounge.
+## It contains config, logs database, logs txt files, user records, extra packages installed with `thelounge install` etc.
+# THELOUNGE_HOME=/var/lib/thelounge
