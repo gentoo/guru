@@ -5,7 +5,7 @@ EAPI=8
 
 DESCRIPTION="Search in Wikimedia Commons by sha1 of provided file"
 HOMEPAGE="https://gitlab.com/vitaly-zdanevich/commons-wikimedia-find-by-hash"
-SRC_URI="https://gitlab.com/vitaly-zdanevich/commons-wikimedia-find-by-hash/-/archive/${PV}/${P}.tar.bz2"
+SRC_URI="https://gitlab.com/vitaly-zdanevich/${PN}/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="Apache-2.0"
 SLOT=0
