@@ -12,7 +12,7 @@ then
 else
 	MY_P="${PN}-$(ver_rs 3 - 4 .)"
 	SRC_URI="https://hacktivis.me/releases/${MY_P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64"
+	KEYWORDS="~amd64 ~arm64 ~ppc64"
 	S="${WORKDIR}/${MY_P}"
 	inherit savedconfig
 fi
