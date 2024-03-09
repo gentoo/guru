@@ -21,6 +21,7 @@ src_unpack() {
 }
 
 src_install() {
+	# Because here is only one file: "copyright", no docs
 	rm -rf usr/share/doc/
 
 	doins -r usr
