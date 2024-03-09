@@ -15,7 +15,7 @@ EGIT_SUBMODULES+=( '3rdparty/yaml-cpp' )
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="alsa discord faudio +llvm pulseaudio vulkan wayland"
+IUSE="discord faudio +llvm vulkan wayland"
 
 DEPEND="
 	app-arch/p7zip
@@ -37,9 +37,7 @@ DEPEND="
 	sys-devel/llvm:=
 	sys-libs/zlib
 	virtual/libusb:1
-	alsa? ( media-libs/alsa-lib )
 	faudio? ( app-emulation/faudio )
-	pulseaudio? ( media-libs/libpulse )
 	vulkan? ( media-libs/vulkan-loader[wayland?] )
 	wayland? ( dev-libs/wayland )
 "
