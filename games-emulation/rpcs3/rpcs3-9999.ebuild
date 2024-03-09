@@ -8,7 +8,7 @@ inherit cmake flag-o-matic git-r3 xdg
 DESCRIPTION="PS3 emulator/debugger"
 HOMEPAGE="https://rpcs3.net/"
 EGIT_REPO_URI="https://github.com/RPCS3/rpcs3"
-EGIT_SUBMODULES=( 'asmjit' '3rdparty/miniupnp/miniupnp' '3rdparty/rtmidi/rtmidi' '3rdparty/wolfssl'
+EGIT_SUBMODULES=( 'asmjit' '3rdparty/glslang' '3rdparty/miniupnp/miniupnp' '3rdparty/rtmidi/rtmidi' '3rdparty/wolfssl'
 	'3rdparty/SoundTouch/soundtouch' )
 # Delete sources when ensuring yaml-cpp compiled with fexceptions
 EGIT_SUBMODULES+=( '3rdparty/yaml-cpp' )
@@ -40,10 +40,7 @@ DEPEND="
 	alsa? ( media-libs/alsa-lib )
 	faudio? ( app-emulation/faudio )
 	pulseaudio? ( media-libs/libpulse )
-	vulkan? (
-		~dev-util/glslang-1.3.268
-		~media-libs/vulkan-loader-1.3.268
-	)
+	vulkan? ( media-libs/vulkan-loader[wayland?] )
 	wayland? ( dev-libs/wayland )
 "
 RDEPEND="${DEPEND}"
@@ -75,14 +72,6 @@ src_prepare() {
 	# sed -i -e 's/3rdparty::yaml-cpp/yaml-cpp/' rpcs3/Emu/CMakeLists.txt \
 	#	rpcs3/rpcs3qt/CMakeLists.txt || die
 
-	# Unbundle glslang SPIRV
-	sed -i -e '/add_subdirectory(glslang/d' \
-		-e '/add_subdirectory(SPIRV/d' \
-		-e '/if(VULKAN_FOUND)/afind_library(SPIRV libSPIRV.so)\nfind_library(SPIRV-Tools-opt libSPIRV-Tools-opt.so)\n' \
-		-e '/target_link_libraries.*SPIRV/{s/SPIRV-Tools-opt/${&}/;s/SPIRV /${SPIRV} /}' \
-		3rdparty/CMakeLists.txt || die
-	sed -i -e '/#include "SPIRV/{s:":<glslang/:;s/"/>/}' rpcs3/Emu/RSX/VK/VKCommonDecompiler.cpp || die
-
 	cmake_src_prepare
 }
 
@@ -105,7 +94,10 @@ src_configure() {
 		-DUSE_VULKAN=$(usex vulkan)
 		-DWITH_LLVM=$(usex llvm)
 	)
+	# These options are defined conditionally to suppress QA notice
 	use faudio && mycmakeargs+=( -DUSE_SYSTEM_FAUDIO=$(usex faudio) )
+	use vulkan && mycmakeargs+=( $(cmake_use_find_package wayland Wayland) )
+
 	cmake_src_configure
 
 	sed -i -e 's/FFMPEG_LIB_AVFORMAT-NOTFOUND/avformat/' -e 's/FFMPEG_LIB_AVCODEC-NOTFOUND/avcodec/' \
