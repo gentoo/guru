@@ -1,10 +1,8 @@
 move sys-apps/nq sys-process/nq
 move www-client/browsh-bin www-client/browsh
-move app-misc/pup-bin app-misc/pup
 move media-tv/droidcam media-video/droidcam
 slotmove games-action/minecraft-launcher 2 0
 slotmove games-action/minecraft-launcher 1 legacy
-move app-misc/spotify-tray media-sound/spotify-tray
 move net-im/catgirl net-irc/catgirl
 move net-im/srain net-irc/srain
 move kde-apps/kaidan net-im/kaidan
