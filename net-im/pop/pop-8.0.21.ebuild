@@ -22,7 +22,7 @@ src_unpack() {
 
 src_install() {
 	# Because here is only one file: "copyright", no docs
-	rm -rf usr/share/doc/
+	rm -rf usr/share/doc/ || die
 
 	doins -r usr
 	fperms +x /usr/bin/"${PN}"
