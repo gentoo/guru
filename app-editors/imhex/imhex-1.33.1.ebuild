@@ -20,8 +20,8 @@ S_PATTERNS="${WORKDIR}/ImHex-Patterns-ImHex-v${PV}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+system-llvm test"
-RESTRICT="test" # the tests need the shared library to work
+IUSE="+system-llvm test +lto"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	app-arch/zstd[zlib]
@@ -47,8 +47,6 @@ BDEPEND="
 	system-llvm? ( sys-devel/llvm )
 	app-admin/chrpath
 	gnome-base/librsvg
-	sys-devel/lld
-	dev-util/ccache
 "
 
 pkg_pretend() {
@@ -63,14 +61,6 @@ src_configure() {
 	fi
 
 	local mycmakeargs=(
-		-D CMAKE_BUILD_TYPE="Release" \
-		-D CMAKE_C_COMPILER_LAUNCHER=ccache \
-		-D CMAKE_CXX_COMPILER_LAUNCHER=ccache \
-		-D CMAKE_C_FLAGS="-fuse-ld=lld ${CFLAGS}" \
-		-D CMAKE_CXX_FLAGS="-fuse-ld=lld ${CXXFLAGS}" \
-		-D CMAKE_OBJC_COMPILER_LAUNCHER=ccache \
-		-D CMAKE_OBJCXX_COMPILER_LAUNCHER=ccache \
-		-D CMAKE_SKIP_RPATH=ON \
 		-D IMHEX_PLUGINS_IN_SHARE=OFF \
 		-D IMHEX_STRIP_RELEASE=OFF \
 		-D IMHEX_OFFLINE_BUILD=ON \
@@ -78,9 +68,13 @@ src_configure() {
 		-D IMHEX_PATTERNS_PULL_MASTER=OFF \
 		-D IMHEX_IGNORE_BAD_COMPILER=OFF \
 		-D IMHEX_USE_GTK_FILE_PICKER=OFF \
-		-D IMHEX_DISABLE_STACKTRACE=OFF \
+		-D IMHEX_DISABLE_STACKTRACE=ON \
+		-D IMHEX_BUNDLE_DOTNET=ON \
+		-D IMHEX_ENABLE_LTO=$(use lto) \
 		-D IMHEX_USE_DEFAULT_BUILD_SETTINGS=OFF \
 		-D IMHEX_STRICT_WARNINGS=OFF \
+		-D IMHEX_ENABLE_UNIT_TESTS=$(use test) \
+		-D IMHEX_ENABLE_PRECOMPILED_HEADERS=OFF \
 		-D IMHEX_VERSION="${PV}" \
 		-D PROJECT_VERSION="${PV}" \
 		-D USE_SYSTEM_CAPSTONE=ON \
