@@ -50,7 +50,7 @@ RDEPEND="
 	x11-libs/libXrandr
 	x11-libs/pango[X]
 	x11-misc/xdg-utils
-	ffmpeg-codecs? ( www-plugins/yandex-browser-ffmpeg-codecs-bin )
+	ffmpeg-codecs? ( media-video/ffmpeg-chromium )
 	sys-libs/libudev-compat
 	dev-qt/qtcore
 	dev-qt/qtgui
