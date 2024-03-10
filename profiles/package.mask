@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Julien Roy <julien@jroy.ca> (2024-03-10)
+# <dev-python-cython-3 no longer in ::gentoo
+=dev-python/asyncpg-0.29.0
+=dev-python/imgui-2.0.0
+
 # Julien Roy <julien@jroy.ca> (2024-03-09)
 # Dracut fails to boot with Clevis 20
 # https://github.com/latchset/clevis/issues/456
