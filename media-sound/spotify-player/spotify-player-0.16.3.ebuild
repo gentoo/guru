@@ -560,9 +560,9 @@ SRC_URI="
 	https://github.com/aome510/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
-KEYWORDS="~amd64"
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 ISC LGPL-3 LGPL-3+ MIT MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
+KEYWORDS="~amd64"
 
 IUSE="daemon image +libnotify lyrics +media-control pulseaudio sixel +streaming"
 REQUIRED_USE="
