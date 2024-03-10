@@ -52,7 +52,7 @@ RDEPEND="
 	x11-libs/libXrandr
 	x11-libs/pango[X]
 	x11-misc/xdg-utils
-	ffmpeg-codecs? ( =media-video/ffmpeg-chromium-${FFMPEG} )
+	ffmpeg-codecs? ( media-video/ffmpeg-chromium:${FFMPEG} )
 	sys-libs/libudev-compat
 	dev-qt/qtcore
 	dev-qt/qtgui
