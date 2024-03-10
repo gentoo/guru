@@ -11,19 +11,22 @@ HOMEPAGE="https://thelounge.chat/"
 SRC_URI="
 	https://github.com/thelounge/thelounge/archive/refs/tags/v${PV/_rc/-rc.}.tar.gz -> ${P}.tar.gz
 	https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/deps.tar.xz -> ${P}-deps.tar.xz
-	https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/sqlite3.tar.xz -> ${P}-sqlite3.tar.xz
+	sqlite? ( https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/sqlite.tar.xz -> ${P}-sqlite.tar.xz )
 "
 
 S="${WORKDIR}/${PN}-${PV/_rc/-rc.}"
-LICENSE="MIT"
+LICENSE="BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="+sqlite"
 
 RDEPEND="
 	acct-user/${PN}
 	acct-group/${PN}
 	>=net-libs/nodejs-16
+	sqlite? ( dev-db/sqlite:3= )
 "
+DEPEND="${RDEPEND}"
 BDEPEND="
 	>=net-libs/nodejs-16[npm]
 	sys-apps/yarn
@@ -34,24 +37,45 @@ DOC_CONTENTS="\n
 Data directory: /var/lib/${PN}\n
 Listens on: 0.0.0.0:9000\n
 Log file (openrc): /var/log/${PN}.log\n
+Config file: /var/lib/${PN}/config.js\n
 \n
 ##### Initialization #####\n
 Run \`THELOUNGE_HOME=/var/lib/${PN} ${PN} add <user>\`
 "
 
 mooyarn() {
-	yarn --verbose  --non-interactive --frozen-lockfile --cache-folder ../yarn-cache \
-		 --offline --global-folder moobuild "${@}" || die
+	use !sqlite && local YARN_OPTS="--ignore-optional"
+	yarn --verbose  --non-interactive --frozen-lockfile --cache-folder "${WORKDIR}"/yarn-cache --offline \
+		 --ignore-scripts ${YARN_OPTS} "${@}" || die
 }
 
+src_prepare() {
+	default
+	use !sqlite && { sed -i -e 's|\["sqlite", |\[|g;' defaults/config.js  || die ; }
+
+}
 src_compile() {
+	# thelounge build
 	mooyarn install
 	NODE_ENV=production mooyarn build
-	local BUILT_TAR=$(npm pack)
-	NODE_ENV=production mooyarn global add file:$(realpath ${BUILT_TAR})
+	local BUILT_TAR=$(realpath $(npm pack || die))
+	# thelounge install
+	mkdir -v moobuild && cp -v {package.json,yarn.lock} moobuild/ || die
+	pushd moobuild || die
+	NODE_ENV=production mooyarn add file:${BUILT_TAR:?}
 
-	# this workaround because sqlite3 module requires network access
-	mv -v ../sqlite3 moobuild/node_modules/ || die
+	if use sqlite; then
+		# sqlite3 build
+		pushd node_modules/sqlite3 || die
+		export npm_config_cache="${WORKDIR}"/npm-cache npm_config_nodedir="${EPREFIX}"/usr || die
+		npm --verbose --offline install --build-from-source --sqlite="${EPREFIX}"/usr || die
+		# sqlite3 cleanup
+		rm -rf node_modules || die
+		find build* -type f -not -path build/Release/node_sqlite3.node -delete || die
+		popd || die
+	fi
+	popd || die
+
 }
 
 src_install() {
