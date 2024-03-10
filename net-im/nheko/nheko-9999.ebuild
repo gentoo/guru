@@ -33,7 +33,7 @@ RDEPEND="
 	dev-libs/libfmt:=
 	dev-libs/olm
 	>=dev-libs/openssl-1.1.0:=
-	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
+	>=dev-libs/qtkeychain-0.14.1-r1:=[keyring,qt6]
 	>=dev-libs/re2-0.2022.04.01:=
 	dev-libs/spdlog:=
 	>=dev-qt/kdsingleapplication-1.1.0:=[qt6]
