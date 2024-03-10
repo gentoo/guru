@@ -18,6 +18,7 @@
 # <dev-python-cython-3 no longer in ::gentoo
 =dev-python/imgui-2.0.0
 # rdeps
+dev-python/moderngl-window
 dev-util/gftools
 media-video/manimgl
 
