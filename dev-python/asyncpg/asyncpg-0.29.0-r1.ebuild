@@ -24,12 +24,17 @@ RDEPEND="
 	' python3_{10..11})
 "
 BDEPEND="
-	<dev-python/cython-3[${PYTHON_USEDEP}]
 	test? (
 		dev-db/postgresql[server]
 		dev-python/uvloop[${PYTHON_USEDEP}]
 	)
 "
+
+PATCHES=(
+	# Works fine with >=dev-python/cython-3
+	# https://github.com/MagicStack/asyncpg/pull/1101
+	"${FILESDIR}"/cython-3.patch
+)
 
 EPYTEST_IGNORE=(
 	# checks versions from env variables
