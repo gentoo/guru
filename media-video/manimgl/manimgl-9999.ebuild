@@ -1,27 +1,30 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
-inherit distutils-r1
+inherit distutils-r1 git-r3
 
 DESCRIPTION="Animation engine for explanatory math videos"
 HOMEPAGE="https://github.com/3b1b/manim https://pypi.org/project/manimgl/"
-SRC_URI="https://github.com/3b1b/manim/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
-S="${WORKDIR}/manim-${PV}"
+if [[ ${PV} == *9999* ]]; then
+	EGIT_REPO_URI="https://github.com/3b1b/manim.git"
+else
+	SRC_URI="https://github.com/3b1b/manim/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+	S="${WORKDIR}/manim-${PV}"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE="doc"
 
 RDEPEND="
 	dev-python/colour[${PYTHON_USEDEP}]
-	dev-python/fonttools[${PYTHON_USEDEP}]
 	dev-python/ipython[${PYTHON_USEDEP}]
 	dev-python/isosurfaces[${PYTHON_USEDEP}]
 	=dev-python/ManimPango-0.4*[${PYTHON_USEDEP}]
@@ -35,7 +38,6 @@ RDEPEND="
 	dev-python/pygments[${PYTHON_USEDEP}]
 	dev-python/pyopengl[${PYTHON_USEDEP}]
 	dev-python/pyperclip[${PYTHON_USEDEP}]
-	dev-python/pyrr[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/rich[${PYTHON_USEDEP}]
 	dev-python/scipy[${PYTHON_USEDEP}]
@@ -46,8 +48,8 @@ RDEPEND="
 	dev-python/tqdm[${PYTHON_USEDEP}]
 	dev-python/validators[${PYTHON_USEDEP}]
 	app-text/texlive
-	media-libs/mesa
 	media-video/ffmpeg
+	virtual/opengl
 	x11-libs/pango
 	$(python_gen_cond_dep '
 		dev-python/typing-extensions[${PYTHON_USEDEP}]
