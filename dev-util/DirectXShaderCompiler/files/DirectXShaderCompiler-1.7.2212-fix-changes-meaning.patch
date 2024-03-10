@@ -1,3 +1,7 @@
+# related:
+# https://bugs.gentoo.org/905173
+# https://github.com/microsoft/DirectXShaderCompiler/pull/5179
+
 diff --git a/include/llvm/Analysis/DxilValueCache.h b/include/llvm/Analysis/DxilValueCache.h
 index 2622bb19..37124255 100644
 --- a/include/llvm/Analysis/DxilValueCache.h
