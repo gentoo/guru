@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://codeberg.org/avery42/delfin/issues</bugs-to>
+		<changelog>https://codeberg.org/avery42/delfin/releases</changelog>
+		<remote-id type="codeberg">avery42/delfin</remote-id>
+	</upstream>
+</pkgmetadata>
