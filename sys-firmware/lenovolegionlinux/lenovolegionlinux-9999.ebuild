@@ -84,7 +84,7 @@ src_install() {
 		cd "${WORKDIR}/${P}/extra"
 
 		if use systemd; then
-			systemd_dounit service/legion-linux.service service/legion-linux.path
+			systemd_dounit service/legion-linux.service service/legion-linux.path service/legion-linux-onresume.service
 		fi
 
 		if use acpi; then
