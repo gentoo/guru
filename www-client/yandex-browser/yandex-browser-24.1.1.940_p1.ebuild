@@ -113,7 +113,7 @@ src_install() {
 
 	make_wrapper "${PN}" "./${PN}" "/${YANDEX_HOME}" "/usr/$(get_libdir)/${MY_PN}/lib" || die "Failed to mae wrapper"
 
-	dosym "${EPREFIX}/usr/$(get_libdir)/chromium/libffmpeg.so.${FFMPEG}" "${EPREFIX}/${YANDEX_HOME}/libffmpeg.so"
+	dosym "../../../usr/$(get_libdir)/chromium/libffmpeg.so.${FFMPEG}" "${YANDEX_HOME}/libffmpeg.so"
 
 	# yandex_browser binary loads libudev.so.0 at runtime
 
