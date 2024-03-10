@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,8 +10,8 @@ inherit distutils-r1
 
 DESCRIPTION="A simple, visually pleasing weather report in your terminal"
 HOMEPAGE="https://github.com/noprobelm/tempy"
-SRC_URI="https://github.com/noprobelm/tempy/archive/815893b.tar.gz -> ${P}.gh.tar.gz"
-S="${WORKDIR}/tempy-815893b1f2020e0ceac6be6d21762155967408be"
+SRC_URI="https://github.com/noprobelm/tempy/archive/fb0db08.tar.gz -> ${P}.gh.tar.gz"
+S="${WORKDIR}/tempy-fb0db0841e097de4ed819066a45933748172e02a"
 
 LICENSE="MIT"
 SLOT="0"
