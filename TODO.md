@@ -25,7 +25,6 @@ If you find an interesting piece of software here, consider to package it, also 
 [octave-scicosim](https://wiki.octave.org/Sci_cosim) | none | octave | Alessandro-Barbieri | ✖ | ✖
 [nerd-fonts](https://nerdfonts.com) | none | fonts | Alessandro-Barbieri | ✔ | ✖
 [silk-guardian](https://github.com/NateBrune/silk-guardian) | make | util | Alessandro-Barbieri | ✖ | ✖
-[retroarch](https://www.retroarch.com/) | make | game | NicolaSmaniotto | | ✖
 [lucida](https://github.com/claritylab/lucida) | make | | Alessandro-Barbieri | ✔ | ✖
 [embedded fuzzy logic library](https://github.com/zerokol/eFLL) | make | devel | Alessandro-Barbieri | ✖ | ✖
 [Intel-sgx](https://01.org/intel-softwareguard-extensions) | make | devel | Alessandro-Barbieri | ✔ | ✖
@@ -42,10 +41,8 @@ If you find an interesting piece of software here, consider to package it, also 
 [machinekit](https://github.com/machinekit/machinekit) | autotools | science | Alessandro-Barbieri | ✔ | ✖ | ✔
 [libreoffice-online](https://github.com/LibreOffice/online) | autotools | office | Alessandro-Barbieri | ✔ | ✖
 [latte-integrale](https://www.math.ucdavis.edu/~latte/) | autotools | math | Alessandro-Barbieri | ✔ | ✖
-[bonmin](https://projects.coin-or.org/Bonmin) | autotools | math | Alessandro-Barbieri | ✖ | ✔
 [tides](https://sourceforge.net/projects/tidesodes/) | autotools | math | Alessandro-Barbieri | ✖ | ✔
 [Cakeml](https://cakeml.org/) | autotools | ML | Alessandro-Barbieri | ✔ | ✔
-[geopm](https://geopm.github.io/) | autotools | power | Alessandro-Barbieri | ✖ | ✔
 [warewulf](https://warewulf.lbl.gov/) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [jmodelica](https://github.com/jnorthrup/jmodelica) | autotools | science | Alessandro-Barbieri | ✔ | ✔
 [flux-core](https://github.com/flux-framework/flux-core) | autotools | cluster | Alessandro-Barbieri | ✔ | ✔
@@ -104,8 +101,6 @@ If you find an interesting piece of software here, consider to package it, also 
 [mmtracking](https://github.com/open-mmlab/mmtracking) | setuptools | science | Alessandro-Barbieri | ✖
 [libensemble](https://github.com/Libensemble/libensemble) | setuptools | cluster | Alessandro-Barbieri | ✖ | ✔
 [ActivityWatch](https://github.com/ActivityWatch/activitywatch) | setuptools | utils | David Roman | ✔ | ✖
-[greenclip](https://github.com/erebe/greenclip) | cabal | desktop | NRK | ✔ | ✖
-[kaitai](https://github.com/kaitai-io/kaitai_struct) | sbt | util | Alessandro-Barbieri | ✔ | ✖
 [casadi](https://web.casadi.org/) | cmake swig | science | Alessandro-Barbieri | ✖ | ✔
 [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet) | setuptools yarn | jupyter | Alessandro-Barbieri | ✔ | ✖
 [gitlab](https://gitlab.com/gitlab-org/gitlab-foss) | yarn gem | vcs | Alessandro-Barbieri | ✔ | ✖
