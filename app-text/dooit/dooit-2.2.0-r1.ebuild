@@ -24,8 +24,7 @@ RDEPEND="
 	dev-python/tzlocal[${PYTHON_USEDEP}]
 	>=dev-python/appdirs-1.4.4[${PYTHON_USEDEP}]
 	<dev-python/appdirs-2.0.0[${PYTHON_USEDEP}]
-	>=dev-python/textual-0.47.1[${PYTHON_USEDEP}]
-	<dev-python/textual-0.48.0[${PYTHON_USEDEP}]
+	dev-python/textual[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-2.8.2[${PYTHON_USEDEP}]
 	<dev-python/python-dateutil-3.0.0[${PYTHON_USEDEP}]
 "
