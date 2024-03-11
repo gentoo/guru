@@ -5,10 +5,7 @@
     <email>dev@dyama.net</email>
     <name>Daichi Yamamoto</name>
   </maintainer>
-  <longdescription>
-    Rye is Armin's personal one-stop-shop for all his Python needs. It installs and manages Python installations, manages pyproject.toml files, installs and uninstalls dependencies, manages virtualenvs behind the scenes. It supports monorepos and global tool installations.
-  </longdescription>
   <upstream>
-    <remote-id type="github">mitsuhiko/rye</remote-id>
+    <remote-id type="github">astral-sh/rye</remote-id>
   </upstream>
 </pkgmetadata>
