@@ -47,6 +47,7 @@ src_configure() {
 		-DLIB_INSTALL_DIR=$(get_libdir)
 		-DBUILD_EXAMPLES=OFF
 		-DINSTALL_DOCUMENTATION=$(usex doc)
+		-DDOCUMENTATION_DESTINATION="share/doc/${PF}"
 		-DENABLE_SSL=$(usex ssl)
 		-DENABLE_HARU=$(usex pdf)
 		-DENABLE_PANGO=ON
