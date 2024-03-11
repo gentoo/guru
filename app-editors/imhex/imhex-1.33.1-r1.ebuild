@@ -20,7 +20,7 @@ S_PATTERNS="${WORKDIR}/ImHex-Patterns-ImHex-v${PV}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+system-llvm test +lto"
+IUSE="+system-llvm test lto"
 RESTRICT="!test? ( test )"
 
 DEPEND="
