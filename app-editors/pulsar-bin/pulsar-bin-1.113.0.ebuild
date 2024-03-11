@@ -12,6 +12,7 @@ SRC_URI="
 	amd64? ( https://github.com/pulsar-edit/pulsar/releases/download/v${PV}/Linux.pulsar-${PV}.tar.gz -> ${P}-amd64.tar.gz )
 	arm64? ( https://github.com/pulsar-edit/pulsar/releases/download/v${PV}/ARM.Linux.pulsar-${PV}-arm64.tar.gz -> ${P}-arm64.tar.gz )
 "
+S="${WORKDIR}/pulsar-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
@@ -19,8 +20,6 @@ KEYWORDS="-* ~amd64 ~arm64"
 
 # binary package; no tests available
 RESTRICT="test"
-
-S="${WORKDIR}/pulsar-${PV}"
 
 RDEPEND="
 	app-accessibility/at-spi2-core
