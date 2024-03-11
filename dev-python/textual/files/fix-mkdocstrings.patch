@@ -1,0 +1,33 @@
+diff --git a/docs/_templates/python/material/_base/class.html b/docs/_templates/python/material/_base/class.html
+index 120fe338f..731d2ae73 100644
+--- a/docs/_templates/python/material/_base/class.html
++++ b/docs/_templates/python/material/_base/class.html
+@@ -46,7 +46,7 @@
+       {% if "__init__" in class.members %}
+         {% with function = class.members["__init__"] %}
+           {% filter highlight(language="python", inline=False) -%}
+-            def {% filter format_signature(config.line_length) %}
++            def {% filter format_signature(function, config.line_length) %}
+ __init__{% include "signature.html" with context %}
+             {% endfilter %}:
+           {% endfilter %}
+diff --git a/docs/_templates/python/material/_base/function.html b/docs/_templates/python/material/_base/function.html
+index 58a4c37ad..c5e574ffa 100644
+--- a/docs/_templates/python/material/_base/function.html
++++ b/docs/_templates/python/material/_base/function.html
+@@ -37,7 +37,7 @@
+ 
+     {% if config.separate_signature %}
+       {% filter highlight(language="python", inline=False) %}
+-def {% filter format_signature(config.line_length) %}
++def {% filter format_signature(function, config.line_length) %}
+           {% if show_full_path %}{{ function.path }}{% else %}{{ function.name }}{% endif %}
+           {% include "signature.html" with context %}
+         {% endfilter %}:
+diff --git a/docs/api/constants.md b/docs/api/constants.md
+index f4d97e8df..88aa35b2f 100644
+--- a/docs/api/constants.md
++++ b/docs/api/constants.md
+@@ -1 +1 @@
+-::: textuals.constants
++::: textual.constants
