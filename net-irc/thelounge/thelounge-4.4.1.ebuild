@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit readme.gentoo-r1 systemd tmpfiles
+PYTHON_COMPAT=( python3_{10..12} )
+
+inherit python-single-r1 readme.gentoo-r1 systemd tmpfiles
 
 DESCRIPTION="‎Modern, responsive, cross-platform, self-hosted web IRC client"
 HOMEPAGE="https://thelounge.chat/"
@@ -19,6 +21,7 @@ LICENSE="BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+sqlite"
+REQUIRED_USE="sqlite? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="
 	acct-user/${PN}
@@ -28,6 +31,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
+	sqlite? ( ${PYTHON_DEPS} )
 	>=net-libs/nodejs-16[npm]
 	sys-apps/yarn
 "
@@ -67,7 +71,11 @@ src_compile() {
 	if use sqlite; then
 		# sqlite3 build
 		pushd node_modules/sqlite3 || die
-		export npm_config_cache="${WORKDIR}"/npm-cache npm_config_nodedir="${EPREFIX}"/usr || die
+		export \
+			npm_config_cache="${WORKDIR}"/npm-cache \
+			npm_config_nodedir="${EPREFIX}"/usr \
+			NODE_GYP_FORCE_PYTHON="$(command -v ${PYTHON_SINGLE_TARGET/_/.})" \
+			|| die
 		npm --verbose --offline install --build-from-source --sqlite="${EPREFIX}"/usr || die
 		# sqlite3 cleanup
 		rm -rf node_modules || die
