@@ -56,6 +56,7 @@ src_compile() {
 src_install() {
 	meson_src_install
 	python_fix_shebang "${D}"/usr/bin/gfeeds
+	python_optimize "${ED}"/usr
 }
 
 pkg_postinst() {
