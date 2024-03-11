@@ -15,6 +15,25 @@ RESTRICT="strip"
 KEYWORDS="~amd64"
 QA_PREBUILT={*}
 
+RDEPEND="
+	app-accessibility/at-spi2-core
+	dev-libs/nspr
+	dev-libs/nss
+	media-libs/alsa-lib
+	media-libs/mesa
+	net-print/cups
+	x11-libs/gdk-pixbuf
+	x11-libs/gtk+
+	x11-libs/libXcomposite
+	x11-libs/libXdamage
+	x11-libs/libXfixes
+	x11-libs/libXrandr
+	x11-libs/libdrm
+	x11-libs/libxkbcommon
+	x11-libs/libxshmfence
+	x11-libs/pango
+"
+
 S="${WORKDIR}"
 
 src_unpack() {
