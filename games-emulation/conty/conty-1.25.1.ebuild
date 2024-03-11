@@ -23,7 +23,10 @@ S="${WORKDIR}"
 
 QA_PREBUILT="*"
 
-CONFIG_CHECK="IA32_EMULATION"
+CONFIG_CHECK="
+	IA32_EMULATION
+	CONFIG_USER_NS
+"
 
 src_install() {
 	dobin "${DISTDIR}/${PN}_lite_dwarfs.sh"
