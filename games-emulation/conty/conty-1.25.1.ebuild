@@ -8,7 +8,9 @@ HOMEPAGE="https://github.com/Kron4ek/Conty"
 
 inherit linux-info
 
-SRC_URI="https://github.com/Kron4ek/Conty/releases/download/${PV}/${PN}_lite_dwarfs.sh"
+NAME="${PN}_lite_dwarfs.sh"
+
+SRC_URI="https://github.com/Kron4ek/Conty/releases/download/${PV}/${NAME}"
 KEYWORDS="~amd64"
 
 LICENSE="MIT"
@@ -28,9 +30,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	einfo "How to use: $ ./conty.sh [command] [command_arguments]"
-	einfo "For example: ./conty.sh steam"
+	einfo "How to use: $ ${NAME} [command] [command_arguments]"
+	einfo "For example: ${NAME} steam"
 	einfo "or"
-	einfo "WINEPREFIX=$HOME/wine-conty ./conty.sh gamescope -f -- wine ./game.exe"
+	einfo "WINEPREFIX=$HOME/wine-conty ${NAME} gamescope -f -- wine ./game.exe"
 
 }
