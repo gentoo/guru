@@ -15,6 +15,6 @@
   </maintainer>
   <longdescription>Yandex Browser is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.</longdescription>
   <use>
-    <flag name="ffmpeg-codecs">Use <pkg>www-plugins/yandex-browser-ffmpeg-codecs-bin</pkg> for multi-threaded ffmpeg codecs for the HTML5 &lt;audio&gt; and &lt;video&gt; tags</flag>
+    <flag name="ffmpeg-codecs">Use <pkg>media-video/ffmpeg-chromium</pkg> for multi-threaded ffmpeg codecs for the HTML5 &lt;audio&gt; and &lt;video&gt; tags</flag>
   </use>
 </pkgmetadata>
