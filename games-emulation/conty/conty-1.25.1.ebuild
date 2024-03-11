@@ -25,7 +25,7 @@ QA_PREBUILT="*"
 
 CONFIG_CHECK="
 	IA32_EMULATION
-	CONFIG_USER_NS
+	USER_NS
 "
 
 src_install() {
