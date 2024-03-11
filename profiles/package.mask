@@ -14,6 +14,10 @@
 
 # New entries go on top.
 
+# David Roman <davidroman96@gmail.com> (2024-03-11)
+# Duplicated, we already have media-video/ffmpeg-chromium
+www-plugins/yandex-browser-ffmpeg-codecs-bin
+
 # Julien Roy <julien@jroy.ca> (2024-03-10)
 # <dev-python-cython-3 no longer in ::gentoo
 =dev-python/imgui-2.0.0
