@@ -4,6 +4,10 @@
 	<maintainer type="person">
 		<email>brettalcox@gmail.com</email>
 	</maintainer>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
 	<upstream>
 		<remote-id type="gnome-gitlab">World/gfeeds</remote-id>
 	</upstream>
