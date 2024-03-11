@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>davidroman96@gmail.com</email>
+		<name>David Roman</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">epoupon/lms</remote-id>
+	</upstream>
+	<use>
+		<flag name="stb">Use <pkg>dev-libs/stb</pkg> graphic library instead of <pkg>media-gfx/graphicsmagick</pkg></flag>
+	</use>
+</pkgmetadata>

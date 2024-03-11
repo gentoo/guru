@@ -1,0 +1,150 @@
+diff --git a/src/libs/av/CMakeLists.txt b/src/libs/av/CMakeLists.txt
+index fee1201e..e616260d 100644
+--- a/src/libs/av/CMakeLists.txt
++++ b/src/libs/av/CMakeLists.txt
+@@ -26,5 +26,5 @@ target_link_libraries(lmsav PRIVATE
+ 	PkgConfig::LIBAV
+ 	)
+ 
+-install(TARGETS lmsav DESTINATION lib)
++install(TARGETS lmsav DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
+diff --git a/src/libs/database/CMakeLists.txt b/src/libs/database/CMakeLists.txt
+index 7188f977..0b1eb84e 100644
+--- a/src/libs/database/CMakeLists.txt
++++ b/src/libs/database/CMakeLists.txt
+@@ -42,7 +42,7 @@ target_link_libraries(lmsdatabase PUBLIC
+ 	Wt::Dbo
+ 	)
+ 
+-install(TARGETS lmsdatabase DESTINATION lib)
++install(TARGETS lmsdatabase DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
+ if(BUILD_TESTING)
+ 	add_subdirectory(test)
+diff --git a/src/libs/image/CMakeLists.txt b/src/libs/image/CMakeLists.txt
+index cb855563..eb48565e 100644
+--- a/src/libs/image/CMakeLists.txt
++++ b/src/libs/image/CMakeLists.txt
+@@ -34,5 +34,5 @@ else ()
+ 	message(FATAL_ERROR "Invalid IMAGE_LIBRARY provided")
+ endif()
+ 
+-install(TARGETS lmsimage DESTINATION lib)
++install(TARGETS lmsimage DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
+diff --git a/src/libs/metadata/CMakeLists.txt b/src/libs/metadata/CMakeLists.txt
+index b2502aa3..c6c26521 100644
+--- a/src/libs/metadata/CMakeLists.txt
++++ b/src/libs/metadata/CMakeLists.txt
+@@ -28,5 +28,5 @@ target_link_libraries(lmsmetadata PUBLIC
+ 	std::filesystem
+ 	)
+ 
+-install(TARGETS lmsmetadata DESTINATION lib)
++install(TARGETS lmsmetadata DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
+diff --git a/src/libs/services/auth/CMakeLists.txt b/src/libs/services/auth/CMakeLists.txt
+index 0a2eb6a5..edb9c4c2 100644
+--- a/src/libs/services/auth/CMakeLists.txt
++++ b/src/libs/services/auth/CMakeLists.txt
+@@ -35,5 +35,5 @@ if (USE_PAM)
+ 	target_link_libraries(lmsauth PRIVATE ${PAM_LIBRARIES})
+ endif (USE_PAM)
+ 
+-install(TARGETS lmsauth DESTINATION lib)
++install(TARGETS lmsauth DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
+diff --git a/src/libs/services/cover/CMakeLists.txt b/src/libs/services/cover/CMakeLists.txt
+index 41169c5d..6dc17262 100644
+--- a/src/libs/services/cover/CMakeLists.txt
++++ b/src/libs/services/cover/CMakeLists.txt
+@@ -24,5 +24,5 @@ target_link_libraries(lmsservice-cover PUBLIC
+ 	std::filesystem
+ 	)
+ 
+-install(TARGETS lmsservice-cover DESTINATION lib)
++install(TARGETS lmsservice-cover DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
+diff --git a/src/libs/services/feedback/CMakeLists.txt b/src/libs/services/feedback/CMakeLists.txt
+index 02e63624..b7634e77 100644
+--- a/src/libs/services/feedback/CMakeLists.txt
++++ b/src/libs/services/feedback/CMakeLists.txt
+@@ -26,4 +26,4 @@ target_link_libraries(lmsfeedback PUBLIC
+ 	lmsdatabase
+ 	)
+ 
+-install(TARGETS lmsfeedback DESTINATION lib)
++install(TARGETS lmsfeedback DESTINATION ${CMAKE_INSTALL_LIBDIR})
+diff --git a/src/libs/services/recommendation/CMakeLists.txt b/src/libs/services/recommendation/CMakeLists.txt
+index 8244679b..603a66b0 100644
+--- a/src/libs/services/recommendation/CMakeLists.txt
++++ b/src/libs/services/recommendation/CMakeLists.txt
+@@ -26,5 +26,5 @@ target_link_libraries(lmsrecommendation PRIVATE
+ 	std::filesystem
+ 	)
+ 
+-install(TARGETS lmsrecommendation DESTINATION lib)
++install(TARGETS lmsrecommendation DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
+diff --git a/src/libs/services/scanner/CMakeLists.txt b/src/libs/services/scanner/CMakeLists.txt
+index 8a0508e9..78d49e73 100644
+--- a/src/libs/services/scanner/CMakeLists.txt
++++ b/src/libs/services/scanner/CMakeLists.txt
+@@ -29,5 +29,5 @@ target_link_libraries(lmsscanner PUBLIC
+ 	Wt::Wt
+ 	)
+ 
+-install(TARGETS lmsscanner DESTINATION lib)
++install(TARGETS lmsscanner DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
+diff --git a/src/libs/services/scrobbling/CMakeLists.txt b/src/libs/services/scrobbling/CMakeLists.txt
+index 2f78000a..db065828 100644
+--- a/src/libs/services/scrobbling/CMakeLists.txt
++++ b/src/libs/services/scrobbling/CMakeLists.txt
+@@ -26,7 +26,7 @@ target_link_libraries(lmsscrobbling PUBLIC
+ 	lmsdatabase
+ 	)
+ 
+-install(TARGETS lmsscrobbling DESTINATION lib)
++install(TARGETS lmsscrobbling DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
+ if(BUILD_TESTING)
+ 	add_subdirectory(test)
+diff --git a/src/libs/som/CMakeLists.txt b/src/libs/som/CMakeLists.txt
+index 87a2d53f..eeb971d6 100644
+--- a/src/libs/som/CMakeLists.txt
++++ b/src/libs/som/CMakeLists.txt
+@@ -17,7 +17,7 @@ target_link_libraries(lmssom PUBLIC
+ 
+ set_property(TARGET lmssom PROPERTY POSITION_INDEPENDENT_CODE ON)
+ 
+-install(TARGETS lmssom DESTINATION lib)
++install(TARGETS lmssom DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
+ if(BUILD_TESTING)
+ 	add_subdirectory(test)
+diff --git a/src/libs/subsonic/CMakeLists.txt b/src/libs/subsonic/CMakeLists.txt
+index 07394e94..41afbbb8 100644
+--- a/src/libs/subsonic/CMakeLists.txt
++++ b/src/libs/subsonic/CMakeLists.txt
+@@ -56,5 +56,5 @@ target_link_libraries(lmssubsonic PUBLIC
+ 	Wt::Wt
+ 	)
+ 
+-install(TARGETS lmssubsonic DESTINATION lib)
++install(TARGETS lmssubsonic DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
+diff --git a/src/libs/utils/CMakeLists.txt b/src/libs/utils/CMakeLists.txt
+index a1f3590d..a12202f9 100644
+--- a/src/libs/utils/CMakeLists.txt
++++ b/src/libs/utils/CMakeLists.txt
+@@ -37,7 +37,7 @@ target_link_libraries(lmsutils PUBLIC
+ 	Wt::Wt
+ 	)
+ 
+-install(TARGETS lmsutils DESTINATION lib)
++install(TARGETS lmsutils DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
+ if(BUILD_TESTING)
+ 	add_subdirectory(test)
