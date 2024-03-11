@@ -13,7 +13,7 @@ LICENSE="all-rights-reserved"
 SLOT=0
 RESTRICT="strip"
 KEYWORDS="~amd64"
-QA_PREBUILT={*}
+QA_PREBUILT="*"
 
 RDEPEND="
 	app-accessibility/at-spi2-core
