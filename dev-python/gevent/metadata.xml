@@ -10,4 +10,8 @@
 		<remote-id type="github">gevent/pyqtdarktheme</remote-id>
 		<doc>https://www.gevent.org/</doc>
 	</upstream>
+	<use>
+		<flag name="monitor">Enhancements to gevent’s self-monitoring capabilities. This includes the psutil library which is needed to monitor memory usage.</flag>
+		<flag name="recommended">A shortcut for installing suggested extras together. This includes the non-test extras defined here, plus additions that improve gevent’s operation on certain platforms (for example, in the past, it has included backports of newer APIs).</flag>
+	</use>
 </pkgmetadata>
