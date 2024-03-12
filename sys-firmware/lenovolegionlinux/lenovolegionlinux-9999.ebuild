@@ -35,7 +35,7 @@ RDEPEND="
 		dev-python/darkdetect
 	)
 	downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
-	acpi? ( sys-power/acpid )
+	sys-power/acpid
 	radeon-dgpu? ( dev-util/rocm-smi )
 	ryzenadj? ( sys-power/RyzenAdj )
 	undervolt-intel? ( dev-python/undervolt )
@@ -67,6 +67,8 @@ src_compile() {
 		#Define build dir (fix sandboxed)
 		cd "${WORKDIR}/${P}/python/legion_linux"
 		distutils-r1_src_compile --build-dir "${WORKDIR}/${P}/python/legion_linux/build"
+		cd "legion_linux/extra/service/legiond"
+		emake || die
 	fi
 }
 
@@ -84,7 +86,11 @@ src_install() {
 		cd "${WORKDIR}/${P}/extra"
 
 		if use systemd; then
-			systemd_dounit service/legion-linux.service service/legion-linux.path service/legion-linux-onresume.service
+			systemd_dounit service/legiond.service service/legiond-onresume.service
+			insinto /usr/share/legion_linux/acpi/events
+			doins acpi/events/{legion_ppd,legion_ac}
+			dobin service/legiond/legiond
+			dobin service/legiond/legiond-cli
 		fi
 
 		if use acpi; then
