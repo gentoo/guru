@@ -36,9 +36,5 @@ NoNewPrivileges=true
 ProtectSystem=strict
 ReadWritePaths=/var/lib/%N
 
-# Set reasonable connection and process limits
-LimitNOFILE=1048576
-LimitNPROC=64
-
 [Install]
 WantedBy=multi-user.target
