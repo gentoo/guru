@@ -53,6 +53,10 @@ mooyarn() {
 		 --ignore-scripts ${YARN_OPTS} "${@}" || die
 }
 
+pkg_setup() {
+	use sqlite && python-single-r1_pkg_setup
+}
+
 src_prepare() {
 	default
 	use !sqlite && { sed -i -e 's|\["sqlite", |\[|g;' defaults/config.js  || die ; }
