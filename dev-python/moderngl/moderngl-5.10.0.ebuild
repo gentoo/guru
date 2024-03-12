@@ -1,13 +1,20 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+DOCS_BUILDER="sphinx"
+DOCS_DIR="docs"
+DOCS_DEPEND="
+	dev-python/furo
+	dev-python/sphinx-copybutton
+"
+
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
-inherit distutils-r1 virtualx
+inherit distutils-r1 virtualx docs
 
 DESCRIPTION="Modern OpenGL binding for python"
 HOMEPAGE="https://github.com/moderngl/moderngl https://pypi.org/project/moderngl"
@@ -22,8 +29,8 @@ RESTRICT="test"
 
 BDEPEND="
 	x11-libs/libX11
-	media-libs/mesa
-	>=dev-python/glcontext-2.3.6[${PYTHON_USEDEP}]
+	virtual/opengl
+	>=dev-python/glcontext-2.5.0[${PYTHON_USEDEP}]
 	<dev-python/glcontext-3[${PYTHON_USEDEP}]
 	test? (
 		dev-python/numpy[${PYTHON_USEDEP}]
@@ -31,21 +38,11 @@ BDEPEND="
 		dev-python/scipy[${PYTHON_USEDEP}]
 		dev-python/pycodestyle[${PYTHON_USEDEP}]
 	)
-	doc? (
-		dev-python/furo[${PYTHON_USEDEP}]
-		dev-python/sphinx[${PYTHON_USEDEP}]
-		dev-python/sphinx-copybutton[${PYTHON_USEDEP}]
-	)
 "
 DEPEND="${BDEPEND}"
 
 # distutils_enable_tests pytest
-distutils_enable_sphinx docs
 
 src_test() {
 	virtx distutils-r1_src_test
-}
-
-pkg_postinst() {
-	use doc && elog "The documentation is installed as html pages"
 }
