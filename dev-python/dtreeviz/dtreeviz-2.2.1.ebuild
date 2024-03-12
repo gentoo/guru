@@ -23,7 +23,7 @@ RDEPEND="
 	>=dev-python/graphviz-0.9
 	dev-python/pandas
 	dev-python/numpy
-	sci-libs/scikit-learn
+	dev-python/scikit-learn
 	dev-python/matplotlib
 	dev-python/colour
 "
