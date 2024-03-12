@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<longdescription>
+Pods is a frontend for podman. It uses libadwaita for its user interface and strives to meet the design principles of GNOME.
+
+With Pods you can, among other things:
+
+Connect to local and remote Podman instances.
+Easily overview images, containers and pods.
+View prepared information about images, containers, and pods.
+Inspect images, containers and pods.
+View and search container logs.
+Monitor processes of containers and pods.
+Download images and build them using Dockerfiles.
+Create pods and containers.
+Control the lifecycle of containers and pods (in bulk) (start, stop, pause, etc.).
+Delete images, containers, and pods (in bulk).
+Prune images.
+Rename containers.
+	</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Marcus Behrendt</name>
+			<email>marcus.behrendt.86@gmail.com</email>
+		</maintainer>
+		<bugs-to>https://github.com/marhkb/pods/issues</bugs-to>
+		<changelog>https://github.com/marhkb/pods/releases</changelog>
+		<remote-id type="github">marhkb/pods</remote-id>
+	</upstream>
+</pkgmetadata>
