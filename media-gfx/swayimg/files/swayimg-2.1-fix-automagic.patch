@@ -1,0 +1,25 @@
+Fix a issue that libjxl is automagicaly linked.
+https://github.com/artemsen/swayimg/commit/f8ea442c462b519de1ee6d9c4aa44d7b36b3d74f
+--- a/meson.build	2024-03-12 17:00:50.239606131 +0900
++++ b/meson.build	2024-03-12 17:03:23.185959883 +0900
+@@ -47,6 +47,7 @@
+ heif = dependency('libheif', required: get_option('heif'))
+ avif = dependency('libavif', required: get_option('avif'))
+ jpeg = dependency('libjpeg', required: get_option('jpeg'))
++jxl = dependency('libjxl', required: get_option('jxl'))
+ png = dependency('libpng', required: get_option('png'))
+ rsvg = dependency('librsvg-2.0', version: '>=2.46', required: get_option('svg'))
+ tiff = dependency('libtiff-4', required: get_option('tiff'))
+@@ -55,12 +56,6 @@
+ # optional dependencies: other features
+ exif = dependency('libexif', required: get_option('exif'))
+ bash = dependency('bash-completion', required: get_option('bash'))
+-# Arch specific: https://bugs.archlinux.org/task/73931
+-jxl_feature = get_option('jxl')
+-jxl = dependency('libjxl', required: false)
+-if not jxl.found() and (jxl_feature.auto() or jxl_feature.enabled())
+-  jxl = cc.find_library('libjxl', required: jxl_feature)
+-endif
+ # non-Linux (BSD specific)
+ epoll = dependency('epoll-shim', required: false)
+ inotify = dependency('libinotify', required: false)
