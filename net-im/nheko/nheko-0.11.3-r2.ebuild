@@ -1,4 +1,4 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -124,7 +124,7 @@ src_configure() {
 pkg_postinst() {
 	optfeature "additional image formats support" kde-frameworks/kimageformats:5
 	optfeature "audio & video file playback support" media-plugins/gst-plugins-meta[ffmpeg]
-	optfeature "identicons support" dev-cpp/qt-jdenticon
+	optfeature "identicons support" dev-cpp/qt-jdenticon:5
 
 	xdg_pkg_postinst
 }

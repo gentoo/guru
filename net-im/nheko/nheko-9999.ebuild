@@ -26,7 +26,6 @@ MY_GST_V="1.18"
 RDEPEND="
 	app-text/cmark:=
 	dev-cpp/cpp-httplib:=
-	dev-cpp/qt-jdenticon
 	dev-db/lmdb:=
 	>=dev-db/lmdb++-1.0.0
 	dev-libs/libevent:=
@@ -127,6 +126,7 @@ pkg_postinst() {
 		"dev-libs/qtkeychain[keyring]"
 	optfeature "additional, less common, image format support" \
 		"kde-frameworks/kimageformats:6"
+	optfeature "identicons support" dev-cpp/qt-jdenticon:6
 
 	xdg_pkg_postinst
 
