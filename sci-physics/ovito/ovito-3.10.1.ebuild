@@ -19,12 +19,13 @@ S="${WORKDIR}/${PN}-v${PV}"
 inherit cmake desktop
 
 DEPEND="
+	dev-libs/boost
+	dev-libs/c-blosc
 	dev-qt/qtbase:6[gui]
 	dev-qt/qtsvg:6
-	sci-libs/hdf5
-	dev-libs/boost
-	sci-libs/netcdf
 	media-video/ffmpeg
+	sci-libs/hdf5
+	sci-libs/netcdf
 	virtual/opengl
 "
 
