@@ -17,20 +17,19 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	>=dev-python/textual-0.36.0[${PYTHON_USEDEP}]
 	>=dev-python/aiohttp-3.8.1[${PYTHON_USEDEP}]
 	>=dev-python/click-8.1.2[${PYTHON_USEDEP}]
-	dev-python/importlib-metadata[${PYTHON_USEDEP}]
 	>=dev-python/msgpack-1.0.3[${PYTHON_USEDEP}]
-	dev-python/rich[${PYTHON_USEDEP}]
-	>=dev-python/textual-0.32.0[${PYTHON_USEDEP}]
 	=dev-python/typing-extensions-4*[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
 	test? (
 		${RDEPEND}
-		=dev-python/pytest-aiohttp-1*[${PYTHON_USEDEP}]
-		=dev-python/time-machine-2*[${PYTHON_USEDEP}]
+		dev-python/pytest-aiohttp[${PYTHON_USEDEP}]
+		>=dev-python/time-machine-2.6.0[${PYTHON_USEDEP}]
+		<dev-python/time-machine-3[${PYTHON_USEDEP}]
 	)
 "
 
