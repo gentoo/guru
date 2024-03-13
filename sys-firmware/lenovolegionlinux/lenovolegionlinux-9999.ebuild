@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,12 +21,11 @@ fi
 DESCRIPTION="Lenovo Legion Linux kernel module"
 HOMEPAGE="https://github.com/johnfanv2/LenovoLegionLinux"
 
-BDEPEND="sys-kernel/linux-headers
+BDEPEND="
+	sys-kernel/linux-headers
 	sys-apps/lm-sensors
 	sys-apps/dmidecode
-	sys-apps/sed
 "
-
 RDEPEND="
 	gui? (
 		dev-python/PyQt6[gui,widgets]
@@ -45,7 +44,7 @@ DEPEND="${RDEPEND}"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="gui acpi systemd radeon-dgpu downgrade-nvidia ryzenadj undervolt-intel"
+IUSE="+gui +acpi systemd radeon-dgpu downgrade-nvidia ryzenadj undervolt-intel"
 REQUIRED_USE="|| ( systemd acpi radeon-dgpu downgrade-nvidia ryzenadj gui undervolt-intel ) acpi? ( gui ) radeon-dgpu? ( !downgrade-nvidia gui ) downgrade-nvidia? ( !radeon-dgpu gui ) undervolt-intel? ( !ryzenadj gui ) ryzenadj? ( !undervolt-intel gui )"
 
 MODULES_KERNEL_MIN=5.10
@@ -59,41 +58,44 @@ src_compile() {
 	if use gui; then
 		if [[ ${PV} == "9999" ]]; then
 			#fix python package version
-			sed -i "s/version = _VERSION/version = 9999/g" "${WORKDIR}/${P}/python/legion_linux/setup.cfg"
+			sed -i "s/version = _VERSION/version = 9999/g" "${WORKDIR}/${P}/python/legion_linux/setup.cfg" || die
 		else
 			#fix python package version
-			sed -i "s/version = _VERSION/version = ${PV}/g" "${WORKDIR}/${P}/python/legion_linux/setup.cfg"
+			sed -i "s/version = _VERSION/version = ${PV}/g" "${WORKDIR}/${P}/python/legion_linux/setup.cfg" || die
 		fi
 		#Define build dir (fix sandboxed)
-		cd "${WORKDIR}/${P}/python/legion_linux"
+		cd "${WORKDIR}/${P}/python/legion_linux" || die
 		distutils-r1_src_compile --build-dir "${WORKDIR}/${P}/python/legion_linux/build"
 	fi
+	cd "${WORKDIR}/${P}/extra/service/legiond" || die
+	emake
 }
 
 src_install() {
 	linux-mod-r1_src_install
-	#Load the module without reboot
-	pushd python/legion_linux/ || die
-	make forcereloadmodule
-	popd || die
 	if use gui; then
 		#Define build dir (fix sandboxed)
-		cd "${WORKDIR}/${P}/python/legion_linux/"
+		cd "${WORKDIR}/${P}/python/legion_linux/" || die
 		distutils-r1_src_install --build-dir "${WORKDIR}/${P}/python/legion_linux/build"
-
-		cd "${WORKDIR}/${P}/extra"
-
-		if use systemd; then
-			systemd_dounit service/legion-linux.service service/legion-linux.path service/legion-linux-onresume.service
-		fi
-
-		if use acpi; then
-			insinto /usr/share/legion_linux/acpi/events
-			doins acpi/events/{ac_adapter_legion-fancurve,novo-button,PrtSc-button,fn-r-refrate}
-			insinto /usr/share/legion_linux/acpi/actions
-			doins acpi/actions/{battery-legion-quiet.sh,snipping-tool.sh,fn-r-refresh-rate.sh}
-		fi
 	fi
+
+	cd "${WORKDIR}/${P}/extra" || die
+
+	if use systemd; then
+		systemd_dounit service/legiond.service service/legiond-onresume.service
+	fi
+
+	if use acpi; then
+		insinto /usr/share/legion_linux/acpi/events
+		doins acpi/events/{ac_adapter_legion-fancurve,novo-button,PrtSc-button,fn-r-refrate,legion_ac,legion_ppd}
+		insinto /usr/share/legion_linux/acpi/actions
+		doins acpi/actions/{battery-legion-quiet.sh,snipping-tool.sh,fn-r-refresh-rate.sh}
+
+		insinto /etc/acpi/events/
+		doins acpi/events/{legion_ac,legion_ppd}
+	fi
+
+	dobin "${WORKDIR}/${P}"/extra/service/legiond/{legiond,legiond-cli}
 }
 
 pkg_postinst() {
