@@ -16,9 +16,8 @@ KEYWORDS="~amd64"
 DEPEND="
 	dev-libs/uriparser
 	dev-libs/libconfig
-	net-libs/ixwebsocket[ws]
+	dev-libs/poco
 	dev-libs/openssl
-	sys-libs/zlib
 	dev-libs/libfmt
 	dev-libs/spdlog
 "
