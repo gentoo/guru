@@ -3,10 +3,18 @@
 
 EAPI=8
 
+DOCS_BUILDER="sphinx"
+DOCS_DIR="docs/source"
+DOCS_DEPEND="
+	dev-python/furo
+	dev-python/jinja2-cli
+	dev-python/sphinx-copybutton
+"
+
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit distutils-r1 git-r3
+inherit distutils-r1 git-r3 docs
 
 DESCRIPTION="Animation engine for explanatory math videos"
 HOMEPAGE="https://github.com/3b1b/manim https://pypi.org/project/manimgl/"
@@ -21,7 +29,6 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="doc"
 
 RDEPEND="
 	dev-python/colour[${PYTHON_USEDEP}]
@@ -55,28 +62,14 @@ RDEPEND="
 		dev-python/typing-extensions[${PYTHON_USEDEP}]
 	' python3_{7..10})
 "
-# typing-extensions is needed for python < 3.11
+# typing-extensions is only needed for python < 3.11
 # so, only python3.10 should work too (because of PYTHON_COMPAT)
-
-BDEPEND="
-	doc? (
-		dev-python/furo[${PYTHON_USEDEP}]
-		dev-python/jinja2-cli[${PYTHON_USEDEP}]
-		dev-python/sphinx[${PYTHON_USEDEP}]
-		dev-python/sphinx-copybutton[${PYTHON_USEDEP}]
-	)
-"
 
 DEPEND="${RDEPEND}"
 
-python_compile_all() {
-	use doc && emake -C "${S}/docs" man && mv "${S}/docs/build/man/manim.1" "${S}/docs/build/man/${PN}.1"
-}
-
 python_install_all() {
-	distutils-r1_python_install_all
+	default
 	if use doc; then
-		doman "${S}/docs/build/man/${PN}.1"
 		docinto examples
 		dodoc example_scenes.py
 		dodoc docs/example.py
