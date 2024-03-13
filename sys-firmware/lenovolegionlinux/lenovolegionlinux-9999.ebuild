@@ -21,7 +21,8 @@ fi
 DESCRIPTION="Lenovo Legion Linux kernel module"
 HOMEPAGE="https://github.com/johnfanv2/LenovoLegionLinux"
 
-BDEPEND="sys-kernel/linux-headers
+BDEPEND="
+	sys-kernel/linux-headers
 	sys-apps/lm-sensors
 	sys-apps/dmidecode
 	sys-apps/sed
@@ -35,7 +36,7 @@ RDEPEND="
 		dev-python/darkdetect
 	)
 	downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
-	sys-power/acpid
+	systemd? ( sys-power/acpid )
 	radeon-dgpu? ( dev-util/rocm-smi )
 	ryzenadj? ( sys-power/RyzenAdj )
 	undervolt-intel? ( dev-python/undervolt )
@@ -45,8 +46,8 @@ DEPEND="${RDEPEND}"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="gui acpi systemd radeon-dgpu downgrade-nvidia ryzenadj undervolt-intel"
-REQUIRED_USE="|| ( systemd acpi radeon-dgpu downgrade-nvidia ryzenadj gui undervolt-intel ) acpi? ( gui ) radeon-dgpu? ( !downgrade-nvidia gui ) downgrade-nvidia? ( !radeon-dgpu gui ) undervolt-intel? ( !ryzenadj gui ) ryzenadj? ( !undervolt-intel gui )"
+IUSE="+gui systemd radeon-dgpu downgrade-nvidia ryzenadj undervolt-intel"
+REQUIRED_USE="|| ( systemd radeon-dgpu downgrade-nvidia ryzenadj gui undervolt-intel ) radeon-dgpu? ( !downgrade-nvidia gui ) downgrade-nvidia? ( !radeon-dgpu gui ) undervolt-intel? ( !ryzenadj gui ) ryzenadj? ( !undervolt-intel gui )"
 
 MODULES_KERNEL_MIN=5.10
 
@@ -65,25 +66,21 @@ src_compile() {
 			sed -i "s/version = _VERSION/version = ${PV}/g" "${WORKDIR}/${P}/python/legion_linux/setup.cfg"
 		fi
 		#Define build dir (fix sandboxed)
-		cd "${WORKDIR}/${P}/python/legion_linux"
+		cd "${WORKDIR}/${P}/python/legion_linux" || die
 		distutils-r1_src_compile --build-dir "${WORKDIR}/${P}/python/legion_linux/build"
-		cd "legion_linux/extra/service/legiond"
-		emake || die
+		cd "legion_linux/extra/service/legiond" || die
+		emake
 	fi
 }
 
 src_install() {
 	linux-mod-r1_src_install
-	#Load the module without reboot
-	pushd python/legion_linux/ || die
-	make forcereloadmodule
-	popd || die
 	if use gui; then
 		#Define build dir (fix sandboxed)
-		cd "${WORKDIR}/${P}/python/legion_linux/"
+		cd "${WORKDIR}/${P}/python/legion_linux/" || die
 		distutils-r1_src_install --build-dir "${WORKDIR}/${P}/python/legion_linux/build"
 
-		cd "${WORKDIR}/${P}/extra"
+		cd "${WORKDIR}/${P}/extra" || die
 
 		if use systemd; then
 			systemd_dounit service/legiond.service service/legiond-onresume.service
@@ -91,13 +88,6 @@ src_install() {
 			doins acpi/events/{legion_ppd,legion_ac}
 			dobin service/legiond/legiond
 			dobin service/legiond/legiond-cli
-		fi
-
-		if use acpi; then
-			insinto /usr/share/legion_linux/acpi/events
-			doins acpi/events/{ac_adapter_legion-fancurve,novo-button,PrtSc-button,fn-r-refrate}
-			insinto /usr/share/legion_linux/acpi/actions
-			doins acpi/actions/{battery-legion-quiet.sh,snipping-tool.sh,fn-r-refresh-rate.sh}
 		fi
 	fi
 }
@@ -115,7 +105,6 @@ pkg_postinst() {
 			ewarn "Note: Edit /etc/legion_linux/.env to enable nvidia TDP control\n"
 		fi
 	fi
-	use acpi && ewarn "Acpi exemples are included in /usr/share/legion_linux/acpi\n"
 	ewarn "Note for 2023-2023 Legion user: It need help for testing the features"
 	ewarn "Pls test the feature how is decribe in the README of the project!"
 	ewarn "and also go to this issue in github: https://github.com/johnfanv2/LenovoLegionLinux/issues/46"
