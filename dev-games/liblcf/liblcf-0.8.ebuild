@@ -11,7 +11,7 @@ HOMEPAGE="https://easyrpg.org/
 SRC_URI="https://easyrpg.org/downloads/player/${PV}/${P}.tar.xz"
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~ppc64"
 
 IUSE="doc tools"
 
