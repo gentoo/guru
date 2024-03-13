@@ -12,7 +12,7 @@ SRC_URI="https://github.com/mackron/dr_libs/archive/${COMMIT}.tar.gz -> ${P}.gh.
 
 LICENSE="|| ( MIT-0 public-domain )"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~ppc64"
 
 IUSE="test"
 RESTRICT="!test? ( test )"
