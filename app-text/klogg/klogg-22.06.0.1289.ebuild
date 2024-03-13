@@ -42,6 +42,10 @@ BDEPEND="
 	test? ( dev-qt/qttest:5 >=dev-cpp/catch-2.13.8 )
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-missing-include.patch"
+)
+
 src_unpack() {
 	unpack ${P}.tar.gz
 	mv "${WORKDIR}/${PN}-${MAJOR_VERSION}" "${WORKDIR}/${P}"
