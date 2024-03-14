@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -38,6 +38,10 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
+
+PATCHES=(
+	"${FILESDIR}/${PN}-0.5.0-libadwaita-1.4.patch"
+)
 
 src_configure() {
 	local emesonargs=(
