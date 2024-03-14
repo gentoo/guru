@@ -32,6 +32,9 @@ S="${WORKDIR}/Minder-${PV}"
 src_prepare() {
 	default
 	vala_setup
+
+	# Workaround for #871687
+	sed -i "s/meson.add_install_script('meson\/post_install.py')//g" meson.build || die
 }
 
 pkg_postinst() {
