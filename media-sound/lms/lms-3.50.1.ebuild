@@ -37,7 +37,11 @@ BDEPEND="
 	test? ( dev-cpp/gtest )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-fix-lib-dir.patch"  "${FILESDIR}/${PN}-optional-tests.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-fix-lib-dir.patch"
+	"${FILESDIR}/${PN}-optional-tests.patch"
+	"${FILESDIR}/${PN}-respect-ldflags.patch"
+)
 
 src_configure() {
 	append-flags -I/usr/include/stb/deprecated
