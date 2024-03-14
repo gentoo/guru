@@ -35,7 +35,7 @@ BDEPEND="
 		<dev-python/pytest-mock-4.0.0[${PYTHON_USEDEP}]
 		>=dev-python/pyyaml-6.0.1[${PYTHON_USEDEP}]
 		<dev-python/pyyaml-7.0.0[${PYTHON_USEDEP}]
-		dev-util/ruff[${PYTHON_USEDEP}]
+		dev-util/ruff
 	)
 "
 DEPEND="${RDEPEND}"
