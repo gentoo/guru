@@ -18,7 +18,6 @@ DEPEND="
 	dev-libs/libconfig
 	dev-libs/poco
 	dev-libs/openssl
-	dev-libs/libfmt
 	dev-libs/spdlog
 "
 RDEPEND="${DEPEND}"
