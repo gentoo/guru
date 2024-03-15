@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<stabilize-allarches/>
+	<upstream>
+		<remote-id type="github">keshikan/DSEG</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		The "DSEG" font family, is a collection of free fonts designed to mimic
+		seven and fourteen-segment displays (7SEG, 14SEG). It includes Roman
+		alphabet and symbol glyphs, offering over 50 types. The fonts come in
+		TrueType (.ttf) and Web Open Type File Format (.woff, *.woff2).
+		DSEG is versatile for digital display emulation like clocks or
+		calculators, and is licensed under the SIL Open Font License 1.1,
+		allowing commercial and non-commercial use, modification, and
+		redistribution.
+	</longdescription>
+	<longdescription lang="zh">
+		"DSEG"字体系列是一组免费字体，旨在模仿七段和十四段显示器（7SEG, 14SEG）。
+		它包含罗马字母和符号字形，提供50多种类型。字体以TrueType (.ttf) 和
+		Web Open Type File Format (.woff, *.woff2) 形式提供。DSEG适用于数字显示
+		仿真，如时钟或计算器，并在SIL开源字体许可1.1下授权，允许商业和非商业
+		使用、修改和重新分发。
+	</longdescription>
+</pkgmetadata>
