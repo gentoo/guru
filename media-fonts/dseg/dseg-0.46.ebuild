@@ -8,8 +8,8 @@ inherit font
 MY_PV=$(ver_rs 1- "")
 MY_P="fonts-DSEG_v${MY_PV}"
 
-DESCRIPTION="An open-source Chinese font derived from IPAmj Mincho"
-HOMEPAGE="https://github.com/lxgw/LxgwNeoZhiSong"
+DESCRIPTION="A free font which imitate LCD Display"
+HOMEPAGE="https://www.keshikan.net/fonts-e.html"
 SRC_URI="
 	https://github.com/keshikan/DSEG/releases/download/v${PV}/${MY_P}.zip -> ${P}.zip
 "
