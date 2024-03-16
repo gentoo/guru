@@ -114,7 +114,7 @@ pkg_postinst() {
 		elog
 		elog "Run monerod status as any user to get sync status and other stats."
 		elog
-		elog "The Monero blockchain can take up a lot of space (80 GiB) and is stored"
+		elog "The Monero blockchain can take up a lot of space (200 GiB) and is stored"
 		elog "in /var/lib/monero by default. You may want to enable pruning by adding"
 		elog "'prune-blockchain=1' to /etc/monero/monerod.conf to prune the blockchain"
 		elog "or move the data directory to another disk."
