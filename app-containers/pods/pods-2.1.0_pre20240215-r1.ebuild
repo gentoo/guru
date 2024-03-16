@@ -343,6 +343,16 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
+RDEPEND="
+	gui-libs/gtksourceview
+	gui-libs/vte
+"
+DEPEND="
+	dev-libs/glib
+	gui-libs/gtk
+	gui-libs/libadwaita
+"
+
 # Rust
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
