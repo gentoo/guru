@@ -5,20 +5,18 @@ EAPI="7"
 
 COMMIT="4fd604c4816d620be3cf9c5e9dd578b2c30c21bc"
 
-SRC_URI="https://github.com/z411/vrms-gentoo/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 DESCRIPTION="vrms clone for Gentoo Linux"
 HOMEPAGE="https://github.com/z411/vrms-gentoo"
+SRC_URI="https://github.com/z411/vrms-gentoo/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=""
 RDEPEND="
 	dev-lang/perl
 "
-
-S="${WORKDIR}/${PN}-${COMMIT}"
 
 src_install() {
 	default
