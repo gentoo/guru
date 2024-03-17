@@ -40,9 +40,7 @@ BDEPEND="
 "
 
 src_configure() {
-	local emesonargs=(
-        $(meson_use pulseaudio pulse-audio)
-    )
+	local emesonargs=($(meson_use pulseaudio pulse-audio))
 	meson_src_configure
 }
 
