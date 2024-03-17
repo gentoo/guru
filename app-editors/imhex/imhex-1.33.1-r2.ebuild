@@ -11,8 +11,8 @@ inherit cmake llvm toolchain-funcs desktop
 DESCRIPTION="A hex editor for reverse engineers, programmers, and eyesight"
 HOMEPAGE="https://github.com/WerWolv/ImHex"
 SRC_URI="
-	https://github.com/WerWolv/ImHex/releases/download/v${PV}/Full.Sources.tar.gz -> ${P}.tar.gz
-	https://github.com/WerWolv/ImHex-Patterns/archive/refs/tags/ImHex-v${PV}.tar.gz -> ${PN}-patterns-${PV}.tar.gz
+	https://github.com/WerWolv/ImHex/releases/download/v${PV}/Full.Sources.tar.gz -> ${P}.gh.tar.gz
+	https://github.com/WerWolv/ImHex-Patterns/archive/refs/tags/ImHex-v${PV}.tar.gz -> ${PN}-patterns-${PV}.gh.tar.gz
 "
 S="${WORKDIR}/ImHex"
 S_PATTERNS="${WORKDIR}/ImHex-Patterns-ImHex-v${PV}"
@@ -22,6 +22,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+system-llvm test lto"
 RESTRICT="!test? ( test )"
+
+PATCHES=(
+	"${FILESDIR}/remove_dotnet.patch"
+)
 
 DEPEND="
 	app-arch/zstd[zlib]
@@ -69,17 +73,17 @@ src_configure() {
 		-D IMHEX_IGNORE_BAD_COMPILER=OFF \
 		-D IMHEX_USE_GTK_FILE_PICKER=OFF \
 		-D IMHEX_DISABLE_STACKTRACE=ON \
-		-D IMHEX_BUNDLE_DOTNET=ON \
-		-D IMHEX_ENABLE_LTO=$(use lto) \
+		-D IMHEX_BUNDLE_DOTNET=OFF \
+		-D IMHEX_ENABLE_LTO=$(usex lto) \
 		-D IMHEX_USE_DEFAULT_BUILD_SETTINGS=OFF \
 		-D IMHEX_STRICT_WARNINGS=OFF \
-		-D IMHEX_ENABLE_UNIT_TESTS=$(use test) \
+		-D IMHEX_ENABLE_UNIT_TESTS=$(usex test) \
 		-D IMHEX_ENABLE_PRECOMPILED_HEADERS=OFF \
 		-D IMHEX_VERSION="${PV}" \
 		-D PROJECT_VERSION="${PV}" \
 		-D USE_SYSTEM_CAPSTONE=ON \
 		-D USE_SYSTEM_FMT=ON \
-		-D USE_SYSTEM_LLVM=$(use system-llvm) \
+		-D USE_SYSTEM_LLVM=$(usex system-llvm) \
 		-D USE_SYSTEM_NFD=ON \
 		-D USE_SYSTEM_NLOHMANN_JSON=ON \
 		-D USE_SYSTEM_YARA=ON

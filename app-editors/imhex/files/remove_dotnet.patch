@@ -1,0 +1,16 @@
+diff --git a/plugins/script_loader/CMakeLists.txt b/plugins/script_loader/CMakeLists.txt
+index af0f6c79..cbb323e3 100644
+--- a/plugins/script_loader/CMakeLists.txt
++++ b/plugins/script_loader/CMakeLists.txt
+@@ -46,7 +46,7 @@ if (CoreClrEmbed_FOUND)
+         install(FILES ${CoreClrEmbed_SHARED_LIBRARIES} DESTINATION ${CMAKE_INSTALL_LIBDIR})
+     endif ()
+ 
+-    add_subdirectory(dotnet)
+-    add_dependencies(script_loader AssemblyLoader)
++	#add_subdirectory(dotnet)
++	#add_dependencies(script_loader AssemblyLoader)
+ 
+-endif ()
+\ No newline at end of file
++endif ()
