@@ -330,7 +330,7 @@ HOMEPAGE="https://gitlab.gnome.org/World/pika-backup"
 SRC_URI="https://gitlab.gnome.org/World/${PN}/-/archive/v${PV}/${P}.tar.bz2
 	${CARGO_CRATE_URIS}
 "
-COMMIT="668f9b2e41a95bd71c3d5d45f90cf769ebcce80b"
+COMMIT="f9d416385bb0d1949956c07e0117cba3a9c525dc"
 S="${WORKDIR}/${PN}-v${PV}-${COMMIT}"
 
 LICENSE="GPL-3"
