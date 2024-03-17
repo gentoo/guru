@@ -43,7 +43,7 @@ DEPEND="${RDEPEND}"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+gui downgrade-nvidia elogin"
+IUSE="+gui downgrade-nvidia elogind"
 MODULES_KERNEL_MIN=5.10
 
 src_compile() {
