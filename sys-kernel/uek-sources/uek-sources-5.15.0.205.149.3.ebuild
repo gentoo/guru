@@ -57,8 +57,8 @@ src_prepare() {
 		"${WORKDIR}"/3000_Support-printing-firmware-info.patch
 		"${WORKDIR}"/4567_distro-Gentoo-Kconfig.patch
 	)
-	use experimental && PATCHES+=(
-		"${WORKDIR}"/5010_enable-cpu-optimizations-universal.patch
-	)
+	#use experimental && PATCHES+=(
+	#	"${WORKDIR}"/5010_enable-cpu-optimizations-universal.patch
+	#)
 	default
 }
