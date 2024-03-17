@@ -24,6 +24,9 @@ IUSE="+system-llvm test lto"
 RESTRICT="!test? ( test )"
 
 PATCHES=(
+	# If virtual/dotnet-sdk is installed on your system, then cmake
+	# will use it at some point and try to access internet.
+	# Because it did not cause any issue, we can disable it
 	"${FILESDIR}/remove_dotnet.patch"
 )
 
