@@ -14,10 +14,10 @@
 		<remote-id type="github">johnfanv2/LenovoLegionLinux</remote-id>
 		<bugs-to>https://github.com/johnfanv2/LenovoLegionLinux/issues</bugs-to>
         <changelog>https://github.com/johnfanv2/LenovoLegionLinux/blob/main/README.md</changelog>
-    	<maintainer type="person">
+    	<maintainer>
 		  <email>ston.jia@outlook.com</email>
 		  <name>ston</name>
-	  </maintainer>
+    	</maintainer>
 	</upstream>
 </pkgmetadata>
 
