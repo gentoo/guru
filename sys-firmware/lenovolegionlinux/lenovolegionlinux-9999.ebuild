@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ M_PN=LenovoLegionLinux
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=(python3_{9..12})
 
-inherit linux-mod-r1 distutils-r1 systemd
+inherit linux-mod-r1 distutils-r1 systemd optfeature
 
 if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/johnfanv2/${M_PN}.git"
@@ -37,18 +37,13 @@ RDEPEND="
 		sys-power/acpid
 	)
 	downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
-	radeon-dgpu? ( dev-util/rocm-smi )
-	ryzenadj? ( sys-power/RyzenAdj )
-	undervolt-intel? ( dev-python/undervolt )
 "
 
 DEPEND="${RDEPEND}"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+gui radeon-dgpu downgrade-nvidia ryzenadj undervolt-intel"
-REQUIRED_USE="|| ( radeon-dgpu downgrade-nvidia ryzenadj gui undervolt-intel ) radeon-dgpu? ( !downgrade-nvidia gui ) downgrade-nvidia? ( !radeon-dgpu gui ) undervolt-intel? ( !ryzenadj gui ) ryzenadj? ( !undervolt-intel gui )"
-
+IUSE="+gui downgrade-nvidia elogin"
 MODULES_KERNEL_MIN=5.10
 
 src_compile() {
@@ -83,6 +78,14 @@ src_install() {
 		cd "${WORKDIR}/${P}/extra" || die
 
 		systemd_dounit service/legiond.service service/legiond-onresume.service
+
+        newinitd "${FILESDIR}/legiond.initd" legiond
+
+        if use elogind; then
+            exeinto /lib64/elogind/system-sleep/
+            doexe "${FILESDIR}/legiond-onresume.sh"
+        fi
+
 		insinto /etc/acpi/events
 		doins acpi/events/{legion_ppd,legion_ac}
 		dobin service/legiond/legiond
@@ -105,4 +108,8 @@ pkg_postinst() {
 	ewarn "Note for 2023-2023 Legion user: It need help for testing the features"
 	ewarn "Pls test the feature how is decribe in the README of the project!"
 	ewarn "and also go to this issue in github: https://github.com/johnfanv2/LenovoLegionLinux/issues/46"
+
+    optfeature "radeon dgpu power management" dev-util/rocm-smi
+    optfeature "ryzen CPU tweaks" sys-power/RyzenAdj
+    optfeature "intel CPU tweaks" dev-python/undervolt
 }
