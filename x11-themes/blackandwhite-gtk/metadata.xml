@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type='person'>
+		<name>Vitaly Zdanevich</name>
+		<email>zdanevich.vitaly@ya.ru</email>
+	</maintainer>
+	<upstream>
+		<changelog>https://www.opencode.net/infinity64/blackandwhite-gtk/-/commits/main</changelog>
+		<doc>https://www.opencode.net/infinity64/blackandwhite-gtk/-/blob/main/README.md</doc>
+		<bugs-to>https://www.opencode.net/infinity64/blackandwhite-gtk/-/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
