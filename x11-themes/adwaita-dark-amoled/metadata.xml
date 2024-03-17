@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type='person'>
+		<name>Vitaly Zdanevich</name>
+		<email>zdanevich.vitaly@ya.ru</email>
+	</maintainer>
+	<upstream>
+		<changelog>https://gitlab.com/tearch-linux/artworks/themes-and-icons/adwaita-dark-amoled/-/commits/master?ref_type=heads</changelog>
+		<doc>https://www.gnome-look.org/p/1553851</doc>
+		<bugs-to>https://gitlab.com/tearch-linux/artworks/themes-and-icons/adwaita-dark-amoled/-/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
