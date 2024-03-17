@@ -15,5 +15,8 @@ SLOT="0"
 src_install() {
 	insinto /usr/share/themes/
 	doins -r Hackerer
+}
 
+pkg_postinst() {
+	einfo "In order to start SpaceFM (file manager) with it: GTK_THEME=Hackerer spacefm"
 }
