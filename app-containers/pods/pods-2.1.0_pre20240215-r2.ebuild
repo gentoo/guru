@@ -329,7 +329,7 @@ COMMIT="f4c41092cf68d4142c6164ae1b8c9879fa56f643"
 DESCRIPTION="Keep track of your podman containers"
 HOMEPAGE="https://github.com/marhkb/pods"
 SRC_URI="
-	https://github.com/marhkb/pods/archive/${COMMIT}.tar.gz -> ${PF}.gh.tar.gz
+	https://github.com/marhkb/pods/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz
 	${CARGO_CRATE_URIS}
 "
 S="${WORKDIR}/${PN}-${COMMIT}"
@@ -352,9 +352,19 @@ DEPEND="
 	gui-libs/gtk
 	gui-libs/libadwaita
 "
+BDEPEND="
+	app-alternatives/ninja
+	dev-libs/appstream-glib
+	virtual/pkgconfig
+"
 
 # Rust
 QA_FLAGS_IGNORED="usr/bin/${PN}"
+
+src_configure() {
+	meson_src_configure
+	ln -s "${CARGO_HOME}" "${BUILD_DIR}/cargo-home" || die
+}
 
 pkg_postinst() {
 	xdg_pkg_postinst
