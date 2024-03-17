@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type='person'>
+		<name>Vitaly Zdanevich</name>
+		<email>zdanevich.vitaly@ya.ru</email>
+	</maintainer>
+	<upstream>
+		<changelog>https://github.com/rtlewis88/rtl88-Themes/commits/Solarized-BLACK/</changelog>
+		<doc>https://www.gnome-look.org/p/1388140</doc>
+		<bugs-to>https://github.com/rtlewis88/rtl88-Themes/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
