@@ -1,9 +1,11 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
 
-inherit autotools
+PYTHON_COMPAT=( python3_{9..12} )
+
+inherit autotools python-single-r1
 
 DESCRIPTION="The fast free Verilog/SystemVerilog simulator"
 HOMEPAGE="
@@ -21,8 +23,12 @@ fi
 
 LICENSE="|| ( Artistic-2 LGPL-3 )"
 SLOT="0"
+IUSE="debug test"
+RESTRICT="!test? ( test )"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RDEPEND="
+	${PYTHON_DEPS}
 	dev-lang/perl
 	sys-libs/zlib
 "
@@ -34,7 +40,14 @@ DEPEND="
 BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
+	test? (
+		dev-build/cmake
+	)
 "
+
+pkg_setup() {
+	python-single-r1_pkg_setup
+}
 
 src_prepare() {
 	default
@@ -42,5 +55,19 @@ src_prepare() {
 		# https://github.com/verilator/verilator/issues/3352
 		sed -i "s/UNKNOWN_REV/(Gentoo ${PVR})/g" "${S}"/src/config_rev || die
 	fi
+	# https://bugs.gentoo.org/785151
+	sed -i "s/python3/${EPYTHON}/g" "${S}"/configure.ac || die
+	find . -name "Makefile" -exec sed -i "s/python3/${EPYTHON}/g" {} + || die
+	find test_regress -type f -exec sed -i "s/python3/${EPYTHON}/g" {} + || die
+	python_fix_shebang .
+	# https://bugs.gentoo.org/887917
+	if ! use debug; then
+		sed -i '/AC_SUBST(CFG_CXXFLAGS_DEBUG)/i CFG_CXXFLAGS_DEBUG=""' "${S}"/configure.ac || die
+		sed -i '/AC_SUBST(CFG_LDFLAGS_DEBUG)/i CFG_LDFLAGS_DEBUG=""' "${S}"/configure.ac || die
+	fi
 	eautoconf --force
+}
+
+src_test() {
+	emake test
 }
