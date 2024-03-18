@@ -447,7 +447,7 @@ DEPEND="
 	gui-libs/libadwaita
 "
 BDEPEND="
-	>=dev-lang/rust-1.76.0
+	>=virtual/rust-1.76.0
 "
 # Rust
 QA_FLAGS_IGNORED="usr/bin/${PN}"
