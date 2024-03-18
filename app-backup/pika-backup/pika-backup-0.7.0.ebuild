@@ -354,7 +354,7 @@ RDEPEND="
 	${PYTHON_DEPS}
 "
 BDEPEND="
-	>=dev-lang/rust-1.75.0
+	>=virtual/rust-1.75.0
 	dev-util/itstool
 	sys-devel/gettext
 "
