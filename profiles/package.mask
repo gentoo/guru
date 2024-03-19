@@ -14,6 +14,13 @@
 
 # New entries go on top.
 
+# Julien Roy <julien@jroy.ca> (2024-03-19)
+# Per upstream, as of 2024-03-02:
+# "This bridge is deprecated. mautrix-meta is recommended instead."
+# net-im/mautrix-meta 0.2.0 is available in ::guru
+# Masked for removal in 60 days
+net-im/mautrix-facebook
+
 # Julien Roy <julien@jroy.ca> (2024-03-09)
 # Dracut fails to boot with Clevis 20
 # https://github.com/latchset/clevis/issues/456
