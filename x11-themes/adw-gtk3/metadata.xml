@@ -5,6 +5,10 @@
     <email>mail@konstantintutsch.com</email>
     <name>Konstantin Tutsch</name>
   </maintainer>
+  <maintainer type="person">
+    <name>Julien Roy</name>
+    <email>julien@jroy.ca</email>
+  </maintainer>
   <upstream>
     <remote-id type="github">lassekongo83/adw-gtk3</remote-id>
   </upstream>
