@@ -1,0 +1,25 @@
+#!/sbin/openrc-run
+# Copyright 1999-2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="mautrix-meta daemon"
+description="A Matrix-Meta puppeting bridge"
+module="mautrix_meta"
+
+pidfile="/run/${RC_SVCNAME}.pid"
+command="/usr/bin/mautrix-meta"
+command_args="-c /etc/mautrix/${module}.yaml -r /var/lib/mautrix/meta/registration.yaml"
+command_background=true
+command_user="mautrix-meta:mautrix"
+
+output_log="/var/log/mautrix/meta/daemon.log"
+error_log="/var/log/mautrix/meta/daemon.log"
+
+depend() {
+	need net
+}
+
+start_pre() {
+	checkpath -d -m 0755 -o "$command_user" /var/lib/mautrix/meta
+	checkpath -f -m 0644 -o "$command_user" "$output_log"
+}
