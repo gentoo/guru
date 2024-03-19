@@ -21,7 +21,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	dev-lang/go
 	dev-libs/libsignal-ffi
 	dev-libs/olm
 "
