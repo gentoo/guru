@@ -507,6 +507,9 @@ BDEPEND="
 	dev-util/blueprint-compiler
 "
 
+# Rust
+QA_FLAGS_IGNORED="usr/bin/io.gitlab.news_flash.NewsFlash"
+
 src_unpack() {
 	cargo_src_unpack
 	sed -i -e "s/0\.0\.0/${PV}/" "${S}"/{Cargo.toml,meson.build} || die
