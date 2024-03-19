@@ -5,6 +5,10 @@
     <email>navi@vlhl.dev</email>
     <name>Anna Figueiredo Gomes</name>
   </maintainer>
+  <maintainer type="person">
+    <email>edgar@edgarluque.com</email>
+    <name>Edgar Luque</name>
+  </maintainer>
   <use>
     <flag name="libsecret">Enable secrets/password storage support.</flag>
     <flag name="aria2">Enable Aria2 support.</flag>
