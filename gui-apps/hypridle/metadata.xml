@@ -5,10 +5,6 @@
 		<email>gonegrier.duarte@gmail.com</email>
 		<name>Gonçalo Negrier Duarte</name>
 	</maintainer>
-	<maintainer type="person" proxied="yes">
-		<email>julien@jroy.ca</email>
-		<name>Julien Roy</name>
-	</maintainer>
 	<upstream>
 		<changelog>https://github.com/hyprwm/hypridle/releases</changelog>
 		<doc>https://wiki.hyprland.org/Hypr-Ecosystem/hypridle/</doc>
