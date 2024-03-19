@@ -349,7 +349,7 @@ RDEPEND="
 "
 DEPEND="
 	dev-libs/glib
-	gui-libs/gtk
+	gui-libs/gtk[wayland]
 	gui-libs/libadwaita
 "
 BDEPEND="
