@@ -23,6 +23,10 @@ LICENSE+=" AGPL-3 Apache-2.0 BSD-2 BSD ISC MIT Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
 
+BDEPEND="
+	dev-libs/protobuf
+"
+
 src_unpack() {
 	default
 	cargo_gen_config
