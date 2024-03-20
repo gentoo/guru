@@ -10,7 +10,7 @@ inherit linux-info
 
 NAME="${PN}_lite_dwarfs.sh"
 
-SRC_URI="https://github.com/Kron4ek/Conty/releases/download/${PV}/${NAME}"
+SRC_URI="https://github.com/Kron4ek/Conty/releases/download/${PV}/${NAME} -> $P"
 KEYWORDS="~amd64"
 
 LICENSE="MIT"
@@ -29,7 +29,7 @@ CONFIG_CHECK="
 "
 
 src_install() {
-	dobin "${DISTDIR}/${PN}_lite_dwarfs.sh"
+	dobin "${DISTDIR}/${P}"
 }
 
 pkg_postinst() {
