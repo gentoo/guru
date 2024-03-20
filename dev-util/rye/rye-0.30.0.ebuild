@@ -69,6 +69,7 @@ CRATES="
 	digest@0.10.7
 	digest@0.9.0
 	displaydoc@0.2.4
+	dotenvy@0.15.7
 	either@1.9.0
 	encode_unicode@0.3.6
 	encoding_rs@0.8.33
@@ -334,6 +335,7 @@ src_test() {
 		--skip test_is_inside_git_work_tree
 		# The following tests require network access.
 		--skip test_add
+		--skip test_dotenv
 		--skip test_config
 		--skip test_init
 		--skip test_lint_and_format
