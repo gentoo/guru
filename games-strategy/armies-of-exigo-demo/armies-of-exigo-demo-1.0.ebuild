@@ -5,7 +5,8 @@ EAPI=8
 
 inherit wrapper
 
-DESCRIPTION="Single and multiplayer demo of Armies of Exigo (like WarCraft III), Windows"
+# DESCRIPTION="Single and multiplayer demo of Armies of Exigo (like WarCraft III), Windows"
+DESCRIPTION="Singleplayer demo of Armies of Exigo (like WarCraft III), Windows"
 HOMEPAGE="https://en.wikipedia.org/wiki/Armies_of_Exigo"
 
 SRC_URI="https://archive.org/download/armies-of-exigo--single-player-demo--portable-without-installer.tar/armies-of-exigo--single-player-demo--portable-without-installer.tar.xz"
@@ -52,5 +53,5 @@ pkg_postinst() {
 	einfo "List of creators: https://www.mobygames.com/game/16100/armies-of-exigo/credits/windows/"
 	einfo "If you want - please try to communicate with authors about making Armies of Exigo free and open source,"
 	einfo "or Intellectual Property holder can make a remake - add more display resolutions, improve the AI,"
-	einfo "make in runnable on modern Windows"
+	einfo "make it runnable on modern Windows"
 }
