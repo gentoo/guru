@@ -14,6 +14,10 @@ SLOT="0"
 # check target in Makefile but no test cases
 RESTRICT="test"
 
+src_compile() {
+	emake CFLAGS="${CFLAGS}"
+}
+
 src_install() {
 	emake DESTDIR="${D}" PREFIX=/usr install
 }
