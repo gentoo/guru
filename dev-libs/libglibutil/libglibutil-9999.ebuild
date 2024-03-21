@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,18 +19,18 @@ SLOT="0"
 DEPEND="dev-libs/glib"
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
+
 PATCHES=(
-	"${FILESDIR}/libglibutil-1.0.67-r3-respect-env.patch"
+	"${FILESDIR}/libglibutil-1.0.76-respect-env.patch"
 )
 
 src_compile() {
-	emake LIBDIR="/usr/$(get_libdir)"
+	emake LIBDIR="${EPREFIX}/usr/$(get_libdir)"
 }
 
 src_install() {
-	emake DESTDIR="${D}" LIBDIR="/usr/$(get_libdir)" install-dev
-}
-
-src_test() {
-	emake test
+	emake LIBDIR="${EPREFIX}/usr/$(get_libdir)" \
+		DESTDIR="${D}" \
+		INSTALL_INCLUDE_DIR="${ED}/usr/include/gutil" \
+		install-dev
 }
