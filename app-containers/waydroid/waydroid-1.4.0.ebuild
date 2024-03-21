@@ -43,8 +43,8 @@ ERROR_ANDROID_BINDER_IPC="CONFIG_ANDROID_BINDER_IPC: need for creating Android-s
 ERROR_MEMFD_CREATE="CONFIG_MEMFD_CREATE: it completely replaced deprecated ISHMEM drivers,
 	therefore it's vital for android-specific memory management"
 
-src_compile(){
-	:;
+src_compile() {
+	:
 }
 
 src_install() {
