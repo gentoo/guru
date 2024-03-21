@@ -22,15 +22,17 @@ HOMEPAGE="https://pypi.org/project/pyclip/"
 LICENSE="Apache-2.0"
 SLOT="0"
 IUSE="wayland +X"
+REQUIRED_USE="|| ( wayland X )"
+
 # Needs a working xorg/wayland setup
 RESTRICT="test"
-DOCS="${S}/docs/README.md"
-REQUIRED_USE="|| ( wayland X )"
 
 RDEPEND="
 	wayland? ( gui-apps/wl-clipboard )
 	X? ( x11-misc/xclip )
 "
+
+DOCS=( docs/README.md )
 
 src_prepare() {
 	# Clipboard detection should respect USE flags
