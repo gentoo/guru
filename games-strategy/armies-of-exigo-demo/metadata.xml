@@ -5,8 +5,4 @@
 		<name>Vitaly Zdanevich</name>
 		<email>zdanevich.vitaly@ya.ru</email>
 	</maintainer>
-	<upstream>
-		<remote-id type="github">robert7/nixnote2</remote-id>
-		<bugs-to>https://github.com/robert7/nixnote2/issues</bugs-to>
-	</upstream>
 </pkgmetadata>
