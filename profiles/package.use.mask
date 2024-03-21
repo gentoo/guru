@@ -3,10 +3,6 @@
 
 # New entries go on top.
 
-# Julien Roy <julien@jroy.ca> (2024-03-21)
-# sys-libs/libucontext is masked in ::gentoo
-sys-libs/gcompat libucontext
-
 # John-Henry Lim <johnhenrylim12@gmail.com> (2024-02-19)
 # warp-dex relies on libpcap.so.0.8 which is not in tree.
 net-vpn/cloudflare-warp dex
