@@ -29,23 +29,6 @@ index 2b26813..e56d42f 100644
  
  #
  # Files
-@@ -130,11 +130,11 @@ COVERAGE_STATIC_LIB = $(COVERAGE_BUILD_DIR)/$(STATIC_LIB)
- #
- 
- DEPS = $(DEBUG_OBJS:%.o=%.d) $(RELEASE_OBJS:%.o=%.d) $(COVERAGE_OBJS:%.o=%.d)
--ifneq ($(MAKECMDGOALS),clean)
--ifneq ($(strip $(DEPS)),)
---include $(DEPS)
--endif
--endif
-+#ifneq ($(MAKECMDGOALS),clean)
-+#ifneq ($(strip $(DEPS)),)
-+#-include $(DEPS)
-+#endif
-+#endif
- 
- $(PKGCONFIG): | $(BUILD_DIR)
- $(DEBUG_OBJS) $(DEBUG_LIB) $(DEBUG_STATIC_LIB): | $(DEBUG_BUILD_DIR)
 @@ -202,7 +202,7 @@ $(DEBUG_LIB): $(DEBUG_OBJS)
  $(RELEASE_LIB): $(RELEASE_OBJS)
  	$(LD) $(RELEASE_OBJS) $(RELEASE_LDFLAGS) -o $@ $(LIBS)
