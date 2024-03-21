@@ -6,9 +6,6 @@
 		<name>Denis Reva</name>
 		<description>rarogcmex</description>
 	</maintainer>
-	<longdescription lang="en">
-		Library of glib utilities from sailfish os.
-	</longdescription>
 	<upstream>
 		<remote-id type="github">sailfishos/libglibutil</remote-id>
 	</upstream>
