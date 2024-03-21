@@ -13,6 +13,9 @@
 
 		The Android runtime environment ships with a minimal customized Android system image based on LineageOS. The image is currently based on Android 11.
 	</longdescription>
+	<use>
+		<flag name="clipboard">Enable clipboard manager service using dev-python/pyclip</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">waydroid/waydroid</remote-id>
 	</upstream>
