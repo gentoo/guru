@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
-inherit linux-info xdg-utils python-single-r1
+inherit linux-info xdg python-single-r1
 
 DESCRIPTION="Container-based approach to boot a full Android system on Linux systems"
 HOMEPAGE="https://waydro.id"
@@ -57,8 +57,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
+	xdg_pkg_postinst
 
 	elog "After package installation run either 'emerge --config app-containers/waydroid'"
 	elog "or 'waydroid init' from root shell to install android container runtime"
@@ -83,11 +82,6 @@ pkg_postinst() {
 	fi
 }
 
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-}
-
 pkg_config() {
-	"${ROOT}"/usr/bin/waydroid init
+	"${EROOT}"/usr/bin/waydroid init
 }
