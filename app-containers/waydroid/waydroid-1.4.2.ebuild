@@ -60,6 +60,18 @@ pkg_postinst() {
 	xdg_desktop_database_update
 	xdg_mimeinfo_database_update
 
+	elog "After package installation run either 'emerge --config app-containers/waydroid'"
+	elog "or 'waydroid init' from root shell to install android container runtime"
+	elog "To run waydroid, 1. Start container: 'rc-service waydroid start'"
+	elog "2. start wayland channel (from user shell) 'waydroid session start'"
+	elog "Contact https://docs.waydro.id/usage/install-on-desktops for how-to guides"
+	elog "(does not cover Gentoo-specific things sadly)"
+	elog
+
+	ewarn "Make sure you have NFTABLES up and running in your kernel. See"
+	ewarn "https://wiki.gentoo.org/wiki/Nftables for how-to details"
+	ewarn
+
 	if ! use apparmor; then
 		ewarn "If you use app-containers/lxc without apparmor, make sure you deleted or commented out in waydroid LXC config"
 		ewarn "(generated after waydroid init) in /var/lib/waydroid/lxc/waydroid/config the following string:"
@@ -69,14 +81,6 @@ pkg_postinst() {
 	else
 		ewarn "Apparmor support has not been tested by package maintainer yet"
 	fi
-	ewarn "Make sure you have NFTABLES up and running in your kernel. See"
-	ewarn "https://wiki.gentoo.org/wiki/Nftables for how-to details"
-	einfo "After package installation run ether 'emerge --config app-containers/waydroid'"
-	einfo "or 'waydroid init' from root shell to install android container runtime"
-	einfo "To run waydroid, 1. Start container: 'rc-service waydroid start'"
-	einfo "2. start wayland channel (from user shell) 'waydroid session start'"
-	einfo "Contact https://docs.waydro.id/usage/install-on-desktops for how-to guides"
-	einfo "(does not cover Gentoo-specific things sadly)"
 }
 
 pkg_postrm() {
