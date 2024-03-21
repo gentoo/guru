@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,20 +26,20 @@ HOMEPAGE="https://github.com/erfanoabdi/gbinder-python"
 LICENSE="GPL-3"
 SLOT="0"
 
-PATCHES=(
-	"${FILESDIR}"/gbinder-1.1.1-setuptools.patch
-)
-
-
-DEPEND="dev-libs/gbinder
-	dev-libs/libglibutil"
+DEPEND="
+	dev-libs/gbinder
+	dev-libs/libglibutil
+"
 RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	dev-python/cython[${PYTHON_USEDEP}]
-	${DISTUTILS_DEPS}
 "
 
-python_configure_all () {
+PATCHES=(
+	"${FILESDIR}"/gbinder-1.1.1-setuptools.patch
+)
+
+python_configure_all() {
 	DISTUTILS_ARGS=( --cython )
 }
