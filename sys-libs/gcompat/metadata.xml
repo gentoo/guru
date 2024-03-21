@@ -7,6 +7,6 @@
 	</maintainer>
 	<use>
 		<flag name="obstack">Use <pkg>sys-libs/obstack-standalone</pkg> for greater compatibility</flag>
-		<flag name="ucontext">Add support for ucontext functions via <pkg>sys-libs/libucontext</pkg></flag>
+		<flag name="libucontext">Add support for ucontext functions via <pkg>sys-libs/libucontext</pkg></flag>
 	</use>
 </pkgmetadata>
