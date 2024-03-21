@@ -11,7 +11,6 @@ SRC_URI="https://github.com/medusalix/xow/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 DEPEND="virtual/libusb:1"
 RDEPEND="${DEPEND}"

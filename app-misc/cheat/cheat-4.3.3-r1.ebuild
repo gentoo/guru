@@ -17,7 +17,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="man"
 
 RDEPEND="!<app-shells/zsh-completions-0.34.0"
-BDEPEND=""
 
 src_compile() {
 	ego build -o ${PN} ./cmd/${PN}

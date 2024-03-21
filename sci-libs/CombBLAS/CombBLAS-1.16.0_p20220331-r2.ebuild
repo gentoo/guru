@@ -14,7 +14,6 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 
 KEYWORDS="~amd64"
 LICENSE='BSD'
-IUSE=""
 SLOT="0"
 
 DEPEND="

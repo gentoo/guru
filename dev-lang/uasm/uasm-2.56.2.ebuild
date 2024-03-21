@@ -13,9 +13,6 @@ LICENSE="Watcom-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND=""
-DEPEND=""
-BDEPEND=""
 S="${WORKDIR}/UASM-${PV}"
 
 src_prepare() {

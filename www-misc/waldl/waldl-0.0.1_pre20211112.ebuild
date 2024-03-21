@@ -20,7 +20,6 @@ DEPEND="
 	x11-misc/dmenu
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 S="${WORKDIR}/${PN}-${GIT_COMMIT}/"
 

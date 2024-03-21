@@ -18,7 +18,6 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	dev-python/click
 "
-BDEPEND=""
 DEPEND="${RDEPEND}"
 
 distutils_enable_tests unittest

@@ -17,7 +17,6 @@ S="${WORKDIR}/${PN}-v${PV}"
 SLOT="0"
 LICENSE="GPL-2+"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DOCS=( __root__/README )
 

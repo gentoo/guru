@@ -17,7 +17,6 @@ LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND=""
 DEPEND="
 	${RDEPEND}
 	app-arch/unzip

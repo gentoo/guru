@@ -403,7 +403,6 @@ DEPEND="alsa? ( media-libs/alsa-lib )
 RDEPEND="${DEPEND}
 	virtual/rust
 "
-BDEPEND=""
 
 QA_FLAGS_IGNORED="usr/bin/spotifyd"
 

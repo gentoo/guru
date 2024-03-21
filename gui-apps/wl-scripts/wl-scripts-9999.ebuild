@@ -11,9 +11,7 @@ HOMEPAGE="https://github.com/mazunki/wl-scripts"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
 
-DEPEND=""
 RDEPEND="
 	app-alternatives/awk
 	app-misc/jq

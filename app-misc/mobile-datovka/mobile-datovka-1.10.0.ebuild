@@ -11,7 +11,6 @@ SRC_URI="https://gitlab.labs.nic.cz/datovka/${PN}/-/archive/v${PV}/${PN}-v${PV}.
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-IUSE=""
 
 # minimum Qt version required
 QT_PV="5.13.1:5"

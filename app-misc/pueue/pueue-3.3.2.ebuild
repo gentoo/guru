@@ -260,7 +260,6 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0 BSD ISC MIT MPL-2.0 Unicode-DFS-2016 Unlicense"
 SLOT="0"
-IUSE=""
 KEYWORDS="~amd64"
 
 QA_FLAGS_IGNORED="

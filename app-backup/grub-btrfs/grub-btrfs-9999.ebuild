@@ -28,7 +28,6 @@ DEPEND="
 	sys-fs/inotify-tools
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_compile(){
 	true

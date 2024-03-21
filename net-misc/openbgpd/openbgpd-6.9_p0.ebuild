@@ -15,9 +15,7 @@ SRC_URI="mirror://openbsd/OpenBGPD/${MY_P}.tar.gz"
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
-DEPEND=""
 RDEPEND="
 	${DEPEND}
 	!!net-misc/quagga

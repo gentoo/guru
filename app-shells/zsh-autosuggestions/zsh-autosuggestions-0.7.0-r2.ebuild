@@ -20,7 +20,6 @@ IUSE="test"
 REQUIRED_USE="test? ( || ( $(ruby_get_use_targets) ) )"
 
 RDEPEND=">=app-shells/zsh-4.3.11"
-DEPEND=""
 BDEPEND="
 	test? (
 		${RDEPEND}

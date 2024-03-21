@@ -110,7 +110,6 @@ fi
 RESTRICT="mirror"
 LICENSE="MIT"
 SLOT="0"
-IUSE=""
 
 QA_FLAGS_IGNORED="usr/bin/diskonaut"
 

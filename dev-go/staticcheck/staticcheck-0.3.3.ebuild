@@ -27,7 +27,6 @@ IUSE="test"
 DEPEND="dev-lang/go
 		sys-libs/glibc"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 RESTRICT="!test? ( test )"
 

@@ -10,7 +10,6 @@ HOMEPAGE="https://git.sr.ht/~kennylevinsen/tavu"
 EGIT_REPO_URI="https://git.sr.ht/~kennylevinsen/tavu"
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
 
 DEPEND="media-libs/alsa-lib"
 RDEPEND="${DEPEND}"

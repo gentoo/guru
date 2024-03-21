@@ -26,7 +26,6 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_configure() {
 	mycmakeargs=(

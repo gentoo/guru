@@ -33,7 +33,6 @@ DEPEND="
 	x11-misc/xdg-user-dirs
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_install() {
 	python_doscript macrecovery macrecovery

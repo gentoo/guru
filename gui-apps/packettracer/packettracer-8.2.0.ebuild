@@ -12,10 +12,8 @@ SRC_URI="CiscoPacketTracer_820_Ubuntu_64bit.deb"
 LICENSE="Cisco"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 RESTRICT="fetch mirror strip"
 
-DEPEND=""
 RDEPEND="${DEPEND}
 	dev-libs/icu
 	x11-libs/xcb-util

@@ -13,7 +13,6 @@ SRC_URI="https://github.com/smbolton/${PN}/archive/${WHYSYNTH_COMMIT}.tar.gz -> 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE=""
 
 DEPEND="media-libs/dssi
 	media-libs/liblo

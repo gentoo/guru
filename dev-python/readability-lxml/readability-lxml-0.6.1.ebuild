@@ -20,4 +20,3 @@ DEPEND="
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-python/cssselect[${PYTHON_USEDEP}]
 "
-RDEPEND=""

@@ -15,7 +15,6 @@ EGIT_REPO_URI="https://git.sr.ht/~sebsite/generic-tetromino-game"
 # - SiIvaGunner rips
 LICENSE="GPL-3 all-rights-reserved"
 SLOT="0"
-KEYWORDS=""
 
 # Note: Lua version is hardcoded
 RDEPEND="

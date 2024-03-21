@@ -12,7 +12,6 @@ SRC_URI="https://gitlab.com/mazes_80/${PN}/-/archive/${PV}/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="media-libs/glew:0
 	dev-qt/qtcore:5

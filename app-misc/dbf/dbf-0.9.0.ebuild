@@ -17,7 +17,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
-RDEPEND=""
 DEPEND="${RDEPEND}
 	dev-perl/XML-Parser
 	dev-libs/libdbf

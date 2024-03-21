@@ -13,7 +13,6 @@ SRC_URI="${SOURCE_URI}/${PN}-${PV}.tar.bz2"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 RDEPEND="media-libs/alsa-lib
 >=media-libs/zita-alsa-pcmi-0.3.0

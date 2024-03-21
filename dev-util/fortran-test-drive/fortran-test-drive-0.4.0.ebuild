@@ -21,7 +21,6 @@ RESTRICT="mirror !test? ( test )"
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
-DEPEND=""
 
 pkg_setup() {
 	fortran-2_pkg_setup

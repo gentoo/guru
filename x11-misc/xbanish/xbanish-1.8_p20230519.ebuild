@@ -15,7 +15,6 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 KEYWORDS="~amd64"
 LICENSE="ISC"
 SLOT="0"
-IUSE=""
 
 RDEPEND="
 	x11-libs/libX11

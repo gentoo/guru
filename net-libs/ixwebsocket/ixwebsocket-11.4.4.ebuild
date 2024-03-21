@@ -38,7 +38,6 @@ RDEPEND="
 		sys-libs/zlib:=
 	)
 "
-BDEPEND=""
 
 S="${WORKDIR}/${MY_P}"
 

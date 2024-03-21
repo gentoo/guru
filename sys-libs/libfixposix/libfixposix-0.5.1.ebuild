@@ -13,7 +13,6 @@ LICENSE="Boost-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND=""
 DEPEND="${RDEPEND}"
 
 src_prepare() {

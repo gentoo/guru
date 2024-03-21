@@ -21,4 +21,3 @@ RDEPEND="
 	dev-python/python-fire[${PYTHON_USEDEP}]
 	dev-python/tqdm[${PYTHON_USEDEP}]
 "
-BDEPEND=""

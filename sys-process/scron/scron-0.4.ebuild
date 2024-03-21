@@ -11,7 +11,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=""
 RDEPEND="
 	!sys-process/cronie
 	!sys-process/bcron
@@ -19,7 +18,6 @@ RDEPEND="
 	!sys-process/fcron
 	!sys-process/systemd-cron
 "
-BDEPEND=""
 
 src_install() {
 	emake MANPREFIX="/usr/share/man" PREFIX="/usr" DESTDIR="${D}" install

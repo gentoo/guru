@@ -14,7 +14,6 @@ EGIT_SUBMODULES=( 'core/deps/breakpad' 'core/deps/volk' 'core/deps/VulkanMemoryA
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
 
 IUSE="alsa ao lua opengl +openmp pulseaudio vulkan"
 
@@ -37,7 +36,6 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 REQUIRED_USE="|| ( opengl vulkan ) || ( ao alsa pulseaudio )"
 

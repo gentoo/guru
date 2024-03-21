@@ -19,7 +19,6 @@ RDEPEND="
 	dev-python/six
 	dev-python/termcolor
 "
-BDEPEND=""
 DEPEND="${RDEPEND}"
 
 distutils_enable_tests pytest

@@ -17,8 +17,6 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=""
-RDEPEND=""
 BDEPEND="
 	doc? (
 		app-text/texlive-core

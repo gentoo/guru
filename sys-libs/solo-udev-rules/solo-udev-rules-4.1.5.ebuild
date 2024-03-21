@@ -16,7 +16,6 @@ SRC_URI="https://github.com/solokeys/solo1/archive/${PV}.tar.gz -> ${MY_P}.tar.g
 LICENSE="|| ( Apache-2.0 MIT )"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 RDEPEND="virtual/udev"
 DEPEND="${RDEPEND}"

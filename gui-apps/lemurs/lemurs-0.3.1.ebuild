@@ -73,13 +73,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="systemd"
 
-DEPEND=""
 RDEPEND="${DEPEND}
 				sys-libs/pam
 				systemd? ( sys-apps/systemd:= )
 				!systemd? ( sys-apps/kbd )
 "
-BDEPEND=""
 
 QA_FLAGS_IGNORED="usr/bin/lemurs"
 

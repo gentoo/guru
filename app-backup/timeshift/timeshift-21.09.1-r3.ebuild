@@ -11,7 +11,6 @@ SRC_URI="https://github.com/teejee2008/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.g
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="
 	dev-libs/json-glib

@@ -15,7 +15,6 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/bzip2 sys-libs/zlib virtual/libiconv"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.65-buildfix-wrong-data-type.patch

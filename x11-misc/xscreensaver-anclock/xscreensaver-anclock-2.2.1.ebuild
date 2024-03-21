@@ -13,7 +13,6 @@ http://pt2k.xii.jp/software/anclock/xscreensaver/oldver/anclock-${PV}-for-xscree
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 COMMON_DEPEND="
 	dev-libs/libxml2

@@ -19,7 +19,6 @@ SLOT="0"
 DEPEND="
 	>=dev-lang/hare-0.24:=
 "
-RDEPEND=""
 
 # built by hare
 QA_FLAGS_IGNORED="usr/bin/deblob"

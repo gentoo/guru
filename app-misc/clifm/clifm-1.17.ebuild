@@ -53,7 +53,6 @@ RDEPEND="
 	fzf? ( app-shells/fzf )
 	nls? ( virtual/libintl )
 "
-BDEPEND=""
 
 src_compile() {
 	# emoji > nerdfonts > icons

@@ -11,7 +11,6 @@ SRC_URI="https://github.com/tedigh/$PN/archive/refs/tags/v$PV.tar.gz -> ${P}.tar
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 RDEPEND="sys-fs/e2fsprogs"
 DEPEND=${RDEPEND}

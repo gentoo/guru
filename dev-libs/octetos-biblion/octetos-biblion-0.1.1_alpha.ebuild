@@ -15,7 +15,6 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE=""
 
 DEPEND="
 	dev-libs/octetos-core

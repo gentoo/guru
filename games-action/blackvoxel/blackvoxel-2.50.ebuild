@@ -12,7 +12,6 @@ SRC_URI="https://www.blackvoxel.com/dm_download.php?file=170&key=1 -> ${P}.tar.b
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 DEPEND="
 	dev-libs/expat

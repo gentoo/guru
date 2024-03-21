@@ -12,7 +12,6 @@ EGIT_REPO_URI="https://github.com/OctopusET/sway-contrib.git"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
 
 IUSE="libnotify"
 

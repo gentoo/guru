@@ -15,7 +15,6 @@ SLOT="0"
 IUSE="dbus ffmpeg gles gstreamer opencv opengl psvr sdl systemd uvc vive vulkan wayland X"
 
 # TODO: OpenHMD, percetto?, libsurvive?
-BDEPEND=""
 DEPEND="
 	media-libs/openxr-loader
 	media-libs/mesa[egl(+)]

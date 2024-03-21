@@ -12,7 +12,6 @@ SRC_URI="https://github.com/larkery/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.g
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-DEPEND=""
 RDEPEND="
 	app-shells/zsh
 	dev-db/sqlite

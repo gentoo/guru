@@ -14,9 +14,7 @@ SRC_URI="x86? ( https://dl4jz3rbrsfum.cloudfront.net/software/PPL_32bit_v${PV}.t
 LICENSE="PowerPanel"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
-DEPEND=""
 RDEPEND="${DEPEND}
 	dev-libs/json-c
 	virtual/libusb
@@ -25,7 +23,6 @@ RDEPEND="${DEPEND}
 		dev-libs/openssl:0/1.1
 	)
 "
-BDEPEND=""
 QA_FLAGS_IGNORED="usr/sbin/pwrstat usr/sbin/pwrstatd usr/lib64/libpaho-mqtt3cs.so.1"
 PATCHES=(
 	"${FILESDIR}/${PN}-scripts.patch"

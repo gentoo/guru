@@ -12,7 +12,6 @@ SRC_URI="https://github.com/Moonbase59/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.g
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 #REQUIRED_USE=""
 
 # Bug 922026: `av_register_all` is deprecated and maybe not present in ffmpeg-6

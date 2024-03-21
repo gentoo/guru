@@ -14,7 +14,6 @@ inherit go-module xdg desktop
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 DEPEND="
 	media-libs/fontconfig
@@ -27,7 +26,6 @@ DEPEND="
 	x11-libs/pango
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_compile() {
 	ego build

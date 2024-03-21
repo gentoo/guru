@@ -16,7 +16,6 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE=""
 
 DEPEND="app-shells/bash:0"
 RDEPEND="${DEPEND}"

@@ -13,7 +13,6 @@ SRC_URI="https://github.com/jcs/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64"
 LICENSE="ISC"
 SLOT="0"
-IUSE=""
 
 RDEPEND="
 	x11-libs/libX11

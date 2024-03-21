@@ -14,7 +14,6 @@ SRC_URI="https://github.com/python-telegram-bot/python-telegram-bot/archive/v${P
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 RDEPEND="
 	>=dev-python/cachetools-5.3.0[${PYTHON_USEDEP}]

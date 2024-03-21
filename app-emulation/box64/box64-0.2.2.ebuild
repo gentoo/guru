@@ -15,9 +15,7 @@ KEYWORDS="~arm64 ~ppc64"
 IUSE="aot"
 REQUIRED_USE="aot? ( arm64 )"
 
-DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_configure() {
 	local -a mycmakeargs=(

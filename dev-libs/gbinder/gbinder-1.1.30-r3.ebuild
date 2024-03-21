@@ -20,7 +20,6 @@ DESCRIPTION="GLib-style interface to binder"
 HOMEPAGE="https://github.com/mer-hybris/libgbinder"
 LICENSE="BSD"
 SLOT="0"
-IUSE=""
 
 DEPEND="dev-libs/libglibutil"
 RDEPEND="${DEPEND}"

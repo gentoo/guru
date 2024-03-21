@@ -14,7 +14,6 @@ else
 fi
 LICENSE="AGPL-3 MIT ISC Apache-2.0"
 SLOT="0"
-IUSE=""
 
 # Requires network access (https) as long as NPM dependencies aren't packaged
 # said dependencies have their checksum verified via `yarn.lock`

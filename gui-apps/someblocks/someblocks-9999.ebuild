@@ -11,11 +11,8 @@ EGIT_REPO_URI="https://git.sr.ht/~raphi/someblocks"
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS=""
 
-DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_prepare() {
 	default

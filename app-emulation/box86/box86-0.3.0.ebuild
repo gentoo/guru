@@ -15,9 +15,7 @@ KEYWORDS="~arm ~arm64"
 IUSE="aot"
 REQUIRED_USE="aot? ( || ( arm arm64 ) )" #depends on NEON, VFPv3, and non-thumb ABI, I see no good way to check
 
-DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_configure() {
 	local -a mycmakeargs=(

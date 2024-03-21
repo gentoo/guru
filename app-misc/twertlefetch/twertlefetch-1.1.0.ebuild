@@ -52,9 +52,7 @@ LICENSE="Apache-2.0 MIT MPL-2.0 Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 # rust does not use *FLAGS from make.conf, silence portage warning
 # update with proper path to binaries this crate installs, omit leading /

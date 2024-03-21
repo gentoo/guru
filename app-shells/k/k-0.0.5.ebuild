@@ -10,7 +10,6 @@ SRC_URI="https://github.com/supercrabtree/${PN}/archive/${PV}.tar.gz -> ${P}.tar
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-DEPEND=""
 RDEPEND="
 	>=app-shells/zsh-4.3.11
 	>=dev-vcs/git-1.7.2

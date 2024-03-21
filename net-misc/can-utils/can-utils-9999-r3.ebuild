@@ -13,7 +13,6 @@ HOMEPAGE="https://github.com/linux-can/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
 
 src_prepare() {
 	eautoreconf

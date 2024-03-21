@@ -12,6 +12,5 @@ SRC_URI="https://github.com/PapirusDevelopmentTeam/papirus-claws-mail-theme/arch
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 S="${WORKDIR}/${PN}-${MY_COMMIT}"

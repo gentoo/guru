@@ -11,8 +11,6 @@ EGIT_REPO_URI="https://github.com/Blackvoxel/Blackvoxel"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
-IUSE=""
 
 DEPEND="
 	dev-libs/expat

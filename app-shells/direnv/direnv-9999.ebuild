@@ -13,7 +13,6 @@ SRC_URI=""
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
 RESTRICT="test" # fails
 
 DOCS=( {CHANGELOG,README}.md )

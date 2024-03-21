@@ -10,7 +10,6 @@ HOMEPAGE="https://github.com/swaywm/sway/wiki"
 EGIT_REPO_URI="https://github.com/swaywm/sway.wiki.git"
 LICENSE="MIT"
 SLOT="0"
-IUSE=""
 
 BDEPEND="dev-ruby/kramdown-parser-gfm"
 

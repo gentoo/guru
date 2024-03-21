@@ -13,7 +13,6 @@ SRC_URI="https://github.com/GradienceTeam/${PN}/archive/${PV}.tar.gz -> ${P}.tar
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE=""
 KEYWORDS="~amd64"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 

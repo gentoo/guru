@@ -21,7 +21,6 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-RDEPEND=""
 DEPEND="${RDEPEND}"
 
 DOCS=( README.md )

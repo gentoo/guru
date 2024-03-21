@@ -17,7 +17,6 @@ DESCRIPTION="Secret storage system for Unix, suitable for storing passwords, key
 HOMEPAGE="https://git.sr.ht/~sircmpwn/himitsu"
 LICENSE="GPL-3"
 
-IUSE=""
 
 DEPEND="
 	dev-lang/hare:=

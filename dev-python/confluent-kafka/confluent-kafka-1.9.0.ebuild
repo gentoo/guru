@@ -19,7 +19,6 @@ S="${WORKDIR}/${MYPN}-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS=""
 
 RDEPEND="~dev-libs/librdkafka-1.9.0"
 DEPEND="${RDEPEND}"

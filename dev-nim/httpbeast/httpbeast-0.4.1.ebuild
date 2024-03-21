@@ -20,7 +20,6 @@ RESTRICT="!test? ( test )"
 
 DEPEND="test? ( dev-nim/asynctools )"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 set_package_url "https://github.com/dom96/httpbeast"
 

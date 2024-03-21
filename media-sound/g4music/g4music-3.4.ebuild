@@ -16,7 +16,6 @@ KEYWORDS="~amd64"
 
 IUSE="pipewire"
 
-IDEPEND=""
 DEPEND="
 		>=gui-libs/gtk-4.6
 		>=gui-libs/libadwaita-1

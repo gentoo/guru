@@ -16,8 +16,6 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 # header only library
-RDEPEND=""
-DEPEND=""
 
 src_configure() {
 	local mycmakeargs=(

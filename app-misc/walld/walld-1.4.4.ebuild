@@ -15,7 +15,6 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 DEPEND="dev-libs/libevent media-gfx/feh dev-libs/libconfig media-gfx/imagemagick"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 pkg_postinst() {
 	optfeature "auto reload Xresources" x11-apps/xrdb

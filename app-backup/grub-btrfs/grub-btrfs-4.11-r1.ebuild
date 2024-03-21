@@ -22,7 +22,6 @@ DEPEND="
 	>=app-shells/bash-4
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_compile(){
 	true

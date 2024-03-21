@@ -10,7 +10,6 @@ SRC_URI="https://github.com/terraform-linters/${PN%-bin}/releases/download/v${PV
 LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 BDEPEND="app-arch/unzip"
 
 S=${WORKDIR}

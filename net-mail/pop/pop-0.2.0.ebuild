@@ -16,9 +16,7 @@ SRC_URI+=" ${DEPS_URI}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
-DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-lang/go

@@ -23,7 +23,6 @@ DEPEND="dev-lang/vala
 	dev-libs/libgee
 	dev-libs/glib"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_configure() {
 	local emesonargs=(

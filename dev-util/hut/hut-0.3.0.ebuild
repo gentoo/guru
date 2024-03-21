@@ -21,9 +21,7 @@ SLOT="0"
 
 KEYWORDS="~amd64"
 
-IUSE=""
 
-RDEPEND=""
 DEPEND="${RDEPEND}"
 BDEPEND="app-text/scdoc"
 

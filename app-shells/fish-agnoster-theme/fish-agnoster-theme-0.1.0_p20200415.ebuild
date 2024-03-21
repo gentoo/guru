@@ -12,7 +12,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=""
 RDEPEND="app-shells/fish"
 
 S="${WORKDIR}/agnoster-${COMMIT}"

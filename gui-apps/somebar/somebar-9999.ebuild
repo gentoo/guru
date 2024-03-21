@@ -11,7 +11,6 @@ EGIT_REPO_URI="https://git.sr.ht/~raphi/somebar"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
 
 DEPEND="
 	dev-libs/wayland

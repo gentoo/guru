@@ -12,9 +12,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 S="${WORKDIR}/${P}-2"
-DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND=""
 CONFIG_CHECK="~UINPUT"
 PATCHES=(
 	"${FILESDIR}"/toolchain-call.patch

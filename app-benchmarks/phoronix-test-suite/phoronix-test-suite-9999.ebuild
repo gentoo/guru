@@ -17,11 +17,9 @@ EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 EGIT3_STORE_DIR="${T}"
 inherit git-r3
 SRC_URI=""
-KEYWORDS=""
 
 IUSE="sdl"
 
-DEPEND=""
 RDEPEND="${DEPEND}
 		app-arch/p7zip
 		media-libs/libpng

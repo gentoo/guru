@@ -13,7 +13,6 @@ SRC_URI="https://github.com/pentix/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 DOCS=( "CHANGELOG.md" "README.md" )
 
 DEPEND="dev-qt/qtcore
@@ -21,7 +20,6 @@ DEPEND="dev-qt/qtcore
 		dev-qt/qtwidgets
 		net-libs/libssh"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_prepare() {
 	default

@@ -12,9 +12,7 @@ SRC_URI="https://github.com/mazunki/xkcd/archive/refs/tags/v${PV}.tar.gz -> xkcd
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
-DEPEND=""
 RDEPEND="x11-misc/xdg-utils"
 
 S="${WORKDIR}/xkcd-${PV}"

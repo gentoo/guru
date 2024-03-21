@@ -10,10 +10,8 @@ HOMEPAGE="https://github.com/novomesk/qt-jpegxl-image-plugin"
 
 EGIT_REPO_URI="https://github.com/novomesk/qt-jpegxl-image-plugin.git"
 
-KEYWORDS=""
 LICENSE="GPL-3"
 SLOT="0"
-IUSE=""
 
 DEPEND=">=dev-qt/qtgui-5.14.0:5
 	>=media-libs/libjxl-0.7.0_pre20220311

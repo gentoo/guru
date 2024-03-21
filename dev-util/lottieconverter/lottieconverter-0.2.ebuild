@@ -17,7 +17,6 @@ S="${WORKDIR}/LottieConverter-r0.2"
 
 DEPEND="media-libs/rlottie media-libs/libpng media-libs/giflib"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_configure() {
 	# -DSYSTEM_PNG=0 -DSYSTEM_RL=1 -DSYSTEM_GL=0

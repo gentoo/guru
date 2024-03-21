@@ -18,7 +18,6 @@ MY_DEP_URIS=(
 
 LICENSE="GPL-3 MIT"
 SLOT="0"
-KEYWORDS=""
 IUSE="X +pie video voip"
 REQUIRED_USE="video? ( voip )"
 

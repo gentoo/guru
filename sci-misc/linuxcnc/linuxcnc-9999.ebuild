@@ -17,7 +17,6 @@ S="${WORKDIR}"/linuxcnc-9999/src
 
 LICENSE="LGPL-3"
 SLOT="9999"
-KEYWORDS=""
 IUSE="+gtk modbus rt simulator usb +X"
 # TODO: add shmdrv use flag
 

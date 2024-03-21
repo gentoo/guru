@@ -66,7 +66,6 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 S="${WORKDIR}/${PN}-v${PV}"
 QA_FLAGS_IGNORED="usr/bin/mpvc"

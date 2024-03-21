@@ -25,7 +25,6 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 pkg_postinst() {
 	xdg_pkg_postinst

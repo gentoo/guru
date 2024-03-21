@@ -17,11 +17,9 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE=""
 
 DEPEND="dev-libs/octetos-db"
 RDEPEND="${DEPEND} dev-db/postgresql:*"
-BDEPEND=""
 
 S="${WORKDIR}/${MYP}"
 

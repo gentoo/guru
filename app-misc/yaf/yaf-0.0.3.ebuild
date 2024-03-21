@@ -13,7 +13,6 @@ KEYWORDS="~amd64"
 
 DEPEND="dev-lang/go"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_install() {
 	emake DESTDIR="${D}" install

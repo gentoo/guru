@@ -16,7 +16,6 @@ SRC_URI+=" ${DEPS_URI}"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 S="${WORKDIR}/${PN}-bin-${PV}"
 

@@ -18,7 +18,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="sdl sdl2 xlib"
 REQUIRED_USE="|| ( sdl sdl2 xlib )"
 
-RDEPEND=""
 DEPEND="
 	xlib? ( x11-libs/libX11[${MULTILIB_USEDEP}] )
 	sdl? ( >=media-libs/libsdl-1.2[${MULTILIB_USEDEP}] )

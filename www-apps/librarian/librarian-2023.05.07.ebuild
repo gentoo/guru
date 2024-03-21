@@ -15,10 +15,8 @@ LICENSE="AGPL-3 Apache-2.0 BSD-2 BSD MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=""
 RDEPEND="acct-user/librarian
 	acct-group/librarian"
-BDEPEND=""
 
 EGO_SUM=(
 	"cloud.google.com/go v0.26.0/go.mod"

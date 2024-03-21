@@ -24,7 +24,6 @@ DOCS=( readme.txt History.txt License.txt )
 HTML_DOCS=( MANUAL )
 RESTRICT="mirror"
 
-RDEPEND=""
 DEPEND="${RDEPEND}"
 BDEPEND="
 	uasm? ( dev-lang/uasm )

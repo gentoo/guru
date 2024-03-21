@@ -9,6 +9,5 @@ DESCRIPTION="vim plugin: Vim configuration files for Nix"
 HOMEPAGE="https://github.com/LnL7/vim-nix"
 EGIT_REPO_URI="https://github.com/LnL7/vim-nix.git"
 LICENSE="MIT"
-KEYWORDS=""
 
 VIM_PLUGIN_MESSAGES="filetype"

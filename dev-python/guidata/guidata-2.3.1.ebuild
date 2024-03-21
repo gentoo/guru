@@ -12,7 +12,6 @@ HOMEPAGE="https://pypi.python.org/pypi/guidata"
 LICENSE="CeCILL-2"
 
 SLOT="0"
-IUSE=""
 
 # No automated tests can be performed afaik
 RESTRICT="test"

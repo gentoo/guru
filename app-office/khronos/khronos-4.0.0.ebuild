@@ -19,7 +19,6 @@ IDEPEND="
 		>=dev-libs/libgee-0.20.6
 		>=dev-libs/json-glib-1.6.6-r1
 "
-DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND="
 		app-alternatives/ninja

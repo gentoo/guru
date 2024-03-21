@@ -18,7 +18,6 @@ PDBMFont_S="${WORKDIR}/PDBMFont-${MY_PDBM_COMMIT}/"
 LICENSE="MIT CC-BY-4.0 Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 BDEPEND="virtual/pkgconfig"
 

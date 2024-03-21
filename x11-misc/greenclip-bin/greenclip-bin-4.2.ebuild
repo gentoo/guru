@@ -15,7 +15,6 @@ SRC_URI="
 KEYWORDS="~amd64"
 LICENSE="BSD"
 SLOT="0"
-IUSE=""
 
 QA_PREBUILT="/usr/bin/${MY_PN}"
 S="${WORKDIR}"

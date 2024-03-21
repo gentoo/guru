@@ -18,7 +18,6 @@ else
 fi
 LICENSE="AGPL-3 CC-BY-SA-4.0 CC-BY-4.0"
 SLOT="otp"
-IUSE=""
 
 # Requires network access (https) as long as elixir dependencies aren't packaged
 # said dependencies have their checksum verified via `mix.lock`

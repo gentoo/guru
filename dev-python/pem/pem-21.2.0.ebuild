@@ -15,7 +15,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND=""
 BDEPEND="
 	test? (
 		>=dev-python/coverage-5.0.2[${PYTHON_USEDEP}]

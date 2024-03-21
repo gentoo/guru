@@ -18,7 +18,6 @@ RDEPEND="
 	sys-apps/pv
 	x11-terms/cool-retro-term
 "
-DEPEND=""
 
 S="${WORKDIR}/${PN}-${COMMIT}"
 

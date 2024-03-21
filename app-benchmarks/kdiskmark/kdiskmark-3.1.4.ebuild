@@ -23,7 +23,6 @@ DEPEND="dev-qt/qtcore:5
 	sys-auth/polkit-qt
 	sys-block/fio[aio]"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_configure() {
 	cmake_src_configure

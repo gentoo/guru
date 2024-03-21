@@ -170,10 +170,7 @@ RESTRICT="mirror"
 LICENSE="BSD BSD-2 CC0-1.0 MIT ZLIB || ( Apache-2.0 Boost-1.0 )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
-DEPEND=""
-RDEPEND=""
 
 QA_FLAGS_IGNORED="usr/bin/tokei"
 

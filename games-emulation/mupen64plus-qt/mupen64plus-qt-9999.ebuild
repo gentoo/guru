@@ -11,7 +11,6 @@ EGIT_REPO_URI="https://github.com/dh4/mupen64plus-qt"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS=""
 
 RDEPEND="
 	dev-qt/qtcore:5

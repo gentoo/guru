@@ -17,8 +17,6 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="test"
 
-RDEPEND=""
-DEPEND=""
 
 RESTRICT="!test? ( test )"
 

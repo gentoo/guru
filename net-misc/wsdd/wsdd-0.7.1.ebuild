@@ -17,10 +17,8 @@ KEYWORDS="~amd64 ~arm ~x86"
 IUSE="samba"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-DEPEND=""
 # Samba is technically not a requirement of wsdd, but depend on it if the use flags is set.
 RDEPEND="${PYTHON_DEPS} acct-group/${PN} acct-user/${PN} samba? ( net-fs/samba )"
-BDEPEND=""
 
 src_install() {
 	python_foreach_impl python_newscript src/wsdd.py wsdd

@@ -4,10 +4,8 @@
 EAPI=7
 
 DESCRIPTION="Virtual of a R recommended package"
-HOMEPAGE=""
 SRC_URI=""
 
-LICENSE=""
 SLOT="0"
 KEYWORDS="~amd64"
 

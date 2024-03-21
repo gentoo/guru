@@ -12,7 +12,6 @@ SRC_URI="https://github.com/bric3/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-DEPEND=""
 RDEPEND="
 	app-shells/zsh
 "

@@ -11,9 +11,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86 ~x86-linux ~x64-macos"
 
-IUSE=""
 
-DEPEND=""
 RDEPEND="
 	app-shells/bash
 	sys-apps/coreutils

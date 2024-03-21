@@ -17,7 +17,6 @@ LICENSE="BSD"
 SLOT="0"
 
 DEPEND="dev-lang/hare:="
-RDEPEND=""
 
 # built by hare
 QA_FLAGS_IGNORED="usr/bin/deblob"

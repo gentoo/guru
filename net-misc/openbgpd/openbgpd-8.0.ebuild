@@ -15,9 +15,7 @@ SRC_URI="mirror://openbsd/OpenBGPD/${PN}-${MY_PV}.tar.gz"
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
-DEPEND=""
 RDEPEND="
 	${DEPEND}
 	!!net-misc/frr

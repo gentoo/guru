@@ -11,7 +11,6 @@ SRC_URI="https://github.com/cytoscape/cytoscape/releases/download/${PV}/cytoscap
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE=""
 KEYWORDS="~amd64 ~x86"
 RDEPEND=">=virtual/jre-11-r2"
 

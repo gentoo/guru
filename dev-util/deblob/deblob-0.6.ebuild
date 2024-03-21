@@ -20,7 +20,6 @@ DEPEND="
 	>=dev-lang/hare-0_pre20230615:=
 	<dev-lang/hare-0_pre20231127
 "
-RDEPEND=""
 
 # built by hare
 QA_FLAGS_IGNORED="usr/bin/deblob"

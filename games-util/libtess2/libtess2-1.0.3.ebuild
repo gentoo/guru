@@ -12,7 +12,6 @@ S="${WORKDIR}/${PN}-v${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="
 	>=media-libs/glew-2.2.0
@@ -21,7 +20,6 @@ DEPEND="
 BDEPEND="
 	${DEPEND}
 	>=dev-util/premake-5.0.0_alpha16"
-RDEPEND=""
 
 src_compile() {
 	emake clean build

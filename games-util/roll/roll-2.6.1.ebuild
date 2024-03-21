@@ -12,8 +12,6 @@ IUSE="test"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 RESTRICT="!test? ( test )"

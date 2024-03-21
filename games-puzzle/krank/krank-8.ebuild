@@ -9,7 +9,6 @@ DESCRIPTION="Little casual game"
 HOMEPAGE="https://gitlab.com/mazes_80/krank"
 SRC_URI="https://gitlab.com/mazes_80/krank/-/archive/${PV}/${P}.tar.bz2"
 
-IUSE=""
 
 LICENSE="public-domain"
 SLOT="0"

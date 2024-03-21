@@ -17,7 +17,6 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 LICENSE="MIT"
 SLOT="0"
 
-RDEPEND=""
 DEPEND="
 	test? (
 		dev-python/mock[${PYTHON_USEDEP}]

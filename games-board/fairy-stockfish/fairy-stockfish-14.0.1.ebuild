@@ -32,7 +32,6 @@ DEPEND="
 	|| ( app-arch/unzip app-arch/zip )
 	test? ( dev-tcltk/expect )
 "
-RDEPEND=""
 
 S="${WORKDIR}/Fairy-Stockfish-fairy_sf_${MY_PV}_xq/src"
 

@@ -16,7 +16,6 @@ HOMEPAGE="https://git.sr.ht/~sircmpwn/himitsu-ssh"
 LICENSE="GPL-3"
 SLOT="0"
 
-IUSE=""
 
 RDEPEND="
 	app-admin/himitsu:=

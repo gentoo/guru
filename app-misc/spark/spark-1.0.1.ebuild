@@ -15,7 +15,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 #IUSE="test" #require roundup
 
-DEPEND=""
 RDEPEND="${DEPEND}"
 
 src_install() {

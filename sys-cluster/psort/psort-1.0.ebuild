@@ -10,7 +10,6 @@ SRC_URI="https://web.archive.org/web/20181126115900/http://gauss.cs.ucsb.edu/cod
 LICENSE="MIT GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 RDEPEND="virtual/mpi"
 DEPEND="${RDEPEND}"

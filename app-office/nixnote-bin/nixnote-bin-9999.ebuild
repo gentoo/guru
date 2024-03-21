@@ -11,7 +11,6 @@ KEYWORDS="~amd64"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE=""
 RESTRICT="strip"
 
 RDEPEND="sys-fs/fuse:0"

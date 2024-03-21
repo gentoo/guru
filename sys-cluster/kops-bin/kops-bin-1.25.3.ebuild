@@ -10,7 +10,6 @@ SRC_URI="https://github.com/kubernetes/${PN%-bin}/releases/download/v${PV}/kops-
 LICENSE="Apache-2.0 BSD-2 BSD-4 ECL-2.0 imagemagick ISC JSON MIT MIT-with-advertising MPL-2.0 unicode"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 src_unpack() {
 	mkdir -p -- "${S}"

@@ -20,7 +20,6 @@ fi
 
 LICENSE="LGPL-3"
 SLOT="0"
-IUSE=""
 
 RDEPEND="
 	>=dev-python/cachetools-5.3.0[${PYTHON_USEDEP}]

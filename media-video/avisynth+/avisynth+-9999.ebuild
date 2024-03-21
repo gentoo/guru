@@ -3,7 +3,6 @@
 
 EAPI=8
 
-SCM=""
 if [ "${PV#9999}" != "${PV}" ] ; then
 	SCM="git-r3"
 	EGIT_REPO_URI="https://github.com/AviSynth/AviSynthPlus.git"
@@ -25,9 +24,7 @@ if [ "${PV#9999}" = "${PV}" ] ; then
 	KEYWORDS="~amd64"
 fi
 
-DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 PATCHES=(
 	"${FILESDIR}/avisynth+-9999-return-type-warning.patch"

@@ -11,7 +11,6 @@ KEYWORDS="~amd64 ~x86"
 
 LICENSE="Saleae"
 SLOT="0"
-IUSE=""
 
 RESTRICT="bindist mirror strip"
 

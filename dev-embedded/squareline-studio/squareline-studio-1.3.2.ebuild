@@ -17,7 +17,6 @@ LICENSE="all-rights-reserved"
 KEYWORDS="-* ~amd64"
 SLOT="0/${PV}"
 
-RDEPEND=""
 DEPEND="${RDEPEND}"
 BDEPEND="
 	app-arch/unzip

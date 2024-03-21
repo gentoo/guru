@@ -21,7 +21,6 @@ KEYWORDS="~amd64"
 RESTRICT="binchecks strip"
 
 # Unsure about dependencies
-RDEPEND=""
 DEPEND="${RDEPEND}"
 
 src_prepare() {

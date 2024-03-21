@@ -15,7 +15,6 @@ KEYWORDS="~amd64"
 
 DEPEND="dev-util/spirv-headers"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_configure() {
 	local mycmakeargs=(

@@ -17,7 +17,6 @@ KEYWORDS="~amd64"
 
 DEPEND="x11-apps/xwininfo"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_prepare() {
 	eapply -p0 "${FILESDIR}/${P}-destdir.patch"

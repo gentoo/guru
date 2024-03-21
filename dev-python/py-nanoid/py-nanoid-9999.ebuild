@@ -15,7 +15,6 @@ EGIT_REPO_URI="https://github.com/puyuan/py-nanoid.git"
 LICENSE="MIT"
 SLOT="0"
 
-RDEPEND=""
 BDEPEND="
 	dev-python/pytest[${PYTHON_USEDEP}]
 	dev-python/flake8[${PYTHON_USEDEP}]

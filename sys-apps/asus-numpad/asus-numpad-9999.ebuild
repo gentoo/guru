@@ -23,7 +23,6 @@ SLOT="0"
 COMMON_DEPEND=">=dev-libs/libevdev-1.12.0"
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
-BDEPEND=""
 
 src_configure() {
 	meson_src_configure

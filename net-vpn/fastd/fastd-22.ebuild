@@ -32,7 +32,6 @@ BDEPEND="
 sys-devel/bison
 doc? ( dev-python/sphinx )
 "
-IDEPEND=""
 
 pkg_setup() {
 	if use offload-l2tp; then

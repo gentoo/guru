@@ -13,7 +13,6 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND=""
 DEPEND="${RDEPEND}"
 
 src_prepare() {

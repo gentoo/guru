@@ -19,7 +19,6 @@ DEPEND="
 	net-misc/curl
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_install() {
 	exeinto /usr/bin

@@ -7,7 +7,6 @@ DESCRIPTION="Argotlunar is a sound granulator. Binary Linux VST"
 HOMEPAGE="https://mourednik.github.io/argotlunar/"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 QA_PRESTRIPPED="/usr/lib64/vst/${PN}/argotlunar.so"
 SRC_URI="https://www.dropbox.com/s/fwtg6jfkzakj7is/argotlunar-2.06-linux_64.tar.gz -> ${P}.tar.gz"

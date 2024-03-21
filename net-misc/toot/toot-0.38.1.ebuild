@@ -26,6 +26,5 @@ DEPEND="
         		>=dev-python/pytest-7.4.0 )
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 distutils_enable_tests pytest

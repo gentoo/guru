@@ -294,10 +294,8 @@ LICENSE="0BSD AGPL-3+ Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 I
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=""
 RDEPEND="acct-user/libmedium
 	acct-group/libmedium"
-BDEPEND=""
 
 # rust does not use *FLAGS from make.conf, silence portage warning
 # update with proper path to binaries this crate installs, omit leading /

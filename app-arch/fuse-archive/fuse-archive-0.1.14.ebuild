@@ -18,7 +18,6 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE=""
 
 DEPEND="
 	sys-fs/fuse:0

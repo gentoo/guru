@@ -16,9 +16,7 @@ LICENSE="Apache-2.0 BSD BSD-2 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_compile() {
 	go build -ldflags "-s -w -X \"main.Version=${PV}\"" -o "${PN}" || die "go build failed"

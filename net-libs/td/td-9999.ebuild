@@ -15,7 +15,6 @@ EGIT_REPO_URI="https://github.com/tdlib/${PN}.git"
 
 LICENSE="Boost-1.0"
 SLOT="0"
-KEYWORDS=""
 IUSE="abseil dotnet +jumbo-build static-libs test"
 RESTRICT="!test? ( test )"
 

@@ -17,7 +17,6 @@ IUSE="shell +tq test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="shell? ( !test )" # shell alternatives currently fail tests
 
-DEPEND=""
 RDEPEND="
 	shell? ( sys-apps/util-linux sys-apps/coreutils )
 	tq? ( || ( app-misc/tmux app-misc/screen ) )

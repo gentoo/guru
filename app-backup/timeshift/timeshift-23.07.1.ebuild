@@ -12,7 +12,6 @@ SRC_URI="https://github.com/linuxmint/${PN}/archive/${PV}.tar.gz -> ${PF}.tar.gz
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="
 	dev-libs/glib:2

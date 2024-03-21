@@ -13,7 +13,6 @@ KEYWORDS="~amd64"
 
 DEPEND=">=x11-libs/fltk-1.1.7"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_configure() {
 	local -x CONFIG_SHELL=${BASH}

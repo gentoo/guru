@@ -9,16 +9,13 @@ DESCRIPTION="Plug-in for development GIMP 2.99.11 for loading/saving AVIF images
 HOMEPAGE="https://github.com/novomesk/gimp-avif-plugin"
 
 EGIT_REPO_URI="https://github.com/novomesk/gimp-avif-plugin.git"
-KEYWORDS=""
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE=""
 
 DEPEND=">=media-gfx/gimp-2.99.11
 	>=media-libs/gexiv2-0.12.2
 "
 
-BDEPEND=""
 
 RDEPEND="${DEPEND}"

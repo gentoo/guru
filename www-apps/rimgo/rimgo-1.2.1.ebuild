@@ -13,10 +13,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 SRC_URI="https://codeberg.org/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-DEPEND=""
 RDEPEND="acct-user/rimgo
 	acct-group/rimgo"
-BDEPEND=""
 
 EGO_SUM=(
 	"github.com/PuerkitoBio/goquery v1.8.1"

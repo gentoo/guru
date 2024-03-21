@@ -15,11 +15,9 @@ SRC_URI="
 LICENSE="Typora-EULA"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm64"
-IUSE=""
 
 RESTRICT="bindist mirror"
 
-DEPEND=""
 RDEPEND="
 	|| (
 		>=app-accessibility/at-spi2-core-2.46.0:2
@@ -43,7 +41,6 @@ RDEPEND="
 	x11-libs/libXtst
 	x11-libs/libXScrnSaver
 	${DEPEND}"
-BDEPEND=""
 
 QA_PREBUILT="*"
 S="${WORKDIR}"

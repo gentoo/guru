@@ -17,7 +17,6 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="test"
 
-RDEPEND=""
 DEPEND="dev-libs/libfmt"
 
 RESTRICT="!test? ( test )"

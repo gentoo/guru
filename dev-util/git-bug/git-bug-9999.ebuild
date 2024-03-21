@@ -13,7 +13,6 @@ EGIT_REPO_URI="https://github.com/MichaelMure/${PN}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
 
 src_unpack() {
 	default

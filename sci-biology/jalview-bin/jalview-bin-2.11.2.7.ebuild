@@ -13,7 +13,6 @@ SRC_URI="https://www.jalview.org/getdown/release/jalview-all-${PV}-j1.8.jar"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE=""
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/unzip"

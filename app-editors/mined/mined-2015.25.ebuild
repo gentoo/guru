@@ -10,10 +10,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RESTRICT="test"
-IUSE=""
-RDEPEND=""
 DEPEND="${RDEPEND}"
-BDEPEND=""
 S=${S}/src
 src_configure() {
 	tc-export CC

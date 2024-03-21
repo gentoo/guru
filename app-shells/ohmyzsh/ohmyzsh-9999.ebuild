@@ -11,7 +11,6 @@ EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
 
 DEPEND="app-shells/zsh"
 RDEPEND="${DEPEND}"

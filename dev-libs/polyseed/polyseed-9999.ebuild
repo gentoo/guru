@@ -12,7 +12,6 @@ EGIT_REPO_URI="https://github.com/tevador/polyseed.git"
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS=""
 IUSE="static-libs test"
 BDEPEND="virtual/pkgconfig"
 
