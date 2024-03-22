@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<longdescription>
+Commit is an editor that helps you write better Git and Mercurial commit messages.
+
+After installing make sure to launch the application and follow the instructions.
+
+Commit will pop up automatically when you make a commit in one of your projects. To save your commit message, press the Commit button or the Ctrl+Return shortcut. To abort and dismiss Commit, press the Abort button or the Escape key.
+
+Features:
+
+Highlights overflow of the commit title
+Smart body wrapping
+Inserts a blank line between title and body
+Spell checking
+Comments are read-only and excluded from "Select All"
+Displays project folder and branch in window header
+Dark mode support
+Keyboard navigation and shortcuts
+Undo/Redo support
+Emoji picker
+Supports git commit, merge, tag --annotate, add --patch, rebase --interactive
+Supports Mercurial commit
+Auto capitalize the commit title
+Welcome window with settings and instructions
+Highlight syntax for Git, Mercurial and diffs
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/sonnyp/Commit/issues</bugs-to>
+		<remote-id type="github">sonnyp/Commit</remote-id>
+	</upstream>
+</pkgmetadata>
