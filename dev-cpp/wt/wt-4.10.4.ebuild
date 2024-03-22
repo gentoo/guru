@@ -12,11 +12,12 @@ SRC_URI="https://github.com/emweb/wt/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc firebird mysql pdf postgres ssl"
+IUSE="doc firebird mysql opengl pdf postgres ssl"
 
 DEPEND="
 	firebird? ( dev-db/firebird )
 	mysql? ( virtual/mysql )
+	opengl? ( virtual/opengl )
 	postgres? ( dev-db/postgresql )
 	ssl? ( dev-libs/openssl )
 	dev-libs/boost
@@ -24,7 +25,6 @@ DEPEND="
 	media-gfx/graphicsmagick
 	x11-libs/pango
 	sys-libs/zlib
-	virtual/opengl
 "
 RDEPEND="${DEPEND}"
 
@@ -58,6 +58,7 @@ src_configure() {
 		-DENABLE_QT4=OFF
 		-DENABLE_QT5=ON
 		-DENABLE_SAML=ON
+		-DENABLE_OPENGL=$(usex opengl)
 	)
 
 	cmake_src_configure
