@@ -22,7 +22,7 @@ DEPEND="
 	ssl? ( dev-libs/openssl )
 	dev-libs/boost
 	media-libs/libharu
-	media-gfx/graphicsmagick
+	media-gfx/graphicsmagick[jpeg,png]
 	x11-libs/pango
 	sys-libs/zlib
 "
