@@ -14,6 +14,18 @@
 
 # New entries go on top.
 
+# Denis Reva <denis7774@gmail.com> (2024-03-22)
+# This revision introduces completely wrong dependency,
+#
+# which is required only for old kernels.
+# See the discussion here.
+# https://github.com/gentoo/guru/commit/fc74f63151bcda8d58d32812b31f2ed639bf8f0b#comments
+# Anbox-modules are not required on linux kernel
+# >5.8, because ishmem  was replaced with memfd
+#
+# Masked for removal within 30 days.
+=app-containers/waydroid-1.4.2-r1
+
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
