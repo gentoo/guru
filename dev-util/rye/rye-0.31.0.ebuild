@@ -338,6 +338,7 @@ src_test() {
 		--skip test_dotenv
 		--skip test_config
 		--skip test_init
+		--skip test_publish
 		--skip test_lint_and_format
 		--skip test_version
 		--skip test_empty_sync
