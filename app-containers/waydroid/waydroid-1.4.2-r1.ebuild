@@ -19,7 +19,6 @@ IUSE="apparmor +clipboard systemd"
 DEPEND="|| ( virtual/linux-sources virtual/dist-kernel )"
 RDEPEND="
 	systemd? ( sys-apps/systemd )
-	app-containers/anbox-modules
 	app-containers/lxc[systemd?,apparmor?,seccomp]
 	$(python_gen_cond_dep '
 		clipboard? ( >=dev-python/pyclip-0.7.0[wayland,${PYTHON_USEDEP}] )
