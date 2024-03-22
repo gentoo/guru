@@ -36,9 +36,9 @@ src_install() {
 
 	name=armies-of-exigo--single-player-demo--portable-without-installer
 
-	cp -r "$name" "$ED"/opt/armies-of-exigo/single-player-demo
+	cp -r "$name" "$ED"/opt/armies-of-exigo/singleplayer-demo
 
-	path="$dir/single-player-demo/Exigo_spdemo.exe"
+	path="$dir/singleplayer-demo/Exigo_spdemo.exe"
 	make_wrapper "$single" "$conty wine \"$path\""
 	# TODO add USE flag to be able to choolse local wine or wine-proton, against 1.4 GB dependency?
 
