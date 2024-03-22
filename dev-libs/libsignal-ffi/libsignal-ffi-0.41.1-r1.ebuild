@@ -25,6 +25,7 @@ KEYWORDS="~amd64"
 
 BDEPEND="
 	dev-libs/protobuf
+	sys-devel/clang
 "
 
 src_unpack() {
