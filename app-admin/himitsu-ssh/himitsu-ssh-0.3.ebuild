@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,14 +16,13 @@ HOMEPAGE="https://git.sr.ht/~sircmpwn/himitsu-ssh"
 LICENSE="GPL-3"
 SLOT="0"
 
-
 RDEPEND="
 	app-admin/himitsu:=
-	dev-hare/hare-ssh:=
+	>=dev-hare/hare-ssh-0.24.0:=
 "
 DEPEND="
 	${RDEPEND}
-	dev-lang/hare:=
+	>=dev-lang/hare-0.24.0:=
 "
 BDEPEND="app-text/scdoc"
 
@@ -32,4 +31,9 @@ QA_FLAGS_IGNORED=".*"
 
 src_configure() {
 	sed -i 's;^PREFIX=.*;PREFIX=/usr;' Makefile || die
+}
+
+src_test() {
+	# Don't run tests if there's none (which is the case of 0.3)
+	grep -r '@test fn' . && emake check
 }
