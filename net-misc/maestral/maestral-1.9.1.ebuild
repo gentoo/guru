@@ -32,7 +32,7 @@ RDEPEND="
 	>=dev-python/Pyro5-5.10[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.16.2[${PYTHON_USEDEP}]
 	dev-python/rich[${PYTHON_USEDEP}]
-	=dev-python/survey-4*[${PYTHON_USEDEP}]
+	dev-python/survey[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 	>=dev-python/watchdog-2.0.1[${PYTHON_USEDEP}]
 "
