@@ -5,7 +5,7 @@ EAPI=8
 
 inherit wrapper
 
-DESCRIPTION="Singleplayer demo of Armies of Exigo (like WarCraft III), Windows"
+DESCRIPTION="Single and multi player demos of Armies of Exigo (like WarCraft III), Windows"
 HOMEPAGE="https://en.wikipedia.org/wiki/Armies_of_Exigo"
 
 SRC_URI="
