@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<description>co-maintainers welcome</description>
-		<name>Alessandro Barbieri</name>
-		<email>lssndrbarbieri@gmail.com</email>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="sourceforge">mlterm</remote-id>
 	</upstream>

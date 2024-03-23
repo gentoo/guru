@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <description>co-maintainers welcome</description>
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
+  <!-- maintainer-needed -->
   <longdescription lang="en">
 Gohufont is a monospace bitmap font well suited for programming and terminal use. It is intended to be very legible and offers very discernable glyphs for all characters, including signs and symbols.
- 
+
 The small 11 px version is perfect for laptops and netbooks as it enables to fit more text into their small screens. The 14 px is ideal for desktop screens where you sit farther away from it and the 11 px would be too small.
 
 Features
