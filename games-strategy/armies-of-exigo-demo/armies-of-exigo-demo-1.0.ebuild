@@ -8,8 +8,10 @@ inherit wrapper
 DESCRIPTION="Singleplayer demo of Armies of Exigo (like WarCraft III), Windows"
 HOMEPAGE="https://en.wikipedia.org/wiki/Armies_of_Exigo"
 
-SRC_URI="https://archive.org/download/armies-of-exigo--single-player-demo--portable-without-installer.tar/armies-of-exigo--single-player-demo--portable-without-installer.tar.xz"
-# TODO add multiplayer demo
+SRC_URI="
+	https://archive.org/download/armies-of-exigo--single-player-demo--portable-without-installer.tar/armies-of-exigo--single-player-demo--portable-without-installer.tar.xz
+	https://archive.org/download/armies-of-exigo--multiplayer-demo--portable-without-installer.tar/armies-of-exigo--multiplayer-demo--portable-without-installer.tar.xz
+"
 
 KEYWORDS="~amd64"
 S="${WORKDIR}"
@@ -21,26 +23,29 @@ RESTRICT="strip"
 RDEPEND="
 	~games-emulation/conty-1.25.2:0
 "
+# TODO add USE flag to be able to choolse local wine or wine-proton, against 1.4 GB dependency?
 
 QA_PREBUILT="*"
 
-dir=/opt/armies-of-exigo
+dir=/opt/armies-of-exigo/demo/
 
 src_install() {
 
-	conty=conty-1.25.2
+	mkdir -p "$ED$dir"
 
-	single=armies-of-exigo-demo-single
+	nameSingle=armies-of-exigo--single-player-demo--portable-without-installer
+	nameMulti=armies-of-exigo--multiplayer-demo--portable-without-installer
 
-	mkdir -p "$ED"/opt/armies-of-exigo
+	cp -r "$nameSingle" "$ED$dir"singleplayer
+	cp -r "$nameMulti"  "$ED$dir"multiplayer
 
-	name=armies-of-exigo--single-player-demo--portable-without-installer
+	single=armies-of-exigo--demo-singleplayer
+	multi=armies-of-exigo--demo-multiplayer
 
-	cp -r "$name" "$ED"/opt/armies-of-exigo/singleplayer-demo
+	conty='conty-1.25.2'
 
-	path="$dir/singleplayer-demo/Exigo_spdemo.exe"
-	make_wrapper "$single" "$conty wine \"$path\""
-	# TODO add USE flag to be able to choolse local wine or wine-proton, against 1.4 GB dependency?
+	make_wrapper "$single" "$conty wine $dir/singleplayer/Exigo_spdemo.exe"
+	make_wrapper "$multi"  "$conty wine $dir/multiplayer/Exigo_mpdemo.exe"
 
 }
 
@@ -56,5 +61,5 @@ pkg_postinst() {
 	einfo "or Intellectual Property holder can make a remake - add more display resolutions, improve the AI,"
 	einfo "make it runnable on modern Windows."
 	einfo ""
-	einfo "The game is installed to $dir - if you want to run it by another Wine"
+	einfo "The game is installed to $dir - if you want to run it by another Wine or operating system"
 }
