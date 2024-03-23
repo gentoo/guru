@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<description>co-maintainers welcome</description>
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">Gmap exposes the functor `Make` which takes a key type (a
 [GADT](https://en.wikipedia.org/wiki/Generalized_algebraic_data_type) 'a key)
 and outputs a type-safe Map where each 'a key is associated with a 'a value.

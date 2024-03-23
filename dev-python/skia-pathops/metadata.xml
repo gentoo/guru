@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <description>co-maintainers welcome</description>
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
+  <!-- maintainer-needed -->
   <upstream>
     <remote-id type="github">fonttools/skia-pathops</remote-id>
     <remote-id type="pypi">skia-pathops</remote-id>

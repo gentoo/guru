@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<description>co-maintainers welcome</description>
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">Given a function which produces random byte vectors, convert it to
 a number of your choice (int8/int16/int32/int64/int/float).</longdescription>
 	<upstream>

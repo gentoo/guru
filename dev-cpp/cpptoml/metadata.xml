@@ -8,11 +8,7 @@ Targets: TOML v0.5.0 as of August 2018.
 
 This includes support for the new DateTime format, inline tables, multi-line basic and raw strings, digit separators, hexadecimal integers, octal integers, binary integers, and float special values.
 	</longdescription>
-	<maintainer type="person">
-		<description>co-maintainers welcome</description>
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="github">ddemidov/vexcl</remote-id>
 	</upstream>

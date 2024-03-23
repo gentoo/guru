@@ -1,10 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 Manhole is in-process service that will accept unix domain socket connections and present the stacktraces for all threads and an interactive prompt. It can either work as a python daemon thread waiting for connections at all times or a signal handler (stopping your application and waiting for a connection).
 

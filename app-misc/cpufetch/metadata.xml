@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<description>co-maintainers welcome</description>
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<upstream>
 		<bugs-to>https://github.com/Dr-Noob/cpufetch/issues</bugs-to>
 		<remote-id type="github">Dr-Noob/cpufetch</remote-id>

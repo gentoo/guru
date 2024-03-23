@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 Pifpaf is a suite of fixtures and a command-line tool that allows to start and stop daemons for a quick throw-away usage. This is typically useful when needing these daemons to run integration testing. It originaly evolved from its precussor overtest.
 	</longdescription>

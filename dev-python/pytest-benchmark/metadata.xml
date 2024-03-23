@@ -1,10 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
     This plugin tightly integrates into pytest. To use this effectively you should know a thing or two about pytest first. Take a look at the introductory material or watch talks.
 

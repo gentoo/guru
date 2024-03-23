@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<description>co-maintainers welcome</description>
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">A domain name is a sequence of labels separated by dots, such as `foo.example`.
 Each label may contain any bytes. The length of each label may not exceed 63
 charactes.	The total length of a domain name is limited to 253 (byte

@@ -6,11 +6,6 @@
 		<name>Denis Reva</name>
 		<description>rarogcmex</description>
 	</maintainer>
-	<maintainer type="person">
-		<description>co-maintainers welcome</description>
-		<email>lssndrbarbieri@gmail.com</email>
-		<name>Alessandro Barbieri</name>
-	</maintainer>
 	<longdescription lang="en">
 Client / Server abstraction
 
