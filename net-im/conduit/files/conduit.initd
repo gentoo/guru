@@ -1,6 +1,6 @@
 #!/sbin/openrc-run
 
-export CONDUIT_CONFIG=${CONDUIT_CONFIG:=/etc/conduit/conduit.toml}
+export CONDUIT_CONFIG=${CONDUIT_CONFIG:-/etc/conduit/conduit.toml}
 
 command="/usr/bin/conduit"
 command_user="conduit:conduit"
