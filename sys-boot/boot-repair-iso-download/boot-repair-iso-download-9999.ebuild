@@ -32,7 +32,8 @@ pkg_postinst() {
 	einfo "Instead of sdX - choose the letter of your USB flash from lsblk"
 	einfo "or"
 	einfo "sudo dd if=boot-repair-disk-64bit.iso of=/dev/sdX"
-	einfo "or sys-boot/ventoy-bin (just copy the iso to the usb, with optional persistence storage)"
 	einfo "With dd you can press Ctrl-T to see the progress"
+	einfo "or sys-boot/ventoy-bin (just copy the iso to the usb, with optional persistence storage)"
+	einfo "or Rufus on Windows https://rufus.ie"
 	einfo "See related documentation https://wiki.gentoo.org/wiki/LiveUSB"
 }
