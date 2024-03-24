@@ -124,6 +124,8 @@ src_configure() {
 pkg_postinst() {
 	optfeature "additional image formats support" kde-frameworks/kimageformats:5
 	optfeature "audio & video file playback support" media-plugins/gst-plugins-meta[ffmpeg]
+	optfeature "secrets storage support other than kwallet (for example gnome-keyring or keepassxc)" \
+		"dev-libs/qtkeychain[keyring]"
 	optfeature "identicons support" dev-cpp/qt-jdenticon:5
 
 	xdg_pkg_postinst
