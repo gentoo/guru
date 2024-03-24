@@ -1,9 +1,9 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_11 python3_12 )
+PYTHON_COMPAT=( python3_{11..12} )
 
 inherit meson python-single-r1
 
@@ -43,7 +43,6 @@ RDEPEND="
 	${DEPEND}
 	python? ( ${PYTHON_DEPS} )
 "
-BDEPEND=""
 
 src_configure() {
 	EMESON_BUILDTYPE=$(usex debug debug release)
