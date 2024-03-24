@@ -1,0 +1,10 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 2.6.2) # may be lower
+ 
+ ADD_DEFINITIONS(-std=c++11)
+ 
+-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+ 
+ find_package(PkgConfig)
+ 

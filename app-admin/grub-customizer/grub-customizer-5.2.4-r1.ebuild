@@ -24,6 +24,11 @@ RDEPEND="
 "
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=(
+	# prevent -fPIE being added
+	"${FILESDIR}/${P}-fix-flags.patch"
+)
+
 src_prepare() {
 	cmake_src_prepare
 	gunzip misc/manpage.gz || die
