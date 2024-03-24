@@ -21,6 +21,7 @@ RDEPEND="
 
 distutils_enable_tests pytest
 
+# Disable test that requires pypi.org connection
 EPYTEST_DESELECT=(
 	test/test_interface.py::test_version_update_pypi
 )
