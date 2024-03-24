@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/matrix-org/sliding-sync/issues</bugs-to>
+		<changelog>https://github.com/matrix-org/sliding-sync/releases</changelog>
+		<remote-id type="github">matrix-org/sliding-sync</remote-id>
+	</upstream>
+</pkgmetadata>

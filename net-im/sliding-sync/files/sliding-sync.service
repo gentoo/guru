@@ -1,0 +1,11 @@
+[Unit]
+Description=Proxy implementation of MSC3575's sync protocol
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/conf.d/sliding-sync
+Restart=always
+ExecStart=/usr/bin/syncv3
+
+[Install]
+WantedBy=multi-user.target
