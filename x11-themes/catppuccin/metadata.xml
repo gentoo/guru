@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>strdenis02@gmail.com</email>
+		<name>Denis Strizhkin</name>
+	</maintainer>
+	<use>
+		<flag name="frappe">Install Frappe-Standar-Dark flavor.</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">catppuccin/gtk</remote-id>
+	</upstream>
+</pkgmetadata>
