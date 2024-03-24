@@ -4,16 +4,12 @@
 	<maintainer type="person">
 		<email>brettalcox@gmail.com</email>
 	</maintainer>
-	<maintainer type="person">
-		<name>Julien Roy</name>
-		<email>julien@jroy.ca</email>
-	</maintainer>
 	<upstream>
 		<remote-id type="gitlab">GabMus/syndication-domination</remote-id>
 	</upstream>
 	<use>
 		<flag name="json-binary">
-			Builds a binary executable instead of python bindings
+			Builds a binary executable instead of python bindings 
 		</flag>
 	</use>
 </pkgmetadata>
