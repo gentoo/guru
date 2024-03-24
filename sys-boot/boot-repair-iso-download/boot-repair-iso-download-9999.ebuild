@@ -33,4 +33,5 @@ pkg_postinst() {
 	einfo "or"
 	einfo "sudo dd if=boot-repair-disk-64bit.iso of=/dev/sdX"
 	einfo "With dd you can press Ctrl-T to see the progress"
+	einfo "See related documentation https://wiki.gentoo.org/wiki/LiveUSB"
 }
