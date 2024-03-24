@@ -18,9 +18,9 @@ QA_PREBUILT="*"
 
 src_install() {
 
-	mkdir -p "$ED/opt/distribs/" || die
-
 	cd "$DISTDIR"
+
+	mkdir -p "$ED/opt/distribs/" || die
 
 	cp boot-repair-disk-64bit.iso "$ED/opt/distribs/" || die
 }
