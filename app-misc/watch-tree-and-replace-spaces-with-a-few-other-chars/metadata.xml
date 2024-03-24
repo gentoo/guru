@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Vitaly Zdanevich</name>
+		<email>zdanevich.vitaly@ya.ru</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="gitlab">vitaly-zdanevich/watch-tree-and-replace-spaces-with-a-few-other-chars</remote-id>
+		<bugs-to>https://gitlab.com/vitaly-zdanevich/watch-tree-and-replace-spaces-with-a-few-other-chars/-/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
