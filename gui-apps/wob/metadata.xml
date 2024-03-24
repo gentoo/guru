@@ -17,5 +17,6 @@
 	</upstream>
 	<use>
 		<flag name="seccomp">Linux kernel syscall filtering</flag>
+		<flag name="systemd">Install systemd service/socket files</flag>
 	</use>
 </pkgmetadata>

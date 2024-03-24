@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson
+inherit meson systemd
 
 DESCRIPTION="Lightweight overlay volume/backlight/progress/anything bar for Wayland"
 HOMEPAGE="https://github.com/francma/wob"
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/francma/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+man +seccomp test"
+IUSE="+man +seccomp test systemd"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -36,4 +36,14 @@ src_configure() {
 		$(meson_feature test tests)
 	)
 	meson_src_configure
+}
+
+src_install() {
+	meson_src_install
+
+	if use systemd; then
+		insinto $(systemd_get_userunitdir)
+		doins contrib/systemd/${PN}.service
+		doins contrib/systemd/${PN}.socket
+	fi
 }
