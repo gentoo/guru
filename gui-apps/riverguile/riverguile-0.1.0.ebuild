@@ -22,7 +22,7 @@ DEPEND="dev-libs/wayland"
 RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-libs/wayland-protocols
-	>=dev-scheme/guile-2.2.7-r1
+	>=dev-scheme/guile-3.0.9
 "
 
 src_install() {
