@@ -29,7 +29,7 @@ fi
 
 LICENSE="MEGA"
 SLOT="0"
-IUSE="dolphin freeimage nautilus nemo threads thunar"
+IUSE="dolphin freeimage nautilus nemo thunar"
 
 DEPEND="
 	dev-db/sqlite:3
@@ -100,7 +100,6 @@ src_configure() {
 	econf \
 		"--disable-curl-checks" \
 		"--disable-examples" \
-		$(use_enable threads posix-threads) \
 		$(use_with freeimage)
 
 	cd "${S}/src" || die
