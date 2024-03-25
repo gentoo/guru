@@ -7,6 +7,7 @@
 	</maintainer>
 	<use>
 		<flag name="frappe">Install Frappe-Standar-Dark flavor.</flag>
+		<flag name="latte">Install Latte-Standar-Light flavor.</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">catppuccin/gtk</remote-id>
