@@ -24,16 +24,16 @@ QA_PREBUILT="*"
 
 src_install() {
 
-	mkdir -p "$ED$/opt"
+	mkdir -p "$ED$/opt" || die
 
-	rm "$PN/uninstall.exe"
+	rm "$PN/uninstall.exe" || die
 	mkdir "$ED/opt" || die
 	mkdir -p "$ED/usr/bin/" || die
 	cp -r "$PN" "$ED/opt/$PN" || die
 
 	conty='conty-1.25.2'
 
-	echo "cd /opt/$PN; $conty wine man2.exe; cd -" > "$ED/usr/bin/$PN"
+	echo "cd /opt/$PN; $conty wine man2.exe; cd -" > "$ED/usr/bin/$PN" || die
 	fperms +x "/usr/bin/$PN"
 	# I tried this but on run error: "Problems during decoding OGG files" -
 	# because I need to run from the directory of the game,
