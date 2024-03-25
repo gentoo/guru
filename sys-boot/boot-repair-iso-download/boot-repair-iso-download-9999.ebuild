@@ -18,7 +18,7 @@ QA_PREBUILT="*"
 
 src_install() {
 
-	cd "$DISTDIR"
+	cd "$DISTDIR" || die
 
 	mkdir -p "$ED/opt/distribs/" || die
 
