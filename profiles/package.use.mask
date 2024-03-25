@@ -25,37 +25,3 @@ net-im/abaddon qrcodegen
 # Broken docs build.
 dev-crystal/crikey doc
 dev-crystal/slang doc
-
-# Torokhov Sergey <torokhov-s-a@yandex.ru> (2022-12-09)
-# Masked due to infinite run of tests with USE="openmp"
-~sci-physics/SU2-7.2.0 openmp
-
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-05-22)
-# cmake failure
-# https://github.com/mfem/mfem/issues/2243
-sci-libs/mfem netcdf
-
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-09)
-# build failure with metis
-# https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/101
-sci-physics/mbdyn metis
-
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-01)
-# superlu renamed some files
-# https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/97
-sci-physics/mbdyn superlu
-
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-01)
-# can't locate MPI cxx headers
-# https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/91
-sci-physics/mbdyn mpi pmpi schur
-
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-14)
-# petit gui doesn't build
-# https://github.com/davewathaverford/the-omega-project/issues/5
-sci-mathematics/the-omega-project gui
-
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-07-31)
-# build failure
-# https://github.com/leobago/fti/issues/399
-sys-cluster/fti fortran

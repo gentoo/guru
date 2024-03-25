@@ -1,6 +1,3 @@
 move dev-python/dropbox-sdk-python dev-python/dropbox
-move dev-python/sre_yield dev-python/sre-yield
 move dev-python/http_ece dev-python/http-ece
-move dev-util/psautohint dev-python/psautohint
-move dev-python/factory_boy dev-python/factory-boy
 move dev-python/python-betterproto dev-python/betterproto
