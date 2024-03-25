@@ -45,8 +45,3 @@ media-video/owncast
 # (See also top comment)
 # Sorry for the inconvenience.
 app-office/lotus123r3
-
-# Nicola Smaniotto <smaniotto.nicola@gmail.com> (2023-01-15)
-# Requires <dev-python/cleo-1, which is no longer available in ::gentoo.
-# Upstream bug: https://github.com/iamkroot/trakt-scrobbler/issues/240
-media-video/trakt-scrobbler
