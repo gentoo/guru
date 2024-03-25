@@ -17,7 +17,10 @@ BDEPEND="virtual/libudev
 		dev-libs/libxml2
 "
 
-PATCHES=( "${FILESDIR}/${P}-makefile.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-makefile.patch"
+	"${FILESDIR}/include_stdlib-${PV}.patch"
+)
 
 src_compile() {
 	emake CC=$(tc-getCC) PKG_CONFIG=$(tc-getPKG_CONFIG)
