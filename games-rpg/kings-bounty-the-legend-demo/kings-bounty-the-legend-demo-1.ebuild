@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit wrapper
+
 DESCRIPTION="With battles like in Heroes of Might and Magic (HoMM)"
 HOMEPAGE="https://en.wikipedia.org/wiki/King%27s_Bounty:_The_Legend"
 
@@ -30,12 +32,7 @@ src_install() {
 	mkdir -p "$ED/usr/bin/" || die
 	cp -r "$PN" "$ED/opt/$PN" || die
 
-	echo "wine /opt/$PN/kb.exe" > "$ED/usr/bin/$PN"
-	fperms +x "/usr/bin/$PN"
-	# I tried this but on run error: "Problems during decoding OGG files" -
-	# because I need to run from the directory of the game,
-	# but cd does not works with exec
-	# make_wrapper "$PN" "$conty wine /opt/$PN/man2.exe /d /opt/$PN"
+	make_wrapper "$PN" "wine /opt/$PN/kb.exe"
 
 }
 
