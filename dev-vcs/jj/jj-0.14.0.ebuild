@@ -361,7 +361,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="jj"
+DESCRIPTION="A Git-compatible VCS that is both simple and powerful"
 # Double check the homepage as the cargo_metadata crate
 # does not provide this value so instead repository is used
 HOMEPAGE="https://github.com/martinvonz/jj"
