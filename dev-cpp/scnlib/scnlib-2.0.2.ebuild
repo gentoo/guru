@@ -22,8 +22,12 @@ BDEPEND="
 
 RESTRICT="!test? ( test )"
 
+PATCHES=(
+	"${FILESDIR}/${P}-accept-newer-simdutf.patch"
+)
+
 src_prepare() {
-	use test && eapply "${FILESDIR}/${PN}-2.0.0-no-external-test-deps.patch"
+	use test && eapply "${FILESDIR}/${P}-no-external-test-deps.patch"
 	cmake_src_prepare
 }
 
