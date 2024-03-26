@@ -14,6 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RESTRICT="strip mirror"
+QA_PREBUILT="*" # Against "does not respect LDFLAGS"
 
 DEPEND="
 	sys-fs/dosfstools
