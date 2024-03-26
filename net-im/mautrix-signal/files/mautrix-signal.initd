@@ -1,22 +1,22 @@
 #!/sbin/openrc-run
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 name="mautrix-signal daemon"
-description="A Matrix-Signal Messenger puppeting bridge"
+description="A Matrix-Signal puppeting bridge"
 module="mautrix_signal"
 
 pidfile="/run/${RC_SVCNAME}.pid"
-command="/usr/bin/python"
-command_args="-m ${module} -c /etc/mautrix/${module}.yaml -r /var/lib/mautrix/signal/registration.yaml"
+command="/usr/bin/mautrix-signal"
+command_args="-c /etc/mautrix/${module}.yaml -r /var/lib/mautrix/signal/registration.yaml"
 command_background=true
 command_user="mautrix-signal:mautrix"
 
-output_log="/var/log/mautrix/mautrix-signal_daemon.log"
-error_log="/var/log/mautrix/mautrix-signal_daemon.log"
+output_log="/var/log/mautrix/signal/daemon.log"
+error_log="/var/log/mautrix/signal/daemon.log"
 
 depend() {
-	need signald
+	need net
 }
 
 start_pre() {

@@ -1,12 +1,12 @@
 [Unit]
-Description=A Matrix-Signal Messenger puppeting bridge
+Description=A Matrix-Signal puppeting bridge
 After=network.target
 
 [Service]
 User=mautrix-signal
 Group=mautrix
 Restart=always
-ExecStart=/usr/bin/python -m mautrix_signal -c /etc/mautrix/mautrix_signal.yaml -r /var/lib/mautrix/signal/registration.yaml
+ExecStart=/usr/bin/mautrix-signal -c /etc/mautrix/mautrix_signal.yaml -r /var/lib/mautrix/signal/registration.yaml
 
 [Install]
 WantedBy=multi-user.target
