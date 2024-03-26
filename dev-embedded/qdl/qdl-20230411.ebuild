@@ -6,8 +6,11 @@ EAPI=8
 inherit toolchain-funcs
 
 DESCRIPTION="Tool to communicate with Qualcomm System On a Chip bootroms"
+COMMIT_ID="3b22df2bc7de02d867334af3a7aa8606db4f8cdd"
 HOMEPAGE="https://github.com/andersson/qdl"
-SRC_URI="https://github.com/andersson/qdl/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/linux-msm/qdl/archive/${COMMIT_ID}.tar.gz -> ${P}.tar.gz"
+
+S="${WORKDIR}/${PN}-${COMMIT_ID}"
 
 LICENSE="BSD"
 SLOT="0"
@@ -19,8 +22,8 @@ BDEPEND="virtual/libudev
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-makefile.patch"
-	"${FILESDIR}/include_stdlib-${PV}.patch"
+	"${FILESDIR}/makefile.patch"
+	"${FILESDIR}/include_stdlib.patch"
 )
 
 src_compile() {
