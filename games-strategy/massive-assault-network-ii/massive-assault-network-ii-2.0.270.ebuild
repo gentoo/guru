@@ -28,7 +28,7 @@ src_install() {
 
 	mkdir "$ED/opt" || die
 	mkdir -p "$ED/usr/bin/" || die
-	cp -r "$PN" "$ED/opt/$PN" || die
+	cp -r massive-assault-network-2 "$ED/opt/$PN" || die
 
 	conty='conty-1.25.2'
 
