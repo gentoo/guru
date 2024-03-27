@@ -32,7 +32,7 @@ src_install() {
 
 	conty='conty-1.25.2'
 
-	echo "cd /opt/$PN; $conty wine $PN; cd -" > "$ED/usr/bin/$PN"
+	echo "cd /opt/$PN; $conty wine $PN; cd -" > "$ED/usr/bin/$PN" || die
 	fperms +x "/usr/bin/$PN"
 	# I tried this but on run error: "Problems during decoding OGG files" -
 	# because I need to run from the directory of the game,
