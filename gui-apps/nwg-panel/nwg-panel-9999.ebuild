@@ -19,9 +19,8 @@ fi
 DESCRIPTION="GTK3-based panel for sway and Hyprland Wayland compositors"
 HOMEPAGE="https://github.com/nwg-piotr/nwg-panel"
 LICENSE="MIT"
-IUSE="systemd"
-
 SLOT="0"
+IUSE="systemd"
 
 RDEPEND="
 	x11-libs/gtk+:3
