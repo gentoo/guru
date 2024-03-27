@@ -92,11 +92,12 @@ src_compile() {
 	npm --verbose --offline clean-install || die
 
 	# mimicking the behaviour of https://github.com/dani-garcia/bw_web_builds/blob/master/scripts/build_web_vault.sh
-	pushd apps/web
+	pushd apps/web || die
 	npm --verbose --offline run dist:oss:selfhost && printf '{"version":"%s"}' "${PV}" | tee build/vw-version.json \
 			|| die "Build failed! Try prebuilt from upstream ${CATEGORY}/${PN}-bin"
 	# although following is optional in upstream's build process, it reduced build dir size from 44M to 25M
 	find build -name "*.map" -delete || die
+	popd || die
 }
 
 src_install() {
