@@ -42,4 +42,5 @@ pkg_postinst() {
 	einfo "https://store.steampowered.com/app/4570/Warhammer_40000_Dawn_of_War__Game_of_the_Year_Edition/"
 	einfo "https://www.wikidata.org/wiki/Q1061708"
 	einfo "https://www.pcgamingwiki.com/wiki/Warhammer_40%2C000%3A_Dawn_of_War"
+	einfo "The game is installed to /opt/$PN - if you want to run it by another Wine or operating system"
 }
