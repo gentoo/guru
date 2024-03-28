@@ -16,7 +16,7 @@ CRATES="
 	anstyle-query@1.0.0
 	anstyle-wincon@1.0.1
 	anstyle@1.0.1
-	anyhow@1.0.79
+	anyhow@1.0.81
 	async-io@1.13.0
 	async-lock@2.7.0
 	async-trait@0.1.72
@@ -54,7 +54,7 @@ CRATES="
 	downcast-rs@1.2.0
 	enumflags2@0.6.4
 	enumflags2_derive@0.6.4
-	env_logger@0.10.1
+	env_logger@0.10.2
 	equivalent@1.0.1
 	errno-dragonfly@0.1.2
 	errno@0.3.2
@@ -62,7 +62,7 @@ CRATES="
 	event-listener@2.5.3
 	fastrand@1.9.0
 	fnv@1.0.7
-	fork@0.1.22
+	fork@0.1.23
 	funty@2.0.0
 	futures-channel@0.3.28
 	futures-core@0.3.28
@@ -83,7 +83,7 @@ CRATES="
 	hex@0.4.3
 	humantime@2.1.0
 	hyprland-macros@0.3.4
-	hyprland@0.3.12
+	hyprland@0.3.13
 	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.57
 	ident_case@1.0.1
@@ -101,7 +101,7 @@ CRATES="
 	linux-raw-sys@0.3.8
 	linux-raw-sys@0.4.5
 	lock_api@0.4.10
-	log@0.4.20
+	log@0.4.21
 	memchr@2.6.4
 	memoffset@0.6.5
 	memoffset@0.7.1
@@ -142,22 +142,22 @@ CRATES="
 	scoped-tls@1.0.1
 	scopeguard@1.2.0
 	semver@1.0.18
-	serde@1.0.196
-	serde_derive@1.0.196
-	serde_json@1.0.109
+	serde@1.0.197
+	serde_derive@1.0.197
+	serde_json@1.0.114
 	serde_repr@0.1.16
 	serde_spanned@0.6.5
 	serde_with@3.6.0
 	serde_with_macros@3.6.0
-	serde_yaml@0.9.31
+	serde_yaml@0.9.33
 	signal-hook-registry@1.4.1
 	slab@0.4.8
 	smallvec@1.11.0
 	socket2@0.4.9
 	static_assertions@1.1.0
 	strsim@0.10.0
-	strum@0.25.0
-	strum_macros@0.25.2
+	strum@0.26.1
+	strum_macros@0.26.1
 	swayipc-types@1.3.0
 	swayipc@3.0.1
 	syn@1.0.109
@@ -172,12 +172,12 @@ CRATES="
 	tokio-macros@2.1.0
 	tokio@1.29.1
 	toml@0.5.11
-	toml@0.8.9
+	toml@0.8.12
 	toml_datetime@0.6.5
 	toml_edit@0.19.14
-	toml_edit@0.21.1
+	toml_edit@0.22.8
 	unicode-ident@1.0.11
-	unsafe-libyaml@0.2.10
+	unsafe-libyaml@0.2.11
 	utf8parse@0.2.1
 	waker-fn@1.1.0
 	wasi@0.11.0+wasi-snapshot-preview1
@@ -207,6 +207,7 @@ CRATES="
 	windows_x86_64_gnullvm@0.48.0
 	windows_x86_64_msvc@0.48.0
 	winnow@0.5.3
+	winnow@0.6.5
 	wyz@0.5.1
 	x11rb-protocol@0.13.0
 	x11rb@0.13.0
