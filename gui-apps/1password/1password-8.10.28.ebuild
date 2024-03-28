@@ -31,7 +31,10 @@ RDEPEND="
 	media-libs/mesa
 	net-print/cups
 	sys-apps/dbus
-	sys-apps/systemd-utils
+	|| (
+		sys-apps/systemd-utils
+		sys-apps/systemd
+	)
 	sys-libs/zlib
 	x11-libs/cairo
 	x11-libs/gtk+:3
