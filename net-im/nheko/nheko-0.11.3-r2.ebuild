@@ -26,7 +26,7 @@ COMMON_DEPEND="
 	dev-libs/libfmt:=
 	>=dev-libs/mtxclient-0.9.0:=
 	dev-libs/olm
-	>=dev-libs/qtkeychain-0.12.0:=[qt5]
+	>=dev-libs/qtkeychain-0.12.0:=[keyring,qt5]
 	dev-libs/spdlog:=
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
