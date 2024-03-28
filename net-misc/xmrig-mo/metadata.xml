@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email>me@kevinthomas.dev</email>
-    <name>Kevin Thomas</name>
+    <email>kaythomas@pm.me</email>
+    <name>Kay Thomas</name>
   </maintainer>
   <longdescription lang="en">
     MoneroOcean fork of XMRig - a RandomX, CryptoNight, KawPow,

@@ -1,11 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
-MO_PV="mo2"
+MO_PV="mo1"
 DESCRIPTION="MoneroOcean fork of xmrig that supports algo switching"
 HOMEPAGE="https://github.com/MoneroOcean/xmrig"
 SRC_URI="https://github.com/MoneroOcean/xmrig/archive/v${PV}-${MO_PV}.tar.gz -> ${P}-${MO_PV}.tar.gz"
@@ -17,7 +17,7 @@ IUSE="cpu_flags_x86_sse4_1 donate hwloc opencl +ssl"
 
 DEPEND="
 	dev-libs/libuv:=
-	hwloc? ( sys-apps/hwloc:= )
+	hwloc? ( >=sys-apps/hwloc-2.5.0:= )
 	opencl? ( virtual/opencl )
 	ssl? ( dev-libs/openssl:= )
 "
