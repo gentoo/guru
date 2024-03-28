@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<longdescription>
+FreshRSS is a self-hosted RSS feed aggregator.
+
+It is lightweight, easy to work with, powerful, and customizable.
+
+It is a multi-user application with an anonymous reading mode. It supports custom tags. There is an API for (mobile) clients, and a Command-Line Interface.
+
+Thanks to the WebSub standard, FreshRSS is able to receive instant push notifications from compatible sources, such as Friendica, WordPress, Blogger, Medium, etc.
+
+FreshRSS natively supports basic Web scraping, based on XPath, for Web sites not providing any RSS / Atom feed. Also supports JSON documents.
+
+FreshRSS offers the ability to reshare selections of articles by HTML, RSS, and OPML.
+
+Different login methods are supported: Web form (including an anonymous option), HTTP Authentication (compatible with proxy delegation), OpenID Connect.
+
+Finally, FreshRSS supports extensions for further tuning.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/FreshRSS/FreshRSS/issues</bugs-to>
+		<changelog>https://github.com/FreshRSS/FreshRSS/releases</changelog>
+		<doc>https://freshrss.github.io/FreshRSS/</doc>
+		<remote-id type="github">FreshRSS/FreshRSS</remote-id>
+	</upstream>
+</pkgmetadata>
