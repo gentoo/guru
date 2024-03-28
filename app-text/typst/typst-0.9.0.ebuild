@@ -423,7 +423,7 @@ src_compile() {
 
 src_install() {
 	local ARTIFACTSDIR='crates/typst-cli/artifacts'
-	dobin "${S}"/target/release/"${PN}"
+	cargo_src_install --path "${S}/crates/typst-cli"
 	doman "${ARTIFACTSDIR}/${PN}"*.1
 	dozshcomp "${ARTIFACTSDIR}/_${PN}"
 	dofishcomp "${ARTIFACTSDIR}/${PN}.fish"
