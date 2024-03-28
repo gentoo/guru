@@ -5,6 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} pypy3 )
 DISTUTILS_USE_PEP517=poetry
+DISTUTILS_SINGLE_IMPL=1
 
 inherit distutils-r1
 
@@ -22,10 +23,6 @@ distutils_enable_tests pytest
 RDEPEND="
 	$(python_gen_cond_dep '>=dev-python/rich-13.3.1[${PYTHON_USEDEP}]')
 "
-
-PATCHES=(
-	"${FILESDIR}/prysk-0.18.0-fix-stray-site-packages.patch"
-)
 
 DOCS=( README.rst docs examples )
 
