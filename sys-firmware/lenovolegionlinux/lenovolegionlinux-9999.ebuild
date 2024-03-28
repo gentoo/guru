@@ -77,7 +77,7 @@ src_install() {
 
 		cd "${WORKDIR}/${P}/extra" || die
 
-		systemd_dounit service/legiond.service service/legiond-onresume.service
+		systemd_dounit service/legiond.service service/legiond-onresume.service service/legiond-cpuset.service service/legiond-cpuset.timer
 
         newinitd "${FILESDIR}/legiond.initd" legiond
 
