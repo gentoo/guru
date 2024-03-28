@@ -9,9 +9,10 @@ DESCRIPTION="Tool for rendering OSDs over Walksnail DVR recordings"
 HOMEPAGE="https://github.com/avsaase/walksnail-osd-tool"
 EGIT_REPO_URI="https://github.com/avsaase/walksnail-osd-tool.git"
 
-LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 GPL-3 ISC UbuntuFontLicense-1.0 MIT OFL-1.1 Unicode-DFS-2016 Unlicense XC ZLIB"
+LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 GPL-3 ISC UbuntuFontLicense-1.0 MIT MPL-2.0 OFL-1.1 Unicode-DFS-2016 Unlicense XC ZLIB"
 SLOT="0"
 
+DEPEND="x11-libs/gtk+"
 RDEPEND="${DEPEND}
 	media-video/ffmpeg"
 BDEPEND=">=virtual/rust-1.71.1-r1"

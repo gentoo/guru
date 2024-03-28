@@ -1,8 +1,8 @@
-diff --git a/src/util.rs b/src/util.rs
-index 5411c08..5fd3d91 100644
---- a/src/util.rs
-+++ b/src/util.rs
-@@ -105,7 +105,8 @@ pub mod build_info {
+diff --git a/ui/src/util.rs b/ui/src/util.rs
+index e59188c..0a778c4 100644
+--- a/ui/src/util.rs
++++ b/ui/src/util.rs
+@@ -248,7 +248,8 @@ pub mod build_info {
      }
  
      pub fn get_version() -> Build {
