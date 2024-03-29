@@ -14,6 +14,12 @@
 
 # New entries go on top.
 
+# Julien Roy <julien@jroy.ca (2024-03-29)
+# Dependencies removed from ::gentoo
+# Masked for removal in 30 days
+app-text/lizard
+dev-cpp/libcutl
+
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
