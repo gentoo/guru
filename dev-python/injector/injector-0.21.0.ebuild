@@ -27,14 +27,8 @@ DEPEND="${RDEPEND}
 	doc? ( dev-python/sphinx )
 "
 
-
-python_compile_all() {
-	use doc && emake -C docs
-}
-
-python_test() {
-	esetup.py test
-}
+distutils_enable_sphinx docs
+distutils_enable_tests pytest
 
 python_install_all() {
 	use doc && local HTML_DOCS=( docs/. )
