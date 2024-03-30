@@ -35,9 +35,11 @@ RDEPEND="
 	dev-libs/openssl:=
 	zip? ( dev-libs/libzip )
 "
+# see: https://github.com/taisei-project/taisei/issues/381
 DEPEND="
 	${RDEPEND}
 	>=dev-libs/cglm-0.7.8
+	<dev-libs/cglm-0.9.3
 "
 BDEPEND="
 	dev-build/meson
