@@ -10,7 +10,9 @@ inherit distutils-r1
 
 DESCRIPTION="Python dependency injection framework, inspired by Guice"
 HOMEPAGE="https://github.com/python-injector/injector"
-SRC_URI="https://github.com/python-injector/${PN}/archive/refs/tags/${PV}.tar.gz"
+SRC_URI="
+	https://github.com/python-injector/${PN}/archive/refs/tags/${PV}.tar.gz
+		-> ${P}.gh.tar.gz"
 
 SLOT="0"
 LICENSE="BSD"
