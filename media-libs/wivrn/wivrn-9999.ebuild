@@ -5,7 +5,7 @@ HOMEPAGE="https://github.com/meumeu/WiVRn"
 SLOT="0"
 LICENSE="GPL-3 Apache-2.0 MIT"
 
-IUSE="nvenc systemd vaapi wireshark-plugins x264"
+IUSE="nvenc pipewire pulseaudio systemd vaapi wireshark-plugins x264"
 REQUIRED_USE="|| ( nvenc vaapi x264 )"
 
 inherit cmake
@@ -28,9 +28,6 @@ else
 fi
 
 RDEPEND="
-	nvenc? (
-		x11-drivers/nvidia-drivers
-	)
 	vaapi? (
 		media-video/ffmpeg[libdrm,vaapi]
 	)
@@ -38,7 +35,12 @@ RDEPEND="
 		media-libs/x264
 	)
 	dev-libs/libbsd
-	media-libs/libpulse
+	pipewire? (
+		media-video/pipewire
+	)
+	pulseaudio? (
+		media-libs/libpulse
+	)
 	media-libs/openxr-loader
 	net-dns/avahi
 	systemd? (
@@ -51,9 +53,6 @@ RDEPEND="
 
 BDEPEND="
 	${RDEPEND}
-	nvenc? (
-		dev-util/nvidia-cuda-toolkit
-	)
 	dev-cpp/eigen
 	dev-cpp/nlohmann_json
 	dev-util/glslang
@@ -86,6 +85,8 @@ src_configure() {
 		-DWIVRN_BUILD_CLIENT=OFF
 		-DWIVRN_BUILD_SERVER=ON
 		-DWIVRN_BUILD_DISSECTOR=$(usex wireshark-plugins)
+		-DWIVRN_USE_PIPEWIRE=$(usex pipewire)
+		-DWIVRN_USE_PULSEAUDIO=$(usex pulseaudio)
 		-DWIVRN_USE_NVENC=$(usex nvenc)
 		-DWIVRN_USE_VAAPI=$(usex vaapi)
 		-DWIVRN_USE_X264=$(usex x264)
