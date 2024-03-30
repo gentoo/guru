@@ -25,5 +25,8 @@ src_configure() {
 		# Unconditionally calls FetchContent
 		-DFASTFLOAT_SUPPLEMENTAL_TESTS=OFF
 	)
+
+	sed -i 's/-Werror//' tests/CMakeLists.txt || die
+
 	cmake_src_configure
 }
