@@ -29,6 +29,7 @@ RDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-6.12.2-nonotls.patch
+	"${FILESDIR}"/${PN}-6.21.2-fix-length-error.patch
 )
 
 S="${WORKDIR}/xmrig-${PV}-${MO_PV}"
