@@ -386,6 +386,8 @@ BDEPEND="
 	dev-vcs/git
 "
 
+QA_FLAGS_IGNORED="usr/bin/typst"
+
 DOCS=( README.md )
 
 src_compile() {
