@@ -6,6 +6,12 @@
 		<name>Patrick Nicolas</name>
 	</maintainer>
 	<use>
+		<flag name="pipewire">
+			Enable support for audio sink/source through native pipewire protocol
+		</flag>
+		<flag name="pulseaudio">
+			Enable support for audio sink/source through pulseaudio modules 
+		</flag>
 		<flag name="wireshark-plugins">
 			Build the <pkg>net-analyzer/wireshark</pkg> plugin for the WiVRn protocol
 		</flag>
