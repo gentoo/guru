@@ -39,7 +39,7 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	>=dev-libs/cglm-0.7.8
-	<dev-libs/cglm-0.9.3
+	!!~dev-libs/cglm-0.9.3
 "
 BDEPEND="
 	dev-build/meson
