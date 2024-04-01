@@ -1,0 +1,25 @@
+From 17e60d1a6e9a1a8ee4e2c6016388a6ee5f1b2284 Mon Sep 17 00:00:00 2001
+From: unlsycn <unlsycn@unlsycn.com>
+Date: Mon, 1 Apr 2024 16:22:53 +0800
+Subject: [PATCH] let graftcp respect LDFLAGS
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 22c46ab..a9a6776 100644
+--- a/Makefile
++++ b/Makefile
+@@ -59,7 +59,7 @@ all:: $(TARGET)
+ 
+ 
+ graftcp: main.o graftcp.o util.o cidr-trie.o conf.o
+-	$(CC) $^ -o $@
++	$(CC) $^ -o $@ $(LDFLAGS)
+ 
+ libgraftcp.a: graftcp.o util.o cidr-trie.o conf.o
+ 	$(AR) rcs $@ $^
+-- 
+2.44.0
+

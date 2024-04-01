@@ -1,0 +1,37 @@
+From 2c1a891d5e11f0faf49e6a33a566342590ab62df Mon Sep 17 00:00:00 2001
+From: "mingang.he" <dustgle@gmail.com>
+Date: Thu, 22 Feb 2024 12:09:00 +0000
+Subject: [PATCH] Fix parallel build dependency, close #65
+
+This commit corrects the dependency issue in the Makefile which was causing errors during parallel builds. Specifically, it addresses the following changes:
+
+- Separate build rules for local/graftcp-local and local/mgraftcp to individually specify their dependencies and build commands.
+- Ensure local/mgraftcp explicitly depends on libgraftcp.a, and build it prior to local/mgraftcp to resolve potential race conditions.
+- The local/graftcp-local target does not depend on libgraftcp.a, hence a separate rule is created without this dependency.
+
+These adjustments ensure that each binary is built correctly respecting their precise dependencies, and thus preventing errors that may occur due to incorrect builds when using the -j option for parallel execution in make.
+---
+ Makefile | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 64d088a..22c46ab 100644
+--- a/Makefile
++++ b/Makefile
+@@ -67,8 +67,11 @@ libgraftcp.a: graftcp.o util.o cidr-trie.o conf.o
+ %.o: %.c
+ 	$(CC) $(CFLAGS) -c -o $@ $<
+ 
+-$(GRAFTCP_LOCAL_BIN)::
+-	$(MAKE) -C local VERSION=$(VERSION) CC=$(CC) CXX=$(CXX) AR=$(AR)
++local/graftcp-local:
++	$(MAKE) -C $(dir $@) VERSION=$(VERSION) CC=$(CC) CXX=$(CXX) AR=$(AR) $(notdir $@)
++
++local/mgraftcp: libgraftcp.a
++	$(MAKE) -C $(dir $@) VERSION=$(VERSION) CC=$(CC) CXX=$(CXX) AR=$(AR) $(notdir $@)
+ 
+ install:: graftcp $(GRAFTCP_LOCAL_BIN)
+ 	$(INSTALL) $< $(DESTDIR)$(BINDIR)/$<
+-- 
+2.44.0
+
