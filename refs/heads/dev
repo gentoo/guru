@@ -1,14 +1,17 @@
 certificate version 0.1
-pusher Robert Greener <me@r0bert.dev> 1711989528 +0100
-pushee git.gentoo.org:repo/proj/guru.git
-nonce 1711989528-ff2525c9d167856c1ad333205f1b4ea0e565a830
+pusher E53CCAD408AFEEC41BAF693C7F2DEAD1392DD19B 1711990185 +0000
+pushee git+ssh://git.gentoo.org/repo/proj/guru.git
+nonce 1711990162-61d492e5490a543918a7ec3b910c83d807fe3008
 
-c49ec518d229de8afbe695897b8b5a66663348ea 43896f83b4e8360ca3d2725e31fb7301ae535015 refs/heads/dev
+43896f83b4e8360ca3d2725e31fb7301ae535015 ea612f548c48f74fce1abc60d5ad205c521c7492 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iJEEABYKADkWIQSDtx+Pwch4h6fMMvVaPDbHJuonmgUCZgrjGBsccm9iZXJ0Z3Jl
-ZW5lcjhAb3V0bG9vay5jb20ACgkQWjw2xybqJ5otqgEAmfnmEjy+/oEuylpTtxKp
-BRrFGvzfR4npsZCHvi0lCnsBAPJxFloutiR3hMQfixvUTPfujI8Y1hmko4mygo8o
-FAEI
-=vxk5
+iQEzBAABCAAdFiEEjHDQ6BYxNRlYsV01WMv2b4dr2M8FAmYK5akACgkQWMv2b4dr
+2M/7nwgAowWbB+ZL9qkGTfhj+v35YdNgW3/hzbixa3Gx2zg9sDprJdNRpaB4dJ8R
+e0rbg/6Yj01RU8hIj+3wjwIOD/dvwcNhLq5cbIRM8hAkkjbCZVjRWMV+1HQ6I6dp
+jNyZ8mb7mjtIzyS6gXfKkEetFEAWf5QCEN+QraJCA6L1Zs8qypzRAdvEkdmDFYZM
+CJeYl+pl5qTRNE21iZ+fUyBaXSmjWekg7CeLzcLcjR6erUbOcIyVFliSWHp9WEkF
++xXF21eIbEqEbHHg5Q0cd+qkX/m8AAZ7JsqC9/D60wzwoh4ZUQr71wE6LjQY4+ei
+oc3U4pvqYUXh7pzqKFljM6DIk/n0/A==
+=Qt3H
 -----END PGP SIGNATURE-----
