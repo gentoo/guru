@@ -14,6 +14,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 S="${WORKDIR}/UASM-${PV}"
+PATCHES=(
+	"${FILESDIR}/build-fix.patch"
+)
 
 src_prepare() {
 	default
