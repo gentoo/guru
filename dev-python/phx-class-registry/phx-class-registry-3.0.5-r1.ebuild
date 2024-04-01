@@ -1,4 +1,4 @@
-# Copyright 2020-2022 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -16,4 +16,5 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 S="${WORKDIR}/class-registry-${PV}"
 
-distutils_enable_tests nose
+# Removed from ::gentoo
+# distutils_enable_tests nose
