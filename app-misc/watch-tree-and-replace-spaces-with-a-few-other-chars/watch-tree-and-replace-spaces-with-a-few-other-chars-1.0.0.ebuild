@@ -16,5 +16,5 @@ src_install() {
 }
 
 pkg_postinst() {
-	einfo: "How to use: run in terminal in a folder - and in another software create a file with space in name, in that folder"
+	einfo "How to use: run in terminal in a folder - and in another software create a file with space in name, in that folder"
 }
