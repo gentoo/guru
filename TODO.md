@@ -23,7 +23,6 @@ If you find an interesting piece of software here, consider to package it, also 
 [forgit](https://github.com/wfxr/forgit) | none | shell | Alessandro-Barbieri | ✖ | ✖
 [openocl](https://openocl.org/) | none | octave | Alessandro-Barbieri | ✖ | ✖
 [octave-scicosim](https://wiki.octave.org/Sci_cosim) | none | octave | Alessandro-Barbieri | ✖ | ✖
-[nerd-fonts](https://nerdfonts.com) | none | fonts | Alessandro-Barbieri | ✔ | ✖
 [silk-guardian](https://github.com/NateBrune/silk-guardian) | make | util | Alessandro-Barbieri | ✖ | ✖
 [lucida](https://github.com/claritylab/lucida) | make | | Alessandro-Barbieri | ✔ | ✖
 [embedded fuzzy logic library](https://github.com/zerokol/eFLL) | make | devel | Alessandro-Barbieri | ✖ | ✖
