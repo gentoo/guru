@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,13 +23,14 @@ RDEPEND="
 
 DEPEND="
 	${RDEPEND}
-	test? (
-		dev-python/aiohttp[${PYTHON_USEDEP}]
-		dev-python/async-lru[${PYTHON_USEDEP}]
-		dev-python/mock[${PYTHON_USEDEP}]
-		<dev-python/urllib3-2.0.0[${PYTHON_USEDEP}]
-		dev-python/vcrpy[${PYTHON_USEDEP}]
-	)
 "
+	# test? (
+	# 	dev-python/aiohttp[${PYTHON_USEDEP}]
+	# 	dev-python/async-lru[${PYTHON_USEDEP}]
+	# 	dev-python/mock[${PYTHON_USEDEP}]
+	# 	<dev-python/urllib3-2.0.0[${PYTHON_USEDEP}]
+	# 	dev-python/vcrpy[${PYTHON_USEDEP}]
+	# )
 
-distutils_enable_tests nose
+# Removed from ::gentoo
+# distutils_enable_tests nose
