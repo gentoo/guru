@@ -26,6 +26,7 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}/bug-887887_allow-O2-override.patch"
+	"${FILESDIR}/20240401_verbosity-fix.patch"
 )
 
 src_prepare() {

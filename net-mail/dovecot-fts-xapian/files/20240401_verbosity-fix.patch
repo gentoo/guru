@@ -1,0 +1,10 @@
+--- a/src/fts-backend-xapian-functions.cpp
++++ b/src/fts-backend-xapian-functions.cpp
+@@ -383,7 +383,6 @@ class XNGram
+ 		{
+ 			ok=std::regex_match(s, base64Regex);
+ 		}
+-		if(ok) syslog(LOG_INFO,"Testing Base64 (%s) -> %ld",s.c_str(),(long)ok);
+ 		return ok;
+ 	}
+ 
