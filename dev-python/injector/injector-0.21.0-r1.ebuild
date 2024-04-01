@@ -17,22 +17,10 @@ SRC_URI="
 SLOT="0"
 LICENSE="BSD"
 KEYWORDS="~amd64 ~x86 ~x86-linux"
-IUSE="doc test"
-
-RDEPEND="
-	test? (
-		dev-python/pytest
-		dev-python/hypothesis
-	)
-"
-DEPEND="${RDEPEND}
-	doc? ( dev-python/sphinx )
-"
 
 distutils_enable_sphinx docs
 distutils_enable_tests pytest
 
 python_install_all() {
-	use doc && local HTML_DOCS=( docs/. )
 	distutils-r1_python_install_all
 }
