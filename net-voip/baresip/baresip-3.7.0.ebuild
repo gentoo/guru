@@ -11,7 +11,7 @@ SRC_URI="https://github.com/baresip/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 IUSE="aac alsa amr aptx aom codec2 ffmpeg gst gtk3 jack mqtt mpa opus ssl png portaudio pulseaudio pipewire sdl sndfile spandsp vpx X"
 
