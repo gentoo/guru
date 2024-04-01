@@ -20,4 +20,5 @@ KEYWORDS="~amd64"
 
 RDEPEND="dev-python/cryptography[${PYTHON_USEDEP}]"
 
-distutils_enable_tests nose
+# Removed from ::gentoo
+# distutils_enable_tests nose
