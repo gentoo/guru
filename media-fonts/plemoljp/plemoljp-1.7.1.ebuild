@@ -18,15 +18,15 @@ SRC_URI="https://github.com/yuru7/PlemolJP/releases/download/${MY_PV}/${MY_P}.zi
 	nerdfonts? ( https://github.com/yuru7/PlemolJP/releases/download/${MY_PV}/${MY_P_NF}.zip )
 "
 
+S="${WORKDIR}"
+FONT_SUFFIX="ttf"
+
 LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="hiddenspace nerdfonts"
 
 BDEPEND="app-arch/unzip"
-
-S="${WORKDIR}"
-FONT_SUFFIX="ttf"
 
 src_unpack() {
 	default
