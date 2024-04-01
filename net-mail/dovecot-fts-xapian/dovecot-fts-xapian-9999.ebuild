@@ -37,7 +37,7 @@ if [ "$PV" = 9999 ] ; then
 fi
 
 PATCHES=(
-	${FILESDIR}/bug-887887_allow-O2-override.patch
+	"${FILESDIR}/bug-887887_allow-O2-override.patch"
 )
 
 src_prepare() {
