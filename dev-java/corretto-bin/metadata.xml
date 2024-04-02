@@ -8,4 +8,7 @@
 	<upstream>
 		<remote-id type="github">microsoft/openjdk</remote-id>
 	</upstream>
+	<use>
+		<flag name="headless-awt">Don't install the X backend for AWT, needed by some GUIs</flag>
+	</use>
 </pkgmetadata>
