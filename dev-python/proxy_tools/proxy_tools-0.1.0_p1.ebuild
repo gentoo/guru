@@ -20,5 +20,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-# Removed from ::gentoo
+# dev-python/nose removed from ::gentoo
+RESTRICT="test"
+
 # distutils_enable_tests nose
