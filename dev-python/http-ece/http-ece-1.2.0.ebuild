@@ -18,7 +18,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# dev-python/nose removed from ::gentoo
+RESTRICT="test"
+
 RDEPEND="dev-python/cryptography[${PYTHON_USEDEP}]"
 
-# Removed from ::gentoo
 # distutils_enable_tests nose
