@@ -22,7 +22,6 @@ dev-cpp/libcutl
 dev-cpp/libstudxml
 dev-python/biplist
 dev-python/http-ece
-dev-python/phx-class-registry
 dev-python/proxy_tools
 dev-python/tweepy
 dev-util/odb
