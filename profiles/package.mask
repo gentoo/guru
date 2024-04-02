@@ -28,6 +28,7 @@ dev-util/odb
 dev-python/mastodon-py
 dev-python/pywebview
 # revdeps of revdeps
+games-util/legendary
 net-misc/fedigroup
 
 # Julien Roy <julien@jroy.ca> (2024-03-21)
