@@ -1,9 +1,9 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cargo desktop git-r3
+inherit cargo desktop git-r3 xdg-utils
 
 DESCRIPTION="Tool for rendering OSDs over Walksnail DVR recordings"
 HOMEPAGE="https://github.com/avsaase/walksnail-osd-tool"
@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/avsaase/walksnail-osd-tool.git"
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 GPL-3 ISC UbuntuFontLicense-1.0 MIT MPL-2.0 OFL-1.1 Unicode-DFS-2016 Unlicense XC ZLIB"
 SLOT="0"
 
-DEPEND="x11-libs/gtk+"
+DEPEND=""
 RDEPEND="${DEPEND}
 	media-video/ffmpeg"
 BDEPEND=">=virtual/rust-1.71.1-r1"
@@ -33,3 +33,12 @@ src_install() {
 	doicon -s scalable walksnail-osd-tool.svg
 	make_desktop_entry walksnail-osd-tool 'Walksnail OSD Tool' walksnail-osd-tool
 }
+
+pkg_postinst() {
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
+}
+
