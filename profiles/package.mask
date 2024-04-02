@@ -15,21 +15,11 @@
 # New entries go on top.
 
 # Julien Roy <julien@jroy.ca (2024-03-29)
-# Dependencies removed from ::gentoo
+# build2 eclass removed from ::gentoo
 # Masked for removal in 30 days
-app-text/lizard
 dev-cpp/libcutl
 dev-cpp/libstudxml
-dev-python/http-ece
-dev-python/proxy_tools
-dev-python/tweepy
 dev-util/odb
-# revdeps
-dev-python/mastodon-py
-dev-python/pywebview
-# revdeps of revdeps
-games-util/legendary
-net-misc/fedigroup
 
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
@@ -51,11 +41,6 @@ net-im/mautrix-facebook
 # Known security bugs. Masked until someone updates it.
 # https://github.com/TheDarkBug/uwufetch/issues/249
 app-misc/uwufetch
-
-# David Roman <davidroman96@gmail.com> (2023-10-19)
-# Known security bugs. Masked until someone updates it.
-# See https://bugs.gentoo.org/915891
-media-video/owncast
 
 # Viorel Munteanu <ceamac@gentoo.org> (2023-06-07)
 # Does not work on no-multilib profiles and cannot be masked per profile
