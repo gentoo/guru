@@ -16,6 +16,9 @@ KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
 
+# dev-python/nose removed from ::gentoo
+RESTRICT="test"
+
 RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP},socks5]
 	dev-python/requests-oauthlib[${PYTHON_USEDEP}]
@@ -32,5 +35,4 @@ DEPEND="
 	# 	dev-python/vcrpy[${PYTHON_USEDEP}]
 	# )
 
-# Removed from ::gentoo
 # distutils_enable_tests nose
