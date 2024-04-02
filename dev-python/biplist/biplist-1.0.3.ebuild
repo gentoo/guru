@@ -16,10 +16,12 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-python/six[${PYTHON_USEDEP}]"
-# DEPEND="test? ( ${RDEPEND} )"
+
+RESTRICT="test"
+# Because using dev-python/nose test framework -
+# that is abandonware for 10 years
+# Related ticket on the upstream: https://github.com/wooster/biplist/issues/14
+
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 PATCHES=( "${FILESDIR}/${PN}-python3-compat.patch" )
-
-# Removed from ::gentoo
-# distutils_enable_tests nose
