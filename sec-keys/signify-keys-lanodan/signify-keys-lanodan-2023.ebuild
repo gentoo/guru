@@ -19,7 +19,7 @@ LICENSE="public-domain"
 SLOT="${PV}"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
-BDEPEND="sec-keys/signify-keys-lanodan:${MY_PREV_PV}"
+BDEPEND="verify-sig? ( sec-keys/signify-keys-lanodan:${MY_PREV_PV} )"
 
 VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/signify-keys/${PN}-${MY_PREV_PV//-/.}.pub"
 
