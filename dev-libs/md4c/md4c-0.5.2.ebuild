@@ -8,7 +8,6 @@ inherit cmake
 # TODO(NRK):
 # - enable tests
 # - useflag for static lib (?)
-# - move this under dev-libs or maybe split the md2html tool into it's own package (??)
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
