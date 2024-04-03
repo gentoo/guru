@@ -53,6 +53,6 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="/usr" install
+	emake CC="$(tc-getCC)" CXX="$(tc-getCXX)" AR="$(tc-getAR)" DESTDIR="${D}" PREFIX="/usr" install
 	use systemd && emake DESTDIR="${D}" PREFIX="/usr" install_systemd
 }
