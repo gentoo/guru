@@ -7,14 +7,6 @@
 		<flag name="examples">Build and install examples</flag>
 	</use>
 	<maintainer type="person">
-		<email>chewi@gentoo.org</email>
-		<name>James Le Cuirot</name>
-	</maintainer>
-	<maintainer type="project">
-		<email>proxy-maint@gentoo.org</email>
-		<name>Gentoo Proxy Maintainers</name>
-	</maintainer>
-	<maintainer type="person">
 		<email>gonegrier.duarte@gmail.com</email>
 		<name>Gonçalo Negrier Duarte</name>
 	</maintainer>
