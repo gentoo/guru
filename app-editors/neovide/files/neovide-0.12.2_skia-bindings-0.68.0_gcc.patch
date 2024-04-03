@@ -1,0 +1,16 @@
+Skia-bindings sets --target regardless of which CC/CXX is used. GCC does not understand the argument --target 
+
+Pascal Jäger <pascal.jaeger@leimstift.de> (2024-04-03)
+
+--- a/cargo_home/gentoo/skia-bindings-0.68.0/build_support/platform.rs
++++ b/cargo_home/gentoo/skia-bindings-0.68.0/build_support/platform.rs
+@@ -129,7 +129,7 @@ impl GnArgsBuilder {
+ 
+         if let Some(target) = &self.target_str {
+             let target = format!("--target={target}");
+-            self.cflag(&target);
++            //self.cflag(&target);
+             asmflags.push(target);
+         }
+ 
+
