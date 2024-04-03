@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_10 python3_11 )
+PYTHON_COMPAT=( python3_10 python3_11 python3_12 )
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
 
