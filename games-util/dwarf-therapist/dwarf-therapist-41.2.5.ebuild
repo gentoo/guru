@@ -13,11 +13,11 @@ DESCRIPTION="For managing dwarves in Dwarf Fortress"
 HOMEPAGE="https://github.com/Dwarf-Therapist/Dwarf-Therapist"
 SRC_URI="https://github.com/Dwarf-Therapist/${MY_PN}/archive/refs/tags/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-
-S="${WORKDIR}/${MY_P}"
 
 RDEPEND="
 	dev-qt/qtconcurrent:5
