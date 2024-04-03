@@ -2,7 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<use>
-    <flag name="dbus">Enable dbus to query current cursor theme </flag>
+		<flag name="dbus">Enable dbus to query current cursor theme </flag>
 		<flag name="gtk">Build GTK plugin</flag>
 		<flag name="examples">Build and install examples</flag>
 	</use>
