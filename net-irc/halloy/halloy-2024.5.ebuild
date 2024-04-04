@@ -551,7 +551,7 @@ src_configure() {
 	if [[ ${PV} != *9999* ]] ; then
 		# Fix cargo.eclass handling of patched dependencies
 		# https://github.com/squidowl/halloy/blob/main/Cargo.toml#L52-L54
-		sed -i "s,'https://github.com/iced-rs/iced',crates-io,g" "${ECARGO_HOME}/config"
+		sed -i "s,'https://github.com/iced-rs/iced',crates-io,g" "${ECARGO_HOME}/config" || die
 	fi
 	cargo_src_configure
 }
