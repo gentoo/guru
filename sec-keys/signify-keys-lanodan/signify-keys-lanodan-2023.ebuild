@@ -24,13 +24,15 @@ BDEPEND="verify-sig? ( sec-keys/signify-keys-lanodan:${MY_PREV_PV} )"
 VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/signify-keys/${PN}-${MY_PREV_PV//-/.}.pub"
 
 src_unpack() {
+	# Too many levels of symbolic links
+	cd "${DISTDIR}" || die
+	cp ${A} "${WORKDIR}" || die
+	cd "${WORKDIR}" || die
+
 	if use verify-sig; then
-		# Too many levels of symbolic links
-		cd "${DISTDIR}" || die
-		cp ${A} "${WORKDIR}" || die
-		cd "${WORKDIR}" || die
 		verify-sig_verify_detached "${P}.pub" "${P}.pub.${MY_PREV_PV}.sig"
 	fi
+
 	default
 }
 
