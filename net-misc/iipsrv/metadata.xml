@@ -5,10 +5,6 @@
 		<email>ruven@users.sourceforge.net</email>
 		<name>Ruven</name>
 	</maintainer>
-	<maintainer type="project" proxied="proxy">
-		<email>proxy-maint@gentoo.org</email>
-		<name>Proxy Maintainers</name>
-	</maintainer>
 
 	<longdescription>IIPImage is an advanced high-performance feature-rich image server system for web-based streamed viewing 
 	and zooming of ultra high-resolution images. It is designed to be fast and bandwidth-efficient with low processor and memory 
