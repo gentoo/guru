@@ -15,6 +15,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-db/postgresql
+	dev-db/pg_query_vala
 	gui-libs/gtk:4
 	gui-libs/libadwaita:1
 "
@@ -27,6 +28,7 @@ BDEPEND="
 	>=dev-libs/json-glib-1.6.0
 	>=gui-libs/libadwaita-1.0:1
 	>=dev-db/postgresql-15.3
+	dev-db/pg_query_vala
 "
 
 src_prepare() {
