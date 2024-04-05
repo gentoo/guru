@@ -8,7 +8,7 @@ SRC_URI="
 "
 S="${WORKDIR}/themes"
 
-DEPEND="
+RDEPEND="
 	sys-process/btop
 "
 
@@ -18,9 +18,5 @@ KEYWORDS="~amd64"
 
 src_install() {
 	insinto "/usr/share/btop/themes"
-	for f in "${S}"/*.theme; do
-		if [ -f "$f" ]; then
-			doins "$f"
-		fi
-	done
+	doins *.theme
 }
