@@ -31,6 +31,7 @@ BDEPEND="
 "
 
 PATCHES=(
+	# https://github.com/ppvan/pg_query_vala/pull/2
 	"${FILESDIR}/unbundle_libpg_query.patch"
 )
 
