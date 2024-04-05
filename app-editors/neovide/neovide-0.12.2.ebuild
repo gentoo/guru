@@ -477,7 +477,7 @@ src_prepare() {
 	pushd "${WORKDIR}" || die
 	# remove this if next version uses newer skia-bindings
 	eapply "${FILESDIR}/${P}_skia-bindings-0.68.0_system_icu.patch"
-	if [[ $(tc-getCC) == "gcc" || $(tc-getCXX) == "g++" ]]; then
+	if tc-is-gcc; then
 		eapply "${FILESDIR}/${P}_skia-bindings-0.68.0_gcc.patch"
 	fi
 }
