@@ -11,6 +11,7 @@ DESCRIPTION="The client library for BackBlaze's B2 product"
 HOMEPAGE="https://github.com/Backblaze/b2-sdk-python"
 SRC_URI="https://github.com/Backblaze/b2-sdk-python/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/b2-sdk-python-${PV}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
