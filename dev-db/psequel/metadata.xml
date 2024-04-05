@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<longdescription>
+Small tool for quick sql query, specialized in PostgresSQL. Written in Vala for GNOME desktop in the hope to be useful.
+
+FeaturesL
+Load and save connections.
+Import and Export connections info
+List schema info, tables, views.
+View table columns info, indexes, foreign keys
+View table data, sort by column
+Write query
+Query History
+Hightlight current query
+Export query data
+	</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Pham Văn Phúc</name>
+			<email>phuclaplace@gmail.com</email>
+		</maintainer>
+		<bugs-to>https://github.com/ppvan/psequel/issues</bugs-to>
+		<changelog>https://github.com/ppvan/psequel/releases</changelog>
+		<remote-id type="github">ppvan/psequel</remote-id>
+	</upstream>
+</pkgmetadata>
