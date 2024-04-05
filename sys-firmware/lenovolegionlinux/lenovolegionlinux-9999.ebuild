@@ -26,6 +26,7 @@ BDEPEND="
 	sys-apps/lm-sensors
 	sys-apps/dmidecode
 	sys-apps/sed
+	dev-libs/inih
 "
 
 RDEPEND="
@@ -79,17 +80,19 @@ src_install() {
 
 		systemd_dounit service/legiond.service service/legiond-onresume.service service/legiond-cpuset.service service/legiond-cpuset.timer
 
-        newinitd "${FILESDIR}/legiond.initd" legiond
+        newinitd service/legiond.initd legiond
+		newinitd service/legiond-cpuset.initd legiond
+		newsbin service/legiond-cpuset.sh legiond-cpuset
 
         if use elogind; then
             exeinto /lib64/elogind/system-sleep/
-            doexe "${FILESDIR}/legiond-onresume.sh"
+            doexe service/legiond-onresume.sh
         fi
 
 		insinto /etc/acpi/events
 		doins acpi/events/{legion_ppd,legion_ac}
 		dobin service/legiond/legiond
-		dobin service/legiond/legiond-cli
+		dobin service/legiond/legiond-ctl
 	fi
 }
 
@@ -97,7 +100,7 @@ pkg_postinst() {
 	ewarn "Default config files are present in /usr/share/legion_linux"
 	ewarn "Copy folder /usr/share/legion_linux to /etc/legion_linux"
 	ewarn "Note: Fancurve can be edit using the gui app"
-	ewarn "Dont forget to edit /etc/legion_linux/.env to enable and disable extra features"
+	ewarn "Dont forget to edit /etc/legion_linux/legiond.ini (previous .env) to enable and disable extra features"
 	ewarn "Note the CPU and APU control command both for undervolt an ryzenadj are edit in /etc/legion_linux/.env"
 	if !use downgrade-nvidia; then
 		ewarn "Note: use flag downgrade-nvidia if you need for nvidia TDP control (requires driver 525 to work)\n"
