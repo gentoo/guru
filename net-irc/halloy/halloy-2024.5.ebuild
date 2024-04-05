@@ -572,11 +572,3 @@ src_install() {
 
 	cargo_src_install
 }
-
-pkg_postinst() {
-	xdg_pkg_postinst
-}
-
-pkg_postrm() {
-	xdg_pkg_postrm
-}
