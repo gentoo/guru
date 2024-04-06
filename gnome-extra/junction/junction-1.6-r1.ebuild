@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit xdg gnome2-utils meson
+inherit gnome2-utils meson
 
 TROLL_COMMIT="8d7c2be66a4bf1cbb2081121997a33662fc19cd0"
 DESCRIPTION="Application/browser chooser"
