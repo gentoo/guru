@@ -39,14 +39,21 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	# This test only validates upstream .xml file
+	"${FILESDIR}/remove-failing-tests.patch"
+)
+
 src_unpack() {
 	default
-	mv "${WORKDIR}"/troll-${TROLL_COMMIT}/* "${S}"/troll || die
+	mv "${WORKDIR}"/troll-"${TROLL_COMMIT}"/* "${S}"/troll || die
 }
 
 src_install() {
 	meson_src_install
 	dosym -r /usr/bin/re.sonny.Commit /usr/bin/"${PN}"
+	dodir /usr/share/metainfo
+	mv "${ED}"/usr/share/appdata/re.sonny.Commit.metainfo.xml "${ED}"/usr/share/metainfo/ || die
 }
 
 pkg_postinst() {
