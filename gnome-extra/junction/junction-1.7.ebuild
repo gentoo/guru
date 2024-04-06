@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson
+inherit xdg gnome2-utils meson
 
 TROLL_COMMIT="94ced56f1b08e6955f6c8325a04c74736d39b823"
 DESCRIPTION="Application/browser chooser"
@@ -55,4 +55,16 @@ src_configure() {
 # only data files validators, skip them
 src_test() {
 	:
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+	xdg_icon_cache_update
+	gnome2_schemas_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
+	xdg_icon_cache_update
+	gnome2_schemas_update
 }
