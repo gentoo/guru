@@ -528,7 +528,6 @@ src_install() {
 pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_schemas_update
-	xdg_icon_cache_update
 	elog "If you want scraper data in order to load some feeds directly in NewsFlash;"
 	elog "Close this repository into ~/.local/share/news-flash/ :"
 	elog "https://github.com/fivefilters/ftr-site-config"
@@ -537,5 +536,4 @@ pkg_postinst() {
 pkg_postrm() {
 	xdg_pkg_postrm
 	gnome2_schemas_update
-	xdg_icon_cache_update
 }
