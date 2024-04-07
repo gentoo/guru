@@ -1,0 +1,31 @@
+diff --git a/Makefile b/Makefile
+index 1759c7d7..3a450b5b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -69,10 +69,6 @@ lint: vendor/bin/phpcs ## Run the linter on the PHP files
+ lint-fix: vendor/bin/phpcbf ## Fix the errors detected by the linter
+ 	$(PHP) vendor/bin/phpcbf . -p -s
+ 
+-bin/composer:
+-	mkdir -p bin/
+-	wget 'https://raw.githubusercontent.com/composer/getcomposer.org/a19025d6c0a1ff9fc1fac341128b2823193be462/web/installer' -O - -q | php -- --quiet --install-dir='./bin/' --filename='composer'
+-
+ vendor/bin/phpunit: bin/composer
+ 	bin/composer install --prefer-dist --no-progress
+ 	ln -s ../vendor/bin/phpunit bin/phpunit
+@@ -85,15 +81,6 @@ vendor/bin/phpcbf: bin/composer
+ 	bin/composer install --prefer-dist --no-progress
+ 	ln -s ../vendor/bin/phpcbf bin/phpcbf
+ 
+-bin/typos:
+-	mkdir -p bin/
+-	cd bin ; \
+-	wget -q 'https://github.com/crate-ci/typos/releases/download/v1.16.21/typos-v1.16.21-x86_64-unknown-linux-musl.tar.gz' && \
+-	tar -xvf *.tar.gz './typos' && \
+-	chmod +x typos && \
+-	rm *.tar.gz ; \
+-	cd ..
+-
+ node_modules/.bin/eslint:
+ 	npm install
+ 

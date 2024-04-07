@@ -26,6 +26,10 @@ DEPEND="${RDEPEND}"
 
 need_httpd_fastcgi
 
+PATCHES=(
+	"${FILESDIR}"/disable-network-tests.patch
+)
+
 src_compile() {
 	:
 }
