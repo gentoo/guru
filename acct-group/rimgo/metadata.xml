@@ -5,7 +5,4 @@
 <email>benoit.dufour@mail.com</email>
 <name>Benoît Dufour</name>
 </maintainer>
-<upstream>
-<remote-id type="github">bisq-network/exchange</remote-id>
-</upstream>
 </pkgmetadata>

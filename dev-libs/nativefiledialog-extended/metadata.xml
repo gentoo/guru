@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
 <pkgmetadata>
-	<!-- maintainer-needed -->
-	<longdescription lang="en">
+<maintainer type="person">
+<email>benoit.dufour@mail.com</email>
+<name>Benoît Dufour</name>
+</maintainer>
+<longdescription lang="en">
 A small C library with that portably invokes native file open, folder select and save dialogs. Write dialog code once and have it pop up native dialogs on all supported platforms. Avoid linking large dependencies like wxWidgets and Qt.
 
 This library is based on Michael Labbe's Native File Dialog (mlabbe/nativefiledialog).
@@ -41,9 +44,9 @@ Modern CMake build system
 Optional C++ wrapper with unique_ptr auto-freeing semantics and optional parameters
 
 There is also significant code refractoring, especially for the Windows implementation
-	</longdescription>
-	<upstream>
-		<bugs-to>https://github.com/btzy/nativefiledialog-extended/issues</bugs-to>
-		<remote-id type="github">btzy/nativefiledialog-extended</remote-id>
-	</upstream>
+</longdescription>
+<upstream>
+<bugs-to>https://github.com/btzy/nativefiledialog-extended/issues</bugs-to>
+<remote-id type="github">btzy/nativefiledialog-extended</remote-id>
+</upstream>
 </pkgmetadata>
