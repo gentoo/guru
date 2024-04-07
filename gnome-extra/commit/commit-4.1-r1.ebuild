@@ -15,7 +15,7 @@ SRC_URI="
 	https://github.com/sonnyp/Commit/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz
 	https://github.com/sonnyp/troll/archive/${TROLL_COMMIT}.tar.gz -> ${P}-troll.gh.tar.gz
 "
-S="${WORKDIR}/${PN/c/C}-${PV}"
+S="${WORKDIR}/${PN^}-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
