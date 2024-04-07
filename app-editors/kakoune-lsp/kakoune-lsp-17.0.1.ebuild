@@ -1,4 +1,4 @@
-# Copyright 2001-2024 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -42,6 +42,7 @@ CRATES="
 	equivalent@1.0.1
 	errno@0.3.8
 	field-offset@0.3.6
+	file-id@0.2.1
 	filetime@0.2.23
 	form_urlencoded@1.2.1
 	fs4@0.7.0
@@ -79,17 +80,21 @@ CRATES="
 	libflate_lz77@1.2.0
 	libredox@0.0.1
 	linux-raw-sys@0.4.12
+	lock_api@0.4.11
 	log@0.4.20
 	lsp-types@0.95.0
 	memchr@2.6.4
 	memoffset@0.9.0
 	mio@0.8.10
 	notify@6.1.1
+	notify-debouncer-full@0.3.1
 	num-traits@0.1.43
 	num-traits@0.2.17
 	num_threads@0.1.6
 	once_cell@1.19.0
 	option-ext@0.2.0
+	parking_lot@0.12.1
+	parking_lot_core@0.9.9
 	percent-encoding@2.3.1
 	pin-project-lite@0.2.13
 	pin-utils@0.1.0
@@ -113,6 +118,7 @@ CRATES="
 	rustversion@1.0.14
 	ryu@1.0.16
 	same-file@1.0.6
+	scopeguard@1.2.0
 	semver@1.0.20
 	serde@1.0.193
 	serde_derive@1.0.193
@@ -201,6 +207,7 @@ SRC_URI="
 	https://github.com/kakoune-lsp/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
+
 LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions Boost-1.0 CC0-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
