@@ -22,6 +22,7 @@ LICENSE="AGPL-3"
 LICENSE+=" AGPL-3 Apache-2.0 BSD-2 BSD ISC MIT Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="debug"
 
 BDEPEND="
 	dev-libs/protobuf
