@@ -14,6 +14,18 @@
 
 # New entries go on top.
 
+# Robert Greener <me@r0bert.dev> (2024-04-07)
+# Corresponding dev-R/* packages have long been removed.
+# Recommend using dev-lang/R[-minimal] instead.
+# Scheduled for removal on 2024-05-07
+virtual/MASS
+virtual/boot
+virtual/lattice
+virtual/mgcv
+virtual/nlme
+virtual/nnet
+virtual/survival
+
 # Julien Roy <julien@jroy.ca (2024-03-29)
 # build2 eclass removed from ::gentoo
 # Masked for removal in 30 days
@@ -47,15 +59,3 @@ app-misc/uwufetch
 # (See also top comment)
 # Sorry for the inconvenience.
 app-office/lotus123r3
-
-# Robert Greener <me@r0bert.dev> (2024-04-07)
-# Corresponding dev-R/* packages have long been removed.
-# Recommend using dev-lang/R[-minimal] instead.
-# Scheduled for removal on 2024-05-07
-virtual/MASS
-virtual/boot
-virtual/lattice
-virtual/mgcv
-virtual/nlme
-virtual/nnet
-virtual/survival
