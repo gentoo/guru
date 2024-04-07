@@ -1,0 +1,13 @@
+diff --git a/host/i3_workspaces.json b/host/i3_workspaces.json
+index 3e1c6e5..14288b2 100644
+--- a/host/i3_workspaces.json
++++ b/host/i3_workspaces.json
+@@ -1,7 +1,7 @@
+ {
+   "name": "i3_workspaces",
+   "description": "Communicate with i3 about which workspaces Firefox windows are on",
+-  "path": "/home/yuri/projects/firefox-i3-workspaces/host/i3_workspaces.py",
++  "path": "/usr/lib/i3_workspaces.py",
+   "type": "stdio",
+   "allowed_extensions": ["i3-workspaces@yurikhan.space"]
+ }
