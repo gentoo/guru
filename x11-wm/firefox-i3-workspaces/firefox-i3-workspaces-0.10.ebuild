@@ -16,8 +16,6 @@ RDEPEND="
 	dev-python/i3ipc
 "
 
-# S="${DISTDIR}"
-
 PATCHES=(
 	"$FILESDIR/path-adapt.patch"
 )
