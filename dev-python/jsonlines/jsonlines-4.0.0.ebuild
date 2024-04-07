@@ -24,7 +24,6 @@ SLOT="0"
 IUSE="test"
 RESTRICT="mirror" #overlay, no real issue
 RDEPEND="dev-python/attrs[${PYTHON_USEDEP}]"
-BDEPEND=" test? ( ${RDEPEND} )"
 
 distutils_enable_tests pytest
 
