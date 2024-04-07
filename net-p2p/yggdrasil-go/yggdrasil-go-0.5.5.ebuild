@@ -14,7 +14,7 @@ SRC_URI="
 
 LICENSE="LGPL-3 MIT Apache-2.0 BSD ZLIB"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 RESTRICT="mirror"
 
 DEPEND="
