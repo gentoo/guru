@@ -29,6 +29,7 @@ BDEPEND="
 	>=gui-libs/libadwaita-1.0:1
 	>=dev-db/postgresql-15.3
 	dev-db/pg_query_vala
+	dev-util/blueprint-compiler
 "
 
 src_prepare() {
