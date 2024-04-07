@@ -26,6 +26,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-libs/glib-2.0.0:2
 	dev-db/libpg_query
+	dev-lang/vala
 	dev-libs/protobuf-c:0/1.0.0
 	dev-libs/xxhash
 "
