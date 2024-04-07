@@ -377,3 +377,7 @@ KEYWORDS="~amd64"
 # rust does not use *FLAGS from make.conf, silence portage warning
 # update with proper path to binaries this crate installs, omit leading /
 QA_FLAGS_IGNORED="usr/bin/${PN}"
+
+src_install() {
+	cargo_src_install --path cli
+}
