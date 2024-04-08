@@ -1,0 +1,28 @@
+diff --git a/igr b/igr
+index 73a6e8c..e23082a 100755
+--- a/igr
++++ b/igr
+@@ -1,11 +1,11 @@
+ #!/usr/bin/env bash
+ 
+-declare preview='bat --color=always --style=header,numbers -H {2} {1} | grep -C3 {q}'
++declare preview='bat --color=always --style=header,numbers -H {2} {1} | grep --context 20 {q}'
+ 
+ while getopts ':l' x; do
+   case "$x" in
+     l) list_files=1
+-      preview='bat --color=always --style=header,numbers {1} | grep -C3 {q}'
++      preview='bat --color=always --style=header,numbers {1} | grep --context 20 {q}'
+       ;;
+   esac
+ done
+@@ -18,5 +18,7 @@ fzf -d: \
+ --query="$1" \
+ --phony \
+ --bind="change:reload:rg -n ${list_files:+-l} --color=always {q}" \
+---bind='enter:execute:v {1}' \
+---preview="[[ -n {1} ]] && $preview"
++--bind='enter:execute:echo "vim {1}:{2}" && vim {1}:{2}' \
++--preview="[[ -n {1} ]] && $preview"
++
++ # echo to save in shell history
