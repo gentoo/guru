@@ -40,7 +40,7 @@ src_unpack() {
 }
 
 src_install() {
-	if [ "$(use debug)" ]; then
+	if use debug; then
 		TARGET=debug
 	else
 		TARGET=release
