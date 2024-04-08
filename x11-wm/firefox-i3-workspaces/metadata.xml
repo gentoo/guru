@@ -6,7 +6,7 @@
 		<email>zdanevich.vitaly@ya.ru</email>
 	</maintainer>
 	<upstream>
-		<remote-id type="gitlab">yurikhan/firefox-i3-workspaces</remote-id>
+		<remote-id type="github">yurikhan/firefox-i3-workspaces</remote-id>
 		<bugs-to>https://github.com/yurikhan/firefox-i3-workspaces/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
