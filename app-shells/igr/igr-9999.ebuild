@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Interactive rg (ripgrep) wrapper in fzf: Interactive grep (search)"
+DESCRIPTION="Interactive rg (ripgrep) wrapper in fzf: Interactive GRep (search)"
 HOMEPAGE="https://github.com/DanielFGray/fzf-scripts"
 SRC_URI="https://raw.githubusercontent.com/DanielFGray/fzf-scripts/master/$PN"
 
