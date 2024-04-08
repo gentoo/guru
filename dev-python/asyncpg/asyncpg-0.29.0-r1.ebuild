@@ -24,6 +24,7 @@ RDEPEND="
 	' python3_{10..11})
 "
 BDEPEND="
+	dev-python/cython[${PYTHON_USEDEP}]
 	test? (
 		dev-db/postgresql[server]
 		dev-python/uvloop[${PYTHON_USEDEP}]
