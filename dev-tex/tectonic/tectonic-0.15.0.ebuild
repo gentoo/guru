@@ -344,9 +344,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="A modernized, complete, embeddable TeX/LaTeX engine. Tectonic is forked from the XeTeX
-extension to the classic “Web2C” implementation of TeX and uses the TeXLive distribution
-of support files."
+DESCRIPTION="A modernized, complete, embeddable TeX/LaTeX engine."
 # Double check the homepage as the cargo_metadata crate
 # does not provide this value so instead repository is used
 HOMEPAGE="https://github.com/tectonic-typesetting/tectonic/"
@@ -361,7 +359,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND="media-libs/harfbuzz"
 
