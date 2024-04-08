@@ -5,10 +5,6 @@
 		<email>alarig@swordarmor.fr</email>
 		<name>Alarig Le Lay</name>
 	</maintainer>
-	<maintainer type="person">
-		<email>telans@posteo.de</email>
-		<name>James Beddek</name>
-	</maintainer>
 	<upstream>
 		<remote-id type="github">ocrmypdf/OCRmyPDF</remote-id>
 	</upstream>

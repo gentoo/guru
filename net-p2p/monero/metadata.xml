@@ -2,10 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email>telans@posteo.de</email>
-    <name>James Beddek</name>
-  </maintainer>
-  <maintainer type="person">
     <email>efe.izbudak@metu.edu.tr</email>
     <name>Efe İzbudak</name>
   </maintainer>
