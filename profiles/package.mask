@@ -14,6 +14,10 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-09)
+# Depends on masked net-libs/sofia-sip.
+net-voip/gnome-calls
+
 # Robert Greener <me@r0bert.dev> (2024-04-07)
 # Corresponding dev-R/* packages have long been removed.
 # Recommend using dev-lang/R[-minimal] instead.
