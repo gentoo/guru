@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,23 +8,23 @@ inherit toolchain-funcs verify-sig
 
 DESCRIPTION="w3m-like browser for Gemini"
 HOMEPAGE="https://telescope.omarpolo.com"
-SRC_URI="https://github.com/omar-polo/${PN}/releases/download/${PV}/${P}.tar.gz
-	verify-sig? ( https://github.com/omar-polo/${PN}/releases/download/${PV}/SHA256.sig -> ${P}.sha.sig )"
+SRC_URI="https://ftp.omarpolo.com/${P}.tar.gz
+	verify-sig? ( https://ftp.omarpolo.com/${P}.tar.gz.sha256.sig )"
 
-LICENSE="!libbsd? ( BSD MIT ) ISC unicode"
+LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+libbsd"
+IUSE="unicode"
 
 DEPEND="
-	dev-libs/imsg-compat
-	dev-libs/libevent:=
+	dev-libs/libbsd
+	dev-libs/libgrapheme:=
 	dev-libs/libretls:=
 	sys-libs/ncurses:=
-	libbsd? ( dev-libs/libbsd )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
+	app-alternatives/yacc
 	virtual/pkgconfig
 	verify-sig? ( sec-keys/signify-keys-telescope:$(ver_cut 1-2) )
 "
@@ -34,10 +34,10 @@ VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/signify-keys/${PN}-$(ver_cut 1-2).pub"
 src_unpack() {
 	if use verify-sig; then
 		# Too many levels of symbolic links
-		cp "${DISTDIR}"/${P}.{sha.sig,tar.gz} "${WORKDIR}" || die
+		cp "${DISTDIR}"/${P}.tar.gz{,.sha256.sig} "${WORKDIR}" || die
 		cd "${WORKDIR}" || die
 		verify-sig_verify_signed_checksums \
-			${P}.sha.sig sha256 ${P}.tar.gz
+			${P}.tar.gz.sha256.sig sha256 ${P}.tar.gz
 	fi
 	default
 }
@@ -47,8 +47,8 @@ src_configure() {
 	local econf_args=(
 		HOSTCC="${BUILD_CC}"
 		HOSTCFLAGS="${BUILD_CFLAGS}"
-		$(use_with libbsd)
-		--with-libimsg
+		--with-libbsd
+		--without-libimsg
 	)
 
 	econf "${econf_args[@]}"
