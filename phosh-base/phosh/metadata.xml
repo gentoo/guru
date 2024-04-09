@@ -5,4 +5,8 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
+	<use>
+		<flag name="desktop-portal">Enable <pkg>sys-apps/xdg-desktop-portal</pkg> backend implementation</flag>
+		<flag name="iio">Enable support for IIO sensors via <pkg>gnome-extra/iio-sensor-proxy</pkg></flag>
+	</use>
 </pkgmetadata>
