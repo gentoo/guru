@@ -34,6 +34,7 @@ COMMON_DEPEND="
 	>=gui-libs/libhandy-1.1.90:1
 	media-libs/libpulse[glib]
 	media-sound/callaudiod
+	net-libs/libsoup:3.0
 	>=net-misc/networkmanager-1.14
 	sys-apps/dbus
 	>=sys-auth/polkit-0.105
@@ -82,8 +83,9 @@ VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/phosh.asc"
 src_configure() {
 	local emesonargs=(
 		-Dcompositor="${EPREFIX}"/usr/bin/phoc
-		-Dsystemd=true
 		-Dtools=true
+		-Dquick-setting-plugins=true
+		$(meson_use !elogind systemd)
 		$(meson_use gtk-doc gtk_doc)
 		$(meson_use lockscreen-plugins)
 		$(meson_use man)
@@ -104,7 +106,7 @@ src_test() {
 }
 
 src_install() {
-	meson_src_install
+	meson_src_install --skip-subprojects gmobile
 	pamd_mimic system-local-login phosh auth account session
 	systemd_douserunit data/phosh.service
 
