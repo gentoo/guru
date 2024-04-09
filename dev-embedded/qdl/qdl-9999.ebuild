@@ -17,7 +17,6 @@ BDEPEND="virtual/libudev
 		dev-libs/libxml2
 "
 
-
 src_compile() {
 	PKG_CONFIG=$(tc-getPKG_CONFIG)
 	emake CC=$(tc-getCC) \
