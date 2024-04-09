@@ -5,7 +5,7 @@ EAPI=8
 
 DESCRIPTION="Restore Firefox windows to correct i3 workspaces, helper web extension is needed"
 HOMEPAGE="https://github.com/yurikhan/firefox-i3-workspaces"
-SRC_URI="https://github.com/yurikhan/$PN/archive/refs/tags/$PV.tar.gz"
+SRC_URI="https://github.com/yurikhan/$PN/archive/refs/tags/$PV.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="GPL-3"
 SLOT=0
