@@ -29,7 +29,9 @@ python_prepare_all() {
 	sed -i -e "s/'cli4', 'examples'/'cli4'/" \
 		-e "s#'CloudFlare/tests',##" \
 		 setup.py || die
-
+	sed -i -e "/def test_ips7_should_fail():/i@pytest.mark.xfail(reason='Now fails upstream')" \
+		-e "2s/^/import pytest/" \
+		CloudFlare/tests/test_cloudflare_calls.py || die
 	distutils-r1_python_prepare_all
 }
 python_test() {
