@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="Monitor a tree for files with spaces in name - and replace to underscores"
-HOMEPAGE=""https://gitlab.com/vitaly-zdanevich/watch-tree-and-replace-spaces-with-a-few-other-chars
+HOMEPAGE="https://gitlab.com/vitaly-zdanevich/watch-tree-and-replace-spaces-with-a-few-other-chars"
 SRC_URI="https://gitlab.com/vitaly-zdanevich/$PN/-/archive/$PV/$P.tar.bz2"
 
 LICENSE="Apache-2.0"
