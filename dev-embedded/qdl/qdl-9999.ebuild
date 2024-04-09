@@ -19,7 +19,6 @@ BDEPEND="virtual/libudev
 
 PATCHES=(
 	"${FILESDIR}/makefile.patch"
-	"${FILESDIR}/include_stdlib.patch"
 )
 
 src_compile() {
