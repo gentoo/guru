@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">gridcoin-community/Gridcoin-Research</remote-id>
+	</upstream>
+	<use>
+		<flag name="qrcode">Enable generation of QR Codes for receiving payments</flag>
+	</use>
+</pkgmetadata>
