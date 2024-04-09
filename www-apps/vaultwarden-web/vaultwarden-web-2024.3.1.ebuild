@@ -25,6 +25,7 @@ KEYWORDS="~amd64"
 RDEPEND="!www-apps/vaultwarden-web-bin"
 BDEPEND="
 	${PYTHON_DEPS}
+	$(unpacker_src_uri_depends)
 	net-libs/nodejs[npm]
 "
 
