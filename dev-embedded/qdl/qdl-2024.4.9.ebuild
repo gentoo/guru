@@ -7,7 +7,7 @@ inherit toolchain-funcs
 
 DESCRIPTION="Tool to communicate with Qualcomm System On a Chip bootroms"
 COMMIT_ID="a629f43428ebd17080f55543f893d45694234f75"
-HOMEPAGE="https://github.com/andersson/qdl"
+HOMEPAGE="https://github.com/linux-msm/qdl"
 SRC_URI="https://github.com/linux-msm/qdl/archive/${COMMIT_ID}.tar.gz -> ${P}.tar.gz"
 
 S="${WORKDIR}/${PN}-${COMMIT_ID}"
@@ -21,16 +21,16 @@ BDEPEND="virtual/libudev
 		dev-libs/libxml2
 "
 
-PATCHES=(
-	"${FILESDIR}/makefile.patch"
-)
-
 src_compile() {
-	emake CC=$(tc-getCC) PKG_CONFIG=$(tc-getPKG_CONFIG)
+	PKG_CONFIG=$(tc-getPKG_CONFIG)
+	emake CC=$(tc-getCC) \
+		"CFLAGS=${CFLAGS} `${PKG_CONFIG} --cflags libxml-2.0`" \
+		"LDFLAGS=${LDFLAGS} `${PKG_CONFIG} --libs libxml-2.0 libudev`"
 }
 
 src_install() {
-	default
+	emake prefix="${EPREFIX}/usr" DESTDIR="${D}" install
 	insinto "/usr/share/${PN}"
 	doins LICENSE
+	dodoc README
 }
