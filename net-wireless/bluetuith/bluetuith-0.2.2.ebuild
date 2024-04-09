@@ -34,6 +34,9 @@ RESTRICT="test"
 RDEPEND="
 	net-wireless/bluez
 "
+BDEPEND="
+	$(unpacker_src_uri_depends)
+"
 
 src_unpack() {
 	if [[ ${PV} == 9999* ]]; then
