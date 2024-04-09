@@ -1,2 +1,3 @@
 move dev-util/cargo-make dev-build/cargo-make
 move app-text/md4c dev-libs/md4c
+move dev-util/xmake dev-build/xmake
