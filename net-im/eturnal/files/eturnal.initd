@@ -1,0 +1,46 @@
+#!/sbin/openrc-run
+# shellcheck shell=sh
+#
+# Copyright 2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+extra_started_commands="reload"
+command="/usr/sbin/eturnalctl"
+command_args="foreground"
+command_user="eturnal:turnserver"
+command_background=1
+pidfile="/run/eturnal.pid"
+capabilities="^cap_net_bind_service"
+healthcheck_delay=300
+healthcheck_timer=60
+
+depend() {
+	need epmd net
+	after firewall
+}
+
+healthcheck() {
+	"${command}" ping >/dev/null
+}
+
+start_post() {
+	local i=10
+	while [ $((i = i - 1)) -gt 0 ]; do
+		healthcheck && return 0
+		sleep 1
+	done
+
+	return 1
+}
+
+stop() {
+	ebegin "Stopping ${RC_SVCNAME}"
+	"${command}" stop
+	eend $?
+}
+
+reload() {
+	ebegin "Reloading ${RC_SVCNAME}"
+	"${command}" reload
+	eend $?
+}

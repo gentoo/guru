@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 
 DEPEND="
 	acct-user/eturnal
-	>=dev-lang/erlang-21[ssl]
+	>=dev-lang/erlang-21:=[ssl]
 	dev-libs/libyaml
 	dev-libs/openssl:=
 	>=dev-erlang/conf-0.1
@@ -42,7 +42,6 @@ src_configure() {
 	export CODE_LOADING=dynamic
 
 	export SKIP_DEPS=true
-
 	rebar3_src_configure
 }
 
@@ -51,7 +50,7 @@ rebar3_install_release() {
 	cp -pR bin lib releases "${ED}"/opt/eturnal/ || die
 
 	systemd_dounit etc/systemd/system/eturnal.service
-	newinitd etc/openrc/eturnal.initd eturnal
+	newinitd "${FILESDIR}"/eturnal.initd eturnal
 	newconfd etc/openrc/eturnal.confd eturnal
 
 	insinto /etc
