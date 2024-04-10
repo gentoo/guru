@@ -85,7 +85,7 @@ src_install() {
 	cmake_src_install
 
 	mkdir -p "${ED}"/usr/share/man/man1 || die
-	mv "${ED}"{/usr/share/man/gridcoinresearch.1,/usr/share/man/man1} || die
+	mv "${ED}"/usr/share/man/*.1 "${ED}"/usr/share/man/man1 || die
 }
 
 pkg_postinst() {
