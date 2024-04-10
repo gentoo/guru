@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit go-module systemd
 
 MY_P="${PN}-v${PV}"
-JOB_ID="389000"
+JOB_ID="504153"
 DESCRIPTION="Pluggable Transport using WebRTC, inspired by Flashproxy"
 HOMEPAGE="
 	https://snowflake.torproject.org/
@@ -21,26 +21,16 @@ KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-BDEPEND="test? ( >=dev-lang/go-1.21 )"
+BDEPEND=">=dev-lang/go-1.21"
 
 src_configure() {
 	COMPONENTS=(
 		broker
+		client
 		probetest
 		proxy
+		server
 	)
-
-	if has_version -b ">=dev-lang/go-1.21"; then
-		COMPONENTS+=(
-			client
-			server
-		)
-	else
-		ewarn "The following components have been disabled:"
-		ewarn "	client server"
-		ewarn
-		ewarn "You need >=dev-lang/go-1.21 to build them."
-	fi
 }
 
 src_compile() {
