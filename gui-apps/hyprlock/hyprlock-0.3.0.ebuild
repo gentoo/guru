@@ -12,7 +12,7 @@ if [[ "${PV}" = *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/hyprwm/${PN^}.git"
 else
-	SRC_URI="https://github.com/hyprwm/${PN^}/releases/download/v${PV}/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/hyprwm/${PN^}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${PV}"
 
 	KEYWORDS="~amd64"
