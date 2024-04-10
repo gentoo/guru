@@ -30,13 +30,14 @@ src_install() {
 	dodir /usr/bin
 	cp -r . "$ED/$path" || die
 
-	echo "cd $path$PN; WINEPREFIX=/home/\$USER/.wine-far-cry-demo $conty wine /opt/games/$PN/FarCry.exe; cd -" > "$ED/usr/bin/$PN"
+	pr="WINEPREFIX=/home/\$USER/.wine-far-cry-demo"
+
+	echo "cd $path$PN; $pr $conty wine /opt/games/$PN/FarCry.exe; cd -" > "$ED/usr/bin/$PN"
 	fperms +x "/usr/bin/$PN"
 
 }
 
 pkg_postinst() {
-	einfo "DXVK increase FPS, so try $conty winetricks dxvk vkd3d"
 	einfo "Downloaded from https://www.moddb.com/games/far-cry/downloads/far-cry-demo-1"
 	einfo ""
 	einfo "More about the game:"
