@@ -42,16 +42,17 @@ BDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=("${FILESDIR}/fix-mkdocstrings.patch")
+PATCHES=(
+	"${FILESDIR}/fix-mkdocstrings.patch"
+)
 
-distutils_enable_tests pytest
 EPYTEST_DESELECT=(
 	# Those tests ask to press keys
 	tests/snapshot_tests/test_snapshots.py
-
 	# Need a package that should be optional
 	tests/text_area/test_languages.py
 )
+distutils_enable_tests pytest
 
 python_compile_all() {
 	echo "INHERIT: mkdocs-offline.yml" > "${S}/mkdocs.yml"

@@ -24,10 +24,3 @@ index 58a4c37ad..c5e574ffa 100644
            {% if show_full_path %}{{ function.path }}{% else %}{{ function.name }}{% endif %}
            {% include "signature.html" with context %}
          {% endfilter %}:
-diff --git a/docs/api/constants.md b/docs/api/constants.md
-index f4d97e8df..88aa35b2f 100644
---- a/docs/api/constants.md
-+++ b/docs/api/constants.md
-@@ -1 +1 @@
--::: textuals.constants
-+::: textual.constants
