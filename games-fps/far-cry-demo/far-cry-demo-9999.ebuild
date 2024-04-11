@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Famous game from 2004"
+DESCRIPTION="Famous game from 2004, developed by CryTek"
 HOMEPAGE="https://en.wikipedia.org/wiki/Far_Cry_(video_game)"
 
 SRC_URI="https://archive.org/download/$PN.tar.xz/$PN.tar.xz"
