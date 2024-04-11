@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,13 +18,20 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="debug"
 
+RDEPEND="
+	dev-libs/glib:2
+	media-libs/fontconfig
+	x11-libs/cairo
+	x11-libs/pango
+"
 BDEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
 	x11-libs/pango
 "
-# 	doc? (
-# 		dev-python/sphinxext-opengraph[${PYTHON_USEDEP}]
-# 	)
+	# doc? (
+	# 	dev-python/furo[${PYTHON_USEDEP}]
+	# 	dev-python/sphinxext-opengraph[${PYTHON_USEDEP}]
+	# )
 DEPEND="${BDEPEND}"
 
 src_prepare() {

@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,6 +18,12 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="debug"
 
+RDEPEND="
+	dev-libs/glib:2
+	media-libs/fontconfig
+	x11-libs/cairo
+	x11-libs/pango
+"
 BDEPEND="
 	>=dev-python/cython-3.0.2[${PYTHON_USEDEP}]
 	x11-libs/pango
@@ -29,10 +35,9 @@ BDEPEND="
 DEPEND="${BDEPEND}"
 
 src_prepare() {
-	# The tests always fails. I cannot find how to solve it
+	# The tests always fails (ManimPango has to be installed for them to work)
 	rm -rf "${S}/tests"
 	distutils-r1_src_prepare
 }
 
-# Cannot build the docs, sphinx.ext.autosummary cannot find manimpango
-# distutils_enable_sphinx docs
+# distutils_enable_sphinx docs # We need a lot of other packages if we allow doc
