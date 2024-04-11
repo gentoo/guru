@@ -18,7 +18,7 @@
 # Depends on masked net-libs/sofia-sip.
 net-voip/gnome-calls
 
-# Robert Greener <me@r0bert.dev> (2024-04-07)
+# Robert Greener <dev@greener.sh> (2024-04-07)
 # Corresponding dev-R/* packages have long been removed.
 # Recommend using dev-lang/R[-minimal] instead.
 # Scheduled for removal on 2024-05-07
