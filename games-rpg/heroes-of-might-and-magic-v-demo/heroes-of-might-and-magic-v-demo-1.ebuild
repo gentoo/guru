@@ -5,7 +5,7 @@ EAPI=8
 
 inherit wrapper
 
-DESCRIPTION="HoMM 5, a few maps included. Camera zoom looks like broken. Metacritic: 77"
+DESCRIPTION="HoMM 5 from 2006, made by Nival in Russia. A few maps included."
 HOMEPAGE="https://en.wikipedia.org/wiki/Heroes_of_Might_and_Magic_V"
 
 SRC_URI="https://archive.org/download/$PN.tar.xz/$PN.tar.xz"
