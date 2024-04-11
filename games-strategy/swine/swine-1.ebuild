@@ -5,7 +5,7 @@ EAPI=8
 
 inherit wrapper
 
-DESCRIPTION="Simple RTS from 2005, Metacritic is 65, user score is 8.2"
+DESCRIPTION="Fun RTS from 2001 by Hungarian developer StormRegion, similar to Ground Control"
 HOMEPAGE="https://en.wikipedia.org/wiki/S.W.I.N.E."
 
 SRC_URI="https://archive.org/download/$PN.tar.xz/$PN.tar.xz"
