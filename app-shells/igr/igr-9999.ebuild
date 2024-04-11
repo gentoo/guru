@@ -14,7 +14,6 @@ RDEPEND="
 	sys-apps/ripgrep
 	app-shells/fzf
 	sys-apps/bat
-	app-editors/vim
 "
 
 S="$WORKDIR"
