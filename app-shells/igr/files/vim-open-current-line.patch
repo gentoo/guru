@@ -1,3 +1,9 @@
+This patch change calling of v to $EDITOR, see https://github.com/DanielFGray/fzf-scripts/issues/26
+
+And add more context to the search.
+
+Also open a file on the specific line
+
 diff --git a/igr b/igr
 index 73a6e8c..e23082a 100755
 --- a/igr
