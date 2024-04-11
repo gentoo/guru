@@ -3,9 +3,6 @@
 
 EAPI=8
 
-CMAKE_BUILD_TYPE="Release"
-CMAKE_MAKEFILE_GENERATOR="emake"
-
 inherit cmake llvm toolchain-funcs desktop
 
 DESCRIPTION="A hex editor for reverse engineers, programmers, and eyesight"
@@ -31,21 +28,23 @@ PATCHES=(
 )
 
 DEPEND="
-	app-arch/zstd[zlib]
-	app-forensics/yara
+	app-arch/bzip2
+	app-arch/xz-utils
+	app-arch/zstd:=
+	app-forensics/yara:=
 	>=dev-cpp/nlohmann_json-3.10.2
-	dev-libs/capstone
-	dev-libs/nativefiledialog-extended
+	dev-libs/capstone:=
+	dev-libs/nativefiledialog-extended:=
 	>=dev-libs/libfmt-8.0.0:=
 	media-libs/freetype
 	media-libs/glfw
 	media-libs/glm
-	net-libs/libssh2
-	net-libs/mbedtls
+	media-libs/libglvnd
+	net-libs/mbedtls:=
 	net-misc/curl
-	sys-apps/dbus
 	sys-apps/file
 	sys-apps/xdg-desktop-portal
+	sys-libs/zlib
 	virtual/libiconv
 	virtual/libintl
 "
