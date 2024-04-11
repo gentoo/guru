@@ -1,10 +1,10 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517="poetry"
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1
 
@@ -16,12 +16,13 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
-RESTRICT="test"
+RESTRICT="!test? ( test )"
 
-RDEPEND="app-text/pandoc"
+RDEPEND="virtual/pandoc"
 BDEPEND="
 	test? (
 		>=dev-python/pandocfilters-1.5.0[${PYTHON_USEDEP}]
+		dev-python/pytest[${PYTHON_USEDEP}]
 		app-text/texlive-core
 		dev-texlive/texlive-latex
 		dev-texlive/texlive-fontsrecommended
@@ -29,11 +30,10 @@ BDEPEND="
 	)
 "
 
+EPYTEST_DESELECT=(
+	tests.py::TestPypandoc::test_basic_conversion_from_http_url
+	tests.py::TestPypandoc::test_pdf_conversion
+)
 python_test() {
-	# This test wants internet access
-	sed -i -e 's:test_basic_conversion_from_http_url:_&:' tests.py || die
-	# This one fails for no reason. When not in sandbox mode, the conversion is made without problems
-	sed -i -e 's:test_conversion_with_data_files:_&:' tests.py || die
-
-	"${EPYTHON}" tests.py || die "Tests fail with ${EPYTHON}"
+	epytest tests.py
 }
