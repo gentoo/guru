@@ -22,7 +22,7 @@ index 73a6e8c..e23082a 100755
  --bind="change:reload:rg -n ${list_files:+-l} --color=always {q}" \
 ---bind='enter:execute:v {1}' \
 ---preview="[[ -n {1} ]] && $preview"
-+--bind='enter:execute:echo "vim {1}:{2}" && vim {1}:{2}' \
++--bind='enter:execute:echo "$EDITOR {1}:{2}" && $EDITOR {1}:{2}' \
 +--preview="[[ -n {1} ]] && $preview"
 +
 + # echo to save in shell history
