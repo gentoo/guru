@@ -5,7 +5,7 @@ EAPI=8
 
 inherit wrapper
 
-DESCRIPTION="From 2000, Metacritic is 75"
+DESCRIPTION="RTS from 2000 by Massive Entertainment, without resources and buildings"
 HOMEPAGE="https://en.wikipedia.org/wiki/Ground_Control_(video_game)"
 
 SRC_URI="https://archive.org/download/$PN.tar.xz/$PN.tar.xz"
