@@ -5,8 +5,8 @@ HOMEPAGE="https://github.com/virtual-puppet-project/vpuppr"
 
 RESTRICT="strip"
 
-PYTHON_COMPAT=( python3_{10..11} )
-inherit desktop python-single-r1
+PYTHON_COMPAT=( python3_{10..12} )
+inherit desktop xdg python-single-r1
 
 IUSE="+osf-tracker ifm-tracker mouse-tracker vts-tracker meowface-tracker remote-control"
 REQUIRED_USE="osf-tracker? ( ${PYTHON_REQUIRED_USE} )"
@@ -60,7 +60,7 @@ export EDITOR="${WORKDIR}/Godot_v3.x-stable_linux_headless.64"
 
 src_prepare() {
 	if use osf-tracker; then
-		mv "${WORKDIR}"/openseeface-tracker-${OPENSEEFACE_COMMIT} \
+		mv -T "${WORKDIR}"/openseeface-tracker-${OPENSEEFACE_COMMIT} \
 			resources/extensions/openseeface-tracker || die
 		mv "${WORKDIR}"/OpenSeeFace \
 			resources/extensions/openseeface-tracker/ || die
@@ -68,22 +68,22 @@ src_prepare() {
 	fi
 
 	if use ifm-tracker; then
-		mv "${WORKDIR}"/ifacialmocap-tracker-${IFACIALMOCAP_COMMIT} \
+		mv -T "${WORKDIR}"/ifacialmocap-tracker-${IFACIALMOCAP_COMMIT} \
 			resources/extensions/ifacialmocap-tracker || die
 	fi
 
 	if use vts-tracker; then
-		mv "${WORKDIR}"/vtube-studio-tracker-${VTUBE_STUDIO_COMMIT} \
+		mv -T "${WORKDIR}"/vtube-studio-tracker-${VTUBE_STUDIO_COMMIT} \
 			resources/extensions/vtube-studio-tracker || die
 	fi
 
 	if use meowface-tracker; then
-		mv "${WORKDIR}"/meowface-tracker-${MEOWFACE_COMMIT} \
+		mv -T "${WORKDIR}"/meowface-tracker-${MEOWFACE_COMMIT} \
 			resources/extensions/meowface-tracker || die
 	fi
 
 	if use remote-control; then
-		mv "${WORKDIR}"/remote-control-server-${RC_SERVER_COMMIT} \
+		mv -T "${WORKDIR}"/remote-control-server-${RC_SERVER_COMMIT} \
 			resources/extensions/remote-control-server || die
 	fi
 
