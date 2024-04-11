@@ -37,7 +37,6 @@ BDEPEND="
 		>=dev-python/PyWavefront-1.2.0[${PYTHON_USEDEP}]
 		<dev-python/PyWavefront-2[${PYTHON_USEDEP}]
 		>=dev-python/trimesh-3.2.6[${PYTHON_USEDEP}]
-
 	)
 "
 DEPEND="${RDEPEND}"
