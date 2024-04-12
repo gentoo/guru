@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: 3.x
 
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: dev
           fetch-depth: 0
@@ -41,7 +41,7 @@ jobs:
 
       - name: Get changed files
         if: ${{ fromJSON(env.is_commit_valid) }}
-        uses: tj-actions/changed-files@v37
+        uses: tj-actions/changed-files@v44
         with:
           base_sha: ${{ env.last_successful_commit }}
           write_output_files: true
