@@ -16,6 +16,10 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+PATCHES=(
+	"${FILESDIR}/fix_tests.patch"
+)
+
 BDEPEND="
 	test? (
 		dev-python/numpy[${PYTHON_USEDEP}]
