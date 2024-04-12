@@ -31,7 +31,9 @@ BDEPEND="
 "
 
 EPYTEST_DESELECT=(
+	# Need internet
 	tests.py::TestPypandoc::test_basic_conversion_from_http_url
+	# pandoc does not manage to find pdflatex.fmt despite it being installed
 	tests.py::TestPypandoc::test_pdf_conversion
 )
 python_test() {
