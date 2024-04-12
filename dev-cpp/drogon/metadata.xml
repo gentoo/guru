@@ -12,10 +12,8 @@
 	<use>
 		<flag name="brotli">Enable support for brotli compression</flag>
 		<flag name="mariadb">Add support for the mariadb database</flag>
-		<flag name="redis">
-			Add support for the Redis database via
-			<pkg>dev-libs/hiredis</pkg>
-		</flag>
+		<flag name="redis">Add support for the Redis database via <pkg>dev-libs/hiredis</pkg></flag>
 		<flag name="yaml">Add support for yaml config file</flag>
+		<flag name="spdlog">enable <pkg>dev-libs/spdlog</pkg> logging backend</flag>
 	</use>
 </pkgmetadata>
