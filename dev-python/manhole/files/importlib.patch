@@ -1,0 +1,11 @@
+Use importlib as imp is removed in python3.12
+--- a/tests/test_manhole.py
++++ b/tests/test_manhole.py
+@@ -1,6 +1,6 @@
+ from __future__ import print_function
+ 
+-import imp
++import importlib
+ import os
+ import re
+ import select
