@@ -1,7 +1,7 @@
 
 EAPI=8
 
-DESCRIPTION=" Soothing pastel mouse cursors."
+DESCRIPTION="Soothing pastel mouse cursors"
 HOMEPAGE="https://github.com/catppuccin"
 
 MY_URI="https://github.com/catppuccin/cursors/releases/download/v${PV}/"

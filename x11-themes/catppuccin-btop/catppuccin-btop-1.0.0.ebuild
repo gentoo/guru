@@ -1,6 +1,6 @@
 EAPI=8
 
-DESCRIPTION="Soothing pastel theme for btop ."
+DESCRIPTION="Soothing pastel theme for btop"
 HOMEPAGE="https://github.com/catppuccin"
 
 SRC_URI="

@@ -1,7 +1,7 @@
 
 EAPI=8
 
-DESCRIPTION="Catppuccin is a community-driven pastel theme."
+DESCRIPTION="Soothing pastel theme for GTK"
 HOMEPAGE="https://github.com/catppuccin"
 
 MY_URI="https://github.com/catppuccin/gtk/releases/download/v${PV}/"

@@ -1,6 +1,6 @@
 EAPI=8
 
-DESCRIPTION="Soothing pastel theme for Kvantum."
+DESCRIPTION="Soothing pastel theme for Kvantum"
 HOMEPAGE="https://github.com/catppuccin"
 
 EGIT_REPO_URI="https://github.com/catppuccin/Kvantum.git"
