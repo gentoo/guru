@@ -8,7 +8,10 @@
     diagnostic and debug tools to debug system issues around USB-C/USB
     PD topology.
   </longdescription>
-  <!-- maintainer-needed -->
+  <maintainer type="person">
+    <name>Adrian Ratiu</name>
+    <email>adrian.ratiu@collabora.com</email>
+  </maintainer>
   <upstream>
     <remote-id type="github">Rajaram-Regupathy/libtypec</remote-id>
   </upstream>
