@@ -1,14 +1,14 @@
-diff --git a/plugins/script_loader/CMakeLists.txt b/plugins/script_loader/CMakeLists.txt
-index af0f6c79..cddc0e14 100644
+Remove the compilation step that needs dotnet
+https://bugs.gentoo.org/926761
 --- a/plugins/script_loader/CMakeLists.txt
 +++ b/plugins/script_loader/CMakeLists.txt
-@@ -46,7 +46,4 @@ if (CoreClrEmbed_FOUND)
+@@ -45,8 +45,4 @@ if (CoreClrEmbed_FOUND)
+     if (IMHEX_BUNDLE_DOTNET)
          install(FILES ${CoreClrEmbed_SHARED_LIBRARIES} DESTINATION ${CMAKE_INSTALL_LIBDIR})
      endif ()
- 
+-
 -    add_subdirectory(dotnet)
 -    add_dependencies(script_loader AssemblyLoader)
 -
--endif ()
+ endif ()
 \ No newline at end of file
-+endif ()

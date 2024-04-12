@@ -25,6 +25,8 @@ PATCHES=(
 	# will use it at some point and try to access internet.
 	# Because it did not cause any issue, we can disable it
 	"${FILESDIR}/remove_dotnet.patch"
+	# Remove the different -Werror flags
+	"${FILESDIR}/remove_Werror.patch"
 )
 
 DEPEND="
