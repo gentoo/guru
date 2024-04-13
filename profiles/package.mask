@@ -18,6 +18,8 @@
 # Depends on last rited dev-python/future
 # Masked for removal in 30 days
 media-video/ffsubsync
+# Rev Dep
+mpv-plugin/autosubsync-mpv
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-09)
 # Depends on masked net-libs/sofia-sip.
