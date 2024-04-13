@@ -18,6 +18,8 @@
 # Mask stale/unmaintained packages for removal in 30 days
 # Unmaintained upstream, runtime failure on >=dev-lang/python-3.9
 dev-python/clufter
+# Deprecated upstream, replaced by oracledb, no revdeps
+dev-python/cx-oracle
 
 # Julien Roy <julien@jroy.ca> (2024-04-13)
 # Depends on last rited dev-python/future
