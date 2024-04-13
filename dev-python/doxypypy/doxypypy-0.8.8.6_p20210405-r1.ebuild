@@ -1,16 +1,17 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_10 )
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{10..12} )
 inherit distutils-r1
 
 COMMIT="39115c3d061d2f83e4a030bcb8642ec6f3203e61"
 
 DESCRIPTION="A more Pythonic version of doxypy, a Doxygen filter for Python"
 HOMEPAGE="https://github.com/Feneric/doxypypy"
-SRC_URI="https://github.com/Feneric/doxypypy/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/Feneric/doxypypy/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 RESTRICT="!test? ( test )"
