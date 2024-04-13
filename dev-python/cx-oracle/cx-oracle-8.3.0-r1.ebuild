@@ -1,9 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
 
-PYTHON_COMPAT=( python3_10 )
+DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_EXT=1
+PYTHON_COMPAT=( python3_{10..12} )
 PYPI_PN="cx_Oracle"
 PYPI_NO_NORMALIZE=1
 
@@ -27,22 +29,9 @@ RESTRICT="test"
 DEPEND="dev-db/oracle-instantclient"
 RDEPEND="${DEPEND}"
 
-python_prepare_all() {
+src_prepare() {
 	# do not install LICENSE and README to /usr/
 	sed -i -e '/data_files/d' setup.py || die
 
-	distutils-r1_python_prepare_all
-}
-
-pkg_postinst() {
-	return
-	# no python_mod_optimize
-}
-
-src_install() {
-	distutils-r1_src_install
-	if use examples; then
-		docinto examples
-		dodoc -r samples/. || die
-	fi
+	distutils-r1_src_prepare
 }
