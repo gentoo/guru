@@ -15,6 +15,11 @@
 # New entries go on top.
 
 # Julien Roy <julien@jroy.ca> (2024-04-13)
+# Mask stale/unmaintained packages for removal in 30 days
+# Unmaintained upstream, runtime failure on >=dev-lang/python-3.9
+dev-python/clufter
+
+# Julien Roy <julien@jroy.ca> (2024-04-13)
 # Depends on last rited dev-python/future
 # Masked for removal in 30 days
 media-video/ffsubsync
