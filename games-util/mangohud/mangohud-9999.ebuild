@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -124,7 +124,8 @@ src_prepare() {
 	find . -type f -exec sed -i 's|"imgui_internal.h"|<imgui/imgui_internal.h>|g' {} \; || die
 
 	# replace imgui_dep in implot build file
-	sed -i -r -e 's|(imgui_dep = ).*|\1dependency('\'imgui\'')|' -e '/imgui_sp/d' "${S}/subprojects/implot-${IMPLOT_VER}/meson.build" || die
+	sed -i -r -e 's|(imgui_dep = ).*|\1dependency('\'imgui\'')|' \
+		-e '/imgui_sp/d' "${S}/subprojects/implot-${IMPLOT_VER}/meson.build" || die
 }
 
 multilib_src_configure() {
