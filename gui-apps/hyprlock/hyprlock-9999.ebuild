@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake toolchain-funcs
+inherit cmake
 
 DESCRIPTION="Hyprland's GPU-accelerated screen locking utility"
 HOMEPAGE="https://github.com/hyprwm/hyprlock"
