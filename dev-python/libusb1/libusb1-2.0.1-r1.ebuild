@@ -9,7 +9,10 @@ DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 pypi
 
 DESCRIPTION="Pure-python wrapper for libusb-1.0"
-HOMEPAGE="https://github.com/vpelletier/python-libusb1 https://pypi.org/project/libusb1/"
+HOMEPAGE="
+	https://github.com/vpelletier/python-libusb1
+	https://pypi.org/project/libusb1/
+"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
