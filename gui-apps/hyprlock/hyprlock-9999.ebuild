@@ -5,7 +5,6 @@ EAPI=8
 
 inherit cmake toolchain-funcs
 
-COMMIT="57e80006602b7857fb23feded368055df62b8cb3"
 DESCRIPTION="Hyprland's GPU-accelerated screen locking utility"
 HOMEPAGE="https://github.com/hyprwm/hyprlock"
 
@@ -13,12 +12,8 @@ if [[ "${PV}" = *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/hyprwm/${PN^}.git"
 else
-	#When releases start to happen
-	#SRC_URI="https://github.com/hyprwm/${PN^}/releases/download/v${PV}/source-v${PV}.tar.gz -> ${P}.gh.tar.gz"
-	#S="${WORKDIR}/${PN}-source"
-
-	SRC_URI="https://github.com/hyprwm/${PN^}/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
-	S="${WORKDIR}/${PN}-${COMMIT}"
+	SRC_URI="https://github.com/hyprwm/${PN^}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${PV}"
 
 	KEYWORDS="~amd64"
 fi

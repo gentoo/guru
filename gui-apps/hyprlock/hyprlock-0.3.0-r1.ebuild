@@ -46,6 +46,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/0001-fix-CFLAGS-CXXFLAGS-hyprlock.patch"
+	"${FILESDIR}/0002-cmake-install-pam-file-fix.patch"
 )
 
 src_configure() {
