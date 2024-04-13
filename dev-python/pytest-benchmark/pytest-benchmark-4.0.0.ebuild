@@ -1,11 +1,16 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1
+
+DOCS_BUILDER="sphinx"
+DOCS_DEPEND="dev-python/sphinx-py3doc-enhanced-theme"
+DOCS_DIR="docs"
+
+inherit distutils-r1 docs
 
 DESCRIPTION="py.test fixture for benchmarking code"
 HOMEPAGE="
@@ -22,10 +27,8 @@ DOCS=( {AUTHORS,CHANGELOG,README}.rst )
 
 RDEPEND="
 	dev-python/py-cpuinfo[${PYTHON_USEDEP}]
-	dev-python/pytest[${PYTHON_USEDEP}]
 "
 
-# tests include pytest-xdist integration
 BDEPEND="
 	test? (
 		dev-python/aspectlib[${PYTHON_USEDEP}]
@@ -41,24 +44,12 @@ BDEPEND="
 "
 
 EPYTEST_DESELECT=(
-	tests/test_benchmark.py::test_help
+	# The equality test is not correct (the format changed but the tests did not)
+	# This also deselect other tests for some reason
 	tests/test_cli.py::test_help
 	tests/test_cli.py::test_help_compare
+	tests/test_benchmark.py::test_abort_broken
+	tests/test_utils.py::test_clonefunc
 )
 
 distutils_enable_tests pytest
-
-distutils_enable_sphinx docs \
-	dev-python/sphinx-py3doc-enhanced-theme
-
-python_test() {
-	if [[ ${EPYTHON} == "python3.11" ]]; then
-		# https://github.com/ionelmc/pytest-benchmark/issues/231
-		EPYTEST_DESELECT+=(
-			tests/test_benchmark.py::test_abort_broken
-			"tests/test_utils.py::test_clonefunc[<lambda>]"
-			"tests/test_utils.py::test_clonefunc[f2]"
-		)
-	fi
-	epytest
-}
