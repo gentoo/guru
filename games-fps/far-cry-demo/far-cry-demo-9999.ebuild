@@ -23,16 +23,15 @@ QA_PREBUILT="*"
 
 src_install() {
 
-	path="/opt/games/"
 	conty=conty-1.25.2
 
-	dodir $path
+	dodir opt
 	dodir /usr/bin
-	cp -r . "$ED/$path" || die
+	cp -r . "$ED/opt" || die
 
 	pr="WINEPREFIX=/home/\$USER/.wine-far-cry-demo"
 
-	echo "cd $path$PN; $pr $conty wine /opt/games/$PN/FarCry.exe; cd -" > "$ED/usr/bin/$PN"
+	echo "cd $path$PN; $pr $conty wine /opt/$PN/FarCry.exe; cd -" > "$ED/usr/bin/$PN"
 	fperms +x "/usr/bin/$PN"
 
 }
@@ -49,5 +48,5 @@ pkg_postinst() {
 	einfo "https://www.gog.com/game/far_cry"
 	einfo "https://www.humblebundle.com/store/far-cry"
 	einfo ""
-	einfo "The game is installed to $path$PN - if you want to run it by another Wine or operating system"
+	einfo "The game is installed to /opt/$PN - if you want to run it by another Wine or operating system"
 }
