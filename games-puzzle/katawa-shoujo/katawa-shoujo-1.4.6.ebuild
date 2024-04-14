@@ -5,7 +5,7 @@ EAPI=8
 
 inherit wrapper
 
-DESCRIPTION="Bishoujo-style, in the fictional Yamaku High School for disabled children"
+DESCRIPTION="Re-Engineered visual novel with accessibility features"
 HOMEPAGE="https://www.fhs.sh/projects"
 SRC_URI="https://github.com/fleetingheart/ksre/releases/download/v$PV/KSRE-linux.tar.bz2"
 
