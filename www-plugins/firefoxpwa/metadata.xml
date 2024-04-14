@@ -5,6 +5,10 @@
 		<name>John-Henry Lim</name>
 		<email>johnhenrylim12@gmail.com</email>
 	</maintainer>
+	<maintainer type="person">
+		<name>Anna</name>
+		<email>cyber+gentoo@sysrq.in</email>
+	</maintainer>
 	<longdescription>
 		Progressive Web Apps (PWAs) are web apps that use web APIs and features along
 		with progressive enhancement strategy to bring a native app-like user
@@ -20,10 +24,6 @@
 		should also install the browser extension if you haven&apos;t already. You can
 		download it from &lt;https://addons.mozilla.org/firefox/addon/pwas-for-firefox/&gt;.
 	</longdescription>
-	<use>
-		<flag name="lto">Enable Link Time Optimization (LTO).</flag>
-		<flag name="custom-cflags">Disable the default use of clang and lld with LTO and all other manipulations of CFLAGS. Disabling this may cause the build and/or LTO to fail.</flag>
-	</use>
 	<upstream>
 		<maintainer>
 			<name>Filip Štamcar</name>
