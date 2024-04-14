@@ -15,6 +15,11 @@
 # New entries go on top.
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-14)
+# Depends on nonexistent app-misc/pup. Upstream is long time dead. No revdeps.
+# Removal on 2024-05-14.
+net-misc/tuxi
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-14)
 # Initially added for www-apps/brutaldon (not packaged yet) but I don't want to
 # package it anymore. No revdeps.
 # Removal on 2024-05-14.
