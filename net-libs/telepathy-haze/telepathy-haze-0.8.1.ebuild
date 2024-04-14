@@ -1,14 +1,17 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_10 )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit python-any-r1
 
 DESCRIPTION="Telepathy connection manager providing libpurple supported protocols"
-HOMEPAGE="https://telepathy.freedesktop.org https://developer.pidgin.im/wiki/TelepathyHaze"
+HOMEPAGE="
+	https://telepathy.freedesktop.org
+	https://developer.pidgin.im/wiki/TelepathyHaze
+"
 SRC_URI="https://telepathy.freedesktop.org/releases/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
