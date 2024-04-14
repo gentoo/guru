@@ -7,12 +7,20 @@ The network and squashfs tests won't work within portage. Disable them.
 
 Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
 ---
- test/meson.build |   18 ------------------
- 1 file changed, 18 deletions(-)
+ test/meson.build |   19 -------------------
+ 1 file changed, 19 deletions(-)
 
 --- a/test/meson.build
 +++ b/test/meson.build
-@@ -24,10 +24,6 @@ tests = [
+@@ -9,7 +9,6 @@ tests = [
+   'config_file',
+   'context',
+   'dm',
+-  'event_log',
+   'hash_index',
+   'manifest',
+   'signature',
+@@ -24,10 +23,6 @@ tests = [
    'stats',
  ]
  
@@ -23,7 +31,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  if get_option('streaming')
    tests += 'nbd'
  endif
-@@ -63,17 +59,3 @@ fakerand = executable(
+@@ -63,17 +58,3 @@ fakerand = executable(
    'fakerand',
    'fakerand.c',
  )
