@@ -54,10 +54,6 @@ python_check_deps() {
 	python_has_version -b "dev-python/xcffib[${PYTHON_USEDEP}]"
 }
 
-# pkg_setup() {
-# 	use test && python-any-r1_pkg_setup
-# }
-
 src_configure() {
 	local emesonargs=(
 		$(meson_use config-file config_file)
