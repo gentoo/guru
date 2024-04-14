@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>marco@sirabella.org</email>
+		<name>Marco Sirabella</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">HenrikBengtsson/x86-64-level</remote-id>
+		<bugs-to>https://github.com/HenrikBengtsson/x86-64-level/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
