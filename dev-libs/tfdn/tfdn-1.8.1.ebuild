@@ -1,4 +1,4 @@
-# Copyright 2021-2023 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 DOCS_BUILDER="doxygen"
 DOCS_DEPEND="app-text/doxygen[dot]"
 DOCS_CONFIG_NAME="the_Foundation.doxygen"
-inherit cmake docs
+inherit cmake docs flag-o-matic
 
 MY_PN="the_foundation"
 DESCRIPTION="Opinionated C11 library for low-level functionality"
@@ -15,7 +15,7 @@ SRC_URI="https://git.skyjake.fi/skyjake/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.t
 S="${WORKDIR}/${MY_PN}"
 
 LICENSE="BSD-2"
-SLOT="0/$(ver_cut 1-2)"
+SLOT="0/1.7"
 KEYWORDS="~amd64 ~x86"
 IUSE="cpu_flags_x86_sse4_1 curl debug ssl"
 
@@ -38,6 +38,7 @@ src_configure() {
 		-DTFDN_ENABLE_WEBREQUEST=$(usex curl)
 	)
 
+	append-cppflags $(usex debug "-UNDEBUG" "-DNDEBUG")
 	cmake_src_configure
 }
 
