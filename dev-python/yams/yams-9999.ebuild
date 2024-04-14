@@ -3,7 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_10 )
+PYTHON_COMPAT=( python3_{10..12} )
+DISTUTILS_USE_PEP517=setuptools
+
 inherit distutils-r1 systemd
 
 DESCRIPTION="Yet Another MPD Scrobbler (for Last.FM)"
@@ -13,7 +15,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/Berulacks/${PN}.git"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/Berulacks/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/Berulacks/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -27,14 +29,6 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	media-sound/mpd
 "
-
-python_prepare_all() {
-	# Change application name so the .egg-info directory has the
-	# same name as the Python site-package one for consistency
-	sed -e "s/YAMScrobbler/yams/" -i setup.py || die
-
-	distutils-r1_python_prepare_all
-}
 
 python_install_all() {
 	systemd_douserunit yams.service
