@@ -22,6 +22,8 @@ dev-python/clufter
 dev-python/cx-oracle
 # Library with no revdeps, upstream no longer tagging releases, need to use live ebuild or tag commits
 dev-python/curio
+# Can't be merged due to banned files (bug https://bugs.gentoo.org/884691)
+dev-python/wheezy-template
 
 # Julien Roy <julien@jroy.ca> (2024-04-13)
 # Depends on last rited dev-python/future
