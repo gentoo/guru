@@ -494,6 +494,8 @@ PATCHES=(
 	"${FILESDIR}/${P}-build-remove-git-dep.patch"
 )
 
+QA_FLAGS_IGNORED="usr/bin/${PN}"
+
 src_unpack() {
 	cargo_src_unpack
 	# rename the repo to match what the build expects
@@ -517,4 +519,3 @@ pkg_postinst() {
 pkg_postrm() {
 	xdg_icon_cache_update
 }
-
