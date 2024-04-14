@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_10 )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit git-r3 meson python-any-r1 virtualx xdg
 
 DESCRIPTION="A lightweight compositor for X11 (previously a compton fork)"
@@ -51,12 +51,12 @@ BDEPEND="virtual/pkgconfig
 DOCS=( README.md picom.sample.conf )
 
 python_check_deps() {
-	has_version -b "dev-python/xcffib[${PYTHON_USEDEP}]"
+	python_has_version -b "dev-python/xcffib[${PYTHON_USEDEP}]"
 }
 
-pkg_setup() {
-	use test && python-any-r1_pkg_setup
-}
+# pkg_setup() {
+# 	use test && python-any-r1_pkg_setup
+# }
 
 src_configure() {
 	local emesonargs=(
