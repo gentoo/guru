@@ -6,7 +6,7 @@
 		<name>Jonas Frei</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">rsteube/carapace-bin</remote-id>
-		<bugs-to>https://github.com/rsteube/carapace-bin/issues</bugs-to>
+		<remote-id type="github">carapace-sh/carapace-bin</remote-id>
+		<bugs-to>https://github.com/carapace-sh/carapace-bin/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
