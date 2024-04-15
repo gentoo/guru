@@ -1,0 +1,30 @@
+From 7de1000ff658c594a8f0a4b62f4956fc635d6c23 Mon Sep 17 00:00:00 2001
+From: Colin Ian King <colin.i.king@gmail.com>
+Date: Thu, 4 Jan 2024 09:46:19 +0000
+Subject: [PATCH] libtypec: utils: add missing break in switch statement
+
+For the product_type_pd3p1_drd case there is a missing break
+statement causing an unintentional fall-through to the default
+case. Add in the missing break statement.
+
+Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+Upstream-Status: Backport [upstream commit 7de1000]
+---
+ utils/lstypec.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/utils/lstypec.c b/utils/lstypec.c
+index a30b2bc..98d23f6 100644
+--- a/utils/lstypec.c
++++ b/utils/lstypec.c
+@@ -396,6 +396,7 @@ void print_identity_data(int recipient, union libtypec_discovered_identity id, s
+           printf("    Product VDO 2: 0x%08x\n", id.disc_id.product_type_vdo2);
+           printf("    Product VDO 3: 0x%08x\n", id.disc_id.product_type_vdo3);
+           print_vdo(((uint32_t) id.disc_id.product_type_vdo3), 6, pd3p1_dfp_fields, pd3p1_dfp_field_desc);
++          break;
+         default:
+           printf("    Product VDO 1: 0x%08x\n", id.disc_id.product_type_vdo1);
+           printf("    Product VDO 2: 0x%08x\n", id.disc_id.product_type_vdo2);
+-- 
+2.43.2
+

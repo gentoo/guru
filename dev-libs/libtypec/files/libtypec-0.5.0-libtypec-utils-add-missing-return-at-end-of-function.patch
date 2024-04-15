@@ -1,0 +1,30 @@
+From d15c9d17148632b7864990c29854321b891c95c3 Mon Sep 17 00:00:00 2001
+From: Colin Ian King <colin.i.king@gmail.com>
+Date: Thu, 4 Jan 2024 09:44:04 +0000
+Subject: [PATCH] libtypec: utils: add missing return at end of function
+
+Function typec_status_billboard is missing a return 0 at the
+end of the function, currently it is returning nothing and so
+it may be returning a garbage value.
+
+Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+Upstream-Status: Backport [upstream commit d15c9d1]
+---
+ utils/typecstatus.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/utils/typecstatus.c b/utils/typecstatus.c
+index 43801c0..5e16e74 100644
+--- a/utils/typecstatus.c
++++ b/utils/typecstatus.c
+@@ -169,6 +169,7 @@ int typec_status_billboard()
+ 
+             }
+         }
++	return 0;
+ }
+ 
+ int typecstatus_power_contract()
+-- 
+2.43.2
+

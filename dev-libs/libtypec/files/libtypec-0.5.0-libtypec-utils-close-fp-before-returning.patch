@@ -1,0 +1,44 @@
+From 477b08cea7e27da5fb97ce52d0af3d2c98f4f98f Mon Sep 17 00:00:00 2001
+From: Colin Ian King <colin.i.king@gmail.com>
+Date: Thu, 4 Jan 2024 09:41:04 +0000
+Subject: [PATCH] libtypec: utils: close fp before returning
+
+Fix resource leak on fp on error return path, close fp before
+returning.
+
+Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+Upstream-Status: Backport [upstream commit 477b08c]
+---
+ utils/typecstatus.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/utils/typecstatus.c b/utils/typecstatus.c
+index be906a4..43801c0 100644
+--- a/utils/typecstatus.c
++++ b/utils/typecstatus.c
+@@ -92,11 +92,13 @@ static unsigned long get_dword_from_path(char *path)
+ 
+ 	FILE *fp = fopen(path, "r");
+ 	
+-    if (fp == NULL)
++	if (fp == NULL)
+ 		return -1;
+ 
+-	if(fgets(buf, 64, fp) == NULL)
++	if(fgets(buf, 64, fp) == NULL) {
++		fclose(fp);
+ 		return -1;
++	}
+ 
+ 	dword = strtoul(buf, NULL, 10);
+ 
+@@ -253,4 +255,4 @@ int main (int argc, char **argv)
+     }
+     names_exit();
+ 
+-}
+\ No newline at end of file
++}
+-- 
+2.43.2
+

@@ -1,0 +1,33 @@
+From 67d40a5f0132e2b02167ad274c6d6c76e4393964 Mon Sep 17 00:00:00 2001
+From: Colin Ian King <colin.i.king@gmail.com>
+Date: Thu, 4 Jan 2024 09:42:54 +0000
+Subject: [PATCH] libtypec: close fp before returning
+
+Fix resource leak on fp on error return path, close fp before
+returning.
+
+Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+Upstream-Status: Backport [upstream commit 67d40a5]
+---
+ libtypec_sysfs_ops.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/libtypec_sysfs_ops.c b/libtypec_sysfs_ops.c
+index 747b562..a22de5a 100644
+--- a/libtypec_sysfs_ops.c
++++ b/libtypec_sysfs_ops.c
+@@ -504,8 +504,10 @@ static int count_billbrd_if(const char *usb_path, const struct stat *sb, int typ
+ 			if(num_bb_if < MAX_BB_PATH_STORED)
+ 			{
+ 				int len =  strlen(usb_path);
+-				if(len > 512 ) /*exceeds buffer size*/
++				if(len > 512 ) { /*exceeds buffer size*/
++					fclose(fd);
+ 					return 0;
++				}
+ 				
+ 				strcpy(bb_dev_path[num_bb_if],usb_path);
+ 			}
+-- 
+2.43.2
+

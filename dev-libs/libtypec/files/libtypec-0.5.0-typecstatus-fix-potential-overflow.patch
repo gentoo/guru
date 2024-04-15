@@ -1,0 +1,82 @@
+From 026acf3f2688631af2951630d3b9588badc65ca6 Mon Sep 17 00:00:00 2001
+From: Rajaram Regupathy <rajaram.regupathy@gmail.com>
+Date: Sun, 14 Apr 2024 14:55:15 +0530
+Subject: [PATCH] typecstatus : fix potential overflow
+
+check index returned and use to avoid potential buffer overflow
+Upstream-Status: Backport [upstream commit 026acf3]
+---
+ utils/typecstatus.c | 44 +++++++++++++++++++++++---------------------
+ 1 file changed, 23 insertions(+), 21 deletions(-)
+
+diff --git a/utils/typecstatus.c b/utils/typecstatus.c
+index bfb4142..7ca7669 100644
+--- a/utils/typecstatus.c
++++ b/utils/typecstatus.c
+@@ -133,40 +133,42 @@ int typec_status_billboard()
+ 
+                 bb_loc = find_bb_bos_index(bb_data,ret);
+ 
+-                struct bb_bos_descritor *bb_bos_desc = (struct bb_bos_descritor *)&bb_data[bb_loc];
++                if(bb_loc > 0 )
++                {
++                    struct bb_bos_descritor *bb_bos_desc = (struct bb_bos_descritor *)&bb_data[bb_loc];
+ 
+-                printf("\tBillboard Device Version :  %x.%x\n",bb_bos_desc->cap_desc_bcd_ver[1],bb_bos_desc->cap_desc_bcd_ver[0]);
++                    printf("\tBillboard Device Version :  %x.%x\n",bb_bos_desc->cap_desc_bcd_ver[1],bb_bos_desc->cap_desc_bcd_ver[0]);
+ 
+-                printf("\tNumber of Alternate Mode :  %d\n",bb_bos_desc->cap_desc_num_aum);
++                    printf("\tNumber of Alternate Mode :  %d\n",bb_bos_desc->cap_desc_num_aum);
+ 
+-                for(int x=0;x<bb_bos_desc->cap_desc_num_aum;x++)
+-                {
+-                    int idx = 0, k=0, j=0;
+-                    #define bmCONF_STR_ARR_MAX 4
++                    for(int x=0;x<bb_bos_desc->cap_desc_num_aum;x++)
++                    {
++                        int idx = 0, k=0, j=0;
++                        #define bmCONF_STR_ARR_MAX 4
+ 
+-                    char *bmconf_str_array[]= {"Unspecified Error","AUM not attempted","AUM attempt unsuccessful","AUM configuration successful","Undefined Configuration"};
++                        char *bmconf_str_array[]= {"Unspecified Error","AUM not attempted","AUM attempt unsuccessful","AUM configuration successful","Undefined Configuration"};
+ 
+-                    if( (x !=0) && ((x % 4) == 0))
+-                    {
+-                        j++;
+-                        k=0;
+-                    }
++                        if( (x !=0) && ((x % 4) == 0))
++                        {
++                            j++;
++                            k=0;
++                        }
+ 
+-                    idx = bb_bos_desc->cap_desc_bmconfig[j];
++                        idx = bb_bos_desc->cap_desc_bmconfig[j];
+ 
+-                    idx = (idx >> k) & 0x3;
++                        idx = (idx >> k) & 0x3;
+ 
+-                    k++;
++                        k++;
+ 
+-                    idx =  idx < bmCONF_STR_ARR_MAX ? idx : bmCONF_STR_ARR_MAX;
++                        idx =  idx < bmCONF_STR_ARR_MAX ? idx : bmCONF_STR_ARR_MAX;
+ 
+-                    char *aum = &bb_bos_desc->cap_desc_aum_array_start;
++                        char *aum = &bb_bos_desc->cap_desc_aum_array_start;
+ 
+-                    aum = aum + (x*4);
++                        aum = aum + (x*4);
+ 
+-                    printf("\tAlternate Mode 0x%02X%02X in state :  %s\n",aum[1]&0xFF,aum[0]&0xFF,bmconf_str_array[idx]);
++                        printf("\tAlternate Mode 0x%02X%02X in state :  %s\n",aum[1]&0xFF,aum[0]&0xFF,bmconf_str_array[idx]);
++                    }
+                 }
+-
+             }
+         }
+ 	return 0;
+-- 
+2.43.2
+

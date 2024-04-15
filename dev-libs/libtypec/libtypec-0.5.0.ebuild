@@ -19,6 +19,12 @@ PATCHES=(
 	"${FILESDIR}/${PN}-0.5.0-CMakeLists.txt-fix-pkgconfig-install-path.patch"
 	"${FILESDIR}/${PN}-0.5.0-sysfs_ops-define-feature-test-macro-for-nft.patch"
 	"${FILESDIR}/${PN}-0.5.0-sysfs_ops-fix-nftw-fun-pointer-def.patch"
+	"${FILESDIR}/${PN}-0.5.0-libtypec-utils-close-fp-before-returning.patch"
+	"${FILESDIR}/${PN}-0.5.0-libtypec-close-fp-before-returning.patch"
+	"${FILESDIR}/${PN}-0.5.0-libtypec-utils-add-missing-return-at-end-of-fun.patch"
+	"${FILESDIR}/${PN}-0.5.0-libtypec-utils-add-missing-return-at-end-of-function.patch"
+	"${FILESDIR}/${PN}-0.5.0-libtypec-utils-add-missing-break-in-switch-statement.patch"
+	"${FILESDIR}/${PN}-0.5.0-typecstatus-fix-potential-overflow.patch"
 )
 
 src_configure() {
