@@ -1,13 +1,17 @@
 certificate version 0.1
-pusher 6D49D9F3971F1CADBE7C95F2FFAD0D85E1A0C8D7 1713182374 +0200
+pusher Vitaly Zdanevich <zdanevich.vitaly@ya.ru> 1713183160 +0400
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1713182374-cedecab60d3c3727dfb2aaa9a4c0bdda2c1a4422
+nonce 1713183158-9db75ca19c075fedd2641fdbfab11d9e5d135e6a
 
-7e6af504b7ecca1853034f60eb6dd6dc20f2ce46 62eac930d9029a343ad9f39bb147a9fb5cf6ef8f refs/heads/dev
+62eac930d9029a343ad9f39bb147a9fb5cf6ef8f 768993e09e285fbe8301d49b8e9c0c353cdafbcd refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRtSdnzlx8crb58lfL/rQ2F4aDI1wUCZh0WpgAKCRD/rQ2F4aDI
-14tKAP9eIG0zIhHwxOjTrhGCLD1DAjfgTewVcqIz622jN+ff4wEA6z/4X5ddWxDw
-ppcDUnlkvV8MF1MVqMwbZGB2U5V7Cw4=
-=Lsqo
+iQFLBAABCAA1FiEEeh5Dwh4/uVzsjUwn6RzFZyPuEB4FAmYdGbgXHHpkYW5ldmlj
+aC52aXRhbHlAeWEucnUACgkQ6RzFZyPuEB7mCwgAzLEZqNnalCfI+Opjnkgt/EO3
+r5s+rVdk6jx5Ax2mJrs4cieok8NE7lC0RGQmuOyLST/FjaBf1rF+zG98oUXS11/H
+VENCz9Z2Dov22im0Xe9yxRrVWNTGLzknoRfSSN7t6nlHFDnifUoqq8z1ik0GoMKT
+jBnQAwjwREZCi5n0Larl3QSKwq19L/i1FgeoADrrVF4H99w4F6iTmQn4XkE+Kp3P
+nez8Ur6vHremcITnAWEh9dufsD6UXrPBo4x1HQaEdQ5I11P0WDeq4ZbiArR+ZLes
+0hLWxjVaLPymG/OionuylceWnVp1k76DNOB6p6/Q7nfbkLZpTyafDdGOJFtowg==
+=mxHY
 -----END PGP SIGNATURE-----
