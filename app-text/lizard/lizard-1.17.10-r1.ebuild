@@ -12,9 +12,9 @@ DESCRIPTION="A simple code complexity analyser, supports most of the popular lan
 HOMEPAGE="http://www.lizard.ws/"
 SRC_URI="https://github.com/terryyin/lizard/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 
 DEPEND="
 	test? (
@@ -23,6 +23,6 @@ DEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${P}-py3.11.patch" )
+PATCHES=( "${FILESDIR}/${P}-py3.11.patch" "${FILESDIR}/${P}-py3.12.patch" )
 
 distutils_enable_tests pytest
