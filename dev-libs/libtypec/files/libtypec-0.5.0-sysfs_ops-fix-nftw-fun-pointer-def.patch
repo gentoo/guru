@@ -32,7 +32,7 @@ In file included from /var/tmp/portage/dev-libs/libtypec-0.5.0/work/libtypec-0.5
 [1]
 https://www.gnu.org/software/libc/manual/html_node/Working-with-Directory-Trees.html#index-_005f_005fnftw_005ffunc_005ft
 [2] https://man7.org/linux/man-pages/man3/ftw.3.html
-Upstream-Status: In-Progress [https://github.com/Rajaram-Regupathy/libtypec/pull/32]
+Upstream-Status: Backport [upstream commit d11cd00]
 ---
  libtypec_sysfs_ops.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

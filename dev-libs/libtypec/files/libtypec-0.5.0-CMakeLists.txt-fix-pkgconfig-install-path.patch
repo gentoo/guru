@@ -6,7 +6,7 @@ Subject: [PATCH] CMakeLists.txt: fix pkgconfig install path
 pkgconfig pc files need to go under libdir instead of datadir.
 
 Suggested-by: Sam James <sam@gentoo.org>
-Upstream-Status: In-Progress [https://github.com/Rajaram-Regupathy/libtypec/pull/32]
+Upstream-Status: Backport [upstream commit 8614051]
 ---
  CMakeLists.txt | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

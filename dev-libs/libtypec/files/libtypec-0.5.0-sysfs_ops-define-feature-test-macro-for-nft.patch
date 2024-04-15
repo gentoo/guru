@@ -19,7 +19,7 @@ warning: implicit declaration of function ‘nftw’; did you mean ‘ftw’?
       |             ftw
 
 [1] https://linux.die.net/man/3/nftw
-Upstream-Status: In-Progress [https://github.com/Rajaram-Regupathy/libtypec/pull/32]
+Upstream-Status: Backport [upstream commit f1ecf54]
 ---
  libtypec_sysfs_ops.c | 5 +++++
  1 file changed, 5 insertions(+)
