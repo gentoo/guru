@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<maintainer type="person">
+		<email>strdenis02@gmail.com</email>
+		<name>Denis Strizhkin</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="gitlab">stuko/ovito</remote-id>
 	</upstream>

@@ -5,6 +5,10 @@
 		<name>Vitaly Zdanevich</name>
 		<email>zdanevich.vitaly@ya.ru</email>
 	</maintainer>
+	<maintainer type="person">
+		<email>strdenis02@gmail.com</email>
+		<name>Denis Strizhkin</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">fleetingheart/ksre</remote-id>
 	</upstream>
