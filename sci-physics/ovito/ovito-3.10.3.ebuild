@@ -6,7 +6,7 @@ LICENSE="GPL-3"
 DESCRIPTION="Open Visualization Tool"
 HOMEPAGE="https://www.ovito.org"
 
-ICON="${P}_icon.pnp"
+ICON="${PN}_icon.png"
 
 SRC_URI="
 	https://gitlab.com/stuko/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2
