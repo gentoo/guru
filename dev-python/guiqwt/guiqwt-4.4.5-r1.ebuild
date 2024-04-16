@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11,12} )
 
@@ -14,7 +15,8 @@ SRC_URI="https://github.com/PlotPyStack/guiqwt/archive/refs/tags/v${PV}.tar.gz -
 LICENSE="MIT"
 
 SLOT="0"
-RETRICT="test"
+KEYWORDS="~amd64 ~x86"
+RESTRICT="test"
 
 RDEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
@@ -25,5 +27,3 @@ RDEPEND="
 	dev-python/QtPy[${PYTHON_USEDEP}]
 	dev-python/scipy[${PYTHON_USEDEP}]
 "
-
-KEYWORDS="~amd64 ~x86"
