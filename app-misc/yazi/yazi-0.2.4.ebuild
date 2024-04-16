@@ -343,4 +343,5 @@ src_install() {
 	dofishcomp "${S}/yazi-boot/completions/${PN}.fish"
 
 	domenu "assets/${PN}.desktop"
+	einstalldocs
 }
