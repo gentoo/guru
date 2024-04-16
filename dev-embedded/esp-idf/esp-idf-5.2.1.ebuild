@@ -23,12 +23,14 @@ SRC_URI+=" riscv32? ( ${CROSSTOOL_URL}/riscv32-esp-elf-${VER}-x86_64-linux-gnu.t
 
 #https://dl.espressif.com/dl/toolchains/preview/riscv32-esp-elf-gcc8_4_0-crosstool-ng-1.24.0-123-g64eb9ff-linux-amd64.tar.gz
 
-KEYWORDS="~amd64"
+S="${WORKDIR}/${PN}-v${PV}"
+
 LICENSE="Apache-2.0"
+SLOT="0"
+KEYWORDS="~amd64"
+
 IUSE="riscv32"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-
-SLOT="0"
 
 BDEPEND="app-arch/unzip"
 RDEPEND="
@@ -58,8 +60,6 @@ QA_PRESTRIPPED="opt/*"
 PATCHES=(
 	"${FILESDIR}/allow-system-install-${PN}-5.1.2.patch"
 )
-
-S="${WORKDIR}/${PN}-v${PV}"
 
 install_tool() {
 	shopt -s globstar
