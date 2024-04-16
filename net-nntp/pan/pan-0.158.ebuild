@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,6 +7,7 @@ inherit autotools gnome2
 DESCRIPTION="A newsreader for GNOME"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/pan/"
 SRC_URI="https://gitlab.gnome.org/GNOME/pan/-/archive/v${PV}/${PN}-v${PV}.tar.bz2"
+S="${WORKDIR}/pan-v${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -34,8 +35,6 @@ BDEPEND="
 	>=sys-devel/gettext-0.19.7
 	virtual/pkgconfig
 "
-
-S="${WORKDIR}/pan-v${PV}"
 
 src_prepare() {
 	default

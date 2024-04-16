@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit autotools gnome2
+inherit cmake gnome2
 
 DESCRIPTION="A newsreader for GNOME"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/pan/"
@@ -11,8 +11,10 @@ S="${WORKDIR}/pan-v${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="dbus gnome-keyring libnotify nls spell ssl"
+
+#cmake broken https://gitlab.gnome.org/GNOME/pan/-/issues/184
+KEYWORDS=""
+IUSE="dbus gnome-keyring libnotify spell ssl"
 
 DEPEND="
 	>=dev-libs/glib-2.26:2
@@ -37,19 +39,21 @@ BDEPEND="
 "
 
 src_prepare() {
-	default
-	eautoreconf
+	cmake_src_prepare
 }
 
 src_configure() {
-	local myconf=(
-		$(use_with dbus) \
-		$(use_enable gnome-keyring gkr) \
-		$(use_enable nls) \
-		$(use_with spell gtkspell) \
-		$(use_enable libnotify) \
-		$(use_with ssl gnutls)
+	local mycmakeargs=(
+		-DWANT_DBUS=$(usex dbus) \
+		-DWANT_GKR=$(usex gnome-keyring) \
+		-DWANT_GTKSPELL=$(usex spell) \
+		-DWANT_NOTIFY=$(usex libnotify) \
+		-DWANT_GNUTLS=$(usex ssl)
 	)
 
-	gnome2_src_configure "${myconf[@]}"
+	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
 }
