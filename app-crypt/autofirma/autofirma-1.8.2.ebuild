@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -10,7 +10,9 @@ HOMEPAGE="
 	https://administracionelectronica.gob.es/ctt/clienteafirma
 	https://github.com/ctt-gob-es/clienteafirma
 "
-SRC_URI="https://estaticos.redsara.es/comunes/autofirma/$(ver_rs 1- /)/AutoFirma_Linux.zip -> ${P}.zip"
+# Upstream blocks wget, so we need a fallback option
+SRC_URI="https://estaticos.redsara.es/comunes/autofirma/$(ver_rs 1- /)/AutoFirma_Linux_Fedora.zip -> ${P}.zip
+	https://distfiles.chuso.net/distfiles/${P}.zip"
 
 LICENSE="|| ( GPL-2 EUPL-1.1 )"
 SLOT="0"
@@ -31,5 +33,7 @@ src_install() {
 	java-pkg_dolauncher
 	java-pkg_dojar "usr/lib64/${PN}/${PN}Configurador.jar"
 	doicon "usr/lib64/${PN}/${PN}.png"
-	make_desktop_entry "${PN} %u" AutoFirma "${PN}" "Utility" "Comment[es]=Aplicación de firma electrónica de la FNMT\nMimeType=x-scheme-handler/afirma"
+	make_desktop_entry \
+		"${PN} %u" AutoFirma "${PN}" "Utility" \
+		"Comment[es]=Aplicación de firma electrónica de la FNMT\nMimeType=x-scheme-handler/afirma"
 }
