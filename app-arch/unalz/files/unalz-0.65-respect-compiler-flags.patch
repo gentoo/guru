@@ -1,0 +1,36 @@
+diff --git a/Makefile b/Makefile
+index 31012ca..8357917 100755
+--- a/Makefile
++++ b/Makefile
+@@ -1,8 +1,8 @@
+-CPP = g++
+-CC  = gcc
++#CPP = g++
++#CC  = gcc
+ OBJ = main.o UnAlz.o UnAlzUtils.o UnAlzBz2decompress.o UnAlzBzip2.o
+ BIN = unalz
+-LDFLAGS = -lz -lbz2
++LDFLAGS += -lz -lbz2
+ CFLAGS += -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 
+ 
+ all:
+@@ -12,7 +12,7 @@ all:
+ 	@echo ""
+ 	@echo "TARGET_SYSTEM is one of"
+ 	@echo ""
+-	@echo " posix-utf8        : POSIX with utf8 filesystem(Most of modern OS, e.g. OSX/Ubuntu)"
++	@echo " posix-utf8        : POSIX with utf8 filesystem(Most of modern OS, e.g. OSX/Ubuntu)"
+ 	@echo " posix             : POSIX system (FreeBSD/linux/OSX/sparc/Win32)"
+ 	@echo " linux-utf8        : LINUX with utf8 filesystem(without -liconv option)"
+ 	@echo " posix-noiconv     : POSIX without libiconv (Windows(MINGW32,CYGWIN) or EUC-KR file system)"
+@@ -34,8 +34,8 @@ posix-noiconv: unalz
+ 	$(CPP) $(OBJ) $(LDFLAGS) -o $(BIN)
+ 
+ linux-utf8: unalz
+-	$(CPP) -c UnAlz.cpp -c UnAlzUtils.cpp -c main.cpp -D_UNALZ_ICONV -D_UNALZ_UTF8 $(CFLAGS)
+-	$(CPP) $(OBJ) $(LDFLAGS) -o $(BIN)
++	$(CXX) -c UnAlz.cpp -c UnAlzUtils.cpp -c main.cpp -D_UNALZ_ICONV -D_UNALZ_UTF8 $(CFLAGS)
++	$(CXX) $(OBJ) $(LDFLAGS) -o $(BIN)
+ 
+ install:
+ 	cp unalz /usr/local/bin/
