@@ -12,6 +12,10 @@
     <name>Adrian Ratiu</name>
     <email>adrian.ratiu@collabora.com</email>
   </maintainer>
+  <maintainer type="person">
+    <name>Rajaram Regupathy</name>
+    <email>rajaram.regupathy@gmail.com</email>
+  </maintainer>
   <upstream>
     <remote-id type="github">Rajaram-Regupathy/libtypec</remote-id>
   </upstream>
