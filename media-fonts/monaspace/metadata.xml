@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dev@greener.sh</email>
+		<name>Robert Greener</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">githubnext/monaspace</remote-id>
+	</upstream>
+	<use>
+		<flag name="variable">Whether to install the variable weight fonts</flag>
+	</use>
+</pkgmetadata>
