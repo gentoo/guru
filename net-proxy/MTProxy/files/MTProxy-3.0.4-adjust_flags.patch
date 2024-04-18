@@ -1,0 +1,158 @@
+diff -Nru MTProxy.orig/common/crc32.c MTProxy/common/crc32.c
+--- MTProxy.orig/common/crc32.c	2018-06-17 01:58:54.692000000 +0300
++++ MTProxy/common/crc32.c	2018-06-17 05:58:10.893000000 +0300
+@@ -443,6 +443,12 @@
+ static const v2di CRC64_K128 = { CRC64_REFLECTED_X191, CRC64_REFLECTED_X127 };
+ static const v2di CRC64_MU   = { CRC64_REFLECTED_MU, CRC64_REFLECTED_POLY_65_BIT };
+ 
++#ifndef __PCLMUL__
++#pragma GCC push_options
++#pragma GCC target("ssse3,pclmul")
++#define __DISABLE_PCLMUL__
++#endif /* __PCLMUL__ */
++
+ static v2di crcXX_partial_clmul (const void *q, long len, v2di D, v2di E, v2di K256, v2di K128) __attribute__((aligned(32)));
+ v2di crcXX_partial_clmul (const void *q, long len, v2di D, v2di E, v2di K256, v2di K128) {
+   v2di G, H;
+@@ -538,6 +544,11 @@
+ #endif
+ }
+ 
++#ifdef __DISABLE_PCLMUL__
++#undef __DISABLE_PCLMUL__
++#pragma GCC pop_options
++#endif /* __DISABLE_PCLMUL__ */
++
+ /******************** CRC-64 ********************/
+ 
+ static const uint64_t crc64_table[256] = {
+@@ -622,6 +633,12 @@
+   return crc;
+ }
+ 
++#ifndef __PCLMUL__
++#pragma GCC push_options
++#pragma GCC target("ssse3,pclmul")
++#define __DISABLE_PCLMUL__
++#endif /* __PCLMUL__ */
++
+ static uint64_t crc64_barrett_reduction (v2di D) {
+   /* After reflection mu constant is 64 bit */
+   v2di E =  __builtin_ia32_pclmulqdq128 (D, CRC64_MU, 0x00);
+@@ -665,6 +682,11 @@
+   return crc64_barrett_reduction (D);
+ }
+ 
++#ifdef __DISABLE_PCLMUL__
++#undef __DISABLE_PCLMUL__
++#pragma GCC pop_options
++#endif /* __DISABLE_PCLMUL__ */
++
+ /* {{{ GF-32 */
+ 
+ unsigned gf32_mulx (unsigned a, unsigned poly) {
+@@ -756,6 +778,12 @@
+   return crc1;
+ }
+ 
++#ifndef __PCLMUL__
++#pragma GCC push_options
++#pragma GCC target("ssse3,pclmul")
++#define __DISABLE_PCLMUL__
++#endif /* __PCLMUL__ */
++
+ uint64_t gf32_combine_clmul (unsigned *powers, unsigned crc1, int64_t len2) {
+   v2di D;
+   FASTMOV_RMI32_TO_SSE(D, crc1);
+@@ -781,6 +809,11 @@
+   RETURN_SSE_UINT64(D);
+ }
+ 
++#ifdef __DISABLE_PCLMUL__
++#undef __DISABLE_PCLMUL__
++#pragma GCC pop_options
++#endif /* __DISABLE_PCLMUL__ */
++
+ /* }}} */
+ 
+ static unsigned compute_crc32_combine_generic (unsigned crc1, unsigned crc2, int64_t len2) {
+@@ -874,6 +907,12 @@
+   assert (crc64_power_buf[125]);
+ }
+ 
++#ifndef __PCLMUL__
++#pragma GCC push_options
++#pragma GCC target("ssse3,pclmul")
++#define __DISABLE_PCLMUL__
++#endif /* __PCLMUL__ */
++
+ static uint64_t compute_crc64_combine_clmul (uint64_t crc1, uint64_t crc2, int64_t len2) {
+   if (len2 <= 0) {
+     return crc1;
+@@ -902,6 +941,11 @@
+   return crc64_barrett_reduction (D) ^ crc2;
+ }
+ 
++#ifdef __DISABLE_PCLMUL__
++#undef __DISABLE_PCLMUL__
++#pragma GCC pop_options
++#endif /* __DISABLE_PCLMUL__ */
++
+ static uint64_t compute_crc64_combine_generic (uint64_t crc1, uint64_t crc2, int64_t len2) {
+   if (len2 <= 0) {
+     return crc1;
+diff -Nru MTProxy.orig/common/crc32c.c MTProxy/common/crc32c.c
+--- MTProxy.orig/common/crc32c.c	2018-06-17 01:58:54.693000000 +0300
++++ MTProxy/common/crc32c.c	2018-06-17 05:51:35.910000000 +0300
+@@ -337,6 +337,12 @@
+   return c;
+ }
+ 
++#ifndef __PCLMUL__
++#pragma GCC push_options
++#pragma GCC target("pclmul")
++#define __DISABLE_PCLMUL__
++#endif /* __PCLMUL__ */
++
+ static unsigned crc32c_partial_sse42_clmul (const void *data, long len, unsigned crc) {
+   const char *p = data;
+   if (unlikely ((((uintptr_t) p) & 1)) && (len > 0)) {
+@@ -527,6 +533,11 @@
+   return crc;
+ }
+ 
++#ifdef __DISABLE_PCLMUL__
++#undef __DISABLE_PCLMUL__
++#pragma GCC pop_options
++#endif /* __DISABLE_PCLMUL__ */
++
+ #else
+ static unsigned crc32c_partial_sse42 (const void *data, long len, unsigned crc) {
+   const char *p = data;
+diff -Nru MTProxy.orig/Makefile MTProxy/Makefile
+--- MTProxy.orig/Makefile	2018-06-17 01:58:54.691000000 +0300
++++ MTProxy/Makefile	2018-06-17 06:39:32.350000000 +0300
+@@ -12,8 +12,8 @@
+ ARCH = -m64
+ endif
+ 
+-CFLAGS = $(ARCH) -O3 -std=gnu11 -Wall -mpclmul -march=core2 -mfpmath=sse -mssse3 -fno-strict-aliasing -fno-strict-overflow -fwrapv -DAES=1 -DCOMMIT=\"${COMMIT}\" -D_GNU_SOURCE=1 -D_FILE_OFFSET_BITS=64
+-LDFLAGS = $(ARCH) -ggdb -rdynamic -lm -lrt -lcrypto -lz -lpthread -lcrypto
++CFLAGS += -mcx16 -std=gnu11 -Wall -fno-strict-aliasing -fno-strict-overflow -fwrapv -DAES=1 -DCOMMIT=\"${COMMIT}\" -D_GNU_SOURCE=1 -D_FILE_OFFSET_BITS=64
++LDFLAGS += -rdynamic -lm -lrt -lcrypto -lz -lpthread
+ 
+ LIB = ${OBJ}/lib
+ CINCLUDE = -iquote common -iquote .
+@@ -91,10 +91,10 @@
+ ${EXELIST}: ${LIBLIST}
+ 
+ ${EXE}/mtproto-proxy:	${OBJ}/mtproto/mtproto-proxy.o ${OBJ}/mtproto/mtproto-config.o ${OBJ}/net/net-tcp-rpc-ext-server.o
+-	${CC} -o $@ $^ ${LIB}/libkdb.a ${LDFLAGS}
++	${CC} ${CFLAGS} -o $@ $^ ${LIB}/libkdb.a ${LDFLAGS}
+ 
+ ${LIB}/libkdb.a: ${LIB_OBJS}
+-	rm -f $@ && ar rcs $@ $^
++	rm -f $@ && ${AR} rcs $@ $^
+ 
+ clean:
+ 	rm -rf ${OBJ} ${DEP} ${EXE} || true

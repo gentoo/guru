@@ -18,6 +18,11 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
+PATCHES="
+	${FILESDIR}/${P}-adjust_flags.patch
+	${FILESDIR}/${P}-no_implicit_func.patch
+"
+
 src_install() {
 	dobin objs/bin/mtproto-proxy
 }
