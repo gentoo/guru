@@ -14,6 +14,31 @@
 
 # New entries go on top.
 
+# Robert Greener <dev@greener.sh> (2024-04-18)
+# Superceded by media-fonts/nerdfonts[firacode]
+# Removal on 2024-05-18
+media-fonts/firacode-nerdfont
+
+# Robert Greener <dev@greener.sh> (2024-04-18)
+# Superceded by media-fonts/nerdfonts[iosevka]
+# Removal on 2024-05-18
+media-fonts/iosevka-nerdfont
+
+# Robert Greener <dev@greener.sh> (2024-04-18)
+# Superceded by media-fonts/nerdfonts[jetbrainsmono]
+# Removal on 2024-05-18
+media-fonts/jetbrainsmono-nerdfont
+
+# Robert Greener <dev@greener.sh> (2024-04-18)
+# Superceded by media-fonts/nerdfonts[robotomono]
+# Removal on 2024-05-18
+media-fonts/robotomono-nerdfont
+
+# Robert Greener <dev@greener.sh> (2024-04-18)
+# Superceded by media-fonts/nerdfonts[ubuntumono]
+# Removal on 2024-05-18
+media-fonts/ubuntumono-nerdfont
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-14)
 # Depends on nonexistent app-misc/pup. Upstream is long time dead. No revdeps.
 # Removal on 2024-05-14.
