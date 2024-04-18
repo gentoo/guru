@@ -20,7 +20,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          ref: dev
           fetch-depth: 0
 
       - name: Get compare commit
