@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit desktop python-single-r1 toolchain-funcs xdg
 
@@ -20,15 +20,15 @@ SRC_URI="
 	https://github.com/spirali/${PN}/archive/${PKG_sha}.tar.gz -> ${P}.tar.gz
 	https://github.com/KDE/kmahjongg/raw/master/icons/48-apps-kmahjongg.png -> kmahjongg_${PN}.png"
 
+S="${WORKDIR}/${PN}-${PKG_sha}"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="test"
-RESTRICT="!test? ( test )"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-
-S="${WORKDIR}/${PN}-${PKG_sha}"
+RESTRICT="mirror !test? ( test )"
 
 RDEPEND="
 	${PYTHON_DEPS}
