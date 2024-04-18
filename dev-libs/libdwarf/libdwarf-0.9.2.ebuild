@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson
+inherit cmake
 
 DESCRIPTION="The DWARF Debugging Information Format"
 HOMEPAGE="
@@ -16,28 +16,32 @@ SRC_URI="https://www.prevanders.net/${P}.tar.xz"
 LICENSE="BSD GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc dwarfexample dwarfgen"
+IUSE="test doc dwarfexample dwarfgen"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	app-arch/zstd:=
 	sys-libs/zlib:=
 "
 RDEPEND="${DEPEND}"
-BDEPEND="doc? ( app-text/doxygen )"
 
 DOCS=( AUTHORS NEWS README.md )
 
+PATCHES=( "${FILESDIR}/${P}-fix-include-patch.patch" )
+
 src_configure() {
-	local emesonargs=(
-		$(meson_use dwarfgen)
-		$(meson_use dwarfexample)
-		$(meson_use doc)
+	local mycmakeargs=(
+		-DBUILD_SHARED=ON
+		-DBUILD_DWARFGEN=$(usex dwarfgen)
+		-DBUILD_DWARFEXAMPLE=$(usex dwarfexample)
+		-DDO_TESTING=$(usex test)
 	)
-	meson_src_configure
+
+	cmake_src_configure
 }
 
 src_install(){
-	meson_src_install
+	cmake_src_install
 
 	dodoc ChangeLog* doc/*.pdf
 	if use doc; then
