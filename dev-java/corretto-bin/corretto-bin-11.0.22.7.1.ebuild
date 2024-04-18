@@ -6,15 +6,16 @@ EAPI=8
 inherit java-vm-2 toolchain-funcs
 
 MY_PV=${PV/_p/+}
-SLOT=$(ver_cut 1)
-
-SRC_URI="
-    https://corretto.aws/downloads/resources/${PV}/amazon-corretto-${PV}-linux-x64.tar.gz
-"
-
 DESCRIPTION="Prebuilt Java JDK binaries provided by Amazon Web Services"
 HOMEPAGE="https://aws.amazon.com/corretto"
+
+SRC_URI="
+	https://corretto.aws/downloads/resources/${PV}/amazon-corretto-${PV}-linux-x64.tar.gz
+"
+
+S="${WORKDIR}/amazon-corretto-${MY_PV}-linux-x64"
 LICENSE="GPL-2-with-classpath-exception"
+SLOT=$(ver_cut 1)
 KEYWORDS="~amd64"
 IUSE="alsa cups headless-awt selinux source"
 
@@ -41,8 +42,6 @@ RDEPEND="
 
 RESTRICT="preserve-libs splitdebug"
 QA_PREBUILT="*"
-
-S="${WORKDIR}/amazon-corretto-${MY_PV}-linux-x64"
 
 pkg_pretend() {
 	if [[ "$(tc-is-softfloat)" != "no" ]]; then
