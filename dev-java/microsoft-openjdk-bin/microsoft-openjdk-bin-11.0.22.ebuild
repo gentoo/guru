@@ -6,16 +6,19 @@ EAPI=8
 inherit java-vm-2 toolchain-funcs
 
 MY_PV=${PV/_p/+}
-SLOT=$(ver_cut 1)
-
-SRC_URI="
-    amd64? ( https://aka.ms/download-jdk/microsoft-jdk-${PV}-linux-x64.tar.gz )
-    arm64? ( https://aka.ms/download-jdk/microsoft-jdk-${PV}-linux-aarch64.tar.gz )
-"
 
 DESCRIPTION="Prebuilt Java JDK binaries provided by Microsoft"
 HOMEPAGE="https://www.microsoft.com/openjdk"
+
+SRC_URI="
+	amd64? ( https://aka.ms/download-jdk/microsoft-jdk-${PV}-linux-x64.tar.gz )
+	arm64? ( https://aka.ms/download-jdk/microsoft-jdk-${PV}-linux-aarch64.tar.gz )
+"
+
+S="${WORKDIR}/jdk-${MY_PV}+7"
+
 LICENSE="GPL-2-with-classpath-exception"
+SLOT=$(ver_cut 1)
 KEYWORDS="~amd64"
 IUSE="alsa cups headless-awt selinux source"
 
@@ -42,8 +45,6 @@ RDEPEND="
 
 RESTRICT="preserve-libs splitdebug"
 QA_PREBUILT="*"
-
-S="${WORKDIR}/jdk-${MY_PV}+7"
 
 pkg_pretend() {
 	if [[ "$(tc-is-softfloat)" != "no" ]]; then
