@@ -10,7 +10,7 @@ HOMEPAGE="https://www.chezmoi.io/"
 SRC_URI="https://github.com/twpayne/chezmoi/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://github.com/MHaukelid/ebuild-vendored/releases/download/${P}/${P}-vendor.tar.xz"
 
-LICENSE="BSD-3-Clause BSD-2-Clause MIT Apache-2.0 "
+LICENSE="BSD BSD-2 MIT Apache-2.0 "
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 RESTRICT="mirror"
