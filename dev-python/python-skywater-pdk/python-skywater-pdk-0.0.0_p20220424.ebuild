@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_10 ) # python3_11 depends on dev-python/dataclasses_json
+PYTHON_COMPAT=( python3_10 )
 
 MY_PN="skywater-pdk"
 MY_REV=5a57f505cd4cd65d10e9f37dd2d259a526bc9bf7
@@ -20,7 +20,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-python/dataclasses_json[${PYTHON_USEDEP}]"
+RDEPEND="dev-python/dataclasses-json[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 
 src_prepare() {
