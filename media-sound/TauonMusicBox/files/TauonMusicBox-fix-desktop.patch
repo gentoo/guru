@@ -1,0 +1,22 @@
+From 203ed16eef31cc199853ecef9d947eb147ab4f16 Mon Sep 17 00:00:00 2001
+From: David Roman <davidroman96@gmail.com>
+Date: Fri, 19 Apr 2024 02:02:08 +0200
+Subject: [PATCH] tauonmb.desktop: add mising stop action (#1132)
+
+---
+ extra/tauonmb.desktop | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/extra/tauonmb.desktop b/extra/tauonmb.desktop
+index 1a98fc4e2..5d049f084 100644
+--- a/extra/tauonmb.desktop
++++ b/extra/tauonmb.desktop
+@@ -21,7 +21,7 @@ StartupWMClass=Tauon Music Box
+ Terminal=false
+ Type=Application
+ Categories=AudioVideo;Player;Audio;
+-Actions=PlayPause;Previous;Next
++Actions=PlayPause;Previous;Next;Stop
+ 
+ [Desktop Action PlayPause]
+ Exec=/opt/tauon-music-box/tauonmb.sh --no-start --play-pause
