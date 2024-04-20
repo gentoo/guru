@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Kostadin Shishmanov <kocelfc@tutanota.com> (2024-04-20)
+# Was only needed for <app-misc/corectrl-1.4.0
+# Removal on 2024-05-20
+dev-cpp/easyloggingpp
+
 # Robert Greener <dev@greener.sh> (2024-04-18)
 # Superceded by media-fonts/nerdfonts[firacode]
 # Removal on 2024-05-18
