@@ -16,8 +16,8 @@ else
 	KEYWORDS="~amd64"
 fi
 
-HOMEPAGE="https://github.com/csfore/gentodo"
 DESCRIPTION="Todo program to help enhance your Gentoo workflow"
+HOMEPAGE="https://github.com/csfore/gentodo"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -35,11 +35,10 @@ DEPEND="
 RDEPEND="
 	${PYTHON_DEPS}
 	dev-python/python-bugzilla
+	dev-python/click
 "
 
 python_install_all() {
-	if use bash-completion; then
-		newbashcomp src/gentodo/gentodo-completions.bash gentodo
-	fi
+	newbashcomp src/gentodo/gentodo-completions.bash gentodo
 	distutils-r1_python_install_all
 }
