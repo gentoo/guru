@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>coppens.matthias.abc@gmail.com</email>
-		<name>Matthias Coppens</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="github">6gk/fet.sh</remote-id>
 		<bugs-to>https://github.com/6gk/fet.sh/issues</bugs-to>

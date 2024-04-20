@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-    <maintainer type="person">
-        <email>coppens.matthias.abc@gmail.com</email>
-        <name>Matthias Coppens</name>
-    </maintainer>
+    <!-- maintainer-needed -->
     <upstream>
         <bugs-to>https://gitlab.com/jschx/ufetch/-/issues</bugs-to>
         <remote-id type="gitlab">jschx/ufetch</remote-id>

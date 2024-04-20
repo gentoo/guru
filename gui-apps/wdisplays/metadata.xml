@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-    <maintainer type="person">
-        <name>Matthias Coppens</name>
-        <email>coppens.matthias.abc@gmail.com</email>
-    </maintainer>
+    <!-- maintainer-needed -->
     <upstream>
         <bugs-to>https://github.com/artizirk/wdisplays/issues</bugs-to>
         <remote-id type="github">artizirk/wdisplays</remote-id>

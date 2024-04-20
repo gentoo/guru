@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-    <maintainer type="person">
-        <email>coppens.matthias.abc@gmail.com</email>
-        <name>Matthias Coppens</name>
-    </maintainer>
+    <!-- maintainer-needed -->
     <longdescription lang="en">
         Very simple Python library for color and formatting in terminal.
         Collection of color codes and names for 256 color terminal setups.

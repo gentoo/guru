@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-    <maintainer type="person">
-        <name>Matthias Coppens</name>
-        <email>coppens.matthias.abc@gmail.com</email>
-    </maintainer>
+    <!-- maintainer-needed -->
     <use>
         <flag name="fish-completion">Enable fish completion support</flag>
         <flag name="gdk-pixbuf">Enable additional image format support via the <pkg>x11-libs/gdk-pixbuf</pkg> library</flag>
