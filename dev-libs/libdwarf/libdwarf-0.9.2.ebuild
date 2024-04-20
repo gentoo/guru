@@ -44,8 +44,4 @@ src_install(){
 	cmake_src_install
 
 	dodoc ChangeLog* doc/*.pdf
-	if use doc; then
-		mv "${ED}"/usr/share/doc/${PN}/* "${ED}"/usr/share/doc/${PF}/ || die
-		rmdir "${ED}"/usr/share/doc/${PN} || die
-	fi
 }
