@@ -14,7 +14,7 @@
 		* qmlglsrc – A video src that captures a window from a QML view
 	</longdescription>
 	<use>
-		<flag name="egl">Enable EGL support.</flag>
+		<flag name="eglfs">Enable EGL support for embedded devices</flag>
 	</use>
 	<upstream>
 		<remote-id type="freedesktop-gitlab">gstreamer/gstreamer</remote-id>
