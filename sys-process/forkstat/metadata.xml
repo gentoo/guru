@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>carana2099@gmail.com</email>
+		<name>Carlos E.</name>
+	</maintainer>
+	<longdescription lang="en">
+		Forkstat is a program that logs process fork(), exec() and
+		exit() activity. It is useful for monitoring system behaviour
+		and to track down rogue processes that are spawning off
+		processes and potentially abusing the system.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">ColinIanKing/forkstat</remote-id>
+		<changelog>https://github.com/ColinIanKing/forkstat/blob/master/debian/changelog</changelog>
+	</upstream>
+</pkgmetadata>
