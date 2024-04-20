@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-20)
+# Depends on treecleaned dev-libs/libchdr.
+# Removal on 2024-05-20.
+games-emulation/flycast
+
 # Kostadin Shishmanov <kocelfc@tutanota.com> (2024-04-20)
 # Was only needed for <app-misc/corectrl-1.4.0
 # Removal on 2024-05-20
