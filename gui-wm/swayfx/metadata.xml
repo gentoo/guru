@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>rahul@sandhuservices.dev</email>
-		<name>Rahul Sandhu</name>
+		<email>ayohss@proton.me</email>
+		<name>Joshua Clifton (ayohs)</name>
 	</maintainer>
 	<longdescription lang="en">
 		"SirCmpwn's Wayland window manager" is an i3-compatible window manager
