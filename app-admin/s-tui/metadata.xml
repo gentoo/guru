@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<maintainer type="person">
 		<email>joe@wt.gd</email>
-		<name>joecool</name>
+		<name>Joe Kappus</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="github">amanusk/s-tui</remote-id>
