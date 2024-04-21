@@ -12,6 +12,7 @@ inherit meson systemd
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="systemd"
 
 RDEPEND="
 	dev-libs/glib
@@ -26,9 +27,9 @@ src_prepare() {
 	sed -e "s/@0@\/run\/nss-tls/\/var\/run\/nss-tls/" -i "${S}"/meson.build || die
 
 	if use systemd; then
-		sed -i -e "s/systemd = /systemd = dependency('systemd')" meson.build || die
+		sed -i -e "s/systemd = .*/systemd = dependency('systemd')/" meson.build || die
 	else
-		sed -i -e "s/systemd = /systemd = disabler()" meson.build || die
+		sed -i -e "s/systemd = .*/systemd = disabler()/" meson.build || die
 	fi
 }
 
