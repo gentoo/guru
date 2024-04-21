@@ -7,7 +7,7 @@ DESCRIPTION="A DNS over HTTPS resolver for glibc"
 HOMEPAGE="https://github.com/dimkr/nss-tls"
 SRC_URI="https://github.com/dimkr/nss-tls/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-inherit meson systemd
+inherit meson
 
 LICENSE="LGPL-2.1"
 SLOT="0"
@@ -36,7 +36,6 @@ src_prepare() {
 src_install() {
 	meson_src_install
 
-	systemd_newunit "${S}"/nss-tlsd.service.in nss-tlsd.service
 	doinitd "${FILESDIR}"/nss-tlsd
 }
 
