@@ -8,8 +8,7 @@ DESCRIPTION="GUI application to generate an SDL2 mapping string from a generic c
 HOMEPAGE="https://gitlab.com/ryochan7/sdl2-gamepad-mapper"
 SRC_URI="https://gitlab.com/ryochan7/sdl2-gamepad-mapper/-/archive/v${PV}/${PN}-v${PV}.tar.bz2"
 S="${WORKDIR}/${PN}-v${PV}"
-# https://gitlab.com/ryochan7/sdl2-gamepad-mapper/-/issues/2
-LICENSE=""
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 RDEPEND="
