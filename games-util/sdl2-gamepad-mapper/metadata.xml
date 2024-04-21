@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>carana2099@gmail.com</email>
+		<name>Carlos E.</name>
+	</maintainer>
+	<upstream><remote-id type="gitlab">ryochan7/sdl2-gamepad-mapper</remote-id></upstream>
+</pkgmetadata>
