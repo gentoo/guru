@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Easily serialize Data Classes to and from JSON"
 HOMEPAGE="https://github.com/lidatong/dataclasses-json"
-SRC_URI="https://github.com/lidatong/dataclasses-json/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/lidatong/dataclasses-json/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${P/_/-}"
 
 LICENSE="MIT"
@@ -22,7 +22,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	>=dev-python/marshmallow-3.3.0[${PYTHON_USEDEP}]
 	>=dev-python/marshmallow_enum-1.5.1[${PYTHON_USEDEP}]
-	>=dev-python/typing_inspect-0.4.0[${PYTHON_USEDEP}]
+	>=dev-python/typing-inspect-0.4.0[${PYTHON_USEDEP}]
 "
 DEPEND="
 	${RDEPEND}

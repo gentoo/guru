@@ -4,5 +4,6 @@
 	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="github">lidatong/dataclasses-json</remote-id>
+		<remote-id type="pypi">dataclasses-json</remote-id>
 	</upstream>
 </pkgmetadata>
