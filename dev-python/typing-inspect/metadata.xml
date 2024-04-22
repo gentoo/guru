@@ -4,6 +4,6 @@
 	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="github">ilevkivskyi/typing_inspect</remote-id>
-		<remote-id type="pypi">typing_inspect</remote-id>
+		<remote-id type="pypi">typing-inspect</remote-id>
 	</upstream>
 </pkgmetadata>
