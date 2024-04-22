@@ -43,6 +43,9 @@ src_configure() {
 src_install() {
 	meson_src_install
 
+	# https://bugs.gentoo.org/930407
+	find "${ED}"/usr/$(get_libdir) -name "*.a" -delete || die
+
 	if use gtk-doc; then
 		local gtkdocdir="${ED}/usr/share/gtk-doc/html/"
 		mkdir -p "${gtkdocdir}" || die
