@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit meson
+
 DESCRIPTION="GTK-based lockscreen for Wayland"
 HOMEPAGE="https://github.com/jovanlanik/gtklock"
 SRC_URI="https://github.com/jovanlanik/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -11,11 +13,22 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="sys-libs/pam
-	>=gui-libs/gtk-layer-shell-0.6.0"
+IUSE="man"
+RDEPEND="
+	sys-libs/pam
+	x11-libs/gtk+:3[wayland]
+	gui-libs/gtk-session-lock
+"
+DEPEND="${DEPEND}"
+BDEPEND="
+	virtual/pkgconfig
+	dev-build/meson
+	man? ( app-text/scdoc )
+"
 
-BDEPEND="app-text/scdoc"
-
-PATCHES=(
-	"${FILESDIR}"/"${P}"-makefile.patch
-)
+src_configure() {
+        local emesonargs=(
+                $(meson_feature man man-pages)
+		)
+        meson_src_configure
+}
