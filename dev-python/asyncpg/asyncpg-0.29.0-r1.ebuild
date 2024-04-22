@@ -46,9 +46,9 @@ EPYTEST_IGNORE=(
 
 distutils_enable_tests pytest
 
-distutils_enable_sphinx docs \
-	dev-python/sphinxcontrib-asyncio \
-	dev-python/sphinx-rtd-theme
+#distutils_enable_sphinx docs \
+	#dev-python/sphinxcontrib-asyncio \
+	#dev-python/sphinx-rtd-theme
 
 src_prepare() {
 	# remove pre-generated Cython sources
