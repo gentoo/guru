@@ -31,6 +31,7 @@ REQUIRED_USE="
 "
 
 RDEPEND="app-containers/waydroid"
+BDEPEND="app-arch/unzip"
 
 if [[ ${PV} == 9999 ]]; then
 	BDEPEND+="
