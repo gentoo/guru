@@ -42,8 +42,8 @@ EPYTEST_IGNORE=(
 
 distutils_enable_tests pytest
 
-distutils_enable_sphinx docs \
-	dev-python/sphinxcontrib-asyncio
+#distutils_enable_sphinx docs \
+	#dev-python/sphinxcontrib-asyncio
 
 python_test() {
 	epytest "${S}"/tests --mysql-unix-socket "$(emysql --get-sockfile)"
