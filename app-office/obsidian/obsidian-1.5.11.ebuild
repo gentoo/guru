@@ -25,13 +25,17 @@ SRC_URI="
 	arm64? ( https://github.com/obsidianmd/obsidian-releases/releases/download/v${PV}/${P}-arm64.tar.gz )
 "
 
-RESTRICT="mirror strip bindist"
+DIR="/opt/${PN^}"
+
+# deb gets extracted to WORKDIR. actual program gets extracted to its own dir
+# which depends on CPU arch.
+S="${WORKDIR}"
 
 LICENSE="Obsidian-EULA"
-
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 IUSE="appindicator"
+RESTRICT="mirror strip bindist"
 
 RDEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0:2
@@ -64,12 +68,6 @@ RDEPEND="
 	x11-libs/pango
 	appindicator? ( dev-libs/libayatana-appindicator )
 "
-
-DIR="/opt/${PN^}"
-
-# deb gets extracted to WORKDIR. actual program gets extracted to its own dir
-# which depends on CPU arch.
-S="${WORKDIR}"
 
 QA_PREBUILT="*"
 
