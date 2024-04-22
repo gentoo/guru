@@ -10,11 +10,12 @@ DESCRIPTION="A self-hosted lightweight software forge"
 HOMEPAGE="https://forgejo.org/ https://codeberg.org/forgejo/forgejo"
 
 SRC_URI="https://codeberg.org/forgejo/forgejo/releases/download/v${MY_PV}/forgejo-src-${MY_PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 S="${WORKDIR}/${PN}-src-${MY_PV}"
-
 LICENSE="Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0"
 SLOT="0"
+
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
+
 IUSE="+acct pam sqlite pie"
 
 DEPEND="
