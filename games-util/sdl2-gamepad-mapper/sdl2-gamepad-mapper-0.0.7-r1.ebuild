@@ -12,6 +12,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 RDEPEND="
+	media-libs/libsdl2
 	dev-qt/qtquickcontrols:5
 	dev-qt/qtquickcontrols2:5
 	dev-qt/qtnetwork:5
