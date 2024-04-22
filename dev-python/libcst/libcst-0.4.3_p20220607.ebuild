@@ -132,7 +132,7 @@ RDEPEND="
 	>=dev-python/pyyaml-5.2[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-rust-0.12.1[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-3.7.4.2[${PYTHON_USEDEP}]
-	>=dev-python/typing_inspect-0.4.0[${PYTHON_USEDEP}]
+	>=dev-python/typing-inspect-0.4.0[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
 # 	test? (

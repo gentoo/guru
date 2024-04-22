@@ -5,3 +5,4 @@ move dev-python/dataclasses_json dev-python/dataclasses-json
 move media-gfx/heatshrink dev-libs/heatshrink
 move sys-apps/sdate app-misc/sdate
 move gui-libs/webp-pixbuf-loader gui-libs/gdk-pixbuf-loader-webp
+move dev-python/typing_inspect dev-python/typing-inspect
