@@ -20,7 +20,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-python/dataclasses_json[${PYTHON_USEDEP}]"
+RDEPEND="dev-python/dataclasses-json[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 
 src_prepare() {
