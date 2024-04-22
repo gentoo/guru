@@ -62,6 +62,10 @@ BDEPEND="
 BDEPEND+="man? ( >=app-text/scdoc-1.9.3 )"
 REQUIRED_USE="tray? ( swaybar )"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-0.3.2-fix-not-being-able-to-build-without-xwayland-support.patch"
+	)
+
 src_configure() {
 	local emesonargs=(
 		$(meson_feature man man-pages)
