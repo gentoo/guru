@@ -13,7 +13,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="exemples docs test"
+IUSE="examples docs test"
 RESTRICT="!test? ( test )"
 RDEPEND="
 	sys-libs/pam
