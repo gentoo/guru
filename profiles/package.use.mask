@@ -3,12 +3,6 @@
 
 # New entries go on top.
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-23)
-# Docs depend on treecleaned dev-python/sphinxcontrib-asyncio.
-dev-python/aiomysql doc
-dev-python/aiopg doc
-dev-python/asyncpg doc
-
 # John-Henry Lim <johnhenrylim12@gmail.com> (2024-02-19)
 # warp-dex relies on libpcap.so.0.8 which is not in tree.
 net-vpn/cloudflare-warp dex
