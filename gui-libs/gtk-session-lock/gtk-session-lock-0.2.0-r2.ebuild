@@ -36,7 +36,7 @@ src_configure() {
 		$(meson_use test tests)
 		$(meson_use docs docs)
 		-Dintrospection=true
-		-Dintrospection=vapi
+		-Dvapi=false
 	)
     meson_src_configure
 }
