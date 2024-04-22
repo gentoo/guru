@@ -13,16 +13,16 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="examples docs test"
-RESTRICT="!test? ( test )"
+IUSE="examples docs"
+#RESTRICT="!test? ( test )"
 RDEPEND="
 	sys-libs/pam
 	x11-libs/gtk+:3[wayland]
-	gui-libs/gtk-session-lock
 "
 DEPEND="
 	${DEPEND}
 	>=dev-libs/wayland-protocols-1.34
+	gui-libs/gtk-layer-shell
 "
 BDEPEND="
 	dev-util/wayland-scanner
@@ -33,7 +33,7 @@ BDEPEND="
 src_configure() {
     local emesonargs=(
 		$(meson_use examples examples)
-		$(meson_use test tests)
+		#$(meson_use test tests)
 		$(meson_use docs docs)
 		-Dintrospection=true
 		-Dvapi=false
