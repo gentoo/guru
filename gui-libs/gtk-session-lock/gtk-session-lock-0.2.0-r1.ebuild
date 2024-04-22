@@ -28,7 +28,6 @@ BDEPEND="
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 	dev-build/meson
-	man? ( app-text/scdoc )
 "
 
 src_configure() {
