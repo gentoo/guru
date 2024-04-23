@@ -15,13 +15,15 @@ EGIT_REPO_URI="https://github.com/jeffkowalski/geeknote"
 LICENSE="GPL-3"
 SLOT="0"
 
-RDEPEND="dev-python/evernote3[${PYTHON_USEDEP}]
-dev-python/html2text[${PYTHON_USEDEP}]
-dev-python/sqlalchemy[${PYTHON_USEDEP}]
-dev-python/markdown2[${PYTHON_USEDEP}]
-dev-python/beautifulsoup4[${PYTHON_USEDEP}]
-dev-python/thrift[${PYTHON_USEDEP}]
-dev-python/lxml[${PYTHON_USEDEP}]"
+RDEPEND="
+	dev-python/evernote2[${PYTHON_USEDEP}]
+	dev-python/html2text[${PYTHON_USEDEP}]
+	dev-python/sqlalchemy[${PYTHON_USEDEP}]
+	dev-python/markdown2[${PYTHON_USEDEP}]
+	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
+	dev-python/thrift[${PYTHON_USEDEP}]
+	dev-python/lxml[${PYTHON_USEDEP}]
+"
 
 PATCHES=( "${FILESDIR}/${P}-remove_completion_from_setup.patch" )
 
