@@ -68,11 +68,6 @@ RDEPEND="${DEPEND}"
 QA_PREBUILT="usr/share/rpcs3/test/.*"
 QA_WX_LOAD="usr/share/rpcs3/test/*"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-0001-gui_pad_thread-add-missing-unistd-h.patch"
-)
-
-
 src_prepare() {
 	if [[ ${PV} != "9999" ]]; then
 		rmdir "${S}/3rdparty/asmjit/asmjit" || die
@@ -95,7 +90,6 @@ src_prepare() {
 
 		rmdir "${S}/3rdparty/yaml-cpp/yaml-cpp" || die
 		mv "${WORKDIR}/yaml-cpp-${YAMLCPP_COMMIT}" "${S}/3rdparty/SoundTouch/soundtouch" || die
-
 
 		#Define RPCS3 Version
 		{ echo "#define RPCS3_GIT_VERSION \"${PV}\""
