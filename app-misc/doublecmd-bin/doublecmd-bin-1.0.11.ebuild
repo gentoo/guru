@@ -18,6 +18,8 @@ SRC_URI="amd64? (
 		qt5?  ( mirror://sourceforge/${MY_PN}/${MY_PN}-${PV}.qt.i386.tar.xz )
 	)"
 
+S="${WORKDIR}/${MY_PN}"
+
 # Licenses for package and plugins
 LICENSE="GPL-2+ LGPL-2-with-linking-exception LGPL-2.1+ LGPL-3 GPL-1 freedist"
 SLOT="0"
@@ -25,8 +27,6 @@ KEYWORDS="-* ~amd64 ~x86"
 
 IUSE="gtk qt5"
 REQUIRED_USE=" ^^ ( gtk qt5 ) "
-
-S="${WORKDIR}/${MY_PN}"
 
 QA_PREBUILT="
 	*/doublecmd
