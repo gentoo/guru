@@ -9,7 +9,7 @@ inherit distutils-r1 systemd
 
 DESCRIPTION="A self-hosted, ad-free, privacy-respecting metasearch engine"
 HOMEPAGE="https://github.com/benbusby/whoogle-search"
-SRC_URI="https://github.com/benbusby/whoogle-search/archive/refs/tags/v${PV}.tar.gz"
+SRC_URI="https://github.com/benbusby/whoogle-search/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
