@@ -33,6 +33,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}"
+BDEPEND="dev-qt/linguist-tools"
 
 GST_PLUGINS_BUILD_DIR="qt"
 
