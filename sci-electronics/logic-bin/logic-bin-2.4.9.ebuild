@@ -7,14 +7,13 @@ DESCRIPTION="Saleae logic analyzer"
 HOMEPAGE="https://www.saleae.com"
 
 SRC_URI="https://downloads.saleae.com/logic2/Logic-${PV}-linux-x64.AppImage"
-KEYWORDS="~amd64"
-
-LICENSE="Saleae"
-SLOT="0"
-
-RESTRICT="bindist mirror strip"
 
 S="${WORKDIR}"
+LICENSE="Saleae"
+SLOT="0"
+KEYWORDS="~amd64"
+
+RESTRICT="bindist mirror strip"
 
 QA_PREBUILT="*"
 
