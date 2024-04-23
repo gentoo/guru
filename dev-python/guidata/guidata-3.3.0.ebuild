@@ -12,9 +12,8 @@ DESCRIPTION="Library for user interfaces for easy dataset editing and display"
 HOMEPAGE="https://pypi.python.org/pypi/guidata"
 LICENSE="BSD"
 
-KEYWORDS="~amd64 ~x86"
-
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 RDEPEND="
