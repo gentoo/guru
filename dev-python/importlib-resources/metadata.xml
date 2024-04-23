@@ -7,5 +7,6 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="pypi">importlib-resources</remote-id>
+		<remote-id type="github">python/importlib_resources</remote-id>
 	</upstream>
 </pkgmetadata>
