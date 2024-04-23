@@ -8,8 +8,4 @@
 	<upstream>
 		<remote-id type="github">Cu3PO42/gtk-session-lock</remote-id>
 	</upstream>
-	<use>
-		<flag name="examples">Build example applications</flag>
-		<flag name="docs">Build devhelp API documentation</flag>
-	</use>
 </pkgmetadata>
