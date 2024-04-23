@@ -12,13 +12,13 @@ DESCRIPTION="FORD, automatic documentation generator for modern Fortran programs
 HOMEPAGE="https://github.com/Fortran-FOSS-Programmers/ford"
 SRC_URI="$(pypi_sdist_url --no-normalize "${MY_PN^}" "${PV}")"
 
+S="${WORKDIR}/${MY_PN}-${PV}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
-
-S="${WORKDIR}/${MY_PN}-${PV}"
 
 RDEPEND="
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
