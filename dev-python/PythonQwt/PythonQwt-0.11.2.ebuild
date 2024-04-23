@@ -14,9 +14,8 @@ HOMEPAGE="https://pypi.python.org/pypi/PythonQwt"
 LICENSE="MIT"
 
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 # Test directory seems to contain demo instead
 RESTRICT="test"
 
 RDEPEND="dev-python/PyQt5[${PYTHON_USEDEP},svg]"
-
-KEYWORDS="~amd64 ~x86"
