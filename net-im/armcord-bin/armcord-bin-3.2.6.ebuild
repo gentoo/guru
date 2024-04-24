@@ -85,6 +85,10 @@ src_install() {
 	fperms -R 644 "${DESTDIR}/locales"
 	fperms -R 644 "${DESTDIR}/resources"
 
+	# Fix bug 930639
+	fperms a+rx "${DESTDIR}"/resources/
+	fperms a+r "${DESTDIR}"/resources/*
+
 	fowners root "${DESTDIR}/chrome-sandbox"
 	fperms 4711 "${DESTDIR}/chrome-sandbox"
 
