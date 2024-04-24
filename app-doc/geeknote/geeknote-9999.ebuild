@@ -8,9 +8,9 @@ DISTUTILS_USE_PEP517=setuptools
 
 inherit bash-completion-r1 distutils-r1 git-r3
 
-DESCRIPTION="Evernote CLI: CRUD for notes in cloud"
+DESCRIPTION="Evernote CLI: CRUD for notes in cloud, in markdown"
 HOMEPAGE="https://github.com/Evernote/evernote-sdk-python3"
-EGIT_REPO_URI="https://github.com/jeffkowalski/geeknote"
+EGIT_REPO_URI="https://github.com/vitaly-zdanevich/geeknote"
 
 LICENSE="GPL-3"
 SLOT="0"
