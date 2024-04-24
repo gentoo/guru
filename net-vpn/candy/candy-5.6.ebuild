@@ -5,13 +5,14 @@ EAPI=8
 
 inherit cmake systemd
 
-DESCRIPTION="Another virtual private network that supports peer-to-peer connections"
+DESCRIPTION="A reliable, low-latency, and anti-censorship virtual private network"
 HOMEPAGE="https://github.com/lanthora/candy"
 SRC_URI="https://github.com/lanthora/candy/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="+libcandy"
 
 DEPEND="
 	dev-libs/uriparser
@@ -21,6 +22,13 @@ DEPEND="
 	dev-libs/spdlog
 "
 RDEPEND="${DEPEND}"
+
+src_configure(){
+	local mycmakeargs=(
+		-DCANDY_DEVEL=$(usex libcandy true false)
+	)
+	cmake_src_configure
+}
 
 src_install(){
 	cmake_src_install
