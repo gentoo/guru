@@ -27,6 +27,8 @@ RDEPEND="
 
 PATCHES=( "${FILESDIR}/${P}-remove_completion_from_setup.patch" )
 
+RESTRICT="test"
+
 python_install_all() {
 	dobashcomp completion/bash_completion/_geeknote
 	insinto /usr/share/zsh/site-functions
