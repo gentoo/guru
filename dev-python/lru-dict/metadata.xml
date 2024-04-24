@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<stabilize-allarches/>
+	<upstream>
+		<remote-id type="pypi">lru-dict</remote-id>
+		<maintainer>
+			<name>Amit Dev</name>
+		</maintainer>
+		<remote-id type="github">amitdev/lru-dict</remote-id>
+	</upstream>
+</pkgmetadata>
