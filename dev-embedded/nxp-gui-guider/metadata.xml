@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<longdescription lang="en">
+		GUI Guider is a user-friendly graphical user interface development tool
+		from NXP that enables the rapid development of high quality display
+		with the open-source LVGL graphics library. GUI Guider's drag-and-drop
+		editor makes it easy to utilize the many features of LVGL such as
+		widgets, animations and styles to create a GUI with minimal or no coding
+		at all.
+		With the click of a button, you can run your application in a simulated
+		environment or export it to a target project. Generated code from GUI
+		Guider can easily be added to an MCUXpresso IDE or IAR Embedded
+		Workbench project, accelerating the development process and allowing you
+		to seamlessly add an embedded user interface to your application.
+		GUI Guider is free to use with NXP’s general purpose and crossover MCUs,
+		and includes built in project templates for several supported platforms.
+	</longdescription>
+	<longdescription lang="zh">
+		GUI Guider 是 NXP 推出的一款用户友好的图形用户界面开发工具，可利用开源
+		LVGL 图形库快速开发高质量显示器。 GUI Guider 的拖放编辑器可以轻松利用
+		LVGL 的许多功能（例如小部件、动画和样式）来创建 GUI，只需最少的编码或
+		根本不需要编码。
+		只需单击按钮，您就可以在模拟环境中运行应用程序或将其导出到目标项目。
+		GUI Guider 生成的代码可以轻松添加到 MCUXpresso IDE 或 IAR Embedded
+		Workbench 项目中，从而加速开发过程，并允许您将嵌入式用户界面无缝添加到您
+		的应用程序中。
+		GUI Guider 可免费与 NXP 的通用和交叉 MCU 一起使用，并包含适用于多个受
+		支持平台的内置项目模板。
+	</longdescription>
+</pkgmetadata>
