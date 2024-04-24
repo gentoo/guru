@@ -6,7 +6,7 @@
 		<email>zdanevich.vitaly@ya.ru</email>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">jeffkowalski/geeknote</remote-id>
-		<bugs-to>https://github.com/jeffkowalski/geeknote/issues</bugs-to>
+		<remote-id type="github">vitaly-zdanevich/geeknote</remote-id>
+		<bugs-to>https://github.com/vitaly-zdanevich/geeknote/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
