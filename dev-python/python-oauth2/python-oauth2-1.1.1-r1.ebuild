@@ -13,7 +13,7 @@ HOMEPAGE="https://pypi.python.org/pypi/python-oauth2"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 RESTRICT="test"
 
 RDEPEND="dev-python/pymongo[${PYTHON_USEDEP}]
