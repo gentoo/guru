@@ -24,9 +24,3 @@ RDEPEND="
 	dev-python/python-oauth2[${PYTHON_USEDEP}]
 	dev-python/thrift[${PYTHON_USEDEP}]
 "
-
-# src_install() {
-# 	echo ----------------
-# 	ls -lh
-# 	echo ----------------
-# }
