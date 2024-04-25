@@ -7,7 +7,10 @@ DESCRIPTION="Interactive rg (ripgrep) wrapper in fzf: Interactive GRep (search)"
 HOMEPAGE="https://github.com/DanielFGray/fzf-scripts"
 SRC_URI="https://raw.githubusercontent.com/DanielFGray/fzf-scripts/master/$PN"
 
+S="$WORKDIR"
+
 LICENSE="GPL-3"
+
 SLOT=0
 
 RDEPEND="
@@ -16,15 +19,9 @@ RDEPEND="
 	sys-apps/bat
 "
 
-S="$WORKDIR"
-
 src_unpack() {
 	cp "$DISTDIR/$PN" "$WORKDIR/" || die
 }
-
-PATCHES=(
-	"$FILESDIR/vim-open-current-line.patch"
-)
 
 src_install() {
 	dobin "${PN}"
