@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-		<maintainer type="person">
-				<email>julien@jroy.ca</email>
-				<name>Julien Roy</name>
+	<maintainer type="person">
+		<email>julien@jroy.ca</email>
+		<name>Julien Roy</name>
+	</maintainer>
+	<longdescription>
+		A fast Matrix homeserver that is optimized for smaller, personal servers,
+		instead of a server that has high scalability.
+	</longdescription>
+	<use>
+		<flag name="lmdb" restrict="&lt;net-im/conduit-0.7.0">
+			Add support for LMDB (Lightning Memory-Mapped Database)
+		</flag>
+		<flag name="rocksdb">
+			Add support for RocksDB; a key/value, LSM database
+		</flag>
+		<flag name="system-rocksdb">
+			Use the system-wide <pkg>dev-libs/rocksdb</pkg> installation
+		</flag>
+	</use>
+	<upstream>
+		<maintainer>
+			<name>Timo Kösters</name>
+			<email>timo@koesters.xyz</email>
 		</maintainer>
-		<longdescription>
-				A fast Matrix homeserver that is optimized for smaller, personal servers,
-				instead of a server that has high scalability.
-		</longdescription>
-		<use>
-				<flag name="lmdb">Add support for LMDB (Lightning Memory-Mapped Database)</flag>
-				<flag name="rocksdb">Add support for RocksDB; a key/value, LSM database</flag>
-				<flag name="system-rocksdb">Use the system-wide <pkg>dev-libs/rocksdb</pkg> installation</flag>
-		</use>
-		<upstream>
-				<maintainer>
-						<name>Timo Kösters</name>
-						<email>timo@koesters.xyz</email>
-				</maintainer>
-				<bugs-to>https://gitlab.com/famedly/conduit/-/issues</bugs-to>
-				<remote-id type="gitlab">famedly/conduit</remote-id>
-		</upstream>
+		<bugs-to>https://gitlab.com/famedly/conduit/-/issues</bugs-to>
+		<remote-id type="gitlab">famedly/conduit</remote-id>
+	</upstream>
 </pkgmetadata>
