@@ -23,7 +23,6 @@ RDEPEND="
 	dev-python/pytz[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
 	dev-python/werkzeug[${PYTHON_USEDEP}]
-	dev-python/importlib-resources[${PYTHON_USEDEP}]
 "
 
 DEPEND="${RDEPEND}
@@ -35,6 +34,8 @@ DEPEND="${RDEPEND}
 		dev-python/tzlocal[${PYTHON_USEDEP}]
 	)
 "
+
+PATCHES=( "${FILESDIR}/${PN}-avoid-importlib_resources.patch" )
 
 distutils_enable_tests pytest
 
