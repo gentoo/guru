@@ -41,3 +41,9 @@ RESTRICT="test"
 # }
 
 distutils_enable_tests pytest
+
+pkg_postinst() {
+	einfo "Autocompletion plugin is already bundled in oh-my-zsh. To enable just configure plugin definition"
+	einfo "plugins=( ... geeknote ...)"
+	einfo "see more at https://github.com/s7anley/zsh-geeknote"
+}
