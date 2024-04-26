@@ -105,4 +105,7 @@ KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
+RDEPEND="dev-libs/vectorscan:="
+DEPEND="${RDEPEND}"
+
 distutils_enable_tests pytest
