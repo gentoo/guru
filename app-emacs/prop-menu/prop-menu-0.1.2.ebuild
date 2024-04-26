@@ -9,11 +9,11 @@ DESCRIPTION="Compute pop-up menus from text and overlay properties "
 HOMEPAGE="https://github.com/david-christiansen/prop-menu-el"
 SRC_URI="https://github.com/david-christiansen/prop-menu-el/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/prop-menu-el-${PV}"
+
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/prop-menu-el-${PV}"
 
 SITEFILE="50${PN}-gentoo.el"
 

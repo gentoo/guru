@@ -18,14 +18,9 @@ SRC_URI="
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-S="${WORKDIR}/${P}"
 
-CP_DEPEND=""
-
-RDEPEND=">=virtual/jre-1.8:*
-	${CP_DEPEND}"
-DEPEND=">=virtual/jdk-1.8:*
-	${CP_DEPEND}"
+RDEPEND=">=virtual/jre-1.8:*"
+DEPEND=">=virtual/jdk-1.8:*"
 
 src_unpack() {
 	default

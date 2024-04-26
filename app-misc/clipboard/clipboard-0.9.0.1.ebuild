@@ -11,6 +11,8 @@ DESCRIPTION="Cut, copy, and paste anything in your terminal"
 HOMEPAGE="https://getclipboard.app/ https://github.com/Slackadays/Clipboard"
 SRC_URI="https://github.com/Slackadays/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -26,7 +28,6 @@ RDEPEND="X? (
 		)
 		media-libs/alsa-lib
 "
-S="${WORKDIR}/${MY_P}"
 
 src_configure() {
 	local mycmakeargs=(

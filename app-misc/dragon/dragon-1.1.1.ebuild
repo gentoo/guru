@@ -7,9 +7,9 @@ DESCRIPTION="Simple drag-and-drop source/sink for X and Wayland"
 HOMEPAGE="https://github.com/mwh/dragon"
 SRC_URI="https://github.com/mwh/dragon/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="~amd64"
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
 
 DEPEND=">=x11-libs/gtk+-3"
 RDEPEND="${DEPEND}"

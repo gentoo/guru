@@ -5,13 +5,14 @@ EAPI=8
 
 DESCRIPTION="Screen sharing for terminal: ASCII in browser or terminal, without pixels moving"
 HOMEPAGE="https://github.com/elisescu/tty-share"
-
 SRC_URI="https://github.com/elisescu/tty-share/releases/download/v${PV}/tty-share_linux-amd64"
+
 S="${WORKDIR}"
-KEYWORDS="~amd64"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
+
 RESTRICT="strip"
 
 QA_PREBUILT="usr/bin/${PN}"

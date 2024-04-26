@@ -4,18 +4,19 @@
 EAPI=7
 
 COMMIT="c0ddf8d4f0a57b984570ceacb1f3e587639d8bda"
+
 DESCRIPTION="Simple drag-and-drop source/sink for X and Wayland"
 HOMEPAGE="https://github.com/mwh/dragon"
 SRC_URI="https://github.com/mwh/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="~amd64"
+S="${WORKDIR}/${PN}-${COMMIT}"
+
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
 
 DEPEND=">=x11-libs/gtk+-3"
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}-${COMMIT}"
 
 src_prepare() {
 	default

@@ -5,8 +5,9 @@ EAPI=8
 
 DESCRIPTION="The OpenCilk concurrency platform for parallel programming"
 HOMEPAGE="https://opencilk.org/"
-
 SRC_URI="https://github.com/OpenCilk/opencilk-project/releases/download/opencilk%2Fv${PV}/OpenCilk-${PV}-LLVM-12.0.0-Ubuntu-20.04-x86_64.tar.gz"
+
+S="${WORKDIR}"
 
 # Since opencilk-project is a fork of LLVM 12, this lists the licenses
 # of LLVM 12, while opencilk-project states that it us under "MIT with
@@ -24,8 +25,6 @@ RDEPEND="
 	sys-libs/ncurses:=
 	sys-libs/zlib
 "
-
-S="${WORKDIR}"
 
 QA_FLAGS_IGNORED="opt/${P}/.*"
 

@@ -9,11 +9,11 @@ DESCRIPTION="Library to interface with USB Type-c/Power Delivery devices"
 HOMEPAGE="https://github.com/Rajaram-Regupathy/libtypec"
 SRC_URI="https://github.com/Rajaram-Regupathy/libtypec/releases/download/${P}/${P}-Source.tar.gz"
 
+S="${WORKDIR}/${P}-Source"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/${P}-Source"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.5.0-CMakeLists.txt-fix-pkgconfig-install-path.patch"

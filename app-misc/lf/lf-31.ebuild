@@ -5,18 +5,18 @@ EAPI=8
 
 inherit go-module shell-completion desktop xdg
 
-SRC_URI="https://github.com/gokcehan/lf/archive/r${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://github.com/ephemer4l/gentoo-lf/raw/main/${P}-deps.tar.xz"
-
 DESCRIPTION="Terminal file manager"
 HOMEPAGE="https://github.com/gokcehan/lf"
-IUSE="+static"
-
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-LICENSE="MIT"
-SLOT="0"
+SRC_URI="https://github.com/gokcehan/lf/archive/r${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/ephemer4l/gentoo-lf/raw/main/${P}-deps.tar.xz"
 
 S="${WORKDIR}/${PN}-r${PV}"
+
+LICENSE="MIT"
+SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+
+IUSE="+static"
 
 src_compile() {
 	local ldflags="-s -w -X main.gVersion=r${PV}"

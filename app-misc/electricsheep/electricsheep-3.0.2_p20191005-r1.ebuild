@@ -16,9 +16,10 @@ SRC_URI="
 
 S="${WORKDIR}/${PN}-${MY_COMMIT}/client_generic"
 
-KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
+
 IUSE="video_cards_nvidia"
 
 DEPEND="dev-lang/lua:5.1
@@ -38,7 +39,6 @@ DEPEND="dev-lang/lua:5.1
 	x11-libs/wxGTK:${WX_GTK_VER}
 	virtual/opengl"
 RDEPEND="${DEPEND}"
-# BDEPEND="app-arch/unzip"
 
 PATCHES=(
 	"${FILESDIR}/electricsheep-glext-prototypes.patch" # is included in the boost181 patch

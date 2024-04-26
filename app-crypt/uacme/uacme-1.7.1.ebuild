@@ -8,10 +8,10 @@ HOMEPAGE="https://github.com/ndilieto/uacme"
 SRC_URI="https://github.com/ndilieto/uacme/archive/upstream/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/uacme-upstream-${PV}"
 
+LICENSE="GPL-3"
+SLOT="0"
 KEYWORDS="~amd64"
 
-SLOT="0"
-LICENSE="GPL-3"
 IUSE="gnutls mbedtls +ualpn +man"
 REQUIRED_USE="gnutls? ( !mbedtls )"
 

@@ -29,15 +29,14 @@ EGO_SUM=(
 	)
 go-module_set_globals
 
-SRC_URI="https://github.com/nwg-piotr/gopsuinfo/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	${EGO_SUM_SRC_URI}"
-KEYWORDS="~amd64"
-
 DESCRIPTION="A gopsutil-based command to display system usage info as text"
 HOMEPAGE="https://github.com/nwg-piotr/gopsuinfo"
-LICENSE="MIT"
+SRC_URI="https://github.com/nwg-piotr/gopsuinfo/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	${EGO_SUM_SRC_URI}"
 
+LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 
 DEPEND=">=dev-lang/go-1.20"
 

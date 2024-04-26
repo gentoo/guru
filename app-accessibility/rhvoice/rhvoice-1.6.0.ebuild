@@ -30,9 +30,9 @@ LICENSE="BSD GPL-2 GPL-3+ LGPL-2.1+
 	$(printf 'l10n_%s? ( CC-BY-NC-ND-4.0 )\n' "${CC_NC_LANGS[@]}")
 	$(printf 'l10n_%s? ( free-noncomm )\n' "${NC_LANGS[@]}")
 "
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="$(printf 'l10n_%s ' ${LANGS[@]}) ao cli portaudio +pulseaudio +server +speech-dispatcher"
-SLOT="0"
 REQUIRED_USE="|| ( ao portaudio pulseaudio )"
 
 DEPEND="

@@ -8,19 +8,20 @@ PYTHON_COMPAT=( python3_10)
 
 inherit distutils-r1
 
+COMMIT="f7a8dbb3f81be81224368970054fd33d2814c9d7"
+
 DESCRIPTION="Client library for ActivityWatch"
 HOMEPAGE="https://activitywatch.net"
-LICENSE="MPL-2.0"
-
-COMMIT="f7a8dbb3f81be81224368970054fd33d2814c9d7"
 SRC_URI="https://github.com/ActivityWatch/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="~amd64"
+S="${WORKDIR}/${PN}-${COMMIT}"
+
+LICENSE="MPL-2.0"
 SLOT="0"
+KEYWORDS="~amd64"
+
 # Test tries to connect to aw-server
 RESTRICT="test"
-
-S="${WORKDIR}/${PN}-${COMMIT}"
 
 RDEPEND="
 	app-misc/aw-core[${PYTHON_USEDEP}]
@@ -31,6 +32,4 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 "
 
-DEPEND="
-	${RDEPEND}
-"
+DEPEND="${RDEPEND}"

@@ -11,15 +11,14 @@ DESCRIPTION="Dump information about Marvell mv88e6xxx Ethernet switches"
 HOMEPAGE="https://github.com/lunn/mv88e6xxx_dump"
 SRC_URI="https://github.com/lunn/mv88e6xxx_dump/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/mv88e6xxx_dump-${MY_COMMIT}"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 BDEPEND="virtual/pkgconfig"
-
 DEPEND="net-libs/libmnl:="
-
-S="${WORKDIR}/mv88e6xxx_dump-${MY_COMMIT}"
 
 src_prepare() {
 	default

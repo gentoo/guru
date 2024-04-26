@@ -4,14 +4,16 @@
 EAPI=8
 
 COMMIT="55ff64349dec3012cfbbb1c4f92d4dbd46920213"
+
 DESCRIPTION="libcrypt wrapper for LiteSpeedTech"
 HOMEPAGE="https://github.com/litespeedtech/libbcrypt/"
 SRC_URI="https://github.com/litespeedtech/libbcrypt/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
+
+S="${WORKDIR}/libbcrypt-${COMMIT}"
+
 LICENSE="CC0-1.0 public-domain"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/libbcrypt-${COMMIT}"
 
 PATCHES=(
 	"${FILESDIR}"/${PV}-fix-tests.patch

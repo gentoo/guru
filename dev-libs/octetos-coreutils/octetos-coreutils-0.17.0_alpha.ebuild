@@ -18,6 +18,8 @@ else
 	SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz -> ${P}.tar.gz"
 fi
 
+S="${WORKDIR}/${MYP}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -28,8 +30,6 @@ BDEPEND="
 	dev-libs/check
 	dev-util/cunit
 "
-
-S="${WORKDIR}/${MYP}"
 
 src_prepare() {
 	default

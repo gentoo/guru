@@ -9,6 +9,8 @@ DESCRIPTION="A cross-platform, complete password management solution"
 HOMEPAGE="https://enpass.io/"
 SRC_URI="https://apt.enpass.io/pool/main/e/enpass/enpass_${PV}_amd64.deb"
 
+S="${WORKDIR}"
+
 LICENSE="Enpass-EULA"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -20,8 +22,6 @@ RDEPEND="
 	x11-libs/libXScrnSaver
 	x11-libs/libxkbcommon
 "
-
-S="${WORKDIR}"
 
 QA_PREBUILT="/opt/enpass/*"
 

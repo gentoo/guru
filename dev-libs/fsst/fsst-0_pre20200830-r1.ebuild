@@ -11,14 +11,14 @@ DESCRIPTION="Fast Static Symbol Table: fast text compression that allows random 
 HOMEPAGE="https://github.com/cwida/fsst"
 SRC_URI="https://github.com/cwida/fsst/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
 
+S="${WORKDIR}/${PN}-${COMMIT}"
+
 LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
 
 BDEPEND="app-admin/chrpath"
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}-${COMMIT}"
 
 src_install() {
 	chrpath -d "${BUILD_DIR}/fsst" || die

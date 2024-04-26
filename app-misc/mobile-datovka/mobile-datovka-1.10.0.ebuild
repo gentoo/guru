@@ -8,6 +8,9 @@ inherit qmake-utils xdg
 DESCRIPTION="Mobile optimized GUI to access the Czech data box e-government system"
 HOMEPAGE="https://www.datovka.cz/"
 SRC_URI="https://gitlab.labs.nic.cz/datovka/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
+
+S="${WORKDIR}/${PN}-v${PV}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
@@ -33,8 +36,6 @@ DEPEND="
 	>=dev-qt/linguist-tools-${QT_PV}
 	virtual/pkgconfig
 "
-
-S="${WORKDIR}/${PN}-v${PV}"
 
 src_configure() {
 	lrelease ${PN}.pro || die

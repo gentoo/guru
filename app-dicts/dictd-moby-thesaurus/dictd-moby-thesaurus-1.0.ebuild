@@ -11,8 +11,8 @@ HOMEPAGE="https://tracker.debian.org/pkg/dict-moby-thesaurus"
 SRC_URI="mirror://debian/pool/main/d/${MY_PN}/${DEB}"
 S="${WORKDIR}"
 
-SLOT="0"
 LICENSE="GPL-2"
+SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND=">=app-text/dictd-1.13.0-r3"

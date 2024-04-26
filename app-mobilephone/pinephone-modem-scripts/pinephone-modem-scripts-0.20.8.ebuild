@@ -12,6 +12,8 @@ HOMEPAGE="https://gitlab.manjaro.org/manjaro-arm/packages/community/phosh/pineph
 EGIT_REPO_URI="https://gitlab.manjaro.org/manjaro-arm/packages/community/phosh/pinephone-modem-scripts/-/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 EGIT_BRANCH=eg25-manager
 
+S="${WORKDIR}/${PN}-${COMMIT}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~arm64"
@@ -20,8 +22,6 @@ RDEPEND="
 	net-dialup/atinout
 	sci-geosciences/gpsd
 "
-
-S="${WORKDIR}/${PN}-${COMMIT}"
 
 src_install() {
 	udev_dorules "${S}"/90-modem-eg25.rules

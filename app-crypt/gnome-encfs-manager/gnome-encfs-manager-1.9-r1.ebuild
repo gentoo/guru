@@ -10,8 +10,8 @@ HOMEPAGE="https://launchpad.net/gencfsm"
 SRC_URI="https://launchpad.net/gencfsm/trunk/${PV}/+download/${PN}_${PV}.tar.xz -> ${P}.tar.xz"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="+appindicator"
 
 DEPEND="

@@ -11,6 +11,8 @@ DESCRIPTION="Local platform for home banking"
 HOMEPAGE="https://willuhn.de/"
 SRC_URI="https://willuhn.de/products/jameica/releases/current/jameica/jameica-linux64-${PV}.zip"
 
+S="${WORKDIR}/jameica"
+
 # Jameica: GPL-2
 # lib/apache_xmlrpc, lib/jakarta_commons, lib/velocity: Apache-2.0
 # lib/swt: CPL-1.0 LGPL-2 MPL-1.1
@@ -30,8 +32,6 @@ RDEPEND="
 BDEPEND="
 	app-arch/unzip
 "
-
-S="${WORKDIR}/jameica"
 
 JAMEICA_INSFILES=( jameica-icon.png jameica{,-linux64}.jar lib plugin.xml )
 JAMEICA_EXEFILES=( jameicaserver.sh jameica.sh rcjameica-systemd )

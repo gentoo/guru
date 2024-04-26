@@ -9,10 +9,10 @@ DESCRIPTION="14-word mnemonic seed for Monero"
 HOMEPAGE="https://git.wownero.com/feather/monero-seed"
 SRC_URI="https://git.wownero.com/feather/monero-seed/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${PN}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
-S="${WORKDIR}/${PN}"
-
-PATCHES+=( "${FILESDIR}"/${PN}-9999-install-demo.patch )
+PATCHES=( "${FILESDIR}"/${PN}-9999-install-demo.patch )

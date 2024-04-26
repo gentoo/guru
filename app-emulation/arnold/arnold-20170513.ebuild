@@ -11,6 +11,8 @@ DESCRIPTION="Amstrad CPC emulator"
 HOMEPAGE="http://www.cpctech.org.uk"
 SRC_URI="http://cpctech.cpc-live.com/arnsrc.zip -> ${P}.zip"
 
+S=${WORKDIR}/src
+
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -23,8 +25,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="app-arch/unzip"
-
-S=${WORKDIR}/src
 
 src_prepare() {
 	setup-wxwidgets

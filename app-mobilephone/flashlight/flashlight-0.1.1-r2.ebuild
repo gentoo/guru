@@ -11,14 +11,14 @@ DESCRIPTION="It's a flashlight, what do you expect?"
 HOMEPAGE="https://gitlab.com/a-wai/flashlight.git"
 SRC_URI="https://gitlab.com/a-wai/flashlight/-/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${PN}-${MY_COMMIT}"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="x11-libs/gtk+"
 BDEPEND="dev-lang/python-exec[native-symlinks]"
-
-S="${WORKDIR}/${PN}-${MY_COMMIT}"
 
 src_install() {
 	meson_src_install

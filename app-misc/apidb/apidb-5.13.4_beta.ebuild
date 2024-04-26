@@ -23,6 +23,8 @@ else
 	KEYWORDS="~amd64"
 fi
 
+S="${WORKDIR}/${PN}-${MYPV}"
+
 LICENSE="GPL-3"
 SLOT="0"
 
@@ -43,8 +45,6 @@ DEPEND="${RDEPEND}
 	sys-devel/bison
 	sys-devel/flex
 "
-
-S="${WORKDIR}/${PN}-${MYPV}"
 
 src_prepare() {
 	sed -i 's/lib/${LIBDIR}/' src/CMakeLists.txt || die

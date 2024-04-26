@@ -11,6 +11,8 @@ SRC_URI="
 	https://github.com/brainboxdotcc/DPP/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 "
 
+S="${WORKDIR}/DPP-${PV}"
+
 LICENSE="Apache-2.0"
 # DPP is extremely ABI instable due to frequent changes in the Discord API
 # See https://github.com/brainboxdotcc/DPP/issues/207#issuecomment-1007030157
@@ -32,8 +34,6 @@ DEPEND="
 
 	dev-cpp/nlohmann_json
 "
-
-S="${WORKDIR}/DPP-${PV}"
 
 DOCS=( "README.md" "SECURITY.md" )
 

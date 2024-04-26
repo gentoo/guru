@@ -19,9 +19,10 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-IUSE="video_cards_nvidia"
 LICENSE="GPL-2"
 SLOT="0"
+
+IUSE="video_cards_nvidia"
 
 DEPEND="dev-lang/lua:5.1
 	dev-libs/boost
@@ -40,7 +41,6 @@ DEPEND="dev-lang/lua:5.1
 	x11-libs/wxGTK:${WX_GTK_VER}
 	virtual/opengl"
 RDEPEND="${DEPEND}"
-# BDEPEND="app-arch/unzip"
 
 PATCHES=(
 	"${FILESDIR}/electricsheep-glext-prototypes.patch"

@@ -13,14 +13,14 @@ if [[ "${PV}" == *9999* ]]; then
 	EGIT_REPO_URI="https://gitlab.com/marcusbritanicus/${PN}.git"
 else
 	SRC_URI="https://gitlab.com/marcusbritanicus/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
 	S="${WORKDIR}/${PN}-v${PV}"
+	KEYWORDS="~amd64"
 fi
 
-RESTRICT="test"
 LICENSE="LGPL-3"
 SLOT="0"
 IUSE="static-libs"
+RESTRICT="test"
 
 DEPEND="
 	app-arch/libarchive[lzma,bzip2,zlib(+)]

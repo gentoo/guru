@@ -7,14 +7,17 @@ inherit meson
 
 MY_PV="${PV/_/-}"
 MY_P="lsp-${MY_PV}"
-S="${WORKDIR}/${MY_P}"
 
 DESCRIPTION="The least significant pager"
 HOMEPAGE="https://github.com/dgouders/lsp"
 SRC_URI="https://github.com/dgouders/lsp/archive/refs/tags/v${MY_PV}.tar.gz"
+
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
+
 RDEPEND="
 	>=sys-apps/man-db-2.12.0
 	>=sys-libs/ncurses-6.4_p20230401

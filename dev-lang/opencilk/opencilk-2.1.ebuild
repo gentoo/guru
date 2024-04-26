@@ -5,14 +5,17 @@ EAPI=8
 
 inherit cmake
 
+MY_POSTFIX="${PN}-v${PV}"
+
 DESCRIPTION="The OpenCilk concurrency platform for parallel programming"
 HOMEPAGE="https://opencilk.org/"
-
 SRC_URI="
 	https://github.com/OpenCilk/opencilk-project/archive/refs/tags/opencilk/v${PV}.tar.gz -> ${PN}-project-${PV}.tar.gz
 	https://github.com/OpenCilk/cheetah/archive/refs/tags/opencilk/v${PV}.tar.gz -> ${PN}-cheetah-${PV}.tar.gz
 	https://github.com/OpenCilk/productivity-tools/archive/refs/tags/opencilk/v${PV}.tar.gz -> ${PN}-productivity-tools-${PV}.tar.gz
 "
+
+S="${WORKDIR}/${PN}-project-${MY_POSTFIX}"
 
 # Since opencilk-project is a fork of LLVM 12, this lists the licenses
 # of LLVM 12, while opencilk-project states that it us under "MIT with
@@ -24,10 +27,9 @@ SRC_URI="
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc"
 SLOT="0"
 KEYWORDS="~amd64"
+
 IUSE="debug"
 
-MY_POSTFIX="${PN}-v${PV}"
-S="${WORKDIR}/${PN}-project-${MY_POSTFIX}"
 CMAKE_USE_DIR="${S}/llvm"
 
 RDEPEND="

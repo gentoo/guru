@@ -3,17 +3,17 @@
 
 EAPI=8
 
-SRC_URI="https://github.com/coldnew/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64 ~x86"
 DESCRIPTION="Manage the valac symlink"
 HOMEPAGE="https://github.com/coldnew/eselect-vala"
+SRC_URI="https://github.com/coldnew/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
+
 RESTRICT="mirror"
 
 RDEPEND="app-admin/eselect"
-
-S="${WORKDIR}/${P}"
 
 src_install() {
 	default

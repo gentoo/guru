@@ -14,8 +14,8 @@ SRC_URI="https://github.com/GLibSharp/GtkSharp/archive/refs/tags/${PV}.tar.gz ->
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~arm64 ~ppc ~x86"
 SLOT="3"
+KEYWORDS="~amd64 ~arm64 ~ppc ~x86"
 IUSE="+atk +cairo +gdk +gtk +pango"
 
 REQUIRED_USE="

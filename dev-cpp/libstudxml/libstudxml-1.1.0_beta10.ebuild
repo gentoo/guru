@@ -7,12 +7,12 @@ MY_P="${PN}-$(ver_cut 1-3)-b.$(ver_cut 5)"
 
 inherit build2
 
-SRC_URI="https://pkg.cppget.org/1/beta/${PN}/${MY_P}.tar.gz"
 DESCRIPTION="Streaming XML pull parser/serializer for modern C++"
 HOMEPAGE="https://www.codesynthesis.com/projects/libstudxml/"
-
-SLOT="0"
-KEYWORDS="~amd64 ~x86"
-LICENSE="MIT"
+SRC_URI="https://pkg.cppget.org/1/beta/${PN}/${MY_P}.tar.gz"
 
 S="${WORKDIR}/${MY_P}"
+
+LICENSE="MIT"
+SLOT="0"
+KEYWORDS="~amd64 ~x86"

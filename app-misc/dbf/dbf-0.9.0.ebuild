@@ -12,6 +12,8 @@ DESCRIPTION="Command line tool to read the content of dBASE III, IV, and 5.0 fil
 HOMEPAGE="https://github.com/rollinhand/dbf-core"
 SRC_URI="https://github.com/rollinhand/dbf-core/archive/${MY_COMMIT}.tar.gz -> ${P}.tgz"
 
+S="${WORKDIR}/${PN}-core-${MY_COMMIT}"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -22,8 +24,6 @@ DEPEND="${RDEPEND}
 	dev-libs/libdbf
 	doc? ( app-text/docbook-sgml-utils )
 	virtual/pkgconfig"
-
-S="${WORKDIR}/${PN}-core-${MY_COMMIT}"
 
 src_prepare() {
 	default

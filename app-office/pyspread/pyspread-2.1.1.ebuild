@@ -10,13 +10,13 @@ inherit xdg desktop distutils-r1
 
 DESCRIPTION="Pyspread is a non-traditional spreadsheet written in Python"
 HOMEPAGE="https://pyspread.gitlab.io"
-
 SRC_URI="https://gitlab.com/pyspread/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2"
-KEYWORDS="~amd64"
+
 S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	>=dev-python/PyQt5-5.10.0[gui,printsupport,svg,widgets,${PYTHON_USEDEP}]

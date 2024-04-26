@@ -10,6 +10,8 @@ DESCRIPTION="Python GTK application to view and clean metadata in files, using m
 HOMEPAGE="https://metadatacleaner.romainvigier.fr https://gitlab.com/rmnvgr/metadata-cleaner"
 SRC_URI="https://gitlab.com/rmnvgr/metadata-cleaner/-/archive/v${PV}/metadata-cleaner-v${PV}.tar.bz2"
 
+S=${WORKDIR}/metadata-cleaner-v${PV}
+
 LICENSE="GPL-3+ CC-BY-SA-4.0"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -28,8 +30,6 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 BDEPEND="${DEPEND}"
-
-S=${WORKDIR}/metadata-cleaner-v${PV}
 
 src_configure() {
 	python_setup

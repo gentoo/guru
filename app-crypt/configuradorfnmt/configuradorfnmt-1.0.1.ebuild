@@ -9,14 +9,14 @@ DESCRIPTION="Spanish government certificate request generator"
 HOMEPAGE="https://www.cert.fnmt.es/"
 SRC_URI="https://descargas.cert.fnmt.es/Linux/configuradorfnmt-1.0.1-0.x86_64.rpm"
 
+S=${WORKDIR}
+
 LICENSE="FNMT-RCM"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="virtual/jre:1.8"
 DEPEND="${RDEPEND}"
-
-S=${WORKDIR}/
 
 src_install() {
 	java-pkg_dojar "usr/lib64/${PN}/${PN}.jar"

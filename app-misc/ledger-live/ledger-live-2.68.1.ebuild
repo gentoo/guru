@@ -7,6 +7,8 @@ DESCRIPTION="Manager for the Ledger hardware wallet"
 HOMEPAGE="https://www.ledger.com/"
 SRC_URI="https://download.live.ledger.com/ledger-live-desktop-${PV}-linux-x86_64.AppImage -> ${P}.AppImage"
 
+S="${DISTDIR}"
+
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -18,7 +20,6 @@ RDEPEND="${DEPEND}
 "
 
 QA_PREBUILT="*"
-S="${DISTDIR}"
 
 src_install() {
 	newbin ${P}.AppImage ledger-live

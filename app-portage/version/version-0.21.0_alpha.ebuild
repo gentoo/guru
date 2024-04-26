@@ -11,15 +11,14 @@ DESCRIPTION="A command line function for package version  management."
 HOMEPAGE="https://github.com/azaeldevel/octetos-version"
 SRC_URI="https://github.com/azaeldevel/octetos-${PN}/archive/${MYPV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/octetos-${PN}-${MYPV}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-
 DEPEND="dev-libs/octetos-coreutils"
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/octetos-${PN}-${MYPV}"
 
 src_prepare() {
 	default

@@ -7,11 +7,10 @@ inherit go-module
 
 DESCRIPTION="Multi-shell multi-command argument completer"
 HOMEPAGE="https://carapace.sh/"
-SRC_URI="https://github.com/${PN}-sh/${PN}-bin/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/${PN}-sh/${PN}-bin/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://gitlab.com/freijon_gentoo/${CATEGORY}/${PN}/-/raw/main/${P}-deps.tar.xz"
 
-# Using a dependency tarball as per https://devmanual.gentoo.org/eclass-reference/go-module.eclass/index.html
-DEPS_URI="https://gitlab.com/freijon_gentoo/${CATEGORY}/${PN}/-/raw/main/${P}-deps.tar.xz"
-SRC_URI+=" ${DEPS_URI}"
+S="${WORKDIR}/${PN}-bin-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -23,8 +22,6 @@ DOCS=(
 HTML_DOCS=(
 	"docs/book/"
 )
-
-S="${WORKDIR}/${PN}-bin-${PV}"
 
 src_compile() {
 	pushd "cmd/${PN}"

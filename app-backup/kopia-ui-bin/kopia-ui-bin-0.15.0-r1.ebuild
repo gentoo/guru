@@ -14,6 +14,8 @@ SRC_URI="
 	arm64? ( https://github.com/kopia/kopia/releases/download/v${PV}/kopia-ui_${PV}_arm64.deb -> ${P}-arm64.deb )
 "
 
+S="${WORKDIR}"
+
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm ~arm64"
@@ -48,7 +50,6 @@ RDEPEND="
 "
 
 QA_PREBUILT="opt/KopiaUI/*"
-S="${WORKDIR}"
 
 src_install() {
 	mv "${S}"/* "${ED}" || die

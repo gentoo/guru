@@ -5,11 +5,14 @@ EAPI=8
 
 inherit desktop wrapper xdg
 
+MY_PN="${PN%-bin*}"
+
 DESCRIPTION="Free universal database tool (community edition)."
 HOMEPAGE="https://dbeaver.io/"
-MY_PN="${PN%-bin*}-ce"
-SRC_URI="amd64? ( https://dbeaver.io/files/${PV}/${MY_PN}-${PV}-linux.gtk.x86_64-nojdk.tar.gz -> ${P}-amd64.tar.gz )
-	arm64? ( https://dbeaver.io/files/${PV}/${MY_PN}-${PV}-linux.gtk.aarch64-nojdk.tar.gz  -> ${P}-arm64.tar.gz )"
+SRC_URI="amd64? ( https://dbeaver.io/files/${PV}/${MY_PN}-ce-${PV}-linux.gtk.x86_64-nojdk.tar.gz -> ${P}-amd64.tar.gz )
+	arm64? ( https://dbeaver.io/files/${PV}/${MY_PN}-ce-${PV}-linux.gtk.aarch64-nojdk.tar.gz  -> ${P}-arm64.tar.gz )"
+
+S="${WORKDIR}/${MY_PN}"
 
 LICENSE="Apache-2.0 EPL-1.0 BSD"
 SLOT="0"
@@ -17,9 +20,6 @@ KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="virtual/jre:17"
 DEPEND="${RDEPEND}"
-
-MY_PN="${PN%-bin*}"
-S="${WORKDIR}/${MY_PN}"
 
 src_prepare() {
 	sed -e "s/^Icon=.*/Icon=${MY_PN}/" \

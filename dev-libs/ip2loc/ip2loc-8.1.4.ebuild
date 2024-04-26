@@ -9,13 +9,13 @@ DESCRIPTION="IP2Location C Library"
 HOMEPAGE="https://github.com/chrislim2888/IP2Location-C-Library/"
 SRC_URI="https://github.com/chrislim2888/IP2Location-C-Library/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
+S="${WORKDIR}/IP2Location-C-Library-${PV}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
 BDEPEND="dev-lang/perl"
-
-S="${WORKDIR}/IP2Location-C-Library-${PV}"
 
 src_configure() {
 	eautoreconf

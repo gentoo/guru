@@ -5,17 +5,17 @@ EAPI=8
 
 DESCRIPTION="End-to-end encrypted note-taking app, alternative to Evernote"
 HOMEPAGE="https://standardnotes.com"
-
 SRC_URI="https://github.com/standardnotes/app/releases/download/%40standardnotes%2Fdesktop%40${PV}/standard-notes-${PV}-linux-x86_64.AppImage"
-KEYWORDS="~amd64"
+
+S="${WORKDIR}"
 
 LICENSE="AGPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
+
 RESTRICT="strip"
 
 RDEPEND="sys-fs/fuse:0"
-
-S="${WORKDIR}"
 
 QA_PREBUILT="*"
 

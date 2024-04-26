@@ -16,9 +16,8 @@ HOMEPAGE="https://github.com/szaghi/FoBiS"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-RESTRICT="mirror"
-
 IUSE="graphviz"
+RESTRICT="mirror"
 
 RDEPEND="
 	graphviz? ( dev-python/graphviz[${PYTHON_USEDEP}] )

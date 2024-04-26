@@ -3,18 +3,14 @@
 EAPI=8
 
 DESCRIPTION="Pandoc filter for cross-references"
-
 HOMEPAGE="https://github.com/lierdakil/pandoc-crossref"
-
-
 SRC_URI="https://github.com/lierdakil/pandoc-crossref/releases/download/v${PV}/pandoc-crossref-Linux.tar.xz -> ${P}.tar.xz"
 
+S="${WORKDIR}"
+
 LICENSE="GPL-2"
-
 SLOT="0"
-
 KEYWORDS="-* ~amd64"
-S=${WORKDIR}
 
 RDEPEND="
 || ( =app-text/pandoc-bin-3.1.12.1 =app-text/pandoc-3.1.12.1 )
@@ -23,6 +19,6 @@ RDEPEND="
 
 src_install() {
 	exeinto /usr/bin
-	newexe ${WORKDIR}/pandoc-crossref pandoc-crossref
-	newman ${WORKDIR}/pandoc-crossref.1 pandoc-crossref.1
+	newexe pandoc-crossref pandoc-crossref
+	newman pandoc-crossref.1 pandoc-crossref.1
 }

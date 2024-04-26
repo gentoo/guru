@@ -8,12 +8,12 @@ DESCRIPTION="A system rescue cd or usbstick for desktop and server based on gent
 HOMEPAGE="https://sourceforge.net/projects/customrescuecd/"
 SRC_URI="mirror://sourceforge/customrescuecd/"${MY_P}"-"${PV}".iso"
 
+S=${WORKDIR}
+
 LICENSE="GPL-3"
 SLOT="${PV}"
 KEYWORDS="~x86"
 RESTRICT="bindist mirror"
-
-S=${WORKDIR}
 
 src_unpack() { :; }
 

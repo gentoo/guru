@@ -6,11 +6,12 @@ EAPI=8
 DESCRIPTION="GNU interpreter for the APL programming language"
 HOMEPAGE="https://www.gnu.org/software/apl/"
 SRC_URI="mirror://gnu/apl/apl-${PV}.tar.gz"
+
+S="${WORKDIR}/apl-${PV}"
+
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/apl-${PV}"
 
 IUSE="static-libs erlang libapl python gtk3 pcre2 sqlite3 postgresql"
 

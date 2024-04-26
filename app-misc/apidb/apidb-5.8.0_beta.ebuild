@@ -17,6 +17,8 @@ DESCRIPTION="API Generator for Database access"
 HOMEPAGE="https://github.com/azaeldevel/apidb"
 SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz"
 
+S="${WORKDIR}/${PN}-${MYPV}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -38,8 +40,6 @@ DEPEND="${RDEPEND}
 	sys-devel/bison
 	sys-devel/flex
 "
-
-S="${WORKDIR}/${PN}-${MYPV}"
 
 src_prepare() {
 	sed -i 's/lib/${LIBDIR}/' src/CMakeLists.txt || die

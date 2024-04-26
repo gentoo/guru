@@ -19,9 +19,9 @@ SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> 
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD GPL-2+ GPL-3+ LGPL-2.1+"
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="ao dbus portaudio +pulseaudio +speech-dispatcher"
-SLOT="0"
 REQUIRED_USE="|| ( ao portaudio pulseaudio )"
 
 COMMON_DEPEND="

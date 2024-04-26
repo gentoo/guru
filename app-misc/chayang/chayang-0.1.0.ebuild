@@ -8,12 +8,13 @@ inherit meson
 DESCRIPTION="Gradually dim the screen."
 HOMEPAGE="https://git.sr.ht/~emersion/chayang"
 SRC_URI="https://git.sr.ht/~emersion/chayang/archive/v${PV}.tar.gz -> ${PN}-${PV}.tar.gz"
-LICENSE="MIT"
 
+S="${WORKDIR}/${PN}-v${PV}"
+
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-S="${WORKDIR}/${PN}-v${PV}"
 RESTRICT="mirror"
 
 RDEPEND="dev-libs/wayland"

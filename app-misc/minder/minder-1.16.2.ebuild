@@ -9,9 +9,11 @@ DESCRIPTION="Mind-mapping application for Elementary OS."
 HOMEPAGE="https://github.com/phase1geo/Minder"
 SRC_URI="https://github.com/phase1geo/Minder/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="~amd64"
+S="${WORKDIR}/Minder-${PV}"
+
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	app-text/discount
@@ -26,8 +28,6 @@ DEPEND="
 	${RDEPEND}
 	app-text/discount
 "
-
-S="${WORKDIR}/Minder-${PV}"
 
 src_prepare() {
 	default

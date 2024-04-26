@@ -11,6 +11,11 @@ inherit distutils-r1
 PARENT_PN="${PN%-dns-rfc2136}"
 PARENT_P="${PARENT_PN}-${PV}"
 
+DESCRIPTION="RFC 2136 DNS Authenticator plugin for Certbot (Let’s Encrypt client)"
+HOMEPAGE="
+	https://github.com/certbot/certbot
+	https://letsencrypt.org/
+"
 if [[ "${PV}" == *9999 ]]; then
 	inherit git-r3
 
@@ -25,16 +30,10 @@ else
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
-DESCRIPTION="RFC 2136 DNS Authenticator plugin for Certbot (Let’s Encrypt client)"
-HOMEPAGE="
-	https://github.com/certbot/certbot
-	https://letsencrypt.org/
-"
+S="${WORKDIR}/${PARENT_P}/${PN}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-
-S="${WORKDIR}/${PARENT_P}/${PN}"
 
 BDEPEND="
 	test? ( dev-python/pytest[${PYTHON_USEDEP}] )

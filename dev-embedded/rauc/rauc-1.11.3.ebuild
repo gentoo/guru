@@ -13,9 +13,10 @@ DESCRIPTION="Lightweight update client that runs on your Embedded Linux device"
 HOMEPAGE="https://rauc.io/"
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.xz"
 
-SLOT="0"
 LICENSE="LGPL-2.1"
+SLOT="0"
 KEYWORDS="~amd64"
+
 IUSE="gpt json network service test"
 
 RESTRICT="!test? ( test )"

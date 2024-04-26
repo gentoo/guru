@@ -12,6 +12,8 @@ SRC_URI="
 	arm64? ( https://typora.io/linux/typora_${PV}_arm64.deb )
 "
 
+S="${WORKDIR}"
+
 LICENSE="Typora-EULA"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm64"
@@ -43,7 +45,6 @@ RDEPEND="
 	${DEPEND}"
 
 QA_PREBUILT="*"
-S="${WORKDIR}"
 
 src_install() {
 	mv "${S}"/* "${ED}" || die

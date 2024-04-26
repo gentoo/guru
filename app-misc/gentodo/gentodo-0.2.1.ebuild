@@ -8,6 +8,8 @@ PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 bash-completion-r1
 
+DESCRIPTION="Todo program to help enhance your Gentoo workflow"
+HOMEPAGE="https://github.com/csfore/gentodo"
 if [[ ${PV} == 9999* ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/csfore/gentodo.git"
@@ -16,14 +18,10 @@ else
 	KEYWORDS="~amd64"
 fi
 
-HOMEPAGE="https://github.com/csfore/gentodo"
-DESCRIPTION="Todo program to help enhance your Gentoo workflow"
-
 LICENSE="GPL-3"
 SLOT="0"
 
 IUSE="bash-completion"
-
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 BDEPENDS="

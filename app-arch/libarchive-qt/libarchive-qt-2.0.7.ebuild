@@ -17,10 +17,10 @@ else
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
-RESTRICT="test"
 LICENSE="LGPL-3"
 SLOT="0"
 IUSE="static-libs"
+RESTRICT="test"
 
 DEPEND="
 	app-arch/libarchive[lzma,bzip2,zlib(+)]

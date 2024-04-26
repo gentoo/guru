@@ -7,14 +7,14 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_11 )
 
 inherit distutils-r1
-SRC_URI="https://github.com/mvt-project/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64 ~x86"
 
 DESCRIPTION="Forensic traces to identify a potential compromise of Android and iOS devices"
 HOMEPAGE="https://github.com/mvt-project/mvt"
+SRC_URI="https://github.com/mvt-project/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-python/adb-shell[${PYTHON_USEDEP}]

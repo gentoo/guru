@@ -6,10 +6,10 @@ EAPI=8
 DESCRIPTION="ISO weekly calendar"
 HOMEPAGE="https://github.com/leahneukirchen/wcal"
 SRC_URI="https://github.com/leahneukirchen/wcal/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64 ~x86"
 
 LICENSE="CC0-1.0"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 # check target in Makefile but no test cases
 RESTRICT="test"

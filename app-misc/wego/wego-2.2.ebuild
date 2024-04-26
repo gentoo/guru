@@ -6,9 +6,10 @@ EAPI=8
 inherit go-module
 
 DESCRIPTION="Wego is a weather client for the terminal"
-SRC_URI="https://github.com/schachmat/wego/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://gentoo.kropotkin.rocks/go-pkgs/${P}-vendor.tar.xz"
 HOMEPAGE="https://github.com/schachmat/wego"
+SRC_URI="https://github.com/schachmat/wego/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	https://gentoo.kropotkin.rocks/go-pkgs/${P}-vendor.tar.xz"
+
 LICENSE="BSD ISC MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc64"

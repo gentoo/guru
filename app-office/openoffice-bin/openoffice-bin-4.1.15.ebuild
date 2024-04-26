@@ -5,8 +5,6 @@ EAPI="8"
 
 inherit desktop pax-utils prefix rpm xdg
 
-IUSE="gnome java"
-
 BUILDID="9813"
 BVER="${PV/_rc*/}-${BUILDID}"
 BVER2=${PV}-${BUILDID}
@@ -31,6 +29,14 @@ SRC_URI="
 	x86? ( "${FILEPATH}"/Apache_OpenOffice_${PV}_Linux_x86_install-rpm_en-US.tar.gz )
 "
 
+S="${WORKDIR}"
+
+LICENSE="Apache-2.0"
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
+
+IUSE="gnome java"
+
 # TODO: supports ca_XR (Valencian RACV) locale too
 LANGS="ast eu bg ca ca-valencia zh-CN zh-TW cs da nl en-GB fi fr gd gl de el he hi hu it ja km ko lt nb pl pt-BR pt ru sr sk sl es sv ta th tr vi"
 
@@ -40,10 +46,6 @@ for X in ${LANGS} ; do
 		amd64? ( "${FILEPATH}"/Apache_OpenOffice_${PV}_Linux_x86-64_langpack-rpm_${X/ca-valencia/ca-XV}.tar.gz )
 		x86? ( "${FILEPATH}"/Apache_OpenOffice_${PV}_Linux_x86_langpack-rpm_${X/ca-valencia/ca-XV}.tar.gz ) )"
 done
-
-LICENSE="Apache-2.0"
-SLOT="0"
-KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	!prefix? ( sys-libs/glibc )
@@ -72,8 +74,6 @@ DEPEND="
 PDEPEND="java? ( || ( >=virtual/jre-1.8.0 dev-java/openjdk-jre-bin:11 dev-java/openjdk-bin dev-java/openjdk:11 ) )"
 
 RESTRICT="mirror strip"
-
-S="${WORKDIR}"
 
 pkg_setup() {
 	QA_PREBUILT="usr/$(get_libdir)/${NM}/program/*"

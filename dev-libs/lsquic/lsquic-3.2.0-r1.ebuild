@@ -5,10 +5,9 @@ EAPI=8
 
 inherit cmake
 
-# LSQUIC
 LSQUIC_COMMIT="3bbf683f25ab84826951350c57ae226c88c54422"
-# BoringSSL
 BORINGSSL_COMMIT="15655052e8701f908937204785eaa8cd4363099f"
+
 DESCRIPTION="LiteSpeed QUIC (LSQUIC) Library"
 HOMEPAGE="https://github.com/litespeedtech/lsquic/"
 SRC_URI="
@@ -16,13 +15,14 @@ SRC_URI="
 	https://github.com/google/boringssl/archive/${BORINGSSL_COMMIT}.tar.gz -> boringssl-fips-20230428.tar.gz
 "
 
+S="${WORKDIR}/lsquic-${LSQUIC_COMMIT}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
+
 IUSE="static-libs test"
 RESTRICT="!test? ( test )"
-
-S="${WORKDIR}/lsquic-${LSQUIC_COMMIT}"
 
 DEPEND="
 	dev-lang/go
@@ -38,7 +38,7 @@ PATCHES=(
 src_unpack() {
 	unpack ${P}.tar.gz
 	unpack boringssl-fips-20230428.tar.gz
-	mv boringssl-${BORINGSSL_COMMIT} ${S}/src/liblsquic/boringssl || die
+	mv boringssl-${BORINGSSL_COMMIT} "${S}"/src/liblsquic/boringssl || die
 }
 
 src_configure() {

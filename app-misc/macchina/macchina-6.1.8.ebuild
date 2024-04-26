@@ -204,13 +204,13 @@ CRATES="
 
 inherit cargo xdg-utils
 
+DESCRIPTION="A system information fetcher, with an (unhealthy) emphasis on performance."
+HOMEPAGE="https://github.com/Macchina-CLI/macchina"
 SRC_URI="
 	https://github.com/Macchina-CLI/macchina/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
 
-DESCRIPTION="A system information fetcher, with an (unhealthy) emphasis on performance."
-HOMEPAGE="https://github.com/Macchina-CLI/macchina"
 LICENSE="
 	BSD
 	MIT

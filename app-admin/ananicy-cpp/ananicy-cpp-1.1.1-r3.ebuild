@@ -7,16 +7,18 @@ inherit cmake
 
 DESCRIPTION="Ananicy rewritten in C++ for much lower CPU and memory usage"
 HOMEPAGE="https://gitlab.com/ananicy-cpp/ananicy-cpp"
+SRC_URI="https://gitlab.com/ananicy-cpp/ananicy-cpp/-/archive/v${PV}/${PN}-v${PV}.tar.bz2"
+
+S="${WORKDIR}/${PN}-v${PV}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
+
 IUSE="bpf clang systemd"
 REQUIRED_USE="
 	bpf? ( clang )
 "
-
-SRC_URI="https://gitlab.com/ananicy-cpp/ananicy-cpp/-/archive/v${PV}/${PN}-v${PV}.tar.bz2"
-S="${WORKDIR}/${PN}-v${PV}"
 
 RDEPEND="
 	!app-admin/ananicy

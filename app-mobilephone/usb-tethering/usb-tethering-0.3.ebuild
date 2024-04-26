@@ -8,6 +8,8 @@ inherit systemd
 DESCRIPTION="USB tethering on Pine64/ConfigFS systems"
 HOMEPAGE="https://github.com/dreemurrs-embedded/Pine64-Arch"
 
+S="${WORKDIR}"
+
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~arm64"
@@ -17,8 +19,6 @@ DEPEND="
 	sys-apps/systemd
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}"
 
 src_install() {
 	exeinto "/usr/lib/danctnix"

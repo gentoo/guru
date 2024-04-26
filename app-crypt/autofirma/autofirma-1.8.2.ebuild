@@ -14,14 +14,14 @@ HOMEPAGE="
 SRC_URI="https://estaticos.redsara.es/comunes/autofirma/$(ver_rs 1- /)/AutoFirma_Linux_Fedora.zip -> ${P}.zip
 	https://distfiles.chuso.net/distfiles/${P}.zip"
 
+S=${WORKDIR}
+
 LICENSE="|| ( GPL-2 EUPL-1.1 )"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="virtual/jre:1.8"
 BDEPEND="app-arch/unzip"
-
-S=${WORKDIR}
 
 src_unpack() {
 	default

@@ -9,9 +9,9 @@ DESCRIPTION="A program to read and control device brightness"
 HOMEPAGE="https://github.com/Hummer12007/brightnessctl"
 SRC_URI="https://github.com/Hummer12007/brightnessctl/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="~amd64 ~arm64"
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64"
 IUSE="systemd udev"
 
 DEPEND="

@@ -23,6 +23,8 @@ SRC_URI="
 	https://raw.githubusercontent.com/ankitects/anki/${PV}/qt/bundle/lin/anki.xpm -> ${P}.xpm
 "
 
+S="${WORKDIR}"
+
 # The program itself is licensed under AGPL-3+ with contributed portions licensed
 # under BSD-3.
 # The translation files are licensed under BSD-3 and public-domain.
@@ -100,8 +102,6 @@ RDEPEND="
 	!app-misc/anki
 "
 BDEPEND="app-arch/unzip"
-
-S="${WORKDIR}"
 
 DOC_CONTENTS="Users with add-ons that still rely on Anki's Qt5 GUI can either switch
 to ${CATEGORY}/${PN}[-qt6], or temporarily set an environment variable

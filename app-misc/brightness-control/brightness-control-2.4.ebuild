@@ -15,9 +15,9 @@ HOMEPAGE="https://github.com/lordamit/Brightness"
 SRC_URI="https://github.com/lordamit/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MY_PN}-${PV}/brightness-controller-linux"
 
-KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="$(python_gen_cond_dep \
 	'dev-python/QtPy[${PYTHON_USEDEP},gui,network,pyqt5,widgets]'

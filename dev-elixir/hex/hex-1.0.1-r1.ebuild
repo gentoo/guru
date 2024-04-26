@@ -7,9 +7,10 @@ inherit mix
 
 DESCRIPTION="Package manager for the Erlang VM"
 HOMEPAGE="https://github.com/hexpm/hex"
+SRC_URI="https://github.com/hexpm/hex/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="Apache-2.0"
 SLOT="$(ver_cut 1-2)"
-SRC_URI="https://github.com/hexpm/hex/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64"
 
 # TODO: tests (requires dependencies)

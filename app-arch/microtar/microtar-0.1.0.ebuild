@@ -8,10 +8,10 @@ inherit toolchain-funcs
 DESCRIPTION="A lightweight tar library written in ANSI C"
 HOMEPAGE="https://github.com/rxi/microtar"
 SRC_URI="https://github.com/rxi/microtar/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 
 src_compile() {
 	tc-export CC

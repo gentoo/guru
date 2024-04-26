@@ -5,18 +5,15 @@
 
 EAPI=8
 
-inherit bash-completion-r1 xdg-utils
+inherit bash-completion-r1 git-r3 xdg-utils
 
 DESCRIPTION="Phoronix's comprehensive, cross-platform testing and benchmark suite"
 HOMEPAGE="http://www.phoronix-test-suite.com"
+EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
+EGIT3_STORE_DIR="${T}"
 
 LICENSE="GPL-3"
 SLOT="0"
-
-EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
-EGIT3_STORE_DIR="${T}"
-inherit git-r3
-SRC_URI=""
 
 IUSE="sdl"
 

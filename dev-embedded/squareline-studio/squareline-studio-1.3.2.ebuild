@@ -13,16 +13,17 @@ SRC_URI="
 	https://static.squareline.io/downloads/SquareLine_Studio_Linux_v${MY_PV}.zip -> ${P}.zip
 "
 
+S="${WORKDIR}"
+
 LICENSE="all-rights-reserved"
-KEYWORDS="-* ~amd64"
 SLOT="0/${PV}"
+KEYWORDS="-* ~amd64"
 
 DEPEND="${RDEPEND}"
 BDEPEND="
 	app-arch/unzip
 "
 
-S="${WORKDIR}"
 QA_PREBUILT="*"
 
 src_install() {
