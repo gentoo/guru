@@ -94,7 +94,6 @@ src_test() {
 python_install() {
 	newbin tauon.py tauon
 	dolib.so  "${WORKDIR}/${P}_build/libphazor.so"
-	dosym "/usr/$(get_libdir)/libphazor.so" "/usr/share/${PN}/lib/libphazor.so"
 
 	install_locale() {
 		insinto "/usr/share/locale/${1}/LC_MESSAGES"
