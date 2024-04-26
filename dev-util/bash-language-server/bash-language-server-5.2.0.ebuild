@@ -9,6 +9,7 @@ DESCRIPTION="A language server for Bash"
 HOMEPAGE="https://github.com/bash-lsp/bash-language-server"
 SRC_URI="
 	mirror://npm/${PN}/-/${P}.tgz
+	https://tastytea.de/files/gentoo/${P}-deps.tar.xz
 "
 S="${WORKDIR}"
 
