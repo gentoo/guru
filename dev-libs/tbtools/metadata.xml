@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>adrian.ratiu@collabora.com</email>
+		<name>Adrian Ratiu</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">intel/tbtools</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		This is collection of tools that for Linux Thunderbolt/USB4 development and debugging.
+	</longdescription>
+</pkgmetadata>
