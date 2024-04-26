@@ -8,12 +8,11 @@ if [[ ${PV} == 9999 ]]; then
 	S="${WORKDIR}/${PN}-9999"
 fi
 
-DESCRIPTION="fetch program written in C & C++"
+DESCRIPTION="fetch program written in pure C"
 HOMEPAGE="https://github.com/kernaltrap8/tinyfetch"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc64"
 
 DEPEND="${BDEPEND}"
 BDEPEND="
@@ -21,7 +20,5 @@ BDEPEND="
 "
 
 src_configure() {
-	append-cxxflags "-Wno-unused-result"
-
 	meson_src_configure
 }
