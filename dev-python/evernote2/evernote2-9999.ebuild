@@ -13,7 +13,6 @@ HOMEPAGE="
 "
 
 EGIT_REPO_URI="https://github.com/JackonYang/evernote2"
-EGIT_BRANCH="version/$PV"
 inherit git-r3 distutils-r1
 
 LICENSE="Apache-2.0"
