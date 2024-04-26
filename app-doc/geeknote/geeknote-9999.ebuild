@@ -15,6 +15,10 @@ EGIT_REPO_URI="https://github.com/vitaly-zdanevich/geeknote"
 LICENSE="GPL-3"
 SLOT="0"
 
+BDEPEND="test? (
+	dev-python/mock[${PYTHON_USEDEP}]
+)"
+
 RDEPEND="
 	dev-python/evernote2[${PYTHON_USEDEP}]
 	dev-python/html2text[${PYTHON_USEDEP}]
@@ -35,3 +39,5 @@ python_install_all() {
 	doins completion/zsh_completion/_geeknote
 	distutils-r1_python_install_all
 }
+
+distutils_enable_tests pytest
