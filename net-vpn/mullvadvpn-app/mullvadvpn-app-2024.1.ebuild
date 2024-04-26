@@ -9,10 +9,12 @@ DESCRIPTION="Tool used to manage daemon setup"
 HOMEPAGE="https://github.com/mullvad/mullvadvpn-app https://mullvad.net/"
 SRC_URI="amd64? ( https://github.com/mullvad/mullvadvpn-app/releases/download/${PV}/MullvadVPN-${PV}_x86_64.rpm )"
 
+S="${WORKDIR}"
 LICENSE="GPL-3"
 SLOT="0"
-RESTRICT="test strip"
 KEYWORDS="-* ~amd64"
+
+RESTRICT="bindist mirror test strip"
 
 RDEPEND="
 	app-accessibility/at-spi2-core
@@ -33,8 +35,6 @@ RDEPEND="
 
 QA_PREBUILT="*"
 
-S="${WORKDIR}"
-
 src_install() {
 	# Using doins -r would strip executable bits from all binaries
 	cp -pPR "${S}"/opt "${D}"/ || die "Failed to copy files"
@@ -47,7 +47,7 @@ src_install() {
 	dobin "${S}"/usr/bin/mullvad
 	dobin "${S}"/usr/bin/mullvad-daemon
 	dobin "${S}"/usr/bin/mullvad-exclude
-	dosym "/opt/Mullvad VPN/resources/mullvad-problem-report" /usr/bin/mullvad-problem-report
+	dosym "../../opt/Mullvad VPN/resources/mullvad-problem-report" /usr/bin/mullvad-problem-report
 
 	newinitd "${FILESDIR}"/mullvad-daemon.initd mullvad-daemon
 
@@ -63,5 +63,4 @@ src_install() {
 	for x in 16 32 48 64 128 256 512 1024; do
 		doicon -s ${x} "${S}"/usr/share/icons/hicolor/${x}x${x}/apps/mullvad-vpn.png
 	done
-
 }
