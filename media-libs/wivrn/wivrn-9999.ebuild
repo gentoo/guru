@@ -5,7 +5,7 @@ HOMEPAGE="https://github.com/meumeu/WiVRn"
 SLOT="0"
 LICENSE="GPL-3 Apache-2.0 MIT"
 
-IUSE="nvenc pipewire pulseaudio systemd vaapi wireshark-plugins x264"
+IUSE="nvenc +pipewire -pulseaudio systemd vaapi wireshark-plugins x264"
 REQUIRED_USE="|| ( nvenc vaapi x264 )"
 
 inherit cmake
