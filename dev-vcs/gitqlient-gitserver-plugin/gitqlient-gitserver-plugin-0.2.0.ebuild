@@ -17,11 +17,11 @@ SRC_URI="
 	https://github.com/francescmm/${GQ}/releases/download/v${GQ_PV}/${GQ_PN}_${GQ_PV}.tar.gz -> ${GQ_PN}-${GQ_PV}.tar.gz
 "
 
-KEYWORDS="~amd64"
+S="${WORKDIR}/${MY_PN}-${PV}"
+
 LICENSE="LGPL-2.1"
 SLOT="0"
-
-S="${WORKDIR}/${MY_PN}-${PV}"
+KEYWORDS="~amd64"
 
 PDEPEND=">=dev-vcs/gitqlient-1.6.1"
 RDEPEND="
@@ -29,7 +29,6 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtwebengine:5[widgets]
 "
-DEPEND="${DEPEND}"
 
 # No need SONAME for runtime plugin
 QA_SONAME="usr/lib.*/lib${MY_PN}.so"

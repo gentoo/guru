@@ -21,8 +21,9 @@ SRC_URI="
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-RESTRICT="test"
+
 IUSE="gnome-keyring"
+RESTRICT="test"
 
 RDEPEND="
 	app-text/cmark:=
