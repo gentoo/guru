@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,10 +17,6 @@ KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-BDEPEND="
-	test? (
-		dev-crystal/athena-spec
-	)
-"
+BDEPEND="test? ( dev-crystal/athena-spec )"
 
-DOCS=( {CHANGELOG,README}.md )
+DOCS=( {CHANGELOG,CONTRIBUTING,README}.md )
