@@ -2,7 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-_app_id=net.davidotek.pupgui2
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=(python3_{9..12})
@@ -11,12 +10,15 @@ EPYTHON=python3
 
 inherit distutils-r1 desktop xdg-utils
 
-SRC_URI="https://github.com/DavidoTek/ProtonUp-Qt/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+_app_id=net.davidotek.pupgui2
+
 DESCRIPTION="Install and manage GE-Proton, Luxtorpeda & more for Steam Lutris and Heroic."
 HOMEPAGE="https://davidotek.github.io/protonup-qt"
+SRC_URI="https://github.com/DavidoTek/ProtonUp-Qt/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="dev-python/steam
 	dev-python/requests
@@ -26,13 +28,10 @@ RDEPEND="dev-python/steam
 	dev-python/pyaml
 	dev-python/zstandard
 "
-
 DEPEND="${RDEPEND}
 	dev-util/desktop-file-utils
 	dev-libs/appstream-glib
 "
-
-KEYWORDS="~amd64"
 
 src_compile() {
 	appstream-util validate-relax --nonet "share/metainfo/$_app_id.appdata.xml"

@@ -16,9 +16,12 @@ SRC_URI="
 		-> sdl2-cmake-modules-${MY_SDL2_CMAKE_MODULES_REV}.tar.gz
 "
 
+S="${WORKDIR}/NP2kai-${MY_REV}"
+
 LICENSE="MIT BSD"
 SLOT="0"
 KEYWORDS="~amd64"
+
 IUSE="+i286 ia32 haxm +sdl2 +X"
 REQUIRED_USE="|| ( X sdl2 ) ^^ ( i286 ia32 )"
 
@@ -45,8 +48,6 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/NP2kai-${MY_REV}"
 
 src_prepare() {
 	sed -i '+s/CONFIGURATIONS Release/CONFIGURATIONS Gentoo/g' CMakeLists.txt || die

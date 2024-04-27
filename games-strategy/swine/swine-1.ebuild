@@ -3,18 +3,16 @@
 
 EAPI=8
 
-inherit wrapper
-
 DESCRIPTION="Fun RTS from 2001 by Hungarian developer StormRegion, similar to Ground Control"
 HOMEPAGE="https://en.wikipedia.org/wiki/S.W.I.N.E."
-
 SRC_URI="https://archive.org/download/$PN.tar.xz/$PN.tar.xz"
 
-KEYWORDS="~amd64"
 S="${WORKDIR}"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
+KEYWORDS="~amd64"
+
 RESTRICT="strip"
 
 RDEPEND="

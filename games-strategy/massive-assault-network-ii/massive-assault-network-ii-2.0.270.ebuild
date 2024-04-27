@@ -5,14 +5,14 @@ EAPI=8
 
 DESCRIPTION="Turn-based, sci-fi, like a chess, from 2006, any screen resolution, good rating"
 HOMEPAGE="http://www.massiveassaultnetwork.com/man2/"
-
 SRC_URI="https://archive.org/download/massive-assault-network-2.tar.xz/massive-assault-network-2.tar.xz"
 
-KEYWORDS="~amd64"
 S="${WORKDIR}"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
+KEYWORDS="~amd64"
+
 RESTRICT="strip"
 
 RDEPEND="

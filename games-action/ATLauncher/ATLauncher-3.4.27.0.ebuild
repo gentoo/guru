@@ -11,15 +11,14 @@ HOMEPAGE="https://atlauncher.com
 SRC_URI="https://github.com/ATLauncher/ATLauncher/releases/download/v${PV}/${P}.jar
 	https://raw.githubusercontent.com/ATLauncher/ATLauncher/master/src/main/resources/assets/image/icon.ico -> ${PN}.ico"
 
-KEYWORDS="~amd64"
+S="${WORKDIR}"
+
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
 
 BDEPEND="media-gfx/imagemagick[png]"
-
 RDEPEND="virtual/jre:1.8"
-
-S="${WORKDIR}"
 
 src_unpack() {
 	# do not unpack jar file

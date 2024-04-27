@@ -3,23 +3,23 @@
 
 EAPI=8
 
-DESCRIPTION="Easy to use unprivileged Linux container packed in a single portable executable"
-HOMEPAGE="https://github.com/Kron4ek/Conty"
-
 inherit linux-info
 
 NAME="${PN}_lite_dwarfs.sh"
 
-SRC_URI="https://github.com/Kron4ek/Conty/releases/download/${PV}/${NAME} -> $P"
-KEYWORDS="~amd64"
+DESCRIPTION="Easy to use unprivileged Linux container packed in a single portable executable"
+HOMEPAGE="https://github.com/Kron4ek/Conty"
+SRC_URI="https://github.com/Kron4ek/Conty/releases/download/${PV}/${NAME} -> ${P}"
+
+S="${WORKDIR}"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
+
 RESTRICT="strip"
 
 RDEPEND="sys-fs/fuse:0"
-
-S="${WORKDIR}"
 
 QA_PREBUILT="*"
 

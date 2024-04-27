@@ -12,17 +12,15 @@ SRC_URI="
 	https://www.technicpack.net/favicon.ico -> ${PN}.ico
 "
 
-KEYWORDS="~amd64 ~x86"
+S="${WORKDIR}"
+
 LICENSE="technic"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 RESTRICT="bindist mirror"
-
 BDEPEND="media-gfx/imagemagick[png]"
-
 RDEPEND="virtual/jre:1.8"
-
-S="${WORKDIR}"
 
 src_unpack() {
 	# do not unpack jar file

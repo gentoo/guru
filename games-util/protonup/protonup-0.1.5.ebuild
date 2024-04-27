@@ -9,13 +9,13 @@ PYTHON_COMPAT=( python3_{9..12} )
 EPYTHON=python3
 
 inherit distutils-r1
-SRC_URI="https://github.com/AUNaseef/protonup/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+
 DESCRIPTION="Install and Update Proton-GE"
 HOMEPAGE="https://github.com/AUNaseef/protonup"
+SRC_URI="https://github.com/AUNaseef/protonup/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-
 KEYWORDS="~amd64 ~x86"
 
 src_compile() {

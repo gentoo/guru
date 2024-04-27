@@ -199,25 +199,25 @@ zip-0.5.6
 
 inherit cargo
 
-DESCRIPTION="Steam Play compatibility tool to run games using native Linux engines"
-HOMEPAGE="https://luxtorpeda.gitlab.io"
-
 MY_PV=$(ver_cut 1)
 MY_P="${PN}-${MY_PV}"
 
+DESCRIPTION="Steam Play compatibility tool to run games using native Linux engines"
+HOMEPAGE="https://luxtorpeda.gitlab.io"
 SRC_URI="
 	https://github.com/luxtorpeda-dev/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz
 	$(cargo_crate_uris ${CRATES})"
-RESTRICT="mirror"
+
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2 BSD Apache-2.0 BSD-2 ISC MIT MPL-2.0 Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RESTRICT="mirror"
+
 BEPEND=">=dev-libs/openssl-1.1.1g"
 RDEPEND="${BDEPEND}"
-
-S="${WORKDIR}/${MY_P}"
 
 src_prepare(){
 	default

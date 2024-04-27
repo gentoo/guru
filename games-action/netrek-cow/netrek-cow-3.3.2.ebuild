@@ -8,11 +8,11 @@ DESCRIPTION="cow client for netrek"
 HOMEPAGE="https://netrek.org"
 SRC_URI="https://github.com/quozl/netrek-client-cow/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/netrek-client-cow-${PV}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/netrek-client-cow-${PV}"
 
 # upstream has a file named check that is unrelated to tests
 RESTRICT="test"
