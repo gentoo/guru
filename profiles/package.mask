@@ -14,6 +14,13 @@
 
 # New entries go on top.
 
+# Lucio Sauer <watermanpaint@posteo.net> (2024-04-27)
+# Archived upstream, no revdeps, known security bugs, open downstream bugs
+# https://github.com/ad-oliviero/uwufetch/issues/257
+# https://github.com/ad-oliviero/uwufetch/issues/249
+# Removal on 2024-05-27
+app-misc/uwufetch
+
 # David Roman <davidroman96@gmail.com> (2024-04-27)
 # According to the maintainer it does no longer works
 # Removal on 2024-05-26
@@ -168,11 +175,6 @@ net-im/mautrix-facebook
 # Dracut fails to boot with Clevis 20
 # https://github.com/latchset/clevis/issues/456
 =app-crypt/clevis-20
-
-# Lucio Sauer <watermanpaint@posteo.net> (2024-01-04)
-# Known security bugs. Masked until someone updates it.
-# https://github.com/TheDarkBug/uwufetch/issues/249
-app-misc/uwufetch
 
 # Viorel Munteanu <ceamac@gentoo.org> (2023-06-07)
 # Does not work on no-multilib profiles and cannot be masked per profile
