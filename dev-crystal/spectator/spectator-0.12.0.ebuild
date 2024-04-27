@@ -1,9 +1,9 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit check-reqs shards
+inherit shards
 
 DESCRIPTION="Feature-rich testing framework for Crystal inspired by RSpec"
 HOMEPAGE="https://github.com/icy-arctic-fox/spectator"
@@ -15,12 +15,17 @@ KEYWORDS="~amd64"
 
 DOCS=( {ARCHITECTURE,CHANGELOG,CONTRIBUTING,README}.md )
 
-CHECKREQS_MEMORY="3G"
+src_test() {
+	# adopted from .gitlab-ci.yml
+	shards_src_test spec/matchers/ spec/spectator/*.cr
+	shards_src_test spec/docs/
+	shards_src_test spec/features/
+	shards_src_test spec/issues/
+	shards_src_test spec/rspec/
 
-pkg_pretend() {
-	has test "${FEATURES}" && check-reqs_pkg_pretend
-}
+	# Build failure
+	#shards_src_test spec/spectator/dsl/
 
-pkg_setup() {
-	has test "${FEATURES}" && check-reqs_pkg_setup
+	# Will eat all your memory
+	#shards_src_test spec/spectator/mocks/
 }
