@@ -14,6 +14,12 @@
 
 # New entries go on top.
 
+# David Roman <davidroman96@gmail.com> (2024-04-27)
+# Only needed by evernote2 and is deprecated and abandoned by upstream
+# Removal on 2024-05-26
+dev-python/python-oauth2
+dev-python/oauth2
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-20)
 # With Twitter's complete removal of Guest Accounts, Nitter is dead and will
 # most likely stay so (https://github.com/zedeus/nitter/issues/1197).
