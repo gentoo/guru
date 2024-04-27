@@ -14,10 +14,11 @@ HOMEPAGE="
 	https://pypi.org/project/templated-dictionary/
 "
 SRC_URI="https://github.com/xsuchy/templated-dictionary/archive/refs/tags/python-${P}-1.tar.gz -> ${P}.gh.tar.gz"
+
 S="${WORKDIR}/${PN}-python-${P}-1"
 
-SLOT="0"
 LICENSE="GPL-2+"
+SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="dev-python/jinja[${PYTHON_USEDEP}]"

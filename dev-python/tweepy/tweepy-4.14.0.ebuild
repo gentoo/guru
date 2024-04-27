@@ -12,9 +12,9 @@ DESCRIPTION="An easy-to-use Python library for accessing the Twitter API."
 HOMEPAGE="https://www.tweepy.org/"
 SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 
 # dev-python/nose removed from ::gentoo
 RESTRICT="test"
@@ -24,9 +24,7 @@ RDEPEND="
 	dev-python/requests-oauthlib[${PYTHON_USEDEP}]
 "
 
-DEPEND="
-	${RDEPEND}
-"
+DEPEND="${RDEPEND}"
 	# test? (
 	# 	dev-python/aiohttp[${PYTHON_USEDEP}]
 	# 	dev-python/async-lru[${PYTHON_USEDEP}]

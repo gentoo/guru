@@ -3,10 +3,6 @@
 
 EAPI=8
 
-EPYTEST_DESELECT=(
-	jsonpath_rw_ext/tests/test_jsonpath_rw_ext.py::TestJsonpath_rw_ext::test_fields_value
-	jsonpath_rw_ext/tests/test_jsonpath_rw_ext.py::TestJsonpath_rw_ext::test_shortcut_functions
-)
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
 PYTHON_COMPAT=( python3_{10..12} )
@@ -19,8 +15,8 @@ HOMEPAGE="
 	https://github.com/sileht/python-jsonpath-rw-ext
 "
 
-SLOT="0"
 LICENSE="Apache-2.0"
+SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
@@ -35,5 +31,10 @@ BDEPEND="
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 	)
 "
+
+EPYTEST_DESELECT=(
+	jsonpath_rw_ext/tests/test_jsonpath_rw_ext.py::TestJsonpath_rw_ext::test_fields_value
+	jsonpath_rw_ext/tests/test_jsonpath_rw_ext.py::TestJsonpath_rw_ext::test_shortcut_functions
+)
 
 distutils_enable_tests pytest

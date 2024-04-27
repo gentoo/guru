@@ -10,11 +10,10 @@ inherit distutils-r1 pypi
 
 DESCRIPTION="Time slots/intervals with an arbitrary start and stop"
 HOMEPAGE="https://github.com/ErikBjare/timeslot"
+
 LICENSE="MIT"
-
-
-KEYWORDS="~amd64"
 SLOT="0"
+KEYWORDS="~amd64"
 
 # Not available for now
 RESTRICT="test"

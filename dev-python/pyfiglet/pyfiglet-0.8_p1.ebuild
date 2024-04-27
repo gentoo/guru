@@ -14,8 +14,8 @@ HOMEPAGE="
 "
 
 LICENSE="MIT"
-KEYWORDS="~amd64"
 SLOT="0"
+KEYWORDS="~amd64"
 
 # requires subprocess32
 RESTRICT="test"

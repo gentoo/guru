@@ -12,18 +12,18 @@ inherit distutils-r1
 DESCRIPTION="A fully tested, abstract interface to creating OAuth clients and servers."
 HOMEPAGE="https://github.com/joestump/python-oauth2"
 SRC_URI="https://github.com/joestump/python-${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
-S=${WORKDIR}/python-${P}
-KEYWORDS="~amd64 ~x86"
+S="${WORKDIR}"/python-${P}
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
+
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="dev-python/httplib2[${PYTHON_USEDEP}]
 dev-python/mock[${PYTHON_USEDEP}]
 dev-python/pycodestyle[${PYTHON_USEDEP}]
 dev-python/pytest[${PYTHON_USEDEP}]"
-
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 src_prepare() {
 	rm -rf "${S}/tests"

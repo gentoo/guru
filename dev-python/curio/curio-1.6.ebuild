@@ -14,11 +14,11 @@ HOMEPAGE="
 	https://pypi.org/project/curio/
 "
 
-IUSE="examples"
-
 LICENSE="BSD"
-KEYWORDS="~amd64 ~x86"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
+
+IUSE="examples"
 
 DEPEND="test? ( dev-python/sphinx[${PYTHON_USEDEP}] )"
 

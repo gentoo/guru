@@ -15,8 +15,8 @@ HOMEPAGE="
 "
 
 LICENSE="MIT"
-KEYWORDS="~amd64"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	>=dev-python/sphinx-2.0[${PYTHON_USEDEP}]

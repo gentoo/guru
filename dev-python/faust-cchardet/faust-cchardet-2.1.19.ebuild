@@ -25,11 +25,11 @@ SRC_URI="
 	$(submodule_uris)
 "
 
+S="${WORKDIR}/cChardet-${PV}"
+
 LICENSE="MPL-1.1"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/cChardet-${PV}"
 
 BDEPEND="dev-python/cython"
 
