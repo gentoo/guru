@@ -14,6 +14,12 @@
 
 # New entries go on top.
 
+# David Roman <davidroman96@gmail.com> (2024-04-27)
+# Only a live ebuild without tests, inactive for +4 years
+# The package consist only of a 20 line zsh script
+# Removal on 2024-05-26
+app-shells/zsh-silver
+
 # Lucio Sauer <watermanpaint@posteo.net> (2024-04-27)
 # Archived upstream, no revdeps, known security bugs, open downstream bugs
 # https://github.com/ad-oliviero/uwufetch/issues/257
