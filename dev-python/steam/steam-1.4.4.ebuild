@@ -8,9 +8,13 @@ PYTHON_COMPAT=( python3_{9..12} )
 
 inherit distutils-r1
 
-SRC_URI="https://github.com/ValvePython/steam/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 DESCRIPTION="Python package for interacting with Steam"
 HOMEPAGE="https://github.com/ValvePython/steam"
+SRC_URI="https://github.com/ValvePython/steam/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+
+LICENSE="GPL-3"
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="dev-python/six
 	dev-python/pycryptodome
@@ -20,10 +24,6 @@ DEPEND="dev-python/six
 	dev-python/protobuf-python
 	dev-python/cachetools
 "
-LICENSE="GPL-3"
-SLOT="0"
-
-KEYWORDS="~amd64 ~x86"
 
 src_compile() {
 	distutils-r1_src_compile

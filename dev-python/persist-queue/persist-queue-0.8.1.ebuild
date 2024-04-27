@@ -11,11 +11,10 @@ inherit distutils-r1 pypi
 
 DESCRIPTION="A thread-safe disk based persistent queue in Python"
 HOMEPAGE="https://github.com/peter-wangxu/persist-queue"
+
 LICENSE="BSD"
-
-
-KEYWORDS="~amd64"
 SLOT="0"
+KEYWORDS="~amd64"
 
 # It tries to connect to a local MySQL server
 RESTRICT="test"
@@ -25,7 +24,4 @@ DEPEND="
 	dev-python/msgpack[${PYTHON_USEDEP}]
 	dev-python/pymysql[${PYTHON_USEDEP}]
 "
-
 RDEPEND="${DEPEND}"
-
-#distutils_enable_tests nose

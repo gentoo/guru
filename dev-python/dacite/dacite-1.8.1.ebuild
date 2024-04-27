@@ -12,8 +12,8 @@ DESCRIPTION="This module simplifies creation of data classes (PEP 557) from dict
 HOMEPAGE="https://github.com/konradhalas/dacite"
 SRC_URI="https://github.com/konradhalas/dacite/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-SLOT="0"
 LICENSE="GPL-2"
+SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="

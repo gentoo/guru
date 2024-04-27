@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/fakefred/ascim"
 SRC_URI="https://github.com/fakefred/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
-KEYWORDS="~amd64"
 SLOT="0"
+KEYWORDS="~amd64"
 
 distutils_enable_sphinx docs dev-python/sphinx-rtd-theme

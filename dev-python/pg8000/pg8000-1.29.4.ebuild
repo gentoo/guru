@@ -15,8 +15,8 @@ HOMEPAGE="
 	https://pypi.org/project/pg8000/
 "
 
-SLOT="0"
 LICENSE="BSD"
+SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="

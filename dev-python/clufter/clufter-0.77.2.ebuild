@@ -14,8 +14,8 @@ SRC_URI="https://pagure.io/${PN}/archive/v${PV}/${PN}-v${PV}.tar.gz"
 
 S="${WORKDIR}/${PN}-v${PV}"
 
-SLOT="0"
 LICENSE="GPL-2+"
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DOCS=( __root__/README )

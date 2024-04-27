@@ -15,11 +15,11 @@ DESCRIPTION="An async python inotify package"
 HOMEPAGE="https://gitlab.com/Taywee/asyncinotify"
 SRC_URI="https://gitlab.com/Taywee/${PN}/-/archive/${MY_PV}/${MY_P}.tar.bz2 -> ${P}.tar.bz2"
 
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/${MY_P}"
 
 distutils_enable_sphinx docs "dev-python/tomli"
 

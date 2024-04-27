@@ -21,11 +21,12 @@ HOMEPAGE="
 	https://pypi.org/project/devtools/
 	https://github.com/samuelcolvin/python-devtools
 "
-RESTRICT="!test? ( test )"
 
 LICENSE="MIT"
-KEYWORDS="~amd64"
 SLOT="0"
+KEYWORDS="~amd64"
+
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-python/asttokens[${PYTHON_USEDEP}]

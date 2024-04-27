@@ -14,10 +14,10 @@ HOMEPAGE="https://github.com/Feneric/doxypypy"
 SRC_URI="https://github.com/Feneric/doxypypy/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
-RESTRICT="!test? ( test )"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
+RESTRICT="!test? ( test )"
 
 RDEPEND="dev-python/chardet[${PYTHON_USEDEP}]"
 BDEPEND="test? ( dev-python/zope-interface[${PYTHON_USEDEP}] )"

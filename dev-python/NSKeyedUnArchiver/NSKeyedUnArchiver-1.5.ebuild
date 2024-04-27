@@ -11,7 +11,7 @@ inherit distutils-r1 pypi
 
 DESCRIPTION="Unserializes binary|text|file|memory plist data to Python dict"
 HOMEPAGE="https://github.com/avibrazil/NSKeyedUnArchiver"
-KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"

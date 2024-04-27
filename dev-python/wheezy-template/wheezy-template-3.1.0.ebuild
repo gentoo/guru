@@ -17,9 +17,9 @@ HOMEPAGE="https://github.com/akornatskyy/wheezy.template"
 # as usual pypi doesn't contains tests
 SRC_URI="https://github.com/akornatskyy/wheezy.template/archive/refs/tags/${PV}.tar.gz -> ${MY_P}.gh.tar.gz"
 S="${WORKDIR}/${MY_P}"
-KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 
 DEPEND="dev-python/cython[${PYTHON_USEDEP}]"
 

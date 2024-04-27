@@ -8,11 +8,15 @@ PYTHON_COMPAT=(python3_{9..12})
 
 inherit linux-mod-r1 distutils-r1 desktop
 
-SRC_URI="https://github.com/casualsnek/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64"
-
 DESCRIPTION="Run Windows Applications on Linux as if they are native (Using a VM and FreeRDP)"
 HOMEPAGE="https://github.com/casualsnek/cassowary"
+SRC_URI="https://github.com/casualsnek/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+
+LICENSE="GPL-2"
+SLOT="0"
+KEYWORDS="~amd64"
+
+IUSE="X wayland"
 
 BDEPEND="dev-python/setuptools
 	dev-python/build
@@ -25,10 +29,6 @@ RDEPEND="net-misc/freerdp
 "
 
 DEPEND="${RDEPEND}"
-
-LICENSE="GPL-2"
-SLOT="0"
-IUSE="X wayland"
 
 MODULES_KERNEL_MIN=5.10
 

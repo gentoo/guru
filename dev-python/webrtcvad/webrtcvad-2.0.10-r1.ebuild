@@ -11,16 +11,20 @@ inherit distutils-r1
 
 DESCRIPTION="Python interface to the Google WebRTC Voice Activity Detector (VAD)"
 HOMEPAGE="https://github.com/wiseman/py-webrtcvad"
-SRC_URI="https://github.com/wiseman/py-${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://gentoo.kropotkin.rocks/distfiles/${P}-patches.tar.xz"
+SRC_URI="https://github.com/wiseman/py-${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	https://gentoo.kropotkin.rocks/distfiles/${P}-patches.tar.xz"
+
+S="${WORKDIR}/py-${P}"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-# Depends on a package removed from ::gento (bug #915162)
+# Depends on a package removed from ::gentoo (bug #915162)
 RESTRICT="test"
 
-S="${WORKDIR}/py-${P}"
-
-PATCHES=( "${WORKDIR}/${PN}-update-webrtc.patch" "${WORKDIR}/${PN}-fix-mem-leak.patch" "${WORKDIR}/${PN}-fix-oob.patch" )
+PATCHES=(
+	"${WORKDIR}/${PN}-update-webrtc.patch"
+	"${WORKDIR}/${PN}-fix-mem-leak.patch"
+	"${WORKDIR}/${PN}-fix-oob.patch"
+)

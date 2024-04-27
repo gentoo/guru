@@ -13,8 +13,8 @@ HOMEPAGE="
 	https://github.com/tlocke/scramp
 "
 
-SLOT="0"
 LICENSE="MIT"
+SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="

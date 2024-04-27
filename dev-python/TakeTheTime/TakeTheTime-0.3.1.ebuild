@@ -13,10 +13,10 @@ HOMEPAGE="https://github.com/ErikBjare/TakeTheTime"
 
 # pypi doesn't contains the tests
 SRC_URI="https://github.com/ErikBjare/TakeTheTime/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
-LICENSE="MIT"
 
-KEYWORDS="~amd64"
+LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 
 distutils_enable_tests unittest
 

@@ -14,8 +14,8 @@ SRC_URI="
 	https://github.com/python-injector/${PN}/archive/refs/tags/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-SLOT="0"
 LICENSE="BSD"
+SLOT="0"
 KEYWORDS="~amd64 ~x86 ~x86-linux"
 
 distutils_enable_sphinx docs

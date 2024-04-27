@@ -14,8 +14,8 @@ HOMEPAGE="
 	https://pypi.org/project/rpmautospec-core/
 "
 
-SLOT="0"
 LICENSE="MIT"
+SLOT="0"
 KEYWORDS="~amd64"
 
 distutils_enable_tests pytest

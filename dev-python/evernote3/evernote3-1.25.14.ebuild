@@ -10,10 +10,10 @@ inherit distutils-r1 pypi
 
 DESCRIPTION="Evernote SDK"
 HOMEPAGE="https://github.com/Evernote/evernote-sdk-python3"
-KEYWORDS="~amd64 ~x86"
 
 LICENSE="Apache-2.0"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-python/oauth2[${PYTHON_USEDEP}]
 dev-python/oauthlib[${PYTHON_USEDEP}]
