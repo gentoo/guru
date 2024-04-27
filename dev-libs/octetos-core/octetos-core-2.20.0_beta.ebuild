@@ -11,6 +11,8 @@ DESCRIPTION="C/C++ library to mainly provide Semantic Versioned implementation"
 HOMEPAGE="https://github.com/azaeldevel/octetos-core"
 SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${PN}-${MYPV}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -26,8 +28,6 @@ BDEPEND="
 	sys-devel/bison
 	>=sys-devel/gcc-8.1
 "
-
-S="${WORKDIR}/${PN}-${MYPV}"
 
 src_prepare() {
 	default

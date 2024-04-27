@@ -15,6 +15,8 @@ else
 	KEYWORDS="~amd64"
 fi
 
+S="${WORKDIR}/${PN}-${MYPV}"
+
 LICENSE="GPL-3"
 SLOT="0"
 
@@ -30,8 +32,6 @@ BDEPEND="
 	>=sys-devel/gcc-8.1
 	dev-build/libtool
 "
-
-S="${WORKDIR}/${PN}-${MYPV}"
 
 src_prepare() {
 	default

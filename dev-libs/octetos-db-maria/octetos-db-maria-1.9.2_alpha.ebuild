@@ -13,6 +13,8 @@ DESCRIPTION="C++ library for Database Acces."
 HOMEPAGE="https://github.com/azaeldevel/octetos-db-maria"
 SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${MYP}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -23,8 +25,6 @@ DEPEND="
 	dev-db/mariadb:=
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${MYP}"
 
 src_prepare() {
 	default
