@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,7 +23,7 @@ RDEPEND="
 
 src_test() {
 	# conflicts with spec/run_spec.cr
-	unset CRYSTAL_OPTS
+	local -x CRYSTAL_OPTS=
 
 	shards_src_test
 }
