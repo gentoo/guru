@@ -10,9 +10,11 @@ MY_PN=${PN%-cli}
 DESCRIPTION="A command-line tool for Stripe"
 HOMEPAGE="https://stripe.com/docs/stripe-cli"
 EGIT_REPO_URI="https://${EGO_PN}.git"
+
+LICENSE="Apache-2.0"
 SLOT="0"
 IUSE="bash-completion"
-LICENSE="Apache-2.0"
+
 BDEPEND=">=dev-lang/go-1.18"
 DEPEND="${BDEPEND}"
 

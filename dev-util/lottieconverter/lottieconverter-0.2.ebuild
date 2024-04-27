@@ -9,11 +9,11 @@ DESCRIPTION="Simple lottie (telegram animated sticker) converter."
 HOMEPAGE="https://github.com/sot-tech/LottieConverter"
 SRC_URI="https://github.com/sot-tech/${PN}/archive/refs/tags/r${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/LottieConverter-r0.2"
+
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc64"
-
-S="${WORKDIR}/LottieConverter-r0.2"
 
 DEPEND="media-libs/rlottie media-libs/libpng media-libs/giflib"
 RDEPEND="${DEPEND}"

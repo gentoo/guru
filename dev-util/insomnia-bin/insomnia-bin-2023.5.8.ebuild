@@ -11,6 +11,8 @@ DESCRIPTION="HTTP and GraphQL client for developers"
 HOMEPAGE="https://insomnia.rest"
 SRC_URI="https://github.com/Kong/${MY_PN}/releases/download/core@${PV}/Insomnia.Core-${PV}.deb"
 
+S="$WORKDIR"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -42,8 +44,6 @@ RDEPEND="
 	fontconfig? ( media-libs/fontconfig:1.0 )
 	accessibility? ( app-accessibility/at-spi2-core )
 "
-
-S="$WORKDIR"
 
 src_install() {
 	for size in 16x16 32x32 48x48 128x128 256x256 512x512 ; do

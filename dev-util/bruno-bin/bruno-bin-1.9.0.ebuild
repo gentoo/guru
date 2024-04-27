@@ -14,6 +14,8 @@ HOMEPAGE="
 "
 SRC_URI="https://github.com/usebruno/${PN%-*}/releases/download/v${PV}/${PN%-*}_${PV}_amd64_linux.deb"
 
+S="${WORKDIR}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -56,8 +58,6 @@ QA_PREBUILT="
 	opt/Bruno/libvk_swiftshader.so
 	opt/Bruno/libvulkan.so.1
 "
-
-S="$WORKDIR"
 
 src_install() {
 	for size in 16x16 32x32 48x48 128x128 256x256 512x512 1024x1024; do

@@ -14,14 +14,14 @@ SRC_URI="
 		-> ${P}.1
 "
 
+S="${WORKDIR}"
+
 # Attribution in xxd.c differs from vim.
 LICENSE="GPL-2 MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="!app-editors/vim-core"
-
-S="${WORKDIR}"
 
 src_unpack() {
 	cp "${DISTDIR}"/${P}.c xxd.c || die "cp failed"

@@ -64,14 +64,14 @@ SRC_URI="https://github.com/${PN}/cli/archive/v${PV}.tar.gz -> ${P}.tar.gz
 		${EGO_SUM_SRC_URI}
 "
 
+S="${WORKDIR}/cli-${PV}"
+
 LICENSE="MIT Apache-2.0 BSD-2 BSD MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="sys-libs/glibc"
 BDEPEND="dev-lang/go"
-
-S="${WORKDIR}/cli-${PV}"
 
 src_compile() {
 	ego build -o out/exercism exercism/main.go

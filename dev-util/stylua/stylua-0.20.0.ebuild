@@ -179,14 +179,14 @@ SRC_URI="
 	${CARGO_CRATE_URIS}
 "
 
+S="${WORKDIR}/StyLua-${PV}"
+
 LICENSE="MPL-2.0"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0 MIT MPL-2.0 Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="lua52 lua53 lua54 luau"
-
-S="${WORKDIR}/StyLua-${PV}"
 
 QA_FLAGS_IGNORED=".*"
 

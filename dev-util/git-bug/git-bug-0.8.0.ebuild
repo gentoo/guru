@@ -7,14 +7,14 @@ inherit go-module
 
 DESCRIPTION="distributed, offline-first bug tracker"
 HOMEPAGE="https://github.com/MichaelMure/git-bug"
+SRC_URI="https://github.com/MichaelMure/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	https://gentoo.kropotkin.rocks/go-pkgs/${P}-vendor.tar.xz"
 
-SRC_URI="https://github.com/MichaelMure/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://gentoo.kropotkin.rocks/go-pkgs/${P}-vendor.tar.xz"
-
-RESTRICT="strip"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
+
+RESTRICT="strip"
 
 src_compile() {
 	ego generate
