@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="app-misc/pax-utils
->=dev-python/zenlib-2.0.1[${PYTHON_USEDEP}]
+>=dev-python/zenlib-2.0.3[${PYTHON_USEDEP}]
 >=dev-python/pycpio-1.0.0[${PYTHON_USEDEP}]
 sys-apps/pciutils"
 
