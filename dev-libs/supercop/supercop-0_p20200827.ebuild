@@ -11,13 +11,13 @@ DESCRIPTION="Fast cryptographic operations for Monero wallets"
 HOMEPAGE="https://github.com/monero-project/supercop"
 SRC_URI="https://github.com/monero-project/supercop/archive/${MY_REV}.tar.gz -> ${PN}-${MY_REV}.tar.gz"
 
+S="${WORKDIR}"/${PN}-${MY_REV}
+
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 DEPEND="dev-lang/nasm"
-
-S="${WORKDIR}"/${PN}-${MY_REV}
 
 src_configure() {
 	append-flags -fPIC

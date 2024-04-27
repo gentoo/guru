@@ -10,16 +10,17 @@ PYTHON_COMPAT=( python3_{10..12} )
 inherit cmake fortran-2 python-single-r1 #docs
 
 DESCRIPTION="Compressed numerical arrays that support high-speed random access"
-SRC_URI="https://github.com/LLNL/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 HOMEPAGE="
 	https://computing.llnl.gov/projects/zfp
 	https://zfp.io
 	https://github.com/LLNL/ZFP
 "
+SRC_URI="https://github.com/LLNL/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
+
 IUSE="aligned cfp fasthash examples fortran openmp profile python strided test twoway +utilities" #doc cuda
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 RESTRICT="!test? ( test )"

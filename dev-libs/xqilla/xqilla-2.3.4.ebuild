@@ -7,6 +7,8 @@ DESCRIPTION="An XQuery and XPath 2 library and command line utility written in C
 HOMEPAGE="https://sourceforge.net/projects/xqilla/"
 SRC_URI="https://downloads.sourceforge.net/${PN}/XQilla-${PV}.tar.gz"
 
+S="${WORKDIR}"/XQilla-${PV}
+
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -18,8 +20,6 @@ RDEPEND="${DEPEND}"
 PATCHES=(
 	"${FILESDIR}"/lib_to_lib64.patch
 )
-
-S="${WORKDIR}"/XQilla-${PV}
 
 src_prepare() {
 	eapply -p1 "${FILESDIR}/lib_to_lib64.patch"

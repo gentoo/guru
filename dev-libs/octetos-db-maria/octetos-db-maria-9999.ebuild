@@ -7,6 +7,7 @@ inherit autotools
 
 MYPV="${PV/_alpha/-alpha}"
 MYP="${PN}-${MYPV}"
+
 DESCRIPTION="C++ library for Database Acces."
 HOMEPAGE="https://github.com/azaeldevel/octetos-db-maria"
 if [[ ${PV} == 9999 ]]; then
@@ -17,6 +18,8 @@ else
 	KEYWORDS="~amd64"
 fi
 
+S="${WORKDIR}/${MYP}"
+
 LICENSE="GPL-3"
 SLOT="0"
 
@@ -25,8 +28,6 @@ DEPEND="
 	dev-db/mariadb-connector-c
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${MYP}"
 
 src_prepare() {
 	default

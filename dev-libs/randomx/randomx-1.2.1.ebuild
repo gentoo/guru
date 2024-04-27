@@ -9,11 +9,11 @@ DESCRIPTION="Proof of work algorithm based on random code execution"
 HOMEPAGE="https://github.com/tevador/RandomX"
 SRC_URI="https://github.com/tevador/RandomX/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}"/RandomX-${PV}
+
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-
-S="${WORKDIR}"/RandomX-${PV}
 
 src_configure() {
 	append-ldflags -Wl,-z,noexecstack

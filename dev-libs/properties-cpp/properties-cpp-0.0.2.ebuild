@@ -15,6 +15,8 @@ DESCRIPTION="Simple convenience library for handling properties and signals in C
 HOMEPAGE="https://launchpad.net/properties-cpp"
 SRC_URI="https://launchpad.net/ubuntu/+archive/primary/+files/${PN}_${MY_PV}.orig.tar.gz"
 
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
@@ -26,7 +28,6 @@ DEPEND="
 	doc? ( app-text/doxygen )
 "
 
-S="${WORKDIR}/${MY_P}"
 MAKEOPTS="${MAKEOPTS} -j1"
 
 src_prepare() {
