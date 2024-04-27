@@ -42,7 +42,7 @@
 #
 # ...
 #
-# DAEMONS_REQ_USE=(
+# declare -Ag DAEMONS_REQ_USE=(
 # 	[postgresql]="xml"
 # )
 # inherit daemons distutils-r1
