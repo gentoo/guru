@@ -69,8 +69,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	eapply ${PATCHES}
-	eapply_user
+	default
 
 	if use tetrio-plus;	then
 		mv "${S}/app.asar" "${S}/opt/TETR.IO/resources/app.asar" || die
