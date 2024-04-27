@@ -9,13 +9,13 @@ MY_PN="GitQlient"
 
 DESCRIPTION="Multi-platform Git client written with Qt"
 HOMEPAGE="https://github.com/francescmm/GitQlient"
-
 SRC_URI="https://github.com/francescmm/${MY_PN}/releases/download/v${PV}/${PN}_${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64 ~x86"
+
 S="${WORKDIR}/${PN}_${PV}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	dev-qt/qtcore:5
