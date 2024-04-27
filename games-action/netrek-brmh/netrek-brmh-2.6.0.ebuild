@@ -8,11 +8,11 @@ DESCRIPTION="brmh client for netrek"
 HOMEPAGE="https://netrek.org"
 SRC_URI="https://github.com/bgloyer/netrek-client-brmh/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/netrek-client-brmh-${PV}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/netrek-client-brmh-${PV}"
 
 RDEPEND="
 	x11-base/xorg-proto

@@ -9,6 +9,8 @@ DESCRIPTION="Decompilation of 3D Pinball for Windows - Space Cadet"
 HOMEPAGE="https://github.com/k4zmu2a/SpaceCadetPinball"
 SRC_URI="https://github.com/k4zmu2a/${PN}/archive/refs/tags/Release_${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${PN}-Release_${PV}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -18,8 +20,6 @@ DEPEND="
 	media-libs/sdl2-mixer[midi]
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}-Release_${PV}"
 
 src_prepare(){
 	# the paths should be relative

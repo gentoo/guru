@@ -7,14 +7,14 @@ inherit wrapper
 
 DESCRIPTION="RTS from 2000 by Massive Entertainment, without resources and buildings"
 HOMEPAGE="https://en.wikipedia.org/wiki/Ground_Control_(video_game)"
-
 SRC_URI="https://archive.org/download/$PN.tar.xz/$PN.tar.xz"
 
-KEYWORDS="~amd64"
 S="${WORKDIR}"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
+KEYWORDS="~amd64"
+
 RESTRICT="strip"
 
 RDEPEND="

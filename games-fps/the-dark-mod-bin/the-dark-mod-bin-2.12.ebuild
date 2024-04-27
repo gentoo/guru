@@ -10,18 +10,17 @@ HOMEPAGE="
 "
 SRC_URI="https://archive.org/download/the-dark-mod/the-dark-mod-$PV.tar.xz"
 
+S="${WORKDIR}/the-dark-mod"
+
 LICENSE="
 	GPL-3
 	CC-BY-NC-ND-3.0
 "
-
 SLOT="0"
 KEYWORDS="~amd64"
 
 QA_PREBUILT="*"
 RESTRICT="strip"
-
-S="${WORKDIR}/the-dark-mod"
 
 src_install() {
 	dodir /opt

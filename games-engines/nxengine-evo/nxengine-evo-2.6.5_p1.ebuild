@@ -5,18 +5,19 @@ EAPI=8
 
 inherit xdg cmake
 
+MY_PV="${PV/_p/-}"
+
 DESCRIPTION="rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)"
 HOMEPAGE="https://github.com/nxengine/nxengine-evo http://nxengine.sourceforge.net/"
-
-MY_PV="${PV/_p/-}"
 SRC_URI="
 	https://github.com/nxengine/nxengine-evo/archive/v${MY_PV}.tar.gz -> ${PN}-${MY_PV}.tar.gz
 	https://www.cavestory.org/downloads/cavestoryen.zip
 "
+
 S="${WORKDIR}/${PN}-${MY_PV}"
 
-SLOT="0"
 LICENSE="GPL-3 freedist"
+SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="

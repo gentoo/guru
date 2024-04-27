@@ -9,9 +9,12 @@ DESCRIPTION="itch.io game browser, installer and launcher"
 HOMEPAGE="https://itch.io/"
 SRC_URI="https://broth.itch.ovh/itch/linux-amd64/${PV}/archive/default -> ${P}.zip"
 
-KEYWORDS="~amd64"
+S="${WORKDIR}"
+
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
+
 IUSE="system-ffmpeg"
 
 BDEPEND="app-arch/unzip"
@@ -38,8 +41,6 @@ QA_PREBUILT="
 	opt/itch-bin/libvk_swiftshader.so
 	!system-ffmpeg? ( opt/itch-bin/libffmpeg.so )
 "
-
-S="${WORKDIR}"
 
 src_install() {
 	local destdir="${EPREFIX}/opt/${PN}"

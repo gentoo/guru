@@ -234,9 +234,22 @@ vortice.mathematics@1.4.25
 
 inherit dotnet-pkg desktop xdg
 
-DESCRIPTION="Custom Launcher for Final Fantasy XIV Online (Crossplatform rewrite)"
+XIVQL_COMMIT="020dde9d504f879a56b08fde570bcb4b5772ed3e"
 
+DESCRIPTION="Custom Launcher for Final Fantasy XIV Online (Crossplatform rewrite)"
 HOMEPAGE="https://github.com/goatcorp/XIVLauncher.Core/"
+SRC_URI="
+	https://github.com/goatcorp/XIVLauncher.Core/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/goatcorp/FFXIVQuickLauncher/archive/${XIVQL_COMMIT}.tar.gz
+		-> FFXIVQuickLauncher-${XIVQL_COMMIT}.tar.gz
+	${NUGET_URIS}
+"
+
+S="${WORKDIR}/XIVLauncher.Core-${PV}/src"
+
+LICENSE="GPL-3"
+SLOT="0"
+KEYWORDS="~amd64"
 
 IUSE="+aria2 +libsecret"
 
@@ -259,23 +272,7 @@ RDEPEND="
 	x11-libs/libSM
 "
 
-XIVQL_COMMIT="020dde9d504f879a56b08fde570bcb4b5772ed3e"
-
-SRC_URI="
-	https://github.com/goatcorp/XIVLauncher.Core/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/goatcorp/FFXIVQuickLauncher/archive/${XIVQL_COMMIT}.tar.gz
-		-> FFXIVQuickLauncher-${XIVQL_COMMIT}.tar.gz
-	${NUGET_URIS}
-"
-
-S="${WORKDIR}/XIVLauncher.Core-${PV}/src"
-
 DOTNET_PKG_PROJECTS=( "${S}/XIVLauncher.Core/XIVLauncher.Core.csproj" )
-
-LICENSE="GPL-3"
-
-SLOT="0"
-KEYWORDS="~amd64"
 
 src_prepare() {
 	rmdir "${WORKDIR}/XIVLauncher.Core-${PV}/lib/FFXIVQuickLauncher" || die

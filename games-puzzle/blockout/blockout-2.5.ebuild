@@ -5,11 +5,12 @@ EAPI=8
 inherit desktop
 
 DESCRIPTION="BlockOut II is an adaptation of the original Blockout DOS game"
-
 HOMEPAGE="http://www.blockout.net/blockout2"
 SRC_URI="
 	https://downloads.sourceforge.net/blockout/bl25-src.tar.gz
 	https://downloads.sourceforge.net/blockout/bl25-linux-x86.tar.gz"
+
+S="${WORKDIR}"/BL_SRC
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -21,9 +22,8 @@ RDEPEND="
 	media-libs/sdl-mixer
 	virtual/glu
 	virtual/opengl"
-
 DEPEND="${RDEPEND}"
-S="${WORKDIR}"/BL_SRC
+
 PATCHES="${FILESDIR}"/${P}-datadir.patch
 
 src_compile() {

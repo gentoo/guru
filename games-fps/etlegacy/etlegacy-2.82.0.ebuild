@@ -5,12 +5,14 @@ EAPI=8
 
 inherit cmake unpacker xdg
 
-DESCRIPTION="Wolfenstein: Enemy Territory 2.60b compatible client/server"
-HOMEPAGE="https://www.etlegacy.com/"
-
 # We need the game files from the original enemy-territory release
 ET_RELEASE="et260b"
+
+DESCRIPTION="Wolfenstein: Enemy Territory 2.60b compatible client/server"
+HOMEPAGE="https://www.etlegacy.com/"
 SRC_URI="https://cdn.splashdamage.com/downloads/games/wet/${ET_RELEASE}.x86_full.zip"
+
+S="${WORKDIR}/${P/_rc/rc}"
 
 if [[ ${PV} = "9999" ]]; then
 	inherit git-r3
@@ -65,8 +67,6 @@ RDEPEND="${DEPEND}"
 BDEPEND="$(unpacker_src_uri_depends)"
 
 #QA_TEXTRELS="usr/share/games/etlegacy/legacy/omni-bot/omnibot_et.so"
-
-S="${WORKDIR}/${P/_rc/rc}"
 
 src_unpack() {
 	if [[ "${PV}" = 9999 ]] ; then

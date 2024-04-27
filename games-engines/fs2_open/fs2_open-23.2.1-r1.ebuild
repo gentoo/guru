@@ -5,9 +5,6 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="FreeSpace2 Source Code Project game engine"
-HOMEPAGE="https://github.com/scp-fs2open/fs2open.github.com/"
-
 # Replace "." with "_" in version
 _PV=${PV//./_}
 
@@ -15,11 +12,15 @@ _PV=${PV//./_}
 HASH_LIBROCKET="ecd648a43aff8a9f3daf064d75ca5725237d5b38"
 HASH_CMAKE_MODULES="7cef9577d6fc35057ea57f46b4986a8a28aeff50"
 
+DESCRIPTION="FreeSpace2 Source Code Project game engine"
+HOMEPAGE="https://github.com/scp-fs2open/fs2open.github.com/"
 SRC_URI="
 	https://github.com/scp-fs2open/fs2open.github.com/archive/refs/tags/release_${_PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/asarium/libRocket/archive/${HASH_LIBROCKET}.tar.gz -> ${P}-ext_libRocket.tar.gz
 	https://github.com/asarium/cmake-modules/archive/${HASH_CMAKE_MODULES}.tar.gz -> ${P}-ext_rpavlik-cmake-modules.tar.gz
 "
+
+S="${WORKDIR}/fs2open.github.com-release_${_PV}"
 
 LICENSE="Unlicense MIT Boost-1.0"
 SLOT="0"
@@ -50,8 +51,6 @@ PATCHES=(
 )
 
 CMAKE_BUILD_TYPE=Release
-
-S="${WORKDIR}/fs2open.github.com-release_${_PV}"
 
 src_unpack() {
 	unpack ${A}

@@ -5,14 +5,14 @@ EAPI=8
 
 DESCRIPTION="Turn-based, old style with minimum graphic, full game, 5 MB size"
 HOMEPAGE="http://akasoft.genliga.ru/index_e.php"
-
 SRC_URI="https://archive.org/download/general.tar.xz/$P.tar.xz"
 
-KEYWORDS="~amd64"
 S="${WORKDIR}"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
+KEYWORDS="~amd64"
+
 RESTRICT="strip"
 
 RDEPEND="

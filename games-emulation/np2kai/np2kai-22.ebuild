@@ -7,9 +7,12 @@ DESCRIPTION="NP2kai is an emulator for the japanese PC-98 series of computers"
 HOMEPAGE="https://domisan.sakura.ne.jp/article/np2kai/np2kai.html"
 SRC_URI="https://github.com/AZO234/NP2kai/archive/refs/tags/rev.${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/NP2kai-rev.${PV}/x11"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+
 IUSE="sdl +sdl2 +i286 ia32 haxm"
 REQUIRED_USE="^^ ( sdl sdl2 )"
 
@@ -32,8 +35,6 @@ DEPEND="media-libs/libsdl
 	x11-libs/gtk+:2"
 RDEPEND="${DEPEND}"
 BDEPEND="dev-build/automake"
-
-S="${WORKDIR}/NP2kai-rev.${PV}/x11"
 
 PATCHES=(
 	"${FILESDIR}/${P}-autogen.patch"

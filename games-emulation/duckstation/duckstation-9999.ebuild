@@ -11,6 +11,8 @@ EGIT_REPO_URI="https://github.com/stenzek/duckstation.git"
 EGIT_CHECKOUT_DIR="${WORKDIR}/${PN}"
 EGIT_SUBMODULES=()
 
+S="${WORKDIR}/${PN}"
+
 LICENSE="GPL-3"
 SLOT="0"
 IUSE="+dbus discord +egl +evdev fbdev +gamepad gbm +nogui qt6 retroachievements wayland X"
@@ -43,8 +45,6 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}"
 
 src_configure() {
 	local mycmakeargs=(

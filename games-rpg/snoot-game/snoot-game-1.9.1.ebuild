@@ -6,23 +6,25 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10,11,12} )
 inherit python-single-r1 desktop wrapper
 
+MY_PV="Patch8_NewYears"
+
 DESCRIPTION="Visual novel parody of Goodbye Volcano High"
-MY_PV="Patch9.1-RoastedLaika"
 HOMEPAGE="https://snootgame.xyz/"
 SRC_URI="https://snootgame.xyz/bin/SnootGame-${MY_PV}-linux.tar.bz2"
+
+S="${WORKDIR}/SnootGame-${MY_PV}-linux/"
 
 LICENSE="AGPL-3 CC-BY-SA-4.0"
 SLOT="0"
 KEYWORDS="~amd64"
+
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+RESTRICT="strip"
 
 RDEPEND="${PYTHON_DEPS} virtual/opengl"
 BDEPEND="${RDEPEND}"
 
-S="${WORKDIR}/SnootGame-${MY_PV}-linux/"
-
 QA_PREBUILT="*"
-RESTRICT+=" strip"
 
 src_install() {
 	local dir=/opt/${PN}

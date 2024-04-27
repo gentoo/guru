@@ -9,6 +9,8 @@ DESCRIPTION="Decompilation of 3D Pinball for Windows - Space Cadet"
 HOMEPAGE="https://github.com/k4zmu2a/SpaceCadetPinball"
 SRC_URI="https://github.com/k4zmu2a/${PN}/archive/refs/tags/Release_${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${PN}-Release_${PV}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -22,8 +24,6 @@ RDEPEND="${DEPEND}"
 PATCHES=(
 	"${FILESDIR}"/"${P}"-respect-XDG_DATA_HOME.patch
 )
-
-S="${WORKDIR}/${PN}-Release_${PV}"
 
 src_install(){
 	dobin "${S}/bin/${PN}"

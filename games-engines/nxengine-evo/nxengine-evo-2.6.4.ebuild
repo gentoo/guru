@@ -11,8 +11,8 @@ SRC_URI="
 	https://github.com/nxengine/nxengine-evo/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://www.cavestory.org/downloads/cavestoryen.zip
 "
-SLOT="0"
 LICENSE="GPL-3"
+SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="

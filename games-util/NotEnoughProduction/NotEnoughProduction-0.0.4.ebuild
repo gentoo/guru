@@ -14,14 +14,15 @@ SRC_URI="
 	https://raw.githubusercontent.com/bigbass1997/${PN}/master/lwjgl3/src/main/resources/libgdx32.png -> ${PN}-32.png
 	https://raw.githubusercontent.com/bigbass1997/${PN}/master/lwjgl3/src/main/resources/libgdx16.png -> ${PN}-16.png
 "
-KEYWORDS="~amd64 ~x86"
+
+S="${WORKDIR}"
+
 LICENSE="CC-BY-NC-SA-4.0"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="virtual/jre:1.8"
 BDEPEND="app-arch/unzip"
-
-S="${WORKDIR}"
 
 src_unpack() {
 	default

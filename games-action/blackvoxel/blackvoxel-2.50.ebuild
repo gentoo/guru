@@ -9,6 +9,8 @@ DESCRIPTION="Blackvoxel Video Game"
 HOMEPAGE="https://www.blackvoxel.com/"
 SRC_URI="https://www.blackvoxel.com/dm_download.php?file=170&key=1 -> ${P}.tar.bz2"
 
+S="${WORKDIR}/${PN}_source_${PV//./_}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -22,8 +24,6 @@ DEPEND="
 	virtual/opengl
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}_source_${PV//./_}"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-makefile.patch

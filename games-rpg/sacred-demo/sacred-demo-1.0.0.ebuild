@@ -3,18 +3,15 @@
 
 EAPI=8
 
-inherit wrapper
-
 DESCRIPTION="Like Diablo, isometric view, good rating, about a two hours of the gameplay"
 HOMEPAGE="https://en.wikipedia.org/wiki/Sacred_(video_game)"
+SRC_URI="https://archive.org/download/${PN}.tar/${PN}.tar.xz"
 
-SRC_URI="https://archive.org/download/$PN.tar/$PN.tar.xz"
-
-KEYWORDS="~amd64"
 S="${WORKDIR}"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
+KEYWORDS="~amd64"
 RESTRICT="strip"
 
 RDEPEND="

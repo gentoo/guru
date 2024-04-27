@@ -11,6 +11,8 @@ DESCRIPTION="A limit-removing enhanced-resolution Doom source port based on Choc
 HOMEPAGE="https://github.com/fabiangreffrath/crispy-doom"
 SRC_URI="https://github.com/fabiangreffrath/${PN}/archive/${P}.tar.gz"
 
+S="${WORKDIR}"/${PN}-${P}
+
 LICENSE="BSD GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -29,8 +31,6 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
 	doc? ( ${PYTHON_DEPS} )"
-
-S="${WORKDIR}"/${PN}-${P}
 
 DOCS=(
 	"AUTHORS"

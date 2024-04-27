@@ -5,14 +5,15 @@ EAPI=8
 
 inherit gnome2-utils meson vala xdg
 
-DESCRIPTION="GameHub is a unified library for all your games"
-HOMEPAGE="https://tkashkin.github.io/projects/gamehub https://github.com/tkashkin/gamehub"
-
 MY_PN="GameHub"
 MY_PV="$(ver_rs 3 '-')-master"
 MY_P="${MY_PN}-${MY_PV}"
 
+DESCRIPTION="GameHub is a unified library for all your games"
+HOMEPAGE="https://tkashkin.github.io/projects/gamehub https://github.com/tkashkin/gamehub"
 SRC_URI="https://github.com/tkashkin/${MY_PN}/archive/${MY_PV}.tar.gz -> ${P}.tar.gz"
+
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -34,8 +35,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="$(vala_depend)"
-
-S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
 	default

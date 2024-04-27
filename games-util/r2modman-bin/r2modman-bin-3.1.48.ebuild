@@ -6,6 +6,9 @@ EAPI=8
 M_PN=r2modman
 
 inherit desktop xdg
+
+DESCRIPTION="A simple and easy to use mod manager for several games using Thunderstore"
+HOMEPAGE="https://github.com/ebkr/r2modmanPlus"
 SRC_URI="
 	https://github.com/ebkr/${M_PN}Plus/releases/download/v${PV}/${M_PN}-${PV}.tar.gz -> ${P}.tar.gz
 	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/16x16.png -> ${P}-16x16.png
@@ -17,11 +20,12 @@ SRC_URI="
 	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/192x192.png -> ${P}-192x192.png
 	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/256x256.png -> ${P}-256x256.png
 "
-DESCRIPTION="A simple and easy to use mod manager for several games using Thunderstore"
-HOMEPAGE="https://github.com/ebkr/r2modmanPlus"
+
+S="${WORKDIR}"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	net-dns/c-ares
@@ -40,10 +44,6 @@ RDEPEND="
 	dev-libs/re2
 	app-arch/snappy
 "
-
-KEYWORDS="~amd64 ~x86"
-
-S="${WORKDIR}"
 
 QA_PREBUILT="
 	/opt/r2modman/chrome-sandbox
