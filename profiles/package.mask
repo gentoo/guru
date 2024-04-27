@@ -15,6 +15,11 @@
 # New entries go on top.
 
 # David Roman <davidroman96@gmail.com> (2024-04-27)
+# According to the maintainer it does no longer works
+# Removal on 2024-05-26
+dev-python/evernote3
+
+# David Roman <davidroman96@gmail.com> (2024-04-27)
 # Only needed by evernote2 and is deprecated and abandoned by upstream
 # Removal on 2024-05-26
 dev-python/python-oauth2
