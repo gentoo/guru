@@ -10,11 +10,13 @@ inherit desktop
 DESCRIPTION="Puzzle game where you can change the rules by which you play"
 HOMEPAGE="https://www.hempuli.com/baba/"
 SRC_URI="BIY_linux.tar.gz"
+
 S="${WORKDIR}"/"${MY_PN}"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
+
 RESTRICT="bindist fetch splitdebug"
 
 DIR="/opt/${PN}"

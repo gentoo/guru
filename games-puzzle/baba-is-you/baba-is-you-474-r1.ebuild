@@ -11,12 +11,13 @@ DESCRIPTION="Puzzle game where you can change the rules by which you play"
 HOMEPAGE="https://www.hempuli.com/baba/"
 SRC_URI="BIY_linux.tar.gz"
 
+S="${WORKDIR}/${MY_PN}"
+
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
-RESTRICT="bindist fetch"
 
-S="${WORKDIR}/${MY_PN}"
+RESTRICT="bindist fetch"
 
 # Has bundled media-video/libsdl2 with at least
 # [alsa,joystick,pulseaudio,sound]
