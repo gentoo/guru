@@ -9,7 +9,6 @@ DESCRIPTION="Re-Engineered visual novel with accessibility features"
 HOMEPAGE="https://www.fhs.sh/projects"
 SRC_URI="
 	https://github.com/fleetingheart/ksre/releases/download/v$PV/KSRE-linux.tar.bz2 -> ${P}.tar.bz2
-	https://github.com/fleetingheart/web/blob/main/public/android-chrome-512x512.png -> ${PN}.png
 "
 S="${WORKDIR}/KSRE-linux"
 
@@ -34,5 +33,5 @@ src_install() {
 	make_wrapper "${PN}" "/opt/${PN}/Katawa\ Shoujo\ Re-Engineered.sh"
 
 	domenu "${FILESDIR}/${PN}.desktop"
-	doicon "${DISTDIR}/${PN}.png"
+	doicon "${FILESDIR}/${PN}.png"
 }
