@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,5 +22,5 @@ RDEPEND="
 "
 
 src_test() {
-	ecrystal spec --tag "~headless_chrome"
+	shards_src_test --tag "~headless_chrome" --tag "~headless_firefox"
 }
