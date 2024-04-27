@@ -3,6 +3,6 @@
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
-		<remote-id type="github">TheDarkBug/uwufetch</remote-id>
+		<remote-id type="github">ad-oliviero/uwufetch</remote-id>
 	</upstream>
 </pkgmetadata>

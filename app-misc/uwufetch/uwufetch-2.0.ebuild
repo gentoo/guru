@@ -4,8 +4,8 @@
 EAPI=8
 
 DESCRIPTION="A meme system info tool for Linux"
-HOMEPAGE="https://github.com/TheDarkBug/uwufetch"
-SRC_URI="https://github.com/TheDarkBug/uwufetch/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/ad-oliviero/uwufetch"
+SRC_URI="https://github.com/ad-oliviero/uwufetch/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 PATCHES=(
 	"${FILESDIR}/${P}-destdir.patch"
