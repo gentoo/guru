@@ -14,6 +14,8 @@ HOMEPAGE="
 "
 SRC_URI="https://github.com/usebruno/${PN%-*}/releases/download/v${PV}/${PN%-*}_${PV}_amd64_linux.deb"
 
+S="${WORKDIR}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -55,8 +57,6 @@ QA_PREBUILT="
 	opt/Bruno/libvk_swiftshader.so
 	opt/Bruno/libvulkan.so.1
 "
-
-S="$WORKDIR"
 
 src_prepare() {
 	default

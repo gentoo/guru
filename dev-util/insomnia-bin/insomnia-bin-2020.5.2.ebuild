@@ -11,6 +11,8 @@ DESCRIPTION="HTTP and GraphQL client for developers"
 HOMEPAGE="https://insomnia.rest"
 SRC_URI="https://github.com/Kong/${MY_PN}/releases/download/core@${PV}/Insomnia.Core-${PV}.deb"
 
+S="${WORKDIR}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -47,8 +49,6 @@ RDEPEND="
 "
 
 QA_PREBUILT="*"
-
-S="${WORKDIR}"
 
 src_prepare() {
 	default
