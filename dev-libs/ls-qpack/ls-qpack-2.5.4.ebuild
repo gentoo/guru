@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="QPACK compression library for use with HTTP/3"
 HOMEPAGE="https://github.com/litespeedtech/ls-qpack/"
-SRC_URI="https://github.com/litespeedtech/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/litespeedtech/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -22,10 +22,8 @@ src_configure() {
 }
 
 src_install() {
-	mkdir -p ${D}/usr/include/
-	mkdir -p ${D}/usr/lib64/
-	cp ${S}_build/libls* ${D}/usr/lib64/
-	cp ${S}/lsxpack_header.h ${D}/usr/include/
-	cp ${S}/lsqpack.h ${D}/usr/include/
+	local LIB_TYPE=$(usex static-libs a so)
+	doheader ls{qpack,xpack_header}.h
+	dolib.${LIB_TYPE} "${BUILD_DIR}"/libls-qpack.${LIB_TYPE}
 	einstalldocs
 }
