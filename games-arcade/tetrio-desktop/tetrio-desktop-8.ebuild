@@ -100,7 +100,7 @@ src_install() {
 
 	doins -r "opt/${PN}/locales" "opt/${PN}/resources" "opt/${PN}/swiftshader"
 
-	fperms a+x "${DESTDIR}/swiftshader/"*
+	fperms -R a+x "${DESTDIR}/swiftshader/"
 
 	fowners root "${DESTDIR}/chrome-sandbox"
 	fperms 4711 "${DESTDIR}/chrome-sandbox"
