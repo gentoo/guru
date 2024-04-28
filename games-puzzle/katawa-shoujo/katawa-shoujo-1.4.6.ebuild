@@ -23,6 +23,10 @@ KEYWORDS="~amd64"
 QA_PREBUILT="*"
 RESTRICT="strip"
 
+RDEPEND="
+	media-libs/libglvnd[X]
+"
+
 src_install() {
 	insinto "/opt/${PN}"
 	doins -r *
