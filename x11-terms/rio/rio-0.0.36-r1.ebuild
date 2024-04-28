@@ -420,7 +420,8 @@ DEPEND="
 	wayland? ( dev-libs/wayland )
 	wayland? ( x11-libs/libxkbcommon[wayland] )
 	X? ( x11-libs/libxkbcommon[X] )
-	~x11-terms/rio-terminfo-${PV}
+	>=sys-libs/ncurses-6.4_p20240330
+	!x11-terms/rio-terminfo
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
