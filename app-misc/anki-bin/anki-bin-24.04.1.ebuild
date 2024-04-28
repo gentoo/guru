@@ -31,14 +31,14 @@ S="${WORKDIR}"
 
 # How to get an up-to-date summary of runtime JS libs' licenses:
 # ./node_modules/.bin/license-checker-rseidelsohn --production --excludePackages anki --summary
-LICENSE="AGPL-3+ BSD public-domain 0BSD CC-BY-4.0 GPL-3+ Unlicense"
+LICENSE="0BSD AGPL-3+ BSD CC-BY-4.0 GPL-3+ Unlicense public-domain"
 # Dependent crate licenses
 LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 CC0-1.0 ISC MIT
 	MPL-2.0 Unicode-DFS-2016 ZLIB
 "
 # Manually added crate licenses
-LICENSE+=" openssl Unicode-3.0"
+LICENSE+=" Unicode-3.0 openssl"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="qt6"
