@@ -6,6 +6,8 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..11} )
 
+inherit git-r3 distutils-r1
+
 DESCRIPTION="Unofficial Evernote SDK for Python 3"
 HOMEPAGE="
 	https://github.com/JackonYang/evernote2
@@ -13,7 +15,6 @@ HOMEPAGE="
 "
 
 EGIT_REPO_URI="https://github.com/JackonYang/evernote2"
-inherit git-r3 distutils-r1
 
 LICENSE="Apache-2.0"
 
