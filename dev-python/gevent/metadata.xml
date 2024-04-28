@@ -7,7 +7,7 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="pypi">gevent</remote-id>
-		<remote-id type="github">gevent/pyqtdarktheme</remote-id>
+		<remote-id type="github">gevent/gevent</remote-id>
 		<doc>https://www.gevent.org/</doc>
 	</upstream>
 	<use>
