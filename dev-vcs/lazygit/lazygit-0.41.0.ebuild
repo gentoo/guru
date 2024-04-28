@@ -13,8 +13,6 @@ LICENSE="Apache-2.0 BSD ISC MIT Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
 
-S="${WORKDIR}/${P}"
-
 RDEPEND="dev-vcs/git"
 
 DOCS=( {CODE-OF-CONDUCT,CONTRIBUTING,README}.md docs )
