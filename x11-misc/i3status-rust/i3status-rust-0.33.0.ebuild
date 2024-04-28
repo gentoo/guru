@@ -383,9 +383,11 @@ SRC_URI="${CARGO_CRATE_URIS}
 LICENSE="GPL-3"
 # Dependent crate licenses
 LICENSE+="
-	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD CC0-1.0 GPL-3
+	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD CC0-1.0
 	GPL-3+ ISC MIT MPL-2.0 MirOS Unicode-DFS-2016
 "
+# Manually added crate licenses
+LICENSE+=" Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="notmuch pipewire pulseaudio"
