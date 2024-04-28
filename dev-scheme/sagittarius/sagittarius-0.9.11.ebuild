@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake edo
 
 DESCRIPTION="R6RS/R7RS Scheme system."
 HOMEPAGE="https://bitbucket.org/ktakashi/sagittarius-scheme"
@@ -25,11 +25,9 @@ src_unpack() {
 	default
 
 	# avoid running ldconfig
-	truncate -s0 "${S}"/cmake/CMakeLists.txt
+	edo truncate -s0 "${S}"/cmake/CMakeLists.txt
 
 	# following tests always fail in sandbox
 	cd "${S}"/test/tests
-	rm net/http-client.scm
-	rm net/socket.scm
-	rm rfc/websocket.scm
+	edo rm net/http-client.scm net/socket.scm rfc/websocket.scm
 }
