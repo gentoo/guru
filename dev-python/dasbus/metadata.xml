@@ -3,8 +3,8 @@
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
-		<bugs-to>https://github.com/rhinstaller/dasbus/issues</bugs-to>
-		<remote-id type="github">rhinstaller/dasbus</remote-id>
+		<bugs-to>https://github.com/dasbus-project/dasbus/issues</bugs-to>
+		<remote-id type="github">dasbus-project/dasbus</remote-id>
 		<remote-id type="pypi">dasbus</remote-id>
 	</upstream>
 </pkgmetadata>

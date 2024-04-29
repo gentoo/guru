@@ -8,12 +8,12 @@ PYTHON_COMPAT=( python3_{10..12} )
 inherit distutils-r1
 
 DESCRIPTION="DBus library in Python 3"
-HOMEPAGE="https://github.com/rhinstaller/dasbus"
-SRC_URI="https://github.com/rhinstaller/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+HOMEPAGE="https://github.com/dasbus-project/dasbus"
+SRC_URI="https://github.com/dasbus-project/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="LGPL-2.1"
-KEYWORDS="~amd64"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="dev-python/pygobject:3[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
