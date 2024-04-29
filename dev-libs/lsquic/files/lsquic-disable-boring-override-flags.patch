@@ -1,0 +1,26 @@
+diff --git a/src/liblsquic/boringssl/CMakeLists.txt b/src/liblsquic/boringssl/CMakeLists.txt
+index 39352d684..cc0f9470f 100644
+--- a/src/liblsquic/boringssl/CMakeLists.txt
++++ b/src/liblsquic/boringssl/CMakeLists.txt
+@@ -112,12 +112,6 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CLANG)
+     # See http://llvm.org/viewvc/llvm-project?view=revision&revision=319116
+     set(C_CXX_FLAGS "${C_CXX_FLAGS} -W3 -Wno-unused-parameter -fmsc-version=1900")
+   else()
+-    if(EMSCRIPTEN)
+-      # emscripten's emcc/clang does not accept the "-ggdb" flag.
+-      set(C_CXX_FLAGS "${C_CXX_FLAGS} -g")
+-    else()
+-      set(C_CXX_FLAGS "${C_CXX_FLAGS} -ggdb")
+-    endif()
+ 
+     set(C_CXX_FLAGS "${C_CXX_FLAGS} -Wall -fvisibility=hidden -fno-common")
+   endif()
+@@ -271,8 +265,6 @@ if(CFI)
+   # We use Chromium's copy of clang, which requires -fuse-ld=lld if building
+   # with -flto. That, in turn, can't handle -ggdb.
+   set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fuse-ld=lld")
+-  string(REPLACE "-ggdb" "-g" CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+-  string(REPLACE "-ggdb" "-g" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+   # -flto causes object files to contain LLVM bitcode. Mixing those with
+   # assembly output in the same static library breaks the linker.
+   set(OPENSSL_NO_ASM "1")
