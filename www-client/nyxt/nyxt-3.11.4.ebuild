@@ -19,12 +19,12 @@ else
 	SRC_URI="https://github.com/atlas-engineer/${PN}/releases/download/${PV}/nyxt-${PV}-source-with-submodules.tar.xz -> ${PF}.gh.tar.xz"
 fi
 
-# Portage replaces the nyxt binary with sbcl when stripping
-RESTRICT="mirror strip"
-
 LICENSE="BSD CC-BY-SA-3.0"
 SLOT="0"
 IUSE="doc"
+
+# Portage replaces the nyxt binary with sbcl when stripping
+RESTRICT="mirror strip"
 
 RDEPEND="
 	dev-libs/gobject-introspection
@@ -36,7 +36,8 @@ RDEPEND="
 
 DEPEND="${RDEPEND}"
 BDEPEND="
-	>=dev-lisp/sbcl-2.0.0
+	>=dev-lisp/sbcl-2.0.0[threads,unicode]
+	<=dev-lisp/sbcl-2.4.1[threads,unicode]
 "
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
