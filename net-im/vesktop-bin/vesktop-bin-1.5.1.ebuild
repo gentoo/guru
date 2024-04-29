@@ -16,6 +16,7 @@ inherit chromium-2 desktop linux-info unpacker xdg
 DESCRIPTION="All-in-one voice and text chat for gamers with Vencord Preinstalled"
 HOMEPAGE="https://github.com/Vencord/Vesktop/"
 SRC_URI="https://github.com/Vencord/Vesktop/releases/download/v${PV}/${MY_PN}-${PV}.tar.gz -> ${MY_PN}.tar.gz"
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -37,8 +38,6 @@ DESTDIR="/opt/${PN}"
 QA_PREBUILT="*"
 
 CONFIG_CHECK="~USER_NS"
-
-S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_configure() {
 	default
