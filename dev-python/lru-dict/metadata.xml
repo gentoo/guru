@@ -5,7 +5,6 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
-	<stabilize-allarches/>
 	<upstream>
 		<remote-id type="pypi">lru-dict</remote-id>
 		<maintainer>
