@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>chinh4thepro@gmail.com</email>
+		<name>Vincent Phan</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Vencord/Vesktop</remote-id>
+	</upstream>
+</pkgmetadata>
