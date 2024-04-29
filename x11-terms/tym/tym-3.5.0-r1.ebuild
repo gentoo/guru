@@ -29,6 +29,16 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	default
+	# see https://github.com/endaaman/tym/issues/115
+	sed -i '/^CFLAGS=""/d' "${S}"/configure.ac || die
+
+	# the categories provided by eclass do a better job than upstream, and
+	# having duplicate list of categories fails on QA
+	sed -i '/^Categories=.*$/d' "${S}"/tym-daemon.desktop "${S}"/tym.desktop || die
+}
+
 src_configure() {
 	if [[ ${PV} == 9999 ]]; then
 		eautoreconf
