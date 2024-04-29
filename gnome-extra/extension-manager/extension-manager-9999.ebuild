@@ -30,7 +30,7 @@ RDEPEND="
 	dev-libs/glib:2
 	dev-libs/json-glib
 	gui-libs/gtk:4[introspection]
-	>=gui-libs/libadwaita-1.4.0:1[introspection]
+	>=gui-libs/libadwaita-1.5.0:1[introspection]
 	gui-libs/text-engine
 	net-libs/libsoup:3.0
 "
@@ -38,10 +38,6 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-
-PATCHES=(
-	"${FILESDIR}/${PN}-0.5.0-libadwaita-1.4.patch"
-)
 
 src_configure() {
 	local emesonargs=(
