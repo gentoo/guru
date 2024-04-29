@@ -12,7 +12,6 @@
 		posse of reject friends and other associated thorns-in-the-side.
 	</longdescription>
 	<upstream>
-		<bugs-to>https://git.snootgame.xyz/Cavemanon/SnootGame/issues</bugs-to>
-		<changelog>https://snootgame.xyz/Patch7-changelog.html</changelog>
+		<bugs-to>https://git.cavemanon.xyz/Cavemanon/SnootGame/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
