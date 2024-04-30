@@ -1,0 +1,12 @@
+Fix build with split tinfow library.
+
+--- a/configure.in
++++ b/configure.in
+@@ -31,6 +31,7 @@
+     [
+ 	#use unicode ncursesw (default case)
+ 	AC_CHECK_LIB(ncursesw, main,  , [AC_MSG_ERROR([Couldn't find ncursesw library])] )
++	AC_SEARCH_LIBS(stdscr, tinfow,, [AC_MSG_ERROR([Cannot find a library providing stdscr])])
+ 	#AC_CHECK_LIB(ncurses++w, main,  , [AC_MSG_ERROR([Couldn't find ncurses++w library])] )
+ 	AC_CHECK_LIB(formw,    main,  , [AC_MSG_ERROR([Couldn't find formw library])] )
+ 	AC_CHECK_LIB(panelw,   main,  , [AC_MSG_ERROR([Couldn't find panelw library])] )

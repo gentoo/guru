@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">suleman1971/boinctui</remote-id>
+		<maintainer>
+			<name>Sergey Suslov</name>
+			<email>suleman1971@gmail.com</email>
+		</maintainer>
+	</upstream>
+</pkgmetadata>
