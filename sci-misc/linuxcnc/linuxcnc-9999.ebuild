@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ inherit autotools desktop git-r3 python-single-r1
 
 DESCRIPTION="LinuxCNC"
 HOMEPAGE="http://linuxcnc.org/"
-#SRC_URI="mirror://sourceforge/gentoocnc/distfiles/${P}.tar.gz"
+#SRC_URI="https://downloads.sourceforge.net/gentoocnc/distfiles/${P}.tar.gz"
 #SRC_URI="https://github.com/LinuxCNC/linuxcnc/archive/2.7.zip"
 EGIT_REPO_URI="https://github.com/LinuxCNC/linuxcnc.git https://gitclone.com/github.com/LinuxCNC/linuxcnc.git"
 S="${WORKDIR}"/linuxcnc-9999/src

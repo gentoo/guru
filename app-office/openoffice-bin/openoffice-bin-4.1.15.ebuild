@@ -14,7 +14,7 @@ NM="openoffice"
 NM1="${NM}-brand"
 NM2="${NM}4"
 NM3="${NM2}.$(ver_cut 2-3)"
-FILEPATH="mirror://sourceforge/openofficeorg.mirror"
+FILEPATH="https://downloads.sourceforge.net/openofficeorg.mirror"
 if [ "${ARCH}" = "amd64" ] ; then
 	XARCH="x86_64"
 else

@@ -14,7 +14,7 @@ inherit distutils-r1
 DESCRIPTION="A python wrapper for Gnuplot"
 HOMEPAGE="https://gnuplot-py.sourceforge.net/"
 SRC_URI="
-	mirror://sourceforge/${PN}/${MYP}.tar.gz
+	https://downloads.sourceforge.net/${PN}/${MYP}.tar.gz
 	mirror://debian/pool/main/p/${MYPN}/${MYPN}_${PV//_p/-}.debian.tar.xz
 "
 S="${WORKDIR}/${MYP}"

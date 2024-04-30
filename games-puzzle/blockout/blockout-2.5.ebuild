@@ -8,8 +8,8 @@ DESCRIPTION="BlockOut II is an adaptation of the original Blockout DOS game"
 
 HOMEPAGE="http://www.blockout.net/blockout2"
 SRC_URI="
-	mirror://sourceforge/blockout/bl25-src.tar.gz
-	mirror://sourceforge/blockout/bl25-linux-x86.tar.gz"
+	https://downloads.sourceforge.net/blockout/bl25-src.tar.gz
+	https://downloads.sourceforge.net/blockout/bl25-linux-x86.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
