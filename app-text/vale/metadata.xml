@@ -6,6 +6,13 @@
 		<name>Ferenc Erki</name>
 	</maintainer>
 	<upstream>
+		<maintainer status="active">
+			<email>joseph@jdkato.io</email>
+			<name>Joseph Kato</name>
+		</maintainer>
+		<changelog>https://github.com/errata-ai/vale/releases</changelog>
+		<doc>https://vale.sh/docs/</doc>
+		<bugs-to>https://github.com/errata-ai/vale/issues</bugs-to>
 		<remote-id type="github">errata-ai/vale</remote-id>
 	</upstream>
 </pkgmetadata>
