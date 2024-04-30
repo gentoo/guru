@@ -270,7 +270,14 @@ CRATES="
 	zvariant_utils@1.1.0
 "
 
-inherit cargo
+inherit cargo desktop systemd xdg
+
+DEPEND="
+	gui-libs/libadwaita
+	gui-libs/gtk
+	x11-themes/hicolor-icon-theme
+"
+RDEPEND="${DEPEND}"
 
 DESCRIPTION="Software KVM Switch / mouse & keyboard sharing software for Local Area Networks"
 HOMEPAGE="https://github.com/feschber/lan-mouse"
@@ -287,3 +294,10 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
+
+src_install() {
+	cargo_src_install
+	doicon -s scalable resources/de.feschber.LanMouse.svg
+	domenu de.feschber.LanMouse.desktop
+	systemd_douserunit service/lan-mouse.service
+}
