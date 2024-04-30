@@ -54,6 +54,7 @@ microsoft.net.test.sdk@17.9.0
 microsoft.netcore.app.crossgen2.linux-x64@6.0.25
 microsoft.netcore.platforms@1.1.0
 microsoft.netcore.platforms@2.1.2
+microsoft.netcore.platforms@3.1.0
 microsoft.netcore.platforms@5.0.0
 microsoft.netcore.targets@1.1.0
 microsoft.testplatform.objectmodel@17.9.0
@@ -177,6 +178,7 @@ system.reflection.emit.ilgeneration@4.3.0
 system.reflection.emit.lightweight@4.3.0
 system.reflection.emit@4.3.0
 system.reflection.extensions@4.3.0
+system.reflection.metadata@1.6.0
 system.reflection.metadata@5.0.0
 system.reflection.primitives@4.3.0
 system.reflection.typeextensions@4.3.0
@@ -210,6 +212,7 @@ system.security.principal.windows@4.3.0
 system.security.principal.windows@5.0.0
 system.security.principal@4.3.0
 system.servicemodel.primitives@4.9.0
+system.text.encoding.codepages@7.0.0
 system.text.encoding.codepages@4.5.1
 system.text.encoding.codepages@4.7.0
 system.text.encoding.codepages@8.0.0
@@ -256,7 +259,7 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 else
 	KEYWORDS="~amd64 ~arm ~arm64"
-	SRC_URI="https://github.com/stakira/OpenUtau/archive/refs/tags/build/${PV}.tar.gz"
+	SRC_URI="https://github.com/stakira/OpenUtau/archive/refs/tags/build/${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/OpenUtau-build-${PV}"
 fi
 
@@ -268,13 +271,11 @@ SLOT="0"
 RDEPEND="
 	dev-dotnet/dotnet-sdk-bin
 	sys-fs/fuse-common
+	media-libs/alsa-lib
 "
 
 DEPEND="${RDEPEND}
 "
-
-DESTDIR="/usr/share/${PN}"
-BUILTDIR="${WORKDIR}/*Release"
 
 DOTNET_PKG_PROJECTS=( OpenUtau/OpenUtau.csproj )
 
