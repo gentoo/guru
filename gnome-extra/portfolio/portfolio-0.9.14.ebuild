@@ -11,6 +11,8 @@ DESCRIPTION="A minimalist file manager for those who want to use Linux mobile de
 HOMEPAGE="https://github.com/tchx84/Portfolio"
 SRC_URI="https://github.com/tchx84/Portfolio/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}"/Portfolio-"${PV}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
@@ -23,8 +25,6 @@ RDEPEND="
 	gui-libs/libhandy
 	x11-libs/gtk+
 "
-
-S="${WORKDIR}"/Portfolio-"${PV}"
 
 src_prepare() {
 	default
