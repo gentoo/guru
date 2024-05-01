@@ -1,4 +1,4 @@
-# Copyright 2019-2022 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,15 +7,15 @@ inherit systemd go-module
 
 DESCRIPTION="Framework for dark and light mode transitions"
 HOMEPAGE="https://gitlab.com/WhyNotHugo/darkman"
-SRC_URI="https://gitlab.com/whynothugo/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2"
-SRC_URI+=" https://files.levelnine.at/${P}-vendor.tar.xz"
+SRC_URI="https://gitlab.com/WhyNotHugo/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2
+	https://files.levelnine.at/${P}-vendor.tar.xz"
+
+S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+man +examples"
-
-S="${WORKDIR}/${PN}-v${PV}"
 
 RDEPEND="app-misc/geoclue"
 BDEPEND="man? ( app-text/scdoc )"
