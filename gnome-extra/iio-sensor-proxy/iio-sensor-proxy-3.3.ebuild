@@ -12,8 +12,8 @@ SRC_URI="https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/-/archive/${PV}/
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-RESTRICT="test"
 IUSE="+systemd"
+RESTRICT="test"
 
 RDEPEND="
 	dev-libs/glib:*

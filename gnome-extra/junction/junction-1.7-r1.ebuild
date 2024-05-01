@@ -6,6 +6,7 @@ EAPI=8
 inherit gnome2-utils meson
 
 TROLL_COMMIT="94ced56f1b08e6955f6c8325a04c74736d39b823"
+
 DESCRIPTION="Application/browser chooser"
 HOMEPAGE="
 	https://apps.gnome.org/app/re.sonny.Junction/
@@ -15,11 +16,12 @@ SRC_URI="
 	https://github.com/sonnyp/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/sonnyp/troll/archive/${TROLL_COMMIT}.tar.gz -> troll-${P}.tar.gz
 "
+
 S="${WORKDIR}/${PN^}-${PV}"
 
 LICENSE="GPL-3+"
-KEYWORDS="~amd64"
 SLOT="0"
+KEYWORDS="~amd64"
 
 DEPEND="
 	dev-libs/gjs
