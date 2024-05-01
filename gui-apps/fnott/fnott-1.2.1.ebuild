@@ -11,11 +11,11 @@ DESCRIPTION="Keyboard driven and lightweight Wayland notification daemon."
 HOMEPAGE="https://codeberg.org/dnkl/fnott"
 SRC_URI="https://codeberg.org/dnkl/fnott/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${PN}"
+
 LICENSE="MIT ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/${PN}"
 
 DEPEND="
 	x11-libs/pixman

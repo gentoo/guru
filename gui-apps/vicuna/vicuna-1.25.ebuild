@@ -5,18 +5,17 @@ EAPI=8
 
 DESCRIPTION="Tool for uploading files to Wikimedia Commons and other Wikimedia projects"
 HOMEPAGE="https://commons.wikimedia.org/wiki/Commons:Vicu%C3%B1aUploader"
+SRC_URI="https://github.com/yarl/${PN}/releases/download/${PV}/${P}.tar"
 
-SRC_URI="https://github.com/yarl/${PN}/releases/download/${PV}/${PN}-${PV}.tar"
-KEYWORDS="~amd64"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
+KEYWORDS="~amd64"
 
 DEPEND="
 	virtual/jre
 "
-
-S="${WORKDIR}"
 
 src_install() {
 	local apphome="/opt/${PN}"

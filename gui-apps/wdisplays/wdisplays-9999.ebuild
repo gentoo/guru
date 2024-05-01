@@ -17,6 +17,8 @@ else
 	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
+LICENSE="GPL-3+"
+SLOT="0"
 RESTRICT="mirror test"
 
 RDEPEND="
@@ -30,6 +32,3 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-libs/wayland-protocols
 "
-
-LICENSE="GPL-3+"
-SLOT="0"

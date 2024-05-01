@@ -9,13 +9,13 @@ DESCRIPTION="Super simple wallpaper application"
 HOMEPAGE="https://codeberg.org/dnkl/wbg"
 SRC_URI="https://codeberg.org/dnkl/wbg/archive/${PV}.tar.gz  -> ${P}.tar.gz"
 
+S="${WORKDIR}/${PN}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+
 IUSE="png jpeg"
-
-S="${WORKDIR}/${PN}"
-
 REQUIRED_USE="|| ( png jpeg )"
 
 DEPEND="

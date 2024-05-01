@@ -241,8 +241,9 @@ LICENSE+="
 	Unicode-DFS-2016
 "
 SLOT="0"
-IUSE="+man"
 KEYWORDS="~amd64"
+
+IUSE="+man"
 
 DEPEND="
 	app-arch/lz4

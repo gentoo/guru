@@ -9,6 +9,8 @@ DESCRIPTION="Cisco's packet tracer"
 HOMEPAGE="https://www.netacad.com/portal/resources/packet-tracer"
 SRC_URI="CiscoPacketTracer_820_Ubuntu_64bit.deb"
 
+S="${WORKDIR}"
+
 LICENSE="Cisco"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -18,7 +20,7 @@ RDEPEND="${DEPEND}
 	dev-libs/icu
 	x11-libs/xcb-util
 "
-S="${WORKDIR}"
+
 QA_PREBUILT="opt/pt/*"
 
 pkg_nofetch(){
