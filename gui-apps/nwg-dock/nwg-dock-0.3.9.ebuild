@@ -46,15 +46,14 @@ EGO_SUM=(
 	)
 go-module_set_globals
 
-SRC_URI="https://github.com/nwg-piotr/nwg-dock/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	${EGO_SUM_SRC_URI}"
-KEYWORDS="~amd64"
-
 DESCRIPTION="GTK3-based dock for sway"
 HOMEPAGE="https://github.com/nwg-piotr/nwg-dock"
-LICENSE="MIT"
+SRC_URI="https://github.com/nwg-piotr/nwg-dock/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	${EGO_SUM_SRC_URI}"
 
+LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	gui-libs/gtk-layer-shell

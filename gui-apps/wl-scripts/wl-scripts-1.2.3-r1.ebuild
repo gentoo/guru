@@ -3,10 +3,9 @@
 
 EAPI=8
 
-SRC_URI="https://github.com/mazunki/wl-scripts/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-
 DESCRIPTION="A set of utils for wlroots window managers"
 HOMEPAGE="https://github.com/mazunki/wl-scripts"
+SRC_URI="https://github.com/mazunki/wl-scripts/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -19,7 +18,6 @@ RDEPEND="
 	gui-apps/slurp
 	gui-libs/wlroots
 "
-BDEPEND=""  # scripts are just sh
 
 src_install() {
 	exeinto "/usr/bin/"

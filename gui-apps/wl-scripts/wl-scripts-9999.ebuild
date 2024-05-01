@@ -19,7 +19,6 @@ RDEPEND="
 	gui-apps/slurp
 	gui-wm/sway
 "
-BDEPEND=""  # scripts are just sh
 
 src_install() {
 	exeinto "/usr/bin/"

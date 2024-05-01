@@ -242,6 +242,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+man"
 
+IUSE="+man"
+
 DEPEND="
 	app-arch/lz4
 	x11-libs/libxkbcommon[wayland]"

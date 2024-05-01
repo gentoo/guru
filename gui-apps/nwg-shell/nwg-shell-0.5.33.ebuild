@@ -7,13 +7,13 @@ PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
-SRC_URI="https://github.com/nwg-piotr/nwg-shell/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64"
-
 DESCRIPTION="libraries an common functions for the nwg-shell project"
 HOMEPAGE="https://github.com/nwg-piotr/nwg-shell"
+SRC_URI="https://github.com/nwg-piotr/nwg-shell/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	gui-apps/grim

@@ -6,12 +6,12 @@ EAPI=8
 DESCRIPTION="meta package package for nwg-shell"
 HOMEPAGE="https://nwg-piotr.github.io/nwg-shell/"
 
+S="${WORKDIR}"
+
 LICENSE="metapackage"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="hyprland"
-
-S="${WORKDIR}"
 
 RDEPEND="
 	app-misc/nwg-look
