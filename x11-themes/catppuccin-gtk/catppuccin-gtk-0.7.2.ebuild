@@ -78,16 +78,16 @@ SRC_URI="
 "
 S="${WORKDIR}"
 
+LICENSE="GPL-3"
+SLOT="0"
+KEYWORDS="~amd64"
+
 IUSE="+frappe latte macchiato mocha"
 REQUIRED_USE="|| ( frappe latte macchiato mocha )"
 
 BDEPEND="
 	app-arch/unzip
 "
-
-LICENSE="GPL-3"
-SLOT="0"
-KEYWORDS="~amd64"
 
 src_install() {
 	insinto "/usr/share/themes"
