@@ -8,8 +8,9 @@ inherit meson xdg python-single-r1
 
 DESCRIPTION="GNOME's main interface to configure various aspects of the desktop"
 HOMEPAGE="https://github.com/GradienceTeam/Gradience"
-SRC_URI+="https://dev.gentoo.org/~mattst88/distfiles/${PN}-42.0-patchset.tar.xz"
 SRC_URI="https://github.com/GradienceTeam/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+
+S="${WORKDIR}"/Gradience-${PV}
 
 LICENSE="GPL-2+"
 SLOT="0"
@@ -40,8 +41,6 @@ DEPEND="
 	dev-python/aiohttp
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}"/Gradience-${PV}
 
 src_prepare() {
 	default
