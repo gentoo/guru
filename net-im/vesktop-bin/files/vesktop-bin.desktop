@@ -6,5 +6,5 @@ Type=Application
 Exec=/usr/bin/vesktop-bin
 Icon=vesktop-bin
 Categories=Network;InstantMessaging;
-StartupWMClass=vencord-desktop
+StartupWMClass=Vesktop
 Keywords=discord;vencord;
