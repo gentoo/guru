@@ -13,8 +13,7 @@ SLOT="0"
 KEYWORDS="-* ~amd64"
 
 RDEPEND="
-|| ( =app-text/pandoc-bin-3.1.12.3 =app-text/pandoc-3.1.12.3 )
-!dev-haskell/pandoc-crossref
+|| ( ~app-text/pandoc-bin-3.1.12.3 >=app-text/pandoc-3 )
 "
 
 src_install() {
