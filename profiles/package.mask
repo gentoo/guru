@@ -168,13 +168,6 @@ virtual/nlme
 virtual/nnet
 virtual/survival
 
-# Julien Roy <julien@jroy.ca (2024-03-29)
-# build2 eclass removed from ::gentoo
-# Masked for removal in 30 days
-dev-cpp/libcutl
-dev-cpp/libstudxml
-dev-util/odb
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
