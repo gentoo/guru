@@ -1,0 +1,119 @@
+--- a/configure.ac
++++ b/configure.ac
+@@ -158,7 +158,7 @@ if test "x$with_spell" != "xno"; then
+
+ 	case $with_spell in
+ 		enchant|yes)
+-			PKG_CHECK_MODULES(ENCHANT, [enchant >= 1.0])
++			PKG_CHECK_MODULES(ENCHANT, [enchant-2 >= 1.0])
+ 			AC_DEFINE(WITH_ENCHANT, 1, [Define if you want enchant support])
+ 			;;
+ 		aspell)
+--- a/xneur.pc
++++ b/xneur.pc
+@@ -6,5 +6,5 @@ includedir=${prefix}/include
+ Name: xneur
+ Description: XNeur library
+ Version: 0.20.0
+-Libs: -L${exec_prefix}/lib -lxneur  -lpcre -lenchant -lpthread -ldl
++Libs: -L${exec_prefix}/lib -lxneur  -lpcre -lenchant-2 -lpthread -ldl
+ Cflags: -I${prefix}/include
+--- a/plugins/statistic/Makefile.am
++++ b/plugins/statistic/Makefile.am
+@@ -7,7 +7,7 @@ pkglib_LTLIBRARIES = libxnstatistic.la
+ libxnstatistic_la_SOURCES = \
+ 	statistic.c
+
+-libxnstatistic_la_CFLAGS = -I@top_srcdir@/lib/config -I@top_srcdir@/lib/lib @DEFAULT_CFLAGS@
++libxnstatistic_la_CFLAGS = -I@top_srcdir@/lib/config -I@top_srcdir@/lib/lib @ASPELL_CFLAGS@ @ENCHANT_CFLAGS@ @DEFAULT_CFLAGS@
+ libxnstatistic_la_LDFLAGS = @X11_LIBS@
+
+ libxnstatistic_la_LIBADD =
+--- a/lib/lib/xneur.h
++++ b/lib/lib/xneur.h
+@@ -29,7 +29,7 @@
+ #endif
+
+ #ifdef WITH_ENCHANT
+-#	include <enchant/enchant.h>
++#	include <enchant.h>
+ #endif
+
+ struct _window *main_window;
+--- a/lib/lib/xneurlib.c
++++ b/lib/lib/xneurlib.c
+@@ -30,7 +30,7 @@
+ #endif
+
+ #ifdef WITH_ENCHANT
+-#	include <enchant/enchant.h>
++#	include <enchant.h>
+ #endif
+
+ #include "xneur.h"
+--- a/lib/notify/Makefile.am
++++ b/lib/notify/Makefile.am
+@@ -16,7 +16,9 @@ libxnnotify_la_CFLAGS = -I@top_srcdir@/l
+ 										@GSTREAMER_CFLAGS@ 		\
+ 										@XOSD_CFLAGS@ 			\
+ 										@LIBNOTIFY_CFLAGS@		\
+-										@GTK_CFLAGS@
++										@GTK_CFLAGS@			\
++										@ASPELL_CFLAGS@			\
++										@ENCHANT_CFLAGS@
+ libxnnotify_la_LDFLAGS = -static @X11_LIBS@ @ADDITIONAL_LIBS@	\
+ 					@FREEALUT_LIBS@ 	\
+ 					@GSTREAMER_LIBS@ 	\
+--- a/lib/main/Makefile.am
++++ b/lib/main/Makefile.am
+@@ -28,6 +28,6 @@ libxnmain_la_SOURCES =		\
+ 	defines.h
+
+
+-libxnmain_la_CFLAGS = -I@top_srcdir@/lib/config -I@top_srcdir@/lib/misc  -I@top_srcdir@/lib/notify -I@top_srcdir@/lib/ai -I@top_srcdir@/lib/lib -I@top_srcdir@/lib/rec @X11_CFLAGS@ @DEFAULT_CFLAGS@ -DXNEUR_PLUGIN_DIR=\""@libdir@/xneur"\"
++libxnmain_la_CFLAGS = -I@top_srcdir@/lib/config -I@top_srcdir@/lib/misc  -I@top_srcdir@/lib/notify -I@top_srcdir@/lib/ai -I@top_srcdir@/lib/lib -I@top_srcdir@/lib/rec @X11_CFLAGS@ @ASPELL_CFLAGS@ @ENCHANT_CFLAGS@ @DEFAULT_CFLAGS@ -DXNEUR_PLUGIN_DIR=\""@libdir@/xneur"\"
+ libxnmain_la_LDFLAGS = -static @X11_LIBS@  @ADDITIONAL_LIBS@
+
+--- a/lib/ai/Makefile.am
++++ b/lib/ai/Makefile.am
+@@ -6,6 +6,6 @@ libxnai_la_SOURCES =		\
+ 	detection.c		\
+ 	detection.h
+
+-libxnai_la_CFLAGS = -I@top_srcdir@/lib/config -I@top_srcdir@/lib/misc -I@top_srcdir@/lib/main -I@top_srcdir@/lib/lib @X11_CFLAGS@ @ASPELL_CFLAGS@ @DEFAULT_CFLAGS@
++libxnai_la_CFLAGS = -I@top_srcdir@/lib/config -I@top_srcdir@/lib/misc -I@top_srcdir@/lib/main -I@top_srcdir@/lib/lib @X11_CFLAGS@ @ASPELL_CFLAGS@ @ENCHANT_CFLAGS@ @DEFAULT_CFLAGS@
+ libxnai_la_LDFLAGS = -static @X11_LIBS@ @ASPELL_LIBS@ @ADDITIONAL_LIBS@
+
+--- a/lib/config/Makefile.am
++++ b/lib/config/Makefile.am
+@@ -13,7 +13,7 @@ noinst_HEADERS =		\
+ libxnconfig_la_SOURCES =	\
+ 	xnconfig.c
+
+-libxnconfig_la_CFLAGS = -I@top_srcdir@/lib/misc -I@top_srcdir@/lib/main -I@top_srcdir@/lib/lib @DEFAULT_CFLAGS@
++libxnconfig_la_CFLAGS = -I@top_srcdir@/lib/misc -I@top_srcdir@/lib/main -I@top_srcdir@/lib/lib @ASPELL_CFLAGS@ @ENCHANT_CFLAGS@ @DEFAULT_CFLAGS@
+ libxnconfig_la_LIBADD = ../lib/libxneur.la @ADDITIONAL_LIBS@
+ libxnconfig_la_LDFLAGS = -version-info 20:0:0
+
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -9,7 +9,7 @@ xneur_SOURCES =			\
+ 	newlang_creation.c	\
+ 	newlang_creation.h
+
+-xneur_CFLAGS = -I@top_srcdir@/lib/ai  -I@top_srcdir@/lib/lib  -I@top_srcdir@/lib/config -I@top_srcdir@/lib/main -I@top_srcdir@/lib/misc -I@top_srcdir@/lib/notify  @X11_CFLAGS@ @DEFAULT_CFLAGS@
++xneur_CFLAGS = -I@top_srcdir@/lib/ai  -I@top_srcdir@/lib/lib  -I@top_srcdir@/lib/config -I@top_srcdir@/lib/main -I@top_srcdir@/lib/misc -I@top_srcdir@/lib/notify  @X11_CFLAGS@ @ASPELL_CFLAGS@ @ENCHANT_CFLAGS@ @DEFAULT_CFLAGS@
+
+ xneur_LDFLAGS = -L$(top_srcdir)/lib/lib -L$(top_srcdir)/lib/ai -L$(top_srcdir)/lib/config -L$(top_srcdir)/lib/misc -L$(top_srcdir)/lib/main -L$(top_srcdir)/lib/notify  @X11_LIBS@ @ADDITIONAL_LIBS@
+
+--- a/plugins/test/Makefile.am
++++ b/plugins/test/Makefile.am
+@@ -7,7 +7,7 @@ pkglib_LTLIBRARIES = libxntest.la
+ libxntest_la_SOURCES = \
+ 	test.c
+
+-libxntest_la_CFLAGS = -I@top_srcdir@/lib/config -I@top_srcdir@/lib/lib @DEFAULT_CFLAGS@
++libxntest_la_CFLAGS = -I@top_srcdir@/lib/config -I@top_srcdir@/lib/lib @ASPELL_CFLAGS@ @ENCHANT_CFLAGS@ @DEFAULT_CFLAGS@
+ libxntest_la_LDFLAGS = @X11_LIBS@
+
+ libxntest_la_LIBADD =

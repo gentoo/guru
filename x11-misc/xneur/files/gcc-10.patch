@@ -1,0 +1,40 @@
+--- a/lib/main/program.c
++++ b/lib/main/program.c
+@@ -315,7 +315,7 @@
+ 
+ 	p->buffer->save_and_clear(p->buffer, p->last_window);
+ 	p->correction_buffer->clear(p->correction_buffer);
+-	p->correction_action = ACTION_NONE;
++	p->correction_action = CORRECTION_NONE;
+ 
+ 	if (status == FOCUS_NONE)
+ 		return;
+@@ -426,7 +426,7 @@
+ 				p->correction_buffer = buffer_init(xconfig->handle, main_window->keymap);
+ 				p->correction_buffer->handle = xconfig->handle;
+ 				p->correction_buffer->keymap = main_window->keymap;
+-				p->correction_action = ACTION_NONE;
++				p->correction_action = CORRECTION_NONE;
+ 
+ 				//log_message (DEBUG, _("Now layouts count %d"), xconfig->handle->total_languages);
+ 				log_message(LOG, _("Keyboard layouts present in system:"));
+@@ -609,7 +609,7 @@
+ 						//{
+ 							p->buffer->save_and_clear(p->buffer, p->focus->owner_window);
+ 							p->correction_buffer->clear(p->correction_buffer);
+-							p->correction_action = ACTION_NONE;
++							p->correction_action = CORRECTION_NONE;
+ 							if ((Window)p->focus->get_focused_window(p->focus) != (Window)p->focus->owner_window)
+ 							{
+ 								p->update(p);
+--- a/lib/lib/xneur.h
++++ b/lib/lib/xneur.h
+@@ -32,7 +32,7 @@
+ #	include <enchant.h>
+ #endif
+ 
+-struct _window *main_window;
++extern struct _window *main_window;
+ 
+ struct _xneur_language
+ {

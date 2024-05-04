@@ -1,0 +1,60 @@
+# ChangeLog for x11-misc/xneur
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  05 May 2012; Mike Gilbert <floppym@gentoo.org> xneur-0.12.0-r1.ebuild:
+  Use pkgconfig virtual.
+
+  12 Mar 2011; Alexandre Rostovtsev (tetromino) <tetromino@gmail.com>
+  -xneur-0.12.0.ebuild, +xneur-0.12.0-r1.ebuild,
+  +files/xneur-0.12.0-libnotify-0.7.patch:
+  Add patch for libnotify-0.7 compatibility
+
+  01 Feb 2011; Alexandre Rostovtsev (tetromino) <tetromino@gmail.com>
+  -xneur-0.11.1.ebuild, -files/xneur-0.11.1-openmp.patch,
+  +xneur-0.12.0.ebuild:
+  Version bump; libpcre dependency is now obligatory; openmp patch is no
+  longer needed.
+
+  06 Dec 2010; Peter Volkov <pva@gentoo.org> -xneur-0.10.0.ebuild,
+  +xneur-0.11.1.ebuild, +files/xneur-0.11.1-openmp.patch:
+  Version bump, thank nightwelf and Alex Rodionov for report/help.
+
+  17 Oct 2010; Peter Volkov <pva@gentoo.org> -xneur-0.9.9.ebuild,
+  +xneur-0.10.0.ebuild, metadata.xml:
+  Version bump, thank Павел aka Nightwelf for report.
+
+  06 Jul 2010; Michał Górny (sedzimir) <mgorny.3ehbo@mailnull.com>
+  xneur-0.9.9.ebuild:
+  Decrease EAPI requirement, cleanup. Correct dependencies.
+
+  01 Jun 2010; Peter Volkov <pva@gentoo.org> -xneur-0.9.7.ebuild,
+  +xneur-0.9.9.ebuild:
+  Version bump, thank Alex Rodionov for report in bug #169494.
+
+  16 Oct 2009; Peter Volkov <pva@gentoo.org> -xneur-0.9.5.ebuild,
+  -files/xneur-0.9.5-gcc44.patch, +xneur-0.9.7.ebuild:
+  Version bump. Patch substituted with shell magic. Imlib/xpm support to
+  display flag close to cursor was found slow and dropped. Spell is highly
+  suggested upstream.
+
+  26 Aug 2009; Peter Volkov <pva@gentoo.org> -xneur-0.9.4.ebuild,
+  +xneur-0.9.5.ebuild, +files/xneur-0.9.5-gcc44.patch:
+  Version bump. Dropped subversion support code from ebuild (not used anyway).
+  New USE flag: libnotify.
+
+  01 Jun 2009; Peter Volkov <pva@gentoo.org> -xneur-0.9.3.ebuild,
+  -files/xneur-0.9.3-CFLAGS.patch, -files/xneur-0.9.3-build-failure.patch,
+  +xneur-0.9.4.ebuild:
+  Version bump. Thank Jan Aniŝĉuk for the patch (bug #169494).
+
+  17 Apr 2009; Justin Lecher (jlec) <jlec@j-schmitz.net> xneur-0.9.3.ebuild:
+  QA quotes around EAPI version
+
+  03 Apr 2009; Peter Volkov <pva@gentoo.org> +xneur-0.9.3.ebuild,
+  +files/xneur-0.9.3-CFLAGS.patch, +files/xneur-0.9.3-build-failure.patch,
+  +metadata.xml:
+  New Ebuild for bug 169494. Too many users want xneur but it still crashs and
+  has known limitations. In Sunrise everybody can easy get it and have a
+  chance to improve it.
+
