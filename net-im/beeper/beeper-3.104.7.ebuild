@@ -11,7 +11,11 @@ CHROMIUM_LANGS="
 
 inherit chromium-2 desktop unpacker xdg
 
-BUILD_ID="2404092haaf1gp0"
+# To check the latest version, run:
+#
+# 	curl https://download.todesktop.com/2003241lzgn20jd/latest-linux.yml
+
+BUILD_ID="2405024h1b4qoap"
 DESCRIPTION="Beeper: Unified Messenger"
 HOMEPAGE="https://www.beeper.com/"
 SRC_URI="https://download.todesktop.com/2003241lzgn20jd/${P}-build-${BUILD_ID}-amd64.deb"
