@@ -61,9 +61,8 @@ src_compile() {
 			append-cflags "-D_NERD"
 		elif use icons; then
 			append-cflags "-D_ICONS_IN_TERMINAL"
-		# else
-			# the following line is desired but would cause a compile error
-			# append-cflags "-D_NO_ICONS"
+		else
+			append-cflags "-D_NO_ICONS"
 		fi
 	fi
 

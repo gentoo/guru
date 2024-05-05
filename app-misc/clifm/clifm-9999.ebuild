@@ -82,7 +82,7 @@ src_compile() {
 	use qsort && append-cflags "-D_TOURBIN_QSORT"
 	use inotify || append-cflags "-DUSE_GENERIC_FS_MONITOR"
 	use media || append-cflags "-DNO_MEDIA_FUNC"
-	use xdu && append-cflags "-DUSE_XDU"
+	use xdu || append-cflags "-DUSE_DU1"
 
 	# makefile defaults to /usr/local
 	emake PREFIX="/usr"
