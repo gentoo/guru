@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson optfeature
+inherit fcaps meson optfeature
 
 DESCRIPTION="SwayFX: Sway, but with eye candy!"
 HOMEPAGE="https://github.com/WillPower3309/swayfx"
@@ -15,10 +15,12 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 IUSE="+man +swaybar +swaynag tray wallpapers X"
+REQUIRED_USE="tray? ( swaybar )"
 
 DEPEND="
 	>=dev-libs/json-c-0.13:0=
 	>=dev-libs/libinput-1.21.0:0=
+	virtual/libudev
 	sys-auth/seatd:=
 	dev-libs/libpcre2
 	>=dev-libs/wayland-1.21.0
@@ -54,7 +56,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 BDEPEND+="man? ( >=app-text/scdoc-1.9.2 )"
-REQUIRED_USE="tray? ( swaybar )"
+
+FILECAPS=(
+	cap_sys_nice usr/bin/sway # reflect "gui-wm/sway-1.9"
+)
 
 src_configure() {
 	local emesonargs=(
@@ -80,6 +85,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	fcaps_pkg_postinst
+
 	optfeature_header "There are several packages that may be useful with swayfx:"
 	optfeature "wallpaper utility" gui-apps/swaybg
 	optfeature "idle management utility" gui-apps/swayidle
