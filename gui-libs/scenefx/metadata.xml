@@ -6,18 +6,18 @@
 		<name>Theo Donacik</name>
 	</maintainer>
 	<longdescription lang="en">
-        SceneFX is a project that takes the scene api and replaces the wlr
-        renderer with our own fx renderer, capable of rendering surfaces
-        with eye-candy effects including blur, shadows, and rounded corners,
-        while maintaining the benefits of simplicity gained from using the
-        scene api.
+		SceneFX is a project that takes the scene api and replaces the wlr
+		renderer with our own fx renderer, capable of rendering surfaces
+		with eye-candy effects including blur, shadows, and rounded corners,
+		while maintaining the benefits of simplicity gained from using the
+		scene api.
 
-        Please note: while SceneFX is in use by SwayFX version 0.4,
-        it is not yet ready for usage by other compositors.	
-    </longdescription>
+		Please note: while SceneFX is in use by SwayFX version 0.4,
+		it is not yet ready for usage by other compositors.
+	</longdescription>
 	<use>
-        <flag name="drm">Enable Direct Rendering Management</flag>
-        <flag name="examples">Build example applications</flag>
+		<flag name="drm">Enable Direct Rendering Management</flag>
+		<flag name="examples">Build example applications</flag>
 		<flag name="liftoff">Enable support for libliftoff KMS plane backend</flag>
 		<flag name="libinput">Enable support for input devices via <pkg>dev-libs/libinput</pkg></flag>
 		<flag name="x11-backend">Enable support for handling input/output devices through <pkg>x11-libs/libxcb</pkg></flag>
