@@ -3,12 +3,12 @@
 
 EAPI=8
 
-inherit meson optfeature
+inherit meson
 
 DESCRIPTION="A replacement for the wlroots scene API with eye-candy effects."
 HOMEPAGE="https://github.com/wlrfx/scenefx"
 
-SRC_URI="https://github.com/wlrfx/scenefx/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/wlrfx/scenefx/archive/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${PV}"
 
 LICENSE="MIT"
@@ -79,8 +79,4 @@ src_configure() {
 	)
 
 	meson_src_configure
-}
-
-src_install() {
-	meson_src_install
 }
