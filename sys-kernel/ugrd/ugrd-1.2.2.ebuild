@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,10 +15,12 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="app-misc/pax-utils
->=dev-python/zenlib-2.0.4[${PYTHON_USEDEP}]
->=dev-python/pycpio-1.0.0[${PYTHON_USEDEP}]
-sys-apps/pciutils"
+RDEPEND="
+	app-misc/pax-utils
+	>=dev-python/zenlib-2.0.4[${PYTHON_USEDEP}]
+	>=dev-python/pycpio-1.0.0[${PYTHON_USEDEP}]
+	sys-apps/pciutils
+"
 
 src_install() {
 	# Call the distutils-r1_src_install function to install the package
