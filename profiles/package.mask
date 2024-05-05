@@ -189,3 +189,12 @@ net-im/mautrix-facebook
 # (See also top comment)
 # Sorry for the inconvenience.
 app-office/lotus123r3
+
+# Okamura Kazuya <trakrailysurely@danceylove.net> (2024-05-06)
+# Openlitespeed cannot work because there is no php that supports litespeed.
+# We are requesting additional support using the ticket below.
+# dev-lang/php: add litespeed support. See also https://bugs.gentoo.org/908876
+# app-eselect/eselect-php: add openlitespeed. See also https://bugs.gentoo.org/908996
+www-servers/openlitespeed
+acct-user/lsadm
+acct-group/lsadm
