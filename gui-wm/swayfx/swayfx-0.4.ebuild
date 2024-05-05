@@ -26,7 +26,7 @@ DEPEND="
 	>=x11-libs/libxkbcommon-1.5.0
 	x11-libs/pango
 	x11-libs/pixman
-	gui-wm/scenefx
+	gui-libs/scenefx
 	media-libs/mesa[gles2,libglvnd(+)]
 	swaybar? ( x11-libs/gdk-pixbuf:2 )
 	tray? ( || (
