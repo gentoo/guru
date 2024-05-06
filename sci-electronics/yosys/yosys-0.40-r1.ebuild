@@ -25,16 +25,15 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="dev-vcs/git"
 
-QA_PRESTRIPPED="
-	/usr/bin/yosys-filterlib
-	/usr/bin/yosys-abc
-"
-
 src_prepare() {
 	mv "${WORKDIR}/abc-${ABC_GIT_COMMIT}" "${S}"/abc || die
 	default
 }
 
-src_install() {
-	emake DESTDIR="${D}" PREFIX='/usr' install
+src_configure() {
+	cat <<-__EOF__ >> Makefile.conf || die
+		PREFIX := ${EPREFIX}/usr
+		STRIP := @echo "skipping strip"
+	__EOF__
+	default
 }
