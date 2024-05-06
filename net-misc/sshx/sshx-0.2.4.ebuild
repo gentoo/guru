@@ -148,6 +148,7 @@ CRATES="
 	rand_core@0.6.4
 	redis@0.23.3
 	redox_syscall@0.3.5
+	redox_syscall@0.4.1
 	regex-automata@0.1.10
 	regex-automata@0.3.8
 	regex-syntax@0.6.29
@@ -228,6 +229,7 @@ CRATES="
 	version_check@0.9.4
 	want@0.3.1
 	wasi@0.11.0+wasi-snapshot-preview1
+	wasite@0.1.0
 	wasm-bindgen-backend@0.2.87
 	wasm-bindgen-futures@0.4.37
 	wasm-bindgen-macro-support@0.2.87
@@ -238,6 +240,7 @@ CRATES="
 	webpki-roots@0.23.1
 	webpki-roots@0.25.2
 	which@4.4.2
+	whoami@1.5.1
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
