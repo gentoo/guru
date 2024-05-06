@@ -1,3 +1,6 @@
+From: Paul Zander <negril.nx+gentoo@gmail.com>
+Subject: [PATCH] CMake: use system gtest instead of fetching it
+
 diff --git a/test/unittests/CMakeLists.txt b/test/unittests/CMakeLists.txt
 index 4d07cdb..976b8e5 100644
 --- a/test/unittests/CMakeLists.txt
