@@ -12,7 +12,7 @@ S="${WORKDIR}/${P}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-
+PATCHES=( "${FILESDIR}/musl-prio.patch" )
 src_prepare() {
 	default
 	sed -i 's/8.gz/8/g' Makefile
