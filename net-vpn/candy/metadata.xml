@@ -5,9 +5,6 @@
 		<email>yangmame@icloud.com</email>
 		<name>Xin Yang</name>
 	</maintainer>
-	<use>
-		<flag name="libcandy">Install development libraries and header files for candy</flag>
-	</use>
 	<upstream>
 		<remote-id type="github">lanthora/candy</remote-id>
 		<maintainer>
