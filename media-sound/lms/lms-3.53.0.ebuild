@@ -45,7 +45,7 @@ src_configure() {
 	append-flags -I/usr/include/stb/deprecated
 
 	local mycmakeargs=(
-		-DIMAGE_LIBRARY=$(usex stb STB GraphicsMagick++)
+		-DLMS_IMAGE_BACKEND=$(usex stb stb graphicsmagick)
 		-DENABLE_TESTS=$(usex test)
 	)
 
