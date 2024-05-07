@@ -42,6 +42,7 @@ DEPEND="
 	x11-libs/libdrm
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
+	x11-libs/libxkbcommon
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
 	x11-libs/libXfixes
