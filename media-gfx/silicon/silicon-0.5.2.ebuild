@@ -202,11 +202,11 @@ HOMEPAGE="https://github.com/Aloxaf/silicon"
 SRC_URI="https://github.com/Aloxaf/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" ${CARGO_CRATE_URIS}"
 
-# Prevent portage from trying to fetch bunch of *.crate from mirror despite they are not mirrored.
-RESTRICT="mirror"
 LICENSE="Apache-2.0 Boost-1.0 BSD ISC MIT MPL-2.0 Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+# Prevent portage from trying to fetch bunch of *.crate from mirror despite they are not mirrored.
+RESTRICT="mirror"
 PATCHES=( "${FILESDIR}/silicon-0.5.2-remove-pathfinder_simd-patch.patch" )
 
 BDEPEND="
