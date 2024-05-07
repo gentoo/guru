@@ -24,7 +24,7 @@ REQUIRED_USE="?? ( asio libuv ) test? ( ssl )"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	asio? ( dev-cpp/asio:=[ssl(+)?] )
+	asio? ( dev-cpp/asio:= )
 	libuv? ( dev-libs/libuv )
 	ssl? ( >=dev-libs/openssl-1.1.0 )
 "
