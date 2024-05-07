@@ -26,7 +26,7 @@ BDEPEND="app-arch/unzip"
 QA_PREBUILT="usr/bin/bw"
 
 src_compile() {
-	./bw completion --shell zsh > bw.zsh
+	./bw completion --shell zsh > bw.zsh 2> /dev/null || die
 }
 
 src_install() {
