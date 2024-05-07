@@ -1,15 +1,15 @@
-# Copyright 2020-2022 Gentoo Authors
+# Copyright 2020-2022,2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit gnome2-utils meson python-any-r1 vala xdg
 
 DESCRIPTION="A multimedia file converter focused on simplicity"
 HOMEPAGE="https://robertsanseries.github.io/ciano/"
-SRC_URI="https://github.com/robertsanseries/ciano/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/robertsanseries/ciano/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
