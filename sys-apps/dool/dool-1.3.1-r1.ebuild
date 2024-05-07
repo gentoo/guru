@@ -18,10 +18,7 @@ else
 		https://github.com/scottchiefbaker/dool/archive/refs/tags/v${PV}.tar.gz
 			-> ${P}.tar.gz
 	"
-fi
-
-if [[ "${PV}" != "9999" ]]; then
-	KEYWORDS="~alpha ~amd64 ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-linux"
+	KEYWORDS="~amd64 ~arm64 ~mips ~ppc ~ppc64 ~sparc ~x86 "
 fi
 
 LICENSE="GPL-2"
@@ -36,12 +33,13 @@ src_compile() {
 	:
 }
 
-src_install() {
-	python_foreach_impl python_doscript "${PN}"
+python_install() {
+	python_doscript "${PN}"
+	python_domodule plugins/${PN}_*.py
+}
 
-	insinto "/usr/share/${PN}"
-	newins "${PN}" "${PN}.py"
-	doins plugins/${PN}_*.py
+src_install() {
+	python_foreach_impl python_install
 
 	doman "docs/${PN}.1"
 
@@ -50,6 +48,7 @@ src_install() {
 	if use examples; then
 		dodoc examples/{mstat,read}.py
 	fi
+
 	if use doc; then
 		dodoc docs/*.html
 	fi
