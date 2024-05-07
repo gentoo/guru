@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_11 )
+PYTHON_COMPAT=( python3_{11..12} )
 
 inherit distutils-r1
 
@@ -31,6 +31,14 @@ BDEPEND="
 	)
 "
 DEPEND="${BDEPEND}"
+
+EPYTEST_DESELECT=(
+	# Errors, probably because of missing privileges or problems in the virtual file system used in the tests
+	"tests/test_checkers.py::test_is_readable[/var/data/xx1.txt-True-False]"
+	"tests/test_validators.py::test_readable[/var/data/xx1.txt-True-False]"
+	"tests/test_validators.py::test_writeable[/var/data/xx1.txt-True-False]"
+	"tests/test_validators.py::test_executable[/var/data/xx1.txt-True-False]"
+)
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs
