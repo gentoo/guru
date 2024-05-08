@@ -1,15 +1,10 @@
+# Copyright 2023-2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
 EAPI=7
-
-DESCRIPTION="VTuber application made with Godot 3.4"
-HOMEPAGE="https://github.com/virtual-puppet-project/vpuppr"
-
-RESTRICT="strip"
 
 PYTHON_COMPAT=( python3_{10..12} )
 inherit desktop xdg python-single-r1
-
-IUSE="+osf-tracker ifm-tracker mouse-tracker vts-tracker meowface-tracker remote-control"
-REQUIRED_USE="osf-tracker? ( ${PYTHON_REQUIRED_USE} )"
 
 IFACIALMOCAP_COMMIT="8095807804b138a3236d9ce21e800e02fe44e53a"
 MEOWFACE_COMMIT="790e4c7a5913184f71076e1c8606236b02ff1de8"
@@ -17,6 +12,8 @@ OPENSEEFACE_COMMIT="c1b8bc5fd0014abb1a059368d205740dd7f0f592"
 RC_SERVER_COMMIT="e95d2bf0f29767f9be8461422c696d691ca3da48"
 VTUBE_STUDIO_COMMIT="0cf3304723dbe0f71d5e12bff2b76d0ef0c22aea"
 
+DESCRIPTION="VTuber application made with Godot 3.4"
+HOMEPAGE="https://github.com/virtual-puppet-project/vpuppr"
 SRC_URI="
 	https://github.com/virtual-puppet-project/vpuppr/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/virtual-puppet-project/godot-builds/releases/download/latest/Godot_v3.x-stable_linux_headless.64.tar.gz
@@ -49,6 +46,11 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
+
+IUSE="+osf-tracker ifm-tracker mouse-tracker vts-tracker meowface-tracker remote-control"
+REQUIRED_USE="osf-tracker? ( ${PYTHON_REQUIRED_USE} )"
+
+RESTRICT="strip"
 RDEPEND="
 	osf-tracker? ( ${PYTHON_DEPS} )
 "

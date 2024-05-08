@@ -9,6 +9,8 @@ DESCRIPTION="A pixelart-oriented painting program"
 HOMEPAGE="http://www.pulkomandy.tk/projects/GrafX2"
 SRC_URI="http://www.pulkomandy.tk/projects/GrafX2/downloads/${P}-src.tgz"
 
+S="${WORKDIR}/${PN}/src/"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -29,8 +31,6 @@ DEPEND="
 	ttf? ( media-libs/sdl-ttf )
 	lua? ( >=dev-lang/lua-5.1.0 )
 "
-
-S="${WORKDIR}/${PN}/src/"
 
 src_prepare() {
 	pushd ../

@@ -10,6 +10,8 @@ DESCRIPTION="CAD/CAM software for 3D design and processing"
 HOMEPAGE="https://www.zwsoft.cn/product/zw3d/linux"
 SRC_URI="https://home-store-packages.uniontech.com/appstore/pool/appstore/c/${MY_PGK_NAME}/${MY_PGK_NAME}_${PV}_amd64.deb -> ${P}.deb"
 
+S="${WORKDIR}"
+
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="-* ~amd64"
@@ -59,8 +61,6 @@ BDEPEND="
 	dev-util/bbe
 	dev-util/patchelf
 "
-
-S=${WORKDIR}
 
 QA_PREBUILT="*"
 
