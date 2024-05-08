@@ -14,13 +14,13 @@ SRC_URI="
 	https://web.archive.org/web/20140913154759if_/http://users.teilar.gr/~g1951d/Symbola.pdf -> ${P}.pdf
 "
 
+S="${WORKDIR}"
+
 LICENSE="Unicode_Fonts_for_Ancient_Scripts"
 SLOT="0"
 KEYWORDS="~amd64"
 
 BDEPEND="app-arch/unzip"
-
-S="${WORKDIR}"
 
 DOCS=(
 	"${DISTDIR}/${P}.pdf"

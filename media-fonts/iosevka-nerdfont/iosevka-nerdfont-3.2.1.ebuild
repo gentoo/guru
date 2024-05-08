@@ -9,11 +9,12 @@ DESCRIPTION="A free and open-source typeface for developers"
 HOMEPAGE="https://github.com/ryanoasis/nerd-fonts"
 SRC_URI="https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/Iosevka.tar.xz -> ${P}.gh.tar.xz"
 
+S="${WORKDIR}"
+
 LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64"
 
-S="${WORKDIR}"
 FONT_SUFFIX="ttf"
 
 pkg_postinst() {

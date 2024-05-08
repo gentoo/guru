@@ -8,18 +8,18 @@ inherit font
 DESCRIPTION="A free programming font with cursive italics and ligatures"
 HOMEPAGE="https://rubjo.github.io/victor-mono/"
 SRC_URI="https://github.com/rubjo/victor-mono/raw/v${PV}/public/VictorMonoAll.zip -> ${P}.zip"
-RESTRICT="binchecks strip"
+
+S="${WORKDIR}"
 
 LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+otf ttf"
 
+IUSE="+otf ttf"
 REQUIRED_USE="|| ( otf ttf )"
+RESTRICT="binchecks strip"
 
 BDEPEND="app-arch/unzip"
-
-S="${WORKDIR}"
 
 FONT_CONF=(
 	"${FILESDIR}/66-victor-mono.conf"

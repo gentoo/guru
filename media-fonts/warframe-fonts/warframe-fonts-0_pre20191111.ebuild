@@ -13,10 +13,13 @@ SRC_URI="
 	https://m.box.com/file/401042823306/download?shared_link=https%3A%2F%2Fdigitalextremesltd.app.box.com%2Fs%2Fvh2u41yhdlgp3girffucbynadoi33173 -> Grineer.ttf
 	https://m.box.com/file/302545392046/download?shared_link=https%3A%2F%2Fdigitalextremesltd.app.box.com%2Fs%2Fvh2u41yhdlgp3girffucbynadoi33173 -> Solaris.ttf
 "
+S="${DISTDIR}"
+
 LICENSE="Warframe-EULA"
-RESTRICT="bindist mirror"
 SLOT="0"
 KEYWORDS="~amd64"
-S="${DISTDIR}"
+
+RESTRICT="bindist mirror"
+
 FONT_S="${S}"
 FONT_SUFFIX="ttf"
