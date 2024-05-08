@@ -29,6 +29,11 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="app-arch/unzip"
 
+QA_PREBUILT="
+	usr/bin/SACSrv
+	usr/lib64/.*
+"
+
 src_unpack() {
 	default
 	unpacker "SAC Linux ${PV} R1 GA/Installation/withoutUI/Ubuntu-2204/safenetauthenticationclient-core_${PV}_amd64.deb"
