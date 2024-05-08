@@ -311,8 +311,11 @@ else
 	KEYWORDS="~amd64"
 fi
 
-LICENSE="
-	MIT
+LICENSE="MIT"
+# Dependent crate licenses
+LICENSE+="
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD CC0-1.0 ISC
+	Unicode-DFS-2016
 "
 SLOT="0"
 IUSE="X wayland"
@@ -354,15 +357,9 @@ src_configure() {
 	cargo_src_configure --no-default-features
 }
 
-src_compile() {
-	cargo_gen_config
-	cargo_src_compile
-}
-
 src_install() {
 	dodoc README.md CHANGELOG.md
-	cd target/release || die
-	dobin eww
+	cargo_src_install --path crates/eww
 	elog "Eww wont run without a config file (usually in ~/.config/eww)."
 	elog "For example configs visit https://github.com/elkowar/eww#examples"
 }
