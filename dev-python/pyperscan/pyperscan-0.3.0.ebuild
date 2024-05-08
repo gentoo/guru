@@ -111,4 +111,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+QA_FLAGS_IGNORED="
+	usr/lib/python.*/site-packages/pyperscan/_pyperscan.abi3.so
+"
+
 distutils_enable_tests pytest
