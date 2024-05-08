@@ -12,9 +12,10 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/hyprwm/contrib/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/contrib-${PV}"
 	KEYWORDS="~amd64"
 fi
+
+S="${WORKDIR}/contrib-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
@@ -51,7 +52,6 @@ BDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-S="${WORKDIR}/contrib-${PV}"
 src_install() {
 	if use grimblast; then
 	   pushd grimblast || die

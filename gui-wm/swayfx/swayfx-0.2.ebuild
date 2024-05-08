@@ -7,13 +7,14 @@ inherit meson optfeature
 
 DESCRIPTION="SwayFX: Sway, but with eye candy!"
 HOMEPAGE="https://github.com/WillPower3309/swayfx"
-
 SRC_URI="https://github.com/WillPower3309/swayfx/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
+
 IUSE="grimshot +man +swaybar +swaynag tray wallpapers X"
+REQUIRED_USE="tray? ( swaybar )"
 
 DEPEND="
 	>=dev-libs/json-c-0.13:0=
@@ -21,6 +22,8 @@ DEPEND="
 	sys-auth/seatd:=
 	dev-libs/libpcre
 	>=dev-libs/wayland-1.20.0
+	>=gui-libs/wlroots-0.16:=[X?]
+	<gui-libs/wlroots-0.17:=[X?]
 	x11-libs/cairo
 	x11-libs/libxkbcommon
 	x11-libs/pango
@@ -34,10 +37,6 @@ DEPEND="
 	) )
 	wallpapers? ( gui-apps/swaybg[gdk-pixbuf(+)] )
 	X? ( x11-libs/libxcb:0= )
-"
-DEPEND+="
-	>=gui-libs/wlroots-0.16:=[X?]
-	<gui-libs/wlroots-0.17:=[X?]
 "
 RDEPEND="
 	x11-misc/xkeyboard-config
@@ -55,9 +54,7 @@ BDEPEND="
 	>=dev-libs/wayland-protocols-1.24
 	>=dev-build/meson-0.60.0
 	virtual/pkgconfig
-"
-BDEPEND+="man? ( >=app-text/scdoc-1.9.3 )"
-REQUIRED_USE="tray? ( swaybar )"
+	man? ( >=app-text/scdoc-1.9.3 )"
 
 src_configure() {
 	local emesonargs=(
