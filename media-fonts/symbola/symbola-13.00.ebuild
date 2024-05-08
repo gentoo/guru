@@ -11,6 +11,8 @@ DESCRIPTION="Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Sy
 HOMEPAGE="https://dn-works.com/ufas/"
 SRC_URI="https://dn-works.com/wp-content/uploads/2020/UFAS-Fonts/Symbola.zip -> ${P}.zip"
 
+S="${WORKDIR}"
+
 LICENSE="UFAS"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -18,7 +20,6 @@ RESTRICT="bindist mirror"
 
 BDEPEND="app-arch/unzip"
 
-S="${WORKDIR}"
 FONT_S="${S}"
 
 DOCS=(

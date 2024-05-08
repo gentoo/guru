@@ -9,11 +9,11 @@ DESCRIPTION="An open source webfont family inspired by Highway Gothic"
 HOMEPAGE="http://overpassfont.org/"
 SRC_URI="https://github.com/RedHatOfficial/Overpass/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/Overpass-${PV}"
+
 LICENSE="|| ( LGPL-2.1 OFL-1.1 )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-
-S="${WORKDIR}/Overpass-${PV}"
 
 src_install() {
 

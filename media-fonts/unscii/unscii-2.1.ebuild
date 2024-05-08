@@ -11,6 +11,8 @@ DESCRIPTION="Set of bitmapped Unicode fonts based on classic system fonts"
 HOMEPAGE="http://viznut.fi/unscii/"
 SRC_URI="http://viznut.fi/unscii/${P}-src.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${P}-src"
+
 LICENSE="
 	public-domain
 	unicode? ( GPL-2 )
@@ -28,7 +30,6 @@ DEPEND="
 	unicode? ( media-fonts/unifont[utils] )
 "
 
-S="${WORKDIR}/${P}-src"
 DOCS=( ${PN}.txt )
 
 src_prepare() {
