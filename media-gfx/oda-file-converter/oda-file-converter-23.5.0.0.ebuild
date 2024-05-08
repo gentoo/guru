@@ -9,8 +9,9 @@ inherit desktop unpacker xdg
 
 DESCRIPTION="For converting between different versions of .dwg and .dxf"
 HOMEPAGE="https://www.opendesign.com"
-
 SRC_URI="https://download.opendesign.com/guestfiles/Demo/ODAFileConverter_QT5_lnxX64_8.3dll_${MY_PV}.deb"
+
+S="${WORKDIR}"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
@@ -26,8 +27,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 BDEPEND="dev-util/patchelf"
-
-S="${WORKDIR}"
 
 QA_PREBUILT="*"
 QA_DESKTOP_FILE="usr/share/applications/ODAFileConverter.*\\.desktop"

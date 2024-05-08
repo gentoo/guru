@@ -18,6 +18,8 @@ SRC_URI="
 	${URI_ANACONDA}/python/3.7.13/download/linux-64/python-3.7.13-h12debd9_0.tar.bz2 -> ${PN}-python-3.7.13.tar.bz2
 "
 
+S="${WORKDIR}"
+
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="-* ~amd64"
@@ -36,8 +38,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 BDEPEND="dev-util/patchelf"
-
-S=${WORKDIR}
 
 QA_PREBUILT="*"
 
