@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -318,15 +318,21 @@ SLOT="0"
 IUSE="X wayland"
 REQUIRED_USE="|| ( X wayland )"
 
-DEPEND="
-	X? ( x11-libs/gtk+:3[X] )
-	wayland? ( x11-libs/gtk+:3[wayland] )
+RDEPEND="
+	dev-libs/glib:2
+	x11-libs/cairo[glib]
+	x11-libs/gdk-pixbuf:2
+	x11-libs/gtk+:3[X?,wayland?]
 	x11-libs/pango
-	x11-libs/gdk-pixbuf
-	x11-libs/cairo
-	>=dev-libs/glib-2.0
-	sys-devel/gcc
-	gui-libs/gtk-layer-shell
+	wayland? ( gui-libs/gtk-layer-shell )
+"
+# transitively hard-depend on xorg-proto due to gdk-3.0.pc
+DEPEND="${RDEPEND}
+	x11-base/xorg-proto
+"
+BDEPEND="
+	virtual/pkgconfig
+	>=virtual/rust-1.74.0
 "
 
 QA_FLAGS_IGNORED="usr/bin/.*"
