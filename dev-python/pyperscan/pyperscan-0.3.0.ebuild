@@ -105,7 +105,10 @@ KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="dev-libs/vectorscan:="
+RDEPEND="
+	dev-libs/vectorscan:=
+	sys-devel/clang
+"
 DEPEND="${RDEPEND}"
 
 distutils_enable_tests pytest
