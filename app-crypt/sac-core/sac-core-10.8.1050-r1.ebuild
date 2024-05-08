@@ -8,14 +8,13 @@ DESCRIPTION="Thales/Gemalto SafeNet Authentication Client for eToken 5110/5300 &
 SRC_URI="https://nullroute.lt/tmp/2023/pkg/SAC_Linux_10.8.105_R1_GA.zip"
 
 HOMEPAGE="https://cpl.thalesgroup.com/access-management/security-applications/authentication-client-token-management"
-# see usr/share/doc copyright file
-LICENSE="no-source-code EULA"
+LICENSE="sac-core-10.8.1050-terms LGPL-2.1 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+ssl"
 
 # binaries are already stripped
-RESTRICT="strip"
+RESTRICT="bindist mirror strip"
 
 inherit systemd
 
