@@ -40,29 +40,25 @@ src_unpack() {
 }
 
 src_install() {
-	# v10.8 is 64bit only, so move to the proper libdir
-	mv usr/lib usr/$(get_libdir) || die
+	dobin usr/bin/SACSrv
 
-	# libs are not marked as executable
-	chmod 755 usr/$(get_libdir)/lib*.${PV} || die
-
-	# move docs to proper location
-	mkdir -p "usr/share/doc/${PF}" || die
-	mv usr/share/doc/safenetauthenticationclient-core "usr/share/doc/${PF}/" || die
-
-	# exclude already compressed file from compression
-	docompress -x "/usr/share/doc/${PF}/safenetauthenticationclient-core/changelog.gz" || die
+	find usr/lib -maxdepth 1 -name "*.so*" -exec dolib.so {} + || die
+	dodir /usr/$(get_libdir)/pkcs11
+	insinto /usr/$(get_libdir)
+	doins -r usr/lib/pkcs11
 
 	# Create missing SONAME symlinks
-	ln -s libSACLog.so.${PV} "usr/$(get_libdir)/libSACLog.so.10" || die
-	ln -s libeTokenHID.so.${PV} "usr/$(get_libdir)/libeTokenHID.so.10" || die
-	ln -s libIDPrimePKCS11.so.${PV} "usr/$(get_libdir)/libIDPrimePKCS11.so.10" || die
-	ln -s libIDPrimeTokenEngine.so.${PV} "usr/$(get_libdir)/libIDPrimeTokenEngine.so.10" || die
-	ln -s libIDClassicSISTokenEngine.so.${PV} "usr/$(get_libdir)/libIDClassicSISTokenEngine.so.10" || die
-	ln -s libIDPrimeSISTokenEngine.so.${PV} "usr/$(get_libdir)/libIDPrimeSISTokenEngine.so.10" || die
+	for libname in eTokenHID ID{{Prime,Classic}SISTokenEngine,Prime{PKCS11,TokenEngine}} SACLog
+	do
+		dosym -r /usr/$(get_libdir)/lib${libname}.so.{${PV},10}
+	done
 
-	mv usr/ "${D}/" || die
-	mv etc/ "${D}/" || die
+	# compress documentation with $PORTAGE_COMPRESS
+	gunzip usr/share/doc/safenetauthenticationclient-core/changelog.gz || die
+	dodoc usr/share/doc/safenetauthenticationclient-core/changelog
+
+	insinto /etc
+	doins -r etc/*
 
 	systemd_dounit "${FILESDIR}/safenetauthenticationclient.service"
 }
