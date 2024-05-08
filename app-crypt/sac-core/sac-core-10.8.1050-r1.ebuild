@@ -29,10 +29,11 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="app-arch/unzip"
 
-QA_PREBUILT="
+QA_FLAGS_IGNORED="
 	usr/bin/SACSrv
 	usr/lib64/.*
 "
+QA_PREBUILT="${QA_FLAGS_IGNORED}"
 
 src_unpack() {
 	default
