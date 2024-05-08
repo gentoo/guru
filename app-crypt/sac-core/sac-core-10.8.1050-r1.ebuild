@@ -5,7 +5,7 @@ EAPI=8
 
 inherit systemd unpacker
 
-DESCRIPTION="Thales/Gemalto SafeNet Authentication Client for eToken 5110/5300 & IDPrime (core PKCS#11 modules)"
+DESCRIPTION="Thales/Gemalto SafeNet Authentication Client"
 HOMEPAGE="https://cpl.thalesgroup.com/access-management/security-applications/authentication-client-token-management"
 SRC_URI="https://nullroute.lt/tmp/2023/pkg/SAC_Linux_10.8.105_R1_GA.zip"
 
