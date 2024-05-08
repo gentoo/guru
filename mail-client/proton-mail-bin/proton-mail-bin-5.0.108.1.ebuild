@@ -9,11 +9,11 @@ DESCRIPTION="Beta Client for Proton Mail"
 HOMEPAGE="https://proton.me/mail"
 SRC_URI="https://proton.me/download/mail/linux/ProtonMail-desktop-beta.rpm -> ${P}.rpm"
 
+S="${WORKDIR}"
+
 LICENSE="freedist"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-
-S="${WORKDIR}"
 
 QA_PREBUILT="opt/lib/.*"
 

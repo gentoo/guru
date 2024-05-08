@@ -3,10 +3,12 @@
 
 EAPI=7
 
-LICENSE="BSD"
 DESCRIPTION="The mailx utility from CentOS"
 HOMEPAGE="https://www.debian.org/"
 SRC_URI="https://yorune.pl/gentoo/${CATEGORY}/${PN}/${PN}_${PVR}.orig.tar.gz http://ftp.debian.org/debian/pool/main/h/${PN}/${PN}_${PVR}.orig.tar.gz"
+
+LICENSE="BSD"
+SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="net-libs/liblockfile
@@ -21,8 +23,6 @@ RDEPEND="${DEPEND}
 		!mail-client/nail
 		!net-mail/mailutils
 		!mail-client/mailx"
-
-SLOT="0"
 
 src_prepare() {
 	eapply -p1 "${FILESDIR}/${PN}-${PVR}-fixes-1.patch"
