@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,22 +6,6 @@ EAPI=8
 inherit font
 
 DESCRIPTION="Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts: Hack, Source Code Pro, more. Glyph collections: Font Awesome, Material Design Icons, Octicons, & more"
-IUSE="0xproto 3270 agave anonymouspro arimo aurulentsansmono bigblueterminal bitstreamverasansmono
-cascadiacode cascadiamono codenewroman comicshannsmono commitmono cousine d2coding daddytimemono
-dejavusansmono droidsansmono envycoder fantasquesansmono firacode firamono geistmono gomono gohu
-hack hasklig heavydata hermit iawriter ibmplexmono inconsolata inconsolatago inconsolatalgc
-intelonemono iosevka iosevkaterm iosevkatermslab jetbrainsmono lekton liberationmono lilex
-martianmono meslo monaspace monofur monoid mononoki mplus nerdfontssymbolsonly noto opendyslexic
-overpass profont proggyclean recursive robotomono sharetechmono sourcecodepro spacemono terminus
-tinos ubuntu ubuntumono ubuntusans victormono zedmono"
-REQUIRED_USE="|| ( 0xproto 3270 agave anonymouspro arimo aurulentsansmono bigblueterminal bitstreamverasansmono
-cascadiacode cascadiamono codenewroman comicshannsmono commitmono cousine d2coding daddytimemono
-dejavusansmono droidsansmono envycoder fantasquesansmono firacode firamono geistmono gomono gohu
-hack hasklig heavydata hermit iawriter ibmplexmono inconsolata inconsolatago inconsolatalgc
-intelonemono iosevka iosevkaterm iosevkatermslab jetbrainsmono lekton liberationmono lilex
-martianmono meslo monaspace monofur monoid mononoki mplus nerdfontssymbolsonly noto opendyslexic
-overpass profont proggyclean recursive robotomono sharetechmono sourcecodepro spacemono terminus
-tinos ubuntu ubuntumono ubuntusans victormono zedmono )"
 HOMEPAGE="https://github.com/ryanoasis/nerd-fonts"
 SRC_URI="
 	0xproto? ( https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/0xProto.tar.xz -> 0xProto-${PV}.tar.xz )
@@ -93,6 +77,23 @@ SRC_URI="
 	zedmono? ( https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/ZedMono.tar.xz -> ZedMono-${PV}.tar.xz )
 "
 
+S="${WORKDIR}"
+
+LICENSE="OFL-1.1"
+SLOT="0"
+KEYWORDS="~amd64"
+
+IUSE_FONTS="0xproto 3270 agave anonymouspro arimo aurulentsansmono bigblueterminal bitstreamverasansmono
+cascadiacode cascadiamono codenewroman comicshannsmono commitmono cousine d2coding daddytimemono
+dejavusansmono droidsansmono envycoder fantasquesansmono firacode firamono geistmono gomono gohu
+hack hasklig heavydata hermit iawriter ibmplexmono inconsolata inconsolatago inconsolatalgc
+intelonemono iosevka iosevkaterm iosevkatermslab jetbrainsmono lekton liberationmono lilex
+martianmono meslo monaspace monofur monoid mononoki mplus nerdfontssymbolsonly noto opendyslexic
+overpass profont proggyclean recursive robotomono sharetechmono sourcecodepro spacemono terminus
+tinos ubuntu ubuntumono ubuntusans victormono zedmono"
+IUSE="${IUSE_FONTS}"
+REQUIRED_USE="|| ( ${IUSE_FONTS} )"
+
 RDEPEND="
 	firacode? ( !media-fonts/firacode-nerdfont )
 	iosevka? ( !media-fonts/iosevka-nerdfont )
@@ -101,55 +102,14 @@ RDEPEND="
 	ubuntumono? ( !media-fonts/ubuntumono-nerdfont )
 "
 
-LICENSE="OFL-1.1"
-SLOT="0"
-KEYWORDS="~amd64"
+FONT_SUFFIX=""
 
-S="${WORKDIR}"
-
-FONT_SUFFIX="ttf otf"
-
-
-# From font.eclass
 src_install() {
-	local dir suffix commondoc
-
-	if [[ -n ${FONT_OPENTYPE_COMPAT} ]] && in_iuse opentype-compat && use opentype-compat ; then
-		font_wrap_opentype_compat
-	fi
-
-	if [[ $(declare -p FONT_S 2>/dev/null) == "declare -a"* ]]; then
-		# recreate the directory structure if FONT_S is an array
-		for dir in "${FONT_S[@]}"; do
-			pushd "${dir}" > /dev/null || die "pushd ${dir} failed"
-			insinto "${FONTDIR}/${dir#"${S}"}"
-			for suffix in ${FONT_SUFFIX}; do
-				if compgen -G "*.${suffix}" > /dev/null; then
-					doins *.${suffix}
-				fi
-			done
-			font_xfont_config "${dir}"
-			popd > /dev/null || die
-		done
-	else
-		pushd "${FONT_S:-${S}}" > /dev/null \
-			|| die "pushd ${FONT_S:-${S}} failed"
-		insinto "${FONTDIR}"
-		for suffix in ${FONT_SUFFIX}; do
-			if compgen -G "*.${suffix}" > /dev/null; then
-				doins *.${suffix}
-			fi
-		done
-		font_xfont_config
-		popd > /dev/null || die
-	fi
-
-	font_fontconfig
-
-	einstalldocs
-
-	# install common docs
-	for commondoc in COPYRIGHT FONTLOG.txt; do
-		[[ -s ${commondoc} ]] && dodoc ${commondoc}
+	for suffix in ttf otf; do
+		if nonfatal compgen -G "*.${suffix}" > /dev/null; then
+			FONT_SUFFIX+=" ${suffix}"
+		fi
 	done
+
+	font_src_install
 }
