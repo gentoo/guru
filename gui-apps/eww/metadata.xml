@@ -10,7 +10,7 @@
 		<name>Gonçalo Negrier Duarte</name>
 	</maintainer>
 	<upstream>
-		<doc>https://elkowar.github.io/eww</doc>
+		<doc>https://elkowar.github.io/eww/</doc>
 		<bugs-to>https://github.com/elkowar/eww/issues</bugs-to>
 		<remote-id type="github">elkowar/eww</remote-id>
 	</upstream>
