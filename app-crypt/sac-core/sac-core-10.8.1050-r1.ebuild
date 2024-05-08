@@ -3,11 +3,14 @@
 
 EAPI=8
 
-DESCRIPTION="Thales/Gemalto SafeNet Authentication Client for eToken 5110/5300 & IDPrime (core PKCS#11 modules)"
+inherit systemd unpacker
 
+DESCRIPTION="Thales/Gemalto SafeNet Authentication Client for eToken 5110/5300 & IDPrime (core PKCS#11 modules)"
+HOMEPAGE="https://cpl.thalesgroup.com/access-management/security-applications/authentication-client-token-management"
 SRC_URI="https://nullroute.lt/tmp/2023/pkg/SAC_Linux_10.8.105_R1_GA.zip"
 
-HOMEPAGE="https://cpl.thalesgroup.com/access-management/security-applications/authentication-client-token-management"
+S="${WORKDIR}"
+
 LICENSE="sac-core-10.8.1050-terms LGPL-2.1 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -15,8 +18,6 @@ IUSE="+ssl"
 
 # binaries are already stripped
 RESTRICT="bindist mirror strip"
-
-inherit systemd
 
 RDEPEND="
 	dev-libs/openssl
@@ -26,16 +27,11 @@ RDEPEND="
 	ssl? ( dev-libs/libp11 )
 "
 DEPEND="${RDEPEND}"
-
-S="${WORKDIR}"
+BDEPEND="app-arch/unzip"
 
 src_unpack() {
 	default
-
-	cd "$S" || die
-
-	unpack "SAC Linux ${PV} R1 GA/Installation/withoutUI/Ubuntu-2204/safenetauthenticationclient-core_${PV}_amd64.deb" || die
-	unpack "./data.tar.gz" || die
+	unpacker "SAC Linux ${PV} R1 GA/Installation/withoutUI/Ubuntu-2204/safenetauthenticationclient-core_${PV}_amd64.deb"
 }
 
 src_install() {
