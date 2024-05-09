@@ -78,7 +78,7 @@ RDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/mangohud-v0.7.1-menson-fix-dep.patch"
+	"${FILESDIR}/${P}-menson-fix-dep.patch"
 )
 
 src_unpack() {
@@ -109,7 +109,6 @@ src_prepare() {
 multilib_src_configure() {
 	local emesonargs=(
 		-Dappend_libdir_mangohud=false
-		-Duse_system_spdlog=enabled
 		-Dinclude_doc=false
 		$(meson_feature video_cards_nvidia with_nvml)
 		$(meson_feature xnvctrl with_xnvctrl)
