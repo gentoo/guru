@@ -7,110 +7,101 @@ EAPI=8
 
 CRATES="
 	adler@1.0.2
-	ahash@0.7.8
 	aho-corasick@1.1.3
 	aligned-vec@0.5.0
 	anes@0.1.6
-	anstream@0.6.13
-	anstyle-parse@0.2.3
-	anstyle-query@1.0.2
-	anstyle-wincon@3.0.2
-	anstyle@1.0.6
-	anyhow@1.0.81
+	anstream@0.6.14
+	anstyle@1.0.7
+	anstyle-parse@0.2.4
+	anstyle-query@1.0.3
+	anstyle-wincon@3.0.3
+	anyhow@1.0.82
 	arbitrary@1.3.2
 	arg_enum_proc_macro@0.3.4
 	arrayvec@0.7.4
 	assert_cmd@2.0.14
-	autocfg@1.1.0
+	autocfg@1.2.0
 	av1-grain@0.2.3
 	avif-serialize@0.8.1
 	bit_field@0.10.2
 	bitflags@1.3.2
 	bitflags@2.5.0
 	bitstream-io@2.2.0
-	bitvec@1.0.1
 	bstr@1.9.1
-	built@0.7.1
-	bumpalo@3.15.4
-	bytecheck@0.6.12
-	bytecheck_derive@0.6.12
+	built@0.7.2
+	bumpalo@3.16.0
 	bytemuck@1.15.0
 	byteorder@1.5.0
-	bytes@1.6.0
+	byteorder-lite@0.1.0
 	cast@0.3.0
-	cc@1.0.90
-	cfg-expr@0.15.7
+	cc@1.0.96
+	cfg-expr@0.15.8
 	cfg-if@1.0.0
-	cfg_aliases@0.1.1
+	ciborium@0.2.2
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
-	ciborium@0.2.2
-	clap@4.5.3
+	clap@4.5.4
 	clap_builder@4.5.2
-	clap_complete@4.5.1
-	clap_derive@4.5.3
+	clap_complete@4.5.2
+	clap_derive@4.5.4
 	clap_lex@0.7.0
 	color_quant@1.1.0
-	colorchoice@1.0.0
+	colorchoice@1.0.1
 	crc32fast@1.4.0
-	criterion-plot@0.5.0
 	criterion@0.5.1
+	criterion-plot@0.5.0
 	crossbeam-deque@0.8.5
 	crossbeam-epoch@0.9.18
 	crossbeam-utils@0.8.19
 	crunchy@0.2.2
-	cursor-icon@1.1.0
 	deranged@0.3.11
 	difflib@0.4.0
 	dlib@0.5.2
 	doc-comment@0.3.3
-	downcast-rs@1.2.0
-	either@1.10.0
+	downcast-rs@1.2.1
+	either@1.11.0
 	equivalent@1.0.1
 	errno@0.3.8
 	exr@1.72.0
 	fast_image_resize@3.0.4
 	fdeflate@0.3.4
-	flate2@1.0.28
+	flate2@1.0.30
 	flume@0.11.0
-	funty@2.0.0
-	getrandom@0.2.12
+	getrandom@0.2.14
 	gif@0.13.1
-	half@2.4.0
-	hashbrown@0.12.3
-	hashbrown@0.14.3
+	half@2.4.1
+	hashbrown@0.14.5
 	heck@0.5.0
 	hermit-abi@0.3.9
-	image-webp@0.1.1
-	image@0.25.0
+	image@0.25.1
+	image-webp@0.1.2
 	imgref@1.10.1
 	indexmap@2.2.6
 	interpolate_name@0.2.4
 	is-terminal@0.4.12
+	is_terminal_polyfill@1.70.0
 	itertools@0.10.5
 	itertools@0.12.1
-	itoa@1.0.10
-	jobserver@0.1.28
+	itoa@1.0.11
+	jobserver@0.1.31
 	jpeg-decoder@0.3.1
 	js-sys@0.3.69
 	keyframe@1.1.1
 	lebe@0.5.2
-	libc@0.2.153
+	libc@0.2.154
 	libfuzzer-sys@0.4.7
 	libloading@0.8.3
 	libm@0.2.8
 	linux-raw-sys@0.4.13
-	lock_api@0.4.11
+	lock_api@0.4.12
 	log@0.4.21
 	loop9@0.1.5
 	maybe-rayon@0.1.1
-	memchr@2.7.1
-	memmap2@0.9.4
+	memchr@2.7.2
 	minimal-lexical@0.2.1
 	miniz_oxide@0.7.2
 	mint@0.5.9
 	new_debug_unreachable@1.0.6
-	nix@0.28.0
 	nom@7.1.3
 	noop_proc_macro@0.3.0
 	num-bigint@0.4.4
@@ -124,133 +115,116 @@ CRATES="
 	oorandom@11.1.3
 	paste@1.0.14
 	pkg-config@0.3.30
+	plotters@0.3.5
 	plotters-backend@0.3.5
 	plotters-svg@0.3.5
-	plotters@0.3.5
 	png@0.17.13
 	powerfmt@0.2.0
 	ppv-lite86@0.2.17
+	predicates@3.1.0
 	predicates-core@1.0.6
 	predicates-tree@1.0.9
-	predicates@3.1.0
-	proc-macro2@1.0.79
-	profiling-procmacros@1.0.15
+	proc-macro2@1.0.81
 	profiling@1.0.15
-	ptr_meta@0.1.4
-	ptr_meta_derive@0.1.4
+	profiling-procmacros@1.0.15
 	qoi@0.4.1
 	quick-error@2.0.1
 	quick-xml@0.31.0
-	quote@1.0.35
-	radium@0.7.0
+	quote@1.0.36
 	rand@0.8.5
 	rand_chacha@0.3.1
 	rand_core@0.6.4
 	rav1e@0.7.1
 	ravif@0.11.5
+	rayon@1.10.0
 	rayon-core@1.12.1
-	rayon@1.9.0
+	regex@1.10.4
 	regex-automata@0.4.6
-	regex-syntax@0.8.2
-	regex@1.10.3
-	rend@0.4.2
+	regex-syntax@0.8.3
 	rgb@0.8.37
-	rkyv@0.7.44
-	rkyv_derive@0.7.44
-	rustix@0.38.32
+	rustix@0.38.34
 	ryu@1.0.17
 	same-file@1.0.6
 	scoped-tls@1.0.1
 	scopeguard@1.2.0
 	sd-notify@0.4.1
-	seahash@4.1.0
-	serde@1.0.197
-	serde_derive@1.0.197
-	serde_json@1.0.114
+	serde@1.0.200
+	serde_derive@1.0.200
+	serde_json@1.0.116
 	serde_spanned@0.6.5
 	simd-adler32@0.3.7
 	simd_helpers@0.1.0
-	simdutf8@0.1.4
 	simplelog@0.12.2
 	smallvec@1.13.2
-	smithay-client-toolkit@0.18.1
 	spin@0.9.8
 	spin_sleep@1.2.0
-	strsim@0.11.0
-	syn@1.0.109
-	syn@2.0.53
+	strsim@0.11.1
+	syn@2.0.60
 	system-deps@6.2.2
-	tap@1.0.1
 	target-lexicon@0.12.14
 	termcolor@1.4.1
 	terminal_size@0.3.0
 	termtree@0.4.1
-	thiserror-impl@1.0.58
-	thiserror@1.0.58
+	thiserror@1.0.59
+	thiserror-impl@1.0.59
 	tiff@0.9.1
+	time@0.3.36
 	time-core@0.1.2
-	time-macros@0.2.17
-	time@0.3.34
+	time-macros@0.2.18
 	tinytemplate@1.2.1
-	tinyvec@1.6.0
-	tinyvec_macros@0.1.1
 	toml@0.8.12
 	toml_datetime@0.6.5
-	toml_edit@0.22.9
+	toml_edit@0.22.12
 	unicode-ident@1.0.12
 	utf8parse@0.2.1
-	uuid@1.8.0
 	v_frame@0.3.8
 	version-compare@0.2.0
-	version_check@0.9.4
 	wait-timeout@0.2.0
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
-	wasm-bindgen-backend@0.2.92
-	wasm-bindgen-macro-support@0.2.92
-	wasm-bindgen-macro@0.2.92
-	wasm-bindgen-shared@0.2.92
 	wasm-bindgen@0.2.92
+	wasm-bindgen-backend@0.2.92
+	wasm-bindgen-macro@0.2.92
+	wasm-bindgen-macro-support@0.2.92
+	wasm-bindgen-shared@0.2.92
 	wayland-backend@0.3.3
 	wayland-client@0.31.2
-	wayland-csd-frame@0.3.0
-	wayland-cursor@0.31.1
-	wayland-protocols-wlr@0.2.0
 	wayland-protocols@0.31.2
+	wayland-protocols-wlr@0.2.0
 	wayland-scanner@0.31.1
 	wayland-sys@0.31.1
 	web-sys@0.3.69
 	weezl@0.1.8
-	winapi-i686-pc-windows-gnu@0.4.0
-	winapi-util@0.1.6
-	winapi-x86_64-pc-windows-gnu@0.4.0
-	winapi@0.3.9
+	winapi-util@0.1.8
 	windows-sys@0.48.0
 	windows-sys@0.52.0
 	windows-targets@0.48.5
-	windows-targets@0.52.4
+	windows-targets@0.52.5
 	windows_aarch64_gnullvm@0.48.5
-	windows_aarch64_gnullvm@0.52.4
+	windows_aarch64_gnullvm@0.52.5
 	windows_aarch64_msvc@0.48.5
-	windows_aarch64_msvc@0.52.4
+	windows_aarch64_msvc@0.52.5
 	windows_i686_gnu@0.48.5
-	windows_i686_gnu@0.52.4
+	windows_i686_gnu@0.52.5
+	windows_i686_gnullvm@0.52.5
 	windows_i686_msvc@0.48.5
-	windows_i686_msvc@0.52.4
+	windows_i686_msvc@0.52.5
 	windows_x86_64_gnu@0.48.5
-	windows_x86_64_gnu@0.52.4
+	windows_x86_64_gnu@0.52.5
 	windows_x86_64_gnullvm@0.48.5
-	windows_x86_64_gnullvm@0.52.4
+	windows_x86_64_gnullvm@0.52.5
 	windows_x86_64_msvc@0.48.5
-	windows_x86_64_msvc@0.52.4
-	winnow@0.6.5
-	wyz@0.5.1
-	xcursor@0.3.5
-	xkeysym@0.2.0
+	windows_x86_64_msvc@0.52.5
+	winnow@0.6.7
 	zune-core@0.4.12
 	zune-inflate@0.2.54
 	zune-jpeg@0.4.11
 "
+
+declare -A GIT_CRATES=(
+	[bitcode]='https://github.com/SoftbearStudios/bitcode;5f25a59be3e66deef721e7eb2369deb1aa32d263;bitcode-%commit%'
+	[bitcode_derive]='https://github.com/SoftbearStudios/bitcode;5f25a59be3e66deef721e7eb2369deb1aa32d263;bitcode-%commit%/bitcode_derive'
+)
 
 inherit cargo shell-completion
 
@@ -260,17 +234,20 @@ SRC_URI="https://github.com/LGFae/swww/archive/refs/tags/v${PV}.tar.gz -> ${P}.t
 
 LICENSE="GPL-3"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0 BSD ISC MIT Unicode-DFS-2016"
+LICENSE+="
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD ISC MIT
+	Unicode-DFS-2016
+"
 SLOT="0"
-IUSE="+man"
 KEYWORDS="~amd64"
+IUSE="+man"
 
 DEPEND="
 	app-arch/lz4
 	x11-libs/libxkbcommon[wayland]"
 RDEPEND="${DEPEND}"
 BDEPEND="
-	>=virtual/rust-1.70.0
+	>=virtual/rust-1.74.0
 	man? ( app-text/scdoc )
 "
 
