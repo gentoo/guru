@@ -446,6 +446,9 @@ src_install() {
 
 	dodoc README.md CHANGELOG.md
 	cargo_src_install --path crates/eww
+}
+
+pkg_postinst() {
 	elog "Eww wont run without a config file (usually in ~/.config/eww)."
 	elog "For example configs visit https://github.com/elkowar/eww#examples"
 }
