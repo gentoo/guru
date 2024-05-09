@@ -72,6 +72,7 @@ RDEPEND="
 	wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
 	mangoapp? (
 		>=media-libs/imgui-1.81[glfw]
+		media-libs/glfw[X]
 		media-libs/glew
 	)
 	$(python_gen_cond_dep '
