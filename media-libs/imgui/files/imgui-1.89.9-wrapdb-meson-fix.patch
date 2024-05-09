@@ -4,14 +4,14 @@ diff --git a/meson.build b/imgui-1.81-meson.build
 index 3343dd4ad..804f84227 100644
 --- a/meson.build
 +++ b/imgui-1.81-meson.build
-@@ -80,6 +80,38 @@ imgui = library('imgui',
-     sources,
-     dependencies: dependencies,
-     include_directories: include_dirs,
-+    version: meson.project_version(),
-+    install: true
+@@ -112,8 +112,38 @@
+   gnu_symbol_visibility: 'hidden',
+   dependencies: dependencies,
+   include_directories: include_dirs,
++  version: meson.project_version(),
++  install: true
  )
-
+ 
 +pkg_mod = import('pkgconfig')
 +pkg_mod.generate(imgui,
 +  description : 'Dear ImGui: Bloat-free Graphical User interface for C++ with minimal dependencies'
@@ -26,7 +26,6 @@ index 3343dd4ad..804f84227 100644
 +    'imstb_truetype.h',
 +    'backends/imgui_impl_dx9.h',
 +    'backends/imgui_impl_osx.h',
-+    'backends/imgui_impl_sdl.h',
 +    'backends/imgui_impl_dx10.h',
 +    'backends/imgui_impl_dx11.h',
 +    'backends/imgui_impl_dx12.h',
@@ -39,7 +38,8 @@ index 3343dd4ad..804f84227 100644
 +    'backends/imgui_impl_opengl2.h',
 +    'backends/imgui_impl_opengl3.h',
 +    'backends/imgui_impl_allegro5.h',
-+    'backends/imgui_impl_marmalade.h',
 +    subdir: 'imgui')
 +
- imgui_dep = declare_dependency(include_directories: include_dirs, link_with: imgui)
+ if host_machine.system() == 'windows'
+   api = '-DIMGUI_API=@0@'.format(get_option('default_library') != 'static' ? '__declspec(dllimport)' : '')
+ endif

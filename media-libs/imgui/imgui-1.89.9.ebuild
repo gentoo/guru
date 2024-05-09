@@ -41,7 +41,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/imgui-1.81-wrapdb-meson-fix.patch"
+	"${FILESDIR}/${P}-wrapdb-meson-fix.patch"
 )
 
 src_unpack() {
@@ -63,7 +63,6 @@ multilib_src_configure() {
 		$(meson_feature sdl2)
 		-Dosx=disabled
 		-Dwin=disabled
-		$(meson_feature marmalade)
 		$(meson_feature allegro5)
 	)
 	meson_src_configure

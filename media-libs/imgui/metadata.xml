@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-    <!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>gonegrier.duarte@gmail.com</email>
+		<name>Gonçalo Negrier Duarte</name>
+	</maintainer>
     <upstream>
         <bugs-to>https://github.com/ocornut/imgui/issues</bugs-to>
         <remote-id type="github">ocornut/imgui</remote-id>
-        <remote-id type="github">cimgui/cimgui</remote-id>
     </upstream>
     <use>
         <flag name="allegro5">Enable allegro backend and renderer</flag>
-        <flag name="allegro">Enable allegro backend and renderer</flag>
-        <flag name="bindings">Build the cimgui C bindigs</flag>
-        <flag name="freetype">Use FreeType to build and rasterize the font atlas</flag>
         <flag name="glfw">Enable glfw backend</flag>
-        <flag name="glut">Enable glut backen</flag>
         <flag name="opengl">Enable opengl renderer</flag>
-        <flag name="sdl">Enable sdl backend</flag>
         <flag name="vulkan">Enable vulkan renderer</flag>
-        <flag name="marmalade">Enable Marmalade backend</flag>
         <flag name="sdl2">Enable SDL2 backend</flag>
     </use>
 </pkgmetadata>
