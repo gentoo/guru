@@ -375,7 +375,7 @@ CRATES="
 inherit cargo shell-completion
 
 DESCRIPTION="Elkowars Wacky Widgets is a standalone widget system made in Rust"
-HOMEPAGE="https://github.com/elkowar/eww/"
+HOMEPAGE="https://elkowar.github.io/eww/"
 SRC_URI="https://git.sr.ht/~antecrescent/gentoo-files/blob/main/gui-apps/eww/${P}-shellcomp.tar.xz"
 
 if [[ "${PV}" == 9999 ]]; then

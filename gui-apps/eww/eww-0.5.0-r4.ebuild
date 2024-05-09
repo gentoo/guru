@@ -298,7 +298,7 @@ CRATES="
 inherit cargo
 
 DESCRIPTION="Elkowars Wacky Widgets is a standalone widget system made in Rust"
-HOMEPAGE="https://github.com/elkowar/eww/"
+HOMEPAGE="https://elkowar.github.io/eww/"
 
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
