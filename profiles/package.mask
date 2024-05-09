@@ -156,18 +156,6 @@ mpv-plugin/autosubsync-mpv
 # Depends on masked net-libs/sofia-sip.
 net-voip/gnome-calls
 
-# Robert Greener <dev@greener.sh> (2024-04-07)
-# Corresponding dev-R/* packages have long been removed.
-# Recommend using dev-lang/R[-minimal] instead.
-# Scheduled for removal on 2024-05-07
-virtual/MASS
-virtual/boot
-virtual/lattice
-virtual/mgcv
-virtual/nlme
-virtual/nnet
-virtual/survival
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
