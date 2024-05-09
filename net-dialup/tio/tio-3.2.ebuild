@@ -11,8 +11,8 @@ DESCRIPTION="Simple TTY terminal application"
 HOMEPAGE="https://tio.github.io/"
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.xz"
 
-SLOT="0"
 LICENSE="GPL-2+"
+SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}"
