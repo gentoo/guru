@@ -1,0 +1,19 @@
+diff --git a/meson.build b/meson.build
+index daf063d..a0c0633 100644
+--- a/meson.build
++++ b/meson.build
+@@ -214,12 +214,10 @@ if get_option('mangoapp')
+   ]
+ endif
+
+-dearimgui_sp = subproject('imgui', default_options: imgui_options)
+-dearimgui_dep = dearimgui_sp.get_variable('imgui_dep')
++dearimgui_dep = dependency('imgui')
+
+ if is_unixy
+-implot_sp = subproject('implot', default_options: ['default_library=static'])
+-implot_dep = implot_sp.get_variable('implot_dep')
++implot_dep = dependency('implot')
+ else
+ implot_dep = null_dep
+ implot_lib = static_library('nulllib', [])

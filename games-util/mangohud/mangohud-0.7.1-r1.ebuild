@@ -15,24 +15,12 @@ HOMEPAGE="https://github.com/flightlessmango/MangoHud"
 
 VK_HEADERS_VER="1.2.158"
 VK_HEADERS_MESON_WRAP_VER="2"
-SPDLOG_VER="1.13.0"
-SPDLOG_WRAP_VER="1"
-IMPLOT_VER="0.16"
-IMPLOT_WRAP_VER="1"
 
 SRC_URI="
 	https://github.com/KhronosGroup/Vulkan-Headers/archive/v${VK_HEADERS_VER}.tar.gz
 		-> vulkan-headers-${VK_HEADERS_VER}.tar.gz
 	https://wrapdb.mesonbuild.com/v2/vulkan-headers_${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}/get_patch
 		-> vulkan-headers-${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}-meson-wrap.zip
-	https://github.com/gabime/spdlog/archive/refs/tags/v${SPDLOG_VER}.tar.gz
-		-> spdlog-${SPDLOG_VER}.tar.gz
-	https://wrapdb.mesonbuild.com/v2/spdlog_${SPDLOG_VER}-${SPDLOG_WRAP_VER}/get_patch
-		-> spdlog-${SPDLOG_VER}-${SPDLOG_WRAP_VER}-wrap.zip
-	https://github.com/epezent/implot/archive/refs/tags/v${IMPLOT_VER}.tar.gz
-		-> implot-${IMPLOT_VER}.tar.gz
-	https://wrapdb.mesonbuild.com/v2/implot_${IMPLOT_VER}-${IMPLOT_WRAP_VER}/get_patch
-		-> implot-${IMPLOT_VER}-${IMPLOT_WRAP_VER}-wrap.zip
 "
 
 if [[ ${PV} == 9999 ]]; then
@@ -59,12 +47,14 @@ REQUIRED_USE="
 
 BDEPEND="
 	app-arch/unzip
+	>=dev-util/vulkan-headers-1.2.158
 	$(python_gen_cond_dep 'dev-python/mako[${PYTHON_USEDEP}]')
 "
 
 RDEPEND="
 	${PYTHON_DEPS}
-	~media-libs/imgui-1.81[opengl,vulkan,${MULTILIB_USEDEP}]
+	>=media-libs/imgui-1.81[opengl,vulkan,${MULTILIB_USEDEP}]
+	>=media-libs/implot-0.16[${MULTILIB_USEDEP}]
 	dev-cpp/nlohmann_json
 	dev-util/glslang
 	media-fonts/lato
@@ -88,7 +78,7 @@ RDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/mangohud-v0.7.1-meson-fix-imgui-dep.patch"
+	"${FILESDIR}/mangohud-v0.7.1-menson-fix-dep.patch"
 )
 
 src_unpack() {
@@ -104,15 +94,6 @@ src_unpack() {
 	unpack vulkan-headers-${VK_HEADERS_VER}.tar.gz
 	unpack vulkan-headers-${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}-meson-wrap.zip
 	mv "${WORKDIR}/Vulkan-Headers-${VK_HEADERS_VER}" "${S}/subprojects/" || die
-
-	# fix build error by using upstream submodule version of spdlog
-	unpack spdlog-${SPDLOG_VER}.tar.gz
-	unpack spdlog-${SPDLOG_VER}-${SPDLOG_WRAP_VER}-wrap.zip
-	mv "${WORKDIR}/spdlog-${SPDLOG_VER}" "${S}/subprojects/" || die
-
-	unpack implot-${IMPLOT_VER}.tar.gz
-	unpack implot-${IMPLOT_VER}-${IMPLOT_WRAP_VER}-wrap.zip
-	mv "${WORKDIR}/implot-${IMPLOT_VER}" "${S}/subprojects/" || die
 }
 
 src_prepare() {
@@ -123,16 +104,12 @@ src_prepare() {
 	find . -type f -exec sed -i 's|<imgui_internal.h>|<imgui/imgui_internal.h>|g' {} \; || die
 	find . -type f -exec sed -i 's|"imgui_internal.h"|<imgui/imgui_internal.h>|g' {} \; || die
 
-	# replace imgui_dep in implot build file
-	sed -i -r -e 's|(imgui_dep = ).*|\1dependency('\'imgui\'')|' \
-		-e '/imgui_sp/d' "${S}/subprojects/implot-${IMPLOT_VER}/meson.build" || die
 }
 
 multilib_src_configure() {
-	# disable system spdlog in favor of the submodule version
 	local emesonargs=(
 		-Dappend_libdir_mangohud=false
-		-Duse_system_spdlog=disabled
+		-Duse_system_spdlog=enabled
 		-Dinclude_doc=false
 		$(meson_feature video_cards_nvidia with_nvml)
 		$(meson_feature xnvctrl with_xnvctrl)
