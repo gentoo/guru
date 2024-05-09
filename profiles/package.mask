@@ -152,10 +152,6 @@ media-video/ffsubsync
 # Rev Dep
 mpv-plugin/autosubsync-mpv
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-09)
-# Depends on masked net-libs/sofia-sip.
-net-voip/gnome-calls
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
