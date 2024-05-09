@@ -8,4 +8,7 @@
 	<upstream>
 		<remote-id type="gnome-gitlab">World/warp</remote-id>
 	</upstream>
+	<use>
+		<flag name="qrcode">Enable QR code scanning with <pkg>media-gfx/zbar</pkg></flag>
+	</use>
 </pkgmetadata>
