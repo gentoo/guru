@@ -34,7 +34,7 @@ index 3bf3918..329ad6f 100644
 +# Commented code can be used if mangohud start using latest SDK Vulkan-Headers
 +# Allowing user to build mangohud using system Vulkan-Headers
 +#if not dependency('VulkanHeaders').found()
-+  vk_sp = subproject('VulkanHeaders')
++  vkh_sp = subproject('vulkan-headers')
 +  vk_api_xml = vkh_sp.get_variable('vulkan_api_xml')
 +  dep_vulkan = vkh_sp.get_variable('vulkan_headers_dep')
 +#else

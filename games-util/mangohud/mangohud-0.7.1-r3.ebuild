@@ -37,7 +37,8 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="+dbus debug +X xnvctrl wayland video_cards_nvidia video_cards_amdgpu"
+IUSE="+dbus debug +X xnvctrl wayland mangoapp mangohudctl video_cards_nvidia video_cards_amdgpu test"
+RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -48,6 +49,7 @@ REQUIRED_USE="
 BDEPEND="
 	app-arch/unzip
 	>=dev-util/vulkan-headers-1.2.158
+	test? ( dev-util/cmocka )
 	$(python_gen_cond_dep 'dev-python/mako[${PYTHON_USEDEP}]')
 "
 
@@ -68,6 +70,10 @@ RDEPEND="
 		xnvctrl? ( x11-drivers/nvidia-drivers[static-libs] )
 	)
 	wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
+	mangoapp? (
+		>=media-libs/imgui-1.81[glfw]
+		media-libs/glew
+	)
 	$(python_gen_cond_dep '
 		|| (
 			dev-python/matplotlib[gtk3,${PYTHON_USEDEP}]
@@ -103,7 +109,8 @@ src_prepare() {
 	find . -type f -exec sed -i 's|"imgui.h"|<imgui/imgui.h>|g' {} \; || die
 	find . -type f -exec sed -i 's|<imgui_internal.h>|<imgui/imgui_internal.h>|g' {} \; || die
 	find . -type f -exec sed -i 's|"imgui_internal.h"|<imgui/imgui_internal.h>|g' {} \; || die
-
+	find . -type f -exec sed -i 's|"imgui_impl_glfw.h"|<imgui/imgui_impl_glfw.h>|g' {} \; || die
+	find . -type f -exec sed -i 's|"imgui_impl_opengl3.h"|<imgui/imgui_impl_opengl3.h>|g' {} \; || die
 }
 
 multilib_src_configure() {
@@ -115,6 +122,9 @@ multilib_src_configure() {
 		$(meson_feature X with_x11)
 		$(meson_feature wayland with_wayland)
 		$(meson_feature dbus with_dbus)
+		$(meson_use mangoapp mangoapp)
+		$(meson_use mangoapp mangoapp_layer)
+		$(meson_use mangohudctl mangohudctl)
 	)
 	meson_src_configure
 }

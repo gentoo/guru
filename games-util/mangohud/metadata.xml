@@ -15,5 +15,8 @@
 	</upstream>
 	<use>
 		<flag name="xnvctrl">Use XNVctrl as fall back for older Nvidia devices.</flag>
+		<flag name="test">Run mangohud tests</flag>
+		<flag name="mangoapp">Build and install mangoapp and mangoapp layer</flag>
+		<flag name="mangohudctl">Build and install mangohudctl</flag>
 	</use>
 </pkgmetadata>
