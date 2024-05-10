@@ -15,5 +15,7 @@
         <flag name="opengl">Enable opengl renderer</flag>
         <flag name="vulkan">Enable vulkan renderer</flag>
         <flag name="sdl2">Enable SDL2 backend</flag>
+        <flag name="sdl_renderer">Enable SDL renderer backend</flag>
+        <flag name="webgpu">Enable webgpu renderer backend</flag>
     </use>
 </pkgmetadata>
