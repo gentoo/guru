@@ -2,7 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>qaidvoid@gmail.com</email>
+		<email>contact@qaidvoid.dev</email>
 		<name>Rabindra Dhakal</name>
 	</maintainer>
 	<upstream>
@@ -11,6 +11,6 @@
 		<remote-id type="github">jhspetersson/fselect</remote-id>
 	</upstream>
 	<use>
-		<flag name='uzers'>Add support for getting system users and groups</flag>
+		<flag name='users'>Add support for getting system users and groups</flag>
 	</use>
 </pkgmetadata>
