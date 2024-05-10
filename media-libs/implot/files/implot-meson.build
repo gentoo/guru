@@ -1,0 +1,37 @@
+project(
+  'ImGui Plotting Library',
+  'cpp',
+  license : 'MIT',
+  version : 'PV',
+)
+
+imgui_dep=dependency('imgui', required : true)
+
+implot_inc = include_directories('.')
+implot_src = files(
+  'implot.cpp',
+  'implot_items.cpp'
+)
+
+implot_lib = library(
+  'implot',
+  implot_src,
+  dependencies: imgui_dep,
+  version: meson.project_version(),
+  install: true
+)
+
+pkg_mod = import('pkgconfig')
+pkg_mod.generate(implot_lib,
+  description : 'Immediate Mode Plotting'
+)
+
+install_headers(
+    'implot.h',
+    'implot_internal.h'
+)
+
+implot_dep = declare_dependency(
+  link_with : implot_lib,
+  include_directories : implot_inc
+)
