@@ -31,8 +31,6 @@ src_prepare() {
 	sed -i -e 's/ --cov=fortls --cov-report=html --cov-report=xml --cov-context=test//' pyproject.toml || die
 	# Disable autoupdate check during tests run
 	sed -i -e 's/"--incremental_sync",/"--incremental_sync", "--disable_autoupdate",/' test/setup_tests.py || die
-	# Fix setuptools warnings
-	sed -i -e 's|include = \["fortls"\]|include = \["fortls\*"\]|' pyproject.toml || die
 
 	distutils-r1_src_prepare
 }
