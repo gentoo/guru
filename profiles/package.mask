@@ -14,6 +14,12 @@
 
 # New entries go on top.
 
+# Viorel Munteanu <ceamac@gentoo.org> (2024-05-10)
+# No upstream activity in more than 3 years.
+# No revdeps left in tree.
+# Removal: 2024-06-09.  Bug #931420.
+dev-python/sdnotify
+
 # David Roman <davidroman96@gmail.com> (2024-05-01)
 # Broken and maintainer needed. See also https://bugs.gentoo.org/921821
 dev-python/hypothesmith
@@ -50,11 +56,11 @@ dev-python/oauth2
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-20)
 # With Twitter's complete removal of Guest Accounts, Nitter is dead and will
 # most likely stay so (https://github.com/zedeus/nitter/issues/1197).
+# also mask dependencies not claimed by anyone else
 # Removal on 2024-05-23.
 www-apps/nitter
 acct-user/nitter
 acct-group/nitter
-# and also dependencies not claimed by anyone else
 dev-nim/asynctools
 dev-nim/balls
 dev-nim/dotenv
@@ -138,10 +144,19 @@ dev-python/inscriptis
 # Mask stale/unmaintained packages for removal in 30 days
 # Unmaintained upstream, runtime failure on >=dev-lang/python-3.9
 dev-python/clufter
+
+# Julien Roy <julien@jroy.ca> (2024-04-13)
+# Mask stale/unmaintained packages for removal in 30 days
 # Deprecated upstream, replaced by oracledb, no revdeps
 dev-python/cx-oracle
+
+# Julien Roy <julien@jroy.ca> (2024-04-13)
+# Mask stale/unmaintained packages for removal in 30 days
 # Library with no revdeps, upstream no longer tagging releases, need to use live ebuild or tag commits
 dev-python/curio
+
+# Julien Roy <julien@jroy.ca> (2024-04-13)
+# Mask stale/unmaintained packages for removal in 30 days
 # Can't be merged due to banned files (bug https://bugs.gentoo.org/884691)
 dev-python/wheezy-template
 
@@ -149,7 +164,6 @@ dev-python/wheezy-template
 # Depends on last rited dev-python/future
 # Masked for removal in 30 days
 media-video/ffsubsync
-# Rev Dep
 mpv-plugin/autosubsync-mpv
 
 # Julien Roy <julien@jroy.ca> (2024-03-21)
