@@ -49,6 +49,12 @@ src_install() {
 	dobin "${S}"/usr/bin/mullvad-exclude
 	dosym "../../opt/Mullvad VPN/resources/mullvad-problem-report" /usr/bin/mullvad-problem-report
 
+	# mullvad-exclude uses cgroups to manage exclusions, which requires root permissions, but is
+	# also most often used to exclude graphical applications which can't or shouldn't run as root
+	# (i.e., can't be run under `sudo/doas /usr/bin/mullvad-exclude ...`, because `sudo`/`doas`
+	# change user). The setuid bit allows any user to exclude executables under their own UID.
+	fperms 4755 /usr/bin/mullvad-exclude
+
 	newinitd "${FILESDIR}"/mullvad-daemon.initd mullvad-daemon
 
 	systemd_newunit "${S}"/usr/lib/systemd/system/mullvad-daemon.service mullvad-daemon.service
