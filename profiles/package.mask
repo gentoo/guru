@@ -15,6 +15,12 @@
 # New entries go on top.
 
 # Viorel Munteanu <ceamac@gentoo.org> (2024-05-10)
+# No upstream activity in 3 years.
+# No revdeps left in tree.
+# Removal: 2024-06-09.  Bug #931440.
+dev-python/wrapio
+
+# Viorel Munteanu <ceamac@gentoo.org> (2024-05-10)
 # No upstream activity in more than 3 years.
 # No revdeps left in tree.
 # Removal: 2024-06-09.  Bug #931420.
