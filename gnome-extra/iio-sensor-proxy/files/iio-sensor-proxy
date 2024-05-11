@@ -1,0 +1,9 @@
+#!/sbin/openrc-run
+
+command=/usr/libexec/iio-sensor-proxy
+command_background=yes
+pidfile=/run/iio-sensor-proxy.pid
+
+depend() {
+   need dbus localmount
+}

@@ -12,7 +12,7 @@ SRC_URI="https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/-/archive/${PV}/
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="+systemd"
+IUSE="systemd"
 
 RDEPEND="
 	dev-libs/glib:*
@@ -32,8 +32,19 @@ DEPEND="
 	virtual/pkgconfig
 "
 
+src_prepare() {
+	if use !systemd ; then
+		echo "patching out systemd"
+		# patch out call of systemd directory
+		eapply "${FILESDIR}/no-systemd.patch"
+		# eapply "${FILESDIR}/open_rc_service.patch"
+	fi
+	eapply_user
+}
+
 src_install() {
 	meson_src_install
+	doinitd ${FILESDIR}/iio-sensor-proxy
 }
 
 pkg_postinst() {
