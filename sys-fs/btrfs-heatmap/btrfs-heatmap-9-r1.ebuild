@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_10 python3_11 )
+PYTHON_COMPAT=( python3_10 python3_11 python3_12 )
 
 inherit python-single-r1
 
@@ -20,7 +20,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
-		>=dev-python/btrfs-12[${PYTHON_USEDEP}]
+		>=dev-python/btrfs-13[${PYTHON_USEDEP}]
 	')
 "
 DEPEND="${RDEPEND}"
