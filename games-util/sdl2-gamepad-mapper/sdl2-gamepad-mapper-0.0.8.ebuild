@@ -13,20 +13,21 @@ SLOT="0"
 KEYWORDS="~amd64"
 RDEPEND="
 	media-libs/libsdl2
-	dev-qt/qtquickcontrols:5
-	dev-qt/qtquickcontrols2:5
-	dev-qt/qtnetwork:5
+	dev-qt/qtdeclarative:6
+	dev-qt/qttranslations:6
 "
 DEPEND="${RDEPEND}"
+DOCS=( README.md COPYING )
 
 src_configure() {
-	eqmake5
+	eqmake6
 }
 
 src_install() {
 	dobin "${PN}"
 	domenu "${PN}.desktop"
 	doicon -s 512 "${PN}.png"
+	einstalldocs
 }
 
 pkg_postinst() {
