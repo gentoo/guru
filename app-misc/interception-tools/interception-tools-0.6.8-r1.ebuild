@@ -24,17 +24,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	dev-build/cmake
 	dev-libs/boost
+	virtual/pkgconfig
 "
-
-src_prepare() {
-	cmake_src_prepare
-}
-
-src_configure() {
-	cmake_src_configure
-}
 
 src_install() {
 	cmake_src_install
