@@ -9,8 +9,7 @@ DESCRIPTION="TETR.IO desktop client."
 HOMEPAGE="https://tetr.io/"
 
 SRC_URI="https://tetr.io/about/desktop/builds/${PV}/TETR.IO%20Setup.deb -> ${P}.deb
-	tetrio-plus?	( https://gitlab.com/UniQMG/tetrio-plus/uploads/\
-a7342b94f03d670b72235ab453c427a5/tetrio-plus_0.26.0_app.asar.zip -> tetrio-plus-${PV}.zip )"
+tetrio-plus?	( https://gitlab.com/UniQMG/tetrio-plus/-/jobs/6734605389/artifacts/raw/tetrio-plus_v0.27.2_for_desktop_v9.asar.zip -> tetrio-plus-${PV}.zip )"
 
 S="${WORKDIR}"
 
@@ -26,12 +25,7 @@ BDEPEND="
 	app-arch/unzip
 "
 RDEPEND="
-	x11-libs/gdk-pixbuf:2
-	x11-libs/libXScrnSaver
-	x11-libs/libXcursor
-	x11-libs/libXi
-	x11-libs/libXrender
-	x11-libs/libXtst
+	x11-libs/libxkbcommon
 	app-accessibility/at-spi2-core:2
 	dev-libs/expat
 	dev-libs/glib:2
@@ -58,7 +52,6 @@ QA_PREBUILT=".*"
 
 PATCHES=(
 	"${FILESDIR}/${P}-application.patch"
-
 )
 
 src_unpack() {
@@ -69,6 +62,9 @@ src_unpack() {
 }
 
 src_prepare() {
+	mv "${S}/usr/share/applications/TETR.IO.desktop"\
+		"${S}/usr/share/applications/tetrio-desktop.desktop"
+
 	default
 
 	if use tetrio-plus;	then
@@ -82,28 +78,26 @@ src_install() {
 	ICONDIR="usr/share/icons/hicolor"
 	DESTDIR="/opt/${PN}"
 
-	doicon -s 256 "${ICONDIR}/256x256/apps/tetrio-desktop.png"
-	doicon -s 512 "${ICONDIR}/512x512/apps/tetrio-desktop.png"
+	doicon -s 256 "${ICONDIR}/256x256/apps/TETR.IO.png"
+	doicon -s 512 "${ICONDIR}/512x512/apps/TETR.IO.png"
 
 	domenu "usr/share/applications/tetrio-desktop.desktop"
 
 	dodir /opt/${PN}
 
 	exeinto "${DESTDIR}"
-	doexe "opt/${PN}/tetrio-desktop" "opt/${PN}/chrome-sandbox" "opt/${PN}/libEGL.so" \
-		"opt/${PN}/libffmpeg.so" "opt/${PN}/libGLESv2.so" "opt/${PN}/libvk_swiftshader.so" "opt/${PN}/libvulkan.so"
+	doexe "opt/${PN}/TETR.IO" "opt/${PN}/chrome-sandbox" "opt/${PN}/libEGL.so" \
+		"opt/${PN}/libffmpeg.so" "opt/${PN}/libGLESv2.so" "opt/${PN}/libvk_swiftshader.so" "opt/${PN}/libvulkan.so.1"
 
 	insinto "${DESTDIR}"
 	doins "opt/${PN}/chrome_100_percent.pak" "opt/${PN}/chrome_200_percent.pak" "opt/${PN}/icudtl.dat" \
 		"opt/${PN}/resources.pak" "opt/${PN}/snapshot_blob.bin" "opt/${PN}/v8_context_snapshot.bin"\
 		"opt/${PN}/vk_swiftshader_icd.json"
 
-	doins -r "opt/${PN}/locales" "opt/${PN}/resources" "opt/${PN}/swiftshader"
-
-	fperms -R a+x "${DESTDIR}/swiftshader/"
+	doins -r "opt/${PN}/locales" "opt/${PN}/resources"
 
 	fowners root "${DESTDIR}/chrome-sandbox"
 	fperms 4711 "${DESTDIR}/chrome-sandbox"
 
-	dosym -r "/opt/${PN}/tetrio-desktop" "/usr/bin/${PN}"
+	dosym -r "/opt/${PN}/TETR.IO" "/usr/bin/${PN}"
 }
