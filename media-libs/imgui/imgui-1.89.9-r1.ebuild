@@ -28,6 +28,7 @@ RDEPEND="
 	sdl2? ( media-libs/libsdl2[${MULTILIB_USEDEP}] )
 	sdl_renderer? ( media-libs/libsdl2[${MULTILIB_USEDEP}] )
 	vulkan? ( media-libs/vulkan-loader[${MULTILIB_USEDEP}] )
+	webgpu? ( dev-util/webgpu-headers )
 "
 DEPEND="
 	${RDEPEND}
