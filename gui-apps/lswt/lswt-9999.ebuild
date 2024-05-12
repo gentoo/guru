@@ -20,7 +20,7 @@ SLOT="0"
 
 DEPEND="dev-libs/wayland"
 RDEPEND="${DEPEND}"
-BDEPEND="dev-libs/wayland-protocols"
+BDEPEND="dev-util/wayland-scanner"
 
 src_install() {
 	# Need to install to /usr instead of /usr/local
