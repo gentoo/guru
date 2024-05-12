@@ -3,8 +3,6 @@
 
 EAPI=8
 
-CMAKE_BUILD_TYPE=Release
-
 inherit cmake systemd
 
 DESCRIPTION="A minimal composable infrastructure on top of libudev and libevdev"
