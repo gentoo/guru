@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 DESCRIPTION="List Wayland toplevels"
 HOMEPAGE="https://git.sr.ht/~leon_plickat/lswt/"
 
@@ -21,6 +23,10 @@ SLOT="0"
 DEPEND="dev-libs/wayland"
 RDEPEND="${DEPEND}"
 BDEPEND="dev-util/wayland-scanner"
+
+src_compile() {
+	emake CC="$(tc-getCC)"
+}
 
 src_install() {
 	# Need to install to /usr instead of /usr/local
