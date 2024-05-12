@@ -14,7 +14,7 @@ SRC_URI="https://gitlab.com/interception/linux/tools/-/archive/v${PV}/tools-v${P
 S="${WORKDIR}/tools-v${PV}"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 DEPEND="
 	dev-cpp/yaml-cpp
