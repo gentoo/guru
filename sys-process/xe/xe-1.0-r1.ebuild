@@ -11,6 +11,10 @@ SRC_URI="https://github.com/leahneukirchen/xe/archive/refs/tags/v${PV}.tar.gz ->
 LICENSE="CC0-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="test"
+RESTRICT="!test? ( test )"
+
+BDEPEND="test? ( dev-lang/perl )"
 
 src_prepare() {
 	default
