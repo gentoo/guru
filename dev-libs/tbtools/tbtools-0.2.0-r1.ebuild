@@ -138,6 +138,13 @@ LICENSE+=" Apache-2.0 Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RDEPEND="virtual/udev"
+DEPEND="${RDEPEND}"
+BDEPEND="
+	virtual/pkgconfig
+	>=virtual/rust-1.74.0
+"
+
 PATCHES="${FILESDIR}"/${P}-Cargo.toml-point-to-ebuild-cursive-dep.patch
 
 QA_FLAGS_IGNORED="usr/bin/.*"
