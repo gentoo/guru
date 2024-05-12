@@ -6,7 +6,7 @@ EAPI=8
 inherit xdg desktop
 
 DESCRIPTION="A handler for XKCD urls"
-HOMEPAGE="https://xkcd.com/"
+HOMEPAGE="https://github.com/mazunki/xkcd"
 SRC_URI="https://github.com/mazunki/xkcd/archive/refs/tags/v${PV}.tar.gz -> xkcd-${PV}.tar.gz"
 
 LICENSE="GPL-3"
