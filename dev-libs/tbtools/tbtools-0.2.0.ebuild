@@ -26,12 +26,12 @@ CRATES="
 	darling_core@0.20.3
 	darling_macro@0.20.3
 	deranged@0.3.8
-	enum-map@2.6.3
 	enum-map-derive@0.14.0
+	enum-map@2.6.3
 	enumset@1.1.2
 	enumset_derive@0.8.1
-	errno@0.3.0
 	errno-dragonfly@0.1.2
+	errno@0.3.0
 	fnv@1.0.7
 	getrandom@0.2.8
 	heck@0.4.1
@@ -50,12 +50,12 @@ CRATES="
 	memoffset@0.7.1
 	mio@0.8.8
 	nix@0.26.2
-	num@0.4.1
 	num-complex@0.4.4
 	num-integer@0.1.45
 	num-iter@0.1.43
 	num-rational@0.4.1
 	num-traits@0.2.15
+	num@0.4.1
 	num_threads@0.1.6
 	once_cell@1.17.1
 	os_str_bytes@6.5.0
@@ -71,25 +71,25 @@ CRATES="
 	rand_chacha@0.3.1
 	rand_core@0.6.4
 	redox_syscall@0.3.5
-	regex@1.7.3
 	regex-syntax@0.6.29
+	regex@1.7.3
 	rustix@0.37.3
 	ryu@1.0.15
 	scopeguard@1.2.0
 	serde@1.0.185
 	serde_json@1.0.108
-	signal-hook@0.3.17
 	signal-hook-mio@0.2.3
 	signal-hook-registry@1.4.1
+	signal-hook@0.3.17
 	smallvec@1.11.1
 	stable_deref_trait@1.2.0
 	static_assertions@1.1.0
 	strsim@0.10.0
 	syn@2.0.16
 	termcolor@1.2.0
-	time@0.3.29
 	time-core@0.1.2
 	time-macros@0.2.15
+	time@0.3.29
 	udev@0.7.0
 	unicode-ident@1.0.8
 	unicode-segmentation@1.10.1
@@ -97,10 +97,10 @@ CRATES="
 	uuid@1.7.0
 	version_check@0.9.4
 	wasi@0.11.0+wasi-snapshot-preview1
-	winapi@0.3.9
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.5
 	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9
 	windows-sys@0.45.0
 	windows-sys@0.48.0
 	windows-targets@0.42.2
@@ -132,11 +132,10 @@ SRC_URI="
 	${CARGO_CRATE_URIS}
 "
 
-PATCHES=(
-	"${FILESDIR}/${P}-Cargo.toml-point-to-ebuild-cursive-dep.patch"
-)
-
 LICENSE="MIT"
+# Dependent crate licenses
+LICENSE+=" Apache-2.0 Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
 
+PATCHES="${FILESDIR}"/${P}-Cargo.toml-point-to-ebuild-cursive-dep.patch
