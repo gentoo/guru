@@ -139,3 +139,5 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 PATCHES="${FILESDIR}"/${P}-Cargo.toml-point-to-ebuild-cursive-dep.patch
+
+QA_FLAGS_IGNORED="usr/bin/.*"
