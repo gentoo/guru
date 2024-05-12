@@ -24,12 +24,16 @@ DEPEND="dev-libs/wayland"
 RDEPEND="${DEPEND}"
 BDEPEND="dev-util/wayland-scanner"
 
+src_prepare() {
+	default
+	sed '/^CFLAGS/{s/=/:=/;s/-Werror//;s/$/ $(CFLAGS)/}' \
+		-i Makefile || die
+}
+
 src_compile() {
 	emake CC="$(tc-getCC)"
 }
 
 src_install() {
-	# Need to install to /usr instead of /usr/local
-	# and the Makefile doens't handle DESTDIR properly
-	emake PREFIX="${D}"/usr install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
 }
