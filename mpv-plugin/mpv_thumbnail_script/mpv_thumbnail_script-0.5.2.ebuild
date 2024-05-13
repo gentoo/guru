@@ -4,7 +4,7 @@
 EAPI=8
 
 MPV_REQ_USE="lua"
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit mpv-plugin python-any-r1
 
 DESCRIPTION="A Lua script to show preview thumbnails in mpv's OSC seekbar"
