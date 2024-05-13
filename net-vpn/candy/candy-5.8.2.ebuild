@@ -27,8 +27,8 @@ src_install(){
 	default
 
 	insinto /etc
-	doins candy.conf
-	fperms 0644 /etc/candy.conf
+	doins candy.cfg
+	fperms 0644 /etc/candy.cfg
 
 	systemd_dounit candy.service
 	systemd_dounit candy@.service
