@@ -10,34 +10,6 @@ inherit check-reqs python-any-r1 cmake-multilib
 
 DESCRIPTION="AMD Open Source Driver for Vulkan"
 HOMEPAGE="https://github.com/GPUOpen-Drivers/AMDVLK"
-LICENSE="MIT"
-SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="wayland +raytracing"
-REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )"
-
-BUNDLED_LLVM_DEPEND="sys-libs/zlib:0=[${MULTILIB_USEDEP}]"
-DEPEND="wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
-	${BUNDLED_LLVM_DEPEND}
-	>=dev-util/vulkan-headers-1.3.224
-	raytracing? ( dev-util/DirectXShaderCompiler )
-	dev-util/glslang[${MULTILIB_USEDEP}]"
-BDEPEND="${BUNDLED_LLVM_DEPEND}
-	${PYTHON_DEPS}
-	virtual/linux-sources"
-RDEPEND=" ${DEPEND}
-	x11-libs/libdrm[${MULTILIB_USEDEP}]
-	x11-libs/libXrandr[${MULTILIB_USEDEP}]
-	x11-libs/libxcb[${MULTILIB_USEDEP}]
-	x11-libs/libxshmfence[${MULTILIB_USEDEP}]
-	>=media-libs/vulkan-loader-1.3.224[${MULTILIB_USEDEP}]
-	dev-util/glslang[${MULTILIB_USEDEP}]
-	dev-libs/openssl[${MULTILIB_USEDEP}]" #890449
-
-CHECKREQS_MEMORY="7G"
-CHECKREQS_DISK_BUILD="4G"
-S="${WORKDIR}"
-CMAKE_USE_DIR="${S}/xgl"
 
 ### SOURCE CODE PER_VERSION VARIABLES
 FETCH_URI="https://github.com/GPUOpen-Drivers"
@@ -65,6 +37,36 @@ ${FETCH_URI}/llvm-project/archive/${LLVM_PROJECT_COMMIT}.tar.gz -> amdvlk-llvm-p
 ${FETCH_URI}/MetroHash/archive/${METROHASH_COMMIT}.tar.gz -> amdvlk-MetroHash-${METROHASH_COMMIT}.tar.gz
 ${FETCH_URI}/CWPack/archive/${CWPACK_COMMIT}.tar.gz -> amdvlk-CWPack-${CWPACK_COMMIT}.tar.gz
 ${FETCH_URI}/llvm-dialects/archive/${LLVM_DIALECTS_COMMIT}.tar.gz -> amdvlk-LLVM-dialects-${LLVM_DIALECTS_COMMIT}.tar.gz"
+
+S="${WORKDIR}"
+
+LICENSE="MIT"
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
+IUSE="wayland +raytracing"
+REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )"
+
+BUNDLED_LLVM_DEPEND="sys-libs/zlib:0=[${MULTILIB_USEDEP}]"
+DEPEND="wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
+	${BUNDLED_LLVM_DEPEND}
+	>=dev-util/vulkan-headers-1.3.224
+	raytracing? ( dev-util/DirectXShaderCompiler )
+	dev-util/glslang[${MULTILIB_USEDEP}]"
+BDEPEND="${BUNDLED_LLVM_DEPEND}
+	${PYTHON_DEPS}
+	virtual/linux-sources"
+RDEPEND=" ${DEPEND}
+	x11-libs/libdrm[${MULTILIB_USEDEP}]
+	x11-libs/libXrandr[${MULTILIB_USEDEP}]
+	x11-libs/libxcb[${MULTILIB_USEDEP}]
+	x11-libs/libxshmfence[${MULTILIB_USEDEP}]
+	>=media-libs/vulkan-loader-1.3.224[${MULTILIB_USEDEP}]
+	dev-util/glslang[${MULTILIB_USEDEP}]
+	dev-libs/openssl[${MULTILIB_USEDEP}]" #890449
+
+CHECKREQS_MEMORY="7G"
+CHECKREQS_DISK_BUILD="4G"
+CMAKE_USE_DIR="${S}/xgl"
 
 PATCHES=(
 	"${FILESDIR}/amdvlk-2022.3.5-no-compiler-presets.patch" #875821

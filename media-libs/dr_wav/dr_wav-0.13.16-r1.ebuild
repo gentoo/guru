@@ -5,10 +5,13 @@ EAPI=8
 
 inherit edo toolchain-funcs
 
+COMMIT="4ec70a37c4450b021a6653f0813f1b9ceaae65fb"
+
 DESCRIPTION="Single-header WAV audio loader and writer library"
 HOMEPAGE="https://github.com/mackron/dr_libs/"
-COMMIT="4ec70a37c4450b021a6653f0813f1b9ceaae65fb"
 SRC_URI="https://github.com/mackron/dr_libs/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
+
+S="${WORKDIR}/dr_libs-${COMMIT}"
 
 LICENSE="|| ( MIT-0 public-domain )"
 SLOT="0"
@@ -23,8 +26,6 @@ TESTCASES=(
 	dr_wav_encoding.c
 	dr_wav_{decoding,test_0}.{c,cpp}
 )
-
-S="${WORKDIR}/dr_libs-${COMMIT}"
 
 src_prepare() {
 	if use test; then

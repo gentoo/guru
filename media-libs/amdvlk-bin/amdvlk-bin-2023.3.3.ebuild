@@ -11,13 +11,16 @@ HOMEPAGE="https://github.com/GPUOpen-Drivers/AMDVLK"
 MY_PV="${PV/'.'/'.Q'}"
 FETCH_URI="https://github.com/GPUOpen-Drivers/AMDVLK/releases/download"
 SRC_URI="${FETCH_URI}/v-${MY_PV}/amdvlk-${MY_PV}.x86_64.rpm -> ${P}-amd64.rpm
-${FETCH_URI}/v-${MY_PV}/amdvlk_${MY_PV}_i386.deb -> ${P}-i386.deb"
-RESTRICT="test"
-REQUIRED_USE="abi_x86_64"
+	${FETCH_URI}/v-${MY_PV}/amdvlk_${MY_PV}_i386.deb -> ${P}-i386.deb"
+
+S="${WORKDIR}"
 
 LICENSE="MIT"
 SLOT="legacy-polaris"
 KEYWORDS="-* ~amd64" # The hardware is not supported pure x86 anymore
+
+REQUIRED_USE="abi_x86_64"
+RESTRICT="test"
 
 RDEPEND="
 	sys-libs/zlib[${MULTILIB_USEDEP}]
@@ -31,9 +34,7 @@ RDEPEND="
 	!media-libs/amdvlk-bin:0
 	!media-libs/amdvlk-bin:legacy-si
 	"
-DEPEND="
-	${RDEPEND}
-"
+DEPEND="${RDEPEND}"
 BDEPEND="sys-apps/sed"
 QA_PREBUILT="
 	usr/lib/*
@@ -42,8 +43,6 @@ QA_PREBUILT="
 # TODO: Found a correct way to disable QA_SONAME for /usr/lib/amdvlk32.so
 # I don't know why the current value is not working
 QA_SONAME="usr/lib/*"
-
-S=${WORKDIR}
 
 pkg_pretend(){
 	elog "This is last version which supports AMD's legacy graphics cards such as:"

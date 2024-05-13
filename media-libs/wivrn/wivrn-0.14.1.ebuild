@@ -1,14 +1,14 @@
 EAPI=7
 
+inherit cmake
+
 DESCRIPTION="WiVRn OpenXR streaming"
 HOMEPAGE="https://github.com/meumeu/WiVRn"
-SLOT="0"
-LICENSE="GPL-3 Apache-2.0 MIT"
 
+LICENSE="GPL-3 Apache-2.0 MIT"
+SLOT="0"
 IUSE="nvenc +pipewire -pulseaudio systemd vaapi wireshark-plugins x264"
 REQUIRED_USE="|| ( nvenc vaapi x264 )"
-
-inherit cmake
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -93,7 +93,7 @@ src_configure() {
 		-DWIVRN_USE_SYSTEMD=$(usex systemd)
 		-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
 		-DFETCHCONTENT_FULLY_DISCONNECTED=ON
-		-DFETCHCONTENT_BASE_DIR=${WORKDIR}
+		-DFETCHCONTENT_BASE_DIR="${WORKDIR}"
 		-DENABLE_COLOURED_OUTPUT=OFF
 	)
 

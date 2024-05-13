@@ -9,6 +9,8 @@ DESCRIPTION="OpenGL Easy Extension library"
 HOMEPAGE="https://elf-stone.com/glee.php"
 SRC_URI="https://elf-stone.com/downloads/GLee/GLee-${PV}-src.tar.gz"
 
+S="${WORKDIR}"
+
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -17,7 +19,6 @@ IUSE="static-libs"
 RDEPEND="virtual/opengl"
 DEPEND="${RDEPEND}"
 
-S="${WORKDIR}"
 src_prepare() {
 	default
 	eapply -p0 "${FILESDIR}/${PN}-autotools.patch"
