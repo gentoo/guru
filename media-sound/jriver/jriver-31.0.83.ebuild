@@ -11,13 +11,11 @@ SRC_URI="https://files.jriver-cdn.com/mediacenter/channels/v31/latest/MediaCente
 
 S="${WORKDIR}"
 
-SLOT="0"
-
 LICENSE="all-rights-reserved"
+SLOT="0"
 KEYWORDS="~amd64"
 
 RESTRICT="strip"
-QA_PREBUILT="*"
 REQUIRES_EXCLUDE="libcef.so" # Already inside
 
 # TODO soon brotli dep will be dropped
@@ -29,6 +27,8 @@ RDEPEND="
 	x11-libs/pango
 	x11-libs/libXrandr
 "
+
+QA_PREBUILT="*"
 
 src_unpack() {
 	unpack_deb ${A}

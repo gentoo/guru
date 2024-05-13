@@ -11,6 +11,8 @@ SRC_URI="
 	https://github.com/psmokotnin/osm/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
 "
 
+S="${WORKDIR}/osm-${PV}"
+
 # GPL-3 for the codebase
 # N-Noise-EULA for the M-Noise noise generator
 LICENSE="GPL-3 M-Noise-EULA"
@@ -31,7 +33,6 @@ BDEPEND="
 	dev-qt/qtcore:5
 "
 
-S="${WORKDIR}/osm-${PV}"
 DOCS=( "README.md" )
 
 src_prepare() {

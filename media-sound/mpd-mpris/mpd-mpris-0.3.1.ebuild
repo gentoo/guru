@@ -7,15 +7,15 @@ inherit systemd go-module
 
 DESCRIPTION="An implementation of the MPRIS protocol for MPD."
 HOMEPAGE="https://github.com/natsukagami/mpd-mpris"
+SRC_URI="https://github.com/natsukagami/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI+=" https://gitlab.com/Sevz17/go-deps/-/raw/main/${P}-deps.tar.xz"
+
 LICENSE="MIT BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="media-sound/mpd"
 DEPEND="${RDEPEND}"
-
-SRC_URI="https://github.com/natsukagami/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://gitlab.com/Sevz17/go-deps/-/raw/main/${P}-deps.tar.xz"
 
 src_compile() {
 	ego build -v -o "${PN}" cmd/mpd-mpris/*.go

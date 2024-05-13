@@ -58,7 +58,9 @@ SRC_URI="
 $(cargo_crate_uris ${CRATES})
 https://gitlab.com/mpv-ipc/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2 -> ${P}.tar.bz2
 "
-RESTRICT="mirror"
+
+S="${WORKDIR}/${PN}-v${PV}"
+
 LICENSE="GPL-3+"
 LICENSE+="
 	GPL-3 MIT MPL-2.0
@@ -67,9 +69,10 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
-S="${WORKDIR}/${PN}-v${PV}"
-QA_FLAGS_IGNORED="usr/bin/mpvc"
+RESTRICT="mirror"
 
 DEPEND="media-video/mpv"
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/rust"
+
+QA_FLAGS_IGNORED="usr/bin/mpvc"

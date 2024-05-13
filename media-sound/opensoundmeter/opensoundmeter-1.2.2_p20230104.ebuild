@@ -13,6 +13,8 @@ SRC_URI="
 	https://github.com/psmokotnin/osm/archive/refs/tags/v${MY_PV}.tar.gz -> opensoundmeter-${MY_PV}.gh.tar.gz
 "
 
+S="${WORKDIR}/osm-${MY_PV}"
+
 # GPL-3 for the codebase
 # N-Noise-EULA for the M-Noise noise generator
 LICENSE="GPL-3 M-Noise-EULA"
@@ -44,7 +46,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-deadlock-fix.patch"
 )
 
-S="${WORKDIR}/osm-${MY_PV}"
 DOCS=( "README.md" )
 
 src_prepare() {

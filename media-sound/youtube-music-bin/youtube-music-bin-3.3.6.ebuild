@@ -11,10 +11,11 @@ DESCRIPTION="YouTube Music Desktop App bundled with custom plugins"
 HOMEPAGE="https://th-ch.github.io/youtube-music/"
 SRC_URI="https://github.com/th-ch/youtube-music/releases/download/v${PV}/${MY_PN}_${PV}_amd64.deb"
 
+S="${WORKDIR}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="-* ~amd64"
-S="${WORKDIR}"
 
 RDEPEND="
 	app-accessibility/at-spi2-core:2

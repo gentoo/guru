@@ -8,7 +8,10 @@ inherit toolchain-funcs
 DESCRIPTION="zita-a2j and zita-j2a - bridges between ALSA and JACK"
 HOMEPAGE="https://kokkinizita.linuxaudio.org/linuxaudio/zita-ajbridge-doc/quickguide.html"
 SOURCE_URI="https://kokkinizita.linuxaudio.org/linuxaudio/downloads"
-SRC_URI="${SOURCE_URI}/${PN}-${PV}.tar.bz2"
+SRC_URI="${SOURCE_URI}/${P}.tar.bz2"
+
+S="${WORKDIR}/${P}/source"
+ADIR="${WORKDIR}/${P}/"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -20,9 +23,6 @@ RDEPEND="media-libs/alsa-lib
 virtual/jack"
 DEPEND="${RDEPEND}"
 BDEPEND="app-arch/gzip"
-
-S="${WORKDIR}/${P}/source"
-ADIR="${WORKDIR}/${P}/"
 
 DOCS=( ${ADIR}/AUTHORS ${ADIR}/COPYING ${ADIR}/README )
 

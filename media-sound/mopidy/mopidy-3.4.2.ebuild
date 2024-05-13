@@ -12,9 +12,9 @@ DESCRIPTION="An extensible music server written in Python."
 HOMEPAGE="https://mopidy.com/"
 SRC_URI="https://github.com/mopidy/mopidy/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/gst-python[${PYTHON_USEDEP}]
