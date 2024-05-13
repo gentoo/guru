@@ -5,7 +5,7 @@ EAPI=8
 
 USE_MPV="rdepend"
 MPV_REQ_USE="lua"
-PYTHON_COMPAT=( python3_{10..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..12} pypy3 )
 inherit mpv-plugin python-single-r1
 
 COMMIT="248d108c1280e05de551c42867aebb72cf0c83b9"
