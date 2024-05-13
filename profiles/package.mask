@@ -33,6 +33,8 @@ media-video/tartube # Bugs 931465, 922019
 dev-python/python-skywater-pdk # Bugs 931417, 921867
 sys-apps/fchroot # Bugs 931477, 922048
 x11-misc/caffeine-ng # Bugs 931487, 922088
+# Reverse dependencies
+sci-electronics/skywater-pdk
 
 # Julien Roy <julien@jroy.ca> (2024-05-13)
 # Libraries with no reverse dependencies
