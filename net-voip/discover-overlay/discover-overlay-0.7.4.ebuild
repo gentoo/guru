@@ -11,6 +11,7 @@ inherit distutils-r1 xdg
 DESCRIPTION="Yet another Discord overlay for Linux written in Python using GTK3"
 HOMEPAGE="https://github.com/trigg/Discover"
 SRC_URI="https://github.com/trigg/Discover/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+S="${WORKDIR}/Discover-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -28,5 +29,3 @@ RDEPEND="
 	dev-python/pulsectl-asyncio[${PYTHON_USEDEP}]
 	wayland? ( gui-libs/gtk-layer-shell[introspection(+)] )
 "
-
-S="${WORKDIR}/Discover-${PV}"
