@@ -11,10 +11,13 @@ DESCRIPTION="C++ websocket client and server library"
 HOMEPAGE="https://github.com/machinezone/IXWebSocket"
 SRC_URI="https://github.com/machinezone/IXWebSocket/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="BSD"
 SLOT="0/11.3.2"
 KEYWORDS="~amd64 ~x86"
 IUSE="+ssl test zlib ws"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	ssl? (
@@ -38,10 +41,6 @@ RDEPEND="
 		sys-libs/zlib:=
 	)
 "
-
-S="${WORKDIR}/${MY_P}"
-
-RESTRICT="!test? ( test )"
 
 PATCHES=(
 	# Some tests require network connectivity
