@@ -11,11 +11,11 @@ DESCRIPTION="Nuclear is a streaming program that pulls content from free sources
 HOMEPAGE="https://nuclear.js.org https://github.com/nukeop/nuclear"
 SRC_URI="https://github.com/nukeop/nuclear/releases/download/v${PV}/${MY_P}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/${MY_P}"
 
 DEPEND="
 	app-accessibility/at-spi2-atk

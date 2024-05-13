@@ -6,6 +6,9 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=(python3_{9..12})
 inherit distutils-r1
 
+DESCRIPTION="Terminal-based YouTube player and downloader"
+HOMEPAGE="https://github.com/mps-youtube/yewtube https://pypi.org/project/yewtube/"
+
 if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/mps-youtube/yewtube.git"
 	inherit git-r3
@@ -14,14 +17,11 @@ else
 	KEYWORDS="~amd64"
 fi
 
-IUSE="test"
-RESTRICT="!test? ( test )"
-
-DESCRIPTION="Terminal-based YouTube player and downloader"
-HOMEPAGE="https://github.com/mps-youtube/yewtube https://pypi.org/project/yewtube/"
-
 LICENSE="GPL-3"
 SLOT="0"
+
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	media-video/ffmpeg

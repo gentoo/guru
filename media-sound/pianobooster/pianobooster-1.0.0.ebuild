@@ -9,11 +9,13 @@ DESCRIPTION="A MIDI player/game that displays notes and teaches you how to play 
 HOMEPAGE="https://www.pianobooster.org"
 SRC_URI="https://github.com/pianobooster/PianoBooster/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/PianoBooster-${PV}"
+
 LICENSE="GPL-3+"
 SLOT="0"
-RESTRICT="mirror"
 KEYWORDS="~amd64 ~x86"
 IUSE="jack"
+RESTRICT="mirror"
 
 DEPEND="
 	dev-qt/qtcore:5
@@ -31,8 +33,6 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	dev-qt/linguist-tools:5"
-
-S="${WORKDIR}/PianoBooster-${PV}"
 
 src_prepare() {
 

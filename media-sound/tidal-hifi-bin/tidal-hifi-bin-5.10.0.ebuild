@@ -17,6 +17,8 @@ DESCRIPTION="Web version of Tidal running in electron with Hi-Fi support thanks 
 HOMEPAGE="https://github.com/Mastermindzh/tidal-hifi"
 SRC_URI="https://github.com/Mastermindzh/tidal-hifi/releases/download/${PV}/tidal-hifi-${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${MY_PN}-${PV}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -57,8 +59,6 @@ DESTDIR="/opt/${PN}"
 QA_PREBUILT="*"
 
 CONFIG_CHECK="~USER_NS"
-
-S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_configure() {
 	default

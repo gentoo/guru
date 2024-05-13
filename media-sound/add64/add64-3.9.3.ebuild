@@ -12,6 +12,8 @@ HOMEPAGE="
 "
 SRC_URI="https://downloads.sourceforge.net/project/add64/Add64-${PV}.tar.bz2"
 
+S="${WORKDIR}/Add64-${PV}/"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
@@ -26,8 +28,6 @@ RDEPEND="
 	virtual/jack
 "
 DEPEND="${RDEPEND}"
-
-S="${WORKDIR}/Add64-${PV}/"
 
 src_compile() {
 	eqmake5
