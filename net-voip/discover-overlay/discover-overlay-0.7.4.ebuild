@@ -25,6 +25,7 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/python-xlib[${PYTHON_USEDEP}]
+	dev-python/pulsectl-asyncio[${PYTHON_USEDEP}]
 	wayland? ( gui-libs/gtk-layer-shell[introspection(+)] )
 "
 
