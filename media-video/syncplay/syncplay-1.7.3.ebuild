@@ -1,9 +1,9 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
 
@@ -29,7 +29,12 @@ RDEPEND="
 	client? (
 		gui? (
 			$( python_gen_cond_dep \
-				'dev-python/QtPy[${PYTHON_USEDEP},gui,pyside2]'
+				'dev-python/QtPy[${PYTHON_USEDEP},gui,pyside2]' \
+				python3_{10,11}
+			)
+			$( python_gen_cond_dep \
+				'dev-python/QtPy[${PYTHON_USEDEP},gui,pyside6]' \
+				python3_12
 			)
 		)
 		|| (
