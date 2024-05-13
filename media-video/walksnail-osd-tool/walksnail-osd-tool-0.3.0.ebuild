@@ -480,10 +480,10 @@ DESCRIPTION="Tool for rendering OSDs over Walksnail DVR recordings"
 HOMEPAGE="https://github.com/avsaase/walksnail-osd-tool"
 SRC_URI="https://github.com/avsaase/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
-KEYWORDS="~amd64"
 
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 GPL-3 ISC UbuntuFontLicense-1.0 MIT MPL-2.0 OFL-1.1 Unicode-DFS-2016 Unlicense XC ZLIB"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="${DEPEND}
 	media-video/ffmpeg"
