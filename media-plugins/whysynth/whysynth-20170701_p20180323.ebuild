@@ -10,6 +10,8 @@ HOMEPAGE="http://smbolton.com/whysynth.html https://github.com/smbolton/whysynth
 WHYSYNTH_COMMIT="32e4bc73baa554bb1844b3165e657911f43f3568"
 SRC_URI="https://github.com/smbolton/${PN}/archive/${WHYSYNTH_COMMIT}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${PN}-${WHYSYNTH_COMMIT}"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
@@ -22,8 +24,6 @@ DEPEND="media-libs/dssi
 	media-libs/alsa-lib"
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
-
-S="${WORKDIR}/${PN}-${WHYSYNTH_COMMIT}"
 
 src_prepare() {
 	./autogen.sh

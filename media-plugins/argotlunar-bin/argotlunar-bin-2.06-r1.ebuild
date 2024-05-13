@@ -5,13 +5,14 @@ EAPI="7"
 
 DESCRIPTION="Argotlunar is a sound granulator. Binary Linux VST"
 HOMEPAGE="https://mourednik.github.io/argotlunar/"
+#It's impossible to obtain package directly from DROPBOX, so I've just uploaded it to my own webserver
+SRC_URI="https://www.dropbox.com/s/fwtg6jfkzakj7is/argotlunar-2.06-linux_64.tar.gz -> ${P}.tar.gz"
+
+S="${WORKDIR}/argotlunar-${PV}-linux_64"
+
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-
-QA_PRESTRIPPED="/usr/lib64/vst/${PN}/argotlunar.so"
-SRC_URI="https://www.dropbox.com/s/fwtg6jfkzakj7is/argotlunar-2.06-linux_64.tar.gz -> ${P}.tar.gz"
-#It's impossible to obtain package directly from DROPBOX, so I've just uploaded it to my own webserver
-LICENSE="GPL-2"
 
 RDEPEND="
 	app-arch/bzip2
@@ -28,7 +29,9 @@ RDEPEND="
 	x11-libs/libxcb
 "
 DEPEND="${RDEPEND}"
-S="${WORKDIR}/argotlunar-${PV}-linux_64"
+
+QA_PRESTRIPPED="/usr/lib64/vst/${PN}/argotlunar.so"
+
 src_install(){
 	into "/usr/$(get_libdir)/vst/${PN}"
 	dolib.so argotlunar.so
