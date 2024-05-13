@@ -12,6 +12,8 @@ DESCRIPTION="Drop Discord, get Guilded"
 HOMEPAGE="https://www.guilded.gg"
 SRC_URI="https://www.guilded.gg/downloads/${MY_BIN}-Linux.deb -> ${P}.deb"
 
+S="${WORKDIR}"
+
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -33,8 +35,6 @@ RDEPEND="
 	x11-libs/libXtst
 	dev-libs/nss
 "
-
-S="${WORKDIR}"
 
 QA_PREBUILT="
 	opt/${MY_BIN}/${MY_PN}

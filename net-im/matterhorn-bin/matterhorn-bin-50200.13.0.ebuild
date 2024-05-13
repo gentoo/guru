@@ -10,6 +10,8 @@ DESCRIPTION="Terminal based Mattermost client"
 HOMEPAGE="https://github.com/matterhorn-chat/matterhorn"
 SRC_URI="https://github.com/matterhorn-chat/${MY_PN}/releases/download/${PV}/${MY_P}.tar.bz2 -> ${P}.tar.bz2"
 
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="-* ~amd64"
@@ -22,8 +24,6 @@ RDEPEND="
 "
 
 QA_PREBUILT="*"
-
-S="${WORKDIR}/${MY_P}"
 
 src_install() {
 	default

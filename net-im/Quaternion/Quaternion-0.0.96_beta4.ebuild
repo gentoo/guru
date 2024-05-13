@@ -10,12 +10,12 @@ HOMEPAGE="https://github.com/quotient-im/Quaternion https://matrix.org/ecosystem
 GITHUB_PV=${PV//_/-}
 SRC_URI="https://github.com/quotient-im/${PN}/archive/refs/tags/${GITHUB_PV}.tar.gz -> ${P}.tar.gz"
 
-SLOT="0"
+S="${WORKDIR}/${PN}-${GITHUB_PV}"
+
 LICENSE="GPL-3"
+SLOT="0"
 KEYWORDS="~amd64"
 IUSE="qt6"
-
-S="${WORKDIR}/${PN}-${GITHUB_PV}"
 
 RDEPEND="
 	qt6? (

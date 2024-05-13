@@ -328,6 +328,8 @@ MY_PV="0.0.16-1"
 SRC_URI="https://github.com/diamondburned/${PN}/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}"
 
+S="${WORKDIR}"/${PN}-${MY_PV}
+
 LICENSE="Apache-2.0 BSD BSD-2 GPL-3 ISC MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -345,7 +347,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-S=${WORKDIR}/${PN}-${MY_PV}
 src_compile() {
 	ego build
 }

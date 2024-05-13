@@ -14,9 +14,9 @@ DESCRIPTION="Rocket.Chat client for the KDE desktop"
 HOMEPAGE="https://invent.kde.org/network/ruqola"
 SRC_URI="https://invent.kde.org/network/ruqola/-/archive/${PV}/${P}.tar.gz"
 
-KEYWORDS="~amd64"
 LICENSE="GPL-2+"
 SLOT="0"
+KEYWORDS="~amd64"
 
 IUSE="speech telemetry"
 
