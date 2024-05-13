@@ -15,4 +15,4 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=">=dev-python/zenlib-1.7.2[${PYTHON_USEDEP}]"
+DEPEND=">=dev-python/zenlib-2.1.2[${PYTHON_USEDEP}]"
