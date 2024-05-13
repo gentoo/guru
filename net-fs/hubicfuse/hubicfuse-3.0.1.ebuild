@@ -8,9 +8,9 @@ inherit flag-o-matic
 DESCRIPTION="Support for mounting HubiC drive in GNU/Linux"
 HOMEPAGE="https://github.com/TurboGit/hubicfuse"
 SRC_URI="https://github.com/TurboGit/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SLOT="0"
 
 LICENSE="LGPL-3"
+SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86"
 
 DEPEND="
