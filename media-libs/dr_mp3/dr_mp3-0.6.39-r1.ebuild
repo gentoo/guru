@@ -5,18 +5,20 @@ EAPI=8
 
 inherit edo toolchain-funcs
 
+COMMIT="da35f9d6c7374a95353fd1df1d394d44ab66cf01"
+
 DESCRIPTION="Single-header MP3 audio decoder library"
 HOMEPAGE="https://github.com/mackron/dr_libs/"
-COMMIT="da35f9d6c7374a95353fd1df1d394d44ab66cf01"
 SRC_URI="https://github.com/mackron/dr_libs/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
+
+S="${WORKDIR}/dr_libs-${COMMIT}"
+
 LICENSE="|| ( MIT-0 public-domain )"
 SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE="test"
 RESTRICT="!test? ( test )"
-
-S="${WORKDIR}/dr_libs-${COMMIT}"
 
 # Unfortunately, the only other test is interactive.
 TESTCASES=(

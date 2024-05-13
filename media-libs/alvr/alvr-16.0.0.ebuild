@@ -521,11 +521,11 @@ HOMEPAGE="https://github.com/alvr-org/ALVR"
 SRC_URI="https://github.com/alvr-org/ALVR/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 SRC_URI+=" ${CARGO_CRATE_URIS} "
 
+S="${WORKDIR}/${P^^}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/${P^^}"
 
 IUSE="+client +server vaapi vulkan x264 x265"
 
