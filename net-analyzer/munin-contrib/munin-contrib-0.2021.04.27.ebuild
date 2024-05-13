@@ -7,16 +7,16 @@ inherit toolchain-funcs
 
 COMMIT="c31cb283fe9d38ae0367fcd9a8aef6be14bcb927"
 
-SRC_URI="https://github.com/munin-monitoring/contrib/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64"
 DESCRIPTION="user contributed stuff related to munin"
 HOMEPAGE="https://github.com/munin-monitoring/contrib"
+SRC_URI="https://github.com/munin-monitoring/contrib/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/contrib-${COMMIT}"
 LICENSE="GPL-3+ Apache-2.0 GPL-2 LGPL-2 GPL-2+ LGPL-3+ MIT" #TODO: investigate all the licenses
 SLOT="0"
+KEYWORDS="~amd64"
 IUSE="examples +plugins templates tools"
 RDEPEND="net-analyzer/munin"
 
-S="${WORKDIR}/contrib-${COMMIT}"
 README_PLUGINS=(
 	plugins/README.md
 	plugins/apache/apache_byprojects/README.md
