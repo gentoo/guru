@@ -1,13 +1,13 @@
 certificate version 0.1
-pusher 0x8004005FBF6C9DED 1715572350 -0500
+pusher 0x8004005FBF6C9DED 1715572622 -0500
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1715572350-26d54abc6ab1340271a01cdc7040eca9a37e9145
+nonce 1715572622-242ac6edae595e743cf39fb3a4cff73cb58dff83
 
-90ce04573eea599f6a72ad5972b44a662772fa7f 9f865ec68f45dbb46724b77e38dcbe973b376fed refs/heads/dev
+9f865ec68f45dbb46724b77e38dcbe973b376fed ebe6ce341c81b09d84a98bde83a118bdcf68ca8d refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQS4wdGXDiSiw3yUaeKABABfv2yd7QUCZkGOfgAKCRCABABfv2yd
-7WlkAP4i1reARbPxyzWywasuvwKZu1yq2rSoUUsqJg85nWfMSgEArgYCfYeGRmhq
-uktE2c41vry61gB/+7uduUErQP3IoAI=
-=lXbi
+iHUEABYKAB0WIQS4wdGXDiSiw3yUaeKABABfv2yd7QUCZkGPjgAKCRCABABfv2yd
+7eHFAQD/c/wnC4MS6dtlix0JyKyI9wABa+a6qoHnJcgmj8pYhgD/XbrytTPloIVF
+LEDdqEFO4gMv0tK3rhWFOtY9W9lXgwU=
+=LgGO
 -----END PGP SIGNATURE-----
