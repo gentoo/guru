@@ -13,8 +13,9 @@ MY_P="${PN}-${COMMIT}"
 
 DESCRIPTION="Use KDialog to add files to playlist, subtitles to playing video or open URLs"
 HOMEPAGE="https://gist.github.com/ntasos/d1d846abd7d25e4e83a78d22ee067a22"
-
 SRC_URI="https://gist.github.com/ntasos/${HASH}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+
+S="${WORKDIR}/${HASH}-${COMMIT}"
 
 LICENSE="Unlicense"
 KEYWORDS="~amd64"
@@ -23,7 +24,5 @@ RDEPEND="
 	kde-apps/kdialog
 	x11-misc/xdotool
 "
-
-S="${WORKDIR}/${HASH}-${COMMIT}"
 
 MPV_PLUGIN_FILES=( ${PN}.lua )

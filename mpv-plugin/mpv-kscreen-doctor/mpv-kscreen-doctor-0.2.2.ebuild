@@ -11,6 +11,8 @@ DESCRIPTION="Set the display refresh rate that best approximates the content fps
 HOMEPAGE="https://gitlab.com/smaniottonicola/mpv-kscreen-doctor"
 SRC_URI="https://gitlab.com/smaniottonicola/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2 -> ${P}.tar.bz2"
 
+S="${WORKDIR}/${PN}-v${PV}"
+
 LICENSE="Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -19,7 +21,5 @@ DEPEND="
 	kde-plasma/libkscreen
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}-v${PV}"
 
 MPV_PLUGIN_FILES=( ${PN}.lua )

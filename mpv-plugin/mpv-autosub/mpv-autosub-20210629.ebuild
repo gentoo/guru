@@ -12,8 +12,9 @@ MY_P="${PN}-${COMMIT}"
 
 DESCRIPTION="Fully automatic subtitle downloading for the MPV media player"
 HOMEPAGE="https://github.com/davidde/mpv-autosub"
-
 SRC_URI="https://github.com/davidde/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
 KEYWORDS="~amd64"
@@ -21,7 +22,5 @@ KEYWORDS="~amd64"
 RDEPEND="
 	media-video/subliminal
 "
-
-S="${WORKDIR}/${MY_P}"
 
 MPV_PLUGIN_FILES=( autosub.lua )
