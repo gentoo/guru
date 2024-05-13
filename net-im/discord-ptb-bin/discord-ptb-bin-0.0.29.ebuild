@@ -13,6 +13,8 @@ DESCRIPTION="All-in-one voice and text chat"
 HOMEPAGE="https://discordapp.com/"
 SRC_URI="https://dl-ptb.discordapp.net/apps/linux/${PV}/${MY_PN}-${PV}.deb"
 
+S="${WORKDIR}"
+
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -48,8 +50,6 @@ RDEPEND="
 	x11-libs/libxshmfence
 	x11-libs/pango
 "
-
-S="${WORKDIR}"
 
 QA_PREBUILT="
 	opt/discord-ptb/${MY_BIN}

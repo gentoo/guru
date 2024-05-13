@@ -17,6 +17,8 @@ DESCRIPTION="Session Desktop - Onion routing based messenger"
 HOMEPAGE="https://getsession.org/ https://github.com/oxen-io/session-desktop"
 SRC_URI="https://github.com/oxen-io/session-desktop/releases/download/v${PV}/session-desktop-linux-amd64-${PV}.deb"
 
+S="${WORKDIR}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -66,7 +68,6 @@ QA_PREBUILT="
 "
 
 CONFIG_CHECK="~USER_NS"
-S="${WORKDIR}"
 
 pkg_pretend(){
 	chromium_suid_sandbox_check_kernel_config

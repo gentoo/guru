@@ -3,12 +3,6 @@
 
 EAPI=8
 
-DESCRIPTION="A terminal based Matrix client written in Go"
-HOMEPAGE="https://github.com/tulir/gomuks"
-LICENSE="AGPL-3"
-SLOT="0"
-KEYWORDS="~amd64"
-
 inherit go-module
 EGO_SUM=(
 	"github.com/alecthomas/chroma v0.10.0"
@@ -143,11 +137,18 @@ EGO_SUM=(
 )
 go-module_set_globals
 
+DESCRIPTION="A terminal based Matrix client written in Go"
+HOMEPAGE="https://github.com/tulir/gomuks"
 EGIT_COMMIT="09a927955810f6f0c6d3f4809d9b01eda365fd39"
 SRC_URI="https://github.com/tulir/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${PN}-${PV}.tar.gz ${EGO_SUM_SRC_URI}"
+
 S=${WORKDIR}/${PN}-${EGIT_COMMIT}
 
+LICENSE="AGPL-3"
+SLOT="0"
+KEYWORDS="~amd64"
 IUSE="+encryption"
+
 DEPEND="encryption? ( >=dev-libs/olm-3 )"
 RDEPEND="${DEPEND}"
 

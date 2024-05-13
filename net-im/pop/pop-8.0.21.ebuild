@@ -9,11 +9,12 @@ DESCRIPTION="Screen sharing with multiplayer control, with voice"
 HOMEPAGE="https://pop.com/home"
 SRC_URI="https://download.pop.com/desktop-app/linux/${PV}/${PN}_${PV}_amd64.deb"
 
+S="${WORKDIR}"
+
 LICENSE="all-rights-reserved"
 SLOT=0
-RESTRICT="strip"
 KEYWORDS="~amd64"
-QA_PREBUILT="*"
+RESTRICT="strip"
 
 RDEPEND="
 	app-accessibility/at-spi2-core
@@ -34,7 +35,7 @@ RDEPEND="
 	x11-libs/pango
 "
 
-S="${WORKDIR}"
+QA_PREBUILT="*"
 
 src_unpack() {
 	unpack_deb ${A}

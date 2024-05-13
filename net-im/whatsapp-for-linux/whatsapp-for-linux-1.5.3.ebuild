@@ -9,9 +9,9 @@ DESCRIPTION="An unofficial WhatsApp desktop application for Linux"
 HOMEPAGE="https://github.com/eneshecan/whatsapp-for-linux"
 SRC_URI="https://github.com/eneshecan/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="~amd64"
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
 
 LANGUAGES="en es it ka nl pt-BR ru tr"
 for lang in ${LANGUAGES}; do

@@ -9,8 +9,8 @@ DESCRIPTION="A Qt-based IM client for Matrix"
 HOMEPAGE="https://github.com/quotient-im/Quaternion https://matrix.org/docs/projects/client/quaternion.html"
 SRC_URI="https://github.com/quotient-im/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-SLOT="0"
 LICENSE="GPL-3"
+SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+keychain"
 

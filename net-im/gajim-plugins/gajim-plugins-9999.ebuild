@@ -5,20 +5,20 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..11} )
 
-inherit python-single-r1
+inherit git-r3 python-single-r1
 
 DESCRIPTION="Plugins developed fro Gajim XMPP client"
 HOMEPAGE="https://dev.gajim.org/gajim/gajim-plugins/"
-
-inherit git-r3
 EGIT_REPO_URI="https://dev.gajim.org/gajim/gajim-plugins.git"
 
-MY_PLUGINS="acronyms_expander anti_spam clients_icons length_notifier message_box_size now_listen omemo openpgp pgp plugins_translations quick_replies triggers"
+S="${WORKDIR}/${P%_p2}"
 
 LICENSE="GPL-3"
 SLOT="0"
+MY_PLUGINS="acronyms_expander anti_spam clients_icons length_notifier
+	message_box_size now_listen omemo openpgp pgp plugins_translations
+	quick_replies triggers"
 IUSE="$(printf '+%s ' ${MY_PLUGINS[@]})"
-S="${WORKDIR}/${P%_p2}"
 
 RDEPEND="
 	${PYTHON_DEPS}

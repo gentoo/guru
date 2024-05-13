@@ -12,15 +12,19 @@ DESCRIPTION="Desktop application for Jitsi Meet built with Electron"
 HOMEPAGE="https://github.com/jitsi/jitsi-meet-electron"
 SRC_URI="https://github.com/jitsi/jitsi-meet-electron/releases/download/v${PV}/jitsi-meet-amd64.deb -> ${P}.deb"
 
+S="${WORKDIR}"
+
 LICENSE="Apache-2.0"
 SLOT="0"
+KEYWORDS="~amd64"
 
 IUSE="swiftshader"
 
 RESTRICT="bindist mirror splitdebug test"
 
-QA_PREBUILT="*"
 #Depends: libgtk-3-0, libnss3, libxtst6, xdg-utils, libatspi2.0-0, libuuid1
+#	sys-libs/libuuid seems to be included in sys-apps/util-linux
+#	sys-fs/fuse
 RDEPEND="
 	x11-libs/gtk+:3
 	dev-libs/nss
@@ -28,11 +32,8 @@ RDEPEND="
 	app-accessibility/at-spi2-core:2
 	app-accessibility/at-spi2-atk:2
 "
-#	sys-libs/libuuid seems to be included in sys-apps/util-linux
-#	sys-fs/fuse
 
-KEYWORDS="~amd64"
-S=$WORKDIR
+QA_PREBUILT="*"
 
 src_install() {
 	rm "opt/Jitsi Meet/chrome-sandbox" || die
