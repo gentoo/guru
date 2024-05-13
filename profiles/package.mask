@@ -14,6 +14,13 @@
 
 # New entries go on top.
 
+# Julien Roy <julien@jroy.ca> (2024-05-13)
+# Libraries with no reverse dependencies
+# Removal in 30 days
+dev-python/orderedmultidict # Bug 931391
+dev-python/multipart # Bug 931388
+dev-python/portion # Bug 931401
+
 # Viorel Munteanu <ceamac@gentoo.org> (2024-05-10)
 # No upstream activity in 3 years.
 # No revdeps left in tree.
