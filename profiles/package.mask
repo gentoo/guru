@@ -153,32 +153,6 @@ dev-python/django-markdownify
 dev-python/django-widget-tweaks
 dev-python/inscriptis
 
-# Julien Roy <julien@jroy.ca> (2024-04-13)
-# Mask stale/unmaintained packages for removal in 30 days
-# Unmaintained upstream, runtime failure on >=dev-lang/python-3.9
-dev-python/clufter
-
-# Julien Roy <julien@jroy.ca> (2024-04-13)
-# Mask stale/unmaintained packages for removal in 30 days
-# Deprecated upstream, replaced by oracledb, no revdeps
-dev-python/cx-oracle
-
-# Julien Roy <julien@jroy.ca> (2024-04-13)
-# Mask stale/unmaintained packages for removal in 30 days
-# Library with no revdeps, upstream no longer tagging releases, need to use live ebuild or tag commits
-dev-python/curio
-
-# Julien Roy <julien@jroy.ca> (2024-04-13)
-# Mask stale/unmaintained packages for removal in 30 days
-# Can't be merged due to banned files (bug https://bugs.gentoo.org/884691)
-dev-python/wheezy-template
-
-# Julien Roy <julien@jroy.ca> (2024-04-13)
-# Depends on last rited dev-python/future
-# Masked for removal in 30 days
-media-video/ffsubsync
-mpv-plugin/autosubsync-mpv
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
