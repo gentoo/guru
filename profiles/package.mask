@@ -35,6 +35,8 @@ sys-apps/fchroot # Bugs 931477, 922048
 x11-misc/caffeine-ng # Bugs 931487, 922088
 # Reverse dependencies
 sci-electronics/skywater-pdk
+# Revdep of revdevs
+sci-electronics/open_pdks # Bug 931473
 
 # Julien Roy <julien@jroy.ca> (2024-05-13)
 # Libraries with no reverse dependencies
