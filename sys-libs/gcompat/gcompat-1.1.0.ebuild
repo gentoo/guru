@@ -7,11 +7,11 @@ inherit multilib-minimal flag-o-matic
 
 DESCRIPTION="The GNU C Library compatibility layer for musl"
 HOMEPAGE="https://git.adelielinux.org/adelie/gcompat"
-KEYWORDS="~amd64 ~x86"
-LICENSE="UoI-NCSA"
-IUSE="libucontext obstack"
 SRC_URI="https://distfiles.adelielinux.org/source/${PN}/${P}.tar.xz"
+LICENSE="UoI-NCSA"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
+IUSE="libucontext obstack"
 
 DEPEND="
 	libucontext? ( sys-libs/libucontext )

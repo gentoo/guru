@@ -3,16 +3,18 @@
 
 EAPI=7
 
-EGIT_REPO_URI="https://github.com/dimkr/nss-tls.git"
-DESCRIPTION="A DNS over HTTPS resolver for glibc"
-HOMEPAGE="https://github.com/dimkr/nss-tls"
-
 inherit git-r3 meson systemd
 
+DESCRIPTION="A DNS over HTTPS resolver for glibc"
+HOMEPAGE="https://github.com/dimkr/nss-tls"
+EGIT_REPO_URI="https://github.com/dimkr/nss-tls.git"
+EGIT_BRANCH="master"
+
 S="${WORKDIR}/${PN}-9999"
+
 LICENSE="LGPL-2.1"
-IUSE="systemd"
 SLOT="0"
+IUSE="systemd"
 
 RDEPEND="dev-libs/glib
 		net-libs/libsoup"
@@ -23,9 +25,6 @@ BDEPEND="
 		app-alternatives/ninja
 		dev-build/meson
 "
-
-EGIT_REPO_URI="https://github.com/dimkr/nss-tls.git"
-EGIT_BRANCH="master"
 
 src_prepare() {
 			default

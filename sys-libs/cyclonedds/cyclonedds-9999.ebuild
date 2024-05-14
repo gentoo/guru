@@ -5,6 +5,9 @@ EAPI=8
 
 inherit cmake
 
+DESCRIPTION="Eclipse Cyclone DDS project"
+HOMEPAGE="https://cyclonedds.io/"
+
 if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/eclipse-cyclonedds/cyclonedds.git"
 	inherit git-r3
@@ -12,10 +15,6 @@ else
 	SRC_URI="https://github.com/eclipse-cyclonedds/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
-
-S="${WORKDIR}/${P}"
-DESCRIPTION="Eclipse Cyclone DDS project"
-HOMEPAGE="https://cyclonedds.io/"
 
 LICENSE="EPL-2.0"
 SLOT="0/$(ver_cut 1-2)"
