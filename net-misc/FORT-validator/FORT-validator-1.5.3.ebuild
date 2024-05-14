@@ -11,6 +11,8 @@ DESCRIPTION="FORT validator is an open source RPKI validator"
 HOMEPAGE="https://fortproject.net/validator?2"
 SRC_URI="https://github.com/NICMx/${PN}/releases/download/${PV}/fort-${PV}.tar.gz"
 
+S="${WORKDIR}/${MY_PN}-${PV}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -31,8 +33,6 @@ BDEPEND="
 	dev-build/automake
 	dev-build/automake
 "
-
-S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_prepare() {
 	default

@@ -15,11 +15,13 @@ HOMEPAGE="https://yt-dlg.github.io/yt-dlg/"
 SHA="692e5c5deee95c721a4ad92ecae7ca86de8bef35"
 SRC_URI="https://github.com/yt-dlg/yt-dlg/archive/${SHA}.tar.gz -> ${P}.gh.tar.gz"
 
+S="${WORKDIR}/${PN}-${SHA}"
+
 LICENSE="public-domain"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="ffmpeg test"
+IUSE="ffmpeg"
 
 # net-misc/youtube-dl isn't available in gentoo anymore but I kept it as a dependency option just in case someone still
 # use it or yt-dlp gets merged to youtube-dl.
@@ -34,6 +36,11 @@ DEPEND="${PYTHON_DEPS}
 "
 RDEPEND="${DEPEND}"
 
+# I don't know how to enable the test phase.
+distutils_enable_tests pytest
+
+DOCS=( README.md )
+
 python_test() {
 	local tests=( ditem dlist parsers utils widgets )
 	local current_test
@@ -41,13 +48,6 @@ python_test() {
 		"${EPYTHON}" "tests/test_${curent_test}.py" || die "Tests fail with ${EPYTHON}"
 	done
 }
-
-# I don't know how to enable the test phase.
-distutils_enable_tests pytest
-
-S="${WORKDIR}/${PN}-${SHA}"
-
-DOCS=( README.md )
 
 src_install() {
 	distutils-r1_src_install
