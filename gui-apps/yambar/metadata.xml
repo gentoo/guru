@@ -5,13 +5,10 @@
 		<email>leonardo@neumann.dev.br</email>
 		<name>Leonardo Neumann</name>
 	</maintainer>
-	<maintainer type="person">
-		<email>julien@jroy.ca</email>
-		<name>Julien Roy</name>
-	</maintainer>
 	<upstream>
 		<bugs-to>https://codeberg.org/dnkl/yambar/issues</bugs-to>
 		<changelog>https://codeberg.org/dnkl/yambar/releases</changelog>
+		<remote-id type="codeberg">dnkl/yambar</remote-id>
 	</upstream>
 	<use>
 		<flag name="core">Compiles modules, particles and decorations as shared libraries, which are loaded on-demand</flag>
