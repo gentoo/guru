@@ -1,10 +1,10 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_11 )
+PYTHON_COMPAT=( python3_{11..12} )
 
 inherit distutils-r1
 
@@ -34,7 +34,15 @@ DEPEND="
 
 distutils_enable_tests pytest
 
-python_test() {
-	# Ignore broken tests (due to network-sandbox)
-	pytest -v --ignore tests/stream/test_playback.py || die
-}
+EPYTEST_IGNORE=(
+	# Upstream uses a mix of pytest and unittest
+	# Since most tests are pytest, let's ignore unittest tests
+	tests/http/test_server.py
+	tests/http/test_handlers.py
+)
+
+EPYTEST_DESELECT=(
+	# Broken test due to network-sandbox
+	tests/stream/test_playback.py
+	tests/test_help.py::HelpTest::test_help_has_mopidy_options
+)
