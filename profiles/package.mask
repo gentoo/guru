@@ -33,6 +33,7 @@ media-video/tartube # Bugs 931465, 922019
 dev-python/python-skywater-pdk # Bugs 931417, 921867
 sys-apps/fchroot # Bugs 931477, 922048
 x11-misc/caffeine-ng # Bugs 931487, 922088
+dev-python/marshmallow_enum # Bugs 931379, 928255, 921799
 # Reverse dependencies
 sci-electronics/skywater-pdk
 # Revdep of revdevs
@@ -175,7 +176,7 @@ net-misc/tuxi
 dev-python/django-bleach
 dev-python/django-markdownify
 dev-python/django-widget-tweaks
-dev-python/inscriptis
+dev-python/inscriptis # Bug 931384
 
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
