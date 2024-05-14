@@ -19,11 +19,9 @@ HOMEPAGE="https://github.com/webgpu-native/webgpu-headers"
 LICENSE="BSD"
 SLOT="0"
 
-DEPEND="dev-lang/go"
+BDEPEND="dev-lang/go"
 
 src_install() {
 	insinto /usr/include/webgpu
 	doins "${S}"/webgpu.h
-	insinto /usr/share/licenses
-	newins "${S}"/LICENSE ${PN}
 }
