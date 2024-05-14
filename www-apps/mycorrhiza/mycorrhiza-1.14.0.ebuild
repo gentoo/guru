@@ -7,16 +7,15 @@ inherit go-module
 
 DESCRIPTION="Git-based wiki engine written in Go using mycomarkup"
 HOMEPAGE="https://mycorrhiza.wiki"
-
 SRC_URI="
 	https://github.com/bouncepaw/mycorrhiza/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://codeberg.org/BratishkaErik/distfiles/media/branch/master/${P}-vendor.tar.xz
 "
 
-KEYWORDS="~amd64 ~x86"
-
 LICENSE="AGPL-3 MIT Apache-2.0 BSD BSD-2 CC-BY-4.0"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
+
 RESTRICT="mirror"
 
 BDEPEND=">=dev-lang/go-1.19.0"

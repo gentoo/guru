@@ -7,16 +7,8 @@ inherit go-module
 
 DESCRIPTION="An alternative frontend for LBRY/Odysee. Inspired by Invidious and Libreddit."
 HOMEPAGE="https://codeberg.org/librarian/librarian"
-S="${WORKDIR}/${PN}"
 SHA="8f5bef89a558ee24b1193694fee693b57d50e66f"
 SRC_URI="https://codeberg.org/librarian/librarian/archive/${SHA}.tar.gz  -> ${P}.tar.gz"
-
-LICENSE="AGPL-3 Apache-2.0 BSD-2 BSD MIT MPL-2.0"
-SLOT="0"
-KEYWORDS="~amd64"
-
-RDEPEND="acct-user/librarian
-	acct-group/librarian"
 
 EGO_SUM=(
 	"cloud.google.com/go v0.26.0/go.mod"
@@ -1499,9 +1491,18 @@ go-module_set_globals
 
 SRC_URI+=" ${EGO_SUM_SRC_URI}"
 
+S="${WORKDIR}/${PN}"
+
+LICENSE="AGPL-3 Apache-2.0 BSD-2 BSD MIT MPL-2.0"
+SLOT="0"
+KEYWORDS="~amd64"
+
+RDEPEND="acct-user/librarian
+	acct-group/librarian"
+
 src_prepare() {
 	default
-        sed -i -e 's/IMAGE_CACHE: false/IMAGE_CACHE: true/' 'config.example.yml' || die
+	sed -i -e 's/IMAGE_CACHE: false/IMAGE_CACHE: true/' 'config.example.yml' || die
 }
 
 src_compile() {
@@ -1512,6 +1513,6 @@ src_install() {
 	einstalldocs
 	dobin librarian
 	newinitd "${FILESDIR}/librarian.initd" "librarian"
-        insinto "/etc/librarian"
-        newins "config.example.yml" "config.yml"
+	insinto "/etc/librarian"
+	newins "config.example.yml" "config.yml"
 }
