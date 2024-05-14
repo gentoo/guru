@@ -9,13 +9,13 @@ DESCRIPTION="A handler for XKCD urls"
 HOMEPAGE="https://github.com/mazunki/xkcd"
 SRC_URI="https://github.com/mazunki/xkcd/archive/refs/tags/v${PV}.tar.gz -> xkcd-${PV}.tar.gz"
 
+S="${WORKDIR}/xkcd-${PV}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="x11-misc/xdg-utils"
-
-S="${WORKDIR}/xkcd-${PV}"
 
 src_install() {
 	dobin xkcd

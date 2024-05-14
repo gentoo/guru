@@ -13,6 +13,8 @@ DESCRIPTION="YaCy - p2p based distributed web-search engine"
 HOMEPAGE="https://www.yacy.net/"
 SRC_URI="https://www.yacy.net/release/yacy_v${MAJOR_PV}_${REL_PV}_${SVN_PV}.tar.gz"
 
+S="${WORKDIR}/${PN}"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -24,8 +26,6 @@ DEPEND="
 	acct-user/yacy
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}"
 
 EANT_BUILD_TARGET="all"
 UNINSTALL_IGNORE="/usr/share/yacy/DATA"

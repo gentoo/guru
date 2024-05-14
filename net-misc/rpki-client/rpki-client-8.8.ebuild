@@ -11,6 +11,8 @@ HOMEPAGE="https://rpki-client.org/"
 SRC_URI="mirror://openbsd/${PN}/${PN}-${MY_PV}.tar.gz
 https://lg.breizh-ix.net/ssl/cert.pem -> ${PN}-${MY_PV}-cert.pem"
 
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -28,7 +30,6 @@ BDEPEND="
 	dev-build/libtool
 "
 
-S="${WORKDIR}/${MY_P}"
 src_configure() {
 	local myeconfargs=(
 		--with-rsync=rsync

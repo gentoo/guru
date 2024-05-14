@@ -9,21 +9,17 @@ DESCRIPTION="A static multicast routing daemon"
 HOMEPAGE="https://troglobit.com/projects/smcroute/"
 SRC_URI="https://github.com/troglobit/${PN}/releases/download/${PV}/${P}.tar.gz"
 
-SLOT="0"
 LICENSE="GPL-2+"
+SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="caps systemd"
 
-BDEPEND="
-	virtual/pkgconfig
-"
 RDEPEND="
 	caps? ( sys-libs/libcap )
 	systemd? ( sys-apps/systemd:0= )
 "
-DEPEND="
-	${RDEPEND}
-"
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 CONFIG_CHECK="
 	~IP_MROUTE

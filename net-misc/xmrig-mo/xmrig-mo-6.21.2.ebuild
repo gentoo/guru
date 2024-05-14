@@ -9,10 +9,13 @@ MO_PV="mo1"
 DESCRIPTION="MoneroOcean fork of xmrig that supports algo switching"
 HOMEPAGE="https://github.com/MoneroOcean/xmrig"
 SRC_URI="https://github.com/MoneroOcean/xmrig/archive/v${PV}-${MO_PV}.tar.gz -> ${P}-${MO_PV}.tar.gz"
-KEYWORDS="~amd64 ~arm64"
+
+S="${WORKDIR}/xmrig-${PV}-${MO_PV}"
 
 LICENSE="Apache-2.0 GPL-3+ MIT"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64"
+
 IUSE="cpu_flags_x86_sse4_1 donate hwloc opencl +ssl"
 
 DEPEND="
@@ -31,8 +34,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-6.12.2-nonotls.patch
 	"${FILESDIR}"/${PN}-6.21.2-fix-length-error.patch
 )
-
-S="${WORKDIR}/xmrig-${PV}-${MO_PV}"
 
 src_prepare() {
 	if ! use donate ; then

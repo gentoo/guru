@@ -115,6 +115,8 @@ SRC_URI="
 	$(cargo_crate_uris ${CRATES})
 "
 
+S="${WORKDIR}/${PN}-v${PV}"
+
 # openssl and SSLeay come from the “ring” crate.
 LICENSE="Apache-2.0 BSD ISC MIT MPL-2.0 openssl SSLeay ZLIB"
 SLOT="0"
@@ -124,8 +126,6 @@ RDEPEND="
 	acct-user/gemini
 "
 DEPEND="${RDEPEND}"
-
-S="${WORKDIR}/${PN}-v${PV}"
 
 # Rust packages ignore CFLAGS and LDFLAGS so let's silence the QA warnings.
 QA_FLAGS_IGNORED="usr/bin/gemserv"
