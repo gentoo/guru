@@ -7,14 +7,7 @@ inherit go-module
 
 DESCRIPTION="An alternative frontend for Imgur. Originally based on rimgu."
 HOMEPAGE="https://codeberg.org/rimgo/rimgo"
-S="${WORKDIR}/${PN}"
-LICENSE="AGPL-3 Apache-2.0 BSD-2 BSD MIT"
-SLOT="0"
-KEYWORDS="~amd64"
 SRC_URI="https://codeberg.org/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-
-RDEPEND="acct-user/rimgo
-	acct-group/rimgo"
 
 EGO_SUM=(
 	"github.com/PuerkitoBio/goquery v1.8.1"
@@ -169,6 +162,15 @@ EGO_SUM=(
 go-module_set_globals
 
 SRC_URI+=" ${EGO_SUM_SRC_URI}"
+
+S="${WORKDIR}/${PN}"
+
+LICENSE="AGPL-3 Apache-2.0 BSD-2 BSD MIT"
+SLOT="0"
+KEYWORDS="~amd64"
+
+RDEPEND="acct-user/rimgo
+	acct-group/rimgo"
 
 src_prepare() {
 	default

@@ -288,6 +288,8 @@ SHA="1808d2fd77526d335ab6ab4e85b99b1ddbbf07ed"
 SRC_URI="https://github.com/realaravinth/libmedium/archive/${SHA}.tar.gz"
 SRC_URI+=" ${CARGO_CRATE_URIS}"
 
+S="${WORKDIR}/${PN}-${SHA}"
+
 # License set may be more restrictive as OR is not respected
 # use cargo-license for a more accurate license picture
 LICENSE="0BSD AGPL-3+ Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 ISC MIT Unicode-DFS-2016 Unlicense ZLIB"
@@ -300,7 +302,6 @@ RDEPEND="acct-user/libmedium
 # rust does not use *FLAGS from make.conf, silence portage warning
 # update with proper path to binaries this crate installs, omit leading /
 QA_FLAGS_IGNORED="usr/bin/${PN}"
-S="${WORKDIR}/${PN}-${SHA}"
 
 src_prepare() {
 	sed -i -e 's/#cache = "\/var\/lib\/libmedium"/cache = "\/var\/cache\/libmedium"/' 'config/default.toml' || die

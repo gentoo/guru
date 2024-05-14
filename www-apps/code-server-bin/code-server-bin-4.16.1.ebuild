@@ -15,7 +15,9 @@ SRC_URI="
 	amd64? ( ${BASE_URI}-amd64.tar.gz -> ${P}-amd64.tar.gz )
 	arm64? ( ${BASE_URI}-arm64.tar.gz -> ${P}-arm64.tar.gz )
 "
-RESTRICT="test"
+
+S="${WORKDIR}/${MY_P}-linux-${ARCH}"
+
 LICENSE="MIT ISC BSD Apache-2.0 BSD-2 PYTHON GPL-2 0BSD"
 LICENSE+=" LGPL-2.1+
 	|| ( MIT WTFPL )
@@ -24,14 +26,14 @@ LICENSE+=" LGPL-2.1+
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
+RESTRICT="test"
+
 RDEPEND="
 	${DEPEND}
 	>=net-libs/nodejs-16.0.0[ssl]
 	sys-apps/ripgrep
 	app-crypt/libsecret
 "
-
-S="${WORKDIR}/${MY_P}-linux-${ARCH}"
 
 PATCHES=( "${FILESDIR}/${PN}-node.patch" )
 
