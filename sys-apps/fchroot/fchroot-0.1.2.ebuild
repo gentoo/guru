@@ -10,10 +10,11 @@ inherit distutils-r1 pypi
 DESCRIPTION="Funtoo's franken-chroot tool - chroot from AMD64 to ARM system"
 HOMEPAGE="https://code.funtoo.org/bitbucket/users/drobbins/repos/fchroot/browse"
 
-RESTRICT="mirror test"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
+
+RESTRICT="mirror test"
 
 RDEPEND="
 	${PYTHON_DEPS}
