@@ -40,8 +40,6 @@ HOMEPAGE="https://github.com/sitkevij/hex"
 SRC_URI="https://github.com/sitkevij/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
-# Prevent portage from trying to fetch bunch of *.crate from mirror despite they are not mirrored.
-RESTRICT="mirror"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
