@@ -16,7 +16,7 @@ fi
 DESCRIPTION="Webgpu Header files"
 HOMEPAGE="https://github.com/webgpu-native/webgpu-headers"
 
-LICENSE="BSD-3"
+LICENSE="BSD"
 SLOT="0"
 
 DEPEND="dev-lang/go"
