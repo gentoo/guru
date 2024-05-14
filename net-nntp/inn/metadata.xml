@@ -19,8 +19,6 @@ have some slight variances from the NNTP protocol.
 </longdescription>
 <use>
 	<flag name="cancel-locks" restrict="&gt;=net-nntp/inn-2.7.1">Enable Cancel-Lock header functionality</flag>
-	<flag name="keywords" restrict="&lt;net-nntp/inn-2.7.1">Enable automatic innd keyword generation</flag>
 	<flag name="low-memory">Use tagged hash table for history to reduce memory footprint</flag>
-	<flag name="largefile" restrict="&lt;net-nntp/inn-2.7.1">Support files larger than 2GB</flag>
 </use>
 </pkgmetadata>

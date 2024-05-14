@@ -1,10 +1,10 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
-inherit optfeature perl-functions python-single-r1 systemd tmpfiles verify-sig
+PYTHON_COMPAT=( python3_{10..13} )
+inherit optfeature perl-functions python-single-r1 tmpfiles verify-sig
 
 DESCRIPTION="InterNetNews - the Internet meets Netnews"
 HOMEPAGE="
@@ -111,10 +111,6 @@ src_install() {
 	find "${ED}" -name '*.la' -delete || die
 	rm "${ED}"/usr/share/doc/${PF}/{GPL,LICENSE} || die
 	rm -r "${ED}"/run "${ED}"/var/tmp || die
-
-	if [[ ${REPLACING_VERSIONS} ]]; then
-		rm "${ED}"/var/db/news/* || die
-	fi
 
 	for svc in cnfsstat innwatch; do
 		newinitd "${FILESDIR}"/${svc}.initd ${svc}
