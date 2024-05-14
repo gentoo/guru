@@ -9,12 +9,13 @@ DESCRIPTION="Creator of bootable USBs, with ability to copy ISOs, persistence st
 HOMEPAGE="http://www.ventoy.net"
 SRC_URI="https://github.com/ventoy/Ventoy/releases/download/v${PV}/ventoy-${PV}-linux.tar.gz"
 
+S="${WORKDIR}"/ventoy-${PV}
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RESTRICT="strip mirror"
-QA_PREBUILT="*" # Against "does not respect LDFLAGS"
 
 DEPEND="
 	sys-fs/dosfstools
@@ -23,7 +24,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-S=${WORKDIR}/ventoy-${PV}
+QA_PREBUILT="*" # Against "does not respect LDFLAGS"
 
 CARCH="x86_64"
 

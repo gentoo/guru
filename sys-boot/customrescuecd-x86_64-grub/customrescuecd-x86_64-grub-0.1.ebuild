@@ -5,13 +5,12 @@ EAPI=7
 
 DESCRIPTION="Grub menu entries for the .iso image of customrescuecd"
 HOMEPAGE="https://sourceforge.net/projects/customrescuecd/"
-SRC_URI=""
+
+S="${WORKDIR}"
 
 LICENSE="GPL-2"
 SLOT=0
 KEYWORDS="~amd64"
-
-S=${WORKDIR}
 
 RDEPEND="app-admin/customrescuecd-x86_64
 	sys-boot/grub"
