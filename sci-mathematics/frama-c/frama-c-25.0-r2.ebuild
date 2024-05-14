@@ -10,6 +10,8 @@ HOMEPAGE="https://frama-c.com"
 NAME="Manganese"
 SRC_URI="https://frama-c.com/download/${P}-${NAME}.tar.gz"
 
+S="${WORKDIR}/${P}-${NAME}"
+
 LICENSE="BSD LGPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -26,8 +28,6 @@ RDEPEND="
 	gtk? ( dev-ml/lablgtk:3=[ocamlopt?,sourceview] )"
 DEPEND="${RDEPEND}
 	media-gfx/graphviz"
-
-S="${WORKDIR}/${P}-${NAME}"
 
 src_prepare() {
 	mv configure.in configure.ac || die

@@ -17,6 +17,8 @@ DESCRIPTION="IDE for R and Python"
 HOMEPAGE="https://posit.co"
 SRC_URI="https://download1.rstudio.org/electron/rhel8/x86_64/${MY_PN}-${PV/_p/-}-x86_64.rpm"
 
+S="${WORKDIR}/usr/lib/${MY_PN}"
+
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="-* ~amd64"
@@ -78,8 +80,6 @@ QA_PREBUILT="
 "
 
 CONFIG_CHECK="~USER_NS"
-
-S="${WORKDIR}/usr/lib/${MY_PN}"
 
 src_configure() {
 	default

@@ -10,6 +10,8 @@ HOMEPAGE="https://frama-c.com"
 NAME="Chromium"
 SRC_URI="https://frama-c.com/download/frama-c-${PV}-${NAME}.tar.gz"
 
+S="${WORKDIR}/frama-c-${PV}-${NAME}"
+
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -22,8 +24,6 @@ RDEPEND="~sci-mathematics/frama-c-${PV}:=[gtk=,ocamlopt?]
 		~sci-mathematics/frama-c-pdg-${PV}:=[ocamlopt?]
 		~sci-mathematics/frama-c-sparecode-${PV}:=[ocamlopt?]"
 DEPEND="${RDEPEND}"
-
-S="${WORKDIR}/frama-c-${PV}-${NAME}"
 
 src_prepare() {
 	mv configure.in configure.ac || die
