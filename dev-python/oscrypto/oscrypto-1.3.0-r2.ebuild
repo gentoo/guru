@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..12} pypy3 )
 DISTUTILS_USE_PEP517=setuptools
 inherit edo distutils-r1 optfeature
 
@@ -29,6 +29,11 @@ BDEPEND="
 "
 
 DOCS=( docs {changelog,readme}.md )
+
+PATCHES=(
+	"${FILESDIR}"/openssl-3.0.10-fix.patch
+	"${FILESDIR}"/py3.12.patch
+)
 
 distutils_enable_tests unittest
 
