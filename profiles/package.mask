@@ -36,6 +36,7 @@ x11-misc/caffeine-ng # Bugs 931487, 922088
 dev-python/marshmallow_enum # Bugs 931379, 928255, 921799
 # Reverse dependencies
 sci-electronics/skywater-pdk
+dev-python/dataclasses-json # Bug 930471
 # Revdep of revdevs
 sci-electronics/open_pdks # Bug 931473
 
