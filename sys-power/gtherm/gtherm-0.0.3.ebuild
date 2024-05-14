@@ -11,6 +11,8 @@ DESCRIPTION="A simple daemon to monitor thermal zones and cooling devices"
 HOMEPAGE="https://source.puri.sm/Librem5/gtherm"
 SRC_URI="https://source.puri.sm/Librem5/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${PN}-v${PV}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
@@ -24,8 +26,6 @@ DEPEND="
 	vala? ( $(vala_depend) )
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}-v${PV}"
 
 src_prepare() {
 	eapply_user

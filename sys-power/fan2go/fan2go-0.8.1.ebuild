@@ -6,9 +6,9 @@ EAPI=8
 inherit go-module shell-completion systemd
 
 DESCRIPTION="A simple daemon providing dynamic fan speed control"
+HOMEPAGE="https://github.com/markusressel/fan2go"
 SRC_URI="https://github.com/markusressel/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://gentoo.kropotkin.rocks/go-pkgs/${P}-vendor.tar.xz"
-HOMEPAGE="https://github.com/markusressel/fan2go"
 
 LICENSE="AGPL-3 Apache-2.0 MIT BSD BSD-2 MIT MPL-2.0"
 SLOT="0"
