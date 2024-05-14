@@ -24,21 +24,21 @@
 # - bump python compat version (at least to 11, try 12)
 # - try and fix open bugs for these packages
 # Otherwise, they will be removed by 2024-06-13
-dev-python/hypothesmith # Bugs 931377, 921823, 921821
-dev-python/pymorphy2-dicts-uk # Bugs 931405, 921863
-dev-python/pymorphy2-dicts-ru # Bug 921862
-dev-python/pymorphy2-dicts # Bugs 921861
-dev-python/pymorphy2 # Bugs 921860, 931404
-media-video/tartube # Bugs 931465, 922019
-dev-python/python-skywater-pdk # Bugs 931417, 921867
-sys-apps/fchroot # Bugs 931477, 922048
-x11-misc/caffeine-ng # Bugs 931487, 922088
-dev-python/marshmallow_enum # Bugs 931379, 928255, 921799
+dev-python/hypothesmith
+dev-python/pymorphy2-dicts-uk
+dev-python/pymorphy2-dicts-ru
+dev-python/pymorphy2-dicts
+dev-python/pymorphy2
+media-video/tartube
+dev-python/python-skywater-pdk
+sys-apps/fchroot
+x11-misc/caffeine-ng
+dev-python/marshmallow_enum
 # Reverse dependencies
 sci-electronics/skywater-pdk
-dev-python/dataclasses-json # Bug 930471
+dev-python/dataclasses-json
 # Revdep of revdevs
-sci-electronics/open_pdks # Bug 931473
+sci-electronics/open_pdks
 
 # Julien Roy <julien@jroy.ca> (2024-05-13)
 # Libraries with no reverse dependencies
