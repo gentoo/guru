@@ -10,11 +10,11 @@ https://xff.cz/git/linux-firmware/tree/anx7688-fw.bin?id=4ec2645b007ba4c3f2962e3
 https://xff.cz/git/linux-firmware/tree/rtl_bt/rtl8723cs_xx_fw.bin?id=4ec2645b007ba4c3f2962e38b50c06f274abbf7c -> rtl8723cs_xx-fw.bin
 "
 
+S="${WORKDIR}"
+
 LICENSE="linux-fw-redistributable no-source-code"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-
-S="${WORKDIR}"
 
 src_install() {
 	mkdir -p "${D}"/lib/firmware/ || die
