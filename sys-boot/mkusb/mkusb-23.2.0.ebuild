@@ -19,13 +19,11 @@ SRC_URI="
 
 S="${WORKDIR}"
 
-SLOT="0"
-
 LICENSE="GPL-3"
+SLOT="0"
 KEYWORDS="~amd64"
 
 RESTRICT="strip"
-QA_PREBUILT="*"
 # REQUIRES_EXCLUDE="libcef.so" # Already inside
 
 RDEPEND="
@@ -36,6 +34,8 @@ RDEPEND="
 	sys-fs/ntfs3g
 "
 # About sys-fs/ntfs3g see my issue to make this dep optionsl https://bugs.launchpad.net/mkusb/+bug/2058962
+
+QA_PREBUILT="*"
 
 src_unpack() {
 	unpack_deb "$DISTDIR/$P-common.deb"
