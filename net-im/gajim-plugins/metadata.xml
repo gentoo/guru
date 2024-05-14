@@ -11,7 +11,6 @@
     <flag name="length_notifier">Plugin: Notifies you when message length reaches a limit</flag>
     <flag name="message_box_size">Plugin: Allows you to adjust the height of the new message input field</flag>
     <flag name="now_listen">Plugin: Copy tune info to conversation input box</flag>
-    <flag name="omemo">Plugin: OMEMO Multi-End Message and Object Encryption for 1:1 chats, groupchats, and file transfers</flag>
     <flag name="openpgp">Plugin: Encrypt your messages with OpenPGP (XEP-0373)</flag>
     <flag name="pgp">Plugin: Encrypt your messages with PGP (XEP-0027)</flag>
     <flag name="plugins_translations">Plugin: Translation files for Gajim Plugins</flag>
