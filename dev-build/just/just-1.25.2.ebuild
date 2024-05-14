@@ -144,7 +144,7 @@ CRATES="
 	windows_x86_64_msvc@0.52.4
 	yaml-rust@0.4.5
 	yansi@0.5.1
-	${P}
+	${PN}@${PV}
 "
 
 inherit cargo shell-completion toolchain-funcs
@@ -155,7 +155,7 @@ HOMEPAGE="
 	https://crates.io/crates/just
 	https://github.com/casey/just
 "
-SRC_URI="$(cargo_crate_uris ${CRATES})"
+SRC_URI="${CARGO_CRATE_URIS}"
 
 LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 CC0-1.0 MIT Unicode-DFS-2016 Unlicense"
 SLOT="0"
