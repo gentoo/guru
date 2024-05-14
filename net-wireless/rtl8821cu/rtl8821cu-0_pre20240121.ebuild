@@ -12,8 +12,8 @@ HOMEPAGE="https://github.com/morrownr/8821cu-20210916"
 SRC_URI="https://github.com/morrownr/${MY_PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MY_PN}-${COMMIT}"
 
-SLOT=0
 LICENSE="GPL-2"
+SLOT=0
 KEYWORDS="~amd64 ~x86"
 
 src_compile() {

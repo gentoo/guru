@@ -12,8 +12,8 @@ HOMEPAGE="https://github.com/tomaspinho/rtl8821ce"
 SRC_URI="https://github.com/tomaspinho/${MY_PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MY_PN}-${COMMIT}"
 
-SLOT=0
 LICENSE="GPL-2"
+SLOT=0
 KEYWORDS="~amd64 ~x86"
 
 CONFIG_CHECK="~!RTW88_8821CE"
