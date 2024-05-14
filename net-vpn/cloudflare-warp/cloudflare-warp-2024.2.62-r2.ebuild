@@ -9,18 +9,18 @@ DESCRIPTION="Cloudflare Warp Client"
 HOMEPAGE="https://1.1.1.1"
 SRC_URI="https://pkg.cloudflareclient.com/pool/jammy/main/c/cloudflare-warp/cloudflare-warp_${PV}-1_amd64.deb"
 
+S="${WORKDIR}"
+
 LICENSE="all-rights-reserved"
-RESTRICT="bindist mirror"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="systemd +systray dex"
+RESTRICT="bindist mirror"
 RDEPEND="net-firewall/nftables
 	dex? ( net-libs/libpcap )
 "
 
 QA_PREBUILT="/bin/warp-cli /bin/warp-dex /bin/warp-diag /bin/warp-svc /bin/warp-taskbar"
-
-S="${WORKDIR}"
 
 src_unpack() {
 	unpack_deb ${A}
