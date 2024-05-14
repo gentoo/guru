@@ -11,6 +11,8 @@ DESCRIPTION="Editor of multiple sequence alignments."
 HOMEPAGE="https://www.jalview.org/"
 SRC_URI="https://www.jalview.org/getdown/release/jalview-all-${PV}-j1.8.jar"
 
+S="${WORKDIR}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -18,8 +20,6 @@ KEYWORDS="~amd64 ~x86"
 DEPEND="app-arch/unzip"
 
 RDEPEND="virtual/jre:1.8"
-
-S="${WORKDIR}"
 
 src_unpack() {
 	cp -v "${DISTDIR}/${A}" . || die

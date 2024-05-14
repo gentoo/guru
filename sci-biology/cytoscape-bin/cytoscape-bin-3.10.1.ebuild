@@ -9,12 +9,12 @@ DESCRIPTION="A visualization platform for molecular interaction networks"
 HOMEPAGE="http://www.cytoscape.org/"
 SRC_URI="https://github.com/cytoscape/cytoscape/releases/download/${PV}/cytoscape-unix-${PV}.tar.gz"
 
+S="${WORKDIR}"
+
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RDEPEND=">=virtual/jre-11-r2"
-
-S="${WORKDIR}"
 
 src_install() {
 	MY_PN="cytoscape"
