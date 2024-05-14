@@ -330,8 +330,6 @@ HOMEPAGE="https://gitlab.gnome.org/World/pika-backup"
 SRC_URI="https://gitlab.gnome.org/World/${PN}/-/archive/v${PV}/${P}.tar.bz2
 	${CARGO_CRATE_URIS}
 "
-COMMIT="668f9b2e41a95bd71c3d5d45f90cf769ebcce80b"
-S="${WORKDIR}/${PN}-v${PV}-${COMMIT}"
 
 LICENSE="GPL-3"
 # Dependent crate licenses
@@ -362,17 +360,16 @@ BDEPEND="
 # Rust
 QA_FLAGS_IGNORED="usr/bin/${PN} usr/bin/${PN}-monitor"
 
-PATCHES=(
-	"${FILESDIR}/meson-fixes.patch"
-)
-
 src_prepare() {
-	python_fix_shebang "${S}/build-aux"
+	mv -T "${WORKDIR}/${PN}-v${PV}"* "${S}" || die
+	sed -i -e "/subdir('src')/d" "${S}/meson.build" || die
 	default
 }
 
 src_compile() {
+	python_fix_shebang "${S}/build-aux"
 	meson_src_compile
+	cargo_src_compile
 }
 
 src_install() {
@@ -383,11 +380,9 @@ src_install() {
 pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_schemas_update
-	xdg_icon_cache_update
 }
 
 pkg_postrm() {
 	xdg_pkg_postrm
 	gnome2_schemas_update
-	xdg_icon_cache_update
 }
