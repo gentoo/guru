@@ -8,6 +8,9 @@ DESCRIPTION="Dogecoin Core Qt for desktop. Downloaded blockchain is under 2.2GB.
 HOMEPAGE="https://github.com/dogecoin"
 SRC_URI="https://github.com/dogecoin/dogecoin/archive/refs/tags/v${PV}.tar.gz -> ${PN}-v${PV}.tar.gz"
 
+WORKDIR_="${WORKDIR}/dogecoin-${PV}"
+S="${WORKDIR_}"
+
 LICENSE="MIT"
 SLOT="0"
 DB_VER="5.3"
@@ -47,9 +50,6 @@ PATCHES=(
 	"${FILESDIR}"/"${PV}"-deque.patch
 	"${FILESDIR}"/gcc13.patch
 )
-
-WORKDIR_="${WORKDIR}/dogecoin-${PV}"
-S=${WORKDIR_}
 
 pkg_pretend() {
 
