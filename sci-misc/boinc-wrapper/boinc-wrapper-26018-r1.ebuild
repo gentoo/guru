@@ -9,9 +9,9 @@ DESCRIPTION="Wrapper to use non-BOINC apps with BOINC"
 HOMEPAGE="https://boinc.berkeley.edu/trac/wiki/WrapperApp"
 SRC_URI="https://github.com/BOINC/boinc/archive/refs/tags/wrapper/${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="~amd64 ~arm64 ~x86"
 LICENSE="Info-ZIP LGPL-3+ regexp-UofT"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 # libboinc-api dependencies
 # no subslot, because "-Wl,--as-needed" removes them
