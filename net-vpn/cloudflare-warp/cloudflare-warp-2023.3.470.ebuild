@@ -9,15 +9,15 @@ DESCRIPTION="Cloudflare Warp Client"
 HOMEPAGE="https://1.1.1.1"
 SRC_URI="https://pkg.cloudflareclient.com/rpm/x86_64/${P}-1.x86_64.rpm"
 
+S="${WORKDIR}"
+
 LICENSE="all-rights-reserved"
-RESTRICT="bindist mirror"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="systemd +systray"
+RESTRICT="bindist mirror"
 
 QA_PREBUILT="/bin/warp-cli /bin/warp-diag /bin/warp-svc /bin/warp-taskbar"
-
-S="${WORKDIR}"
 
 src_install() {
 	into /
