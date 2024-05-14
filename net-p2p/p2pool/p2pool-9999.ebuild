@@ -7,8 +7,6 @@ inherit cmake git-r3
 
 DESCRIPTION="Decentralized pool for Monero mining"
 HOMEPAGE="https://p2pool.io"
-
-SRC_URI=""
 EGIT_REPO_URI="https://github.com/SChernykh/p2pool.git"
 
 LICENSE="BSD GPL-3+ ISC LGPL-3+ MIT"

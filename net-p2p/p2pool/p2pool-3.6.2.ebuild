@@ -7,12 +7,11 @@ inherit cmake
 
 DESCRIPTION="Decentralized pool for Monero mining"
 HOMEPAGE="https://p2pool.io"
-
 SRC_URI=" https://github.com/SChernykh/p2pool/releases/download/v${PV}/p2pool_source.tar.xz -> ${P}.tar.xz"
-KEYWORDS="~amd64 ~arm64 ~x86"
 
 LICENSE="BSD GPL-3+ ISC LGPL-3+ MIT"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 DEPEND="
 	dev-libs/libsodium

@@ -35,10 +35,9 @@ ${P}-robin-hood-hashing.tar.gz
 	https://github.com/SChernykh/miniupnp/archive/${MINIUPNP_DIST_COMMIT}.tar.gz -> \
 ${P}-miniupnp.tar.gz
 "
-KEYWORDS="~amd64 ~arm64 ~x86"
-
 LICENSE="BSD GPL-3+ ISC LGPL-3+ MIT"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 DEPEND="
 	dev-libs/libsodium
