@@ -17,10 +17,11 @@ HOMEPAGE="https://github.com/chaos/genders"
 SRC_URI="https://github.com/chaos/${PN}/archive/${MY_P}.tar.gz"
 S="${WORKDIR}/${PN}-${MY_P}"
 
-KEYWORDS="~amd64"
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64"
 IUSE="cxx java perl python"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 CDEPEND="
 	perl? ( dev-lang/perl:= )
@@ -41,7 +42,6 @@ BDEPEND="
 	)
 "
 
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 DOCS=( README TUTORIAL NEWS )
 
 PATCHES=( "${FILESDIR}/${PN}-1.28.1-gcc14.patch" )
