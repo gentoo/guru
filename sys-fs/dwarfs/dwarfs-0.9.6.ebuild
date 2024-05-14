@@ -11,12 +11,15 @@ DESCRIPTION="A fast very high compression read-only FUSE file system"
 HOMEPAGE="https://github.com/mhx/dwarfs"
 SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/${P}.tar.xz"
 
+S="${WORKDIR}/dwarfs-${PV}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+jemalloc test man" #Tests is broken at this moment
 # See https://github.com/mhx/dwarfs/issues/194
-S="${WORKDIR}/dwarfs-${PV}"
+
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	app-arch/brotli
@@ -58,7 +61,6 @@ BDEPEND="
 "
 
 DOCS=( "README.md" "CHANGES.md" "TODO" )
-RESTRICT="!test? ( test )"
 
 CHECKREQS_DISK_BUILD="1300M"
 CMAKE_IN_SOURCE_BUILD=1

@@ -115,9 +115,9 @@ else
 	KEYWORDS="~amd64"
 fi
 
-RESTRICT="mirror"
 LICENSE="MIT"
 SLOT="0"
+RESTRICT="mirror"
 
 QA_FLAGS_IGNORED="usr/bin/diskonaut"
 
