@@ -10,6 +10,8 @@ HOMEPAGE="https://frama-c.com"
 NAME="Chromium"
 SRC_URI="https://frama-c.com/download/${P}-${NAME}.tar.gz"
 
+S="${WORKDIR}/${P}-${NAME}"
+
 LICENSE="BSD LGPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -24,8 +26,6 @@ RDEPEND="
 	gtk? ( >=dev-ml/lablgtk-2.14:2=[sourceview,gnomecanvas,ocamlopt?] )"
 DEPEND="${RDEPEND}
 	media-gfx/graphviz"
-
-S="${WORKDIR}/${P}-${NAME}"
 
 PATCHES=( "${FILESDIR}/frama-c-24.0-fix-bflags.patch" )
 

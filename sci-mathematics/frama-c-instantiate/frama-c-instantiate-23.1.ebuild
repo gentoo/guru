@@ -10,6 +10,8 @@ HOMEPAGE="https://frama-c.com"
 NAME="Vanadium"
 SRC_URI="https://frama-c.com/download/frama-c-${PV}-${NAME}.tar.gz"
 
+S="${WORKDIR}/frama-c-${PV}-${NAME}/src/plugins/instantiate"
+
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -18,8 +20,6 @@ RESTRICT="strip"
 
 RDEPEND="~sci-mathematics/frama-c-${PV}:=[ocamlopt?]"
 DEPEND="${RDEPEND}"
-
-S="${WORKDIR}/frama-c-${PV}-${NAME}/src/plugins/instantiate"
 
 src_prepare() {
 	export FRAMAC_SHARE="${ESYSROOT}/usr/share/frama-c"

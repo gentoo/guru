@@ -10,6 +10,8 @@ HOMEPAGE="https://frama-c.com"
 NAME="Chromium"
 SRC_URI="https://frama-c.com/download/frama-c-${PV}-${NAME}.tar.gz"
 
+S="${WORKDIR}/frama-c-${PV}-${NAME}"
+
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -25,8 +27,6 @@ DEPEND="${RDEPEND}"
 # Eva needs the "scope" plugin at runtime, which provides rm_assert
 # But it is not needed for compilation, and would introduce a mutual dependency
 PDEPEND="~sci-mathematics/frama-c-scope-${PV}:=[ocamlopt?]"
-
-S="${WORKDIR}/frama-c-${PV}-${NAME}"
 
 src_prepare() {
 	mv configure.in configure.ac || die

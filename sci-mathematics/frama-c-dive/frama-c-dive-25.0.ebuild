@@ -10,6 +10,8 @@ HOMEPAGE="https://frama-c.com"
 NAME="Manganese"
 SRC_URI="https://frama-c.com/download/frama-c-${PV}-${NAME}.tar.gz"
 
+S="${WORKDIR}/frama-c-${PV}-${NAME}/src/plugins/dive"
+
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -21,8 +23,6 @@ RDEPEND="~sci-mathematics/frama-c-${PV}:=[ocamlopt?]
 		~sci-mathematics/frama-c-studia-${PV}:=[ocamlopt?]
 		~sci-mathematics/frama-c-server-${PV}:=[ocamlopt?]"
 DEPEND="${RDEPEND}"
-
-S="${WORKDIR}/frama-c-${PV}-${NAME}/src/plugins/dive"
 
 src_prepare() {
 	export FRAMAC_SHARE="${ESYSROOT}/usr/share/frama-c"
