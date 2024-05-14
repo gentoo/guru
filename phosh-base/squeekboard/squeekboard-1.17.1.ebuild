@@ -57,6 +57,8 @@ HOMEPAGE="https://gitlab.gnome.org/World/Phosh/squeekboard"
 SRC_URI="https://gitlab.gnome.org/World/Phosh/squeekboard/-/archive/v${PV}/squeekboard-v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" $(cargo_crate_uris ${CRATES})"
 
+S="${WORKDIR}/${PN}-v${PV}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
@@ -77,8 +79,6 @@ BDEPEND="
 	virtual/pkgconfig
 	virtual/rust
 "
-
-S="${WORKDIR}/${PN}-v${PV}"
 
 QA_FLAGS_IGNORED="/usr/bin/squeekboard-test-layout"
 
