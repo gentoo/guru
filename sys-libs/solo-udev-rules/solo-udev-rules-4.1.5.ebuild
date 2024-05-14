@@ -13,14 +13,14 @@ HOMEPAGE="
 "
 SRC_URI="https://github.com/solokeys/solo1/archive/${PV}.tar.gz -> ${MY_P}.tar.gz"
 
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="|| ( Apache-2.0 MIT )"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="virtual/udev"
 DEPEND="${RDEPEND}"
-
-S="${WORKDIR}/${MY_P}"
 
 src_compile() {
 	# Omitting src_compile() would invoke make, leaving it empty is not allowed.

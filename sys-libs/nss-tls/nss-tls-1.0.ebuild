@@ -3,16 +3,16 @@
 
 EAPI=7
 
+inherit meson systemd
+
 DESCRIPTION="A DNS over HTTPS resolver for glibc"
 HOMEPAGE="https://github.com/dimkr/nss-tls"
 SRC_URI="https://github.com/dimkr/nss-tls/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-inherit meson systemd
-
 LICENSE="LGPL-2.1"
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="systemd"
-SLOT="0"
 
 RDEPEND="dev-libs/glib
 		net-libs/libsoup"
