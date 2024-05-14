@@ -38,8 +38,6 @@ RDEPEND="
 	virtual/rust[rustfmt(+)]
 "
 
-S="${WORKDIR}/${P}"
-
 src_unpack() {
 	default
 	if [[ ${PV} == *9999 ]]; then

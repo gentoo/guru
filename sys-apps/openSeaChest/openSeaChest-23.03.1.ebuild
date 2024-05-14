@@ -8,7 +8,7 @@ inherit meson
 DESCRIPTION="SeaGate's open source harddrive control utilities"
 HOMEPAGE="https://github.com/Seagate/openSeaChest"
 SRC_URI="https://github.com/Seagate/openSeaChest/releases/download/v${PV}/SourceCode_With_Submodules.tar.xz -> openSeaChest-v${PV}.tar.xz"
+S="${WORKDIR}/openSeaChest-v${PV}"
 LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-S="${WORKDIR}/openSeaChest-v${PV}"

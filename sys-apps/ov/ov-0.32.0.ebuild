@@ -9,11 +9,11 @@ DESCRIPTION="Feature-rich terminal pager"
 HOMEPAGE="https://github.com/noborus/ov"
 SRC_URI="https://github.com/noborus/${PN}/releases/download/v${PV}/${P}.tar.gz"
 
+S="${WORKDIR}"
+
 LICENSE="MIT Apache-2.0 BSD-2 BSD MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}"
 
 src_compile() {
 	ego build -v -x -o ${PN} -ldflags="-X main.Version=${PV}"

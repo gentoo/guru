@@ -5,16 +5,15 @@ EAPI=8
 
 DESCRIPTION="Fast, disk space efficient package manager, alternative to npm and yarn"
 HOMEPAGE="https://pnpm.io"
-
 SRC_URI="https://github.com/pnpm/pnpm/releases/download/v${PV}/pnpm-linux-x64"
-KEYWORDS="~amd64"
+
+S="${WORKDIR}"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RESTRICT="strip"
-
-S="${WORKDIR}"
 
 QA_PREBUILT="usr/bin/${PN}"
 
