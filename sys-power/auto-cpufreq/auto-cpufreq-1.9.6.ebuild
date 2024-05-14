@@ -14,8 +14,8 @@ HOMEPAGE="https://github.com/AdnanHodzic/auto-cpufreq"
 SRC_URI="https://github.com/AdnanHodzic/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
-KEYWORDS="~amd64"
 SLOT="0"
+KEYWORDS="~amd64"
 IUSE="systemd"
 
 RDEPEND="
