@@ -14,12 +14,12 @@ SRC_URI="
 	arm? ( https://github.com/Eugeny/tabby/releases/download/v${PV}/${MY_P}-armhf.tar.gz )
 "
 
+# This needs to be adjusted to allow for arm
+S="${WORKDIR}/${MY_P}-x64"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm"
-
-# This needs to be adjusted to allow for arm
-S="${WORKDIR}/${MY_P}-x64"
 
 DEPEND="
 	|| (
