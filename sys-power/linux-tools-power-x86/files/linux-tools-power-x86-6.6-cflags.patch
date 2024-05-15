@@ -12,10 +12,10 @@ index 7221f2f55e8b..96b5a456a4c5 100644
  
  ALL_TARGETS := intel-speed-select
 diff --git a/tools/power/x86/turbostat/Makefile b/tools/power/x86/turbostat/Makefile
-index 92e139b9c792..972fb3c5a514 100644
+index 92e139b9c792..d2c21035e16d 100644
 --- a/tools/power/x86/turbostat/Makefile
 +++ b/tools/power/x86/turbostat/Makefile
-@@ -9,7 +9,7 @@ ifeq ("$(origin O)", "command line")
+@@ -9,11 +9,10 @@ ifeq ("$(origin O)", "command line")
  endif
  
  turbostat : turbostat.c
@@ -24,16 +24,22 @@ index 92e139b9c792..972fb3c5a514 100644
  override CFLAGS +=	-DMSRHEADER='"../../../../arch/x86/include/asm/msr-index.h"'
  override CFLAGS +=	-DINTEL_FAMILY_HEADER='"../../../../arch/x86/include/asm/intel-family.h"'
  override CFLAGS +=	-D_FILE_OFFSET_BITS=64
+-override CFLAGS +=	-D_FORTIFY_SOURCE=2
+ 
+ %: %.c
+ 	@mkdir -p $(BUILD_OUTPUT)
 diff --git a/tools/power/x86/x86_energy_perf_policy/Makefile b/tools/power/x86/x86_energy_perf_policy/Makefile
-index 666b325a62a2..0053893229fb 100644
+index 666b325a62a2..1fdeef864e7c 100644
 --- a/tools/power/x86/x86_energy_perf_policy/Makefile
 +++ b/tools/power/x86/x86_energy_perf_policy/Makefile
-@@ -9,7 +9,7 @@ ifeq ("$(origin O)", "command line")
+@@ -9,9 +9,8 @@ ifeq ("$(origin O)", "command line")
  endif
  
  x86_energy_perf_policy : x86_energy_perf_policy.c
 -override CFLAGS +=	-O2 -Wall -I../../../include
 +override CFLAGS +=	-Wall -I../../../include
  override CFLAGS +=	-DMSRHEADER='"../../../../arch/x86/include/asm/msr-index.h"'
- override CFLAGS +=	-D_FORTIFY_SOURCE=2
+-override CFLAGS +=	-D_FORTIFY_SOURCE=2
  
+ %: %.c
+ 	@mkdir -p $(BUILD_OUTPUT)
