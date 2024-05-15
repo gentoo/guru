@@ -20,7 +20,9 @@ LICENSE="BSD"
 SLOT="0"
 
 src_prepare() {
-	rm ${S}/makefile || die
+	default
+
+	rm ${S}/Makefile || die
 }
 
 src_install() {
