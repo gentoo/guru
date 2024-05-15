@@ -15,12 +15,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-0.5.0-CMakeLists.txt-fix-pkgconfig-install-path.patch"
-	"${FILESDIR}/${PN}-0.5.0-sysfs_ops-define-feature-test-macro-for-nft.patch"
-	"${FILESDIR}/${PN}-0.5.0-sysfs_ops-fix-nftw-fun-pointer-def.patch"
-)
-
 src_configure() {
 	# don't force CFLAGS to allow Gentoo toolchain to set them
 	local mycmakeargs=(
