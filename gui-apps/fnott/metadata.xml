@@ -5,4 +5,10 @@
     <email>leohdz172@proton.me</email>
     <name>Leonardo Hernández Hernández</name>
   </maintainer>
+  <upstream>
+    <maintainer status="active">
+      <name>Daniel Eklöf</name>
+    </maintainer>
+    <remote-id type="codeberg">dnkl/fnott</remote-id>
+  </upstream>
 </pkgmetadata>
