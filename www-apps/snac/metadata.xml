@@ -2,4 +2,16 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<!-- maintainer-needed -->
+	<upstream>
+		<bugs-to>
+			https://codeberg.org/grunfink/snac2/issues
+		</bugs-to>
+		<changelog>
+			https://codeberg.org/grunfink/snac2/src/branch/master/RELEASE_NOTES.md
+		</changelog>
+		<maintainer>
+			<name>grunfink</name>
+		</maintainer>
+		<remote-id type="codeberg">grunfink/snac2</remote-id>
+	</upstream>
 </pkgmetadata>
