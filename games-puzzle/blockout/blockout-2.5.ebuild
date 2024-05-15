@@ -5,7 +5,7 @@ EAPI=8
 inherit desktop
 
 DESCRIPTION="BlockOut II is an adaptation of the original Blockout DOS game"
-HOMEPAGE="http://www.blockout.net/blockout2"
+HOMEPAGE="https://www.blockout.net/blockout2/"
 SRC_URI="
 	https://downloads.sourceforge.net/blockout/bl25-src.tar.gz
 	https://downloads.sourceforge.net/blockout/bl25-linux-x86.tar.gz"
