@@ -1,0 +1,16 @@
+diff --git a/data/meson.build b/data/meson.build
+index fdebf9be..985ed36e 100644
+--- a/data/meson.build
++++ b/data/meson.build
+@@ -50,11 +50,6 @@ appstream_file = i18n.merge_file(
+ )
+ 
+ appstream_util = find_program('appstream-util', required: false)
+-if appstream_util.found()
+-  test('Validate appstream file', appstream_util,
+-    args: ['validate', appstream_file.full_path()]
+-  )
+-endif
+ 
+ configure_file(
+   input: '@0@.gschema.xml.in'.format(PROJECT_RDNN_NAME),

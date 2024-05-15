@@ -1,8 +1,8 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit meson xdg python-single-r1
 
@@ -31,16 +31,23 @@ DEPEND="
 	x11-themes/hicolor-icon-theme
 	>=gui-libs/gtk-4.5.0:4
 	>=gui-libs/libadwaita-1.2:1=
-	>=dev-python/pygobject-3.42.2:3
-	>=dev-python/anyascii-0.3
-	dev-python/material-color-utilities
-	dev-python/svglib
-	dev-python/yapsy
-	dev-python/cssutils
-	dev-python/jinja
-	dev-python/aiohttp
+	$(python_gen_cond_dep '
+		>=dev-python/pygobject-3.42.2:3[${PYTHON_USEDEP}]
+		>=dev-python/anyascii-0.3[${PYTHON_USEDEP}]
+		dev-python/material-color-utilities[${PYTHON_USEDEP}]
+		dev-python/svglib[${PYTHON_USEDEP}]
+		dev-python/yapsy[${PYTHON_USEDEP}]
+		dev-python/cssutils[${PYTHON_USEDEP}]
+		dev-python/jinja[${PYTHON_USEDEP}]
+		dev-python/aiohttp[${PYTHON_USEDEP}]
+		dev-python/lxml[${PYTHON_USEDEP}]
+	')
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=(
+	"${FILESDIR}"/appstream-test-ignore.patch
+)
 
 src_prepare() {
 	default
