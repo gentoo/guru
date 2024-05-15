@@ -22,7 +22,7 @@ fi
 RDEPEND="
 	>=dev-python/click-8.0.2[${PYTHON_USEDEP}]
 	>=dev-python/desktop-notifier-3.3.0[${PYTHON_USEDEP}]
-	=dev-python/dropbox-11*[${PYTHON_USEDEP}]
+	dev-python/dropbox[${PYTHON_USEDEP}]
 	>=dev-python/fasteners-0.15[${PYTHON_USEDEP}]
 	dev-python/importlib-metadata[${PYTHON_USEDEP}]
 	>=dev-python/keyring-22.0.0[${PYTHON_USEDEP}]
