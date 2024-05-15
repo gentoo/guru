@@ -6,7 +6,7 @@ EAPI="8"
 inherit desktop java-pkg-2
 
 DESCRIPTION="A visualization platform for molecular interaction networks"
-HOMEPAGE="http://www.cytoscape.org/"
+HOMEPAGE="https://www.cytoscape.org/"
 SRC_URI="https://github.com/cytoscape/cytoscape/releases/download/${PV}/cytoscape-unix-${PV}.tar.gz"
 
 S="${WORKDIR}"
