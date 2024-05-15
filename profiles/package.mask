@@ -24,7 +24,6 @@
 # - bump python compat version (at least to 11, try 12)
 # - try and fix open bugs for these packages
 # Otherwise, they will be removed by 2024-06-13
-dev-python/hypothesmith
 dev-python/pymorphy2-dicts-uk
 dev-python/pymorphy2-dicts-ru
 dev-python/pymorphy2-dicts
