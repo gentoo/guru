@@ -8,6 +8,8 @@ HOMEPAGE="https://github.com/pystardust/waldl"
 GIT_COMMIT="727640c1583cf627c075db7239e09e7bbdfecf17"
 SRC_URI="https://github.com/pystardust/waldl/archive/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${PN}-${GIT_COMMIT}/"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -20,8 +22,6 @@ DEPEND="
 	x11-misc/dmenu
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}-${GIT_COMMIT}/"
 
 PATCHES=(
 	"${FILESDIR}/waldl-0.0.1-customize.patch"
