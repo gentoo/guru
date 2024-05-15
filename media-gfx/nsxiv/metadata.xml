@@ -5,7 +5,7 @@
 		<email>nrk@disroot.org</email>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">nsxiv/nsxiv</remote-id>
+		<remote-id type="codeberg">nsxiv/nsxiv</remote-id>
 	</upstream>
 	<use>
 		<flag name="statusbar">Add statusbar support</flag>
