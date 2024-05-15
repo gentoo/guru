@@ -5,4 +5,17 @@
 		<email>andres.becerra@gmail.com</email>
 		<name>Andrés Becerra Sandoval</name>
 	</maintainer>
+	<upstream>
+		<bugs-to>
+			https://www.blockout.net/forum/viewforum.php?f=8
+		</bugs-to>
+		<changelog>
+			https://www.blockout.net/blockout2/version.php
+		</changelog>
+		<maintainer status="inactive">
+			<name>Jean-Luc Pons</name>
+			<email>jlp_38@yahoo.com</email>
+		</maintainer>
+		<remote-id type="sourceforge">blockout</remote-id>
+	</upstream>
 </pkgmetadata>
