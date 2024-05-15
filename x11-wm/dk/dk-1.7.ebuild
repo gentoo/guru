@@ -3,18 +3,21 @@
 
 EAPI=8
 
+inherit toolchain-funcs xdg-utils desktop
+
 DESCRIPTION="A list based tiling window manager in the vein of dwm, bspwm, and xmonad."
 HOMEPAGE="https://bitbucket.org/natemaia/dk/src/master/"
-#EGIT_REPO_URI="https://bitbucket.org/natemaia/dk.git"
 SRC_URI="https://bitbucket.org/natemaia/dk/get/bc9bd6349321c27ddb2dd7a9cb7630e2f1794c85.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}"
 
-inherit toolchain-funcs xdg-utils desktop
+S="${WORKDIR}"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64 ~riscv ~x86"
+
 IUSE="examples man"
 RESTRICT=strip
+
 DEPEND="
 	x11-base/xcb-proto
 	x11-libs/libxcb
@@ -28,7 +31,6 @@ RDEPEND="
 	${DEPEND}
 	x11-misc/sxhkd
 "
-KEYWORDS="~amd64 ~riscv ~x86"
 #src_prepare() {
 #	default
 
