@@ -12,4 +12,7 @@
     packages and transfered to the host package database and can then be 
     installed on the host, when all problems are fixed.
   </longdescription>
+  <upstream>
+    <remote-id type="codeberg">bcsthsc/overlay-emerge-tool</remote-id>
+  </upstream>
 </pkgmetadata>
