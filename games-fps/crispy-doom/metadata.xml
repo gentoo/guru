@@ -4,10 +4,7 @@
 	<longdescription lang="en">
 		Crispy Doom is a friendly fork of Chocolate Doom that provides a higher display resolution, removes the static limits of the Doom engine and offers further optional visual, tactical and physical enhancements while remaining entirely config file, savegame, netplay and demo compatible with the original.
 	</longdescription>
-	<maintainer type="person">
-		<email>vilhelm.gray@gmail.com</email>
-		<name>William Breathitt Gray</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<use>
 		<flag name="fluidsynth">Use <pkg>media-sound/fluidsynth</pkg>
 			for MIDI support</flag>
