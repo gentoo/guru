@@ -9,9 +9,9 @@ DESCRIPTION="A Material Design theme for GNOME/GTK based desktop environments"
 HOMEPAGE="https://github.com/nana-4/materia-theme"
 SRC_URI="https://github.com/nana-4/materia-theme/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="~amd64"
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	x11-libs/gdk-pixbuf
@@ -19,6 +19,4 @@ RDEPEND="
 	x11-themes/gtk-engines-murrine
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	dev-lang/sassc
-"
+BDEPEND="dev-lang/sassc"
