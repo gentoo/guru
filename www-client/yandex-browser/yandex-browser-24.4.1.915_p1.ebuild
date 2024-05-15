@@ -5,8 +5,6 @@ EAPI=8
 CHROMIUM_LANGS="cs de en-US es fr it ja kk pt-BR pt-PT ru tr uk uz zh-CN zh-TW"
 inherit chromium-2 unpacker desktop wrapper pax-utils xdg
 
-RESTRICT="bindist mirror strip"
-
 MY_PV="${PV/_p/-}"
 if [[ ${PN} == yandex-browser ]]; then
 	MY_PN=${PN}-stable
@@ -18,13 +16,18 @@ FFMPEG="120"
 
 DESCRIPTION="The web browser from Yandex"
 HOMEPAGE="https://browser.yandex.ru/"
-LICENSE="Yandex-EULA"
-SLOT="0"
-IUSE="+ffmpeg-codecs"
 SRC_URI="
 	amd64? ( https://repo.yandex.ru/yandex-browser/deb/pool/main/y/${MY_PN}/${MY_PN}_${MY_PV}_amd64.deb -> ${P}.deb )
 "
+
+S="${WORKDIR}"
+
+LICENSE="Yandex-EULA"
+SLOT="0"
 KEYWORDS="~amd64"
+
+IUSE="+ffmpeg-codecs"
+RESTRICT="bindist mirror strip"
 
 RDEPEND="
 	dev-libs/expat
@@ -65,7 +68,6 @@ DEPEND="
 
 QA_PREBUILT="*"
 QA_DESKTOP_FILE="usr/share/applications/yandex-browser.*\\.desktop"
-S=${WORKDIR}
 YANDEX_HOME="opt/${PN/-//}"
 
 pkg_setup() {
