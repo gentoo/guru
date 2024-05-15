@@ -10,6 +10,8 @@ HOMEPAGE="http://pt2k.xii.jp/software/anclock/xscreensaver/index_e.html"
 SRC_URI="https://www.jwz.org/xscreensaver/xscreensaver-6.05.1.tar.gz \
 http://pt2k.xii.jp/software/anclock/xscreensaver/oldver/anclock-${PV}-for-xscreensaver-6.04.patch.gz"
 
+S="${WORKDIR}"/xscreensaver-6.05/
+
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -54,8 +56,6 @@ PATCHES=(
 	"${FILESDIR}"/xscreensaver-6.03-without-gl-configure.patch
 	"${FILESDIR}"/xscreensaver-6.05-configure-exit-codes.patch
 )
-
-S="${WORKDIR}"/xscreensaver-6.05/
 
 src_unpack() {
 	default

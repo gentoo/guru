@@ -3,21 +3,22 @@
 
 EAPI=7
 
-HOMEPAGE="https://github.com/erebe/greenclip"
-DESCRIPTION="Simple clipboard manager to be integrated with rofi"
-
 MY_PN=${PN%-bin}
+
+DESCRIPTION="Simple clipboard manager to be integrated with rofi"
+HOMEPAGE="https://github.com/erebe/greenclip"
 SRC_URI="
 	https://github.com/erebe/${MY_PN}/releases/download/v${PV}/${MY_PN} -> ${P}
 	https://raw.githubusercontent.com/erebe/${MY_PN}/v${PV}/README.md -> ${P}.README.md
 "
 
-KEYWORDS="~amd64"
+S="${WORKDIR}"
+
 LICENSE="BSD"
 SLOT="0"
+KEYWORDS="~amd64"
 
 QA_PREBUILT="/usr/bin/${MY_PN}"
-S="${WORKDIR}"
 
 src_install() {
 	newbin "${DISTDIR}/${P}" "${MY_PN}"

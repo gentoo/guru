@@ -7,12 +7,11 @@ inherit toolchain-funcs
 
 DESCRIPTION="Banish the mouse cursor when typing, show it again when the mouse moves"
 HOMEPAGE="https://github.com/jcs/xbanish"
-
 SRC_URI="https://github.com/jcs/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="~amd64"
 LICENSE="ISC"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	x11-libs/libX11

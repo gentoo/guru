@@ -3,17 +3,18 @@
 
 EAPI=8
 
+PYTHON_COMPAT=( python3_{7..12} )
+inherit python-single-r1
+
 DESCRIPTION="A simple bash + python script to restore your i3 session"
 HOMEPAGE="https://github.com/jdholtz/i3-restore/"
-
 SRC_URI="https://github.com/jdholtz/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
 
-PYTHON_COMPAT=( python3_{7..12} )
-inherit python-single-r1
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
 	x11-wm/i3
@@ -25,8 +26,6 @@ DEPEND="
 	$(python_gen_cond_dep \
 	'dev-python/psutil[${PYTHON_USEDEP}]' )
 "
-
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 src_prepare() {
 	sed -i 's#CURR_DIR="$(dirname "${0}")"#CURR_DIR=/usr/libexec/i3-restore#' i3-save i3-restore || die "Sed error"
