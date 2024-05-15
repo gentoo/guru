@@ -10,13 +10,14 @@ MY_PV="v$(ver_cut 1-2)"
 DESCRIPTION="Cursor theme using a custom color palette inspired by boreal colors"
 HOMEPAGE="https://github.com/alvatip/Neonly"
 SRC_URI="https://github.com/alvatip/Neonly/releases/download/${MY_PV}/Neonly.tar.gz -> ${P}.tar.gz"
-LICENSE="GPL-3"
-
-KEYWORDS="~amd64"
-SLOT="0"
-RESTRICT="mirror"
 
 S="${WORKDIR}"
+
+LICENSE="GPL-3"
+SLOT="0"
+KEYWORDS="~amd64"
+
+RESTRICT="mirror"
 
 src_install() {
 	insinto "/usr/share/icons/${PN}"

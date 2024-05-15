@@ -11,13 +11,13 @@ SRC_URI="
 	https://github.com/ful1e5/BreezeX_Cursor/releases/download/v${PV}/BreezeX-Light.tar.gz -> ${P}-light.tar.gz
 	"
 
+S="${WORKDIR}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="x11-libs/libXcursor"
-
-S="${WORKDIR}"
 
 src_install() {
 	insinto /usr/share/cursors/xorg-x11

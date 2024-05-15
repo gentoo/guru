@@ -9,8 +9,8 @@ DESCRIPTION="Papirus icon theme for Claws Mail"
 HOMEPAGE="https://github.com/PapirusDevelopmentTeam/papirus-claws-mail-theme"
 SRC_URI="https://github.com/PapirusDevelopmentTeam/papirus-claws-mail-theme/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${PN}-${MY_COMMIT}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/${PN}-${MY_COMMIT}"
