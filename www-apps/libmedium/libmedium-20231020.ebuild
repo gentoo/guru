@@ -285,7 +285,7 @@ HOMEPAGE="https://libmedium.batsense.net"
 #SRC_URI="${CARGO_CRATE_URIS}"
 # commit 82 of libmedium
 SHA="1808d2fd77526d335ab6ab4e85b99b1ddbbf07ed"
-SRC_URI="https://github.com/realaravinth/libmedium/archive/${SHA}.tar.gz"
+SRC_URI="https://github.com/realaravinth/libmedium/archive/${SHA}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" ${CARGO_CRATE_URIS}"
 
 S="${WORKDIR}/${PN}-${SHA}"
@@ -304,6 +304,7 @@ RDEPEND="acct-user/libmedium
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_prepare() {
+	default
 	sed -i -e 's/#cache = "\/var\/lib\/libmedium"/cache = "\/var\/cache\/libmedium"/' 'config/default.toml' || die
 }
 
