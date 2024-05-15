@@ -11,6 +11,6 @@
             <email>nwg.piotr@gmail.com</email>
         </maintainer>
         <bugs-to>https://github.com/nwg-piotr/nwg-icon-picker/issues</bugs-to>
-        <remote-id type="github">nwg-piotr/nwg-picker</remote-id>
+        <remote-id type="github">nwg-piotr/nwg-icon-picker</remote-id>
     </upstream>
 </pkgmetadata>
