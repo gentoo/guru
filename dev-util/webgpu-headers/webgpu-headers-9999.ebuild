@@ -19,7 +19,9 @@ HOMEPAGE="https://github.com/webgpu-native/webgpu-headers"
 LICENSE="BSD"
 SLOT="0"
 
-BDEPEND="dev-lang/go"
+src_prepare() {
+	rm ${S}/makefile || die
+}
 
 src_install() {
 	insinto /usr/include/webgpu
