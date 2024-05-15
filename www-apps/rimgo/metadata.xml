@@ -5,4 +5,9 @@
 <email>benoit.dufour@mail.com</email>
 <name>Benoît Dufour</name>
 </maintainer>
+<upstream>
+<bugs-to>https://codeberg.org/rimgo/rimgo/issues</bugs-to>
+<doc>https://rimgo.codeberg.page/docs/</doc>
+<remote-id type="codeberg">rimgo/rimgo</remote-id>
+</upstream>
 </pkgmetadata>
