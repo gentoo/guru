@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-		<!-- maintainer-needed -->
+	<!-- maintainer-needed -->
+	<upstream>
+		<maintainer>
+			<name>Snawoot</name>
+		</maintainer>
+		<remote-id type="github">Snawoot/postfix-mta-sts-resolver</remote-id>
+		<remote-id type="pypi">postfix-mta-sts-resolver</remote-id>
+	</upstream>
 </pkgmetadata>
