@@ -10,6 +10,16 @@
 		It does so when an application is fullscreened (eg: youtube), or when you click on the systray icon (which you can do, when, eg: reading).
 	</longdescription>
 	<upstream>
-		<remote-id type="github">caffeine-ng/caffeine-ng</remote-id>
+		<bugs-to>
+			https://codeberg.org/WhyNotHugo/caffeine-ng/issues
+		</bugs-to>
+		<changelog>
+			https://codeberg.org/WhyNotHugo/caffeine-ng/src/branch/main/CHANGELOG.rst
+		</changelog>
+		<maintainer>
+			<name>Hugo Osvaldo Barrera</name>
+			<email>hugo@whynothugo.nl</email>
+		</maintainer>
+		<remote-id type="codeberg">WhyNotHugo/caffeine-ng</remote-id>
 	</upstream>
 </pkgmetadata>
