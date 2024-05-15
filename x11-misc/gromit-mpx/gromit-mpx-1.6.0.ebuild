@@ -16,8 +16,8 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-SLOT="0"
 LICENSE="GPL-2"
+SLOT="0"
 
 RDEPEND="
 	x11-libs/gtk+:3
