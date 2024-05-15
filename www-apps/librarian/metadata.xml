@@ -5,4 +5,7 @@
 <email>benoit.dufour@mail.com</email>
 <name>Benoît Dufour</name>
 </maintainer>
+<upstream>
+<remote-id type="codeberg">librarian/librarian</remote-id>
+</upstream>
 </pkgmetadata>
