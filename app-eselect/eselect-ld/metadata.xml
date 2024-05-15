@@ -5,4 +5,7 @@
 		<email>m@matous.dev</email>
 		<name>Martin Matouš</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="codeberg">mmatous/eselect-ld</remote-id>
+	</upstream>
 </pkgmetadata>
