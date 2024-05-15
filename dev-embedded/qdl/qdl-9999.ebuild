@@ -12,16 +12,17 @@ EGIT_REPO_URI="https://github.com/andersson/qdl.git"
 LICENSE="BSD"
 SLOT="0"
 
-BDEPEND="virtual/libudev
+BDEPEND="
 		virtual/pkgconfig
+		dev-libs/libusb
 		dev-libs/libxml2
 "
 
 src_compile() {
 	PKG_CONFIG=$(tc-getPKG_CONFIG)
 	emake CC=$(tc-getCC) \
-		"CFLAGS=${CFLAGS} `${PKG_CONFIG} --cflags libxml-2.0`" \
-		"LDFLAGS=${LDFLAGS} `${PKG_CONFIG} --libs libxml-2.0 libudev`"
+		"CFLAGS=${CFLAGS} `${PKG_CONFIG} --cflags libxml-2.0 libusb-1.0`" \
+		"LDFLAGS=${LDFLAGS} `${PKG_CONFIG} --libs libxml-2.0 libusb-1.0`"
 }
 
 src_install() {
