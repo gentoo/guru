@@ -22,7 +22,7 @@ SLOT="0"
 src_prepare() {
 	default
 
-	rm ${S}/Makefile || die
+	rm "${S}"/Makefile || die
 }
 
 src_install() {
