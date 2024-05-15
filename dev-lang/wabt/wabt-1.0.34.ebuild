@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 EGIT_COMMIT_TESTSUITE="c2a67a575ddc815ff2212f68301d333e5e30a923"
 EGIT_COMMIT_WASM_C_API="b6dd1fb658a282c64b029867845bc50ae59e1497"
@@ -14,8 +14,10 @@ DESCRIPTION="The WebAssembly Binary Toolkit"
 HOMEPAGE="https://github.com/WebAssembly/wabt"
 SRC_URI="
 	https://github.com/WebAssembly/wabt/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/WebAssembly/testsuite/archive/${EGIT_COMMIT_TESTSUITE}.tar.gz -> WebAssembly-testsuite-${EGIT_COMMIT_TESTSUITE}.tar.gz
-	https://github.com/WebAssembly/wasm-c-api/archive/${EGIT_COMMIT_WASM_C_API}.tar.gz -> WebAssembly-wasm-c-api-${EGIT_COMMIT_WASM_C_API}.tar.gz
+	https://github.com/WebAssembly/testsuite/archive/${EGIT_COMMIT_TESTSUITE}.tar.gz -> \
+		WebAssembly-testsuite-${EGIT_COMMIT_TESTSUITE}.tar.gz
+	https://github.com/WebAssembly/wasm-c-api/archive/${EGIT_COMMIT_WASM_C_API}.tar.gz -> \
+		WebAssembly-wasm-c-api-${EGIT_COMMIT_WASM_C_API}.tar.gz
 "
 LICENSE="Apache-2.0"
 SLOT="0"
