@@ -24,7 +24,7 @@ SLOT="otp"
 RESTRICT="network-sandbox"
 
 BDEPEND="
-	<dev-lang/erlang-26:=
+	<dev-lang/erlang-27:=
 	<dev-lang/elixir-1.15:=
 	dev-build/cmake
 	>=dev-util/rebar-3.20.0-r1
