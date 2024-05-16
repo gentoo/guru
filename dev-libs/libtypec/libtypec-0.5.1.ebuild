@@ -6,10 +6,10 @@ EAPI=8
 inherit cmake
 
 DESCRIPTION="Library to interface with USB Type-c/Power Delivery devices"
-HOMEPAGE="https://github.com/Rajaram-Regupathy/libtypec"
-SRC_URI="https://github.com/Rajaram-Regupathy/libtypec/releases/download/${P}/${P}-Source.tar.gz"
+HOMEPAGE="https://github.com/libtypec/libtypec"
+SRC_URI="https://github.com/libtypec/libtypec/archive/refs/tags/${P}.tar.gz"
 
-S="${WORKDIR}/${P}-Source"
+S="${WORKDIR}/${PN}-${P}"
 
 LICENSE="MIT"
 SLOT="0"
