@@ -27,7 +27,5 @@ src_compile() {
 
 src_install() {
 	emake prefix="${EPREFIX}/usr" DESTDIR="${D}" install
-	insinto "/usr/share/${PN}"
-	doins LICENSE
-	dodoc README
+	dodoc {README,LICENSE}
 }
