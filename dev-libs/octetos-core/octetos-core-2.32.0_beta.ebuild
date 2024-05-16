@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MYPV="${PV/_beta/-beta/}"
 DESCRIPTION="C/C++ library to mainly provide Semantic Versioned implementation"
@@ -19,6 +19,7 @@ S="${WORKDIR}/${PN}-${MYPV}"
 
 LICENSE="GPL-3"
 SLOT="0"
+IUSE="static-libs"
 
 DEPEND="
 	dev-libs/libconfig
@@ -35,5 +36,14 @@ BDEPEND="
 
 src_prepare() {
 	default
-	eautoreconf -fi
+	eautoreconf
+}
+
+src_configure() {
+	econf $(usex static-libs --enable-static '')
+}
+
+src_install() {
+	emake prefix="${EPREFIX}/usr" DESTDIR="${D}" install
+	find "${D}" -type f -iname '*.la' -delete || die
 }

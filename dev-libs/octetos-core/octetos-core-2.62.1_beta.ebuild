@@ -3,8 +3,6 @@
 
 EAPI=8
 
-inherit toolchain-funcs
-
 MYPV="${PV/_beta/-beta/}"
 DESCRIPTION="C/C++ library to mainly provide Semantic Versioned implementation"
 HOMEPAGE="https://github.com/azaeldevel/octetos-core"
