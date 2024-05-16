@@ -10,7 +10,6 @@ HOMEPAGE="https://pleroma.social/"
 if [[ "${PV}" == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.pleroma.social/pleroma/pleroma"
-	KEYWORDS=""
 else
 	SRC_URI="https://git.pleroma.social/pleroma/pleroma/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
 	S="${WORKDIR}/${PN}-v${PV}"
