@@ -100,3 +100,6 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
+
+# rust does not use *FLAGS from make.conf, silence portage warning
+QA_FLAGS_IGNORED="usr/bin/${PN}"
