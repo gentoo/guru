@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>pascal.jaeger@leimstift.de</email>
+		<name>Pascal Jaeger</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">nwg-piotr/nwg-shell</remote-id>
+	</upstream>
+	<use>
+		<flag name="hyprland">Pull in nwg-dock-hyprland instead of nwg-dock for sway</flag>
+	</use>
+</pkgmetadata>

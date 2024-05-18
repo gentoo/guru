@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>tastytea</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>tastytea</name>
+			<email>tastytea@tastytea.de</email>
+		</maintainer>
+		<bugs-to>https://schlomp.space/tastytea/mastorss/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

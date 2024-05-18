@@ -1,0 +1,44 @@
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -22,20 +22,16 @@
+ BOINC_DIR ?= ../../..
+ BOINC_API_DIR ?= $(BOINC_DIR)/api
+ BOINC_LIB_DIR ?= $(BOINC_DIR)/lib
+-BOINC_ZIP_DIR ?= $(BOINC_DIR)/zip
+-BOINC_LIBS ?= $(BOINC_API_DIR)/libboinc_api.a $(BOINC_LIB_DIR)/libboinc.a
++BOINC_LIBS ?= -lboinc_api -lboinc
+ 
+ ifdef BOINC_STUB
+ BOINC_DIR = ../boinc_stub
+ BOINC_LIBS =
+ endif
+ 
+-FREETYPE_DIR = /usr/include/freetype2
+-CPPFLAGS += -I$(BOINC_DIR) -I$(BOINC_LIB_DIR) -I$(BOINC_API_DIR) -I$(BOINC_ZIP_DIR) -I$(FREETYPE_DIR) -Isimd
+-CFLAGS += -c -O3 $(ARCH) -Wall -Wextra -pedantic -Werror $(VARIANTFLAGS)  -MMD -MP
+-CXXFLAGS += $(CFLAGS) -std=gnu++11
+-LDFLAGS += $(ARCH) -L/usr/X11R6/lib -L. -static
+-LIBS ?= -static-libgcc -static-libstdc++ -pthread -Wl,-Bstatic -lbz2
++CPPFLAGS += -I$(BOINC_DIR) -Isimd
++CXXFLAGS += -std=gnu++11
++LIBS ?= -pthread -lbz2
+ CXXSOURCES = BoincFile.cpp Graph.cpp boinc_functions.cpp utility.cpp pc.cpp main.cpp
+ CSOURCES = erf.c
+ OBJECTS = $(CXXSOURCES:.cpp=.o) $(CSOURCES:.c=.o)
+@@ -44,13 +40,13 @@
+ all: $(EXECUTABLE)
+ 
+ $(EXECUTABLE): $(OBJECTS)
+-	$(CXX) $(LDFLAGS) $(OBJECTS) -o $@ $(LIBS) $(BOINC_LIBS)
++	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) -o $@ $(OBJECTS) $(LIBS) $(BOINC_LIBS)
+ 
+ .cpp.o:
+-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< -o $@
++	$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) $< -o $@
+ 
+ .c.o:
+-	$(CC) $(CPPFLAGS) $(CFLAGS) $< -o $@
++	$(CC) -c $(CPPFLAGS) $(CFLAGS) $< -o $@
+ 
+ clean:
+ 	rm -rf ../bin/$(EXECUTABLE) *.o *~ *.d

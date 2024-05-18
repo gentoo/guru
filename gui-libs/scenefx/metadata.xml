@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>theodonacik@gmail.com</email>
+		<name>Theo Donacik</name>
+	</maintainer>
+	<longdescription lang="en">
+		SceneFX is a project that takes the scene api and replaces the wlr
+		renderer with our own fx renderer, capable of rendering surfaces
+		with eye-candy effects including blur, shadows, and rounded corners,
+		while maintaining the benefits of simplicity gained from using the
+		scene api.
+
+		Please note: while SceneFX is in use by SwayFX version 0.4,
+		it is not yet ready for usage by other compositors.
+	</longdescription>
+	<use>
+		<flag name="drm">Enable Direct Rendering Management</flag>
+		<flag name="examples">Build example applications</flag>
+		<flag name="liftoff">Enable support for libliftoff KMS plane backend</flag>
+		<flag name="libinput">Enable support for input devices via <pkg>dev-libs/libinput</pkg></flag>
+		<flag name="x11-backend">Enable support for handling input/output devices through <pkg>x11-libs/libxcb</pkg></flag>
+		<flag name="xcb-errors">Better error reporting when using xwayland</flag>
+		<flag name="X">Enable support for X11 applications (XWayland)</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">wlrfx/scenefx</remote-id>
+		<maintainer status="active">
+			<name>William McKinnon</name>
+		</maintainer>
+		<bugs-to>https://github.com/wlrfx/scenefx/issues</bugs-to>
+		<changelog>https://github.com/wlrfx/scenefx/releases</changelog>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">MikePopoloski/slang</remote-id>
+	</upstream>
+	<longdescription lang="en">
+	slang is a software library that provides various components for lexing,
+	parsing, type checking, and elaborating SystemVerilog code. It comes with
+	an executable tool that can compile and lint any SystemVerilog project,
+	but it is also intended to be usable as a front end for synthesis tools,
+	simulators, linters, code editors, and refactoring tools.
+	slang is the fastest and most compliant SystemVerilog frontend
+	(according to the open source chipsalliance test suite).
+	</longdescription>
+</pkgmetadata>

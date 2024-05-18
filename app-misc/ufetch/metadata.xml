@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <!-- maintainer-needed -->
+    <upstream>
+        <bugs-to>https://gitlab.com/jschx/ufetch/-/issues</bugs-to>
+        <remote-id type="gitlab">jschx/ufetch</remote-id>
+    </upstream>
+</pkgmetadata>

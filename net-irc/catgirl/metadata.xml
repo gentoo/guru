@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<maintainer>
+			<name>June McEnroe</name>
+			<email>june@causal.agency</email>
+		</maintainer>
+		<bugs-to>mailto:list+catgirl@causal.agency</bugs-to>
+	</upstream>
+	<!-- maintainer-needed -->
+</pkgmetadata>

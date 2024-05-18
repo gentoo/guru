@@ -1,0 +1,2 @@
+move kde-frameworks/kirigami-addons dev-libs/kirigami-addons
+move app-emulation/waydroid app-containers/waydroid

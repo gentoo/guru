@@ -1,0 +1,13 @@
+--- a/extras/gtomb/gtomb
++++ b/extras/gtomb/gtomb
+@@ -19,8 +19,8 @@
+ # along with this source code. If not, see <http://www.gnu.org/licenses/>.
+ 
+ ver="0.8"
+-TOMBPATH="/usr/local/bin/tomb" # Set this to your tomb executable's path
+-KDFPATH="/usr/local/bin/" # Set this to the path of your KDF binaries (if you're using them)
++TOMBPATH="/usr/bin/tomb" # Set this to your tomb executable's path
++KDFPATH="/usr/bin/" # Set this to the path of your KDF binaries (if you're using them)
+ # The ones below should not need changing
+ HEXENC="$KDFPATH/tomb-kdb-hexencode"
+ GENSALT="$KDFPATH/tomb-kdb-pbkdf2-gensalt"

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Samuel BAUER</name>
+		<email>samuel.bauer@yahoo.fr</email>
+	</maintainer>
+	<use>
+		<flag name="lv2">Build LV2 plugin</flag>
+		<flag name="vst">Build VST plugin</flag>
+	</use>
+</pkgmetadata>

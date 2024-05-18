@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+        <maintainer type="person">
+                <email>paul007-dev@outlook.com</email>
+                <name>Akash paul</name>
+        </maintainer>
+        <upstream>
+                <remote-id type="github">oxen-io/session-desktop</remote-id>
+        </upstream>
+</pkgmetadata>

@@ -1,0 +1,12 @@
+We don't need dynamic versioning, replace with default backend.
+--- a/pyproject.toml	2024-03-06 20:59:32.071133500 +0900
++++ b/pyproject.toml	2024-03-06 21:00:01.002037882 +0900
+@@ -31,7 +31,7 @@
+ 
+ [build-system]
+ requires = ["poetry-core", "poetry-dynamic-versioning"]
+-build-backend = "poetry_dynamic_versioning.backend"
++build-backend = "poetry.core.masonry.api"
+ 
+ [tool.poetry.dependencies]
+ get-annotations = { version = "^0.1.2", python = "<3.10" }

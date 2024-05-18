@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>gentoo@aisha.cc</email>
+        <name>Aisha Tammy</name>
+    </maintainer>
+    <use>
+        <flag name="fusion">"fusion" AES-GCM engine, optimized for QUIC and other protocols that use short AEAD blocks</flag>
+    </use>
+    <upstream>
+        <remote-id type="github">h2o/picotls</remote-id>
+    </upstream>
+</pkgmetadata>

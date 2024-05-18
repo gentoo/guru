@@ -1,0 +1,26 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index ed2340a..825af6a 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -50,7 +50,7 @@ requires = [
+     "setuptools>=60",
+     "wheel",
+ 
+-    "Cython(>=0.29.24,<3.0.0)"
++    "Cython(>=3.0.0)"
+ ]
+ build-backend = "setuptools.build_meta"
+ 
+diff --git a/setup.py b/setup.py
+index c4d42d8..c4d6ed1 100644
+--- a/setup.py
++++ b/setup.py
+@@ -25,7 +25,7 @@ from setuptools.command import sdist as setuptools_sdist
+ from setuptools.command import build_ext as setuptools_build_ext
+ 
+ 
+-CYTHON_DEPENDENCY = 'Cython(>=0.29.24,<0.30.0)'
++CYTHON_DEPENDENCY = 'Cython(>=0.30.0)'
+ 
+ CFLAGS = ['-O2']
+ LDFLAGS = []

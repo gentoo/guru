@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<bugs-to>https://github.com/xattr/xattr/issues</bugs-to>
+		<remote-id type="pypi">xattr</remote-id>
+		<remote-id type="github">xattr/xattr</remote-id>
+		<maintainer>
+			<name>Bob Ippolito</name>
+			<email>bob@redivi.com</email>
+		</maintainer>
+	</upstream>
+</pkgmetadata>

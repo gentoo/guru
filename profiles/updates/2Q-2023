@@ -1,0 +1,10 @@
+move gui-libs/power-profiles-daemon sys-power/power-profiles-daemon
+move kde-apps/tokodon net-im/tokodon
+move sci-mathematics/mccs dev-ml/mccs
+move dev-python/nototools dev-python/notofonttools
+move kde-apps/krecorder media-sound/krecorder
+move kde-apps/alligator net-news/alligator
+move kde-apps/kclock kde-misc/kclock
+move sys-fs/python-btrfs dev-python/btrfs
+move sys-apps/procs sys-process/procs
+move sys-apps/dust sys-block/dust

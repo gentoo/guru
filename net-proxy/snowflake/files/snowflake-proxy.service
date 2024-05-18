@@ -1,0 +1,16 @@
+[Unit]
+Description=Snowflake Proxy
+Documentation=man:snowflake-proxy
+Documentation=https://snowflake.torproject.org/
+After=network-online.target nss-lookup.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/snowflake-proxy
+Restart=on-failure
+
+DynamicUser=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

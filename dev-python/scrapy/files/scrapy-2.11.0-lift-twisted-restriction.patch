@@ -1,0 +1,99 @@
+Backport commits 720f351a3eea5e5bfa83a6eaf50210cd1fa43992^..0630e4aaa10c3fb8c79c2542a229f5c0632cddde.
+At the time of writing, ::gentoo no longer has <dev-python/twisted-23.8.0.
+These commits refactor the signal handling logic to support newer versions of Twisted.
+
+Author: Lucio Sauer <watermanpaint@posteo.net>
+--- a/scrapy/crawler.py
++++ b/scrapy/crawler.py
+@@ -404,8 +404,8 @@ class CrawlerProcess(CrawlerRunner):
+         :param bool stop_after_crawl: stop or not the reactor when all
+             crawlers have finished
+ 
+-        :param bool install_signal_handlers: whether to install the shutdown
+-            handlers (default: True)
++        :param bool install_signal_handlers: whether to install the OS signal
++            handlers from Twisted and Scrapy (default: True)
+         """
+         from twisted.internet import reactor
+ 
+@@ -416,15 +416,17 @@ class CrawlerProcess(CrawlerRunner):
+                 return
+             d.addBoth(self._stop_reactor)
+ 
+-        if install_signal_handlers:
+-            install_shutdown_handlers(self._signal_shutdown)
+         resolver_class = load_object(self.settings["DNS_RESOLVER"])
+         resolver = create_instance(resolver_class, self.settings, self, reactor=reactor)
+         resolver.install_on_reactor()
+         tp = reactor.getThreadPool()
+         tp.adjustPoolsize(maxthreads=self.settings.getint("REACTOR_THREADPOOL_MAXSIZE"))
+         reactor.addSystemEventTrigger("before", "shutdown", self.stop)
+-        reactor.run(installSignalHandlers=False)  # blocking call
++        if install_signal_handlers:
++            reactor.addSystemEventTrigger(
++                "after", "startup", install_shutdown_handlers, self._signal_shutdown
++            )
++        reactor.run(installSignalHandlers=install_signal_handlers)  # blocking call
+ 
+     def _graceful_stop_reactor(self) -> Deferred:
+         d = self.stop()
+--- a/scrapy/utils/ossignal.py
++++ b/scrapy/utils/ossignal.py
+@@ -19,13 +19,10 @@ def install_shutdown_handlers(
+     function: SignalHandlerT, override_sigint: bool = True
+ ) -> None:
+     """Install the given function as a signal handler for all common shutdown
+-    signals (such as SIGINT, SIGTERM, etc). If override_sigint is ``False`` the
+-    SIGINT handler won't be install if there is already a handler in place
+-    (e.g.  Pdb)
++    signals (such as SIGINT, SIGTERM, etc). If ``override_sigint`` is ``False`` the
++    SIGINT handler won't be installed if there is already a handler in place
++    (e.g. Pdb)
+     """
+-    from twisted.internet import reactor
+-
+-    reactor._handleSignals()
+     signal.signal(signal.SIGTERM, function)
+     if signal.getsignal(signal.SIGINT) == signal.default_int_handler or override_sigint:
+         signal.signal(signal.SIGINT, function)
+--- a/scrapy/utils/testproc.py
++++ b/scrapy/utils/testproc.py
+@@ -2,7 +2,7 @@ from __future__ import annotations
+ 
+ import os
+ import sys
+-from typing import Iterable, Optional, Tuple, cast
++from typing import Iterable, List, Optional, Tuple, cast
+ 
+ from twisted.internet.defer import Deferred
+ from twisted.internet.error import ProcessTerminated
+@@ -26,14 +26,15 @@ class ProcessTest:
+         env = os.environ.copy()
+         if settings is not None:
+             env["SCRAPY_SETTINGS_MODULE"] = settings
++        assert self.command
+         cmd = self.prefix + [self.command] + list(args)
+         pp = TestProcessProtocol()
+-        pp.deferred.addBoth(self._process_finished, cmd, check_code)
++        pp.deferred.addCallback(self._process_finished, cmd, check_code)
+         reactor.spawnProcess(pp, cmd[0], cmd, env=env, path=self.cwd)
+         return pp.deferred
+ 
+     def _process_finished(
+-        self, pp: TestProcessProtocol, cmd: str, check_code: bool
++        self, pp: TestProcessProtocol, cmd: List[str], check_code: bool
+     ) -> Tuple[int, bytes, bytes]:
+         if pp.exitcode and check_code:
+             msg = f"process {cmd} exit with code {pp.exitcode}"
+--- a/setup.py
++++ b/setup.py
+@@ -6,8 +6,7 @@ version = (Path(__file__).parent / "scrapy/VERSION").read_text("ascii").strip()
+ 
+ 
+ install_requires = [
+-    # 23.8.0 incompatibility: https://github.com/scrapy/scrapy/issues/6024
+-    "Twisted>=18.9.0,<23.8.0",
++    "Twisted>=18.9.0",
+     "cryptography>=36.0.0",
+     "cssselect>=0.9.1",
+     "itemloaders>=1.0.1",

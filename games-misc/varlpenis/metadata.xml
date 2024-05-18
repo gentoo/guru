@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Seth Price</name>
+		<email>sprice623@aol.com</email>
+	</maintainer>
+	<longdescription lang="en">
+		varlpenis generates an ASCII penis of arbitrary length,
+		optionally in color or using CJK fullwidth characters.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://gitlab.com/ssterling/varlpenis/-/issues</bugs-to>
+		<changelog>https://gitlab.com/ssterling/varlpenis/-/blob/master/CHANGELOG.md</changelog>
+		<remote-id type="gitlab">ssterling/varlpenis</remote-id>
+	</upstream>
+</pkgmetadata>

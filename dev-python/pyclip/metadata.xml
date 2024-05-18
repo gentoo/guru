@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>flewkey@2a03.party</email>
+		<name>Ryan Fox</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">pyclip</remote-id>
+		<remote-id type="github">spyoungtech/pyclip</remote-id>
+	</upstream>
+</pkgmetadata>

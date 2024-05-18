@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+<email>benoit.dufour@mail.com</email>
+<name>Benoît Dufour</name>
+</maintainer>
+<upstream>
+<bugs-to>
+https://git.batsense.net/realaravinth/libmedium/issues
+</bugs-to>
+<remote-id type="github">realaravinth/libmedium</remote-id>
+</upstream>
+</pkgmetadata>

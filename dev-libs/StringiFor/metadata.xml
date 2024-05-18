@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+	<email>torokhov-s-a@yandex.ru</email>
+	<name>Sergey Torokhov</name>
+</maintainer>
+<longdescription lang="en">
+	A KISS pure Fortran library providing astrings (class) manipulator for modern (2003+) Fortran projects
+</longdescription>
+	<upstream>
+		<remote-id type="github">szaghi/StringiFor</remote-id>
+	</upstream>
+</pkgmetadata>

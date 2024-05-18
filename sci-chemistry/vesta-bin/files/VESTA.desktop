@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=VESTA
+Type=Application
+Comment=For the visualisation of molecular and crystal structures.
+Exec=/opt/VESTA/VESTA
+TryExec=/opt/VESTA/VESTA
+Icon=/usr/share/icons/hicolor/128x128/apps/VESTA.png
+Categories=Science;

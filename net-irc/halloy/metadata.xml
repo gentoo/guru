@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+  <maintainer type="person">
+    <email>agireud@protonmail.com</email>
+    <name>Alberto Gireud</name>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://github.com/squidowl/halloy/issues</bugs-to>
+    <doc>https://halloy.squidowl.org</doc>
+    <remote-id type="github">squidowl/halloy</remote-id>
+  </upstream>
+</pkgmetadata>

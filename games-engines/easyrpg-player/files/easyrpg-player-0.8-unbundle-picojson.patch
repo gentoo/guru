@@ -1,0 +1,18 @@
+Gentoo doesn't support Emscripten in any way shape or form yet.
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -758,14 +758,6 @@ if(APPLE)
+ 	target_link_libraries(${PROJECT_NAME} ${MACOSFOUNDATION} ${MACOSAUDIOUNIT} ${MACOSAUDIOTOOLBOX})
+ endif()
+ 
+-if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+-	option(PLAYER_JS_BUILD_SHELL "Build the Player executable as a shell file (.html) instead of a standalone javascript file (.js)" OFF)
+-	set(PLAYER_JS_GAME_URL "games/" CACHE STRING "Game URL/directory where the web player searches for games")
+-	set(PLAYER_JS_OUTPUT_NAME "easyrpg-player" CACHE STRING "Output name of the js, html and wasm files")
+-	set_property(SOURCE src/async_handler.cpp APPEND PROPERTY COMPILE_DEFINITIONS "EM_GAME_URL=\"${PLAYER_JS_GAME_URL}\"")
+-	target_sources(${PROJECT_NAME} PRIVATE src/external/picojson.h)
+-endif()
+-
+ # Endianess check
+ if(${CMAKE_VERSION} VERSION_GREATER_EQUAL 3.20)
+ 	if (CMAKE_CXX_BYTE_ORDER STREQUAL "BIG_ENDIAN")

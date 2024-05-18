@@ -1,0 +1,66 @@
+From f5cf1c6556baf7108a6e3a3f34ee5e3f7ae849c5 Mon Sep 17 00:00:00 2001
+From: Christopher Byrne <salah.coronya@gmail.com>
+Date: Wed, 20 Sep 2023 20:01:57 -0500
+Subject: [PATCH 1/2] build: Restore conditional --with-pam flag
+
+THis also fixed the spec to add --with-pam. Distrobutions like Gentoo need this
+
+Signed-off-by: Christopher Byrne <salah.coronya@gmail.com>
+---
+ configure.ac | 27 +++++++++++++++------------
+ oddjob.spec  |  1 +
+ 2 files changed, 16 insertions(+), 12 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 13a28af..bca6307 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -43,18 +43,21 @@ DBUS_INTROSPECTION_METHOD=Introspect
+ AC_SUBST(DBUS_INTROSPECTION_INTERFACE)
+ AC_SUBST(DBUS_INTROSPECTION_METHOD)
+ 
+-pam=yes
+-AC_CHECK_HEADERS(security/pam_modules.h)
+-savedLDFLAGS="$LDFLAGS"
+-LDFLAGS=
+-savedLIBS="$LIBS"
+-LIBS=
+-AC_CHECK_FUNCS([pam_get_user pam_get_item],,[AC_CHECK_LIB(pam,pam_get_user,,pam=no)])
+-PAM_LIBS="$LIBS"
+-LIBS="$savedLIBS"
+-LDFLAGS="$savedLDFLAGS"
+-AC_SUBST(PAM_LIBS)
+-AM_CONDITIONAL(BUILD_PAM,test x$pam = xyes)
++AC_ARG_WITH([pam],
++	[AS_HELP_STRING([--with-pam],[Build and install pam_oddjob_mkhomedir])]
++	,,[with_pam=yes])
++AS_IF([test "x$with_pam" != "xno"],
++	[AC_CHECK_HEADERS(security/pam_modules.h)
++	savedLDFLAGS="$LDFLAGS"
++	LDFLAGS=
++	savedLIBS="$LIBS"
++	LIBS=
++	AC_CHECK_FUNCS([pam_get_user pam_get_item],,[AC_CHECK_LIB(pam,pam_get_user,,pam=no)])
++	PAM_LIBS="$LIBS"
++	LIBS="$savedLIBS"
++	LDFLAGS="$savedLDFLAGS"
++	AC_SUBST(PAM_LIBS)])
++AM_CONDITIONAL(BUILD_PAM,[test "x$with_pam" != "xno"])
+ 
+ dnl Oh, for the clear management of OID arcs....
+ NAMESPACE=com.redhat
+diff --git a/oddjob.spec b/oddjob.spec
+index c5a09dd..6e62f2b 100644
+--- a/oddjob.spec
++++ b/oddjob.spec
+@@ -96,6 +96,7 @@ sample_flag=--enable-sample
+ %configure \
+ 	--disable-static \
+ 	--enable-pie --enable-now \
++	--with-pam \
+ 	--with-selinux-acls \
+ 	--with-selinux-labels \
+ 	--without-python --enable-xml-docs --enable-compat-dtd \
+-- 
+2.41.0
+

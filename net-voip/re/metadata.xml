@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>gentoo@fictx.com</email>
+        <name>Dale Showers</name>
+    </maintainer>
+    <upstream>
+    <remote-id type="github">baresip/re</remote-id>
+        <bugs-to>https://github.com/baresip/re/issues</bugs-to>
+        <doc>https://github.com/baresip/re/wiki</doc>
+        <changelog>https://github.com/baresip/re/releases</changelog>
+    </upstream>
+</pkgmetadata>

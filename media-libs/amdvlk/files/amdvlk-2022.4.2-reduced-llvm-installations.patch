@@ -1,0 +1,309 @@
+diff --git a/llvm-project/compiler-rt/include/CMakeLists.txt b/llvm-project/compiler-rt/include/CMakeLists.txt
+index 5968cfd0e..b19de088b 100644
+--- a/llvm-project/compiler-rt/include/CMakeLists.txt
++++ b/llvm-project/compiler-rt/include/CMakeLists.txt
+@@ -74,30 +74,30 @@ add_dependencies(compiler-rt compiler-rt-headers)
+ set_target_properties(compiler-rt-headers PROPERTIES FOLDER "Compiler-RT Misc")
+ 
+ # Install sanitizer headers.
+-install(FILES ${SANITIZER_HEADERS}
+-  COMPONENT compiler-rt-headers
+-  PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+-  DESTINATION ${COMPILER_RT_INSTALL_INCLUDE_DIR}/sanitizer)
++#install(FILES ${SANITIZER_HEADERS}
++#  COMPONENT compiler-rt-headers
++#  PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
++#  DESTINATION ${COMPILER_RT_INSTALL_INCLUDE_DIR}/sanitizer)
+ # Install fuzzer headers.
+-install(FILES ${FUZZER_HEADERS}
+-  COMPONENT compiler-rt-headers
+-  PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+-  DESTINATION ${COMPILER_RT_INSTALL_INCLUDE_DIR}/fuzzer)
++#install(FILES ${FUZZER_HEADERS}
++#  COMPONENT compiler-rt-headers
++#  PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
++#  DESTINATION ${COMPILER_RT_INSTALL_INCLUDE_DIR}/fuzzer)
+ # Install xray headers.
+-install(FILES ${XRAY_HEADERS}
+-  COMPONENT compiler-rt-headers
+-  PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+-  DESTINATION ${COMPILER_RT_INSTALL_INCLUDE_DIR}/xray)
++#install(FILES ${XRAY_HEADERS}
++#  COMPONENT compiler-rt-headers
++#  PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
++#  DESTINATION ${COMPILER_RT_INSTALL_INCLUDE_DIR}/xray)
+ # Install ORC headers.
+-install(FILES ${ORC_HEADERS}
+-  COMPONENT compiler-rt-headers
+-  PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+-  DESTINATION ${COMPILER_RT_INSTALL_INCLUDE_DIR}/orc)
++#install(FILES ${ORC_HEADERS}
++#  COMPONENT compiler-rt-headers
++#  PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
++#  DESTINATION ${COMPILER_RT_INSTALL_INCLUDE_DIR}/orc)
+ # Install profile headers.
+-install(FILES ${PROFILE_HEADERS}
+-  COMPONENT compiler-rt-headers
+-  PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+-  DESTINATION ${COMPILER_RT_INSTALL_INCLUDE_DIR}/profile)
++#install(FILES ${PROFILE_HEADERS}
++#  COMPONENT compiler-rt-headers
++#  PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
++#  DESTINATION ${COMPILER_RT_INSTALL_INCLUDE_DIR}/profile)
+ 
+ if (NOT CMAKE_CONFIGURATION_TYPES) # don't add this for IDEs.
+   add_custom_target(install-compiler-rt-headers
+diff --git a/llvm-project/libclc/CMakeLists.txt b/llvm-project/libclc/CMakeLists.txt
+index 96519e09e..4d971d617 100644
+--- a/llvm-project/libclc/CMakeLists.txt
++++ b/llvm-project/libclc/CMakeLists.txt
+@@ -186,16 +186,16 @@ endif()
+ 
+ # pkg-config file
+ configure_file( libclc.pc.in libclc.pc @ONLY )
+-install( FILES ${CMAKE_CURRENT_BINARY_DIR}/libclc.pc DESTINATION "${CMAKE_INSTALL_DATADIR}/pkgconfig" )
+-install( DIRECTORY generic/include/clc DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}" )
++#install( FILES ${CMAKE_CURRENT_BINARY_DIR}/libclc.pc DESTINATION "${CMAKE_INSTALL_DATADIR}/pkgconfig" )
++#install( DIRECTORY generic/include/clc DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}" )
+ 
+ if( ENABLE_RUNTIME_SUBNORMAL )
+ 	add_library( subnormal_use_default STATIC
+ 		generic/lib/subnormal_use_default.ll )
+ 	add_library( subnormal_disable STATIC
+ 		generic/lib/subnormal_disable.ll )
+-	install( TARGETS subnormal_use_default subnormal_disable ARCHIVE
+-		DESTINATION "${CMAKE_INSTALL_DATADIR}/clc" )
++	#	install( TARGETS subnormal_use_default subnormal_disable ARCHIVE
++	#		DESTINATION "${CMAKE_INSTALL_DATADIR}/clc" )
+ endif()
+ 
+ find_package( Python3 REQUIRED COMPONENTS Interpreter )
+diff --git a/llvm-project/libcxxabi/include/CMakeLists.txt b/llvm-project/libcxxabi/include/CMakeLists.txt
+index 5b1cc2545..587549494 100644
+--- a/llvm-project/libcxxabi/include/CMakeLists.txt
++++ b/llvm-project/libcxxabi/include/CMakeLists.txt
+@@ -22,11 +22,11 @@ target_include_directories(cxxabi-headers INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}
+ if (LIBCXXABI_INSTALL_HEADERS)
+   foreach(file ${files})
+     get_filename_component(dir ${file} DIRECTORY)
+-    install(FILES ${file}
+-      DESTINATION ${LIBCXXABI_INSTALL_INCLUDE_DIR}/${dir}
+-      COMPONENT cxxabi-headers
+-      PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+-    )
++    #    install(FILES ${file}
++    #  DESTINATION ${LIBCXXABI_INSTALL_INCLUDE_DIR}/${dir}
++    #  COMPONENT cxxabi-headers
++    #  PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
++    #)
+   endforeach()
+ 
+   add_custom_target(install-cxxabi-headers
+diff --git a/llvm-project/libunwind/include/CMakeLists.txt b/llvm-project/libunwind/include/CMakeLists.txt
+index adf1766c4..5ca04b1f0 100644
+--- a/llvm-project/libunwind/include/CMakeLists.txt
++++ b/llvm-project/libunwind/include/CMakeLists.txt
+@@ -13,11 +13,11 @@ target_include_directories(unwind-headers INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+ if(LIBUNWIND_INSTALL_HEADERS)
+   foreach(file ${files})
+     get_filename_component(dir ${file} DIRECTORY)
+-    install(FILES ${file}
+-      DESTINATION "${LIBUNWIND_INSTALL_INCLUDE_DIR}/${dir}"
+-      COMPONENT unwind-headers
+-      PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+-    )
++    #install(FILES ${file}
++    #  DESTINATION "${LIBUNWIND_INSTALL_INCLUDE_DIR}/${dir}"
++    #  COMPONENT unwind-headers
++    #  PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
++    #)
+   endforeach()
+ 
+   if(NOT CMAKE_CONFIGURATION_TYPES)
+diff --git a/llvm-project/lld/cmake/modules/CMakeLists.txt b/llvm-project/lld/cmake/modules/CMakeLists.txt
+index 61e7a1fe2..71395e8bb 100644
+--- a/llvm-project/lld/cmake/modules/CMakeLists.txt
++++ b/llvm-project/lld/cmake/modules/CMakeLists.txt
+@@ -50,10 +50,10 @@ set(LLD_CONFIG_CMAKE_DIR)
+ if (NOT LLVM_INSTALL_TOOLCHAIN_ONLY)
+   install_distribution_exports(LLD)
+ 
+-  install(FILES
+-    ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/LLDConfig.cmake
+-    DESTINATION ${LLD_INSTALL_PACKAGE_DIR}
+-    COMPONENT lld-cmake-exports)
++  #install(FILES
++  #  ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/LLDConfig.cmake
++  #  DESTINATION ${LLD_INSTALL_PACKAGE_DIR}
++  #  COMPONENT lld-cmake-exports)
+ 
+   if(NOT LLVM_ENABLE_IDE)
+     # Add a dummy target so this can be used with LLVM_DISTRIBUTION_COMPONENTS
+diff --git a/llvm-project/llvm-libgcc/lib/CMakeLists.txt b/llvm-project/llvm-libgcc/lib/CMakeLists.txt
+index d895a2155..fb1969249 100644
+--- a/llvm-project/llvm-libgcc/lib/CMakeLists.txt
++++ b/llvm-project/llvm-libgcc/lib/CMakeLists.txt
+@@ -45,10 +45,10 @@ target_link_libraries(libgcc_s PRIVATE
+ extend_path(LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT "${CMAKE_INSTALL_PREFIX}" "${LIBUNWIND_INSTALL_LIBRARY_DIR}")
+ #string(REPLACE "${CMAKE_INSTALL_FULL_LIBDIR}/" "" LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT "${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}")
+ 
+-install(TARGETS libgcc_s
+-        LIBRARY DESTINATION "${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}" COMPONENT unwind
+-        ARCHIVE DESTINATION "${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}" COMPONENT unwind
+-        RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT unwind)
++#install(TARGETS libgcc_s
++#        LIBRARY DESTINATION "${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}" COMPONENT unwind
++#        ARCHIVE DESTINATION "${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}" COMPONENT unwind
++#        RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT unwind)
+ 
+ get_compiler_rt_install_dir(${LLVM_LIBGCC_TARGET_ARCH} install_dir_builtins)
+ string(REGEX REPLACE "^lib/" "" install_dir_builtins "${install_dir_builtins}")
+@@ -58,29 +58,29 @@ if(install_path_contains_triple EQUAL -1)
+ else()
+   string(PREPEND install_dir_builtins "../")
+ endif()
+-install(CODE "execute_process(
+-                COMMAND \"\${CMAKE_COMMAND}\" -E
+-                create_symlink ${install_dir_builtins}/libclang_rt.builtins${builtins_suffix}.a libgcc.a
+-                WORKING_DIRECTORY \"\$ENV{DESTDIR}${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}\")"
+-        COMPONENT unwind)
++#install(CODE "execute_process(
++#                COMMAND \"\${CMAKE_COMMAND}\" -E
++#                create_symlink ${install_dir_builtins}/libclang_rt.builtins${builtins_suffix}.a libgcc.a
++#                WORKING_DIRECTORY \"\$ENV{DESTDIR}${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}\")"
++#        COMPONENT unwind)
+ 
+-install(CODE "execute_process(
+-                COMMAND \"\${CMAKE_COMMAND}\" -E
+-                create_symlink libunwind.a libgcc_eh.a
+-                WORKING_DIRECTORY \"\$ENV{DESTDIR}${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}\")"
+-        COMPONENT unwind)
+-install(CODE "execute_process(
+-               COMMAND \"\${CMAKE_COMMAND}\" -E
+-               create_symlink libunwind.so libgcc_s.so.1.0
+-               WORKING_DIRECTORY \"\$ENV{DESTDIR}${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}\")"
+-        COMPONENT unwind)
+-install(CODE "execute_process(
+-                COMMAND \"\${CMAKE_COMMAND}\" -E
+-                create_symlink libgcc_s.so.1.0 libgcc_s.so.1
+-                WORKING_DIRECTORY \"\$ENV{DESTDIR}${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}\")"
+-        COMPONENT unwind)
+-install(CODE "execute_process(
+-                COMMAND \"\${CMAKE_COMMAND}\" -E
+-                create_symlink libgcc_s.so.1 libgcc_s.so
+-                WORKING_DIRECTORY \"\$ENV{DESTDIR}${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}\")"
+-        COMPONENT unwind)
++#install(CODE "execute_process(
++#                COMMAND \"\${CMAKE_COMMAND}\" -E
++#                create_symlink libunwind.a libgcc_eh.a
++#                WORKING_DIRECTORY \"\$ENV{DESTDIR}${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}\")"
++#        COMPONENT unwind)
++#install(CODE "execute_process(
++#               COMMAND \"\${CMAKE_COMMAND}\" -E
++#               create_symlink libunwind.so libgcc_s.so.1.0
++#               WORKING_DIRECTORY \"\$ENV{DESTDIR}${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}\")"
++#        COMPONENT unwind)
++#install(CODE "execute_process(
++#                COMMAND \"\${CMAKE_COMMAND}\" -E
++#                create_symlink libgcc_s.so.1.0 libgcc_s.so.1
++#                WORKING_DIRECTORY \"\$ENV{DESTDIR}${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}\")"
++#        COMPONENT unwind)
++#install(CODE "execute_process(
++#                COMMAND \"\${CMAKE_COMMAND}\" -E
++#                create_symlink libgcc_s.so.1 libgcc_s.so
++#               WORKING_DIRECTORY \"\$ENV{DESTDIR}${LLVM_LIBGCC_LIBUNWIND_STATIC_ROOT}\")"
++#        COMPONENT unwind)
+diff --git a/llvm-project/llvm/CMakeLists.txt b/llvm-project/llvm/CMakeLists.txt
+index c60e34efa..123704685 100644
+--- a/llvm-project/llvm/CMakeLists.txt
++++ b/llvm-project/llvm/CMakeLists.txt
+@@ -999,8 +999,8 @@ if (NOT TENSORFLOW_AOT_PATH STREQUAL "")
+   include_directories(${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/tensorflow/include)
+   add_subdirectory(${TENSORFLOW_AOT_PATH}/xla_aot_runtime_src
+     ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}/tf_runtime)
+-  install(TARGETS tf_xla_runtime EXPORT LLVMExports
+-    ARCHIVE DESTINATION lib${LLVM_LIBDIR_SUFFIX} COMPONENT tf_xla_runtime)
++  #install(TARGETS tf_xla_runtime EXPORT LLVMExports
++  #  ARCHIVE DESTINATION lib${LLVM_LIBDIR_SUFFIX} COMPONENT tf_xla_runtime)
+   set_property(GLOBAL APPEND PROPERTY LLVM_EXPORTS tf_xla_runtime)
+   # Once we add more modules, we should handle this more automatically.
+   if (DEFINED LLVM_OVERRIDE_MODEL_HEADER_INLINERSIZEMODEL)
+@@ -1247,44 +1247,44 @@ if (LLVM_INCLUDE_UTILS)
+ endif()
+ 
+ if (NOT LLVM_INSTALL_TOOLCHAIN_ONLY)
+-  install(DIRECTORY include/llvm include/llvm-c
+-    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+-    COMPONENT llvm-headers
+-    FILES_MATCHING
+-    PATTERN "*.def"
+-    PATTERN "*.h"
+-    PATTERN "*.td"
+-    PATTERN "*.inc"
+-    PATTERN "LICENSE.TXT"
+-    )
+-
+-  install(DIRECTORY ${LLVM_INCLUDE_DIR}/llvm ${LLVM_INCLUDE_DIR}/llvm-c
+-    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+-    COMPONENT llvm-headers
+-    FILES_MATCHING
+-    PATTERN "*.def"
+-    PATTERN "*.h"
+-    PATTERN "*.gen"
+-    PATTERN "*.inc"
++	#install(DIRECTORY include/llvm include/llvm-c
++	#    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
++	#    COMPONENT llvm-headers
++	#    FILES_MATCHING
++	#    PATTERN "*.def"
++	#    PATTERN "*.h"
++	#    PATTERN "*.td"
++	#    PATTERN "*.inc"
++	#    PATTERN "LICENSE.TXT"
++	#    )
++
++	#  install(DIRECTORY ${LLVM_INCLUDE_DIR}/llvm ${LLVM_INCLUDE_DIR}/llvm-c
++	#    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
++	#    COMPONENT llvm-headers
++	#    FILES_MATCHING
++	#    PATTERN "*.def"
++	#    PATTERN "*.h"
++	#    PATTERN "*.gen"
++	#    PATTERN "*.inc"
+     # Exclude include/llvm/CMakeFiles/intrinsics_gen.dir, matched by "*.def"
+-    PATTERN "CMakeFiles" EXCLUDE
+-    PATTERN "config.h" EXCLUDE
+-    )
++    #    PATTERN "CMakeFiles" EXCLUDE
++    #    PATTERN "config.h" EXCLUDE
++    #    )
+ 
+   if (LLVM_INSTALL_MODULEMAPS)
+-    install(DIRECTORY include/llvm include/llvm-c
+-            DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+-            COMPONENT llvm-headers
+-            FILES_MATCHING
+-            PATTERN "module.modulemap"
+-            )
+-    install(FILES include/llvm/module.install.modulemap
+-            DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/llvm"
+-            COMPONENT llvm-headers
+-            RENAME "module.extern.modulemap"
+-            )
++	  #    install(DIRECTORY include/llvm include/llvm-c
++	  #            DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
++	  #            COMPONENT llvm-headers
++	  #            FILES_MATCHING
++	  #            PATTERN "module.modulemap"
++	  #            )
++	  #    install(FILES include/llvm/module.install.modulemap
++	  #            DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/llvm"
++	  #            COMPONENT llvm-headers
++	  #            RENAME "module.extern.modulemap"
++	  #         
+   endif(LLVM_INSTALL_MODULEMAPS)
+-
++	  #
+   # Installing the headers needs to depend on generating any public
+   # tablegen'd headers.
+   add_custom_target(llvm-headers DEPENDS intrinsics_gen omp_gen)

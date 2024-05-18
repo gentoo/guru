@@ -1,0 +1,19 @@
+diff --git a/configure.ac b/configure.ac
+index 653fe71..bd4bd78 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -504,14 +504,6 @@ fi
+ 
+ if test x$use_hardening != xno; then
+   AX_CHECK_COMPILE_FLAG([-Wstack-protector],[HARDENED_CXXFLAGS="$HARDENED_CXXFLAGS -Wstack-protector"])
+-  AX_CHECK_COMPILE_FLAG([-fstack-protector-all],[HARDENED_CXXFLAGS="$HARDENED_CXXFLAGS -fstack-protector-all"])
+-
+-  AX_CHECK_PREPROC_FLAG([-D_FORTIFY_SOURCE=2],[
+-    AX_CHECK_PREPROC_FLAG([-U_FORTIFY_SOURCE],[
+-      HARDENED_CPPFLAGS="$HARDENED_CPPFLAGS -U_FORTIFY_SOURCE"
+-    ])
+-    HARDENED_CPPFLAGS="$HARDENED_CPPFLAGS -D_FORTIFY_SOURCE=2"
+-  ])
+ 
+   AX_CHECK_LINK_FLAG([[-Wl,--dynamicbase]], [HARDENED_LDFLAGS="$HARDENED_LDFLAGS -Wl,--dynamicbase"])
+   AX_CHECK_LINK_FLAG([[-Wl,--nxcompat]], [HARDENED_LDFLAGS="$HARDENED_LDFLAGS -Wl,--nxcompat"])

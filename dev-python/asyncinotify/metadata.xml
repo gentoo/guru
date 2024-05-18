@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Kamal Abdellatif</name>
+		<email>gentoo.kamal@tgf.pw</email>
+	</maintainer>
+	<longdescription>
+		An async python inotify package. Kept as simple and easy-to-understand as
+		possible, while still being flexible and powerful. This is built on no external
+		dependencies, and works through ctypes in a very obvious fashion.
+	</longdescription>
+	<upstream>
+		<remote-id type="gitlab">Taywee/asyncinotify</remote-id>
+		<doc>https://asyncinotify.readthedocs.io/en/latest/asyncinotify.html</doc>
+		<maintainer>
+			<name>Taylor C. Richberger</name>
+			<email>tcr@absolute-performance.com</email>
+		</maintainer>
+	</upstream>
+</pkgmetadata>

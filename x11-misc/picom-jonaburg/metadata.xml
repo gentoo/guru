@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>contact@thamognya.com</email>
+		<name>Thamognya Kodi</name>
+		<description>Primary maintainer</description>
+	</maintainer>
+	<longdescription lang="en">
+		This is a forked version from Sandmark's picom branch, including Blackcapcoder's animation code inside. The animations here are further smoothed and time deltas reduced from 1ms to 40us for high refresh rates and buttery smooth transitions.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">jonaburg/picom</remote-id>
+	</upstream>
+	<use>
+		<flag name="config-file">Enable config file support</flag>
+		<flag name="doc">Build documentation and man pages (requires <pkg>app-text/asciidoc</pkg>)</flag>
+		<flag name="drm">Enable support for using drm for vsync</flag>
+		<flag name="opengl">Enable features that require opengl (opengl backend, and opengl vsync methods)</flag>
+	</use>
+</pkgmetadata>

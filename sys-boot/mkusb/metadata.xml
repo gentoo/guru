@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Vitaly Zdanevich</name>
+		<email>zdanevich.vitaly@ya.ru</email>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://bugs.launchpad.net/mkusb</bugs-to>
+		<doc>https://help.ubuntu.com/community/mkusb</doc>
+		<remote-id type="launchpad">mkusb</remote-id>
+	</upstream>
+</pkgmetadata>

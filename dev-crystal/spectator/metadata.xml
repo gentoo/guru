@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<maintainer>
+			<name>Michael Miller</name>
+			<email>icy.arctic.fox@gmail.com</email>
+		</maintainer>
+		<remote-id type="github">icy-arctic-fox/spectator</remote-id>
+	</upstream>
+</pkgmetadata>

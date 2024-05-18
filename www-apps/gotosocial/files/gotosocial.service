@@ -1,0 +1,45 @@
+[Unit]
+Description=GoToSocial Server
+
+[Service]
+User=gotosocial
+Group=gotosocial
+
+Type=exec
+Restart=on-failure
+
+ExecStart=/usr/bin/gotosocial --config-path /etc/gotosocial/config.yaml server start
+
+StandardOutput=append:/var/log/gotosocial/gotosocial.log
+StandardError=inherit
+
+# Sandboxing options to harden security
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateDevices=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=yes
+RestrictRealtime=yes
+DevicePolicy=closed
+ProtectSystem=full
+ProtectControlGroups=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+LockPersonality=yes
+SystemCallFilter=~@clock @debug @module @mount @obsolete @reboot @setuid @swap
+
+# Denying access to capabilities that should not be relevant
+CapabilityBoundingSet=~CAP_RAWIO CAP_MKNOD
+CapabilityBoundingSet=~CAP_AUDIT_CONTROL CAP_AUDIT_READ CAP_AUDIT_WRITE
+CapabilityBoundingSet=~CAP_SYS_BOOT CAP_SYS_TIME CAP_SYS_MODULE CAP_SYS_PACCT
+CapabilityBoundingSet=~CAP_LEASE CAP_LINUX_IMMUTABLE CAP_IPC_LOCK
+CapabilityBoundingSet=~CAP_BLOCK_SUSPEND CAP_WAKE_ALARM
+CapabilityBoundingSet=~CAP_SYS_TTY_CONFIG
+CapabilityBoundingSet=~CAP_MAC_ADMIN CAP_MAC_OVERRIDE
+CapabilityBoundingSet=~CAP_NET_ADMIN CAP_NET_BROADCAST CAP_NET_RAW
+CapabilityBoundingSet=~CAP_SYS_ADMIN CAP_SYS_PTRACE CAP_SYSLOG 
+# You might need this if you are running as non-root on a privileged port (below 1024)
+#AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=default.target

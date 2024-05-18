@@ -1,0 +1,13 @@
+diff --git a/setup.cfg b/setup.cfg
+index cf5b701..7911ec6 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -7,7 +7,7 @@ url = https://github.com/hifi/heisenbridge
+ author = Toni Spets (hifi)
+ author_email = toni.spets@iki.fi
+ license = MIT license
+-license_file = LICENSE
++license_files = LICENSE
+ 
+ [options]
+ packages =

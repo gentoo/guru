@@ -1,0 +1,24 @@
+#!/sbin/openrc-run
+# Copyright 1999-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="heisenbridge daemon"
+description="a bouncer-style Matrix IRC bridge"
+
+pidfile="/run/${RC_SVCNAME}.pid"
+command="/usr/bin/python"
+command_args="-m heisenbridge -c ${REGISTRATION} -l ${LISTEN_ADDRESS} -p ${LISTEN_PORT}  ${HOMESERVER}"
+command_background=true
+command_user="heisenbridge:heisenbridge"
+
+output_log="/var/log/heisenbridge.log"
+error_log="/var/log/heisenbridge.log"
+
+depend() {
+	need net
+}
+
+start_pre() {
+	checkpath -d -m 0755 -o "$command_user" /var/lib/heisenbridge
+	checkpath -f -m 0644 -o "$command_user" "$output_log"
+}

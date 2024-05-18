@@ -1,0 +1,17 @@
+From: Kay Thomas <kaythomas@pm.me>
+Date: Sat Mar 30 02:14:43 2024 -0400
+
+Fix length_error
+
+diff --git a/src/backend/opencl/runners/OclRyoRunner.cpp b/src/backend/opencl/runners/OclRyoRunner.cpp
+index eff7f392..56edf1a4 100644
+--- a/src/backend/opencl/runners/OclRyoRunner.cpp
++++ b/src/backend/opencl/runners/OclRyoRunner.cpp
+@@ -34,6 +34,7 @@
+ #include "base/io/log/Log.h"
+ #include "base/net/stratum/Job.h"
+ #include "crypto/cn/CnAlgo.h"
++#include <stdexcept>
+ 
+ 
+ xmrig::OclRyoRunner::OclRyoRunner(size_t index, const OclLaunchData &data) : OclBaseRunner(index, data)

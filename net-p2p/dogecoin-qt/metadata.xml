@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<bugs-to>https://github.com/dogecoin/dogecoin/issues</bugs-to>
+		<changelog>https://github.com/dogecoin/dogecoin/tree/master/doc/release-notes</changelog>
+		<doc>https://github.com/dogecoin/dogecoin/tree/master/doc</doc>
+		<remote-id type="github">dogecoin/dogecoin</remote-id>
+	</upstream>
+	<maintainer type="person" proxied="yes">
+		<email>victor3.14@yandex.com</email>
+		<name>Victor Skovorodnikov</name>
+	</maintainer>
+	<use>
+		<flag name="dogecoind">Build with dogecoind daemon</flag>
+		<flag name="experimental">Allow experimental features to be configured</flag>
+		<flag name="intel-avx2">Build with intel avx2</flag>
+		<flag name="pie">Position Independent Executables - attempt to harden resulting executables, for extra security</flag>
+		<flag name="prune">Enables automatic pruning of old blocks to stay below 2.2GB target size (if ran from desktop)</flag>
+		<flag name="scrypt-sse2">Build with scrypt sse2 implementation</flag>
+		<flag name="ssp">Apply stack protector to all functions, for extra security</flag>
+		<flag name="tests">Build Dogecoin Core Qt with tests option</flag>
+		<flag name="utils">Build with client utilities dogecoin-cli and dogecoin-tx</flag> 
+		<flag name="wallet">Build Dogecoin Core Qt with wallet</flag>
+		<flag name="zmq">Enables ZeroMQ notifications</flag>
+	</use>
+	<longdescription lang="en">
+		Dogecoin Core Qt for desktop environment.  Fun-loving, highly secure, peer-to-peer digital currency with ultra-low transaction fees featuring Graphical User Interface with statistical analysis, console interaction and wallet support.  Fast and lightweight; the default installation for desktop keeps downloaded blockchain size below 2.2GB, making it ideal for daily transactions, even on systems where disk space could be limited.
+	</longdescription>
+</pkgmetadata>

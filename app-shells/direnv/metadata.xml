@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>zdanevich.vitaly@ya.ru</email>
+		<name>Vitaly Zdanevich</name>
+	</maintainer>
+	<longdescription lang="en">
+	direnv is an extension for your shell. It augments existing shells with
+	a new feature that can load and unload environment variables depending
+	on the current directory.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">direnv/direnv</remote-id>
+	</upstream>
+</pkgmetadata>

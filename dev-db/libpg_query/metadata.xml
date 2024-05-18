@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<longdescription>
+C library for accessing the PostgreSQL parser outside of the server.
+
+This library uses the actual PostgreSQL server source to parse SQL queries and return the internal PostgreSQL parse tree.
+
+Note that this is mostly intended as a base library for pg_query (Ruby), pg_query.go (Go), pgsql-parser (Node), psqlparse (Python) and pglast (Python 3).
+
+You can find further background to why a query's parse tree is useful here: https://pganalyze.com/blog/parse-postgresql-queries-in-ruby.html
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/pganalyze/libpg_query/issues</bugs-to>
+		<changelog>https://github.com/pganalyze/libpg_query/releases</changelog>
+		<remote-id type="github">pganalyze/libpg_query</remote-id>
+	</upstream>
+	<slots>
+		<subslots>dev-db/postgresql target version</subslots>
+	</slots>
+</pkgmetadata>

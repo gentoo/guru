@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>contact@hacktivis.me</email>
+		<name>Haelwenn (lanodan) Monnier</name>
+	</maintainer>
+	<use>
+		<flag name="system-glfw">Use the systems installed version of GLFW (upstream-unsupported)</flag>
+		<flag name="wayland">Build non-system-glfw for wayland instead of X11</flag>
+		<flag name="system-glew">Use the systems installed version of GLEW (upstream-unsupported)</flag>
+		<flag name="system-stb">Use the systems installed version of STB (upstream-unsupported)</flag>
+		<flag name="system-miniaudio">Use the systems installed version of Miniaudio (upstream-unsupported)</flag>
+		<!-- <flag name="system-kissfft">Use the systems installed version of Kissfft (upstream-unsupported)</flag> -->
+	</use>
+	<upstream>
+		<remote-id type="github">Gargaj/Bonzomatic</remote-id>
+	</upstream>
+</pkgmetadata>

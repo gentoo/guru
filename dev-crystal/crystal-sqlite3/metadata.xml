@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<maintainer>
+			<name>Ary Borenszweig</name>
+			<email>aborenszweig@manas.tech</email>
+		</maintainer>
+		<maintainer>
+			<name>Brian J. Cardiff</name>
+			<email>bcardiff@manas.tech</email>
+		</maintainer>
+		<remote-id type="github">crystal-lang/crystal-sqlite3</remote-id>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>esteve.varela@gmail.com</email>
+    <name>Esteve Varela Colominas</name>
+  </maintainer>
+  <use>
+    <flag name="system-vanilla">Use the VANILLA variant of system.img</flag>
+    <flag name="system-gapps">Use the GAPPS variant of system.img</flag>
+    <flag name="vendor-mainline">Use the MAINLINE variant of vendor.img</flag>
+    <flag name="vendor-halium">Use the HALIUM_11 variant of vendor.img</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">waydroid/waydroid</remote-id>
+    <remote-id type="sourceforge">waydroid</remote-id>
+  </upstream>
+</pkgmetadata>

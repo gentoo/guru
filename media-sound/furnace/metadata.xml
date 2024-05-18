@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>artemis@artemis.sh</email>
+        <description>Primary maintainer</description>
+        <name>Artemis Everfree</name>
+    </maintainer>
+    <upstream>
+        <remote-id type="github">tildearrow/furnace</remote-id>
+    </upstream>
+</pkgmetadata>
+

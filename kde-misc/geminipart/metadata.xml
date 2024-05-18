@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<maintainer>
+			<name>Tobias Rautenkranz</name>
+			<email>mail@tobias.rautenkranz.ch</email>
+		</maintainer>
+		<remote-id type="gitlab">tobiasrautenkranz/geminipart</remote-id>
+	</upstream>
+	<!-- maintainer-needed -->
+</pkgmetadata>

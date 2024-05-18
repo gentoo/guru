@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <!-- maintainer-needed -->
+  <longdescription lang="en">
+Gohufont is a monospace bitmap font well suited for programming and terminal use. It is intended to be very legible and offers very discernable glyphs for all characters, including signs and symbols.
+
+The small 11 px version is perfect for laptops and netbooks as it enables to fit more text into their small screens. The 14 px is ideal for desktop screens where you sit farther away from it and the 11 px would be too small.
+
+Features
+
+Legible
+
+The most important goal of Gohufont is to be as legible as possible. Capitals and ascenders are tall, and rounded characters are very crisp thanks to small serifs.
+
+Non-ambiguous
+
+I wanted to make Gohufont's glyphs very different from one another, so that there could be no ambiguity. The zero is dashed, l, I and 1 share no similarity, curly brackets are very distinct from parentheses, etc.
+  </longdescription>
+  <upstream>
+    <bugs-to>https://github.com/hchargois/gohufont/issues</bugs-to>
+    <remote-id type="github">hchargois/gohufont</remote-id>
+  </upstream>
+</pkgmetadata>

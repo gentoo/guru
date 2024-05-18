@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<!-- maintainer-needed -->
+<upstream>
+	<maintainer>
+		<email>june@causal.agency</email>
+		<name>June</name>
+	</maintainer>
+	<bugs-to>mailto:list+pounce@causal.agency</bugs-to>
+</upstream>
+<use>
+	<flag name="palaver">Provide push notifications for the Palaver IRC app</flag>
+</use>
+</pkgmetadata>

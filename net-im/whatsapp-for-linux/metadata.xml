@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<remote-id type="github">eneshecan/whatsapp-for-linux</remote-id>
+		<bugs-to>https://github.com/eneshecan/whatsapp-for-linux/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

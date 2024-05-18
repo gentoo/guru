@@ -1,0 +1,16 @@
+*.log
+*.swp
+*~
+,*
+.idea/
+.vs/
+.vscode/
+.~lock.*
+/.ebuild.x
+/distfiles/
+/eclass/*.5
+/local/
+/metadata/md5-cache
+/packages/
+/profiles/use.local.desc
+/tags

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>mailto:xrdp-devel@googlegroups.com</bugs-to>
+		<remote-id type="github">neutrinolabs/pipewire-module-xrdp</remote-id>
+	</upstream>
+</pkgmetadata>

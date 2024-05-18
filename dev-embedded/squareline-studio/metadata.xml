@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<longdescription lang="en">
+		Next generation UI editor for individuals and professionals to design
+		and develop beautiful UIs for your embedded devices quickly and easily.
+		SquareLine Studio is specially developed for designers so as to
+		implement their plans in the most efficient way and to take the most off
+		the programmers' shoulders. SquareLine Studio uses the fully open source
+		LVGL UI library which makes it possible to control the whole project
+		because there is no Lib file generated code set. Meanwhile, it gives
+		great performance on low performance devices.
+		SquareLine Studio supports exporting C and MicroPyton source code.
+		If you don't need the low level C programming, you can create your
+		project in the simplyfied version of the well-known and commonly used
+		Python scripting language, MicroPython. The advantage of MicroPython
+		compared to C programming is that it can process commands in real time.
+		For instance if we would like to add a button to the screen of a project
+		running on a device, we should send the Add button command to the system
+		so as to make the button appear immediately on the device.
+	</longdescription>
+	<longdescription lang="zh">
+		下一代的UI编辑器，适用于个人和专业人士，可以快速、轻松地为您的嵌入式设备
+		设计和开发美观的用户界面。SquareLine Studio是专门为设计师开发的，以便以
+		最高效的方式实现他们的计划，同时尽量减轻程序员的负担。SquareLine Studio
+		使用完全开源的LVGL UI库，这使得可以控制整个项目，因为不会生成Lib文件
+		编码集。同时，它在低性能的设备上表现出色。
+		SquareLine Studio支持导出C和MicroPython源代码。如果您不需要低级C编程，
+		您可以使用众所周知且常用的Python脚本语言的简化版本MicroPython创建您的
+		项目。与C编程相比，MicroPython的优势是它可以实时处理命令。例如，如果我们
+		想在运行在设备上的项目的屏幕上添加一个按钮，我们应该向系统发送添加按钮的
+		命令，以便立即在设备上显示该按钮。
+	</longdescription>
+</pkgmetadata>

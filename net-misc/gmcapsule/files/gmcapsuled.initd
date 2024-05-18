@@ -1,0 +1,29 @@
+#!/sbin/openrc-run
+# Copyright 2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+# shellcheck shell=sh
+
+extra_started_commands="reload"
+
+command="/usr/bin/gmcapsuled"
+command_args="-c ${GMCAPSULED_CONFIG:=/etc/gmcapsule/config.ini}"
+command_user="gemini:gemini"
+command_background=1
+pidfile="/run/gmcapsuled.pid"
+output_logger="logger -p daemon.info -t gmcapsuled --"
+error_logger="logger -p daemon.err -t gmcapsuled --"
+
+depend() {
+	use logger
+	need net
+}
+
+start_pre() {
+	export PYTHONUNBUFFERED=1
+}
+
+reload() {
+	ebegin "Refreshing gmcapsuled's configuration"
+	start-stop-daemon --signal SIGHUP --pidfile "${pidfile}"
+	eend $? "Failed to reload gmcapsuled"
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<remote-id type="github">ms-jpq/gay</remote-id>
+		<remote-id type="pypi">gay</remote-id>
+		<bugs-to>https://github.com/ms-jpq/gay/issues</bugs-to>
+		<maintainer>
+			<email>github@bigly.dog</email>
+			<name>ms-jpq</name>
+		</maintainer>
+	</upstream>
+</pkgmetadata>

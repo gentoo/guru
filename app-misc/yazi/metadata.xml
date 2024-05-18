@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>rmicielski@purelymail.com</email>
+		<name>Remigiusz Micielski</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">sxyazi/yazi</remote-id>
+		<bugs-to>https://github.com/sxyazi/yazi/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

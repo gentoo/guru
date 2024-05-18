@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>artemis@artemis.sh</email>
+        <description>Primary maintainer</description>
+        <name>Artemis Everfree</name>
+    </maintainer>
+    <upstream>
+        <remote-id type="github">NeoRaider/fastd</remote-id>
+    </upstream>
+    <use>
+        <flag name="offload-l2tp">Offload L2TP traffic to the kernel when using the null@l2tp transport method</flag>
+        <flag name="doc">Build and install manpages</flag>
+    </use>
+</pkgmetadata>

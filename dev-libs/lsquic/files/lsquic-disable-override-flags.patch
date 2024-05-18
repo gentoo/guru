@@ -1,0 +1,20 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e9ca3d8..6ee1e9d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -59,7 +59,6 @@ IF(LSQUIC_FIU)
+ ENDIF()
+ 
+ IF(CMAKE_BUILD_TYPE STREQUAL "Debug")
+-    SET(MY_CMAKE_FLAGS "${MY_CMAKE_FLAGS} -O0 -g3")
+     IF(CMAKE_C_COMPILER MATCHES "clang" AND
+                         NOT "$ENV{TRAVIS}" MATCHES "^true$" AND
+                         NOT "$ENV{EXTRA_CFLAGS}" MATCHES "-fsanitize")
+@@ -69,7 +68,6 @@ IF(CMAKE_BUILD_TYPE STREQUAL "Debug")
+     # Uncomment to enable cleartext protocol mode (no crypto):
+     #SET (MY_CMAKE_FLAGS "${MY_CMAKE_FLAGS} -DLSQUIC_ENABLE_HANDSHAKE_DISABLE=1")
+ ELSE()
+-    SET(MY_CMAKE_FLAGS "${MY_CMAKE_FLAGS} -O3 -g0")
+     # Comment out the following line to compile out debug messages:
+     #SET(MY_CMAKE_FLAGS "${MY_CMAKE_FLAGS} -DLSQUIC_LOWEST_LOG_LEVEL=LSQ_LOG_INFO")
+ ENDIF()

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>watermanpaint@posteo.net</email>
+    <name>Lucio Sauer</name>
+  </maintainer>
+  <upstream>
+    <changelog>
+      https://github.com/typeddjango/pytest-mypy-plugins/blob/master/CHANGELOG.md
+    </changelog>
+    <remote-id type="github">typeddjango/pytest-mypy-plugins</remote-id>
+    <remote-id type="pypi">pytest-mypy-plugins</remote-id>
+  </upstream>
+</pkgmetadata>

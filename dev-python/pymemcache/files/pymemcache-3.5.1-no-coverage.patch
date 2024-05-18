@@ -1,0 +1,10 @@
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -40,7 +40,6 @@
+ 	--tb=short
+ 	--capture=no
+ 	-rfEsxX
+-	--cov=pymemcache --cov-config=setup.cfg --cov-report=xml --cov-report=term-missing
+ 	-m unit
+ markers = 
+ 	unit

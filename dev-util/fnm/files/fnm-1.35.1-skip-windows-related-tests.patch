@@ -1,0 +1,201 @@
+Skip Windows-related tests
+--- a/e2e/aliases.test.ts
++++ b/e2e/aliases.test.ts
+@@ -1,5 +1,5 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import describe from "./describe.js"
+ import { writeFile } from "node:fs/promises"
+ import path from "node:path"
+@@ -7,7 +7,7 @@ import testCwd from "./shellcode/test-cw
+ import getStderr from "./shellcode/get-stderr.js"
+ import testNodeVersion from "./shellcode/test-node-version.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`allows to install an lts if version missing`, async () => {
+       await writeFile(path.join(testCwd(), ".node-version"), "lts/*")
+--- a/e2e/basic.test.ts
++++ b/e2e/basic.test.ts
+@@ -1,12 +1,12 @@
+ import { writeFile, mkdir } from "node:fs/promises"
+ import { join } from "node:path"
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, WinCmd, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import testCwd from "./shellcode/test-cwd.js"
+ import testNodeVersion from "./shellcode/test-node-version.js"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell, WinCmd]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`basic usage`, async () => {
+       await script(shell)
+--- a/e2e/corepack.test.ts
++++ b/e2e/corepack.test.ts
+@@ -1,6 +1,6 @@
+ import fs from "fs"
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import describe from "./describe.js"
+ import path from "path"
+ import testCwd from "./shellcode/test-cwd.js"
+@@ -28,7 +28,7 @@ const nodescript = `
+   }
+ `
+ 
+-for (const shell of [Bash, Fish, PowerShell, Zsh]) {
++for (const shell of [Bash, Fish, Zsh]) {
+   describe(shell, () => {
+     test(`installs corepack`, async () => {
+       const cwd = testCwd()
+--- a/e2e/current.test.ts
++++ b/e2e/current.test.ts
+@@ -1,8 +1,8 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, WinCmd, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell, WinCmd]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`current returns the current Node.js version set in fnm`, async () => {
+       await script(shell)
+--- a/e2e/env.test.ts
++++ b/e2e/env.test.ts
+@@ -1,11 +1,11 @@
+ import { readFile } from "node:fs/promises"
+ import { join } from "node:path"
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, WinCmd, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import testCwd from "./shellcode/test-cwd.js"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell, WinCmd]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`outputs json`, async () => {
+       const filename = `file.json`
+--- a/e2e/exec.test.ts
++++ b/e2e/exec.test.ts
+@@ -1,11 +1,11 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, WinCmd, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import testCwd from "./shellcode/test-cwd.js"
+ import fs from "node:fs/promises"
+ import path from "node:path"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell, WinCmd]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test("`exec` usage", async () => {
+       await fs.writeFile(path.join(testCwd(), ".nvmrc"), "v8.10.0")
+--- a/e2e/existing-installation.test.ts
++++ b/e2e/existing-installation.test.ts
+@@ -1,9 +1,9 @@
+ import getStderr from "./shellcode/get-stderr.js"
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`warns about an existing installation`, async () => {
+       await script(shell)
+--- a/e2e/latest-lts.test.ts
++++ b/e2e/latest-lts.test.ts
+@@ -1,8 +1,8 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`installs latest lts`, async () => {
+       await script(shell)
+--- a/e2e/log-level.test.ts
++++ b/e2e/log-level.test.ts
+@@ -1,9 +1,9 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import describe from "./describe.js"
+ import getStderr from "./shellcode/get-stderr.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`"quiet" log level`, async () => {
+       await script(shell)
+--- a/e2e/multishell.test.ts
++++ b/e2e/multishell.test.ts
+@@ -1,9 +1,9 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import testNodeVersion from "./shellcode/test-node-version.js"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`multishell changes don't affect parent`, async () => {
+       await script(shell)
+--- a/e2e/nvmrc-lts.test.ts
++++ b/e2e/nvmrc-lts.test.ts
+@@ -1,11 +1,11 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import fs from "node:fs/promises"
+ import path from "node:path"
+ import describe from "./describe.js"
+ import testCwd from "./shellcode/test-cwd.js"
+ 
+-for (const shell of [Bash, Fish, PowerShell, Zsh]) {
++for (const shell of [Bash, Fish, Zsh]) {
+   describe(shell, () => {
+     test(`uses .nvmrc with lts definition`, async () => {
+       await fs.writeFile(path.join(testCwd(), ".nvmrc"), `lts/dubnium`)
+--- a/e2e/system-node.test.ts
++++ b/e2e/system-node.test.ts
+@@ -1,12 +1,12 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, WinCmd, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import fs from "node:fs/promises"
+ import path from "node:path"
+ import describe from "./describe.js"
+ import testNodeVersion from "./shellcode/test-node-version.js"
+ import testBinDir from "./shellcode/test-bin-dir.js"
+ 
+-for (const shell of [Bash, Fish, PowerShell, WinCmd, Zsh]) {
++for (const shell of [Bash, Fish, Zsh]) {
+   describe(shell, () => {
+     // latest bash breaks this as it seems. gotta find a solution.
+     const t = process.platform === "darwin" && shell === Bash ? test.skip : test
+--- a/e2e/uninstall.test.ts
++++ b/e2e/uninstall.test.ts
+@@ -1,8 +1,8 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`uninstalls a version`, async () => {
+       await script(shell)

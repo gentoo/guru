@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>rmicielski@purelymail.com</email>
+		<name>Remigiusz Micielski</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>mia@xenialinux.com</email>
+		<name>Mia Neufeld</name>
+	</maintainer>
+	<maintainer type="person">
+		<name>Gonçalo Negrier Duarte</name>
+		<email>gonegrier.duarte@gmail.com</email>
+	</maintainer>
+	<upstream>
+		<doc lang="en">https://wiki.hyprland.org/hyprland-wiki/pages/Useful-Utilities/Hyprland-desktop-portal/</doc>
+		<remote-id type="github">hyprwm/xdg-desktop-portal-hyprland</remote-id>
+		<bugs-to>https://github.com/hyprwm/xdg-desktop-portal-hyprland/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		An XDG Desktop Portal (later called XDP) is a program that lets
+		other applications communicate swiftly with the compositor through
+		D-Bus. It's used for stuff like e.g. opening file pickers, screen sharing.
+		On Wayland, it also requires an implementation. For Hyprland, you'd usually
+		use xdg-desktop-portal-wlr (later called XDPW). Unfortunately, due to various
+		reasons the -wlr portal is inferior to the KDE or Gnome ones. In order to
+		bridge the gap, Hyprland has its own fork of XDPW that has more features,
+		called xdg-desktop-portal-hyprland.
+	</longdescription>
+	<use>
+		<flag name="elogind">Enable support for rootless session via elogind</flag>
+	</use>
+</pkgmetadata>

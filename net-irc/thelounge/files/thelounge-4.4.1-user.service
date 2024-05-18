@@ -1,0 +1,13 @@
+[Unit]
+Description=thelounge - Modern, responsive, cross-platform, self-hosted web IRC client
+Documentation=https://thelounge.chat/docs
+
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/%N start
+UMask=0027
+
+[Install]
+WantedBy=default.target

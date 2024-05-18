@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Adel Kara Slimane</name>
+		<email>adel.ks@zegrapher.com</email>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Adel KARA SLIMANE</name>
+			<email>adel.ks@zegrapher.com</email>
+		</maintainer>
+		<remote-id type="github">AdelKS/QuantumResolver</remote-id>
+		<bugs-to>https://github.com/AdelKS/QuantumResolver/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

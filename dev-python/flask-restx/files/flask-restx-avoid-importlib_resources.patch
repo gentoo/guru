@@ -1,0 +1,22 @@
+diff --git a/flask_restx/schemas/__init__.py b/flask_restx/schemas/__init__.py
+index 27b9866..4369737 100644
+--- a/flask_restx/schemas/__init__.py
++++ b/flask_restx/schemas/__init__.py
+@@ -7,7 +7,7 @@ and allows to validate specs against them.
+ import io
+ import json
+ 
+-import importlib_resources
++import importlib.resources
+ 
+ from collections.abc import Mapping
+ from jsonschema import Draft4Validator
+@@ -57,7 +57,7 @@ class LazySchema(Mapping):
+ 
+     def _load(self):
+         if not self._schema:
+-            ref = importlib_resources.files(__name__) / self.filename
++            ref = importlib.resources.files(__name__) / self.filename
+ 
+             with io.open(ref) as infile:
+                 self._schema = json.load(infile)

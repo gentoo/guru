@@ -1,0 +1,122 @@
+Update to cxxopts 3.0
+
+--- a/meson.build
++++ b/meson.build
+@@ -40,7 +40,7 @@ if cpp_compiler.get_id() == 'msvc'
+   message('Applying workaround for MSVC by adding flag /Zc:twoPhase-: https://stackoverflow.com/questions/56782470/why-do-i-have-warning-c4199-two-phase-name-lookup-is-not-supported-for-c-cli')
+ endif
+ 
+-cxxopts_dep = dependency('cxxopts', fallback : ['cxxopts', 'cxxopts_dep'])
++cxxopts_dep = dependency('cxxopts', version : '>=3.0', fallback : ['cxxopts', 'cxxopts_dep'])
+ eigen3_dep = dependency('eigen3', fallback : ['eigen', 'eigen_dep'])
+ openmp_dep = dependency('openmp', required : false)
+ 
+diff --git a/src/exe/cmcavity.cxx b/src/exe/cmcavity.cxx
+index 427d3c0..3a5c747 100644
+--- a/src/exe/cmcavity.cxx
++++ b/src/exe/cmcavity.cxx
+@@ -41,7 +41,7 @@ void PrintHeaderAddon(std::ostream &outputStream) {
+ // MAIN PROGRAM STARTS HERE
+ /////////////////////////////////////////////////////////////////////
+ 
+-int main(int argc, char *argv[]) {
++int main(const int argc, const char *argv[]) {
+   // Handle obsolete arguments, if any
+   for (int i = 0; i < argc; i++) {
+     std::string opt = argv[i];
+@@ -451,7 +451,7 @@ int main(int argc, char *argv[]) {
+ 
+       logFile.close();
+     }
+-  } catch (const cxxopts::OptionException &e) {
++  } catch (const cxxopts::exceptions::exception &e) {
+     std::cout << "Error parsing options: " << e.what() << std::endl;
+     return 1;
+   } catch (RbtError &e) {
+@@ -463,4 +463,4 @@ int main(int argc, char *argv[]) {
+   _RBTOBJECTCOUNTER_DUMP_(std::cout)
+ 
+   return 0;
+-}
+\ No newline at end of file
++}
+diff --git a/src/exe/cmdock.cxx b/src/exe/cmdock.cxx
+index 10e18ca..86bbff1 100644
+--- a/src/exe/cmdock.cxx
++++ b/src/exe/cmdock.cxx
+@@ -80,7 +80,7 @@ void printHelpFooter() {
+ // MAIN PROGRAM STARTS HERE
+ /////////////////////////////////////////////////////////////////////
+ 
+-int main(int argc, char *argv[]) {
++int main(const int argc, const char *argv[]) {
+   // Handle premature termination
+   signal (SIGINT, terminator);
+   
+@@ -941,7 +941,7 @@ int main(int argc, char *argv[]) {
+     log << "Thank you for using " << Rbt::GetProgramName() << " "
+               << Rbt::GetVersion() << "." << std::endl;
+     logFile.close();
+-  } catch (const cxxopts::OptionException &e) {
++  } catch (const cxxopts::exceptions::exception &e) {
+     std::cout << "Error parsing options: " << e.what() << std::endl;
+     return 1;
+   } catch (RbtError &e) {
+@@ -953,4 +953,4 @@ int main(int argc, char *argv[]) {
+   _RBTOBJECTCOUNTER_DUMP_(std::cout)
+ 
+   return 0;
+-}
+\ No newline at end of file
++}
+diff --git a/src/exe/cmmoegrid.cxx b/src/exe/cmmoegrid.cxx
+index 4bff8f3..bf74b52 100644
+--- a/src/exe/cmmoegrid.cxx
++++ b/src/exe/cmmoegrid.cxx
+@@ -57,7 +57,7 @@ RbtModelList CreateProbes(std::string anAtomTypeStr) {
+ // MAIN PROGRAM STARTS HERE
+ /////////////////////////////////////////////////////////////////////
+ 
+-int main(int argc, char *argv[]) {
++int main(const int argc, const char *argv[]) {
+   std::cout.setf(std::ios_base::left, std::ios_base::adjustfield);
+ 
+   // Strip off the path to the executable, leaving just the file name
+@@ -268,7 +268,7 @@ int main(int argc, char *argv[]) {
+       }
+       std::cout << "done." << std::endl;
+     }
+-  } catch (const cxxopts::OptionException &e) {
++  } catch (const cxxopts::exceptions::exception &e) {
+     std::cout << "Error parsing options: " << e.what() << std::endl;
+     return 1;
+   } catch (RbtError &e) {
+diff --git a/src/exe/cmzip.cxx b/src/exe/cmzip.cxx
+index 1d1f69a..043d7be 100644
+--- a/src/exe/cmzip.cxx
++++ b/src/exe/cmzip.cxx
+@@ -504,7 +504,7 @@ void rescue(cxxopts::ParseResult result){
+ }
+ 
+ // ENTRY POINT
+-int main(int argc, char *argv[]) {
++int main(const int argc, const char *argv[]) {
+   // Handle premature termination
+   signal (SIGINT, terminator);
+ 
+@@ -580,7 +580,7 @@ Use this if CmDock terminates prematurely. CmZIP will search for records in the
+       return 0;
+     }
+ 
+-  } catch (const cxxopts::OptionException &e) {
++  } catch (const cxxopts::exceptions::exception &e) {
+     std::cout << "Error parsing options: " << e.what() << std::endl;
+     return 1;
+   } catch (const std::exception &exc) {
+@@ -589,4 +589,4 @@ Use this if CmDock terminates prematurely. CmZIP will search for records in the
+   /*} catch (...) {
+       std::cout << "Unknown exception" << std::endl;
+   }*/
+-}
+\ No newline at end of file
++}

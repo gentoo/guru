@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gjdijkman@gjdwebserver.nl</email>
+		<name>Gerben Jan Dijkman</name>
+	</maintainer>
+	<upstream>
+		<doc>https://github.com/tchx84/Portfolio</doc>
+		<bugs-to>https://github.com/tchx84/Portfolio/issues</bugs-to>
+		<remote-id type="github">tchx84/Portfolio</remote-id>
+	</upstream>
+</pkgmetadata>

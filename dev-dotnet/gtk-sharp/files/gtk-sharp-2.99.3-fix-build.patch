@@ -1,0 +1,22 @@
+diff a/gtk/gui-thread-check/profiler/gui-thread-check.c b/gtk/gui-thread-check/profiler/gui-thread-check.c
+--- a/gtk/gui-thread-check/profiler/gui-thread-check.c
++++ b/gtk/gui-thread-check/profiler/gui-thread-check.c
+@@ -93,5 +93,5 @@
+ 	
+ 	mono_profiler_install (NULL, NULL);
+ 	mono_profiler_install_enter_leave (simple_method_enter, NULL);
+-	mono_profiler_set_events (MONO_PROFILE_ENTER_LEAVE);
++	mono_profiler_set_events (1 << 12);
+ }
+diff --git a/sample/test/TestRange.cs b/sample/test/TestRange.cs
+index 35fc8a6dd..d44a77d85 100644
+--- a/sample/test/TestRange.cs
++++ b/sample/test/TestRange.cs
+@@ -9,5 +9,7 @@
+ using System;
+ 
+ using Gtk;
++// disambiguate, Gtk.Range vs System.Range
++using Range=Gtk.Range;
+ 
+ namespace WidgetViewer {

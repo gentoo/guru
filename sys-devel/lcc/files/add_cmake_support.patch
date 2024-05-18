@@ -1,0 +1,156 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+new file mode 100644
+index 0000000..6c3b77c
+--- /dev/null
++++ b/CMakeLists.txt
+@@ -0,0 +1,11 @@
++cmake_minimum_required(VERSION 3.13)
++
++# TODO: test, triple
++
++project(lcc C)
++
++add_subdirectory(lburg)
++add_subdirectory(src)
++add_subdirectory(cpp)
++add_subdirectory(etc)
++add_subdirectory(lib)
+diff --git a/cpp/CMakeLists.txt b/cpp/CMakeLists.txt
+new file mode 100644
+index 0000000..accff2e
+--- /dev/null
++++ b/cpp/CMakeLists.txt
+@@ -0,0 +1,12 @@
++add_executable(cpp
++               cpp.c
++               lex.c
++               nlist.c
++               tokens.c
++               macro.c
++               eval.c
++               include.c
++               hideset.c
++               getopt.c
++               unix.c
++               )
+\ No newline at end of file
+diff --git a/etc/CMakeLists.txt b/etc/CMakeLists.txt
+new file mode 100644
+index 0000000..aa4d4aa
+--- /dev/null
++++ b/etc/CMakeLists.txt
+@@ -0,0 +1,18 @@
++add_executable(lcc
++               lcc.c)
++
++if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
++    target_sources(lcc PRIVATE win32.c)
++elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
++    target_sources(lcc PRIVATE linux.c)
++endif()
++
++add_executable(bprint
++               bprint.c)
++
++target_link_libraries(bprint PRIVATE profio)
++
++add_executable(ops EXCLUDE_FROM_ALL
++               ops.c)
++
++target_link_libraries(ops PRIVATE c)
+\ No newline at end of file
+diff --git a/lburg/CMakeLists.txt b/lburg/CMakeLists.txt
+new file mode 100644
+index 0000000..25b0ae1
+--- /dev/null
++++ b/lburg/CMakeLists.txt
+@@ -0,0 +1,14 @@
++
++add_executable(lburg
++               lburg.c
++               gram.c)
++
++target_include_directories(lburg PRIVATE lburg)
++
++# lburg function for generation of c files from md files
++function(lburg md_file c_file)
++    add_custom_command(OUTPUT  ${c_file}
++                       DEPENDS ${md_file}
++                       COMMAND lburg ${md_file} ${c_file}
++                       VERBATIM)
++endfunction()
+\ No newline at end of file
+diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
+new file mode 100644
+index 0000000..3c31289
+--- /dev/null
++++ b/lib/CMakeLists.txt
+@@ -0,0 +1,4 @@
++add_library(liblcc STATIC
++            assert.c
++            yynull.c
++            bbexit.c)
+\ No newline at end of file
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+new file mode 100644
+index 0000000..21efef9
+--- /dev/null
++++ b/src/CMakeLists.txt
+@@ -0,0 +1,56 @@
++add_executable(rcc
++               main.c)
++
++target_link_libraries(rcc PRIVATE librcc)
++
++lburg(${CMAKE_CURRENT_SOURCE_DIR}/dagcheck.md dagcheck.c)
++lburg(${CMAKE_CURRENT_SOURCE_DIR}/alpha.md    alpha.c   )
++lburg(${CMAKE_CURRENT_SOURCE_DIR}/mips.md     mips.c    )
++lburg(${CMAKE_CURRENT_SOURCE_DIR}/sparc.md    sparc.c   )
++lburg(${CMAKE_CURRENT_SOURCE_DIR}/x86.md      x86.c     )
++lburg(${CMAKE_CURRENT_SOURCE_DIR}/x86linux.md x86linux.c)
++
++add_library(librcc STATIC
++            alloc.c
++            bind.c
++            dag.c
++            dagcheck.c
++            decl.c
++            enode.c
++            error.c
++            expr.c
++            event.c
++            init.c
++            inits.c
++            input.c
++            lex.c
++            list.c
++            main.c
++            output.c
++            prof.c
++            profio.c
++            simp.c
++            stmt.c
++            string.c
++            sym.c
++            trace.c
++            tree.c
++            types.c
++            null.c
++            symbolic.c
++            gen.c
++            bytecode.c
++            alpha.c
++            mips.c
++            sparc.c
++            stab.c
++            x86.c
++            x86linux.c)
++
++target_include_directories(librcc PUBLIC .)
++
++add_library(c INTERFACE)
++target_include_directories(c INTERFACE .)
++
++add_library(profio INTERFACE)
++target_include_directories(profio INTERFACE .)
+\ No newline at end of file

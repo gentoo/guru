@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Guido Günther</name>
+			<email>agx@sigxcpu.org</email>
+		</maintainer>
+		<remote-id type="gnome-gitlab">World/Phosh</remote-id>
+	</upstream>
+</pkgmetadata>

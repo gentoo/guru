@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">asciidoctor/asciidoctor-pdf</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		Asciidoctor PDF is a native PDF converter for AsciiDoc that serves the
+		pdf backend. It bypasses the step of generating an intermediary format
+		such as DocBook, Apache FO, or LaTeX in order to produce PDF.
+		Instead, you use Asciidoctor PDF to convert your documents directly
+		from AsciiDoc to PDF with Asciidoctor. The aim of this library is to
+		take the pain out of creating PDF documents from AsciiDoc.
+	</longdescription>
+</pkgmetadata>

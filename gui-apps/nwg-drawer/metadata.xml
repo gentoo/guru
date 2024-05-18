@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>pascal.jaeger@leimstift.de</email>
+        <name>Pascal Jaeger</name>
+    </maintainer>
+    <upstream>
+        <maintainer>
+            <name>Piotr Miller</name>
+            <email>nwg.piotr@gmail.com</email>
+        </maintainer>
+        <bugs-to>https://github.com/nwg-piotr/nwg-drawer/issues</bugs-to>
+        <remote-id type="github">nwg-piotr/nwg-drawer</remote-id>
+    </upstream>
+</pkgmetadata>

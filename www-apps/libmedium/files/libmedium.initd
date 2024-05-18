@@ -1,0 +1,12 @@
+#!/sbin/openrc-run
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# Environment variables for LibMedium
+
+name="LibMedium"
+description="Private front-end for Medium"
+command=/usr/bin/libmedium
+pidfile="/var/run/${RC_SVCNAME}.pid"
+command_user="libmedium"
+command_background=true

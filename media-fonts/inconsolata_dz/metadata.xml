@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <!-- maintainer-needed -->
+  <longdescription lang="en">
+A new Inconsolata variant.
+
+Update Dec 5, 2020: Some versions of Emacs 24+ are seeing issues with fonts that use hyphens in the name, eg, Inconsolata-dz. I’ve updated the files list below to include a version of Inconsolata-dz named Inconsolata_dz, with underscores.
+
+I love the font Inconsolata. At bigger sizes and higher resolutions, it looks incredibly smooth and clear, and avoids the messy sort of feeling that Monaco gains as text density increases.
+
+One thing that bothered me about Inconsolata, however, was the fact that its single and double quotes were slightly slanted or curly. It especially bothered me when using single quotes and commas, as the two looked visually similar, and my eye kept jumping levels.
+
+As such, I made my own modification using the Font Forge source script, and named it: Inconsolata-dz
+
+It was the first time I did anything with Font Forge, so advance apologies for any mistakes.
+  </longdescription>
+</pkgmetadata>

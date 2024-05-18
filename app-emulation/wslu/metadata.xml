@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>sstallion@gmail.com</email>
+		<name>Steven Stallion</name>
+	</maintainer>
+	<longdescription>
+        This is a collection of utilities for the Linux Subsystem for Windows
+        (WSL), such as converting Linux paths to Windows paths or creating
+        Linux application shortcuts on the Windows Desktop.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">wslutilities/wslu</remote-id>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,57 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 984f38f..4c7b181 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -268,7 +268,7 @@ ELSE()
+     MESSAGE(STATUS "zlib not found")
+ ENDIF()
+ 
+-SET(LIBS lsquic ${BORINGSSL_LIB_ssl} ${BORINGSSL_LIB_crypto} ${ZLIB_LIB} ${LIBS})
++SET(LIBS lsquic ls-hpack ls-qpack ${BORINGSSL_LIB_ssl} ${BORINGSSL_LIB_crypto} ${ZLIB_LIB} ${LIBS})
+ 
+ IF (LSQUIC_BIN)
+     FIND_PATH(EVENT_INCLUDE_DIR NAMES event2/event.h)
+diff --git a/src/liblsquic/CMakeLists.txt b/src/liblsquic/CMakeLists.txt
+index fe6307e..be9a432 100644
+--- a/src/liblsquic/CMakeLists.txt
++++ b/src/liblsquic/CMakeLists.txt
+@@ -1,6 +1,5 @@
+ # Copyright (c) 2017 - 2022 LiteSpeed Technologies Inc.  See LICENSE.
+ SET(lsquic_STAT_SRCS
+-    ls-qpack/lsqpack.c
+     lsquic_adaptive_cc.c
+     lsquic_alarmset.c
+     lsquic_arr.c
+@@ -91,18 +90,13 @@ IF(NOT MSVC)
+     IF (HAS_NO_IMPLICIT_FALLTHROUGH)
+         SET(QPACK_FLAGS "${QPACK_FLAGS} -Wno-implicit-fallthrough")
+     ENDIF()
+-set_source_files_properties(ls-qpack/lsqpack.c PROPERTIES COMPILE_FLAGS ${QPACK_FLAGS})
+ ENDIF()
+ 
+-include_directories(ls-qpack)
+-
+ IF(PROJECT_NAME STREQUAL "openlitespeed")
+     INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/src/spdy)
+ ELSE()
+-    INCLUDE_DIRECTORIES(../lshpack)
+     SET(lsquic_STAT_SRCS ${lsquic_STAT_SRCS}
+         lsquic_xxhash.c
+-        ../lshpack/lshpack.c
+     )
+ ENDIF()
+ 
+diff --git a/tests/CMakeLists.txt b/tests/CMakeLists.txt
+index fab22d3..06c39b3 100644
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -17,9 +17,6 @@ ELSE()
+     ENDIF()
+ ENDIF()
+ 
+-include_directories(../src/liblsquic/ls-qpack)
+-INCLUDE_DIRECTORIES(../src/lshpack)
+-
+ SET(TESTS
+     ack
+     ackgen_gquic_be

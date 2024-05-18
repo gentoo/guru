@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>pastalian46@gmail.com</email>
+		<name>Takuya Wakazono</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">sagiegurari/cargo-make</remote-id>
+	</upstream>
+	<use>
+		<flag name="openssl">Enable TLS support with <pkg>dev-libs/openssl</pkg></flag>
+		<flag name="rustls">Enable TLS support with rustls</flag>
+	</use>
+</pkgmetadata>

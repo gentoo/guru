@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>liaoyuan@gmail.com</email>
+		<name>Yuan Liao</name>
+	</maintainer>
+	<longdescription>
+		DOSBox-X is a fork of DOSBox. The main focus of DOSBox is just on
+		running DOS games, whereas DOSBox-X goes further than this: while it
+		"retains compatibility with the wide base of DOS games and DOS gaming
+		DOSBox was designed for", it is built to also run DOS applications,
+		Windows 3.x, Windows 9x series, and software written for those versions
+		of Windows. In particular, Windows 98 runs with superb stability on
+		DOSBox-X, which DOSBox cannot achieve yet.
+
+		DOSBox-X also ships more user-friendly features than DOSBox, including
+		a drop-down menu system for easier alteration to emulation parameters
+		and access to the emulator's functions, a graphical configuration tool
+		for modifying the configuration file, saving and loading the emulator's
+		state, creation of new disk image files, support for directly mounting
+		hard disk images with partitions formatted with the FAT32 file system,
+		and many more.
+	</longdescription>
+	<upstream>
+		<doc>https://dosbox-x.com/wiki/</doc>
+		<remote-id type="github">joncampbell123/dosbox-x</remote-id>
+	</upstream>
+	<use>
+		<flag name="X">
+			Enable X11 integration for better fullscreening functionality
+		</flag>
+		<flag name="debug">
+			Enable the internal debugger of this program
+		</flag>
+		<flag name="ffmpeg">
+			Enable MPEG.TS + H.264 video capture format support
+			via <pkg>media-video/ffmpeg</pkg>
+		</flag>
+		<flag name="fluidsynth">
+			Enable FluidSynth to be used as the MIDI synthesizer
+		</flag>
+		<flag name="opengl">
+			Enable OpenGL as a video system to use for output
+		</flag>
+		<flag name="png">
+			Enable screenshot and video capture support
+			via <pkg>media-libs/libpng</pkg>
+		</flag>
+		<flag name="slirp">
+			Enable the SLIRP back-end for network adapter emulation
+		</flag>
+		<flag name="truetype">
+			Enable TrueType font (TTF) output and printing support
+			via <pkg>media-libs/freetype</pkg>
+		</flag>
+	</use>
+</pkgmetadata>

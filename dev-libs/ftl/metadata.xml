@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>torokhov-s-a@yandex.ru</email>
+		<name>Sergey Torokhov</name>
+	</maintainer>
+	<longdescription lang="en">
+		The Fortran Template Library (FTL) is a general purpose library for Fortran 2003. 
+		Its intention is to bring all these nice things we take for granted in modern languages 
+		like Python and C++ to the Fortran world: Generic containers, versatile algorithms, 
+		easy string manipulation, and more. 
+		It is heavily inspired by C++'s standard library, 
+		especially the part that is commonly referred to as the Standard Template Library (STL).
+	</longdescription>
+	<upstream>
+		<remote-id type="github">SCM-NV/ftl</remote-id>
+	</upstream>
+</pkgmetadata>

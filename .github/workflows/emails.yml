@@ -1,0 +1,62 @@
+---
+
+name: emails
+
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+
+jobs:
+  bugzilla:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get compare commit
+        run: |
+          COMMIT=$(gh run list -R ${GITHUB_REPOSITORY} --branch=dev --workflow=emails.yml --status=success --limit=1 --json=headSha --jq=".[0].headSha")
+          echo "last_successful_commit=${COMMIT}" >> "${GITHUB_ENV}"
+
+          if git rev-parse --verify "${COMMIT}^{commit}" > /dev/null; then
+            echo -e "\033[92m\u2713 ${COMMIT:0:7} points to a valid commit"
+            VALID=true
+          else
+            echo -e "\033[91m\u2717 ${COMMIT:0:7} doesn't point to a valid commit"
+            VALID=false
+          fi
+          echo "is_commit_valid=${VALID}" >> "${GITHUB_ENV}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get changed files
+        if: ${{ fromJSON(env.is_commit_valid) }}
+        uses: tj-actions/changed-files@v44
+        with:
+          base_sha: ${{ env.last_successful_commit }}
+          write_output_files: true
+          files: |
+            **/metadata.xml
+
+      - name: Check emails against Bugzilla
+        if: ${{ fromJSON(env.is_commit_valid) }}
+        run: |
+          python ./scripts/email-checker.py < .github/outputs/all_changed_files.txt
+
+      - name: Inform on IRC
+        if: ${{ failure() && github.repository == 'gentoo/guru' && github.event_name == 'push' }}
+        uses: rectalogic/notify-irc@v1
+        with:
+          channel: "#gentoo-guru"
+          server: "irc.libera.chat"
+          nickname: "github-ci"
+          message: CI failure detected on job ${{ github.workflow }} - ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

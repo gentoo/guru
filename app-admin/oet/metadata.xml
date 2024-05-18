@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+  <maintainer type="person">
+    <email>thomas.scholz@protonmail.com</email>
+    <name>Thomas Scholz</name>
+  </maintainer>
+  <longdescription>
+    The Overlay Emerge Tool creates a sandboxed envronment for doing arbitrary 
+    installation processess without changing your host system. Its primary use 
+    is to make system updates with emerge. The updates will be put into binary 
+    packages and transfered to the host package database and can then be 
+    installed on the host, when all problems are fixed.
+  </longdescription>
+  <upstream>
+    <remote-id type="codeberg">bcsthsc/overlay-emerge-tool</remote-id>
+  </upstream>
+</pkgmetadata>

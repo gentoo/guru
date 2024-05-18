@@ -1,0 +1,18 @@
+diff --git a/libusockets.pc.in b/libusockets.pc.in
+new file mode 100644
+index 0000000..b818020
+--- /dev/null
++++ b/libusockets.pc.in
+@@ -0,0 +1,12 @@
++prefix=@PREFIX@
++libdir=${prefix}/@LIB@
++includedir=${prefix}/include
++
++Name: uSockets
++Version: @VERSION@
++Description: eventing, networking and crypto for async applications.
++URL: https://github.com/uNetworking/uSockets
++
++Cflags: -I${includedir}
++Libs: -L${libdir} -lusockets
++Requires.private: @REQUIRES@

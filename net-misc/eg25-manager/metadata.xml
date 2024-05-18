@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gjdijkman@gjdwebserver.nl</email>
+		<name>Gerben Jan Dijkman</name>
+	</maintainer>
+	<upstream>
+		<doc>https://gitlab.com/mobian1/devices/eg25-manager</doc>
+		<bugs-to>https://gitlab.com/mobian1/devices/eg25-manager/-/issues</bugs-to>
+		<remote-id type="gitlab">mobian1/devices/eg25-manager</remote-id>
+	</upstream>
+</pkgmetadata>

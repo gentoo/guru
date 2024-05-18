@@ -1,0 +1,47 @@
+#!/sbin/openrc-run
+# Copyright 2023 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2 or later
+
+NAME=${RC_SVCNAME%%.*}
+USER=${RC_SVCNAME##*.}
+PIDFILE_DIR=/run/${NAME}/${USER}
+
+description="Start code server in the background"
+command="/usr/bin/${NAME}"
+command_user="${USER}"
+pidfile="${PIDFILE_DIR}/${NAME}.pid"
+command_background=true
+
+depend() {
+  use logger dns
+}
+
+checkconfig() {
+    if [ "${RC_VERSION:-0}" = "0" ]; then
+        eerror "This script cannot be used for baselayout-1."
+        return 1
+    fi
+
+    if [ "${USER}" = "${RC_SVCNAME}" ]; then
+	eerror "You have to create an init script for each user:"
+	eerror "ln -s emacs /etc/init.d/emacs.<user>"
+	return 1
+    fi
+
+    if ! id -u "${USER}" >/dev/null; then
+	eerror "${USER}: No such user"
+	return 1
+    fi
+
+    checkpath -d --owner 0 --mode 0755 "${PIDFILE_DIR%/*}"
+    checkpath -d --owner "${USER}" --mode 0755 "${PIDFILE_DIR}"
+}
+
+start() {
+  local home
+  checkconfig || return 1
+
+  eval home="~${USER}"
+  
+  default_start
+}

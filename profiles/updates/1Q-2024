@@ -1,0 +1,14 @@
+move sys-devel/just dev-build/just
+move dev-python/bump2version dev-util/bump2version
+move net-misc/tooth net-misc/tuba
+move app-doc/ford app-text/ford
+move dev-util/fpm dev-build/fpm
+move dev-util/FoBiS dev-build/FoBiS
+move dev-util/fypp dev-build/fypp
+move dev-python/pifpaf dev-util/pifpaf
+move x11-wm/phoc gui-wm/phoc
+move gui-wm/phosh phosh-base/phosh-shell
+move gui-apps/phosh-tour phosh-base/phosh-tour
+move x11-misc/squeekboard phosh-base/squeekboard
+move sys-devel/gdb-dashboard dev-debug/gdb-dashboard
+move app-editors/kak-lsp app-editors/kakoune-lsp

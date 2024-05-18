@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>contact@hacktivis.me</email>
+		<name>Haelwenn (lanodan) Monnier</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/shiromino/shiromino/issues</bugs-to>
+		<remote-id type="github">shiromino/shiromino</remote-id>
+	</upstream>
+</pkgmetadata>

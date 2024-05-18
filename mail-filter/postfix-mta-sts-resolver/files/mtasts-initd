@@ -1,0 +1,18 @@
+#!/sbin/openrc-run
+# Copyright 2015-2019 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+depend() {
+        use net
+        before postfix
+}
+
+command="/usr/bin/mta-sts-daemon"
+command_args="${MTASTS_OPTS} -c ${MTASTS_CONFIGFILE}"
+command_background="yes"
+
+pidfile="${MTASTS_PIDFILE}"
+
+required_files="${MTASTS_CONFIGFILE}"
+
+description="Postfix MTA-STS resolver"

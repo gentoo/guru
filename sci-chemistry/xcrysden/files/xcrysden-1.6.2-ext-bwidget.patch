@@ -1,0 +1,14 @@
+Prevents bwidget from being automatically downloaded when it is already required as a build/run-time dependency.
+diff --git a/Makefile b/Makefile
+index cfdc14a..d0f7e6c 100644
+--- a/Makefile
++++ b/Makefile
+@@ -18,7 +18,7 @@ what:
+ 
+ all: tcl tk mesa togl fftw xcrysden
+ #  meschach 
+-xcrysden: usage bwidget bindir src-C src-F src-Tcl
++xcrysden: usage bindir src-C src-F src-Tcl
+ 
+ usage: $(TOPDIR)/docs/xcrysden.1
+ 	man $(TOPDIR)/docs/xcrysden.1 | awk 'BEGIN {lprint=0; print "## do not edit changes will be lost (file automatically generated)\n"; } /SYNOPSIS/ { lprint=1; } /SEE ALSO/ { lprint=0; } /a*/ { if (lprint) print; }' > usage

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<bugs-to>https://github.com/denisidoro/navi/issues</bugs-to>
+		<doc>https://github.com/denisidoro/navi#usage</doc>
+		<remote-id type="github">denisidoro/navi</remote-id>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Seth Price</name>
+		<email>sprice623@aol.com</email>
+	</maintainer>
+	<longdescription lang="en">
+		cc65 is a complete cross development package for 65(C)02 systems,
+		including a powerful macro assembler, a C compiler, linker,
+		archiver and several other tools.
+		cc65 has C and runtime library support for many of the old
+		6502 machines.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/cc65/cc65/issues</bugs-to>
+		<remote-id type="github">cc65/cc65</remote-id>
+	</upstream>
+</pkgmetadata>

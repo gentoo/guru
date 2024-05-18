@@ -1,0 +1,24 @@
+From ed9e2944db0817a0c32520cba5e06c87244c0360 Mon Sep 17 00:00:00 2001
+From: "Haelwenn (lanodan) Monnier" <contact@hacktivis.me>
+Date: Fri, 22 Sep 2023 10:25:35 +0200
+Subject: [PATCH 2/2] include/Sosage/Utils: Add missing #include <functional>
+
+---
+ include/Sosage/Utils/conversions.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/Sosage/Utils/conversions.h b/include/Sosage/Utils/conversions.h
+index 2d408cb..fb2086b 100644
+--- a/include/Sosage/Utils/conversions.h
++++ b/include/Sosage/Utils/conversions.h
+@@ -28,6 +28,7 @@
+ #define SOSAGE_UTILS_CONVERSIONS_H
+ 
+ #include <algorithm>
++#include <functional>
+ #include <string>
+ #include <vector>
+ 
+-- 
+2.41.0
+

@@ -1,0 +1,5 @@
+#  SPDX-License-Identifier: GPL-3+
+#
+#  This file is part of flashlight.
+
+SUBSYSTEM=="leds", KERNEL=="white:flash", ACTION=="add", RUN+="/bin/chmod -R a+w /sys%p"

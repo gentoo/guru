@@ -1,0 +1,38 @@
+From ebbc944485b278192b60080ea1f495e287efb4f8 Mon Sep 17 00:00:00 2001
+From: Martin Journois <BibMartin@users.noreply.github.com>
+Date: Thu, 17 Aug 2023 13:09:31 +0200
+Subject: [PATCH] MJ: Fix #75 bug with openssl 3.0.10 (#76)
+
+* MJ: Fix #75 bug with openssl 3.0.10
+* MJ: Add fix suggested by @vcunat on _libcrypto_ctypes regex
+---
+ oscrypto/_openssl/_libcrypto_cffi.py   | 2 +-
+ oscrypto/_openssl/_libcrypto_ctypes.py | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/oscrypto/_openssl/_libcrypto_cffi.py b/oscrypto/_openssl/_libcrypto_cffi.py
+index 8aed03e..14eb576 100644
+--- a/oscrypto/_openssl/_libcrypto_cffi.py
++++ b/oscrypto/_openssl/_libcrypto_cffi.py
+@@ -37,7 +37,7 @@
+ 
+ is_libressl = 'LibreSSL' in version_string
+ 
+-version_match = re.search('\\b(\\d\\.\\d\\.\\d[a-z]*)\\b', version_string)
++version_match = re.search('\\b(\\d\\.\\d\\.\\d+[a-z]*)\\b', version_string)
+ if not version_match:
+     version_match = re.search('(?<=LibreSSL )(\\d\\.\\d(\\.\\d)?)\\b', version_string)
+ if not version_match:
+diff --git a/oscrypto/_openssl/_libcrypto_ctypes.py b/oscrypto/_openssl/_libcrypto_ctypes.py
+index e33ebbc..9cb294a 100644
+--- a/oscrypto/_openssl/_libcrypto_ctypes.py
++++ b/oscrypto/_openssl/_libcrypto_ctypes.py
+@@ -40,7 +40,7 @@
+ 
+ is_libressl = 'LibreSSL' in version_string
+ 
+-version_match = re.search('\\b(\\d\\.\\d\\.\\d[a-z]*)\\b', version_string)
++version_match = re.search('\\b(\\d\\.\\d\\.\\d+[a-z]*)\\b', version_string)
+ if not version_match:
+     version_match = re.search('(?<=LibreSSL )(\\d\\.\\d(\\.\\d)?)\\b', version_string)
+ if not version_match:

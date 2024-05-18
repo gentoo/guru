@@ -1,0 +1,52 @@
+#!/sbin/openrc-run
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+# shellcheck shell=sh
+
+: ${SNAC_DATA:=/var/lib/snac/data}
+
+extra_stopped_commands="init"
+extra_commands="adduser"
+description_init="Create the database"
+description_adduser="Create a user"
+
+command="/usr/bin/snac"
+command_args="httpd ${SNAC_DATA}"
+command_user="snac:snac"
+command_background=yes
+pidfile="/run/snac.pid"
+output_logger="logger -p daemon.info -t snac --"
+error_logger="logger -p daemon.err -t snac --"
+
+depend() {
+	use logger
+	need net
+}
+
+check_db() {
+	if [ ! -f "${SNAC_DATA}"/server.json ]; then
+		eerror "Please run 'rc-service snac init' before the first start"
+		return 1
+	fi
+
+	return 0
+}
+
+start_pre() {
+	check_db || return 1
+
+	start-stop-daemon --exec "${command}" --user "${command_user}" \
+		-- purge "${SNAC_DATA}"
+}
+
+init() {
+	start-stop-daemon --exec "${command}" --user "${command_user}" \
+		-- init "${SNAC_DATA}"
+}
+
+adduser() {
+	check_db || return 1
+
+	start-stop-daemon --exec "${command}" --user "${command_user}" \
+		-- adduser "${SNAC_DATA}"
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <upstream>
+    <maintainer>
+      <name>June McEnroe</name>
+      <email>june@causal.agency</email>
+    </maintainer>
+    <bugs-to>mailto:list+litterbox@causal.agency</bugs-to>
+  </upstream>
+  <longdescription>
+    litterbox is a TLS-only IRC logger. It logs events from IRC in a SQLite
+    database, indexing messages for full-text search. It is intended for
+    use with the IRC bouncer net-irc/pounce, but can also be used independently
+    as a logging bot.
+
+    litterbox provides the scoop command-line query utility. A web interface
+    for litterbox is provided by scooper. Some formats of plain text logs can
+    be imported into the litterbox database with unscoop.
+  </longdescription>
+  <maintainer type="person">
+    <email>watermanpaint@posteo.net</email>
+    <name>Lucio Sauer</name>
+  </maintainer>
+</pkgmetadata>

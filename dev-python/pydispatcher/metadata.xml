@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@aisha.cc</email>
+		<name>Aisha Tammy</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">mcfletch/pydispatcher</remote-id>
+		<remote-id type="pypi">PyDispatcher</remote-id>
+		<maintainer>
+			<name>Mike C. Fletcher</name>
+			<email>mcfletch@vrplumber.com</email>
+		</maintainer>
+	</upstream>
+</pkgmetadata>

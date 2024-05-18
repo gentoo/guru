@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+	<email>torokhov-s-a@yandex.ru</email>
+	<name>Sergey Torokhov</name>
+</maintainer>
+<longdescription lang="en">
+	Gtk-fortran is a partial GTK/Fortran binding aims to offer scientists programming in Fortran
+	a cross-platform library to build Graphical User Interfaces.
+</longdescription>
+<use>
+	<flag name="examples">Install examples source code files</flag>
+	<flag name="high-level">Build high-level interface to the gtk-fortran package</flag>
+	<flag name="plplot">Build with <pkg>sci-libs/plplot</pkg> support</flag>
+</use>
+<upstream>
+	<remote-id type="github">vmagnin/gtk-fortran</remote-id>
+</upstream>
+</pkgmetadata>

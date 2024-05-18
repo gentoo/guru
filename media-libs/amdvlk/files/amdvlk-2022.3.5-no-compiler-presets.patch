@@ -1,0 +1,20 @@
+diff --git a/xgl/CMakeLists.txt b/xgl/CMakeLists.txt
+index 0abdb0f42..dada07d96 100644
+--- a/xgl/CMakeLists.txt
++++ b/xgl/CMakeLists.txt
+@@ -31,7 +31,6 @@ option(XGL_USE_CLANG "Build with clang?" OFF)
+ if(UNIX AND XGL_USE_CLANG)
+     list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+     include(XglCompilerOptions)
+-    xgl_use_clang_compiler()
+ endif()
+ 
+ ### CMake Includes ####################################################################################################
+@@ -114,7 +113,6 @@ if(UNIX)
+ endif()
+ 
+ ### Set Compiler ######################################################################################################
+-xgl_set_compiler()
+ 
+ ### Sanitizers ########################################################################################################
+ # Temporary variables

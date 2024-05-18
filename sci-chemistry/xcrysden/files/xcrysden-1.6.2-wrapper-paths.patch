@@ -1,0 +1,16 @@
+Ensures that wrapper scripts account for live filesystem merge.
+diff --git a/sys_utils/wrappers.sh b/sys_utils/wrappers.sh
+index 1fa3cc6..e078b22 100755
+--- a/sys_utils/wrappers.sh
++++ b/sys_utils/wrappers.sh
+@@ -5,8 +5,8 @@ do
+ #!/bin/sh -f
+ 
+ # simple wrapper to run $cmd
+-XCRYSDEN_TOPDIR="$prefix/share/$xcrysden"
+-XCRYSDEN_LIB_BINDIR="$prefix/lib/$xcrysden"
++XCRYSDEN_TOPDIR="/usr/share/$xcrysden"
++XCRYSDEN_LIB_BINDIR="/usr/lib/$xcrysden"
+ export XCRYSDEN_TOPDIR
+ export XCRYSDEN_LIB_BINDIR
+ 

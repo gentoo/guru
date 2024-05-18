@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>adam.pimentel46@gmail.com</email>
+		<name>Adam Pimentel</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">feather-wallet/feather</remote-id>
+	</upstream>
+	<longdescription lang="en">
+	Feather is a free, open-source Monero wallet for Linux, Tails,
+	Windows and macOS. It is:
+	- easy-to-use, small and fast - Feather runs well on any modern
+		hardware, including virtual machines and live operating systems.
+	- beginner friendly, but also caters to advanced Monero users by
+		providing a feature set that is on par with the official CLI.
+	- ships with sane defaults that suit most users, but can also be
+		configured for high or uncommon threat models.
+	- serves as a testing grounds for experimental features that may
+		later be adopted in the reference wallets.
+	</longdescription>
+	<use>
+		<flag name="qrcode">
+			Enable QR code scanning with media-gfx/zbar
+		</flag>
+		<flag name="xmrig">
+			Enable mining support using a user specified xmrig binary
+		</flag>
+		<flag name="calc">
+			Enable price calculator page plugin
+		</flag>
+		<flag name="home">
+			Enable home page plugin
+		</flag>
+		<flag name="tickers">
+			Enable price tickers plugin
+		</flag>
+		<flag name="exchange">
+			Enable exchange plugin
+		</flag>
+		<flag name="crowdfunding">
+			Enable crowdfunding page plugin
+		</flag>
+		<flag name="bounties">
+			Enable bounties page plugin
+		</flag>
+		<flag name="reddit">
+			Enable reddit.com page plugin
+		</flag>
+		<flag name="localmonero">
+			Enable LocalMonero.com support
+		</flag>
+		<flag name="revuo">
+			Enable revuo plugin
+		</flag>
+	</use>
+</pkgmetadata>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>zhuyifei1999@gmail.com</email>
+		<name>YiFei Zhu</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/cool-RR/PySnooper/issues</bugs-to>
+		<remote-id type="pypi">PySnooper</remote-id>
+		<remote-id type="github">cool-RR/PySnooper</remote-id>
+	</upstream>
+</pkgmetadata>

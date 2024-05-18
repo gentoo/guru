@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<bugs-to>https://todo.sr.ht/~martijnbraam/among-sus</bugs-to>
+		<remote-id type="sourcehut">~martijnbraam/among-sus</remote-id>
+	</upstream>
+	<use>
+		<flag name="notifications">Notify players you're moving</flag>
+	</use>
+</pkgmetadata>

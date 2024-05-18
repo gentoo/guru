@@ -1,0 +1,19 @@
+[Unit]
+Description=Userspace daemon for serial line CAN interface driver SLCAN
+
+[Service]
+Environment=can_speed=S5
+Environment=tty_baud=460800
+Environment=tty_device=ttyUSB0
+Environment=can_device=can0
+
+
+ExecStartPre=/sbin/modprobe slcan
+ExecStartPre=/bin/stty -F /dev/${tty_device} ${tty_baud} line 0 cs8 -onlcr -echo raw min 100 time 2
+ExecStartPre=/bin/sh -c 'echo -e -n "C\rF\r${can_speed}\rO\r" > /dev/${tty_device}'
+
+ExecStart=/usr/bin/slcand -F ${tty_device} ${can_device}
+ExecStartPost=/bin/sleep 1
+ExecStartPost=/bin/ip link set can0 txqueuelen 1000 up
+
+ExecStopPost=/sbin/modprobe -r slcan

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<longdescription lang="en">
+		This package is used only to boot strap <pkg>dev-lang/fbc</pkg>.
+		It is not meant to be used by end users directly.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/freebasic/fbc/issues</bugs-to>
+		<doc lang="en">https://www.freebasic.net</doc>
+		<remote-id type="github">freebasic/fbc</remote-id>
+	</upstream>
+</pkgmetadata>

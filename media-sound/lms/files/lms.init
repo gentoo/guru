@@ -1,0 +1,17 @@
+#!/sbin/openrc-run
+# Copyright 1999-2021 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+pidfile="/run/lms.pid"
+command="/usr/bin/lms"
+command_args=""
+command_user="lms:lms"
+start_stop_daemon_args="--wait 1000 -b -m \
+			-d /var/lms \
+			--env OMP_THREAD_LIMIT=1 \
+                        -1 /var/log/lms/lms.log \
+                        -2 /var/log/lms/lms.log"
+
+depend() {
+	need net
+}

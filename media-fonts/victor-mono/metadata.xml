@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alexey@zapparov.com</email>
+		<name>Alexey Zapparov</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/rubjo/victor-mono/issues</bugs-to>
+		<remote-id type="github">rubjo/victor-mono</remote-id>
+	</upstream>
+	<use>
+		<flag name="otf">Install the OpenType version of the font</flag>
+		<flag name="ttf">Install the TrueType version of the font</flag>
+	</use>
+</pkgmetadata>

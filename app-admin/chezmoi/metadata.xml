@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>me@rebtoor.com</email>
+		<name>Roberto Alfieri</name>
+	</maintainer>
+	<longdescription lang="en">
+			Dotfile management application which provides a configuration
+			and encryption interface ontop of traditional version control
+			functionality. This simplifies synchronization of dotfiles
+			between multiple machines, operating systems, and environments
+			with differing requirements.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">twpayne/chezmoi</remote-id>
+	</upstream>
+</pkgmetadata>

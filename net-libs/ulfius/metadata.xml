@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>kurt@kmk-computers.de</email>
+    <name>Kurt Kanzenbach</name>
+  </maintainer>
+  <longdescription lang="en">
+    Web Framework for REST Applications in C.
+
+    Based on GNU Libmicrohttpd for the backend web server, Jansson for the json
+    manipulation library, and Libcurl for the http/smtp client API.
+
+    Used to facilitate creation of web applications in C programs with a small
+    memory footprint, as in embedded systems applications.
+
+    One can create webservices in HTTP or HTTPS mode, stream data, or implement
+    server websockets.
+  </longdescription>
+  <use>
+    <flag name="jansson">Jansson support for JSON</flag>
+    <flag name="websocket">websocket support</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">babelouest/ulfius</remote-id>
+  </upstream>
+</pkgmetadata>

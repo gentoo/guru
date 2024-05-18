@@ -1,0 +1,10 @@
+# /etc/conf.d/mta-sts
+
+# Configuration file
+MTASTS_CONFIGFILE="/etc/mta-sts-daemon.yml"
+
+# PID file
+MTASTS_PIDFILE="/run/mta-sts.pid"
+
+# Options to mta-sts-daemon
+MTASTS_OPTS="-l /var/log/mta-sts.log -v debug"

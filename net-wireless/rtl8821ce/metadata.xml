@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>abbat.2008@gmail.com</email>
+		<name>Aleksandr Batyuk</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">tomaspinho/rtl8821ce</remote-id>
+		<bugs-to>https://github.com/tomaspinho/rtl8821ce/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

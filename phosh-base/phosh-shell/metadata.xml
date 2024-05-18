@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gjdijkman@gjdwebserver.nl</email>
+		<name>Gerben Jan Dijkman</name>
+	</maintainer>
+	<longdescription lang="en">
+			A pure Wayland shell for GNOME on mobile devices. For a matching
+			compositor see gui-wm/phoc but others implementing wlr-layer-shell
+			should work as well.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://gitlab.gnome.org/World/Phosh/phosh/-/issues</bugs-to>
+		<doc>https://gitlab.gnome.org/World/Phosh/phosh/-/wikis/Home</doc>
+		<remote-id type="gnome-gitlab">World/Phosh/phosh</remote-id>
+	</upstream>
+	<use>
+		<flag name="lockscreen-plugins">Build lockscreen plugins and widgets</flag>
+		<flag name="test-full">Run integration tests</flag>
+	</use>
+</pkgmetadata>

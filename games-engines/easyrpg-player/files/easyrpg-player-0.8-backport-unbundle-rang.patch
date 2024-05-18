@@ -1,0 +1,23 @@
+commit 63029163d86224aa4f9da798c760b1836d73f62b
+Author: Ghabry <gabriel+github@mastergk.de>
+Date:   Thu Jun 8 12:54:33 2023 +0200
+
+    rang: Use system header if available
+
+--- a/src/output.cpp
++++ b/src/output.cpp
+@@ -31,7 +31,13 @@
+ #elif defined(__vita__)
+ #  include <psp2/kernel/processmgr.h>
+ #endif
+-#include "external/rang.hpp"
++
++// Use system rang header if available
++#if __has_include(<rang.hpp>)
++#  include <rang.hpp>
++#else
++#  include "external/rang.hpp"
++#endif
+ 
+ #include "output.h"
+ #include "graphics.h"

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=XCrySDen
+Type=Application
+Comment=For the visualisation of molecular and crystal structures.
+Exec=xcrysden
+TryExec=xcrysden
+Icon=/usr/share/icons/hicolor/32x32/apps/xcrysden.png
+Categories=Science;

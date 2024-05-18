@@ -1,0 +1,11 @@
+#!/sbin/openrc-run
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+command=/opt/inn/bin/innwatch
+command_args="-i ${INNWATCH_DELAY:-60} ${INNWATCH_OPTS}"
+pidfile=/run/news/innwatch.pid
+
+stop_pre() {
+	rm -f /run/news/LOCK.innwatch
+}

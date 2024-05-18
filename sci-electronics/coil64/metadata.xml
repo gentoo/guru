@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">radioacoustick/Coil64</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		Coil64 is inductance coil calculator, that allows to calculate the
+		single-layer and multi-layer air core inductors, the ferrite toroid
+		inductors or chokes, flat square coils on PCB etc.
+		You can help to translate application by the Crowdin Coil64 project.
+	</longdescription>
+</pkgmetadata>

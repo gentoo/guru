@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<changelog>https://github.com/Azure/msrest-for-python/releases</changelog>
+		<bugs-to>https://github.com/Azure/msrest-for-python/issues</bugs-to>
+		<remote-id type="github">Azure/msrest-for-python</remote-id>
+		<remote-id type="pypi">msrest</remote-id>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<maintainer>
+			<email>offpunk@ploum.eu</email>
+			<name>Ploum</name>
+		</maintainer>
+		<remote-id type="sourcehut">~lioploum/offpunk</remote-id>
+	</upstream>
+</pkgmetadata>

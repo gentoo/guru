@@ -1,0 +1,12 @@
+Upstream uses custom file as backend
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -4,7 +4,7 @@ requires = [
+     "wheel",
+     "setuptools_scm>=3.3.1,!=4.0.0",
+ ]
+-build-backend = "backend"
++build-backend = "setuptools.build_meta"
+ backend-path = ["build_backend"]
+ 
+ [tool.ruff.per-file-ignores]

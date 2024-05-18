@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+   <upstream>
+       <remote-id type="github">vinceliuice/Qogir-icon-theme</remote-id>
+       <bugs-to>https://github.com/vinceliuice/Qogir-icon-theme/issues</bugs-to>
+   </upstream>
+   <maintainer type="person">
+       <email>contrib_x@protonmail.com</email>
+       <name>James Kalyan</name>
+   </maintainer>
+</pkgmetadata>

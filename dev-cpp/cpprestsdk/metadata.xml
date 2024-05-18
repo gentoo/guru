@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>sigsegv@radiotube.org</email>
+    <description>Jan-Espen Oversand</description>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">microsoft/cpprestsdk</remote-id>
+  </upstream>
+</pkgmetadata>

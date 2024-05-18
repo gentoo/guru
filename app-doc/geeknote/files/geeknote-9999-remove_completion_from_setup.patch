@@ -1,0 +1,21 @@
+--- a/setup.py
++++ b/setup.py
+@@ -52,12 +52,12 @@ class full_install(install):
+                 print(traceback.format_exc())
+
+         print("installing autocomplete")
+-        copy_autocomplete(
+-            "completion/bash_completion/_geeknote", self.bash_completion_dir
+-        )
+-        copy_autocomplete(
+-            "completion/zsh_completion/_geeknote", self.zsh_completion_dir
+-        )
++#        copy_autocomplete(
++#            "completion/bash_completion/_geeknote", self.bash_completion_dir
++#        )
++#        copy_autocomplete(
++#            "completion/zsh_completion/_geeknote", self.zsh_completion_dir
++#        )
+
+
+ with open("geeknote/__init__.py") as f:

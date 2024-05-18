@@ -1,0 +1,26 @@
+diff --git a/src/musikcube/CMakeLists.txt b/src/musikcube/CMakeLists.txt
+index e16ec8b4..8e7d0f2c 100644
+--- a/src/musikcube/CMakeLists.txt
++++ b/src/musikcube/CMakeLists.txt
+@@ -96,10 +96,12 @@ if ((${DISABLE_WIDE_NCURSES_LIB_SUFFIXES} MATCHES "true") OR ((APPLE) AND (${ENA
+     message(STATUS "[ncurses] using library names *WITHOUT* 'w' prefix")
+     set(CURSES_LIBRARY_NAME ncurses)
+     set(PANEL_LIBRARY_NAME panel)
++    set(TINFO_LIBRARY_NAME tinfo)
+ else()
+     message(STATUS "[ncurses] using library names with 'w' prefix")
+     set(CURSES_LIBRARY_NAME ncursesw)
+     set(PANEL_LIBRARY_NAME panelw)
++    set(TINFO_LIBRARY_NAME tinfow)
+ endif()
+ 
+ if (APPLE)
+@@ -114,7 +116,7 @@ else()
+         set(LIBTINFO "")
+     else()
+         message(STATUS "[ncurses] not Darwin! will attempt to link against libtinfo")
+-        find_library(LIBTINFO NAMES tinfo)
++        find_library(LIBTINFO NAMES ${TINFO_LIBRARY_NAME})
+         message(STATUS "[musikcube] using libtinfo at: " ${LIBTINFO})
+     endif()
+ endif()

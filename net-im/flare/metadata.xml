@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<maintainer>
+			<name>Julian Schmidhuber</name>
+			<email>schmidhuberj2@protonmail.com</email>
+		</maintainer>
+		<remote-id type="gitlab">schmiddi-on-mobile/flare</remote-id>
+	</upstream>
+</pkgmetadata>

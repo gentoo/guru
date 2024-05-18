@@ -1,0 +1,13 @@
+Fix "Package 'langdetect.profiles' is absent from the `packages` configuration."
+
+--- a/setup.py
++++ b/setup.py
+@@ -18,7 +18,7 @@ setup(
+     author_email='michal.danilak@gmail.com',
+     url='https://github.com/Mimino666/langdetect',
+     keywords='language detection library',
+-    packages=['langdetect', 'langdetect.utils', 'langdetect.tests'],
++    packages=['langdetect', 'langdetect.utils', 'langdetect.tests', 'langdetect.profiles'],
+     include_package_data=True,
+     install_requires=['six'],
+     license='MIT',

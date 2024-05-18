@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# we need to execute this in a user writeable directory
+
+mkdir -p ${HOME}/.local/share/ATLauncher
+cp /usr/share/ATLauncher/lib/ATLauncher.jar ${HOME}/.local/share/ATLauncher/ATLauncher.jar
+java -jar ${HOME}/.local/share/ATLauncher/ATLauncher.jar

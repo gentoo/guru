@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <!-- maintainer-needed -->
+    <upstream>
+        <bugs-to>https://github.com/laserlemon/rspec-wait/issues</bugs-to>
+        <remote-id type="github">laserlemon/rspec-wait</remote-id>
+    </upstream>
+</pkgmetadata>

@@ -1,0 +1,59 @@
+From c57e930e9573ce29d816899bb3e7303d8ae2d69b Mon Sep 17 00:00:00 2001
+From: "Haelwenn (lanodan) Monnier" <contact@hacktivis.me>
+Date: Mon, 1 Apr 2024 22:33:10 +0200
+Subject: [PATCH] Makefile: Allow building libquickjs as a shared library
+
+Adapted from https://git.alpinelinux.org/aports/tree/community/quickjs/01-sharedlib.patch?id=27a8f649949c36bfc3e45854e08c48a8eb06e07c
+
+Co-authored-by: Celeste <20312-Celeste@users.gitlab.alpinelinux.org>
+---
+ Makefile | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/Makefile b/Makefile
+index 0270a6ad8..76c2a4b11 100644
+--- a/Makefile
++++ b/Makefile
+@@ -32,6 +32,8 @@ endif
+ #CONFIG_WIN32=y
+ # use link time optimization (smaller and faster executables but slower build)
+ #CONFIG_LTO=y
++# also build libquickjs as a shared library
++#CONFIG_SHARED=y
+ # consider warnings as errors (for development)
+ #CONFIG_WERROR=y
+ # force 32 bit build for some utilities
+@@ -205,6 +207,10 @@ PROGS+=libquickjs.a
+ ifdef CONFIG_LTO
+ PROGS+=libquickjs.lto.a
+ endif
++ifdef CONFIG_SHARED
++SO_VERSION=$(shell sed 's/-/./g' VERSION)
++PROGS+=libquickjs.so.$(SO_VERSION)
++endif
+ 
+ # examples
+ ifeq ($(CROSS_PREFIX),)
+@@ -289,6 +295,11 @@ libquickjs.a: $(patsubst %.o, %.nolto.o, $(QJS_LIB_OBJS))
+ 	$(AR) rcs $@ $^
+ endif # CONFIG_LTO
+ 
++ifdef CONFIG_SHARED
++libquickjs.so.$(SO_VERSION): $(patsubst %.o, %.pic.o, $(QJS_LIB_OBJS))
++	$(CC) -shared -Wl,-soname,$@ $(LDFLAGS) -o $@ $^
++endif # CONFIG_SHARED
++
+ repl.c: $(QJSC) repl.js
+ 	$(QJSC) -c -o $@ -m repl.js
+ 
+@@ -362,6 +373,10 @@ install: all
+ 	install -m644 libquickjs.a "$(DESTDIR)$(PREFIX)/lib/quickjs"
+ ifdef CONFIG_LTO
+ 	install -m644 libquickjs.lto.a "$(DESTDIR)$(PREFIX)/lib/quickjs"
++endif
++ifdef CONFIG_SHARED
++	install -Dm755 libquickjs.so.$(SO_VERSION) "$(DESTDIR)$(PREFIX)/lib"
++	ln -s libquickjs.so.$(SO_VERSION) "$(DESTDIR)$(PREFIX)/lib/libquickjs.so"
+ endif
+ 	mkdir -p "$(DESTDIR)$(PREFIX)/include/quickjs"
+ 	install -m644 quickjs.h quickjs-libc.h "$(DESTDIR)$(PREFIX)/include/quickjs"

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+  <maintainer type="person">
+    <email>gasc@eurecom.fr</email>
+    <name>Gasc Henri</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="pypi">pyromaths</remote-id>
+  </upstream>
+  <longdescription>
+    A program to create math exercise using LaTeX and python. It let you choose the subject, the difficulty and give you the solutions.
+  </longdescription>
+</pkgmetadata>

@@ -1,0 +1,59 @@
+From eb1020191f7743f451442096db8635643c5fddb1 Mon Sep 17 00:00:00 2001
+From: Andrew Price <anprice@redhat.com>
+Date: Sep 05 2020 23:59:02 +0000
+Subject: restoremeta: Fix unaligned access in restore_init()
+
+On sparc64 we get restoremeta tests failing with SIGBUS due to an
+unaligned access when scanning for the super block offset in the
+metadata file. memcpy the buffer into a gfs2_sb struct to avoid that. In
+most cases, if not always, this loop succeeds on the first iteration
+and might not even be needed, so the added overhead is minimal.
+
+diff --git a/gfs2/edit/savemeta.c b/gfs2/edit/savemeta.c
+index 80c11c9..32e1f70 100644
+--- a/gfs2/edit/savemeta.c
++++ b/gfs2/edit/savemeta.c
+@@ -1251,7 +1251,7 @@ nobuffer:
+ 	return NULL;
+ }
+ 
+-static int restore_super(struct metafd *mfd, char *buf, int printonly)
++static int restore_super(struct metafd *mfd, void *buf, int printonly)
+ {
+ 	int ret;
+ 
+@@ -1337,7 +1337,7 @@ static void complain(const char *complaint)
+ 
+ static int restore_init(const char *path, struct metafd *mfd, struct savemeta_header *smh, int printonly)
+ {
+-	struct gfs2_meta_header *sbmh;
++	struct gfs2_sb rsb;
+ 	uint16_t sb_siglen;
+ 	char *end;
+ 	char *bp;
+@@ -1372,12 +1372,12 @@ static int restore_init(const char *path, struct metafd *mfd, struct savemeta_he
+ 		return -1;
+ 	}
+ 	/* Scan for the position of the superblock. Required to support old formats(?). */
+-	end = &restore_buf[256 + sizeof(struct saved_metablock) + sizeof(*sbmh)];
++	end = &restore_buf[256 + sizeof(struct saved_metablock) + sizeof(struct gfs2_meta_header)];
+ 	while (bp <= end) {
++		memcpy(&rsb, bp + sizeof(struct saved_metablock), sizeof(rsb));
+ 		sb_siglen = be16_to_cpu(((struct saved_metablock *)bp)->siglen);
+-		sbmh = (struct gfs2_meta_header *)(bp + sizeof(struct saved_metablock));
+-		if (sbmh->mh_magic == cpu_to_be32(GFS2_MAGIC) &&
+-		    sbmh->mh_type == cpu_to_be32(GFS2_METATYPE_SB))
++		if (be32_to_cpu(rsb.sb_header.mh_magic) == GFS2_MAGIC &&
++		    be32_to_cpu(rsb.sb_header.mh_type) == GFS2_METATYPE_SB)
+ 			break;
+ 		bp++;
+ 	}
+@@ -1386,7 +1386,7 @@ static int restore_init(const char *path, struct metafd *mfd, struct savemeta_he
+ 		return -1;
+ 	}
+ 	bp += sizeof(struct saved_metablock);
+-	ret = restore_super(mfd, bp, printonly);
++	ret = restore_super(mfd, &rsb, printonly);
+ 	if (ret != 0)
+ 		return ret;
+ 

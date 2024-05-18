@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <!-- maintainer-needed -->
+    <upstream>
+        <doc>https://github.com/fakefred/ascim#usage</doc>
+        <bugs-to>https://github.com/fakefred/ascim/issues</bugs-to>
+        <remote-id type="github">fakefred/ascim</remote-id>
+        <remote-id type="pypi">ascim</remote-id>
+    </upstream>
+</pkgmetadata>

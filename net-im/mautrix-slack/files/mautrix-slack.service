@@ -1,0 +1,12 @@
+[Unit]
+Description=A Matrix-Slack puppeting bridge
+After=network.target
+
+[Service]
+User=mautrix-slack
+Group=mautrix
+Restart=always
+ExecStart=/usr/bin/mautrix-slack -c /etc/mautrix/mautrix_slack.yaml -r /var/lib/mautrix/slack/registration.yaml
+
+[Install]
+WantedBy=multi-user.target

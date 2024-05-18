@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<!-- maintainer-needed -->
+<use>
+	<flag name="libbsd">Use <pkg>dev-libs/libbsd</pkg> instead of internal funcs</flag>
+</use>
+<upstream>
+	<maintainer>
+		<name>Omar Polo</name>
+		<email>telescope@omarpolo.com</email>
+	</maintainer>
+	<doc>https://telescope.omarpolo.com/telescope.1.html</doc>
+	<remote-id type="github">omar-polo/telescope</remote-id>
+</upstream>
+</pkgmetadata>

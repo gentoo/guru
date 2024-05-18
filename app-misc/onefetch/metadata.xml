@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>rahul@sandhuservices.dev</email>
+		<name>Rahul Sandhu</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>watermanpaint@posteo.net</email>
+		<name>Lucio Sauer</name>
+	</maintainer>
+	<upstream>
+		<changelog>
+			https://github.com/o2sh/onefetch/releases/
+		</changelog>
+		<remote-id type="github">o2sh/onefetch</remote-id>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,13 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of MAGNETIC_MODELS USE_EXPAND flags.
+
+wmm2010 - the World Magnetic Model 2010, which approximates the main magnetic field for the period 2010–2015.
+wmm2020 -  the World Magnetic Model 2020, which approximates the main magnetic field for the period 2020–2025.
+wmm2015v2 - the World Magnetic Model 2015, which approximates the main magnetic field for the period 2015–2020.
+igrf11 - the International Geomagnetic Reference Field (11th generation), which approximates the main magnetic field for the period 1900–2015.
+igrf12 - the International Geomagnetic Reference Field (12th generation), which approximates the main magnetic field for the period 1900–2020.
+emm2010 - the Enhanced Magnetic Model 2010, which approximates the main and crustal magnetic fields for the period 2010–2015.
+emm2015 - the Enhanced Magnetic Model 2015, which approximates the main and crustal magnetic fields for the period 2000–2020.
+emm2017 - the Enhanced Magnetic Model 2017, which approximates the main and crustal magnetic fields for the period 2000–2022.

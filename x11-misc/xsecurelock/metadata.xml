@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>dev@dyama.net</email>
+    <name>Daichi Yamamoto</name>
+  </maintainer>
+  <use>
+    <flag name="mplayer">Install the saver_mplayer module</flag>
+    <flag name="mpv">Install the saver_mpv module</flag>
+    <flag name="xscreensaver">Install the saver_xscreensaver module</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">google/xsecurelock</remote-id>
+  </upstream>
+</pkgmetadata>

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<bugs-to>https://github.com/python/typeshed/issues</bugs-to>
+		<remote-id type="github">python/typeshed</remote-id>
+		<remote-id type="pypi">types-requests</remote-id>
+		<changelog>https://github.com/typeshed-internal/stub_uploader/blob/main/data/changelogs/requests.md</changelog>
+	</upstream>
+</pkgmetadata>

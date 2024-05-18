@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>egger.m@protonmail.com</email>
+		<name>Michael Egger</name>
+	</maintainer>
+	<use>
+		<flag name="systemd">Install systemd service file</flag>
+		<flag name="udev">Install udev rules</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">trezor/trezord-go</remote-id>
+	</upstream>
+</pkgmetadata>

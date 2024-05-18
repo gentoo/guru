@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<remote-id type="github">matthewmcgarvey/webdrivers.cr</remote-id>
+		<maintainer>
+			<name>Matthew McGarvey</name>
+			<email>matthewmcgarvey14@gmail.com</email>
+		</maintainer>
+	</upstream>
+</pkgmetadata>

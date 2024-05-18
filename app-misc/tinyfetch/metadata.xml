@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+  <maintainer type="person">
+    <email>aidenwingard2@gmail.com</email>
+    <description>Primary maintainer</description>
+  </maintainer>
+  <longdescription>
+    minimal fetch program written in pure C, using only
+    the C STDLIB and is cross platform, and much more
+    faster than other fetch programs.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">kernaltrap8/tinyfetch</remote-id>
+  </upstream>	
+</pkgmetadata>

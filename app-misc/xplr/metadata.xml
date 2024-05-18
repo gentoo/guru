@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>rmicielski@purelymail.com</email>
+		<name>Remigiusz Micielski</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">sayanarijit/xplr</remote-id>
+		<doc>https://xplr.dev/en/</doc>
+		<bugs-to>https://github.com/sayanarijit/xplr/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
+

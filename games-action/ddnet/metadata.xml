@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Edgar Luque</name>
+		<email>edgar@edgarluque.com</email>
+	</maintainer>
+	<maintainer type="person">
+		<name>Zhang Zheng</name>
+		<email>zhangzheng.dylan@foxmail.com</email>
+	</maintainer>
+	<upstream>
+		<changelog>https://ddnet.org/downloads/</changelog>
+		<bugs-to>https://github.com/ddnet/ddnet/issues</bugs-to>
+		<doc>https://wiki.ddnet.org/wiki/Main_Page</doc>
+		<remote-id type="github">ddnet/ddnet</remote-id>
+	</upstream>
+	<longdescription>DraceNetwork (DDNet) is an actively maintained version of DDRace, a Teeworlds modification with a unique cooperative gameplay. Help each other play through custom maps with up to 64 players, compete against the best in international tournaments, design your own maps, or run your own server. The official servers are around the world. All ranks made on official servers are available worldwide and you can collect points! </longdescription>
+	<use>
+		<flag name="antibot">Enable support for a dynamic anticheat library.</flag>
+		<flag name="autoupdate">Enable the autoupdater.</flag>
+		<flag name="client">Enable client compilation.</flag>
+		<flag name="download-gtest">Download and compile GTest. Useful if GTest is not installed and there is no suitable package providing it.</flag>
+		<flag name="headless-client">Build the client without graphics.</flag>
+		<flag name="inform-update">Inform about available updates.</flag>
+		<flag name="server">Enable server compilation.</flag>
+		<flag name="tools">Enable tools compilation.</flag>
+		<flag name="upnp">Enable UPnP support for the server.</flag>
+		<flag name="videorecorder">Add video recording support using FFmpeg to the client.</flag>
+		<flag name="vulkan">Enable the vulkan backend.</flag>
+		<flag name="websockets">Enable WebSocket support for server.</flag>
+	</use>
+</pkgmetadata>

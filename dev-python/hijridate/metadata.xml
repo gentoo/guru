@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<remote-id type="pypi">hijridate</remote-id>
+		<remote-id type="github">dralshehri/hijridate</remote-id>
+		<doc>https://hijridate.readthedocs.io</doc>
+	</upstream>
+</pkgmetadata>

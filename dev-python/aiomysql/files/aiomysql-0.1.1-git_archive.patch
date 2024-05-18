@@ -1,0 +1,12 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 4e903b7..ad127f2 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -5,7 +5,6 @@ requires = [
+ 
+     # Plugins
+     "setuptools_scm[toml] >= 6.4",
+-    "setuptools_scm_git_archive >= 1.1",
+ ]
+ build-backend = "setuptools.build_meta"
+ 

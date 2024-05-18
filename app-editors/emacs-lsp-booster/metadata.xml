@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>pascal.jaeger@leimstift.de</email>
+		<name>Pascal Jaeger</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/blahgeek/emacs-lsp-booster/issues</bugs-to>
+		<changelog>https://github.com/blahgeek/emacs-lsp-booster/commits/master</changelog>
+		<remote-id type="github">blahgeek/emacs-lsp-booster</remote-id>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,35 @@
+From 7ec34c32dae716cb3976037e1086e193ff1b0cc3 Mon Sep 17 00:00:00 2001
+From: Remigiusz Micielski <rmicielski@purelymail.com>
+Date: Wed, 22 Nov 2023 17:13:09 +0100
+Subject: [PATCH] fix: use sys sdbus-c++
+
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 44d1689..aa7588b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -21,16 +21,16 @@ endif()
+ include_directories(
+   .
+   "protocols/"
+-  "subprojects/sdbus-cpp/include/"
+ )
+ 
+ set(CMAKE_CXX_STANDARD 23)
+ add_compile_options(-Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wno-narrowing -Wno-pointer-arith -fpermissive)
+ 
+ message(STATUS "Checking deps...")
+-add_subdirectory(subprojects/sdbus-cpp)
+ add_subdirectory(hyprland-share-picker)
+ 
++find_package(sdbus-c++ REQUIRED)
++
+ find_package(Threads REQUIRED)
+ 
+ find_package(PkgConfig REQUIRED)
+-- 
+2.41.0
+

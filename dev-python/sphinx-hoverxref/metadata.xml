@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<doc>https://sphinx-hoverxref.readthedocs.io/en/latest/</doc>
+		<remote-id type="pypi">sphinx-hoverxref</remote-id>
+		<remote-id type="github">readthedocs/sphinx-hoverxref</remote-id>
+		<maintainer>
+			<name>Manuel Kaufmann</name>
+			<email>humitos@gmail.com</email>
+		</maintainer>
+		<bugs-to>https://github.com/readthedocs/sphinx-hoverxref/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

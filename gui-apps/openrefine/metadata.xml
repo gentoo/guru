@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>zdanevich.vitaly@ya.ru</email>
+		<name>Vitaly Zdanevich</name>
+	</maintainer>
+	<use>
+		<flag name="commons">Download and install plugin for Wikimedia Commons</flag>
+	</use>
+	<longdescription>
+OpenRefine is a powerful free, open source tool for working with messy data: cleaning it; transforming it from one format into another; and extending it with web services and external data.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">OpenRefine/OpenRefine</remote-id>
+	</upstream>
+</pkgmetadata>

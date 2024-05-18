@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>torsi@fi.uba.ar</email>
+		<name>Tomas Fabrizio Orsi</name>
+	</maintainer>
+	<longdescription>A python library for decision tree visualization and model interpretation. Decision trees are the fundamental building block of gradient boosting machines and Random Forests(tm), probably the two most popular machine learning models for structured data. Visualizing decision trees is a tremendous aid when learning how these models work and when interpreting models. The visualizations are inspired by an educational animation by R2D3; A visual introduction to machine learning. Please see How to visualize decision trees for deeper discussion of our decision tree visualization library and the visual design decisions we made.</longdescription>
+	<upstream>
+		<remote-id type="github">parrt/dtreeviz</remote-id>
+		<remote-id type="pypi">dtreeviz</remote-id>
+	</upstream>
+</pkgmetadata>

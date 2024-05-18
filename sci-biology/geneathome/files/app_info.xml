@@ -1,0 +1,22 @@
+<app_info>
+<app>
+	<name>gene_pcim</name>
+	<user_friendly_name>gene@home PC-IM</user_friendly_name>
+</app>
+
+<file_info>
+	<name>gene_pcim_v@PV@</name>
+	<sticky/>
+	<executable/>
+</file_info>
+
+<app_version>
+	<app_name>gene_pcim</app_name>
+	<version_num>110</version_num>
+	<plan_class>avx</plan_class>
+	<file_ref>
+		<file_name>gene_pcim_v@PV@</file_name>
+		<main_program/>
+	</file_ref>
+</app_version>
+</app_info>

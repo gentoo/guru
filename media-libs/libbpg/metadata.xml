@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription lang="en">
+		BPG (Better Portable Graphics) is a new image format. Its purpose is
+		to replace the JPEG image format when quality or file size is an issue.
+	</longdescription>
+	<maintainer type="person">
+		<email>m.santullo@posteo.net</email>
+		<name>Michele Santullo</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Fabrice Bellard</name>
+			<email>fabrice@bellard.org</email>
+		</maintainer>
+	</upstream>
+	<use>
+		<!-- useflag description copied from the Makefile -->
+		<flag name="bpgview">Compile bpgview (<pkg>media-libs/libsdl</pkg> and <pkg>media-libs/sdl-image</pkg> needed)</flag>
+		<flag name="jctvc">Enable the JCTVC code (best quality but slow) for the encoder</flag>
+	</use>
+</pkgmetadata>

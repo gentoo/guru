@@ -1,0 +1,4 @@
+move app-misc/ssmtool app-misc/vocabsieve
+move media-video/mpv_thumbnail_script mpv-plugin/mpv_thumbnail_script
+move media-video/mpv-mpris mpv-plugin/mpv-mpris
+move kde-misc/skanpage media-gfx/skanpage

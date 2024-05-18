@@ -1,0 +1,35 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a582acd..f66b8e3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -215,10 +215,10 @@ if(UNIX AND NOT APPLE)
+ 	INSTALL(FILES Resources/Unix/Menu/openspades DESTINATION ${OPENSPADES_INSTALL_MENU}/)
+ 
+ 	# man file
+-	INSTALL(FILES ${CMAKE_BINARY_DIR}/Resources/Unix/Man/openspades.6.gz DESTINATION ${OPENSPADES_INSTALL_MAN}/)
++	INSTALL(FILES ${CMAKE_BINARY_DIR}/Resources/Unix/Man/openspades.6 DESTINATION ${OPENSPADES_INSTALL_MAN}/)
+ 
+ 	# changelog file
+-	INSTALL(FILES ${CMAKE_BINARY_DIR}/Resources/Unix/Debian/changelog.gz DESTINATION ${OPENSPADES_INSTALL_DOC}/)
++	INSTALL(FILES ${CMAKE_BINARY_DIR}/Resources/Unix/Debian/changelog DESTINATION ${OPENSPADES_INSTALL_DOC}/)
+ 
+ 	# copyright file
+ 	INSTALL(FILES ${CMAKE_BINARY_DIR}/Resources/Unix/Debian/copyright DESTINATION ${OPENSPADES_INSTALL_DOC}/)
+diff --git a/Resources/CMakeLists.txt b/Resources/CMakeLists.txt
+index 1f9b514..ce892da 100644
+--- a/Resources/CMakeLists.txt
++++ b/Resources/CMakeLists.txt
+@@ -69,12 +69,7 @@ if(UNIX AND NOT APPLE)
+ 
+ 	add_custom_command(
+ 		TARGET OpenSpades_Unix
+-		COMMAND sh -c \"gzip -9 -c ${CMAKE_CURRENT_SOURCE_DIR}/Unix/Debian/changelog > changelog.gz\"
++		COMMAND sh -c \"cp ${CMAKE_CURRENT_SOURCE_DIR}/Unix/Debian/changelog changelog\"
+ 		WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/Unix/Debian
+ 	)
+-	add_custom_command(
+-		TARGET OpenSpades_Unix
+-		COMMAND sh -c \"gzip -9 -c ${CMAKE_CURRENT_BINARY_DIR}/Unix/Man/openspades.6 > openspades.6.gz\"
+-		WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/Unix/Man
+-	)
+ endif(UNIX AND NOT APPLE)

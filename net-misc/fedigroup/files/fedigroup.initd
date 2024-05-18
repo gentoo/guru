@@ -1,0 +1,76 @@
+#!/sbin/openrc-run
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+# shellcheck shell=sh disable=SC2034
+
+: ${FEDIGROUP_BOT:=${RC_SVCNAME#fedigroup.}}
+: ${FEDIGROUP_CONFIG:=/etc/fedigroup.conf}
+
+extra_commands="create remove list"
+description_create="create a new bot"
+description_remove="remove selected bot from config file"
+description_list="list all bots from config file"
+
+command="/usr/bin/fedigroup.py"
+command_args="run ${FEDIGROUP_BOT} -c ${FEDIGROUP_CONFIG}"
+command_user="fedigroup:fedigroup"
+command_background=yes
+pidfile="/run/${RC_SVCNAME}.pid"
+output_log="/var/log/${RC_SVCNAME}.log"
+error_log="${output_log}"
+
+depend() {
+	need net
+}
+
+fix_config_perms() {
+	checkpath -q -o fedigroup:fedigroup -m 0640 -f "${FEDIGROUP_CONFIG}"
+	checkpath -q -o fedigroup:fedigroup -f "${output_log}"
+	return $?
+}
+
+start_pre() {
+	if [ "${FEDIGROUP_BOT}" = "${RC_SVCNAME}" ]; then
+		eerror "Missing FEDIGROUP_BOT variable"
+		return 1
+	fi
+
+	fix_config_perms || return 1
+
+	return 0
+}
+
+create() {
+	einfo "When asked, make sure savepoint file is created in the /var/lib/fedigroup directory"
+	printf "Enter the name of the bot to be created: "
+	read name
+
+	fix_config_perms || return 1
+	"${command}" create "${name}" -c "${FEDIGROUP_CONFIG}" || return 1
+
+	initd="/etc/init.d/fedigroup.${name}"
+	[ -f "${initd}" ] ||
+		cp "/etc/init.d/fedigroup" "${initd}"
+
+	einfo "Done! To start the bot, use the following command:"
+	einfo "	# rc-service fedigroup.${name} start"
+}
+
+remove() {
+	printf "Enter the name of the bot to be removed: "
+	read name
+
+	fix_config_perms || return 1
+	start-stop-daemon --exec "${command}" \
+		-- remove "${name}" -c "${FEDIGROUP_CONFIG}" || return 1
+
+	initd="/etc/init.d/fedigroup.${name}"
+	[ -f "${initd}" ] && \
+		einfo "Service file ${initd} needs to be removed manually"
+}
+
+list() {
+	start-stop-daemon --exec "${command}" \
+		-- list -c "${FEDIGROUP_CONFIG}"
+	return $?
+}

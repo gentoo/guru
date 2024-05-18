@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>amber@vnetwork.com</email>
+        <name>Amber</name>
+    </maintainer>
+    <upstream>
+        <remote-id type="github">tulir/gomuks</remote-id>
+        <bugs-to>https://github.com/tulir/gomuks/issues</bugs-to>
+    </upstream>
+    <use>
+        <flag name="encryption">End-to-end encryption support with dev-libs/olm</flag>
+    </use>
+</pkgmetadata>

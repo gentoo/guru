@@ -1,0 +1,47 @@
+#!/sbin/openrc-run
+# Copyright 1999-2021 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+extra_commands="configtest"
+extra_started_commands="reload"
+
+description="Simple and secure Gemini server"
+description_configtest="Run gmid's internal config check."
+description_reload="Reload the gmid configuration without losing connections."
+
+GMID_CONFIGFILE=${GMID_CONFIGFILE:-/etc/gmid/gmid.conf}
+
+command="/usr/bin/gmid"
+pidfile="/var/run/gmid.pid"
+command_args="-c \"${GMID_CONFIGFILE}\" -P ${pidfile}"
+
+depend() {
+	need net
+	use dns logger netmount
+}
+
+start_pre() {
+	if [ "${RC_CMD}" != "restart" ]; then
+		configtest || return 1
+	fi
+}
+
+stop_pre() {
+	if [ "${RC_CMD}" = "restart" ]; then
+		configtest || return 1
+	fi
+}
+
+reload() {
+	configtest || return 1
+	ebegin "Refreshing gmid's configuration"
+	start-stop-daemon --signal SIGHUP --pidfile "${pidfile}"
+	eend $? "Failed to reload gmid"
+}
+
+configtest() {
+	ebegin "Checking gmid's configuration"
+	${command} -c "${GMID_CONFIGFILE}" -n
+
+	eend $? "failed, please correct errors in the config file"
+}

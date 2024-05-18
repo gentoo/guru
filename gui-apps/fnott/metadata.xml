@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>leohdz172@proton.me</email>
+    <name>Leonardo Hernández Hernández</name>
+  </maintainer>
+  <upstream>
+    <maintainer status="active">
+      <name>Daniel Eklöf</name>
+    </maintainer>
+    <remote-id type="codeberg">dnkl/fnott</remote-id>
+  </upstream>
+</pkgmetadata>

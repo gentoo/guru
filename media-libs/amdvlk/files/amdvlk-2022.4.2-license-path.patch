@@ -1,0 +1,13 @@
+diff --git a/xgl/cmake/XglPackaging.cmake b/xgl/cmake/XglPackaging.cmake
+index a3375293d..14d951b69 100644
+--- a/xgl/cmake/XglPackaging.cmake
++++ b/xgl/cmake/XglPackaging.cmake
+@@ -128,7 +128,7 @@ function(generateInstallTargets)
+   install(FILES ${CMAKE_BINARY_DIR}/icd/amd_icd${TARGET_ARCHITECTURE_BITS}.json COMPONENT icd DESTINATION /etc/vulkan/icd.d)
+   install(FILES ${CMAKE_BINARY_DIR}/icd/amd_icd${TARGET_ARCHITECTURE_BITS}.json COMPONENT icd DESTINATION /etc/vulkan/implicit_layer.d)
+   if(EXISTS ${CMAKE_SOURCE_DIR}/LICENSE.txt)
+-    install(FILES ${CMAKE_SOURCE_DIR}/LICENSE.txt COMPONENT icd DESTINATION share/doc/${PACKAGE_NAME})
++    install(FILES ${CMAKE_SOURCE_DIR}/LICENSE.txt COMPONENT icd DESTINATION share/doc/${PACKAGE_NAME}-${PACKAGE_VERSION})
+   else()
+     message(WARNING "LICENSE.txt is not found under ${CMAKE_SOURCE_DIR}, please put it there")
+   endif()

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<doc>https://bitbucket.org/natemaia/dk/src/master/</doc>
+		<bugs-to>https://bitbucket.org/natemaia/dk/issue</bugs-to>
+		<remote-id type="bitbucket">natemaia/dk</remote-id>
+	</upstream>
+</pkgmetadata>
+

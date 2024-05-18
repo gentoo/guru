@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>zl29ah@gmail.com</email>
+		<name>Sergey Alirzaev</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">z411/vrms-gentoo</remote-id>
+	</upstream>
+	<longdescription lang="en">This is a clone of VRMS (Virtual Richard M. Stallman) for Gentoo Linux. It scans the computer for non-free packages, and shows a list of them, if any.
+Instead of using its own list of licenses, it scans the license_group file in the local computer and compares the locally installed packages to the @FREE group. If you want it to use only the @FSF-APPROVED group you can use the --strict flag.
+</longdescription>
+</pkgmetadata>

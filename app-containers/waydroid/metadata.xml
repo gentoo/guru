@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>denis7774@gmail.com</email>
+		<name>Denis Reva</name>
+		<description>rarogcmex</description>
+	</maintainer>
+	<longdescription lang="en">
+		Waydroid uses Linux namespaces (user, pid, uts, net, mount, ipc) to run a full Android system in a container and provide Android applications on any GNU/Linux-based platform.
+
+		The Android system inside the container has direct access to any needed hardware.
+
+		The Android runtime environment ships with a minimal customized Android system image based on LineageOS. The image is currently based on Android 11.
+	</longdescription>
+	<use>
+		<flag name="clipboard">Enable clipboard manager service using dev-python/pyclip</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">waydroid/waydroid</remote-id>
+	</upstream>
+</pkgmetadata>

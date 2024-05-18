@@ -1,0 +1,33 @@
+From 38d7f23378bb6212b4975fc195af09743bb88199 Mon Sep 17 00:00:00 2001
+From: Naoaki Iwakiri <naokiri@gmail.com>
+Date: Tue, 6 Aug 2019 21:40:15 +0900
+Subject: [PATCH] Wait the passcode skipping additional informations if any.
+
+This is a fix to use pinentry-kwallet with rather new pinentry-qt which tells whether the passcode is from input or a cached one before sending the actual passcode.
+It yet still ignores the 'allow-external-cache' option and try to store in kwallet always.
+---
+ pinentry-kwallet | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/pinentry-kwallet b/pinentry-kwallet
+index 11665d7..8768272 100644
+--- a/pinentry-kwallet
++++ b/pinentry-kwallet
+@@ -219,11 +219,12 @@ function getit {
+ 		io_s_out GETPIN
+ 		io_s_in resp
+ 		pw=
+-		#XXX normally, read until OK|ERR
+-		if [[ $resp = @(D )* ]]; then
+-			pw=${resp#D }
+-			io_s_in resp
+-		fi
++		while [[ $resp != @(OK|ERR)@(| *) ]]; do
++		    if [[ $resp = @(D )* ]]; then
++			    pw=${resp#D }
++		    fi
++            io_s_in resp
++        done
+ 		[[ $resp = OK@(| *) ]] && tw=1
+ 	fi
+ 	(( tw && !blst )) && if kwalletcli_getpin -q -b \

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>fogti@ytrizja.de</email>
+		<name>Alain Emilia Anna Zscheile</name>
+	</maintainer>
+	<longdescription lang="en">Typical applications are searches, schedulers and caches. If you ever scratched
+your head because that A* didn't look quite right, a PSQ is what you needed.</longdescription>
+	<upstream>
+		<doc>https://pqwy.github.io/psq/doc</doc>
+		<bugs-to>https://github.com/pqwy/psq/issues</bugs-to>
+		<remote-id type="github">pqwy/psq</remote-id>
+		<maintainer>
+			<name>David Kaloper Meršinjak</name>
+			<email>dk505@cam.ac.uk</email>
+		</maintainer>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,15 @@
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+tab_width = 4
+charset = utf-8
+
+[*.ebuild]
+indent_style = tab
+trim_trailing_whitespace = true
+
+[repositories.xml]
+indent_style = space
+tab_width = 2

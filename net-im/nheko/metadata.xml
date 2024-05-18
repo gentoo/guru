@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>tastytea</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Nheko-Reborn/nheko</remote-id>
+	</upstream>
+	<use>
+		<flag name="video">Enable video calls</flag>
+		<flag name="voip">Enable audio calls</flag>
+	</use>
+</pkgmetadata>

@@ -1,0 +1,98 @@
+Enables support for loading the data files from outside the executable folder,
+respecting the user $XDG_DATA_HOME variable if set.
+Backport of commit ecdf802d68f9852150ac92f9737426c340fb64a3 by k4zmu2a.
+Patch by Nicola Smaniotto.
+
+diff --git a/SpaceCadetPinball/pb.cpp b/SpaceCadetPinball/pb.cpp
+index 284ef7e..9fa7fb2 100644
+--- a/SpaceCadetPinball/pb.cpp
++++ b/SpaceCadetPinball/pb.cpp
+@@ -39,6 +39,8 @@ int pb::init()
+ {
+ 	float projMat[12], zMin = 0, zScaler = 0;
+ 
++	if (winmain::DatFileName.empty())
++		return 1;
+ 	auto dataFilePath = pinball::make_path_name(winmain::DatFileName);
+ 	record_table = partman::load_records(dataFilePath.c_str(), FullTiltMode);
+ 
+diff --git a/SpaceCadetPinball/winmain.cpp b/SpaceCadetPinball/winmain.cpp
+index 1b9a4c6..5e4fa9c 100644
+--- a/SpaceCadetPinball/winmain.cpp
++++ b/SpaceCadetPinball/winmain.cpp
+@@ -36,7 +36,7 @@ bool winmain::ShowSpriteViewer = false;
+ bool winmain::LaunchBallEnabled = true;
+ bool winmain::HighScoresEnabled = true;
+ bool winmain::DemoActive = false;
+-char* winmain::BasePath;
++std::string winmain::BasePath;
+ int winmain::MainMenuHeight = 0;
+ std::string winmain::FpsDetails;
+ double winmain::UpdateToFrameRatio;
+@@ -58,19 +58,44 @@ int winmain::WinMain(LPCSTR lpCmdLine)
+ 		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Could not initialize SDL2", SDL_GetError(), nullptr);
+ 		return 1;
+ 	}
+-	BasePath = SDL_GetBasePath();
+ 
+ 	pinball::quickFlag = strstr(lpCmdLine, "-quick") != nullptr;
+-	DatFileName = options::get_string("Pinball Data", pinball::get_rc_string(168, 0));
+ 
+-	/*Check for full tilt .dat file and switch to it automatically*/
+-	auto cadetFilePath = pinball::make_path_name("CADET.DAT");
+-	auto cadetDat = fopen(cadetFilePath.c_str(), "r");
+-	if (cadetDat)
++	// Search for game data in: game folder, user folder
++	// Game data test order: CADET.DAT, PINBALL.DAT
++	char* dataSearchPaths[2]
+ 	{
+-		fclose(cadetDat);
+-		DatFileName = "CADET.DAT";
+-		pb::FullTiltMode = true;
++		 SDL_GetBasePath(),
++		 SDL_GetPrefPath(nullptr, "SpaceCadetPinball")
++	};
++	std::string datFileNames[2]
++	{
++		"CADET.DAT",
++		options::get_string("Pinball Data", pinball::get_rc_string(168, 0))
++	};
++	for (auto path : dataSearchPaths)
++	{
++		if (DatFileName.empty() && path)
++		{
++			BasePath = path;
++			for (int i = 0; i < 2; i++)
++			{
++				auto datFileName = datFileNames[i];
++				auto datFilePath = pinball::make_path_name(datFileName);
++				auto datFile = fopen(datFilePath.c_str(), "r");
++				if (datFile)
++				{
++					fclose(datFile);
++					DatFileName = datFileName;
++					if (i == 0)
++						pb::FullTiltMode = true;
++					printf("Loading game from: %s\n", datFilePath.c_str());
++					break;
++				}
++			}
++		}
++
++		SDL_free(path);
+ 	}
+ 
+ 	// SDL window
+diff --git a/SpaceCadetPinball/winmain.h b/SpaceCadetPinball/winmain.h
+index eb32410..485232f 100644
+--- a/SpaceCadetPinball/winmain.h
++++ b/SpaceCadetPinball/winmain.h
+@@ -48,7 +48,7 @@ public:
+ 	static bool LaunchBallEnabled;
+ 	static bool HighScoresEnabled;
+ 	static bool DemoActive;
+-	static char* BasePath;
++	static std::string BasePath;
+ 	static int MainMenuHeight;
+ 
+ 	static int WinMain(LPCSTR lpCmdLine);

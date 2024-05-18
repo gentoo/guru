@@ -1,0 +1,202 @@
+# Copyright 1999-2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2021-03-29)
+# James Beddek <telans@posteo.de> (2021-10-09)
+# Per profile masking in overlays is currently not working
+# with pkgcore/pkgdev/pkgcheck. Mask offending packages for all profiles
+# as a workaround that both makes repoman happy and works with
+# pkgcore/pkgdev/pkgcheck.
+# Sorry for the inconvenience.
+#
+# TODO: Either fix per profile masking in overlays, or move
+# relevant entries to the relevant package.mask files in ::gentoo
+
+# Note: Do not use `Closes:` tag when treecleaning a package. Instead
+# use the `Bug:` tag and use the RESOLVED/PKGREMOVED status on
+# the bug manually if you can, or wait for someone else to do it.
+
+# New entries go on top.
+
+# Julien Roy <julien@jroy.ca> (2024-05-13)
+# Mask stale packages
+# These packages are abandoned by their maintainers and/or outdated
+# In addition, they have open (and also abandoned) bugs
+# If anyone is interested in maintaining them:
+# - add yourself as maintainer
+# - bump revisions if needed
+# - bump python compat version (at least to 11, try 12)
+# - try and fix open bugs for these packages
+# Otherwise, they will be removed by 2024-06-13
+dev-python/pymorphy2-dicts-uk
+dev-python/pymorphy2-dicts-ru
+dev-python/pymorphy2-dicts
+dev-python/pymorphy2
+media-video/tartube
+dev-python/python-skywater-pdk
+sys-apps/fchroot
+x11-misc/caffeine-ng
+dev-python/marshmallow_enum
+# Reverse dependencies
+sci-electronics/skywater-pdk
+dev-python/dataclasses-json
+# Revdep of revdevs
+sci-electronics/open_pdks
+
+# Julien Roy <julien@jroy.ca> (2024-05-13)
+# Libraries with no reverse dependencies
+# Bug 931391
+# Removal in 30 days
+dev-python/orderedmultidict
+
+# Julien Roy <julien@jroy.ca> (2024-05-13)
+# Libraries with no reverse dependencies
+# Bug 931388
+# Removal in 30 days
+dev-python/multipart
+
+# Julien Roy <julien@jroy.ca> (2024-05-13)
+# Libraries with no reverse dependencies
+# Bug 931401
+# Removal in 30 days
+dev-python/portion
+
+# Viorel Munteanu <ceamac@gentoo.org> (2024-05-10)
+# No upstream activity in 3 years.
+# No revdeps left in tree.
+# Removal: 2024-06-09.  Bug #931440.
+dev-python/wrapio
+
+# Viorel Munteanu <ceamac@gentoo.org> (2024-05-10)
+# No upstream activity in more than 3 years.
+# No revdeps left in tree.
+# Removal: 2024-06-09.  Bug #931420.
+dev-python/sdnotify
+
+# David Roman <davidroman96@gmail.com> (2024-05-01)
+# Broken and maintainer needed. See also https://bugs.gentoo.org/921821
+dev-python/hypothesmith
+
+# Jonas Frei <freijon@pm.me> (2024-04-28)
+# Terminfo file is provided by sys-libs/ncurses since 6.4_p20240330
+# Masked for removal on 2024-05-28
+x11-terms/rio-terminfo
+
+# David Roman <davidroman96@gmail.com> (2024-04-27)
+# Only a live ebuild without tests, inactive for +4 years
+# The package consist only of a 20 line zsh script
+# Removal on 2024-05-26
+app-shells/zsh-silver
+
+# Lucio Sauer <watermanpaint@posteo.net> (2024-04-27)
+# Archived upstream, no revdeps, known security bugs, open downstream bugs
+# https://github.com/ad-oliviero/uwufetch/issues/257
+# https://github.com/ad-oliviero/uwufetch/issues/249
+# Removal on 2024-05-27
+app-misc/uwufetch
+
+# David Roman <davidroman96@gmail.com> (2024-04-27)
+# According to the maintainer it does no longer works
+# Removal on 2024-05-26
+dev-python/evernote3
+
+# David Roman <davidroman96@gmail.com> (2024-04-27)
+# Only needed by evernote2 and is deprecated and abandoned by upstream
+# Removal on 2024-05-26
+dev-python/python-oauth2
+dev-python/oauth2
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-20)
+# With Twitter's complete removal of Guest Accounts, Nitter is dead and will
+# most likely stay so (https://github.com/zedeus/nitter/issues/1197).
+# also mask dependencies not claimed by anyone else
+# Removal on 2024-05-23.
+www-apps/nitter
+acct-user/nitter
+acct-group/nitter
+dev-nim/asynctools
+dev-nim/balls
+dev-nim/dotenv
+dev-nim/flatty
+dev-nim/frosty
+dev-nim/grok
+dev-nim/httpbeast
+dev-nim/jester
+dev-nim/jsony
+dev-nim/karax
+dev-nim/markdown
+dev-nim/nimcrypto
+dev-nim/npeg
+dev-nim/packedjson
+dev-nim/redpool
+dev-nim/sass
+dev-nim/supersnappy
+dev-nim/sync
+dev-nim/synthesis
+dev-nim/ups
+dev-nim/weave
+dev-nim/ws
+dev-nim/zedeus_redis
+dev-nim/zippy
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-20)
+# Depends on treecleaned dev-python/yapps.
+# Removal on 2024-05-20.
+sci-misc/linuxcnc
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-20)
+# Depends on treecleaned dev-libs/libchdr.
+# Removal on 2024-05-20.
+games-emulation/flycast
+
+# Kostadin Shishmanov <kocelfc@tutanota.com> (2024-04-20)
+# Was only needed for <app-misc/corectrl-1.4.0
+# Removal on 2024-05-20
+dev-cpp/easyloggingpp
+
+# Robert Greener <dev@greener.sh> (2024-04-18)
+# Superceded by media-fonts/nerdfonts[firacode]
+# Removal on 2024-05-18
+media-fonts/firacode-nerdfont
+
+# Robert Greener <dev@greener.sh> (2024-04-18)
+# Superceded by media-fonts/nerdfonts[iosevka]
+# Removal on 2024-05-18
+media-fonts/iosevka-nerdfont
+
+# Robert Greener <dev@greener.sh> (2024-04-18)
+# Superceded by media-fonts/nerdfonts[jetbrainsmono]
+# Removal on 2024-05-18
+media-fonts/jetbrainsmono-nerdfont
+
+# Robert Greener <dev@greener.sh> (2024-04-18)
+# Superceded by media-fonts/nerdfonts[robotomono]
+# Removal on 2024-05-18
+media-fonts/robotomono-nerdfont
+
+# Robert Greener <dev@greener.sh> (2024-04-18)
+# Superceded by media-fonts/nerdfonts[ubuntumono]
+# Removal on 2024-05-18
+media-fonts/ubuntumono-nerdfont
+
+# Julien Roy <julien@jroy.ca> (2024-03-21)
+# sys-libs/libucontext is masked in ::gentoo
+sys-libs/gcompat
+
+# Julien Roy <julien@jroy.ca> (2024-03-19)
+# Per upstream, as of 2024-03-02:
+# "This bridge is deprecated. mautrix-meta is recommended instead."
+# net-im/mautrix-meta 0.2.0 is available in ::guru
+# Masked for removal in 60 days
+net-im/mautrix-facebook
+
+# Julien Roy <julien@jroy.ca> (2024-03-09)
+# Dracut fails to boot with Clevis 20
+# https://github.com/latchset/clevis/issues/456
+=app-crypt/clevis-20
+
+# Viorel Munteanu <ceamac@gentoo.org> (2023-06-07)
+# Does not work on no-multilib profiles and cannot be masked per profile
+# (See also top comment)
+# Sorry for the inconvenience.
+app-office/lotus123r3

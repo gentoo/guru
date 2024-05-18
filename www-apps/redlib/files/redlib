@@ -1,0 +1,25 @@
+# This file defines the variables passed to the redlib daemon
+# For more information, read the documentation on github
+# https://github.com/redlib-org/redlib
+
+ADDRESS=0.0.0.0
+PORT=8080
+REDLIB_DEFAULT_THEME=system
+REDLIB_DEFAULT_FRONT_PAGE=default
+REDLIB_DEFAULT_LAYOUT=card
+REDLIB_DEFAULT_WIDE=off
+REDLIB_DEFAULT_POST_SORT=hot
+REDLIB_DEFAULT_COMMENT_SORT=confidence
+REDLIB_DEFAULT_SHOW_NSFW=off
+REDLIB_DEFAULT_BLUR_NSFW=on
+REDLIB_DEFAULT_USE_HLS=off
+REDLIB_DEFAULT_HIDE_HLS_NOTIFICATION=off
+REDLIB_DEFAULT_AUTOPLAY_VIDEOS=off
+REDLIB_HIDE_AWARDS=off
+REDLIB_DISABLE_VISIT_REDDIT_CONFIRMATION=off
+REDLIB_HIDE_SCORE=off
+REDLIB_FIXED_NAVAR=on
+
+# This variable allows defining default subscriptions
+# example: news+linux+gentoo
+#REDLIB_DEFAULT_SUBSCRIPTIONS=

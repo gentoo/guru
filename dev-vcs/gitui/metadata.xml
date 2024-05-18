@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>pastalian46@gmail.com</email>
+		<name>Takuya Wakazono</name>
+	</maintainer>
+	<upstream>
+		<changelog>https://github.com/extrawurst/gitui/raw/master/CHANGELOG.md</changelog>
+		<bugs-to>https://github.com/extrawurst/gitui/issues</bugs-to>
+		<remote-id type="github">extrawurst/gitui</remote-id>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<longdescription lang="en">
+		This package carefully selects and defines 9 colors for 13 hues each.
+		All colors with the same suffix number have equal luminance level. Also
+		the color black is of level 0, and the color white is of level 10.
+		By simply choosing two colors in the above list, which differ in level
+		by at least 5, as foreground and background colors, you will get proper 
+		WCAG Color Contrast.
+	</longdescription>
+	<longdescription lang="zh">
+		该包精心选择并定义了 9 种颜色，每种颜色 13 种色调。所有具有相同后缀
+		编号的颜色都具有相同的亮度级别。黑色的级别为 0，白色的级别为 10。
+		只需在上面的列表中选择两种颜色（级别相差至少 5）作为前景色和背景色，
+		您将获得正确的 WCAG 颜色对比度。
+	</longdescription>
+</pkgmetadata>

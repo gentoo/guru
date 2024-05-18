@@ -1,0 +1,14 @@
+MAIN12 (now) acts as a compile time switch between the bit depths of 12 and 10 bits.
+Not yet upstreamed as of 2023-09-17.
+Author: Lucio Sauer <watermanpaint@posteo.net>
+--- a/Makefile
++++ b/Makefile
+@@ -115,7 +115,7 @@ endif
+ x265.out:
+ 	mkdir -p x265.out/8bit x265.out/10bit x265.out/12bit
+ 	cd x265.out/12bit && cmake ../../x265/source $(CMAKE_OPTS) -DHIGH_BIT_DEPTH=ON -DEXPORT_C_API=OFF -DENABLE_SHARED=OFF -DENABLE_CLI=OFF -DMAIN12=ON
+-	cd x265.out/10bit && cmake ../../x265/source $(CMAKE_OPTS) -DHIGH_BIT_DEPTH=ON -DEXPORT_C_API=OFF -DENABLE_SHARED=OFF -DENABLE_CLI=OFF -DMAIN10=ON
++	cd x265.out/10bit && cmake ../../x265/source $(CMAKE_OPTS) -DHIGH_BIT_DEPTH=ON -DEXPORT_C_API=OFF -DENABLE_SHARED=OFF -DENABLE_CLI=OFF
+ 	cd x265.out/8bit && cmake ../../x265/source $(CMAKE_OPTS) -DLINKED_10BIT=ON -DLINKED_12BIT=ON -DENABLE_SHARED=OFF -DENABLE_CLI=OFF
+ 
+ # use this target to manually rebuild x265

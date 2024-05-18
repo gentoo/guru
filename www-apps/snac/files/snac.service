@@ -1,0 +1,15 @@
+[Unit]
+Description=A simple, minimalistic ActivityPub instance
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/snac httpd /var/lib/snac/data
+Restart=always
+RestartSec=5
+User=snac
+Group=snac
+
+[Install]
+WantedBy=multi-user.target

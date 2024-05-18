@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<!-- maintainer-needed -->
+<upstream>
+	<remote-id type="github">InterNetNews/inn</remote-id>
+	<bugs-to>https://github.com/InterNetNews/inn/issues</bugs-to>
+	<doc>https://www.eyrie.org/~eagle/software/inn/docs/</doc>
+	<maintainer>
+		<email>eagle@eyrie.org</email>
+		<name>Russ Allbery</name>
+	</maintainer>
+</upstream>
+<longdescription>
+InterNetNews is a complete Usenet system. The cornerstone of the package is
+innd, an NNTP server that multiplexes all I/O. Newsreading is handled by a
+separate server, nnrpd, that is spawned for each client. Both innd and nnrpd
+have some slight variances from the NNTP protocol.
+</longdescription>
+<use>
+	<flag name="cancel-locks" restrict="&gt;=net-nntp/inn-2.7.1">Enable Cancel-Lock header functionality</flag>
+	<flag name="low-memory">Use tagged hash table for history to reduce memory footprint</flag>
+</use>
+</pkgmetadata>

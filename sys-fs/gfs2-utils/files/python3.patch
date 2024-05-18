@@ -1,0 +1,21 @@
+Description: update python scripts for python3
+Author: Valentin Vidic <Valentin.Vidic@CARNet.hr>
+Last-Update: 2018-04-05
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/gfs2/scripts/gfs2_lockcapture
++++ b/gfs2/scripts/gfs2_lockcapture
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python3
+ """
+ The script "gfs2_lockcapture" will capture locking information from GFS2 file
+ systems and DLM.
+--- a/gfs2/scripts/gfs2_trace
++++ b/gfs2/scripts/gfs2_trace
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ """
+ This script will enable or disable trace events for GFS2. The script can capture
+ trace events and write the trace events captured to a file.

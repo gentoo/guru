@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>mail@konstantintutsch.com</email>
+    <name>Konstantin Tutsch</name>
+  </maintainer>
+  <use>
+    <flag name="pipewire">Enable support for the PipeWire audio sink</flag>
+  </use>
+  <upstream>
+    <remote-id type="gnome-gitlab">neithern/g4music</remote-id>
+  </upstream>
+</pkgmetadata>

@@ -1,0 +1,29 @@
+#!/sbin/openrc-run
+
+export SYNCV3_SERVER=${SYNCV3_SERVER:-"https://matrix-client.matrix.org"}
+export SYNCV3_DB=${SYNCV3_DB:-"user=dbuser dbname=syncv3 sslmode=disable password='DATABASE_PASSWORD_HERE'"}
+export SYNCV3_SECRET=${SYNCV3_SECRET:-"CHANGEME"}
+export SYNCV3_BINDADDR=${SYNCV3_BINDADDR:-"0.0.0.0:8008"}
+export SYNCV3_TLS_CERT=${SYNCV3_TLS_CERT:-}
+export SYNCV3_TLS_KEY=${SYNCV3_TLS_KEY:-}
+export SYNCV3_PPROF=${SYNCV3_PPROF:-}
+export SYNCV3_PROM=${SYNCV3_PROM:-}
+export SYNCV3_OTLP_URL=${SYNCV3_OTLP_URL:-}
+export SYNCV3_OTLP_USERNAME=${SYNCV3_OTLP_USERNAME:-}
+export SYNCV3_OTLP_PASSWORD=${SYNCV3_OTLP_PASSWORD:-}
+export SYNCV3_SENTRY_DSN=${SYNCV3_SENTRY_DSN:-}
+export SYNCV3_LOG_LEVEL=${SYNCV3_LOG_LEVEL:-"info"}
+export SYNCV3_MAX_DB_CONN=${SYNCV3_MAX_DB_CONN:-"0"}
+
+name="syncv3"
+description="Proxy implementation of MSC3575's sync protocol"
+command="/usr/bin/syncv3"
+command_background=true
+pidfile="/run/${RC_SVCNAME}.pid"
+
+output_log="/var/log/sliding-sync.log"
+error_log="/var/log/sliding-sync.log"
+
+depend() {
+	need net
+}

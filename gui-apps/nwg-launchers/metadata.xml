@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <!-- maintainer-needed -->
+    <use>
+        <flag name="bar">Installs nwgbar,
+            a horizontal or vertical button bar.</flag>
+        <flag name="dmenu">Installs nwgdmenu,
+            GTK dynamic menu windows.</flag>
+        <flag name="grid">Installs nwggrid,
+            a GNOME-like application grid.</flag>
+        <flag name="layershell">Enable Wayland layer shell support</flag>
+    </use>
+    <upstream>
+        <maintainer>
+            <name>Piotr Miller</name>
+            <email>nwg.piotr@gmail.com</email>
+        </maintainer>
+        <bugs-to>https://github.com/nwg-piotr/nwg-launchers/issues</bugs-to>
+        <remote-id type="github">nwg-piotr/nwg-launchers</remote-id>
+    </upstream>
+</pkgmetadata>

@@ -1,0 +1,15 @@
+Original systemd service uses binary in /usr/local/bin which goes
+against Gentoo FS policy
+diff --git a/system/betterlockscreen@.service b/system/betterlockscreen@.service
+index b9ad6fb..d0674ab 100644
+--- a/system/betterlockscreen@.service
++++ b/system/betterlockscreen@.service
+@@ -7,7 +7,7 @@ Before=suspend.target
+ User=%I
+ Type=simple
+ Environment=DISPLAY=:0
+-ExecStart=/usr/local/bin/betterlockscreen --lock
++ExecStart=/usr/bin/betterlockscreen --lock
+ TimeoutSec=infinity
+ ExecStartPost=/usr/bin/sleep 1
+

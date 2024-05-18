@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>contact@hacktivis.me</email>
+		<name>Haelwenn (lanodan) Monnier</name>
+	</maintainer>
+	<longdescription lang="en">
+	Dustr is a interactive and visual cropping tool, because even though the CLI is the best thing since sliced bread, cropping is one of those operation where seeing what you are doing is really more effective.
+
+	This tool is especially useful when you know the output size, but you need to pick the most aesthetically pleasing crop of the image.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">aearil/dustr</remote-id>
+	</upstream>
+</pkgmetadata>

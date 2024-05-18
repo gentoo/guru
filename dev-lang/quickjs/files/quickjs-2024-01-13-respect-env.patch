@@ -1,0 +1,46 @@
+--- a/Makefile.old
++++ b/Makefile
+@@ -69,7 +69,7 @@ endif
+ ifdef CONFIG_CLANG
+   HOST_CC=clang
+   CC=$(CROSS_PREFIX)clang
+-  CFLAGS+=-g -Wall -MMD -MF $(OBJDIR)/$(@F).d
++  CFLAGS+=-Wall -MMD -MF $(OBJDIR)/$(@F).d
+   CFLAGS += -Wextra
+   CFLAGS += -Wno-sign-compare
+   CFLAGS += -Wno-missing-field-initializers
+@@ -92,13 +92,13 @@ else ifdef CONFIG_COSMO
+   HOST_CC=gcc
+   CC=cosmocc
+   # cosmocc does not correct support -MF
+-  CFLAGS=-g -Wall #-MMD -MF $(OBJDIR)/$(@F).d
++  CFLAGS=-Wall #-MMD -MF $(OBJDIR)/$(@F).d
+   CFLAGS += -Wno-array-bounds -Wno-format-truncation
+   AR=cosmoar
+ else
+   HOST_CC=gcc
+   CC=$(CROSS_PREFIX)gcc
+-  CFLAGS+=-g -Wall -MMD -MF $(OBJDIR)/$(@F).d
++  CFLAGS+=-Wall -MMD -MF $(OBJDIR)/$(@F).d
+   CFLAGS += -Wno-array-bounds -Wno-format-truncation
+   ifdef CONFIG_LTO
+     AR=$(CROSS_PREFIX)gcc-ar
+@@ -120,14 +120,14 @@ DEFINES+=-D__USE_MINGW_ANSI_STDIO # for standard snprintf behavior
+ endif
+ 
+ CFLAGS+=$(DEFINES)
+-CFLAGS_DEBUG=$(CFLAGS) -O0
+-CFLAGS_SMALL=$(CFLAGS) -Os
+-CFLAGS_OPT=$(CFLAGS) -O2
++CFLAGS_DEBUG=$(CFLAGS)
++CFLAGS_SMALL=$(CFLAGS)
++CFLAGS_OPT=$(CFLAGS)
+ CFLAGS_NOLTO:=$(CFLAGS_OPT)
+ ifdef CONFIG_COSMO
+ LDFLAGS+=-s # better to strip by default
+ else
+-LDFLAGS+=-g
++LDFLAGS+=
+ endif
+ ifdef CONFIG_LTO
+ CFLAGS_SMALL+=-flto

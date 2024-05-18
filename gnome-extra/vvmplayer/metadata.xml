@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gjdijkman@gjdwebserver.nl</email>
+		<name>Gerben Jan Dijkman</name>
+	</maintainer>
+	<upstream>
+		<doc>https://gitlab.com/kop316/vvmplayer/</doc>
+		<bugs-to>https://gitlab.com/kop316/vvmplayer/-/issues</bugs-to>
+		<remote-id type="gitlab">kop316/vvmplayer</remote-id>
+	</upstream>
+</pkgmetadata>

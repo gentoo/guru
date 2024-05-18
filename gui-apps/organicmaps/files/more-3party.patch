@@ -1,0 +1,46 @@
+From b77c26e242945fe06be94059b87c3c2eebdb78eb Mon Sep 17 00:00:00 2001
+From: Gerion Entrup <gerion.entrup@flump.de>
+Date: Fri, 8 Dec 2023 23:45:56 +0100
+Subject: [PATCH] cmake: use some internal libraries without external
+ alternative
+
+---
+ 3party/CMakeLists.txt | 6 +++---
+ base/CMakeLists.txt   | 4 +---
+ 2 files changed, 4 insertions(+), 6 deletions(-)
+
+diff --git a/3party/CMakeLists.txt b/3party/CMakeLists.txt
+index bd44e1b7b8..4f5cb99807 100644
+--- a/3party/CMakeLists.txt
++++ b/3party/CMakeLists.txt
+@@ -34,11 +34,11 @@ else()
+ 
+   # Add pugixml library.
+   add_subdirectory(pugixml)
+-
+-  # Add protobuf library.
+-  add_subdirectory(protobuf)
+ endif()
+ 
++# Add protobuf library.
++add_subdirectory(protobuf)
++
+ add_subdirectory(agg)
+ add_subdirectory(bsdiff-courgette)
+ 
+diff --git a/base/CMakeLists.txt b/base/CMakeLists.txt
+index 7e762b242a..0d7d6c5d10 100644
+--- a/base/CMakeLists.txt
++++ b/base/CMakeLists.txt
+@@ -111,8 +111,6 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
+ find_package(Threads REQUIRED)
+ target_link_libraries(${PROJECT_NAME} INTERFACE Threads::Threads)
+ 
+-if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
+-  target_include_directories(${PROJECT_NAME} PRIVATE "${OMIM_ROOT}/3party/fast_double_parser/include")
+-endif()
++target_include_directories(${PROJECT_NAME} PRIVATE "${OMIM_ROOT}/3party/fast_double_parser/include")
+ 
+ omim_add_test_subdirectory(base_tests)
+-- 
+2.41.0

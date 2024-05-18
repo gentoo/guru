@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>tastytea</name>
+	</maintainer>
+	<longdescription lang="en">
+		Arc-Darkest-COLORS is a flat, dark-mode theme with transparent elements,
+		for GTK, xfwm4, openbox-3, GNOME-Shell, and Cinnamon desktop
+		environments. Arc-Darkest-COLORS also has two varieties of matching
+		Icons and Folders. You can choose between the 5 highlight colors Blue
+		Agave, Kiwi, Plum, Strawberry and Tangerine.
+	</longdescription>
+	<use>
+		<flag name="icons">Install icon themes</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">rtlewis88/rtl88-Themes</remote-id>
+	</upstream>
+</pkgmetadata>

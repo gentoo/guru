@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<doc>http://www.grantjenks.com/docs/sortedcollections/</doc>
+		<remote-id type="github">grantjenks/python-sortedcollections</remote-id>
+		<remote-id type="pypi">sortedcollections</remote-id>
+	</upstream>
+	<!-- maintainer-needed -->
+</pkgmetadata>

@@ -1,0 +1,37 @@
+From c47aa61c64925c72722dfbfa01cd47643a92c7d9 Mon Sep 17 00:00:00 2001
+From: Erik Reider <35975961+ErikReider@users.noreply.github.com>
+Date: Sat, 29 Jul 2023 19:13:26 +0200
+Subject: [PATCH] fix: not being able to build without xwayland support (#209)
+
+---
+ sway/tree/root.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/sway/tree/root.c b/sway/tree/root.c
+index 2c1b96b8..9df6f002 100644
+--- a/sway/tree/root.c
++++ b/sway/tree/root.c
+@@ -58,12 +58,16 @@ void root_destroy(struct sway_root *root) {
+ /* Set minimized state from scratchpad container `show` state */
+ static void root_scratchpad_set_minimize(struct sway_container *con, bool minimize) {
+ 	if (con->view) {
+-		struct wlr_foreign_toplevel_handle_v1 *foreign_toplevel = con->view->foreign_toplevel;
+-
++#if HAVE_XWAYLAND
+ 		if (wlr_surface_is_xwayland_surface(con->view->surface)) {
+-			struct wlr_xwayland_surface *xsurface = wlr_xwayland_surface_from_wlr_surface(con->view->surface);
++			struct wlr_xwayland_surface *xsurface
++				= wlr_xwayland_surface_from_wlr_surface(con->view->surface);
+ 			wlr_xwayland_surface_set_minimized(xsurface, minimize);
+-		} else if (foreign_toplevel) {
++			return;
++		}
++#endif
++		struct wlr_foreign_toplevel_handle_v1 *foreign_toplevel = NULL;
++		if ((foreign_toplevel = con->view->foreign_toplevel)) {
+ 			wlr_foreign_toplevel_handle_v1_set_minimized(foreign_toplevel, minimize);
+ 		}
+ 	}
+-- 
+2.43.2
+

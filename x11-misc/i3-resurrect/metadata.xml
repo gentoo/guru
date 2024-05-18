@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+  <maintainer type='project'>
+    <email>zdanevich.vitaly@ya.ru</email>
+    <name>Vitaly Zdanevich</name>
+  </maintainer>
+  <upstream>
+    <maintainer>
+      <name>Jonathan Haylett</name>
+    </maintainer>
+    <bugs-to>https://github.com/JonnyHaystack/i3-resurrect/issues</bugs-to>
+    <remote-id type='pypi'>i3-resurrect</remote-id>
+    <remote-id type='github'>JonnyHaystack/i3-resurrect</remote-id>
+  </upstream>
+</pkgmetadata>

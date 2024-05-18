@@ -1,0 +1,22 @@
+diff -Naur a/src/third_party/FACE/src/tests/face_test_ucs4.F90 b/src/third_party/FACE/src/tests/face_test_ucs4.F90
+--- a/src/third_party/FACE/src/tests/face_test_ucs4.F90
++++ b/src/third_party/FACE/src/tests/face_test_ucs4.F90
+@@ -2,9 +2,10 @@
+ program face_test_ucs4
+ !< FACE test.
+ use face
++use iso_fortran_env
+ 
+ implicit none
+-#ifdef UCS4_SUPPORTED
++
+ character(kind=UCS4, len=:), allocatable :: string_1 !< A string.
+ character(kind=UCS4, len=:), allocatable :: string_2 !< A string.
+ character(kind=UCS4, len=:), allocatable :: string_3 !< A string.
+@@ -13,5 +14,5 @@
+ string_2 = colorize(UCS4_' ÜÇŞ4', color_fg='red')
+ string_3 = colorize(' World', color_fg='blue')
+ print '(A)', string_1//string_2//string_3
+-#endif
++
+ endprogram face_test_ucs4

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Jonas Frei</name>
+		<email>freijon@pm.me</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">imsnif/bandwhich</remote-id>
+		<bugs-to>https://github.com/imsnif/bandwhich/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

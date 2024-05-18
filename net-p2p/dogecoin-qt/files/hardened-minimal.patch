@@ -1,0 +1,31 @@
+diff --git a/configure.ac b/configure.ac
+index 653fe71..1d60d30 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -504,14 +504,6 @@ fi
+ 
+ if test x$use_hardening != xno; then
+   AX_CHECK_COMPILE_FLAG([-Wstack-protector],[HARDENED_CXXFLAGS="$HARDENED_CXXFLAGS -Wstack-protector"])
+-  AX_CHECK_COMPILE_FLAG([-fstack-protector-all],[HARDENED_CXXFLAGS="$HARDENED_CXXFLAGS -fstack-protector-all"])
+-
+-  AX_CHECK_PREPROC_FLAG([-D_FORTIFY_SOURCE=2],[
+-    AX_CHECK_PREPROC_FLAG([-U_FORTIFY_SOURCE],[
+-      HARDENED_CPPFLAGS="$HARDENED_CPPFLAGS -U_FORTIFY_SOURCE"
+-    ])
+-    HARDENED_CPPFLAGS="$HARDENED_CPPFLAGS -D_FORTIFY_SOURCE=2"
+-  ])
+ 
+   AX_CHECK_LINK_FLAG([[-Wl,--dynamicbase]], [HARDENED_LDFLAGS="$HARDENED_LDFLAGS -Wl,--dynamicbase"])
+   AX_CHECK_LINK_FLAG([[-Wl,--nxcompat]], [HARDENED_LDFLAGS="$HARDENED_LDFLAGS -Wl,--nxcompat"])
+@@ -519,11 +511,6 @@ if test x$use_hardening != xno; then
+   AX_CHECK_LINK_FLAG([[-Wl,-z,relro]], [HARDENED_LDFLAGS="$HARDENED_LDFLAGS -Wl,-z,relro"])
+   AX_CHECK_LINK_FLAG([[-Wl,-z,now]], [HARDENED_LDFLAGS="$HARDENED_LDFLAGS -Wl,-z,now"])
+ 
+-  if test x$TARGET_OS != xwindows; then
+-    AX_CHECK_COMPILE_FLAG([-fPIE],[PIE_FLAGS="-fPIE"])
+-    AX_CHECK_LINK_FLAG([[-pie]], [HARDENED_LDFLAGS="$HARDENED_LDFLAGS -pie"])
+-  fi
+-
+   case $host in
+     *mingw*)
+        AC_CHECK_LIB([ssp],      [main],, AC_MSG_ERROR(lib missing))

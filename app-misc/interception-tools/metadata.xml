@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>jjo@jtle.dk</email>
+		<name>J. Jørgensen</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="gitlab">interception/linux/tools</remote-id>
+	</upstream>
+</pkgmetadata>

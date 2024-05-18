@@ -1,0 +1,13 @@
+https://bugs.gentoo.org/905908
+https://github.com/facebookresearch/fastText/commit/6c2204ba66776b700095ff73e3e599a908ffd9c3
+
+--- a/src/args.cc
++++ b/src/args.cc
+@@ -9,6 +9,7 @@
+ #include "args.h"
+ 
+ #include <stdlib.h>
++#include <cstdint>
+ 
+ #include <iostream>
+ #include <stdexcept>

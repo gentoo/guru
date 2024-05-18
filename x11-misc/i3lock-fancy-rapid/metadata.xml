@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>jlin.gentoo@outlook.com</email>
+		<name>Jian Lin</name>
+	</maintainer>
+	<upstream>
+		<maintainer status="active">
+			<name>yvbbrjdr</name>
+			<email>xyyqzy@hotmail.com</email>
+		</maintainer>
+		<bugs-to>https://github.com/yvbbrjdr/i3lock-fancy-rapid/issues</bugs-to>
+		<remote-id type="github">yvbbrjdr/i3lock-fancy-rapid</remote-id>
+	</upstream>
+</pkgmetadata>

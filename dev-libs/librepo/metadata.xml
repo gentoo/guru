@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>pastalian46@gmail.com</email>
+		<name>Takuya Wakazono</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">rpm-software-management/librepo</remote-id>
+	</upstream>
+	<use>
+		<flag name="gpgme">Use GPGME instead of rpm library for OpenPGP key support</flag>
+		<flag name="zchunk">Build with zchunk support</flag>
+	</use>
+</pkgmetadata>

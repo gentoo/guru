@@ -1,0 +1,82 @@
+Fixes "inlining failed in call to ..."
+
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -22,8 +22,8 @@ int appMain(int argc, char* argv[]);
+ 
+ #if defined(__i386__) || defined (__x86_64__)
+ 
++#include <iostream>
+ #include <cpuid.h>
+-#include <stdio.h>
+ 
+ __attribute__((target("no-avx,no-sse")))
+ bool checkRequiredInstructionSets() {
+@@ -34,14 +34,14 @@ bool checkRequiredInstructionSets() {
+ 	unsigned int a, b, c, d;
+ 
+ 	if (!__get_cpuid(1, &a, &b, &c, &d)) {
+-		fprintf(stderr, "CPUID instruction is not supported by your CPU!\n");
++		std::cerr << "CPUID instruction is not supported by your CPU!\n";
+ 		return false;
+ 	}
+ 
+ #ifdef __SSE2__
+ 	//printf("Checking for SSE2 support\n");
+ 	if (0 == (d & bit_SSE2)) {
+-		fprintf(stderr, "SSE2 instructions are not supported by your CPU!\n");
++		std::cerr << "SSE2 instructions are not supported by your CPU!\n";
+ 		return false;
+ 	}
+ #endif
+@@ -49,13 +49,13 @@ bool checkRequiredInstructionSets() {
+ #ifdef __AVX__
+ 	//printf("Checking for AVX support\n");
+ 	if (0 == (c & bit_AVX)) {
+-		fprintf(stderr, "AVX instructions are not supported by your CPU!\n");
++		std::cerr << "AVX instructions are not supported by your CPU!\n";
+ 		return false;
+ 	}
+ 
+ 	// AVX also needs OS support, check for it
+ 	if (0 == (c & bit_OSXSAVE)) {
+-		fprintf(stderr, "OSXSAVE instructions are not supported by your CPU!\n");
++		std::cerr << "OSXSAVE instructions are not supported by your CPU!\n";
+ 		return false;
+ 	}
+ 
+@@ -63,7 +63,7 @@ bool checkRequiredInstructionSets() {
+ 	unsigned int ecx = 0; // _XCR_XFEATURE_ENABLED_MASK
+ 	__asm__ ("xgetbv" : "=a" (eax), "=d" (edx) : "c" (ecx));
+ 	if (0x6 != (eax & 0x6)) { // XSTATE_SSE | XSTATE_YMM
+-		fprintf(stderr, "AVX instructions are not supported by your OS!\n");
++		std::cerr << "AVX instructions are not supported by your OS!\n";
+ 		return false;
+ 	}
+ #endif
+@@ -71,7 +71,7 @@ bool checkRequiredInstructionSets() {
+ #ifdef __FMA__
+ 	//printf("Checking for FMA support\n");
+ 	if (0 == (c & bit_FMA)) {
+-		fprintf(stderr, "FMA instructions are not supported by your CPU!\n");
++		std::cerr << "FMA instructions are not supported by your CPU!\n";
+ 		return false;
+ 	}
+ #endif
+@@ -79,14 +79,14 @@ bool checkRequiredInstructionSets() {
+ #ifdef __AVX2__
+ 	//printf("Checking for AVX2 support\n");
+ 	if (__get_cpuid_max(0, 0) < 7) {
+-		fprintf(stderr, "Extended CPUID 0x7 instruction is not supported by your CPU!\n");
++		std::cerr << "Extended CPUID 0x7 instruction is not supported by your CPU!\n";
+ 		return false;
+ 	}
+ 
+ 	__cpuid_count(7, 0, a, b, c, d);
+ 
+ 	if (0 == (b & bit_AVX2)) {
+-		fprintf(stderr, "AVX2 instructions are not supported by your CPU!\n");
++		std::cerr << "AVX2 instructions are not supported by your CPU!\n";
+ 		return false;
+ 	}
+ #endif

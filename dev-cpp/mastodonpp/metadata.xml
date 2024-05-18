@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>tastytea</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>tastytea</name>
+			<email>tastytea@tastytea.de</email>
+		</maintainer>
+		<doc>https://doc.schlomp.space/mastodonpp/</doc>
+		<bugs-to>https://schlomp.space/tastytea/mastodonpp/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>denis7774@gmail.com</email>
+		<name>Denis Reva</name>
+		<description>rarogcmex</description>
+	</maintainer>
+	<longdescription lang="en">
+	ZArchive is yet another file archive format. Think of zip, tar, 7z, etc. but with the requirement of allowing random-access reads and supporting compression.
+
+	- Supports random-access reads within stored files
+	- Uses zstd compression (64KiB blocks)
+	- Scales reasonably well up to multiple terabytes with millions of files
+	- The theoretical size limit per-file is 2^48-1 (256 Terabyte)
+	- The encoding for paths within the archive is Windows-1252 (case-insensitive)
+	- Contains a SHA256 hash of the whole archive for integrity checks
+	- Endian-independent. The format always uses big-endian internally
+	- Stateless file and directory iterator handles which don't require memory allocation
+	</longdescription>
+	<upstream>
+		<remote-id type="github">Exzap/ZArchive</remote-id>
+	</upstream>
+</pkgmetadata>

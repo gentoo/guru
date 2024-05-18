@@ -1,0 +1,61 @@
+https://github.com/smarie/python-decopatch/pull/34
+From: =?UTF-8?q?Zbigniew=20J=C4=99drzejewski-Szmek?= <zbyszek@in.waw.pl>
+Date: Tue, 25 Jul 2023 13:31:12 +0200
+Subject: [PATCH] Adjust for whitespace changes with python 3.12
+
+Tests would fail with python3-3.12.0~b4-1.fc39.x86_64.
+--- a/tests/test_doc.py
++++ b/tests/test_doc.py
+@@ -1,5 +1,5 @@
+ from __future__ import print_function
+-
++import re
+ 
+ import pytest
+ from makefun import wraps
+@@ -182,7 +182,8 @@ def add_ints(a, b):
+     with capsys.disabled():
+         print(captured.out)
+ 
+-    assert captured.out == """hello, world !
++    out = re.sub(r'[ \t]+\n', '\n', captured.out)
++    assert out == """hello, world !
+ <executing foo>
+ hello, world !
+ <executing bar>
+@@ -195,7 +196,7 @@ def add_ints(a, b):
+ say_hello(person='world')
+     This decorator wraps the decorated function so that a nice hello
+     message is printed before each call.
+-    
++
+     :param person: the person name in the print message. Default = "world"
+ 
+ Signature: (person='world')
+--- a/tests/test_doc_advanced.py
++++ b/tests/test_doc_advanced.py
+@@ -1,4 +1,5 @@
+ from __future__ import print_function
++import re
+ import sys
+ 
+ import pytest
+@@ -200,7 +201,8 @@ def custom(a, b):
+     with capsys.disabled():
+         print(captured.out)
+ 
+-    assert captured.out == """hello, world !
++    out = re.sub(r'[ \t]+\n', '\n', captured.out)
++    assert out == """hello, world !
+ hello, world !
+ hello, you !
+ Help on function say_hello in module tests.test_doc_advanced:
+@@ -208,7 +210,7 @@ def custom(a, b):
+ say_hello(person='world')
+     This decorator modifies the decorated function so that a nice hello
+     message is printed before the call.
+-    
++
+     :param person: the person name in the print message. Default = "world"
+     :param f: represents the decorated item. Automatically injected.
+     :return: a modified version of `f` that will print a hello message before executing

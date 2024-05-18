@@ -1,0 +1,31 @@
+Judging from the commit message, the main intention of this commit,
+which is already staged in the upstream repository for the next release,
+did not seem to be to eliminate compiler errors with -Wreturn-type.
+However, it _is_ a resolution of the bug.
+
+Bug: https://bugs.gentoo.org/887649
+
+From 749c94d853c0b0e29e79a1b270ec61947b65c319 Mon Sep 17 00:00:00 2001
+From: Matthew Jakeman <mjakeman26@outlook.co.nz>
+Date: Mon, 6 Jun 2022 16:11:32 +1200
+Subject: [PATCH] fix: Support building on macos
+
+---
+ src/layout/layout.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/layout/layout.c b/src/layout/layout.c
+index dbeb690..32d1845 100644
+--- a/src/layout/layout.c
++++ b/src/layout/layout.c
+@@ -129,8 +129,8 @@ text_layout_build_layout_tree (TextLayout   *self,
+                                TextFrame    *frame,
+                                int           width)
+ {
+-    g_return_if_fail (TEXT_IS_LAYOUT (self));
+-    g_return_if_fail (TEXT_IS_FRAME (frame));
++    g_return_val_if_fail (TEXT_IS_LAYOUT (self), NULL);
++    g_return_val_if_fail (TEXT_IS_FRAME (frame), NULL);
+ 
+     TextLayoutBox *root = text_layout_box_new ();
+     do_layout_recursive (self, root, context, cursor, TEXT_ITEM (frame), width);

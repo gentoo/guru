@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ezzieyguywuf@gmail.com</email>
+		<name>Wolfgang E. Sanyer</name>
+	</maintainer>
+	<longdescription lang="en">
+		At the intersection of the Registry and Factory patterns lies the
+		ClassRegistry. This package contains the python modules necessary to use
+		this dessign pattern
+	</longdescription>
+	<upstream>
+		<remote-id type="github">todofixthis/class-registry</remote-id>
+	</upstream>
+</pkgmetadata>

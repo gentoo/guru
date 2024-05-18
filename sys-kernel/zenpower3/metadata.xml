@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Gonçalo Negrier Duarte</name>
+		<email>gonegrier.duarte@gmail.com</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Ta180m/zenpower3</remote-id>
+	</upstream>
+</pkgmetadata>

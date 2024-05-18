@@ -1,0 +1,9 @@
+Fix SetuptoolsDeprecationWarning: Invalid dash-separated options
+https://github.com/facebookresearch/fastText/pull/1316
+
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -1,2 +1,2 @@
+ [metadata]
+-description-file = README.md
++description_file = README.md

@@ -1,0 +1,31 @@
+diff --git a/src/ACompileSettings.h b/src/ACompileSettings.h
+index 20c31c9..17907ab 100644
+--- a/src/ACompileSettings.h
++++ b/src/ACompileSettings.h
+@@ -129,7 +129,7 @@
+ 
+ #ifdef __linux__
+ 
+-  #define COMPILEOPTION_SAVEFOLDERNAME "Blackvoxel"
++  #define COMPILEOPTION_SAVEFOLDERNAME ".local/share/blackvoxel"
+   #define COMPILEOPTION_USEHOMEDIRSTORAGE 1
+   #define COMPILEOPTION_WINXPTIMECOMPUTING 0
+ 
+@@ -149,7 +149,7 @@
+ 
+ #elif _WIN32
+ 
+-  #define COMPILEOPTION_SAVEFOLDERNAME "Blackvoxel"
++  #define COMPILEOPTION_SAVEFOLDERNAME ".local/share/blackvoxel"
+   #define COMPILEOPTION_USEHOMEDIRSTORAGE 1
+   #define COMPILEOPTION_DATAFILESPATH ""
+   #define COMPILEOPTION_WINXPTIMECOMPUTING 1
+@@ -166,7 +166,7 @@
+ 
+ #elif __APPLE__ && __MACH__
+ 
+-  #define COMPILEOPTION_SAVEFOLDERNAME "Blackvoxel"
++  #define COMPILEOPTION_SAVEFOLDERNAME ".local/share/blackvoxel"
+   #define COMPILEOPTION_USEHOMEDIRSTORAGE 1
+   #define COMPILEOPTION_DATAFILESPATH ""
+   #define COMPILEOPTION_WINXPTIMECOMPUTING 0

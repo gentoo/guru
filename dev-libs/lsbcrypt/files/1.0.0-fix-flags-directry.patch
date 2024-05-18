@@ -1,0 +1,14 @@
+I am attempting to fix the following bugs.
+https://bugs.gentoo.org/909726
+diff --git a/Makefile b/Makefile
+index 03ebfa5..bed7d39 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,5 +1,5 @@
+-CC = gcc
+-CFLAGS = $(shell grep '^CFLAGS = ' crypt_blowfish/Makefile | cut -d= -f2-)
++#CC = gcc
++#CFLAGS = $(shell grep '^CFLAGS = ' crypt_blowfish/Makefile | cut -d= -f2-)
+ .PHONY: crypt_blowfish
+ 
+ all: bcrypt.a

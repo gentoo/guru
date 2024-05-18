@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>leohdz172@proton.me</email>
+    <name>Leonardo Hernández Hernández</name>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://github.com/emersion/hydroxide/issues</bugs-to>
+    <doc>https://github.com/emersion/hydroxide/blob/master/README.md</doc>
+    <remote-id type="github">emersion/hydroxide</remote-id>
+  </upstream>
+</pkgmetadata>

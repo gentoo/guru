@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>agireud@protonmail.com</email>
+    <name>Alberto Gireud</name>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://gitlab.com/ananicy-cpp/ananicy-cpp/-/issues</bugs-to>
+    <remote-id type="gitlab">ananicy-cpp/ananicy-cpp</remote-id>
+    <remote-id type="github">kuche1/minq-ananicy</remote-id>
+  </upstream>
+  <use>
+    <flag name="bpf">Use eBPF for processing</flag>
+    <flag name="clang">Use Clang compiler instead of GCC</flag>
+  </use>
+</pkgmetadata>

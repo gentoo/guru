@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <!-- maintainer-needed -->
+    <longdescription lang="en">
+        Given a path on your hard-drive (which could also be the root path,
+        eg. /). diskonaut scans it and indexes its metadata to memory so that
+        you could explore its contents (even while still scanning!).
+
+        Once completed, you can navigate through subfolders, getting a visual
+        treemap representation of what's taking up your disk space. You can
+        even delete files or folders and diskonaut will track how much space
+        you've freed up in this session.
+    </longdescription>
+    <upstream>
+        <maintainer>
+            <name>Aram Drevekenin</name>
+            <email>aram@poor.dev</email>
+        </maintainer>
+        <changelog>https://github.com/imsnif/diskonaut/blob/main/CHANGELOG.md</changelog>
+        <remote-id type="github">imsnif/diskonaut</remote-id>
+        <bugs-to>https://github.com/imsnif/diskonaut/issues</bugs-to>
+    </upstream>
+</pkgmetadata>

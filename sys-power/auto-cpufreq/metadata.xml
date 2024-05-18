@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>pascal.jaeger@leimstift.de</email>
+		<name>Pascal Jäger</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">AdnanHodzic/auto-cpufreq</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		Automatic CPU speed and power optimizer for Linux based on active monitoring
+		of laptop's battery state, CPU usage, CPU temperature and system load.
+		Ultimately allowing you to improve battery life without making any compromises.
+	</longdescription>
+</pkgmetadata>

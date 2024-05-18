@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>mustafasalih1991@gmail.com</email>
+    <name>Mustafa Salih</name>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://github.com/foresterre/sic/issues</bugs-to>
+    <remote-id type="github">foresterre/sic</remote-id>
+  </upstream>
+</pkgmetadata>

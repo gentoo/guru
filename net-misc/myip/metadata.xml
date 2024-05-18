@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>marco@sirabella.org</email>
+		<name>Marco Sirabella</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Snawoot/myip</remote-id>
+		<bugs-to>https://github.com/Snawoot/myip/issues</bugs-to>
+		<changelog>https://git.vuxu.org/nq/plain/NEWS.md</changelog>
+	</upstream>
+	<longdescription lang="en">
+		Reliably and quickly get your external IP address from public STUN servers. Program issues parallel queries to public STUN servers to determine public IP address and returns result as soon as quorum of matching responses reached.
+	</longdescription>
+</pkgmetadata>

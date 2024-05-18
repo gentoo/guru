@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <longdescription>
+    SAC is a Public Key Infrastructure (PKI) middleware that provides a secure
+    method for exchanging information based on public key cryptography, enabling
+    trusted third-party verification of user identities.
+
+    It utilizes a system of digital certificates, Certificate Authorities, and
+    other registration authorities that verify and authenticate the validity of
+    each party involved in an internet transaction.
+  </longdescription>
+  <maintainer type="person">
+    <name>Adrian Ratiu</name>
+    <email>adrian.ratiu@collabora.com</email>
+  </maintainer>
+</pkgmetadata>

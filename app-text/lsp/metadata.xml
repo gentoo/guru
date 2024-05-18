@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>dirk@gouders.net</email>
+    <description>Primary maintainer</description>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://github.com/dgouders/lsp/issues</bugs-to>
+    <doc>https://github.com/dgouders/lsp/</doc>
+    <remote-id type="github">dgouders/lsp</remote-id>
+  </upstream>
+  <longdescription>
+    lsp(1) is a terminal pager with a focus on manual pages.
+
+    It offers some assistance in handling manual pages:
+
+    * Navigation to other referenced manual pages.
+    * Opening of any manual page by name.
+    * Maintainance of several open manual pages in a session.
+    * Experimental TOC mode that is helpful to show only sections and
+      subsections of manual pages.
+    * Creating a pseudo-file with the output of apropos.
+      This could be useful especially for novice users: this can be
+      used to search or read through all manual pages' short descriptions
+      and immediately open interesting ones.
+  </longdescription>
+</pkgmetadata>

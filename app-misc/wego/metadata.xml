@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<remote-id type="github">schachmat/wego</remote-id>
+		<bugs-to>https://github.com/schachmat/wego/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+Features
+
+show forecast for 1 to 7 days
+nice ASCII art icons
+displayed info (metric or imperial units):
+temperature range (felt and measured)
+windspeed and direction
+viewing distance
+precipitation amount and probability
+ssl, so the NSA has a harder time learning where you live or plan to go
+multi language support
+config file for default location which can be overridden by commandline
+Automatic config management with ingo
+	</longdescription>
+</pkgmetadata>

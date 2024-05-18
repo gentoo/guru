@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dev@notyourcomputer.net</email>
+		<name>Shaoyu Tseng</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">pynput</remote-id>
+		<remote-id type="github">moses-palmer/pynput</remote-id>
+	</upstream>
+</pkgmetadata>

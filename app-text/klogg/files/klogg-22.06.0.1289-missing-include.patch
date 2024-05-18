@@ -1,0 +1,20 @@
+From 6b5df18387316a706eb5f1fd05e049871eb6d153 Mon Sep 17 00:00:00 2001
+From: Anton Filimonov <anton.filimonov@gmail.com>
+Date: Thu, 8 Jun 2023 01:01:27 +0200
+Subject: [PATCH] build: fix arch aur builds
+
+Taken from upstream commit
+https://github.com/variar/klogg/commit/6b5df18387316a706eb5f1fd05e049871eb6d153
+
+diff --git a/src/crash_handler/src/memory_info.cpp b/src/crash_handler/src/memory_info.cpp
+index 670918163..06ef8b75f 100644
+--- a/src/crash_handler/src/memory_info.cpp
++++ b/src/crash_handler/src/memory_info.cpp
+@@ -89,6 +89,7 @@ uint64_t usedMemory()
+ #include <unistd.h>
+ 
+ #include <array>
++#include <cstdio>
+ 
+ uint64_t systemPhysicalMemory()
+ {

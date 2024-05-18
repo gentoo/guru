@@ -1,0 +1,26 @@
+diff -ur client_generic.orig/DisplayOutput/OpenGL/glx.cpp client_generic/DisplayOutput/OpenGL/glx.cpp
+--- client_generic.orig/DisplayOutput/OpenGL/glx.cpp	2018-07-14 23:10:29.000000000 +0200
++++ client_generic/DisplayOutput/OpenGL/glx.cpp	2019-01-20 19:08:12.055142844 +0100
+@@ -466,13 +466,15 @@
+ {
+     m_VSync = !m_VSync;
+ 
+-    if( GLEE_GLX_SGI_swap_control )
+-    {
+-        if( m_VSync )
+-            glXSwapIntervalSGI(1);
+-        else
+-            glXSwapIntervalSGI(2);
+-    }
++    // broken when extension not available
++
++    //if( GLEE_GLX_SGI_swap_control )
++    //{
++        //if( m_VSync )
++            //glXSwapIntervalSGI(1);
++        //else
++            //glXSwapIntervalSGI(2);
++    //}
+ }
+ 
+ /*

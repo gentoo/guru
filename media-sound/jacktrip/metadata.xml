@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>nex+b-g-o@nexadn.de</email>
+		<name>Adrian Schollmeyer</name>
+	</maintainer>
+	<use>
+		<flag name="rtaudio">Enable rtaudio backend</flag>
+		<flag name="virtualstudio">Enable VirtualStudio extension</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">jacktrip/jacktrip</remote-id>
+		<bugs-to>https://github.com/jacktrip/jacktrip/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,33 @@
+From: Stefano Rivera <stefanor@debian.org>
+Date: Mon, 1 Feb 2021 17:58:06 -0700
+Subject: Python 3.9: Use bytes with plistlib
+
+Python 3.9 dropped the deprecated plistlib.Data class. Instead of
+plistlib.Data, we can just use bytes directly.
+
+Bug-Debian: https://bugs.debian.org/973082
+Bug-Upstream: https://bitbucket.org/wooster/biplist/issues/12/python-39-compatibility
+---
+ biplist/__init__.py | 9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
+
+diff --git a/biplist/__init__.py b/biplist/__init__.py
+index f9d5836..4a40602 100644
+--- a/biplist/__init__.py
++++ b/biplist/__init__.py
+@@ -147,14 +147,7 @@ def readPlist(pathOrFile):
+     return result
+ 
+ def wrapDataObject(o, for_binary=False):
+-    if isinstance(o, Data) and not for_binary:
+-        v = sys.version_info
+-        if not (v[0] >= 3 and v[1] >= 4):
+-            o = plistlib.Data(o)
+-    elif isinstance(o, (bytes, plistlib.Data)) and for_binary:
+-        if hasattr(o, 'data'):
+-            o = Data(o.data)
+-    elif isinstance(o, tuple):
++    if isinstance(o, tuple):
+         o = wrapDataObject(list(o), for_binary)
+         o = tuple(o)
+     elif isinstance(o, list):

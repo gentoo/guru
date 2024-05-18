@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<longdescription lang="en">
+		Terraform linter
+		Features:
+			- Find possible errors (like invalid instance types) for AWS/Azure/GCP
+			- Warn abount deprecated syntax, unused declarations
+			- Enforce best pratices, naming conventions
+	</longdescription>
+	<upstream>
+		<remote-id type="github">terraform-linters/tflint</remote-id>
+	</upstream>
+</pkgmetadata>

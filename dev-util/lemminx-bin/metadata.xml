@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>tastytea</name>
+	</maintainer>
+	<longdescription lang="en">
+		LemMinX is a XML language specific implementation of the Language Server
+		Protocol and can be used with any editor that supports the protocol, to
+		offer good support for the XML Language.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">eclipse/lemminx</remote-id>
+		<remote-id type="github">redhat-developer/vscode-xml</remote-id>
+	</upstream>
+</pkgmetadata>

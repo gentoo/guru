@@ -1,0 +1,33 @@
+#!/sbin/openrc-run
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# Environment variables for rimgo
+export ADDRESS=${ADDRESS:-0.0.0.0}
+export PORT=${PORT:-3000}
+export FIBER_PREFORK=${FIBER_PREFORK:-false}
+export IMGUR_CLIENT_ID=${IMGUR_CLIENT_ID:-546c25a59c58ad7}
+export PRIVACY_POLICY=${PRIVACY_POLICY:-}
+export PRIVACY_MESSAGE=${PRIVACY_MESSAGE:-}
+export PRIVACY_COUNTRY=${PRIVACY_COUNTRY:-}
+export PRIVACY_PROVIDER=${PRIVACY_PROVIDER:-}
+export PRIVACY_CLOUDFLARE=${PRIVACY_CLOUDFLARE:-false}
+export PRIVACY_NOT_COLLECTED=${PRIVACY_NOT_COLLECTED:-false}
+export PRIVACY_IP=${PRIVACY_IP:-true}
+export PRIVACY_URL=${PRIVACY_URL:-true}
+export PRIVACY_DEVICE=${PRIVACY_DEVICE:-true}
+export PRIVACY_DIAGNOSTICS=${PRIVACY_DIAGNOSTICS:-false}
+
+
+name="rimgo"
+description="Private front-end for Imgur"
+command=/usr/bin/rimgo
+pidfile="/var/run/${RC_SVCNAME}.pid"
+command_user="rimgo"
+command_background=true
+output_log="/var/log/rimgo.log"
+error_log="${output_log}"
+
+start_pre() {
+	checkpath -fo rimgo:rimgo /var/log/rimgo.log
+}

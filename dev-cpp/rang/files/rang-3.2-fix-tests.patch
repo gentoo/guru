@@ -1,0 +1,48 @@
+https://src.fedoraproject.org/rpms/rang/blob/rawhide/f/0000-rang-fix-tests.patch
+--- a/test/CMakeLists.txt
++++ b/test/CMakeLists.txt
+@@ -8,7 +8,6 @@ set(CMAKE_CXX_EXTENSIONS        OFF)
+ 
+ function(rang_add_test file_name)
+     add_executable("${file_name}" "${file_name}.cpp")
+-    target_link_libraries("${file_name}" rang)
+ endfunction()
+ 
+ # simple tests #################################################################
+@@ -23,7 +22,7 @@ find_package(doctest)
+ 
+ if (${doctest_FOUND} EQUAL 1)
+     add_executable(all_rang_tests "test.cpp")
+-    target_link_libraries(all_rang_tests rang doctest::doctest)
++    target_link_libraries(all_rang_tests doctest::doctest)
+ 
+     enable_testing()
+ 
+--- a/test/colorTest.cpp
++++ b/test/colorTest.cpp
+@@ -1,4 +1,4 @@
+-#include "rang.hpp"
++#include "../include/rang.hpp"
+ #include <string>
+ 
+ using namespace std;
+--- a/test/envTermMissing.cpp
++++ b/test/envTermMissing.cpp
+@@ -1,4 +1,4 @@
+-#include "rang.hpp"
++#include "../include/rang.hpp"
+ #include <cstdlib>
+ 
+ using std::cout;
+--- a/test/test.cpp
++++ b/test/test.cpp
+@@ -1,7 +1,7 @@
+ #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+-#include "doctest.h"
++#include "doctest/doctest.h"
+ 
+-#include "rang.hpp"
++#include "../include/rang.hpp"
+ #include <fstream>
+ #include <string>
+ 

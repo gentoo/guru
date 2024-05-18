@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">YosysHQ/yosys</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		This is a framework for RTL synthesis tools. It currently has extensive
+		Verilog-2005 support and provides a basic set of synthesis algorithms
+		for various application domains.
+		Yosys can be adapted to perform any synthesis job by combining the
+		existing passes (algorithms) using synthesis scripts and adding
+		additional passes as needed by extending the yosys C++ code base.
+		Yosys is free software licensed under the ISC license (a GPL compatible
+		license that is similar in terms to the MIT license or the 2-clause BSD
+		license).
+	</longdescription>
+	<longdescription lang="zh">
+		这是一个针对RTL合成工具的框架。它目前广泛支持Verilog-2005，并提供一套
+		基础的合成算法用于多种应用领域。Yosys可以通过组合现有的合成脚本中的算法，
+		并根据需要扩展Yosys的C++代码库来添加额外的算法，从而适应任何合成任务。
+		Yosys是根据ISC许可证发布的免费软件，这是一种与GPL兼容的许可证，其条款与
+		MIT许可证或二条款BSD许可证类似。
+	</longdescription>
+</pkgmetadata>

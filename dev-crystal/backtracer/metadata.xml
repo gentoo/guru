@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<maintainer>
+			<name>Sijawusz Pur Rahnama</name>
+			<email>sija@sija.pl</email>
+		</maintainer>
+		<remote-id type="github">Sija/backtracer.cr</remote-id>
+	</upstream>
+</pkgmetadata>

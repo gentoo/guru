@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>tastytea</name>
+	</maintainer>
+	<longdescription lang="de">
+		It creates highly recognizable identicons from a hash. Identicons are
+		reproducible computer generated avatars.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">Nheko-Reborn/qt-jdenticon</remote-id>
+	</upstream>
+</pkgmetadata>

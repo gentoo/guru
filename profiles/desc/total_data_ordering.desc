@@ -1,0 +1,8 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of TOTAL_DATA_ORDERING USE_EXPAND flags.
+
+always - Always assume total data ordering is available and abort a job if that's not the case
+check - Check will result in slightly higher overhead but will provide a fallback if the network doesn't provide total data ordering
+never - Never use total data ordering optimizations

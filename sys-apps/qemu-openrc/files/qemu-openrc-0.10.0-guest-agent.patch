@@ -1,0 +1,87 @@
+From 6928925968faf8c8c07e6e955b6864e11f614f77 Mon Sep 17 00:00:00 2001
+From: Aisha Tammy <floss@bsd.ac>
+Date: Mon, 24 Jan 2022 13:50:37 +0000
+Subject: [PATCH] allow shutdown via guest agent socket
+
+This allows shutdown events to be sent
+via qemu guest agent, which works for
+BSD agents which don't handle ACPI events
+correctly.
+
+Tested with OpenBSD 7.0.
+
+Signed-off-by: Aisha Tammy <floss@bsd.ac>
+---
+ qemu.initd | 31 +++++++++++++++++++++++++++----
+ 1 file changed, 27 insertions(+), 4 deletions(-)
+
+diff --git a/qemu.initd b/qemu.initd
+index a80d291..8756080 100644
+--- a/qemu.initd
++++ b/qemu.initd
+@@ -25,6 +25,7 @@ VM_NAME="${RC_SVCNAME#qemu.}"
+ : ${vnc_listen:=0.0.0.0}
+ : ${hugepages_path:=/dev/hugepages}
+ : ${monitor_socket:=/run/qemu/${VM_NAME}/monitor.sock}
++: ${guest_agent_socket:=/run/qemu/${VM_NAME}/ga.sock}
+ : ${extra_args:=}
+ 
+ name="VM $VM_NAME"
+@@ -53,7 +54,9 @@ command_args="
+ 	-vga $vga
+ 	-device virtio-rng-pci
+ 	-device virtio-scsi-pci,id=scsi
+-	-monitor unix:$monitor_socket,server,nowait"
++	-monitor unix:$monitor_socket,server,nowait
++	-chardev socket,path=$guest_agent_socket,server,nowait,id=qga0
++	-device isa-serial,chardev=qga0"
+ command_background='yes'
+ 
+ start_stop_daemon_args="
+@@ -125,10 +128,22 @@ stop() {
+ 
+ 	ebegin "Stopping $name"
+ 
++	if is_running && qemush "${guest_agent_socket}" "{'execute': 'guest-exec', 'arguments': {'path': '/sbin/halt', 'arg': ['-p']}}"; then
++		count="$shutdown_timeout"
++
++		printf "   Waiting $count seconds for VM shutdown via guest agent "
++		while is_running && [ $count -gt 0 ]; do
++			sleep 1
++			printf '.'
++			count=$(( count - 1 ))
++		done
++		printf '\n'
++	fi
++
+ 	if is_running && qemush 'system_powerdown'; then
+ 		count="$shutdown_timeout"
+ 
+-		printf "   Waiting $count seconds for VM shutdown "
++		printf "   Waiting $count seconds for VM shutdown via ACPI"
+ 		while is_running && [ $count -gt 0 ]; do
+ 			sleep 1
+ 			printf '.'
+@@ -281,12 +296,20 @@ check_bridge() {
+ 
+ qemush() {
+ 	local IFS=$'\n'
+-	printf "%b\n" "$*" | socat - "UNIX-CONNECT:${monitor_socket}" 1>/dev/null
++	socket_path="${monitor_socket}"
++	case "$1" in
++		/*) socket_path="$1"; shift;
++	esac
++	printf "%b\n" "$*" | socat - "UNIX-CONNECT:${socket_path}" 1>/dev/null
+ }
+ 
+ qemush_show() {
+ 	local IFS=$'\n'
+-	printf "%b\n" "$*" | socat - "UNIX-CONNECT:${monitor_socket}" | tail -n +3 | head -n -1
++	socket_path="${monitor_socket}"
++	case "$1" in
++		/*) socket_path="$1"; shift;
++	esac
++	printf "%b\n" "$*" | socat - "UNIX-CONNECT:${socket_path}" | tail -n +3 | head -n -1
+ }
+ 
+ gen_macaddr() {

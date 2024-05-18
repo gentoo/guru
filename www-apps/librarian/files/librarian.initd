@@ -1,0 +1,16 @@
+#!/sbin/openrc-run
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="librarian"
+description="Private front-end for Odyssee"
+command=/usr/bin/librarian
+pidfile="/var/run/${RC_SVCNAME}.pid"
+command_user="librarian"
+command_background=true
+output_log="/var/log/librarian.log"
+error_log="${output_log}"
+
+start_pre() {
+	checkpath -fo librarian:librarian /var/log/librarian.log
+}

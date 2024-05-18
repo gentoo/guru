@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>gentoo@fictx.com</email>
+        <name>Dale Showers</name>
+    </maintainer>
+    <use>
+        <flag name="amr">Enables Adaptive Multi-Rate Audio support</flag>
+        <flag name="aptx">Audio Processing Technology codec (aptX)</flag>
+        <flag name="aom">av1 module</flag>
+        <flag name="codec2">CODEC2 low-bitrate speech audio codec</flag>
+        <flag name="gst">Support for video (media-libs/gstreamer)</flag>
+        <flag name="gtk3">gtk+ user interface</flag>
+        <flag name="mqtt">Enable mqtt support via <pkg>app-misc/mosquitto</pkg></flag>
+        <flag name="mpa">MPA Speech and Audio Codec</flag>
+        <flag name="pipewire">Enable pipewire audio support</flag>
+        <flag name="spandsp">Use <pkg>media-libs/spandsp</pkg> for for G.722 and G.726 codec support</flag>
+        <flag name="vpx">Enables VP8 and VP9 codec support using libvpx</flag>
+    </use>
+    <upstream>
+        <remote-id type="github">baresip/baresip</remote-id>
+        <bugs-to>https://github.com/baresip/baresip/issues</bugs-to>
+        <doc>https://github.com/baresip/baresip/wiki</doc>
+        <changelog>https://github.com/baresip/baresip/releases</changelog>
+    </upstream>
+</pkgmetadata>

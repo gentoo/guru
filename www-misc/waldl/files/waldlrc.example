@@ -1,0 +1,21 @@
+# copy this to ~/.config/waldlrc
+
+####################
+## User variables ##
+####################
+
+# the dir where wallpapers are stored
+walldir="$HOME/.local/share/wallhaven"
+# the dir used to cache thumbnails
+cachedir="$HOME/.cache/wallhaven"
+# sxiv options
+sxiv_otps=" -tfpo -z 200" # o is needed for selection
+# number of pages to show in search results, max 9
+# each page contains 24 results
+max_pages=9
+# sorting : date_added, relevance, random, views, favorites, toplist
+sorting=random
+# quality : large original small
+quality=large
+# atleast : least res
+atleast=1920x1080

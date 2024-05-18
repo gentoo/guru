@@ -1,0 +1,45 @@
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -288,17 +288,6 @@
+   gammaray_add_test(earlyexittest earlyexittest.cpp)
+   target_include_directories(earlyexittest PRIVATE ${CMAKE_BINARY_DIR}/launcher)
+   target_link_libraries(earlyexittest gammaray_core gammaray_launcher)
+-
+-  if(HAVE_QT_WIDGETS)
+-    gammaray_add_test(launchertest launchertest.cpp)
+-    target_include_directories(launchertest PRIVATE ${CMAKE_BINARY_DIR}/launcher)
+-    target_link_libraries(launchertest gammaray_core gammaray_launcher)
+-  endif()
+-
+-  if(TARGET gammaray_client)
+-    gammaray_add_test(clientconnectiontest clientconnectiontest.cpp)
+-    target_link_libraries(clientconnectiontest gammaray_core gammaray_launcher gammaray_client)
+-  endif()
+ endif()
+ 
+ #
+@@ -419,14 +408,6 @@
+   endif()
+ 
+   if(Qt5Quick_FOUND)
+-    gammaray_add_quick_test(quickinspectortest
+-      quickinspectortest.cpp
+-      quickinspectortest.qrc
+-        $<TARGET_OBJECTS:modeltestobj>
+-    )
+-    target_include_directories(quickinspectortest SYSTEM PRIVATE ${Qt5Quick_PRIVATE_INCLUDE_DIRS})
+-    target_link_libraries(quickinspectortest gammaray_core gammaray_quickinspector_shared Qt5::Quick)
+-
+     gammaray_add_quick_test(quickinspectortest2
+       quickinspectortest2.cpp
+       quickinspectortest.qrc
+@@ -438,9 +419,6 @@
+     if(NOT Qt5Quick_VERSION VERSION_LESS 5.9.3)
+       add_test(NAME quickinspectortest2_softwarecontext COMMAND quickinspectortest2)
+       set_tests_properties(quickinspectortest2_softwarecontext PROPERTIES ENVIRONMENT "QT_QUICK_BACKEND=softwarecontext")
+-
+-      add_test(NAME quickinspectortest_softwarecontext COMMAND quickinspectortest)
+-      set_tests_properties(quickinspectortest_softwarecontext PROPERTIES ENVIRONMENT "QT_QUICK_BACKEND=softwarecontext")
+     endif()
+ 
+     gammaray_add_quick_test(quickinspectorpickingtest

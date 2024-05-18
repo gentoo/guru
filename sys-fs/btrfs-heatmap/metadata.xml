@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo-bugzilla2@steev.me.uk</email>
+		<name>Steven Davies</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">knorrie/btrfs-heatmap</remote-id>
+	</upstream>
+	<longdescription lang="en">The btrfs heatmap script creates a visualization of how a btrfs filesystem is using the underlying disk space of the block devices that are added to it.</longdescription>
+</pkgmetadata>

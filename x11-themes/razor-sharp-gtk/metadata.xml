@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type='person'>
+		<name>Vitaly Zdanevich</name>
+		<email>zdanevich.vitaly@ya.ru</email>
+	</maintainer>
+	<upstream>
+		<changelog>https://github.com/NillyTheL0L/razor-sharp/commits/main/</changelog>
+		<doc>https://www.gnome-look.org/p/1708445</doc>
+		<bugs-to>https://github.com/NillyTheL0L/razor-sharp/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

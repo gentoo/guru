@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ahvenas@gmail.com</email>
+		<name>Henrik Pihl</name>
+	</maintainer>
+	<longdescription lang="en">
+	A graphical user interface which displays the systemd's journal and 
+	lets the user filter the output without the command line.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">pentix/qjournalctl</remote-id>
+	</upstream>
+</pkgmetadata>

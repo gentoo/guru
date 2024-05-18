@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>harley@hosers.org</email>
+		<name>Lev Babiev</name>
+	</maintainer>
+	<use>
+		<flag name="mpd">Add support for Music Player Daemon</flag>
+		<flag name="alsa">Add support for ALSA sound server</flag>
+		<flag name="X">Add support for xkb maps</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">LBCrion/sfwbar</remote-id>
+		<bugs-to>https://github.com/LBCrion/sfwbar/issues</bugs-to>
+		<changelog>https://github.com/LBCrion/sfwbar/releases</changelog>
+	</upstream>
+</pkgmetadata>

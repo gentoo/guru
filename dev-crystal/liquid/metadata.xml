@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<maintainer>
+			<name>Arnaud Fernandés</name>
+			<email>arnaud.fernandes@laposte.net</email>
+		</maintainer>
+		<remote-id type="github">TechMagister/liquid.cr</remote-id>
+	</upstream>
+</pkgmetadata>

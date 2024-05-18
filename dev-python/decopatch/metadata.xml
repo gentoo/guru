@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<remote-id type="pypi">decopatch</remote-id>
+		<remote-id type="github">smarie/python-decopatch</remote-id>
+		<doc>https://smarie.github.io/python-decopatch/</doc>
+		<maintainer>
+			<email>sylvain.marie@schneider-electric.com</email>
+			<name>Sylvain Marie</name>
+		</maintainer>
+	</upstream>
+</pkgmetadata>

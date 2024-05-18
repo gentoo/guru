@@ -1,0 +1,41 @@
+## Configuration
+
+To configure greetd config.toml to use ReGreet use the [ReGreet Readme](https://github.com/rharish101/ReGreet/blob/main/README.md)
+Or the [greetd gentoo wiki page](https://wiki.gentoo.org/wiki/Greetd)
+
+Exemple configuration:
+1 - Cage
+
+```bash
+/etc/greetd/config.toml - Exemple ReGreet config using cage
+-----------------------------------------------------------
+[terminal]
+vt = 7
+
+[default_session]
+command = "cage -s -- regreet"
+user = "greetd"
+```
+
+2 - Sway
+
+```bash
+/etc/greetd/sway-config - Exemple Sway config (needed)
+-----------------------------------------------------------
+exec "regreet; swaymsg exit"
+include /etc/sway/config.d/*
+```
+
+```bash
+/etc/greetd/config.toml - Exemple ReGreet config using sway
+-----------------------------------------------------------
+[terminal]
+vt = 7
+
+[default_session]
+command = "sway --config /path/to/custom/sway/config"
+user = "greetd"
+```
+
+Note: On single user system you can change user to your home user
+Advanced configuration go the [Project README](https://github.com/rharish101/ReGreet/blob/main/README.md)

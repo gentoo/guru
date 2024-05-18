@@ -1,0 +1,20 @@
+From 7ad73f001da883a88bcd53e3bf4e7157636ee637 Mon Sep 17 00:00:00 2001
+From: Duc <anhduc12101992@gmail.com>
+Date: Wed, 9 Mar 2022 18:29:41 +0900
+Subject: [PATCH] fixed a redefinition bug, see https://github.com/justanhduc/task-spooler/issues/15
+
+---
+ jobs.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/jobs.c b/jobs.c
+index 9f130d6..17612e6 100644
+--- a/jobs.c
++++ b/jobs.c
+@@ -40,7 +40,6 @@ static struct Notify *first_notify = 0;
+ 
+ /* server will access them */
+ int max_jobs;
+-char* logdir;
+ 
+ static struct Job *get_job(int jobid);

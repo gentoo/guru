@@ -1,0 +1,44 @@
+From 77a838f9b550d14009257b852761d601b1d5af8b Mon Sep 17 00:00:00 2001
+From: Alessandro Barbieri <lssndrbarbieri@gmail.com>
+Date: Sat, 16 Apr 2022 16:00:25 +0200
+Subject: [PATCH 1/2] use ounit2
+
+---
+ lib_test/dune | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib_test/dune b/lib_test/dune
+index fff54f2..79ec525 100644
+--- a/lib_test/dune
++++ b/lib_test/dune
+@@ -1,6 +1,6 @@
+ (executables
+  (names test_stringext test_stringext_qcheck)
+- (libraries stringext oUnit qcheck))
++ (libraries stringext ounit2 qcheck))
+ 
+ (alias
+  (name runtest)
+
+From a2dce7cdf26df0ab29b7da3bf1d459a70a46b81d Mon Sep 17 00:00:00 2001
+From: Alessandro Barbieri <lssndrbarbieri@gmail.com>
+Date: Sat, 16 Apr 2022 16:00:53 +0200
+Subject: [PATCH 2/2] depend on ounit2
+
+---
+ stringext.opam | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/stringext.opam b/stringext.opam
+index febd494..5ad782a 100644
+--- a/stringext.opam
++++ b/stringext.opam
+@@ -7,7 +7,7 @@ bug-reports: "https://github.com/rgrinberg/stringext/issues"
+ depends: [
+   "ocaml" {>= "4.02.3"}
+   "dune" {build & >= "1.0"}
+-  "ounit" {with-test}
++  "ounit2" {with-test}
+   "qtest" {with-test & >= "2.2"}
+   "base-bytes"
+ ]

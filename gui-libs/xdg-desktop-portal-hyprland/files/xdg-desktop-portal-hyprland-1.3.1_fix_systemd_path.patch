@@ -1,0 +1,21 @@
+From 24fa87b939539a1d13696718490ff5642ab12509 Mon Sep 17 00:00:00 2001
+From: Pavel Solovev <daron439@gmail.com>
+Date: Sun, 7 Jan 2024 22:17:24 +0300
+Subject: [PATCH] Cmake: Do not use CMAKE_INSTALL_LIBDIR for the systemd
+ service
+
+In some distros CMAKE_INSTALL_LIBDIR is lib64, but systemd services are always in lib (not lib64)
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 73f429b..2eb7cfb 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -104,4 +104,4 @@ install(TARGETS xdg-desktop-portal-hyprland DESTINATION ${CMAKE_INSTALL_LIBEXECD
+ 
+ install(FILES hyprland.portal DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/xdg-desktop-portal/portals")
+ install(FILES ${CMAKE_BINARY_DIR}/org.freedesktop.impl.portal.desktop.hyprland.service DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services")
+-install(FILES ${CMAKE_BINARY_DIR}/contrib/systemd/xdg-desktop-portal-hyprland.service DESTINATION "${CMAKE_INSTALL_LIBDIR}/systemd/user")
++install(FILES ${CMAKE_BINARY_DIR}/contrib/systemd/xdg-desktop-portal-hyprland.service DESTINATION "lib/systemd/user")

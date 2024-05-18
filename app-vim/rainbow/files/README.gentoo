@@ -1,0 +1,8 @@
+CMakeLists.txt syntax highlighting is broken with rainbow enabled.
+Add this to your vimrc to work around the bug:
+
+let g:rainbow_conf = {
+\   'separately': {
+\       'cmake': 0,
+\   }
+\}

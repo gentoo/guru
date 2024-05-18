@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>m@matous.dev</email>
+		<name>Martin Matouš</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="codeberg">mmatous/eselect-ld</remote-id>
+	</upstream>
+</pkgmetadata>

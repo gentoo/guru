@@ -1,0 +1,97 @@
+[manager]
+# Delay between setting GPIO and PWRKEY sequence, set in microseconds
+poweron_delay = 100000
+
+# Uncomment the following if you need to change the modem detection timeout on
+# resume and/or the time during which suspend is blocked after modem boot
+#[suspend]
+#boot_timeout = 120
+#recovery_timeout = 9
+
+[gpio]
+chips = [ "gpio0", "gpio3" ]
+dtr = { chip = 0, line = 3 }
+pwrkey = { chip = 0, line = 13 }
+reset = { chip = 1, line = 8 }
+apready = { chip = 0, line = 12 }
+disable = { chip = 0, line = 8 }
+status = { chip = 1, line = 6 }
+
+[at]
+uart = "/dev/ttyS3"
+configure = [
+# Each command has 4 possible elements:
+#   * `cmd`   : the AT command itself, which will be translated to "AT+`cmd`"
+#   * `subcmd`: the subcommand in case a single AT command can be used
+#               to change multiple parameters, such as QCFG (optional)
+#   * `value` : the commands, argument, usually used to set the value of
+#               a specific parameter (optional)
+#   * `expect`: the expected return value; the command is first executed
+#               without any value in order to query the current state. This
+#               state is then compared to the `expect` string; if they don't
+#               match, the command is then executed with value `expect` in
+#               order to set the parameter to the configured value (optional)
+# A command can have `expect` OR `value` configured, but it shouldn't have both
+# Print software version
+    { cmd = "QGMR" },
+# Configure audio
+    { cmd = "QDAI", expect = "3,0,0,4,0,0,1,1" },
+# RI signaling using physical RI pin
+    { cmd = "QCFG", subcmd = "risignaltype", expect = "\"physical\"" },
+# Enable VoLTE support
+    { cmd = "QCFG", subcmd = "ims", expect = "1" },
+# Enable APREADY for PP 1.2
+    { cmd = "QCFG", subcmd = "apready", expect = "1,0,500" },
+# URC configuration for PP 1.2 (APREADY pin connected):
+#   * RING URC: normal pulse length
+#   * Incoming SMS URC: default pulse length
+#   * Other URC: default length
+#   * Report URCs on all ports (serial and USB) for FOSS firmware
+#   * Reporting of URCs without any delay
+#   * Configure URC pin to UART Ring Indicator
+    { cmd = "QCFG", subcmd = "urc/ri/ring", expect = "\"pulse\",120,1000,5000,\"off\",1" },
+    { cmd = "QCFG", subcmd = "urc/ri/smsincoming", expect = "\"pulse\",120,1" },
+    { cmd = "QCFG", subcmd = "urc/ri/other", expect = "\"off\",1,1" },
+    { cmd = "QCFG", subcmd = "urc/delay", expect = "0" },
+    { cmd = "QCFG", subcmd = "urc/cache", expect = "0" },
+    { cmd = "QCFG", subcmd = "urc/ri/pin", expect = "uart_ri" },
+    { cmd = "QURCCFG", subcmd = "urcport", expect = "\"all\"" },
+# Allow sleeping for power saving
+    { cmd = "QSCLK", value = "1" },
+# GNSS configuration:
+#   * Enable A-GPS data upload support (XTRA)
+#   * Disable On-Demand-Positioning (ODP) mode 
+#     to avoid running the GNSS system in the background, even when not enabled.
+#   * Enable Dynamic Power Optimizations (DPO) mode to turn off GNSS RF radios 
+#     when they are not in use.
+#   * Only enable GPS and GLONASS, disable other GNSS systems.
+#     A-GPS data upload doesn't work for Galileo anyway.
+#   * Avoid turning on GNSS support automatically when the modem boots.
+    { cmd = "QGPSXTRA", expect = "1" },
+    { cmd = "QGPSCFG", subcmd = "gnssconfig", expect = "4" },
+    { cmd = "QGPSCFG", subcmd = "odpcontrol", expect = "0" },
+    { cmd = "QGPSCFG", subcmd = "dpoenable", expect = "1" },
+    { cmd = "QGPSCFG", subcmd = "gpsnmeatype", expect = "31" },
+    { cmd = "QGPSCFG", subcmd = "glonassnmeatype", expect = "7" },
+    { cmd = "QGPSCFG", subcmd = "galileonmeatype", expect = "0" },
+    { cmd = "QGPSCFG", subcmd = "beidounmeatype", expect = "0" },
+    { cmd = "QGPSCFG", subcmd = "autogps", expect = "0" },
+# Disable fast poweroff for stability
+    { cmd = "QCFG", subcmd = "fast/poweroff", expect = "0" },
+# Configure sleep and wake up pin levels to active low
+    { cmd = "QCFG", subcmd = "sleepind/level", expect = "0" },
+    { cmd = "QCFG", subcmd = "wakeupin/level", expect = "0,0" },
+# Do not enter RAMDUMP mode, auto-reset instead
+    { cmd = "QCFG", subcmd = "ApRstLevel", expect = "1" },
+    { cmd = "QCFG", subcmd = "ModemRstLevel", expect = "1" },
+]
+suspend = [
+]
+resume = [
+]
+reset = [ { cmd = "CFUN", value = "1,1" } ]
+
+[gnss]
+enabled = true
+url = "https://xtrapath4.izatcloud.net"
+file = "xtra2.bin"

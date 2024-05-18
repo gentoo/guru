@@ -1,0 +1,25 @@
+From 157d87e31f89805ab663aef861ebd3018cb37fca Mon Sep 17 00:00:00 2001
+From: King_DuckZ <king_duckz@gmx.com>
+Date: Tue, 5 May 2020 15:51:06 +0200
+Subject: [PATCH 1/3] Buildfix
+
+---
+ UnAlz.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/UnAlz.cpp b/UnAlz.cpp
+index 6ae3ef3..c8e3cc7 100644
+--- a/UnAlz.cpp
++++ b/UnAlz.cpp
+@@ -1907,7 +1907,7 @@ void CUnAlz::DecryptingData(int nSize, BYTE* data)
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+ UINT32 CUnAlz::CRC32(UINT32 l, BYTE c)
+ {
+-	const unsigned long *CRC_TABLE = get_crc_table();
++	const z_crc_t *CRC_TABLE = get_crc_table();
+ 	return CRC_TABLE[(l ^ c) & 0xff] ^ (l >> 8);
+ }
+ 
+-- 
+2.26.2
+

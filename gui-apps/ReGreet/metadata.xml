@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<use>
+		<flag name="systemd">Use system-tmpfiles to create cache and logs folder</flag>
+		<flag name="openrc">Manually create cache and logs folder</flag>
+	</use>
+	<maintainer type="person">
+		<email>gonegrier.duarte@gmail.com</email>
+		<name>Gonçalo Negrier Duarte</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">rharish101/ReGreet</remote-id>
+		<maintainer>
+			<name>Harish Rajagopal</name>
+			<email>harish.rajagopals@gmail.com</email>
+		</maintainer>
+	</upstream>
+</pkgmetadata>

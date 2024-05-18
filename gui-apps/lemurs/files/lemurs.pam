@@ -1,0 +1,11 @@
+#%PAM-1.0
+# Lemur's PAM file Gentoo Edition
+# I'm not really sure what I did here so
+# if you think something is wrong in here,
+# you may be right.
+# ~ Lemurs GURU ebuild maintainer
+auth 		substack	system-auth
+account		include		system-auth
+-session	optional	pam_systemd.so class=greeter
+-session	optional	pam_elogind.so class=greeter
+session		include		system-auth

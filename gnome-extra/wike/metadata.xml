@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<longdescription>
+Wike is a Wikipedia reader for the GNOME Desktop. Provides access to all the content of this online encyclopedia in a native application, with a simpler and distraction-free view of articles.
+
+Features
+
+Open multiple articles in tabs
+More than 300 languages
+Search suggestions
+Bookmarks management
+History of recent articles
+Table of contents
+Text search in articles
+Print articles
+Light, dark and sepia themes
+Desktop and mobile layouts
+GNOME Shell search integration
+	</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Hugo Olabera</name>
+			<email>hugolabe@gmail.com</email>
+		</maintainer>
+		<bugs-to>https://github.com/hugolabe/Wike/issues</bugs-to>
+		<doc>https://hugolabe.github.io/Wike/</doc>
+		<remote-id type="github">hugolabe/wike</remote-id>
+	</upstream>
+</pkgmetadata>

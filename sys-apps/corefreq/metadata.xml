@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream><remote-id type="github">cyring/CoreFreq</remote-id></upstream>
+	<maintainer type="person">
+		<email>zdanevich.vitaly@ya.ru</email>
+		<name>Vitaly Zdanevich</name>
+	</maintainer>
+	<longdescription lang="en">
+CoreFreq provides a framework to retrieve CPU data with a high degree of precision:
+
+* Core frequencies and ratios; SpeedStep (EIST), Turbo Boost, Hyper-Threading (HTT) and Base Clock
+* Performance counters including Time Stamp Counter (TSC), Unhalted Core Cycles (UCC), Unhalted Reference Cycles (URC)
+* Number of instructions per cycle or second, IPS, IPC, or CPI
+* CPU C-States C0 C1 C3 C6 C7 - C1E - Auto/UnDemotion of C1 C3
+* DTS Temperature and Tjunction Max, Thermal Monitoring TM1 TM2 state, Vcore
+* Topology map including Caches for boostrap and application CPU
+* Processor features, brand and architecture strings
+* In progress: Uncore, Memory Controller channels and geometry, DIMM timings,
+* Stress tools, Power and Energy (RAPL, P-State, HWP, TDP), Overclocking, cpuidle and cpufreq driver, ClockSource, Mitigation Mechanisms
+
+To reach this goal, CoreFreq implements a Linux Kernel module which employs the followings:
+
+* asm code to keep as near as possible the readings of the performance counters;
+* per-CPU, implements slab data memory and high-resolution timer;
+* compliant with suspend / resume and CPU Hot-Plug;
+* a shared memory to protect kernel from the user-space part of the software;
+* atomic synchronization of threads to avoid mutexes and deadlock
+	</longdescription>
+</pkgmetadata>

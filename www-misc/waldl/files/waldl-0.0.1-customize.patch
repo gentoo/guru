@@ -1,0 +1,14 @@
+diff --git a/waldl b/waldl
+index e58467a..7df3144 100755
+--- a/waldl
++++ b/waldl
+@@ -31,6 +31,9 @@ quality=large
+ # atleast : least res
+ atleast=1920x1080
+ 
++# allow the user to customize the defaults
++[ -e "$HOME/.config/waldlrc" ] && . "$HOME/.config/waldlrc"
++
+ # the menu command used when no query is provided
+ sh_menu () {
+ 	: | dmenu -p "search wallhaven:"

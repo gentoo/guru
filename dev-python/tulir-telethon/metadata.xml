@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Tulir Asokan</name>
+			<email>tulir@maunium.net</email>
+		</maintainer>
+		<remote-id type="github">tulir/Telethon</remote-id>
+		<remote-id type="pypi">tulir-telethon</remote-id>
+	</upstream>
+</pkgmetadata>

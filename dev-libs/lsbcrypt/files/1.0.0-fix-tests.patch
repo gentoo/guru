@@ -1,0 +1,55 @@
+Extend pre-computed hash{1,2} by 3 bytes each to BCRYPT_HASHSIZE = 64 bytes.
+bcrypt_hashpw expects the second and third argument to have room for at least
+many characters.
+Though this is probably not an issue in production, I have contacted upstream
+about it on 2023-07-02 at <info@litespeedtech.com>.
+
+Additionally, abort execution of test runner on failure for "die" to trigger.
+
+Signed-off-by: Lucio Sauer <watermanpaint@posteo.net>
+diff --git a/bcrypt.c b/bcrypt.c
+index bd8722b..0c230f2 100644
+--- a/bcrypt.c
++++ b/bcrypt.c
+@@ -155,8 +155,8 @@ int main(void)
+ 	int ret;
+ 
+ 	const char pass[] = "hi,mom";
+-	const char hash1[] = "$2a$10$VEVmGHy4F4XQMJ3eOZJAUeb.MedU0W10pTPCuf53eHdKJPiSE8sMK";
+-	const char hash2[] = "$2a$10$3F0BVk5t8/aoS.3ddaB3l.fxg5qvafQ9NybxcpXLzMeAt.nVWn.NO";
++	const char hash1[] = "$2a$10$VEVmGHy4F4XQMJ3eOZJAUeb.MedU0W10pTPCuf53eHdKJPiSE8sMK\0\0\0";
++	const char hash2[] = "$2a$10$3F0BVk5t8/aoS.3ddaB3l.fxg5qvafQ9NybxcpXLzMeAt.nVWn.NO\0\0\0";
+ 
+ 	ret = bcrypt_gensalt(12, salt);
+ 	assert(ret == 0);
+@@ -171,22 +171,26 @@ int main(void)
+ 
+ 	ret = bcrypt_hashpw(pass, hash1, hash);
+ 	assert(ret == 0);
+-	printf("First hash check: %s\n", (strcmp(hash1, hash) == 0)?"OK":"FAIL");
++	assert(strcmp(hash1, hash) == 0);
++	printf("First hash check: OK\n");
+ 	ret = bcrypt_hashpw(pass, hash2, hash);
+ 	assert(ret == 0);
+-	printf("Second hash check: %s\n", (strcmp(hash2, hash) == 0)?"OK":"FAIL");
++	assert(strcmp(hash2, hash) == 0);
++	printf("Second hash check: OK\n");
+ 
+ 	before = clock();
+ 	ret = (bcrypt_checkpw(pass, hash1) == 0);
+ 	after = clock();
+-	printf("First hash check with bcrypt_checkpw: %s\n", ret?"OK":"FAIL");
++	assert(ret == 1);
++	printf("First hash check with bcrypt_checkpw: OK\n");
+ 	printf("Time taken: %f seconds\n",
+ 	       (double)(after - before) / CLOCKS_PER_SEC);
+ 
+ 	before = clock();
+ 	ret = (bcrypt_checkpw(pass, hash2) == 0);
+ 	after = clock();
+-	printf("Second hash check with bcrypt_checkpw: %s\n", ret?"OK":"FAIL");
++	assert(ret == 1);
++	printf("Second hash check with bcrypt_checkpw: OK\n");
+ 	printf("Time taken: %f seconds\n",
+ 	       (double)(after - before) / CLOCKS_PER_SEC);
+ 

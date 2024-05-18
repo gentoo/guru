@@ -1,0 +1,36 @@
+.PHONY: clean
+
+internal_CFLAGS = -shared -fPIC
+internal_CFLAGS += $(CFLAGS)
+internal_LDFLAGS = -ldl
+internal_LDFLAGS += $(LDFLAGS)
+
+all: i686 amd64
+
+i686: sdl1-hooks-i686.so sdl2-hooks-i686.so xlib-hooks-i686.so
+
+amd64: sdl1-hooks-amd64.so sdl2-hooks-amd64.so xlib-hooks-amd64.so
+
+sdl1-hooks-amd64.so: sdl1-hooks.c
+	$(CC) -m64 $(internal_CFLAGS) -o $@ $< $(internal_LDFLAGS)
+
+sdl1-peep-hooks-i686.so: sdl1-peep-hooks.c
+	$(CC) -m32 $(internal_CFLAGS) -o $@ $< $(internal_LDFLAGS)
+
+sdl1-peep-hooks-amd64.so: sdl1-peep-hooks.c
+	$(CC) -m64 $(internal_CFLAGS) -o $@ $< $(internal_LDFLAGS)
+
+sdl1-hooks-i686.so: sdl1-hooks.c
+	$(CC) -m32 $(internal_CFLAGS) -o $@ $< $(internal_LDFLAGS)
+
+sdl2-hooks-amd64.so: sdl2-hooks.c
+	$(CC) -m64 $(internal_CFLAGS) -o $@ $< $(internal_LDFLAGS)
+
+sdl2-hooks-i686.so: sdl2-hooks.c
+	$(CC) -m32 $(internal_CFLAGS) -o $@ $< $(internal_LDFLAGS)
+
+xlib-hooks-amd64.so: xlib-hooks.c
+	$(CC) -m64 $(internal_CFLAGS) -o $@ $< $(internal_LDFLAGS)
+
+xlib-hooks-i686.so: xlib-hooks.c
+	$(CC) -m32 $(internal_CFLAGS) -o $@ $< $(internal_LDFLAGS)

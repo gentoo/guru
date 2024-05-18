@@ -1,0 +1,23 @@
+[Unit]
+Description=Quectel EG25 modem
+Before=ModemManager.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/eg25manager
+Restart=on-failure
+ProtectControlGroups=true
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectSystem=strict
+RestrictSUIDSGID=true
+PrivateTmp=true
+MemoryDenyWriteExecute=true
+PrivateMounts=true
+NoNewPrivileges=true
+CapabilityBoundingSet=
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target
+

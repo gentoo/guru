@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<use>
+		<flag name="qt6">Build with Qt6 support</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">simulton/QSchematic</remote-id>
+		<bugs-to>https://github.com/simulton/QSchematic/issues</bugs-to>
+		<changelog>https://github.com/simulton/QSchematic/releases</changelog>
+	</upstream>
+	<longdescription lang="en">
+		QSchematic is a library to draw diagrams and schematics with Qt. It uses
+		Qt's graphics view framework.
+		The library provides base classes for objects such as nodes and wires
+		and implements logic to move objects around while keeping the wires
+		connected, generating netlists and so on. A typical application would
+		include this library and subclass the Item class to implement custom
+		items.
+	</longdescription>
+	<longdescription lang="zh">
+		QSchematic 是一个基于 Qt 的图形视图框架的绘制图表和原理图的库。
+		该库为节点和连线等对象提供基类，并实现在保持连线连接的同时移动对象的逻
+		辑、生成网表等。典型的应用程序包含此库，并允许继承 Item 类以实现自定义
+		项。
+	</longdescription>
+</pkgmetadata>

@@ -1,0 +1,45 @@
+From f44f7969c592ecbc1752827cb27dd44e79e1e75e Mon Sep 17 00:00:00 2001
+From: David Roman <droman@ifae.es>
+Date: Thu, 27 Jul 2023 15:07:51 +0200
+Subject: [PATCH] replace deprecated assertRegexpMatches -> assertRegex
+
+Close: #374
+---
+ test/testOutputCSV.py  | 4 ++--
+ test/testOutputHTML.py | 3 +--
+ 2 files changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/test/testOutputCSV.py b/test/testOutputCSV.py
+index 78cb221..4d10217 100644
+--- a/test/testOutputCSV.py
++++ b/test/testOutputCSV.py
+@@ -22,7 +22,7 @@ def test_csv_header(self):
+         options_mock.verbose = True
+         options_mock.extensions = []
+         csv_output(AllResult([self.fileSummary]), options_mock)
+-        self.assertRegexpMatches(sys.stdout.stream,
++        self.assertRegex(sys.stdout.stream,
+                                  r"NLOC,CCN,token,PARAM,length,location,file,function,long_name,start,end")
+ 
+     def test_csv_header_with_extension(self):
+@@ -35,7 +35,7 @@ def test_csv_header_with_extension(self):
+         results = AllResult([self.fileSummary])
+         results.result[0].function_list[0].exit_count = 1
+         csv_output(results, options_mock)
+-        self.assertRegexpMatches(sys.stdout.stream,
++        self.assertRegex(sys.stdout.stream,
+                                  r"NLOC,CCN,token,PARAM,length,location,file,function,long_name,start,end,exits")
+ 
+     def test_csv_no_header(self):
+diff --git a/test/testOutputHTML.py b/test/testOutputHTML.py
+index f91156b..81965fc 100644
+--- a/test/testOutputHTML.py
++++ b/test/testOutputHTML.py
+@@ -17,6 +17,5 @@ def setUp(self):
+ 
+     def test_should_have_html_body(self):
+         html_output([self.fileSummary], self.option, None, AllResult)
+-        self.assertRegexpMatches(sys.stdout.stream,
+-                                 r"\<html\>")
++        self.assertRegex(sys.stdout.stream, r"\<html\>")
+ 

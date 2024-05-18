@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>rossbridger.cc@gmail.com</email>
+		<name>Ross Charles Campbell</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>petross404@gmail.com</email>
+		<name>Petros S</name>
+	</maintainer>
+	<longdescription lang="en">
+GammaRay is a software introspection tool for Qt applications developed by KDAB.
+Leveraging the QObject introspection mechanism it allows you to observe and manipulate
+your application at runtime. This works both locally on your workstation and remotely
+on an embedded target.
+
+Augmenting your instruction-level debugger, GammaRay allows you to work on a much higher
+level, with the same concepts as the frameworks you use. This is especially useful for
+the more complex Qt frameworks such as model/view, state machines or scene graphs.
+	</longdescription>
+	<use>
+		<flag name="3d">Build support for Qt5 3D modules</flag>
+		<flag name="designer">Widget .ui file export</flag>
+		<flag name="geolocation">Physical position determination support from Qt5 framework</flag>
+		<flag name="printsupport">Printing support library from the Qt5 framework. Required for widget PDF export</flag>
+		<flag name="script">Enable scripting support from the Qt5 framework</flag>
+		<flag name="qml">Build with Qt5 Quick support</flag>
+		<flag name="scxml">Build support for Qt5 State Chart XML (SCXML)</flag>
+		<flag name="webengine">Enable support for dev-qt/qtwebengine</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">KDAB/GammaRay</remote-id>
+		<bugs-to>https://github.com/KDAB/GammaRay/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

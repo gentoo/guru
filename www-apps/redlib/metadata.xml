@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<longdescription>
+10-second pitch: Redlib is a private front-end like Invidious but for Reddit. Browse the coldest takes of r/unpopularopinion without being tracked.
+
+🚀 Fast: written in Rust for blazing-fast speeds and memory safety
+☁️ Light: no JavaScript, no ads, no tracking, no bloat
+🕵 Private: all requests are proxied through the server, including media
+🔒 Secure: strong Content Security Policy prevents browser requests to Reddit
+	</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Matthew Esposito</name>
+			<email>matt+cargo@matthew.science</email>
+		</maintainer>
+		<maintainer>
+			<name>spikecodes</name>
+			<email>19519553+spikecodes@users.noreply.github.com</email>
+		</maintainer>
+		<bugs-to>https://github.com/redlib-org/redlib/issues</bugs-to>
+		<changelog>https://github.com/redlib-org/redlib/releases</changelog>
+		<remote-id type="github">redlib-org/redlib</remote-id>
+	</upstream>
+</pkgmetadata>

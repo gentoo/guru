@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<maintainer>
+			<name>Brian J. Cardiff</name>
+			<email>bcardiff@manas.tech</email>
+		</maintainer>
+		<remote-id type="github">crystal-lang/crystal-db</remote-id>
+	</upstream>
+</pkgmetadata>

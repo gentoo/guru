@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <!-- maintainer-needed -->
+  <longdescription>
+    OpenSpades is a clone of Ace of Spades 0.75, which is a free online
+    first-person shooter created by Ben Aksoy, featuring fully destructible
+    terrain and plenty of game modes (including the well-known Capture the Flag)
+    created by the community.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">yvt/openspades</remote-id>
+  </upstream>
+</pkgmetadata>

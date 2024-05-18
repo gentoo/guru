@@ -1,0 +1,10 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 1aebf56..109ddd5 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -9,4 +9,4 @@ panic = "abort"
+ panic = "abort"
+ codegen-units = 1
+ lto = "fat"
+-strip = true
++strip = false

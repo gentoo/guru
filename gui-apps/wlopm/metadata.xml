@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>me@benbuhse.com</email>
+    <name>Ben (bwbuhse) Buhse</name>
+  </maintainer>
+  <upstream>
+    <maintainer>
+      <name>Leon Plickat</name>
+    </maintainer>
+    <remote-id type="sourcehut">~leon_plickat/wlopm</remote-id>
+  </upstream>
+</pkgmetadata>

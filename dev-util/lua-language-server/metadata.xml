@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mrmagic223325@fedora.email</email>
+		<name>Mathis Winterer</name>
+	</maintainer>
+	<longdescription lang="en">
+		The Lua language server provides various language features for Lua to make development easier and faster. With around half a million installs on Visual Studio Code, it is the most popular extension for Lua language support. Supports Lua versions 5.1, 5.2, 5.3, 5.4 and LuaJIT
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/LuaLS/lua-language-server/issues</bugs-to>
+		<doc>https://github.com/LuaLS/lua-language-server/wiki</doc>
+		<remote-id type="github">LuaLS/lua-language-server</remote-id>
+	</upstream>
+</pkgmetadata>

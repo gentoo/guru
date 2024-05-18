@@ -1,0 +1,21 @@
+diff --git a/forkstat.c b/forkstat.c
+index 57dc9c8..4b22c42 100644
+--- a/forkstat.c
++++ b/forkstat.c
+@@ -40,6 +40,7 @@
+ #include <time.h>
+ #include <getopt.h>
+ #include <sched.h>
++#include <pthread.h>
+ #include <pwd.h>
+ 
+ #include <sys/ioctl.h>
+@@ -2022,7 +2023,7 @@ int main(int argc, char * const argv[])
+ 
+ 		(void)memset(&param, 0, sizeof(param));
+ 		param.sched_priority = max_prio;
+-		if (sched_setscheduler(getpid(), policy, &param) < 0) {
++		if (pthread_setschedparam(pthread_self(), policy, &param) < 0) {
+ 			(void)fprintf(stderr, "sched_setscheduler failed: errno=%d (%s)\n",
+ 				errno, strerror(errno));
+ 			goto abort_sock;

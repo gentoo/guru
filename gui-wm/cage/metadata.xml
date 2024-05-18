@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <!-- maintainer-needed -->
+    <use>
+        <flag name="X">Enable support for X11 applications (XWayland)</flag>
+    </use>
+    <upstream>
+        <maintainer>
+            <name>Jente Hidskes</name>
+            <email>dev@hjdskes.nl</email>
+        </maintainer>
+        <doc>https://github.com/Hjdskes/cage/wiki</doc>
+        <bugs-to>https://github.com/Hjdskes/cage/issues</bugs-to>
+        <remote-id type="github">Hjdskes/cage</remote-id>
+    </upstream>
+</pkgmetadata>

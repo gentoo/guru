@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>rmicielski@purelymail.com</email>
+    <name>Remigiusz Micielski</name>
+  </maintainer>
+  <upstream>
+    <doc lang="en">https://github.com/spencerwi/cliflux/blob/main/README.md</doc>
+    <remote-id type="github">spencerwi/cliflux</remote-id>
+    <bugs-to>https://github.com/spencerwi/cliflux/issues</bugs-to>
+  </upstream>
+</pkgmetadata>

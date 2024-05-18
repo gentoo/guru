@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>me@rahil.rocks</email>
+    <name>Rahil Bhimjiani</name>
+  </maintainer>
+  <use>
+    <flag name="web">Enables web user interface (UI)</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">AdguardTeam/AdGuardHome</remote-id>
+    <bugs-to>https://github.com/AdguardTeam/AdGuardHome/issues</bugs-to>
+    <doc>https://github.com/AdguardTeam/AdGuardHome/</doc>
+  </upstream>
+</pkgmetadata>

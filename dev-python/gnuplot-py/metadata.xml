@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>joe@wt.gd</email>
+		<name>Joe Kappus</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="sourceforge">gnuplot-py</remote-id>
+	</upstream>
+</pkgmetadata>

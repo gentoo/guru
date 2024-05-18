@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>csfore@posteo.net</email>
+    <name>Christopher Fore</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">Genivia/ugrep</remote-id>
+  </upstream>
+  <use>
+    <flag name="7zip">Adds support for 7zip packages.</flag>
+    <flag name="boost">Uses <pkg>dev-libs/boost</pkg> for regular expression parsing.</flag>
+    <flag name="bzip3">Adds support for bzip3 packages using <pkg>app-arch/bzip3</pkg>.</flag>
+    <flag name="pcre2">Uses <pkg>dev-libs/libpcre2</pkg> for regular expression parsing.</flag>
+  </use>
+</pkgmetadata>

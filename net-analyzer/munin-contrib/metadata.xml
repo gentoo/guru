@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>gentoo_bugs_peep@parallaxshift.com</email>
+    <name>Philippe Chaintreuil</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">munin-monitoring/contrib</remote-id>
+  </upstream>
+  <use>
+    <flag name="plugins">contrib munin plugins</flag>
+    <flag name="templates">contrib munin tools</flag>
+    <flag name="tools">munin contrib tools</flag>
+  </use>
+</pkgmetadata>

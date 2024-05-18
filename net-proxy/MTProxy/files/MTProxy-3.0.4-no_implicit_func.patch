@@ -1,0 +1,13 @@
+diff --git a/engine/engine.c b/engine/engine.c
+index d0c70d3..5c5a5a2 100644
+--- a/engine/engine.c
++++ b/engine/engine.c
+@@ -56,6 +56,8 @@
+ 
+ #include "jobs/jobs.h"
+ 
++#include "mtproto/mtproto-config.h"
++
+ #include "net/net-connections.h"
+ #include "net/net-crypto-aes.h"
+ #include "net/net-msg-buffers.h"

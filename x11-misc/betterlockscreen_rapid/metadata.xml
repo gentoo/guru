@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>jlin.gentoo@outlook.com</email>
+		<name>Jian Lin</name>
+	</maintainer>
+	<upstream>
+		<maintainer status="active">
+			<name>oakszyjrnrdy</name>
+		</maintainer>
+		<bugs-to>https://github.com/oakszyjrnrdy/betterlockscreen_rapid/issues</bugs-to>
+		<remote-id type="github">oakszyjrnrdy/betterlockscreen_rapid</remote-id>
+	</upstream>
+</pkgmetadata>

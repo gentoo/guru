@@ -1,0 +1,87 @@
+diff --git a/src/core/ddsc/include/dds/dds.h b/src/core/ddsc/include/dds/dds.h
+index 97647d6..b619ca7 100644
+--- a/src/core/ddsc/include/dds/dds.h
++++ b/src/core/ddsc/include/dds/dds.h
+@@ -46,6 +46,7 @@
+ #include "dds/ddsc/dds_public_error.h"
+ #include "dds/ddsc/dds_public_status.h"
+ #include "dds/ddsc/dds_public_listener.h"
++#include "dds/ddsc/dds_public_entity.h"
+ 
+ #if defined (__cplusplus)
+ extern "C" {
+diff --git a/src/core/ddsc/include/dds/ddsc/dds_public_entity.h b/src/core/ddsc/include/dds/ddsc/dds_public_entity.h
+new file mode 100644
+index 0000000..d1402f5
+--- /dev/null
++++ b/src/core/ddsc/include/dds/ddsc/dds_public_entity.h
+@@ -0,0 +1,36 @@
++/*
++ * dds_public_entity.h
++ *
++ *  Created on: 21. nov. 2022
++ *      Author: marius
++ */
++
++#ifndef _DDS_PUBLIC_ENTITY_H_
++#define _DDS_PUBLIC_ENTITY_H_
++#include <dds/export.h>
++#include <dds/ddsrt/retcode.h>
++#include <dds/ddsc/dds_public_impl.h>
++#include <dds/ddsc/dds_basic_types.h>
++
++
++/*
++ * An addition to the external interface
++ *
++ * RETURN type of entity
++ */
++
++DDS_EXPORT dds_entity_kind_t
++dds_get_kind (const dds_entity_t e);
++
++/*
++ *
++ * RETURN DDS_RETCODE_OK on enabled entity
++ * ELSE DDS_RETCODE_NOT_ENABLED
++ *
++ */
++
++DDS_EXPORT dds_return_t
++dds_enabled(const dds_entity_t entity);
++
++#endif /* SRC_CORE_DDSC_INCLUDE_DDS_DDSC_DDS_PUBLIC_ENTITY_H_ */
++
+diff --git a/src/core/ddsc/src/dds_entity.c b/src/core/ddsc/src/dds_entity.c
+index 16c99e8..e19891e 100644
+--- a/src/core/ddsc/src/dds_entity.c
++++ b/src/core/ddsc/src/dds_entity.c
+@@ -30,6 +30,7 @@
+ #include "dds/ddsi/q_bswap.h"
+ #include "dds/ddsi/ddsi_entity.h"
+ #include "dds/ddsi/ddsi_endpoint.h"
++#include "dds/ddsc/dds_public_entity.h"
+ 
+ DDS_EXPORT extern inline dds_entity *dds_entity_from_handle_link (struct dds_handle_link *hdllink);
+ DDS_EXPORT extern inline bool dds_entity_is_enabled (const dds_entity *e);
+@@ -52,6 +53,20 @@ const struct dds_entity_deriver *dds_entity_deriver_table[] = {
+   [DDS_KIND_CYCLONEDDS] = &dds_entity_deriver_cyclonedds
+ };
+ 
++
++dds_entity_kind_t dds_get_kind (const dds_entity_t e)
++{
++   struct dds_entity *entity;
++   dds_return_t ret;
++   dds_entity_kind_t kind = DDS_KIND_DONTCARE;
++   if((ret = dds_entity_pin(e, &entity)) >0)
++   {
++       kind = entity->m_kind;
++       dds_entity_unpin(entity);
++   }
++
++  return kind;
++}
+ void dds_entity_deriver_dummy_interrupt (struct dds_entity *e) {
+   (void) e;
+ }

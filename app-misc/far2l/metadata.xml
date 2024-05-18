@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>syutkin@gmail.com</email>
+		<name>Andrey Syutkin</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">elfmz/far2l</remote-id>
+	</upstream>
+	<use>
+		<flag name="archive">Multiarc extended archives support</flag>
+		<flag name="nfs">NFS support in NetRocks</flag>
+		<flag name="samba">SMB support in NetRocks</flag>
+		<flag name="sftp">SFTP support in NetRocks</flag>
+		<flag name="ssl">FTPS support in NetRocks</flag>
+		<flag name="webdav">WebDav support in NetRocks</flag>
+		<flag name="wxwidgets">GUI backend support</flag>
+	</use>
+</pkgmetadata>

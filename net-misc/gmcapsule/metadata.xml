@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Jaakko Keränen</name>
+			<email>jaakko.keranen@iki.fi</email>
+		</maintainer>
+		<remote-id type="codeberg">skyjake/gmcapsule</remote-id>
+		<remote-id type="pypi">gmcapsule</remote-id>
+		<doc>https://geminispace.org/gmcapsule/gmcapsule.html</doc>
+		<bugs-to>https://codeberg.org/skyjake/gmcapsule/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

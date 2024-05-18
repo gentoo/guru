@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Seth M. Price</name>
+		<email>sprice623@aol.com</email>
+	</maintainer>
+	<longdescription lang="en">
+		TCPSER turns a PC serial port into an emulated Hayes compatible
+		modem that uses TCP/IP for incoming and outgoing connections.
+		It can be used to allow older applications and systems designed
+		for modem use to operate on the Internet. TCPSER supports all
+		standard Hayes commands, and understands extended and vendor
+		proprietary commands (though it does not implement many of
+		them). TCPSER can be used for both inbound and outbound
+		connections.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/go4retro/tcpser/issues</bugs-to>
+		<remote-id type="github">go4retro/tcpser</remote-id>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Vitaly Zdanevich</name>
+		<email>zdanevich.vitaly@ya.ru</email>
+	</maintainer>
+	<longdescription lang="en">
+Mountpoint for Amazon S3 is a simple, high-throughput file client for mounting an Amazon S3 bucket as a local file system. With Mountpoint for Amazon S3, your applications can access objects stored in Amazon S3 through file operations like open and read. Mountpoint for Amazon S3 automatically translates these operations into S3 object API calls, giving your applications access to the elastic storage and throughput of Amazon S3 through a file interface.
+
+Mountpoint for Amazon S3 is optimized for applications that need high read throughput to large objects, potentially from many clients at once, and to write new objects sequentially from a single client at a time. This means it's a great fit for applications that use a file interface to:
+
+* read large objects from S3, potentially from many instances concurrently, without downloading them to local storage first
+* access only some S3 objects out of a larger data set, but can't predict which objects in advance
+* upload their output to S3 directly, or upload files from local storage with tools like cp
+
+but probably not the right fit for applications that:
+
+* use file operations that S3 doesn't natively support, like directory renaming or symlinks
+* make edits to existing files (don't work on your Git repository or run vim in Mountpoint 😄)
+
+Mountpoint for Amazon S3 does not implement all the features of a POSIX file system, and there are some differences that may affect compatibility with your application. See Mountpoint file system behavior for a detailed description of Mountpoint for Amazon S3's behavior and POSIX support and how they could affect your application.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">awslabs/mountpoint-s3</remote-id>
+		<bugs-to>https://github.com/awslabs/mountpoint-s3/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

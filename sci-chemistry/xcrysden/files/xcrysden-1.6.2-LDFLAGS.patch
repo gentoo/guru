@@ -1,0 +1,171 @@
+diff --git a/C/Makefile b/C/Makefile
+index 2aa0307..452e0f1 100644
+--- a/C/Makefile
++++ b/C/Makefile
+@@ -12,7 +12,7 @@ include make-objects
+ 
+ .SUFFIXES: .o .c
+ .c.o:
+-	$(CC) $(CFLAGS) $(CPPFLAGS) $(INCS) -c $<
++	$(CC) $(LDFLAGS) $(CFLAGS) $(CPPFLAGS) $(INCS) -c $<
+ 
+ objects = $(XC_OBJS) $(EXTERNAL_OBJS)
+ 
+@@ -24,18 +24,18 @@ compile:
+ #objects: $(objects)
+ #
+ #$(objects): %.o: %.c
+-#	$(CC) $(CFLAGS) $(CPPFLAGS) $(INCS) -c $<
++#	$(CC) $(LDFLAGS) $(CFLAGS) $(CPPFLAGS) $(INCS) -c $<
+ 
+ xcrys: $(XC_OBJS) $(EXTERNAL_OBJS)
+-	$(CC)  $(CFLAGS) $(XC_OBJS) $(EXTERNAL_OBJS) \
++	$(CC) $(LDFLAGS)  $(CFLAGS) $(XC_OBJS) $(EXTERNAL_OBJS) \
+ 	-o xcrys $(FFTW3_LIB) $(MESCHACH_LIB) $(TK_LIB) $(TCL_LIB) $(TOGL_LIB) $(GLU_LIB) $(GL_LIB) $(X_LIB) $(MATH) $(LDLIB) $(EXT_LIB)
+ 
+ xctclsh: xcTclsh.o
+-	$(CC) $(CFLAGS) xcTclsh.o -o xctclsh $(TCL_LIB) $(MATH) $(LDLIB)
++	$(CC) $(LDFLAGS) $(CFLAGS) xcTclsh.o -o xctclsh $(TCL_LIB) $(MATH) $(LDLIB)
+ 
+ XFS_OBJS = xsf2xsf.o
+ xsf2xsf: $(XFS_OBJS) 
+-	$(CC) $(CFLAGS) $(XFS_OBJS) -o xsf2xsf $(MATH) $(LDLIB)
++	$(CC) $(LDFLAGS) $(CFLAGS) $(XFS_OBJS) -o xsf2xsf $(MATH) $(LDLIB)
+ 
+ 
+ install:
+diff --git a/F/Makefile b/F/Makefile
+index 3f8270e..92f17d1 100644
+--- a/F/Makefile
++++ b/F/Makefile
+@@ -4,10 +4,10 @@ include ../Make.sys
+ .SUFFIXES : .o .f .f90
+ 
+ .f90.o:
+-	$(FC) $(FFLAGS) -c $<
++	$(FC) $(LDFLAGS) $(FFLAGS) -c $<
+ 
+ .f.o:
+-	$(FC) $(FFLAGS) -c $<
++	$(FC) $(LDFLAGS) $(FFLAGS) -c $<
+ 
+ OBJ =   gengeom.o \
+ 	multhexa.o \
+@@ -73,70 +73,70 @@ spaghetti:
+ 	cd SRC_spaghetti; $(MAKE)
+ 
+ gengeom: $(OBJ)
+-	$(FC) $(FFLAGS) -o gengeom $(OBJ)
++	$(FC) $(LDFLAGS) $(FFLAGS) -o gengeom $(OBJ)
+ 
+ calplane: $(OBJ2)
+-	$(FC) $(FFLAGS) -o calplane $(OBJ2)
++	$(FC) $(LDFLAGS) $(FFLAGS) -o calplane $(OBJ2)
+ 
+ atomlab: $(OBJ3)
+-	$(FC) $(FFLAGS) -o atomlab $(OBJ3)
++	$(FC) $(LDFLAGS) $(FFLAGS) -o atomlab $(OBJ3)
+ 
+ recvec: recvec.o auxil.o
+-	$(FC) $(FFLAGS) -o recvec recvec.o auxil.o 
++	$(FC) $(LDFLAGS) $(FFLAGS) -o recvec recvec.o auxil.o 
+ 
+ str2xcr: $(OBJ5)
+-	$(FC) $(FFLAGS) -o str2xcr $(OBJ5)
++	$(FC) $(LDFLAGS) $(FFLAGS) -o str2xcr $(OBJ5)
+ 
+ fracCoor: fracCoor.o auxil.o  readf1.o
+-	$(FC) $(FFLAGS) -o fracCoor fracCoor.o auxil.o  readf1.o
++	$(FC) $(LDFLAGS) $(FFLAGS) -o fracCoor fracCoor.o auxil.o  readf1.o
+ 
+ multislab: $(OBJ6)
+-	$(FC) $(FFLAGS) -o multislab $(OBJ6)
++	$(FC) $(LDFLAGS) $(FFLAGS) -o multislab $(OBJ6)
+ 
+ savestruct: $(OBJ7)
+-	$(FC) $(FFLAGS) -o savestruct $(OBJ7)
++	$(FC) $(LDFLAGS) $(FFLAGS) -o savestruct $(OBJ7)
+ 
+ ftnunit: ftnunit.o
+-	$(FC) $(FFLAGS) -o ftnunit ftnunit.o
++	$(FC) $(LDFLAGS) $(FFLAGS) -o ftnunit ftnunit.o
+ 
+ kPath: $(OBJ8)
+-	$(FC) $(FFLAGS) -o kPath $(OBJ8)
++	$(FC) $(LDFLAGS) $(FFLAGS) -o kPath $(OBJ8)
+ 
+ pwKPath: $(OBJ88)
+-	$(FC) $(FFLAGS) -o pwKPath $(OBJ88)
++	$(FC) $(LDFLAGS) $(FFLAGS) -o pwKPath $(OBJ88)
+ 
+ fhi_inpini2ftn34: fhi_inpini2ftn34.o
+-	$(FC) $(FFLAGS) -o fhi_inpini2ftn34 fhi_inpini2ftn34.o
++	$(FC) $(LDFLAGS) $(FFLAGS) -o fhi_inpini2ftn34 fhi_inpini2ftn34.o
+ 
+ fhi_coord2xcr: fhi_coord2xcr.o
+-	$(FC) $(FFLAGS) -o fhi_coord2xcr fhi_coord2xcr.o
++	$(FC) $(LDFLAGS) $(FFLAGS) -o fhi_coord2xcr fhi_coord2xcr.o
+ 
+ wn_readbands: $(OBJ9)
+-	$(FC) $(FFLAGS) -o wn_readbands $(OBJ9)  $(OBJ10)
++	$(FC) $(LDFLAGS) $(FFLAGS) -o wn_readbands $(OBJ9)  $(OBJ10)
+ 
+ wn_readbakgen: wn_readbakgen.o
+-	$(FC) $(FFLAGS) -o wn_readbakgen wn_readbakgen.o
++	$(FC) $(LDFLAGS) $(FFLAGS) -o wn_readbakgen wn_readbakgen.o
+ 
+ pw: pwi2xsf pwi2xsf_old pwo_xsf2xsf
+ 
+ 
+ pwi2xsf_old: $(OBJ11) 
+-	$(FC) $(FFLAGS) -o pwi2xsf_old $(OBJ11)
++	$(FC) $(LDFLAGS) $(FFLAGS) -o pwi2xsf_old $(OBJ11)
+ 
+ pwi2xsf: $(OBJ111)
+-	$(FC) $(FFLAGS) -o pwi2xsf $(OBJ111)
++	$(FC) $(LDFLAGS) $(FFLAGS) -o pwi2xsf $(OBJ111)
+ 
+ pwo_xsf2xsf: $(OBJ13)
+-	$(FC) $(FFLAGS) -o pwo_xsf2xsf $(OBJ13)
++	$(FC) $(LDFLAGS) $(FFLAGS) -o pwo_xsf2xsf $(OBJ13)
+ 
+ fsReadBXSF: $(OBJ12)
+-	$(FC) $(FFLAGS) -o fsReadBXSF $(OBJ12)
++	$(FC) $(LDFLAGS) $(FFLAGS) -o fsReadBXSF $(OBJ12)
+ 
+ cube2xsf: cube2xsf.o
+-	$(FC) $(FFLAGS) -o cube2xsf cube2xsf.o
++	$(FC) $(LDFLAGS) $(FFLAGS) -o cube2xsf cube2xsf.o
+ 
+ xsf2cube: xsf2cube.o
+-	$(FC) $(FFLAGS) -o xsf2cube xsf2cube.o
++	$(FC) $(LDFLAGS) $(FFLAGS) -o xsf2cube xsf2cube.o
+ 
+ PROGRAMS = \
+ 	gengeom calplane atomlab recvec str2xcr fracCoor \
+diff --git a/F/SRC_nn/Makefile b/F/SRC_nn/Makefile
+index 2e44de1..06ae768 100644
+--- a/F/SRC_nn/Makefile
++++ b/F/SRC_nn/Makefile
+@@ -7,7 +7,7 @@ OBJ =   nn.o \
+ all: nn install
+ 
+ nn:     $(OBJ)
+-	$(FC) $(FFLAGS) $(OBJ) -o nn 
++	$(FC) $(LDFLAGS) $(FFLAGS) $(OBJ) -o nn 
+ 
+ install:
+ 	if test -f nn.exe ; then cp nn.exe ../../bin ; \
+diff --git a/Makefile b/Makefile
+index cfdc14a..f40c8c1 100644
+--- a/Makefile
++++ b/Makefile
+@@ -4,6 +4,8 @@
+ #
+ #------------------------------------------------------------------------
+ 
++export LDFLAGS
++
+ SHELL     = /bin/sh
+ TOPDIR    = $(CURDIR)
+ TCL_INDEX = $(TOPDIR)/util/tcl_index

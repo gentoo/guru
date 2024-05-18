@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>watermanpaint@posteo.net</email>
+    <name>Lucio Sauer</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">mackron/dr_libs</remote-id>
+  </upstream>
+</pkgmetadata>

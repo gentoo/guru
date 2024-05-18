@@ -1,0 +1,18 @@
+Newer versions of skia-bindgen only look for icu.ninja, when SKIA_USE_SYSTEM_LIBRARIES is not set.
+This patch is backporting that fix to skia-bindgen-0.68.0.
+In the gentoo ebuild we always build skia against system libs, therefore we just delete that line here.
+
+Pascal Jäger <pascal.jaeger@leimstift.de> (2024-04-02)
+
+--- a/cargo_home/gentoo/skia-bindings-0.68.0/build_support/skia_bindgen.rs
++++ b/cargo_home/gentoo/skia-bindings-0.68.0/build_support/skia_bindgen.rs
+@@ -811,7 +811,8 @@ pub(crate) mod definitions {
+                 "obj/modules/skshaper/skshaper.ninja".into(),
+                 "obj/modules/skparagraph/skparagraph.ninja".into(),
+                 // shaper.cpp includes SkLoadICU.h
+-                "obj/third_party/icu/icu.ninja".into(),
++                // gentoo build uses systems dev-libs/icu
++                /* "obj/third_party/icu/icu.ninja".into(), */
+                 "obj/modules/skunicode/skunicode.ninja".into(),
+             ]);
+         }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>myrvogna@electrosphe.re</email>
+		<name>Octiabrina Terrien-Puig</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Berulacks/yams</remote-id>
+		<remote-id type="pypi">YAMScrobbler</remote-id>
+		<maintainer>
+			<name>Derin Yarsuvat</name>
+			<email>derin@ml1.net</email>
+		</maintainer>
+	</upstream>
+</pkgmetadata>

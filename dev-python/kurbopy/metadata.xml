@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>julien@jroy.ca</email>
+		<name>Julien Roy</name>
+	</maintainer>
+	<longdescription>Kurbopy is a Python wrapper around the Rust kurbo library, a 2D curve manipulation library with "a focus on accuracy and good performance in high-accuracy conditions".
+
+Kurbopy is currently an incomplete wrapper, with additional methods and classes being added on as an-needed basis. If you need a method or class from kurbo added to kurbopy, please ask for it in the issue tracker.
+
+The version number of kurbopy releases is formed of the kurbo version number with the patch number multiplied by ten plus any kurbopy patch releases. In other words, kurbopy version 0.8.15 is the fifth patch release tracking kurbo 0.8.1.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Simon Cozens</name>
+			<email>simon@simon-cozens.org</email>
+		</maintainer>
+		<bugs-to>https://github.com/simoncozens/kurbopy/issues</bugs-to>
+		<remote-id type="github">simoncozens/kurbopy</remote-id>
+		<remote-id type="pypi">kurbopy</remote-id>
+	</upstream>
+</pkgmetadata>

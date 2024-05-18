@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>bacciferous@pm.me</email>
+		<name>Alex Drysdale</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Denis Howe</name>
+		</maintainer>
+		<remote-id type="launchpad">ubuntu</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		A database for 'dict'-compatible dictionary software, based on the Free On-line Dictionary of Computing describing various topics in computing.
+	</longdescription>
+</pkgmetadata>

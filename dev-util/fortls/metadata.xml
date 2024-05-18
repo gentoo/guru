@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>torokhov-s-a@yandex.ru</email>
+    <name>Sergey Torokhov</name>
+  </maintainer>
+  <longdescription lang="en">
+    fortls is an implementation of the Language Server Protocol (LSP)
+    for Fortran using Python (3.7+). All code editors that support LSP
+    can integrate with fortls. Some supported code editors include:
+    Visual Studio Code, Atom, Sublime Text, (Neo)Vim, and Emacs.
+    It's usefull for Modern Fortran extension of Visual Studio Code
+    and provides offline/system wide installation instead of local pip install.
+  </longdescription>
+  <upstream>
+    <remote-id type="pypi">fortls</remote-id>
+    <remote-id type="github">fortran-lang/fortls</remote-id>
+  </upstream>
+</pkgmetadata>

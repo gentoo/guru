@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>rossbridger.cc@gmail.com</email>
+		<name>Ross Charles Campbell</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">linuxmint/timeshift</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		Timeshift for Linux is an application that provides functionality similar to
+		the System Restore feature in Windows and the Time Machine tool in Mac OS.
+
+		Timeshift protects your system by taking incremental snapshots of the file
+		system at regular intervals. These snapshots can be restored at a later date
+		to undo all changes to the system.
+	</longdescription>
+</pkgmetadata>

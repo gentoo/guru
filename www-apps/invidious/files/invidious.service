@@ -1,0 +1,16 @@
+[Unit]
+Description=Invidious (An alternative YouTube front-end)
+After=syslog.target
+After=network.target
+
+[Service]
+RestartSec=2s
+Type=simple
+User=invidious
+Group=invidious
+Environment=INVIDIOUS_CONFIG_FILE="/etc/invidious/config.yml"
+ExecStart=invidious
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

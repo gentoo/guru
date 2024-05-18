@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>myrvogna@electrosphe.re</email>
+		<name>Octiabrina Terrien-Puig</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Hummer12007/brightnessctl</remote-id>
+	</upstream>
+</pkgmetadata>

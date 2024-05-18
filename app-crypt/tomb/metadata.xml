@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>t0x0m@pm.me</email>
+    <name>Thomas Huba</name>
+  </maintainer>
+  <upstream>
+    <maintainer>
+      <email>J@Dyne.org</email>
+      <name>Denis Roio</name>
+    </maintainer>
+    <bugs-to>https://github.com/dyne/Tomb/issues</bugs-to>
+    <remote-id type="github">dyne/Tomb</remote-id>
+  </upstream>
+  <longdescription lang="en">
+Tomb is an 100% free and open source system for file encryption on GNU/Linux, facilitating the backup of secret files. Tomb is written in code that is easy to review and links commonly shared components.
+Tomb generates encrypted storage folders to be opened and closed using their associated keyfiles, which are also protected with a password chosen by the user.
+A tomb is like a locked folder that can be safely transported and hidden in a filesystem; its keys can be kept separate, for instance keeping the tomb file on your computer harddisk and the key files on a USB stick.
+Tomb is a simple tool to manage encrypted storage on GNU/Linux, from the hashes of the dyne:bolic nesting mechanism.
+  </longdescription>
+  <use>
+    <flag name="tray">add a tomb tray in a QT desktop toolbar</flag>
+  </use>
+</pkgmetadata>

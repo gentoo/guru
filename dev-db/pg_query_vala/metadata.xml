@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Pham Văn Phúc</name>
+			<email>phuclaplace@gmail.com</email>
+		</maintainer>
+		<bugs-to>https://github.com/ppvan/pg_query_vala/issues</bugs-to>
+		<remote-id type="github">ppvan/pg_query_vala</remote-id>
+		<remote-id type="github">pganalyze/libpg_query</remote-id>
+	</upstream>
+</pkgmetadata>

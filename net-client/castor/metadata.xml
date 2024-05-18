@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<longdescription lang="en">
+		A graphical client for plain-text protocols written in Rust with GTK. It
+		currently supports the Gemini, Gopher and Finger protocols.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://lists.sr.ht/~julienxx/castor</bugs-to>
+	</upstream>
+</pkgmetadata>

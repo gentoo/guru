@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <!-- maintainer-needed -->
+    <longdescription>
+      Nyxt [nýkst] is a keyboard-driven web browser designed for power users. Inspired by Emacs and Vim, it has familiar keybindings (Emacs, vi, CUA), and is infinitely extensible in Lisp.
+
+      If you like Nyxt and you would like to help future development, please give us a star, spread the word, and support us on Patreon, thank you!
+
+      Attention: Nyxt is under active development. Feel free to report bugs, instabilities or feature wishes.
+    </longdescription>
+    <upstream>
+        <maintainer>
+            <name>Atlas</name>
+            <email>hello@atlas.engineer</email>
+        </maintainer>
+        <changelog>https://github.com/atlas-engineer/nyxt/releases</changelog>
+        <doc>https://nyxt.atlas.engineer/documentation</doc>
+        <bugs-to>https://github.com/atlas-engineer/nyxt/issues</bugs-to>
+        <remote-id type="github">atlas-engineer/nyxt</remote-id>
+    </upstream>
+</pkgmetadata>

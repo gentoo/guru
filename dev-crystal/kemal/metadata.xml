@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<maintainer>
+			<name>Serdar Dogruyol</name>
+			<email>dogruyolserdar@gmail.com</email>
+		</maintainer>
+		<remote-id type="github">kemalcr/kemal</remote-id>
+	</upstream>
+</pkgmetadata>

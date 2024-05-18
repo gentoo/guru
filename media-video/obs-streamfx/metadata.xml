@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>adel.ks@zegrapher.com</email>
+		<name>Adel KARA SLIMANE</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>gonegrier.duarte@gmail.com</email>
+		<name>Gonçalo Negrier Duarte</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Xaymar/obs-StreamFX</remote-id>
+		<bugs-to>https://github.com/Xaymar/obs-StreamFX/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

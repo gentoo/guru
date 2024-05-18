@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>bratishkaerik@landless-city.net</email>
+		<name>Eric Joldasov</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">bouncepaw/mycorrhiza</remote-id>
+		<remote-id type="sourcehut">~bouncepaw/mycorrhiza</remote-id>
+		<changelog>https://mycorrhiza.wiki/hypha/release</changelog>
+		<bugs-to>https://github.com/bouncepaw/mycorrhiza/issues</bugs-to>
+		<doc lang="en">https://mycorrhiza.wiki</doc>
+	</upstream>
+</pkgmetadata>

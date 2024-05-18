@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>contact@qaidvoid.dev</email>
+		<name>Rabindra Dhakal</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/kakoune-lsp/kakoune-lsp/issues</bugs-to>
+		<changelog>https://github.com/kakoune-lsp/kakoune-lsp/commits/master</changelog>
+		<remote-id type="github">kakoune-lsp/kakoune-lsp</remote-id>
+	</upstream>
+</pkgmetadata>

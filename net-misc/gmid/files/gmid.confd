@@ -1,0 +1,4 @@
+# /etc/conf.d/gmid
+
+# Configuration file
+#GMID_CONFIGFILE="/etc/gmid/gmid.conf"

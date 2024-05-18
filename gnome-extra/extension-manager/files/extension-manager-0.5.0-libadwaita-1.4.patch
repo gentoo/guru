@@ -1,0 +1,435 @@
+From 8d03f63f9c825d3f486e55c26eb2efd6a2e57711 Mon Sep 17 00:00:00 2001
+From: Yuan Liao <liaoyuan@gmail.com>
+Date: Thu, 14 Mar 2024 10:44:40 -0400
+Subject: [PATCH 1/4] Revert "upgrade-assistant: Port AdwWindow to AdwDialog"
+
+This reverts commit 9e394c18722d18d4273083f4fd5aa152c20b57b7.
+
+The reverted commit migrates the application to libadwaita 1.5; this
+should not have been done because libadwaita 1.5 has not been released.
+
+Signed-off-by: Yuan Liao <liaoyuan@gmail.com>
+---
+ src/exm-upgrade-assistant.blp | 10 +++++-----
+ src/exm-upgrade-assistant.c   |  6 ++++--
+ src/exm-upgrade-assistant.h   |  2 +-
+ src/exm-window.c              |  4 +++-
+ 4 files changed, 13 insertions(+), 9 deletions(-)
+
+diff --git a/src/exm-upgrade-assistant.blp b/src/exm-upgrade-assistant.blp
+index a0c1ebe..e822598 100644
+--- a/src/exm-upgrade-assistant.blp
++++ b/src/exm-upgrade-assistant.blp
+@@ -1,13 +1,13 @@
+ using Gtk 4.0;
+ using Adw 1;
+ 
+-template $ExmUpgradeAssistant : Adw.Dialog {
+-  content-width: 400;
+-  content-height: 600;
++template $ExmUpgradeAssistant : Adw.Window {
++  default-width: 400;
++  default-height: 550;
+   title: _("Upgrade Assistant");
+   notify::manager => $on_bind_manager();
+ 
+-  child: Adw.ToolbarView {
++  Adw.ToolbarView {
+ 
+     [top]
+     Adw.HeaderBar {}
+@@ -136,5 +136,5 @@ template $ExmUpgradeAssistant : Adw.Dialog {
+         };
+       }
+     };
+-  };
++  }
+ }
+diff --git a/src/exm-upgrade-assistant.c b/src/exm-upgrade-assistant.c
+index 6eca4c7..a93b5e1 100644
+--- a/src/exm-upgrade-assistant.c
++++ b/src/exm-upgrade-assistant.c
+@@ -28,7 +28,7 @@
+ 
+ struct _ExmUpgradeAssistant
+ {
+-    AdwDialog parent_instance;
++    AdwWindow parent_instance;
+ 
+     // Auxiliary Classes
+     ExmManager *manager;
+@@ -66,7 +66,7 @@ struct _ExmUpgradeAssistant
+     GtkButton *copy_details;
+ };
+ 
+-G_DEFINE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, ADW_TYPE_DIALOG)
++G_DEFINE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, ADW_TYPE_WINDOW)
+ 
+ enum {
+     PROP_0,
+@@ -657,6 +657,8 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
+     gtk_widget_class_bind_template_callback (widget_class, do_compatibility_check);
+     gtk_widget_class_bind_template_callback (widget_class, copy_to_clipboard);
+     gtk_widget_class_bind_template_callback (widget_class, on_bind_manager);
++
++    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_Escape, 0, "window.close", NULL);
+ }
+ 
+ static void
+diff --git a/src/exm-upgrade-assistant.h b/src/exm-upgrade-assistant.h
+index 11322d5..d0c58ff 100644
+--- a/src/exm-upgrade-assistant.h
++++ b/src/exm-upgrade-assistant.h
+@@ -28,7 +28,7 @@
+  
+  #define EXM_TYPE_UPGRADE_ASSISTANT (exm_upgrade_assistant_get_type())
+  
+- G_DECLARE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, EXM, UPGRADE_ASSISTANT, AdwDialog)
++ G_DECLARE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, EXM, UPGRADE_ASSISTANT, AdwWindow)
+  
+  ExmUpgradeAssistant *exm_upgrade_assistant_new (ExmManager *manager);
+ 
+diff --git a/src/exm-window.c b/src/exm-window.c
+index 5c81c82..96c91b9 100644
+--- a/src/exm-window.c
++++ b/src/exm-window.c
+@@ -308,7 +308,9 @@ show_upgrade_assistant (GtkWidget  *widget,
+     self = EXM_WINDOW (widget);
+ 
+     ExmUpgradeAssistant *assistant = exm_upgrade_assistant_new (self->manager);
+-    adw_dialog_present (ADW_DIALOG (assistant), widget);
++    gtk_window_set_modal (GTK_WINDOW (assistant), TRUE);
++    gtk_window_set_transient_for (GTK_WINDOW (assistant), GTK_WINDOW (self));
++    gtk_window_present (GTK_WINDOW (assistant));
+ }
+ 
+ static void
+-- 
+2.43.0
+
+
+From 945c2e3b1b454d16f84a46bcbcb227256886bb68 Mon Sep 17 00:00:00 2001
+From: Yuan Liao <liaoyuan@gmail.com>
+Date: Thu, 14 Mar 2024 10:44:51 -0400
+Subject: [PATCH 2/4] Revert "comment-dialog: Port AdwWindow to AdwDialog"
+
+This reverts commit e79dd0771243646a8062a413fc58f61102d5a4f1.
+
+The reverted commit migrates the application to libadwaita 1.5; this
+should not have been done because libadwaita 1.5 has not been released.
+
+Signed-off-by: Yuan Liao <liaoyuan@gmail.com>
+---
+ src/exm-comment-dialog.blp | 10 +++++-----
+ src/exm-comment-dialog.c   |  6 ++++--
+ src/exm-comment-dialog.h   |  2 +-
+ src/exm-detail-view.c      |  5 ++++-
+ 4 files changed, 14 insertions(+), 9 deletions(-)
+
+diff --git a/src/exm-comment-dialog.blp b/src/exm-comment-dialog.blp
+index 50853a6..1fbde6b 100644
+--- a/src/exm-comment-dialog.blp
++++ b/src/exm-comment-dialog.blp
+@@ -1,14 +1,14 @@
+ using Gtk 4.0;
+ using Adw 1;
+ 
+-template $ExmCommentDialog : Adw.Dialog {
+-  content-width: 600;
+-  content-height: 600;
++template $ExmCommentDialog : Adw.Window {
++  default-width: 600;
++  default-height: 500;
+   width-request: 360;
+   height-request: 294;
+   title: _("Comments");
+ 
+-  child: Adw.ToolbarView {
++  Adw.ToolbarView {
+ 
+     [top]
+     Adw.HeaderBar {}
+@@ -61,5 +61,5 @@ template $ExmCommentDialog : Adw.Dialog {
+         }
+       }
+     };
+-  };
++  }
+ }
+diff --git a/src/exm-comment-dialog.c b/src/exm-comment-dialog.c
+index 3404a2f..621c5f7 100644
+--- a/src/exm-comment-dialog.c
++++ b/src/exm-comment-dialog.c
+@@ -7,7 +7,7 @@
+ 
+ struct _ExmCommentDialog
+ {
+-    AdwDialog parent_instance;
++    AdwWindow parent_instance;
+ 
+     ExmCommentProvider *comment_provider;
+ 
+@@ -17,7 +17,7 @@ struct _ExmCommentDialog
+     int web_id;
+ };
+ 
+-G_DEFINE_FINAL_TYPE (ExmCommentDialog, exm_comment_dialog, ADW_TYPE_DIALOG)
++G_DEFINE_FINAL_TYPE (ExmCommentDialog, exm_comment_dialog, ADW_TYPE_WINDOW)
+ 
+ enum {
+     PROP_0,
+@@ -106,6 +106,8 @@ exm_comment_dialog_class_init (ExmCommentDialogClass *klass)
+ 
+     gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, list_box);
+     gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, stack);
++
++    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_Escape, 0, "window.close", NULL);
+ }
+ 
+ static GtkWidget *
+diff --git a/src/exm-comment-dialog.h b/src/exm-comment-dialog.h
+index 1abd584..4d99a35 100644
+--- a/src/exm-comment-dialog.h
++++ b/src/exm-comment-dialog.h
+@@ -8,7 +8,7 @@ G_BEGIN_DECLS
+ 
+ #define EXM_TYPE_COMMENT_DIALOG (exm_comment_dialog_get_type())
+ 
+-G_DECLARE_FINAL_TYPE (ExmCommentDialog, exm_comment_dialog, EXM, COMMENT_DIALOG, AdwDialog)
++G_DECLARE_FINAL_TYPE (ExmCommentDialog, exm_comment_dialog, EXM, COMMENT_DIALOG, AdwWindow)
+ 
+ ExmCommentDialog *exm_comment_dialog_new (int web_id);
+ 
+diff --git a/src/exm-detail-view.c b/src/exm-detail-view.c
+index 2c9f4f0..f687fed 100644
+--- a/src/exm-detail-view.c
++++ b/src/exm-detail-view.c
+@@ -273,7 +273,10 @@ show_more_comments (GtkButton *button,
+     dlg = exm_comment_dialog_new (self->pk);
+     toplevel = gtk_widget_get_root (GTK_WIDGET (self));
+ 
+-    adw_dialog_present (ADW_DIALOG (dlg), GTK_WIDGET (toplevel));
++    gtk_window_set_transient_for (GTK_WINDOW (dlg), GTK_WINDOW (toplevel));
++    gtk_window_set_modal (GTK_WINDOW (dlg), TRUE);
++
++    gtk_window_present (GTK_WINDOW (dlg));
+ }
+ 
+ static void
+-- 
+2.43.0
+
+
+From 27ff5664e5f5f6c7401db436f188edcdf8d46b54 Mon Sep 17 00:00:00 2001
+From: Yuan Liao <liaoyuan@gmail.com>
+Date: Thu, 14 Mar 2024 10:44:58 -0400
+Subject: [PATCH 3/4] Revert "window: Port AdwMessageDialog to AdwAlertDialog"
+
+This reverts commit 3808e70cd75fe410d9a2e06ef54da024a7c29b2c.
+
+The reverted commit migrates the application to libadwaita 1.5; this
+should not have been done because libadwaita 1.5 has not been released.
+
+Signed-off-by: Yuan Liao <liaoyuan@gmail.com>
+---
+ src/exm-window.c | 56 +++++++++++++++++++++++++-----------------------
+ 1 file changed, 29 insertions(+), 27 deletions(-)
+
+diff --git a/src/exm-window.c b/src/exm-window.c
+index 96c91b9..5921247 100644
+--- a/src/exm-window.c
++++ b/src/exm-window.c
+@@ -123,11 +123,11 @@ typedef struct
+ } RemoveDialogData;
+ 
+ static void
+-extension_remove_dialog_response (AdwDialog        *dialog,
++extension_remove_dialog_response (GtkDialog        *dialog,
+                                   const char       *response,
+                                   RemoveDialogData *data)
+ {
+-    adw_dialog_force_close (dialog);
++    gtk_window_destroy (GTK_WINDOW (dialog));
+ 
+     if (strcmp(response, "yes") == 0)
+     {
+@@ -153,27 +153,28 @@ extension_remove (GtkWidget  *widget,
+ 
+     extension = exm_manager_get_by_uuid (self->manager, uuid);
+ 
+-    AdwDialog *dlg;
++    GtkWidget *dlg;
+ 
+-    dlg = adw_alert_dialog_new (_("Uninstall Extension?"),
+-                                _("The extension's features and functionality will no longer be accessible. Are you sure you want to uninstall?"));
++    dlg = adw_message_dialog_new (GTK_WINDOW (self),
++                                  _("Uninstall Extension?"),
++                                  _("The extension's features and functionality will no longer be accessible. Are you sure you want to uninstall?"));
+ 
+-    adw_alert_dialog_add_responses (ADW_ALERT_DIALOG (dlg),
+-                                    "no", _("_No"),
+-                                    "yes", _("_Yes"),
+-                                    NULL);
++    adw_message_dialog_add_responses (ADW_MESSAGE_DIALOG (dlg),
++                                      "no", _("_No"),
++                                      "yes", _("_Yes"),
++                                      NULL);
+ 
+-    adw_alert_dialog_set_response_appearance (ADW_ALERT_DIALOG (dlg), "yes", ADW_RESPONSE_DESTRUCTIVE);
++    adw_message_dialog_set_response_appearance (ADW_MESSAGE_DIALOG (dlg), "yes", ADW_RESPONSE_DESTRUCTIVE);
+ 
+-    adw_alert_dialog_set_default_response (ADW_ALERT_DIALOG (dlg), "no");
+-    adw_alert_dialog_set_close_response (ADW_ALERT_DIALOG (dlg), "no");
++    adw_message_dialog_set_default_response (ADW_MESSAGE_DIALOG (dlg), "no");
++    adw_message_dialog_set_close_response (ADW_MESSAGE_DIALOG (dlg), "no");
+ 
+     RemoveDialogData *data = g_new0 (RemoveDialogData, 1);
+     data->manager = g_object_ref (self->manager);
+     data->extension = g_object_ref (extension);
+ 
+     g_signal_connect (dlg, "response", G_CALLBACK (extension_remove_dialog_response), data);
+-    adw_dialog_present (dlg, GTK_WIDGET (self));
++    gtk_window_present (GTK_WINDOW (dlg));
+ }
+ 
+ static void
+@@ -195,11 +196,11 @@ typedef struct
+ } UnsupportedDialogData;
+ 
+ static void
+-extension_unsupported_dialog_response (AdwDialog             *dialog,
++extension_unsupported_dialog_response (GtkDialog             *dialog,
+                                        const char            *response,
+                                        UnsupportedDialogData *data)
+ {
+-    adw_dialog_force_close (dialog);
++    gtk_window_destroy (GTK_WINDOW (dialog));
+ 
+     if (strcmp(response, "yes") == 0)
+     {
+@@ -227,28 +228,29 @@ extension_install (GtkWidget  *widget,
+ 
+     if (warn)
+     {
+-        AdwDialog *dlg;
++        GtkWidget *dlg;
+ 
+-        dlg = adw_alert_dialog_new (_("Unsupported Extension"),
+-                                    _("This extension does not support your GNOME Shell version. It may cause errors if installed."));
++        dlg = adw_message_dialog_new (GTK_WINDOW (self),
++                                      _("Unsupported Extension"),
++                                      _("This extension does not support your GNOME Shell version. It may cause errors if installed."));
+ 
+-        adw_alert_dialog_add_responses (ADW_ALERT_DIALOG (dlg),
+-                                        "yes", _("_Install Anyway"),
+-                                        "no", _("_Go Back"),
+-                                        NULL);
++        adw_message_dialog_add_responses (ADW_MESSAGE_DIALOG (dlg),
++                                          "yes", _("_Install Anyway"),
++                                          "no", _("_Go Back"),
++                                          NULL);
+ 
+-        adw_alert_dialog_set_response_appearance (ADW_ALERT_DIALOG (dlg), "yes", ADW_RESPONSE_DESTRUCTIVE);
+-        adw_alert_dialog_set_response_appearance (ADW_ALERT_DIALOG (dlg), "no", ADW_RESPONSE_SUGGESTED);
++        adw_message_dialog_set_response_appearance (ADW_MESSAGE_DIALOG (dlg), "yes", ADW_RESPONSE_DESTRUCTIVE);
++        adw_message_dialog_set_response_appearance (ADW_MESSAGE_DIALOG (dlg), "no", ADW_RESPONSE_SUGGESTED);
+ 
+-        adw_alert_dialog_set_default_response (ADW_ALERT_DIALOG (dlg), "no");
+-        adw_alert_dialog_set_close_response (ADW_ALERT_DIALOG (dlg), "no");
++        adw_message_dialog_set_default_response (ADW_MESSAGE_DIALOG (dlg), "no");
++        adw_message_dialog_set_close_response (ADW_MESSAGE_DIALOG (dlg), "no");
+ 
+         UnsupportedDialogData *data = g_new0 (UnsupportedDialogData, 1);
+         data->manager = g_object_ref (self->manager);
+         data->uuid = g_strdup (uuid);
+ 
+         g_signal_connect (dlg, "response", G_CALLBACK (extension_unsupported_dialog_response), data);
+-        adw_dialog_present (dlg, GTK_WIDGET (self));
++        gtk_window_present (GTK_WINDOW (dlg));
+ 
+         return;
+     }
+-- 
+2.43.0
+
+
+From e2aedc3f7e8aaa214404d4dacf614186fc07e1be Mon Sep 17 00:00:00 2001
+From: Yuan Liao <liaoyuan@gmail.com>
+Date: Thu, 14 Mar 2024 10:45:05 -0400
+Subject: [PATCH 4/4] Revert "application: Port AdwAboutWindow to
+ AdwAboutDialog"
+
+This reverts commit 49ecc2b364e532d72fca090ba2b5b7f61f82195f.
+
+The reverted commit migrates the application to libadwaita 1.5; this
+should not have been done because libadwaita 1.5 has not been released.
+
+Signed-off-by: Yuan Liao <liaoyuan@gmail.com>
+---
+ src/exm-application.c | 24 +++++++++++++-----------
+ 1 file changed, 13 insertions(+), 11 deletions(-)
+
+diff --git a/src/exm-application.c b/src/exm-application.c
+index 1cd80b5..03c1995 100644
+--- a/src/exm-application.c
++++ b/src/exm-application.c
+@@ -177,43 +177,45 @@ exm_application_show_about (GSimpleAction *action,
+     GtkWindow *window = NULL;
+     const gchar *authors[] = {"Matthew Jakeman", NULL};
+ 
+-    AdwDialog *about_dialog;
++    GtkWidget *about_window;
+ 
+     g_return_if_fail (EXM_IS_APPLICATION (self));
+ 
+     window = gtk_application_get_active_window (GTK_APPLICATION (self));
+ 
+-    about_dialog = adw_about_dialog_new_from_appdata ("/com/mattjakeman/ExtensionManager/com.mattjakeman.ExtensionManager.metainfo.xml",
++    about_window = adw_about_window_new_from_appdata ("/com/mattjakeman/ExtensionManager/com.mattjakeman.ExtensionManager.metainfo.xml",
+                                                       strstr (APP_ID, ".Devel") == NULL ? APP_VERSION : NULL);
++    gtk_window_set_modal (GTK_WINDOW (about_window), TRUE);
++    gtk_window_set_transient_for (GTK_WINDOW (about_window), window);
+ 
+-    adw_about_dialog_set_version (ADW_ABOUT_DIALOG (about_dialog), APP_VERSION);
+-    adw_about_dialog_set_comments (ADW_ABOUT_DIALOG (about_dialog), _("Browse, install, and manage GNOME Shell Extensions."));
+-    adw_about_dialog_set_developers (ADW_ABOUT_DIALOG (about_dialog), authors);
+-    adw_about_dialog_set_translator_credits (ADW_ABOUT_DIALOG (about_dialog), _("translator-credits"));
+-    adw_about_dialog_set_copyright (ADW_ABOUT_DIALOG (about_dialog), "© 2022 Matthew Jakeman");
++    adw_about_window_set_version (ADW_ABOUT_WINDOW (about_window), APP_VERSION);
++    adw_about_window_set_comments (ADW_ABOUT_WINDOW (about_window), _("Browse, install, and manage GNOME Shell Extensions."));
++    adw_about_window_set_developers (ADW_ABOUT_WINDOW (about_window), authors);
++    adw_about_window_set_translator_credits (ADW_ABOUT_WINDOW (about_window), _("translator-credits"));
++    adw_about_window_set_copyright (ADW_ABOUT_WINDOW (about_window), "© 2022 Matthew Jakeman");
+ 
+     // Dependency Attribution
+-    adw_about_dialog_add_legal_section (ADW_ABOUT_DIALOG (about_dialog),
++    adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about_window),
+                                         "text-engine",
+                                         "Copyright (C) 2022 Matthew Jakeman",
+                                         GTK_LICENSE_MPL_2_0,
+                                         NULL);
+ 
+ #if WITH_BACKTRACE
+-    adw_about_dialog_add_legal_section (ADW_ABOUT_DIALOG (about_dialog),
++    adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about_window),
+                                         "libbacktrace",
+                                         "Copyright (C) 2012-2016 Free Software Foundation, Inc.",
+                                         GTK_LICENSE_BSD_3,
+                                         NULL);
+ #endif
+ 
+-    adw_about_dialog_add_legal_section (ADW_ABOUT_DIALOG (about_dialog),
++    adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about_window),
+                                         "blueprint",
+                                         "Copyright (C) 2021 James Westman",
+                                         GTK_LICENSE_LGPL_3_0,
+                                         NULL);
+ 
+-    adw_dialog_present (about_dialog, GTK_WIDGET (window));
++    gtk_window_present (GTK_WINDOW (about_window));
+ }
+ 
+ static void
+-- 
+2.43.0
+

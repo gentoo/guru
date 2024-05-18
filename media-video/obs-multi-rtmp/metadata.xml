@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>adel.ks@zegrapher.com</email>
+		<name>Adel KARA SLIMANE</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">sorayuki/obs-multi-rtmp</remote-id>
+		<bugs-to>https://github.com/sorayuki/obs-multi-rtmp/issues</bugs-to>
+	</upstream>
+	<use>
+		<flag name="qt">Use Qt functionality.</flag>
+		<flag name="obs-frontend-api">Use obs-frontend-api for UI functionality.</flag>
+	</use>
+</pkgmetadata>

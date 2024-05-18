@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <!-- maintainer-needed -->
+  <upstream>
+    <bugs-to>https://github.com/LedgerHQ/ledger-live/issues</bugs-to>
+    <changelog>
+      https://github.com/LedgerHQ/ledger-live/blob/develop/apps/ledger-live-desktop/CHANGELOG.md
+    </changelog>
+    <remote-id type="github">LedgerHQ/ledger-live</remote-id>
+  </upstream>
+</pkgmetadata>

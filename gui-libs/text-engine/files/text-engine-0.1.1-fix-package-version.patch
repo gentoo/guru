@@ -1,0 +1,25 @@
+From aac86863fbbf31c5ef557e5030e7a87f85db79af Mon Sep 17 00:00:00 2001
+From: Yuan Liao <liaoyuan@gmail.com>
+Date: Sat, 30 Jul 2022 07:24:51 -0700
+Subject: [PATCH] meson.build: Correct package version
+
+Bug: https://bugs.gentoo.org/860015
+Signed-off-by: Yuan Liao <liaoyuan@gmail.com>
+---
+ meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index dab9b8a..80a505b 100644
+--- a/meson.build
++++ b/meson.build
+@@ -1,5 +1,5 @@
+ project('text-engine', 'c',
+-          version: '0.1.0',
++          version: '0.1.1',
+     meson_version: '>= 0.50.0',
+   default_options: [ 'warning_level=2',
+                      'c_std=gnu11',
+-- 
+2.35.1
+

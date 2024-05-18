@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>zdanevich.vitaly@ya.ru</email>
+		<name>Vitaly Zdanevich</name>
+	</maintainer>
+	<longdescription lang="en">
+		tty-share is a very simple tool used to share your Linux/OSX terminal over the Internet. It is written in GO, results in a static cross-platform binary with no dependencies, and therefore will also work on your Raspberry Pi. The remote participant needs not setup, and they can join the session from the browser or from the terminal. The session can be shared either over the Internet, or only in the local network. When sharing it over the Internet (outside your NAT), tty-share will connect to proxy server that will mediate the communication between the participants. An instance of this server runs at tty-share.com, but you can run your own.
+
+		This is an alternative to tmate.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">elisescu/tty-share</remote-id>
+	</upstream>
+</pkgmetadata>

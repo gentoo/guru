@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Toni Spets</name>
+			<email>toni.spets@iki.fi</email>
+		</maintainer>
+		<changelog>https://github.com/hifi/heisenbridge/releases</changelog>
+		<bugs-to>https://github.com/hifi/heisenbridge/issues</bugs-to>
+		<remote-id type="github">hifi/heisenbridge</remote-id>
+		<remote-id type="pypi">heisenbridge</remote-id>
+	</upstream>
+</pkgmetadata>

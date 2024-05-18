@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>kurt@kmk-computers.de</email>
+    <name>Kurt Kanzenbach</name>
+  </maintainer>
+  <longdescription lang="en">
+    Logging library written in C.
+
+    Simple and easy to use logging library. You can log messages to the console,
+    a file, Syslog, journald or a callback function.
+
+    Yder is mono-thread, which mean that you can use only one instance of Yder
+    log at the same time in your program.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">babelouest/yder</remote-id>
+  </upstream>
+</pkgmetadata>

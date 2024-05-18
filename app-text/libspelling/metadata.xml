@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<doc>https://chergert.pages.gitlab.gnome.org/libspelling/libspelling-1/</doc>
+		<remote-id type="gnome-gitlab">chergert/libspelling</remote-id>
+	</upstream>
+	<use>
+		<flag name="enchant">Enable spellchecking using <pkg>app-text/enchant</pkg></flag>
+	</use>
+</pkgmetadata>

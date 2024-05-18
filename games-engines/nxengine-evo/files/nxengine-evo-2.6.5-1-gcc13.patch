@@ -1,0 +1,10 @@
+--- nxengine-evo-2.6.5-1.orig/src/siflib/sectStringArray.h
++++ nxengine-evo-2.6.5-1/src/siflib/sectStringArray.h
+@@ -3,6 +3,7 @@
+ #define _SECT_STRINGARRAY_H
+ #include <string>
+ #include <vector>
++#include <cstdint>
+ 
+ // the SectStringArray handler decodes sif sections which consist of an array
+ // of pascal strings. This includes SIF_SECTION_SHEETS and SIF_SECTION_DIRECTORY.

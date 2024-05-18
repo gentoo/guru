@@ -1,0 +1,24 @@
+Remove the different Werror flags we can find used
+Should fix https://bugs.gentoo.org/921663
+--- a/lib/external/pattern_language/cli/CMakeLists.txt
++++ b/lib/external/pattern_language/cli/CMakeLists.txt
+@@ -29,7 +29,7 @@ else()
+     find_package(CLI11 CONFIG QUIET)
+ endif()
+ 
+-target_compile_options(plcli PRIVATE -Wall -Wextra -Werror -Wno-unknown-pragmas -Wno-array-bounds)
++target_compile_options(plcli PRIVATE -Wall -Wextra -Wno-unknown-pragmas -Wno-array-bounds)
+ target_include_directories(plcli PUBLIC include ${CLI11_INCLUDE_DIRS})
+ target_link_libraries(plcli PRIVATE ${CLI11_LIBRARIES} ${NLOHMANN_JSON_LIBRARIES} libpl libpl-gen ${FMT_LIBRARIES})
+ 
+--- a/lib/external/pattern_language/lib/CMakeLists.txt
++++ b/lib/external/pattern_language/lib/CMakeLists.txt
+@@ -86,7 +86,7 @@ if (LIBPL_ENABLE_PRECOMPILED_HEADERS)
+ endif ()
+ 
+ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+-    target_compile_options(libpl PRIVATE -Wall -Wextra -Werror -Wpedantic -Wno-unknown-pragmas -Wno-array-bounds)
++    target_compile_options(libpl PRIVATE -Wall -Wextra -Wpedantic -Wno-unknown-pragmas -Wno-array-bounds)
+     if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+         target_compile_options(libpl PRIVATE -Wno-stringop-overflow)
+     endif()

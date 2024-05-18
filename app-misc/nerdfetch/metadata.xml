@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>rahul@sandhuservices.dev</email>
+		<name>Rahul Sandhu</name>
+	</maintainer>
+	<upstream>
+		<maintainer status="active">
+			<name>Kainoa Kanter</name>
+		</maintainer>
+		<bugs-to>https://github.com/ThatOneCalculator/NerdFetch/issues</bugs-to>
+		<remote-id type="github">ThatOneCalculator/NerdFetch</remote-id>
+	</upstream>
+</pkgmetadata>

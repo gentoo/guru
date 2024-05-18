@@ -1,0 +1,40 @@
+From 404fb66abd5db4ef4b824ec67c56887773c99962 Mon Sep 17 00:00:00 2001
+From: Marco Scardovi <marco@scardovi.com>
+Date: Sun, 27 Jun 2021 18:21:15 +0200
+Subject: [PATCH] patch makefile
+
+Signed-off-by: Marco Scardovi <marco@scardovi.com>
+---
+ Makefile | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 1daa431..bb27d0b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,17 +1,15 @@
+ VERSION	= 0.9.1
+ 
+-PREFIX	= /usr
++PREFIX	?= /usr
+ 
+-CC	= gcc
+-CFLAGS	= -W -Wall -Wextra -Werror \
+-	-DVERSION=\"$(VERSION)\" \
+-	-g
+-LDFLAGS =
++CC	?= gcc
++CFLAGS	?= -W -Wall -Wextra -Werror -g 
++LDFLAGS ?=
+ 
+ all: atinout
+ 
+ atinout: atinout.c
+-	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $^
++	$(CC) -o $@ $(CFLAGS) $(CPPFLAGS) -DVERSION=\"$(VERSION)\" $(LDFLAGS) $^
+ 
+ clean:
+ 	rm -f atinout
+-- 
+2.32.0
+

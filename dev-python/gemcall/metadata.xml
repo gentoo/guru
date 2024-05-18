@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<maintainer>
+			<name>Björn Wärmedal</name>
+			<email>bjorn.warmedal@gmail.com</email>
+		</maintainer>
+		<remote-id type="pypi">gemcall</remote-id>
+	</upstream>
+	<!-- maintainer-needed -->
+</pkgmetadata>

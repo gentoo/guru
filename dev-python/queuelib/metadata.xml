@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@aisha.cc</email>
+		<name>Aisha Tammy</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">scrapy/queuelib</remote-id>
+	</upstream>
+</pkgmetadata>

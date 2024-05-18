@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>navi@vlhl.dev</email>
+    <name>Anna Figueiredo Gomes</name>
+  </maintainer>
+  <upstream>
+    <changelog>https://github.com/virtual-puppet-project/vpuppr/releases</changelog>
+    <bugs-to>https://github.com/virtual-puppet-project/vpuppr/issues</bugs-to>
+    <remote-id type="github">virtual-puppet-project/vpuppr</remote-id>
+  </upstream>
+  <use>
+    <flag name="ifm-tracker">Enable the iFacialMocap tracker.</flag>
+    <flag name="meowface-tracker">Enable the MeowFace tracker.</flag>
+    <flag name="mouse-tracker">Enable the mouse tracker.</flag>
+    <flag name="osf-tracker">Enable the OpenSeeFace tracker.</flag>
+    <flag name="vts-tracker">Enable the VTubeStudio tracker.</flag>
+    <flag name="remote-control">Enable remote controlling the program.</flag>
+  </use>
+</pkgmetadata>
+

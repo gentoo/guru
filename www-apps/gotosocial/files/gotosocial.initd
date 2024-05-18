@@ -1,0 +1,42 @@
+#!/sbin/openrc-run
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+# shellcheck shell=sh disable=SC2034
+
+: ${GOTOSOCIAL_CONFIG:=/etc/gotosocial/config.yaml}
+
+extra_commands="adduser"
+description_adduser="create a user"
+
+description="GoToSocial Server"
+command="/usr/bin/gotosocial"
+command_args="--config-path ${GOTOSOCIAL_CONFIG} server start"
+command_user="gotosocial:gotosocial"
+command_background=yes
+pidfile="/run/gotosocial.pid"
+
+depend() {
+	need net
+	after postgresql
+}
+
+adduser() {
+	# handle Ctrl+C
+	trap "stty echo" INT
+
+	printf "Enter username: "
+	read username
+
+	printf "Enter email: "
+	read email
+
+	stty -echo
+	printf "Enter password: "
+	read password
+	stty echo
+
+	start-stop-daemon --exec "${command}" --user "${command_user}" -- \
+		--config-path "${GOTOSOCIAL_CONFIG}" admin account create \
+		--username "${username}" --email "${email}" --password "${password}"
+	return $?
+}

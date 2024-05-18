@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>rahul@sandhuservices.dev</email>
+		<name>Rahul Singh Sandhu</name>
+	</maintainer>
+	<use>
+		<flag name="drun">Desktop file mode</flag>
+		<flag name="windowmode">Window switcher mode</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">lbonn/rofi</remote-id>
+	</upstream>
+</pkgmetadata>

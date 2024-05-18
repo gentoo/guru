@@ -1,0 +1,26 @@
+From 4be4a956ad1a1ff767dcc91c88fac103d5780578 Mon Sep 17 00:00:00 2001
+From: Huang Rui <vowstar@gmail.com>
+Date: Fri, 15 Sep 2023 19:38:34 +0800
+Subject: [PATCHv1] external/CMakeLists.txt: fix gentoo libfmt depend
+
+Signed-off-by: Huang Rui <vowstar@gmail.com>
+---
+ external/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/external/CMakeLists.txt b/external/CMakeLists.txt
+index 9341eb2e2ffa..4ea7429a69a8 100644
+--- a/external/CMakeLists.txt
++++ b/external/CMakeLists.txt
+@@ -4,7 +4,7 @@
+ # ~~~
+ 
+ # Required minimum versions for dependencies
+-set(fmt_min_version "10.0")
++set(fmt_min_version "9.0")
+ set(mimalloc_min_version "2.1")
+ set(catch2_min_version "3.0")
+ 
+-- 
+2.42.0
+

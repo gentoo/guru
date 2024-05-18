@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>tiotags1@gmail.com</email>
+		<name>Alexandru Campeanu</name>
+	</maintainer>
+	<upstream>
+		<changelog>https://gitlab.com/tiotags/hin9/-/blob/master/docs/changes.md</changelog>
+		<bugs-to>https://gitlab.com/tiotags/hin9/-/issues</bugs-to>
+		<remote-id type="gitlab">tiotags/hin9</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		hinsightd is a http/1.1 webserver with a focus on simple code and
+		reliable behaviour.
+		Notable features: reverse proxying, output caching, ssl, pipelining,
+		cgi, output compression with deflate, graceful restart and a very
+		customizable config file using lua.
+	</longdescription>
+	<use>
+		<flag name="cgi">Enable old/slow cgi support (legacy should not be used)</flag>
+		<flag name="fcgi">Enable fast cgi support</flag>
+		<flag name="rproxy">Enable reverse proxying support</flag>
+		<flag name="ffcall">Use ffcall library for better logging format support</flag>
+	</use>
+</pkgmetadata>

@@ -1,0 +1,9 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of CUBELIB_STRATEGY USE_EXPAND flags.
+
+keepall - Set the data loading strategy to: keep all in memory, load on demand
+lastn - Set the data loading strategy to: keep last n rows in memory
+manual - Set the data loading strategy to: manual loading
+preload - Set the data loading strategy to: keep all in memory, preloaded

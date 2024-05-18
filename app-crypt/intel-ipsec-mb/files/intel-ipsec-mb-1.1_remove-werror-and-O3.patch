@@ -1,0 +1,122 @@
+diff --git a/lib/Makefile b/lib/Makefile
+index 065d2c1..2bc3a03 100644
+--- a/lib/Makefile
++++ b/lib/Makefile
+@@ -112,10 +112,10 @@ YASM_INCLUDES := $(foreach i,$(ASM_INCLUDE_DIRS),-I $i)
+ NASM_INCLUDES := $(foreach i,$(ASM_INCLUDE_DIRS),-I$i/)
+ ifneq ($(MINGW),0)
+ YASM_FLAGS := -f x64 -f win64 -X gnu -g dwarf2 -DWIN_ABI $(YASM_INCLUDES)
+-NASM_FLAGS := -Werror -fwin64 -Xvc -gcv8 -DWIN_ABI $(NASM_INCLUDES)
++NASM_FLAGS := -fwin64 -Xvc -gcv8 -DWIN_ABI $(NASM_INCLUDES)
+ else
+ YASM_FLAGS := -f x64 -f elf64 -X gnu -g dwarf2 -DLINUX -D__linux__ $(YASM_INCLUDES)
+-NASM_FLAGS := -Werror -felf64 -Xgnu -gdwarf -DLINUX -D__linux__ $(NASM_INCLUDES)
++NASM_FLAGS := -felf64 -Xgnu -gdwarf -DLINUX -D__linux__ $(NASM_INCLUDES)
+ endif
+ 
+ DEBUG_OPT ?= -O0
+@@ -153,7 +153,6 @@ endif
+ 
+ # prevent SIMD optimizations for non-aesni modules
+ CFLAGS_NO_SIMD = $(CFLAGS) -O1
+-CFLAGS += $(OPT)
+ 
+ # Set generic architectural optimizations
+ OPT_X86 := -msse4.2
+@@ -696,7 +695,7 @@ install: $(LIB_DIR)/$(LIBNAME)
+ 	install -m 0444 $(MAN2) $(MAN_DIR)
+ 	install -d $(LIB_INSTALL_DIR)
+ ifeq ($(SHARED),y)
+-	install -s -m $(LIBPERM) $(LIB_DIR)/$(LIBNAME) $(LIB_INSTALL_DIR)
++	install -m $(LIBPERM) $(LIB_DIR)/$(LIBNAME) $(LIB_INSTALL_DIR)
+ else
+ 	# must not strip symbol table for static libs
+ 	install -m $(LIBPERM) $(LIB_DIR)/$(LIBNAME) $(LIB_INSTALL_DIR)
+diff --git a/lib/win_x64.mak b/lib/win_x64.mak
+index a71d715..c5f07dc 100644
+--- a/lib/win_x64.mak
++++ b/lib/win_x64.mak
+@@ -110,7 +110,7 @@ LINK_TOOL = link
+ LINKFLAGS = $(DLFLAGS) /nologo /machine:X64
+ 
+ AS = nasm
+-AFLAGS = $(DAFLAGS) -Werror -fwin64 -Xvc -DWIN_ABI -Iinclude/ \
++AFLAGS = $(DAFLAGS) -fwin64 -Xvc -DWIN_ABI -Iinclude/ \
+ 	-I./ -Iavx/ -Iavx2/ -Iavx512/ -Isse/
+ 
+ # dependency
+diff --git a/perf/Makefile b/perf/Makefile
+index 2f578fe..bdae07a 100644
+--- a/perf/Makefile
++++ b/perf/Makefile
+@@ -40,9 +40,9 @@ CFLAGS = -D_GNU_SOURCE -DNO_COMPAT_IMB_API_053 $(INCLUDES) \
+ 
+ ifeq ($(MINGW),0)
+ CFLAGS += -DLINUX
+-NASM_FLAGS := -Werror -felf64 -Xgnu -gdwarf -DLINUX -D__linux__
++NASM_FLAGS := -felf64 -Xgnu -gdwarf -DLINUX -D__linux__
+ else
+-NASM_FLAGS := -Werror -fwin64 -Xvc -gcv8 -DWIN_ABI
++NASM_FLAGS := -fwin64 -Xvc -gcv8 -DWIN_ABI
+ endif
+ 
+ # if "-z ibt" is supported then assume "-z shstk, -z cet-report=error" are also supported
+@@ -57,7 +57,7 @@ CFLAGS += -fcf-protection=full
+ endif
+ 
+ ifeq ($(MINGW),0)
+-LDFLAGS = -fPIE -z noexecstack -z relro -z now -pthread
++LDFLAGS += -fPIE -z noexecstack -z relro -z now -pthread
+ endif
+ ifeq ($(CC_HAS_CET),1)
+ LDFLAGS += -fcf-protection=full -Wl,-z,ibt -Wl,-z,shstk -Wl,-z,cet-report=error
+diff --git a/perf/win_x64.mak b/perf/win_x64.mak
+index a388ff5..71e5f24 100644
+--- a/perf/win_x64.mak
++++ b/perf/win_x64.mak
+@@ -68,7 +68,7 @@ LNK = link
+ LFLAGS = /out:$(APP).exe $(DLFLAGS)
+ 
+ AS = nasm
+-AFLAGS = -Werror -fwin64 -Xvc -DWIN_ABI
++AFLAGS = -fwin64 -Xvc -DWIN_ABI
+ 
+ OBJECTS = ipsec_perf.obj msr.obj misc.obj
+ 
+diff --git a/test/Makefile b/test/Makefile
+index 93bae06..22fef57 100644
+--- a/test/Makefile
++++ b/test/Makefile
+@@ -60,15 +60,15 @@ endif
+ YASM_FLAGS := -f x64 -f elf64 -X gnu -g dwarf2 -DLINUX -D__linux__
+ ifeq ($(MINGW),0)
+ CFLAGS += -DLINUX
+-NASM_FLAGS := -Werror -felf64 -Xgnu -gdwarf -DLINUX -D__linux__
++NASM_FLAGS := -felf64 -Xgnu -gdwarf -DLINUX -D__linux__
+ else
+-NASM_FLAGS := -Werror -fwin64 -Xvc -gcv8 -DWIN_ABI
++NASM_FLAGS := -fwin64 -Xvc -gcv8 -DWIN_ABI
+ endif
+ 
+ ifeq ($(MINGW),0)
+-LDFLAGS = -fPIE -z noexecstack -z relro -z now
++LDFLAGS += -fPIE -z noexecstack -z relro -z now
+ else
+-LDFLAGS = -fPIE
++LDFLAGS += -fPIE
+ endif
+ 
+ ifeq ($(CC_HAS_CET),1)
+diff --git a/test/win_x64.mak b/test/win_x64.mak
+index e28e6a7..2e564a7 100644
+--- a/test/win_x64.mak
++++ b/test/win_x64.mak
+@@ -67,7 +67,7 @@ TEST_LFLAGS = /out:$(TEST_APP).exe $(DLFLAGS)
+ XVALID_LFLAGS = /out:$(XVALID_APP).exe $(DLFLAGS)
+ 
+ AS = nasm
+-AFLAGS = -Werror -fwin64 -Xvc -DWIN_ABI
++AFLAGS = -fwin64 -Xvc -DWIN_ABI
+ 
+ # dependency
+ !ifndef DEPTOOL

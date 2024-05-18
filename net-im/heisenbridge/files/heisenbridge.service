@@ -1,0 +1,12 @@
+[Unit]
+Description=a bouncer-style Matrix IRC bridge
+After=network.target
+
+[Service]
+User=heisenbridge
+Group=heisenbridge
+Restart=always
+ExecStart=/usr/bin/python -m heisenbridge -c ${REGISTRATION} -r -l ${LISTEN_ADDRESS} -p ${LISTEN_PORT} ${HOMESERVER}
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream><remote-id type="github">hugglesfox/loclone</remote-id></upstream>
+	<maintainer type="person">
+		<email>hayley@foxes.systems</email>
+		<name>Hayley Hughes</name>
+	</maintainer>
+	<longdescription lang="en">
+A tool to clone a disk image.
+
+Main features
+
+	- Utilises FICLONE to create a copy-on-write clone of the image
+	- Uses FIFREEZE if the image is mounted in order to ensure consistency of the image
+
+For further details see loclone(1).
+	</longdescription>
+</pkgmetadata>

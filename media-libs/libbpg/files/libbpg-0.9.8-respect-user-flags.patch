@@ -1,0 +1,42 @@
+Honor {C{,XX},LD}FLAGS from the user environment. Strip debugging flag -g
+preemtively to avoid "... adds uncommon flags" bugs such as
+https://bugs.gentoo.org/914187
+Author: Lucio Sauer <watermanpaint@posteo.net>
+--- a/Makefile
++++ b/Makefile
+@@ -38,6 +38,9 @@ EMCC=emcc
+ 
+ PWD:=$(shell pwd)
+ 
++GENTOO_CFLAGS:=${CFLAGS}
++GENTOO_CXXFLAGS:=${CXXFLAGS}
++
+ CFLAGS:=-Os -Wall -MMD -fno-asynchronous-unwind-tables -fdata-sections -ffunction-sections -fno-math-errno -fno-signed-zeros -fno-tree-vectorize -fomit-frame-pointer
+ CFLAGS+=-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_REENTRANT
+ CFLAGS+=-I.
+@@ -54,14 +57,12 @@ EMLDFLAGS+=-s NO_FILESYSTEM=1 -s NO_BROWSER=1
+ EMLDFLAGS+=-O3 --memory-init-file 0 --closure 0 --pre-js pre.js --post-js post.js
+ EMCFLAGS:=$(CFLAGS)
+ 
+-LDFLAGS=-g
+ ifdef CONFIG_APPLE
+ LDFLAGS+=-Wl,-dead_strip
+ else
+-LDFLAGS+=-Wl,--gc-sections
++LDFLAGS:=-Wl,--gc-sections ${LDFLAGS}
+ endif
+-CFLAGS+=-g
+-CXXFLAGS=$(CFLAGS)
++CXXFLAGS=$(CFLAGS) ${GENTOO_CXXFLAGS}
+ 
+ PROGS=bpgdec$(EXE) bpgenc$(EXE)
+ ifdef USE_BPGVIEW
+@@ -225,7 +226,7 @@ clean: x265_clean
+           $(addsuffix /*.a, $(CLEAN_DIRS))
+ 
+ %.o: %.c
+-	$(CC) $(CFLAGS) -c -o $@ $<
++	$(CC) $(CFLAGS) ${GENTOO_CFLAGS} -c -o $@ $<
+ 
+ %.o: %.cpp
+ 	$(CXX) $(CXXFLAGS) -c -o $@ $<

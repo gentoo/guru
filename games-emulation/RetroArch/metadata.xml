@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Rafael Rondão</name>
+		<email>rafael.rondao@gmail.com</email>
+	</maintainer>
+	<use>
+		<flag name="7zip">Compile in 7z support</flag>
+		<flag name="alsa">ALSA support</flag>
+		<flag name="cg">Cg shader support</flag>
+		<flag name="cheevos">Retro Achievements</flag>
+		<flag name="debug">Enable a debug build</flag>
+		<flag name="dispmanx">Dispmanx video support</flag>
+		<flag name="egl">EGL context support</flag>
+		<flag name="filters">Install audio/video filters</flag>
+		<flag name="ffmpeg">FFmpeg support</flag>
+		<flag name="gles2">Use GLESv2 instead of desktop GL</flag>
+		<flag name="gles3">OpenGLES3 support</flag>
+		<flag name="hid">Low-level HID (Human Interface Device) support</flag>
+		<flag name="jack">JACK support</flag>
+		<flag name="kms">KMS context support</flag>
+		<flag name="libass">SSA/ASS for FFmpeg subtitle support</flag>
+		<flag name="libusb">Libusb HID support</flag>
+		<flag name="materialui">MaterialUI menu</flag>
+		<flag name="network">Networking features (recommended)</flag>
+		<flag name="openal">OpenAL support</flag>
+		<flag name="opengl">OpenGL 2.0 support</flag>
+		<flag name="osmesa">Off-screen Mesa rendering</flag>
+		<flag name="oss">OSS support</flag>
+		<flag name="ozone">Ozone menu</flag>
+		<flag name="pulseaudio">PulseAudio support</flag>
+		<flag name="rgui">RGUI menu</flag>
+		<flag name="sdl">SDL support</flag>
+		<flag name="sdl2">SDL2 support (disables SDL 1.x)</flag>
+		<flag name="truetype">FreeType support</flag>
+		<flag name="threads">Threading support</flag>
+		<flag name="udev">Udev/Evdev gamepad support</flag>
+		<flag name="v4l2">Video4linux2 support</flag>
+		<flag name="videocore">Broadcom Videocore 4 support</flag>
+		<flag name="vulkan">Vulkan support</flag>
+		<flag name="wayland">Wayland support</flag>
+		<flag name="X">Everything X11</flag>
+		<flag name="xinerama">Xinerama support</flag>
+		<flag name="xmb">XMB menu</flag>
+		<flag name="xv">XVideo support</flag>
+		<flag name="zlib">zlib support (ZIP extract, PNG decoding/encoding)</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">libretro/RetroArch</remote-id>
+	</upstream>
+</pkgmetadata>

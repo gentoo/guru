@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintained-needed -->
+	<upstream>
+		<maintainer>
+			<name>ayushnix</name>
+		</maintainer>
+		<changelog>https://github.com/ayushnix/tessen/blob/master/CHANGELOG.md</changelog>
+		<doc>https://github.com/ayushnix/tessen/blob/master/README.md</doc>
+		<bugs-to>https://github.com/ayushnix/tessen/issues</bugs-to>
+		<remote-id type="github">ayushnix/tessen</remote-id>
+	</upstream>
+</pkgmetadata>

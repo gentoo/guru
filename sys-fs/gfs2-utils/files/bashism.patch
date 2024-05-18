@@ -1,0 +1,14 @@
+Description: Fix bashism in test script
+Author: Valentin Vidic <Valentin.Vidic@CARNet.hr>
+Last-Update: 2018-05-30
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/tests/rgrifieldscheck.sh
++++ b/tests/rgrifieldscheck.sh
+@@ -16,5 +16,5 @@
+ 		exit 1
+ 	fi
+ 
+-	test $field = ri_bitbytes && let i++
++	test $field = ri_bitbytes && i=$((i+1))
+ done

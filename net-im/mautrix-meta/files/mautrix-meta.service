@@ -1,0 +1,12 @@
+[Unit]
+Description=A Matrix-Meta puppeting bridge
+After=network.target
+
+[Service]
+User=mautrix-meta
+Group=mautrix
+Restart=always
+ExecStart=/usr/bin/mautrix-meta -c /etc/mautrix/mautrix_meta.yaml -r /var/lib/mautrix/meta/registration.yaml
+
+[Install]
+WantedBy=multi-user.target

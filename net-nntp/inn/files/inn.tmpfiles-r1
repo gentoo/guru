@@ -1,0 +1,2 @@
+d /run/news 0755 news news -
+d /var/tmp/news 0755 news news -

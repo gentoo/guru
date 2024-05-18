@@ -1,0 +1,81 @@
+#!/sbin/openrc-run
+# Copyright 2022-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+#
+# Derived from the rc.news shell script.
+# shellcheck shell=sh
+
+extra_commands="daily"
+extra_started_commands="reload"
+
+description_reload="Reload the INN configuration"
+description_daily="Perform daily Usenet maintenance tasks"
+
+command=/opt/inn/bin/innd
+command_args="${INND_OPTS}"
+pidfile=/run/news/innd.pid
+
+depend() {
+	need net
+	use ovsqlite innwatch cnfsstat
+}
+
+daily() {
+	ebegin "Executing news.daily"
+	/opt/inn/bin/news.daily ${INND_NEWSDAILY_OPTS}
+	eend $?
+}
+
+expirerm() {
+	local rmfile=/var/log/news/expire.rm
+	for f in ${rmfile} ${rmfile}.*; do
+		if [ -s "${f}" ]; then
+			/opt/inn/bin/expirerm "${f}"
+		fi
+	done
+}
+
+start_pre() {
+	local active=/var/db/news/active
+	local old_newsdaily=$(find /var/db/news/.news.daily -mtime +1 -print 2>/dev/null)
+	if [ ! -f /var/db/news/.news.daily ] || [ -n "${old_newsdaily}" ]; then
+		daily
+	fi
+
+	if [ -f ${pidfile} ] || [ -f /run/news/.rebuildoverview ] || [ ! -s ${active} ]; then
+		# active needs to be renumbered
+		command_args="${command_args} -r"
+	fi
+
+	# active file recovery
+	if [ ! -s ${active} ]; then
+		if [ -s ${active}.tmp ]; then
+			mv ${active}.tmp ${active} || return 1
+		elif [ -s ${active}.old ]; then
+			cp ${active}.old ${active} || return 1
+		else
+			eerror "${RC_SVCNAME} failed to start: ${active} does not exist"
+			return 1
+		fi
+	fi
+
+	# remove temporary batchfiles and lock files
+	rm -f /var/spool/news/outgoing/bch*
+	rm -f /run/news/LOCK*
+	rm -f /run/news/control /run/news/nntpin /run/news/.rebuildoverview
+
+	expirerm
+}
+
+stop() {
+	ebegin "Stopping ${RC_SVCNAME}"
+	/opt/inn/bin/ctlinnd throttle "OpenRC service stop"
+	/opt/inn/bin/ctlinnd shutdown "OpenRC service stop"
+	eend $?
+}
+
+reload() {
+	ebegin "Reloading innd configuration"
+	/opt/inn/bin/ctlinnd -t 20 reload "" "OpenRC service reload"
+	eend $?
+}

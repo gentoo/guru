@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<maintainer>
+			<name>Luis Lavena</name>
+			<email>luislavena@gmail.com</email>
+		</maintainer>
+		<remote-id type="github">luislavena/radix</remote-id>
+	</upstream>
+</pkgmetadata>

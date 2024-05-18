@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>contact@hacktivis.me</email>
+		<name>Haelwenn (lanodan) Monnier</name>
+	</maintainer>
+	<use>
+		<flag name="obstack">Use <pkg>sys-libs/obstack-standalone</pkg> for greater compatibility</flag>
+		<flag name="libucontext">Add support for ucontext functions via <pkg>sys-libs/libucontext</pkg></flag>
+	</use>
+</pkgmetadata>

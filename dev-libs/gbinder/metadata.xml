@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>denis7774@gmail.com</email>
+		<name>Denis Reva</name>
+		<description>rarogcmex</description>
+	</maintainer>
+	<longdescription lang="en">
+		Key features:
+
+		1. Integration with GLib event loop
+		2. Detection of 32 vs 64 bit kernel at runtime
+		3. Asynchronous transactions that don't block the event thread
+		4. Stable service manager and low-level transaction APIs
+
+		Android keeps changing both low-level RPC and service manager
+		protocols from version to version. To counter that, libgbinder
+		implements configirable backends for different variants of those,
+		and yet keeping its own API unchanged.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">mer-hybris/libgbinder</remote-id>
+	</upstream>
+</pkgmetadata>

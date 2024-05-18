@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>rmicielski@purelymail.com</email>
+		<name>Remigiusz Micielski</name>
+	</maintainer>
+	<use>
+		<flag name="ws">Build the ws utility</flag>
+	</use>
+	<slots>
+		<subslots>Correspond to SONAME</subslots>
+	</slots>
+	<upstream>
+		<remote-id type="github">machinezone/IXWebSocket</remote-id>
+	</upstream>
+</pkgmetadata>

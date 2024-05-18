@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo.kamal@tgf.pw</email>
+		<name>Kamal Abdellatif</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">xtensor-stack/xtensor</remote-id>
+		<doc>https://xtensor.readthedocs.io/en/latest/</doc>
+	</upstream>
+	<use>
+		<flag name="openmp">Enable parallel assignment loop using OpenMP</flag>
+		<flag name="tbb">Enable parallel assignment loop using dev-cpp/tbb</flag>
+		<flag name="xsimd">Enable SIMD accelaration using dev-cpp/xsimd</flag>
+	</use>
+</pkgmetadata>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>watermanpaint@posteo.net</email>
+    <name>Lucio Sauer</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">shabbyrobe/grpc-stubs</remote-id>
+    <remote-id type="pypi">grpc-stubs</remote-id>
+  </upstream>
+</pkgmetadata>

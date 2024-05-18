@@ -1,0 +1,25 @@
+From 5484f2df40aa362f01859049782a467439325c20 Mon Sep 17 00:00:00 2001
+From: "Haelwenn (lanodan) Monnier" <contact@hacktivis.me>
+Date: Sat, 17 Feb 2024 11:11:48 +0100
+Subject: [PATCH] run-check.sh: Don't hardcode cc, don't assume a.out output
+
+---
+ tests/run-check.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/run-check.sh b/tests/run-check.sh
+index c152289..c24973b 100755
+--- a/tests/run-check.sh
++++ b/tests/run-check.sh
+@@ -12,7 +12,7 @@
+ for test_file in *.c
+ do
+ 	tests_count="$((tests_count + 1))"
+-	if cc -Isrc -L. "$test_file" -l:libnewsraft.so && env LD_LIBRARY_PATH=. ./a.out; then
++	if ${CC:-cc} -Isrc -o ./a.out "$test_file" -L. -l:libnewsraft.so && env LD_LIBRARY_PATH=. ./a.out; then
+ 		echo "[OKAY] $test_file"
+ 		okays_count="$((okays_count + 1))"
+ 	else
+-- 
+2.43.0
+

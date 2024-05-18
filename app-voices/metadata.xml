@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<catmetadata>
+	<longdescription lang="en">
+		The app-voices category contains voice packages for text-to-speech software.
+	</longdescription>
+	<longdescription lang="ru">
+		Категория app-voices содержит пакеты голосов для синтезаторов речи.
+	</longdescription>
+</catmetadata>

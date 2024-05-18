@@ -1,0 +1,9 @@
+prefix=@PREFIX@
+exec_prefix=${prefix}
+includedir=${prefix}/include
+
+Name: pcg-cpp
+Description: Family of better random number generators
+URL: https://www.pcg-random.org
+Version: 0.98.1
+Cflags: -I${includedir}

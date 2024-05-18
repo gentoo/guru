@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<maintainer>
+			<name>Ali Naqvi</name>
+			<email>syed.alinaqvi@gmail.com</email>
+		</maintainer>
+		<remote-id type="github">naqvis/crystal-html5</remote-id>
+	</upstream>
+</pkgmetadata>

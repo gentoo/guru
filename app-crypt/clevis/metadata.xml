@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>julien@jroy.ca</email>
+		<name>Julien Roy</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">latchset/clevis</remote-id>
+	</upstream>
+	<use>
+		<flag name="luks">Enable LUKS support</flag>
+		<flag name="tpm">Enable TPM support</flag>
+	</use>
+</pkgmetadata>

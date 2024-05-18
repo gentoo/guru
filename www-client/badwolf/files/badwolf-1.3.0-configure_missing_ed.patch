@@ -1,0 +1,67 @@
+Combination of c1e09df4bda8fa4752e4cbd54474594eda7bcf88 and c8881b03457573b34c00ea8041b197241dda5c0b from upstream
+
+diff --git a/build.ninja b/build.ninja
+index ddc9223..9b3361b 100644
+--- a/build.ninja
++++ b/build.ninja
+@@ -23,7 +23,6 @@ rule install
+ 
+ include config.ninja
+ 
+-build po/manpage.pot: xgettext_man badwolf.1 | po/pot_license.ed
+ build icons/hicolor/scalable/apps/badwolf.svg: scour badwolf.svg
+ 
+ build uri_test: cc_exe uri_test.c uri.o
+diff --git a/configure b/configure
+index b145a3b..4ad8f12 100755
+--- a/configure
++++ b/configure
+@@ -148,7 +148,7 @@ pkg_config_check()
+ then
+ 	:
+ else
+-	echo 'Warning: Fixing copyright in po/*.pot files via ed(1) disabled'
++	echo 'Warning: Updating of *.pot translation files disabled, you may want to install ed(1)'
+ 	ED="false"
+ fi
+ 
+@@ -342,7 +342,7 @@ get_libs()
+ GETTEXT_OPTS = --copyright-holder="Badwolf Authors <https://hacktivis.me/projects/badwolf>" --package-name="Badwolf" --package-version="${VERSION_FULL}" --msgid-bugs-address="contact+badwolf-msgid@hacktivis.me"
+ 
+ rule xgettext
+-  command = \$XGETTEXT --keyword=_ --language=C --from-code=UTF-8 -o \$out --add-comments --sort-output --foreign-user --no-location --no-wrap \$GETTEXT_OPTS \$in && ed -s \$out <po/pot_license.ed
++  command = \$XGETTEXT --keyword=_ --language=C --from-code=UTF-8 -o \$out --add-comments --sort-output --foreign-user --no-location --no-wrap \$GETTEXT_OPTS \$in && \$ED -s \$out <po/pot_license.ed
+ 
+ rule msgmerge
+   # touch: msgmerge doesn't always updates timestamps
+@@ -350,8 +350,8 @@ get_libs()
+ 
+ rule xgettext_man
+   command = if test -e \$out; $
+-then po4a-updatepo --format man -M utf-8 --master \$in \$GETTEXT_OPTS --po \$out && ed -s \$out <po/pot_license.ed;$
+-else po4a-gettextize --format man -M utf-8 --master \$in \$GETTEXT_OPTS --po \$out && ed -s \$out <po/pot_license.ed;$
++then po4a-updatepo --format man -M utf-8 --master \$in \$GETTEXT_OPTS --po \$out && \$ED -s \$out <po/pot_license.ed;$
++else po4a-gettextize --format man -M utf-8 --master \$in \$GETTEXT_OPTS --po \$out && \$ED -s \$out <po/pot_license.ed;$
+ fi
+ 
+ rule cc_exe
+@@ -360,7 +360,6 @@ get_libs()
+ rule cc_obj
+   command = \$CC -std=c11 \$CFLAGS -include configure.h \$DEPS_cflags -c -o \$out \$in
+ 
+-build po/messages.pot: xgettext ${SRCS} | po/pot_license.ed
+ build badwolf: cc_exe ${OBJS}
+ 
+ EOF
+@@ -373,6 +372,11 @@ get_libs()
+ 	echo
+ done >>config.ninja
+ 
++if [ "$ED" != "false" ]; then
++	echo "build po/messages.pot: xgettext ${SRCS} | po/pot_license.ed"
++	echo 'build po/manpage.pot: xgettext_man badwolf.1 | po/pot_license.ed'
++fi >>config.ninja
++
+ for trans in ${TRANS}; do
+ 	echo "build po/${trans}.po: msgmerge po/messages.pot"
+ 	echo "build locale/${trans}/LC_MESSAGES/Badwolf.mo: po2mo po/${trans}.po"
