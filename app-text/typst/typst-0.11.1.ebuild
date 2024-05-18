@@ -409,3 +409,7 @@ src_install() {
 
 	einstalldocs
 }
+
+src_test() {
+	cargo_src_test --workspace
+}
