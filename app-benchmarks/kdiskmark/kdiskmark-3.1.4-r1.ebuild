@@ -19,6 +19,7 @@ DEPEND="dev-qt/qtcore:5
 	dev-qt/qtwidgets:5
 	dev-qt/linguist-tools:5
 	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
 	kde-frameworks/extra-cmake-modules
 	sys-auth/polkit-qt
 	sys-block/fio[aio]"
