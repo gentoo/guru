@@ -270,3 +270,6 @@ LICENSE="|| ( Apache-2.0 MIT )"
 LICENSE+=" Apache-2.0 BSD ISC MIT MPL-2.0 Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
+
+# Rust package
+QA_FLAGS_IGNORED="usr/bin/${PN}"
