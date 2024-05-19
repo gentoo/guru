@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>carana2099@gmail.com</email>
+		<description>Carlos E.</description>
+	</maintainer>
+	<longdescription>
+		This package is a minimalist implementation of containers for Linux, making secure
+		containers as easy to create and use as a traditional chroot. It comprises three
+		utilities, contain, inject and pseudo, which use the kernel support for user
+		namespaces merged in Linux 3.8.
+	</longdescription>
+	<use>
+		<flag name="suid">
+			allow unprivileged users to have multiple UIDs/GIDs in the container (see CVE-2014-8989 for implications)
+		</flag>
+	</use>
+	<upstream>
+		<bugs-to>mailto:chris@arachsys.com</bugs-to>
+		<remote-id type="github">arachsys/containers</remote-id>
+	</upstream>
+</pkgmetadata>
