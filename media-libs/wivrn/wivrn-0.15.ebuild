@@ -7,7 +7,7 @@ HOMEPAGE="https://github.com/meumeu/WiVRn"
 
 LICENSE="GPL-3 Apache-2.0 MIT"
 SLOT="0"
-IUSE="nvenc pipewire pulseaudio systemd vaapi wireshark-plugins x264"
+IUSE="nvenc +pipewire -pulseaudio systemd vaapi wireshark-plugins x264"
 REQUIRED_USE="|| ( nvenc vaapi x264 )"
 
 if [[ ${PV} == 9999 ]]; then
@@ -28,9 +28,6 @@ else
 fi
 
 RDEPEND="
-	nvenc? (
-		x11-drivers/nvidia-drivers
-	)
 	vaapi? (
 		media-video/ffmpeg[libdrm,vaapi]
 	)
@@ -56,9 +53,6 @@ RDEPEND="
 
 BDEPEND="
 	${RDEPEND}
-	nvenc? (
-		dev-util/nvidia-cuda-toolkit
-	)
 	dev-cpp/eigen
 	dev-cpp/nlohmann_json
 	dev-util/glslang
