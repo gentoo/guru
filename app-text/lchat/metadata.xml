@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>carana2099@gmail.com</email>
+    <description>Carlos Eduardo</description>
+  </maintainer>
+  <longdescription>
+    lchat (line chat) is a line oriented front end for ii-like chat programs.
+    It handles the input from keyboard and output file in parallel. Thus,
+    you are able to type messages while new chat lines are arriving. Its main
+    focus is on usability and simplicity.
+  </longdescription>
+  <use>
+    <flag name="examples">install the example indent .filter</flag>
+  </use>
+</pkgmetadata>
