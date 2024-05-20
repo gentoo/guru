@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<bugs-to>
+			https://github.com/amperser/proselint/issues
+		</bugs-to>
+		<changelog>
+			https://github.com/amperser/proselint/blob/main/CHANGELOG.md
+		</changelog>
+		<remote-id type="github">amperser/proselint</remote-id>
+		<remote-id type="pypi">proselint</remote-id>
+	</upstream>
+</pkgmetadata>
