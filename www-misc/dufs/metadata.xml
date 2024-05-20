@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<bugs-to>
+			https://github.com/sigoden/dufs/issues
+		</bugs-to>
+		<changelog>
+			https://github.com/sigoden/dufs/blob/main/CHANGELOG.md
+		</changelog>
+		<maintainer status="active">
+			<name>sigoden</name>
+			<email>sigoden@gmail.com</email>
+		</maintainer>
+		<remote-id type="github">sigoden/dufs</remote-id>
+	</upstream>
+</pkgmetadata>
