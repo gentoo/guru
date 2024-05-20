@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<bugs-to>
+			https://codeberg.org/newsraft/newsraft/issues
+		</bugs-to>
+		<remote-id type="codeberg">newsraft/newsraft</remote-id>
+	</upstream>
+</pkgmetadata>
