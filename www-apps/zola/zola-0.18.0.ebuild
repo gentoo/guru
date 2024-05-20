@@ -467,7 +467,7 @@ inherit cargo
 DESCRIPTION="A fast static site generator with everything built-in"
 # Double check the homepage as the cargo_metadata crate
 # does not provide this value so instead repository is used
-HOMEPAGE="https://getzola.org"
+HOMEPAGE="https://www.getzola.org/"
 SRC_URI="${CARGO_CRATE_URIS} https://github.com/getzola/zola/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 # License set may be more restrictive as OR is not respected
