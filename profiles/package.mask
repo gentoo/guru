@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmai.com> (2024-05-20)
+# Inactive upstream. No revdeps.
+# Removal on 2024/06/19
+dev-python/jsonpath-rw
+dev-python/jsonpath-rw-ext
+
 # Julien Roy <julien@jroy.ca> (2024-05-13)
 # Mask stale packages
 # These packages are abandoned by their maintainers and/or outdated
