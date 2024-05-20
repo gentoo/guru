@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<bugs-to>
+			https://github.com/lierdakil/pandoc-crossref/issues
+		</bugs-to>
+		<changelog>
+			https://github.com/lierdakil/pandoc-crossref/blob/master/CHANGELOG.md
+		</changelog>
+		<maintainer>
+			<name>Nikolay Yakimov</name>
+			<email>root@livid.pp.ru</email>
+		</maintainer>
+		<remote-id type="github">lierdakil/pandoc-crossref</remote-id>
+	</upstream>
+</pkgmetadata>
