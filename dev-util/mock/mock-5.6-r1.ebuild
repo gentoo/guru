@@ -55,6 +55,9 @@ src_prepare() {
 	sed -i -e "s|@VERSION@|${PV}|" docs/mock.1 docs/mock-parse-buildlog.1 || die
 
 	sed -i -e 's|"/bin/free"|"/usr/bin/free"|' py/mockbuild/plugins/hw_info.py || die
+
+	# bug #928266: remove unnecessary completion target for us
+	sed -i -e "s/ mock.py//" -e "s/ mock-parse-buildlog.py//" etc/bash_completion.d/mock || die
 }
 
 src_compile() { :; }
