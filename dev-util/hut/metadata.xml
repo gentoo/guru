@@ -6,8 +6,8 @@
 		<name>Alexis Praga</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="sourcehut">~emersion/hut</remote-id>
-		<remote-id type="github">apraga/hut-vendor</remote-id>
+		<remote-id type="sourcehut">~xenrox/hut</remote-id>
+		<remote-id type="github">cjbayliss/hut-vendor</remote-id>
 	</upstream>
 	<longdescription lang="en">
 		Hut is a command-line tool to interact with sourcehut. It can manage git repositories, builds, publish to pages and pastes.
