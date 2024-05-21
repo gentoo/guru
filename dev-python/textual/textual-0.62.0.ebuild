@@ -10,8 +10,9 @@ DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="
 	dev-python/mkdocstrings
 	dev-python/mkdocstrings-python
-	dev-python/mkdocs-material
 	dev-python/mkdocs-exclude
+	dev-python/mkdocs-git-revision-date-localized-plugin
+	dev-python/mkdocs-material
 	dev-python/mkdocs-rss-plugin
 	dev-python/pytz
 "
@@ -36,6 +37,7 @@ BDEPEND="
 		dev-python/httpx[${PYTHON_USEDEP}]
 		>=dev-python/textual-dev-1.2.0[${PYTHON_USEDEP}]
 		<dev-python/textual-dev-2.0.0[${PYTHON_USEDEP}]
+		dev-python/tree-sitter-languages[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/griffe[${PYTHON_USEDEP}]
 	)
@@ -63,5 +65,5 @@ python_compile_all() {
 
 pkg_postinst() {
 	optfeature "bindings for python" dev-python/tree-sitter
-	optfeature "support for [language]" dev-libs/tree-sitter-[language]
+	optfeature "support for all languages" dev-python/tree-sitter-languages
 }
