@@ -14,9 +14,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
 
+RDEPEND=">=dev-cpp/simdutf-5.2.0:="
+DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-cpp/fast_float
-	>=dev-cpp/simdutf-5.2.0:=
 	test? ( dev-cpp/gtest )
 "
 
