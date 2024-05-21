@@ -145,56 +145,9 @@ dev-nim/ws
 dev-nim/zedeus_redis
 dev-nim/zippy
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-20)
-# Depends on treecleaned dev-python/yapps.
-# Removal on 2024-05-20.
-sci-misc/linuxcnc
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-20)
-# Depends on treecleaned dev-libs/libchdr.
-# Removal on 2024-05-20.
-games-emulation/flycast
-
-# Kostadin Shishmanov <kocelfc@tutanota.com> (2024-04-20)
-# Was only needed for <app-misc/corectrl-1.4.0
-# Removal on 2024-05-20
-dev-cpp/easyloggingpp
-
-# Robert Greener <dev@greener.sh> (2024-04-18)
-# Superceded by media-fonts/nerdfonts[firacode]
-# Removal on 2024-05-18
-media-fonts/firacode-nerdfont
-
-# Robert Greener <dev@greener.sh> (2024-04-18)
-# Superceded by media-fonts/nerdfonts[iosevka]
-# Removal on 2024-05-18
-media-fonts/iosevka-nerdfont
-
-# Robert Greener <dev@greener.sh> (2024-04-18)
-# Superceded by media-fonts/nerdfonts[jetbrainsmono]
-# Removal on 2024-05-18
-media-fonts/jetbrainsmono-nerdfont
-
-# Robert Greener <dev@greener.sh> (2024-04-18)
-# Superceded by media-fonts/nerdfonts[robotomono]
-# Removal on 2024-05-18
-media-fonts/robotomono-nerdfont
-
-# Robert Greener <dev@greener.sh> (2024-04-18)
-# Superceded by media-fonts/nerdfonts[ubuntumono]
-# Removal on 2024-05-18
-media-fonts/ubuntumono-nerdfont
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
-
-# Julien Roy <julien@jroy.ca> (2024-03-19)
-# Per upstream, as of 2024-03-02:
-# "This bridge is deprecated. mautrix-meta is recommended instead."
-# net-im/mautrix-meta 0.2.0 is available in ::guru
-# Masked for removal in 60 days
-net-im/mautrix-facebook
 
 # Julien Roy <julien@jroy.ca> (2024-03-09)
 # Dracut fails to boot with Clevis 20
