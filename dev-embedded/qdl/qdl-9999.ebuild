@@ -12,11 +12,17 @@ EGIT_REPO_URI="https://github.com/andersson/qdl.git"
 LICENSE="BSD"
 SLOT="0"
 
+COMMON_DEPS="
+			dev-libs/libusb
+			dev-libs/libxml2"
+
+RDEPEND="${COMMON_DEPS}"
+
+DEPEND="${COMMON_DEPS}"
+
 BDEPEND="
 		virtual/pkgconfig
-		dev-libs/libusb
-		dev-libs/libxml2
-"
+		${COMMON_DEPS}"
 
 src_compile() {
 	PKG_CONFIG=$(tc-getPKG_CONFIG)
