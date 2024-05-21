@@ -15,6 +15,17 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+RDEPEND="
+	>=media-libs/mesa-[opengl(+)]
+	x11-libs/libXcursor
+	x11-libs/libXi
+	x11-libs/libXinerama
+	x11-libs/libXrandr
+"
+
+# Since is a binary package
+QA_PREBUILT="/opt/Lorien/Lorien.x86_64"
+
 src_install() {
 	#Copy Manual & Make a copy of the folder
 	cp "${FILESDIR}/manual_v${PV}.md" "${S}/manual_v${PV}.md"

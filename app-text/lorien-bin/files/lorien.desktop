@@ -8,5 +8,5 @@ StartupNotify=true
 Terminal=false
 Type=Application
 Icon=lorien
-Categories=Office;Godot
+Categories=Office
 MimeType=application/svg;
