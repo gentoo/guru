@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,11 +7,11 @@ inherit go-module
 
 DESCRIPTION="CLI tool for sourcehut"
 
-HOMEPAGE="https://sr.ht/~emersion/hut/"
+HOMEPAGE="https://sr.ht/~xenrox/hut/"
 
 SRC_URI="
-	https://git.sr.ht/~emersion/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/apraga/hut-vendor/releases/download/v${PV}/hut-${PV}-vendor.tar.xz
+	https://git.sr.ht/~xenrox/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/cjbayliss/hut-vendor/releases/download/v${PV}/hut-${PV}-vendor.tar.xz
 "
 
 S="${WORKDIR}/${PN}-v${PV}"
@@ -21,8 +21,6 @@ SLOT="0"
 
 KEYWORDS="~amd64"
 
-
-DEPEND="${RDEPEND}"
 BDEPEND="app-text/scdoc"
 
 src_compile() {
