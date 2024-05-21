@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	>=media-libs/mesa-[opengl(+)]
+	media-libs/mesa-[opengl(+)]
 	x11-libs/libXcursor
 	x11-libs/libXi
 	x11-libs/libXinerama
