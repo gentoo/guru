@@ -1,0 +1,76 @@
+From 36a5bd5a1aeccba392d9a764be0f7651d08d33ce Mon Sep 17 00:00:00 2001
+From: Adrian Ratiu <adrian.ratiu@collabora.com>
+Date: Mon, 20 May 2024 17:37:19 +0300
+Subject: [PATCH 1/3] meson: fix build based on Gentoo testing
+
+While releasing v0.5.1 upstream forgot to also bump the
+meson build version. :) The meson project version was
+also not set.
+
+There are also two discrepancies between meson and cmake:
+
+1. meson installs libtypec.so.1 whereas cmake installs
+libtypec.so.0.5.1.
+
+2. meson uses soversion = 0 for the ABI version while
+cmake uses 5.
+
+We fix these discrepancies so that mesan installs the
+same files as cmake.
+
+Upstream-Status: In progress [https://github.com/libtypec/libtypec/pull/1]
+
+Signed-off-by: Adrian Ratiu <adrian.ratiu@collabora.com>
+---
+ meson.build       | 13 +++++++++++--
+ utils/meson.build |  2 +-
+ 2 files changed, 12 insertions(+), 3 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index a581926..5512f77 100644
+--- a/meson.build
++++ b/meson.build
+@@ -1,14 +1,23 @@
+ project('libtypec','c',
+ license: 'MIT',
++version: '0.5.1',
+ default_options : [
+ 	'warning_level=0'])
+ 
+ conf_data = configuration_data()
+ conf_data.set('libtypec_VERSION_MAJOR', '0')
+ conf_data.set('libtypec_VERSION_MINOR', '5')
+-conf_data.set('libtypec_VERSION_PATCH', '0')
++conf_data.set('libtypec_VERSION_PATCH', '1')
+ 
++libudev_dep = dependency('libudev', required: true)
+ 
+ configure_file(input : 'libtypec_config.h.in', output : 'libtypec_config.h', configuration : conf_data)
+ 
+-both_libraries('typec', 'libtypec.c', 'libtypec_sysfs_ops.c', 'libtypec_dbgfs_ops.c',  soversion : '1')
+\ No newline at end of file
++library('typec',
++	'libtypec.c',
++	'libtypec_sysfs_ops.c',
++	'libtypec_dbgfs_ops.c',
++	version : '0.5.1',
++	soversion : '5',
++	dependencies: libudev_dep,
++)
+\ No newline at end of file
+diff --git a/utils/meson.build b/utils/meson.build
+index d901167..8519541 100644
+--- a/utils/meson.build
++++ b/utils/meson.build
+@@ -6,7 +6,7 @@ default_options : [
+ conf_data = configuration_data()
+ conf_data.set('libtypec_utils_VERSION_MAJOR', '0')
+ conf_data.set('libtypec_utils_VERSION_MINOR', '5')
+-conf_data.set('libtypec_utils_VERSION_PATCH', '0')
++conf_data.set('libtypec_utils_VERSION_PATCH', '1')
+ 
+ 
+ configure_file(input : 'libtypec_utils_config.h.in', output : 'libtypec_utils_config.h', configuration : conf_data)
+-- 
+2.44.1
+
