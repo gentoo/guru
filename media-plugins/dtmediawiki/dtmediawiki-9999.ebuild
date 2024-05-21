@@ -7,7 +7,7 @@ LUA_COMPAT=( lua5-4 )
 
 inherit git-r3 lua-single
 
-DESCRIPTION="Wikimedia Commons export plugin for Darktable"
+DESCRIPTION="Wikimedia Commons export plugin for Darktable. Always encode images"
 HOMEPAGE="https://github.com/trougnouf/dtMediaWiki"
 EGIT_REPO_URI="https://github.com/trougnouf/dtMediaWiki"
 
@@ -32,5 +32,7 @@ src_install() {
 pkg_postinst() {
 	einfo "To enable: `cat "$FILESDIR"/enable.sh`"
 	einfo "and go to Darktable preferences (gear ico on the top) -> at the bottom left click 'Lua options'"
-	einfo "to enter username and password"
+	einfo "to enter username and password."
+    einfo "Note that uploaded images always will be encoded - so"
+    einfo "no way to upload original file, see https://github.com/trougnouf/dtMediaWiki/issues/14#issuecomment-2122181739"
 }
