@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit git-r3
+LUA_COMPAT=( lua5-4 )
+
+inherit git-r3 lua-single
 
 DESCRIPTION="Wikimedia Commons export plugin for Darktable"
 HOMEPAGE="https://github.com/trougnouf/dtMediaWiki"
@@ -12,11 +14,14 @@ EGIT_REPO_URI="https://github.com/trougnouf/dtMediaWiki"
 LICENSE="GPL-3"
 SLOT="0"
 
-RDEPEND="
+DEPEND="
+	$LUA_DEPS
 	media-gfx/darktable[lua]
-	dev-lua/luasec[lua_targets_lua5-4]
-	dev-lua/luajson[lua_targets_lua5-4]
-	dev-lua/multipart-post[lua_targets_lua5-4]
+	$(lua_gen_cond_dep '
+		dev-lua/luasec[${LUA_USEDEP}]
+		dev-lua/luajson[${LUA_USEDEP}]
+		dev-lua/multipart-post[${LUA_USEDEP}]
+	')
 "
 
 src_install() {
