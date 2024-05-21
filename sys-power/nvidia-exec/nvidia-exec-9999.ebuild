@@ -19,7 +19,7 @@ fi
 DESCRIPTION="GPU switching without login out for Nvidia Optimus laptops under Linux"
 HOMEPAGE="https://github.com/pedro00dk/nvidia-exec"
 
-LICENSE="GPL"
+LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="
