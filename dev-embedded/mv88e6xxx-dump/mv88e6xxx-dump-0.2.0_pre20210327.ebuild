@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -18,7 +18,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 BDEPEND="virtual/pkgconfig"
-DEPEND="net-libs/libmnl:="
+RDEPEND="net-libs/libmnl:="
+DEPEND="${RDEPEND}"
 
 src_prepare() {
 	default
