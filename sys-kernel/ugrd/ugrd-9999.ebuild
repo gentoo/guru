@@ -13,7 +13,6 @@ EGIT_REPO_URI="https://github.com/desultory/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
 
 RDEPEND="
 	app-misc/pax-utils
