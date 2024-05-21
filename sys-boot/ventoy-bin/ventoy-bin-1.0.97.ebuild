@@ -20,9 +20,11 @@ RESTRICT="strip mirror"
 DEPEND="
 	sys-fs/dosfstools
 	sys-fs/exfat-utils
+	sys-fs/fuse-exfat
 	sys-block/parted
 "
-RDEPEND="${DEPEND}"
+# sys-fs/fuse-exfat is needed for mount, without it:
+# mount: /mnt: unknown filesystem type 'exfat'
 
 QA_PREBUILT="*" # Against "does not respect LDFLAGS"
 
