@@ -26,10 +26,14 @@ IUSE="test"
 
 RESTRICT="!test? ( test )"
 
-DEPEND="test? (
-	dev-cpp/gtest
-	dev-libs/simde
-)"
+RDEPEND="dev-libs/openssl:="
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-cpp/gtest
+		dev-libs/simde
+	)
+"
 BDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_any_dep 'dev-python/ply[${PYTHON_USEDEP}]')
