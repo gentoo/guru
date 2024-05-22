@@ -327,6 +327,11 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
+DEPEND="
+	sys-libs/zlib
+"
+RDEPEND="${DEPEND}"
+
 QA_FLAGS_IGNORED=".*"
 
 src_test() {
