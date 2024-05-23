@@ -15,6 +15,7 @@ KEYWORDS="~amd64"
 
 IUSE="man"
 RDEPEND="
+	dev-libs/glib
 	sys-libs/pam
 	x11-libs/gtk+:3[wayland]
 	gui-libs/gtk-session-lock
