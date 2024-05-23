@@ -27,6 +27,14 @@ RDEPEND="
 	media-libs/mesa[opengl]
 	sys-libs/pam
 	>=gui-wm/hyprland-0.35.0
+	dev-libs/glib
+	>=dev-libs/hyprlang-0.4.0
+	media-libs/libglvnd
+	x11-libs/cairo
+	x11-libs/libxkbcommon
+	x11-libs/libdrm
+	x11-libs/pango
+
 "
 DEPEND="
 	${RDEPEND}
@@ -34,11 +42,6 @@ DEPEND="
 "
 
 BDEPEND="
-	>=dev-libs/hyprlang-0.4.0
-	x11-libs/libxkbcommon
-	x11-libs/libdrm
-	x11-libs/cairo
-	x11-libs/pango
 	dev-build/cmake
 	dev-libs/date
 	virtual/pkgconfig
@@ -46,6 +49,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/0001-fix-CFLAGS-CXXFLAGS-hyprlock.patch"
+	"${FILESDIR}/0002-cmake-install-pam-file-fix.patch"
 )
 
 src_configure() {
