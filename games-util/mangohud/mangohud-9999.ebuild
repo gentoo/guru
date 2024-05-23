@@ -58,6 +58,7 @@ RDEPEND="
 	=media-libs/imgui-1.89.9*[opengl,vulkan,${MULTILIB_USEDEP}]
 	=media-libs/implot-0.16*[${MULTILIB_USEDEP}]
 	=dev-libs/spdlog-1.13.0*[${MULTILIB_USEDEP}]
+	dev-libs/libfmt[${MULTILIB_USEDEP}]
 	dev-cpp/nlohmann_json
 	dev-util/glslang
 	media-fonts/lato
