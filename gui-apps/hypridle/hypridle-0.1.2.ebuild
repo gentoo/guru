@@ -27,6 +27,8 @@ RDEPEND="
 	gui-libs/egl-wayland
 	media-libs/mesa[egl(+),gles2]
 	>=gui-wm/hyprland-0.35.0
+	dev-cpp/sdbus-c++
+    >=dev-libs/hyprlang-0.4.0
 "
 DEPEND="
 	${RDEPEND}
@@ -34,8 +36,8 @@ DEPEND="
 "
 
 BDEPEND="
-	>=dev-libs/hyprlang-0.4.0
-	dev-cpp/sdbus-c++
+	virtual/pkgconfig
+	dev-build/cmake
 "
 
 PATCHES=(
