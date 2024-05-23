@@ -16,7 +16,7 @@ DEPEND="${RDEPEND}"
 IUSE="+examples"
 
 src_compile() {
-	emake CC="$(tc-getCC)" CFLAGS="$CFLAGS" all $(usex examples filter/indent)
+	emake CC="$(tc-getCC)" CFLAGS="$CFLAGS" LIBS="-lgrapheme $LDFLAGS" all $(usex examples filter/indent)
 }
 
 src_install() {
