@@ -230,12 +230,18 @@ RDEPEND="
 	openrc? ( sys-apps/openrc[sysv-utils] )
 	gui-libs/gtk
 	gui-libs/greetd
+	dev-libs/glib
+ 	media-libs/graphene
+ 	x11-libs/cairo
+ 	x11-libs/gdk-pixbuf
+ 	x11-libs/pango
 "
 BDEPEND="
 	virtual/rust
-	media-libs/graphene
 "
 IUSE="systemd openrc"
+
+PATCHES="${FILESDIR}/ReGreet-0.1.1-cargo-lock-fix.diff"
 
 QA_FLAGS_IGNORED="usr/bin/regreet"
 
