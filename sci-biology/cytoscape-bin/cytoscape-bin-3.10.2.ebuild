@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -6,15 +6,15 @@ EAPI="8"
 inherit desktop java-pkg-2
 
 DESCRIPTION="A visualization platform for molecular interaction networks"
-HOMEPAGE="https://www.cytoscape.org/"
+HOMEPAGE="http://www.cytoscape.org/"
 SRC_URI="https://github.com/cytoscape/cytoscape/releases/download/${PV}/cytoscape-unix-${PV}.tar.gz"
-
-S="${WORKDIR}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RDEPEND=">=virtual/jre-11-r2"
+
+S="${WORKDIR}"
 
 src_install() {
 	MY_PN="cytoscape"
