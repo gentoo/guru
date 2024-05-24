@@ -25,7 +25,10 @@ SLOT="0"
 RDEPEND="
 	dev-libs/wayland
 	gui-libs/egl-wayland
-	media-libs/mesa[egl(+),gles2]
+	|| (
+		>=media-libs/mesa-24.1.0_rc1[opengl]
+		<media-libs/mesa-24.1.0_rc1[egl(+),gles2]
+	)
 	>=gui-wm/hyprland-0.35.0
 	dev-cpp/sdbus-c++
     >=dev-libs/hyprlang-0.4.0
