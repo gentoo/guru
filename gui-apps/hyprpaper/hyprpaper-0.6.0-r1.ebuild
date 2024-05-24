@@ -13,7 +13,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND="
+DEPEND="
 	dev-libs/hyprlang:=
 	dev-libs/wayland
 	dev-libs/wayland-protocols
@@ -21,6 +21,7 @@ BDEPEND="
 	dev-vcs/git
 "
 RDEPEND="
+	${DEPEND}
 	gui-libs/wlroots
 	media-libs/libglvnd
 	media-libs/libjpeg-turbo
