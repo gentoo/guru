@@ -8,6 +8,6 @@
 	<upstream>
 		<bugs-to>https://github.com/hyprwm/hyprpaper/issues</bugs-to>
 		<changelog>https://github.com/hyprwm/hyprpaper/releases</changelog>
-		<remote-id type="github">hypr/hyprpaper</remote-id>
+		<remote-id type="github">hyprwm/hyprpaper</remote-id>
 	</upstream>
 </pkgmetadata>
