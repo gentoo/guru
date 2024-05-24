@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit rpm
+inherit rpm xdg-utils
 
 DESCRIPTION="Beta Client for Proton Mail"
 HOMEPAGE="https://proton.me/mail"
@@ -15,7 +15,7 @@ LICENSE="freedist"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-QA_PREBUILT="opt/lib/.*"
+QA_PREBUILT="opt/proton-mail/*"
 
 src_install() {
 	into /opt
@@ -27,4 +27,12 @@ src_install() {
 	doins -r "${S}/usr/share/pixmaps"
 	doins -r "${S}/usr/share/applications"
 
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
 }
