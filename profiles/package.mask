@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Joe Kappus <joe@wt.gd> (2024-05-24)
+# Golang crap hosted on dead ipfs node without maintainer
+# Bug #884915, Removal on 2024/06/23
+net-p2p/ipfs-cluster
+
 # Takuya Wakazono <pastalian46@gmai.com> (2024-05-20)
 # Inactive upstream. No revdeps.
 # Removal on 2024/06/19
