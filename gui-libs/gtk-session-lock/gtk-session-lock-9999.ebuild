@@ -26,6 +26,7 @@ RESTRICT="!test? ( test )"
 
 REQUIRED_USE="vala? ( introspection )"
 DEPEND="
+	dev-libs/glib
 	x11-libs/gtk+:3[introspection?,wayland]
 	>=dev-libs/wayland-1.22.0
 	>=dev-libs/wayland-protocols-1.34
