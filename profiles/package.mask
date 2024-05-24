@@ -117,39 +117,6 @@ dev-python/evernote3
 dev-python/python-oauth2
 dev-python/oauth2
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-04-20)
-# With Twitter's complete removal of Guest Accounts, Nitter is dead and will
-# most likely stay so (https://github.com/zedeus/nitter/issues/1197).
-# also mask dependencies not claimed by anyone else
-# Removal on 2024-05-23.
-www-apps/nitter
-acct-user/nitter
-acct-group/nitter
-dev-nim/asynctools
-dev-nim/balls
-dev-nim/dotenv
-dev-nim/flatty
-dev-nim/frosty
-dev-nim/grok
-dev-nim/httpbeast
-dev-nim/jester
-dev-nim/jsony
-dev-nim/karax
-dev-nim/markdown
-dev-nim/nimcrypto
-dev-nim/npeg
-dev-nim/packedjson
-dev-nim/redpool
-dev-nim/sass
-dev-nim/supersnappy
-dev-nim/sync
-dev-nim/synthesis
-dev-nim/ups
-dev-nim/weave
-dev-nim/ws
-dev-nim/zedeus_redis
-dev-nim/zippy
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
