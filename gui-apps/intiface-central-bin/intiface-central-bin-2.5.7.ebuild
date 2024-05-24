@@ -16,11 +16,16 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	app-accessibility/at-spi2-core
+	dev-libs/glib
+	dev-libs/openssl:0/3
 	media-gfx/graphite2
+	media-libs/harfbuzz
 	sys-apps/dbus
 	sys-apps/systemd-utils
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:3[X]
-	dev-libs/openssl:0/3
+	x11-libs/pango
 "
 BDEPEND="app-arch/unzip"
 
