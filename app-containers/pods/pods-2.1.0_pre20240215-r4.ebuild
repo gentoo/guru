@@ -344,8 +344,12 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	dev-libs/glib
 	gui-libs/gtksourceview
+	gui-libs/libadwaita
 	gui-libs/vte
+	media-libs/graphene
+	x11-libs/pango
 "
 DEPEND="
 	dev-libs/glib
