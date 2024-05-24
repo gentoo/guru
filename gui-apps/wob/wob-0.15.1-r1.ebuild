@@ -18,10 +18,10 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	dev-libs/inih
 	dev-libs/wayland
+	seccomp? ( sys-libs/libseccomp )
 "
 DEPEND="${RDEPEND}
 	dev-libs/wayland-protocols
-	seccomp? ( sys-libs/libseccomp )
 "
 BDEPEND="
 	dev-util/wayland-scanner
