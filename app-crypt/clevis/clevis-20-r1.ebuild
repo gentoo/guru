@@ -24,7 +24,11 @@ DEPEND="
 	)
 	tpm? ( app-crypt/tpm2-tools )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	dev-libs/jansson
+	dev-libs/openssl:=
+"
 
 PATCHES=(
 	# Fix for systemd on Gentoo
