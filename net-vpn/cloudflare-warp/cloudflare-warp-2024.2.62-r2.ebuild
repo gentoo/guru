@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,6 +18,11 @@ IUSE="systemd +systray dex"
 RESTRICT="bindist mirror"
 RDEPEND="net-firewall/nftables
 	dex? ( net-libs/libpcap )
+	systray? (
+		x11-libs/gdk-pixbuf:2
+		x11-libs/gtk+:3
+		x11-libs/pango
+	)
 "
 
 QA_PREBUILT="/bin/warp-cli /bin/warp-dex /bin/warp-diag /bin/warp-svc /bin/warp-taskbar"
