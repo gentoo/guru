@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,14 +13,18 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND="
+RDEPEND="
 	dev-libs/wayland
+	x11-libs/cairo
+	x11-libs/pango
+"
+
+BDEPEND="
+	${RDEPEND}
 	dev-libs/wayland-protocols
 	dev-util/wayland-scanner
 	media-libs/libglvnd
 	media-libs/libjpeg-turbo
-	x11-libs/cairo
-	x11-libs/pango
 	x11-libs/libxkbcommon
 "
 
