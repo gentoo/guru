@@ -24,6 +24,7 @@ DEPEND="
 	dev-libs/wayland
 	<media-libs/fcft-4.0.0
 	>=media-libs/fcft-3.0.0
+	media-libs/fontconfig
 	x11-libs/libxkbcommon
 	x11-libs/pixman
 	cairo? ( x11-libs/cairo )
