@@ -24,13 +24,17 @@ fi
 LICENSE="MPL-2.0"
 SLOT="0"
 
-RDEPEND="virtual/rust
-		dev-libs/glib:2
-		media-libs/libepoxy
-		media-libs/mesa[opengl]
-		gui-libs/libadwaita
-		gui-libs/gtk:4
-		x11-libs/gdk-pixbuf:2
+RDEPEND="
+	virtual/rust
+	dev-libs/glib:2
+	media-libs/libepoxy
+	media-libs/mesa[opengl]
+	media-libs/graphene
+	gui-libs/libadwaita
+	gui-libs/gtk:4
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
+	x11-libs/pango
 "
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"

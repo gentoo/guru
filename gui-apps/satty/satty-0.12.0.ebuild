@@ -15,26 +15,26 @@ CRATES="
 	anstyle@1.0.6
 	anyhow@1.0.81
 	arrayvec@0.7.4
-	autocfg@1.1.0
-	backtrace@0.3.69
+	autocfg@1.2.0
+	backtrace@0.3.71
 	bitflags@1.3.2
 	bitflags@2.5.0
 	bumpalo@3.15.4
 	bytemuck@1.15.0
 	byteorder@1.5.0
-	bytes@1.5.0
+	bytes@1.6.0
 	cairo-rs@0.19.2
 	cairo-sys-rs@0.19.2
 	cc@1.0.90
 	cfg-expr@0.15.7
 	cfg-if@1.0.0
-	chrono@0.4.35
-	clap@4.5.3
+	chrono@0.4.37
+	clap@4.5.4
 	clap_builder@4.5.2
 	clap_complete@4.5.1
 	clap_complete_fig@4.5.0
 	clap_complete_nushell@4.5.1
-	clap_derive@4.5.3
+	clap_derive@4.5.4
 	clap_lex@0.7.0
 	color_quant@1.1.0
 	colorchoice@1.0.0
@@ -91,8 +91,8 @@ CRATES="
 	iana-time-zone@0.1.60
 	image@0.24.9
 	imgref@1.10.1
-	indexmap@2.2.5
-	itoa@1.0.10
+	indexmap@2.2.6
+	itoa@1.0.11
 	js-sys@0.3.69
 	khronos_api@2.2.0
 	lazy_static@1.4.0
@@ -103,8 +103,8 @@ CRATES="
 	lock_api@0.4.11
 	log@0.4.21
 	lru@0.12.3
-	memchr@2.7.1
-	memoffset@0.9.0
+	memchr@2.7.2
+	memoffset@0.9.1
 	miniz_oxide@0.7.2
 	mio@0.8.11
 	nanorand@0.7.0
@@ -116,7 +116,7 @@ CRATES="
 	pango@0.19.3
 	parking_lot@0.12.1
 	parking_lot_core@0.9.9
-	pin-project-lite@0.2.13
+	pin-project-lite@0.2.14
 	pin-utils@0.1.0
 	pkg-config@0.3.30
 	ppv-lite86@0.2.17
@@ -146,30 +146,30 @@ CRATES="
 	semver@1.0.22
 	serde@1.0.197
 	serde_derive@1.0.197
-	serde_json@1.0.114
+	serde_json@1.0.115
 	serde_spanned@0.6.5
 	shared_library@0.1.9
 	signal-hook-registry@1.4.1
 	slab@0.4.9
 	slotmap@1.0.7
-	smallvec@1.13.1
+	smallvec@1.13.2
 	socket2@0.5.6
 	spin@0.9.8
 	static_assertions@1.1.0
-	strsim@0.11.0
+	strsim@0.11.1
 	syn@1.0.109
-	syn@2.0.53
+	syn@2.0.58
 	system-deps@6.2.2
 	target-lexicon@0.12.14
 	thiserror-impl@1.0.58
 	thiserror@1.0.58
 	tokio-macros@2.2.0
-	tokio@1.36.0
+	tokio@1.37.0
 	toml@0.8.12
 	toml_datetime@0.6.5
 	toml_edit@0.19.15
 	toml_edit@0.21.1
-	toml_edit@0.22.8
+	toml_edit@0.22.9
 	tracing-attributes@0.1.27
 	tracing-core@0.1.32
 	tracing@0.1.40
@@ -246,13 +246,17 @@ fi
 LICENSE="MPL-2.0"
 SLOT="0"
 
-RDEPEND="virtual/rust
-		dev-libs/glib:2
-		media-libs/libepoxy
-		media-libs/mesa[opengl]
-		gui-libs/libadwaita
-		gui-libs/gtk:4
-		x11-libs/gdk-pixbuf:2
+RDEPEND="
+	virtual/rust
+	dev-libs/glib:2
+	media-libs/libepoxy
+	media-libs/mesa[opengl]
+	media-libs/graphene
+	gui-libs/libadwaita
+	gui-libs/gtk:4
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
+	x11-libs/pango
 "
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
