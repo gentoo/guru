@@ -1,0 +1,28 @@
+#!/sbin/openrc-run
+# Copyright 1999-2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="maubot daemon"
+description="A plugin-based Matrix bot system"
+module="maubot"
+
+pidfile="/run/${RC_SVCNAME}.pid"
+command="/usr/bin/python"
+command_args="-m ${module} -c /etc/maubot/${module}.yaml"
+command_background=true
+command_user="maubot:maubot"
+
+output_log="/var/log/maubot/maubot_daemon.log"
+error_log="/var/log/maubot/maubot_daemon.log"
+
+depend() {
+	need net
+}
+
+start_pre() {
+	checkpath -d -m 0755 -o "$command_user" /var/lib/maubot
+	checkpath -d -m 0755 -o "$command_user" /var/lib/maubot/plugins
+	checkpath -d -m 0755 -o "$command_user" /var/lib/maubot/logs
+	checkpath -d -m 0755 -o "$command_user" /var/lib/maubot/trash
+	checkpath -f -m 0644 -o "$command_user" "$output_log"
+}

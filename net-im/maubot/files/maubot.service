@@ -1,0 +1,12 @@
+[Unit]
+Description=A plugin-based Matrix bot system
+After=network.target
+
+[Service]
+User=maubot
+Group=maubot
+Restart=always
+ExecStart=/usr/bin/python -m maubot -c /etc/maubot/maubot.yaml
+
+[Install]
+WantedBy=multi-user.target
