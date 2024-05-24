@@ -14,6 +14,7 @@ SLOT="5"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 "
 DEPEND="${RDEPEND}"
