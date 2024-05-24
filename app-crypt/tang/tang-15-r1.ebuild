@@ -20,6 +20,7 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	acct-user/tang
+	dev-libs/jansson
 	net-misc/socat
 "
 BDEPEND="app-text/asciidoc"
