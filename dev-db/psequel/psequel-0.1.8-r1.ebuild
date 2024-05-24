@@ -16,8 +16,12 @@ KEYWORDS="~amd64"
 RDEPEND="
 	dev-db/postgresql
 	dev-db/pg_query_vala
+	dev-libs/glib
+	dev-libs/json-glib
 	gui-libs/gtk:4
+	gui-libs/gtksourceview
 	gui-libs/libadwaita:1
+	x11-libs/pango
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
