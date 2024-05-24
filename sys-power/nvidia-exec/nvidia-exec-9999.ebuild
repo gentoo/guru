@@ -3,10 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..12} )
-
-inherit distutils-r1 systemd
+inherit systemd
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -23,10 +20,10 @@ LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="
-		app-misc/jq
-		sys-apps/lshw
-		sys-process/lsof
-		x11-drivers/nvidia-drivers
+	dev-lang/python
+	sys-apps/lshw
+	sys-process/lsof
+	x11-drivers/nvidia-drivers
 "
 
 src_install() {
