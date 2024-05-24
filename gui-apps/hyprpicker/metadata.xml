@@ -8,6 +8,6 @@
 	<upstream>
 		<bugs-to>https://github.com/hyprwm/hyprpicker/issues</bugs-to>
 		<changelog>https://github.com/hyprwm/hyprpicker/releases</changelog>
-		<remote-id type="github">hypr/hyprpicker</remote-id>
+		<remote-id type="github">hyprwm/hyprpicker</remote-id>
 	</upstream>
 </pkgmetadata>
