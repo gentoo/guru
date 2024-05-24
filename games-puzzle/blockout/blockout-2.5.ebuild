@@ -18,6 +18,7 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	media-libs/alsa-lib
+	media-libs/libglvnd
 	media-libs/libsdl
 	media-libs/sdl-mixer
 	virtual/glu
