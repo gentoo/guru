@@ -21,6 +21,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-db/libpg_query
+	dev-libs/glib
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
