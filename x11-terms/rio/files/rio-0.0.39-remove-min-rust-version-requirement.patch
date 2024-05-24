@@ -1,0 +1,20 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -16,7 +16,6 @@
+ edition = "2021"
+ license = "MIT"
+ keywords = ["graphics", "terminal"]
+-rust-version = "1.77.2"
+ repository = "https://github.com/raphamorim/rio"
+ homepage = "https://raphamorim.io/rio"
+ documentation = "https://github.com/raphamorim/rio#readme"
+--- a/frontends/cross-winit/Cargo.toml
++++ b/frontends/cross-winit/Cargo.toml
+@@ -6,7 +6,6 @@
+ edition.workspace = true
+ license.workspace = true
+ keywords.workspace = true
+-rust-version.workspace = true
+ repository.workspace = true
+ homepage.workspace = true
+ documentation.workspace = true
