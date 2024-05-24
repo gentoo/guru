@@ -382,16 +382,19 @@ IUSE="wayland"
 DEPEND="
 	acct-group/input
 	dev-libs/openssl
+	sys-apps/dbus
 	x11-libs/wxGTK
 	wayland? (
 		x11-libs/libxkbcommon[wayland]
 	)
 	!wayland? (
 		x11-libs/libX11
+		x11-libs/libxcb
 		x11-libs/libXtst
 		x11-libs/libxkbcommon[X]
 	)
 "
+RDEPEND="${DEPEND}"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
