@@ -322,7 +322,7 @@ CRATES="
 	zvariant_utils@1.0.1
 	zxcvbn@2.2.2
 "
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=( python3_{9..13} )
 inherit cargo gnome2-utils meson python-single-r1 xdg
 
 DESCRIPTION="Keep your data safe"
@@ -350,6 +350,11 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	${PYTHON_DEPS}
+	dev-libs/glib
+	media-libs/graphene
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/pango
 "
 BDEPEND="
 	>=virtual/rust-1.75.0
