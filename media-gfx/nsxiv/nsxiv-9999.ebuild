@@ -23,7 +23,7 @@ IUSE="+statusbar +inotify exif debug"
 RDEPEND="
 	x11-libs/libX11
 	>=media-libs/imlib2-1.8.0[X]
-	statusbar? ( x11-libs/libXft )
+	statusbar? ( x11-libs/libXft media-libs/fontconfig )
 	exif? ( media-libs/libexif )
 "
 DEPEND="${RDEPEND}"
