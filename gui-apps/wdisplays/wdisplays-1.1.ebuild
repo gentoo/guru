@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -23,6 +23,7 @@ RESTRICT="mirror test"
 
 RDEPEND="
 	dev-libs/glib
+	dev-libs/wayland
 	media-libs/libepoxy
 	x11-libs/gtk+:3[wayland]
 	x11-libs/cairo
