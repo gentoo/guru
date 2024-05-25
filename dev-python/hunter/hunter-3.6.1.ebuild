@@ -7,11 +7,13 @@ DISTUTILS_EXT=1
 PYTHON_COMPAT=( python3_{11..12} )
 DISTUTILS_USE_PEP517=setuptools
 
-DOCS_BUILDER="sphinx"
-DOCS_DEPEND="dev-python/sphinx-py3doc-enhanced-theme"
-DOCS_DIR="docs"
+# Docs depend on dev-python/sphinx-py3doc-enhanced-theme
+# Which was treecleaned from ::gentoo
+# DOCS_BUILDER="sphinx"
+# DOCS_DEPEND="dev-python/sphinx-py3doc-enhanced-theme"
+# DOCS_DIR="docs"
 
-inherit distutils-r1 docs
+inherit distutils-r1 # docs
 
 DESCRIPTION="Hunter is a flexible code tracing toolkit"
 HOMEPAGE="
@@ -37,7 +39,7 @@ BDEPEND="
 	)
 "
 
-DOCS=( AUTHORS.rst CHANGELOG.rst README.rst )
+# DOCS=( AUTHORS.rst CHANGELOG.rst README.rst )
 
 PATCHES=(
 	# Upstream uses a custom file to define backend as setuptools
