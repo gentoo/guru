@@ -32,7 +32,12 @@ DEPEND="
 	x11-libs/gtk+:3
 	pulseaudio? ( media-libs/libpulse )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	x11-libs/cairo
+	x11-libs/pango
+"
+
 BDEPEND="
 	${PYTHON_DEPS}
 	$(vala_depend)

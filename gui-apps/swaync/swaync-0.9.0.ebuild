@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -31,7 +31,11 @@ DEPEND="
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	x11-libs/cairo
+	x11-libs/pango
+"
 BDEPEND="
 	$(vala_depend)
 	app-text/scdoc
