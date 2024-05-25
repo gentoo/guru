@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>negril.nx+gentoo@gmail.com</email>
+		<name>Paul Zander</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">DisplayLink/evdi</remote-id>
+	</upstream>
+	<use>
+		<flag name="python">Build PyEvdi</flag>
+	</use>
+</pkgmetadata>

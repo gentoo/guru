@@ -1,0 +1,22 @@
+diff --git a/library/evdi_lib.c b/library/evdi_lib.c
+index ec22b01..8618bc8 100644
+--- a/library/evdi_lib.c
++++ b/library/evdi_lib.c
+@@ -473,7 +473,8 @@ static bool is_correct_parent_device(const char *dirname, size_t dirname_maxlen,
+ {
+ 	char link_path[PATH_MAX];
+ 
+-	snprintf(link_path, MIN(PATH_MAX - 7, dirname_maxlen), "%s/device", dirname);
++	assert((strnlen(dirname, dirname_maxlen) + 7) < PATH_MAX);
++	snprintf(link_path, sizeof(link_path), "%s/device", dirname);
+ 
+ 	if (parent_device == NULL)
+ 		return access(link_path, F_OK) != 0;
+@@ -619,6 +620,7 @@ static enum evdi_device_status evdi_device_to_platform(int device, char *path)
+ 
+ 		snprintf(path, PATH_MAX,
+ 			"/sys/bus/platform/devices/%s", fd_entry->d_name);
++		assert((strnlen(path, PATH_MAX) + 5) < PATH_MAX);
+ 		snprintf(card_path, PATH_MAX, "%s/drm/card%d", path, device);
+ 		if (path_exists(card_path)) {
+ 			status = AVAILABLE;
