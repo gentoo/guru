@@ -6,11 +6,13 @@ EAPI=8
 PYTHON_COMPAT=( python3_{11..12} )
 DISTUTILS_USE_PEP517=setuptools
 
-DOCS_BUILDER="sphinx"
-DOCS_DEPEND="dev-python/sphinx-py3doc-enhanced-theme"
-DOCS_DIR="docs"
+# Docs depend on dev-python/sphinx-py3doc-enhanced-theme
+# Which was treecleaned from ::gentoo
+# DOCS_BUILDER="sphinx"
+# DOCS_DEPEND="dev-python/sphinx-py3doc-enhanced-theme"
+# DOCS_DIR="docs"
 
-inherit distutils-r1 docs
+inherit distutils-r1 # docs
 
 DESCRIPTION="py.test fixture for benchmarking code"
 HOMEPAGE="
@@ -23,7 +25,7 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DOCS=( {AUTHORS,CHANGELOG,README}.rst )
+# DOCS=( {AUTHORS,CHANGELOG,README}.rst )
 
 RDEPEND="
 	dev-python/py-cpuinfo[${PYTHON_USEDEP}]
