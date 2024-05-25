@@ -27,8 +27,10 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-distutils_enable_sphinx docs \
-	dev-python/sphinx-py3doc-enhanced-theme
+# Docs depend on dev-python/sphinx-py3doc-enhanced-theme
+# Which was treecleaned from ::gentoo
+# distutils_enable_sphinx docs \
+# 	dev-python/sphinx-py3doc-enhanced-theme
 
 EEPYTEST_DESELECT=(
 	# fails because error message text is slightly different
