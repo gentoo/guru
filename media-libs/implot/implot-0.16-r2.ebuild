@@ -18,7 +18,7 @@ LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
 
-DEPEND="
+RDEPEND="
 	media-libs/imgui
 "
 
