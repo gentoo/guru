@@ -7,7 +7,6 @@ inherit fcaps meson optfeature
 
 DESCRIPTION="SwayFX: Sway, but with eye candy!"
 HOMEPAGE="https://github.com/WillPower3309/swayfx"
-
 SRC_URI="https://github.com/WillPower3309/swayfx/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${PV}"
 
@@ -47,6 +46,8 @@ DEPEND+="
 "
 
 RDEPEND="
+	dev-libs/glib
+	dev-libs/libevdev
 	x11-misc/xkeyboard-config
 	${DEPEND}
 "
@@ -58,7 +59,7 @@ BDEPEND="
 BDEPEND+="man? ( >=app-text/scdoc-1.9.2 )"
 
 FILECAPS=(
-	cap_sys_nice usr/bin/sway # reflect "gui-wm/sway-1.9"
+	cap_sys_nice usr/bin/sway # reflect ">=gui-wm/sway-1.9"
 )
 
 src_configure() {
