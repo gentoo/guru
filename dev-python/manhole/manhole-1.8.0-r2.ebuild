@@ -6,11 +6,13 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10..12} pypy3 )
 DISTUTILS_USE_PEP517=setuptools
 
-DOCS_BUILDER="sphinx"
-DOCS_DEPEND="dev-python/sphinx-py3doc-enhanced-theme"
-DOCS_DIR="docs"
+# Docs depend on dev-python/sphinx-py3doc-enhanced-theme
+# Which was treecleaned from ::gentoo
+# DOCS_BUILDER="sphinx"
+# DOCS_DEPEND="dev-python/sphinx-py3doc-enhanced-theme"
+# DOCS_DIR="docs"
 
-inherit distutils-r1 docs
+inherit distutils-r1 # docs
 
 DESCRIPTION="Debugging manhole for python application"
 HOMEPAGE="
@@ -31,7 +33,7 @@ BDEPEND="
 	)
 "
 
-DOCS=( AUTHORS.rst CHANGELOG.rst README.rst )
+# DOCS=( AUTHORS.rst CHANGELOG.rst README.rst )
 
 PATCHES=(
 	"${FILESDIR}/importlib.patch"
