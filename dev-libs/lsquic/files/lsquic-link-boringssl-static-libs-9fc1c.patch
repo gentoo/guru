@@ -1,0 +1,154 @@
+Modify the BoringSSL library to be included internally during LSQUIC construction, so that the BoringSSL library does not need to be installed by itself on the system.
+BoringSSL must always be built as static, so we intentionally removed the code that builds it as shared.
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4c7b181..723a075 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -152,77 +152,6 @@ ELSE()
+     ENDIF()
+ ENDIF()
+ 
+-IF (NOT DEFINED BORINGSSL_INCLUDE AND DEFINED BORINGSSL_DIR)
+-    FIND_PATH(BORINGSSL_INCLUDE NAMES openssl/ssl.h
+-                PATHS ${BORINGSSL_DIR}/include
+-                NO_DEFAULT_PATH)
+-ENDIF()
+-# This must be done before adding other include directories to take
+-# precedence over header files from other SSL installs.
+-
+-IF (BORINGSSL_INCLUDE)
+-    MESSAGE(STATUS "BoringSSL include directory ${BORINGSSL_INCLUDE}")
+-    INCLUDE_DIRECTORIES(${BORINGSSL_INCLUDE})
+-ELSE()
+-    MESSAGE(FATAL_ERROR "BoringSSL headers not found")
+-ENDIF()
+-
+-IF (NOT DEFINED BORINGSSL_LIB AND DEFINED BORINGSSL_DIR)
+-    FOREACH(LIB_NAME ssl crypto)
+-        IF (CMAKE_SYSTEM_NAME STREQUAL Windows)
+-            FIND_LIBRARY(BORINGSSL_LIB_${LIB_NAME}
+-                NAMES ${LIB_NAME}
+-                PATHS ${BORINGSSL_DIR}/${LIB_NAME}
+-		PATH_SUFFIXES Debug Release MinSizeRel RelWithDebInfo
+-                NO_DEFAULT_PATH)
+-        ELSE()
+-            FIND_LIBRARY(BORINGSSL_LIB_${LIB_NAME}
+-                NAMES lib${LIB_NAME}${LIB_SUFFIX}
+-                PATHS ${BORINGSSL_DIR}/${LIB_NAME}
+-                NO_DEFAULT_PATH)
+-        ENDIF()
+-        IF(BORINGSSL_LIB_${LIB_NAME})
+-            MESSAGE(STATUS "Found ${LIB_NAME} library: ${BORINGSSL_LIB_${LIB_NAME}}")
+-        ELSE()
+-            MESSAGE(STATUS "${LIB_NAME} library not found")
+-        ENDIF()
+-    ENDFOREACH()
+-
+-ELSE()
+-
+-
+-    FOREACH(LIB_NAME ssl crypto)
+-        # If BORINGSSL_LIB is defined, try find each lib. Otherwise, user should define BORINGSSL_LIB_ssl,
+-        # BORINGSSL_LIB_crypto and so on explicitly. For example, including boringssl and lsquic both via
+-        # add_subdirectory:
+-        #   add_subdirectory(third_party/boringssl)
+-        #   set(BORINGSSL_LIB_ssl ssl)
+-        #   set(BORINGSSL_LIB_crypto crypto)
+-        #   add_subdirectory(third_party/lsquic)
+-        IF (DEFINED BORINGSSL_LIB)
+-            IF (CMAKE_SYSTEM_NAME STREQUAL Windows)
+-                FIND_LIBRARY(BORINGSSL_LIB_${LIB_NAME}
+-                    NAMES ${LIB_NAME}
+-                    PATHS ${BORINGSSL_LIB}
+-                    PATH_SUFFIXES Debug Release MinSizeRel RelWithDebInfo
+-                    NO_DEFAULT_PATH)
+-            ELSE()
+-                FIND_LIBRARY(BORINGSSL_LIB_${LIB_NAME}
+-                    NAMES lib${LIB_NAME}${LIB_SUFFIX}
+-                    PATHS ${BORINGSSL_LIB}
+-                    PATH_SUFFIXES ${LIB_NAME}
+-                    NO_DEFAULT_PATH)
+-            ENDIF()
+-        ENDIF()
+-        IF(BORINGSSL_LIB_${LIB_NAME})
+-            MESSAGE(STATUS "Found ${LIB_NAME} library: ${BORINGSSL_LIB_${LIB_NAME}}")
+-        ELSE()
+-            MESSAGE(FATAL_ERROR "BORINGSSL_LIB_${LIB_NAME} library not found")
+-        ENDIF()
+-    ENDFOREACH()
+-
+-ENDIF()
+-
+ SET(CMAKE_INCLUDE_CURRENT_DIR ON)
+ INCLUDE_DIRECTORIES(include)
+ IF(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD" OR CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+@@ -268,7 +197,7 @@ ELSE()
+     MESSAGE(STATUS "zlib not found")
+ ENDIF()
+ 
+-SET(LIBS lsquic ls-hpack ls-qpack ${BORINGSSL_LIB_ssl} ${BORINGSSL_LIB_crypto} ${ZLIB_LIB} ${LIBS})
++SET(LIBS lsquic ls-hpack ls-qpack ssl crypto ${ZLIB_LIB} ${LIBS})
+ 
+ IF (LSQUIC_BIN)
+     FIND_PATH(EVENT_INCLUDE_DIR NAMES event2/event.h)
+diff --git a/src/liblsquic/CMakeLists.txt b/src/liblsquic/CMakeLists.txt
+index be9a432..0bc806d 100644
+--- a/src/liblsquic/CMakeLists.txt
++++ b/src/liblsquic/CMakeLists.txt
+@@ -1,4 +1,7 @@
+ # Copyright (c) 2017 - 2022 LiteSpeed Technologies Inc.  See LICENSE.
++
++add_subdirectory(boringssl)
++
+ SET(lsquic_STAT_SRCS
+     lsquic_adaptive_cc.c
+     lsquic_alarmset.c
+@@ -83,6 +86,8 @@ SET(lsquic_STAT_SRCS
+     lsquic_version.c
+ )
+ 
++include_directories(boringssl/include)
++
+ IF(NOT MSVC)
+     SET(QPACK_FLAGS "-Wno-uninitialized")
+     INCLUDE(CheckCCompilerFlag)
+@@ -119,7 +124,7 @@ endif()
+ 
+ IF(LSQUIC_SHARED_LIB)
+   add_library(lsquic SHARED ${lsquic_STAT_SRCS})
+-  TARGET_LINK_LIBRARIES(lsquic PRIVATE ${BORINGSSL_LIB_ssl} ${BORINGSSL_LIB_crypto} ${ZLIB_LIB})
++  TARGET_LINK_LIBRARIES(lsquic PRIVATE ssl crypto ${ZLIB_LIB})
+   IF(MSVC)
+     SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DLSQUIC_EXPORTS")
+   TARGET_LINK_LIBRARIES(lsquic PRIVATE ws2_32.lib)
+diff --git a/src/liblsquic/boringssl/CMakeLists.txt b/src/liblsquic/boringssl/CMakeLists.txt
+index aac5f0d..37cbfa3 100644
+--- a/src/liblsquic/boringssl/CMakeLists.txt
++++ b/src/liblsquic/boringssl/CMakeLists.txt
+@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.10)
+ # Defer enabling C and CXX languages.
+ project(BoringSSL NONE)
+ 
++set(BUILD_SHARED_LIBS OFF)
++
+ # Don't install BoringSSL to system directories by default; it has no stable
+ # ABI. Instead, default to an "install" directory under the source.
+ if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+@@ -36,7 +38,7 @@ if(CMAKE_VERSION VERSION_LESS "3.14")
+ endif()
+ 
+ # Wrap the CMake install function so we can disable it.
+-set(INSTALL_ENABLED 1)
++set(INSTALL_ENABLED 0)
+ function(install_if_enabled)
+   if(INSTALL_ENABLED)
+     install(${ARGV})
+@@ -139,7 +141,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
+   # Note clang-cl is odd and sets both CLANG and MSVC. We base our configuration
+   # primarily on our normal Clang one.
+   # TODO(bbe) took out -Wmissing-field-initializers for pki - fix and put back or disable only for pki
+-  set(C_CXX_FLAGS "-Werror -Wformat=2 -Wsign-compare -Wwrite-strings -Wvla -Wshadow -Wtype-limits")
++  set(C_CXX_FLAGS "-Wformat=2 -Wsign-compare -Wwrite-strings -Wvla -Wshadow -Wtype-limits -fPIC")
+   if(MSVC)
+     # clang-cl sets different default warnings than clang. It also treats -Wall
+     # as -Weverything, to match MSVC. Instead -W3 is the alias for -Wall.
