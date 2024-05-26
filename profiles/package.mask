@@ -93,29 +93,12 @@ dev-python/hypothesmith
 # Masked for removal on 2024-05-28
 x11-terms/rio-terminfo
 
-# David Roman <davidroman96@gmail.com> (2024-04-27)
-# Only a live ebuild without tests, inactive for +4 years
-# The package consist only of a 20 line zsh script
-# Removal on 2024-05-26
-app-shells/zsh-silver
-
 # Lucio Sauer <watermanpaint@posteo.net> (2024-04-27)
 # Archived upstream, no revdeps, known security bugs, open downstream bugs
 # https://github.com/ad-oliviero/uwufetch/issues/257
 # https://github.com/ad-oliviero/uwufetch/issues/249
 # Removal on 2024-05-27
 app-misc/uwufetch
-
-# David Roman <davidroman96@gmail.com> (2024-04-27)
-# According to the maintainer it does no longer works
-# Removal on 2024-05-26
-dev-python/evernote3
-
-# David Roman <davidroman96@gmail.com> (2024-04-27)
-# Only needed by evernote2 and is deprecated and abandoned by upstream
-# Removal on 2024-05-26
-dev-python/python-oauth2
-dev-python/oauth2
 
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
