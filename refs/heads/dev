@@ -1,17 +1,13 @@
 certificate version 0.1
-pusher Alarig Le Lay <alarig@swordarmor.fr> 1716743078 +0200
-pushee git+ssh://git.gentoo.org/repo/proj/guru.git
-nonce 1716743078-3091e29448692ebeca01146b7b3fcc0518bd1e2e
+pusher 0x8004005FBF6C9DED 1716749701 -0500
+pushee git.gentoo.org:repo/proj/guru.git
+nonce 1716749700-656320b6506de2d69e2308668e3b7981985f828a
 
-584fdc12359792cc96dc4f24dd3296c02aa37087 3cd864d563c21931c983564ba029e1ed53f1e249 refs/heads/dev
+3cd864d563c21931c983564ba029e1ed53f1e249 928fbe932c3e29761596d15a2019041f11ff03c3 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQFJBAABCAAzFiEEiuHGca3ZRor448kqev5ixt+LzewFAmZTa6YVHGFsYXJpZ0Bz
-d29yZGFybW9yLmZyAAoJEHr+Ysbfi83syxwH/i+Au/397bloNAdV/njaAPifS+my
-5S94uo0J7alQOyVS+J8QFnfUwbZDcX2fz7BUSw1lSSmWujKFoIprD01eNvPfE871
-WulFwcf23XX+2sRyWS91rPSxUMJ8MKh5i/3UmlKpsjeKDHaWUvoba2x0QjDs75D8
-zh8+bKH98O40oRvb4he/8MWqTS6Pc8NrW1NmRN39AS+5XJGfqqWAEihf9bgWgSJw
-8AulzDfVfUu402hOcXSrc+gL5efM5aJdJ7pST1lGodl35tgCOuZNsn1dAJIRUjaK
-n2dxZBjmaTLLjQ6rU0IOF7WsOaUcLpPwte03drGm+JwERHuPI/iTAKk4m7M=
-=mymX
+iHUEABYKAB0WIQS4wdGXDiSiw3yUaeKABABfv2yd7QUCZlOFhQAKCRCABABfv2yd
+7XNCAP95joPnzpRy+b+psgSIFrJxxkm5BGnqT84S45ottfikCAD/Q7S85Zd+/fOU
+UKKzVYOFPTFhZgK4nJ9UDjwu6vrcdgw=
+=OguZ
 -----END PGP SIGNATURE-----
