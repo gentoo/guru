@@ -5,7 +5,6 @@ EAPI=8
 
 inherit cmake
 
-COMMIT="158c52c4a76cff7a1635be8ec1a4a369bc8674ed"
 DESCRIPTION="Hyprland's idle daemon"
 HOMEPAGE="https://github.com/hyprwm/hypridle"
 
@@ -14,8 +13,6 @@ if [[ "${PV}" = *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/hyprwm/${PN^}.git"
 else
 	SRC_URI="https://github.com/hyprwm/${PN^}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
-	S="${WORKDIR}/${PN}-${PV}"
-
 	KEYWORDS="~amd64"
 fi
 
@@ -23,15 +20,9 @@ LICENSE="BSD"
 SLOT="0"
 
 RDEPEND="
-	dev-libs/wayland
-	gui-libs/egl-wayland
-	|| (
-		>=media-libs/mesa-24.1.0_rc1[opengl]
-		<media-libs/mesa-24.1.0_rc1[egl(+),gles2]
-	)
-	>=gui-wm/hyprland-0.35.0
-	dev-cpp/sdbus-c++
+	dev-cpp/sdbus-c++:=
 	>=dev-libs/hyprlang-0.4.0
+	dev-libs/wayland
 "
 DEPEND="
 	${RDEPEND}
@@ -39,22 +30,10 @@ DEPEND="
 "
 
 BDEPEND="
+	dev-util/wayland-scanner
 	virtual/pkgconfig
-	dev-build/cmake
 "
 
 PATCHES=(
 	"${FILESDIR}/0001-fix-CFLAGS-CXXFLAGS-hypridle.patch"
 )
-
-src_configure() {
-	local mycmakeargs=(
-		-DCMAKE_BUILD_TYPE:STRING=Release
-	)
-
-	cmake_src_configure
-}
-
-src_install() {
-	cmake_src_install
-}
