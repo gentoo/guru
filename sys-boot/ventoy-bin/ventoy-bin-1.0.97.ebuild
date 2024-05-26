@@ -6,7 +6,7 @@ EAPI=8
 inherit desktop xdg
 
 DESCRIPTION="Creator of bootable USBs, with ability to copy ISOs, persistence storage"
-HOMEPAGE="http://www.ventoy.net"
+HOMEPAGE="https://www.ventoy.net"
 SRC_URI="https://github.com/ventoy/Ventoy/releases/download/v${PV}/ventoy-${PV}-linux.tar.gz"
 
 S="${WORKDIR}"/ventoy-${PV}
