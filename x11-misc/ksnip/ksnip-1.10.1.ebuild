@@ -24,6 +24,7 @@ RDEPEND="
 	dev-qt/qtxml:5
 	>=media-libs/kcolorpicker-0.2.0
 	>=media-libs/kimageannotator-0.6.1
+	<media-libs/kimageannotator-0.7.0
 	x11-libs/libX11
 	x11-libs/libxcb"
 DEPEND="${RDEPEND}
