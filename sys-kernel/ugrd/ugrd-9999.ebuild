@@ -32,10 +32,9 @@ src_install() {
 	newins examples/example.toml config.toml
 	# Create the kernel preinst.d directory if it doesn't exist
 	# Install the kernel preinst.d hook
-	keepdir /etc/kernel/preinst.d
-	exeinto /etc/kernel/preinst.d
+	exeinto /usr/lib/kernel/preinst.d
 	doexe hooks/installkernel/51-ugrd.install
-	exeinto /lib/kernel/install.d
+	exeinto /usr/lib/kernel/install.d
 	doexe hooks/kernel-install/51-ugrd.install
 	# Install bash autocomplete script
 	dobashcomp completion/ugrd
