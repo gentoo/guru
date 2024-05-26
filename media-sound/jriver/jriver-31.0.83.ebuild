@@ -23,9 +23,11 @@ RDEPEND="
 	app-arch/brotli
 	media-libs/alsa-lib
 	media-libs/libglvnd
+	sys-libs/zlib
 	x11-libs/gtk+
 	x11-libs/pango
 	x11-libs/libXrandr
+	x11-libs/libX11
 "
 
 QA_PREBUILT="*"
