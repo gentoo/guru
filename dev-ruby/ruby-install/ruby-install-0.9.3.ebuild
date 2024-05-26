@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Installs Ruby, JRuby, Rubinius, TruffleRuby (native / GraalVM), or mruby."
+DESCRIPTION="Installs Ruby, JRuby, Rubinius, TruffleRuby, or MRuby."
 HOMEPAGE="https://github.com/postmodern/ruby-install"
 SRC_URI="https://github.com/postmodern/ruby-install/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -27,10 +27,6 @@ RDEPEND="${DEPEND}
 	|| ( >=sys-devel/gcc-4.2 sys-devel/clang )"
 BDEPEND="test? ( dev-util/shunit2 )"
 
-PATCHES=(
-	"${FILESDIR}/${P}-fix-version.patch"
-)
-
 # BUG: `make check` fails: https://github.com/postmodern/ruby-install/issues/442
 src_test() {
 	emake test
@@ -39,7 +35,7 @@ src_test() {
 src_prepare() {
 	default
 
-	sed -i Makefile -e "s/^VERSION=.\+$/VERSION=${PVR}/" \
+	sed -i Makefile -e "s/^VERSION=${PV}$/VERSION=${PVR}/" \
 		|| die "Cannot fix doc location to follow Gentoo/FHS guidelines"
 }
 
