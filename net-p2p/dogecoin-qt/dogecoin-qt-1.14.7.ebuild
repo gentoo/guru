@@ -32,7 +32,7 @@ DEPEND="
 	dev-qt/qtnetwork
 	dev-qt/qtprintsupport
 	dev-qt/linguist-tools:=
-	>=dev-libs/boost-1.84.0-r3
+	<dev-libs/boost-1.85.0
 	wallet? ( media-gfx/qrencode )
 	zmq? ( net-libs/cppzmq )
 "
