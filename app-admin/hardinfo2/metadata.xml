@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  	<maintainer type="person">
-		<email>quincyf467@protonmail.com</email>
-		<name>Quincy Fleming</name>
-	</maintainer>
-	<use>
-		<flag name="benchmark">Install sysbench for benchmarking</flag>
-		<flag name="dmi">Install dmidecode for DMI</flag>
-		<flag name="gtk3">gtk+ user interface</flag>
-	</use>
-	<upstream>
-		<remote-id type="github">hardinfo2/hardinfo2</remote-id>
-		<doc lang="en">https://github.com/hardinfo2/hardinfo2/blob/master/README.md</doc>
-		<bugs-to>https://github.com/hardinfo2/hardinfo2/issues</bugs-to>
-	</upstream>
-	<longdescription lang="en">
-		Hardinfo2 is based on hardinfo, which has not been released for more than 10 years. 
-		Hardinfo2 is the reboot that was needed.
+  <maintainer type="person">
+    <email>quincyf467@protonmail.com</email>
+    <name>Quincy Fleming</name>
+  </maintainer>
+  <use>
+    <flag name="benchmark">Install sysbench for benchmarking</flag>
+    <flag name="dmi">Install dmidecode for DMI</flag>
+    <flag name="gtk3">gtk+ user interface</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">hardinfo2/hardinfo2</remote-id>
+    <doc lang="en">https://github.com/hardinfo2/hardinfo2/blob/master/README.md</doc>
+    <bugs-to>https://github.com/hardinfo2/hardinfo2/issues</bugs-to>
+  </upstream>
+  <longdescription lang="en">
+    Hardinfo2 is based on hardinfo, which has not been released for more than 10 years. 
+    Hardinfo2 is the reboot that was needed.
 
-		Hardinfo2 offers System Information and Benchmark for Linux Systems.
-		It is able to obtain information from both hardware and basic software. 
-		It can benchmark your system and compare to other machines online.
-	</longdescription>
+    Hardinfo2 offers System Information and Benchmark for Linux Systems.
+    It is able to obtain information from both hardware and basic software. 
+    It can benchmark your system and compare to other machines online.
+  </longdescription>
 </pkgmetadata>
