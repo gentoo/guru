@@ -20,3 +20,7 @@ QA_PREBUILT="usr/bin/$PN"
 src_install() {
 	newbin totp-cli ${PN}
 }
+
+pkg_postinst() {
+	einfo "For a more mature TOTP you can try app-admin/keepassxc, cli included"
+}
