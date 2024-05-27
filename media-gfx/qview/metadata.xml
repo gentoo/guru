@@ -10,7 +10,7 @@
 			<name>jurplel</name>
 			<email>jurplel@interversehq.com</email>
 		</maintainer>
-		<changelog>https://interversehq.com/qview/changelog</changelog>
+		<changelog>https://interversehq.com/qview/changelog/</changelog>
 		<doc>https://github.com/jurplel/qView/wiki</doc>
 		<bugs-to>https://github.com/jurplel/qView/issues</bugs-to>
 		<remote-id type="github">jurplel/qView</remote-id>
