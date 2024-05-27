@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake xdg-utils
 
 DESCRIPTION="System Information and Benchmark for Linux Systems"
 HOMEPAGE="https://www.hardinfo2.org"
