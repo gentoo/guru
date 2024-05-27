@@ -29,6 +29,11 @@ BDEPEND="
 	test? ( dev-cpp/gtest )
 "
 
+PATCHES=(
+	# bug #932784
+	"${FILESDIR}/${P}-unset-compiler.patch"
+)
+
 src_prepare() {
 	cmake_src_prepare
 	use test || cmake_comment_add_subdirectory tests/
