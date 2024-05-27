@@ -1,0 +1,16 @@
+Disable parallel make jobs so that `st_crypt.h` can find `<cryptlib.h>`.
+As of writing, I have no idea how to fix this otherwise.
+
+From: Seth M. Price <sprice623@aol.com>
+
+--- a/src/syncterm/GNUmakefile
++++ b/src/syncterm/GNUmakefile
+@@ -96,6 +96,8 @@ ifndef bcc
+  endif
+ endif
+ 
++.NOTPARALLEL:
++
+ $(MTOBJODIR)$(DIRSEP)ciolib_res$(OFILE):
+ 	cd ${MTOBJODIR} && $(AR) -x ../${CIOLIB-MT} ciolib_res$(OFILE)
+ 

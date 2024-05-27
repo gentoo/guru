@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Seth M. Price</name>
+		<email>sprice623@aol.com</email>
+	</maintainer>
+	<longdescription lang="en">
+		A cross-platform ANSI-BBS terminal designed to connect to
+		remote BBSs via telnet, rlogin, or SSH. Supports ANSI music
+		and the IBM charset when possible. Will run from a console,
+		under X11 using XLib, or using SDL.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://sourceforge.net/p/syncterm/tickets/</bugs-to>
+		<remote-id type="sourceforge">syncterm</remote-id>
+	</upstream>
+</pkgmetadata>
