@@ -93,13 +93,6 @@ dev-python/hypothesmith
 # Masked for removal on 2024-05-28
 x11-terms/rio-terminfo
 
-# Lucio Sauer <watermanpaint@posteo.net> (2024-04-27)
-# Archived upstream, no revdeps, known security bugs, open downstream bugs
-# https://github.com/ad-oliviero/uwufetch/issues/257
-# https://github.com/ad-oliviero/uwufetch/issues/249
-# Removal on 2024-05-27
-app-misc/uwufetch
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
