@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 
 RESTRICT="strip"
 
-QA_PREBUILT="usr/bin/totp-cli"
+QA_PREBUILT="usr/bin/$PN"
 
 src_install() {
 	newbin totp-cli ${PN}
