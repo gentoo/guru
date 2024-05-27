@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>zdanevich.vitaly@ya.ru</email>
+		<name>Vitaly Zdanevich</name>
+	</maintainer>
+	<longdescription lang="en">This is a simple TOTP (Time-based One-time Password) CLI tool. TOTP is the most common mechanism for 2FA (Two-Factor-Authentication). You can manage and organize your accounts with namespaces and protect your data with a password.</longdescription>
+	<upstream>
+		<remote-id type="github">yitsushi/totp-cli</remote-id>
+	</upstream>
+</pkgmetadata>
