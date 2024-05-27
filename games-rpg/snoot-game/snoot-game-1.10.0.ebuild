@@ -9,8 +9,8 @@ inherit python-single-r1 desktop wrapper
 MY_PV="Patch10-KurwaBobr"
 
 DESCRIPTION="Visual novel parody of Goodbye Volcano High"
-HOMEPAGE="https://snootgame.xyz/"
-SRC_URI="https://snootgame.xyz/bin/SnootGame-${MY_PV}-linux.tar.bz2"
+HOMEPAGE="https://snootgame.xyz/en"
+SRC_URI="https://snootgame.xyz/en/bin/SnootGame-${MY_PV}-linux.tar.bz2"
 
 S="${WORKDIR}/SnootGame-${MY_PV}-linux/"
 
