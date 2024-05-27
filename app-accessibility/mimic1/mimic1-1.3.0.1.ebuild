@@ -26,7 +26,7 @@ DEPEND="
 	dev-libs/hts_engine
 	alsa? ( media-libs/alsa-lib )
 	portaudio? ( media-libs/portaudio )
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-libs/libpulse )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
