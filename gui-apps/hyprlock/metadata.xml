@@ -6,9 +6,9 @@
 		<name>Gonçalo Negrier Duarte</name>
 	</maintainer>
 	<upstream>
-		<changelog>https://github.com/hyprwm/hyrlock/releases</changelog>
+		<changelog>https://github.com/hyprwm/hyprlock/releases</changelog>
 		<doc>https://wiki.hyprland.org/Hypr-Ecosystem/hyprlock/</doc>
-		<bugs-to>https://github.com/hyprwm/hyrlock/issues</bugs-to>
+		<bugs-to>https://github.com/hyprwm/hyprlock/issues</bugs-to>
 		<remote-id type="github">hyprwm/hyprlock</remote-id>
 	</upstream>
 </pkgmetadata>
