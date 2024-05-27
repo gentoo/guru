@@ -1,0 +1,102 @@
+--- b/build/build.ninja
++++ b/build/build.ninja
+@@ -14,7 +14,7 @@
+     make/code_format.lua
+ rule c_source_bee
+   command = $cc -MMD -MT $out -MF $out.d -std=c11 -O2 -Wall $
+-    -fvisibility=hidden -I$builddir/lua54 -DNDEBUG -fPIC -o $out -c $in
++    -fvisibility=hidden -I$builddir/lua54 -DNDEBUG -fPIC -o $out -c $in CFLAGS
+   description = Compile C   $out
+   deps = gcc
+   depfile = $out.d
+@@ -22,14 +22,14 @@
+     3rd/bee.lua/3rd/lua-seri/lua-seri.c
+ rule cxx_source_bee
+   command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
+-    -fvisibility=hidden -DNDEBUG -fPIC -o $out -c $in
++    -fvisibility=hidden -DNDEBUG -fPIC -o $out -c $in CXXFLAGS
+   description = Compile C++ $out
+   deps = gcc
+   depfile = $out.d
+ build $obj/source_bee/format.obj: cxx_source_bee 3rd/bee.lua/3rd/fmt/format.cc
+ rule cxx_source_bee_1
+   command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
+-    -fvisibility=hidden -I3rd/bee.lua -DNDEBUG -fPIC -o $out -c $in
++    -fvisibility=hidden -I3rd/bee.lua -DNDEBUG -fPIC -o $out -c $in CXXFLAGS
+   description = Compile C++ $out
+   deps = gcc
+   depfile = $out.d
+@@ -65,7 +65,7 @@
+ rule cxx_source_bee_2
+   command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
+     -fvisibility=hidden -I3rd/bee.lua -I$builddir/lua54 -DBEE_STATIC $
+-    -DNDEBUG -fPIC -o $out -c $in
++    -DNDEBUG -fPIC -o $out -c $in CXXFLAGS
+   description = Compile C++ $out
+   deps = gcc
+   depfile = $out.d
+@@ -94,7 +94,7 @@
+     3rd/bee.lua/binding/luaref.cpp
+ rule c_source_lua
+   command = $cc -MMD -MT $out -MF $out.d -std=c11 -O2 -Wall -DMAKE_LIB $
+-    -DLUA_USE_LINUX -DNDEBUG -fPIC -Wno-maybe-uninitialized -o $out -c $in
++    -DLUA_USE_LINUX -DNDEBUG -fPIC -Wno-maybe-uninitialized -o $out -c $in CFLAGS
+   description = Compile C   $out
+   deps = gcc
+   depfile = $out.d
+@@ -104,7 +104,7 @@
+ rule cxx_source_bootstrap
+   command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
+     -fvisibility=hidden -I3rd/bee.lua/3rd/lua -I3rd/bee.lua -DLUA_USE_LINUX $
+-    -DNDEBUG -fPIC -o $out -c $in
++    -DNDEBUG -fPIC -o $out -c $in CXXFLAGS
+   description = Compile C++ $out
+   deps = gcc
+   depfile = $out.d
+@@ -112,7 +112,7 @@
+     3rd/bee.lua/bootstrap/main.cpp
+ rule link_bootstrap
+   command = $cc $in -o $out -Wl,-E -static-libgcc -lm -ldl -lstdc++fs $
+-    -pthread -Wl,-Bstatic -lstdc++ -Wl,-Bdynamic -s
++    -pthread -Wl,-Bstatic -lstdc++ -Wl,-Bdynamic LDFLAGS
+   description = Link    Exe $out
+ build $bin/bootstrap: link_bootstrap $obj/source_bootstrap/main.obj $
+     $obj/source_bee/lua-seri.obj $obj/source_bee/format.obj $
+@@ -155,8 +155,8 @@
+     -fvisibility=hidden -I3rd/EmmyLuaCodeStyle/Util/include $
+     -I3rd/EmmyLuaCodeStyle/CodeFormatCore/include $
+     -I3rd/EmmyLuaCodeStyle/LuaParser/include -I3rd/bee.lua/3rd/lua $
+-    -I3rd/EmmyLuaCodeStyle/3rd/wildcards/include -DNDEBUG -Wall -Werror -o $
+-    $out -c $in
++    -I3rd/EmmyLuaCodeStyle/3rd/wildcards/include -DNDEBUG -Wall -o $
++    $out -c $in CXXFLAGS
+   description = Compile C++ $out
+   deps = gcc
+   depfile = $out.d
+@@ -259,7 +259,7 @@
+ rule c_lpeglabel
+   command = $cc -MMD -MT $out -MF $out.d -std=c11 -O2 -Wall $
+     -fvisibility=hidden -I3rd/bee.lua/3rd/lua -DMAXRECLEVEL=1000 -DNDEBUG $
+-    -o $out -c $in
++    -o $out -c $in CFLAGS
+   description = Compile C   $out
+   deps = gcc
+   depfile = $out.d
+@@ -271,7 +271,7 @@
+ rule cxx_lua_language_server
+   command = $cc -MMD -MT $out -MF $out.d -std=c++17 -O2 -Wall $
+     -fvisibility=hidden -I3rd/bee.lua -I3rd/bee.lua/3rd/lua -DCODE_FORMAT $
+-    -DNDEBUG -o $out -c $in
++    -DNDEBUG -o $out -c $in CXXFLAGS
+   description = Compile C++ $out
+   deps = gcc
+   depfile = $out.d
+@@ -279,7 +279,7 @@
+     make/modules.cpp
+ rule link_lua_language_server
+   command = $cc $in -o $out -lm -ldl -lstdc++fs -pthread -Wl,-Bstatic $
+-    -lstdc++ -Wl,-Bdynamic -s
++    -lstdc++ -Wl,-Bdynamic LDFLAGS
+   description = Link    Exe $out
+ build $bin/lua-language-server: link_lua_language_server $
+     $obj/lua-language-server/modules.obj $obj/lpeglabel/lplcap.obj $
