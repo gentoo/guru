@@ -22,9 +22,12 @@ DEPEND="
 	sys-libs/zlib
 	dev-libs/json-glib
 	net-libs/libsoup:3.0
+"
+RDEPEND="
+	${DEPEND}
 	benchmark? ( app-benchmarks/sysbench )
-	dmi? ( sys-apps/dmidecode )"
-RDEPEND="${DEPEND}"
+	dmi? ( sys-apps/dmidecode )
+"
 
 src_configure() {
 	local mycmakeargs=(
