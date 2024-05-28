@@ -1,0 +1,17 @@
+https://github.com/orf/gping/commit/a3709e7dbad4a88072466e3370d28cce5e115fc4
+https://bugs.gentoo.org/932853
+Removes build dependency on libgit2
+--- a/gping/Cargo.toml
++++ b/gping/Cargo.toml
+@@ -17,9 +17,9 @@ anyhow = "1.0.81"
+ dns-lookup = "2.0.0"
+ chrono = "0.4.34"
+ itertools = "0.12.1"
+-shadow-rs = "0.26.1"
++shadow-rs = { version = "0.26.1", default_features = false }
+ const_format = "0.2.32"
+ clap = { version = "4.5.0", features = ["derive"] }
+ 
+ [build-dependencies]
+-shadow-rs = "0.26.1"
++shadow-rs = { version = "0.26.1", default_features = false }

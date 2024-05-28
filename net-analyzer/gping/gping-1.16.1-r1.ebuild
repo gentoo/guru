@@ -172,6 +172,11 @@ LICENSE+=" Apache-2.0 MIT MIT-0 Unicode-DFS-2016 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 
+PATCHES=(
+	# bug #932853
+	"${FILESDIR}/${P}-remove-libgit2-dep.patch"
+)
+
 QA_FLAGS_IGNORED="usr/bin/gping"
 
 src_install() {
