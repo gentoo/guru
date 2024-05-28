@@ -28,6 +28,7 @@ RDEPEND="
 	benchmark? ( app-benchmarks/sysbench )
 	dmi? ( sys-apps/dmidecode )
 "
+BDEPEND="virtual/pkgconfig"
 
 src_configure() {
 	local mycmakeargs=(
