@@ -26,11 +26,13 @@ HOMEPAGE="https://github.com/certbot/certbot https://letsencrypt.org/"
 LICENSE="Apache-2.0"
 SLOT="0"
 
-RDEPEND="
+RDEPEND="${CDEPEND}
 	>=app-crypt/certbot-${PV}[${PYTHON_USEDEP}]
 	>=app-crypt/acme-${PV}[${PYTHON_USEDEP}]
 	dev-python/zope-interface[${PYTHON_USEDEP}]
 	dev-python/dns-lexicon[${PYTHON_USEDEP}]
+	!>=dev-python/cloudflare-2.21[${PYTHON_USEDEP}]
 	dev-python/cloudflare[${PYTHON_USEDEP}]"
+BDEPEND="test? ( ${RDEPEND} )"
 distutils_enable_tests pytest
 distutils_enable_sphinx docs dev-python/sphinx-rtd-theme
