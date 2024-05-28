@@ -14,7 +14,7 @@ S="${WORKDIR}/${PN}-release-${PV}"
 LICENSE="GPL-2+ GPL-3+ LGPL-2.1+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="benchmark dmi +gtk3"
+IUSE="benchmark dmi fwupd +gtk3 mesa network scsi sensors udisks +xdg"
 
 DEPEND="
 	gtk3? ( x11-libs/gtk+:3 ) !gtk3? ( x11-libs/gtk+:2 )
@@ -27,6 +27,13 @@ RDEPEND="
 	${DEPEND}
 	benchmark? ( app-benchmarks/sysbench )
 	dmi? ( sys-apps/dmidecode )
+	sensors? ( sys-apps/lm-sensors )
+	scsi? ( sys-fs/lsscsi )
+	mesa? ( x11-apps/mesa-progs )
+	udisks? ( sys-fs/udisks:2 )
+	xdg? ( x11-misc/xdg-utils )
+	network? ( net-misc/iperf:3 )
+	fwupd? ( sys-apps/fwupd )
 "
 BDEPEND="virtual/pkgconfig"
 
