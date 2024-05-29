@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>tomclarke2006@gotmail.com</email>
+    <name>Thomas Clarke</name>
+  </maintainer>
+  <longdescription>
+    Scripts/commands used in the Qtilities organization 
+  </longdescription>
+  <upstream>
+    <remote-id type="github">qtilities/qtilitools</remote-id>
+  </upstream>
+</pkgmetadata>
