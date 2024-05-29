@@ -37,7 +37,7 @@ src_prepare() {
 	sed -i "s/CC = gcc/ CC = ${tc-getCC}/" \
 		3rd/lpeglabel/makefile || die
 	# Shipped file doesn't respect CFLAGS/CXXFLAGS/LDFLAGS
-	eapply "${FILESDIR}/linux.ninja_v2.patch"
+	eapply "${FILESDIR}/linux.ninja.patch"
 	eapply_user
 	sed -i -e "s/^cc = REPLACE_ME/cc = $(tc-getCC)/" \
 		-e "s/^ar = REPLACE_AR/ar = $(tc-getAR)/" \
@@ -59,7 +59,7 @@ src_compile() {
 		-e "s/^ar =.*./ar = REPLACE_AR/" \
 		build/build.ninja || die
 
-	eapply "${FILESDIR}/build.ninja_v2.patch"
+	eapply "${FILESDIR}/build.ninja.patch"
 	sed -i -e "s/REPLACE_ME/$(tc-getCC)/" \
 		-e "s/REPLACE_AR/$(tc-getAR)/" \
 		-e "s|LUAMAKE_PATH|${S}/3rd/luamake/luamake|" \

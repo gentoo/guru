@@ -1,4 +1,4 @@
---- a/build/build.ninja
+--- b/build/build.ninja
 +++ b/build/build.ninja
 @@ -14,7 +14,7 @@
      make/code_format.lua
@@ -35,21 +35,12 @@
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
-@@ -87,7 +87,7 @@
-     3rd/bee.lua/binding/lua_time.cpp
+@@ -94,7 +94,7 @@
+     3rd/bee.lua/binding/luaref.cpp
  rule c_source_lua
-   command = $cc -MMD -MT $out -MF $out.d -std=c11 -O2 -Wall $
--    -fvisibility=hidden -DNDEBUG -fPIC -o $out -c $in
-+    -fvisibility=hidden -DNDEBUG -fPIC -o $out -c $in CFLAGS
-   description = Compile C   $out
-   deps = gcc
-   depfile = $out.d
-@@ -95,7 +95,7 @@
-     3rd/bee.lua/3rd/lua/utf8_crt.c
- rule c_source_lua_1
    command = $cc -MMD -MT $out -MF $out.d -std=c11 -O2 -Wall -DMAKE_LIB $
--    -DLUA_USE_LINUX -DNDEBUG -Wno-maybe-uninitialized -fPIC -o $out -c $in
-+    -DLUA_USE_LINUX -DNDEBUG -Wno-maybe-uninitialized -fPIC -o $out -c $in CFLAGS
+-    -DLUA_USE_LINUX -DNDEBUG -fPIC -Wno-maybe-uninitialized -o $out -c $in
++    -DLUA_USE_LINUX -DNDEBUG -fPIC -Wno-maybe-uninitialized -o $out -c $in CFLAGS
    description = Compile C   $out
    deps = gcc
    depfile = $out.d
