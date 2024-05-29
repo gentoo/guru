@@ -22,6 +22,10 @@ KEYWORDS="~amd64"
 QA_PREBUILT="*"
 RESTRICT="strip"
 
+RPEDENT="
+	x11-libs/libX11
+"
+
 src_install() {
 	dodir /opt
 	dodir /usr/bin/
