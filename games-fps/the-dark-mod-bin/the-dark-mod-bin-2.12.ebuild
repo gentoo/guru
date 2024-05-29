@@ -22,9 +22,8 @@ KEYWORDS="~amd64"
 QA_PREBUILT="*"
 RESTRICT="strip"
 
-RPEDENT="
-	x11-libs/libX11
-"
+DEPEND="x11-libs/libX11"
+RDEPEND="${DEPEND}"
 
 src_install() {
 	dodir /opt
