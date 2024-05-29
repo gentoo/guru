@@ -26,7 +26,7 @@ RESTRICT="test"
 DEPEND="
 	acct-group/monero
 	acct-user/monero
-	dev-libs/boost:=[nls]
+	<dev-libs/boost-1.85:=[nls]
 	dev-libs/libsodium:=
 	dev-libs/openssl:=
 	dev-libs/randomx
