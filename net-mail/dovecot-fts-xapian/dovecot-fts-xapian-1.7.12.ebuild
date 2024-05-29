@@ -20,6 +20,7 @@ RDEPEND="
 	dev-libs/icu:=
 	>=dev-libs/xapian-1.4:=
 	net-mail/dovecot:=
+	dev-db/sqlite:*
 	"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
