@@ -16,15 +16,8 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="test? ( dev-lang/perl )"
 
-src_prepare() {
-	default
-	# https://github.com/leahneukirchen/xe/pull/11
-	sed '/^CFLAGS/{s/=/:=/;s/-g -O2//;s/$/ $(CFLAGS)/}' \
-		-i Makefile || die
-}
-
 src_compile() {
-	emake CC="$(tc-getCC)"
+	emake CC="$(tc-getCC)" CFLAGS="$CFLAGS"
 }
 
 src_install() {
