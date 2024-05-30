@@ -23,6 +23,8 @@ RDEPEND="
 	!!net-misc/frr
 	acct-group/_bgpd
 	acct-user/_bgpd
+	dev-libs/libevent
+	net-libs/libmnl
 "
 BDEPEND="
 	dev-build/libtool
