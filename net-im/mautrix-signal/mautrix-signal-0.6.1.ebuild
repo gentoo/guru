@@ -21,7 +21,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	dev-libs/libsignal-ffi
+	~dev-libs/libsignal-ffi-0.44.0
 	dev-libs/olm
 "
 
