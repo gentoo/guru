@@ -1,0 +1,25 @@
+From 64e90e76acb4d6575273c57eaa02c9b4f2665b91 Mon Sep 17 00:00:00 2001
+From: Leah Neukirchen <leah@vuxu.org>
+Date: Sat, 12 Aug 2023 15:39:24 +0200
+Subject: [PATCH] allow -l and -F in any order
+
+-l takes preference (and implies -F).
+
+Closes #24.
+---
+ lr.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lr.c b/lr.c
+index 1b81b00..17236c5 100644
+--- a/lr.c
++++ b/lr.c
+@@ -2502,7 +2502,7 @@ main(int argc, char *argv[])
+ 			Gflag += 2;  /* force color on */
+ 			break;
+ 		case 'D': Dflag++; Bflag = 0; break;
+-		case 'F': format = type_format; break;
++		case 'F': if (!lflag) format = type_format; break;
+ 		case 'G': Gflag++; break;
+ 		case 'H': Hflag++; break;
+ 		case 'L': Lflag++; break;
