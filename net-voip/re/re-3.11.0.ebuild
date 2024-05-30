@@ -15,6 +15,13 @@ KEYWORDS="~amd64"
 
 IUSE="static-libs"
 
+DEPEND="
+	dev-libs/openssl:0=
+	sys-libs/zlib
+	"
+
+RDEPEND="${DEPEND}"
+
 src_configure() {
 		local mycmakeargs=(
 				-DLIBRE_BUILD_STATIC=$(usex static-libs ON OFF)
