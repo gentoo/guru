@@ -13,6 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 RDEPEND="
 	media-libs/libsdl2
+	dev-qt/qtbase:6
 	dev-qt/qtdeclarative:6
 	dev-qt/qttranslations:6
 "
