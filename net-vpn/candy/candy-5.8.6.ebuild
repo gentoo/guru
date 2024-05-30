@@ -20,7 +20,10 @@ DEPEND="
 	dev-libs/openssl
 	dev-libs/spdlog
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	dev-libs/libfmt
+"
 
 src_install(){
 	cmake_src_install
