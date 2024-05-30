@@ -46,6 +46,7 @@ pkg_postinst() {
 	optfeature "ugrd.crypto.cryptsetup support" sys-fs/cryptsetup
 	optfeature "ugrd.fs.btrfs support" sys-fs/btrfs-progs
 	optfeature "ugrd.crypto.gpg support" app-crypt/gnupg
+	optfeature "ugrd.fs.lvm support" sys-fs/lvm2[lvm]
 	ewarn "UGRD will not be used with installkernel unless 'ugrd' is set as the"
-	ewarn "'initrd_generator' in /usr/lib/kernel/install.conf."
+	ewarn "'initrd_generator' in /etc/kernel/install.conf."
 }

@@ -34,9 +34,9 @@ src_install() {
 	# Create the kernel preinst.d directory if it doesn't exist
 	# Install the kernel preinst.d hook
 	exeinto /usr/lib/kernel/preinst.d
-	doexe hooks/installkernel/51-ugrd.install
+	doexe hooks/installkernel/52-ugrd.install
 	exeinto /usr/lib/kernel/install.d
-	doexe hooks/kernel-install/51-ugrd.install
+	doexe hooks/kernel-install/52-ugrd.install
 	# Install bash autocomplete script
 	dobashcomp completion/ugrd
 	dozshcomp completion/_ugrd
@@ -46,6 +46,7 @@ pkg_postinst() {
 	optfeature "ugrd.crypto.cryptsetup support" sys-fs/cryptsetup
 	optfeature "ugrd.fs.btrfs support" sys-fs/btrfs-progs
 	optfeature "ugrd.crypto.gpg support" app-crypt/gnupg
+	optfeature "ugrd.fs.lvm support" sys-fs/lvm2[lvm]
 	ewarn "UGRD will not be used with installkernel unless 'ugrd' is set as the"
-	ewarn "'initrd_generator' in /usr/lib/kernel/install.conf."
+	ewarn "'initrd_generator' in /etc/kernel/install.conf."
 }
