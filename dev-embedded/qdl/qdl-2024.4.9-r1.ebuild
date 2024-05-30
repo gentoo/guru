@@ -16,14 +16,13 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-libs/libxml2"
+DEPEND="
+	virtual/libudev
+	dev-libs/libxml2
+"
+RDEPEND="${DEPEND}"
 
-DEPEND="${RDEPEND}"
-
-BDEPEND="
-		virtual/libudev
-		virtual/pkgconfig
-		dev-libs/libxml2"
+BDEPEND="virtual/pkgconfig"
 
 src_compile() {
 	PKG_CONFIG=$(tc-getPKG_CONFIG)
