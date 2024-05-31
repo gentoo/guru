@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,10 @@ DESCRIPTION="RARS -- RISC-V Assembler and Runtime Simulator"
 HOMEPAGE="https://github.com/TheThirdOne/rars"
 SRC_URI="
 	https://github.com/TheThirdOne/rars/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
-	https://github.com/TheThirdOne/JSoftFloat/archive/${jsoft_hash}.tar.gz -> JSoftFloat-75c3a5d.gh.tar.gz"
+	https://github.com/TheThirdOne/JSoftFloat/archive/${jsoft_hash}.tar.gz -> JSoftFloat-75c3a5d.gh.tar.gz
+"
+# We need S to point to this directory
+S="${WORKDIR}/${P}"
 
 LICENSE="MIT"
 SLOT="0"
@@ -25,11 +28,6 @@ DEPEND=">=virtual/jdk-1.8:*"
 src_unpack() {
 	default
 	mv "${WORKDIR}/JSoftFloat-${jsoft_hash}" "${S}/src/jsoftfloat"
-}
-
-src_prepare() {
-	default
-	java-pkg_clean
 }
 
 src_compile() {
