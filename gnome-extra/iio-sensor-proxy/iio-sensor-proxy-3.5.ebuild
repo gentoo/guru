@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit xdg gnome2-utils meson
+inherit xdg gnome2-utils meson udev
 
 DESCRIPTION="IIO sensors to D-Bus proxy"
 HOMEPAGE="https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/"
@@ -34,22 +34,21 @@ DEPEND="
 
 src_prepare() {
 	if use !systemd ; then
-		echo "patching out systemd"
 		# patch out call of systemd directory
 		eapply "${FILESDIR}/no-systemd.patch"
-		# eapply "${FILESDIR}/open_rc_service.patch"
 	fi
 	eapply_user
 }
 
 src_install() {
 	meson_src_install
-	doinitd ${FILESDIR}/iio-sensor-proxy
+	doinitd "${FILESDIR}/iio-sensor-proxy"
 }
 
 pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_schemas_update
+	udev_reload
 }
 
 pkg_postrm() {

@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit xdg gnome2-utils meson
+inherit xdg gnome2-utils meson udev
 
 DESCRIPTION="IIO sensors to D-Bus proxy"
 HOMEPAGE="https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/"
-SRC_URI="https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/-/archive/${PV}/${P}.tar.gz"
+SRC_URI="https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -39,6 +39,7 @@ src_install() {
 pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_schemas_update
+	udev_reload
 }
 
 pkg_postrm() {
