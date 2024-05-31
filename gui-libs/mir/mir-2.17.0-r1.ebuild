@@ -16,6 +16,7 @@ IUSE="examples test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	dev-cpp/glibmm:2
 	dev-cpp/libxmlpp:2.6
 	dev-cpp/yaml-cpp:=
 	dev-libs/boost:=
@@ -27,10 +28,13 @@ RDEPEND="
 	media-libs/libepoxy
 	media-libs/libglvnd
 	media-libs/mesa
-	x11-libs/libdrm
+	sys-apps/util-linux
+	x11-libs/libX11
 	x11-libs/libXcursor
+	x11-libs/libdrm
 	x11-libs/libxcb:=
 	x11-libs/libxkbcommon
+	virtual/libudev:=
 "
 DEPEND="
 	${RDEPEND}
@@ -47,6 +51,11 @@ BDEPEND="
 	)
 "
 
+PATCHES=(
+	# bug 932786
+	"${FILESDIR}/${P}-remove-debug-flags.patch"
+)
+
 src_prepare() {
 	cmake_src_prepare
 	use examples || cmake_comment_add_subdirectory examples/
@@ -57,6 +66,7 @@ src_configure() {
 		# wlcs is not packaged
 		-DMIR_ENABLE_WLCS_TESTS=OFF
 		-DMIR_ENABLE_TESTS="$(usex test)"
+		-DMIR_FATAL_COMPILE_WARNINGS=OFF
 	)
 	use test && mycmakeargs+=(
 		# likely will not work in build environment
