@@ -33,6 +33,8 @@ IUSE="+webkit41 test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
+	dev-libs/glib
+	dev-libs/libxml2
 	x11-libs/gtk+:3
 	webkit41? ( net-libs/webkit-gtk:4.1= )
 	!webkit41? ( net-libs/webkit-gtk:4= )
