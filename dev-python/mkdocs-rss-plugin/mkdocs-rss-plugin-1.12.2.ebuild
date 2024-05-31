@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_11 )
+PYTHON_COMPAT=( python3_{11..12} )
 
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="
@@ -22,12 +22,15 @@ inherit distutils-r1 docs
 
 DESCRIPTION="MkDocs plugin to generate a RSS feeds."
 HOMEPAGE="https://github.com/Guts/mkdocs-rss-plugin https://pypi.org/project/mkdocs-rss-plugin"
-SRC_URI="https://github.com/Guts/mkdocs-rss-plugin/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
+SRC_URI="
+	https://github.com/Guts/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz
+	https://github.com/henri-gasc/${PN}-cache/archive/refs/tags/${PV}.tar.gz -> ${PN}-cache-${PV}.gh.tar.gz
+"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-RESTRICT="doc? ( network-sandbox )"
+# RESTRICT="doc? ( network-sandbox )"
 
 BDEPEND="
 	>=dev-python/GitPython-3.1[${PYTHON_USEDEP}]
@@ -60,6 +63,7 @@ src_prepare() {
 		-e 's/--cov-report=term//' \
 		-e 's/--cov-report=xml//' \
 		"${S}/setup.cfg" || die
+	cp "${WORKDIR}/${PN}-cache-${PV}/.cache" -rt "${S}" || die
 	distutils-r1_src_prepare
 }
 
