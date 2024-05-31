@@ -20,9 +20,13 @@ LICENSE="GPL-2"
 SLOT="0"
 
 RDEPEND="
-	x11-libs/gtk+:3
+	dev-libs/glib
 	dev-libs/libappindicator:3
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/gtk+:3
 	x11-libs/libX11
+	x11-libs/libXi
 	>=x11-apps/xinput-1.3
 "
 DEPEND="${RDEPEND}"
