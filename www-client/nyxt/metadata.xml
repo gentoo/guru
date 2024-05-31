@@ -11,8 +11,8 @@
     </longdescription>
     <upstream>
         <maintainer>
-            <name>Dale Showers</name>
-            <email>gentoo@fictx.com</email>
+            <name>Atlas</name>
+            <email>hello@atlas.engineer</email>
         </maintainer>
         <changelog>https://github.com/atlas-engineer/nyxt/releases</changelog>
         <doc>https://nyxt.atlas.engineer/documentation</doc>
