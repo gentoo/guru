@@ -18,6 +18,15 @@
 
 # New entries go on top.
 
+# Julien Roy <julien@jroy.ca> (2024-05-31)
+# Several versions out of date, needs a maintainer
+# Masked for removal in 30 days
+# See bugs:
+# https://bugs.gentoo.org/889714
+# https://bugs.gentoo.org/897772
+# https://bugs.gentoo.org/931490
+www-client/woob
+
 # Joe Kappus <joe@wt.gd> (2024-05-24)
 # Golang crap hosted on dead ipfs node without maintainer
 # Bug #884915, Removal on 2024/06/23
