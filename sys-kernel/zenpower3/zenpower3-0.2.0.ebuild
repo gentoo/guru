@@ -6,8 +6,8 @@ EAPI=8
 inherit linux-mod-r1
 
 DESCRIPTION="Linux kernel driver for reading sensors of AMD Zen family CPUs"
-HOMEPAGE="https://github.com/Ta180m/zenpower3"
-SRC_URI="https://github.com/Ta180m/zenpower3/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://git.exozy.me/a/zenpower3"
+SRC_URI="https://git.exozy.me/a/zenpower3/archive/v0.2.0.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -16,6 +16,8 @@ KEYWORDS="~amd64"
 CONFIG_CHECK="HWMON PCI AMD_NB"
 
 PATCHES="${FILESDIR}/${P}-use-symlink-to-detect-kernel-version.patch"
+
+S="${WORKDIR}/zenpower3"
 
 src_compile() {
 	export TARGET=${KV_FULL}
