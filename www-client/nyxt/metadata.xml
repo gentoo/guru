@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-    <!-- maintainer-needed -->
+    <maintainer type="person">
+        <name>Dale Showers</name>
+        <email>gentoo@fictx.com</email>
+    </maintainer>
     <longdescription>
       Nyxt [nýkst] is a keyboard-driven web browser designed for power users. Inspired by Emacs and Vim, it has familiar keybindings (Emacs, vi, CUA), and is infinitely extensible in Lisp.
 
