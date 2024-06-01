@@ -21,19 +21,20 @@ HOMEPAGE="https://github.com/nowrep/obs-vkcapture"
 LICENSE="GPL-2"
 SLOT="0"
 
-BDEPEND="
-	dev-util/vulkan-headers
-	media-libs/shaderc
-	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
-	>=media-video/obs-studio-27[wayland]
-	x11-libs/libdrm[${MULTILIB_USEDEP}]
-"
-RDEPEND="
+COMMON_DEPEND="
+	dev-libs/wayland
 	media-libs/libglvnd[${MULTILIB_USEDEP}]
-	>=media-video/obs-studio-27[wayland]
-	x11-libs/libdrm[${MULTILIB_USEDEP}]
-	x11-libs/libxcb:=[${MULTILIB_USEDEP}]
+	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
+	media-video/obs-studio[wayland]
+	x11-libs/libxcb[${MULTILIB_USEDEP}]
 "
+DEPEND="
+	${COMMON_DEPEND}
+	dev-util/vulkan-headers
+	dev-util/wayland-scanner
+"
+
+RDEPEND="${COMMON_DEPEND}"
 
 QA_SONAME="
 	/usr/lib64/libVkLayer_obs_vkcapture.so
