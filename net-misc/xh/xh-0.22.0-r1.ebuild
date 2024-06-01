@@ -289,6 +289,7 @@ DEPEND="
 	dev-libs/oniguruma:=
 	dev-libs/openssl:0=
 "
+RDEPEND="${DEPEND}"
 
 DOCS=( {CHANGELOG,README}.md )
 
