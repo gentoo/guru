@@ -1,0 +1,11 @@
+--- a/setup.py
++++ b/setup.py
+@@ -206,7 +206,7 @@
+             self._add_directory(library_dirs, "/usr/lib")
+             self._add_directory(library_dirs, "/lib")
+ 
+-            self._update_extension("_pillow_heif", ["heif"], extra_compile_args=["-Ofast", "-Werror"])
++            self._update_extension("_pillow_heif", ["heif"])
+ 
+         self.compiler.library_dirs = library_dirs + self.compiler.library_dirs
+         self.compiler.include_dirs = include_dirs + self.compiler.include_dirs
