@@ -23,28 +23,34 @@ SLOT="0"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-DEPEND="
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtcharts:5[qml]
-	dev-qt/qtsvg:5
-	dev-qt/linguist-tools:5
-	dev-qt/qtquickcontrols2:5
-	dev-libs/quazip
+COMMON_DEPEND="
 	dev-libs/botan
-	sys-auth/polkit
-	x11-libs/libdrm[video_cards_amdgpu]
-	dev-libs/libfmt
 	dev-libs/pugixml
 	dev-libs/spdlog
+	dev-libs/quazip
+	dev-qt/qtcharts:5[qml]
+	dev-qt/qtdbus:5
+	dev-qt/qtdeclarative:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
+	sys-auth/polkit
+"
+DEPEND="${COMMON_DEPEND}
 	dev-cpp/units
+	dev-qt/linguist-tools:5
+	dev-qt/qtsvg:5
+	x11-libs/libdrm[video_cards_amdgpu]
 	test? (
 		>=dev-cpp/catch-3.5.2
 		dev-cpp/trompeloeil
 	)
 "
 
-BDEPEND="${DEPEND}"
+RDEPEND="${COMMON_DEPEND}
+	dev-libs/glib
+	dev-qt/qtquickcontrols2
+"
 
 src_configure() {
 	local mycmakeargs=(
