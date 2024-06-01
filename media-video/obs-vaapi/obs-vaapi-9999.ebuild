@@ -18,15 +18,21 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="video_cards_amdgpu video_cards_intel"
-RDEPEND=">=media-libs/gst-plugins-bad-1.22.3-r3[vaapi]
+COMMON_DEPEND="
 	media-video/obs-studio
+	media-libs/gst-plugins-base
+	sys-apps/pciutils
+"
+DEPEND="${COMMON_DEPEND}"
+RDEPEND="${COMMON_DEPEND}
+	dev-libs/glib
+	>=media-libs/gst-plugins-bad-1.22.3-r3[vaapi]
 	video_cards_amdgpu? ( media-libs/mesa[vaapi,video_cards_radeonsi] )
 	video_cards_intel? ( media-libs/libva-intel-media-driver )
 "
-DEPEND="${RDEPEND}"
 
 src_configure() {
-	emesonargs+=(
+	local emesonargs+=(
 	--libdir=/usr/$(get_libdir)/obs-plugins
 	)
 	meson_src_configure
