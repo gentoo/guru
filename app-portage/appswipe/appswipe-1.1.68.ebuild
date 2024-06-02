@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop qmake-utils xdg-utils
+inherit desktop qmake-utils xdg
 
 DESCRIPTION="Application for browsing your local Portage repository files"
 HOMEPAGE="https://github.com/k9spud/appswipe"
@@ -45,19 +45,9 @@ src_compile() {
 }
 
 src_install() {
-	mv AppSwipe appswipe
-	dobin appswipe
+	newbin AppSwipe appswipe
 	dobin backend/appswipebackend
 	dobin transport/appswipetransport
-	mv "${S}/img/appicon.svg" "${S}/img/appswipe.svg"
-	doicon -s scalable "${S}/img/appswipe.svg"
+	newicon -s scalable img/appicon.svg ${PN}.svg
 	domenu ${PN}.desktop
-}
-
-pkg_postinst() {
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
 }
