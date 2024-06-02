@@ -8,7 +8,7 @@ inherit systemd go-module
 DESCRIPTION="Framework for dark and light mode transitions"
 HOMEPAGE="https://gitlab.com/WhyNotHugo/darkman"
 SRC_URI="https://gitlab.com/WhyNotHugo/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2
-	https://files.levelnine.at/${P}-vendor.tar.xz"
+	https://codeberg.org/amano-kenji-gentoo-overlay/${PN}/raw/branch/master/${P}-deps.tar.xz"
 
 S="${WORKDIR}/${PN}-v${PV}"
 
