@@ -18,5 +18,6 @@
 		<flag name="test">Run mangohud tests</flag>
 		<flag name="mangoapp">Build and install mangoapp and mangoapp layer</flag>
 		<flag name="mangohudctl">Build and install mangohudctl</flag>
+		<flag name="mangoplot">Install mangoplot python script</flag>
 	</use>
 </pkgmetadata>

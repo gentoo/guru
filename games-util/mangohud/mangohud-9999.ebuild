@@ -37,7 +37,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="+dbus debug +X xnvctrl wayland mangoapp mangohudctl video_cards_nvidia video_cards_amdgpu test"
+IUSE="+dbus debug +X xnvctrl wayland mangoapp mangohudctl mangoplot video_cards_nvidia video_cards_amdgpu test"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
@@ -77,18 +77,14 @@ RDEPEND="
 		media-libs/glfw[X]
 		media-libs/glew
 	)
-	$(python_gen_cond_dep '
+	mangoplot? ( $(python_gen_cond_dep '
 		|| (
 			dev-python/matplotlib[gtk3,${PYTHON_USEDEP}]
 			dev-python/matplotlib[qt5,${PYTHON_USEDEP}]
 			dev-python/matplotlib[wxwidgets,${PYTHON_USEDEP}]
 		)
-	')
+	') )
 "
-
-PATCHES=(
-	"${FILESDIR}/${P}-menson-fix-dep.patch"
-)
 
 src_unpack() {
 
@@ -120,6 +116,7 @@ multilib_src_configure() {
 	local emesonargs=(
 		-Dappend_libdir_mangohud=false
 		-Dinclude_doc=false
+		-Duse_system_spdlog=enabled
 		$(meson_feature video_cards_nvidia with_nvml)
 		$(meson_feature xnvctrl with_xnvctrl)
 		$(meson_feature X with_x11)
@@ -128,6 +125,7 @@ multilib_src_configure() {
 		$(meson_use mangoapp mangoapp)
 		$(meson_use mangoapp mangoapp_layer)
 		$(meson_use mangohudctl mangohudctl)
+		$(meson_feature mangoplot mangoplot)
 	)
 	meson_src_configure
 }
