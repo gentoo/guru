@@ -98,10 +98,6 @@ dev-python/wrapio
 # Removal: 2024-06-09.  Bug #931420.
 dev-python/sdnotify
 
-# David Roman <davidroman96@gmail.com> (2024-05-01)
-# Broken and maintainer needed. See also https://bugs.gentoo.org/921821
-dev-python/hypothesmith
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
