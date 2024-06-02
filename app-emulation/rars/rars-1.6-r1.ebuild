@@ -5,7 +5,7 @@ EAPI=8
 
 JAVA_PKG_IUSE="doc source test"
 
-inherit java-pkg-2 java-pkg-simple
+inherit java-pkg-2
 
 jsoft_hash="75c3a5d1ab1322ce4dde0b5994d6f9f6ff820529"
 
@@ -13,10 +13,8 @@ DESCRIPTION="RARS -- RISC-V Assembler and Runtime Simulator"
 HOMEPAGE="https://github.com/TheThirdOne/rars"
 SRC_URI="
 	https://github.com/TheThirdOne/rars/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
-	https://github.com/TheThirdOne/JSoftFloat/archive/${jsoft_hash}.tar.gz -> JSoftFloat-75c3a5d.gh.tar.gz
+	https://github.com/TheThirdOne/JSoftFloat/archive/${jsoft_hash}.tar.gz -> JSoftFloat-${jsoft_hash}.gh.tar.gz
 "
-# We need S to point to this directory
-S="${WORKDIR}/${P}"
 
 LICENSE="MIT"
 SLOT="0"
