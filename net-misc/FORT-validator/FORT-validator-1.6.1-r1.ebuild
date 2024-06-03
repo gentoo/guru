@@ -1,4 +1,4 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,20 +18,20 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="caps"
 
+PATCHES="${FILESDIR}"/${PN}-1.5.4-GCC14.patch
+
 DEPEND="
 	acct-group/fort
 	acct-user/fort
 	caps? ( sys-libs/libcap )
 	dev-libs/jansson
+	dev-libs/libxml2
 	dev-libs/openssl
+	net-misc/curl
 "
 RDEPEND="
 	${DEPEND}
 	net-misc/rsync
-"
-BDEPEND="
-	dev-build/automake
-	dev-build/automake
 "
 
 src_prepare() {
@@ -40,8 +40,6 @@ src_prepare() {
 	sed -i 's/fort_CFLAGS  =/fort_CFLAGS  = ${CFLAGS} /' src/Makefile.am || die
 	# Don't test network
 	sed -i '/http/d' test/Makefile.am || die
-	# Don’t compile debug by default
-	sed -i '/fort_CFLAGS/ s/ -g / /' src/Makefile.am || die
 	eautoreconf
 }
 
