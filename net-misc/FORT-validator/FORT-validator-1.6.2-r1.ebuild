@@ -49,7 +49,7 @@ src_install() {
 	newinitd "${FILESDIR}/${MY_PN}-1.5-initd" ${MY_PN}
 	newconfd "${FILESDIR}/${MY_PN}-1.5-confd" ${MY_PN}
 
-	emake DESTDIR="${ED}" install
+	emake DESTDIR="${D}" install
 	insinto /usr/share/${MY_PN}/
 	insopts -m0644 -o "${MY_PN}"
 	diropts -m0755 -o "${MY_PN}"
