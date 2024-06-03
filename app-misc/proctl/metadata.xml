@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+  <maintainer type="person">
+    <email>kernaltrap@gmail.com</email>
+    <description>Primary maintainer</description>
+  </maintainer>
+  <longdescription>
+	proctl is a C program that allows the controlling of other processes.
+	it can execute, kill, and restart processes my passing arguments to
+	the proctl command.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">kernaltrap8/proctl</remote-id>
+  </upstream>	
+</pkgmetadata>
