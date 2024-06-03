@@ -17,7 +17,7 @@ SRC_URI="https://github.com/ocornut/imgui/archive/v${PV}.tar.gz -> imgui-${PV}.t
 LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="opengl vulkan glfw sdl2 sdl_renderer webgpu allegro5"
+IUSE="opengl vulkan glfw sdl2 sdl3 sdl2_renderer sdl3_renderer webgpu allegro5"
 
 RDEPEND="
 	dev-libs/stb:=
@@ -26,7 +26,7 @@ RDEPEND="
 	glfw? ( media-libs/glfw:0[${MULTILIB_USEDEP}] )
 	opengl? ( virtual/opengl[${MULTILIB_USEDEP}] )
 	sdl2? ( media-libs/libsdl2[${MULTILIB_USEDEP}] )
-	sdl_renderer? ( media-libs/libsdl2[${MULTILIB_USEDEP}] )
+	sdl2_renderer? ( media-libs/libsdl2[${MULTILIB_USEDEP}] )
 	vulkan? ( media-libs/vulkan-loader[${MULTILIB_USEDEP}] )
 	webgpu? ( dev-util/webgpu-headers )
 "
@@ -58,7 +58,9 @@ multilib_src_configure() {
 		$(meson_feature vulkan)
 		$(meson_feature glfw)
 		$(meson_feature sdl2)
-		$(meson_feature sdl_renderer)
+		$(meson_feature sdl2_renderer)
+		-Dsdl3=disabled
+		-Dsdl3_renderer=disabled
 		$(meson_feature webgpu)
 		-Dosx=disabled
 		-Dwin=disabled

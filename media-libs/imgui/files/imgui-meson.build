@@ -20,6 +20,8 @@ sources = files(
   'imgui_widgets.cpp',
 )
 
+headers = files()
+
 cpp = meson.get_compiler('cpp')
 dependencies = []
 
@@ -29,46 +31,66 @@ dx9_dep = cpp.find_library('d3d9', required: get_option('dx9'))
 if dx9_dep.found()
   sources += 'backends/imgui_impl_dx9.cpp'
   dependencies += dx9_dep
+  headers += files('backends/imgui_impl_dx9.h')
 endif
 dx10_dep = cpp.find_library('d3d10', required: get_option('dx10'))
 if dx10_dep.found()
   sources += 'backends/imgui_impl_dx10.cpp'
   dependencies += dx10_dep
+  headers += files('backends/imgui_impl_dx10.h')
 endif
 dx11_dep = cpp.find_library('d3d11', required: get_option('dx11'))
 if dx11_dep.found()
   sources += 'backends/imgui_impl_dx11.cpp'
   dependencies += dx11_dep
+  headers += files('backends/imgui_impl_dx11.h')
 endif
 dx12_dep = cpp.find_library('d3d12', required: get_option('dx12'))
 # MinGW does not work. See https://github.com/ocornut/imgui/pull/4604
 if dx12_dep.found() and cpp.get_argument_syntax() == 'msvc'
   sources += 'backends/imgui_impl_dx12.cpp'
   dependencies += dx12_dep
+  headers += files('backends/imgui_impl_dx12.h')
 endif
 metal_dep = dependency('appleframeworks', modules: ['Foundation', 'AppKit', 'GameController', 'Metal'], required: get_option('metal'))
 if metal_dep.found()
   sources += 'backends/imgui_impl_metal.mm'
   dependencies += metal_dep
+  headers += files('backends/imgui_impl_metal.h')
 endif
 libgl_dep = dependency('gl', required: get_option('opengl'))
+opengl_src = files(
+  'backends/imgui_impl_opengl2.cpp',
+  'backends/imgui_impl_opengl3.cpp')
 if libgl_dep.found()
-  sources += 'backends/imgui_impl_opengl3.cpp'
+  sources += opengl_src
   dependencies += libgl_dep
   dependencies += cpp.find_library('dl', required: false)
+  headers = files('backends/imgui_impl_opengl2.h', 
+    'backends/imgui_impl_opengl3.h', 
+    'backends/imgui_impl_opengl3_loader.h')
 endif
-sdl2_renderer_dep = dependency('sdl2', version: '>=2.0.17', required: get_option('sdl_renderer'))
+sdl2_renderer_dep = dependency('sdl2', version: '>=2.0.17', required: get_option('sdl2_renderer'))
 if sdl2_renderer_dep.found()
   sources += 'backends/imgui_impl_sdlrenderer2.cpp'
   dependencies += sdl2_renderer_dep
+  headers += files('backends/imgui_impl_sdlrenderer2.h')
+endif
+sdl3_renderer_dep = dependency('sdl3', version: '>=3.0.0', required: get_option('sdl3_renderer'))
+if sdl3_renderer_dep.found()
+  sources += 'backends/imgui_impl_sdlrenderer3.cpp'
+  dependencies += sdl3_renderer_dep
+  headers += files('backends/imgui_impl_sdlrenderer3.h')
 endif
 vulkan_dep = dependency('vulkan', required: get_option('vulkan'))
 if vulkan_dep.found()
   sources += 'backends/imgui_impl_vulkan.cpp'
   dependencies += vulkan_dep
+  headers += files('backends/imgui_impl_vulkan.h')
 endif
 if cpp.has_header('webgpu/webgpu.h', required: get_option('webgpu'))
   sources += 'backends/imgui_impl_wgpu.cpp'
+  headers += files('backends/imgui_impl_wgpu.h')
 endif
 
 # platform backends
@@ -76,20 +98,30 @@ glfw_dep = dependency('glfw3', required: get_option('glfw'))
 if glfw_dep.found()
   sources += 'backends/imgui_impl_glfw.cpp'
   dependencies += glfw_dep
+  headers += files('backends/imgui_impl_glfw.h')
 endif
 sdl2_dep = dependency('sdl2', required: get_option('sdl2'))
 if sdl2_dep.found()
   sources += 'backends/imgui_impl_sdl2.cpp'
   dependencies += sdl2_dep
+  headers += files('backends/imgui_impl_sdl2.h')
+endif
+sdl3_dep = dependency('sdl3', required: get_option('sdl3'))
+if sdl3_dep.found()
+  sources += 'backends/imgui_impl_sdl3.cpp'
+  dependencies += sdl3_dep
+  headers += files('backends/imgui_impl_sdl3.h')
 endif
 osx_dep = dependency('appleframeworks', modules: ['Carbon', 'Cocoa', 'GameController'], required: get_option('osx'))
 if osx_dep.found()
   sources += 'backends/imgui_impl_osx.mm'
+  headers += files('backends/imgui_impl_osx.h')
 endif
 win_dep = cpp.find_library('dwmapi', required: get_option('win'))
 if win_dep.found()
   sources += 'backends/imgui_impl_win32.cpp'
   dependencies += win_dep
+  headers += files('backends/imgui_impl_win32.h')
 endif
 
 # frameworks
@@ -98,6 +130,7 @@ allegro5_primitives_dep = dependency('allegro_primitives-5', required: get_optio
 if allegro5_dep.found() and allegro5_primitives_dep.found()
   sources += 'backends/imgui_impl_allegro5.cpp'
   dependencies += [allegro5_dep, allegro5_primitives_dep]
+  headers+= files('backends/imgui_impl_allegro5.h')
 endif
 
 api = '-DIMGUI_API=__attribute__((visibility("default")))'
@@ -116,38 +149,20 @@ imgui = library(
   install: true
 )
 
-pkg_mod = import('pkgconfig')
-pkg_mod.generate(imgui,
-  description : 'Dear ImGui: Bloat-free Graphical User interface for C++ with minimal dependencies'
-)
-
-install_headers(
+headers += files(
     'imconfig.h',
     'imgui.h',
     'imgui_internal.h',
     'imstb_rectpack.h',
     'imstb_textedit.h',
-    'imstb_truetype.h',
-    'backends/imgui_impl_allegro5.h',
-    'backends/imgui_impl_android.h',
-    'backends/imgui_impl_dx10.h',
-    'backends/imgui_impl_dx11.h',
-    'backends/imgui_impl_dx12.h',
-    'backends/imgui_impl_glfw.h',
-    'backends/imgui_impl_glut.h',
-    'backends/imgui_impl_metal.h',
-    'backends/imgui_impl_opengl2.h',
-    'backends/imgui_impl_opengl3.h',
-    'backends/imgui_impl_opengl3_loader.h',
-    'backends/imgui_impl_osx.h',
-    'backends/imgui_impl_sdl2.h',
-    'backends/imgui_impl_sdl3.h',
-    'backends/imgui_impl_sdlrenderer2.h',
-    'backends/imgui_impl_sdlrenderer3.h',
-    'backends/imgui_impl_vulkan.h',
-    'backends/imgui_impl_wgpu.h',
-    'backends/imgui_impl_win32.h',
-    subdir: 'imgui')
+    'imstb_truetype.h',)
+
+install_headers(headers, subdir: 'imgui')
+
+pkg_mod = import('pkgconfig')
+pkg_mod.generate(imgui,
+  description : 'Dear ImGui: Bloat-free Graphical User interface for C++ with minimal dependencies'
+)
 
 if host_machine.system() == 'windows'
   api = '-DIMGUI_API=@0@'.format(get_option('default_library') != 'static' ? '__declspec(dllimport)' : '')
