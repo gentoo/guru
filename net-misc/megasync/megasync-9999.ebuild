@@ -50,6 +50,7 @@ DEPEND="
 	dev-qt/qtx11extras:5
 	media-libs/libmediainfo
 	media-libs/libraw
+	media-libs/libzen
 	net-dns/c-ares:=
 	net-misc/curl[ssl,curl_ssl_openssl(-)]
 	sys-libs/zlib
