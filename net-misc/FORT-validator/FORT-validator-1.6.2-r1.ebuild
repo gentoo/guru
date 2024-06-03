@@ -14,7 +14,8 @@ SRC_URI="https://github.com/NICMx/${PN}/releases/download/${PV}/fort-${PV}.tar.g
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="caps"
+IUSE="caps test"
+RESTRICT="!test? ( test )"
 
 PATCHES="${FILESDIR}"/${PN}-1.5.4-GCC14.patch
 
@@ -27,9 +28,10 @@ DEPEND="
 	dev-libs/openssl[rfc3779]
 	net-misc/curl
 "
-RDEPEND="
-	${DEPEND}
-	net-misc/rsync
+RDEPEND="${DEPEND}"
+BDEPEND="
+	virtual/pkgconfig
+	test? ( dev-libs/check )
 "
 
 S="${WORKDIR}/${MY_PN}-${PV}"

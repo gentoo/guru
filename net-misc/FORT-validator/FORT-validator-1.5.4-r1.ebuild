@@ -16,7 +16,8 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="caps"
+IUSE="caps test"
+RESTRICT="!test? ( test )"
 
 PATCHES="${FILESDIR}"/${PN}-1.5.4-GCC14.patch
 
@@ -27,13 +28,10 @@ DEPEND="
 	dev-libs/jansson
 	dev-libs/openssl
 "
-RDEPEND="
-	${DEPEND}
-	net-misc/rsync
-"
+RDEPEND="${DEPEND}"
 BDEPEND="
-	dev-build/automake
-	dev-build/automake
+	virtual/pkgconfig
+	test? ( dev-libs/check )
 "
 
 src_prepare() {
