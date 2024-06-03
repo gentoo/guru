@@ -1,0 +1,12 @@
+Notes:
+ Running candy with multi instances
+
+   1) Using OpenRC
+    Prepare /etc/candy.d/${foo}.cfg first
+    # ln -s /etc/init.d/{candy,${foo}}
+    # rc-service ${foo} start
+    # rc-update add ${foo} default
+
+   2) Using Systemd
+    # systemctl start candy@${foo}
+    # systemctl enable candy@${foo}
