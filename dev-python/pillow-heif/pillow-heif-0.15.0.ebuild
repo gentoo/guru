@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit distutils-r1 pypi
 
 DESCRIPTION="Python interface for libheif library"
@@ -24,8 +24,15 @@ RDEPEND="
 		media-libs/libheif:=
 	)
 	test? (
-		dev-python/pillow[webp,${PYTHON_USEDEP}]
+		dev-python/pillow[jpeg,lcms,webp,zlib,${PYTHON_USEDEP}]
 		media-libs/libheif:=[x265]
+	)
+"
+BDEPEND="
+	test? (
+		dev-python/defusedxml[${PYTHON_USEDEP}]
+		dev-python/numpy[${PYTHON_USEDEP}]
+		media-libs/opencv[python,${PYTHON_USEDEP}]
 	)
 "
 
