@@ -24,7 +24,10 @@ RDEPEND="
 	media-libs/glew[${MULTILIB_USEDEP}]
 	allegro5? ( media-libs/allegro:5[${MULTILIB_USEDEP}] )
 	glfw? ( media-libs/glfw:0[${MULTILIB_USEDEP}] )
-	opengl? ( virtual/opengl[${MULTILIB_USEDEP}] )
+	opengl? ( || (
+		>=media-libs/mesa-24.1.0_rc1[opengl,X?,${MULTILIB_USEDEP}]
+		<media-libs/mesa-24.1.0_rc1[gles2?,egl(+)?,X?,${MULTILIB_USEDEP}]
+	) )
 	sdl2? ( media-libs/libsdl2[${MULTILIB_USEDEP}] )
 	sdl2_renderer? ( media-libs/libsdl2[${MULTILIB_USEDEP}] )
 	vulkan? ( media-libs/vulkan-loader[${MULTILIB_USEDEP}] )
