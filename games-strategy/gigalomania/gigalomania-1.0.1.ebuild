@@ -5,7 +5,7 @@ EAPI=8
 
 inherit wrapper
 
-DESCRIPTION="Libra clone of Mega-Lo-Mania (original from ~1990), supports original resources"
+DESCRIPTION="Libre clone of Mega-Lo-Mania (original from ~1990), supports original resources"
 HOMEPAGE="https://gigalomania.sourceforge.net"
 SRC_URI="http://launchpad.net/$PN/trunk/$PV/+download/${PN}src.zip"
 
