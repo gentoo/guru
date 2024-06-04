@@ -8,6 +8,10 @@
 	<maintainer type="person">
 		<email>samuel@seals-are-bouncy.tech</email>
 	</maintainer>
+	<maintainer type="person">
+		<name>Filip Hoffmann</name>
+		<email>folosp2@gmail.com</email>
+	</maintainer>
 	<use>
 		<flag name="voice">Enable voice-chat support</flag>
 		<flag name="coro">Enable coroutine support</flag>
