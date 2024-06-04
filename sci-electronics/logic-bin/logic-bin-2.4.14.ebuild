@@ -15,6 +15,8 @@ KEYWORDS="~amd64"
 
 RESTRICT="bindist mirror strip"
 
+RDEPEND="sys-libs/zlib"
+
 QA_PREBUILT="*"
 
 src_unpack() {
