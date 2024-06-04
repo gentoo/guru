@@ -1,0 +1,17 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index ff817d2..de26c16 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -65,9 +65,9 @@ full = [
+ Homepage = "https://github.com/Backblaze/B2_Command_Line_Tool"
+ 
+ [project.scripts]
+-b2 = "b2._internal.b2v4.__main__:main"
+-b2v3 = "b2._internal.b2v3.__main__:main"
+-b2v4 = "b2._internal.b2v4.__main__:main"
++backblaze2 = "b2._internal.b2v4.__main__:main"
++backblaze2v3 = "b2._internal.b2v3.__main__:main"
++backblaze2v4 = "b2._internal.b2v4.__main__:main"
+ 
+ [build-system]
+ requires = ["pdm-backend"]
