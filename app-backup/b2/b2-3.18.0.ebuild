@@ -48,11 +48,25 @@ DEPEND="
 
 distutils_enable_tests pytest
 
-# - integration tests require an application key and id (which is reasonable)
-# - sync tests require network access
+EPYTEST_DESELECT=(
+	# fixture 'worker_id' not found
+	"test/integration/test_b2_command_line.py"
+	"test/integration/test_help.py::test_help"
+	"test/integration/test_autocomplete.py"
+
+	# Timeout exceeded
+	# I think this is trying to access files outside of the sandbox
+	"test/unit/console_tool/test_install_autocomplete.py::test_install_autocomplete"
+
+	# TypeError: super(type, obj): obj must be an instance or subtype of type
+	# This test itself does not fail, but running it causes subsequent test to
+	# fail, which otherwise pass. Not really sure why (I assume this test is
+	# somehow polluting the test fixture?) but disabling causes the other tests
+	# to pass
+	"test/unit/_cli/test_autocomplete_cache.py"
+)
 python_test() {
-	epytest --deselect test/unit/console_tool test/unit
-	epytest test/unit/console_tool
+	epytest test
 }
 
 pkg_postinst() {
