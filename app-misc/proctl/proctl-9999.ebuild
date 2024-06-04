@@ -1,3 +1,6 @@
+# Copyright 2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
 EAPI=8
 
 inherit meson
@@ -13,12 +16,3 @@ HOMEPAGE="https://github.com/kernaltrap8/proctl"
 
 LICENSE="GPL-3"
 SLOT="0"
-
-DEPEND="${BDEPEND}"
-BDEPEND="
-	dev-build/meson
-"
-
-src_configure() {
-	meson_src_configure
-}

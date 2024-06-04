@@ -13,12 +13,3 @@ HOMEPAGE="https://github.com/kernaltrap8/tinyfetch"
 
 LICENSE="GPL-3"
 SLOT="0"
-
-DEPEND="${BDEPEND}"
-BDEPEND="
-	dev-build/meson
-"
-
-src_configure() {
-	meson_src_configure
-}
