@@ -50,6 +50,7 @@ RDEPEND="
 	dev-embedded/esp-idf-size[${PYTHON_USEDEP}]
 	dev-embedded/freertos-gdb[${PYTHON_USEDEP}]
 	dev-embedded/idf-component-manager[${PYTHON_USEDEP}]
+	sys-libs/zlib
 "
 
 RESTRICT="strip"
