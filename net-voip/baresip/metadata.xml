@@ -6,16 +6,32 @@
         <name>Dale Showers</name>
     </maintainer>
     <use>
+        <flag name="acip">Audio Contribution over IP compatibility module</flag>
         <flag name="amr">Enables Adaptive Multi-Rate Audio support</flag>
         <flag name="aptx">Audio Processing Technology codec (aptX)</flag>
         <flag name="aom">av1 module</flag>
         <flag name="codec2">CODEC2 low-bitrate speech audio codec</flag>
-        <flag name="gst">Support for video (media-libs/gstreamer)</flag>
-        <flag name="gtk3">gtk+ user interface</flag>
+        <flag name="console">UDP/TCP console UI driver</flag>
+        <flag name="dbus">Control interface using DBUS. ctrl_dbus module</flag>
+        <flag name="echo">Echo server module</flag>
+        <flag name="evdev">Input event device UI module</flag>
+        <flag name="gtk3">GTK+ 3 menu-based UI</flag>
+        <flag name="gst">Add support for media-libs/gstreamer (Streaming media)</flag>
+        <flag name="httpd">HTTP webserver UI-module</flag>
+        <flag name="httpreq">HTTP request module</flag>
         <flag name="mqtt">Enable mqtt support via <pkg>app-misc/mosquitto</pkg></flag>
         <flag name="mpa">MPA Speech and Audio Codec</flag>
-        <flag name="pipewire">Enable pipewire audio support</flag>
-        <flag name="spandsp">Use <pkg>media-libs/spandsp</pkg> for for G.722 and G.726 codec support</flag>
+        <flag name="pipewire">Pipewire audio driver</flag>
+        <flag name="pulseaudio">Pulseaudio driver</flag>
+        <flag name="sdl">Video ouptput driver via <pkg>media-libs/libsdl2</pkg></flag>
+        <flag name="serreg">Serial registration module</flag>
+        <flag name="spandsp">G.722 and G.726 audio codecs via <pkg>media-libs/spandsp</pkg></flag>
+        <flag name="sndfile">Audio dumper using libsndfile</flag>
+        <flag name="snapshot">Save video-stream as PNG images</flag>
+        <flag name="tcpcontrol">TCP control interface using JSON payload</flag>
+        <flag name="video">Build vidbridge and vidinfo modules.</flag>
+        <flag name="webrtc">Use <pkg>media-plugins/gst-plugins-webrtc</pkg> for webrtc support</flag>
+        <flag name="v4l">Video4Linux2 video source</flag>
         <flag name="vpx">Enables VP8 and VP9 codec support using libvpx</flag>
     </use>
     <upstream>
