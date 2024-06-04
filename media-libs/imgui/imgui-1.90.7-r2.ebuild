@@ -61,9 +61,9 @@ multilib_src_configure() {
 		$(meson_feature vulkan)
 		$(meson_feature glfw)
 		$(meson_feature sdl2)
-		$(meson_feature sdl2-renderer)
+		$(meson_feature sdl2-renderer sdl2_renderer)
 		-Dsdl3=disabled
-		-Dsdl3-renderer=disabled
+		-Dsdl3_renderer=disabled
 		$(meson_feature webgpu)
 		-Dosx=disabled
 		-Dwin=disabled
