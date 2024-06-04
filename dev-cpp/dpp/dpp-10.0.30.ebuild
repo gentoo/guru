@@ -18,7 +18,7 @@ LICENSE="Apache-2.0"
 # See https://github.com/brainboxdotcc/DPP/issues/207#issuecomment-1007030157
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="voice"
+IUSE="voice coro"
 
 RDEPEND="
 	dev-libs/openssl:=
@@ -46,6 +46,7 @@ src_configure() {
 		-DDPP_BUILD_TEST=false
 		-DDPP_NO_VCPKG=true
 		-DDPP_USE_EXTERNAL_JSON=true
+		-DDPP_CORO="$(usex coro)"
 	)
 
 	cmake_src_configure
