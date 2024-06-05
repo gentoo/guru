@@ -20,6 +20,7 @@ media-libs/opus media-libs/opusfile
 media-video/ffmpeg:=
 sci-libs/fftw:3.0="
 RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 src_install()
 {
