@@ -16,7 +16,8 @@ S="${WORKDIR}/dwarfs-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+jemalloc test man" #Tests is broken at this moment
+IUSE="+jemalloc test"
+#Tests are expected to be partially broken sometimes
 # See https://github.com/mhx/dwarfs/issues/194
 
 RESTRICT="!test? ( test )"
@@ -55,7 +56,7 @@ BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig
-	man? ( app-text/ronn-ng )
+	app-text/ronn-ng
 	test? ( dev-cpp/gtest )
 	$(python_gen_any_dep 'dev-python/mistletoe[${PYTHON_USEDEP}]')
 "
@@ -97,7 +98,8 @@ src_configure() {
 	mycmakeargs=(
 		-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
 		-DWITH_TESTS=$(usex test ON OFF)
-		-DWITH_MAN_PAGES=$(usex man ON OFF)
+		-DWITH_MAN_PAGES=ON
+		# https://projects.gentoo.org/qa/policy-guide/installed-files.html#pg0305
 		-DPREFER_SYSTEM_ZSTD=ON
 		-DPREFER_SYSTEM_XXHASH=ON
 		-DPREFER_SYSTEM_GTEST=ON
