@@ -3,7 +3,6 @@
 
 EAPI=8
 
-
 DESCRIPTION="kew (/kjuː/) is a command-line music player for Linux."
 HOMEPAGE="https://github.com/ravachol/kew"
 SRC_URI="https://github.com/ravachol/kew/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -13,18 +12,16 @@ LICENSE+=" MIT || ( Unlicense MIT-0 )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="media-video/ffmpeg
-dev-libs/glib
-sci-libs/fftw
+DEPEND="dev-libs/glib:2
 media-gfx/chafa
 media-libs/freeimage
+media-libs/libvorbis
 media-libs/opus media-libs/opusfile
-media-libs/libvorbis"
-RDEPEND=${DEPEND}
-
-
+media-video/ffmpeg:=
+sci-libs/fftw:3.0="
+RDEPEND="${DEPEND}"
 
 src_install()
 {
- 	emake DESTDIR="${D}" install
+	emake DESTDIR="${D}" install
 }
