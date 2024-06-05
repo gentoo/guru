@@ -65,9 +65,6 @@ EPYTEST_DESELECT=(
 	# to pass
 	"test/unit/_cli/test_autocomplete_cache.py"
 )
-python_test() {
-	epytest test
-}
 
 pkg_postinst() {
 	elog "The b2 executable has been renamed to backblaze2 in order to"
