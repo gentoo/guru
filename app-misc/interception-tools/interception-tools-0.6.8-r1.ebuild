@@ -7,7 +7,7 @@ inherit cmake systemd
 
 DESCRIPTION="A minimal composable infrastructure on top of libudev and libevdev"
 HOMEPAGE="https://gitlab.com/interception/linux/tools"
-SRC_URI="https://gitlab.com/interception/linux/tools/-/archive/v${PV}/tools-v${PV}.tar.gz"
+SRC_URI="https://gitlab.com/interception/linux/tools/-/archive/v${PV}/tools-v${PV}.tar.bz2"
 
 S="${WORKDIR}/tools-v${PV}"
 

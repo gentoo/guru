@@ -9,7 +9,7 @@ MY_PN=${PN/-/.}
 COMMIT="8dbd9745f76fb284656711238e8cd42d021da85e"
 DESCRIPTION="vim plugin: edit and work with APKBUILD files"
 HOMEPAGE="https://gitlab.alpinelinux.org/Leo/apkbuild.vim"
-SRC_URI="https://gitlab.alpinelinux.org/Leo/${MY_PN}/-/archive/${COMMIT}/${MY_PN}-${COMMIT}.tar.gz"
+SRC_URI="https://gitlab.alpinelinux.org/Leo/${MY_PN}/-/archive/${COMMIT}/${MY_PN}-${COMMIT}.tar.bz2"
 S="${WORKDIR}/${MY_PN}-${COMMIT}"
 
 LICENSE="MIT"

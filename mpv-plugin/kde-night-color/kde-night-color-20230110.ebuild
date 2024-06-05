@@ -10,7 +10,7 @@ COMMIT="2fb6f013a21553861c6ce28d48e022eb361097b4"
 MY_P="${PN}-${COMMIT}"
 DESCRIPTION="Disable Night Color while mpv is running"
 HOMEPAGE="https://gitlab.com/smaniottonicola/kde-night-color"
-SRC_URI="https://gitlab.com/smaniottonicola/${PN}/-/archive/${COMMIT}/${MY_P}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://gitlab.com/smaniottonicola/${PN}/-/archive/${COMMIT}/${MY_P}.tar.bz2 -> ${P}.tar.bz2"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="Unlicense"

@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="Read JUnit/XUnit XML files and map them to Python objects"
 HOMEPAGE="https://gitlab.com/woob/xunitparser/"
-SRC_URI="https://gitlab.com/woob/xunitparser/-/archive/v${PV}/xunitparser-v${PV}.tar.gz"
+SRC_URI="https://gitlab.com/woob/xunitparser/-/archive/v${PV}/xunitparser-v${PV}.tar.bz2"
 S="${WORKDIR}/xunitparser-v${PV}/"
 
 LICENSE="MIT"

@@ -8,7 +8,7 @@ inherit vim-plugin
 COMMIT="b720ee2d4c5588b5a27bb3544d3ded5ee1acab45"
 DESCRIPTION="Accessible themes for Vim"
 HOMEPAGE="https://protesilaos.com/tempus-themes/"
-SRC_URI="https://gitlab.com/protesilaos/${PN}-themes-vim/-/archive/${COMMIT}/${PN}-themes-vim-${COMMIT}.tar.gz"
+SRC_URI="https://gitlab.com/protesilaos/${PN}-themes-vim/-/archive/${COMMIT}/${PN}-themes-vim-${COMMIT}.tar.bz2"
 S="${WORKDIR}/${PN}-themes-vim-${COMMIT}"
 
 LICENSE="GPL-3"

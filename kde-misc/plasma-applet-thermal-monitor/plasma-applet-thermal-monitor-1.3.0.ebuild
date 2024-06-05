@@ -12,7 +12,7 @@ HOMEPAGE="https://store.kde.org/p/998915/
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
 	EGIT_REPO_URI="https://gitlab.com/agurenko/${PN}.git"
 else
-	SRC_URI="https://gitlab.com/agurenko/${PN}/-/archive/${PV}/${P}.tar.gz"
+	SRC_URI="https://gitlab.com/agurenko/${PN}/-/archive/${PV}/${P}.tar.bz2"
 	KEYWORDS="~amd64 ~x86"
 fi
 

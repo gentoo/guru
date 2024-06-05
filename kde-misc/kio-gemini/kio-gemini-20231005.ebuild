@@ -11,7 +11,7 @@ inherit ecm
 
 DESCRIPTION="Gemini KIO worker"
 HOMEPAGE="https://gitlab.com/tobiasrautenkranz/kio-gemini"
-SRC_URI="https://gitlab.com/tobiasrautenkranz/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.gz"
+SRC_URI="https://gitlab.com/tobiasrautenkranz/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.bz2"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="LGPL-2+"

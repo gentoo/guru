@@ -11,7 +11,7 @@ inherit ecm optfeature
 
 DESCRIPTION="KPart for viewing text/gemini files"
 HOMEPAGE="https://gitlab.com/tobiasrautenkranz/geminipart"
-SRC_URI="https://gitlab.com/tobiasrautenkranz/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.gz"
+SRC_URI="https://gitlab.com/tobiasrautenkranz/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.bz2"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="LGPL-2.1+"

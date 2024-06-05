@@ -10,7 +10,7 @@ COMMIT="478b805b30d4aab41eeb4b2018ab1c8bb0c22c7d"
 MY_P="${PN}-${COMMIT}"
 DESCRIPTION="Disable the notifications while mpv is running"
 HOMEPAGE="https://gitlab.com/smaniottonicola/kde-do-not-disturb"
-SRC_URI="https://gitlab.com/smaniottonicola/${PN}/-/archive/${COMMIT}/${MY_P}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://gitlab.com/smaniottonicola/${PN}/-/archive/${COMMIT}/${MY_P}.tar.bz2 -> ${P}.tar.bz2"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="Unlicense"

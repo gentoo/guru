@@ -5,7 +5,7 @@ EAPI=7
 
 DESCRIPTION="Mobile and privacy friendly configuration for Firefox"
 HOMEPAGE="https://gitlab.com/postmarketOS/mobile-config-firefox"
-SRC_URI="https://gitlab.com/postmarketOS/mobile-config-firefox/-/archive/${PV}/${P}.tar.gz"
+SRC_URI="https://gitlab.com/postmarketOS/mobile-config-firefox/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
