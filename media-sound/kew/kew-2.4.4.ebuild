@@ -6,7 +6,7 @@ EAPI=8
 
 DESCRIPTION="kew (/kjuː/) is a command-line music player for Linux."
 HOMEPAGE="https://github.com/ravachol/kew"
-SRC_URI="https://github.com/ravachol/${PN}/archive/refs/tags/v2.4.4.tar.gz"
+SRC_URI="https://github.com/ravachol/kew/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
