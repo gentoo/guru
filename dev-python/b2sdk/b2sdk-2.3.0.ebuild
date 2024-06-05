@@ -45,8 +45,3 @@ EPYTEST_DESELECT=(
 	# can't typically work in the sandbox
 	test/integration
 )
-
-python_test() {
-	# https://github.com/Backblaze/b2-sdk-python/issues/488
-	epytest test
-}
