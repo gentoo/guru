@@ -24,6 +24,14 @@ sci-libs/fftw:3.0="
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
+src_prepare() {
+	default
+	sed -e "/^CFLAGS += -Wall/s/$/ ${CFLAGS}/" \
+	-e "/^LDFLAGS/s/$/ ${LDFLAGS}/" \
+	-e "/^LIBS/s/$/ ${LDFLAGS}/" \
+	-i Makefile || die
+}
+
 src_compile() {
 	emake CC="$(tc-getCC)"
 }
