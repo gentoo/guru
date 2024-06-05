@@ -1,4 +1,4 @@
-# Copyright 2013-2023 Gentoo Authors
+# Copyright 2013-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,8 +17,12 @@ SLOT="0/0"
 KEYWORDS="~amd64"
 IUSE="pstate-tracer"
 
-CDEPEND="dev-libs/libnl:3"
+CDEPEND="
+	dev-libs/libnl:3
+	sys-libs/libcap
+"
 RDEPEND="
+	${CDEPEND}
 	pstate-tracer? (
 		${PYTHON_DEPS}
 		dev-python/gnuplot-py[${PYTHON_USEDEP}]
