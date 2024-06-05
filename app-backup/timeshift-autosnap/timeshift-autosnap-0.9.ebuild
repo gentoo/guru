@@ -7,7 +7,7 @@ inherit readme.gentoo-r1
 
 DESCRIPTION="Automatically creates a timeshift-snapshot when executed"
 HOMEPAGE="https://gitlab.com/gobonja/timeshift-autosnap"
-SRC_URI="https://gitlab.com/gobonja/timeshift-autosnap/-/archive/${PV}/{$P}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://gitlab.com/gobonja/timeshift-autosnap/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="MIT"
 SLOT="0"
