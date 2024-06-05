@@ -19,16 +19,14 @@ KEYWORDS="~amd64 ~x86"
 IUSE="caps test"
 RESTRICT="!test? ( test )"
 
-PATCHES="${FILESDIR}"/${PN}-1.5.4-GCC14.patch
+PATCHES="${FILESDIR}"/${PN}-1.5.4-libxml2-2.12.0.patch
 
 DEPEND="
 	acct-group/fort
 	acct-user/fort
 	caps? ( sys-libs/libcap )
 	dev-libs/jansson
-	dev-libs/libxml2
-	dev-libs/openssl[rfc3779]
-	net-misc/curl
+	dev-libs/openssl
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -42,6 +40,8 @@ src_prepare() {
 	sed -i 's/fort_CFLAGS  =/fort_CFLAGS  = ${CFLAGS} /' src/Makefile.am || die
 	# Don't test network
 	sed -i '/http/d' test/Makefile.am || die
+	# Don’t compile debug by default
+	sed -i '/fort_CFLAGS/ s/ -g / /' src/Makefile.am || die
 	eautoreconf
 }
 

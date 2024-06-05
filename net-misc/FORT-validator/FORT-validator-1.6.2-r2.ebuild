@@ -19,7 +19,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="caps test"
 RESTRICT="!test? ( test )"
 
-PATCHES="${FILESDIR}"/${PN}-1.5.4-GCC14.patch
+PATCHES="${FILESDIR}"/${PN}-1.5.4-libxml2-2.12.0.patch
 
 DEPEND="
 	acct-group/fort
@@ -27,7 +27,7 @@ DEPEND="
 	caps? ( sys-libs/libcap )
 	dev-libs/jansson
 	dev-libs/libxml2
-	dev-libs/openssl
+	dev-libs/openssl[rfc3779]
 	net-misc/curl
 "
 RDEPEND="${DEPEND}"
