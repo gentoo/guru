@@ -33,7 +33,7 @@ src_prepare() {
 }
 
 src_compile() {
-	emake CC="$(tc-getCC)"
+	emake CC="$(tc-getCC)" PKG_CONFIG="$(tc-getPKG_CONFIG)"
 }
 
 src_install()
