@@ -1,10 +1,23 @@
+Partially backport 0f933eb5966848d96477b5148e40ac1c3e750e22 for distro-agnostic
+detection of grub-btrfs snapshot functionality.
+
+Author: Lucio Sauer <watermanpaint@posteo.net>
 --- a/timeshift-autosnap
 +++ b/timeshift-autosnap
-@@ -53,7 +53,7 @@ if $(get_property "deleteSnapshots" "boolean" "true") ; then
+@@ -53,8 +53,12 @@ if $(get_property "deleteSnapshots" "boolean" "true") ; then
      fi
  fi;
  
 -if $(get_property "updateGrub" "boolean" "true") && [ "$(pacman -Qs ^grub-btrfs$)" ]; then
-+if $(get_property "updateGrub" "boolean" "true") ; then
-     grub-mkconfig -o /boot/grub/grub.cfg
- fi;
+-    grub-mkconfig -o /boot/grub/grub.cfg
+-fi;
+-
++if $(get_property "updateGrub" "boolean" "true") && [ -f /etc/grub.d/41_snapshots-btrfs ]; then
++	. /etc/default/grub-btrfs/config
++	if [ -s "${GRUB_BTRFS_GRUB_DIRNAME:-/boot/grub}/grub-btrfs.cfg" ]; then
++		/etc/grub.d/41_snapshots-btrfs
++	else
++		${GRUB_BTRFS_MKCONFIG:-grub-mkconfig} -o ${GRUB_BTRFS_GRUB_DIRNAME:-/boot/grub}/grub.cfg
++	fi
++fi
+ exit 0

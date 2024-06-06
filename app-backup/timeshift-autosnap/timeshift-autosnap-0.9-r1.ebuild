@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit readme.gentoo-r1
+inherit optfeature readme.gentoo-r1
 
 DESCRIPTION="Automatically creates a timeshift-snapshot when executed"
 HOMEPAGE="https://gitlab.com/gobonja/timeshift-autosnap"
@@ -13,11 +13,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="
-	app-backup/timeshift
-	>=sys-apps/portage-2.1
-"
-RDEPEND="${DEPEND}"
+RDEPEND="app-backup/timeshift"
 
 PATCHES=( "${FILESDIR}/${PN}-remove-arch-specific.patch" )
 
@@ -36,4 +32,5 @@ src_install(){
 
 pkg_postinst() {
 	readme.gentoo_print_elog
+	optfeature "grub-btrfs snapshot support" app-backup/grub-btrfs
 }
