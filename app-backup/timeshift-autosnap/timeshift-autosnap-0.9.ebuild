@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,15 +26,6 @@ DOC_CONTENTS='to run timeshift-autosnap everytime you emerge a package run:
 $ touch /etc/portage/bashrc
 $ grep -q  "#!/bin/" /etc/portage/bashrc || awk -i inplace "BEGINFILE{print "#!/bin/sh"}{print}" /etc/portage/bashrc
 $ grep -q timeshift-autosnap /etc/portage/bashrc || echo "function pre_pkg_setup() { /usr/bin/timeshift-autosnap ; }" >> /etc/portage/bashrc'
-
-src_unpack() {
-	default
-	mv "${WORKDIR}"/timeshift-autosnap-${PV}* "${WORKDIR}"/timeshift-autosnap-${PV} || die
-}
-
-src_compile(){
-	:
-}
 
 src_install(){
 	dobin timeshift-autosnap
