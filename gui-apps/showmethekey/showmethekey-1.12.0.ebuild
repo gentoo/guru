@@ -26,7 +26,11 @@ DEPEND="
 	x11-libs/libxkbcommon
 	x11-libs/pango
 "
-RDEPEND="${DEPEND}"
+
+RDEPEND="
+	${DEPEND}
+	x11-libs/libX11
+"
 
 src_prepare() {
 	default
