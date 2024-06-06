@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs edo
+inherit toolchain-funcs edo shell-completion
 
 DESCRIPTION="Minimal X11 rectangle selection tool"
 HOMEPAGE="https://codeberg.org/NRK/selx"
@@ -29,4 +29,5 @@ src_compile() {
 src_install() {
 	dobin selx
 	doman selx.1
+	dozshcomp etc/zsh-completion/_selx
 }
