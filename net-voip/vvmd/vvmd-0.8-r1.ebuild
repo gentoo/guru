@@ -21,7 +21,3 @@ RDEPEND="
 	>=net-misc/modemmanager-1.14:=
 "
 DEPEND="${RDEPEND}"
-
-src_install() {
-	meson_src_install
-}
