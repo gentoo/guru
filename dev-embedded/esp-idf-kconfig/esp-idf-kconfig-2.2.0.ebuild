@@ -14,9 +14,9 @@ HOMEPAGE="https://github.com/espressif/esp-idf-kconfig"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
 
-RESTRICT="test"
+# Broken. See https://github.com/espressif/esp-idf-kconfig/issues/6
+KEYWORDS=""
 
 RDEPEND="
 	dev-python/kconfiglib[${PYTHON_USEDEP}]
