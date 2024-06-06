@@ -38,5 +38,5 @@ src_compile() {
 
 src_install()
 {
-	emake DESTDIR="${D}" install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}"/usr install
 }
