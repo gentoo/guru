@@ -7,7 +7,7 @@ inherit meson
 
 DESCRIPTION="vvmd is a lower level daemon that retrieves Visual Voicemail"
 HOMEPAGE="https://gitlab.com/kop316/vvmd"
-SRC_URI="https://gitlab.com/kop316/vvmd/-/archive/${PV}/${P}.tar.gz"
+SRC_URI="https://gitlab.com/kop316/vvmd/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
