@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Julien Roy <julien@jroy.ca> (2024-06-07)
+# Dependencies dropped from ::gentoo
+dev-python/betterproto
+dev-python/grpclib
+
 # Takuya Wakazono <pastalian46@gmai.com> (2024-06-02)
 # app-text/komikku no longer depends on this. No revdeps left.
 # Removal on 2024-07-02.
