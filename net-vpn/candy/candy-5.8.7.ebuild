@@ -35,4 +35,9 @@ src_install(){
 
 	systemd_dounit candy.service
 	systemd_dounit candy@.service
+	newinitd candy.initd candy
+}
+
+pkg_postinst() {
+	readme.gentoo_print_elog
 }
