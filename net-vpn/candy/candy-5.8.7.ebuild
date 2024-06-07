@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake systemd
+inherit cmake systemd readme.gentoo-r1
 
 DESCRIPTION="A reliable, low-latency, and anti-censorship virtual private network"
 HOMEPAGE="https://github.com/lanthora/candy"
@@ -36,6 +36,8 @@ src_install(){
 	systemd_dounit candy.service
 	systemd_dounit candy@.service
 	newinitd candy.initd candy
+
+	readme.gentoo_create_doc
 }
 
 pkg_postinst() {
