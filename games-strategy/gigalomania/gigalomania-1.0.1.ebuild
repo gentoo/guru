@@ -30,8 +30,6 @@ src_compile() {
 src_install() {
 	DESTDIR="$D" emake install
 
-	dosym -r /opt/$PN/$PN /usr/bin/$PN
-
 	make_wrapper $PN "./$PN" /opt/$PN/
 }
 
