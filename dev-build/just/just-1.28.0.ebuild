@@ -208,16 +208,20 @@ src_install() {
 
 	cargo_src_install
 
-	doman man/*
-
 	einstalldocs
 
 	# bash-completion
-	newbashcomp "completions/${PN}.bash" "${PN}"
+	if [ -f "completions/${PN}.bash" ]; then
+		newbashcomp "completions/${PN}.bash" "${PN}"
+	fi
 
 	# zsh-completion
-	newzshcomp "completions/${PN}.zsh" "_${PN}"
+	if [ -f "completions/${PN}.zsh" ]; then
+		newzshcomp "completions/${PN}.zsh" "_${PN}"
+	fi
 
 	# fish-completion
-	dofishcomp "completions/${PN}.fish"
+	if [ -f "completions/${PN}.fish" ]; then
+		dofishcomp "completions/${PN}.fish"
+	fi
 }
