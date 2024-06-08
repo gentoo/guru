@@ -19,13 +19,6 @@
 # New entries go on top.
 
 # Julien Roy <julien@jroy.ca> (2024-06-08)
-# Outdated, open bugs, needs a new maintainer
-# https://bugs.gentoo.org/921743
-# https://bugs.gentoo.org/888695
-# Removal 2024-07-08
-dev-embedded/etlcpp
-
-# Julien Roy <julien@jroy.ca> (2024-06-08)
 # Removal 2024-07-08
 # Dependencies dropped from ::gentoo
 dev-python/sphinx-design
