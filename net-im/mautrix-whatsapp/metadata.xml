@@ -17,6 +17,5 @@
 		<doc>https://docs.mau.fi/bridges/go/whatsapp/index.html</doc>
 		<bugs-to>https://github.com/mautrix/whatsapp/issues</bugs-to>
 		<remote-id type="github">mautrix/whatsapp</remote-id>
-		<remote-id type="pypi">mautrix-whatsapp</remote-id>
 	</upstream>
 </pkgmetadata>
