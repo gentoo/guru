@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 S="${WORKDIR}/${MY_PN}"
 
 DESCRIPTION="Aylurs's Gtk Shell (AGS), An eww inspired gtk widget system."
-HOMEPAGE="https://github.com/Alyur/ags"
+HOMEPAGE="https://github.com/Aylur/ags"
 
 LICENSE="GPL-3"
 SLOT="0"
