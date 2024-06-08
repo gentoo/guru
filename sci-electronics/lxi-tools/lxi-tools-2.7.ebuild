@@ -1,11 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 PYTHON_COMPAT=( python{3_12,3_13} )
 LUA_COMPAT=( lua5-{1..4} )
-inherit meson python-any-r1 lua-single gnome2-utils xdg-utils bash-completion-r1
+inherit meson python-any-r1 lua-single gnome2-utils bash-completion-r1
 
 DESCRIPTION="Tools to access devices with LXI"
 HOMEPAGE="https://github.com/lxi-tools/lxi-tools"
@@ -43,7 +43,7 @@ pkg_setup() {
 
 src_configure() {
 	# fix lua dependency string in meson-build
-	sed -i 's/lua-/lua/g' ${S}/src/meson.build || die
+	sed -i 's/lua-/lua/g' "${S}"/src/meson.build || die
 
 	local emesonargs=(
 		$(meson_use gui)
