@@ -32,7 +32,7 @@ BDEPEND="
 	test? (
 		dev-python/defusedxml[${PYTHON_USEDEP}]
 		dev-python/numpy[${PYTHON_USEDEP}]
-		media-libs/opencv[python,${PYTHON_USEDEP}]
+		media-libs/opencv[png,python,${PYTHON_USEDEP}]
 	)
 "
 
