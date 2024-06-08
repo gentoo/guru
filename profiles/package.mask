@@ -18,8 +18,15 @@
 
 # New entries go on top.
 
+# Julien Roy <julien@jroy.ca> (2024-06-08)
+# Removal 2024-07-08
+# Dependencies dropped from ::gentoo
+dev-python/sphinx-design
+dev-python/sphinxext-opengraph
+
 # Julien Roy <julien@jroy.ca> (2024-06-07)
 # Dependencies dropped from ::gentoo
+# Removal 2024-07-07
 dev-python/betterproto
 dev-python/grpclib
 
