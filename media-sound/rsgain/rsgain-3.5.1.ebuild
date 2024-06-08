@@ -15,24 +15,24 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	dev-libs/inih
-        dev-libs/libfmt
-        media-libs/libebur128
-        media-libs/libogg
-        media-libs/libvorbis
-        media-libs/taglib
-        media-video/ffmpeg
+	dev-libs/libfmt
+	media-libs/libebur128
+	media-libs/libogg
+	media-libs/libvorbis
+	media-libs/taglib
+	media-video/ffmpeg
 "
 
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-        cmake_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
-        cmake_src_configure
+	cmake_src_configure
 }
 
 src_install() {
-        cmake_src_install
+	cmake_src_install
 }
