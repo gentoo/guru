@@ -15,7 +15,7 @@ inherit chromium-2 desktop linux-info unpacker xdg
 
 DESCRIPTION="All-in-one voice and text chat for gamers with Vencord Preinstalled"
 HOMEPAGE="https://github.com/Vencord/Vesktop/"
-SRC_URI="https://github.com/Vencord/Vesktop/releases/download/v${PV}/${MY_PN}-${PV}.tar.gz"
+SRC_URI="https://github.com/Vencord/Vesktop/releases/download/v${PV}/${MY_PN}-${PV}.tar.gz -> ${MY_PN}.tar.gz"
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="GPL-3+"
@@ -29,7 +29,7 @@ DEPEND="
 	app-crypt/libsecret
 	app-accessibility/at-spi2-core
 	dev-libs/expat
-	dev-libs/glib:2
+	dev-libs/glib
 	dev-libs/nspr
 	dev-libs/nss
 	media-libs/alsa-lib
@@ -42,18 +42,16 @@ DEPEND="
 	x11-libs/libdrm
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
-	x11-libs/libxkbcommon
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
+	x11-libs/libXext
 	x11-libs/libXfixes
-	x11-libs/libX11
 	x11-libs/libXrandr
+	x11-libs/libdrm
+	x11-libs/libxcb
+	x11-libs/libxkbcommon
 	x11-libs/pango
 	x11-misc/xdg-utils
-"
-
-BDEPEND="
-	dev-vcs/git
 "
 
 DESTDIR="/opt/${PN}"
