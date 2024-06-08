@@ -25,10 +25,15 @@ DOCS=( mdmenu.conf README.md )
 
 pkg_postinst() {
 	mpv-plugin_pkg_postinst
+
+	einfo "mdmenu does not set any keybindings by default."
+	einfo "Customize ~~/input.conf according to the documentation "
+	einfo "in order to set custom bindings."
+
 	if use custom-cmd ; then
-		ewarn "mdmenu has been installed without a launcher."
-		ewarn "You will need to configure \`cmd\` in script-opt "
-		ewarn "to a dmenu-compatible app for mdmenu to work."
-		ewarn "Please refer to the documents for more info."
+		ewarn "mdmenu has been installed without dmenu."
+		ewarn "You will need to set \`cmd\` in ~~/script-opts/mdmenu.conf "
+		ewarn "to a dmenu-compatible application for mdmenu to work."
+		ewarn "Please refer to the documentation for more info."
 	fi
 }
