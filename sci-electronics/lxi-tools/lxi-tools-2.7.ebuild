@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python{3_12,3_13} )
 LUA_COMPAT=( lua5-{1..4} )
-inherit meson python-any-r1 lua-single gnome2-utils xdg-utils
+inherit meson python-any-r1 lua-single gnome2-utils xdg-utils bash-completion-r1
 
 DESCRIPTION="Tools to access devices with LXI"
 HOMEPAGE="https://github.com/lxi-tools/lxi-tools"
@@ -47,6 +47,7 @@ src_configure() {
 
 	local emesonargs=(
 		$(meson_use gui)
+		-Dbashcompletiondir="$(get_bashcompdir)"
 	)
 	meson_src_configure
 }
