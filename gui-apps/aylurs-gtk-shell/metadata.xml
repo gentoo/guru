@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>chinh4thepro@gmail.com</email>
+		<name>Vincent Phan</name>
+	</maintainer>
+	<use>
+		<flag name="tray">Enable support for tray</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">Aylur/ags</remote-id>
+	</upstream>
+</pkgmetadata>
