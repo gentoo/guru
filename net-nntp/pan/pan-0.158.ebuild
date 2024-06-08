@@ -28,6 +28,9 @@ DEPEND="
 		>=app-text/gtkspell-3.0.10:3 )
 	ssl? ( >=net-libs/gnutls-3:0= )
 	>=sys-libs/zlib-1.2.0
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/pango
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
