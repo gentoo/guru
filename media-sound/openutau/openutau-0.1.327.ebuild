@@ -272,6 +272,7 @@ RDEPEND="
 	dev-dotnet/dotnet-sdk-bin
 	sys-fs/fuse-common
 	media-libs/alsa-lib
+	media-libs/fontconfig
 "
 
 DEPEND="${RDEPEND}
