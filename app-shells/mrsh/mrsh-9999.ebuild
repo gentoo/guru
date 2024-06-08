@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit git-r3 meson
 
 DESCRIPTION="minimal strictly POSIX compliant shell"
-HOMEPAGE="https://mrsh.sh/"
+HOMEPAGE="https://git.sr.ht/~emersion/mrsh"
 EGIT_REPO_URI="https://git.sr.ht/~emersion/mrsh"
 LICENSE="MIT"
 SLOT="0"
