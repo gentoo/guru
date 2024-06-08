@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>nrk@disroot.org</email>
+		<name>NRK</name>
+	</maintainer>
+	<use>
+		<flag name="custom-cmd">
+			Do not install dmenu as a dependency.
+			This requires you to configure a custom dmenu-compatible
+			command in the configuration.
+		</flag>
+	</use>
+	<upstream>
+		<remote-id type="codeberg">NRK/mpv-toolbox</remote-id>
+	</upstream>
+</pkgmetadata>
