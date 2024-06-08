@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <name>Jan Henke</name>
-    <email>gentoo@taujhe.de</email>
-    <description>Primary maintainer</description>
-</maintainer>
+  <!-- maintainer-needed -->
   <longdescription>
     C++ is a great language to use for embedded applications and templates are
     a powerful aspect. The standard library can offer a great deal of well
