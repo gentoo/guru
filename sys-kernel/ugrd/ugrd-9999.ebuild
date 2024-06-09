@@ -17,7 +17,7 @@ SLOT="0"
 RDEPEND="
 	app-misc/pax-utils
 	>=dev-python/zenlib-2.1.2[${PYTHON_USEDEP}]
-	>=dev-python/pycpio-1.1.2[${PYTHON_USEDEP}]
+	>=dev-python/pycpio-9999[${PYTHON_USEDEP}]
 	sys-apps/pciutils
 "
 
