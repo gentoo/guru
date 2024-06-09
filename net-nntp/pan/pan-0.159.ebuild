@@ -69,3 +69,8 @@ src_install() {
 
 
 }
+
+src_test() {
+	# not doing tests. Bug #933860
+	einfo "Skipping tests..."
+}
