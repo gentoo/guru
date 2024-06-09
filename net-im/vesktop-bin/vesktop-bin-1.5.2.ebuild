@@ -45,11 +45,11 @@ DEPEND="
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
 	x11-libs/libXext
-   	x11-libs/libXfixes
-   	x11-libs/libXrandr
-   	x11-libs/libdrm
-   	x11-libs/libxcb
-   	x11-libs/libxkbcommon
+	x11-libs/libXfixes
+	x11-libs/libXrandr
+	x11-libs/libdrm
+	x11-libs/libxcb
+	x11-libs/libxkbcommon
 	x11-libs/pango
 	x11-misc/xdg-utils
 "
