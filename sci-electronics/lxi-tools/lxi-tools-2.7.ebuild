@@ -14,11 +14,10 @@ SRC_URI="https://github.com/lxi-tools/${PN}/archive/refs/tags/v${PV}.tar.gz -> $
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bash-completion +gui"
+IUSE="+gui"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 RDEPEND="
-	bash-completion? ( >=app-shells/bash-completion-2.11 )
 	>=sys-libs/readline-8.1_p2
 	${LUA_DEPS}
 	>=sci-electronics/liblxi-1.13
