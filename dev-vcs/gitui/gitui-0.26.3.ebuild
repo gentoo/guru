@@ -353,6 +353,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	einfo "Example of vim keybindings config stored in '/usr/share/doc/${P}'"
-	einfo 'to use it put example config in `$XDG_CONFIG_HOME/gitui/key_config.ron`'
+	elog "Example vim style key config is installed in '${EROOT}/usr/share/doc/${PF}'."
+	elog "To use it, copy the content into '\$XDG_CONFIG_HOME/gitui/key_configs.ron'."
 }
