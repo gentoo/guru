@@ -9,7 +9,7 @@ MY_PN="ags"
 inherit meson
 
 DESCRIPTION="Aylurs's Gtk Shell (AGS), An eww inspired gtk widget system."
-HOMEPAGE="https://github.com/Alyur/ags"
+HOMEPAGE="https://github.com/Aylur/ags"
 SRC_URI="
 	https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/${MY_PN}-${MY_PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/node_modules-${MY_PV}.tar.gz -> node-modules.tar.gz
