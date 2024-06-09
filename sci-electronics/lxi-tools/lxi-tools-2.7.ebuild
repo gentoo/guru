@@ -24,6 +24,8 @@ RDEPEND="
 	gui? (
 		>=dev-libs/glib-2.70
 		>=gui-libs/gtk-4.6.0
+		>=x11-libs/cairo-1.18.0
+		>=x11-libs/gdk-pixbuf-2.42.10-r1
 		>=gui-libs/gtksourceview-5.4.0
 		>=gui-libs/libadwaita-1.2
 		>=dev-libs/json-glib-1.4
