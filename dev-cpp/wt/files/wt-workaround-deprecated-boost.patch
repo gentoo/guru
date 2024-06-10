@@ -1,0 +1,79 @@
+diff --git a/src/http/Server.C b/src/http/Server.C
+index 1b21529d..946cd1b6 100644
+--- a/src/http/Server.C
++++ b/src/http/Server.C
+@@ -331,7 +331,7 @@ std::vector<asio::ip::address> Server::resolveAddress(asio::ip::tcp::resolver &r
+       LOG_DEBUG_S(&wt_, "Failed to resolve hostname \"" << address << "\" as IPv4: " <<
+                   Wt::AsioWrapper::system_error(errc).what());
+     // Resolve IPv6
+-    query = Wt::AsioWrapper::asio::ip::tcp::resolver::query(Wt::AsioWrapper::asio::ip::tcp::v6(), address, "http");
++    auto q = Wt::AsioWrapper::asio::ip::tcp::resolver::query(Wt::AsioWrapper::asio::ip::tcp::v6(), address, "http");
+     for (Wt::AsioWrapper::asio::ip::tcp::resolver::iterator it = resolver.resolve(query, errc);
+          !errc && it != end; ++it) {
+       result.push_back(it->endpoint().address());
+diff --git a/src/web/FileUtils.C b/src/web/FileUtils.C
+index 122e2a94..c6ce732b 100644
+--- a/src/web/FileUtils.C
++++ b/src/web/FileUtils.C
+@@ -6,6 +6,7 @@
+ 
+ #include "web/FileUtils.h"
+ 
++#include <filesystem>
+ #include <boost/filesystem/operations.hpp>
+ 
+ #include "web/WebUtils.h"
+@@ -45,7 +46,7 @@ namespace Wt {
+ 
+     unsigned long long size(const std::string &file)
+     {
+-      return (unsigned long long) boost::filesystem::file_size(file);
++      return (unsigned long long) std::filesystem::file_size(file);
+     }
+ 
+     std::string* fileToString(const std::string& fileName)
+@@ -60,35 +61,35 @@ namespace Wt {
+ 
+     std::chrono::system_clock::time_point lastWriteTime(const std::string &file)
+     {
+-      return std::chrono::system_clock::from_time_t(boost::filesystem::last_write_time(file));
++      return std::chrono::system_clock::time_point{std::chrono::duration_cast<std::chrono::milliseconds>(std::filesystem::last_write_time(file).time_since_epoch())};
+     }
+ 
+     bool exists(const std::string &file)
+     {
+-      boost::filesystem::path path(file);
+-      return boost::filesystem::exists(path);
++      std::filesystem::path path(file);
++      return std::filesystem::exists(path);
+     }
+ 
+     bool isDirectory(const std::string &file)
+     {
+-      boost::filesystem::path path(file);
+-      return boost::filesystem::is_directory(path);
++      std::filesystem::path path(file);
++      return std::filesystem::is_directory(path);
+     }
+ 
+     void listFiles(const std::string &directory,
+                    std::vector<std::string> &files)
+     {
+-      boost::filesystem::path path(directory);
+-      boost::filesystem::directory_iterator end_itr;
++      std::filesystem::path path(directory);
++      std::filesystem::directory_iterator end_itr;
+ 
+-      if (!boost::filesystem::is_directory(path)) {
++      if (!std::filesystem::is_directory(path)) {
+         std::string error
+           = "listFiles: \"" + directory + "\" is not a directory";
+         LOG_ERROR(error);
+         throw WException(error);
+       }
+ 
+-      for (boost::filesystem::directory_iterator i(path); i != end_itr; ++i) {
++      for (std::filesystem::directory_iterator i(path); i != end_itr; ++i) {
+         std::string f = (*i).path().string();
+         files.push_back(f);
+       }
