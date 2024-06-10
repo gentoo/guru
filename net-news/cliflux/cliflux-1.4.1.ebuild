@@ -213,3 +213,6 @@ LICENSE="MIT"
 LICENSE+=" Apache-2.0 BSD MIT Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
+
+DEPEND="dev-libs/openssl"
+RDEPEND="${DEPEND}"
