@@ -104,12 +104,6 @@ dev-python/portion
 # Removal: 2024-06-09.  Bug #931440.
 dev-python/wrapio
 
-# Viorel Munteanu <ceamac@gentoo.org> (2024-05-10)
-# No upstream activity in more than 3 years.
-# No revdeps left in tree.
-# Removal: 2024-06-09.  Bug #931420.
-dev-python/sdnotify
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
