@@ -51,6 +51,7 @@ src_configure() {
 		-DUA_BUILD_TOOLS=$(usex tools)
 		-DUA_BUILD_UNIT_TESTS=OFF
 		-DUA_ENABLE_PUBSUB=$(usex pubsub)
+		-DUA_ENABLE_PUBSUB_INFORMATIONMODEL=$(usex pubsub)
 		-DUA_FORCE_WERROR=OFF
 	)
 
