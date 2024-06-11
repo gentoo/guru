@@ -1,0 +1,102 @@
+commit 6438345be829fa95bcaedf125cf4b29aa1d5064d
+Author: David Roman <davidroman96@gmail.com>
+Date:   Sun Jun 2 15:47:44 2024 +0200
+
+    replace isounidecode with unidecode
+
+diff --git a/extra/win-requirements.txt b/extra/win-requirements.txt
+index ef2dfd42..ccb54be7 100644
+--- a/extra/win-requirements.txt
++++ b/extra/win-requirements.txt
+@@ -8,7 +8,7 @@ requests
+ beautifulsoup4
+ PlexAPI
+ musicbrainzngs
+-isounidecode
++unidecode
+ infi.systray
+ mutagen
+ natsort
+diff --git a/requirements.txt b/requirements.txt
+index 3252278f..970d3a06 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -6,7 +6,7 @@ requests
+ beautifulsoup4
+ PlexAPI
+ musicbrainzngs
+-isounidecode
++unidecode
+ setproctitle
+ mutagen
+ natsort
+diff --git a/t_modules/t_lyrics.py b/t_modules/t_lyrics.py
+index 8e5d197a..19b91bd8 100644
+--- a/t_modules/t_lyrics.py
++++ b/t_modules/t_lyrics.py
+@@ -18,7 +18,7 @@
+ #     along with Tauon Music Box.  If not, see <http://www.gnu.org/licenses/>.
+ 
+ 
+-from isounidecode import unidecode
++from unidecode import unidecode
+ from bs4 import BeautifulSoup
+ import urllib.parse
+ import requests
+@@ -81,7 +81,7 @@ def genius(artist, title, return_url=False):
+     line = line.replace("/", "-")
+     line = line.replace("-&-", "-and-")
+     line = line.replace("&", "-and-")
+-    line = unidecode(line).decode()
++    line = unidecode(line)
+     line = urllib.parse.quote(line)
+     line = f"https://genius.com/{line}-lyrics"
+ 
+diff --git a/t_modules/t_main.py b/t_modules/t_main.py
+index c2f2ebab..4848b7b2 100644
+--- a/t_modules/t_main.py
++++ b/t_modules/t_main.py
+@@ -591,7 +591,7 @@ from pathlib import Path
+ from xml.sax.saxutils import escape, unescape
+ from ctypes import *
+ from send2trash import send2trash
+-from isounidecode import unidecode
++from unidecode import unidecode
+ from collections import OrderedDict
+ 
+ musicbrainzngs.set_useragent("TauonMusicBox", n_version, "https://github.com/Taiko2k/Tauon")
+@@ -25663,14 +25663,14 @@ def worker2():
+                                         s_text = s_cn
+ 
+                         if dia_mode:
+-                            title = unidecode(title).decode()
++                            title = unidecode(title)
+ 
+-                            artist = unidecode(artist).decode()
+-                            album_artist = unidecode(album_artist).decode()
+-                            composer = unidecode(composer).decode()
+-                            album = unidecode(album).decode()
+-                            filename = unidecode(filename).decode()
+-                            sartist = unidecode(sartist).decode()
++                            artist = unidecode(artist)
++                            album_artist = unidecode(album_artist)
++                            composer = unidecode(composer)
++                            album = unidecode(album)
++                            filename = unidecode(filename)
++                            sartist = unidecode(sartist)
+ 
+                             if cache_string is None:
+                                 search_dia_string_cache[
+@@ -30054,9 +30054,9 @@ class Over:
+                               click=self.click, replace="github")
+ 
+             y += spacing
+-            ddt.text((x, y), "isounidecode", colours.box_sub_text, font)
+-            ddt.text((xx, y), "New BSD License", colours.box_text_label, font)
+-            draw_linked_text2(xxx, y, "https://github.com/redvasily/isounidecode", colours.box_sub_text, font,
++            ddt.text((x, y), "unidecode", colours.box_sub_text, font)
++            ddt.text((xx, y), "GPL-2.0+", colours.box_text_label, font)
++            draw_linked_text2(xxx, y, "https://github.com/avian2/unidecode", colours.box_sub_text, font,
+                               click=self.click, replace="github")
+ 
+             y += spacing
