@@ -7,7 +7,7 @@ inherit wrapper
 
 DESCRIPTION="A remake of the 1996 classic game Z, with network play"
 HOMEPAGE="https://sourceforge.net/projects/zedonline/"
-SRC_URI="https://master.dl.sourceforge.net/project/$PN/releases/ZED%20Online%20v$PV%20Linux.zip"
+SRC_URI="https://master.dl.sourceforge.net/project/zedonline/releases/ZED%20Online%20v$PV%20Linux.zip"
 
 S="$WORKDIR"
 
