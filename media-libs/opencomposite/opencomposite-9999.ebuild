@@ -12,7 +12,6 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/znixian/OpenOVR.git"
 	EGIT_BRANCH="openxr"
-	KEYWORDS=""
 else
 	KEYWORDS="~amd64"
 fi
@@ -23,11 +22,10 @@ SLOT="0"
 DEPEND="
 	dev-lang/python
 	dev-util/vulkan-headers
+	media-libs/libglvnd[X]
 	media-libs/openxr-loader
-	virtual/opengl
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 PATCHES=(
 	"${FILESDIR}/0001-Add-install-target.patch"
