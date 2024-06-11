@@ -14,7 +14,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~mips"
 
 DEPEND="
-	dev-libs/libconfig
 	dev-libs/poco
 	dev-libs/openssl
 	dev-libs/spdlog
