@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <name>Dale Sweeney</name>
+        <email>agooglygooglr@gmail.com</email>
+    </maintainer>
+    <longdescription>
+        Convert (compressed) Apple Disk Images to IMG format.
+    </longdescription>
+    <upstream>
+        <remote-id type="github">Lekensteyn/dmg2img</remote-id>
+        <bugs-to>https://github.com/Lekensteyn/dmg2img/issues</bugs-to>
+    </upstream>
+    <use>
+        <flag name="lzfse">Enable support for Apple's LZFSE compression</flag>
+    </use>
+</pkgmetadata>
