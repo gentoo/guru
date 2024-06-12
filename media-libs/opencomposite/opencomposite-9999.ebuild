@@ -41,7 +41,8 @@ src_configure()
 	# as it does for vulkan and other similar configuration files.
 	local mycmakeargs=(
 		"-DCMAKE_INSTALL_PREFIX=/opt"
-		"-DUSE_SYSTEM_OPENXR=ON"
+		# Required for Proton: https://gitlab.com/znixian/OpenOVR/-/issues/416
+		"-DUSE_SYSTEM_OPENXR=OFF"
 		# FIXME: fails because GLM_ENABLE_EXPERIMENTAL is unset
 		"-DUSE_SYSTEM_GLM=OFF"
 	)
