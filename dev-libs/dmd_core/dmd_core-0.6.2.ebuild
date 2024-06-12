@@ -27,12 +27,9 @@ BDEPEND=">=virtual/rust-1.47.0"
 src_install() {
 	dolib.a target/$(usex debug debug release)/lib${PN}.a
 	insinto /usr/$(get_libdir)/pkgconfig
-	cp "${FILESDIR}/dmd_core.pc" "${S}" || die "failed to copy pkgconfig file"
-	sed -i "s/%VERSION%/${PV}/g" "${S}/dmd_core.pc" || die "failed to set version in pkgconfig file"
-	doins "${S}/dmd_core.pc"
-
-	sed -e "s:^libdir.*:libdir=${EPREFIX}/usr/$(get_libdir):" \
-		-i "${ED}"/usr/$(get_libdir)/pkgconfig/dmd_core.pc || die "failed to set libdir in pkgconfig file"
-	dodoc "${S}/LICENSE.txt"
-	dodoc "${S}/README.md"
+	doins "${FILESDIR}"/dmd_core.pc
+	sed -e "s/%VERSION%/${PV}/g" \
+		-e "s:^libdir.*:libdir=${EPREFIX}/usr/$(get_libdir):" \
+		-i "${ED}"/usr/$(get_libdir)/pkgconfig/dmd_core.pc || die
+	einstalldocs
 }
