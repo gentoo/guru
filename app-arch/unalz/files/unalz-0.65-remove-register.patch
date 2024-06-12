@@ -1,0 +1,22 @@
+diff --git a/UnAlz.cpp b/UnAlz.cpp
+index 26d6bd1..97c0ff8 100644
+--- a/UnAlz.cpp
++++ b/UnAlz.cpp
+@@ -1935,7 +1935,7 @@ void CUnAlz::SetDestCodepage(const char* szToCodepage)
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+ unsigned int CUnAlz::_strlcpy (char *dest, const char *src, unsigned int size)
+ {
+-	register unsigned int i = 0;
++	unsigned int i = 0;
+ 	if (size > 0) {
+ 	size--;
+ 	for (i=0; size > 0 && src[i] != '\0'; ++i, size--)
+@@ -1947,7 +1947,7 @@ unsigned int CUnAlz::_strlcpy (char *dest, const char *src, unsigned int size)
+ }
+ unsigned int CUnAlz::_strlcat (char *dest, const char *src, unsigned int size)
+ {
+-	register char *d = dest;
++	char *d = dest;
+ 	for (; size > 0 && *d != '\0'; size--, d++);
+ 	return (d - dest) + _strlcpy(d, src, size);
+ }
