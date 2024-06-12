@@ -4,8 +4,8 @@
 EAPI=8
 
 CRATES="
-lazy_static-1.4.0
-libc-0.2.103
+lazy_static@1.4.0
+libc@0.2.103
 "
 
 inherit cargo toolchain-funcs
@@ -13,7 +13,8 @@ inherit cargo toolchain-funcs
 DESCRIPTION="Core logic for an AT&T / Teletype DMD 5620 terminal emulator"
 HOMEPAGE="https://github.com/sethm/dmd_core"
 SRC_URI="https://github.com/sethm/dmd_core/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	$(cargo_crate_uris ${CRATES})"
+	${CARGO_CRATE_URIS}
+"
 
 LICENSE="MIT"
 SLOT="0"
