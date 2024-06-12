@@ -11,7 +11,6 @@ DESCRIPTION="GTK frontend for gpu-screen-recorder."
 HOMEPAGE="https://git.dec05eba.com/gpu-screen-recorder-gtk/about"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm64"
 
 DEPEND="
     x11-libs/gtk+:3

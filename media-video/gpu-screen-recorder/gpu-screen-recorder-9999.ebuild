@@ -11,7 +11,6 @@ DESCRIPTION="A screen recorder that has minimal impact on system performance, si
 HOMEPAGE="https://git.dec05eba.com/gpu-screen-recorder/about"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm64"
 IUSE="+filecaps systemd"
 
 DEPEND="
