@@ -173,6 +173,15 @@ SRC_URI="https://github.com/XAMPPRocky/tokei/archive/v${PV}.tar.gz -> ${P}.tar.g
 LICENSE="BSD BSD-2 CC0-1.0 MIT ZLIB || ( Apache-2.0 Boost-1.0 )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="test"
+RESTRICT="!test? ( test )"
+
+BDEPEND="
+	test? (
+		virtual/pkgconfig
+		>=dev-libs/libgit2-1.1.0
+	)
+"
 
 QA_FLAGS_IGNORED="usr/bin/tokei"
 
