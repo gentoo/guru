@@ -8,7 +8,7 @@ lazy_static@1.4.0
 libc@0.2.103
 "
 
-inherit cargo toolchain-funcs
+inherit cargo
 
 DESCRIPTION="Core logic for an AT&T / Teletype DMD 5620 terminal emulator"
 HOMEPAGE="https://github.com/sethm/dmd_core"
@@ -24,22 +24,8 @@ RESTRICT="test"
 
 BDEPEND=">=virtual/rust-1.47.0"
 
-set_target_arch() {
-	case "$(tc-arch)" in
-		amd64) target_arch=x86_64 ;;
-	esac
-}
-
-src_compile() {
-	local target_arch
-	set_target_arch
-	cargo_src_compile --target ${target_arch}-unknown-linux-gnu
-}
-
 src_install() {
-	local target_arch
-	set_target_arch
-	dolib.a "${S}"/target/${target_arch}-unknown-linux-gnu/release/lib${PN}.a
+	dolib.a target/$(usex debug debug release)/lib${PN}.a
 	insinto /usr/$(get_libdir)/pkgconfig
 	cp "${FILESDIR}/dmd_core.pc" "${S}" || die "failed to copy pkgconfig file"
 	sed -i "s/%VERSION%/${PV}/g" "${S}/dmd_core.pc" || die "failed to set version in pkgconfig file"
