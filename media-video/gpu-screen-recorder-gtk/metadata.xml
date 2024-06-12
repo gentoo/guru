@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <name>Dale Sweeney</name>
+        <email>agooglygooglr@gmail.com</email>
+    </maintainer>
+    <longdescription>
+        GTK front-end for gpu-screen-recorder. A fast, shadowplay-like screen recorder for Linux.
+    </longdescription>
+    <upstream>
+        <bugs-to>https://github.com/dec05eba/gpu-screen-recorder-issues/issues</bugs-to>
+    </upstream>
+</pkgmetadata>
