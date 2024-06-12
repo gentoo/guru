@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <name>Dale Sweeney</name>
+        <email>agooglygooglr@gmail.com</email>
+    </maintainer>
+    <longdescription>
+         LZFSE compression library and command line tool.
+    </longdescription>
+    <upstream>
+        <remote-id type="github">lzfse/lzfse</remote-id>
+        <bugs-to>https://github.com/lzfse/lzfse/issues</bugs-to>
+    </upstream>
+</pkgmetadata>
