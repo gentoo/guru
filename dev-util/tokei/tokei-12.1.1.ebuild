@@ -166,7 +166,7 @@ yaml-rust@0.4.4
 inherit cargo
 
 DESCRIPTION="Count your code, quickly"
-HOMEPAGE="https://tokei.rs"
+HOMEPAGE="https://github.com/XAMPPRocky/tokei"
 SRC_URI="https://github.com/XAMPPRocky/tokei/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 
