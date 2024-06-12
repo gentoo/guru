@@ -1,7 +1,7 @@
 # Copyright 2017-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CRATES="
 ab_glyph_rasterizer@0.1.4
