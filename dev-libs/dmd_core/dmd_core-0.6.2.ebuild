@@ -20,7 +20,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RESTRICT="test mirror"
+RESTRICT="test"
 
 BDEPEND=">=virtual/rust-1.47.0"
 
