@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,26 +20,27 @@ fi
 LICENSE="MIT ZLIB"
 SLOT="0"
 
-DEPEND="
-	x11-libs/pixman
-	media-libs/libpng
+RDEPEND="
 	dev-libs/wayland
-	sys-apps/dbus
 	media-libs/fcft
 	media-libs/freetype
+	media-libs/libpng
+	sys-apps/dbus
+	x11-libs/pixman
 	media-libs/fontconfig
 "
-RDEPEND="${DEPEND}
+DEPEND="
+	${RDEPEND}
+	dev-libs/tllist
 "
 BDEPEND="
 	dev-util/wayland-scanner
-	dev-libs/wayland-protocols
+	>=dev-libs/wayland-protocols-1.32
 	app-text/scdoc
-	dev-libs/tllist
 "
 
 src_install() {
-	local DOCS=( CHANGELOG.md README.md LICENSE )
+	local DOCS=( CHANGELOG.md README.md )
 	meson_src_install
 
 	rm -r "${ED}"/usr/share/doc/"${PN}" || die
