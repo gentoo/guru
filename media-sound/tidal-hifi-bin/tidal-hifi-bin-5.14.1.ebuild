@@ -71,8 +71,7 @@ src_prepare() {
 	pushd "locales/" >/dev/null || die "location change for language cleanup failed"
 	chromium_remove_language_paks
 	popd >/dev/null || die "location reset for language cleanup failed"
-	rm -rf "${S}"/resources/app.asar.unpacked/node_modules/register-scheme/build/node_gyp_bins
-	rm -rf "${S}"/resources/app.asar.unpacked/node_modules/abstract-socket/build/node_gyp_bins
+	rm -rf "${S}"/resources/app.asar.unpacked/node_modules/{abstract-socket,register-scheme}/build/node_gyp_bins || die
 }
 
 src_install() {
@@ -96,5 +95,5 @@ src_install() {
 
 	[[ -x chrome_crashpad_handler ]] && doins chrome_crashpad_handler
 
-	dosym "${DESTDIR}/${MY_PN}" "/usr/bin/${MY_PN}"
+	dosym -r "${DESTDIR}/${MY_PN}" "/usr/bin/${MY_PN}"
 }
