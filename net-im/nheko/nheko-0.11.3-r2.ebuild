@@ -21,6 +21,7 @@ MY_GST_V="1.18"
 COMMON_DEPEND="
 	app-text/cmark:=
 	>=dev-cpp/blurhash-0.2.0:=
+	>=dev-cpp/coeurl-0.3.1:=[ssl]
 	dev-cpp/cpp-httplib:=
 	dev-db/lmdb:=
 	dev-libs/libfmt:=
