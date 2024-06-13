@@ -29,6 +29,7 @@ DEPEND="
 	dev-qt/linguist
 	dev-qt/qtscript
 	dev-qt/qtx11extras
+	media-gfx/imagemagick
 	media-libs/gstreamer
 	media-libs/gst-plugins-base
 	media-libs/taglib
