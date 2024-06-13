@@ -17,7 +17,10 @@ DESCRIPTION="PS3 emulator/debugger"
 HOMEPAGE="https://rpcs3.net/"
 if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/RPCS3/rpcs3"
-	EGIT_SUBMODULES=( 'asmjit' '3rdparty/glslang' '3rdparty/miniupnp/miniupnp' '3rdparty/rtmidi/rtmidi' '3rdparty/wolfssl' '3rdparty/SoundTouch/soundtouch' )
+	EGIT_SUBMODULES=(
+	'asmjit' '3rdparty/glslang' '3rdparty/miniupnp/miniupnp' '3rdparty/rtmidi/rtmidi' '3rdparty/wolfssl'
+	'3rdparty/SoundTouch/soundtouch' '3rdparty/zstd/zstd' '3rdparty/stblib/stb' '3rdparty/OpenAL/openal-soft'
+	)
 	# Delete sources when ensuring yaml-cpp compiled with fexceptions
 	EGIT_SUBMODULES+=( '3rdparty/yaml-cpp' )
 	inherit git-r3
@@ -152,4 +155,11 @@ src_configure() {
 	sed -i -e 's/FFMPEG_LIB_AVFORMAT-NOTFOUND/avformat/' -e 's/FFMPEG_LIB_AVCODEC-NOTFOUND/avcodec/' \
 		-e 's/FFMPEG_LIB_AVUTIL-NOTFOUND/avutil/' -e 's/FFMPEG_LIB_SWSCALE-NOTFOUND/swscale/' \
 		-e 's/FFMPEG_LIB_SWRESAMPLE-NOTFOUND/swresample/' "${BUILD_DIR}"/build.ninja || die
+}
+
+src_install() {
+	cmake_src_install
+
+	# remove unneccessary files to save some space
+	rm -rf "${ED}/usr/share/rpcs3/"{git,test} || die
 }
