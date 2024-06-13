@@ -3,11 +3,11 @@
 
 EAPI=8
 
-inherit meson git-r3
+inherit git-r3 meson
 
 EGIT_REPO_URI="https://repo.dec05eba.com/gpu-screen-recorder"
 
-DESCRIPTION="A screen recorder that has minimal impact on system performance, similar to shadowplay on Windows."
+DESCRIPTION="A screen recorder that has minimal impact on system performance."
 HOMEPAGE="https://git.dec05eba.com/gpu-screen-recorder/about"
 LICENSE="GPL-3"
 SLOT="0"
