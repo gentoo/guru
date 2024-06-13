@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson git-r3
+inherit git-r3 meson
 
 EGIT_REPO_URI="https://repo.dec05eba.com/gpu-screen-recorder-gtk"
 
