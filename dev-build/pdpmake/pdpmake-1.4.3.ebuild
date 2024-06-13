@@ -11,7 +11,13 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 src_test() {
-	emake test
+	pushd ./testsuite || die
+
+	# Call manually instead of using `make test`
+	# Seems to run in POSIX mode otherwise, leading to POSIX 202x tests being skipped
+	./runtest || die
+
+	popd
 }
 
 src_install() {
