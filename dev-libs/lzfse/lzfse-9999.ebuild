@@ -12,5 +12,5 @@ LICENSE="BSD"
 SLOT="0"
 
 src_install() {
-	emake INSTALL_PREFIX=${D}/usr install
+	emake INSTALL_PREFIX=${ED}/usr install
 }
