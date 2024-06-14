@@ -16,7 +16,6 @@ HOMEPAGE="https://git.sr.ht/~sircmpwn/himitsu-totp"
 LICENSE="GPL-3"
 SLOT="0"
 
-
 RDEPEND="app-admin/himitsu:="
 DEPEND="
 	${RDEPEND}
