@@ -108,3 +108,13 @@ src_install() {
 
 	dosym /usr/share/openxr/1/openxr_wivrn.json /etc/openxr/1/active_runtime.json
 }
+
+pkg_postinst()
+{
+	elog "WiVRn requires a compatible client on VR headset to run."
+	if [[ ${PV} == 9999 ]]; then
+		elog "For most headsets it can be downloaded from CI artifacts on https://github.com/Meumeu/WiVRn/actions/workflows/Build.yml"
+	else
+		elog "For most headsets it can be downloaded on https://github.com/Meumeu/WiVRn/releases/tag/v${PV}"
+	fi
+}
