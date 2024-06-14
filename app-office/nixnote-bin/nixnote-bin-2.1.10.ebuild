@@ -5,7 +5,7 @@ EAPI=8
 
 DESCRIPTION="Free and open source note taking app, compatible with Evernote sync server"
 HOMEPAGE="https://github.com/robert7/nixnote2"
-SRC_URI="https://github.com/robert7/nixnote2/releases/download/v${PV}/NixNote2-x86_64.AppImage"
+SRC_URI="https://github.com/robert7/nixnote2/releases/download/v${PV}/NixNote2-x86_64.AppImage -> ${P}.AppImage"
 
 S="${WORKDIR}"
 
@@ -20,5 +20,5 @@ RDEPEND="sys-fs/fuse:0"
 QA_PREBUILT="*"
 
 src_install() {
-	newbin "${DISTDIR}/NixNote2-x86_64.AppImage" nixnote-bin
+	newbin "${DISTDIR}/${P}.AppImage" nixnote-bin
 }
