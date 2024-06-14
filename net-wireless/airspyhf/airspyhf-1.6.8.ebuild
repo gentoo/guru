@@ -20,7 +20,6 @@ inherit cmake udev
 RDEPEND="${DEPEND}"
 
 src_prepare(){
-	ls
 	sed -i 's@DESTINATION "/etc/udev/rules.d"@DESTINATION "/lib/udev/rules.d"@' "tools/CMakeLists.txt" || die
 
 	cmake_src_prepare
