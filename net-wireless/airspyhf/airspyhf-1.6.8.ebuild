@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit cmake udev
+
 DESCRIPTION="User mode driver for Airspy HF+"
 HOMEPAGE="https://airspy.com/airspy-hf-plus/"
 SRC_URI="https://github.com/airspy/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
@@ -15,7 +17,6 @@ IUSE="udevrules"
 DEPEND="dev-build/cmake
 	dev-libs/libusb
 	dev-util/pkgconf"
-inherit cmake udev
 
 RDEPEND="${DEPEND}"
 
