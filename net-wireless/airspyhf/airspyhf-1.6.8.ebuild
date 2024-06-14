@@ -7,7 +7,7 @@ DESCRIPTION="User mode driver for Airspy HF+"
 HOMEPAGE="https://airspy.com/airspy-hf-plus/"
 SRC_URI="https://github.com/airspy/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="BSD-3-clause"
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
@@ -15,13 +15,28 @@ IUSE="udevrules"
 DEPEND="dev-build/cmake
 	dev-libs/libusb
 	dev-util/pkgconf"
-inherit cmake
+inherit cmake udev
 
 RDEPEND="${DEPEND}"
+
+src_prepare(){
+	ls
+	sed -i 's@DESTINATION "/etc/udev/rules.d"@DESTINATION "/lib/udev/rules.d"@' "tools/CMakeLists.txt" || die
+
+	cmake_src_prepare
+}
 
 src_configure(){
 	mycmakeargs+=(
 		-DINSTALL_UDEV_RULES=$(usex udevrules)
 	)
 	cmake_src_configure
+}
+
+pkg_postinst(){
+	udev_reload
+}
+
+pkg_postrm(){
+	udev_reload
 }
