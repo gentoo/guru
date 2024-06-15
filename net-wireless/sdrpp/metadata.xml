@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>eli.burch@burchbytes.com</email>
+		<name>Eli Burch</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">AlexandreRouma/SDRPlusPlus</remote-id>
+	</upstream>
+	<use>
+		<flag name="airspy">Support for airspy hardware</flag>
+		<flag name="airspyhf">Support for airspyhf+ hardware</flag>
+		<flag name="hackrf">Support for HackRF hardware</flag>
+		<flag name="rtlsdr">Support for rtlsdr dongles</flag>
+		<flag name="soapy">Support for hardware supported by SoapySDR</flag>
+		<flag name="bladerf">Support for bladerf hardware</flag>
+		<flag name="hermes">Support for hermes</flag>
+		<flag name="plutosdr">Support for plutosdr hardware</flag>
+		<flag name="sdrplay">Support for sdrplay hardware</flag>
+		<flag name="uhd">Support for uhd hardware</flag>
+	</use>
+</pkgmetadata>
