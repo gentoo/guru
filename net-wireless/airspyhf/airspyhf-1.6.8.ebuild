@@ -13,7 +13,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="udevrules"
+IUSE="udev"
 
 DEPEND="dev-libs/libusb"
 
@@ -29,15 +29,15 @@ src_prepare(){
 
 src_configure(){
 	mycmakeargs+=(
-		-DINSTALL_UDEV_RULES=$(usex udevrules)
+		-DINSTALL_UDEV_RULES=$(usex udev)
 	)
 	cmake_src_configure
 }
 
 pkg_postinst(){
-	udev_reload
+	use udev && udev_reload
 }
 
 pkg_postrm(){
-	udev_reload
+	use udev && udev_reload
 }

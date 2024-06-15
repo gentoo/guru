@@ -5,9 +5,6 @@
 		<email>eli.burch@burchbytes.com</email>
 		<name>Eli Burch</name>
 	</maintainer>
-	<use>
-		<flag name="udevrules">Install udev rules</flag>
-	</use>
 	<upstream>
 		<remote-id type="github">airspy/airspyhf</remote-id>
 	</upstream>
