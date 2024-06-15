@@ -17,7 +17,9 @@ IUSE="udev"
 
 DEPEND="dev-libs/libusb"
 
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	udev? ( virtual/udev )
+"
 
 BDEPEND="virtual/pkgconfig"
 
