@@ -1,0 +1,11 @@
+diff '--color=auto' -Naur a/pyproject.toml b/pyproject.toml
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -170,6 +170,7 @@
+ #
+ # Find all (sub-)modules of the Python package
+ [tool.setuptools.packages.find]
++exclude = ["docs", "tests"]
+ 
+ [tool.setuptools.dynamic]
+ version = {attr = 'sphinxcontrib.katex.__version__'}
