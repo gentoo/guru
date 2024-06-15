@@ -14,7 +14,7 @@ src_test() {
 	pushd ./testsuite || die
 
 	# Call manually instead of using `make test`
-	# Seems to run in POSIX mode otherwise, leading to POSIX 202x tests being skipped
+	# Seems to run in POSIX mode otherwise, leading to POSIX 2024 tests being skipped
 	./runtest || die
 
 	popd
