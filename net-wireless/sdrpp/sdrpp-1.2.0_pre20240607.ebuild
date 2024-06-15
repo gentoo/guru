@@ -27,7 +27,6 @@ DEPEND="sci-libs/fftw
 	sci-libs/volk
 	app-arch/zstd
 	media-libs/rtaudio
-	dev-build/cmake
 	airspy? (
 		net-wireless/airspy
 	)
