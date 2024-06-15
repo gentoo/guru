@@ -1,4 +1,4 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,20 +19,23 @@ IUSE="system-ffmpeg"
 
 BDEPEND="app-arch/unzip"
 RDEPEND="
-	x11-libs/gtk+:3[X,cups]
-	x11-libs/libXtst
+	dev-libs/libbsd
+	dev-libs/libpcre
 	dev-libs/nss
+	media-gfx/graphite2
 	media-libs/alsa-lib
 	media-libs/freetype
-	x11-libs/pixman
 	media-libs/libpng:*
-	dev-libs/libpcre
+	media-libs/mesa
+	media-libs/vulkan-loader
 	net-dns/libidn2
 	net-libs/gnutls
-	dev-libs/libbsd
 	sys-apps/util-linux
-	media-gfx/graphite2
-	media-libs/vulkan-loader
+	x11-libs/gtk+:3[X,cups]
+	x11-libs/libXtst
+	x11-libs/libdrm
+	x11-libs/libxkbcommon
+	x11-libs/pixman
 	system-ffmpeg? ( media-video/ffmpeg[chromium] )
 "
 
