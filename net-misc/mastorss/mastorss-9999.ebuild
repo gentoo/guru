@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2020,2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -23,6 +23,7 @@ RDEPEND="
 	dev-libs/boost
 	>=dev-cpp/mastodonpp-0.5.6
 	dev-libs/jsoncpp
+	net-misc/curl[ssl]
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
