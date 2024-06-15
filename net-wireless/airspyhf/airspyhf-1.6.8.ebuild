@@ -14,14 +14,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE="udevrules"
-DEPEND="dev-build/cmake
-	dev-libs/libusb
-	dev-util/pkgconf"
+
+DEPEND="dev-libs/libusb"
 
 RDEPEND="${DEPEND}"
 
+BDEPEND="virtual/pkgconfig"
+
 src_prepare(){
-	sed -i 's@DESTINATION "/etc/udev/rules.d"@DESTINATION "/lib/udev/rules.d"@' "tools/CMakeLists.txt" || die
+	sed -i "s@DESTINATION \"/etc/udev/rules.d\"@DESTINATION \"$(get_udevdir)/rules.d\"@" "tools/CMakeLists.txt" || die
 
 	cmake_src_prepare
 }
