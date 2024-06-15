@@ -7,7 +7,7 @@ inherit git-r3 meson
 
 EGIT_REPO_URI="https://repo.dec05eba.com/gpu-screen-recorder"
 
-DESCRIPTION="A screen recorder that has minimal impact on system performance."
+DESCRIPTION="A screen recorder that has minimal impact on system performance"
 HOMEPAGE="https://git.dec05eba.com/gpu-screen-recorder/about"
 LICENSE="GPL-3"
 SLOT="0"
@@ -30,8 +30,8 @@ BDEPEND="${DEPEND}"
 
 src_configure() {
 	local emesonargs=(
-		-Dsystemd=$(usex filecaps true none)
-		-Dcapabilities=$(usex systemd true none)
+		-Dsystemd=$(usex systemd true false)
+		-Dcapabilities=$(usex filecaps true false)
 	)
 	meson_src_configure
 }
