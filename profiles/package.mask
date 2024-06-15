@@ -55,49 +55,6 @@ net-p2p/ipfs-cluster
 dev-python/jsonpath-rw
 dev-python/jsonpath-rw-ext
 
-# Julien Roy <julien@jroy.ca> (2024-05-13)
-# Mask stale packages
-# These packages are abandoned by their maintainers and/or outdated
-# In addition, they have open (and also abandoned) bugs
-# If anyone is interested in maintaining them:
-# - add yourself as maintainer
-# - bump revisions if needed
-# - bump python compat version (at least to 11, try 12)
-# - try and fix open bugs for these packages
-# Otherwise, they will be removed by 2024-06-13
-dev-python/pymorphy2-dicts-uk
-dev-python/pymorphy2-dicts-ru
-dev-python/pymorphy2-dicts
-dev-python/pymorphy2
-media-video/tartube
-dev-python/python-skywater-pdk
-sys-apps/fchroot
-x11-misc/caffeine-ng
-dev-python/marshmallow_enum
-# Reverse dependencies
-sci-electronics/skywater-pdk
-dev-python/dataclasses-json
-# Revdep of revdevs
-sci-electronics/open_pdks
-
-# Julien Roy <julien@jroy.ca> (2024-05-13)
-# Libraries with no reverse dependencies
-# Bug 931391
-# Removal in 30 days
-dev-python/orderedmultidict
-
-# Julien Roy <julien@jroy.ca> (2024-05-13)
-# Libraries with no reverse dependencies
-# Bug 931388
-# Removal in 30 days
-dev-python/multipart
-
-# Julien Roy <julien@jroy.ca> (2024-05-13)
-# Libraries with no reverse dependencies
-# Bug 931401
-# Removal in 30 days
-dev-python/portion
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
