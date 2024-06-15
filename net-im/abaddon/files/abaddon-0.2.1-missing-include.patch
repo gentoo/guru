@@ -1,0 +1,18 @@
+Add missing includes.
+https://github.com/uowuo/abaddon/commit/7ed65a89ae71c3c5d2ba99797bd2b1d93ce172ca
+https://github.com/uowuo/abaddon/pull/312
+--- a/src/platform.cpp
++++ b/src/platform.cpp
+@@ -1,9 +1,12 @@
+ #include "platform.hpp"
++#include "util.hpp"
+ #include <config.h>
+ #include <filesystem>
+ #include <fstream>
+ #include <string>
+ 
++#include <spdlog/spdlog.h>
++
+ using namespace std::literals::string_literals;
+ 
+ #if defined(_WIN32)
