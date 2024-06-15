@@ -10,12 +10,12 @@ DESCRIPTION="Free cross platform open source file manager with two panels side b
 HOMEPAGE="https://doublecmd.sourceforge.io/"
 
 SRC_URI="amd64? (
-		gtk? ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV/_beta/}.gtk2.x86_64.tar.xz )
-		qt5?  ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV/_beta/}.qt.x86_64.tar.xz )
+		gtk? ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV}.gtk2.x86_64.tar.xz )
+		qt5?  ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV}.qt.x86_64.tar.xz )
 	)
 	x86? (
-		gtk? ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV/_beta/}.gtk2.i386.tar.xz )
-		qt5?  ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV/_beta/}.qt.i386.tar.xz )
+		gtk? ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV}.gtk2.i386.tar.xz )
+		qt5?  ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV}.qt.i386.tar.xz )
 	)"
 
 S="${WORKDIR}/${MY_PN}"
