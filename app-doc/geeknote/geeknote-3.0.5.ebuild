@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,14 +6,15 @@ EAPI=8
 PYTHON_COMPAT=( python3_{11..12} )
 DISTUTILS_USE_PEP517=setuptools
 
-inherit bash-completion-r1 distutils-r1 git-r3
+inherit distutils-r1
 
 DESCRIPTION="Evernote CLI: CRUD for notes in cloud, in markdown"
 HOMEPAGE="https://github.com/vitaly-zdanevich/geeknote"
-EGIT_REPO_URI="https://github.com/vitaly-zdanevich/geeknote"
+SRC_URI="https://github.com/vitaly-zdanevich/$PN/archive/refs/tags/v$PV.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
 
 BDEPEND="test? (
 	dev-python/mock[${PYTHON_USEDEP}]
@@ -30,13 +31,6 @@ RDEPEND="
 "
 
 RESTRICT="test"
-
-# python_install_all() {
-# 	dobashcomp completion/bash_completion/_geeknote
-# 	insinto /usr/share/zsh/site-functions
-# 	doins completion/zsh_completion/_geeknote
-# 	distutils-r1_python_install_all
-# }
 
 distutils_enable_tests pytest
 
