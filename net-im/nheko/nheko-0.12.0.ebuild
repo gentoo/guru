@@ -34,7 +34,7 @@ RDEPEND="
 	>=dev-libs/re2-0.2022.04.01:=
 	dev-libs/spdlog:=
 	>=dev-qt/kdsingleapplication-1.1.0:=[qt6]
-	dev-qt/qtbase:6[concurrent,dbus,gui,widgets]
+	dev-qt/qtbase:6[concurrent,dbus,gui,wayland,widgets]
 	dev-qt/qtdeclarative:6[widgets]
 	dev-qt/qtimageformats:6
 	dev-qt/qtmultimedia:6[gstreamer]
