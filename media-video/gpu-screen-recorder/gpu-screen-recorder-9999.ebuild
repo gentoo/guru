@@ -14,16 +14,16 @@ SLOT="0"
 IUSE="+filecaps systemd"
 
 DEPEND="
-    media-video/ffmpeg
-    media-libs/libglvnd
-    x11-libs/libXcomposite
-    x11-libs/libXrandr
-    x11-libs/libXfixes
-    media-libs/libpulse
-    media-libs/libva
-    x11-libs/libdrm
-    sys-libs/libcap
-    dev-libs/wayland
+	media-video/ffmpeg
+	media-libs/libglvnd
+	x11-libs/libXcomposite
+	x11-libs/libXrandr
+	x11-libs/libXfixes
+	media-libs/libpulse
+	media-libs/libva
+	x11-libs/libdrm
+	sys-libs/libcap
+	dev-libs/wayland
 "
 RDEPEND="${DEPEND}"
 BDEPEND="${DEPEND}"
