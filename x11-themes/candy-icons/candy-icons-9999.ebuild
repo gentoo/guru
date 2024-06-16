@@ -16,7 +16,7 @@ src_install() {
 	default
 
 	insinto "/usr/share/icons/${PN}"
-	rm -rf "${S}"/{.git,.github,preview}
+	rm -rf "${S}"/{.git,.github,preview} || die "Could not remove useless directories"
 	doins -r "${S}"/*
 }
 
