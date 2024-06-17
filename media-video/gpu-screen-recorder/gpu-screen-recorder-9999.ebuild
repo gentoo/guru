@@ -30,8 +30,8 @@ BDEPEND="${DEPEND}"
 
 src_configure() {
 	local emesonargs=(
-		-Dsystemd=$(meson_use systemd)
-		-Dcapabilities=$(meson_use filecaps)
+		$(meson_use systemd)
+		$(meson_use filecaps capabilities)
 	)
 	meson_src_configure
 }
