@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<name>Jason Blackwell</name>
+		<email>blackwell@disroot.org</email>
+	</maintainer>
 	<upstream>
-		<remote-id type="pypi">pmbootstrap</remote-id>
+		<bugs-to>https://gitlab.com/postmarketOS/pmbootstrap/-/issues</bugs-to>
+		<remote-id type="gitlab">postmarketOS/pmbootstrap</remote-id>
 	</upstream>
 </pkgmetadata>

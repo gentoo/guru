@@ -10,6 +10,7 @@ inherit distutils-r1 linux-info pypi
 
 DESCRIPTION="Helper tool for developing and building postmarketOS"
 HOMEPAGE="https://postmarketos.org/"
+SRC_URI="https://gitlab.com/postmarketOS/pmbootstrap/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
