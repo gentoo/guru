@@ -13,7 +13,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="udev static-libs"
+IUSE="udev"
 
 DEPEND="dev-libs/libusb"
 
@@ -26,7 +26,7 @@ BDEPEND="virtual/pkgconfig"
 src_prepare(){
 	sed -i "s@DESTINATION \"/etc/udev/rules.d\"@DESTINATION \"$(get_udevdir)/rules.d\"@" "tools/CMakeLists.txt" || die
 
-	use static-libs || eapply "${FILESDIR}/static.patch" || die
+	eapply "${FILESDIR}/static.patch"
 
 	cmake_src_prepare
 }

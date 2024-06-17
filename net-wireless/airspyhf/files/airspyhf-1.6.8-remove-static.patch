@@ -1,5 +1,6 @@
-diff --git a/libairspyhf/src/CMakeLists.txt b/libairspyhf/src/CMakeLists.txt
-index 9d8d483..38d1b24 100644
+# Remove build steps related to static libs.
+# Bug: https://bugs.gentoo.org/934412
+
 --- a/libairspyhf/src/CMakeLists.txt
 +++ b/libairspyhf/src/CMakeLists.txt
 @@ -46,16 +46,7 @@ add_library(airspyhf SHARED ${c_sources} ${AIRSPYHF_DLL_SRCS})
