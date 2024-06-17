@@ -1,0 +1,43 @@
+diff --git a/libairspyhf/src/CMakeLists.txt b/libairspyhf/src/CMakeLists.txt
+index 9d8d483..38d1b24 100644
+--- a/libairspyhf/src/CMakeLists.txt
++++ b/libairspyhf/src/CMakeLists.txt
+@@ -46,16 +46,7 @@ add_library(airspyhf SHARED ${c_sources} ${AIRSPYHF_DLL_SRCS})
+ set_target_properties(airspyhf PROPERTIES VERSION ${AIRSPYHF_VER_MAJOR}.${AIRSPYHF_VER_MINOR}.${AIRSPYHF_VER_REVISION})
+ set_target_properties(airspyhf PROPERTIES SOVERSION 0)
+ 
+-# Static library
+-add_library(airspyhf-static STATIC ${c_sources})
+-if(MSVC)
+-	set_target_properties(airspyhf-static PROPERTIES OUTPUT_NAME "airspyhf_static")
+-else()
+-	set_target_properties(airspyhf-static PROPERTIES OUTPUT_NAME "airspyhf")
+-endif()
+-
+ set_target_properties(airspyhf PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+-set_target_properties(airspyhf-static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+ 
+ # Dependencies
+ target_link_libraries(airspyhf ${LIBUSB_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+@@ -71,10 +62,6 @@ if( ${UNIX} )
+            LIBRARY DESTINATION lib${LIB_SUFFIX}
+            COMPONENT sharedlibs
+            )
+-   install(TARGETS airspyhf-static
+-           ARCHIVE DESTINATION lib${LIB_SUFFIX}
+-           COMPONENT staticlibs
+-           )
+    install(FILES ${c_headers}
+            DESTINATION include/${PROJECT_NAME}
+            COMPONENT headers
+@@ -86,10 +73,6 @@ if( ${WIN32} )
+            DESTINATION bin
+            COMPONENT sharedlibs
+            )
+-   install(TARGETS airspyhf-static
+-           DESTINATION bin
+-           COMPONENT staticlibs
+-           )
+    install(FILES ${c_headers}
+            DESTINATION include/${PROJECT_NAME}
+            COMPONENT headers
