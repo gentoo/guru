@@ -18,6 +18,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	acct-user/${PN}
+	dev-libs/olm
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
