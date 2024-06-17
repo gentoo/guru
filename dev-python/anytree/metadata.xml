@@ -8,4 +8,7 @@
     <remote-id type="github">c0fec0de/anytree</remote-id>
     <remote-id type="pypi">Anytree</remote-id>
   </upstream>
+  <use>
+    <flag name="dot">allow to create dot graphs using <pkg>media-gfx/graphviz</pkg></flag>
+  </use>
 </pkgmetadata>
