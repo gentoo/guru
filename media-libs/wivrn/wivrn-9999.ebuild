@@ -16,7 +16,6 @@ REQUIRED_USE="|| ( nvenc vaapi x264 )"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Meumeu/WiVRn.git"
-	EGIT_BRANCH="dev"
 
 	MONADO_V=598080453545c6bf313829e5780ffb7dde9b79dc
 	PFR_V=2.2.0
