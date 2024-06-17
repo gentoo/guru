@@ -14,7 +14,7 @@ S="${WORKDIR}/signal-${PV}"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="**"
 
 RDEPEND="
 	acct-user/${PN}
