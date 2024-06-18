@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>zdanevich.vitaly@ya.ru</email>
+		<name>Vitaly Zdanevich</name>
+	</maintainer>
+	<use>
+		<flag name="nvidia">Add support of nvidia</flag>
+		<flag name="amd">Add support of amd</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">nulloy/nulloy</remote-id>
+	</upstream>
+</pkgmetadata>

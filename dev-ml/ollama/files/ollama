@@ -1,0 +1,33 @@
+#!/sbin/openrc-run
+
+description="Ollama Service"
+command="/usr/bin/ollama"
+command_args="serve"
+command_user="root"
+command_group="users"
+command_background="yes"
+pidfile="/run/ollama.pid"
+log="/var/log/ollama.log"
+
+# Environment variable pointing to models location
+export OLLAMA_MODELS="/usr/share/ollama/models"
+
+# Ollama allows cross-origin requests from 127.0.0.1 and 0.0.0.0 by default.
+# Additional origins can be configured with OLLAMA_ORIGINS.
+# export OLLAMA_ORIGINS="<ip>"
+
+start() {
+	ebegin "Starting $description"
+	exec >> >(logger -t "$RC_SVCNAME Start daemon" -p daemon.info)
+	start-stop-daemon --start --background --user "$command_user" --group "$command_group" \
+			--pidfile "$pidfile" --make-pidfile --exec $command $command_args -1 $log -2 $log
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping $description"
+	exec >> >(logger -t "$RC_SVCNAME Stop daemon" -p daemon.info)
+	start-stop-daemon --stop --pidfile "$pidfile"
+	eend $?
+}
+
