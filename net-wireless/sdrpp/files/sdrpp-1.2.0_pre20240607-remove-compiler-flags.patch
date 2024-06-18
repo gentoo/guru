@@ -1,5 +1,5 @@
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 0726e57..af67d19 100644
+# Remove problem compiler flags
+# Bug: https://bugs.gentoo.org/934413
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -85,9 +85,9 @@ else()
@@ -21,8 +21,7 @@ index 0726e57..af67d19 100644
 -# Create headers target
 \ No newline at end of file
 +# Create headers target
-diff --git a/core/libcorrect/CMakeLists.txt b/core/libcorrect/CMakeLists.txt
-index 7fce281..5a26430 100644
+
 --- a/core/libcorrect/CMakeLists.txt
 +++ b/core/libcorrect/CMakeLists.txt
 @@ -27,12 +27,12 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
