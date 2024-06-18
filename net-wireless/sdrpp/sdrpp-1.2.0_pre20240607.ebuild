@@ -61,6 +61,10 @@ DEPEND="sci-libs/fftw
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/sdrpp-1.2.0_pre20240607-remove-compiler-flags.patch"
+)
+
 src_unpack(){
 	default
 	mv SDRPlusPlus* "${P}" || die
@@ -69,7 +73,7 @@ src_unpack(){
 src_prepare(){
 	if [ "${ARCH}" = "amd64" ];
 	then
-		eapply "${FILESDIR}/lib64.patch"
+		eapply "${FILESDIR}/sdrpp-1.2.0_pre20240607-lib64.patch"
 	fi
 	cmake_src_prepare
 }

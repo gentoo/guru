@@ -1,0 +1,43 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0726e57..af67d19 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -85,9 +85,9 @@ else()
+     if (MSVC)
+         set(SDRPP_COMPILER_FLAGS /O2 /Ob2 /std:c++17 /EHsc)
+     elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-        set(SDRPP_COMPILER_FLAGS -O3 -std=c++17 -Wno-unused-command-line-argument -undefined dynamic_lookup)
++        set(SDRPP_COMPILER_FLAGS  -std=c++17 -Wno-unused-command-line-argument -undefined dynamic_lookup)
+     else ()
+-        set(SDRPP_COMPILER_FLAGS -O3 -std=c++17)
++        set(SDRPP_COMPILER_FLAGS -std=c++17)
+     endif ()
+ endif()
+ set(SDRPP_MODULE_COMPILER_FLAGS ${SDRPP_COMPILER_FLAGS})
+@@ -354,4 +354,4 @@ endif ()
+ configure_file(${CMAKE_SOURCE_DIR}/cmake_uninstall.cmake ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake @ONLY)
+ add_custom_target(uninstall ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
+ 
+-# Create headers target
+\ No newline at end of file
++# Create headers target
+diff --git a/core/libcorrect/CMakeLists.txt b/core/libcorrect/CMakeLists.txt
+index 7fce281..5a26430 100644
+--- a/core/libcorrect/CMakeLists.txt
++++ b/core/libcorrect/CMakeLists.txt
+@@ -27,12 +27,12 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+     endif()
+ else()
+   if("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang")
+-      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2")
++      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+     else()
+-      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2")
++      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+   endif()
+   if(CMAKE_BUILD_TYPE STREQUAL "Profiling")
+-      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -g3")
++      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g3")
+   endif()
+ endif()
+ endif(MSVC)

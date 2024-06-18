@@ -1,0 +1,10 @@
+# Patch lib directory
+--- a/core/CMakeLists.txt
++++ b/core/CMakeLists.txt
+@@ -167,4 +167,4 @@ set(CORE_FILES ${RUNTIME_OUTPUT_DIRECTORY} PARENT_SCOPE)
+ # cmake .. "-DCMAKE_TOOLCHAIN_FILE=C:/dev/vcpkg/scripts/buildsystems/vcpkg.cmake"
+ 
+ # Install directives
+-install(TARGETS sdrpp_core DESTINATION lib)
+\ No newline at end of file
++install(TARGETS sdrpp_core DESTINATION lib64)
