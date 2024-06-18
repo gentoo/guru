@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>eli.burch@burchbytes.com</email>
+		<name>Eli Burch</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">jclehner/bcm2-utils</remote-id>
+	</upstream>
+</pkgmetadata>
