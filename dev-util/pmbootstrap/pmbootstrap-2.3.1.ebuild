@@ -6,7 +6,7 @@ DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
 PYTHON_COMPAT=( python3_{10..13} )
 
-inherit distutils-r1 linux-info pypi
+inherit distutils-r1 linux-info
 
 DESCRIPTION="Helper tool for developing and building postmarketOS"
 HOMEPAGE="https://postmarketos.org/"
