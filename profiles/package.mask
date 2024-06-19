@@ -54,11 +54,6 @@ www-client/woob
 # Bug #884915, Removal on 2024/06/23
 net-p2p/ipfs-cluster
 
-# Takuya Wakazono <pastalian46@gmai.com> (2024-05-20)
-# Inactive upstream. No revdeps.
-# Removal on 2024/06/19
-dev-python/jsonpath-rw
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
