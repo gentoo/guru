@@ -10,7 +10,7 @@ GDB_VER="14.2_20240403"
 
 CROSSTOOL_URL="https://github.com/espressif/crosstool-NG/releases/download/esp-${VER}"
 
-inherit python-r1
+inherit estack python-r1
 
 DESCRIPTION="Espressif IoT Development Framework"
 HOMEPAGE="https://www.espressif.com/"
@@ -67,7 +67,7 @@ PATCHES=(
 )
 
 install_tool() {
-	shopt -s globstar
+	eshopts_push -s globstar
 
 	into /opt/${1}
 
@@ -119,12 +119,17 @@ install_tool() {
 		done
 	)
 
-	shopt -u globstar
+	eshopts_pop
 }
 
 src_install() {
-	echo -e "#!/bin/sh\npython /usr/share/${PN}/tools/idf.py \"\$@\"" > idf
-	dobin idf
+	newbin - idf <<-EOF
+	#!/bin/sh
+
+	# Silence a warning by idf.py
+	export IDF_PYTHON_ENV_PATH=
+	exec python /usr/share/${PN}/tools/idf.py \$@
+EOF
 
 	install_tool xtensa-esp-elf
 	install_tool xtensa-esp-elf/xtensa-esp-elf
