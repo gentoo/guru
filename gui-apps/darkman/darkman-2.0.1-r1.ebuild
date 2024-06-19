@@ -33,7 +33,7 @@ src_compile() {
 src_install() {
 	dobin ${PN}
 
-	systemd_dounit ${PN}.service
+	systemd_douserunit ${PN}.service
 	doman ${PN}.1
 
 	use examples && DOCS+=( examples/. )
