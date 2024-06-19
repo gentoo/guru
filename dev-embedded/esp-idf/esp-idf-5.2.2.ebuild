@@ -140,7 +140,6 @@ src_install() {
 	rm "${WORKDIR}"/xtensa-esp-elf-gdb/bin/xtensa-esp-elf-gdb-3.{8..10} || die
 	install_tool xtensa-esp-elf-gdb
 	if use riscv32; then
-		rm "${WORKDIR}"/riscv32-esp-elf-gdb/bin/xtensa-esp-elf-gdb-3.{8..10} || die
 		install_tool riscv32-esp-elf-gdb
 	fi
 
