@@ -77,6 +77,7 @@ src_test() {
 	# Run prism mock api server, this is what needs nodejs
 	node --no-warnings node_modules/@stoplight/prism-cli/dist/index.js mock \
 		"cloudflare-spec.yml" >prism.log &
+	local MOCK_PID=$!
 	# Wait for server to come online
 	echo -n "Waiting for mockserver"
 	while ! grep -q "✖  fatal\|Prism is listening" "prism.log" ; do
@@ -87,4 +88,5 @@ src_test() {
 		die "Prism mock server failed"
 	fi
 	distutils-r1_src_test
+	kill "${MOCK_PID}"
 }
