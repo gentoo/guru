@@ -1,0 +1,18 @@
+# Fix hardcoded CC, CFLAGS and LDFLAGS
+# Bug: https://bugs.gentoo.org/show_bug.cgi?id=934555
+# Bug: https://bugs.gentoo.org/show_bug.cgi?id=934557
+# Bug: https://bugs.gentoo.org/show_bug.cgi?id=934558
+--- a/makefile
++++ b/makefile
+@@ -1,9 +1,8 @@
+ .POSIX:
+ .PHONY: all install install-newsraft install-man install-examples man html clean check cppcheck clang-tidy
+ 
+-CC            = cc
+-CFLAGS        = -O3
+-LDFLAGS       =
++CC            ?= cc
++CFLAGS        ?= -O3
+ CURL_CFLAGS   = `pkg-config --cflags libcurl  2>/dev/null`
+ CURL_LIBS     = `pkg-config --libs   libcurl  2>/dev/null || echo '-lcurl'`
+ CURSES_CFLAGS = `pkg-config --cflags ncursesw 2>/dev/null`

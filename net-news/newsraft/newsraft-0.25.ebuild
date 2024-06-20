@@ -32,6 +32,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}/newsraft-0.25-hardcoded-CFLAGS-LDFLAGS.patch"
+)
+
 src_install() {
 	emake PREFIX="/usr" DESTDIR="${D}" install
 	einstalldocs
