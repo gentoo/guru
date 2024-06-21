@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+        <maintainer type="person">
+                <email>ivan.lloro.boada@gmail.com</email>
+                <name>Ivan Lloro</name>
+        </maintainer>
+        <upstream>
+                <remote-id type="github">fougue/mayo</remote-id>
+        </upstream>
+</pkgmetadata>
