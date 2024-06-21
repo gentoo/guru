@@ -8,7 +8,7 @@ FORTRAN_STANDARD="2003"
 inherit cmake fortran-2
 
 DESCRIPTION="Jonquil: Bringing TOML blooms to JSON land"
-HOMEPAGE="https://toml-f.readthedocs.io/en/latest/how-to/jonquil/"
+HOMEPAGE="https://toml-f.readthedocs.io/en/latest/how-to/jonquil.html"
 SRC_URI="https://github.com/toml-f/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0 MIT"
@@ -18,8 +18,12 @@ IUSE="test"
 
 RESTRICT="!test? ( test )"
 
-DEPEND="
+RDEPEND="
 	dev-libs/toml-f:0/4
+"
+
+DEPEND="
+	${RDEPEND}
 	test? ( dev-util/fortran-test-drive )
 "
 
