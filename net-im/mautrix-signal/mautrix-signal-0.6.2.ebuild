@@ -14,7 +14,8 @@ S="${WORKDIR}/signal-${PV}"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="**"
+# https://github.com/mautrix/signal/issues/519
+# KEYWORDS="~amd64"
 
 RDEPEND="
 	acct-user/${PN}
