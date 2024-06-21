@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ https://github.com/yvt/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 https://github.com/yvt/${PN}-paks/releases/download/r${PAK_REV}/OpenSpadesDevPackage-r${PAK_REV}.zip
 "
 # GPL-2 refers to the bundled Unifont.
-LICENSE="GPL-3 GPL-2-with-font-exception OFL openspades-pak"
+LICENSE="GPL-3 GPL-2-with-font-exception OFL-1.1 openspades-pak"
 SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="mirror"
