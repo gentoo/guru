@@ -29,15 +29,12 @@ PATCHES=(
 
 src_configure() {
 
-	eqmake5 "CASCADE_INC_DIR=/usr/include/opencascade" "CASCADE_LIB_DIR=/usr/lib64/opencascade" "ASSIMP_INC_DIR=/usr/include/assimp" "ASSIMP_LIB_DIR=/usr/lib64" mayo.pro
+	eqmake5 "CASCADE_INC_DIR=/usr/include/opencascade" "CASCADE_LIB_DIR=/usr/$(get_libdir)/opencascade" "ASSIMP_INC_DIR=/usr/include/assimp" "ASSIMP_LIB_DIR=/usr/$(get_libdir)" mayo.pro
 
 }
 
 src_install() {
 	emake install INSTALL_ROOT="${D}"
-
-	install -d "${D}"/usr/bin/
-	install "${S}"/mayo "${D}"/usr/bin/ || die "failed to move locales"
-
+	dobin mayo
 	einstalldocs
 }
