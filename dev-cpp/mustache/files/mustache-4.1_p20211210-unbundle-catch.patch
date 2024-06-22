@@ -1,0 +1,48 @@
+Unbundle test dependency dev-cpp/catch and make test compilation optional.
+
+Author: Lucio Sauer <watermanpaint@posteo.net>
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -2,7 +2,12 @@ cmake_minimum_required(VERSION 3.0.2)
+ project(mustache)
+ add_library(mustache INTERFACE)
+ 
++option(TESTS "build tests")
++
+ target_compile_features(mustache INTERFACE cxx_std_17)
+ target_sources(mustache INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/mustache.hpp)
+ target_include_directories(mustache INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+-add_subdirectory(tests)
+\ No newline at end of file
++
++if (TESTS)
++	add_subdirectory(tests)
++endif (TESTS)
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -1,10 +1,12 @@
++find_package(Catch2 REQUIRED)
++
+ add_executable(mustache-unit-tests
+     ../mustache.hpp # to show in IDE
+-    catch.hpp # to show in IDE
+     tests.cpp
+ )
+ 
+-target_link_libraries(mustache-unit-tests PRIVATE mustache)
++
++target_link_libraries(mustache-unit-tests PRIVATE mustache Catch2::Catch2)
+ 
+ if (UNIX)
+     target_compile_options(mustache-unit-tests PRIVATE -Wall -Wextra -Werror -Wconversion)
+--- a/tests/tests.cpp
++++ b/tests/tests.cpp
+@@ -29,7 +29,7 @@
+ #include "mustache.hpp"
+ 
+ #define CATCH_CONFIG_MAIN
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ using namespace kainjow::mustache;
+ 

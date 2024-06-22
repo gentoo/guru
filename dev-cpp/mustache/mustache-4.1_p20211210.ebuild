@@ -14,6 +14,19 @@ S="${WORKDIR}/Mustache-${COMMIT}"
 LICENSE="Boost-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="test"
+RESTRICT="!test? ( test )"
+
+BDEPEND="test? ( <dev-cpp/catch-3 )"
+
+PATCHES="${FILESDIR}"/${P}-unbundle-catch.patch
+
+src_configure() {
+	local mycmakeargs=(
+		-DTESTS=$(usex test)
+	)
+	cmake_src_configure
+}
 
 src_test() {
 	"${BUILD_DIR}"/tests/mustache-unit-tests || die "Tests failed!"
