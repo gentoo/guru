@@ -49,11 +49,12 @@ done
 
 RDEPEND="
 	!prefix? ( sys-libs/glibc )
-	>=app-accessibility/at-spi2-core-2.46.0
+	>=app-accessibility/at-spi2-core-2.50.1:2
 	app-arch/unzip
 	app-arch/zip
 	>=dev-lang/perl-5.0
 	dev-libs/dbus-glib
+	dev-libs/libxml2
 	media-libs/glu
 	>=media-libs/freetype-2.1.10-r2
 	media-libs/libglvnd
@@ -62,7 +63,9 @@ RDEPEND="
 	x11-libs/gdk-pixbuf
 	x11-libs/gdk-pixbuf-xlib
 	x11-libs/gtk+:2
+	x11-libs/libX11
 	x11-libs/libXaw
+	x11-libs/libXext
 	x11-libs/libXinerama
 	x11-libs/pango
 	x11-libs/libXrandr
