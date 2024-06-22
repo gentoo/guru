@@ -49,8 +49,12 @@ src_compile() {
 src_install() {
 	dobin ollama
 	doinitd "${FILESDIR}"/ollama
+	fperms 0755 /etc/init.d/ollama
 }
 
 pkg_postinst() {
-	chmod 0755 /etc/init.d/ollama || die
+	einfo "Quick guide:"
+	einfo "ollama serve"
+	einfo "ollama run llama3:70b"
+	einfo "See available models at https://ollama.com/library"
 }
