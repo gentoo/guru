@@ -8,11 +8,10 @@ inherit meson xdg
 DESCRIPTION="S* Floating Window Bar"
 HOMEPAGE="https://github.com/LBCrion/sfwbar"
 SRC_URI="https://github.com/LBCrion/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+KEYWORDS="~amd64"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
-
 IUSE="X mpd pulseaudio alsa"
 
 COMMON_DEPEND="
@@ -44,6 +43,7 @@ src_configure() {
 		-Didleinhibit=enabled
 		-Dbluez=enabled
 		-Dbsdctl=disabled
+		-Diwd=enabled
 	)
 
 	meson_src_configure
