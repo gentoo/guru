@@ -24,7 +24,8 @@ DOCS=()
 PATCHES="${FILESDIR}/${P}_fix_install.patch"
 
 distutils_enable_sphinx docs \
-	dev-python/insipid-sphinx-theme
+	dev-python/insipid-sphinx-theme \
+	dev-python/tomli
 
 distutils_enable_tests pytest
 
