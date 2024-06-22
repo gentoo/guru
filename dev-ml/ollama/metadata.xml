@@ -10,6 +10,6 @@
 		<flag name="amd">Add support of amd</flag>
 	</use>
 	<upstream>
-		<remote-id type="github">nulloy/nulloy</remote-id>
+		<remote-id type="github">ollama/ollama</remote-id>
 	</upstream>
 </pkgmetadata>
