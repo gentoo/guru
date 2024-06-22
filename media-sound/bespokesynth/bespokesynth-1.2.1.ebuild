@@ -6,18 +6,7 @@ inherit cmake desktop
 
 DESCRIPTION="Software modular synth"
 HOMEPAGE="https://www.bespokesynth.com/"
-SRC_URI="https://github.com/BespokeSynth/BespokeSynth/archive/refs/tags/v${PV}.tar.gz"
-
-LICENSE="GPL-3"
-SLOT="0"
-KEYWORDS="~amd64"
-
-DEPEND="
-	dev-python/pybind11
-	dev-libs/jsoncpp
-	dev-cpp/asio
-	media-sound/jack2
-"
+SRC_URI="https://github.com/BespokeSynth/BespokeSynth/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 JUCE_COMMIT="2a27ebcfae7ca7f6eb62b29d5f002ceefdaadbdb"
 SRC_URI+=" https://github.com/juce-framework/JUCE/archive/${JUCE_COMMIT}.tar.gz -> ${PN}-JUCE-${JUCE_COMMIT}.tar.gz"
@@ -32,6 +21,18 @@ SRC_URI+=" https://github.com/ODDSound/MTS-ESP/archive/${ODDSOUND_COMMIT}.tar.gz
 ASIO_COMMIT="c465349fa5cd91a64bb369f5131ceacab2c0c1c3"
 SRC_URI+=" https://github.com/chriskohlhoff/asio/archive/${ASIO_COMMIT}.tar.gz -> ${PN}-asio-${ASIO_COMMIT}.tar.gz"
 
+S="${WORKDIR}/BespokeSynth-${PV}"
+
+LICENSE="GPL-3"
+SLOT="0"
+KEYWORDS="~amd64"
+
+DEPEND="
+	dev-python/pybind11
+	dev-libs/jsoncpp
+	dev-cpp/asio
+	media-sound/jack2
+"
 
 PATCHES=(
 	"${FILESDIR}/${P}-find-jsoncpp.patch"
@@ -46,8 +47,6 @@ PATCHES=(
 #	libs/readerwriterqueue
 #	libs/tuning-library
 #)
-
-S="${WORKDIR}/BespokeSynth-${PV}"
 
 src_prepare() {
 	rmdir "${S}/libs/JUCE" || die
@@ -67,7 +66,6 @@ src_prepare() {
 	# eapply "${FILESDIR}/ableton-link-dependencies.patch"
 	rmdir "${S}/libs/ableton-link/modules/asio-standalone" || die
 	mv "${WORKDIR}/asio-${ASIO_COMMIT}" "${S}/libs/ableton-link/modules/asio-standalone" || die
-
 
 	rmdir "${S}/libs/oddsound-mts/MTS-ESP" || die
 	mv "${WORKDIR}/MTS-ESP-${ODDSOUND_COMMIT}" "${S}/libs/oddsound-mts/MTS-ESP" || die
@@ -111,6 +109,6 @@ src_install() {
 	dosym -r ${DESTDIR}/bin/BespokeSynth /usr/bin/BespokeSynth
 
 	# Adding icon and desktop settings
-        doicon -s 512 "${WORKDIR}/BespokeSynth-${PV}/bespoke_icon.png"
-        domenu "${WORKDIR}/BespokeSynth-${PV}/scripts/installer_linux/BespokeSynth.desktop"
+	doicon -s 512 "${WORKDIR}/BespokeSynth-${PV}/bespoke_icon.png"
+	domenu "${WORKDIR}/BespokeSynth-${PV}/scripts/installer_linux/BespokeSynth.desktop"
 }
