@@ -6,6 +6,6 @@
 		<name>Vitaly Zdanevich</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">nulloy/nulloy</remote-id>
+		<remote-id type="github">kiwix/libkiwix</remote-id>
 	</upstream>
 </pkgmetadata>
