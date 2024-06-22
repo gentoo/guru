@@ -1,0 +1,16 @@
+--- a/libs/ableton-link/AbletonLinkConfig.cmake
++++ b/libs/ableton-link/AbletonLinkConfig.cmake
+
+@@ -38,12 +38,6 @@
+   )
+ endif()
+ 
+-include(${CMAKE_CURRENT_LIST_DIR}/cmake_include/AsioStandaloneConfig.cmake)
+-set_property(TARGET Ableton::Link APPEND PROPERTY
+-  INTERFACE_LINK_LIBRARIES
+-  AsioStandalone::AsioStandalone
+-)
+-
+ set_property(TARGET Ableton::Link APPEND PROPERTY
+   INTERFACE_SOURCES
+   ${CMAKE_CURRENT_LIST_DIR}/include/ableton/Link.hpp
