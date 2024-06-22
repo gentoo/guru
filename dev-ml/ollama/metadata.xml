@@ -4,6 +4,7 @@
 	<maintainer type="person" proxied="yes">
 		<email>zdanevich.vitaly@ya.ru</email>
 		<name>Vitaly Zdanevich</name>
+		<description>A copy from https://github.com/MrPenguin07/ebuilds/tree/master/dev-ml/ollama</description>
 	</maintainer>
 	<use>
 		<flag name="nvidia">Add support of nvidia</flag>
