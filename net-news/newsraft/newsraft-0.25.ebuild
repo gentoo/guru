@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 DESCRIPTION="A lightweight feed reader with ncurses user interface inspired by Newsboat."
 HOMEPAGE="https://codeberg.org/newsraft/newsraft"
 
@@ -32,9 +34,9 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=(
-	"${FILESDIR}/newsraft-0.25-hardcoded-CFLAGS-LDFLAGS.patch"
-)
+src_compile(){
+	emake CC="$(tc-getCC)" LDFLAGS="${LDFLAGS}" CFLAGS="${CFLAGS}"
+}
 
 src_install() {
 	emake PREFIX="/usr" DESTDIR="${D}" install
