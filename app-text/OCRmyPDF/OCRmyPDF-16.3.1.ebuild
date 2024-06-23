@@ -10,12 +10,12 @@ inherit distutils-r1 optfeature shell-completion
 
 DESCRIPTION="OCRmyPDF adds an OCR text layer to scanned PDF files"
 HOMEPAGE="https://github.com/ocrmypdf/OCRmyPDF"
-SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-RESTRICT=test
+SRC_URI="https://github.com/ocrmypdf/ocrmypdf/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="CC-BY-SA-2.5 CC-BY-SA-4.0 MIT MPL-2.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
+RESTRICT="test"
 
 RDEPEND="
 	>=app-text/ghostscript-gpl-10.01.2
