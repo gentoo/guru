@@ -71,10 +71,8 @@ src_unpack(){
 }
 
 src_prepare(){
-	if [ "${ARCH}" = "amd64" ];
-	then
-		eapply "${FILESDIR}/sdrpp-1.2.0_pre20240607-lib64.patch"
-	fi
+	sed -i "s@install(TARGETS sdrpp_core DESTINATION lib)@install(TARGETS sdrpp_core DESTINATION $(get_libdir))@" \
+		"core/CMakeLists.txt" || die
 	cmake_src_prepare
 }
 
