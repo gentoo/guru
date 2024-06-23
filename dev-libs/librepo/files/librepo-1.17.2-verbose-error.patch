@@ -1,0 +1,13 @@
+Make a test failure verbose.
+https://bugs.gentoo.org/928159
+--- a/tests/test_checksum.c
++++ b/tests/test_checksum.c
+@@ -141,7 +141,7 @@ START_TEST(test_cached_checksum_matches)
+             goto exit_label;
+         }
+         // Any other errno means fail
+-        ck_assert(attr_ret != -1);
++        ck_assert_msg(attr_ret == -1, "getxattr failed: %s", strerror(errno));
+     } else {
+         buf[attr_ret] = 0;
+         ck_assert_str_eq(buf, expected);
