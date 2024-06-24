@@ -12,11 +12,18 @@ KEYWORDS="~amd64"
 DEPEND="app-editors/neovim"
 
 src_install() {
-	cd ./colors
-	mkdir --parents "${D}"/usr/share/nvim/runtime/colors
-	cp -r *.vim "${D}"/usr/share/nvim/runtime/colors
-	cd ..
-	cd ./lua
-	mkdir --parents "${D}"/usr/share/nvim/runtime/lua
-	cp -r ./* "${D}"/usr/share/nvim/runtime/lua
+	insinto /usr/share/nvim/runtime/colors
+	doins ${S}/colors/*.vim
+
+	insinto /usr/share/nvim/runtime/lua/catppuccin
+	doins ${S}/lua/catppuccin/*
+
+	insinto /usr/share/nvim/runtime/lua/barbecue/theme
+	doins ${S}/lua/barbecue/theme/*
+
+	insinto /usr/share/nvim/runtime/lua/lualine/themes
+	doins ${S}/lua/lualine/themes/*
+
+	insinto /usr/share/nvim/runtime/lua/reactive/presets
+	doins ${S}/lua/reactive/presets/*
 }
