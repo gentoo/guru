@@ -13,17 +13,17 @@ DEPEND="app-editors/neovim"
 
 src_install() {
 	insinto /usr/share/nvim/runtime/colors
-	doins ${S}/colors/*.vim
+	doins "${S}"/colors/*.vim
 
 	insinto /usr/share/nvim/runtime/lua/catppuccin
-	doins ${S}/lua/catppuccin/*
+	doins "${S}"/lua/catppuccin/*
 
 	insinto /usr/share/nvim/runtime/lua/barbecue/theme
-	doins ${S}/lua/barbecue/theme/*
+	doins "${S}"/lua/barbecue/theme/*
 
 	insinto /usr/share/nvim/runtime/lua/lualine/themes
-	doins ${S}/lua/lualine/themes/*
+	doins "${S}"/lua/lualine/themes/*
 
 	insinto /usr/share/nvim/runtime/lua/reactive/presets
-	doins ${S}/lua/reactive/presets/*
+	doins "${S}"/lua/reactive/presets/*
 }
