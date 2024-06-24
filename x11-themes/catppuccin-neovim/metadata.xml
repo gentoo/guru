@@ -6,6 +6,6 @@
 		<name>Omar</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">catppuccin/neovim</remote-id>
+		<remote-id type="github">catppuccin/nvim</remote-id>
 	</upstream>
 </pkgmetadata>
