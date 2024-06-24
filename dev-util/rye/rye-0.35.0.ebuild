@@ -312,7 +312,7 @@ declare -A GIT_CRATES=(
 inherit cargo
 
 DESCRIPTION="a Hassle-Free Python Experience"
-HOMEPAGE="https://rye-up.com"
+HOMEPAGE="https://rye.astral.sh"
 SRC_URI="
 	https://github.com/astral-sh/rye/archive/${PV}/${P}.tar.gz
 	${CARGO_CRATE_URIS}
