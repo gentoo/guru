@@ -23,7 +23,7 @@ else
 	KEYWORDS="~amd64 ~arm64"
 fi
 LICENSE="MIT test? ( ISC Apache-2.0 MIT BSD CC0-1.0 0BSD )"
-# nodejs package and deps used to test
+# nodejs module and deps used to test
 SLOT="3"
 RDEPEND=" ${DEPEND}
 	>=dev-python/httpx-0.23.0[${PYTHON_USEDEP}]
@@ -44,7 +44,6 @@ BDEPEND="test? (
 )"
 
 distutils_enable_tests pytest
-RESTRICT="mirror" #mirror restricted only because overlay
 RESTRICT+=" !test? ( test )"
 
 src_unpack() {
@@ -76,12 +75,12 @@ python_test() {
 src_test() {
 	# Run prism mock api server, this is what needs nodejs
 	node --no-warnings node_modules/@stoplight/prism-cli/dist/index.js mock \
-		"cloudflare-spec.yml" >prism.log &
+		"cloudflare-spec.yml" >prism.log || die "Failed starting prism" &
 	local MOCK_PID=$!
 	# Wait for server to come online
 	echo -n "Waiting for mockserver"
 	while ! grep -q "✖  fatal\|Prism is listening" "prism.log" ; do
-	    echo -n "."
+	    echo -n "." || die
 	    sleep 0.5
 	done
 	if grep -q "✖  fatal" prism.log; then
