@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 DESCRIPTION="Utilities for Broadcom-based cable modems"
 HOMEPAGE="https://github.com/jclehner/bcm2-utils"
 SRC_URI="https://github.com/jclehner/bcm2-utils/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -17,6 +19,11 @@ RDEPEND="${DEPEND}"
 src_prepare(){
 	default
 	sed -i 's@shell git describe --always@shell git describe --always 2>/dev/null@' "Makefile" || die
+}
+
+src_compile(){
+	emake CC=$(tc-getCC) CXX=$(tc-getCXX) CFLAGS=${CFLAGS} CXXFLAGS=${CXXFLAGS} \
+		LDFLAGS=${LDFLAGS}
 }
 
 src_install(){
