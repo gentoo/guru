@@ -5,11 +5,17 @@ EAPI=8
 
 inherit meson
 
+DESCRIPTION="fetch program written in pure C"
+HOMEPAGE="https://github.com/kernaltrap8/tinyfetch"
+
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/kernaltrap8/tinyfetch"
 	S="${WORKDIR}/${PN}-9999"
 fi
+
+LICENSE="GPL-3"
+SLOT="0"
 
 IUSE="+pci"
 
@@ -20,13 +26,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-DESCRIPTION="fetch program written in pure C"
-HOMEPAGE="https://github.com/kernaltrap8/tinyfetch"
-
-LICENSE="GPL-3"
-SLOT="0"
-
-src_unpack() {	
+src_unpack() {
 	if use pci ; then
 		EGIT_BRANCH=pci
 	fi

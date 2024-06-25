@@ -13,5 +13,8 @@
   </longdescription>
   <upstream>
     <remote-id type="github">kernaltrap8/tinyfetch</remote-id>
-  </upstream>	
+  </upstream>
+  <use>
+  	  <flag name="pci">Enables the use of pciutils to detect GPU names</flag>
+  </use>
 </pkgmetadata>
