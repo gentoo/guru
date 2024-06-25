@@ -36,6 +36,8 @@ RDEPEND="
 QA_PREBUILT="*"
 
 src_install() {
+	sed -i "s|SCRIPT_DIR=.*|SCRIPT_DIR=\"/opt/Mullvad VPN/\"|g" "${S}"/opt/Mullvad\ VPN/mullvad-vpn
+
 	# Using doins -r would strip executable bits from all binaries
 	cp -pPR "${S}"/opt "${D}"/ || die "Failed to copy files"
 	fperms +x "/opt/Mullvad VPN/chrome_crashpad_handler"
@@ -47,6 +49,7 @@ src_install() {
 	dobin "${S}"/usr/bin/mullvad
 	dobin "${S}"/usr/bin/mullvad-daemon
 	dobin "${S}"/usr/bin/mullvad-exclude
+	dosym "../../opt/Mullvad VPN/mullvad-vpn" /usr/bin/mullvad-vpn
 	dosym "../../opt/Mullvad VPN/resources/mullvad-problem-report" /usr/bin/mullvad-problem-report
 
 	# mullvad-exclude uses cgroups to manage exclusions, which requires root permissions, but is
