@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mailgentoo@kaats.ch</email>
+		<name>Erwin Kaats</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">jrnl-org/jrnl</remote-id>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,11 @@
+--- a/tests/lib/when_steps.py
++++ b/tests/lib/when_steps.py
+@@ -7,7 +7,7 @@
+ from pytest_bdd import when
+ from pytest_bdd.parsers import parse
+ from pytest_bdd.parsers import re
+-from pytest_bdd.steps import inject_fixture
++from pytest_bdd.compat import inject_fixture
+ 
+ from jrnl.main import run
+

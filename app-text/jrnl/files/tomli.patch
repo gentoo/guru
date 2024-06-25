@@ -1,0 +1,20 @@
+Patching out toml in favor for tomli as the latter is already included in the Gentoo repo
+
+--- a/tests/lib/fixtures.py
++++ b/tests/lib/fixtures.py
+@@ -9,7 +9,7 @@
+ from unittest.mock import Mock
+ from unittest.mock import patch
+ 
+-import toml
++import tomli
+ from keyring import backend
+ from keyring import errors
+ from pytest import fixture
+@@ -204,7 +204,7 @@
+ @fixture
+ def toml_version(working_dir):
+     pyproject = os.path.join(working_dir, "..", "pyproject.toml")
+-    pyproject_contents = toml.load(pyproject)
++    pyproject_contents = tomli.load(pyproject)
+     return pyproject_contents["tool"]["poetry"]["version"]
