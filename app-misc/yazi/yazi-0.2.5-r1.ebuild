@@ -346,8 +346,8 @@ src_compile() {
 }
 
 src_install() {
-	dobin "target/$(usex debug debug release)/${PN}"
-	use cli && dobin "target/$(usex debug debug release)/ya"
+	dobin "$(cargo_target_dir)/${PN}"
+	use cli && dobin "$(cargo_target_dir)/ya"
 
 	newbashcomp "${S}/yazi-boot/completions/${PN}.bash" "${PN}"
 	dozshcomp "${S}/yazi-boot/completions/_${PN}"
