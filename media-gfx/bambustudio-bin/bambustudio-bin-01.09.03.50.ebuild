@@ -6,7 +6,7 @@ EAPI=8
 MY_PN="BambuStudio"
 WX_GTK_VER="3.0-gtk3"
 
-inherit desktop unpacker xdg
+inherit desktop wrapper xdg
 
 DESCRIPTION="Bambu Studio is a cutting-edge, feature-rich slicing software"
 HOMEPAGE="https://bambulab.com"
@@ -15,7 +15,6 @@ SRC_URI="
 	https://github.com/bambulab/${MY_PN}/releases/download/v${PV}/Bambu_Studio_linux_fedora-v${PV}.AppImage \
 	-> ${P}.AppImage
 "
-S="${WORKDIR}/${P}"
 
 LICENSE="AGPL-3"
 SLOT="0"
@@ -55,10 +54,7 @@ src_unpack() {
 }
 
 src_install() {
-	rm "${S}"/squashfs-root/*.AppImage || die
-	rm "${S}"/squashfs-root/*.desktop || die
-	rm "${S}"/squashfs-root/.DirIcon || die
-	rm -r "${S}"/squashfs-root/usr || die
+	rm -r squashfs-root/{*.{AppImage,desktop},.DirIcon,usr} || die
 	patchelf --replace-needed libwebkit2gtk-4.0.so.37 libwebkit2gtk-4.1.so.0 \
 		"${S}"/squashfs-root/bin/bambu-studio || die
 	patchelf --replace-needed libjavascriptcoregtk-4.0.so.18 libjavascriptcoregtk-4.1.so.0 \
@@ -69,8 +65,8 @@ src_install() {
 		"${S}"/squashfs-root/bin/bambu-studio || die
 	insinto /opt/"${PN}"
 	doins -r "${S}"/squashfs-root/*
-	fperms +x "/opt/${PN}/AppRun" "/opt/${PN}/bin/bambu-studio"
+	fperms +x "/opt/${PN}/AppRun"
 	doicon -s 192 "${S}"/squashfs-root/BambuStudio.png
 	domenu "${FILESDIR}/bambu-studio.desktop"
-	dobin "${FILESDIR}/bambu-studio"
+	make_wrapper "${PN}" "/opt/${PN}/AppRun"
 }
