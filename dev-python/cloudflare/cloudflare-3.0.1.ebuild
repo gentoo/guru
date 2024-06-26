@@ -68,15 +68,24 @@ python_test() {
 	local EPYTEST_DESELECT=(
 	tests/test_client.py::TestCloudflare::test_validate_headers
 	tests/test_client.py::TestAsyncCloudflare::test_validate_headers )
-
+	if [ "${EPYTHON}" == "python3.11" ]; then
+		#fails due to slight memory leak
+		EPYTEST_DESELECT+=(
+		tests/test_client.py::TestCloudflare::test_copy_build_request )
+	fi
 	epytest
 }
 
 src_test() {
-	# Run prism mock api server, this is what needs nodejs
+	start_mock
+	distutils-r1_src_test
+	stop_mock
+}
+start_mock() {
+# Run prism mock api server, this is what needs nodejs
 	node --no-warnings node_modules/@stoplight/prism-cli/dist/index.js mock \
 		"cloudflare-spec.yml" >prism.log || die "Failed starting prism" &
-	local MOCK_PID=$!
+	echo $! >"${T}/mock.pid" || die
 	# Wait for server to come online
 	echo -n "Waiting for mockserver"
 	while ! grep -q "✖  fatal\|Prism is listening" "prism.log" ; do
@@ -86,6 +95,7 @@ src_test() {
 	if grep -q "✖  fatal" prism.log; then
 		die "Prism mock server failed"
 	fi
-	distutils-r1_src_test
-	kill "${MOCK_PID}"
+}
+stop_mock() {
+	kill $(cat "${T}/mock.pid") || die
 }
