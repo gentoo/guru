@@ -324,7 +324,11 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
-QA_FLAGS_IGNORED="usr/bin/${PN}"
+IUSE="+cli"
+
+QA_FLAGS_IGNORED="
+	usr/bin/ya.*
+"
 
 DOCS=(
 	README.md
@@ -336,12 +340,25 @@ src_prepare() {
 	eapply_user
 }
 
+src_compile() {
+	cargo_src_compile
+	use cli && cargo_src_compile -p "${PN}-cli"
+}
+
 src_install() {
-	dobin target/$(usex debug debug release)/yazi
+	dobin "target/$(usex debug debug release)/${PN}"
+	use cli && dobin "target/$(usex debug debug release)/ya"
 
 	newbashcomp "${S}/yazi-boot/completions/${PN}.bash" "${PN}"
 	dozshcomp "${S}/yazi-boot/completions/_${PN}"
 	dofishcomp "${S}/yazi-boot/completions/${PN}.fish"
+
+	if use cli
+	then
+		newbashcomp "${S}/yazi-cli/completions/ya.bash" "ya"
+		dozshcomp "${S}/yazi-cli/completions/_ya"
+		dofishcomp "${S}/yazi-cli/completions/ya.fish"
+	fi
 
 	domenu "assets/${PN}.desktop"
 	einstalldocs
