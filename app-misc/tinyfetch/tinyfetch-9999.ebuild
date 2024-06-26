@@ -25,10 +25,3 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}"
-
-src_unpack() {
-	if use pci ; then
-		EGIT_BRANCH=pci
-	fi
-	git-r3_src_unpack
-}
