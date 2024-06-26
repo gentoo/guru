@@ -65,8 +65,8 @@ src_install() {
 		"${S}"/squashfs-root/bin/bambu-studio || die
 	insinto /opt/"${PN}"
 	doins -r "${S}"/squashfs-root/*
-	fperms +x "/opt/${PN}/AppRun"
+	fperms +x "/opt/${PN}/AppRun" "/opt/${PN}/bin/bambu-studio"
 	doicon -s 192 "${S}"/squashfs-root/BambuStudio.png
 	domenu "${FILESDIR}/bambu-studio.desktop"
-	make_wrapper "${PN}" "/opt/${PN}/AppRun"
+	make_wrapper bambu-studio "/opt/${PN}/AppRun"
 }
