@@ -1,13 +1,13 @@
 certificate version 0.1
-pusher Omar <somerand0mcat@hotmail.com> 1719397103 +0300
+pusher 132D 87AB 439A B3ED A25C  C460 92A1 BB3E 3819 D9B1 1719397739 -0500
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1719397103-8908a0c0687f64eb4ef7d53fb55a5a67614fab8f
+nonce 1719397739-0faac2a1d1a13d91a5a876822950ef1df9eff900
 
-4f6c0a166132faabb3fb20ac5ef067f913e70377 4a709f7ab7f95e72f20f3ae11287d7d56c8f847a refs/heads/dev
+4a709f7ab7f95e72f20f3ae11287d7d56c8f847a 1ffa96ec3d8a432df032bb01a8fc8712083d1a38 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQT4OeopKPzKMNphlqT1MAB2qduhlwUCZnvq7wAKCRD1MAB2qduh
-l/kjAP9h65n6w52DQuEmP5zYS/aTub3RfXPiIUPSLb/5TnvDKwD/XQu9ROZAu7b1
-20/NpQ6leg64QD+v3Y6Blg4nqa+8SQ4=
-=mEPN
+iHUEABYKAB0WIQQTLYerQ5qz7aJcxGCSobs+OBnZsQUCZnvtawAKCRCSobs+OBnZ
+sTNrAQD7oZelLtEtHXRYi+9IIzgYjeW/r5pK9sUIwMOYPRuEcwEAnNut1SMmLSzl
+j4xu2H6xqwr5s5S8bERIfH6atxjm0gg=
+=/5yP
 -----END PGP SIGNATURE-----
