@@ -71,6 +71,7 @@ python_test() {
 	if [ "${EPYTHON}" == "python3.11" ]; then
 		#fails due to slight memory leak
 		EPYTEST_DESELECT+=(
+		tests/test_client.py::TestAsyncCloudflare::test_copy_build_request
 		tests/test_client.py::TestCloudflare::test_copy_build_request )
 	fi
 	epytest
