@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>eli.burch@burchbytes.com</email>
+		<name>Eli Burch</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">ooni/probe-cli</remote-id>
 		<bugs-to>https://github.com/ooni/probe/issues/new?labels=ooni/probe-cli&amp;assignee=bassosimone</bugs-to>
