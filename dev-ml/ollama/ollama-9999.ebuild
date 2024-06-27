@@ -42,6 +42,12 @@ src_unpack() {
 }
 
 src_compile() {
+	VERSION=$(
+		git describe --tags --first-parent --abbrev=7 --long --dirty --always \
+		| sed -e "s/^v//g"
+	)
+	export GOFLAGS="'-ldflags=-w -s \"-X=github.com/ollama/ollama/version.Version=$VERSION\"'"
+
 	ego generate ./...
 	ego build .
 }
