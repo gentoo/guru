@@ -22,8 +22,8 @@ src_prepare(){
 }
 
 src_compile(){
-	emake CC=$(tc-getCC) CXX=$(tc-getCXX) CFLAGS=${CFLAGS} CXXFLAGS=${CXXFLAGS} \
-		LDFLAGS=${LDFLAGS}
+	emake CC="$(tc-getCC)" CXX="$(tc-getCXX)" CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" \
+		LDFLAGS="${LDFLAGS}"
 }
 
 src_install(){
