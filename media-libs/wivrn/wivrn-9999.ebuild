@@ -55,6 +55,7 @@ RDEPEND="
 
 BDEPEND="
 	${RDEPEND}
+	dev-cpp/cli11
 	dev-cpp/eigen
 	dev-cpp/nlohmann_json
 	dev-util/glslang
