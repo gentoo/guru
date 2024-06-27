@@ -4,7 +4,7 @@
 EAPI=8
 DESCRIPTION="Soothing pastel previews for the high-spirited!"
 HOMEPAGE="https://github.com/catppuccin/catwalk"
-SRC_URI="https://github.com/catppuccin/catwalk/releases/download/v${PV}/catwalk-x86_64-unknown-linux-gnu -> ${P}"
+SRC_URI="https://github.com/catppuccin/catwalk/releases/latest/download/catwalk-x86_64-unknown-linux-gnu -> ${P}"
 S="${WORKDIR}"
 LICENSE="MIT"
 SLOT="0"
