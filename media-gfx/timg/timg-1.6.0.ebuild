@@ -25,7 +25,7 @@ RDEPEND="
 	>=media-gfx/graphicsmagick-1.3.42
 	>=gnome-base/librsvg-2.57.3
 	>=x11-libs/cairo-1.18.0
-	>=app-text/poppler-24.04.0
+	>=app-text/poppler-24.04.0[cairo]
 "
 
 DEPEND="${RDEPEND}"
