@@ -3,13 +3,20 @@
 
 EAPI=8
 
-inherit desktop xdg-utils savedconfig toolchain-funcs linux-info
+inherit desktop xdg-utils savedconfig toolchain-funcs linux-info shell-completion
 
+ZSH_COMP_COMMIT="f7d1efe3495949e2e88fdfef37aed5a40400acea"
+ZSH_COMP_URI="https://codeberg.org/nsxiv/nsxiv-extra/raw/commit/${ZSH_COMP_COMMIT}/completion/zsh/_nsxiv"
+ZSH_COMP="${PN}-${ZSH_COMP_COMMIT}.comp.zsh"
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://codeberg.org/nsxiv/nsxiv.git"
+	SRC_URI="${ZSH_COMP_URI} -> ${ZSH_COMP}"
 	inherit git-r3
 else
-	SRC_URI="https://codeberg.org/nsxiv/nsxiv/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="
+		https://codeberg.org/nsxiv/nsxiv/archive/v${PV}.tar.gz -> ${P}.tar.gz
+		${ZSH_COMP_URI} -> ${ZSH_COMP}
+	"
 	KEYWORDS="~amd64"
 fi
 
@@ -65,6 +72,7 @@ src_install() {
 		install install-icon
 	dodoc README.md
 	domenu etc/nsxiv.desktop
+	newzshcomp "${DISTDIR}/${ZSH_COMP}" _nsxiv
 
 	save_config config.h
 }
