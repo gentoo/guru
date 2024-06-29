@@ -15,7 +15,7 @@ inherit chromium-2 desktop unpacker xdg
 #
 # 	curl https://download.todesktop.com/2003241lzgn20jd/latest-linux.yml
 
-BUILD_ID="240411hw9xbpc7s"
+BUILD_ID="240624c0qmp116e"
 DESCRIPTION="Beeper: Unified Messenger"
 HOMEPAGE="https://www.beeper.com/"
 SRC_URI="https://download.todesktop.com/2003241lzgn20jd/${P}-build-${BUILD_ID}-amd64.deb"
