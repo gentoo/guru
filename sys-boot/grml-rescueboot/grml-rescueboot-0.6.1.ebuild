@@ -6,9 +6,9 @@ EAPI=8
 inherit unpacker
 
 DESCRIPTION="grub2 script to add ISO images to the grub2 boot menu"
-HOMEPAGE="http://wiki.grml.org/doku.php?id=rescueboot"
+HOMEPAGE="https://wiki.grml.org/doku.php?id=rescueboot"
 
-SRC_URI="http://deb.grml.org/pool/main/g/${PN}/${PN}_${PV}_all.deb"
+SRC_URI="https://deb.grml.org/pool/main/g/${PN}/${PN}_${PV}_all.deb"
 S="${WORKDIR}"
 
 LICENSE="GPL-2"
