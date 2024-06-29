@@ -11,7 +11,8 @@ HOMEPAGE="
 	https://github.com/ctt-gob-es/clienteafirma
 "
 
-# Upstream blocks wget with no User Agent.
+# Upstream blocks wget with no User Agent. It can be addressed globally (see https://wiki.gentoo.org/wiki/FETCHCOMMAND).
+# If Gentoo's default configuration is in place, pkg_pretend() and pkg_nofetch() provide fallback options.
 SRC_URI="https://estaticos.redsara.es/comunes/autofirma/$(ver_rs 1- /)/AutoFirma_Linux_Fedora.zip -> ${P}.zip"
 
 S=${WORKDIR}
@@ -22,6 +23,12 @@ KEYWORDS="~amd64"
 
 RDEPEND="virtual/jre:1.8"
 BDEPEND="app-arch/unzip"
+
+pkg_pretend() {
+	# Upstream blocks vanilla wget, so we set up a browser User-Agent as a fallback.
+	URI="https://estaticos.redsara.es/comunes/autofirma/$(ver_rs 1- /)/AutoFirma_Linux_Fedora.zip"
+	/usr/sbin/wget --user-agent="Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0" "${URI}" -O "${PORTAGE_ACTUAL_DISTDIR}"/"${P}".zip
+}
 
 pkg_nofetch() {
 	einfo "Please download:"
