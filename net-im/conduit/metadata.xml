@@ -10,9 +10,6 @@
 		instead of a server that has high scalability.
 	</longdescription>
 	<use>
-		<flag name="lmdb" restrict="&lt;net-im/conduit-0.7.0">
-			Add support for LMDB (Lightning Memory-Mapped Database)
-		</flag>
 		<flag name="rocksdb">
 			Add support for RocksDB; a key/value, LSM database
 		</flag>
