@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Pascal Jaeger <pascal.jaeger@leimstift.de> (2024-06-29)
+# Package is renamed to 'dissent'
+# Newer versions do not build in portage because of dependency
+# problems.
+# Removal on 2024-08-30.
+net-im/gtkcord4
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-06-24)
 # Critical security vulnerability.
 <net-im/conduit-0.8.0
