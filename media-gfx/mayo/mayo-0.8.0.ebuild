@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	>=sci-libs/opencascade-7.7.0-r2
-	<sci-libs/opencascade-7.8.0
+	<sci-libs/opencascade-7.7.1
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
@@ -29,9 +29,7 @@ PATCHES=(
 )
 
 src_configure() {
-
 	eqmake5 "CASCADE_INC_DIR=/usr/include/opencascade" "CASCADE_LIB_DIR=/usr/$(get_libdir)/opencascade" "ASSIMP_INC_DIR=/usr/include/assimp" "ASSIMP_LIB_DIR=/usr/$(get_libdir)" mayo.pro
-
 }
 
 src_install() {
