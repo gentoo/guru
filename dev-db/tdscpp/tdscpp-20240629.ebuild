@@ -11,7 +11,7 @@ SRC_URI="https://codeload.github.com/maharmstone/tdscpp/tar.gz/refs/tags/${PV} -
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 IUSE="kerberos +ssl"
 
 DEPEND="dev-cpp/nlohmann_json
