@@ -30,3 +30,8 @@ src_install(){
 	mkdir -p "${D}/usr/bin" || die
 	emake PREFIX="${D}/usr" install
 }
+
+src_test(){
+	emake CC="$(tc-getCC)" CXX="$(tc-getCXX)" CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" \
+		LDFLAGS="${LDFLAGS}" check
+}
