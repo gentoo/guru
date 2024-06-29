@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="A daemon to provide haptic feedback on events (themes package)"
 HOMEPAGE="https://source.puri.sm/Librem5/feedbackd-device-themes"
-SRC_URI="https://source.puri.sm/Librem5/${PN}/-/archive/${MY_PV}/${MY_P}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://source.puri.sm/Librem5/${PN}/-/archive/${MY_PV}/${MY_P}.tar.bz2"
 
 S="${WORKDIR}/${MY_P}"
 
