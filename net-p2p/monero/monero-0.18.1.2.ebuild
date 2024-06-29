@@ -35,7 +35,7 @@ DEPEND="
 	dev-libs/supercop
 	net-dns/unbound:=[threads]
 	net-libs/czmq:=
-	net-libs/miniupnpc
+	net-libs/miniupnpc:=
 	readline? ( sys-libs/readline:0= )
 "
 RDEPEND="${DEPEND}"
