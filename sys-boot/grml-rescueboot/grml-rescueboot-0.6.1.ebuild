@@ -23,9 +23,8 @@ src_install() {
 	insinto /etc/default/
 	doins etc/default/grml-rescueboot
 
-	insinto /etc/grub.d/
-	doins etc/grub.d/42_grml
-	fperms +x /etc/grub.d/42_grml
+	exeinto /etc/grub.d/
+	newexe etc/grub.d/42_grml 42_grml
 }
 
 pkg_postinst() {
