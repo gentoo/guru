@@ -19,10 +19,6 @@ RDEPEND="
 	sys-boot/grub
 "
 
-src_unpack() {
-	unpack_deb ${A}
-}
-
 src_install() {
 	insinto /etc/default/
 	doins etc/default/grml-rescueboot
