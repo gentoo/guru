@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,13 +8,13 @@ inherit vala meson gnome2-utils optfeature virtualx xdg
 
 MY_PN="${PN#gnome-}"
 MY_P="${MY_PN}-v${PV}"
-LCU_COMMIT="6798b38d4d66d069751151b3e9a202c6de8d7f3c"
+LCU_V="0.1.0"
 DESCRIPTION="Phone dialer and call handler"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/calls"
 GITLAB="https://gitlab.gnome.org"
 SRC_URI="
 	${GITLAB}/GNOME/${MY_PN}/-/archive/v${PV}/${MY_P}.tar.bz2
-	${GITLAB}/World/Phosh/libcall-ui/-/archive/${LCU_COMMIT}/libcall-ui-${LCU_COMMIT}.tar.bz2
+	${GITLAB}/World/Phosh/libcall-ui/-/archive/v${LCU_V}/libcall-ui-v${LCU_V}.tar.bz2
 "
 S="${WORKDIR}/${MY_P}"
 
@@ -56,7 +56,7 @@ src_unpack() {
 
 	cd "${S}" || die
 	rmdir subprojects/libcall-ui || die
-	mv "${WORKDIR}"/libcall-ui-${LCU_COMMIT} subprojects/libcall-ui || die
+	mv "${WORKDIR}"/libcall-ui-v${LCU_V} subprojects/libcall-ui || die
 }
 
 src_prepare() {
@@ -75,7 +75,6 @@ src_configure() {
 
 src_test() {
 	local tests=(
-		calls:application
 		calls:call
 		calls:contacts
 		calls:dbus
@@ -84,13 +83,20 @@ src_test() {
 		calls:origin
 		calls:plugins
 		calls:provider
-		calls:ringer
 		calls:sdp-crypto
 		calls:settings
-		#calls:sip
 		calls:srtp
 		calls:ui-call
 		calls:util
+
+		# TODO: needs working sound card
+		#calls:application
+
+		# TODO: failure related to feedbackd
+		#calls:ringer
+
+		# TODO: hangs
+		#calls:sip
 	)
 	virtx meson_src_test "${tests[@]}"
 }
