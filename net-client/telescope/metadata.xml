@@ -2,9 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <!-- maintainer-needed -->
-<use>
-	<flag name="libbsd">Use <pkg>dev-libs/libbsd</pkg> instead of internal funcs</flag>
-</use>
 <upstream>
 	<maintainer>
 		<name>Omar Polo</name>
