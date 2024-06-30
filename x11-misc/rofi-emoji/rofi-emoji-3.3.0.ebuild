@@ -13,25 +13,21 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="X wayland"
+IUSE="wayland"
 
 DEPEND="
-	wayland? (
-		gui-apps/rofi-wayland
-	)
-	X? (
-		x11-misc/rofi
-	)
+	!wayland? ( x11-misc/rofi )
+	wayland? ( gui-apps/rofi-wayland )
 "
 RDEPEND="
 	${DEPEND}
+	!wayland? (
+		|| ( x11-misc/xsel x11-misc/xclip x11-misc/copyq )
+		x11-misc/xdotool
+	)
 	wayland? (
 		gui-apps/wl-clipboard
 		gui-apps/wtype
-	)
-	X? (
-		|| ( x11-misc/xsel x11-misc/xclip x11-misc/copyq )
-		x11-misc/xdotool
 	)
 "
 
