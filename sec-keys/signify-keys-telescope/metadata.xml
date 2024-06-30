@@ -3,6 +3,6 @@
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
-		<remote-id type="github">omar-polo/telescope</remote-id>
+		<remote-id type="github">telescope-browser/telescope</remote-id>
 	</upstream>
 </pkgmetadata>

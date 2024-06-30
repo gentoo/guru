@@ -5,7 +5,7 @@ EAPI=8
 
 MY_P="${PN#signify-keys-}-${PV}"
 DESCRIPTION="Signify keys used to sign telescope releases"
-HOMEPAGE="https://telescope.omarpolo.com/"
+HOMEPAGE="https://www.telescope-browser.org/"
 SRC_URI="https://ftp.omarpolo.com/${MY_P}.pub"
 S="${WORKDIR}"
 
