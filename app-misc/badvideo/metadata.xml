@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+  <maintainer type="person">
+    <email>aidenwingard2@gmail.com</email>
+    <description>Primary maintainer</description>
+  </maintainer>
+  <longdescription>
+   badvideo is a Bash script that uses FFmpeg
+   to manipulate video files. It uses the
+   x264 and OPUS encoders to heavily compress
+   and ruin the bitrates of MP4 video files.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">kernaltrap8/badvideo</remote-id>
+  </upstream>
+</pkgmetadata>
