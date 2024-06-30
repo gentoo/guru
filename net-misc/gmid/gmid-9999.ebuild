@@ -91,7 +91,7 @@ src_install() {
 	insinto /usr/share/vim/vimfiles
 	doins -r contrib/vim/*
 
-	systemd_dounit "${FILESDIR}"/gmid.service
+	systemd_newunit "${FILESDIR}"/gmid.service-r1 gmid.service
 	newinitd "${FILESDIR}"/gmid.initd gmid
 	newconfd "${FILESDIR}"/gmid.confd gmid
 

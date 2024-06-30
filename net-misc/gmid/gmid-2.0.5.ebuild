@@ -15,8 +15,8 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://git.omarpolo.com/${PN} https://github.com/omar-polo/${PN}.git"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/omar-polo/${PN}/releases/download/${PV}/${P}.tar.gz
-		verify-sig? ( https://github.com/omar-polo/${PN}/releases/download/${PV}/${P}.sha256.sig )"
+	SRC_URI="https://ftp.omarpolo.com/${P}.tar.gz
+		verify-sig? ( https://ftp.omarpolo.com/${P}.sha256.sig )"
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -91,7 +91,7 @@ src_install() {
 	insinto /usr/share/vim/vimfiles
 	doins -r contrib/vim/*
 
-	systemd_dounit "${FILESDIR}"/gmid.service
+	systemd_newunit "${FILESDIR}"/gmid.service-r1 gmid.service
 	newinitd "${FILESDIR}"/gmid.initd gmid
 	newconfd "${FILESDIR}"/gmid.confd gmid
 
