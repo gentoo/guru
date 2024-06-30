@@ -1,0 +1,183 @@
+--- a/code/cmdline/cmdline.h
++++ b/code/cmdline/cmdline.h
+@@ -13,6 +13,8 @@
+ #define FS_CMDLINE_HEADER_FILE
+ 
+ #include <tl/optional.hpp>
++#include <cstdint>
++#include "globalincs/vmallocator.h"
+ 
+ int parse_cmdline(int argc, char *argv[]);
+ 
+--- a/code/cfile/cfile.h
++++ b/code/cfile/cfile.h
+@@ -15,6 +15,7 @@
+ 
+ #include "globalincs/pstypes.h"
+ 
++#include <array>
+ #include <ctime>
+ #include <stdexcept>
+ #include <memory>
+--- a/code/graphics/opengl/gropenglopenxr.h
++++ b/code/graphics/opengl/gropenglopenxr.h
+@@ -1,8 +1,11 @@
+ #pragma once
+ 
++#include <cstdint>
++#include <globalincs/vmallocator.h>
++
+ SCP_vector<const char*> gr_opengl_openxr_get_extensions();
+ bool gr_opengl_openxr_test_capabilities();
+ bool gr_opengl_openxr_create_session();
+ int64_t gr_opengl_openxr_get_swapchain_format(const SCP_vector<int64_t>& allowed);
+ bool gr_opengl_openxr_acquire_swapchain_buffers();
+-bool gr_opengl_openxr_flip();
+\ No newline at end of file
++bool gr_opengl_openxr_flip();
+--- a/code/libs/discord/discord.h
++++ b/code/libs/discord/discord.h
+@@ -1,5 +1,7 @@
+ #pragma once
+ 
++#include <globalincs/vmallocator.h>
++
+ namespace libs {
+ namespace discord {
+ 
+--- a/code/math/floating.h
++++ b/code/math/floating.h
+@@ -12,6 +12,7 @@
+ #ifndef _FLOATING_H
+ #define _FLOATING_H
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <cfloat>
+ #include <limits>
+--- a/code/io/spacemouse.h
++++ b/code/io/spacemouse.h
+@@ -4,6 +4,8 @@
+ #include "math/vecmat.h"
+ #include "io/timer.h"
+ 
++#include <array>
++
+ struct hid_device_;
+ typedef hid_device_ hid_device;
+ 
+@@ -59,4 +61,4 @@
+ 			static std::unique_ptr<SpaceMouse> searchSpaceMice(int pollingFrequency = 10);
+ 		};
+ 	}
+-}
+\ No newline at end of file
++}
+--- a/code/network/multi_mdns.h
++++ b/code/network/multi_mdns.h
+@@ -1,6 +1,8 @@
+ #ifndef MULTI_MDNS_H
+ #define MULTI_MDNS_H
+ 
++#include <array>
++
+ bool multi_mdns_query();
+ void multi_mdns_query_do();
+ void multi_mdns_query_close();
+--- a/code/network/multi_pxo.h
++++ b/code/network/multi_pxo.h
+@@ -7,7 +7,7 @@
+  *
+ */
+ 
+-
++#include <globalincs/vmallocator.h>
+ 
+ #ifndef _PARALLAX_ONLINE_HEADER_FILE
+ #define _PARALLAX_ONLINE_HEADER_FILE
+--- a/code/network/psnet.h
++++ b/code/network/psnet2.h
+@@ -20,6 +20,7 @@
+ #include <netinet/in.h>
+ #include <cerrno>
+ #endif
++#include <iomanip>
+ 
+ #include "globalincs/pstypes.h"
+ 
+--- a/code/osapi/osapi.h
++++ b/code/osapi/osapi.h
+@@ -25,6 +25,7 @@
+ #include "globalincs/flagset.h"
+ 
+ #include <functional>
++#include <fstream>
+ #include <memory>
+ 
+ #include <SDL_events.h>
+--- a/code/scripting/lua/LuaTypes.h
++++ b/code/scripting/lua/LuaTypes.h
+@@ -1,5 +1,8 @@
+ #pragma once
+ 
++#include <iostream>
++#include <vector>
++
+ namespace luacpp {
+ class LuaValue;
+ 
+--- a/code/scripting/api/LuaPromise.h
++++ b/code/scripting/api/LuaPromise.h
+@@ -2,6 +2,9 @@
+ 
+ #include "scripting/lua/LuaTypes.h"
+ 
++#include <functional>
++#include <memory>
++
+ namespace scripting {
+ namespace api {
+ 
+--- a/code/mission/missionhotkey.h
++++ b/code/mission/missionhotkey.h
+@@ -14,6 +14,8 @@
+ 
+ #include "globalincs/globals.h"
+ 
++#include <globalincs/vmallocator.h>
++
+ #define MAX_LINES MAX_SHIPS // retail was 200, bump it to match MAX_SHIPS
+ 
+ // Types of items that can be in the hotkey list
+--- a/code/gamehelp/gameplayhelp.h
++++ b/code/gamehelp/gameplayhelp.h
+@@ -7,7 +7,7 @@
+  *
+ */ 
+ 
+-
++#include <globalincs/vmallocator.h>
+ 
+ #ifndef __GAMEPLAY_HELP_H__
+ #define __GAMEPLAY_HELP_H__
+--- a/code/cutscene/ffmpeg/FFMPEGDecoder.h
++++ b/code/cutscene/ffmpeg/FFMPEGDecoder.h
+@@ -2,6 +2,8 @@
+ 
+ #include "cutscene/Decoder.h"
+ 
++#include <thread>
++
+ namespace cutscene {
+ namespace ffmpeg {
+ struct InputStream;
+--- a/code/scripting/hook_conditions.h
++++ b/code/scripting/hook_conditions.h
+@@ -1,5 +1,6 @@
+ #pragma once
+ 
++#include <globalincs/vmallocator.h>
+ #include <linb/any.hpp>
+ 
+ class object;
+
