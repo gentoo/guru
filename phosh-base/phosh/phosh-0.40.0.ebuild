@@ -9,14 +9,23 @@ HOMEPAGE="https://phosh.mobi/"
 LICENSE="metapackage"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="cups +desktop-portal geolocation iio"
 
 RDEPEND="
 	app-alternatives/phosh-keyboard
-	app-misc/geoclue:2.0
 	dev-libs/feedbackd[daemon]
-	>=gui-wm/phoc-${PV}-r1
+	gnome-base/gnome-core-libs[cups?]
+	>=gui-wm/phoc-${PV}
+	media-fonts/cantarell
 	>=phosh-base/phosh-mobile-settings-${PV}
 	>=phosh-base/phosh-shell-${PV}
-	>=phosh-base/phosh-tour-${PV}
-	x11-themes/gnome-backgrounds
+	>=phosh-base/phosh-tour-0.39.0
+	>=x11-themes/phosh-wallpapers-${PV}
+	x11-themes/sound-theme-freedesktop
+	desktop-portal? (
+		gui-libs/xdg-desktop-portal-wlr
+		sys-apps/xdg-desktop-portal-gtk
+	)
+	geolocation? ( app-misc/geoclue:2.0 )
+	iio? ( gnome-extra/iio-sensor-proxy )
 "
