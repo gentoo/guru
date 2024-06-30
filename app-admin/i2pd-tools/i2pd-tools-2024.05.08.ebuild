@@ -5,8 +5,8 @@ EAPI=8
 
 inherit toolchain-funcs
 
-COMMIT="40d335a4279aec7f227209831d79a4d8304111a2"
-I2PD_COMMIT="a6bd8275ca496c75c84d7eb890c0071569d28f55" # keep in sync with bundled version
+COMMIT="d7a079ad644be3e55d2f7c5074a732166ffec19f"
+I2PD_COMMIT="c98926abf2dcd3cbe2cbbfc00a9e9159240c3df9" # keep in sync with bundled version
 DESCRIPTION="Some useful tools for I2P"
 HOMEPAGE="https://github.com/PurpleI2P/i2pd-tools"
 SRC_URI="
@@ -18,6 +18,7 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="cpu_flags_x86_aes"
 
 DEPEND="
 	dev-libs/boost:=
@@ -28,7 +29,6 @@ RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.2023.03.12-nodebug.patch
-	"${FILESDIR}"/${PN}-0.2023.03.12-flags.patch
 )
 
 src_unpack() {
@@ -39,7 +39,17 @@ src_unpack() {
 }
 
 src_configure() {
-	tc-export CXX
+	tc-export AR CXX
+}
+
+src_compile() {
+	mymakeflags=(
+		CXXFLAGS="${CXXFLAGS}"
+		LDFLAGS="${LDFLAGS}"
+		USE_AESNI="$(usex cpu_flags_x86_aes)"
+	)
+
+	emake "${mymakeflags[@]}"
 }
 
 src_install() {
@@ -47,7 +57,7 @@ src_install() {
 
 	# extracted from Makefile
 	binaries=(
-		keygen keyinfo famtool routerinfo regaddr regaddr_3ld vain
+		vain keygen keyinfo famtool routerinfo regaddr regaddr_3ld
 		i2pbase64 offlinekeys b33address regaddralias x25519 verifyhost
 	)
 	dobin "${binaries[@]}"
