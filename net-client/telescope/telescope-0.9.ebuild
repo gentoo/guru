@@ -7,7 +7,7 @@ VERIFY_SIG_METHOD="signify"
 inherit toolchain-funcs verify-sig
 
 DESCRIPTION="w3m-like browser for Gemini"
-HOMEPAGE="https://telescope.omarpolo.com"
+HOMEPAGE="https://www.telescope-browser.org/"
 SRC_URI="https://ftp.omarpolo.com/${P}.tar.gz
 	verify-sig? ( https://ftp.omarpolo.com/${P}.tar.gz.sha256.sig )"
 
