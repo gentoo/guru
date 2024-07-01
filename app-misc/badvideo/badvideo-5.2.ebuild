@@ -3,16 +3,14 @@
 
 EAPI=8
 
-inherit git-r3
-
-EGIT_REPO_URI="https://github.com/kernaltrap8/badvideo"
-EGIT_COMMIT="v${PV}"
+SRC_URI="https://github.com/kernaltrap8/${PN}/archive/refs/tags/v${PV}.tar.gz"
 
 DESCRIPTION="Ruin your videos in SECONDS!"
 HOMEPAGE="https://github.com/kernaltrap8/badvideo"
 
 LICENSE="BSD"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	media-video/ffmpeg[opus,x264]
