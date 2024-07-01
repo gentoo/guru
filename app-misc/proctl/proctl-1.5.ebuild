@@ -3,13 +3,13 @@
 
 EAPI=8
 
-inherit meson git-r3
+inherit meson
 
-EGIT_REPO_URI="https://github.com/kernaltrap8/proctl"
-EGIT_COMMIT="v${PV}"
+SRC_URI="https://github.com/kernaltrap8/${PN}/archive/refs/tags/v${PV}.tar.gz"
 
 DESCRIPTION="small C program that can control processes"
 HOMEPAGE="https://github.com/kernaltrap8/proctl"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
