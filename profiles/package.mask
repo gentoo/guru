@@ -70,11 +70,6 @@ dev-python/pure-protobuf
 # https://bugs.gentoo.org/931490
 www-client/woob
 
-# Joe Kappus <joe@wt.gd> (2024-05-24)
-# Golang crap hosted on dead ipfs node without maintainer
-# Bug #884915, Removal on 2024/06/23
-net-p2p/ipfs-cluster
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
