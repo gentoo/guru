@@ -59,7 +59,7 @@ setup_usb_network_configfs() {
 	mkdir $CONFIGFS/g1/configs/c.1/strings/0x409 \
 		|| echo "  Couldn't create $CONFIGFS/g1/configs/c.1/strings/0x409"
 	echo "rndis" > $CONFIGFS/g1/configs/c.1/strings/0x409/configuration \
-		|| echo "  Couldn't write configration name"
+		|| echo "  Couldn't write configuration name"
 
 	# Link the rndis instance to the configuration
 	ln -s $CONFIGFS/g1/functions/"$usb_rndis_function" $CONFIGFS/g1/configs/c.1 \
