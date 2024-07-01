@@ -32,21 +32,12 @@ DEPEND="
 	dev-libs/jsoncpp
 	dev-cpp/asio
 	media-sound/jack2
+	x11-libs/libXrandr
 "
 
 PATCHES=(
 	"${FILESDIR}/${P}-find-jsoncpp.patch"
 )
-
-# TODO: implement version 9999
-#EGIT_REPO_URI="https://github.com/BespokeSynth/BespokeSynth.git"
-#EGIT_SUBMODULES=(
-#	libs/JUCE
-#	libs/ableton-link
-#	libs/pybind11
-#	libs/readerwriterqueue
-#	libs/tuning-library
-#)
 
 src_prepare() {
 	rmdir "${S}/libs/JUCE" || die
