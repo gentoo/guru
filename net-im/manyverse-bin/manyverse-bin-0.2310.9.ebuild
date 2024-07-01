@@ -28,7 +28,7 @@ src_install() {
 	insinto /
 	doins -r .
 
-	dobin /opt/Manyverse/manyverse
+	dobin "${S}/opt/Manyverse/manyverse"
 }
 
 pkg_postinst() {
