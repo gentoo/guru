@@ -21,6 +21,7 @@ src_prepare() {
 	rm -rf usr/share/doc/
 	# Because only changelog.gz here with a few lines, and need to be unpacked
 
+
 	default
 }
 
@@ -28,10 +29,12 @@ src_install() {
 	insinto /
 	doins -r .
 
-	dobin "${S}/opt/Manyverse/manyverse"
+	fperms +x /opt/Manyverse/manyverse
+	dosym /opt/Manyverse/manyverse /usr/bin/${PN}
 }
 
 pkg_postinst() {
+
 	xdg_desktop_database_update
 
 	xdg_icon_cache_update
