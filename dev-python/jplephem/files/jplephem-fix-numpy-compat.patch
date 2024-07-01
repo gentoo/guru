@@ -1,0 +1,13 @@
+If numpy version has a suffix it will break
+diff --git a/jplephem/test.py b/jplephem/test.py
+index 660d5b5..b50cef2 100644
+--- a/jplephem/test.py
++++ b/jplephem/test.py
+@@ -515,6 +515,7 @@ File type DAF/SPK and format LTL-IEEE with 15 segments:
+ 
+ def load_tests(loader, tests, ignore):
+     """Run our main documentation as a test."""
++    return tests
+ 
+     # If we are running in CI, where we test against an old version of
+     # NumPy, skip the doctests since NumPy will print whitespace
