@@ -21,7 +21,6 @@ src_prepare() {
 	rm -rf usr/share/doc/
 	# Because only changelog.gz here with a few lines, and need to be unpacked
 
-
 	default
 }
 
