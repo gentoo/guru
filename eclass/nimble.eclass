@@ -178,7 +178,7 @@ nimble_src_compile() {
 nimble_src_test() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	if nonfatal nimble_build test -n &> /dev/null; then
+	if nonfatal nimble_build -n test &> /dev/null; then
 		nimble_build test "${@}"
 	fi
 }
