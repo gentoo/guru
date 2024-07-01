@@ -5,9 +5,6 @@
 		<email>johnmh@johnmh.me</email>
 		<name>John M. Harris, Jr.</name>
 	</maintainer>
-	<longdescription lang="en">
-	Keep Wayland clipboard even after programs close
-	</longdescription>
 	<upstream>
 		<remote-id type="github">Linus789/wl-clip-persist</remote-id>
 	</upstream>
