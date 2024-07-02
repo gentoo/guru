@@ -26,3 +26,5 @@ SLOT="0"
 RDEPEND="
 	${PYTHON_DEPS}
 "
+
+distutils_enable_tests unittest
