@@ -1,0 +1,26 @@
+From f16b1bf3c938523dd896d738508586823b01170b Mon Sep 17 00:00:00 2001
+From: Adrian Ratiu <adrian.ratiu@collabora.com>
+Date: Tue, 2 Jul 2024 17:56:36 +0300
+Subject: [PATCH] meson.build: fix soversion 5 -> 0
+
+Signed-off-by: Adrian Ratiu <adrian.ratiu@collabora.com>
+---
+ meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index 3f95774..99878d9 100644
+--- a/meson.build
++++ b/meson.build
+@@ -19,7 +19,7 @@ library('typec',
+ 	'libtypec_sysfs_ops.c',
+ 	'libtypec_dbgfs_ops.c',
+ 	version : meson.project_version(),
+-	soversion : '5',
++	soversion : '0',
+ 	dependencies: libudev_dep,
+ 	install: true,
+ )
+-- 
+2.44.2
+

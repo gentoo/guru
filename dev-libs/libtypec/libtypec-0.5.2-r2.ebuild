@@ -11,6 +11,11 @@ SRC_URI="https://github.com/libtypec/libtypec/archive/refs/tags/${P}.tar.gz"
 
 S="${WORKDIR}/${PN}-${P}"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-0.5.2-fix-meson-release-version.patch"
+	"${FILESDIR}/${PN}-0.5.2-meson.build-fix-soversion-5-0.patch"
+)
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
