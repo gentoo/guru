@@ -11,11 +11,11 @@ PYPI_NO_NORMALIZE=1
 inherit distutils-r1 pypi
 
 if [[ "${PV}" == "9999" ]]; then
-    EGIT_REPO_URI="https://github.com/noahmorrison/${PN}.git"
-    inherit git-r3
+	EGIT_REPO_URI="https://github.com/noahmorrison/${PN}.git"
+	inherit git-r3
 else
-    SRC_URI="https://github.com/noahmorrison/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
-    KEYWORDS="~amd64"
+	SRC_URI="https://github.com/noahmorrison/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="A Python implementation of mustache"
