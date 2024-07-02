@@ -28,3 +28,5 @@ RDEPEND="
 	dev-python/chevron
 	gui-wm/hyprland
 "
+
+distutils_enable_tests pytest
