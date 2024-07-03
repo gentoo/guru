@@ -12,7 +12,7 @@ SRC_URI="amd64? ( https://www.betterbird.eu/downloads/LinuxArchive/betterbird-${
 S="${WORKDIR}"
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 
 RESTRICT="bindist mirror test strip"
 
