@@ -14,7 +14,7 @@ if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/loqusion/${PN}.git"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/loqusion/${PN}/-/archive/${PV}/${P}.tar.bz2"
+	SRC_URI="https://github.com/loqusion/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
