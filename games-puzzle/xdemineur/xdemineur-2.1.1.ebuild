@@ -15,17 +15,22 @@ KEYWORDS="~amd64"
 BDEPEND="
 	x11-misc/imake
 "
-DEPEND="
-	${BDEPEND}
+RDEPEND="
 	x11-libs/libX11
 	x11-libs/libXpm
+"
+DEPEND="
+	${RDEPEND}
 "
 
 PATCHES=(
 	"${FILESDIR}/${P}-include.patch"
 )
 
+src_configure() {
+	xmkmf || die
+}
+
 src_compile() {
-	xmkmf
 	emake
 }
