@@ -12,7 +12,7 @@ SRC_URI="amd64? ( https://github.com/mullvad/mullvad-browser/releases/download/$
 S="${WORKDIR}"
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 
 IUSE="wayland X"
 
