@@ -6,7 +6,7 @@ EAPI=8
 inherit desktop xdg
 
 DESCRIPTION="The Mullvad Browser is developed to minimize tracking and fingerprinting."
-HOMEPAGE="https://github.com/mullvad/mullvadvpn-browser https://mullvad.net/"
+HOMEPAGE="https://github.com/mullvad/mullvad-browser https://mullvad.net/"
 SRC_URI="amd64? ( https://github.com/mullvad/mullvad-browser/releases/download/${PV}/mullvad-browser-linux-x86_64-${PV}.tar.xz )"
 
 S="${WORKDIR}"

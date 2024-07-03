@@ -6,7 +6,7 @@
                 <name>Justin</name>
         </maintainer>
         <upstream>
-                <remote-id type="github">mullvad/mullvadvpn-browser</remote-id>
+                <remote-id type="github">mullvad/mullvad-browser</remote-id>
         </upstream>
         <use>
                 <flag name="X">Add support for X11</flag>
