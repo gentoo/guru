@@ -9,14 +9,10 @@ DESCRIPTION="xdg-desktop-portal backend for hyprland"
 HOMEPAGE="https://github.com/hyprwm/xdg-desktop-portal-hyprland"
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/hyprwm/xdg-desktop-portal-hyprland.git"
+	EGIT_REPO_URI="https://github.com/hyprwm/${PN}.git"
 	inherit git-r3
 else
-	PROTO_COMMIT="4d29e48433270a2af06b8bc711ca1fe5109746cd"
-	SRC_URI="https://github.com/hyprwm/xdg-desktop-portal-hyprland/archive/refs/tags/v${PV}.tar.gz \
-		-> xdg-desktop-hyprland-${PV}.tar.gz
-	https://github.com/hyprwm/hyprland-protocols/archive/${PROTO_COMMIT}.tar.gz \
-		-> proto-subproject-${PV}.tar.gz"
+	SRC_URI="https://github.com/hyprwm/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -69,16 +65,6 @@ pkg_setup() {
 		eerror "XDPH needs >=gcc-13 or >=clang-17 to compile."
 		eerror "Please upgrade Clang: emerge -v1 sys-devel/clang"
 		die "Clang version is too old to compile XDPH!"
-	fi
-}
-
-src_unpack() {
-	if [[ ${PV} == 9999 ]]; then
-		git-r3_src_unpack
-	else
-		default
-		rmdir "${S}/subprojects/hyprland-protocols" || die
-		mv "hyprland-protocols-${PROTO_COMMIT}" "${S}/subprojects/hyprland-protocols" || die
 	fi
 }
 
