@@ -5,6 +5,9 @@
                 <email>justin026@protonmail.com</email>
                 <name>Justin</name>
         </maintainer>
+        <upstream>
+                <remote-id type="github">mullvad/mullvadvpn-browser</remote-id>
+        </upstream>
         <use>
                 <flag name="X">Add support for X11</flag>
                 <flag name="wayland">Add support for screensharing on wayland</flag>

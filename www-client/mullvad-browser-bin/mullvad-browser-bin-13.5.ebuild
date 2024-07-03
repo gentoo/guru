@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop xdg
 
-DESCRIPTION="The Mullvad Browser is developed – in collaboration between Mullvad VPN and the Tor Project – to minimize tracking and fingerprinting."
+DESCRIPTION="The Mullvad Browser is developed to minimize tracking and fingerprinting."
 HOMEPAGE="https://github.com/mullvad/mullvadvpn-browser https://mullvad.net/"
 SRC_URI="amd64? ( https://github.com/mullvad/mullvad-browser/releases/download/${PV}/mullvad-browser-linux-x86_64-${PV}.tar.xz )"
 
@@ -58,11 +58,13 @@ src_install() {
 	touch "${S}"/mullvad-browser/Browser/is-packaged-app
 
 	# Fix desktop file vars
-        sed -i "s|Name=.*|Name=Mullvad Browser|g" "${S}"/mullvad-browser/start-mullvad-browser.desktop
-        sed -i "s|Exec=.*|Exec=/opt/mullvad-browser/Browser/start-mullvad-browser --detach|g" "${S}"/mullvad-browser/start-mullvad-browser.desktop
-        sed -i "s|Icon=.*|Icon=mullvad-browser|g" "${S}"/mullvad-browser/start-mullvad-browser.desktop
+	sed -i "s|Name=.*|Name=Mullvad Browser|g" "${S}"/mullvad-browser/start-mullvad-browser.desktop
+	sed -i "s|Exec=.*|Exec=/opt/mullvad-browser/Browser/start-mullvad-browser --detach|g" "${S}"/mullvad-browser/start-mullvad-browser.desktop
+	sed -i "s|Icon=.*|Icon=mullvad-browser|g" "${S}"/mullvad-browser/start-mullvad-browser.desktop
 
-	# Install shim for X11, doesn't seem to launch without it, see upstream issue https://gitlab.torproject.org/tpo/applications/tor-browser-build/-/issues/40565
+	# Install shim for X11. Browser doesn't seem to launch without it, see upstream issue:
+	# https://gitlab.torproject.org/tpo/applications/tor-browser-build/-/issues/40565
+	#
 	# The X11 shim below does not affect the browser's fingerprint or functionality.
 	if use X ; then
 		echo "#include <stdlib.h>
@@ -77,12 +79,12 @@ src_install() {
 	insinto /opt/
 	doins -r "${S}"/mullvad-browser
 
-	dosym "/opt/mullvad-browser/Browser/start-mullvad-browser" /usr/bin/${PN}
+	dosym "../../opt/mullvad-browser/Browser/start-mullvad-browser" /usr/bin/${PN}
 	domenu "${S}"/mullvad-browser/start-mullvad-browser.desktop
-        local x
-        for x in 16 32 48 64 128; do
-                newicon -s ${x} "${S}"/mullvad-browser/Browser/browser/chrome/icons/default/default${x}.png mullvad-browser.png
-        done
+	local x
+	for x in 16 32 48 64 128; do
+		newicon -s ${x} "${S}"/mullvad-browser/Browser/browser/chrome/icons/default/default${x}.png mullvad-browser.png
+	done
 
 	fperms +x "/opt/mullvad-browser/Browser/start-mullvad-browser"
 	fperms +x "/opt/mullvad-browser/Browser/mullvadbrowser"
