@@ -5,10 +5,9 @@ EAPI=8
 
 inherit meson
 
-SRC_URI="https://github.com/kernaltrap8/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${PN}.tar.gz"
-
 DESCRIPTION="fetch program written in pure C"
 HOMEPAGE="https://github.com/kernaltrap8/tinyfetch"
+SRC_URI="https://github.com/kernaltrap8/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
