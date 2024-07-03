@@ -26,7 +26,7 @@ RESTRICT="!test? ( test )"
 COMMON_DEPEND="
 	dev-libs/botan
 	dev-libs/pugixml
-	dev-libs/spdlog
+	dev-libs/spdlog:=
 	dev-libs/quazip
 	dev-qt/qtcharts:5[qml]
 	dev-qt/qtdbus:5
