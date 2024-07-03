@@ -1,0 +1,11 @@
+--- a/main.c	2024-07-02 22:17:54.161270142 -0500
++++ b/main.c	2024-07-02 22:35:02.756757205 -0500
+@@ -21,7 +21,7 @@
+ #include <stdlib.h>
+ #include <sysexits.h>
+ #include <time.h>
+-
++#include <string.h>
+ #include "demineur.h"
+ #include "xdemineur.h"
+
