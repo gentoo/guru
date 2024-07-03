@@ -83,8 +83,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	eapply "${FILESDIR}/xdg-desktop-portal-hyprland-9999_use_sys_sdbus-c++.patch"
-	eapply "${FILESDIR}/xdg-desktop-portal-hyprland-9999_fix_pipewire.patch"
+	eapply "${FILESDIR}/xdg-desktop-portal-hyprland-1.3.2_use_sys_sdbus-c++.patch"
 	sed -i "/add_compile_options(-O3)/d" "${S}/CMakeLists.txt" || die
 	cmake_src_prepare
 }
