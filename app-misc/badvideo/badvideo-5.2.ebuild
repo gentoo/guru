@@ -3,10 +3,9 @@
 
 EAPI=8
 
-SRC_URI="https://github.com/kernaltrap8/${PN}/archive/refs/tags/v${PV}.tar.gz"
-
 DESCRIPTION="Ruin your videos in SECONDS!"
 HOMEPAGE="https://github.com/kernaltrap8/badvideo"
+SRC_URI="https://github.com/kernaltrap8/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
