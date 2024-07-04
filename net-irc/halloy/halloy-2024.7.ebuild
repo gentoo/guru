@@ -17,6 +17,7 @@ CRATES="
 	android-properties@0.2.2
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
+	anyhow@1.0.82
 	approx@0.5.1
 	arrayref@0.3.7
 	arrayvec@0.7.4
@@ -29,6 +30,7 @@ CRATES="
 	async-executor@1.8.0
 	async-fs@1.6.0
 	async-fs@2.1.1
+	async-http-proxy@1.2.5
 	async-io@1.13.0
 	async-io@2.3.2
 	async-lock@2.8.0
@@ -42,6 +44,7 @@ CRATES="
 	atomic-waker@1.1.2
 	autocfg@1.1.0
 	backtrace@0.3.71
+	base64@0.13.1
 	base64@0.21.7
 	bit-set@0.5.3
 	bit-vec@0.6.3
@@ -131,6 +134,7 @@ CRATES="
 	event-listener@4.0.3
 	event-listener@5.2.0
 	exr@1.72.0
+	fast-socks5@0.9.6
 	fast-srgb8@1.0.0
 	fastrand@1.9.0
 	fastrand@2.0.2
@@ -517,6 +521,7 @@ CRATES="
 	x11rb@0.13.0
 	xcursor@0.3.5
 	xdg-home@1.1.0
+	xdg@2.5.2
 	xkbcommon-dl@0.4.2
 	xkeysym@0.2.0
 	xml-rs@0.8.19
@@ -542,16 +547,16 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[glyphon]='https://github.com/hecrj/glyphon;ceed55403ce53e120ce9d1fae17dcfe388726118;glyphon-%commit%'
-	[iced]='https://github.com/iced-rs/iced;31d1d5fecbef50fa319cabd5d4194f1e4aaefa21;iced-%commit%'
-	[iced_core]='https://github.com/iced-rs/iced;31d1d5fecbef50fa319cabd5d4194f1e4aaefa21;iced-%commit%/core'
-	[iced_futures]='https://github.com/iced-rs/iced;31d1d5fecbef50fa319cabd5d4194f1e4aaefa21;iced-%commit%/futures'
-	[iced_graphics]='https://github.com/iced-rs/iced;31d1d5fecbef50fa319cabd5d4194f1e4aaefa21;iced-%commit%/graphics'
-	[iced_renderer]='https://github.com/iced-rs/iced;31d1d5fecbef50fa319cabd5d4194f1e4aaefa21;iced-%commit%/renderer'
-	[iced_runtime]='https://github.com/iced-rs/iced;31d1d5fecbef50fa319cabd5d4194f1e4aaefa21;iced-%commit%/runtime'
-	[iced_tiny_skia]='https://github.com/iced-rs/iced;31d1d5fecbef50fa319cabd5d4194f1e4aaefa21;iced-%commit%/tiny_skia'
-	[iced_wgpu]='https://github.com/iced-rs/iced;31d1d5fecbef50fa319cabd5d4194f1e4aaefa21;iced-%commit%/wgpu'
-	[iced_widget]='https://github.com/iced-rs/iced;31d1d5fecbef50fa319cabd5d4194f1e4aaefa21;iced-%commit%/widget'
-	[iced_winit]='https://github.com/iced-rs/iced;31d1d5fecbef50fa319cabd5d4194f1e4aaefa21;iced-%commit%/winit'
+	[iced]='https://github.com/iced-rs/iced;a05b8044a9a82c1802d4d97f1723e24b9d9dad9c;iced-%commit%'
+	[iced_core]='https://github.com/iced-rs/iced;a05b8044a9a82c1802d4d97f1723e24b9d9dad9c;iced-%commit%/core'
+	[iced_futures]='https://github.com/iced-rs/iced;a05b8044a9a82c1802d4d97f1723e24b9d9dad9c;iced-%commit%/futures'
+	[iced_graphics]='https://github.com/iced-rs/iced;a05b8044a9a82c1802d4d97f1723e24b9d9dad9c;iced-%commit%/graphics'
+	[iced_renderer]='https://github.com/iced-rs/iced;a05b8044a9a82c1802d4d97f1723e24b9d9dad9c;iced-%commit%/renderer'
+	[iced_runtime]='https://github.com/iced-rs/iced;a05b8044a9a82c1802d4d97f1723e24b9d9dad9c;iced-%commit%/runtime'
+	[iced_tiny_skia]='https://github.com/iced-rs/iced;a05b8044a9a82c1802d4d97f1723e24b9d9dad9c;iced-%commit%/tiny_skia'
+	[iced_wgpu]='https://github.com/iced-rs/iced;a05b8044a9a82c1802d4d97f1723e24b9d9dad9c;iced-%commit%/wgpu'
+	[iced_widget]='https://github.com/iced-rs/iced;a05b8044a9a82c1802d4d97f1723e24b9d9dad9c;iced-%commit%/widget'
+	[iced_winit]='https://github.com/iced-rs/iced;a05b8044a9a82c1802d4d97f1723e24b9d9dad9c;iced-%commit%/winit'
 	[winit]='https://github.com/iced-rs/winit;592bd152f6d5786fae7d918532d7db752c0d164f;winit-%commit%'
 )
 
@@ -616,7 +621,7 @@ src_unpack() {
 src_configure() {
 	if [[ ${PV} != *9999* ]] ; then
 		# Fix cargo.eclass handling of patched dependencies
-		# https://github.com/squidowl/halloy/blob/2024.6/Cargo.toml#L52-L54
+		# https://github.com/squidowl/halloy/blob/2024.7/Cargo.toml#L53-L54
 		sed -i "s,'https://github.com/iced-rs/iced',crates-io,g" "${ECARGO_HOME}/config" || die
 	fi
 	cargo_src_configure
