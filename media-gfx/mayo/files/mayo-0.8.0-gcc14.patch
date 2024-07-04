@@ -1,0 +1,43 @@
+From c4fdeb206235e9c37f34b18f5463d1e0702b2c14 Mon Sep 17 00:00:00 2001
+From: Hugues Delorme <delorme.hugues@fougue.pro>
+Date: Thu, 25 Apr 2024 12:37:09 +0200
+Subject: [PATCH] Base: fix missing <algorithm> header
+
+---
+ src/base/property.cpp             | 2 ++
+ src/base/property_enumeration.cpp | 4 +++-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/src/base/property.cpp b/src/base/property.cpp
+index d98acb31..61b9c623 100644
+--- a/src/base/property.cpp
++++ b/src/base/property.cpp
+@@ -7,6 +7,8 @@
+ #include "property.h"
+ 
+ #include "property_enumeration.h"
++
++#include <algorithm>
+ #include <cassert>
+ 
+ namespace Mayo {
+diff --git a/src/base/property_enumeration.cpp b/src/base/property_enumeration.cpp
+index 556c3e8e..1ef57091 100644
+--- a/src/base/property_enumeration.cpp
++++ b/src/base/property_enumeration.cpp
+@@ -6,12 +6,14 @@
+ 
+ #include "property_enumeration.h"
+ 
++#include <algorithm>
+ #include <stdexcept>
+ 
+ namespace Mayo {
+ 
+ PropertyEnumeration::PropertyEnumeration(
+-        PropertyGroup* grp, const TextId& name, const Enumeration* enumeration)
++        PropertyGroup* grp, const TextId& name, const Enumeration* enumeration
++    )
+     : Property(grp, name),
+       m_enumeration(enumeration),
+       m_value(enumeration && enumeration->empty() ? enumeration->itemAt(0).value : -1)
