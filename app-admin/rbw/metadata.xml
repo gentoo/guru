@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<bugs-to>https://github.com/doy/rbw/issues</bugs-to>
+		<changelog>https://git.tozt.net/rbw/plain/CHANGELOG.md</changelog>
+		<maintainer status="active">
+			<name>Jesse Luehrs</name>
+			<email>doy@tozt.net</email>
+		</maintainer>
+		<remote-id type="github">doy/rbw</remote-id>
+	</upstream>
+</pkgmetadata>
