@@ -21,7 +21,6 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	>=media-libs/assimp-5.3.1
 "
-BDEPEND="sys-devel/gcc:13"
 
 DEPEND="${RDEPEND}"
 
