@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>watermanpaint@posteo.net</email>
+		<name>Lucio Sauer</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/phil-opp/cargo-post/issues</bugs-to>
+		<changelog>https://github.com/phil-opp/cargo-post/blob/master/Changelog.md</changelog>
+		<doc>https://docs.rs/crate/cargo-post/latest</doc>
+		<maintainer>
+			<name>Philipp Oppermann</name>
+			<email>contact@phil-opp.com</email>
+		</maintainer>
+		<remote-id type="github">phil-opp/cargo-post</remote-id>
+	</upstream>
+</pkgmetadata>
