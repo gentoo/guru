@@ -43,7 +43,7 @@ RDEPEND="
 	dev-python/pyparsing[${PYTHON_USEDEP}]
 	dev-python/pyelftools[${PYTHON_USEDEP}]
 	dev-embedded/esp-coredump[${PYTHON_USEDEP}]
-	dev-embedded/esptool[${PYTHON_USEDEP}]
+	dev-embedded/esptool
 	dev-embedded/esp-idf-kconfig[${PYTHON_USEDEP}]
 	dev-embedded/esp-idf-monitor[${PYTHON_USEDEP}]
 	dev-embedded/esp-idf-panic-decoder[${PYTHON_USEDEP}]
