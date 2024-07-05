@@ -1,0 +1,13 @@
+diff --git a/setup.py b/setup.py
+index 3c0d5dc..da6d0e0 100644
+--- a/setup.py
++++ b/setup.py
+@@ -30,7 +30,7 @@ setup(
+     license="BSD",
+     long_description=get_long_description(),
+     long_description_content_type="text/markdown",
+-    packages=find_packages(),
++    packages=find_packages(exclude=["tests"]),
+     include_package_data=True,
+     package_data={
+         "mollie": ["py.typed"],
