@@ -20,7 +20,7 @@
 
 # Eli Burch <eli.burch@burchbytes.com> (2024-07-05)
 # Dependency sys-fs/reiser4progs was treecleaned in ::gentoo
-# Removal on 2024-07-05
+# Removal on 2024-08-05
 sys-block/partclone
 
 # Lucio Sauer <watermanpaint@posteo.net> (2024-07-04)
