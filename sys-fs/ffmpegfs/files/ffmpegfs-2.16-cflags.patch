@@ -1,0 +1,24 @@
+Respect user's CFLAGS
+
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -2,7 +2,7 @@
+ if DEBUG
+ export OPTIMISATION = -DDEBUG -ggdb -fstack-protector-explicit
+ else
+-export OPTIMISATION = -DNDEBUG -Ofast -g
++export OPTIMISATION = -DNDEBUG
+ endif
+ 
+ export WARNINGS = -Wall -Wextra -Wconversion -Wsign-compare -Wsign-conversion -Wpedantic
+--- a/configure.ac
++++ b/configure.ac
+@@ -19,8 +19,6 @@ AC_CANONICAL_HOST
+ AC_DEFINE_UNQUOTED([HOST_OS], ["$host_os"], [Host operating system])
+ 
+ # compiler flags
+-CFLAGS=""
+-CXXFLAGS=""
+ 
+ # Checks for programs
+ AC_PROG_CC

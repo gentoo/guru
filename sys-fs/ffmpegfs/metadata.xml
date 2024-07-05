@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alexey+gentoo@asokolov.org</email>
+		<name>Alexey Sokolov</name>
+	</maintainer>
+	<use>
+		<flag name="bluray">Enable support of Blu-ray</flag>
+	</use>
+	<longdescription lang="en">
+		FFmpegfs is a read-only FUSE filesystem which transcodes various audio and video formats to MP4, WebM, and many more on the fly when opened and read using the FFmpeg library, thus supporting a multitude of input formats and a variety of common output formats.
+
+		This allows access to a multi-media file collection with software and/or hardware which only understands one of the supported output formats, or transcodes files through simple drag-and-drop in a file browser.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/nschlia/ffmpegfs/issues</bugs-to>
+		<remote-id type="github">nschlia/ffmpegfs</remote-id>
+	</upstream>
+</pkgmetadata>

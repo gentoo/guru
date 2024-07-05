@@ -1,0 +1,12 @@
+Don't install to /var/cache
+
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -156,7 +156,6 @@ install-exec-hook:
+ 		echo "$(CACHEDIR) already exists."; \
+ 	else \
+ 		echo "Creating cache in $(CACHEDIR)."; \
+-		mkdir -p $(CACHEDIR) || true; \
+ 	fi
+ 
+ uninstall-hook:
