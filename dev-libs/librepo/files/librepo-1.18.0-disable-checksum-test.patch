@@ -1,0 +1,12 @@
+getxattr does not seem to work well under QA box.
+https://bugs.gentoo.org/934951
+--- a/tests/test_checksum.c
++++ b/tests/test_checksum.c
+@@ -301,7 +301,6 @@ checksum_suite(void)
+     Suite *s = suite_create("checksum");
+     TCase *tc = tcase_create("Main");
+     tcase_add_test(tc, test_checksum_fd);
+-    tcase_add_test(tc, test_cached_checksum_matches);
+     tcase_add_test(tc, test_cached_checksum_value);
+     tcase_add_test(tc, test_cached_checksum_clear);
+     suite_add_tcase(s, tc);
