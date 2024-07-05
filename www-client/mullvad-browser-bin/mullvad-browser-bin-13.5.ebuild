@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 
-IUSE="wayland X"
+IUSE="wayland +X"
 
 RESTRICT="bindist mirror test strip"
 
@@ -32,24 +32,22 @@ RDEPEND="
 	media-libs/freetype
 	media-video/ffmpeg
 	sys-apps/dbus
+	x11-libs/cairo
+	x11-themes/hicolor-icon-theme
+	x11-libs/libX11
+	x11-libs/libxcb
+	x11-libs/libXcomposite
+	x11-libs/libXcursor
+	x11-libs/libXdamage
+	x11-libs/libXfixes
+	x11-libs/libXi
+	x11-libs/libXrandr
+	x11-libs/libXrender
+	x11-libs/libXt
+	x11-libs/libXtst
 	wayland? (
 		sys-apps/xdg-desktop-portal
-	)
-	X? (
-		x11-libs/cairo
-		x11-themes/hicolor-icon-theme
-		x11-libs/libX11
-		x11-libs/libxcb
-		x11-libs/libXcomposite
-		x11-libs/libXcursor
-		x11-libs/libXdamage
-		x11-libs/libXfixes
-		x11-libs/libXi
-		x11-libs/libXrandr
-		x11-libs/libXrender
-		x11-libs/libXt
-		x11-libs/libXtst
-	 )"
+	)"
 
 QA_PREBUILT="*"
 
