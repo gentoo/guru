@@ -1,0 +1,10 @@
+Don't copy CFLAGS from portage's make.conf to .pc
+
+--- a/chardet.pc.in
++++ b/chardet.pc.in
+@@ -9,4 +9,4 @@ Name: @PACKAGE_NAME@
+ Description: Mozilla's Universal Charset Detector C/C++ API
+ Version: @PACKAGE_VERSION@
+ Libs: -L${libdir} -lchardet
+-Cflags: -I${includedir}/chardet @CFLAGS@
++Cflags: -I${includedir}/chardet

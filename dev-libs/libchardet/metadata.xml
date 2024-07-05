@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alexey+gentoo@asokolov.org</email>
+		<name>Alexey Sokolov</name>
+	</maintainer>
+	<longdescription lang="en">
+		libchardet is based on Mozilla Universal Charset Detector library and, detects the character set used to encode data.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/Joungkyun/libchardet/issues</bugs-to>
+		<remote-id type="github">Joungkyun/libchardet</remote-id>
+	</upstream>
+</pkgmetadata>
