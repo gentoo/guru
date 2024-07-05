@@ -10,7 +10,6 @@
 		protocol, which makes it show up as a device that can be controlled from the official
 		clients.</longdescription>
 	<use>
-		<flag name="alsa">Enable the alsa backend for audio playback</flag>
 		<flag name="pulseaudio">Enable the pulseaudio backend for audio playback</flag>
 		<flag name="portaudio">Enable the portaudio backend for audio playback</flag>
 		<flag name="rodio">Enable the rodio backend for audio playback</flag>
