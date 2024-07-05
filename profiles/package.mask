@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Eli Burch <eli.burch@burchbytes.com> (2024-07-05)
+# Dependency sys-fs/reiser4progs was treecleaned in ::gentoo
+# Removal on 2024-07-05
+sys-block/partclone
+
 # Lucio Sauer <watermanpaint@posteo.net> (2024-07-04)
 # Package is unmaintained and out of date since 2021, has open bugs and
 # it doesn't compile
