@@ -1,0 +1,39 @@
+# adapted from upstream commit:
+# <https://github.com/Nheko-Reborn/nheko/commit/941f7f5>
+
+From 3bc8117be9964af95210c865880bd2db8dc76a27 Mon Sep 17 00:00:00 2001
+From: tea <tea@tastytea.de>
+Date: Fri, 5 Jul 2024 17:32:59 +0200
+Subject: [PATCH] remove wayland dep on X11
+
+---
+ src/main.cpp | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/src/main.cpp b/src/main.cpp
+index 8ea15901..392867bb 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -21,7 +21,7 @@
+ 
+ // in theory we can enable this everywhere, but the header is missing on some of our CI systems and
+ // it is too much effort to install.
+-#if defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)
++#if __has_include(<QtGui/qpa/qplatformwindow_p.h>)
+ #include <QtGui/qpa/qplatformwindow_p.h>
+ #endif
+ 
+@@ -248,7 +248,9 @@ main(int argc, char *argv[])
+     if (!singleapp.isPrimaryInstance()) {
+         auto token = qgetenv("XDG_ACTIVATION_TOKEN");
+ 
+-#if defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)
++#if __has_include(<QtGui/qpa/qplatformwindow_p.h>) && \
++        ((QT_VERSION >= QT_VERSION_CHECK(6, 7, 0) &&  QT_CONFIG(wayland)) || \
++         (QT_VERSION < QT_VERSION_CHECK(6, 7, 0) && defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)))
+         // getting a valid activation token on wayland is a bit of a pain, it works most reliably
+         // when you have an actual window, that has the focus...
+         auto waylandApp = app.nativeInterface<QNativeInterface::QWaylandApplication>();
+-- 
+2.44.2
+
