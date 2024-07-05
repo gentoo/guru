@@ -129,7 +129,6 @@ pkg_postinst() {
 
 	xdg_pkg_postinst
 
-	ewarn "since Nheko migrated to Qt 6 there may be some regressions. video streams will"
-	ewarn "probably not work for now. d95d2fcaa9e3b8ab47275d2bf56e5a7ebddd37e7 was the"
-	ewarn "last commit with Qt5 support."
+	ewarn "since Nheko migrated to Qt 6 video streams will not work for now because"
+	ewarn "we are missing a dependency. see <https://bugs.gentoo.org/810814> for details"
 }
