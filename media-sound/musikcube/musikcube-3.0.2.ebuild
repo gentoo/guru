@@ -26,6 +26,7 @@ DEPEND="
 	sys-libs/zlib:=
 	media-libs/libvorbis
 	net-misc/curl
+	dev-libs/openssl:=
 	media-sound/lame
 	dev-libs/libev
 	media-libs/taglib
