@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>hendrik.klug@gmail.com</email>
+		<name>Hendrik Klug</name>
+	</maintainer>
+	<longdescription lang="en">
+		🌈Rainbow CSV - Vim plugin: Highlight columns in CSV and TSV files and run queries in SQL-like language
+	</longdescription>
+	<upstream>
+		<remote-id type="github">mechatroner/rainbow_csv</remote-id>
+	</upstream>
+</pkgmetadata>
