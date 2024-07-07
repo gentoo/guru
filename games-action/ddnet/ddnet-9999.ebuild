@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=(python3_{9..12})
 
 inherit cargo git-r3 cmake python-any-r1 xdg
 
@@ -24,6 +24,7 @@ IUSE="antibot autoupdate +client download-gtest headless-client +inform-update +
 
 DEPEND="
 	client? (
+		media-libs/libglvnd
 		media-libs/freetype
 		media-libs/glew
 		media-libs/libogg
@@ -38,6 +39,7 @@ DEPEND="
 	)
 	dev-libs/openssl
 	dev-db/sqlite
+	dev-libs/glib
 	download-gtest? (
 		dev-cpp/gtest
 		dev-vcs/git
@@ -66,7 +68,7 @@ src_unpack() {
 	cargo_live_src_unpack
 }
 
-src_configure(){
+src_configure() {
 	local mycmakeargs=(
 		-DANTIBOT=$(usex antibot ON OFF)
 		-DAUTOUPDATE=$(usex autoupdate ON OFF)

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=(python3_{9..12})
 
 CRATES="
 cc@1.0.73
@@ -33,6 +33,7 @@ IUSE="antibot autoupdate +client download-gtest headless-client +inform-update +
 
 DEPEND="
 	client? (
+		media-libs/libglvnd
 		media-libs/freetype
 		media-libs/glew
 		media-libs/libogg
@@ -45,6 +46,7 @@ DEPEND="
 		x11-libs/libnotify
 		videorecorder? ( media-video/ffmpeg )
 	)
+	dev-libs/glib
 	sys-libs/zlib
 	dev-libs/openssl
 	dev-db/sqlite
@@ -72,7 +74,7 @@ src_unpack() {
 	cargo_src_unpack
 }
 
-src_configure(){
+src_configure() {
 	local mycmakeargs=(
 		-DANTIBOT=$(usex antibot ON OFF)
 		-DAUTOUPDATE=$(usex autoupdate ON OFF)
