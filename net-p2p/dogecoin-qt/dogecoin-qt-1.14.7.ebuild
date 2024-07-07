@@ -15,8 +15,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 DB_VER="5.3"
-IUSE="cpu_flags_x86_avx2 cpu_flags_x86_sse2 intel-avx2 dogecoind experimental +pie +prune scrypt-sse2 +ssp tests utils +wallet zmq"
-REQUIRED_USE="dogecoind? ( utils ) intel-avx2?  ( experimental ) scrypt-sse2? ( experimental )  experimental? ( || ( intel-avx2 scrypt-sse2 ) )"
+IUSE="cpu_flags_x86_avx2 cpu_flags_x86_sse2 intel-avx2 dogecoind experimental +gui +pie +prune scrypt-sse2 +ssp tests utils +wallet zmq"
+REQUIRED_USE="!gui? ( dogecoind utils  ) dogecoind? ( utils ) intel-avx2?  ( experimental ) scrypt-sse2? ( experimental )  experimental? ( || ( intel-avx2 scrypt-sse2 ) )"
 DOGEDIR="/opt/${PN}"
 DEPEND="
 	sys-libs/db:"${DB_VER}"=[cxx]
@@ -25,13 +25,7 @@ DEPEND="
 	dev-libs/openssl
 	dev-build/libtool
 	dev-build/automake:=
-	dev-qt/qtcore
-	dev-qt/qtgui
-	dev-qt/qtwidgets
-	dev-qt/qtdbus
-	dev-qt/qtnetwork
-	dev-qt/qtprintsupport
-	dev-qt/linguist-tools:=
+	gui? ( dev-qt/qtcore dev-qt/qtgui dev-qt/qtwidgets dev-qt/qtdbus dev-qt/qtnetwork dev-qt/qtprintsupport dev-qt/linguist-tools:= )
 	<dev-libs/boost-1.85.0
 	wallet? ( media-gfx/qrencode )
 	zmq? ( net-libs/cppzmq )
@@ -59,7 +53,6 @@ pkg_pretend() {
 }
 
 src_prepare() {
-
 	if use pie && use ssp ; then
 		PATCHES+=( "${FILESDIR}"/hardened-all.patch )
 	elif use pie && ! use ssp ; then
@@ -80,8 +73,8 @@ src_prepare() {
 src_configure() {
 	local my_econf=(
 		--bindir="${DOGEDIR}/bin"
-		--with-gui=qt5
 		--disable-bench
+		$(use_with gui qt5)
 		$(use_with intel-avx2 intel-avx2)
 		$(use_with dogecoind daemon)
 		$(use_with utils utils)
@@ -99,19 +92,22 @@ src_configure() {
 src_install() {
 	emake DESTDIR="${D}" install
 	insinto "${DOGEDIR}/bin"
-	insinto /usr/share/pixmaps
-	doins src/qt/res/icons/dogecoin.png
-	dosym "${DOGEDIR}/bin/${PN}" "/usr/bin/${PN}"
+
+	if use gui ; then
+        insinto /usr/share/pixmaps
+        doins src/qt/res/icons/dogecoin.png
+        dosym "${DOGEDIR}/bin/${PN}" "/usr/bin/${PN}"
+
+        if use prune ; then
+            domenu "${FILESDIR}"/"${PN}-prune.desktop"
+        else
+            domenu "${FILESDIR}"/"${PN}.desktop"
+        fi
+	fi
 
 	if use dogecoind ; then
 		dosym "${DOGEDIR}/bin/dogecoind" "/usr/bin/dogecoind"
 		dosym "${DOGEDIR}/bin/dogecoin-cli" "/usr/bin/dogecoin-cli"
-	fi
-
-	if use prune ; then
-		domenu "${FILESDIR}"/"${PN}-prune.desktop"
-	else
-		domenu "${FILESDIR}"/"${PN}.desktop"
 	fi
 
 	find "${ED}" -type f -name '*.la' -delete || die
@@ -120,9 +116,15 @@ src_install() {
 pkg_postinst() {
 	xdg_desktop_database_update
 	xdg_mimeinfo_database_update
-	elog "Dogecoin Core Qt ${PV} has been installed."
-	elog "Dogecoin Core Qt binaries have been placed in ${DOGEDIR}/bin."
-	elog "${PN} has been symlinked with /usr/bin/${PN}."
+
+	if use gui ; then
+		elog "Dogecoin Core (Qt) ${PV} has been installed."
+		elog "Dogecoin Core (Qt) binaries have been placed in ${DOGEDIR}/bin."
+		elog "${PN} has been symlinked with /usr/bin/${PN}."
+	else
+		elog "Dogecoin Core ${PV} has been installed."
+		elog "Dogecoin Core binaries have been placed in ${DOGEDIR}/bin."
+	fi
 
 	if use dogecoind ; then
 		elog "dogecoin daemon has been symlinked with /usr/bin/dogecoind."

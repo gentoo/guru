@@ -14,6 +14,7 @@
 	<use>
 		<flag name="dogecoind">Build with dogecoind daemon</flag>
 		<flag name="experimental">Allow experimental features to be configured</flag>
+		<flag name="gui">Toggle graphical user interface features</flag>
 		<flag name="intel-avx2">Build with intel avx2</flag>
 		<flag name="pie">Position Independent Executables - attempt to harden resulting executables, for extra security</flag>
 		<flag name="prune">Enables automatic pruning of old blocks to stay below 2.2GB target size (if ran from desktop)</flag>
