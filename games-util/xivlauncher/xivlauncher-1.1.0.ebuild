@@ -273,6 +273,14 @@ RDEPEND="
 	media-libs/freetype:2
 	media-libs/glu
 	x11-libs/libSM
+	dev-libs/glib
+"
+
+QA_FLAGS_IGNORED="
+/opt/xivlauncher/libsteam_api64.so
+/opt/xivlauncher/libskeychain.so
+/opt/xivlauncher/libcimgui.so
+/opt/xivlauncher/XIVLauncher.Core
 "
 
 DOTNET_PKG_PROJECTS=("${S}/XIVLauncher.Core/XIVLauncher.Core.csproj")
