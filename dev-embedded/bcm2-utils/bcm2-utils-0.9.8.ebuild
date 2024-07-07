@@ -22,7 +22,11 @@ src_prepare(){
 }
 
 src_compile(){
-	emake CC="$(tc-getCC)" CXX="$(tc-getCXX)" CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" \
+	emake \
+		CC="$(tc-getCC)" \
+		CXX="$(tc-getCXX)" \
+		CFLAGS="${CFLAGS} '-DVERSION=\"v${PV}\"'" \
+		CXXFLAGS="${CXXFLAGS} '-DVERSION=\"v${PV}\"'" \
 		LDFLAGS="${LDFLAGS}"
 }
 
