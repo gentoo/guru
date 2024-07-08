@@ -19,6 +19,7 @@ RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
+	dev-qt/qttranslations:5
 	>=media-libs/assimp-5.3.1
 "
 
