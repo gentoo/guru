@@ -54,7 +54,7 @@ src_compile() {
 	ego build .
 }
 
-src_prepare() {
+pkg_preinst() {
 	touch /var/log/ollama.log
 }
 
