@@ -56,13 +56,13 @@ src_compile() {
 
 pkg_preinst() {
 	touch /var/log/ollama.log
+	fowners -R ollama:ollama /var/log/ollama.log
 }
 
 src_install() {
 	dobin ollama
 	doinitd "${FILESDIR}"/ollama
 	fperms 0755 /etc/init.d/ollama
-	fowners ollama:ollama /var/log/ollama.log
 }
 
 pkg_postinst() {
