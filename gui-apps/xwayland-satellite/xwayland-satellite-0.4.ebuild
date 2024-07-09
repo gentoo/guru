@@ -114,6 +114,9 @@ LICENSE+=" Apache-2.0 BSD ISC MIT Unicode-DFS-2016 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# disable tests which need a running display server
+RESTRICT="test"
+
 DEPEND="
 	>=x11-base/xwayland-23.1
 	x11-libs/libxcb
@@ -123,6 +126,8 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	sys-devel/clang
 "
+
+QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 DOCS=( README.md )
 
