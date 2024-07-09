@@ -14,6 +14,8 @@ SLOT="0"
 IUSE="nvidia amd"
 
 BDEPEND="
+	acct-group/ollama
+	acct-user/ollama
 	>=dev-lang/go-1.21.0
 	>=dev-build/cmake-3.24
 	>=sys-devel/gcc-11.4.0
@@ -52,6 +54,11 @@ src_compile() {
 	ego build .
 }
 
+pkg_preinst() {
+	touch /var/log/ollama.log
+	chown ollama:ollama /var/log/ollama.log
+}
+
 src_install() {
 	dobin ollama
 	doinitd "${FILESDIR}"/ollama
@@ -59,6 +66,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	mkdir /usr/share/ollama
+	chown ollama:ollama /usr/share/ollama
 	einfo "Quick guide:"
 	einfo "ollama serve"
 	einfo "ollama run llama3:70b"

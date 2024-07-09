@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>zdanevich.vitaly@ya.ru</email>
+		<name>Vitaly Zdanevich</name>
+		<description>A copy from https://github.com/MrPenguin07/ebuilds/tree/master/dev-ml/ollama</description>
+	</maintainer>
+	<use>
+		<flag name="nvidia">Add support of nvidia</flag>
+		<flag name="amd">Add support of amd</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">ollama/ollama</remote-id>
+	</upstream>
+</pkgmetadata>
