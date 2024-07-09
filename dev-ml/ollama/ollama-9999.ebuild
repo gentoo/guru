@@ -66,6 +66,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	mkdir /usr/share/ollama
+	chown ollama:ollama /usr/share/ollama
 	einfo "Quick guide:"
 	einfo "ollama serve"
 	einfo "ollama run llama3:70b"
