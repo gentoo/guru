@@ -59,7 +59,6 @@ src_install() {
 	doinitd "${FILESDIR}"/ollama
 	fperms 0755 /etc/init.d/ollama
 	touch /var/log/ollama.log
-	fowners -R ollama:ollama /var/log/ollama.log
 }
 
 pkg_postinst() {
