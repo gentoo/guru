@@ -71,6 +71,12 @@ if [[ ! ${_BOINC_APP_ECLASS} ]]; then
 You have to attach to the corresponding project
 in order to use this application with BOINC.}
 
+# @ECLASS_VARIABLE: BOINC_RUNTIMEDIR
+# @USER_VARIABLE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Directory with BOINC runtime data.
+
 # @FUNCTION: boinc-app_add_deps
 # @USAGE: [--wrapper]
 # @DESCRIPTION:
@@ -104,11 +110,9 @@ boinc_master_url_check() {
 
 # @FUNCTION: get_boincdir
 # @USAGE:
-# @RETURN: non-prefixed default BOINC runtime directory
+# @RETURN: non-prefixed BOINC runtime directory
 get_boincdir() {
-	debug-print-function ${FUNCNAME} "${@}"
-
-	echo /var/lib/boinc
+	echo "${BOINC_RUNTIMEDIR:-/var/lib/boinc}"
 }
 
 # @FUNCTION: get_project_dirname
