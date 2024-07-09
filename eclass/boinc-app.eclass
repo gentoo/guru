@@ -221,19 +221,19 @@ doappinfo() {
 	_boinc-app_fix_permissions
 }
 
-# @FUNCTION: boinc-wrapper_foreach_wrapper_job
-# @USAGE: <job.xml>
+# @FUNCTION: boinc-app_foreach_wrapper_job
+# @USAGE: <job>
 # @DESCRIPTION:
 # The default foreach_wrapper_job(). It replaces all occurences
 # of @PV@, @EPREFIX@ and @LIBDIR@ strings with their corresponding values.
-boinc-wrapper_foreach_wrapper_job() {
+boinc-app_foreach_wrapper_job() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	sed -i "$1" \
+	sed -i "${1:?}" \
 		-e "s:@PV@:${PV}:g" \
 		-e "s:@EPREFIX@:${EPREFIX}:g" \
 		-e "s:@LIBDIR@:$(get_libdir):g" \
-		|| die "$(basename "$1") sed failed"
+		|| die "$(basename "${1}") sed failed"
 }
 
 # @FUNCTION: boinc_install_wrapper
@@ -275,7 +275,7 @@ boinc_install_wrapper() {
 	if declare -f foreach_wrapper_job >/dev/null; then
 		foreach_wrapper_job "${T:?}/${job_dest:?}"
 	else
-		boinc-wrapper_foreach_wrapper_job "${T:?}/${job_dest:?}"
+		boinc-app_foreach_wrapper_job "${T:?}/${job_dest:?}"
 	fi
 
 	( # subshell to avoid pollution of calling environment
