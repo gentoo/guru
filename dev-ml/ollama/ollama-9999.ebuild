@@ -14,6 +14,8 @@ SLOT="0"
 IUSE="nvidia amd"
 
 BDEPEND="
+	acct-group/ollama
+	acct-user/ollama
 	>=dev-lang/go-1.21.0
 	>=dev-build/cmake-3.24
 	>=sys-devel/gcc-11.4.0
