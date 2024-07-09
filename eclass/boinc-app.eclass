@@ -173,8 +173,8 @@ boinc-app_appinfo_prepare() {
 		|| die "app_info.xml sed failed"
 }
 
-# @FUNCTION: doappinfo
-# @USAGE: <app_info.xml>
+# @FUNCTION: boinc_install_appinfo
+# @USAGE: <app_info>
 # @DESCRIPTION:
 # Installs given app_info.xml file to the project root.
 #
@@ -191,34 +191,43 @@ boinc-app_appinfo_prepare() {
 # }
 #
 # src_install() {
-# 	doappinfo "${FILESDIR}"/app_info_${PV}.xml
+# 	boinc_install_appinfo "${FILESDIR}"/app_info_1.0.xml
 #
 #	exeinto $(get_project_root)
 # 	exeopts -m 0755 --owner root --group boinc
-# 	newexe bin/${PN} example_app_v${PV}
+# 	newexe bin/${PN} example_app_v1.0
 # }
 # @CODE
-doappinfo() {
+boinc_install_appinfo() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	(( $# == 1 )) || \
 		die "${FUNCNAME} takes exactly one argument"
 
-	cp "$1" "${T}"/app_info.xml || die
+	cp "${1:?}" "${T:?}"/app_info.xml || die
 
 	if declare -f appinfo_prepare >/dev/null; then
-		appinfo_prepare "${T}"/app_info.xml
+		appinfo_prepare "${T:?}"/app_info.xml
 	else
-		boinc-app_appinfo_prepare "${T}"/app_info.xml
+		boinc-app_appinfo_prepare "${T:?}"/app_info.xml
 	fi
 
 	( # subshell to avoid pollution of calling environment
-		insinto $(get_project_root)
+		insinto "$(get_project_root)"
 		insopts -m 0644 --owner root --group boinc
-		doins "${T}"/app_info.xml
+		doins "${T:?}"/app_info.xml
 	) || die "failed to install app_info.xml"
 
 	_boinc-app_fix_permissions
+}
+
+# @FUNCTION: doappinfo
+# @DEPRECATED: boinc_install_appinfo
+# @USAGE: <app_info>
+# @DESCRIPTION:
+# Installs given app_info.xml file to the project root.
+doappinfo() {
+	boinc_install_appinfo "${@}"
 }
 
 # @FUNCTION: boinc-app_foreach_wrapper_job
@@ -256,7 +265,7 @@ boinc-app_foreach_wrapper_job() {
 # 	meson_src_install
 #
 # 	boinc_install_wrapper boinc-example_wrapper "${FILESDIR}"/job.xml
-#	doappinfo "${FILESDIR}"/app_info_${PV}.xml
+#	boinc_install_appinfo "${FILESDIR}"/app_info_1.0.xml
 # }
 # @CODE
 #
