@@ -58,6 +58,7 @@ src_install() {
 	dobin ollama
 	doinitd "${FILESDIR}"/ollama
 	fperms 0755 /etc/init.d/ollama
+	dodir /var/log/ollama.log
 	fowners ollama:ollama /var/log/ollama.log
 }
 
