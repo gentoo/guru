@@ -62,7 +62,7 @@ src_install() {
 
 pkg_postinst() {
 	touch /var/log/ollama.log
-	fowners ollama:ollama /var/log/ollama.log
+	fowners -R ollama:ollama /var/log/ollama.log
 	einfo "Quick guide:"
 	einfo "ollama serve"
 	einfo "ollama run llama3:70b"
