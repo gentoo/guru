@@ -1,22 +1,22 @@
 <app_info>
 <app>
 	<name>cmdock-l</name>
-	<user_friendly_name>CurieMarieDock 0.2.0 long tasks</user_friendly_name>
+	<user_friendly_name>CurieMarieDock @PV@ long tasks</user_friendly_name>
 </app>
 
 <file_info>
-	<name>cmdock-l_wrapper_@PV@</name>
+	<name>cmdock-l_wrapper</name>
 	<sticky/>
 	<executable/>
 </file_info>
 <file_info>
-	<name>cmdock-@PV@</name>
+	<name>cmdock</name>
 	<sticky/>
 	<executable/>
 </file_info>
 
 <file_info>
-	<name>cmdock-l_job_@PV@.xml</name>
+	<name>cmdock-l_job.xml</name>
 	<sticky/>
 </file_info>
 <file_info>
@@ -28,16 +28,16 @@
 	<app_name>cmdock-l</app_name>
 	<version_num>100</version_num>
 	<file_ref>
-		<file_name>cmdock-l_wrapper_@PV@</file_name>
+		<file_name>cmdock-l_wrapper</file_name>
 		<main_program/>
 	</file_ref>
 	<file_ref>
-		<file_name>cmdock-@PV@</file_name>
+		<file_name>cmdock</file_name>
 		<open_name>cmdock</open_name>
 		<copy_file/>
 	</file_ref>
 	<file_ref>
-		<file_name>cmdock-l_job_@PV@.xml</file_name>
+		<file_name>cmdock-l_job.xml</file_name>
 		<open_name>job.xml</open_name>
 		<copy_file/>
 	</file_ref>

@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
-BOINC_APP_OPTIONAL="true"
+BOINC_APP_OPTIONAL=1
 inherit boinc-app flag-o-matic meson optfeature python-any-r1
 
 DESCRIPTION="Program for docking ligands to proteins and nucleic acids"
@@ -15,14 +15,11 @@ S="${WORKDIR}/${PN}-v${PV}"
 LICENSE="LGPL-3 ZLIB"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="apidoc boinc cpu_flags_x86_sse2 doc test"
+IUSE="apidoc cpu_flags_x86_sse2 doc test"
 
 # Flaky tests
 RESTRICT="test"
 
-RDEPEND="
-	boinc? ( sci-misc/boinc-wrapper )
-"
 DEPEND="
 	dev-cpp/eigen:3
 	>=dev-cpp/indicators-2.3-r1
@@ -58,6 +55,8 @@ is to attach it to SiDock@home BOINC project."
 
 INSTALL_PREFIX="${EPREFIX}/opt/${P}"
 
+boinc-app_add_deps
+
 python_check_deps() {
 	use doc || return 0
 
@@ -77,7 +76,7 @@ src_prepare() {
 src_configure() {
 	# very weird directory layout
 	local emesonargs=(
-		--prefix="${INSTALL_PREFIX}"
+		--prefix="${INSTALL_PREFIX:?}"
 		$(meson_use apidoc)
 		$(meson_use doc)
 		$(meson_use test tests)
@@ -90,22 +89,22 @@ src_configure() {
 
 src_install() {
 	meson_src_install
-	python_optimize "${D}${INSTALL_PREFIX}"/bin
+	python_optimize "${D}${INSTALL_PREFIX:?}"/bin
 
 	if use boinc; then
-		doappinfo "${FILESDIR}"/app_info_${PV}.xml
-		dowrapper cmdock-l
+		boinc_install_appinfo "${FILESDIR}"/app_info_0.2.0-r1.xml
+		boinc_install_wrapper cmdock-l_wrapper \
+			"${FILESDIR}"/cmdock-l_job_0.2.0-r1.xml cmdock-l_job.xml
 
 		# install cmdock executable
 		exeinto "$(get_project_root)"
 		exeopts --owner root --group boinc
-		newexe "${D}${INSTALL_PREFIX}"/bin/cmdock cmdock-${PV}
+		doexe "${D}${INSTALL_PREFIX:?}"/bin/cmdock
 
 		# install a blank file
-		touch "${T}"/docking_out || die
 		insinto "$(get_project_root)"
-		insopts --owner root --group boinc
-		doins "${T}"/docking_out
+		insopts -m 0644 --owner root --group boinc
+		newins - docking_out
 	fi
 }
 

@@ -2,7 +2,7 @@
 	<task>
 		<application>cmdock</application>
 		<stdout_filename>docking_log</stdout_filename>
-		<command_line>-c -j 1 -b 1 -x -r target.prm -p "@PREFIX@/data/scripts/dock.prm" -f htvs.ptc -i ligands.sdf -o docking_out</command_line>
+		<command_line>-c -j 1 -b 1 -r target.prm -p "@PREFIX@/data/scripts/dock.prm" -f htvs.ptc -i ligands.sdf -o docking_out</command_line>
 		<checkpoint_filename>docking_out.chk</checkpoint_filename>
 		<fraction_done_filename>docking_out.progress</fraction_done_filename>
 		<setenv>CMDOCK_ROOT=@PREFIX@</setenv>
