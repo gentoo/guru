@@ -56,7 +56,7 @@ src_compile() {
 
 pkg_preinst() {
 	touch /var/log/ollama.log
-	fowners -R ollama:ollama /var/log/ollama.log
+	chown ollama:ollama /var/log/ollama.log
 }
 
 src_install() {
