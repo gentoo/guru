@@ -54,15 +54,18 @@ src_compile() {
 	ego build .
 }
 
+src_prepare() {
+	touch /var/log/ollama.log
+}
+
 src_install() {
 	dobin ollama
 	doinitd "${FILESDIR}"/ollama
 	fperms 0755 /etc/init.d/ollama
+	fowners ollama:ollama /var/log/ollama.log
 }
 
 pkg_postinst() {
-	touch /var/log/ollama.log
-	fowners -R ollama:ollama /var/log/ollama.log
 	einfo "Quick guide:"
 	einfo "ollama serve"
 	einfo "ollama run llama3:70b"
