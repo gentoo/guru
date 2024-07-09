@@ -6,9 +6,9 @@ EAPI=8
 inherit acct-user
 
 #DESCRIPTION="A user for ollama"
-ACCT_USER_ID=127
+ACCT_USER_ID=122
 ACCT_USER_SHELL=/bin/false
-ACCT_USER_HOME=/var/share/ollama
+#ACCT_USER_HOME=/var/share/ollama
 ACCT_USER_HOME_PERMS=0755
 ACCT_USER_GROUPS=( ollama )
 
