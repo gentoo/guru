@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://github.com/JackonYang/evernote2
 	https://pypi.org/project/evernote2/
 "
-SRC_URI="https://github.com/JackonYang/$PN/archive/refs/tags/v$PV.tar.gz"
+SRC_URI="https://github.com/JackonYang/$PN/archive/refs/tags/v$PV.tar.gz -> $P.gh.tar.gz"
 
 LICENSE="Apache-2.0"
 
