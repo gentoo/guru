@@ -236,59 +236,65 @@ boinc-wrapper_foreach_wrapper_job() {
 		|| die "$(basename "$1") sed failed"
 }
 
-# @FUNCTION: dowrapper
-# @USAGE: <app> [more apps...]
+# @FUNCTION: boinc_install_wrapper
+# @USAGE: <bin> <job> [new name]
 # @DESCRIPTION:
 # This function provides a uniform way to install wrapper applications
 # for BOINC projects. It makes symlinks to the BOINC wrapper and also
 # installs respective job.xml files.
 #
-# When sci-misc/boinc-example-1.0 calls `dowrapper boinc-example` it:
+# When `dowrapper boinc-example_wrapper A.xml B.xml` is called, it:
 #
-# 1. Installs boinc-example_job_1.0.xml from ebuild's files/ directory
-#    to project's root directory
+# 1. Installs A.xml in the project's root directory, renaming it to B.xml
 #
-# 2. Installs boinc-example_wrapper_1.0 symlink, which points
-#    to /usr/bin/boinc-wrapper, to project's root directory
+# 2. Installs boinc-example_wrapper symlink, which points
+#    to /usr/bin/boinc-wrapper, in the project's root directory
 #
 # Example:
 # @CODE
 # src_install() {
 # 	meson_src_install
 #
-# 	dowrapper boinc-example boinc-sample
+# 	boinc_install_wrapper boinc-example_wrapper "${FILESDIR}"/job.xml
 #	doappinfo "${FILESDIR}"/app_info_${PV}.xml
 # }
 # @CODE
 #
 # Keep your job.xml files in sync with app_info.xml!
-dowrapper() {
+boinc_install_wrapper() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	for app in "$@"; do
-		local wrapperjob="${app}_job_${PV}.xml"
-		local wrapperexe="${app}_wrapper_${PV}"
+	(( $# >= 2 && $# <= 3 )) || \
+		die "${FUNCNAME} got wrong number of arguments"
 
-		[[ -f "${FILESDIR}/${wrapperjob}" ]] || \
-			die "${wrapperjob} not found in ebuild's files/ directory"
+	local exe="${1:?}"
+	local job="${2:?}"
+	local job_dest="${3:-$(basename "${job:?}")}"
 
-		cp "${FILESDIR}/${wrapperjob}" "${T}" || die
+	cp "${job:?}" "${T:?}/${job_dest:?}" || die
+	if declare -f foreach_wrapper_job >/dev/null; then
+		foreach_wrapper_job "${T:?}/${job_dest:?}"
+	else
+		boinc-wrapper_foreach_wrapper_job "${T:?}/${job_dest:?}"
+	fi
 
-		if declare -f foreach_wrapper_job >/dev/null; then
-			foreach_wrapper_job "${T}/${wrapperjob}"
-		else
-			boinc-wrapper_foreach_wrapper_job "${T}/${wrapperjob}"
-		fi
+	( # subshell to avoid pollution of calling environment
+		insinto "$(get_project_root)"
+		insopts -m 0644 --owner root --group boinc
+		doins "${T:?}/${job_dest:?}"
+	) || die "failed to install ${exe:?} wrapper job"
+	rm -f "${T:?}/${job_dest:?}"
 
-		( # subshell to avoid pollution of calling environment
-			insinto $(get_project_root)
-			insopts -m 0644 --owner root --group boinc
-			doins "${T}/${wrapperjob}"
-			dosym -r /usr/bin/boinc-wrapper "$(get_project_root)/${wrapperexe}"
-		) || die "failed to install '${app}' wrapper app"
-	done
-
+	dosym -r /usr/bin/boinc-wrapper "$(get_project_root)/${exe:?}"
 	_boinc-app_fix_permissions
+}
+
+# @FUNCTION: dowrapper
+# @DEPRECATED: boinc_install_wrapper
+# @DESCRIPTION:
+# Install BOINC wrappers and job definitions.
+dowrapper() {
+	die "${FUNCNAME} has been removed, please use boinc_install_wrapper instead"
 }
 
 # @FUNCTION: boinc-app_pkg_postinst
