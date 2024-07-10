@@ -20,7 +20,16 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
+BDEPEND="
+	test? (
+		dev-python/pytest-xdist[${PYTHON_USEDEP}]
+		dev-python/pytest-cov[${PYTHON_USEDEP}]
+	)
+"
+
 RDEPEND="
 	dev-python/oauthlib[${PYTHON_USEDEP}]
 	dev-python/thrift[${PYTHON_USEDEP}]
 "
+
+distutils_enable_tests pytest
