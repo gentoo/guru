@@ -6,4 +6,4 @@ EAPI=8
 inherit acct-group
 
 DESCRIPTION="A group for ollama"
-ACCT_GROUP_ID=122
+ACCT_GROUP_ID=125
