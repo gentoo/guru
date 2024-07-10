@@ -17,48 +17,35 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="
-	app-accessibility/at-spi2-atk
-	app-accessibility/at-spi2-core
-	dev-libs/atk
-	dev-libs/libappindicator
+RDEPEND="
+	>=app-accessibility/at-spi2-core-2.46.0:2
+	dev-libs/expat
+	dev-libs/glib
+	dev-libs/nspr
 	dev-libs/nss
-	dev-db/sqlite
 	media-libs/alsa-lib
+	media-libs/mesa[opengl]
 	net-print/cups
-	media-libs/mesa
+	sys-apps/dbus
+	x11-libs/cairo[X]
 	x11-libs/gdk-pixbuf
-	x11-libs/gtk+
-	x11-libs/libdrm
-	x11-libs/libnotify
+	x11-libs/gtk+:3[X]
+	x11-libs/libX11
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
+	x11-libs/libXext
 	x11-libs/libXfixes
-	x11-libs/libxkbcommon
 	x11-libs/libXrandr
+	x11-libs/libdrm
+	x11-libs/libxcb
+	x11-libs/libxkbcommon
 	x11-libs/libxshmfence
-	x11-libs/libXtst
-	x11-libs/pango
+	x11-libs/pango[X]
 "
 
-QA_PREBUILT="
-	opt/nuclear-bin/nuclear
-	opt/nuclear-bin/chrome-sandbox
-	opt/nuclear-bin/libffmpeg.so
-	opt/nuclear-bin/libvk_swiftshader.so
-	opt/nuclear-bin/libvulkan.so.1
-	opt/nuclear-bin/libEGL.so
-	opt/nuclear-bin/libGLESv2.so
-	opt/nuclear-bin/libVkICD_mock_icd.so
-	opt/nuclear-bin/resources/bin/fpcalc
-	opt/nuclear-bin/swiftshader/libEGL.so
-	opt/nuclear-bin/swiftshader/libGLESv2.so
-	opt/nuclear-bin/swiftshader/libvk_swiftshader.so
-"
+QA_PREBUILT="*"
 
-QA_PRESTRIPPED="
-	opt/nuclear-bin/resources/bin/fpcalc
-"
+QA_PRESTRIPPED="opt/nuclear-bin/resources/bin/fpcalc"
 
 src_install(){
 	insinto /opt/"${PN}"
