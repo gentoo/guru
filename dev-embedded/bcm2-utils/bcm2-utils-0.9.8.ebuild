@@ -13,8 +13,11 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="dev-libs/boost"
-RDEPEND="${DEPEND}"
+DEPEND="
+	dev-libs/boost
+	dev-libs/openssl
+"
+RDEPEND="dev-libs/openssl"
 
 src_prepare(){
 	default
