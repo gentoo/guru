@@ -1,4 +1,4 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,6 +15,11 @@ KEYWORDS="~amd64"
 
 DEPEND="dev-libs/libsodium:="
 RDEPEND="${DEPEND}"
+
+PATCHES=(
+	"${FILESDIR}/reop-2.1.1-base64-function-signatures.patch"
+	"${FILESDIR}/reop-2.1.1-bcrypt_hash-cdata-sizeof.patch"
+)
 
 src_compile() {
 	emake CC=$(tc-getCC) CFLAGS="${CFLAGS}" LDFLAGS="-lsodium ${LDFLAGS}"
