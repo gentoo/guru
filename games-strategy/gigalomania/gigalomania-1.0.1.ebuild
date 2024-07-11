@@ -24,7 +24,7 @@ BDEPEND="
 "
 
 src_compile() {
-	emake CFLAGS="$CFLAGS"
+	emake CFLAGS="${CFLAGS}"
 }
 
 src_install() {
