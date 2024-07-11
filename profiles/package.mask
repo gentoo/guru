@@ -59,7 +59,6 @@ x11-misc/gammy
 # Removal 2024-07-08
 # Dependencies dropped from ::gentoo
 dev-python/sphinx-design
-dev-python/sphinxext-opengraph
 
 # Julien Roy <julien@jroy.ca> (2024-05-31)
 # Several versions out of date, needs a maintainer
