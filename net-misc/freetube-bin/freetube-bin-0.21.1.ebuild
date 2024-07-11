@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,7 +9,7 @@ DESCRIPTION="A private YouTube desktop client"
 HOMEPAGE="https://freetubeapp.io/ https://github.com/FreeTubeApp/FreeTube"
 SRC_URI="https://github.com/FreeTubeApp/FreeTube/releases/download/v${PV}-beta/freetube_${PV}_amd64.deb"
 
-S=${WORKDIR}
+S="${WORKDIR}"
 
 LICENSE="AGPL-3+"
 SLOT="0"
