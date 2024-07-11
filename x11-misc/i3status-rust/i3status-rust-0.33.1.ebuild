@@ -407,7 +407,17 @@ BDEPEND="
 	pipewire? ( sys-devel/clang )
 "
 
+PATCHES="${FILESDIR}"/gitless-hash-and-date.patch
+
 QA_FLAGS_IGNORED="usr/bin/i3status-rs"
+
+src_prepare() {
+	default
+	local COMMIT="974402d0d3cd458e9df14581d53081779fd6ef6b"
+	local DATE="2024-04-07"
+	sed -e "s/%COMMIT%/${COMMIT:0:9}/" -e "s/%DATE%/${DATE}/" \
+		-i build.rs || die
+}
 
 src_configure() {
 	local myfeatures=(

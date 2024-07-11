@@ -1,0 +1,25 @@
+Statically provide the release commit hash and date by replacing the
+placeholder values within the ebuild.
+
+Author: Lucio Sauer <watermanpaint@posteo.net>
+--- a/build.rs
++++ b/build.rs
+@@ -1,16 +1,6 @@
+-use std::process::Command;
+-
+ fn main() {
+-    let hash = Command::new("git")
+-        .args(["rev-parse", "--short", "HEAD"])
+-        .env("GIT_CONFIG_GLOBAL", "/dev/null")
+-        .output()
+-        .map(|o| String::from_utf8(o.stdout).unwrap());
+-    let date = Command::new("git")
+-        .args(["log", "--pretty=format:'%ad'", "-n1", "--date=short"])
+-        .env("GIT_CONFIG_GLOBAL", "/dev/null")
+-        .output()
+-        .map(|o| String::from_utf8(o.stdout).unwrap());
++    let hash = String::from("%COMMIT%");
++    let date = String::from("%DATE%");
+     if let (Ok(hash), Ok(date)) = (hash, date) {
+         let ver = format!(
+             "{} (commit {} {})",
