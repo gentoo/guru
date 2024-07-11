@@ -26,7 +26,7 @@ DEPEND="
 	dev-libs/libchardet
 	media-libs/libcue:=
 	media-video/ffmpeg:=
-	sys-fs/fuse
+	sys-fs/fuse:0
 	bluray? ( media-libs/libbluray:= )
 	dvd? ( media-libs/libdvdread:= )
 "
