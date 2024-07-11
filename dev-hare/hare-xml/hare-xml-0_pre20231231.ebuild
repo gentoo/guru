@@ -21,7 +21,7 @@ HOMEPAGE="https://git.sr.ht/~sircmpwn/hare-xml"
 
 LICENSE="MPL-2.0"
 
-DEPEND=">=dev-lang/hare-9999"
+DEPEND=">=dev-lang/hare-0.24.0"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
