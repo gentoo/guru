@@ -61,12 +61,14 @@ src_compile() {
 }
 
 src_install() {
-	touch /var/log/ollama.log || die
-	fowners ollama:ollama /var/log/ollama.log
-
 	dobin ollama
 	doinitd "${FILESDIR}"/ollama
 	fperms 0755 /etc/init.d/ollama
+}
+
+pkg_preinst() {
+	touch /var/log/ollama.log || die
+	fowners ollama:ollama /var/log/ollama.log
 }
 
 pkg_postinst() {
