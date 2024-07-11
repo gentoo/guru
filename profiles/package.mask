@@ -65,7 +65,6 @@ dev-python/sphinxext-opengraph
 # Dependencies dropped from ::gentoo
 # Removal 2024-07-07
 dev-python/betterproto
-dev-python/grpclib
 
 # Julien Roy <julien@jroy.ca> (2024-05-31)
 # Several versions out of date, needs a maintainer
