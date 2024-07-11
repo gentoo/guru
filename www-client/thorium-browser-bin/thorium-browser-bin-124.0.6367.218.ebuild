@@ -10,7 +10,7 @@ CHROMIUM_LANGS="af am ar bg bn ca cs da de el en-GB en-US es es-419 et fa fi fil
 inherit desktop xdg unpacker
 
 DESCRIPTION="Thorium Browser: A fast and secure browser for the modern web."
-HOMEPAGE="https://github.com/Alex313031/thorium"
+HOMEPAGE="https://thorium.rocks"
 
 IUSE="+avx2 sse3"
 
@@ -59,11 +59,6 @@ src_install() {
 
     # Create desktop entry without the file extension for the icon
     make_desktop_entry "thorium-browser" "Thorium Browser" "thorium-browser" "Network;WebBrowser;"
-
-	# Install license file
-    local license_dir="/usr/share/licenses/${PN}"
-    insinto "${license_dir}"
-    newins "${FILESDIR}/BSD-3-Clause-Thorium" "BSD-3-Clause-Thorium.txt"
 }
 
 export PORTAGE_EBUILD_PHASES="multilib-strict-skip ${PORTAGE_EBUILD_PHASES}"
