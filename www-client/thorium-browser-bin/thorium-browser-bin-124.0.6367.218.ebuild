@@ -26,8 +26,6 @@ DEPEND="
     dev-libs/nss
     dev-libs/icu
 "
-RDEPEND="${DEPEND}"
-
 S="${WORKDIR}"
 
 src_unpack() {
