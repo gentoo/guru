@@ -13,6 +13,11 @@ SLOT="0"
 
 IUSE="nvidia amd"
 
+RDEPEND="
+	acct-group/ollama
+	acct-user/ollama
+"
+IDEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-lang/go-1.21.0
 	>=dev-build/cmake-3.24
@@ -22,16 +27,6 @@ BDEPEND="
 		sci-libs/clblast
 		dev-libs/rocm-opencl-runtime
 	)
-"
-
-RDEPEND="
-	acct-group/ollama
-	acct-user/ollama
-"
-
-IDEPEND="
-	acct-group/ollama
-	acct-user/ollama
 "
 
 pkg_pretend() {
@@ -53,8 +48,9 @@ src_compile() {
 	VERSION=$(
 		git describe --tags --first-parent --abbrev=7 --long --dirty --always \
 		| sed -e "s/^v//g"
+		assert
 	)
-	export GOFLAGS="'-ldflags=-w -s \"-X=github.com/ollama/ollama/version.Version=$VERSION\"'"
+	export GOFLAGS="'-ldflags=-w -s \"-X=github.com/ollama/ollama/version.Version=${VERSION}\"'"
 
 	ego generate ./...
 	ego build .
@@ -63,7 +59,6 @@ src_compile() {
 src_install() {
 	dobin ollama
 	doinitd "${FILESDIR}"/ollama
-	fperms 0755 /etc/init.d/ollama
 }
 
 pkg_preinst() {
