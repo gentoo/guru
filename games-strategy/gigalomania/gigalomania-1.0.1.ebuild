@@ -28,7 +28,7 @@ src_compile() {
 }
 
 src_install() {
-	DESTDIR="$ED" emake install
+	DESTDIR="${ED}" emake install
 
 	make_wrapper $PN "./$PN" /opt/$PN/
 }
