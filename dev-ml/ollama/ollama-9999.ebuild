@@ -24,7 +24,15 @@ BDEPEND="
 	)
 "
 
-DEPEND="${BDEPEND}"
+RDEPEND="
+	acct-group/ollama
+	acct-user/ollama
+"
+
+IDEPEND="
+	acct-group/ollama
+	acct-user/ollama
+"
 
 pkg_pretend() {
 	if use amd; then
@@ -53,6 +61,9 @@ src_compile() {
 }
 
 src_install() {
+	touch /var/log/ollama.log || die
+	fowners ollama:ollama /var/log/ollama.log
+
 	dobin ollama
 	doinitd "${FILESDIR}"/ollama
 	fperms 0755 /etc/init.d/ollama

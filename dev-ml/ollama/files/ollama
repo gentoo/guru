@@ -3,14 +3,11 @@
 description="Ollama Service"
 command="/usr/bin/ollama"
 command_args="serve"
-command_user="root"
-command_group="users"
+command_user="ollama"
+command_group="ollama"
 command_background="yes"
 pidfile="/run/ollama.pid"
 log="/var/log/ollama.log"
-
-# Environment variable pointing to models location
-export OLLAMA_MODELS="/usr/share/ollama/models"
 
 # Ollama allows cross-origin requests from 127.0.0.1 and 0.0.0.0 by default.
 # Additional origins can be configured with OLLAMA_ORIGINS.
