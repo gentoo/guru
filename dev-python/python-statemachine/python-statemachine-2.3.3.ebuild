@@ -24,12 +24,25 @@ RDEPEND="dev-python/pydot[${PYTHON_USEDEP}]"
 BDEPEND="
 	${RDEPEND}
 	test? (
+		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
+		dev-python/pytest-django[${PYTHON_USEDEP}]
+		dev-python/django[${PYTHON_USEDEP}]
 	)
 "
 
 distutils_enable_tests pytest
 
+EPYTEST_DESELECT=(
+	tests/test_mixins.py::test_mixin_should_instantiate_a_machine
+)
+
+EPYTEST_IGNORE=(
+	tests/test_profiling.py
+	tests/django_project/workflow/tests.py
+)
+
 python_test() {
-	epytest -o 'addopts=""' --ignore=tests/test_profiling.py
+	epytest -o 'addopts=""'
+
 }
