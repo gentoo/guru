@@ -2,10 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>rmicielski@purelymail.com</email>
-		<name>Remigiusz Micielski</name>
-	</maintainer>
-	<maintainer type="person">
 		<email>mia@xenialinux.com</email>
 		<name>Mia Neufeld</name>
 	</maintainer>
