@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Remigiusz Micielski <rmicielski@purelymail.com> (2024-07-12)
+# Upstream lost interest in this package and it doesn't compile.
+# Removal on 2024-08-12
+media-video/olive
+
 # Eli Burch <eli.burch@burchbytes.com> (2024-07-05)
 # Dependency sys-fs/reiser4progs was treecleaned in ::gentoo
 # Removal on 2024-08-05
