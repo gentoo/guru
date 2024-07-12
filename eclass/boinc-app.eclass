@@ -26,6 +26,7 @@ case ${EAPI} in
 esac
 
 # @ECLASS_VARIABLE: BOINC_APP_OPTIONAL
+# @PRE_INHERIT
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # If set to a non-null value, BOINC part in the ebuild will be
@@ -55,6 +56,7 @@ if [[ ! ${_BOINC_APP_ECLASS} ]]; then
 # it's published on project's website.
 
 # @ECLASS_VARIABLE: HOMEPAGE
+# @OUTPUT_VARIABLE
 # @DESCRIPTION:
 # This variable defines the HOMEPAGE for BOINC projects if BOINC_MASTER_URL
 # was set before inherit.
@@ -105,20 +107,7 @@ boinc-app_add_deps() {
 	fi
 }
 
-# @FUNCTION: boinc_master_url_check
-# @USAGE:
-# @DESCRIPTION:
-# Make sure BOINC_MASTER_URL has a value.
-boinc_master_url_check() {
-	debug-print-function ${FUNCNAME} "${@}"
-
-	[[ -n ${BOINC_MASTER_URL} ]] || \
-		die "BOINC_MASTER_URL is not set"
-	return 0
-}
-
 # @FUNCTION: get_boincdir
-# @USAGE:
 # @RETURN: non-prefixed BOINC runtime directory
 get_boincdir() {
 	echo "${BOINC_RUNTIMEDIR:-/var/lib/boinc}"
@@ -126,7 +115,6 @@ get_boincdir() {
 
 # @FUNCTION: get_project_dirname
 # @INTERNAL
-# @USAGE:
 # @RETURN: project's dirname, derived from BOINC_MASTER_URL
 # @DESCRIPTION:
 # Example:
@@ -137,9 +125,8 @@ get_boincdir() {
 # -> boinc.berkeley.edu_example
 # @CODE
 get_project_dirname() {
-	debug-print-function ${FUNCNAME} "${@}"
-
-	boinc_master_url_check
+	[[ ${BOINC_MASTER_URL} ]] || \
+		die "BOINC_MASTER_URL is not set"
 
 	local dirname
 	dirname=${BOINC_MASTER_URL#*://}	# strip http[s]://
@@ -150,16 +137,12 @@ get_project_dirname() {
 }
 
 # @FUNCTION: get_project_root
-# @USAGE:
 # @RETURN: non-prefixed directory where applications and files should be installed
 get_project_root() {
-	debug-print-function ${FUNCNAME} "${@}"
-
 	echo "$(get_boincdir)/projects/$(get_project_dirname)"
 }
 
 # @FUNCTION: _boinc-app_fix_permissions
-# @USAGE:
 # @INTERNAL
 # @DESCRIPTION:
 # Fix owner and permissions for the project root.
@@ -174,14 +157,17 @@ _boinc-app_fix_permissions() {
 }
 
 # @FUNCTION: boinc-app_appinfo_prepare
-# @USAGE: <writable app_info.xml>
+# @USAGE: <app_info>
 # @DESCRIPTION:
 # The default appinfo_prepare(). It replaces all occurences
 # of @PV@ with its corresponding value.
 boinc-app_appinfo_prepare() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	sed -i "$1" \
+	(( $# == 1 )) || \
+		die "${FUNCNAME} takes exactly one argument"
+
+	sed -i "${1:?}" \
 		-e "s:@PV@:${PV}:g" \
 		|| die "app_info.xml sed failed"
 }
@@ -250,6 +236,9 @@ doappinfo() {
 # of @PV@, @EPREFIX@ and @LIBDIR@ strings with their corresponding values.
 boinc-app_foreach_wrapper_job() {
 	debug-print-function ${FUNCNAME} "${@}"
+
+	(( $# == 1 )) || \
+		die "${FUNCNAME} takes exactly one argument"
 
 	sed -i "${1:?}" \
 		-e "s:@PV@:${PV}:g" \
@@ -327,16 +316,13 @@ boinc-app_pkg_postinst() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	if [[ -f "${EROOT}/$(get_boincdir)/master_$(get_project_dirname).xml" ]]; then
-		if [[ -z ${REPLACING_VERSIONS} ]]; then
+		if [[ ! ${REPLACING_VERSIONS} ]]; then
 			# most likely replacing applications downloaded
 			# by the BOINC client from project's website
 			elog "Restart the BOINC daemon for changes to take place:"
 			elog "# rc-service boinc restart"
-			return
-		else
-			# applications are already in use
-			return
 		fi
+		return
 	fi
 
 	elog
@@ -347,10 +333,10 @@ boinc-app_pkg_postinst() {
 
 	if [[ ! ${BOINC_INVITATION_CODE} ]]; then
 		elog "# rc-service boinc attach"
-		elog "    Enter the Project URL: ${BOINC_MASTER_URL}"
+		elog "    Enter the Project URL: ${BOINC_MASTER_URL:?}"
 	else
-		elog "- Master URL: ${BOINC_MASTER_URL}"
-		elog "- Invitation code: ${BOINC_INVITATION_CODE}"
+		elog "- Master URL: ${BOINC_MASTER_URL:?}"
+		elog "- Invitation code: ${BOINC_INVITATION_CODE:?}"
 	fi
 }
 
@@ -361,17 +347,17 @@ boinc-app_pkg_postinst() {
 boinc-app_pkg_postrm() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	if [[ -z ${REPLACED_BY_VERSION} ]]; then
+	if [[ ! ${REPLACED_BY_VERSION} ]]; then
 		local gui_rpc_auth="$(get_boincdir)/gui_rpc_auth.cfg"
 		local passwd=$(cat "${EROOT}/${gui_rpc_auth}" 2>/dev/null)
-		if [[ -z ${passwd} ]]; then
-			passwd="\$(cat ${gui_rpc_auth})"
+		if [[ ! ${passwd?} ]]; then
+			passwd="\$(cat ${gui_rpc_auth:?})"
 		fi
 
 		elog "You should detach this project from the BOINC client"
 		elog "to stop current tasks and delete remaining project files:"
 		elog
-		elog "$ boinccmd --passwd ${passwd} --project ${BOINC_MASTER_URL} detach"
+		elog "$ boinccmd --passwd ${passwd:?} --project ${BOINC_MASTER_URL:?} detach"
 		elog
 	fi
 }
