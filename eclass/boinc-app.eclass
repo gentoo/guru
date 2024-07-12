@@ -22,7 +22,7 @@
 
 case ${EAPI} in
 	8) ;;
-	*) die "${ECLASS}: EAPI ${EAPI} unsupported."
+	*) die "${ECLASS}: EAPI ${EAPI:-0} unsupported"
 esac
 
 # @ECLASS_VARIABLE: BOINC_APP_OPTIONAL
@@ -33,10 +33,6 @@ esac
 #
 # If you enable BOINC_APP_OPTIONAL, you have to call boinc-app
 # default phase functions and add dependencies manually.
-
-if [[ ! ${BOINC_APP_OPTIONAL} ]]; then
-	EXPORT_FUNCTIONS pkg_postinst pkg_postrm
-fi
 
 if [[ ! ${_BOINC_APP_ECLASS} ]]; then
 
@@ -381,4 +377,8 @@ boinc-app_pkg_postrm() {
 }
 
 _BOINC_APP_ECLASS=1
+fi
+
+if [[ ! ${BOINC_APP_OPTIONAL} ]]; then
+	EXPORT_FUNCTIONS pkg_postinst pkg_postrm
 fi
