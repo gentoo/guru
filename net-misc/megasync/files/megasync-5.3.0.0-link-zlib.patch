@@ -1,0 +1,12 @@
+--- a/src/MEGASync/control/control.cmake
++++ b/src/MEGASync/control/control.cmake
+@@ -71,6 +71,9 @@ set(DESKTOP_APP_CONTROL_SOURCES
+     control/StatsEventHandler.cpp
+ )
+ 
++find_package(ZLIB REQUIRED)
++target_link_libraries(MEGAsync PRIVATE ZLIB::ZLIB)
++
+ target_sources(MEGAsync
+     PRIVATE
+     ${DESKTOP_APP_CONTROL_HEADERS}

@@ -2,22 +2,22 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>samuelbernardo.mail@gmail.com</email>
-		<name>Samuel Bernardo</name>
-		<description>megasync client from mega.nz</description>
-	</maintainer>
-	<maintainer type="person">
 		<email>pastalian46@gmail.com</email>
 		<name>Takuya Wakazono</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>samuelbernardo.mail@gmail.com</email>
+		<name>Samuel Bernardo</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="github">meganz/MEGAsync</remote-id>
 	</upstream>
 	<use>
-		<flag name='dolphin'>Upload your files to your Mega account from Dolphin file manager.</flag>
-		<flag name='nautilus'>Upload your files to your Mega account from nautilus.</flag>
-		<flag name='nemo'>Upload your files to your Mega account from Nemo.</flag>
-		<flag name='thunar'>Upload your files to your Mega account from Thunar.</flag>
-		<flag name='freeimage'>Use freeimage to manage graphic images format.</flag>
+		<flag name='dolphin'>Build a plugin for Dolphin</flag>
+		<flag name='mediainfo'>Use <pkg>media-libs/libmediainfo</pkg> to determine media properties</flag>
+		<flag name='nautilus'>Build a plugin for nautilus</flag>
+		<flag name='nemo'>Build a plugin for Nemo</flag>
+		<flag name='thumbnail'>Enable support for thumbnail generation</flag>
+		<flag name='thunar'>Build a plugin for Thunar</flag>
 	</use>
 </pkgmetadata>
