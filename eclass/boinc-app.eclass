@@ -80,20 +80,33 @@ in order to use this application with BOINC.}
 # @FUNCTION: boinc-app_add_deps
 # @USAGE: [--wrapper]
 # @DESCRIPTION:
-# Generate appropriate (R)DEPEND for wrapper-enabled or
+# Generate appropriate IUSE and (R)DEPEND for wrapper-enabled or
 # native application.
+#
+# If BOINC_APP_OPTIONAL is set to a non-null value, dependencies
+# will be added for "boinc" USE-flag.
 boinc-app_add_deps() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	if [[ $1 == "--wrapper" ]]; then
-		RDEPEND="sci-misc/boinc-wrapper"
+	local depend rdepend
+	if [[ ${1} == "--wrapper" ]]; then
+		rdepend="sci-misc/boinc-wrapper"
 	else
-		DEPEND="sci-misc/boinc"
-		RDEPEND="sci-misc/boinc"
+		depend="sci-misc/boinc"
+		rdepend="sci-misc/boinc"
 	fi
 
-	DEPEND="${DEPEND} acct-user/boinc"
-	RDEPEND="${RDEPEND} acct-user/boinc"
+	depend+=" acct-user/boinc"
+	rdepend+=" acct-user/boinc"
+
+	if [[ ${BOINC_APP_OPTIONAL} ]]; then
+		IUSE+=" boinc"
+		DEPEND+=" boinc? ( ${depend} )"
+		RDEPEND+=" boinc? ( ${rdepend} )"
+	else
+		DEPEND+=" ${depend}"
+		RDEPEND+=" ${rdepend}"
+	fi
 }
 
 # @FUNCTION: boinc_master_url_check
