@@ -28,7 +28,7 @@ CRATES="
 	winnow@0.5.0
 "
 
-inherit cargo
+inherit cargo savedconfig
 
 DESCRIPTION="Adblocker for Spotify"
 HOMEPAGE="https://github.com/abba23/spotify-adblock/"
@@ -49,6 +49,8 @@ src_prepare(){
 	default
 	# assigned here to use get_libdir
 	QA_FLAGS_IGNORED="usr/$(get_libdir)/${PN}.so"
+
+	restore_config config.toml
 }
 
 src_install(){
@@ -68,4 +70,6 @@ src_install(){
 	# config
 	insinto "/etc/${PN}"
 	doins config.toml
+
+	save_config config.toml
 }
