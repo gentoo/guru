@@ -23,8 +23,7 @@ LICENSE="BSD"
 SLOT="0"
 
 DEPEND="
-	>=dev-lang/hare-0.24.0:=
-	<dev-lang/hare-0.24.2
+	>=dev-lang/hare-0.24.2:=
 "
 
 # built by hare
