@@ -1,0 +1,30 @@
+https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+--- a/python/fasttext_module/fasttext/FastText.py
++++ b/python/fasttext_module/fasttext/FastText.py
+@@ -43,7 +43,7 @@ class _Meter(object):
+         else:
+             y_scores, y_true = ([], ())
+ 
+-        return np.array(y_scores, copy=False), np.array(y_true, copy=False)
++        return np.asarray(y_scores), np.asarray(y_true)
+ 
+     def precision_recall_curve(self, label=None):
+         """Return precision/recall curve"""
+@@ -58,7 +58,7 @@ class _Meter(object):
+         else:
+             precision, recall = ([], ())
+ 
+-        return np.array(precision, copy=False), np.array(recall, copy=False)
++        return np.asarray(precision), np.asarray(recall)
+ 
+     def precision_at_recall(self, recall, label=None):
+         """Return precision for a given recall"""
+@@ -229,7 +229,7 @@ class _FastText(object):
+             else:
+                 probs, labels = ([], ())
+ 
+-            return labels, np.array(probs, copy=False)
++            return labels, np.asarray(probs)
+ 
+     def get_input_matrix(self):
+         """
