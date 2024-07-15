@@ -3,18 +3,15 @@
 
 EAPI=8
 
-MY_PV="v${PV}"
-MY_PN="ags"
-
 inherit meson optfeature
 
 DESCRIPTION="Aylurs's Gtk Shell (AGS), An eww inspired gtk widget system."
 HOMEPAGE="https://github.com/Aylur/ags"
 SRC_URI="
-	https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/${MY_PN}-${MY_PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/node_modules-${MY_PV}.tar.gz -> node-modules.tar.gz
+	https://github.com/Aylur/ags/releases/download/v${PV}/ags-v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/Aylur/ags/releases/download/v${PV}/node_modules-v${PV}.tar.gz -> ${P}-node-modules.tar.gz
 "
-S="${WORKDIR}/${MY_PN}"
+S="${WORKDIR}/ags"
 BUILD_DIR="${S}/build"
 
 LICENSE="GPL-3"
@@ -54,7 +51,7 @@ PATCHES=(
 
 src_prepare() {
 	default
-	mv "${WORKDIR}/node_modules" "${S}"
+	mv "${WORKDIR}/node_modules" "${S}" || die
 }
 
 src_configure() {
