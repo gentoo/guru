@@ -39,7 +39,9 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-
+PATCHES=(
+	"${FILESDIR}/${P}-correct_bin_src.patch"
+)
 BUILD_DIR="${S}/build"
 
 src_prepare() {
