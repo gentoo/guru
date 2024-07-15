@@ -48,6 +48,10 @@ BDEPEND="
 	dev-util/glib-utils
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-correct_bin_src.patch"
+)
+
 src_prepare() {
 	default
 	mv "${WORKDIR}/node_modules" "${S}"
