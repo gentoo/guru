@@ -15,14 +15,14 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+dev-qt/linguist-tools:5
 dev-qt/qtbluetooth:5
 dev-qt/qtdbus:5
 dev-qt/qtwidgets:5
-dev-qt/linguist-tools:5
 >=net-wireless/bluez-5.76
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-virtual/pkgconfig
 >=dev-build/cmake-3.28
+virtual/pkgconfig
 "
