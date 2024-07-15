@@ -5,9 +5,6 @@
 		<email>chinh4thepro@gmail.com</email>
 		<name>Vincent Phan</name>
 	</maintainer>
-	<use>
-		<flag name="tray">Enable support for tray</flag>
-	</use>
 	<upstream>
 		<remote-id type="github">Aylur/ags</remote-id>
 	</upstream>
