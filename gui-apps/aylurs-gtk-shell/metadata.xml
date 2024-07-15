@@ -6,6 +6,9 @@
 		<name>Vincent Phan</name>
 	</maintainer>
 	<upstream>
+		<bugs-to>https://github.com/Aylur/ags/issues</bugs-to>
+		<changelog>https://github.com/Aylur/ags/blob/main/CHANGELOG.md</changelog>
+		<doc>https://aylur.github.io/ags-docs/</doc>
 		<remote-id type="github">Aylur/ags</remote-id>
 	</upstream>
 </pkgmetadata>
