@@ -15,6 +15,12 @@ LICENSE="freedist"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+RDEPEND="
+	x11-libs/libX11
+	x11-libs/libXext
+	x11-libs/libxcb
+"
+
 QA_PREBUILT="opt/proton-mail/*"
 
 src_install() {
