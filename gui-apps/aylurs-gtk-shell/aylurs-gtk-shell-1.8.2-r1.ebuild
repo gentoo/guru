@@ -61,6 +61,11 @@ src_configure() {
 	meson_src_configure
 }
 
+src_install() {
+	local DOCS="CHANGELOG.md README.md example"
+	meson_src_install
+}
+
 pkg_postinst() {
 	elog "ags wont run without a config file (usually in ~/.config/ags)."
 	elog "For example configs visit https://aylur.github.io/ags-docs/"
