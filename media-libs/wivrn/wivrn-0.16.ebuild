@@ -22,7 +22,7 @@ if [[ ${PV} == 9999 ]]; then
 	PFR_V=2.2.0
 	SRC_URI="
 	https://github.com/boostorg/pfr/archive/refs/tags/${PFR_V}.tar.gz -> boostpfr_${PFR_V}.tar.gz
-	https://gitlab.freedesktop.org/monado/monado/-/archive/${MONADO_V}/monado-${MONADO_V}.tar.gz"
+	https://gitlab.freedesktop.org/monado/monado/-/archive/${MONADO_V}/monado-${MONADO_V}.tar.bz2"
 else
 	SRC_URI="
 		https://github.com/Meumeu/WiVRn/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
