@@ -7,7 +7,7 @@ inherit wrapper
 
 DESCRIPTION="Libre clone of Mega-Lo-Mania (original from ~1990), supports original resources"
 HOMEPAGE="https://gigalomania.sourceforge.net"
-SRC_URI="http://launchpad.net/$PN/trunk/$PV/+download/${PN}src.zip"
+SRC_URI="http://launchpad.net/$PN/trunk/$PV/+download/${PN}src.zip -> ${P}.zip"
 
 S="$WORKDIR/${PN}src"
 
@@ -24,11 +24,11 @@ BDEPEND="
 "
 
 src_compile() {
-	emake CFLAGS="$CFLAGS"
+	emake CFLAGS="${CFLAGS}"
 }
 
 src_install() {
-	DESTDIR="$D" emake install
+	DESTDIR="${ED}" emake install
 
 	make_wrapper $PN "./$PN" /opt/$PN/
 }

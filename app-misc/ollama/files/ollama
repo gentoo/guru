@@ -7,7 +7,7 @@ command_user="ollama"
 command_group="ollama"
 command_background="yes"
 pidfile="/run/ollama.pid"
-log="/var/log/ollama.log"
+log="/var/log/ollama/ollama.log"
 
 # Ollama allows cross-origin requests from 127.0.0.1 and 0.0.0.0 by default.
 # Additional origins can be configured with OLLAMA_ORIGINS.

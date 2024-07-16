@@ -7,6 +7,7 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://gitlab.gnome.org/World/amberol/-/issues</bugs-to>
+		<changelog>https://gitlab.gnome.org/World/amberol/-/blob/main/CHANGES.md</changelog>
 		<doc>https://gitlab.gnome.org/World/amberol/-/blob/main/README.md</doc>
 		<remote-id type="gnome-gitlab">World/amberol</remote-id>
 	</upstream>

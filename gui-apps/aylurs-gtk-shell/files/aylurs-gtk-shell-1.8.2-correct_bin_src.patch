@@ -1,0 +1,15 @@
+#Patch post_install.sh to make the symbole link point to the correct path instead of a path inside build image
+
+Bug: https://github.com/gentoo/guru/pull/212
+Bug: https://github.com/Aylur/ags/pull/503
+--- a/post_install.sh
++++ b/post_install.sh
+@@ -7,7 +7,7 @@ APP_ID=$4
+ 
+ mkdir -p $BIN_DIR
+ 
+-BIN_SRC="$PKGDATA_DIR/$APP_ID"
++BIN_SRC="$2/$APP_ID"
+ BIN_DEST="$BIN_DIR/ags"
+ ln -s -f $BIN_SRC $BIN_DEST
+ 

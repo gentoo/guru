@@ -62,8 +62,8 @@ src_install() {
 }
 
 pkg_preinst() {
-	touch /var/log/ollama.log || die
-	fowners ollama:ollama /var/log/ollama.log
+	keepdir /var/log/ollama
+	fowners ollama:ollama /var/log/ollama
 }
 
 pkg_postinst() {

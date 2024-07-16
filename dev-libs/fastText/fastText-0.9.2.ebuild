@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
 DISTUTILS_USE_PEP517=setuptools
@@ -33,6 +33,7 @@ BDEPEND="
 DOCS=( {CODE_OF_CONDUCT,CONTRIBUTING,README}.md python/{README.rst,doc} docs )
 PATCHES=(
 	"${FILESDIR}/${P}-gcc13.patch"
+	"${FILESDIR}/${P}-numpy2.patch"
 	"${FILESDIR}/${P}-pep517.patch"
 )
 

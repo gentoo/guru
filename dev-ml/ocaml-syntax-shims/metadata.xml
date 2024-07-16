@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>tokusan441@gmail.com</email>
+		<name>Hiroki Tokunaga</name>
+	</maintainer>
+	<longdescription lang="en">This package provides a small utility that backports some of the newer OCaml syntax to older OCaml compilers. This allows adopting new features such as let+ while still keeping compatibility with older OCaml compiler.</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/ocaml-ppx/ocaml-syntax-shims/issues</bugs-to>
+		<remote-id type="github">ocaml-ppx/ocaml-syntax-shims</remote-id>
+	</upstream>
+</pkgmetadata>

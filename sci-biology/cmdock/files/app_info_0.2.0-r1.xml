@@ -1,0 +1,50 @@
+<app_info>
+<app>
+	<name>cmdock-l</name>
+	<user_friendly_name>CurieMarieDock @PV@ long tasks</user_friendly_name>
+</app>
+
+<file_info>
+	<name>cmdock-l_wrapper</name>
+	<sticky/>
+	<executable/>
+</file_info>
+<file_info>
+	<name>cmdock</name>
+	<sticky/>
+	<executable/>
+</file_info>
+
+<file_info>
+	<name>cmdock-l_job.xml</name>
+	<sticky/>
+</file_info>
+<file_info>
+	<name>docking_out</name>
+	<sticky/>
+</file_info>
+
+<app_version>
+	<app_name>cmdock-l</app_name>
+	<version_num>100</version_num>
+	<file_ref>
+		<file_name>cmdock-l_wrapper</file_name>
+		<main_program/>
+	</file_ref>
+	<file_ref>
+		<file_name>cmdock</file_name>
+		<open_name>cmdock</open_name>
+		<copy_file/>
+	</file_ref>
+	<file_ref>
+		<file_name>cmdock-l_job.xml</file_name>
+		<open_name>job.xml</open_name>
+		<copy_file/>
+	</file_ref>
+	<file_ref>
+		<file_name>docking_out</file_name>
+		<open_name>docking_out</open_name>
+		<copy_file/>
+	</file_ref>
+</app_version>
+</app_info>

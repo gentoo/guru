@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit qmake-utils
+inherit qmake-utils desktop xdg
 
 DESCRIPTION="Opensource 3D CAD viewer and converter"
 HOMEPAGE="https://github.com/fougue/mayo"
@@ -37,5 +37,7 @@ src_configure() {
 src_install() {
 	emake install INSTALL_ROOT="${ED}"
 	dobin mayo
+	newicon -s scalable images/appicon.svg mayo.svg
+	make_desktop_entry "mayo %F" Mayo mayo "Graphics;" "MimeType=model/step;model/iges;model/brep;image/vnd.dxf;model/obj;model/gltf+json;model/gltf+binary;model/vrml;model/stl;model/x.stl-ascii;model/x.stl-binary;application/x-amf;application/x-coff;application/x-coffexec;model/3mf;image/x-3ds;model/vnd.collada+xml;model/x3d+binary;model/x3d+fastinfoset;model/x3d+vrml;model/x3d+xml;model/x3d-vrml;application/directx;"
 	einstalldocs
 }

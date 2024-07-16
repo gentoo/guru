@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 )
 DISTUTILS_USE_PEP517=setuptools
 PYPI_PN="PyMeeus"
 PYPI_NO_NORMALIZE=1
@@ -18,6 +18,11 @@ HOMEPAGE="
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
+
+PATCHES=(
+	# bug #928258
+	"${FILESDIR}/${P}-pytest8.patch"
+)
 
 distutils_enable_tests pytest
 

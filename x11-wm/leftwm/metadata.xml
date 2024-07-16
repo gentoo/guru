@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<name>Remigiusz Micielski</name>
-		<email>rmicielski@purelymail.com</email>
-		<description>Primary maintainer</description>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="github">leftwm/leftwm</remote-id>
 		<doc>https://github.com/leftwm/leftwm/wiki/Config</doc>

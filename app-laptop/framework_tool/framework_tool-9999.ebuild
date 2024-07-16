@@ -11,13 +11,15 @@ CRATES="
 "
 
 if ! is_live; then
-	GIT_COMMIT_UEFI_RS="76130a0f1c1585012e598b8c514526bac09c68e0"
+	GIT_COMMIT_RUST_HWIO="9e6e7529ffd6caf7aa6a17be1eca6756b302f736"
 	GIT_COMMIT_SMBIOS_LIB="b3e2fff8a6f4b8c2d729467cbbf0c8c41974cd1c"
+	GIT_COMMIT_UEFI_RS="76130a0f1c1585012e598b8c514526bac09c68e0"
 
 	declare -A GIT_CRATES=(
+		[redox_hwio]="https://github.com/FrameworkComputer/rust-hwio;${GIT_COMMIT_RUST_HWIO};rust-hwio-%commit%"
+		[smbios-lib]="https://github.com/FrameworkComputer/smbios-lib;${GIT_COMMIT_SMBIOS_LIB}"
 		[uefi]="https://github.com/FrameworkComputer/uefi-rs;${GIT_COMMIT_UEFI_RS};uefi-rs-%commit%/uefi"
 		[uefi-services]="https://github.com/FrameworkComputer/uefi-rs;${GIT_COMMIT_UEFI_RS};uefi-rs-%commit%/uefi-services"
-		[smbios-lib]="https://github.com/FrameworkComputer/smbios-lib;${GIT_COMMIT_SMBIOS_LIB}"
 	)
 fi
 
