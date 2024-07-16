@@ -1,9 +1,9 @@
 diff --git i/Makefile w/Makefile
-index 7d3056a..d8b1670 100644
+index 7d3056a..54fbb73 100644
 --- i/Makefile
 +++ w/Makefile
-@@ -1,28 +1,27 @@
- CC=g++
+@@ -1,28 +1,26 @@
+-CC=g++
 -CCFLAGS=-O2 -Wall
  CFILES=game.cpp gamestate.cpp gui.cpp image.cpp main.cpp panel.cpp player.cpp resources.cpp screen.cpp sector.cpp sound.cpp tutorial.cpp utils.cpp TinyXML/tinyxml.cpp TinyXML/tinyxmlerror.cpp TinyXML/tinyxmlparser.cpp
  HFILES=game.h gamestate.h gui.h image.h panel.h player.h resources.h screen.h sector.h sound.h tutorial.h utils.h common.h stdafx.h TinyXML/tinyxml.h
@@ -18,11 +18,11 @@ index 7d3056a..d8b1670 100644
  
  $(APP): $(OFILES) $(HFILES) $(CFILES)
 -	$(CC) $(OFILES) $(CCFLAGS) $(LINKPATH) $(LIBS) -o $(APP)
-+	$(CC) $(OFILES) ${CXXFLAGS} ${LDFLAGS} $(LINKPATH) $(LIBS) -o $(APP)
++	$(CXX) $(OFILES) ${CXXFLAGS} ${LDFLAGS} $(LINKPATH) $(LIBS) -o $(APP)
  
  .cpp.o:
 -	$(CC) $(CCFLAGS) -O2 $(INC) -c $< -o $@
-+	$(CC) ${CXXFLAGS} ${LDFLAGS} $(INC) -c $< -o $@
++	$(CXX) ${CXXFLAGS} ${LDFLAGS} $(INC) -c $< -o $@
  
  # REMEMBER to update debian/dirs if the system directories that we use are changed!!!
  install: $(APP)
