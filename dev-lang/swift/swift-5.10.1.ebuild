@@ -8,7 +8,7 @@ inherit python-single-r1
 
 DESCRIPTION="A high-level general-purpose, multi-paradigm, compiled programming language"
 HOMEPAGE="https://www.swift.org/"
-SRC_URI="amd64? ( https://download.swift.org/${P}-release/fedora39/${P}-RELEASE/${P}-RELEASE-fedora39.tar.gz )"
+SRC_URI="https://download.swift.org/${P}-release/fedora39/${P}-RELEASE/${P}-RELEASE-fedora39.tar.gz"
 S="${WORKDIR}/${P}-RELEASE-fedora39/usr"
 
 LICENSE="Apache-2.0"
@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="-* ~amd64"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RESTRICT="bindist mirror test strip"
+RESTRICT="strip"
 
 RDEPEND="
 	${PYTHON_DEPS}
@@ -47,9 +47,9 @@ src_install() {
 	# the filesystem; we'll install the contents as-is into
 	# `/usr/lib64/swift-{version}` (e.g., `/usr/lib64/swift-5.10.1`) and expose
 	# the relevant binaries via linking.
-	dest_dir="/usr/lib64/swift-${PV}"
-	mkdir -p "${ED}${dest_dir}"
-	cp -pPR "${S}" "${ED}${dest_dir}"
+	local dest_dir="/usr/lib64/swift-${PV}"
+	mkdir -p "${ED}${dest_dir}" || die
+	cp -pPR "${S}" "${ED}${dest_dir}" || die
 
 	# Swift ships with its own `clang`, `lldb`, etc.; these don't need to be
 	# exposed externally, so we'll just symlink Swift-specific binaries into
@@ -57,7 +57,7 @@ src_install() {
 	find bin -maxdepth 1 \( -type f -o -type l \) \
 		\( -name "swift*" -o -name "sourcekit*" \) -executable -print0 |
 		while IFS= read -r -d '' exe_path; do
-			exe_name="$(basename "$exe_path")"
+			local exe_name="$(basename "$exe_path")"
 			dosym -r "${dest_dir}/usr/bin/${exe_name}" "/usr/bin/${exe_name}"
 		done
 }
