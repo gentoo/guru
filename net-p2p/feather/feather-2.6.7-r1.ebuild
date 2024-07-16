@@ -3,14 +3,13 @@
 
 EAPI=8
 
-inherit cmake desktop xdg
-
-#TODO: Verify feather-${PV}.tar.gz with GPG keys provided at release page (against files/featherwallet.asc)
+inherit cmake desktop verify-sig xdg
 
 DESCRIPTION="A free, open-source Monero wallet"
 HOMEPAGE="https://featherwallet.org"
 SRC_URI="
 	https://github.com/feather-wallet/feather/releases/download/${PV}/${P}.tar.gz
+	verify-sig? ( https://github.com/feather-wallet/feather/releases/download/${PV}/${P}.tar.gz.asc )
 "
 
 # Feather is released under the terms of the BSD license, but it vendors
@@ -18,7 +17,7 @@ SRC_URI="
 LICENSE="BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bounties calc crowdfunding exchange home localmonero qrcode reddit revuo tickers xmrig"
+IUSE="bounties calc crowdfunding exchange home localmonero qrcode reddit revuo tickers verify-sig xmrig"
 DEPEND="
 	dev-libs/libsodium:=
 	media-gfx/qrencode:=
@@ -44,7 +43,10 @@ RDEPEND="
 "
 BDEPEND="
 	virtual/pkgconfig
+	verify-sig? ( sec-keys/openpgp-keys-featherwallet )
 "
+
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/featherwallet.asc
 
 src_prepare() {
 	default
