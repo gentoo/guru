@@ -192,8 +192,6 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_test() {
-	# $USER must be set or tests fail Bug #890889
-	export USER=portage
 	default
 }
 
@@ -208,7 +206,7 @@ src_install() {
 	cargo_src_install
 
 	mkdir man || die
-	./target/$(usex debug debug release)/just --man > man/just.1 || die
+	$(cargo_target_dir)/just --man > man/just.1 || die
 
 	doman man/*
 
@@ -217,14 +215,14 @@ src_install() {
 	mkdir completions || die
 
 	# bash-completion
-	./target/$(usex debug debug release)/just --completions bash > completions/just.bash || die
+	$(cargo_target_dir)/just --completions bash > completions/just.bash || die
 	newbashcomp "completions/${PN}.bash" "${PN}"
 
 	# zsh-completion
-	./target/$(usex debug debug release)/just --completions zsh > completions/just.zsh || die
+	$(cargo_target_dir)/just --completions zsh > completions/just.zsh || die
 	newzshcomp "completions/${PN}.zsh" "_${PN}"
 
 	# fish-completion
-	./target/$(usex debug debug release)/just --completions fish > completions/just.fish || die
+	$(cargo_target_dir)/just --completions fish > completions/just.fish || die
 	dofishcomp "completions/${PN}.fish"
 }
