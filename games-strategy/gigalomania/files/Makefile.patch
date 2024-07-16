@@ -1,5 +1,8 @@
-diff --git i/Makefile w/Makefile
-index 7d3056a..54fbb73 100644
+Use correct CXX, CXXFLAGS, LDFLAGS
+
+Bug: https://bugs.gentoo.org/933592
+Bug: https://bugs.gentoo.org/933591
+Bug: https://bugs.gentoo.org/933590
 --- i/Makefile
 +++ w/Makefile
 @@ -1,28 +1,26 @@
