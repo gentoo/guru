@@ -1,5 +1,5 @@
 diff --git i/Makefile w/Makefile
-index 7d3056a..a15ef37 100644
+index 7d3056a..d8b1670 100644
 --- i/Makefile
 +++ w/Makefile
 @@ -1,28 +1,27 @@
@@ -18,11 +18,11 @@ index 7d3056a..a15ef37 100644
  
  $(APP): $(OFILES) $(HFILES) $(CFILES)
 -	$(CC) $(OFILES) $(CCFLAGS) $(LINKPATH) $(LIBS) -o $(APP)
-+	$(CC) $(OFILES) ${CXXFLAGS} $(LINKPATH) $(LIBS) -o $(APP)
++	$(CC) $(OFILES) ${CXXFLAGS} ${LDFLAGS} $(LINKPATH) $(LIBS) -o $(APP)
  
  .cpp.o:
 -	$(CC) $(CCFLAGS) -O2 $(INC) -c $< -o $@
-+	$(CC) ${CXXFLAGS} $(INC) -c $< -o $@
++	$(CC) ${CXXFLAGS} ${LDFLAGS} $(INC) -c $< -o $@
  
  # REMEMBER to update debian/dirs if the system directories that we use are changed!!!
  install: $(APP)
