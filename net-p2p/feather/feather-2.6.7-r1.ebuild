@@ -5,33 +5,13 @@ EAPI=8
 
 inherit cmake desktop xdg
 
-#TODO: Verify feather-${PV}.tar.gz with https://github.com/feather-wallet/feather-sigs
-SINGLEAPPLICATION_DIST_COMIT="3e8e85d1a487e433751711a8a090659684d42e3b"
-MONERO_DIST_COMIT="ad951be2edfb3045ec3d0bb74a25badb91bc8b92"
-	MINIUPNP_DIST_COMIT="544e6fcc73c5ad9af48a8985c94f0f1d742ef2e0"
-	RANDOMX_DIST_COMIT="102f8acf90a7649ada410de5499a7ec62e49e1da"
-	RAPIDJSON_DIST_COMIT="129d19ba7f496df5e33658527a7158c79b99c21c"
-	SUPERCOP_DIST_COMIT="633500ad8c8759995049ccd022107d1fa8a1bbc9"
-	TREZORCOMMON_DIST_COMIT="bff7fdfe436c727982cc553bdfb29a9021b423b0"
+#TODO: Verify feather-${PV}.tar.gz with GPG keys provided at release page (against files/tobtoht.asc) perhaps with pkg_pretend?
 
 DESCRIPTION="A free, open-source Monero wallet"
 HOMEPAGE="https://featherwallet.org"
-SRC_URI="https://github.com/feather-wallet/feather/archive/refs/tags/${PV}.tar.gz -> \
-${PF}.tar.gz
-	https://github.com/itay-grudev/SingleApplication/archive/${SINGLEAPPLICATION_DIST_COMIT}.tar.gz -> \
-${PF}-singleapplication.tar.gz
-	https://github.com/feather-wallet/monero/archive/${MONERO_DIST_COMIT}.tar.gz -> \
-${PF}-monero.tar.gz
-	https://github.com/miniupnp/miniupnp/archive/${MINIUPNP_DIST_COMIT}.tar.gz -> \
-${PF}-monero-miniupnp.tar.gz
-	https://github.com/tevador/RandomX/archive/${RANDOMX_DIST_COMIT}.tar.gz -> \
-${PF}-monero-randomx.tar.gz
-	https://github.com/Tencent/rapidjson/archive/${RAPIDJSON_DIST_COMIT}.tar.gz -> \
-${PF}-monero-rapidjson.tar.gz
-	https://github.com/monero-project/supercop/archive/${SUPERCOP_DIST_COMIT}.tar.gz -> \
-${PF}-monero-supercop.tar.gz
-	https://github.com/trezor/trezor-common/archive/${TREZORCOMMON_DIST_COMIT}.tar.gz -> \
-${PF}-monero-trezorcommon.tar.gz
+SRC_URI="
+	https://github.com/feather-wallet/feather/releases/download/${PV}/feather-${PV}.tar.gz -> ${PF}.tar.gz
+	https://github.com/feather-wallet/feather/releases/download/2.6.7/feather-2.6.7.tar.gz.asc -> ${PF}.tar.gz.asc
 "
 
 # Feather is released under the terms of the BSD license, but it vendors
@@ -67,31 +47,6 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-src_unpack() {
-	unpack ${PF}.tar.gz \
-		${PF}-singleapplication.tar.gz \
-		${PF}-monero.tar.gz \
-		${PF}-monero-miniupnp.tar.gz \
-		${PF}-monero-randomx.tar.gz \
-		${PF}-monero-rapidjson.tar.gz \
-		${PF}-monero-supercop.tar.gz \
-		${PF}-monero-trezorcommon.tar.gz
-	mv -T "${WORKDIR}"/SingleApplication-${SINGLEAPPLICATION_DIST_COMIT} \
-		"${WORKDIR}"/${P}/src/third-party/singleapplication || die
-	mv -T "${WORKDIR}"/monero-${MONERO_DIST_COMIT} \
-		"${WORKDIR}"/${P}/monero || die
-	mv -T "${WORKDIR}"/miniupnp-${MINIUPNP_DIST_COMIT} \
-		"${WORKDIR}"/${P}/monero/external/miniupnp || die
-	mv -T "${WORKDIR}"/RandomX-${RANDOMX_DIST_COMIT} \
-		"${WORKDIR}"/${P}/monero/external/randomx || die
-	mv -T "${WORKDIR}"/rapidjson-${RAPIDJSON_DIST_COMIT} \
-		"${WORKDIR}"/${P}/monero/external/rapidjson || die
-	mv -T "${WORKDIR}"/supercop-${SUPERCOP_DIST_COMIT} \
-		"${WORKDIR}"/${P}/monero/external/supercop || die
-	mv -T "${WORKDIR}"/trezor-common-${TREZORCOMMON_DIST_COMIT} \
-		"${WORKDIR}"/${P}/monero/external/trezor-common || die
-}
-
 src_prepare() {
 	default
 	echo "#define FEATHER_VERSION \"${PV}\"" > "${WORKDIR}"/${P}/src/config-feather.h || die
@@ -123,7 +78,6 @@ src_configure() {
 		-DDONATE_BEG=OFF
 		-DWITH_SCANNER=$(usex qrcode)
 	)
-
 	cmake_src_configure
 }
 
