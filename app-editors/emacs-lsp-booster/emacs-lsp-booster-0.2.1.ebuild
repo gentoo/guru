@@ -24,6 +24,7 @@ CRATES="
 	darling@0.10.2
 	darling_core@0.10.2
 	darling_macro@0.10.2
+	either@1.11.0
 	emacs-macros@0.17.0
 	emacs@0.18.0
 	emacs_module@0.18.0
@@ -33,12 +34,13 @@ CRATES="
 	fnv@1.0.7
 	heck@0.4.1
 	hermit-abi@0.3.3
+	home@0.5.9
 	humantime@2.1.0
 	ident_case@1.0.1
 	is-terminal@0.4.10
 	itoa@1.0.10
 	lazy_static@1.4.0
-	libc@0.2.151
+	libc@0.2.153
 	linux-raw-sys@0.4.12
 	log@0.4.20
 	memchr@2.7.1
@@ -50,7 +52,7 @@ CRATES="
 	regex-syntax@0.8.2
 	regex@1.10.2
 	rustc_version@0.2.3
-	rustix@0.38.28
+	rustix@0.38.32
 	ryu@1.0.16
 	semver-parser@0.7.0
 	semver@0.9.0
@@ -68,6 +70,7 @@ CRATES="
 	thiserror@1.0.53
 	unicode-ident@1.0.12
 	utf8parse@0.2.1
+	which@6.0.1
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.6
 	winapi-x86_64-pc-windows-gnu@0.4.0
@@ -81,6 +84,7 @@ CRATES="
 	windows_x86_64_gnu@0.52.0
 	windows_x86_64_gnullvm@0.52.0
 	windows_x86_64_msvc@0.52.0
+	winsafe@0.0.19
 "
 
 inherit cargo
