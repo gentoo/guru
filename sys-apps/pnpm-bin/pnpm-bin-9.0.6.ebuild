@@ -1,11 +1,11 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DESCRIPTION="Fast, disk space efficient package manager, alternative to npm and yarn"
 HOMEPAGE="https://pnpm.io"
-SRC_URI="https://github.com/pnpm/pnpm/releases/download/v${PV}/pnpm-linux-x64"
+SRC_URI="https://github.com/pnpm/pnpm/releases/download/v${PV}/pnpm-linux-x64 -> ${P}"
 
 S="${WORKDIR}"
 
@@ -15,8 +15,8 @@ KEYWORDS="~amd64"
 
 RESTRICT="strip"
 
-QA_PREBUILT="usr/bin/${PN}"
+QA_PREBUILT="usr/bin/pnpm"
 
 src_install() {
-	newbin "${DISTDIR}/pnpm-linux-x64" ${PN}
+	newbin "${DISTDIR}/${P}" pnpm
 }
