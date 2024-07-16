@@ -30,9 +30,9 @@ BDEPEND="
 pkg_pretend() {
 	# Upstream blocks vanilla wget, so we set up a browser User-Agent as a fallback.
 	local URI="https://estaticos.redsara.es/comunes/autofirma/$(ver_rs 1- /)/AutoFirma_Linux_Fedora.zip"
-	local USER_AGENT="Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0"
+	local USER_AGENT="Mozilla/5.0 (X11; Gentoo; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
 	local DISTFILE="${PORTAGE_ACTUAL_DISTDIR}/${PF}.zip"
-	[ -f "${DISTFILE}" ] || /usr/sbin/wget --user-agent="${USER_AGENT}" "${URI}" -O "${DISTFILE}"
+	[[ -f "${DISTFILE}" ]] || /usr/sbin/wget --user-agent="${USER_AGENT}" "${URI}" -O "${DISTFILE}"
 }
 
 pkg_nofetch() {
