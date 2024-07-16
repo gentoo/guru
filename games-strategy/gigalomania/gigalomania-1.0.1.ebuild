@@ -29,6 +29,16 @@ RDEPEND="
 	media-libs/sdl2-mixer
 "
 
+PATCHES="
+	${FILESDIR}/Makefile.patch
+"
+
+src_prepare() {
+	ls -lh
+
+	default
+}
+
 src_compile() {
 	emake CFLAGS="${CFLAGS}"
 }
