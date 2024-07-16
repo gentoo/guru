@@ -7,17 +7,12 @@ inherit desktop
 
 DESCRIPTION="GUI configurator for supported QMK-based keyboards"
 HOMEPAGE="https://caniusevia.com"
-SRC_URI="amd64? (
-	https://github.com/the-via/releases/releases/download/v${PV}/${P}-linux.AppImage
-	-> ${P}.AppImage
-)"
+SRC_URI="https://github.com/the-via/releases/releases/download/v${PV}/${P}-linux.AppImage -> ${P}.AppImage"
 
 S="${WORKDIR}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-
-RESTRICT="bindist mirror test strip"
 
 # These dependencies were extracted from the shared libraries required by the
 # via-nativia executable; it's not clear whether these are all _actually_
@@ -62,6 +57,7 @@ src_unpack() {
 src_install() {
 	newbin "${S}/${P}.AppImage" via
 
+	local size
 	for size in 16 24 32 48 64 96 128 256 512 1024; do
 		doicon -s "${size}" "${S}/squashfs-root/usr/share/icons/hicolor/${size}x${size}/apps/via-nativia.png"
 	done
