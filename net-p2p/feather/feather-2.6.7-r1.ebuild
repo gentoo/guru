@@ -10,8 +10,7 @@ inherit cmake desktop xdg
 DESCRIPTION="A free, open-source Monero wallet"
 HOMEPAGE="https://featherwallet.org"
 SRC_URI="
-	https://github.com/feather-wallet/feather/releases/download/${PV}/feather-${PV}.tar.gz -> ${PF}.tar.gz
-	https://github.com/feather-wallet/feather/releases/download/2.6.7/feather-2.6.7.tar.gz.asc -> ${PF}.tar.gz.asc
+	https://github.com/feather-wallet/feather/releases/download/${PV}/${P}.tar.gz
 "
 
 # Feather is released under the terms of the BSD license, but it vendors
