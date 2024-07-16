@@ -23,6 +23,12 @@ BDEPEND="
 	media-libs/sdl2-mixer
 "
 
+RDEPEND="
+	media-libs/libsdl2
+	media-libs/sdl2-image
+	media-libs/sdl2-mixer
+"
+
 src_compile() {
 	emake CFLAGS="${CFLAGS}"
 }
