@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake desktop xdg
 
-#TODO: Verify feather-${PV}.tar.gz with GPG keys provided at release page (against files/tobtoht.asc) perhaps with pkg_pretend?
+#TODO: Verify feather-${PV}.tar.gz with GPG keys provided at release page (against files/featherwallet.asc)
 
 DESCRIPTION="A free, open-source Monero wallet"
 HOMEPAGE="https://featherwallet.org"
