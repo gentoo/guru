@@ -35,7 +35,7 @@ PATCHES="
 
 src_compile() {
 	tc-export CXX
-	emake CFLAGS="${CFLAGS}"
+	emake CXXFLAGS="${CXXFLAGS}"
 }
 
 src_install() {
