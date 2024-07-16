@@ -3,13 +3,13 @@
 
 EAPI=8
 
-inherit wrapper
+inherit toolchain-funcs wrapper
 
 DESCRIPTION="Libre clone of Mega-Lo-Mania (original from ~1990), supports original resources"
 HOMEPAGE="https://gigalomania.sourceforge.net"
-SRC_URI="http://launchpad.net/$PN/trunk/$PV/+download/${PN}src.zip -> ${P}.zip"
+SRC_URI="http://launchpad.net/${PN}/trunk/${PV}/+download/${PN}src.zip -> ${P}.zip"
 
-S="$WORKDIR/${PN}src"
+S="${WORKDIR}/${PN}src"
 
 LICENSE="GPL-2"
 
@@ -34,13 +34,14 @@ PATCHES="
 "
 
 src_compile() {
+	tc-export CXX
 	emake CFLAGS="${CFLAGS}"
 }
 
 src_install() {
 	DESTDIR="${ED}" emake install
 
-	make_wrapper $PN "./$PN" /opt/$PN/
+	make_wrapper ${PN} "./${PN}" /opt/${PN}/
 }
 
 pkg_postinst() {
