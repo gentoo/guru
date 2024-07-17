@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>joe@wt.gd</email>
+		<name>Joe Kappus</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://gitlab.com/etke.cc/tools/agru/-/issues</bugs-to>
+		<remote-id type="gitlab">etke.cc/tools/agru</remote-id>
+	</upstream>
+</pkgmetadata>
