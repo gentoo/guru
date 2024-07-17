@@ -1,7 +1,9 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+inherit prefix
 
 DESCRIPTION="DZR: the command line deezer.com player"
 HOMEPAGE="https://github.com/yne/dzr"
@@ -11,24 +13,17 @@ LICENSE="Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="
+RDEPEND="
 	app-misc/jq[oniguruma]
 	dev-libs/openssl
 	dev-util/dialog
 	media-video/mpv
 	net-misc/curl
 "
-RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_install() {
-	exeinto /usr/bin
-	doexe dzr
-	doexe dzr-dec
-	doexe dzr-id3
-	doexe dzr-srt
-	doexe dzr-url
-	default
+	hprefixify dzr*
+	dobin dzr*
 }
 
 pkg_postinst() {
