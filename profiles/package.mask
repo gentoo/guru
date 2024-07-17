@@ -60,11 +60,6 @@ kde-misc/plasma-applet-thermal-monitor
 # causing pkgcheck to fail. Masking for now
 www-client/yandex-browser
 
-# Eli Burch <eli.burch@burchbytes.com> (2024-06-16)
-# Removal on 2024-07-16
-# Upstream is dead, and there is no replacement
-x11-misc/gammy
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
