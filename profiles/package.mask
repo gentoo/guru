@@ -65,15 +65,6 @@ www-client/yandex-browser
 # Upstream is dead, and there is no replacement
 x11-misc/gammy
 
-# Julien Roy <julien@jroy.ca> (2024-05-31)
-# Several versions out of date, needs a maintainer
-# Masked for removal in 30 days
-# See bugs:
-# https://bugs.gentoo.org/889714
-# https://bugs.gentoo.org/897772
-# https://bugs.gentoo.org/931490
-www-client/woob
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
