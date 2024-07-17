@@ -20,7 +20,7 @@ DEPEND="dev-python/jinja"
 RDEPEND="${DEPEND}"
 
 src_prepare(){
-	default
+	distutils-r1_src_prepare
 
 	sed -i 's@level=logging.DEBUG@level=logging.WARN@g' "glad/__main__.py" || die
 	sed -i 's@find_packages@find_namespace_packages@g' "setup.py" || die
