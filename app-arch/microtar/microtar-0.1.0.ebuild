@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit edo toolchain-funcs
 
 DESCRIPTION="A lightweight tar library written in ANSI C"
 HOMEPAGE="https://github.com/rxi/microtar"
@@ -14,8 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 src_compile() {
-	tc-export CC
-	${CC} ${CFLAGS} ${CPPFLAGS} ${LDFLAGS} \
+	edo $(tc-getCC) ${CFLAGS} ${CPPFLAGS} ${LDFLAGS} \
 		-I./src \
 		-fPIC \
 		-shared \
