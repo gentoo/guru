@@ -101,5 +101,11 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
+IUSE="test"
+RESTRICT="!test? ( test )"
+
+# Native JSON support always available with >=emacs-30.1
+BDEPEND="test? ( >=app-editors/emacs-27.1[json(+)] )"
+
 # rust does not use *FLAGS from make.conf, silence portage warning
 QA_FLAGS_IGNORED="usr/bin/${PN}"
