@@ -5,10 +5,12 @@ EAPI=8
 
 DESCRIPTION="Extract ALZ archives"
 HOMEPAGE="http://kippler.com/win/unalz/"
+
+pref=https://git.launchpad.net/ubuntu/+source/unalz/patch/?id=
 SRC_URI="
 	http://kippler.com/win/${PN}/${P}.tgz
-	https://git.launchpad.net/ubuntu/+source/unalz/patch/?id=b4ade05e7e6dec25fee7d57bac6a055137e332c0 -> ${PN}-0.65-use-system-zlib.patch
-	https://git.launchpad.net/ubuntu/+source/unalz/patch/?id=00932925e108f186301c5941130fc34c9a76f345 -> ${PN}-0.65-use-system-bz2.patch
+	${pref}b4ade05e7e6dec25fee7d57bac6a055137e332c0 -> ${PN}-0.65-use-system-zlib.patch
+	${pref}00932925e108f186301c5941130fc34c9a76f345 -> ${PN}-0.65-use-system-bz2.patch
 "
 S="${WORKDIR}"/${PN}
 
