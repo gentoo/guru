@@ -1,22 +1,22 @@
-EAPI=7
+# Copyright 1999-2024 Gentoo Authors
+
+EAPI=8
 inherit go-module
 
 DESCRIPTION="A tool for managing GitLab groups and projects"
 HOMEPAGE="https://gitlab.com/etke.cc/tools/agru"
-SRC_URI="https://gitlab.com/etke.cc/tools/agru/-/archive/v${PV}/v${PV}.tar.gz -> ${P}.tar.gz
+SRC_URI="https://gitlab.com/etke.cc/tools/agru/-/archive/v${PV}/v${PV}.tar.bz2 -> ${P}.tar.bz2
          https://xwaretech.info/agru-${PV}-deps.tar.xz"
+S="${WORKDIR}/${PN}-v${PV}-d6a2bd6d8a4fca3dbb0201c020e4f70ce9a90c39"
+
 
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-RESTRICT="mirror strip"
-
-S="${WORKDIR}/${PN}-v${PV}-d6a2bd6d8a4fca3dbb0201c020e4f70ce9a90c39"
 
 src_compile() {
 	cd "${S}/cmd/agru" || die
-	ego build -o agru || die
+	ego build -o agru
 }
 
 src_install() {
