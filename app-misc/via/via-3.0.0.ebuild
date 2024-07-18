@@ -56,7 +56,7 @@ src_install() {
 	# The AppImage is self-contained and is installed as a binary directly, but
 	# it also contains a `.desktop` file and app icons that we want; we can
 	# extract those from its contents.
-	"${ED}/usr/bin/via" --appimage-extract
+	"${ED}/usr/bin/via" --appimage-extract || die
 
 	local size
 	for size in 16 24 32 48 64 96 128 256 512 1024; do
