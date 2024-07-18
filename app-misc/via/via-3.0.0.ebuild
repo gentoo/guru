@@ -14,6 +14,10 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# Stripping AppImage binaries causes them to no longer recognize their internal
+# filesystem.
+RESTRICT="strip"
+
 # These dependencies were extracted from the shared libraries required by the
 # via-nativia executable; it's not clear whether these are all _actually_
 # required, or whether the list is extensive because the executable is an
@@ -41,21 +45,13 @@ RDEPEND="
 	x11-libs/pango
 "
 
-src_unpack() {
-	# The AppImage is self-contained so we'll install it as a binary directly,
-	# but it also contains a `.desktop` file and app icons that we want; we can
-	# move it into "${S}", and also extract its contents into there.
-	mkdir -p "${S}" \
-	    && mv "${DISTDIR}/${P}.AppImage" "${S}" \
-	    && chmod +x "${S}/${P}.AppImage" \
-		&& pushd "${S}" \
-	    && "${S}/${P}.AppImage" --appimage-extract \
-	    && popd \
-		|| die
-}
-
 src_install() {
-	newbin "${S}/${P}.AppImage" via
+	newbin "${DISTDIR}/${P}.AppImage" via
+
+	# The AppImage is self-contained and is installed as a binary directly, but
+	# it also contains a `.desktop` file and app icons that we want; we can
+	# extract those from its contents.
+	"${ED}/usr/bin/via" --appimage-extract
 
 	local size
 	for size in 16 24 32 48 64 96 128 256 512 1024; do
@@ -65,6 +61,6 @@ src_install() {
 	# The inner `.desktop` file points to an internal binary; we can use the
 	# file but point it to the installed binary path.
 	local menu_path="${S}/squashfs-root/via-nativia.desktop"
-	sed -i '' -e 's|^Exec=.*$|Exec=/usr/bin/via|' "${menu_path}"
+	sed -ie "s|^Exec=.*$|Exec=${EPREFIX}/usr/bin/via|" "${menu_path}" || die
 	domenu "${menu_path}"
 }
