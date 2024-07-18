@@ -49,6 +49,8 @@ RDEPEND="
 	x11-libs/pango
 "
 
+QA_FLAGS_IGNORED="usr/bin/via"
+
 src_install() {
 	newbin "${DISTDIR}/${P}.AppImage" via
 
