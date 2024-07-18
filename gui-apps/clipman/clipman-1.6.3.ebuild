@@ -16,7 +16,6 @@ SRC_URI+=" ${DEPS_URI}"
 LICENSE="BSD GPL-3 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+man"
 
 DEPEND="
 	>=gui-apps/wl-clipboard-2
@@ -33,6 +32,6 @@ src_compile() {
 
 src_install() {
 	dobin ${PN}
-	use man && doman docs/${PN}.1
+	doman docs/${PN}.1
 	einstalldocs
 }
