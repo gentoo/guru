@@ -17,11 +17,17 @@ RDEPEND="app-backup/timeshift"
 
 PATCHES=( "${FILESDIR}/${PN}-remove-arch-specific.patch" )
 
+bashrc=/etc/portage/bashrc
 DISABLE_AUTOFORMATTING=1
-DOC_CONTENTS='to run timeshift-autosnap everytime you emerge a package run:
-$ touch /etc/portage/bashrc
-$ grep -q  "#!/bin/" /etc/portage/bashrc || awk -i inplace "BEGINFILE{print "#!/bin/sh"}{print}" /etc/portage/bashrc
-$ grep -q timeshift-autosnap /etc/portage/bashrc || echo "function pre_pkg_setup() { /usr/bin/timeshift-autosnap ; }" >> /etc/portage/bashrc'
+DOC_CONTENTS="to run timeshift-autosnap everytime you emerge a package run:
+# touch ${bashrc}
+
+# grep -q '#!/bin/' ${bashrc} || awk -i inplace 'BEGINFILE{print '#!/bin/sh'}{print}' ${bashrc}
+
+# grep -q timeshift-autosnap ${bashrc} || echo '
+function pre_pkg_setup() {
+	/usr/bin/timeshift-autosnap ;
+}' >> ${bashrc}"
 
 src_install(){
 	dobin timeshift-autosnap
