@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,11 +19,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DOCS=(
-	"README.md"
-	"SECURITY.md"
-)
-
 src_compile() {
 	ego build -o "${PN}" -ldflags="-X main.version=${PV}" ./cmd/modern
 }
@@ -39,5 +34,9 @@ src_install() {
 	dofishcomp "completions/${PN}.fish"
 	dozshcomp "completions/_${PN}"
 
+	local DOCS=(
+		"README.md"
+		"SECURITY.md"
+	)
 	einstalldocs
 }

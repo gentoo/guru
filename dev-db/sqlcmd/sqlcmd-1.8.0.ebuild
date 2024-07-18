@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -34,9 +34,10 @@ src_install() {
 	dofishcomp "completions/${PN}.fish"
 	dozshcomp "completions/_${PN}"
 
-DOCS=(
-	"README.md"
-	"SECURITY.md"
-)
+	local DOCS=(
+		"README.md"
+		"SECURITY.md"
+	)
+
 	einstalldocs
 }
