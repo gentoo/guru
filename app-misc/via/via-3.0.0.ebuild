@@ -30,7 +30,6 @@ RDEPEND="
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/mesa
-	media-video/ffmpeg
 	net-print/cups
 	sys-apps/dbus
 	sys-fs/fuse:0
