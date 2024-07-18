@@ -6,7 +6,7 @@ EAPI=8
 inherit desktop xdg
 
 DESCRIPTION="GUI configurator for supported QMK-based keyboards"
-HOMEPAGE="https://caniusevia.com"
+HOMEPAGE="https://www.caniusevia.com/"
 SRC_URI="https://github.com/the-via/releases/releases/download/v${PV}/${P}-linux.AppImage -> ${P}.AppImage"
 
 S="${WORKDIR}"
