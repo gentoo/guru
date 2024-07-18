@@ -30,6 +30,6 @@ src_install() {
 	dobin ${PN}
 
 	doman docs/${PN}.1
-	DOCS=("README.md")
+	local DOCS=("README.md")
 	einstalldocs
 }
