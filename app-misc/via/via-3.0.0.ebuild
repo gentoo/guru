@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop
+inherit desktop xdg
 
 DESCRIPTION="GUI configurator for supported QMK-based keyboards"
 HOMEPAGE="https://caniusevia.com"
