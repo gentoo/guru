@@ -17,17 +17,14 @@
     systems.
   </longdescription>
   <use>
-    <flag name="encryption">
-      Enable encryption support
-    </flag>
     <flag name="mbedtls">
-      Use mbedtls for encryption
+      Enable encryption support using <pkg>net-libs/mbedtls</pkg>
+    </flag>
+    <flag name="openssl">
+      Enable encryption support using <pkg>dev-libs/openssl</pkg>
     </flag>
     <flag name="pubsub">
       Enable OPC/UA Pub/Sub extensions
-    </flag>
-    <flag name="openssl">
-      Use openssl for encryption
     </flag>
     <flag name="tools">
       Build additional shell tools
