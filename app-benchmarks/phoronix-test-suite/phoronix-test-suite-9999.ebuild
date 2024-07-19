@@ -8,7 +8,7 @@ EAPI=8
 inherit bash-completion-r1 git-r3 xdg-utils
 
 DESCRIPTION="Phoronix's comprehensive, cross-platform testing and benchmark suite"
-HOMEPAGE="http://www.phoronix-test-suite.com"
+HOMEPAGE="https://www.phoronix-test-suite.com"
 EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 EGIT3_STORE_DIR="${T}"
 
