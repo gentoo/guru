@@ -69,7 +69,7 @@ get_optional_dependencies()
 	local package_close_regexp="</Package>" \
 		  package_generic_name_regexp="^.*<GenericName>|</GenericName>.*$" \
 		  package_names_regexp="^.*<PackageName>|</PackageName>.*$"
-		  reg="s@(^[[:blank:]]+|[[:blank:]]+$)$@@g"
+		  reg='s@(^[[:blank:]]+|[[:blank:]]+$)$@@g'
 
 	line=0
 	while IFS=$'\n' read -r optional_packages_xmlline; do
