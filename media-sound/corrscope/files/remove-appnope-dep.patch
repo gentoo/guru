@@ -1,0 +1,87 @@
+diff --git a/PKG-INFO b/PKG-INFO
+index 59a2ee4..4407908 100644
+--- a/PKG-INFO
++++ b/PKG-INFO
+@@ -21,7 +21,6 @@ Requires-Dist: PyQt5-Qt5 (>=5.15,<5.15.11) ; extra == "qt5"
+ Requires-Dist: PyQt6 (>=6.2,<7.0) ; extra == "qt6"
+ Requires-Dist: QtPy (>=2.0.1,<3.0.0)
+ Requires-Dist: appdirs (>=1.4.4,<2.0.0)
+-Requires-Dist: appnope (>=0.1.3,<0.2.0)
+ Requires-Dist: atomicwrites (>=1.4.0,<2.0.0)
+ Requires-Dist: attrs (>=21.2.0,<22.0.0)
+ Requires-Dist: click (>=8.0.1,<9.0.0)
+diff --git a/corrscope/corrscope.py b/corrscope/corrscope.py
+index 79a6cba..d20b4c4 100644
+--- a/corrscope/corrscope.py
++++ b/corrscope/corrscope.py
+@@ -197,11 +197,6 @@ class Arguments:
+ 
+ 
+ def worker_create_renderer(renderer_params: RendererParams, shmem_names: List[str]):
+-    import appnope
+-
+-    # Disable power saving for renderer processes.
+-    appnope.nope()
+-
+     global WORKER_RENDERER
+     global SHMEMS
+ 
+diff --git a/corrscope/gui/__init__.py b/corrscope/gui/__init__.py
+index f983021..afe2993 100644
+--- a/corrscope/gui/__init__.py
++++ b/corrscope/gui/__init__.py
+@@ -10,7 +10,6 @@ from pathlib import Path
+ from types import MethodType
+ from typing import Optional, List, Any, Tuple, Callable, Union, Dict, Sequence, NewType
+ 
+-import appnope
+ import qtpy.QtCore as qc
+ import qtpy.QtWidgets as qw
+ import attr
+@@ -803,22 +802,21 @@ class CorrJob(qc.QObject):
+         """Called in separate thread."""
+         cfg = self.cfg
+         arg = self.arg
+-        with appnope.nope_scope(reason="corrscope preview/render active"):
+-            try:
+-                self.corr = CorrScope(cfg, arg)
+-                self.corr.play()
++        try:
++            self.corr = CorrScope(cfg, arg)
++            self.corr.play()
+ 
+-            except paths.MissingFFmpegError:
+-                arg.on_end()
+-                self.ffmpeg_missing.emit()
++        except paths.MissingFFmpegError:
++            arg.on_end()
++            self.ffmpeg_missing.emit()
+ 
+-            except Exception as e:
+-                arg.on_end()
+-                stack_trace = format_stack_trace(e)
+-                self.error.emit(stack_trace)
++        except Exception as e:
++            arg.on_end()
++            stack_trace = format_stack_trace(e)
++            self.error.emit(stack_trace)
+ 
+-            else:
+-                arg.on_end()
++        else:
++            arg.on_end()
+ 
+ 
+ class CorrThread(Thread):
+diff --git a/pyproject.toml b/pyproject.toml
+index 9c281ee..59cbe64 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -32,7 +32,6 @@ QtPy = "^2.0.1"
+ PyQt5 = {version = "^5.15", optional = true}
+ PyQt5-Qt5 = {version = "^5.15,<5.15.11", optional = true}
+ PyQt6 = {version = "^6.2", optional = true}
+-appnope = "^0.1.3"
+ 
+ [tool.poetry.extras]
+ qt5 = ["PyQt5", "PyQt5-Qt5"]

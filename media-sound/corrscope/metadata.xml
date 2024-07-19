@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>artemis@artemis.sh</email>
+		<name>Artemis Everfree</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">corrscope</remote-id>
+		<remote-id type="github">corrscope/corrscope</remote-id>
+	</upstream>
+</pkgmetadata>
