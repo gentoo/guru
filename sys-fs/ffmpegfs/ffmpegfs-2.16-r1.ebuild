@@ -17,6 +17,7 @@ IUSE="bluray dvd"
 RESTRICT="test"  # needs /dev/fuse
 
 BDEPEND="
+	app-editors/vim-core
 	app-text/asciidoc
 	virtual/pkgconfig
 	www-client/w3m
