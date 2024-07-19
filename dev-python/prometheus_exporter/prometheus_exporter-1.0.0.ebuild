@@ -16,6 +16,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-    >=dev-python/zenlib-2.1.2[${PYTHON_USEDEP}]
-    >=dev-python/aiohttp-3.9.4[${PYTHON_USEDEP}]
+	>=dev-python/zenlib-2.1.2[${PYTHON_USEDEP}]
+	>=dev-python/aiohttp-3.9.4[${PYTHON_USEDEP}]
 "

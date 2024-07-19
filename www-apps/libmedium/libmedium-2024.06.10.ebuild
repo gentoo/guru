@@ -345,13 +345,13 @@ export ZSTD_SYS_USE_PKG_CONFIG=1
 export PKG_CONFIG_ALLOW_CROSS=1
 
 src_prepare() {
-        default
-        sed -i -e 's/#cache = "\/var\/lib\/libmedium"/cache = "\/var\/cache\/libmedium"/' 'config/default.toml' || die
+	default
+	sed -i -e 's/#cache = "\/var\/lib\/libmedium"/cache = "\/var\/cache\/libmedium"/' 'config/default.toml' || die
 }
 
 src_install() {
-        cargo_src_install
-        newinitd "${FILESDIR}/libmedium.initd" "libmedium"
-        insinto "/etc/libmedium"
-        newins "config/default.toml" "config.toml"
+	cargo_src_install
+	newinitd "${FILESDIR}/libmedium.initd" "libmedium"
+	insinto "/etc/libmedium"
+	newins "config/default.toml" "config.toml"
 }

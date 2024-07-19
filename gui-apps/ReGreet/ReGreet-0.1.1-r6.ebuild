@@ -231,10 +231,10 @@ RDEPEND="
 	gui-libs/gtk
 	gui-libs/greetd
 	dev-libs/glib
- 	media-libs/graphene
- 	x11-libs/cairo
- 	x11-libs/gdk-pixbuf
- 	x11-libs/pango
+	media-libs/graphene
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/pango
 "
 BDEPEND="
 	virtual/rust
@@ -308,7 +308,7 @@ src_install() {
 
 }
 
-src_post_install () {
+src_post_install() {
 	if use systemd; then
 		# Run systemd-tmpfiles to create the log and cache folder
 		tmpfiles_process regreet.conf

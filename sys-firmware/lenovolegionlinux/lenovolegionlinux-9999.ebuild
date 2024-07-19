@@ -80,14 +80,14 @@ src_install() {
 
 		systemd_dounit service/legiond.service service/legiond-onresume.service service/legiond-cpuset.service service/legiond-cpuset.timer
 
-        newinitd service/legiond.initd legiond
+		newinitd service/legiond.initd legiond
 		newinitd service/legiond-cpuset.initd legiond
 		newsbin service/legiond-cpuset.sh legiond-cpuset
 
-        if use elogind; then
-            exeinto /lib64/elogind/system-sleep/
-            doexe service/legiond-onresume.sh
-        fi
+		if use elogind; then
+			exeinto /lib64/elogind/system-sleep/
+			doexe service/legiond-onresume.sh
+		fi
 
 		insinto /etc/acpi/events
 		doins acpi/events/{legion_ppd,legion_ac}
@@ -112,7 +112,7 @@ pkg_postinst() {
 	ewarn "Pls test the feature how is decribe in the README of the project!"
 	ewarn "and also go to this issue in github: https://github.com/johnfanv2/LenovoLegionLinux/issues/46"
 
-    optfeature "radeon dgpu power management" dev-util/rocm-smi
-    optfeature "ryzen CPU tweaks" sys-power/RyzenAdj
-    optfeature "intel CPU tweaks" dev-python/undervolt
+	optfeature "radeon dgpu power management" dev-util/rocm-smi
+	optfeature "ryzen CPU tweaks" sys-power/RyzenAdj
+	optfeature "intel CPU tweaks" dev-python/undervolt
 }

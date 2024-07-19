@@ -43,13 +43,12 @@ BDEPEND="
 "
 
 pkg_pretend() {
-
-		if use intel-avx2 && [[ ! -e "${ROOT}"/etc/portage/patches/app-crypt/intel-ipsec-mb/remove_digest_init.patch ]]; then
-			eerror "${ROOT}/etc/portage/patches/app-crypt/intel-ipsec-mb/remove_digest_init.patch does not exist!"
-			eerror "To build with avx2 intel support, please create ${ROOT}/etc/portage/patches/app-crypt/intel-ipsec-mb directory"
-			eerror "and copy patch from package net-p2p/dogecoin-qt/files/intel-ipsec-mb/remove_digest_init.patch into that directory"
-			die
-		fi
+	if use intel-avx2 && [[ ! -e "${ROOT}"/etc/portage/patches/app-crypt/intel-ipsec-mb/remove_digest_init.patch ]]; then
+		eerror "${ROOT}/etc/portage/patches/app-crypt/intel-ipsec-mb/remove_digest_init.patch does not exist!"
+		eerror "To build with avx2 intel support, please create ${ROOT}/etc/portage/patches/app-crypt/intel-ipsec-mb directory"
+		eerror "and copy patch from package net-p2p/dogecoin-qt/files/intel-ipsec-mb/remove_digest_init.patch into that directory"
+		die
+	fi
 }
 
 src_prepare() {
@@ -94,15 +93,15 @@ src_install() {
 	insinto "${DOGEDIR}/bin"
 
 	if use gui ; then
-        insinto /usr/share/pixmaps
-        doins src/qt/res/icons/dogecoin.png
-        dosym "${DOGEDIR}/bin/${PN}" "/usr/bin/${PN}"
+		insinto /usr/share/pixmaps
+		doins src/qt/res/icons/dogecoin.png
+		dosym "${DOGEDIR}/bin/${PN}" "/usr/bin/${PN}"
 
-        if use prune ; then
-            domenu "${FILESDIR}"/"${PN}-prune.desktop"
-        else
-            domenu "${FILESDIR}"/"${PN}.desktop"
-        fi
+		if use prune ; then
+			domenu "${FILESDIR}"/"${PN}-prune.desktop"
+		else
+			domenu "${FILESDIR}"/"${PN}.desktop"
+		fi
 	fi
 
 	if use dogecoind ; then

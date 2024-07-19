@@ -28,8 +28,8 @@ BDEPEND="
 "
 
 src_configure() {
-        local emesonargs=(
-                $(meson_feature man man-pages)
-		)
-        meson_src_configure
+	local emesonargs=(
+			$(meson_feature man man-pages)
+	)
+	meson_src_configure
 }

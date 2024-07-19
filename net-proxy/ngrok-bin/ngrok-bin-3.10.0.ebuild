@@ -7,14 +7,14 @@ DESCRIPTION="ngrok is a reverse proxy, firewall, and API gateway"
 HOMEPAGE="https://ngrok.org"
 # Each supported arch should get their own bins
 SRC_URI="
-    amd64? ( https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz -> ${P}.tgz )
-    arm? ( https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm.tgz -> ${P}.tgz )
-    arm64? ( https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm64.tgz -> ${P}.tgz )
-    mips? ( https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-mips.tgz -> ${P}.tgz )
-    ppc64? ( https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-ppc64.tgz -> ${P}.tgz )
-    s390? ( https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-s390x.tgz -> ${P}.tgz )
-    x86? ( https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-386.tgz -> ${P}.tgz )
-    "
+	amd64? ( https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz -> ${P}.tgz )
+	arm? ( https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm.tgz -> ${P}.tgz )
+	arm64? ( https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm64.tgz -> ${P}.tgz )
+	mips? ( https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-mips.tgz -> ${P}.tgz )
+	ppc64? ( https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-ppc64.tgz -> ${P}.tgz )
+	s390? ( https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-s390x.tgz -> ${P}.tgz )
+	x86? ( https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-386.tgz -> ${P}.tgz )
+"
 S="${WORKDIR}/"
 
 LICENSE="MIT"
@@ -24,9 +24,9 @@ KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc64 ~s390 ~x86"
 RESTRICT="mirror strip"
 
 src_compile() {
- :
+:
 }
 
 src_install() {
-    dobin ngrok
+	dobin ngrok
 }

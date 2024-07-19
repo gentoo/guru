@@ -14,16 +14,16 @@ SLOT="0"
 IUSE="lzfse"
 
 DEPEND="
-    app-arch/bzip2
-    dev-libs/openssl
-    sys-libs/zlib
-    lzfse? ( dev-libs/lzfse )
+	app-arch/bzip2
+	dev-libs/openssl
+	sys-libs/zlib
+	lzfse? ( dev-libs/lzfse )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="${DEPEND}"
 
 src_compile() {
-    emake HAVE_LZFSE=$(usex lzfse 1 0) CC="$(tc-getCC)" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
+	emake HAVE_LZFSE=$(usex lzfse 1 0) CC="$(tc-getCC)" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
 }
 
 src_install() {

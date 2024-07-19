@@ -13,9 +13,9 @@ LICENSE="GPL-3"
 SLOT="0"
 
 DEPEND="
-    x11-libs/gtk+:3
-    dev-libs/libayatana-appindicator
-    media-video/gpu-screen-recorder
+	x11-libs/gtk+:3
+	dev-libs/libayatana-appindicator
+	media-video/gpu-screen-recorder
 "
 RDEPEND="${DEPEND}"
 BDEPEND="${DEPEND}"

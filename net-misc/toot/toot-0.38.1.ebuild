@@ -23,7 +23,7 @@ DEPEND="
 		>=dev-python/beautifulsoup4-4.12.2
 		>=dev-python/tomlkit-0.11.8
 		test? ( dev-python/psycopg:2
-        		>=dev-python/pytest-7.4.0 )
+		>=dev-python/pytest-7.4.0 )
 "
 RDEPEND="${DEPEND}"
 

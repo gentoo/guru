@@ -18,9 +18,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-    app-editors/vim
+	app-editors/vim
 "
 
 src_install() {
-    vim-plugin_src_install
+	vim-plugin_src_install
 }

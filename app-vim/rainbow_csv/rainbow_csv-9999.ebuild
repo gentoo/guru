@@ -17,5 +17,5 @@ app-editors/vim
 "
 
 src_install() {
-    vim-plugin_src_install
+	vim-plugin_src_install
 }

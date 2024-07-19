@@ -19,8 +19,8 @@ IUSE="crypt"
 DEPEND="crypt? ( dev-libs/olm )"
 
 RDEPEND="
-        ${DEPEND}
-        acct-user/${PN}
+	${DEPEND}
+	acct-user/${PN}
 "
 
 src_compile() {

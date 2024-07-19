@@ -6,8 +6,10 @@ inherit go-module
 
 DESCRIPTION="A tool for managing GitLab groups and projects"
 HOMEPAGE="https://gitlab.com/etke.cc/tools/agru"
+
 SRC_URI="https://gitlab.com/etke.cc/tools/agru/-/archive/v${PV}/v${PV}.tar.bz2 -> ${P}.tar.bz2
-         https://xwaretech.info/agru-${PV}-deps.tar.xz"
+https://xwaretech.info/agru-${PV}-deps.tar.xz"
+
 S="${WORKDIR}/${PN}-v${PV}-d6a2bd6d8a4fca3dbb0201c020e4f70ce9a90c39"
 
 LICENSE="AGPL-3"

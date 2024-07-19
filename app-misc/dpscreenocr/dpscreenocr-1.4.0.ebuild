@@ -21,10 +21,10 @@ RDEPEND="app-text/tesseract
 DEPEND="${RDEPEND}"
 
 src_configure() {
-        local mycmakeargs=(
-                '-DCMAKE_BUILD_TYPE=Release'
-        )
-        cmake_src_configure
+	local mycmakeargs=(
+			'-DCMAKE_BUILD_TYPE=Release'
+	)
+	cmake_src_configure
 }
 
 src_install() {
