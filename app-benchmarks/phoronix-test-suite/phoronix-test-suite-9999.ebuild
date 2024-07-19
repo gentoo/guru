@@ -117,8 +117,13 @@ src_install() {
 pkg_postinst() {
 	xdg_icon_cache_update
 	xdg_mimeinfo_database_update
+	xdg_desktop_database_update
 
 	ewarn "${PN} has the following optional package dependencies:"
 	get_optional_dependencies "${GENTOO_OPTIONAL_PKGS_XML}"
 	unset -v GENTOO_OPTIONAL_PKGS_XML
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
 }
