@@ -67,7 +67,6 @@ src_install() {
 	dolib.so "${build_dir}/pan/tasks/libtasks.so"
 	dolib.so "${build_dir}/pan/usenet-utils/libusenet-utils.so"
 
-
 }
 
 src_test() {

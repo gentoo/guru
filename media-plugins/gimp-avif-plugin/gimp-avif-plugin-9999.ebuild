@@ -17,5 +17,4 @@ DEPEND=">=media-gfx/gimp-2.99.11
 	>=media-libs/gexiv2-0.12.2
 "
 
-
 RDEPEND="${DEPEND}"
