@@ -50,5 +50,9 @@ src_compile() {
 }
 
 src_install() {
-	emake -f src/plugins/occurrence/Makefile FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" DESTDIR="${ED}" install
+	emake -f src/plugins/occurrence/Makefile \
+		FRAMAC_SHARE="${FRAMAC_SHARE}" \
+		FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" \
+		DESTDIR="${ED}" \
+		install
 }

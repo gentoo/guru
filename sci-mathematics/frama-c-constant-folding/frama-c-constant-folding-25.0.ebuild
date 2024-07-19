@@ -22,6 +22,8 @@ RDEPEND="~sci-mathematics/frama-c-${PV}:=[ocamlopt?]
 		~sci-mathematics/frama-c-eva-${PV}:=[ocamlopt?]"
 DEPEND="${RDEPEND}"
 
+p="src/plugins/constant_propagation/Makefile"
+
 src_prepare() {
 	mv configure.in configure.ac || die
 	sed -i 's/configure\.in/configure.ac/g' Makefile.generating Makefile || die
@@ -38,9 +40,9 @@ src_configure() {
 		--enable-semantic-constant-folding \
 		--enable-eva \
 		--enable-server
-	printf 'include share/Makefile.config\n' > src/plugins/constant_propagation/Makefile || die
-	sed -e '/^# *Constant propagation/bl;d' -e ':l' -e '/^\$(eval/Q;n;bl' < Makefile >> src/plugins/constant_propagation/Makefile || die
-	printf 'include share/Makefile.dynamic\n' >> src/plugins/constant_propagation/Makefile || die
+	printf 'include share/Makefile.config\n' > ${p} || die
+	sed -e '/^# *Constant propagation/bl;d' -e ':l' -e '/^\$(eval/Q;n;bl' < Makefile >> ${p} || die
+	printf 'include share/Makefile.dynamic\n' >> ${p} || die
 	export FRAMAC_SHARE="${ESYSROOT}/usr/share/frama-c"
 	export FRAMAC_LIBDIR="${EPREFIX}/usr/$(get_libdir)/frama-c"
 	export ENABLE_EVA=yes
@@ -48,9 +50,9 @@ src_configure() {
 }
 
 src_compile() {
-	emake -f src/plugins/constant_propagation/Makefile FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}"
+	emake -f ${p} FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}"
 }
 
 src_install() {
-	emake -f src/plugins/constant_propagation/Makefile FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" DESTDIR="${ED}" install
+	emake -f ${p} FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" DESTDIR="${ED}" install
 }

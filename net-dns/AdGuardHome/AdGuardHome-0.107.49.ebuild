@@ -9,11 +9,13 @@ DESCRIPTION="Network-wide ads & trackers blocking DNS server like Pi-Hole with w
 HOMEPAGE="https://github.com/AdguardTeam/AdGuardHome/"
 
 WIKI_COMMIT="3b27176"
+
+dist="https://github.com/rahilarious/gentoo-distfiles"
 SRC_URI="
 	https://github.com/AdguardTeam/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/deps.tar.xz -> ${P}-deps.tar.xz
-	https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/wiki.tar.xz -> ${PN}-wiki-${WIKI_COMMIT}.tar.xz
-	web? ( https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/npm-deps.tar.xz -> ${P}-npm-deps.tar.xz )
+	${dist}/releases/download/${P}/deps.tar.xz -> ${P}-deps.tar.xz
+	${dist}/releases/download/${P}/wiki.tar.xz -> ${PN}-wiki-${WIKI_COMMIT}.tar.xz
+	web? ( ${dist}/releases/download/${P}/npm-deps.tar.xz -> ${P}-npm-deps.tar.xz )
 "
 
 # main
@@ -63,7 +65,16 @@ src_prepare() {
 	if use web; then
 		# mimicking `make js-deps`
 		export npm_config_cache="${WORKDIR}/npm-cache" NODE_OPTIONS=--openssl-legacy-provider || die
-		npm --verbose --offline --prefix client/ --no-progress --ignore-engines --ignore-optional --ignore-platform --ignore-scripts ci || die
+		npm \
+			--verbose \
+			--offline \
+			--prefix client/ \
+			--no-progress \
+			--ignore-engines \
+			--ignore-optional \
+			--ignore-platform \
+			--ignore-scripts ci \
+			|| die
 	fi
 }
 

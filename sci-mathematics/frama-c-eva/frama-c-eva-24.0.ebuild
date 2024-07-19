@@ -28,6 +28,8 @@ DEPEND="${RDEPEND}"
 # But it is not needed for compilation, and would introduce a mutual dependency
 PDEPEND="~sci-mathematics/frama-c-scope-${PV}:=[ocamlopt?]"
 
+p="src/plugins/value/Makefile"
+
 src_prepare() {
 	mv configure.in configure.ac || die
 	sed -i 's/configure\.in/configure.ac/g' Makefile.generating Makefile || die
@@ -44,18 +46,18 @@ src_configure() {
 		--enable-callgraph \
 		--enable-server \
 		--enable-eva
-	printf 'include share/Makefile.config\n' > src/plugins/value/Makefile || die
-	sed -e '/^# *Evolved Value Analysis/bl;d' -e ':l' -e '/^\$(eval/Q;n;bl' < Makefile >> src/plugins/value/Makefile || die
-	printf 'include share/Makefile.dynamic\n' >> src/plugins/value/Makefile || die
+	printf 'include share/Makefile.config\n' > ${p} || die
+	sed -e '/^# *Evolved Value Analysis/bl;d' -e ':l' -e '/^\$(eval/Q;n;bl' < Makefile >> ${p} || die
+	printf 'include share/Makefile.dynamic\n' >> ${p} || die
 	export FRAMAC_SHARE="${ESYSROOT}/usr/share/frama-c"
 	export FRAMAC_LIBDIR="${EPREFIX}/usr/$(get_libdir)/frama-c"
 }
 
 src_compile() {
 	tc-export AR
-	emake -f src/plugins/value/Makefile FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}"
+	emake -f ${p} FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}"
 }
 
 src_install() {
-	emake -f src/plugins/value/Makefile FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" DESTDIR="${ED}" install
+	emake -f ${p} FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" DESTDIR="${ED}" install
 }

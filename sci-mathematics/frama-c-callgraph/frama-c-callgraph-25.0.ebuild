@@ -48,9 +48,16 @@ src_configure() {
 
 src_compile() {
 	use gtk && emake src/plugins/callgraph/cg_viewer.ml
-	emake -f src/plugins/callgraph/Makefile FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" HAS_DGRAPH="${HAS_DGRAPH}"
+	emake -f src/plugins/callgraph/Makefile \
+		FRAMAC_SHARE="${FRAMAC_SHARE}" \
+		FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" \
+		HAS_DGRAPH="${HAS_DGRAPH}"
 }
 
 src_install() {
-	emake -f src/plugins/callgraph/Makefile FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" HAS_DGRAPH="${HAS_DGRAPH}" DESTDIR="${ED}" install
+	emake -f src/plugins/callgraph/Makefile \
+		FRAMAC_SHARE="${FRAMAC_SHARE}" \
+		FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" \
+		HAS_DGRAPH="${HAS_DGRAPH}" \
+		DESTDIR="${ED}" install
 }

@@ -9,10 +9,12 @@ MY_POSTFIX="${PN}-v${PV}"
 
 DESCRIPTION="The OpenCilk concurrency platform for parallel programming"
 HOMEPAGE="https://opencilk.org/"
+
+p=https://github.com/OpenCilk
 SRC_URI="
-	https://github.com/OpenCilk/opencilk-project/archive/refs/tags/opencilk/v${PV}.tar.gz -> ${PN}-project-${PV}.tar.gz
-	https://github.com/OpenCilk/cheetah/archive/refs/tags/opencilk/v${PV}.tar.gz -> ${PN}-cheetah-${PV}.tar.gz
-	https://github.com/OpenCilk/productivity-tools/archive/refs/tags/opencilk/v${PV}.tar.gz -> ${PN}-productivity-tools-${PV}.tar.gz
+	${p}/opencilk-project/archive/refs/tags/opencilk/v${PV}.tar.gz -> ${PN}-project-${PV}.tar.gz
+	${p}/cheetah/archive/refs/tags/opencilk/v${PV}.tar.gz -> ${PN}-cheetah-${PV}.tar.gz
+	${p}/productivity-tools/archive/refs/tags/opencilk/v${PV}.tar.gz -> ${PN}-productivity-tools-${PV}.tar.gz
 "
 
 S="${WORKDIR}/${PN}-project-${MY_POSTFIX}"

@@ -38,7 +38,7 @@ python_test() {
 }
 
 pkg_postinst() {
-	optfeature "reading audio files in popular audio formats (ogg, mp3, etc.) or extracting audio from a video file" dev-python/pydub
+	optfeature "reading audio in popular formats (ogg, mp3, etc.) or extracting from a video" dev-python/pydub
 	optfeature "reading audio data from the microphone and playing audio back" dev-python/pyaudio
 	optfeature "showing progress bar while playing audio clips" dev-python/tqdm
 	optfeature "plotting audio signal and detections" dev-python/matplotlib

@@ -13,9 +13,12 @@ SPIRV_HEADERS_COMMIT_MAGIC="d13b52222c39a7e9a401b44646f0ca3a640fbd47"
 SPIRV_TOOLS_COMMIT_MAGIC="f36a8d47f738cc612c7dd89f145a15465ab437cd"
 DIRECTX_HEADERS_COMMIT_MAGIC="980971e835876dc0cde415e8f9bc646e64667bf7"
 SRC_URI="https://github.com/microsoft/DirectXShaderCompiler/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-https://github.com/KhronosGroup/SPIRV-Headers/archive/${SPIRV_HEADERS_COMMIT_MAGIC}.tar.gz -> DirectXShaderCompiler-headers-${SPIRV_HEADERS_COMMIT_MAGIC}.tar.gz
-https://github.com/KhronosGroup/SPIRV-Tools/archive/${SPIRV_TOOLS_COMMIT_MAGIC}.tar.gz -> DirectXShaderCompiler-tools-${SPIRV_TOOLS_COMMIT_MAGIC}.tar.gz
-https://github.com/microsoft/DirectX-Headers/archive/${DIRECTX_HEADERS_COMMIT_MAGIC}.tar.gz -> DirectXShaderCompiler-directxheaders-${DIRECTX_HEADERS_COMMIT_MAGIC}.tar.gz"
+https://github.com/KhronosGroup/SPIRV-Headers/archive/${SPIRV_HEADERS_COMMIT_MAGIC}.tar.gz ->
+	DirectXShaderCompiler-headers-${SPIRV_HEADERS_COMMIT_MAGIC}.tar.gz
+https://github.com/KhronosGroup/SPIRV-Tools/archive/${SPIRV_TOOLS_COMMIT_MAGIC}.tar.gz ->
+	DirectXShaderCompiler-tools-${SPIRV_TOOLS_COMMIT_MAGIC}.tar.gz
+https://github.com/microsoft/DirectX-Headers/archive/${DIRECTX_HEADERS_COMMIT_MAGIC}.tar.gz ->
+	DirectXShaderCompiler-directxheaders-${DIRECTX_HEADERS_COMMIT_MAGIC}.tar.gz"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc"
 SLOT="0"

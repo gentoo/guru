@@ -9,10 +9,11 @@ DESCRIPTION="CLI frontend client connects to Bitwarden comapatible password mana
 HOMEPAGE="https://github.com/bitwarden/clients/tree/main/apps/cli"
 
 BW_CLIENTS_COMMIT="82998d8"
+distfiles=https://github.com/rahilarious/gentoo-distfiles/releases/download/
 SRC_URI="
 	https://github.com/bitwarden/clients/archive/refs/tags/cli-v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/rahilarious/gentoo-distfiles/releases/download/bitwarden-clients-${BW_CLIENTS_COMMIT}/deps.tar.xz -> bitwarden-clients-${BW_CLIENTS_COMMIT}.tar.xz
-	https://github.com/rahilarious/gentoo-distfiles/releases/download/${PN}-2024.2.0/pkg-cache.tar.xz -> ${PN}-2024.2.0-pkg-cache.tar.xz
+	${distfiles}bitwarden-clients-${BW_CLIENTS_COMMIT}/deps.tar.xz -> bitwarden-clients-${BW_CLIENTS_COMMIT}.tar.xz
+	${distfiles}${PN}-2024.2.0/pkg-cache.tar.xz -> ${PN}-2024.2.0-pkg-cache.tar.xz
 "
 
 S="${WORKDIR}/clients-cli-v${PV}"

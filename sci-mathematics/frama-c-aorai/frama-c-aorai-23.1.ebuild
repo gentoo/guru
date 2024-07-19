@@ -41,5 +41,10 @@ src_compile() {
 }
 
 src_install() {
-	emake FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" ENABLE_EVA="${ENABLE_EVA}" DESTDIR="${ED}" install
+	emake \
+		FRAMAC_SHARE="${FRAMAC_SHARE}" \
+		FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" \
+		ENABLE_EVA="${ENABLE_EVA}" \
+		DESTDIR="${ED}" \
+		install
 }

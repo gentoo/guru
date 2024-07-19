@@ -10,11 +10,13 @@ inherit font
 
 DESCRIPTION="Pan-CJK OpenType/CFF font family"
 HOMEPAGE="https://github.com/adobe-fonts/source-han-serif/"
+
+p="https://github.com/adobe-fonts"
 SRC_URI="
-	l10n_ja? ( https://github.com/adobe-fonts/${PN}/releases/download/${PV}R/12_SourceHanSerifJP.zip -> ${PN}-ja-${PV}.zip )
-	l10n_ko? ( https://github.com/adobe-fonts/${PN}/releases/download/${PV}R/13_SourceHanSerifKR.zip -> ${PN}-ko-${PV}.zip )
-	l10n_zh-CN? ( https://github.com/adobe-fonts/${PN}/releases/download/${PV}R/14_SourceHanSerifCN.zip -> ${PN}-zh_CN-${PV}.zip )
-	l10n_zh-TW? ( https://github.com/adobe-fonts/${PN}/releases/download/${PV}R/15_SourceHanSerifTW.zip -> ${PN}-zh_TW-${PV}.zip )
+	l10n_ja? ( ${p}/${PN}/releases/download/${PV}R/12_SourceHanSerifJP.zip -> ${PN}-ja-${PV}.zip )
+	l10n_ko? ( ${p}/${PN}/releases/download/${PV}R/13_SourceHanSerifKR.zip -> ${PN}-ko-${PV}.zip )
+	l10n_zh-CN? ( ${p}/${PN}/releases/download/${PV}R/14_SourceHanSerifCN.zip -> ${PN}-zh_CN-${PV}.zip )
+	l10n_zh-TW? ( ${p}/${PN}/releases/download/${PV}R/15_SourceHanSerifTW.zip -> ${PN}-zh_TW-${PV}.zip )
 "
 S=${WORKDIR}
 
