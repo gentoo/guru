@@ -1,13 +1,17 @@
 certificate version 0.1
-pusher C8ACBAD28C919F19 1721394312 +0900
-pushee gentoo:repo/proj/guru
-nonce 1721394312-9330587f070879def112b410739ab62ed4985f51
+pusher Vitaly Zdanevich <zdanevich.vitaly@ya.ru> 1721410467 +0400
+pushee git.gentoo.org:repo/proj/guru.git
+nonce 1721410467-8c4e19e8374aa845deac1508f387588f2e39823d
 
-8c927e8c3eb544bc94b356dccc33565e32a0d043 139ead166f89da8e428bdc88a1f94a239cdfd33d refs/heads/dev
+139ead166f89da8e428bdc88a1f94a239cdfd33d 79341e9f046f373509b9ab9d14ef711797d5bfa5 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQT3FEDKUdX+khzTcBTIrLrSjJGfGQUCZppkiAAKCRDIrLrSjJGf
-GZXUAQDF7+r9SBak6SX1RCPAZBZAtsHH/4JbL32k13/QP7dLCwD+Lwf23LY1hWNL
-IrXdJRS96Oo9aJyq2jySHIn4TDb9/go=
-=gEOi
+iQFLBAABCAA1FiEEeh5Dwh4/uVzsjUwn6RzFZyPuEB4FAmaao6MXHHpkYW5ldmlj
+aC52aXRhbHlAeWEucnUACgkQ6RzFZyPuEB4VFggAxILgVYc3MPSV0qbwjVWmQ9vJ
+yMnsX1e2z6n4UvAE06r/r/LImoFO0T0NvoYYE9bIUY7Vg9VSfZG4JDDv/bHWVPdd
+2c889qWWfSTHtmjOaEhxlQ9BqurZktzrettx2groqBeqaU+pkampHdm1Vm0A2RPo
+KenhksoPfRqewyUEkEllX8BdWFDeagQAAoopT8W6x86Uv1BW2gl7Exuo0ykcvdyL
++6PZQMUO1qOUfy4Mmf5IFjbk96L6ys7FyB1JgOLBAmZMfZP5BQksxpW5c5thH9Sd
+Gj4qy4w6lhMhuid6Vza8yQY6df9pLnq8mbZ5rNrax/EYnrUYtU8mzdnq6/bG1A==
+=uWxJ
 -----END PGP SIGNATURE-----
