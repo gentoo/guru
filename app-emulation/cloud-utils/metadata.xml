@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>artemis@artemis.sh</email>
+		<name>Artemis Everfree</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">canonical/cloud-utils</remote-id>
+	</upstream>
+	<use>
+		<flag name="guest-utils">Installs utilities useful within a guest VM</flag>
+		<flag name="image-utils">Installs utilities useful for manipulating guest images from outside a guest VM</flag>
+	</use>
+</pkgmetadata>
