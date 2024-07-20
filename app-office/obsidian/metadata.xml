@@ -2,12 +2,12 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>rahul@sandhuservices.dev</email>
-		<name>Rahul Sandhu</name>
-	</maintainer>
-	<maintainer type="person">
 		<email>artemis@artemis.sh</email>
 		<name>Artemis Everfree</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>rahul@sandhuservices.dev</email>
+		<name>Rahul Sandhu</name>
 	</maintainer>
 	<longdescription lang="en">Obsidian is a powerful and extensible knowledge base
 that works on top of your local folder of plain text files.</longdescription>
