@@ -76,7 +76,11 @@ DEPEND="
 	)
 	thunar? ( xfce-base/thunar:= )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	dev-qt/qtquickcontrols:5
+	dev-qt/qtquickcontrols2:5
+"
 BDEPEND="
 	dev-qt/linguist-tools:5
 	dolphin? ( kde-frameworks/extra-cmake-modules )
