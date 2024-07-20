@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>joeypabalinas@gmail.com</email>
+		<name>Joey Pabalinas</name>
+		<description>alyptik</description>
+	</maintainer>
+	<longdescription lang="en">
+	CEPL is an interactive C and C++ read–eval–print loop (REPL) currently supporting multiple compilers, readline key-bindings/tab-completion, incremental undo, and assembler source code output.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">alyptik/cepl</remote-id>
+	</upstream>
+</pkgmetadata>
