@@ -387,7 +387,7 @@ QA_FLAGS_IGNORED="usr/bin/lact"
 
 src_configure() {
 	sed -i "/^strip =/d" Cargo.toml || die
-	use debug && { sed -i "s|target/release|target/debug|" Makefile || die; }
+	sed -i "s|target/release|$(cargo_target_dir)|" Makefile || die
 
 	local myfeatures=(
 		$(usev drm)
