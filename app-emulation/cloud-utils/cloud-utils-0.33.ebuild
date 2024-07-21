@@ -87,10 +87,6 @@ src_install() {
 		)
 	fi
 
-	local bindir="${D}/usr/bin"
-	local mandir="${D}/usr/share/man/man1"
-
-	mkdir -p "${bindir}" "${mandir}" || die
-	install "${wanted_bin[@]}" "${bindir}" || die
-	install "${wanted_man[@]}" "${mandir}" --mode=0644 || die
+	dobin "${wanted_bin[@]}"
+	doman "${wanted_man[@]}"
 }
