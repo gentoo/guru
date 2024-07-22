@@ -82,7 +82,3 @@ sys-libs/gcompat
 # (See also top comment)
 # Sorry for the inconvenience.
 app-office/lotus123r3
-
-# John M. Harris, Jr. <johnmh@johnmh.me> (2024-07-22)
-# Critical security vulnerability.
-<gui-libs/xdg-desktop-portal-hyprland-1.3.3
