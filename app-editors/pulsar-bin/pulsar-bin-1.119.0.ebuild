@@ -8,9 +8,10 @@ inherit desktop xdg
 DESCRIPTION="A Community-led Hyper-Hackable Text Editor"
 HOMEPAGE="https://pulsar-edit.dev/"
 
+ur=https://github.com/pulsar-edit/pulsar/releases/download
 SRC_URI="
-	amd64? ( https://github.com/pulsar-edit/pulsar/releases/download/v${PV}/Linux.pulsar-${PV}.tar.gz -> ${P}-amd64.tar.gz )
-	arm64? ( https://github.com/pulsar-edit/pulsar/releases/download/v${PV}/ARM.Linux.pulsar-${PV}-arm64.tar.gz -> ${P}-arm64.tar.gz )
+	amd64? ( ${ur}/v${PV}/Linux.pulsar-${PV}.tar.gz -> ${P}-amd64.tar.gz )
+	arm64? ( ${ur}/v${PV}/ARM.Linux.pulsar-${PV}-arm64.tar.gz -> ${P}-arm64.tar.gz )
 "
 S="${WORKDIR}/pulsar-${PV}"
 
