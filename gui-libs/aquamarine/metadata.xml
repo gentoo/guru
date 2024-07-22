@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>johnmh@johnmh.me</email>
+		<name>John M. Harris, Jr.</name>
+	</maintainer>
+	<upstream>
+		<changelog>https://github.com/hyprwm/aquamarine/releases</changelog>
+		<bugs-to>https://github.com/hyprwm/aquamarine/issues</bugs-to>
+		<remote-id type="github">hyprwm/aquamarine</remote-id>
+	</upstream>
+</pkgmetadata>
