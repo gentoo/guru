@@ -35,5 +35,5 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/0001-fix-CFLAGS-CXXFLAGS-hypridle.patch"
+	"${FILESDIR}/0002-fix-CFLAGS-CXXFLAGS-hypridle.patch"
 )

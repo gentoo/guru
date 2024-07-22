@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b7c9755..dd327cc 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -14,7 +14,6 @@ if(CMAKE_BUILD_TYPE MATCHES Debug OR CMAKE_BUILD_TYPE MATCHES DEBUG)
+   message(STATUS "Configuring hypridle in Debug with CMake")
+   add_compile_definitions(HYPRLAND_DEBUG)
+ else()
+-  add_compile_options(-O3)
+   message(STATUS "Configuring hypridle in Release with CMake")
+ endif()
+ 
