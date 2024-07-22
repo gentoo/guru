@@ -43,5 +43,5 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/0001-fix-CFLAGS-CXXFLAGS-hyprlock.patch"
+	"${FILESDIR}/0003-fix-CFLAGS-CXXFLAGS-hyprlock.patch"
 )
