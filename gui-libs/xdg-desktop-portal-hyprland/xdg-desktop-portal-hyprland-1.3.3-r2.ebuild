@@ -27,11 +27,8 @@ DEPEND="
 	dev-libs/hyprlang:=
 	dev-libs/inih
 	dev-libs/wayland
-	dev-qt/qtbase
-	dev-qt/qtcore
-	dev-qt/qtgui
+	dev-qt/qtbase:6[gui,widgets]
 	dev-qt/qtwayland:6
-	dev-qt/qtwidgets
 	media-libs/mesa
 	sys-apps/util-linux
 	x11-libs/libdrm
