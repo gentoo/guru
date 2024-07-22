@@ -22,7 +22,7 @@ IUSE="elogind systemd"
 REQUIRED_USE="?? ( elogind systemd )"
 
 DEPEND="
-	>=media-video/pipewire-0.3.41:=
+	>=media-video/pipewire-1.2.0:=
 	dev-cpp/sdbus-c++
 	dev-libs/hyprlang:=
 	dev-libs/inih
