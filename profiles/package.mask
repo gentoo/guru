@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Lucio Sauer <watermanpaint@posteo.net> (2024-07-23)
+# Dependency >=dev-util/hyprwayland-scanner-0.4.0 not yet in ::gentoo
+# https://github.com/gentoo/gentoo/pull/37676
+gui-libs/aquamarine
+
 # Michael Mair-Keimberger <mmk@levelnine.at> (2024-07-20)
 # Decided to move my personal wiki to dokuwiki. If someone wants to
 # keep it, feel free to take over it.
