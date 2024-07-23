@@ -20,7 +20,7 @@ RDEPEND="
 	x11-libs/gtk+:3[wayland]
 	gui-libs/gtk-session-lock
 "
-DEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	dev-build/meson
