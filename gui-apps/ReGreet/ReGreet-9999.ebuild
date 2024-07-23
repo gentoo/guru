@@ -215,7 +215,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/rharish101/${PN}.git"
 else
 	SRC_URI="
-		https://github.com/rharish101/${PN}/archive/refs/tags/${PV}.tar.gz -> ${PN}.tar.gz
+		https://github.com/rharish101/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 		${CARGO_CRATE_URIS}
 	"
 	KEYWORDS="~amd64"
@@ -263,6 +263,10 @@ src_configure() {
 
 src_prepare() {
 	default
+
+	if use systemd; then
+		sed -i 's/greeter/greetd/g' "${S}/systemd-tmpfiles.conf" || die
+	fi
 }
 
 src_compile() {

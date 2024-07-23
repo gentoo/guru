@@ -215,7 +215,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/rharish101/${PN}.git"
 else
 	SRC_URI="
-		https://github.com/rharish101/${PN}/archive/refs/tags/${PV}.tar.gz -> ${PN}.tar.gz
+		https://github.com/rharish101/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 		${CARGO_CRATE_URIS}
 	"
 	KEYWORDS="~amd64"
@@ -250,7 +250,7 @@ src_unpack() {
 		git-r3_src_unpack
 		cargo_live_src_unpack
 	else
-		unpack "${PN}.tar.gz"
+		unpack "${P}.tar.gz"
 		cargo_src_unpack
 	fi
 }
@@ -265,6 +265,10 @@ src_configure() {
 
 src_prepare() {
 	default
+
+	if use systemd; then
+		sed -i 's/greeter/greetd/g' "${S}/systemd-tmpfiles.conf" || die
+	fi
 }
 
 src_compile() {
@@ -287,7 +291,7 @@ src_install() {
 	cargo_src_install
 
 	if use systemd; then
-		newtmpfiles "${WORKDIR}/${P}/systemd-tmpfiles.conf" regreet.conf
+		newtmpfiles "${S}/systemd-tmpfiles.conf" regreet.conf
 	elif use openrc; then
 		keepdir /var/log/regreet
 		fowners greetd:greetd /var/log/regreet
@@ -298,7 +302,7 @@ src_install() {
 		fperms 0755 /var/cache/regreet
 	fi
 	# Install ReGreet template config file as a doc
-	dodoc "${WORKDIR}/${P}/regreet.sample.toml"
+	dodoc "${S}/regreet.sample.toml"
 
 	# Create README.gentoo doc file
 	readme.gentoo_create_doc
