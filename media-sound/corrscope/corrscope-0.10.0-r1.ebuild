@@ -4,7 +4,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
 DISTUTILS_SINGLE_IMPL=1
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1 pypi
 
@@ -42,4 +42,9 @@ PATCHES=(
 	# Ideally, we should upstream a fix that only conditionally imports it,
 	# but I don't know how to do that right now.
 	"${FILESDIR}"/remove-appnope-dep.patch
+
+	# corrscope seems to have copied in a modified scipy file to their source
+	# tree. That file uses np.deprecate, which is removed in numpy2. corrscope
+	# doesn't care about this function being marked deprecated, so neither do we
+	"${FILESDIR}"/remove-npdeprecate.patch
 )

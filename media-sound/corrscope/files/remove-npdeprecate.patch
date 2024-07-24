@@ -1,0 +1,12 @@
+diff --git a/corrscope/utils/scipy/windows.py b/corrscope/utils/scipy/windows.py
+index 0eee7f2..8ba1fa4 100644
+--- a/corrscope/utils/scipy/windows.py
++++ b/corrscope/utils/scipy/windows.py
+@@ -816,7 +816,6 @@ def hann(M: int, sym: bool = True) -> np.ndarray:
+     return general_hamming(M, 0.5, sym)
+ 
+ 
+-@np.deprecate(new_name='scipy.signal.windows.hann')
+ def hanning(*args, **kwargs):
+     return hann(*args, **kwargs)
+ 
