@@ -1,0 +1,12 @@
+diff --git a/tools/idf_tools.py b/tools/idf_tools.py
+index 4c0cfe8b68..e20b7152df 100755
+--- a/tools/idf_tools.py
++++ b/tools/idf_tools.py
+@@ -2685,6 +2685,7 @@ def action_check_python_dependencies(args):  # type: ignore
+     Checks if all the dependencies (from requirements, constraints...) are installed properly.
+     Raises SystemExit if not.
+     """
++    return
+     use_constraints = not args.no_constraints
+     req_paths = get_requirements('')  # no new features -> just detect the existing ones
+ 
