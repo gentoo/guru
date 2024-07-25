@@ -18,4 +18,4 @@ dev-qt/qtbase:6
 dev-qt/linguist-tools:5
 "
 RDEPEND="${DEPEND}"
-BDEPEND="${DEPEND}"
+BDEPEND=">=dev-build/cmake-3.28"
