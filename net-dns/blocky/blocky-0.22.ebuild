@@ -72,14 +72,7 @@ src_compile() {
 
 src_test() {
 	# mimcking make test
-	ego run github.com/onsi/ginkgo/v2/ginkgo \
-		--label-filter="!e2e" \
-		--coverprofile=coverage.txt \
-		--covermode=atomic \
-		--cover \
-		-r \
-		-p
-
+	ego run github.com/onsi/ginkgo/v2/ginkgo --label-filter="!e2e" --coverprofile=coverage.txt --covermode=atomic --cover -r -p
 	ego tool cover -html coverage.txt -o coverage.html
 }
 

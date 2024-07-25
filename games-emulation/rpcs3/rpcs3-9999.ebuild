@@ -15,9 +15,8 @@ YAMLCPP_COMMIT="456c68f452da09d8ca84b375faa2b1397713eaba"
 
 DESCRIPTION="PS3 emulator/debugger"
 HOMEPAGE="https://rpcs3.net/"
-g="https://github.com"
 if [[ ${PV} == "9999" ]]; then
-	EGIT_REPO_URI="${g}/RPCS3/rpcs3"
+	EGIT_REPO_URI="https://github.com/RPCS3/rpcs3"
 	EGIT_SUBMODULES=(
 	'asmjit' '3rdparty/glslang' '3rdparty/miniupnp/miniupnp' '3rdparty/rtmidi/rtmidi' '3rdparty/wolfssl'
 	'3rdparty/SoundTouch/soundtouch' '3rdparty/zstd/zstd' '3rdparty/stblib/stb' '3rdparty/OpenAL/openal-soft'
@@ -27,14 +26,14 @@ if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
 else
 	SRC_URI="
-		${g}/RPCS3/rpcs3/archive/v${PV}.tar.gz -> ${P}.tar.gz
-		${g}/asmjit/asmjit/archive/${ASMJIT_COMMIT}.tar.gz -> ${PN}-asmjit-${ASMJIT_COMMIT}.tar.gz
-		${g}/KhronosGroup/glslang/archive/${GLSLANG_COMMIT}.tar.gz -> ${PN}-glslang-${GLSLANG_COMMIT}.tar.gz
-		${g}/miniupnp/miniupnp/archive/${MINIUPNP_COMMIT}.tar.gz -> ${PN}-miniupnp-${MINIUPNP_COMMIT}.tar.gz
-		${g}/thestk/rtmidi/archive/${RTMIDI_COMMIT}.tar.gz -> ${PN}-rtmidi-${RTMIDI_COMMIT}.tar.gz
-		${g}/wolfSSL/wolfssl/archive/${WOLFSSL_COMMIT}.tar.gz -> ${PN}-wolfssl-${WOLFSSL_COMMIT}.tar.gz
-		${g}/RPCS3/soundtouch/archive/${SOUNDTOUCH_COMMIT}.tar.gz -> ${PN}-soundtouch-${SOUNDTOUCH_COMMIT}.tar.gz
-		${g}/RPCS3/yaml-cpp/archive/${YAMLCPP_COMMIT}.tar.gz -> ${PN}-yaml-cpp-${SOUNDTOUCH_COMMIT}-.tar.gz
+		https://github.com/RPCS3/rpcs3/archive/v${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/asmjit/asmjit/archive/${ASMJIT_COMMIT}.tar.gz -> ${PN}-asmjit-${ASMJIT_COMMIT}.tar.gz
+		https://github.com/KhronosGroup/glslang/archive/${GLSLANG_COMMIT}.tar.gz -> ${PN}-glslang-${GLSLANG_COMMIT}.tar.gz
+		https://github.com/miniupnp/miniupnp/archive/${MINIUPNP_COMMIT}.tar.gz -> ${PN}-miniupnp-${MINIUPNP_COMMIT}.tar.gz
+		https://github.com/thestk/rtmidi/archive/${RTMIDI_COMMIT}.tar.gz -> ${PN}-rtmidi-${RTMIDI_COMMIT}.tar.gz
+		https://github.com/wolfSSL/wolfssl/archive/${WOLFSSL_COMMIT}.tar.gz -> ${PN}-wolfssl-${WOLFSSL_COMMIT}.tar.gz
+		https://github.com/RPCS3/soundtouch/archive/${SOUNDTOUCH_COMMIT}.tar.gz -> ${PN}-soundtouch-${SOUNDTOUCH_COMMIT}.tar.gz
+		https://github.com/RPCS3/yaml-cpp/archive/${YAMLCPP_COMMIT}.tar.gz -> ${PN}-yaml-cpp-${SOUNDTOUCH_COMMIT}-.tar.gz
 	"
 	KEYWORDS="~amd64"
 fi

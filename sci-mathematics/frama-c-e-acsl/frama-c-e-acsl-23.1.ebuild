@@ -43,10 +43,5 @@ src_compile() {
 
 src_install() {
 	export EACSL_INSTALL_LIB_DIR="${ED}/usr/$(get_libdir)/frama-c/e-acsl"
-	emake \
-		FRAMAC_SHARE="${FRAMAC_SHARE}" \
-		FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" \
-		DESTDIR="${ED}" \
-		EACSL_INSTALL_LIB_DIR="${EACSL_INSTALL_LIB_DIR}" \
-		install
+	emake FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" DESTDIR="${ED}" EACSL_INSTALL_LIB_DIR="${EACSL_INSTALL_LIB_DIR}" install
 }

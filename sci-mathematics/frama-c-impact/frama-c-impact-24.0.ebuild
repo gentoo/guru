@@ -25,8 +25,6 @@ RDEPEND="~sci-mathematics/frama-c-${PV}:=[gtk=,ocamlopt?]
 		~sci-mathematics/frama-c-slicing-${PV}:=[gtk=,ocamlopt?]"
 DEPEND="${RDEPEND}"
 
-p="src/plugins/impact/Makefile"
-
 src_prepare() {
 	mv configure.in configure.ac || die
 	sed -i 's/configure\.in/configure.ac/g' Makefile.generating Makefile || die
@@ -51,18 +49,18 @@ src_configure() {
 		--enable-pdg \
 		--enable-sparecode \
 		--enable-users
-	printf 'include share/Makefile.config\n' > ${p} || die
-	sed -e '/^# *Impact analysis/bl;d' -e ':l' -e '/^\$(eval/Q;n;bl' < Makefile >> ${p} || die
-	printf 'include share/Makefile.dynamic\n' >> ${p} || die
+	printf 'include share/Makefile.config\n' > src/plugins/impact/Makefile || die
+	sed -e '/^# *Impact analysis/bl;d' -e ':l' -e '/^\$(eval/Q;n;bl' < Makefile >> src/plugins/impact/Makefile || die
+	printf 'include share/Makefile.dynamic\n' >> src/plugins/impact/Makefile || die
 	export FRAMAC_SHARE="${ESYSROOT}/usr/share/frama-c"
 	export FRAMAC_LIBDIR="${EPREFIX}/usr/$(get_libdir)/frama-c"
 }
 
 src_compile() {
 	tc-export AR
-	emake -f ${p} FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}"
+	emake -f src/plugins/impact/Makefile FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}"
 }
 
 src_install() {
-	emake -f ${p} FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" DESTDIR="${ED}" install
+	emake -f src/plugins/impact/Makefile FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" DESTDIR="${ED}" install
 }

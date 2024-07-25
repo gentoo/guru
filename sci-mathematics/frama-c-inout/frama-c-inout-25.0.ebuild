@@ -24,8 +24,6 @@ RDEPEND="~sci-mathematics/frama-c-${PV}:=[ocamlopt?]
 		~sci-mathematics/frama-c-from-${PV}:=[ocamlopt?]"
 DEPEND="${RDEPEND}"
 
-p="src/plugins/inout/Makefile"
-
 src_prepare() {
 	mv configure.in configure.ac || die
 	sed -i 's/configure\.in/configure.ac/g' Makefile.generating Makefile || die
@@ -45,17 +43,17 @@ src_configure() {
 		--enable-callgraph \
 		--enable-eva \
 		--enable-server
-	printf 'include share/Makefile.config\n' > ${p} || die
-	sed -e '/^# *inout/bl;d' -e ':l' -e '/^\$(eval/Q;n;bl' < Makefile >> ${p} || die
-	printf 'include share/Makefile.dynamic\n' >> ${p} || die
+	printf 'include share/Makefile.config\n' > src/plugins/inout/Makefile || die
+	sed -e '/^# *inout/bl;d' -e ':l' -e '/^\$(eval/Q;n;bl' < Makefile >> src/plugins/inout/Makefile || die
+	printf 'include share/Makefile.dynamic\n' >> src/plugins/inout/Makefile || die
 	export FRAMAC_SHARE="${ESYSROOT}/usr/share/frama-c"
 	export FRAMAC_LIBDIR="${EPREFIX}/usr/$(get_libdir)/frama-c"
 }
 
 src_compile() {
-	emake -f ${p} FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}"
+	emake -f src/plugins/inout/Makefile FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}"
 }
 
 src_install() {
-	emake -f ${p} FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" DESTDIR="${ED}" install
+	emake -f src/plugins/inout/Makefile FRAMAC_SHARE="${FRAMAC_SHARE}" FRAMAC_LIBDIR="${FRAMAC_LIBDIR}" DESTDIR="${ED}" install
 }

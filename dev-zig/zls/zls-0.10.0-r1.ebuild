@@ -6,15 +6,14 @@ EAPI=8
 inherit edo
 
 DESCRIPTION="The officially unofficial Ziglang language server"
-g="https://github.com"
-HOMEPAGE="${p}/zigtools/zls"
+HOMEPAGE="https://github.com/zigtools/zls"
 
 KNOWN_FOLDERS_COMMIT="24845b0103e611c108d6bc334231c464e699742c"
 TRACY_COMMIT="f493d4aa8ba8141d9680473fad007d8a6348628e"
 SRC_URI="
-	${g}/ziglibs/known-folders/archive/${KNOWN_FOLDERS_COMMIT}.tar.gz -> known-folders-${KNOWN_FOLDERS_COMMIT}.tar.gz
-	${p}/wolfpld/tracy/archive/${TRACY_COMMIT}.tar.gz -> tracy-${TRACY_COMMIT}.tar.gz
-	${p}/zigtools/zls/archive/refs/tags/${PV}.tar.gz -> zls-${PV}.tar.gz
+	https://github.com/ziglibs/known-folders/archive/${KNOWN_FOLDERS_COMMIT}.tar.gz -> known-folders-${KNOWN_FOLDERS_COMMIT}.tar.gz
+	https://github.com/wolfpld/tracy/archive/${TRACY_COMMIT}.tar.gz -> tracy-${TRACY_COMMIT}.tar.gz
+	https://github.com/zigtools/zls/archive/refs/tags/${PV}.tar.gz -> zls-${PV}.tar.gz
 "
 
 LICENSE="MIT"

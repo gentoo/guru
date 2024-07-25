@@ -10,11 +10,10 @@ inherit python-any-r1 readme.gentoo-r1 systemd tmpfiles
 DESCRIPTION="‎Modern, responsive, cross-platform, self-hosted web IRC client"
 HOMEPAGE="https://thelounge.chat/"
 
-dist="https://github.com/rahilarious/gentoo-distfiles"
 SRC_URI="
 	https://github.com/thelounge/thelounge/archive/refs/tags/v${PV/_rc/-rc.}.tar.gz -> ${P}.tar.gz
-	${dist}/releases/download/${PN}-4.4.2_rc1/deps.tar.xz -> ${PN}-4.4.2_rc1-deps.tar.xz
-	sqlite? ( ${dist}/releases/download/${PN}-4.4.2_rc1/sqlite.tar.xz -> ${PN}-4.4.2_rc1-sqlite.tar.xz )
+	https://github.com/rahilarious/gentoo-distfiles/releases/download/${PN}-4.4.2_rc1/deps.tar.xz -> ${PN}-4.4.2_rc1-deps.tar.xz
+	sqlite? ( https://github.com/rahilarious/gentoo-distfiles/releases/download/${PN}-4.4.2_rc1/sqlite.tar.xz -> ${PN}-4.4.2_rc1-sqlite.tar.xz )
 "
 
 S="${WORKDIR}/${PN}-${PV/_rc/-rc.}"

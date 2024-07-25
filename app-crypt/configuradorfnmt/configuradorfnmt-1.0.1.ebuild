@@ -22,7 +22,5 @@ src_install() {
 	java-pkg_dojar "usr/lib64/${PN}/${PN}.jar"
 	java-pkg_dolauncher
 	doicon "usr/lib64/${PN}/${PN}.png"
-
-	make_desktop_entry "${PN} %u" "Configurador FNMT" "${PN}" "Utility" "Comment[es]=Generador de certificados de la FNMT
-MimeType=x-scheme-handler/fnmtcr"
+	make_desktop_entry "${PN} %u" "Configurador FNMT" "${PN}" "Utility" "Comment[es]=Generador de certificados de la FNMT\nMimeType=x-scheme-handler/fnmtcr"
 }
