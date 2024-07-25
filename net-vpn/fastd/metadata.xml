@@ -7,7 +7,7 @@
         <name>Artemis Everfree</name>
     </maintainer>
     <upstream>
-        <remote-id type="github">NeoRaider/fastd</remote-id>
+        <remote-id type="github">neocturne/fastd</remote-id>
     </upstream>
     <use>
         <flag name="offload-l2tp">Offload L2TP traffic to the kernel when using the null@l2tp transport method</flag>
