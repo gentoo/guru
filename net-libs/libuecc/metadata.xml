@@ -7,6 +7,6 @@
         <name>Artemis Everfree</name>
     </maintainer>
     <upstream>
-        <remote-id type="github">NeoRaider/libuecc</remote-id>
+        <remote-id type="github">neocturne/libuecc</remote-id>
     </upstream>
 </pkgmetadata>
