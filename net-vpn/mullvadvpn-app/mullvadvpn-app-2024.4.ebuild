@@ -5,17 +5,19 @@ EAPI=8
 
 inherit desktop rpm systemd shell-completion xdg
 
-MYPV="${PV/_beta/-beta}"
 DESCRIPTION="Tool used to manage daemon setup"
 HOMEPAGE="https://github.com/mullvad/mullvadvpn-app https://mullvad.net/"
-SRC_URI="amd64? ( https://github.com/mullvad/mullvadvpn-app/releases/download/${MYPV}/MullvadVPN-${MYPV}_x86_64.rpm )"
+SRC_URI="
+	amd64? ( https://github.com/mullvad/mullvadvpn-app/releases/download/${PV}/MullvadVPN-${PV}_x86_64.rpm )
+	arm64? ( https://github.com/mullvad/mullvadvpn-app/releases/download/${PV}/MullvadVPN-${PV}_aarch64.rpm )
+"
 
 S="${WORKDIR}"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="-* ~amd64"
+KEYWORDS="-* ~amd64 ~arm64"
 
-RESTRICT="bindist mirror test strip"
+RESTRICT="bindist mirror strip"
 
 RDEPEND="
 	app-accessibility/at-spi2-core
@@ -37,17 +39,17 @@ RDEPEND="
 QA_PREBUILT="*"
 
 src_install() {
+	sed -i "s|SCRIPT_DIR=.*|SCRIPT_DIR=\"/opt/Mullvad VPN/\"|g" "${S}"/opt/Mullvad\ VPN/mullvad-vpn
+
 	# Using doins -r would strip executable bits from all binaries
 	cp -pPR "${S}"/opt "${D}"/ || die "Failed to copy files"
 	fperms +x "/opt/Mullvad VPN/chrome_crashpad_handler"
 	fperms 4755 "/opt/Mullvad VPN/chrome-sandbox"
 
-	# tbh I don't know if all next lines are needed or we can just do cp -pPR "${S}"/usr "${D}"/"
-
-	local i
 	dobin "${S}"/usr/bin/mullvad
 	dobin "${S}"/usr/bin/mullvad-daemon
 	dobin "${S}"/usr/bin/mullvad-exclude
+	dosym "../../opt/Mullvad VPN/mullvad-vpn" /usr/bin/mullvad-vpn
 	dosym "../../opt/Mullvad VPN/resources/mullvad-problem-report" /usr/bin/mullvad-problem-report
 
 	# mullvad-exclude uses cgroups to manage exclusions, which requires root permissions, but is
