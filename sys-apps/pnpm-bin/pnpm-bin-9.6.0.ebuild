@@ -6,8 +6,8 @@ EAPI=8
 DESCRIPTION="Fast, disk space efficient package manager, alternative to npm and yarn"
 HOMEPAGE="https://pnpm.io"
 SRC_URI="
-	amd64? ( https://github.com/pnpm/pnpm/releases/download/v${PV}/pnpm-linux-x64 -> ${PV}-amd64 )
-	arm64? ( https://github.com/pnpm/pnpm/releases/download/v${PV}/pnpm-linux-arm64 -> ${PV}-arm64 )
+	amd64? ( https://github.com/pnpm/pnpm/releases/download/v${PV}/pnpm-linux-x64 -> ${P}-amd64 )
+	arm64? ( https://github.com/pnpm/pnpm/releases/download/v${PV}/pnpm-linux-arm64 -> ${P}-arm64 )
 "
 
 S="${WORKDIR}"
@@ -21,5 +21,5 @@ RESTRICT="strip"
 QA_PREBUILT="usr/bin/pnpm"
 
 src_install() {
-	newbin "${DISTDIR}/${PV}-${ARCH}" pnpm
+	newbin "${DISTDIR}/${P}-${ARCH}" pnpm
 }
