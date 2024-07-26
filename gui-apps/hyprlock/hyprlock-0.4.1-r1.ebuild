@@ -20,13 +20,14 @@ LICENSE="BSD"
 SLOT="0"
 
 RDEPEND="
+	>=dev-libs/hyprlang-0.4.0
+	>=gui-libs/hyprutils-0.2.0
 	dev-libs/date
+	dev-libs/glib:2
 	dev-libs/wayland
+	media-libs/libglvnd
 	media-libs/mesa[opengl]
 	sys-libs/pam
-	dev-libs/glib:2
-	>=dev-libs/hyprlang-0.4.0
-	media-libs/libglvnd
 	x11-libs/cairo
 	x11-libs/libxkbcommon
 	x11-libs/libdrm
