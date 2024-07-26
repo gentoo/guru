@@ -46,7 +46,7 @@ python_install_all() {
 	distutils-r1_python_install_all
 }
 
-python_install_all() {
+src_install() {
 	default
 
 	newinitd dist/openrc/amdfan amdfan
