@@ -33,7 +33,7 @@ RDEPEND="
 
 src_prepare() {
 	default
-	eautoreconf -i
+	eautoreconf
 }
 
 src_install() {
