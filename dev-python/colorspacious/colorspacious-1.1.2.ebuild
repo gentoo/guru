@@ -20,5 +20,3 @@ KEYWORDS="~amd64 ~arm64"
 RDEPEND="
 	dev-python/numpy[${PYTHON_USEDEP}]
 "
-
-distutils_enable_tests pytest
