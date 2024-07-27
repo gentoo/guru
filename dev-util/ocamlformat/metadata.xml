@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>tokusan441@gmail.com</email>
+		<name>Hiroki Tokunaga</name>
+	</maintainer>
+	<longdescription lang="en">ocamlformat is a code formatter for OCaml. It comes with opinionated default settings but is also fully customizable to suit your coding style.
+
+	Profiles: ocamlformat offers profiles we predefined formatting configurations. Profiles include default, ocamlformat, janestreet.
+	Configurable: Users can change the formatting profile and configure every option in their .ocamlformat configuration file.
+	Format Comments: ocamlformat can format comments, docstrings, and even code blocks in your comments.
+	RPC: ocamlformat provides an RPC server that can bed used by other tools to easily format OCaml Code.
+
+ocamlformat is part of the OCaml Platform, the recommended set of tools for OCaml.</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/ocaml-ppx/ocamlformat/issues</bugs-to>
+		<remote-id type="github">ocaml-ppx/ocamlformat</remote-id>
+	</upstream>
+</pkgmetadata>
