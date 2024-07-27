@@ -5,6 +5,10 @@
 		<email>fogti@ytrizja.de</email>
 		<name>Alain Emilia Anna Zscheile</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>tokusan441@gmail.com</email>
+		<name>Hiroki Tokunaga</name>
+	</maintainer>
 	<longdescription lang="en">Bigstring intrinsics and fast blits based on memcpy/memmove
 
 The OCaml compiler has a bunch of intrinsics for Bigstrings, but they're not
