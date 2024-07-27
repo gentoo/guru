@@ -28,4 +28,3 @@ BDEPEND="
 		dev-ml/alcotest:=
 	)
 "
-
