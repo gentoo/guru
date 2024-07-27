@@ -46,7 +46,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.18.1.2-unbundle-dependencies.patch"
+	"${FILESDIR}/${PN}-0.18.3.3-unbundle-dependencies.patch"
 )
 
 src_configure() {
