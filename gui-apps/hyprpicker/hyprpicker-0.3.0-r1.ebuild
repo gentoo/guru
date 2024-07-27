@@ -16,6 +16,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	dev-libs/wayland
 	x11-libs/cairo
+	x11-libs/libxkbcommon
 	x11-libs/pango
 "
 
@@ -25,14 +26,4 @@ BDEPEND="
 	dev-util/wayland-scanner
 	media-libs/libglvnd
 	media-libs/libjpeg-turbo
-	x11-libs/libxkbcommon
 "
-
-src_compile() {
-	emake protocols
-	cmake_src_compile
-}
-
-src_install() {
-	dobin "${BUILD_DIR}/${PN}"
-}
