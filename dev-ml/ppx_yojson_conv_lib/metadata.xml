@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>tokusan441@gmail.com</email>
+		<name>Hiroki Tokunaga</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/janestreet/ppx_yojson_conv_lib/issues</bugs-to>
+		<remote-id type="github">janestreet/ppx_yojson_conv_lib</remote-id>
+	</upstream>
+</pkgmetadata>
