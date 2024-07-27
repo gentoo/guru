@@ -9,7 +9,7 @@ DESCRIPTION="Library to parse and enumerate releases of the OCaml compiler"
 HOMEPAGE="https://github.com/ocurrent/ocaml-version"
 SRC_URI="https://github.com/ocurrent/ocaml-version/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="MIT"
+LICENSE="ISC"
 
 SLOT="0/${PV}"
 
