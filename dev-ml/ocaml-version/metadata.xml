@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>tokusan441@gmail.com</email>
+		<name>Hiroki Tokunaga</name>
+	</maintainer>
+	<longdescription lang="en">This library provides facilities to parse version numbers of the OCaml compiler, and enumerates the various official OCaml releases and configuration variants.
+
+OCaml version numbers are of the form `major.minor.patch+extra`, where the `patch` and `extra` fields are optional.  This library offers the following functionality:
+
+- Functions to parse and serialise OCaml compiler version numbers.
+- Enumeration of official OCaml compiler version releases.
+- Test compiler versions for a particular feature (e.g. the `bytes` type)
+- [opam](https://opam.ocaml.org) compiler switch enumeration.
+
+### Further information
+
+- **Discussion:** Post on https://discuss.ocaml.org/ with the `ocaml` tag under the Ecosystem category.
+- **Bugs:** https://github.com/ocurrent/ocaml-version/issues
+- **Docs:** http://docs.mirage.io/ocaml-version</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/ocurrent/ocaml-version/issues</bugs-to>
+		<remote-id type="github">ocurrent/ocaml-version</remote-id>
+	</upstream>
+</pkgmetadata>
