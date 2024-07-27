@@ -1,0 +1,30 @@
+diff --git a/src/p2p/net_node.inl b/src/p2p/net_node.inl
+index 30e3d31b9..c49783e1c 100644
+--- a/src/p2p/net_node.inl
++++ b/src/p2p/net_node.inl
+@@ -2989,7 +2989,12 @@ namespace nodetool
+     UPNPUrls urls;
+     IGDdatas igdData;
+     char lanAddress[64];
++#if MINIUPNPC_API_VERSION > 17
++    char wanAddress[64];
++    result = UPNP_GetValidIGD(deviceList, &urls, &igdData, lanAddress, sizeof lanAddress, wanAddress, sizeof(wanAddress));
++#else
+     result = UPNP_GetValidIGD(deviceList, &urls, &igdData, lanAddress, sizeof lanAddress);
++#endif
+     freeUPNPDevlist(deviceList);
+     if (result > 0) {
+       if (result == 1) {
+@@ -3057,7 +3062,12 @@ namespace nodetool
+     UPNPUrls urls;
+     IGDdatas igdData;
+     char lanAddress[64];
++#if MINIUPNPC_API_VERSION > 17
++    char wanAddress[64];
++    result = UPNP_GetValidIGD(deviceList, &urls, &igdData, lanAddress, sizeof lanAddress, wanAddress, sizeof(wanAddress));
++#else
+     result = UPNP_GetValidIGD(deviceList, &urls, &igdData, lanAddress, sizeof lanAddress);
++#endif
+     freeUPNPDevlist(deviceList);
+     if (result > 0) {
+       if (result == 1) {
