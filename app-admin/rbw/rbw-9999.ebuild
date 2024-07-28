@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cargo shell-completion
+inherit cargo optfeature shell-completion
 
 DESCRIPTION="Unofficial Bitwarden CLI"
 HOMEPAGE="https://git.tozt.net/rbw"
@@ -24,8 +24,6 @@ LICENSE+=" Apache-2.0 BSD Boost-1.0 ISC MIT Unicode-DFS-2016"
 LICENSE+=" openssl"
 SLOT="0"
 
-# copypasta crate provides wayland clipboard support via dlopen calls against
-# libwayland-client.so
 RDEPEND="app-crypt/pinentry"
 BDEPEND=">=virtual/rust-1.74"
 
@@ -63,4 +61,10 @@ src_install() {
 	dofishcomp rbw.fish
 	newzshcomp rbw.zsh _rbw
 	einstalldocs
+}
+
+pkg_postinst() {
+	# copypasta crate provides wayland clipboard support via dlopen calls against
+	# libwayland-client.so
+	optfeature "Wayland clipboard support" dev-libs/wayland
 }
