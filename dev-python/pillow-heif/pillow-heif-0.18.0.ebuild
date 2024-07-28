@@ -25,7 +25,7 @@ RDEPEND="
 	)
 	test? (
 		dev-python/pillow[jpeg,lcms,webp,zlib,${PYTHON_USEDEP}]
-		media-libs/libheif:=[x265]
+		>=media-libs/libheif-1.17.6:=[x265]
 	)
 "
 BDEPEND="
