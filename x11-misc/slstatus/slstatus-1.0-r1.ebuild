@@ -27,7 +27,7 @@ src_prepare(){
 	default
 
 	sed -i \
-		-e "s/ -Os / /" \
+		-e "s/ -Os//" \
 		-e "/^\(LDFLAGS\|CFLAGS\|CPPFLAGS\)/{s| = | += |g;s|-s ||g}" \
 		-e "/^X11LIB/{s:/usr/X11R6/lib:/usr/$(get_libdir)/X11:}" \
 		-e '/^X11INC/{s:/usr/X11R6/include:/usr/include/X11:}' \
