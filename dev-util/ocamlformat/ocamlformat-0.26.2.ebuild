@@ -19,23 +19,9 @@ IUSE="ocamlopt test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-ml/cmdliner:=
-	dev-ml/csexp:=
-	dev-ml/re:=
-
-	dev-ml/base:=
-	dev-ml/dune-build-info:=
-	dev-ml/either:=
-	dev-ml/fix:=
-	dev-ml/fpath:=
-	dev-ml/menhir:=
-	dev-ml/ocaml-version:=
-	dev-util/ocp-indent:=
-	dev-ml/stdio:=
-	dev-ml/uuseg:=
-	dev-ml/uutf:=
-	dev-ml/astring:=
-	dev-ml/camlp-streams:=
+	>=dev-ml/cmdliner-1.1.0:=
+	~dev-ml/ocamlformat-lib-${PV}:=
+	>=dev-ml/re-1.10.3:=
 "
 
 DEPEND="
@@ -44,6 +30,15 @@ DEPEND="
 
 BDEPEND="
 	test? (
-		dev-ml/alcotest:=
+		>=dev-ml/cmdliner-1.2.0:=
+		~dev-ml/ocamlformat-rpc-lib-${PV}:=
 	)
 "
+
+src_compile() {
+	dune-compile ocamlformat
+}
+
+src_install() {
+	dune-install ocamlformat
+}
