@@ -25,7 +25,7 @@ LICENSE+=" openssl"
 SLOT="0"
 
 RDEPEND="app-crypt/pinentry"
-BDEPEND=">=virtual/rust-1.74"
+BDEPEND=">=virtual/rust-1.75.0"
 
 PATCHES="${FILESDIR}"/${PN}-1.11.1-gen-completions.patch
 
@@ -64,6 +64,12 @@ src_install() {
 }
 
 pkg_postinst() {
+	if [[ "${REPLACING_VERSIONS%-r*}" = '1.11.1' ]]; then
+		elog "If you were affected by issue #163 (getting messages like failed to"
+		elog "decrypt encrypted secret: invalid mac when doing any operations on your"
+		elog "vault), you will need to rbw sync after upgrading in order to update"
+		elog "your local vault with the necessary new data."
+	fi
 	# copypasta crate provides wayland clipboard support via dlopen calls against
 	# libwayland-client.so
 	optfeature "Wayland clipboard support" dev-libs/wayland
