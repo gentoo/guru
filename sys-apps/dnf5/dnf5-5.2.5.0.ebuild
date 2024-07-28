@@ -52,7 +52,7 @@ PATCHES=(
 src_prepare() {
 	cmake_src_prepare
 	# Replace hardcoded TMPDIR.
-	# sed -i "s|/tmp/|${T}/|" test/libdnf5/utils/test_fs.cpp || die
+	sed -i "s|/tmp/|${T}/|" test/libdnf5/utils/test_fs.cpp || die
 }
 
 src_configure() {
