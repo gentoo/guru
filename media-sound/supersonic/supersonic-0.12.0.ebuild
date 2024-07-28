@@ -14,6 +14,15 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
+DEPEND="
+	media-video/mpv[libmpv]
+	x11-libs/libXcursor
+	x11-libs/libXi
+	x11-libs/libXinerama
+"
+
+RDEPEND="${DEPEND}"
+
 src_compile() {
 	ego build
 }
