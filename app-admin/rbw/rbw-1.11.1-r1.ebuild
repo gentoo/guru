@@ -326,6 +326,8 @@ SLOT="0"
 RDEPEND="app-crypt/pinentry"
 BDEPEND=">=virtual/rust-1.74"
 
+PATCHES="${FILESDIR}"/${P}-gen-completions.patch
+
 QA_FLAGS_IGNORED="
 	usr/bin/rbw
 	usr/bin/rbw-agent
@@ -351,7 +353,8 @@ src_install() {
 
 	local comp DOCS="CHANGELOG.md README.md"
 	for comp in bash fish zsh; do
-		"$(cargo_target_dir)"/rbw gen-completions ${comp} > rbw.${comp} || die
+		"$(cargo_target_dir)"/rbw gen-completions ${comp} > rbw.${comp} || \
+			die "Failed to generate completions for ${comp}."
 	done
 	newbashcomp rbw.bash rbw
 	dofishcomp rbw.fish

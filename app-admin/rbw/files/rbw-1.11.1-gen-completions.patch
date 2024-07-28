@@ -1,0 +1,19 @@
+`rbw gen-completions bash` breaks when the package was built with a debug
+profile. This is a tentative fix.
+
+Bug: https://bugs.gentoo.org/935517
+See-also: https://github.com/doy/rbw/issues/198
+Author: Lucio Sauer <watermanpaint@posteo.net>
+--- a/src/bin/rbw/main.rs
++++ b/src/bin/rbw/main.rs
+@@ -145,8 +145,8 @@ enum Opt {
+             password to the database.",
+         visible_alias = "gen",
+         group = clap::ArgGroup::new("password-type").args(&[
+-            "no-symbols",
+-            "only-numbers",
++            "no_symbols",
++            "only_numbers",
+             "nonconfusables",
+             "diceware",
+         ])
