@@ -37,6 +37,7 @@ BDEPEND="
 	dev-python/sphinx
 	virtual/pkgconfig
 	test? (
+		app-arch/rpm
 		app-arch/createrepo_c
 		dev-util/cppunit
 	)
