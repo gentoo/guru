@@ -163,7 +163,6 @@ src_install() {
 	newicon -s scalable OMNotebook/OMNotebook/OMNotebookGUI/Resources/OMNotebook_icon.svg OMNotebook.svg
 	# No proper icon for Linux available from upstream
 	doicon -s 256 "${FILESDIR}"/omedit.png
-	doicon -s 256 "${FILESDIR}"/omoptim.png
 	make_desktop_entry "OMEdit %F" OMedit omedit "Physics;" "MimeType=text/x-modelica;"
 	make_desktop_entry OMShell OMShell omshell "Physics;"
 	make_desktop_entry "OMNotebook %f" OMNotebook OMNotebook "Physics;"
