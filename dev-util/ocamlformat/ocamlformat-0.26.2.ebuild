@@ -42,7 +42,7 @@ DEPEND="
 	${RDEPEND}
 "
 
-BEPEND="
+BDEPEND="
 	test? (
 		dev-ml/alcotest:=
 	)
