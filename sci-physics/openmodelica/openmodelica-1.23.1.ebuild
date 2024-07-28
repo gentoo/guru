@@ -154,7 +154,7 @@ src_install() {
 	cmake_src_install
 
 	# [2024-07-15]
-	# OMSens is disabled in "${WORKDIR}/${P}/CMakeLists.txt" (## omc_add_subdirectory(OMSens)) due to lack of a 
+	# OMSens is disabled in "${WORKDIR}/${P}/CMakeLists.txt" (## omc_add_subdirectory(OMSens)) due to lack of a
 	# working "${WORKDIR}/${P}/OMSens/CMakeLists.txt". So, we install it manually.
 	cp -a "${WORKDIR}"/"${P}"/OMSens "${ED}"/usr/share/
 	rm -fr "${ED}"/usr/share//OMSens/{old,.git,.gitignore,CMakeLists.txt,.jenkins,Jenkinsfile,Makefile.omdev.mingw,Makefile.unix,README.md,setup.py,testing}
