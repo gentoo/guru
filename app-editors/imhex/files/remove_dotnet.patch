@@ -1,18 +1,20 @@
+Remove dotnet from the application
+https://bugs.gentoo.org/926761
 --- a/plugins/script_loader/CMakeLists.txt
 +++ b/plugins/script_loader/CMakeLists.txt
-@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.16)
+@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.16)
  
  include(ImHexPlugin)
  
 -find_package(CoreClrEmbed)
+-add_library(dotnet INTERFACE)
  if (CoreClrEmbed_FOUND)
      set(IMHEX_DOTNET_SCRIPT_SUPPORT ON)
  
-@@ -56,4 +55,4 @@ if (IMHEX_DOTNET_SCRIPT_SUPPORT)
- 
-     add_subdirectory(support/dotnet)
-     add_dependencies(script_loader AssemblyLoader)
--endif()
+@@ -55,5 +53,4 @@ add_imhex_plugin(
+         c_api
+         fonts
+         ui
+-        dotnet
+ )
 \ No newline at end of file
-+endif()
-

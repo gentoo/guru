@@ -1,21 +1,6 @@
---- a/cmake/build_helpers.cmake
-+++ b/cmake/build_helpers.cmake
-@@ -563,7 +563,7 @@ macro(setupCompilerFlags target)
-     if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-         # Define strict compilation flags
-         if (IMHEX_STRICT_WARNINGS)
--            set(IMHEX_COMMON_FLAGS "${IMHEX_COMMON_FLAGS} -Wall -Wextra -Wpedantic -Werror")
-+            set(IMHEX_COMMON_FLAGS "${IMHEX_COMMON_FLAGS} -Wall -Wextra -Wpedantic")
-         endif()
- 
-         if (UNIX AND NOT APPLE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-@@ -871,4 +871,4 @@ function(precompileHeaders target includeFolder)
-             PUBLIC
-             "$<$<COMPILE_LANGUAGE:CXX>:${INCLUDES}>"
-     )
--endfunction()
-\ No newline at end of file
-+endfunction()
+Remove -Werror where we can not control it using flags
+https://bugs.gentoo.org/921663
+Submodule lib/external/pattern_language contains modified content
 --- a/lib/external/pattern_language/cli/CMakeLists.txt
 +++ b/lib/external/pattern_language/cli/CMakeLists.txt
 @@ -29,7 +29,7 @@ else()
@@ -38,4 +23,3 @@
      if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
          target_compile_options(libpl PRIVATE -Wno-stringop-overflow)
      endif()
-

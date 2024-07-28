@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit cmake llvm toolchain-funcs desktop
+LLVM_COMPAT=( {15..18} )
+
+inherit cmake llvm-r1 toolchain-funcs
 
 DESCRIPTION="A hex editor for reverse engineers, programmers, and eyesight"
 HOMEPAGE="https://github.com/WerWolv/ImHex"
@@ -36,10 +38,10 @@ DEPEND="
 	app-forensics/yara:=
 	>=dev-cpp/nlohmann_json-3.10.2
 	dev-libs/capstone:=
-	dev-libs/nativefiledialog-extended:=
+	>=dev-libs/nativefiledialog-extended-1.2.0:=
 	>=dev-libs/libfmt-8.0.0:=
 	media-libs/freetype
-	media-libs/glfw
+	>=media-libs/glfw-3.4[X]
 	media-libs/glm
 	media-libs/libglvnd
 	net-libs/mbedtls:=
@@ -61,6 +63,12 @@ pkg_pretend() {
 	if tc-is-gcc && [[ $(gcc-major-version) -lt 12 ]]; then
 		die "${PN} requires GCC 12 or newer"
 	fi
+}
+
+src_unpack() {
+	default
+
+	mv "${WORKDIR}/ImHex-Patterns-ImHex-v${PV}" "${S}/ImHex-Patterns"
 }
 
 src_configure() {
@@ -94,15 +102,4 @@ src_configure() {
 	)
 
 	cmake_src_configure
-}
-
-src_install() {
-	cmake_src_install
-
-	domenu "${S}/dist/${PN}.desktop"
-
-	# Install patterns
-	insinto /usr/share/imhex
-	rm -rf "${S_PATTERNS}/tests"
-	doins -r "${S_PATTERNS}"/*
 }
