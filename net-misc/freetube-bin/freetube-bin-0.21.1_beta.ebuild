@@ -63,8 +63,8 @@ src_install() {
 	domenu usr/share/applications/freetube.desktop
 	doicon -s scalable usr/share/icons/hicolor/scalable/apps/freetube.svg
 
-	fperms 4755 /opt/FreeTube/chrome-sandbox || die
-	fperms +x  /opt/FreeTube/freetube || die
+	fperms 4755 /opt/FreeTube/chrome-sandbox
+	fperms +x  /opt/FreeTube/freetube
 
 	dosym -r /opt/FreeTube/freetube /usr/bin/freetube-bin
 }
