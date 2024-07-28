@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,10 @@ LICENSE="ZLIB"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
 
-RDEPEND="x11-libs/gtk+:3"
+RDEPEND="
+	x11-libs/gtk+:3
+	dev-libs/glib:2
+"
 DEPEND="${RDEPEND}"
 IUSE="test"
 
