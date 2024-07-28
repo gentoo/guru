@@ -7,7 +7,9 @@ inherit desktop unpacker xdg
 
 DESCRIPTION="A private YouTube desktop client"
 HOMEPAGE="https://freetubeapp.io/ https://github.com/FreeTubeApp/FreeTube"
-SRC_URI="https://github.com/FreeTubeApp/FreeTube/releases/download/v${PV}-beta/freetube_${PV}_amd64.deb"
+SRC_URI="https://github.com/FreeTubeApp/FreeTube/releases/download/v${PV/_/-}/freetube_${PV%_*}_amd64.deb
+	-> ${P}.deb
+"
 
 S="${WORKDIR}"
 
