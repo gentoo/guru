@@ -7,7 +7,7 @@ inherit dune
 
 DESCRIPTION="Auto-formatter for OCaml code (RPC mode)"
 HOMEPAGE="
-	https://opam.ocaml.org/packages/ocamlformat-rpc-lib
+	https://opam.ocaml.org/packages/ocamlformat-rpc-lib/
 	https://github.com/ocaml-ppx/ocamlformat
 "
 SRC_URI="https://github.com/ocaml-ppx/ocamlformat/archive/${PV}.tar.gz -> ${P}.tar.gz"

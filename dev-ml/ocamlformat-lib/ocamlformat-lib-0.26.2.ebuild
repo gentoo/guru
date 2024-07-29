@@ -7,7 +7,7 @@ inherit dune
 
 DESCRIPTION="OCamlFormat is a tool to automatically format OCaml code in a uniform style."
 HOMEPAGE="
-	https://opam.ocaml.org/packages/ocamlformat-lib
+	https://opam.ocaml.org/packages/ocamlformat-lib/
 	https://github.com/ocaml-ppx/ocamlformat
 "
 SRC_URI="https://github.com/ocaml-ppx/ocamlformat/archive/${PV}.tar.gz -> ${P}.tar.gz"
