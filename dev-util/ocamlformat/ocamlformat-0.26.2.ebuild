@@ -28,10 +28,14 @@ DEPEND="
 	${RDEPEND}
 "
 
+# Includes testing dependencies of `ocamlformat-lib`.
 BDEPEND="
 	test? (
 		>=dev-ml/cmdliner-1.2.0:=
 		~dev-ml/ocamlformat-rpc-lib-${PV}:=
+
+		>=dev-ml/alcotest-1.3.0:=
+		>=dev-util/ocp-indent-1.8.1:=
 	)
 "
 
