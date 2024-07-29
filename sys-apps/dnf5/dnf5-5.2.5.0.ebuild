@@ -54,6 +54,8 @@ src_prepare() {
 	cmake_src_prepare
 	# Replace hardcoded TMPDIR.
 	sed -i "s|/tmp/|${T}/|" test/libdnf5/utils/test_fs.cpp || die
+	# remove -Werror{,=unused-result}; bug 936870
+	sed 's/-Werror[^[:space:])]*//' -i CMakeLists.txt || die
 }
 
 src_configure() {
