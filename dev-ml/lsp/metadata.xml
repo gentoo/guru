@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>tokusan441@gmail.com</email>
+		<name>Hiroki Tokunaga</name>
+	</maintainer>
+	<longdescription lang="en">Implementation of the LSP protocol in OCaml. It is designed to be as portable as possible and does not make any assumptions about IO.</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/ocaml/ocaml-lsp/issues</bugs-to>
+		<remote-id type="github">ocaml/ocaml-lsp</remote-id>
+	</upstream>
+</pkgmetadata>
