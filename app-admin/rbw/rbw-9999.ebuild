@@ -27,8 +27,6 @@ SLOT="0"
 RDEPEND="app-crypt/pinentry"
 BDEPEND=">=virtual/rust-1.75.0"
 
-PATCHES="${FILESDIR}"/${PN}-1.11.1-gen-completions.patch
-
 QA_FLAGS_IGNORED="
 	usr/bin/rbw
 	usr/bin/rbw-agent
