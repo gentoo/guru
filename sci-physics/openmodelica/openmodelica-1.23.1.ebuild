@@ -112,9 +112,6 @@ src_prepare() {
 }
 
 src_configure() {
-	#local CMAKE_BUILD_TYPE=Debug
-	# TODO: potential USE flags.
-	# BUG: CORBA ON required for OMOptim (but compilation fails)
 	local mycmakeargs=(
 		-DOM_OMEDIT_ENABLE_QTWEBENGINE=ON
 		-DBUILD_SHARED_LIBS=OFF
@@ -157,7 +154,7 @@ src_install() {
 	# OMSens is disabled in "${WORKDIR}/${P}/CMakeLists.txt" (## omc_add_subdirectory(OMSens)) due to lack of a
 	# working "${WORKDIR}/${P}/OMSens/CMakeLists.txt". So, we install it manually.
 	cp -a "${WORKDIR}"/"${P}"/OMSens "${ED}"/usr/share/
-	rm -fr "${ED}"/usr/share//OMSens/{old,.git,.gitignore,CMakeLists.txt,.jenkins,Jenkinsfile,Makefile.omdev.mingw,Makefile.unix,README.md,setup.py,testing}
+	rm -fr "${ED}"/usr/share/OMSens/{old,.git,.gitignore,CMakeLists.txt,.jenkins,Jenkinsfile,Makefile.omdev.mingw,Makefile.unix,README.md,setup.py,testing}
 
 	newicon -s scalable OMShell/OMShell/OMShellGUI/Resources/omshell-large.svg omshell.svg
 	newicon -s scalable OMNotebook/OMNotebook/OMNotebookGUI/Resources/OMNotebook_icon.svg OMNotebook.svg
