@@ -21,7 +21,8 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
-RESTRICT="!test? ( test )"
+# Tests are covered in the tests of `dev-ml/ocamlformat`.
+RESTRICT="test"
 
 RDEPEND="
 	>=dev-ml/csexp-1.4.0:=
