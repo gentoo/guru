@@ -1,8 +1,7 @@
 `rbw gen-completions bash` breaks when the package was built with a debug
-profile. This is a tentative fix.
+profile.  Upstreamed in 80a5651b98c3e2d1914c7099e5c3b4ac235d3c52.
 
 Bug: https://bugs.gentoo.org/935517
-See-also: https://github.com/doy/rbw/issues/198
 Author: Lucio Sauer <watermanpaint@posteo.net>
 --- a/src/bin/rbw/main.rs
 +++ b/src/bin/rbw/main.rs
