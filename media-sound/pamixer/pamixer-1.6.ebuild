@@ -16,9 +16,8 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
-RESTRICT="mirror"
 
 RDEPEND="
 	dev-libs/cxxopts
