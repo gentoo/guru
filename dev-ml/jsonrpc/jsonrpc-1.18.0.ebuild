@@ -5,7 +5,7 @@ EAPI=8
 
 inherit dune
 
-DESCRIPTION="Jsonrpc protocol implemenation"
+DESCRIPTION="Jsonrpc protocol implementation"
 HOMEPAGE="
 	https://opam.ocaml.org/packages/jsonrpc/
 	https://github.com/ocaml/ocaml-lsp
