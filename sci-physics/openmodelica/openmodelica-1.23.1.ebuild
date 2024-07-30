@@ -19,7 +19,7 @@ SRC_URI="
 
 LICENSE="OSMC-PL GPL-3 AGPL-3 BSD EPL-1.0 public-domain BSD-with-attribution LGPL-2.1+ LGPL-2 Apache-2.0 Boost-1.0 Modelica-1.1 Modelica-2 MIT WTFPL-2"
 SLOT="0"
-# KEYWORDS="~amd64"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	>=virtual/lapack-3.10
