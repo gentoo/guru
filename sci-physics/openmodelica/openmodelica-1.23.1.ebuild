@@ -2,13 +2,20 @@
 # Distributed under the terms of the GNU General Public License v2
 EAPI=8
 
-inherit cmake git-r3 desktop xdg
+inherit cmake desktop xdg
 
 DESCRIPTION="Open-source Modelica-based modeling and simulation environment"
 HOMEPAGE="https://openmodelica.org/"
-
-EGIT_REPO_URI="https://github.com/OpenModelica/OpenModelica.git"
-EGIT_COMMIT="v1.23.1"
+SRC_URI="
+   https://github.com/OpenModelica/OpenModelica/archive/332e81aa6442c4cc4761251407332f86f80e834b.tar.gz -> ${P}.tar.gz
+   https://github.com/OpenModelica/OMCompiler-3rdParty/archive/b826af1c1c15acf48627ad32cc0545ffc7e58bca.tar.gz -> OMCompiler-3rdParty_${P}.tar.gz
+   https://github.com/OpenModelica/OMBootstrapping/archive/c289e97c41d00939a4a69fe504961b47283a6d8e.tar.gz -> OMBootstrapping_${P}.tar.gz
+   https://github.com/OpenModelica/OMSens/archive/0d804d597bc385686856d453cc830fad4923fa3e.tar.gz -> OMSens_${P}.tar.gz
+   https://github.com/OpenModelica/OMSens_Qt/archive/68b1b8697ac9f8e37ebe4de13c0c1d4e6e2e56fb.tar.gz -> OMSens_Qt_${P}.tar.gz
+   https://github.com/OpenModelica/OpenModelica-common/archive/08a01802db5ba5edb540383c46718b89ff229ef2.tar.gz -> OpenModelica-common_${P}.tar.gz
+   https://github.com/OpenModelica/OMSimulator/archive/1eb92ef35793b73e75d0cfed0c7b0311497d6278.tar.gz -> OMSimulator_${P}.tar.gz
+   https://github.com/OpenModelica/OMSimulator-3rdParty/archive/ca418d7768c036ac15e9894d7f00d2118b3399a6.tar.gz -> OMSimulator-3rdParty_${P}.tar.gz
+"
 
 LICENSE="OSMC-PL GPL-3 AGPL-3 BSD EPL-1.0 public-domain BSD-with-attribution LGPL-2.1+ LGPL-2 Apache-2.0 Boost-1.0 Modelica-1.1 Modelica-2 MIT WTFPL-2"
 SLOT="0"
@@ -71,7 +78,6 @@ RDEPEND+="
 
 BDEPEND="
 	dev-util/ccache
-	net-misc/wget
 	app-arch/tar
 	virtual/fortran
 "
@@ -82,33 +88,24 @@ PATCHES=(
 	"${FILESDIR}"/"${P}"-raw_strings.patch
 )
 
-BOMCCOMMIT="c289e97c41d00939a4a69fe504961b47283a6d8e"
-TMPBOMCARCHIVE="${T}/sources-${BOMCCOMMIT}.tar.gz"
+src_unpack() {
+	default
 
-pkg_setup() {
-	# OMCompiler/Compiler/boot/CMakeLists.txt downloads a file during src_prepare phase which is blocked by ebuild
-	# network sandbox. Upstream downloads the (changing) master archive by default. Instead, the specific commit
-	# available at this OpenModelica version release date is taken.
-	local URI="https://github.com/OpenModelica/OMBootstrapping/archive/${BOMCCOMMIT}.tar.gz"
-
-	[[ -f "${DISTFILE}" ]] || wget "${URI}" -O "${TMPBOMCARCHIVE}"
-
-	local SHA12SUM=$(sha512sum "${TMPBOMCARCHIVE}")
-	einfo "${SHA12SUM}"
-	[[ "${SHA12SUM}" == "2202f02edc33ac4fb7264b0ea82ae4b2c965a85f8b96cb872cc4cc59c5e5b76346a023c416f994a9744021428d598c3dbdf688c0845ba4726849d3c9ee0cd4ba  ${TMPBOMCARCHIVE}" ]] || die "Wrong checksum."
-	local B2SUM=$(b2sum "${TMPBOMCARCHIVE}")
-	einfo "${B2SUM}"
-	[[ "${B2SUM}" == "afdda81842a686e092b46bd50d192f5e35ae6c662e8c5517346d86c7c098f2e23a99df27bc5c045b819472d0539837c845c63123ae4822127a14ac42e4ad2e97  ${TMPBOMCARCHIVE}" ]] || die "Wrong checksum."
-}
-
-src_prepare() {
-	# Setup Bootstrapping OMC
-	local BOMCDIR="${WORKDIR}"/"${P}"/OMCompiler/Compiler/boot/bomc
-	mkdir -p "${BOMCDIR}"
-	mv "${TMPBOMCARCHIVE}" "${BOMCDIR}"/sources.tar.gz
-	tar xzf "${BOMCDIR}"/sources.tar.gz --strip-components=1 -C "${BOMCDIR}"
-
-	cmake_src_prepare
+	mv "${WORKDIR}/OpenModelica-332e81aa6442c4cc4761251407332f86f80e834b" "${WORKDIR}/${P}"
+	rmdir "${WORKDIR}/${P}/OMCompiler/3rdParty"
+	mv "${WORKDIR}/OMCompiler-3rdParty-b826af1c1c15acf48627ad32cc0545ffc7e58bca" "${WORKDIR}/${P}/OMCompiler/3rdParty"
+	rmdir "${WORKDIR}/${P}/OMSens"
+	mv "${WORKDIR}/OMSens-0d804d597bc385686856d453cc830fad4923fa3e" "${WORKDIR}/${P}/OMSens"
+	rmdir "${WORKDIR}/${P}/OMSens_Qt"
+	mv "${WORKDIR}/OMSens_Qt-68b1b8697ac9f8e37ebe4de13c0c1d4e6e2e56fb" "${WORKDIR}/${P}/OMSens_Qt"
+	rmdir "${WORKDIR}/${P}/OMSens_Qt/common"
+	mv "${WORKDIR}/OpenModelica-common-08a01802db5ba5edb540383c46718b89ff229ef2" "${WORKDIR}/${P}/OMSens_Qt/common"
+	rmdir "${WORKDIR}/${P}/OMSimulator"
+	mv "${WORKDIR}/OMSimulator-1eb92ef35793b73e75d0cfed0c7b0311497d6278" "${WORKDIR}/${P}/OMSimulator"
+	rmdir "${WORKDIR}/${P}/OMSimulator/3rdParty"
+	mv "${WORKDIR}/OMSimulator-3rdParty-ca418d7768c036ac15e9894d7f00d2118b3399a6" "${WORKDIR}/${P}/OMSimulator/3rdParty"
+	mv "OMBootstrapping-c289e97c41d00939a4a69fe504961b47283a6d8e" "${WORKDIR}/${P}/OMCompiler/Compiler/boot/bomc"
+	touch "${WORKDIR}/${P}/OMCompiler/Compiler/boot/bomc/sources.tar.gz"
 }
 
 src_configure() {
@@ -140,6 +137,8 @@ src_compile() {
 	gfortran -fPIC -c Rutf.for Rut.for Curvif.for
 	# BUG: Undefined symbol curvif_ in
 	# ${WORKDIR}/${P}/OMSens/fortran_interface/curvif_simplified.cpython-312-x86_64-linux-gnu.so
+	# See with nm or objdump -tT
+	# ${WORKDIR}/${P}/OMSens/fortran_interface/curvif_simplified.cpython-312-x86_64-linux-gnu.so
 	# This bug causes "Vectorial Parameter Based Sensitivity Analysis" in OMSens to fail.
 	f2py --verbose -c -I. Curvif.o Rutf.o Rut.o -m curvif_simplified curvif_simplified.pyf Curvif_simplified.f90
 	cd "${PWD}"
@@ -158,9 +157,8 @@ src_install() {
 
 	newicon -s scalable OMShell/OMShell/OMShellGUI/Resources/omshell-large.svg omshell.svg
 	newicon -s scalable OMNotebook/OMNotebook/OMNotebookGUI/Resources/OMNotebook_icon.svg OMNotebook.svg
-	# No proper icon for Linux available from upstream
-	doicon -s 256 "${FILESDIR}"/omedit.png
-	make_desktop_entry "OMEdit %F" OMedit omedit "Physics;" "MimeType=text/x-modelica;"
+	# No proper icon for Linux available from upstream for OMEdit
+	make_desktop_entry "OMEdit %F" OMedit "" "Physics;" "MimeType=text/x-modelica;"
 	make_desktop_entry OMShell OMShell omshell "Physics;"
 	make_desktop_entry "OMNotebook %f" OMNotebook OMNotebook "Physics;"
 
