@@ -1,0 +1,10 @@
+<pkgmetadata>
+  <maintainer type="person">
+    <email>unlsycn@unlsycn.com</email>
+    <name>unlsycn</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">cdemoulins/pamixer</remote-id>
+  </upstream>
+  <longdescription lang="en">pamixer is like amixer but for pulseaudio. It can control the volume levels of the sinks.</longdescription>
+</pkgmetadata>
