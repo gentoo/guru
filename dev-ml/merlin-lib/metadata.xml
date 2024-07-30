@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>tokusan441@gmail.com</email>
+		<name>Hiroki Tokunaga</name>
+	</maintainer>
+	<longdescription lang="en">These libraries provides access to low-level compiler interfaces and the standard higher-level merlin protocol. The library is provided as-is, is not thoroughly documented, and its public API might break with any new release.</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/ocaml/merlin/issues</bugs-to>
+		<remote-id type="github">ocaml/merlin</remote-id>
+	</upstream>
+</pkgmetadata>
