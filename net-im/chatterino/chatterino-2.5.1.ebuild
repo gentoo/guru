@@ -47,11 +47,15 @@ BDEPEND="dev-qt/linguist-tools:5"
 src_prepare() {
 	rmdir --ignore-fail-on-non-empty ./lib/*/ ./cmake/*/ || die "can't remove stubbed libdirs"
 
+	local libname
 	for libname in libcommuni magic_enum miniaudio rapidjson serialize settings signals websocketpp; do
 		ln -sr ../${libname}-* ./lib/${libname} || die "failed to create symlink for ${libname}"
 	done
 	ln -sr ../sanitizers-cmake-* ./cmake/sanitizers-cmake || die "failed to create symlink for sanitizers-cmake"
 
+	# bug 936966
+	sed 's/-Werror[^[:space:])"]*//' -i --follow-symlinks \
+	{src,lib/{magic_enum/test,rapidjson,serialize,settings,websocketpp}}/CMakeLists.txt || die
 	cmake_src_prepare
 }
 
