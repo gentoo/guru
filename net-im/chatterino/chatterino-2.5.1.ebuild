@@ -20,7 +20,7 @@ SRC_URI="
 	https://github.com/arsenm/sanitizers-cmake/archive/3f0542e.tar.gz -> sanitizers-cmake-3f0542e.tar.gz
 "
 
-S=${WORKDIR}/chatterino2-${PV}
+S="${WORKDIR}/chatterino2-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
@@ -45,16 +45,13 @@ DEPEND="
 BDEPEND="dev-qt/linguist-tools:5"
 
 src_prepare() {
-	rmdir --ignore-fail-on-non-empty ./lib/*/ ./cmake/*/ || die
-	ln -sr ../libcommuni-* ./lib/libcommuni || die
-	ln -sr ../magic_enum-* ./lib/magic_enum || die
-	ln -sr ../miniaudio-* ./lib/miniaudio || die
-	ln -sr ../rapidjson-* ./lib/rapidjson || die
-	ln -sr ../serialize-* ./lib/serialize || die
-	ln -sr ../settings-* ./lib/settings || die
-	ln -sr ../signals-* ./lib/signals || die
-	ln -sr ../websocketpp-* ./lib/websocketpp || die
-	ln -sr ../sanitizers-cmake-* ./cmake/sanitizers-cmake || die
+	rmdir --ignore-fail-on-non-empty ./lib/*/ ./cmake/*/ || die "can't remove stubbed libdirs"
+
+	for libname in libcommuni magic_enum miniaudio rapidjson serialize settings signals websocketpp; do
+		ln -sr ../${libname}-* ./lib/${libname} || die "failed to create symlink for ${libname}"
+	done
+	ln -sr ../sanitizers-cmake-* ./cmake/sanitizers-cmake || die "failed to create symlink for sanitizers-cmake"
+
 	cmake_src_prepare
 }
 
