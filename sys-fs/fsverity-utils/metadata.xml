@@ -5,4 +5,8 @@
 		<email>mark@harmstone.com</email>
 		<name>Mark Harmstone</name>
 	</maintainer>
+	<upstream>
+		<bugs-to>mailto:fsverity@lists.linux.dev</bugs-to>
+		<changelog>https://git.kernel.org/pub/scm/fs/fsverity/fsverity-utils.git/tree/NEWS.md</changelog>
+	</upstream>
 </pkgmetadata>
