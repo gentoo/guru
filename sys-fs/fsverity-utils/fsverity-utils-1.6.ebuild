@@ -16,17 +16,19 @@ fi
 
 DESCRIPTION="Userspace utility for file-level integrity/authenticity verification"
 HOMEPAGE="https://git.kernel.org/pub/scm/fs/fsverity/fsverity-utils.git"
-LICENSE="GPL-2"
+LICENSE="MIT"
 SLOT="0"
 
 DEPEND="dev-libs/openssl:="
 
 RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 src_compile() {
-	emake CC="$(tc-getCC)"
+	emake CC="$(tc-getCC)" PKGCONF="$(tc-getPKG_CONFIG)"
 }
 
 src_install() {
-	emake install CC="$(tc-getCC)" DESTDIR="${D}" PREFIX="${EPREFIX}/usr" LIBDIR="${EPREFIX}/usr/$(get_libdir)"
+	emake install CC="$(tc-getCC)" PKGCONF="$(tc-getPKG_CONFIG)" DESTDIR="${D}" \
+		PREFIX="${EPREFIX}/usr" LIBDIR="${EPREFIX}/usr/$(get_libdir)"
 }
