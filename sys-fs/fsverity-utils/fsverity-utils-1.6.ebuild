@@ -19,6 +19,8 @@ HOMEPAGE="https://git.kernel.org/pub/scm/fs/fsverity/fsverity-utils.git"
 LICENSE="MIT"
 SLOT="0"
 
+IUSE="static-libs"
+
 DEPEND="dev-libs/openssl:="
 
 RDEPEND="${DEPEND}"
@@ -31,4 +33,8 @@ src_compile() {
 src_install() {
 	emake install CC="$(tc-getCC)" PKGCONF="$(tc-getPKG_CONFIG)" DESTDIR="${D}" \
 		PREFIX="${EPREFIX}/usr" LIBDIR="${EPREFIX}/usr/$(get_libdir)"
+
+	if ! use static-libs ; then
+		rm "${ED}/usr/$(get_libdir)/libfsverity.a"
+	fi
 }
