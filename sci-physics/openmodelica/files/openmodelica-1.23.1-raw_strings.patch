@@ -1,5 +1,7 @@
-diff --git a/OMSens/analysis/indiv_sens.py b/analysis/indiv_sens.py
-index 676c0b6..e12f022 100644
+Regular expression strings are not explicitly defined as raw strings. This
+causes modern python versions (tested with 3.12) to trigger warnings/errors.
+
+See-also: https://github.com/OpenModelica/OpenModelica/issues/12757
 --- a/OMSens/analysis/indiv_sens.py
 +++ b/OMSens/analysis/indiv_sens.py
 @@ -323,8 +323,8 @@ def slugify(value):
@@ -13,8 +15,6 @@ index 676c0b6..e12f022 100644
      return value
  
  
-diff --git a/OMSens/modelica_interface/run_omc.py b/modelica_interface/run_omc.py
-index 583e0d6..1cd67e4 100644
 --- a/OMSens/modelica_interface/run_omc.py
 +++ b/OMSens/modelica_interface/run_omc.py
 @@ -36,7 +36,8 @@ def writeOMCLog(log_str, output_path):
