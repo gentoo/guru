@@ -1,3 +1,4 @@
+Disable git in build system.
 --- a/version.pri
 +++ b/version.pri
 @@ -1,12 +1,5 @@
