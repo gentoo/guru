@@ -132,8 +132,7 @@ src_compile() {
 	# [2024-07-15]
 	# OMSens is disabled in "${WORKDIR}/${P}/CMakeLists.txt" (## omc_add_subdirectory(OMSens)) due to lack of a
 	# working "${WORKDIR}/${P}/OMSens/CMakeLists.txt". So, we compile it manually.
-	PWD=$(pwd)
-	cd "${WORKDIR}"/"${P}"/OMSens/fortran_interface
+	pushd OMSens/fortran_interface > /dev/null || die
 	gfortran -fPIC -c Rutf.for Rut.for Curvif.for || die
 	# BUG: Undefined symbol curvif_ in
 	# ${WORKDIR}/${P}/OMSens/fortran_interface/curvif_simplified.cpython-312-x86_64-linux-gnu.so
@@ -141,7 +140,7 @@ src_compile() {
 	# ${WORKDIR}/${P}/OMSens/fortran_interface/curvif_simplified.cpython-312-x86_64-linux-gnu.so
 	# This bug causes "Vectorial Parameter Based Sensitivity Analysis" in OMSens to fail.
 	f2py --verbose -c -I. Curvif.o Rutf.o Rut.o -m curvif_simplified curvif_simplified.pyf Curvif_simplified.f90 || die
-	cd "${PWD}"
+	popd || die
 
 	cmake_src_compile
 }
