@@ -37,7 +37,7 @@ RDEPEND="
 	dev-qt/qtbase:6[concurrent,dbus,gui,widgets]
 	dev-qt/qtdeclarative:6[widgets]
 	dev-qt/qtimageformats:6
-	dev-qt/qtmultimedia:6[gstreamer]
+	dev-qt/qtmultimedia:6[gstreamer,qml]
 	dev-qt/qtsvg:6
 	net-misc/curl[ssl]
 	virtual/notification-daemon
