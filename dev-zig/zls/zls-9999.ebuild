@@ -125,5 +125,5 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "You can find more information about options here https://github.com/zigtools/zls#configuration-options"
+	elog "You can find more information about options here: https://github.com/zigtools/zls/wiki/Configuration"
 }
