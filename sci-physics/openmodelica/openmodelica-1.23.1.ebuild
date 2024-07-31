@@ -170,7 +170,7 @@ src_install() {
 	dosym -r /usr/include/omc/ParModelica /usr/include/ParModelica
 
 	# Documentation housekeeping & QA
-	mv "${ED}"/usr/share/doc/omc "${ED}"/usr/share/doc/"${P}" || die
+	mv "${ED}"/usr/share/doc/omc "${ED}"/usr/share/doc/"${PF}" || die
 	rm -fr "${ED}"/usr/doc || die
 
 	ewarn "Upstream has deprecated OMTLMSimuulator and, therefore, it has not been installed. Use OMSimulator/SSP instead."
