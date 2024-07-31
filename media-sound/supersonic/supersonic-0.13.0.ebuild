@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,7 +29,7 @@ src_compile() {
 
 src_install() {
 	dobin supersonic
-	sed -i 's/supersonic-desktop/supersonic/g' "res/${PN}-desktop.desktop"
+	sed -i 's/supersonic-desktop/supersonic/g' "res/${PN}-desktop.desktop" || die
 	domenu "res/${PN}-desktop.desktop"
 	local x
 	for x in 128 256 512; do
