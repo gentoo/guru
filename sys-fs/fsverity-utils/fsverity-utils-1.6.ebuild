@@ -35,6 +35,6 @@ src_install() {
 		PREFIX="${EPREFIX}/usr" LIBDIR="${EPREFIX}/usr/$(get_libdir)"
 
 	if ! use static-libs ; then
-		rm "${ED}/usr/$(get_libdir)/libfsverity.a"
+		rm "${ED}/usr/$(get_libdir)/libfsverity.a" || die
 	fi
 }
