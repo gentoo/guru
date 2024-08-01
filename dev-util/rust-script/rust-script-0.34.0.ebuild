@@ -122,5 +122,7 @@ src_prepare() {
 	use debug || sed -i "s|/debug/|/release/|" tests/util/mod.rs || die
 
 	# cargo.eclass uses the old config and deprecation warning breaks the test.
-	ln -s "${ECARGO_HOME}/config" "${ECARGO_HOME}/config.toml" || die
+	if [[ ! -e "${ECARGO_HOME}/config.toml" ]]; then
+		ln -s "${ECARGO_HOME}/config" "${ECARGO_HOME}/config.toml" || die
+	fi
 }
