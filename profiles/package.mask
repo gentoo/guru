@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # David Roman <davidroman96@gmail.com> (2024-08-01)
+# Project archived upstream. No release since 2021
+# Removal on 2024-08-31
+app-containers/dnsname-cni-plugin
+
+# David Roman <davidroman96@gmail.com> (2024-08-01)
 # Project archived upstream. No release since 2020
 # Removal on 2024-08-31
 app-misc/pfetch
