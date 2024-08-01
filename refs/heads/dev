@@ -1,13 +1,13 @@
 certificate version 0.1
-pusher Yuhang Zeng <unlsycn@unlsycn.com> 1722525738 +0800
-pushee git.gentoo.org:repo/proj/guru.git
-nonce 1722525738-f5ad03cf9bc7521609aa120ba783ec5add2220f9
+pusher DDC9237C14CF6F4DD847F6B390D93ACCFEFF61AE 1722526472 +0200
+pushee git+ssh://git.gentoo.org/repo/proj/guru.git
+nonce 1722526472-6d3ebd3573aa6cd3a0cb422054696ed98e7d5782
 
-3c76ce11196dc7d1cd1260c3707ee8e8d6f3e253 5124f5a6e065978cff27da0747765a76b5ea8e84 refs/heads/dev
+5124f5a6e065978cff27da0747765a76b5ea8e84 9e3d4b010ce5c0884d6183768c5375509c7b4448 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iIoEABYKADIWIQTo9x31Qahwh9su9HjzWFMx50Wh5wUCZquoKhQcdW5sc3ljbkB1
-bmxzeWNuLmNvbQAKCRDzWFMx50Wh50OuAQDnVgQsiCs7iOCWhNg2xobLHAKFvvFt
-9rEDfGcUOlmCXwEAhtnngvTzZuceErJAWTJuTAlDJb9KqJd/HB/aaI5HCwE=
-=p2ek
+iHUEABYKAB0WIQT4W9xj/ZtK9Ev2uBLVt6jkPJl97gUCZqurCAAKCRDVt6jkPJl9
+7knLAQCWQy8RbxM2SOI/RX5+G6lgSasCKJrx+//aR1RPaB77ewEA/qf01oAABYa7
+l/dFYDNZaMG3nCGHURa2HhN8INgOjQg=
+=WMoQ
 -----END PGP SIGNATURE-----
