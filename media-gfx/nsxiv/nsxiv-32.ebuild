@@ -1,4 +1,4 @@
-# Copyright 2021-2023 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 else
 	SRC_URI="
-		https://codeberg.org/nsxiv/nsxiv/archive/v${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/nsxiv/nsxiv/archive/v${PV}.tar.gz -> ${P}.tar.gz
 		${ZSH_COMP_URI} -> ${ZSH_COMP}
 	"
 	KEYWORDS="~amd64"
