@@ -1,0 +1,14 @@
+<pkgmetadata>
+  <maintainer type="person">
+    <email>unlsycn@unlsycn.com</email>
+    <name>unlsycn</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">H3rmt/hyprswitch</remote-id>
+  </upstream>
+  <longdescription lang="en">Hyprswitch a CLI/GUI that allows switching between windows in Hyprland
+    which can cycle through windows using keyboard shortcuts or/and a GUI.</longdescription>
+  <use>
+    <flag name="libadwaita">The gui should use libadwaita</flag>
+  </use>
+</pkgmetadata>
