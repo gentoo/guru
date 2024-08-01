@@ -240,10 +240,13 @@ RESTRICT="!test? ( test )"
 
 DEPEND="openssl? ( dev-libs/openssl:= )"
 RDEPEND="${DEPEND}"
-BDEPEND="test? (
-	dev-build/cargo-make
-	dev-util/rust-script
-)"
+BDEPEND="
+	virtual/pkgconfig
+	test? (
+		dev-build/cargo-make
+		dev-util/rust-script
+	)
+"
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 
