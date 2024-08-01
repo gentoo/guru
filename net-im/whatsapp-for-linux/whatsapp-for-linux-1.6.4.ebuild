@@ -13,7 +13,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-LANGUAGES="en es it ka nl pt-BR ru tr"
+LANGUAGES="es it ka nl pt-BR ru tr"
 for lang in ${LANGUAGES}; do
 	IUSE+=" +l10n_${lang}"
 done
