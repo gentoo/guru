@@ -41,4 +41,5 @@ src_compile() {
 src_install() {
 	emake install DESTDIR="${D}" PREFIX="${EPREFIX}/usr" \
 		LIBDIR="${EPREFIX}/usr/$(get_libdir)"
+	dodoc {README,NEWS}.md
 }
