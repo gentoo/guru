@@ -6,6 +6,9 @@
     <name>Takuya Wakazono</name>
   </maintainer>
   <upstream>
+    <bugs-to>https://github.com/fornwall/rust-script/issues</bugs-to>
+    <changelog>https://github.com/fornwall/rust-script/blob/main/CHANGELOG.md</changelog>
+    <doc>https://rust-script.org/</doc>
     <remote-id type="github">fornwall/rust-script</remote-id>
   </upstream>
 </pkgmetadata>
