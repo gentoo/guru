@@ -1,0 +1,17 @@
+<pkgmetadata>
+  <maintainer type="person">
+    <email>unlsycn@unlsycn.com</email>
+    <name>unlsycn</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">wmww/gtk4-layer-shell</remote-id>
+  </upstream>
+  <longdescription lang="en">A library to create panels and other desktop components for Wayland using the Layer Shell protocol and GTK4</longdescription>
+  <use>
+    <flag name="examples">Build the example C apps</flag>
+    <flag name="smoke-tests">Test that all examples can run</flag>
+    <flag name="introspection">Build GObject Introspection data</flag>
+    <flag name="vala">Build VAPI data and Vala example. The VAPI file allows this library to be used
+      in Vala. Requires introspection.</flag>
+  </use>
+</pkgmetadata>
