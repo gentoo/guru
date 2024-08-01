@@ -9,7 +9,7 @@ DESCRIPTION="a simple named pipe management utility"
 HOMEPAGE="https://github.com/Ferdi265/pipectl"
 SRC_URI="https://github.com/Ferdi265/pipectl/releases/download/v${PV}/pipectl-${PV}.tar.gz"
 
-LICENSE="GPL-3.0"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="man"
@@ -20,7 +20,6 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_configure() {
 	mycmakeargs=(
@@ -30,4 +29,3 @@ src_configure() {
 
 	cmake_src_configure
 }
-
