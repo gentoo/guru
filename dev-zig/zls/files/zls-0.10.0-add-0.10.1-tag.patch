@@ -1,0 +1,20 @@
+diff --git a/src/data/data.zig b/src/data/data.zig
+index f6e3b04..ea2c46a 100644
+--- a/src/data/data.zig
++++ b/src/data/data.zig
+@@ -7,4 +7,5 @@ pub usingnamespace switch (build_options.data_version) {
+     .@"0.8.0" => @import("0.8.0.zig"),
+     .@"0.8.1" => @import("0.8.1.zig"),
+     .@"0.9.0" => @import("0.9.0.zig"),
++    .@"0.10.1" => @import("0.10.1.zig"),
+ };
+diff --git a/src/shared.zig b/src/shared.zig
+index 2521220..da751aa 100644
+--- a/src/shared.zig
++++ b/src/shared.zig
+@@ -7,4 +7,5 @@ pub const ZigVersion = enum {
+     @"0.8.0",
+     @"0.8.1",
+     @"0.9.0",
++    @"0.10.1",
+ };
