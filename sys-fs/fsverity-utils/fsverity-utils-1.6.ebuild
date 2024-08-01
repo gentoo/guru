@@ -19,22 +19,26 @@ HOMEPAGE="https://git.kernel.org/pub/scm/fs/fsverity/fsverity-utils.git"
 LICENSE="MIT"
 SLOT="0"
 
-IUSE="static-libs"
-
 DEPEND="dev-libs/openssl:="
 
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
+src_prepare() {
+	# bug comment 937042#c3
+	sed -e '/^DEFAULT_TARGETS += libfsverity.a/d' \
+		-e '/install -m644 libfsverity.a/d' \
+		-i Makefile || die
+	default
+}
+
 src_compile() {
-	emake CC="$(tc-getCC)" PKGCONF="$(tc-getPKG_CONFIG)"
+	export PKGCONF="$(tc-getPKG_CONFIG)" USE_SHARED_LIB=1
+	tc-export AR CC
+	default
 }
 
 src_install() {
-	emake install CC="$(tc-getCC)" PKGCONF="$(tc-getPKG_CONFIG)" DESTDIR="${D}" \
-		PREFIX="${EPREFIX}/usr" LIBDIR="${EPREFIX}/usr/$(get_libdir)"
-
-	if ! use static-libs ; then
-		rm "${ED}/usr/$(get_libdir)/libfsverity.a" || die
-	fi
+	emake install DESTDIR="${D}" PREFIX="${EPREFIX}/usr" \
+		LIBDIR="${EPREFIX}/usr/$(get_libdir)"
 }
