@@ -33,7 +33,7 @@ src_prepare() {
 }
 
 src_compile() {
-	export PKGCONF="$(tc-getPKG_CONFIG)" USE_SHARED_LIB=1
+	export PKGCONF="$(tc-getPKG_CONFIG)" USE_SHARED_LIB=1 V=1
 	tc-export AR CC
 	default
 }
