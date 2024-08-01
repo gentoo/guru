@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_PN=${PN/-bin/}
 MY_BIN="D${MY_PN/d/}"
@@ -10,7 +10,7 @@ MY_BIN="${MY_BIN/-ptb/}PTB"
 inherit desktop linux-info pax-utils unpacker xdg
 
 DESCRIPTION="All-in-one voice and text chat"
-HOMEPAGE="https://discordapp.com/"
+HOMEPAGE="https://discord.com/"
 SRC_URI="https://dl-ptb.discordapp.net/apps/linux/${PV}/${MY_PN}-${PV}.deb"
 
 S="${WORKDIR}"
@@ -22,9 +22,7 @@ RESTRICT="mirror bindist"
 
 # libXScrnSaver is used through dlopen (bug #825370)
 RDEPEND="
-	app-accessibility/at-spi2-atk:2
 	app-accessibility/at-spi2-core:2
-	dev-libs/atk
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/nspr
