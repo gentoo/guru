@@ -25,10 +25,8 @@ RESTRICT="test"
 
 RDEPEND="
 	dev-ml/csexp:=
-	dev-ml/ordering:=
-	dev-ml/dyn:=
 	dev-ml/xdg:=
-	~dev-ml/stdune-${PV}:=
+	~dev-ml/dune-private-libs-${PV}:=
 	>=dev-ml/pp-1.1.0:=
 "
 
