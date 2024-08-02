@@ -19,6 +19,12 @@
 # New entries go on top.
 
 # David Roman <davidroman96@gmail.com> (2024-08-02)
+# Seems abandoned upstream (last commit 1 year ago, no releases)
+# Seems also abandoned in ::guru (last meaningful change on 2022)
+# Removal on 2024-09-02
+gui-apps/tootle
+
+# David Roman <davidroman96@gmail.com> (2024-08-02)
 # Seems unmaintained. It fails to compile (bug 921914 and 896014)
 # Removal on 2024-09-02
 games-engines/ponscripter-fork
