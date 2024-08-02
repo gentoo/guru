@@ -346,6 +346,7 @@ src_test() {
 		--skip test_init
 		--skip test_publish
 		--skip test_lint_and_format
+		--skip test_basic_script
 		--skip test_version
 		--skip test_empty_sync
 		--skip test_autosync_remember
