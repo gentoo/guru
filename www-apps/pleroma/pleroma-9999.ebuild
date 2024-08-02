@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit mix optfeature
+inherit mix optfeature flag-o-matic
 
 DESCRIPTION="ActivityPub social networking software compatible with other Fediverse software"
 HOMEPAGE="https://pleroma.social/"
@@ -28,6 +28,7 @@ BDEPEND="
 	dev-build/cmake
 	>=dev-util/rebar-3.20.0-r1
 	dev-elixir/hex
+	dev-vcs/git
 "
 DEPEND="
 	media-libs/vips:=
@@ -71,6 +72,10 @@ src_prepare() {
 	echo 'config :tzdata, :data_dir, "/var/lib/pleroma/tzdata"' >> config/prod.exs || die
 
 	echo "import Config" > config/prod.secret.exs || die
+
+	# Needs -fPIC under glibc for exile library
+	# https://bugs.gentoo.org/937130
+	append-flags -fPIC
 }
 
 src_compile() {
