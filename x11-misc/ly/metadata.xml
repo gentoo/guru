@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>saigon-tech@tuta.io</email>
+        <name>Michal Vu</name>
+    </maintainer>
+    <longdescription>
+        Ly is a lightweight TUI (Terminal User Interface) display manager for Linux.
+        It aims to be simple, fast, and easily configurable. Ly supports various
+        desktop environments and window managers, and provides a minimalistic
+        yet functional login experience. It's designed to be an alternative to
+        heavier graphical display managers while still offering essential features.
+    </longdescription>
+    <upstream>
+        <remote-id type="github">fairyglade/ly</remote-id>
+    </upstream>
+</pkgmetadata>
