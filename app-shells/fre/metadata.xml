@@ -1,0 +1,18 @@
+<pkgmetadata>
+  <maintainer type="person">
+    <email>unlsycn@unlsycn.com</email>
+    <name>unlsycn</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">camdencheek/fre</remote-id>
+  </upstream>
+  <longdescription lang="en">fre is a CLI tool for tracking your most-used directories and files.
+    Though inspired by tools like autojump or the z plugin for zsh, it takes a slightly different
+    approach to tracking and providing usage data. The primary difference is fre does not support
+    jumping. Instead, it just keeps track of and provides sorting methods for directories, which can
+    then be filtered by another application like fzf, which does a much better job of filtering than
+    something I can write. Additionally, it uses an algorithm in which the weights of each directory
+    decay exponentially, so more recently used directories are ranked more highly in a smooth
+    manner.
+</longdescription>
+</pkgmetadata>
