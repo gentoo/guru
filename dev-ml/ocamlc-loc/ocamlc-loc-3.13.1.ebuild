@@ -24,7 +24,7 @@ IUSE="ocamlopt"
 RESTRICT="test"
 
 RDEPEND="
-	~dev-ml/dyn-${PV}:=
+	~dev-ml/dune-private-libs-${PV}:=
 "
 
 DEPEND="
