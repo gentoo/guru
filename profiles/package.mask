@@ -89,11 +89,6 @@ net-im/gtkcord4
 # Removal on 2024-08-24.
 kde-misc/plasma-applet-thermal-monitor
 
-# Eli Burch <eli.burch@burchbytes.com> (2024-06-19)
-# Dependency media-video/ffmpeg-chromium:120 was dropped from ::gentoo,
-# causing pkgcheck to fail. Masking for now
-www-client/yandex-browser
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
