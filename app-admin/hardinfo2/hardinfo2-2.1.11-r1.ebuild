@@ -22,6 +22,10 @@ DEPEND="
 	sys-libs/zlib
 	dev-libs/json-glib
 	net-libs/libsoup:3.0
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/libX11
+	x11-libs/pango
 "
 RDEPEND="
 	${DEPEND}
