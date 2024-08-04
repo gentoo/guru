@@ -35,11 +35,6 @@ games-engines/ponscripter-fork
 app-containers/dnsname-cni-plugin
 
 # David Roman <davidroman96@gmail.com> (2024-08-01)
-# Project archived upstream. No release since 2020
-# Removal on 2024-08-31
-app-misc/pfetch
-
-# David Roman <davidroman96@gmail.com> (2024-08-01)
 # No maintainer. Seems dead, last release from 2016
 # Removal on 2024-08-31
 dev-python/funcsigs
