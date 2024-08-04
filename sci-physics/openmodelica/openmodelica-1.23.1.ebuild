@@ -105,6 +105,10 @@ src_unpack() {
 	mv "${WORKDIR}/OMSimulator-3rdParty-ca418d7768c036ac15e9894d7f00d2118b3399a6" "${WORKDIR}/${P}/OMSimulator/3rdParty" || die
 	mv "OMBootstrapping-c289e97c41d00939a4a69fe504961b47283a6d8e" "${WORKDIR}/${P}/OMCompiler/Compiler/boot/bomc" || die
 	touch "${WORKDIR}/${P}/OMCompiler/Compiler/boot/bomc/sources.tar.gz" || die
+
+	# Solve https://bugs.gentoo.org/937038
+	rm -fr "${WORKDIR}/${P}/OMCompiler/3rdParty/FMIL/ThirdParty/Minizip/minizip" || die
+	cp -a "${WORKDIR}/${P}/OMSimulator/3rdParty/fmi4c/3rdparty/minizip" "${WORKDIR}/${P}/OMCompiler/3rdParty/FMIL/ThirdParty/Minizip/minizip" || die
 }
 
 src_configure() {
