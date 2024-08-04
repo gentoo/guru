@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit python-single-r1 optfeature wrapper
 
@@ -21,7 +21,10 @@ fi
 LICENSE="MIT"
 SLOT="0"
 
-RDEPEND="dev-debug/gdb[python]"
+RDEPEND="
+	dev-debug/gdb[python]
+	${PYTHON_DEPS}
+"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 pkg_setup() {
