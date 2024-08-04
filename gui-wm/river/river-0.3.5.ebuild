@@ -49,11 +49,11 @@ ezig_build() {
 src_unpack() {
 	default
 
-	edo mkdir "${S}/deps"
-	edo mv zig-pixman "${S}/deps"
-	edo mv zig-wayland "${S}/deps"
-	edo mv zig-wlroots "${S}/deps"
-	edo mv zig-xkbcommon "${S}/deps"
+	mkdir "${S}/deps" || die
+	mv zig-pixman "${S}/deps" || die
+	mv zig-wayland "${S}/deps" || die
+	mv zig-wlroots "${S}/deps" || die
+	mv zig-xkbcommon "${S}/deps" || die
 }
 
 src_configure() {
@@ -82,6 +82,10 @@ src_install() {
 	ezig_build install --prefix "${ED}/usr"
 
 	dodoc README.md
+
 	insinto /usr/share/wayland-sessions
 	doins contrib/river.desktop
+
+	insinto /usr/share/${PN}
+	doins -r example
 }
