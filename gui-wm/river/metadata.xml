@@ -6,7 +6,6 @@
 		<name>Daichi Yamamoto</name>
 	</maintainer>
 	<use>
-		<flag name="fish-completion">Enable fish-completion support</flag>
 		<flag name="llvm">Use LLVM Zig backend</flag>
 	</use>
 	<upstream>

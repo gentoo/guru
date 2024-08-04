@@ -24,7 +24,7 @@ PATCHES=(
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+X +llvm +man pie bash-completion zsh-completion fish-completion"
+IUSE="+X +llvm +man pie"
 
 EZIG_MIN="0.12"
 EZIG_MAX_EXCLUSIVE="0.13"
@@ -130,9 +130,6 @@ src_configure() {
 		-Dpie=$(usex pie true false)
 		-Dno-llvm=$(usex llvm false true)
 		-Dman-pages=$(usex man true false)
-		-Dbash-completion=$(usex bash-completion true false)
-		-Dzsh-completion=$(usex zsh-completion true false)
-		-Dfish-completion=$(usex fish-completion true false)
 		-Dxwayland=$(usex X true false)
 	)
 }
