@@ -85,6 +85,7 @@ DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}"/"${P}"-raw_strings.patch
+	"${FILESDIR}"/"${P}"-include_algorithm.patch
 )
 
 src_unpack() {

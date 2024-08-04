@@ -1,0 +1,14 @@
+add <algorithm> to define std::unique and std::find
+Fixes compilation error with GCC 14
+
+See https://github.com/OpenModelica/OMSimulator/pull/1295
+--- a/OMSimulator/src/OMSimulatorLib/Model.cpp
++++ b/OMSimulator/src/OMSimulatorLib/Model.cpp
+@@ -43,6 +43,7 @@
+ 
+ #include "minizip.h"
+ #include <thread>
++#include <algorithm>
+ 
+ oms::Model::Model(const oms::ComRef& cref, const std::string& tempDir)
+   : cref(cref), tempDir(tempDir), resultFilename(std::string(cref) + "_res.mat")
