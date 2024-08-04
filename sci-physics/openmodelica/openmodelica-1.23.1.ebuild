@@ -139,7 +139,7 @@ src_compile() {
 	# ${WORKDIR}/${P}/OMSens/fortran_interface/curvif_simplified.cpython-312-x86_64-linux-gnu.so
 	# This bug causes "Vectorial Parameter Based Sensitivity Analysis" in OMSens to fail.
 	f2py --verbose -c -I. Curvif.o Rutf.o Rut.o -m curvif_simplified curvif_simplified.pyf Curvif_simplified.f90 || die
-	popd || die
+	popd > /dev/null || die
 
 	cmake_src_compile
 }
