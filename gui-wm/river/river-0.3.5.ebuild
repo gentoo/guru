@@ -33,6 +33,7 @@ DEPEND="
 	|| ( dev-lang/zig-bin:${EZIG_MIN} dev-lang/zig:${EZIG_MIN} )
 	dev-libs/wayland
 	gui-libs/wlroots:0.18
+	xwayland? ( x11-base/xwayland )
 	x11-libs/libxkbcommon
 	x11-libs/pixman
 "
