@@ -62,12 +62,6 @@ media-video/olive
 # Removal on 2024-08-05
 sys-block/partclone
 
-# Lucio Sauer <watermanpaint@posteo.net> (2024-07-04)
-# Package is unmaintained and out of date since 2021, has open bugs and
-# it doesn't compile
-# Removal on 2024-08-04
-games-engines/luxtorpeda
-
 # Pascal Jaeger <pascal.jaeger@leimstift.de> (2024-06-29)
 # Package is renamed to 'dissent'
 # Newer versions do not build in portage because of dependency
