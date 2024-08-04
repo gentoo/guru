@@ -1,6 +1,6 @@
 zig-wayland-0.2.0
---- a/deps/zig-wayland/src/scanner.zig
-+++ b/deps/zig-wayland/src/scanner.zig
+--- a/deps/p/1220687c8c47a48ba285d26a05600f8700d37fc637e223ced3aa8324f3650bf52242/src/scanner.zig
++++ b/deps/p/1220687c8c47a48ba285d26a05600f8700d37fc637e223ced3aa8324f3650bf52242/src/scanner.zig
 @@ -528,7 +528,7 @@
      // These interfaces are special in that their version may never be increased.
      // That is, they are pinned to version 1 forever. They also may break the

@@ -18,27 +18,31 @@ SRC_URI="
 S="${WORKDIR}/${PN}"
 
 PATCHES=(
-	"${FILESDIR}/${P}-build-zig-zon.patch"
 	"${FILESDIR}/${P}-zig-0.12.0.patch"
 )
 
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+llvm +man pie xwayland bash-completion zsh-completion fish-completion"
+IUSE="+X +llvm +man pie bash-completion zsh-completion fish-completion"
 
 EZIG_MIN="0.12"
 EZIG_MAX_EXCLUSIVE="0.13"
 
 DEPEND="
-	|| ( dev-lang/zig-bin:${EZIG_MIN} dev-lang/zig:${EZIG_MIN} )
+	dev-libs/libevdev
 	dev-libs/wayland
-	gui-libs/wlroots:0.18
-	xwayland? ( x11-base/xwayland )
-	x11-libs/libxkbcommon
+	dev-libs/wayland-protocols
+	gui-libs/wlroots:0.18=[X?]
+	x11-libs/libxkbcommon:=[X?]
 	x11-libs/pixman
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	|| ( dev-lang/zig-bin:${EZIG_MIN} dev-lang/zig:${EZIG_MIN} )
+	man? ( app-text/scdoc )
+	virtual/pkgconfig
+"
 
 DOCS=( README.md )
 
@@ -108,16 +112,19 @@ ezig() {
 src_unpack() {
 	default
 
+	# unpacking into ${S} to patch zig-wayland-0.2.0
+	# without patches, it would be better using ${WORKDIR}/deps
 	mkdir "${S}/deps" || die
-	mv zig-pixman "${S}/deps" || die
-	mv zig-wayland "${S}/deps" || die
-	mv zig-wlroots "${S}/deps" || die
-	mv zig-xkbcommon "${S}/deps" || die
+	ezig fetch --global-cache-dir "${S}/deps" "${DISTDIR}/zig-pixman-0.2.0.tar.gz"
+	ezig fetch --global-cache-dir "${S}/deps" "${DISTDIR}/zig-wayland-0.2.0.tar.gz"
+	ezig fetch --global-cache-dir "${S}/deps" "${DISTDIR}/zig-wlroots-0.18.0.tar.gz"
+	ezig fetch --global-cache-dir "${S}/deps" "${DISTDIR}/zig-xkbcommon-0.2.0.tar.gz"
 }
 
 src_configure() {
 	export ZBS_ARGS=(
 		--prefix usr/
+		--system "${S}/deps/p"
 		-Doptimize=ReleaseSafe
 
 		-Dpie=$(usex pie true false)
@@ -126,7 +133,7 @@ src_configure() {
 		-Dbash-completion=$(usex bash-completion true false)
 		-Dzsh-completion=$(usex zsh-completion true false)
 		-Dfish-completion=$(usex fish-completion true false)
-		-Dxwayland=$(usex xwayland true false)
+		-Dxwayland=$(usex X true false)
 	)
 }
 
