@@ -1,0 +1,11 @@
+--- a/build.sh
++++ b/build.sh
+@@ -15,7 +15,7 @@
+ # default - compiling DC only (using by default)
+ 
+ # path to lazbuild
+-export lazbuild=$(which lazbuild)
++export lazbuild="/usr/bin/lazbuild --pcp=~/.lazarus  --lazarusdir=/usr/share/lazarus"
+ 
+ # Set up widgetset: gtk or gtk2 or qt
+ # Set up processor architecture: i386 or x86_64
