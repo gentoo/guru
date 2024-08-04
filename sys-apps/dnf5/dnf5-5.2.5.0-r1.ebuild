@@ -19,7 +19,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	>=app-arch/rpm-4.17.0
 	dev-cpp/sdbus-c++:=
-	dev-cpp/toml11
+	<dev-cpp/toml11-4.0.0
 	>=dev-db/sqlite-3.35.0:3
 	>=dev-libs/glib-2.46.0:2
 	dev-libs/json-c:=
