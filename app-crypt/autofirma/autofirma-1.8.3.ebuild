@@ -22,10 +22,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="virtual/jre:1.8"
-BDEPEND="
-	app-arch/unzip
-	net-misc/wget
-"
+BDEPEND="app-arch/unzip"
 
 pkg_pretend() {
 	# Upstream blocks vanilla wget, so we set up a browser User-Agent as a fallback.
