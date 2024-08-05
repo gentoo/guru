@@ -48,16 +48,16 @@ src_install() {
 
 	insinto /etc/sanoid
 	doins "sanoid.defaults.conf"
-
-	if [[ -z ${REPLACING_VERSIONS} ]]; then
-		elog "You will need to set up your /etc/sanoid/sanoid.conf file before"
-		elog "running sanoid for the first time. For details, please consult the"
-		elog "documentation on https://github.com/jimsalterjrs/sanoid."
-	fi
 }
 
 pkg_postinst() {
 	optfeature "lzop compression support" app-arch/lzop
 	optfeature "pigz compression support" app-arch/pigz
 	optfeature "zstd compression support" app-arch/zstd
+
+	if [[ -z ${REPLACING_VERSIONS} ]]; then
+		elog "You will need to set up your ${EROOT}/etc/sanoid/sanoid.conf file before"
+		elog "running sanoid for the first time. For details, please consult the"
+		elog "documentation on https://github.com/jimsalterjrs/sanoid."
+	fi
 }
