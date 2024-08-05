@@ -6,16 +6,30 @@
     <name>Peter Levine</name>
     <email>plevine457@gmail.com</email>
   </maintainer>
+  <use>
+    <flag name="deprecated">Build with deprecated options</flag>
+    <flag name="icon-browser">Build icon browser</flag>
+    <flag name="sourceview">Enable <pkg>x11-libs/gtksourceview</pkg> support</flag>
+    <flag name="standalone">Build standalone binary (without gsettings)</flag>
+    <flag name="tools">Build yad-tools utility</flag>
+    <flag name="tray">Build with status icon</flag>
+  </use>
+  <use lang="fr">
+    <flag name="deprecated">Construire avec les options dépréciées</flag>
+    <flag name="icon-browser">Construire l'explorateur d'icônes</flag>
+    <flag name="sourceview">Activer le support de <pkg>x11-libs/gtksourceview</pkg></flag>
+    <flag name="standalone">Construire le binaire autonome (sans gsettings)</flag>
+    <flag name="tools">Construire l'utilitaire yad-tools</flag>
+    <flag name="tray">Construire avec l'icône de statut</flag>
+  </use>
   <upstream>
-    <maintainer>
+    <maintainer status="active">
       <name>Victor Ananjevsky</name>
       <email>victor@sanana.kiev.ua</email>
     </maintainer>
-    <bugs-to>https://github.com/v1cont/yad/issues</bugs-to>
+    <changelog>https://github.com/v1cont/yad/blob/master/NEWS</changelog>
+    <doc>https://github.com/v1cont/yad/wiki/</doc>
+    <bugs-to>https://github.com/v1cont/yad/issues/</bugs-to>
     <remote-id type="github">v1cont/yad</remote-id>
   </upstream>
-  <use>
-    <flag name="sourceview">Enable GtkSourceView support with <pkg>x11-libs/gtksourceview</pkg></flag>
-    <flag name="spell">Enable spell check support with <pkg>app-text/gspell</pkg></flag>
-  </use>
 </pkgmetadata>
