@@ -40,6 +40,8 @@ PATCHES=(
 
 src_prepare() {
 	default
+	# bug 936615
+	sed 's/-D_FORTIFY_SOURCE=2//' -i Makefile.am || die
 	eautoreconf
 }
 
