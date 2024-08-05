@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David Roman <davidroman96@gmail.com> (2024-08-05)
+# Archived upstream. No maintainer
+# Removal on 2024-09-05
+media-gfx/libpsautohint
+
 # David Roman <davidroman96@gmail.com> (2024-08-02)
 # Seems abandoned upstream (last commit 1 year ago, no releases)
 # Seems also abandoned in ::guru (last meaningful change on 2022)
