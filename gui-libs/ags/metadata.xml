@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>beatussum@protonmail.com</email>
+		<name>Mattéo Rossillol‑‑Laruelle</name>
+	</maintainer>
+	<longdescription>
+		This is a library built for <pkg>dev-libs/gjs</pkg> to allow
+		defining <pkg>x11-libs/gtk+</pkg> widgets in a declarative way.
+		It also provides services and other utilities to interact with
+		the system so that these widgets can have functionality.
+		<pkg>dev-libs/gjs</pkg> is a JavaScript runtime built on
+		Firefox's SpiderMonkey JavaScript engine and the GNOME platform
+		libraries, the same runtime <pkg>gui-libs/gtk-layer-shell</pkg>
+		runs on.
+
+		It was heavily inspired by EWW.
+
+		Currently, only <pkg>dev-libs/wayland</pkg> is supported, but
+		it also works on X11, see #19.
+	</longdescription>
+	<longdescription lang="fr">
+		Il s'agit d'une bibliothèque construite pour
+		<pkg>dev-libs/gjs</pkg> qui permet de définir des widgets 
+		<pkg>x11-libs/gtk+</pkg> de façon déclarative. Il fournit
+		également des services et d'autres utilitaires pour interagir
+		avec le système afin que ces widgets puissent avoir des
+		fonctionnalités. <pkg>dev-libs/gjs</pkg> est un moteur
+		d'exécution JavaScript construit sur le moteur JavaScript
+		SpiderMonkey de Firefox et les bibliothèques de la plateforme
+		GNOME. Il s'exécute en même temps que
+		<pkg>gui-libs/gtk-layer-shell</pkg>.
+
+		Elle a été fortement inspirée par EWW.
+
+		Actuellement, seul <pkg>dev-libs/wayland</pkg> est supporté,
+		mais elle fonctionne également sur X11, voir #19.
+	</longdescription>
+	<upstream>
+		<maintainer status="active">
+			<name>Aylur</name>
+			<email>demstof@gmail.com</email>
+		</maintainer>
+		<changelog>https://github.com/Aylur/ags/blob/main/CHANGELOG.md</changelog>
+		<doc>https://aylur.github.io/ags-docs/</doc>
+		<bugs-to>https://github.com/Aylur/ags/issues/</bugs-to>
+		<remote-id type="github">Aylur/ags</remote-id>
+	</upstream>
+</pkgmetadata>
