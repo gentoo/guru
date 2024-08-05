@@ -157,7 +157,7 @@ src_install() {
 	mogrify OMEdit/OMEditLIB/Resources/icons/omedit.ico[0] -thumbnail 256x256 -flatten || die
 	newicon -s 256 OMEdit/OMEditLIB/Resources/icons/omedit.ico omedit.png
 
-	make_desktop_entry "OMEdit %F" OMedit "" "Physics;" "MimeType=text/x-modelica;"
+	make_desktop_entry "OMEdit %F" OMedit omedit "Physics;" "MimeType=text/x-modelica;"
 	make_desktop_entry OMShell OMShell omshell "Physics;"
 	make_desktop_entry "OMNotebook %f" OMNotebook OMNotebook "Physics;"
 
