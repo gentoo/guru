@@ -14,13 +14,13 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=sci-libs/opencascade-7.7.0-r2
-	<sci-libs/opencascade-7.8.0
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
 	dev-qt/qttranslations:5
+	dev-qt/qtwidgets:5
 	>=media-libs/assimp-5.3.1
+	>=sci-libs/opencascade-7.7.0-r2
+	<sci-libs/opencascade-7.8.0
 "
 
 DEPEND="${RDEPEND}"
