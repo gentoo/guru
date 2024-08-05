@@ -23,10 +23,7 @@ RDEPEND="
 	dev-texlive/texlive-plaingeneric
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	${RDEPEND}
-	app-arch/unzip
-"
+BDEPEND="${RDEPEND}"
 
 TEXMF="/usr/share/texmf-site"
 
