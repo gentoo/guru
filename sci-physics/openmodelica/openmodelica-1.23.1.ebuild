@@ -76,10 +76,7 @@ RDEPEND+="
 	>=sys-libs/ncurses-6.4_p20240414
 "
 
-BDEPEND="
-	dev-util/ccache
-	app-arch/tar
-"
+BDEPEND="dev-util/ccache"
 
 DEPEND="${RDEPEND}"
 
