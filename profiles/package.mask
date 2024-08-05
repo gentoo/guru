@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # David Roman <davidroman96@gmail.com> (2024-08-05)
+# No maintainer. Abandoned (last commit 5 years ago). No revdeps
+# Removal on 2024-09-05
+dev-python/sphinx-version-warning
+
+# David Roman <davidroman96@gmail.com> (2024-08-05)
 # No maintainer, we already have yt-dlp on ::gentoo.
 # Removal on 2024-09-05
 net-misc/youtube-dl
