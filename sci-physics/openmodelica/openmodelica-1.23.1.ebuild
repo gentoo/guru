@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 EAPI=8
 
-inherit cmake desktop xdg toolchain-funcs fortran-2
+inherit cmake desktop xdg fortran-2
 
 DESCRIPTION="Open-source Modelica-based modeling and simulation environment"
 HOMEPAGE="https://openmodelica.org/"
@@ -128,7 +128,7 @@ src_compile() {
 	# OMSens is disabled in "${WORKDIR}/${P}/CMakeLists.txt" (## omc_add_subdirectory(OMSens)) due to lack of a
 	# working "${WORKDIR}/${P}/OMSens/CMakeLists.txt". So, we compile it manually.
 	pushd OMSens/fortran_interface > /dev/null || die
-	$(tc-getFC) -fPIC -c Rutf.for Rut.for Curvif.for || die
+	${FC} -fPIC -c Rutf.for Rut.for Curvif.for || die
 	# BUG: Undefined symbol curvif_ in
 	# ${WORKDIR}/${P}/OMSens/fortran_interface/curvif_simplified.cpython-312-x86_64-linux-gnu.so
 	# See with nm or objdump -tT
