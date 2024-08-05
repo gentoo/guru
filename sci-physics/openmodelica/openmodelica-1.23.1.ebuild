@@ -154,8 +154,8 @@ src_install() {
 
 	newicon -s scalable OMShell/OMShell/OMShellGUI/Resources/omshell-large.svg omshell.svg
 	newicon -s scalable OMNotebook/OMNotebook/OMNotebookGUI/Resources/OMNotebook_icon.svg OMNotebook.svg
-	mogrify OMEdit/OMEditLIB/Resources/icons/omedit.ico[0] -thumbnail 256x256 -flatten || die
-	newicon -s 256 OMEdit/OMEditLIB/Resources/icons/omedit.ico omedit.png
+	convert OMEdit/OMEditLIB/Resources/icons/omedit.ico[0] -thumbnail 256x256 -flatten OMEdit/OMEditLIB/Resources/icons/omedit_icon.png || die
+	newicon -s 256 OMEdit/OMEditLIB/Resources/icons/omedit_icon.png omedit.png
 
 	make_desktop_entry "OMEdit %F" OMedit omedit "Physics;" "MimeType=text/x-modelica;"
 	make_desktop_entry OMShell OMShell omshell "Physics;"
