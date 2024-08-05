@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools shell-completion
+inherit autotools out-of-source shell-completion
 
 MY_PV="$(ver_cut 1-2).c.$(ver_cut 3)"
 
@@ -45,7 +45,7 @@ src_prepare() {
 }
 
 src_install() {
-	default
+	out-of-source_src_install
 	newbashcomp i3lock-bash i3lock
 	newzshcomp i3lock-zsh _i3lock
 }
