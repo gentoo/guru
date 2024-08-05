@@ -1,0 +1,34 @@
+From 4ff4b9b13b8aa2a22415e5c03e9d97f7bac6f2c7 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Matt=C3=A9o=20Rossillol=E2=80=91=E2=80=91Laruelle?=
+ <beatussum@protonmail.com>
+Date: Sun, 7 Jul 2024 17:19:06 +0200
+Subject: [PATCH] fix cflags
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This commit removes the `-Werror` cflag added by meson.build.
+
+See-also: https://devmanual.gentoo.org/ebuild-writing/common-mistakes/index.html#-werror-compiler-flag-not-removed
+Signed-off-by: Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com>
+---
+ meson.build | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 7af6fb9..2e35693 100644
+--- a/meson.build
++++ b/meson.build
+@@ -5,8 +5,7 @@ project(
+   license: 'MIT',
+   default_options:
+   [
+-    'c_std=c11',
+-    'werror=true'
++    'c_std=c11'
+   ]
+ )
+ 
+-- 
+2.44.2
+

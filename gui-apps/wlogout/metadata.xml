@@ -7,13 +7,16 @@
 	</maintainer>
 	<use>
 		<flag name="layershell">Enable transparency</flag>
-		<flag name="doc">Install man pages</flag>
 		<flag name="bash-completions">Enable completions for bash shell</flag>
 		<flag name="fish-completions">Enable completions for fish shell</flag>
 		<flag name="zsh-completions">Enable completions for zsh shell</flag>
 	</use>
 	<upstream>
+		<maintainer status="active">
+			<name>Haden Collins</name>
+			<email>collinshaden@gmail.com</email>
+		</maintainer>
+		<bugs-to>https://github.com/ArtsyMacaw/wlogout/issues/</bugs-to>
 		<remote-id type="github">ArtsyMacaw/wlogout</remote-id>
-		<bugs-to>https://github.com/ArtsyMacaw/wlogout/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
