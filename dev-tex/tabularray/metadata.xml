@@ -5,6 +5,9 @@
 		<email>vowstar@gmail.com</email>
 		<name>Huang Rui</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">lvjr/tabularray</remote-id>
+	</upstream>
 	<longdescription lang="en">
 		LATEX tables are implemented using TEX commands such as \halign,
 		\noalign, \span, and \omit. In order to implement new features, many

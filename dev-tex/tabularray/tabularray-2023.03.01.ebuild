@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,9 +7,9 @@ inherit latex-package
 
 DESCRIPTION="Typeset tabulars and arrays with LATEX3"
 HOMEPAGE="https://www.ctan.org/pkg/tabularray/"
-SRC_URI="https://mirrors.ctan.org/macros/latex/contrib/tabularray.zip -> ${P}.zip"
+SRC_URI="https://github.com/lvjr/tabularray/archive/refs/tags/2023A.tar.gz -> ${P}.tar.gz"
 
-S="${WORKDIR}/${PN}"
+S="${WORKDIR}/${PN}-2023A"
 
 LICENSE="LPPL-1.3c"
 SLOT="0"
