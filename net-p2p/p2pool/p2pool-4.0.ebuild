@@ -1,7 +1,6 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-#TODO: verify hell script is safe
 #TODO: enable/fix GRPC dependency and add it as USE flag (https://github.com/SChernykh/p2pool/issues/313)
 
 EAPI=8
@@ -11,7 +10,7 @@ inherit cmake verify-sig
 DESCRIPTION="Decentralized pool for Monero mining"
 HOMEPAGE="https://p2pool.io"
 SRC_URI="
-	https://github.com/SChernykh/p2pool/releases/download/v${PV}/p2pool_source.tar.xz -> ${P}_source.tar.xz
+	https://github.com/SChernykh/p2pool/releases/download/v${PV}/p2pool_source.tar.xz -> ${P}.tar.xz
 	verify-sig? ( https://github.com/SChernykh/p2pool/releases/download/v${PV}/sha256sums.txt.asc -> ${P}_shasums.asc )
 "
 
@@ -27,44 +26,21 @@ BDEPEND="
 	verify-sig? ( sec-keys/openpgp-keys-schernykh )
 "
 
-VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/SChernykh.asc
-
 src_unpack() {
 	if use verify-sig; then
-		#what we want to do is `verify-sig_verify_signed_checksums ${P}_shasums.asc sha512 p2pool_source.tar.xz`
-		verify-sig_verify_message "${DISTDIR}/${P}_shasums.asc" "${WORKDIR}/p2pool_shasums.txt"
-		
-		#start of hell script
-		hellscript_stage=0
-		tr -d '\r' < p2pool_shasums.txt | while IFS='' read -r LINE; do
-			if [ "$hellscript_stage" -eq 0 ] && [ "$LINE" = "Name: p2pool_source.tar.xz" ]; then
-				hellscript_stage=1
-				continue
-			fi
-			if [ "$hellscript_stage" -eq 1 ]; then
-				hellscript_sizestring="Size: $(cat ${DISTDIR}/${P}_source.tar.xz | wc -c) bytes"
-				if [ "${LINE:0:"${#hellscript_sizestring}"}" = "$hellscript_sizestring" ]; then
-					hellscript_stage=2
-					continue
-				else
-					die
-				fi
-			fi
-			if [ "$hellscript_stage" -eq 2 ]; then
-				hellscript_shaprefix="SHA256: "
-				if [ "${LINE:0:"${#hellscript_shaprefix}"}" = "$hellscript_shaprefix" ]; then
-					echo "$(echo "${LINE:"${#hellscript_shaprefix}"}" | tr '[:upper:]' '[:lower:]')  ${DISTDIR}/${P}_source.tar.xz" \
-					 > "${WORKDIR}/src_shasum.txt"
-				else
-					die
-				fi
-				break
-			fi
-		done
-		verify-sig_verify_unsigned_checksums "${WORKDIR}/src_shasum.txt" sha256 "${DISTDIR}/${P}_source.tar.xz"
-		#end of hell script
+		local VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/SChernykh.asc
+		pushd "${DISTDIR}" > /dev/null || die
+		verify-sig_verify_message ${P}_shasums.asc - | \
+			tr \\r \\n | \
+			tr '[:upper:]' '[:lower:]' | \
+			sed -n '/p2pool_source/,$p' | \
+			grep -m 1 sha256: | \
+			sed "s/sha256: \(.*\)/\1 ${P}.tar.xz/" | \
+			verify-sig_verify_unsigned_checksums - sha256 ${P}.tar.xz
+		assert
+		popd || die
 	fi
-	unpack ${P}_source.tar.xz
+	unpack ${P}.tar.xz
 	mv -T "${WORKDIR}"/${PN} "${WORKDIR}"/${P} || die
 }
 
