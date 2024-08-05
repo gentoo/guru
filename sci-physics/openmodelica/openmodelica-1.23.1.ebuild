@@ -70,7 +70,10 @@ RDEPEND="
 	>=virtual/pkgconfig-3
 "
 
-BDEPEND="dev-util/ccache"
+BDEPEND="
+	dev-util/ccache
+	media-gfx/imagemagick
+"
 
 DEPEND="${RDEPEND}"
 
@@ -151,7 +154,9 @@ src_install() {
 
 	newicon -s scalable OMShell/OMShell/OMShellGUI/Resources/omshell-large.svg omshell.svg
 	newicon -s scalable OMNotebook/OMNotebook/OMNotebookGUI/Resources/OMNotebook_icon.svg OMNotebook.svg
-	# No proper icon for Linux available from upstream for OMEdit
+	mogrify OMEdit/OMEditLIB/Resources/icons/omedit.ico[0] -thumbnail 256x256 -flatten || die
+	newicon -s 256 OMEdit/OMEditLIB/Resources/icons/omedit.ico omedit.png
+
 	make_desktop_entry "OMEdit %F" OMedit "" "Physics;" "MimeType=text/x-modelica;"
 	make_desktop_entry OMShell OMShell omshell "Physics;"
 	make_desktop_entry "OMNotebook %f" OMNotebook OMNotebook "Physics;"
