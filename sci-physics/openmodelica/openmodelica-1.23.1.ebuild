@@ -55,7 +55,6 @@ RDEPEND="
 	dev-qt/qtxmlpatterns:5
 	dev-qt/qtwebchannel:5[qml]
 	>=net-misc/curl-8.7.1-r4
-	>=net-misc/omniORB-4.3.0
 	>=sci-libs/hdf5-1.14.3-r1
 	>=sys-apps/hwloc-2.9.2
 	>=sys-devel/flex-2.6.4-r6
