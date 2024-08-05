@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>beatussum@protonmail.com</email>
+		<name>Mattéo Rossillol‑‑Laruelle</name>
+	</maintainer>
+	<longdescription>
+		<pkg>dev-util/shellspec</pkg> is a full-featured BDD unit
+		testing framework for <pkg>app-shells/dash</pkg>,
+		<pkg>app-shells/bash</pkg>, <pkg>app-shells/ksh</pkg>,
+		<pkg>app-shells/zsh</pkg> and all POSIX shells that provides
+		first-class features such as code coverage, mocking,
+		parameterized test, parallel execution and more. It was
+		developed as a dev/test tool for cross-platform shell scripts
+		and shell script libraries. <pkg>dev-util/shellspec</pkg> is a
+		new modern testing framework released in 2019, but it's already
+		stable enough. With lots of practical CLI features and simple
+		yet powerful syntax, it provides you with a fun shell script
+		test environment.
+	</longdescription>
+	<longdescription lang="fr">
+		<pkg>dev-util/shellspec</pkg> est une infrastructure logicielle
+		de tests unitaires BDD pour <pkg>app-shells/dash</pkg>,
+		<pkg>app-shells/bash</pkg>, <pkg>app-shells/ksh</pkg>,
+		<pkg>app-shells/zsh</pkg> et tous les shells POSIX qui fournit
+		des fonctionnalités de premier ordre telles que la couverture de
+		code, le mocking, test paramétré, l'exécution parallèle et plus
+		encore. Elle a été développée en tant qu'outil de
+		développement/test pour les scripts shell multiplateformes et
+		les bibliothèques de scripts shell.
+		<pkg>dev-util/shellspec</pkg> est une nouvelle infrastructure
+		logicielle de test moderne publié en 2019, mais elle est déjà
+		assez stable. Avec de nombreuses fonctionnalités CLI pratiques
+		et une syntaxe simple syntaxe simple mais puissante, elle vous
+		fournit un environnement de test de script shell.
+	</longdescription>
+	<upstream>
+		<maintainer status="active">
+			<name>ShellSpec</name>
+		</maintainer>
+		<changelog>https://github.com/shellspec/shellspec/blob/master/CHANGELOG.md</changelog>
+		<bugs-to>https://github.com/shellspec/shellspec/issues/</bugs-to>
+		<remote-id type="github">shellspec/shellspec</remote-id>
+	</upstream>
+</pkgmetadata>
