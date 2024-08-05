@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>beatussum@protonmail.com</email>
+		<name>Mattéo Rossillol‑‑Laruelle</name>
+	</maintainer>
+	<longdescription>
+		<pkg>dev-cpp/finalcut</pkg> is a C++ class library and widget
+		toolkit with full mouse support for creating a text-based user
+		interface. The library supports the programmer to develop an
+		application for the text console. It allows the simultaneous
+		handling of multiple text windows on the screen. The structure
+		of the Qt framework was originally the inspiration for the C++
+		class design of <pkg>dev-cpp/finalcut</pkg>. It provides common
+		controls like dialog boxes, push buttons, check boxes, radio
+		buttons, input lines, list boxes, status bars and so on.
+	</longdescription>
+	<longdescription lang="fr">
+		<pkg>dev-cpp/finalcut</pkg> est une bibliothèque C++ offrant la
+		possibilité de créer un environnement en mode texte. Elle
+		fournit des composants d'interface graphique supportant
+		pleinement l'usage de la souris. Elle permet aux développeurs
+		une programmation plus aisée des applications de ce type. Elle
+		rend possible la gestion de plusieurs fenêtres dans un même
+		terminal. L'interface de programmation applicative de
+		<pkg>dev-cpp/finalcut</pkg> s'inspire de celle de Qt. Celle-ci
+		fournit également les composants de base tels que des boîtes de
+		dialogue, des bouttons poussoirs, des case à cocher, des boutons
+		radio, des lignes d'entrée, des barres d'état, et ainsi de
+		suite.
+	</longdescription>
+	<slots>
+		<subslots>Reflect ABI compatibility for libfinal.so</subslots>
+	</slots>
+	<slots lang="fr">
+		<subslots>Reflétent la compatibilité de l'interface binaire-programme (A.B.I.) de libfinal.so</subslots>
+	</slots>
+	<upstream>
+		<maintainer status="active">
+			<name>Markus Gans</name>
+			<email>guru.mail@muenster.de</email>
+		</maintainer>
+		<changelog>https://github.com/gansm/finalcut/blob/main/ChangeLog</changelog>
+		<doc>https://github.com/gansm/finalcut/wiki/</doc>
+		<bugs-to>https://github.com/gansm/finalcut/issues/</bugs-to>
+		<remote-id type="github">gansm/finalcut</remote-id>
+	</upstream>
+</pkgmetadata>
