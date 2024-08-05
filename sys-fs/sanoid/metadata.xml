@@ -10,12 +10,4 @@
     <bugs-to>https://github.com/jimsalterjrs/sanoid/issues</bugs-to>
     <remote-id type="github">jimsalterjrs/sanoid</remote-id>
   </upstream>
-  <use>
-    <flag name="lzop">
-      Enable compression with app-arch/lzop
-    </flag>
-    <flag name="pigz">
-      Enable compression with app-arch/pigz
-    </flag>
-  </use>
 </pkgmetadata>
