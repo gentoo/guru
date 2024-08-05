@@ -22,58 +22,53 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=virtual/lapack-3.10
-	>=dev-libs/boost-1.84.0-r3
-	>=virtual/opencl-3-r3
-	>=net-misc/curl-8.7.1-r4
-	>=sys-libs/readline-8.2_p10
 	>=app-text/asciidoc-10.2.0
-	>=virtual/libintl-0-r2
-	>=virtual/libiconv-0-r2
-	>=virtual/blas-3.8
-	>=virtual/lapack-3.10
-	>=virtual/jdk-17
-	>=virtual/pkgconfig-3
+	>=app-text/doxygen-1.9.8
+	>=dev-libs/boost-1.84.0-r3
+	>=dev-games/openscenegraph-3.6.5-r114
+	dev-lang/python:3.12
+	>=dev-libs/expat-2.5.0
+	>=dev-libs/icu-74.2
+	>=dev-libs/libxml2-2.12.7
+	>=dev-python/kiwisolver-1.3.2
+	>=dev-python/matplotlib-3.3
+	>=dev-python/numpy-1.26.4
+	>=dev-python/pandas-1.1.3
+	>=dev-python/pillow-9.0.1
+	>=dev-python/pytest-8.2.2
+	>=dev-python/six-1.16.0-r1
+	>=dev-python/sphinx-7.3.7-r2
 	dev-qt/qtconcurrent:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtxml:5
-	dev-qt/qtopengl:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwebengine:5[widgets]
-	dev-qt/qtxmlpatterns:5
 	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
 	dev-qt/qtdeclarative:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtopengl:5
+	dev-qt/qtpositioning:5[qml]
+	dev-qt/qtprintsupport:5
 	dev-qt/qtquickcontrols:5
 	dev-qt/qtquickcontrols2:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwebengine:5[widgets]
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
+	dev-qt/qtxmlpatterns:5
 	dev-qt/qtwebchannel:5[qml]
-	dev-qt/qtpositioning:5[qml]
-	>=dev-games/openscenegraph-3.6.5-r114
-	>=virtual/opengl-7.0-r2
-	>=dev-libs/expat-2.5.0
+	>=net-misc/curl-8.7.1-r4
 	>=net-misc/omniORB-4.3.0
-	>=dev-python/six-1.16.0-r1
-	>=dev-python/pytest-8.2.2
-	>=dev-python/numpy-1.26.4
-	>=dev-python/matplotlib-3.3
-	>=dev-python/kiwisolver-1.3.2
-	>=dev-python/pillow-9.0.1
-	>=dev-python/pandas-1.1.3
-	dev-lang/python:3.12
-"
-
-# dev-libs/libxml2 only needed if compiled with -DOM_OMEDIT_ENABLE_LIBXML2=ON
-RDEPEND+="
-	>=dev-libs/libxml2-2.12.7
-	>=dev-libs/icu-74.2
-	>=app-text/doxygen-1.9.8
-	>=dev-python/sphinx-7.3.7-r2
-	>=sys-devel/flex-2.6.4-r6
-	>=sys-apps/hwloc-2.9.2
 	>=sci-libs/hdf5-1.14.3-r1
+	>=sys-apps/hwloc-2.9.2
+	>=sys-devel/flex-2.6.4-r6
 	>=sys-libs/ncurses-6.4_p20240414
+	>=sys-libs/readline-8.2_p10
+	>=virtual/blas-3.8
+	>=virtual/jdk-17
+	>=virtual/lapack-3.10
+	>=virtual/libiconv-0-r2
+	>=virtual/libintl-0-r2
+	>=virtual/opencl-3-r3
+	>=virtual/opengl-7.0-r2
+	>=virtual/pkgconfig-3
 "
 
 BDEPEND="dev-util/ccache"
