@@ -72,7 +72,7 @@ RDEPEND="
 
 BDEPEND="
 	dev-util/ccache
-	media-gfx/imagemagick
+	media-gfx/imagemagick[png]
 "
 
 DEPEND="${RDEPEND}"
