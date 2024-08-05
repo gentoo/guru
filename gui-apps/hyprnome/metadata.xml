@@ -1,0 +1,9 @@
+<pkgmetadata>
+  <maintainer type="person">
+    <email>unlsycn@unlsycn.com</email>
+    <name>unlsycn</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">donovanglover/hyprnome</remote-id>
+  </upstream>
+</pkgmetadata>
