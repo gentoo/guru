@@ -1,0 +1,38 @@
+From e9f7538467b0c6d66830ff0acd2718eb597d48ce Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Matt=C3=A9o=20Rossillol=E2=80=91=E2=80=91Laruelle?=
+ <beatussum@protonmail.com>
+Date: Sun, 4 Aug 2024 10:52:35 +0200
+Subject: [PATCH] fix metainfo path
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+/usr/share/appdata/%{id}.appdata.xml is deprecated and was replaced by
+/usr/share/metainfo/%{id}.metainfo.xml.
+
+See-also: https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html#spec-component-location
+Signed-off-by: Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com>
+---
+ data/meson.build | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/data/meson.build b/data/meson.build
+index dd1c63fd..4472a6fe 100644
+--- a/data/meson.build
++++ b/data/meson.build
+@@ -43,10 +43,10 @@ appstream_file = i18n.merge_file(
+       'TRANSLATE_URL': TRANSLATE_URL
+     })
+   ),
+-  output: '@0@.appdata.xml'.format(APPLICATION_ID),
++  output: '@0@.metainfo.xml'.format(APPLICATION_ID),
+   po_dir: '../po',
+   install: true,
+-  install_dir: join_paths(get_option('datadir'), 'appdata')
++  install_dir: join_paths(get_option('datadir'), 'metainfo')
+ )
+ 
+ appstream_util = find_program('appstream-util', required: false)
+-- 
+2.44.2
+

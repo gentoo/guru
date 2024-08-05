@@ -5,7 +5,15 @@
 		<email>pascal.jaeger@leimstift.de</email>
 		<name>Pascal Jaeger</name>
 	</maintainer>
+	<stabilize-allarches/>
 	<upstream>
+		<maintainer status="inactive">
+			<name>Gradience Team</name>
+			<email>GradienceTeam@proton.me</email>
+		</maintainer>
+		<changelog>https://github.com/GradienceTeam/Gradience/blob/main/CHANGELOG.md</changelog>
+		<doc>https://gradience.readthedocs.io/en/latest/</doc>
+		<bugs-to>https://github.com/GradienceTeam/Gradience/issues/</bugs-to>
 		<remote-id type="github">GradienceTeam/Gradience</remote-id>
 	</upstream>
 </pkgmetadata>
