@@ -1,1 +1,2 @@
 move dev-ml/ollama app-misc/ollama
+move app-misc/ledger-live app-misc/ledger-live-bin
