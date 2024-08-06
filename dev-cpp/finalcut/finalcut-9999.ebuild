@@ -17,7 +17,7 @@ else
 fi
 
 LICENSE="LGPL-3+"
-SLOT="0/${PV}"
+SLOT="0/0.9.0"
 IUSE="doc examples +gpm test"
 REQUIRED_USE="test? ( !examples )"
 RESTRICT="!test? ( test )"
