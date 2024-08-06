@@ -10,7 +10,6 @@ HOMEPAGE="https://github.com/ArtsyMacaw/wlogout"
 
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/ArtsyMacaw/wlogout.git"
 else
 	SRC_URI="https://github.com/ArtsyMacaw/wlogout/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
@@ -19,7 +18,6 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="man"
 RESTRICT="test"
 
 DEPEND="
@@ -62,7 +60,7 @@ DEPEND="
 
 BDEPEND="
 	virtual/pkgconfig
-	man? ( app-text/scdoc )
+	app-text/scdoc
 "
 
 RDEPEND="${DEPEND}"
@@ -75,9 +73,6 @@ DOCS=(
 PATCHES=( "${FILESDIR}/${P}-fix-cflags.patch" )
 
 src_configure() {
-	local emesonargs=(
-		"$(meson_feature man man-pages)"
-	)
-
+	local emesonargs=( -Dman-pages=enabled )
 	meson_src_configure
 }
