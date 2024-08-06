@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit prefix
+
 DESCRIPTION="A full-featured BDD unit testing framework for all POSIX shells"
 HOMEPAGE="https://shellspec.info/"
 
@@ -46,6 +48,21 @@ src_prepare() {
 
 	sed -i "s/lib/$(get_libdir)/" stub/shellspec || die
 	sed -i "s/LICENSE//g" Makefile || die
+
+	local to_analyze=(
+		examples
+		helper
+		lib
+		libexec
+		stub/shellspec
+		shellspec
+	)
+
+	local -a to_prefixify
+
+	readarray -t to_prefixify < <(find "${to_analyze[@]}" -type f) || die
+	hprefixify "${to_prefixify[@]}"
+	sed -i "s|#!|#!${EPREFIX}|" README.md || die
 }
 
 src_compile() { :; }
