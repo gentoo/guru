@@ -9,7 +9,8 @@ SRC_URI="https://download.live.ledger.com/ledger-live-desktop-${PV}-linux-x86_64
 
 S="${WORKDIR}"
 
-LICENSE="all-rights-reserved"
+# logos of Ledger are non-free
+LICENSE="ledger-live-ToU MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="strip"
