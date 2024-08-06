@@ -14,12 +14,12 @@ else
 	KEYWORDS="~amd64"
 fi
 
-LICENSE="MIT-with-advertising"
+LICENSE="MIT"
 SLOT="0"
 IUSE="doc examples test"
-RESTRICT="binchecks strip !test? ( test )"
+RESTRICT="!test? ( test )"
 
-DEPEND="
+RDEPEND="
 	|| (
 		>=app-shells/bash-2.03
 		>=app-shells/dash-0.5.4
@@ -33,8 +33,7 @@ DEPEND="
 	)
 "
 
-BDEPEND="test? ( ${DEPEND} )"
-RDEPEND="${DEPEND}"
+BDEPEND="test? ( ${RDEPEND} )"
 
 DOCS=(
 	CHANGELOG.md
@@ -44,6 +43,8 @@ DOCS=(
 
 src_prepare() {
 	default
+
+	sed -i "s/lib/$(get_libdir)/" stub/shellspec || die
 	sed -i "s/LICENSE//g" Makefile || die
 }
 
@@ -59,5 +60,5 @@ src_install() {
 	use doc && dodoc -r docs
 	use examples && dodoc -r examples
 
-	emake PREFIX="${ED}/usr" install
+	emake LIBDIR="${ED}/usr/$(get_libdir)" PREFIX="${ED}/usr" install
 }
