@@ -27,7 +27,9 @@ DEPEND="
 	gpm? ( sys-libs/gpm )
 "
 
+# autoconf-archive needed to eautoreconf
 BDEPEND="
+	dev-build/autoconf-archive
 	virtual/pkgconfig
 	test? ( >=dev-util/cppunit-1.12.0 )
 "
