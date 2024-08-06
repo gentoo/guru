@@ -5,7 +5,6 @@
 		<email>pascal.jaeger@leimstift.de</email>
 		<name>Pascal Jaeger</name>
 	</maintainer>
-	<stabilize-allarches/>
 	<upstream>
 		<maintainer status="inactive">
 			<name>Gradience Team</name>
