@@ -41,7 +41,16 @@ RDEPEND="
 	x11-libs/pango
 "
 
-QA_PREBUILT="*"
+QA_PREBUILT="
+	opt/ledger-live/chrome-sandbox
+	opt/ledger-live/chrome_crashpad_handler
+	opt/ledger-live/ledger-live-desktop
+	opt/ledger-live/libEGL.so
+	opt/ledger-live/libGLESv2.so
+	opt/ledger-live/libffmpeg.so
+	opt/ledger-live/libvk_swiftshader.so
+	opt/ledger-live/libvulkan.so.1
+"
 
 src_unpack() {
 	cp "${DISTDIR}"/ledger-live-desktop-${PV}-linux-x86_64.AppImage ${P}.AppImage || die
