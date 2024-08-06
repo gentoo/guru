@@ -28,7 +28,7 @@ RDEPEND="
 	>=dev-games/openscenegraph-3.6.5-r114
 	dev-lang/python:3.12
 	>=dev-libs/expat-2.5.0
-	>=dev-libs/icu-74.2
+	dev-libs/icu:0/74.1
 	>=dev-libs/libxml2-2.12.7
 	>=dev-python/kiwisolver-1.3.2
 	>=dev-python/matplotlib-3.3
@@ -134,7 +134,7 @@ src_compile() {
 	${FC} -fPIC -c Rutf.for Rut.for Curvif.for || die
 	# BUG: Undefined symbol curvif_ in
 	# ${WORKDIR}/${P}/OMSens/fortran_interface/curvif_simplified.cpython-312-x86_64-linux-gnu.so
-	# See with nm or objdump -tT
+	# See with nm -D or objdump -tT
 	# ${WORKDIR}/${P}/OMSens/fortran_interface/curvif_simplified.cpython-312-x86_64-linux-gnu.so
 	# This bug causes "Vectorial Parameter Based Sensitivity Analysis" in OMSens to fail.
 	f2py --verbose -c -I. Curvif.o Rutf.o Rut.o -m curvif_simplified curvif_simplified.pyf Curvif_simplified.f90 || die
