@@ -1,5 +1,5 @@
-diff --git a/data/meson.build b/data/meson.build
-index fdebf9be..985ed36e 100644
+Remove network-dependent test
+Bug: https://bugs.gentoo.org/921925
 --- a/data/meson.build
 +++ b/data/meson.build
 @@ -50,11 +50,6 @@ appstream_file = i18n.merge_file(

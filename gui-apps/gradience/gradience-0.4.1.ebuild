@@ -35,7 +35,6 @@ BDEPEND="
 	dev-util/blueprint-compiler
 
 	test? (
-		dev-libs/appstream-glib
 		dev-util/desktop-file-utils
 	)
 "
@@ -53,7 +52,10 @@ RDEPEND="
 	${PYTHON_DEPS}
 "
 
-PATCHES=( "${FILESDIR}/${P}-fix-metainfo-path.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-fix-metainfo-path.patch"
+	"${FILESDIR}/${PN}-0.3.0-appstream-test-ignore.patch"
+)
 
 DOCS=(
 	CODE_OF_CONDUCT.md

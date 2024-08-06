@@ -46,7 +46,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/appstream-test-ignore.patch
+	"${FILESDIR}"/${P}-appstream-test-ignore.patch
 )
 
 src_prepare() {
