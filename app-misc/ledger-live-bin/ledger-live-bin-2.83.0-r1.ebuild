@@ -3,11 +3,13 @@
 
 EAPI=8
 
+inherit desktop xdg
+
 DESCRIPTION="Manager for the Ledger hardware wallet"
 HOMEPAGE="https://www.ledger.com/"
 SRC_URI="https://download.live.ledger.com/ledger-live-desktop-${PV}-linux-x86_64.AppImage"
 
-S="${WORKDIR}"
+S="${WORKDIR}/squashfs-root"
 
 # logos of Ledger are non-free
 LICENSE="ledger-live-ToU MIT"
@@ -25,8 +27,6 @@ RDEPEND="
 	media-libs/mesa
 	net-print/cups
 	sys-apps/dbus
-	sys-fs/fuse:0
-	sys-libs/zlib
 	x11-libs/cairo
 	x11-libs/gtk+:3
 	x11-libs/libX11
@@ -43,7 +43,31 @@ RDEPEND="
 
 QA_PREBUILT="*"
 
+src_unpack() {
+	cp "${DISTDIR}"/ledger-live-desktop-${PV}-linux-x86_64.AppImage ${P}.AppImage || die
+	chmod +x ${P}.AppImage || die
+	./${P}.AppImage --appimage-extract || die
+	rm ${P}.AppImage || die
+}
+
+src_prepare() {
+	default
+	sed -e 's/AppRun --no-sandbox/ledger-live/' \
+		-e '/X-AppImage-Version/d' \
+		-i ledger-live-desktop.desktop || die
+}
+
 src_install() {
-	cp "${DISTDIR}/ledger-live-desktop-${PV}-linux-x86_64.AppImage" ledger-live || die
-	dobin ledger-live
+	exeinto /opt/${PN}
+	doexe chrome{-sandbox,_crashpad_handler} ledger-live-desktop
+	insinto /opt/${PN}
+	doins -r *.{bin,dat,json,pak} locales resources lib*
+	fperms u+s /opt/${PN}/chrome-sandbox
+	domenu ledger-live-desktop.desktop
+	insinto /usr/share
+	doins -r usr/share/icons
+	dosym -r /opt/${PN}/ledger-live-desktop /usr/bin/ledger-live
+	# bug 937379
+	rm "${ED}"/opt/${PN}/resources/app-update.yml || die
+	find "${ED}" -type d -exec chmod 755 {} + || die
 }
