@@ -6,6 +6,9 @@
 		<name>David Roman</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">Taiko2k/TauronMusicBox</remote-id> 
+		<bugs-to>https://github.com/Taiko2k/Tauon/issues</bugs-to>
+		<changelog>https://github.com/Taiko2k/Tauon/releases</changelog>
+		<doc>https://tauonmusicbox.rocks/#manual</doc>
+		<remote-id type="github">Taiko2k/Tauon</remote-id>
 	</upstream>
 </pkgmetadata>
