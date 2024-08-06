@@ -26,7 +26,7 @@ IUSE="X"
 
 RDEPEND="
 	dev-libs/wayland
-	>=gui-libs/wlroots-0.17.0[X?]
+	>=gui-libs/wlroots-0.17.0:0[X?]
 	x11-libs/libxkbcommon[X?]
 "
 DEPEND="${RDEPEND}"
