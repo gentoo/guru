@@ -17,6 +17,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	>=app-arch/libdeflate-1.19
 	>=app-text/poppler-24.04.0[cairo]
+	>=dev-libs/glib-2.78.6
 	>=dev-util/pkgconf-2.2.0
 	>=dev-vcs/git-2.44.2
 	>=gnome-base/librsvg-2.57.3
