@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit prefix
+
 DESCRIPTION="An OpenRC service for restoring the last brightness level on reboot"
 HOMEPAGE="https://github.com/beatussum/save-backlight/"
 
@@ -16,13 +18,17 @@ fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-RESTRICT="binchecks strip test"
 
 RDEPEND="sys-apps/openrc"
+
+src_prepare() {
+	default
+	hprefixify save-backlight
+}
 
 src_compile() { :; }
 
 src_install() {
 	einstalldocs
-	emake PREFIX="" DESTDIR="${D}" install
+	emake DESTDIR="${ED}" PREFIX="" install
 }
