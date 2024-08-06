@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>zdanevich.vitaly@ya.ru</email>
+		<name>Vitaly Zdanevich</name>
+	</maintainer>
+	<longdescription>
+FPDF is a PHP class which allows to generate PDF files with pure PHP, that is to say without using the PDFlib library. F from FPDF stands for Free: you may use it for any kind of usage and modify it to suit your needs.
+
+FPDF has other advantages: high level functions. Here is a list of its main features:
+
+* Choice of measure unit, page format and margins
+* Page header and footer management
+* Automatic page break
+* Automatic line break and text justification
+* Image support (JPEG, PNG and GIF)
+* Colors
+* Links
+* TrueType, Type1 and encoding support
+* Page compression
+
+FPDF requires no extension (except Zlib to enable compression and GD for GIF support). The latest version requires at least PHP 5.1.
+	</longdescription>
+</pkgmetadata>
