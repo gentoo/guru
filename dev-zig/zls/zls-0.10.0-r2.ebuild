@@ -24,7 +24,7 @@ KEYWORDS="~amd64"
 EZIG_MIN="0.10"
 EZIG_MAX_EXCLUSIVE="0.11"
 
-DEPEND="|| ( dev-lang/zig:${EZIG_MIN} dev-lang/zig-bin:${EZIG_MIN} )"
+DEPEND="dev-lang/zig-bin:0.10"
 RDEPEND="${DEPEND}"
 
 # see https://github.com/ziglang/zig/issues/3382
