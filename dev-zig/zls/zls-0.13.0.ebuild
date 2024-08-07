@@ -8,21 +8,30 @@ inherit edo
 DESCRIPTION="The officially unofficial Ziglang language server"
 HOMEPAGE="https://github.com/zigtools/zls"
 
-SRC_URI="
-	https://github.com/zigtools/zls/archive/refs/tags/${PV}.tar.gz -> zls-${PV}.tar.gz
-	https://codeberg.org/BratishkaErik/distfiles/releases/download/zls-${PV}/zls-${PV}-deps.tar.xz
-	https://codeberg.org/BratishkaErik/distfiles/releases/download/zls-${PV}/zls-${PV}-version_data.tar.xz
-"
+if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="https://github.com/zigtools/zls"
+	inherit git-r3
+
+	EZIG_MIN="9999"
+	EZIG_MAX_EXCLUSIVE="99991"
+	BDEPEND="dev-lang/zig:9999"
+else
+	SRC_URI="
+		https://github.com/zigtools/zls/archive/refs/tags/${PV}.tar.gz -> zls-${PV}.tar.gz
+		https://codeberg.org/BratishkaErik/distfiles/releases/download/zls-${PV}/zls-${PV}-deps.tar.xz
+		https://codeberg.org/BratishkaErik/distfiles/releases/download/zls-${PV}/zls-${PV}-version_data.tar.xz
+	"
+	KEYWORDS="~amd64"
+
+	EZIG_MIN="0.13"
+	EZIG_MAX_EXCLUSIVE="0.14"
+	BDEPEND="|| ( dev-lang/zig:${EZIG_MIN} dev-lang/zig-bin:${EZIG_MIN} )"
+fi
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
 
-EZIG_MIN="0.13"
-EZIG_MAX_EXCLUSIVE="0.14"
-
-DEPEND="|| ( dev-lang/zig:${EZIG_MIN} dev-lang/zig-bin:${EZIG_MIN} )"
-RDEPEND="${DEPEND}"
+RDEPEND="${BDEPEND}"
 
 DOCS=( README.md )
 
@@ -108,6 +117,19 @@ ezig() {
 	# Ofc we can patch this, but still...
 
 	edo "${EZIG}" "${@}"
+}
+
+src_unpack() {
+	if [[ ${PV} == 9999 ]]; then
+		git-r3_src_unpack
+
+		cd "${S}" || die
+		ezig build --fetch --global-cache-dir "${WORKDIR}/zig-eclass/" || die "Pre-fetching Zig modules failed"
+		local ZLS_GEN_FLAGS="--generate-version-data master --generate-version-data-path version_data.zig"
+		ezig build gen --verbose -- ${ZLS_GEN_FLAGS} || die "Pre-generating Zig version data failed"
+	else
+		default_src_unpack
+	fi
 }
 
 src_configure() {
