@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,6 +18,8 @@ EZIG_MAX_EXCLUSIVE="99991"
 
 DEPEND="dev-lang/zig:${EZIG_MIN}"
 RDEPEND="${DEPEND}"
+
+DOCS=( README.md )
 
 # see https://github.com/ziglang/zig/issues/3382
 # For now, Zig Build System doesn't support CFLAGS/LDFLAGS/etc.
@@ -105,23 +107,34 @@ ezig() {
 
 src_unpack() {
 	git-r3_src_unpack
+
 	cd "${S}" || die
-	ezig build --fetch || die "Fetching Zig modules failed"
-	local ZLS_GEN_FLAGS="--generate-version-data master --generate-version-data-path version_data_offline.zig"
+	ezig build --fetch --global-cache-dir "${WORKDIR}/zig-eclass/" || die "Pre-fetching Zig modules failed"
+	local ZLS_GEN_FLAGS="--generate-version-data master --generate-version-data-path version_data.zig"
 	ezig build gen --verbose -- ${ZLS_GEN_FLAGS} || die "Pre-generating Zig version data failed"
 }
 
+src_configure() {
+	export ZBS_ARGS=(
+		--prefix usr/
+		-Doptimize=ReleaseSafe
+		--system "${WORKDIR}/zig-eclass/p/"
+		-Dversion_data_file_path=version_data.zig
+		--verbose
+	)
+}
+
 src_compile() {
-	ezig build -Doptimize=ReleaseSafe -Dversion_data_file_path=version_data_offline.zig --verbose || die
+	ezig build "${ZBS_ARGS[@]}"
 }
 
 src_test() {
-	ezig build test -Doptimize=ReleaseSafe -Dversion_data_file_path=version_data_offline.zig --verbose || die
+	ezig build test "${ZBS_ARGS[@]}"
 }
 
 src_install() {
-	DESTDIR="${ED}" ezig build install --prefix /usr -Doptimize=ReleaseSafe -Dversion_data_file_path=version_data_offline.zig --verbose || die
-	dodoc README.md
+	DESTDIR="${ED}" ezig build install "${ZBS_ARGS[@]}"
+	einstalldocs
 }
 
 pkg_postinst() {
