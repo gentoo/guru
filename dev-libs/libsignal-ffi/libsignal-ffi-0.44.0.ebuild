@@ -5,8 +5,6 @@
 
 EAPI=8
 
-CRATES=" "
-
 inherit cargo
 
 DESCRIPTION="A C ABI library which exposes Signal protocol logic"
@@ -22,7 +20,6 @@ LICENSE="AGPL-3"
 LICENSE+=" AGPL-3 Apache-2.0 BSD-2 BSD ISC MIT Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="debug"
 
 BDEPEND="
 	dev-libs/protobuf
@@ -33,10 +30,12 @@ src_unpack() {
 	default
 	cargo_gen_config
 	ln -s "${WORKDIR}/vendor/" "${WORKDIR}/libsignal-${PV}/vendor" || die
-	sed -i "${ECARGO_HOME}/config" -e '/source.crates-io/d'  || die
-	sed -i "${ECARGO_HOME}/config" -e '/replace-with = "gentoo"/d'  || die
-	sed -i "${ECARGO_HOME}/config" -e '/local-registry = "\/nonexistent"/d'  || die
-	cat "${WORKDIR}/vendor/vendor-config.toml" >> "${ECARGO_HOME}/config" || die
+	sed -i "${ECARGO_HOME}/config.toml" \
+		-e '/source.crates-io/d' \
+		-e '/replace-with = "gentoo"/d' \
+		-e '/local-registry = "\/nonexistent"/d' \
+		|| die
+	cat vendor/vendor-config.toml >> "${ECARGO_HOME}/config.toml" || die
 }
 
 src_install() {
