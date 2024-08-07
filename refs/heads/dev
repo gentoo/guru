@@ -1,13 +1,22 @@
 certificate version 0.1
-pusher 5C9C69060686B588 1723022228 +0500
-pushee ssh://git.gentoo.org/repo/proj/guru
-nonce 1723022228-6067194e00ac609c9cf42d753f100d5dadcd8ced
+pusher ADEFD59FF5C6EC76 1723025697 +0200
+pushee git.gentoo.org:repo/proj/guru.git
+nonce 1723025697-e4fcf03c14fc4ce57c848503e4153e42ee9f7284
 
-f6910ff72fb20cf5200972b1f053ef40eaecd432 61e3a28a8a67222943ab97bcfaf604462ce72e5d refs/heads/dev
+61e3a28a8a67222943ab97bcfaf604462ce72e5d f6cf9387cc034038a262fb420a3d31d7fb8e7a92 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQR7COHWZlA4BB1+LlZcnGkGBoa1iAUCZrM7lAAKCRBcnGkGBoa1
-iOXQAQCHcf+jC20eJEj0MCssxBFrudmfSXOs+bw7gVNJua8+zgEA5ayTTiqme44m
-PFCN9LU/N5pGwH6tTZFDPLgA/+PMHAc=
-=eBzP
+iQIzBAABCAAdFiEExWchJlMNtwX0qav6re/Vn/XG7HYFAmazSSEACgkQre/Vn/XG
+7HbApBAAuDwmprpTHjk83zmvn/j5Dr8vYX2tHNeoXFB47QZlR2LT2Fv8Mj8Dwq8s
+ysl5d7kkPSwvAw9gFXda8ns5EFFmjb0TLHSyu9ojfbTh7fiuUez0/oZb4aSJkfux
+fuMYKoYkqiPjvbdb61421WjZ5u2wXG/ZP5vhjoYPgdqEB/mXlnzEV8ss+U6Bm4Vn
+m7S9TKwko7byydS7y4gDAqqgdXlo8EuinWjbnf2IMa2oHommrrkPnxBg9TvRNIws
+Em82NXHKKyGmkqIr++mJRB7/PTbzDMFrheu1G7uDm/2cZJHVSQQtGMm2wQbNmUcq
+gucYpyHSsPN7GoE4L2bxSbfU3rlswD1nvk4qpGh8c49gmq+acTKNP4Xx6phS7ieB
+bQ793bq7H79/EgLXM3Ar0dwgT3VrZSxkmebJZV8cgZUjKdBtz7tQO2bPeHF02H5x
+wOtA23+3uJU+cqPR28X9SIZzgyFcWRhaw0cezedZ0HPKm9yihioqu1hjXyHxdsJt
+SEs8g+w0U9bwRppGSFWl5kLhP5Hlx3eRcj2GIIluqJL4Fn8kFzxCnncnqtyVbDMM
+is6QkhBhfNYaKVAk5anrH6NnBVCXaCpdeP9PqMbO4yO5irtFe07AK8UKNHGe8CPQ
+G8b/8E11XVAjJ+WSKQiim47uGu1rbEUsJm/jbl1SnTZFlo2JFyg=
+=aU/n
 -----END PGP SIGNATURE-----
