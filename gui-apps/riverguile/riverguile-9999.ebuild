@@ -18,12 +18,12 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-DEPEND="dev-libs/wayland"
-RDEPEND="${DEPEND}"
-BDEPEND="
-	dev-libs/wayland-protocols
-	>=dev-scheme/guile-3.0.9
+RDEPEND="
+	~dev-scheme/guile-3.0.9
+	>=dev-libs/wayland-1.22.0
 "
+DEPEND="${RDEPEND}"
+BDEPEND=">=dev-libs/wayland-protocols-1.36"
 
 src_install() {
 	# Need to install to /usr instead of /usr/local
