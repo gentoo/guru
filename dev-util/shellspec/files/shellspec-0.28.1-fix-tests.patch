@@ -1,4 +1,4 @@
-From 7d89f9fa59f64aba911c57a8bd5e9da54a22f14b Mon Sep 17 00:00:00 2001
+From 084d6cf54ce9acda6d2e296a2ba2c99f1cf8807c Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Matt=C3=A9o=20Rossillol=E2=80=91=E2=80=91Laruelle?=
  <beatussum@protonmail.com>
 Date: Wed, 7 Aug 2024 12:10:47 +0200
@@ -7,7 +7,10 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-This commit fixes warnings that occurs during tests.
+This commit fixes warnings that occur during tests.
+
+This commit is based on 699ebb52a569311a55b45f1bc4038d37b9a1de8e and was created
+using `git bisect`.
 
 See-also: 699ebb52a569311a55b45f1bc4038d37b9a1de8e
 Signed-off-by: Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com>
