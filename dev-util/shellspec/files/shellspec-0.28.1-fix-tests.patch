@@ -1,0 +1,284 @@
+From 7d89f9fa59f64aba911c57a8bd5e9da54a22f14b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Matt=C3=A9o=20Rossillol=E2=80=91=E2=80=91Laruelle?=
+ <beatussum@protonmail.com>
+Date: Wed, 7 Aug 2024 12:10:47 +0200
+Subject: [PATCH] fix tests
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This commit fixes warnings that occurs during tests.
+
+See-also: 699ebb52a569311a55b45f1bc4038d37b9a1de8e
+Signed-off-by: Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com>
+---
+ lib/core/matchers.sh           |  5 ++++-
+ lib/core/modifiers/contents.sh | 10 ++++++++--
+ lib/core/modifiers/length.sh   |  5 ++++-
+ lib/core/modifiers/line.sh     |  5 ++++-
+ lib/core/modifiers/lines.sh    |  5 ++++-
+ lib/core/modifiers/result.sh   |  5 ++++-
+ lib/core/modifiers/word.sh     |  5 ++++-
+ lib/core/subjects/line.sh      |  5 ++++-
+ lib/core/subjects/path.sh      |  5 ++++-
+ lib/core/subjects/status.sh    |  5 ++++-
+ lib/core/subjects/stderr.sh    | 10 ++++++++--
+ lib/core/subjects/stdout.sh    | 10 ++++++++--
+ lib/core/subjects/value.sh     |  5 ++++-
+ lib/core/subjects/variable.sh  |  5 ++++-
+ lib/core/subjects/word.sh      |  5 ++++-
+ 15 files changed, 72 insertions(+), 18 deletions(-)
+
+diff --git a/lib/core/matchers.sh b/lib/core/matchers.sh
+index 8c3acf3..0468338 100644
+--- a/lib/core/matchers.sh
++++ b/lib/core/matchers.sh
+@@ -17,7 +17,10 @@ shellspec_matcher() {
+ 
+   unset SHELLSPEC_EXPECT ||:
+ 
+-  eval shellspec_syntax_dispatch matcher ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch matcher ;;
++    *) shellspec_syntax_dispatch matcher "$@" ;;
++  esac
+ }
+ 
+ shellspec_matcher_do_match_positive() {
+diff --git a/lib/core/modifiers/contents.sh b/lib/core/modifiers/contents.sh
+index 434f9af..a8169df 100644
+--- a/lib/core/modifiers/contents.sh
++++ b/lib/core/modifiers/contents.sh
+@@ -12,7 +12,10 @@ shellspec_modifier_contents() {
+     unset SHELLSPEC_SUBJECT ||:
+   fi
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+ 
+ shellspec_modifier_entire_contents() {
+@@ -24,5 +27,8 @@ shellspec_modifier_entire_contents() {
+     unset SHELLSPEC_SUBJECT ||:
+   fi
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+diff --git a/lib/core/modifiers/length.sh b/lib/core/modifiers/length.sh
+index 6b9608f..ef0fad8 100644
+--- a/lib/core/modifiers/length.sh
++++ b/lib/core/modifiers/length.sh
+@@ -11,5 +11,8 @@ shellspec_modifier_length() {
+     unset SHELLSPEC_SUBJECT ||:
+   fi
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+diff --git a/lib/core/modifiers/line.sh b/lib/core/modifiers/line.sh
+index 5cba66a..4dc842b 100644
+--- a/lib/core/modifiers/line.sh
++++ b/lib/core/modifiers/line.sh
+@@ -17,5 +17,8 @@ shellspec_modifier_line() {
+   fi
+   shift
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+diff --git a/lib/core/modifiers/lines.sh b/lib/core/modifiers/lines.sh
+index 446d23e..c73496c 100644
+--- a/lib/core/modifiers/lines.sh
++++ b/lib/core/modifiers/lines.sh
+@@ -11,5 +11,8 @@ shellspec_modifier_lines() {
+     unset SHELLSPEC_SUBJECT ||:
+   fi
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+diff --git a/lib/core/modifiers/result.sh b/lib/core/modifiers/result.sh
+index 524cd8f..43dd62f 100644
+--- a/lib/core/modifiers/result.sh
++++ b/lib/core/modifiers/result.sh
+@@ -24,7 +24,10 @@ shellspec_modifier_result() {
+     unset SHELLSPEC_SUBJECT ||:
+   fi
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+ 
+ shellspec_modifier_result_invoke() {
+diff --git a/lib/core/modifiers/word.sh b/lib/core/modifiers/word.sh
+index 5d0e05a..328a296 100644
+--- a/lib/core/modifiers/word.sh
++++ b/lib/core/modifiers/word.sh
+@@ -17,5 +17,8 @@ shellspec_modifier_word() {
+   fi
+   shift
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+diff --git a/lib/core/subjects/line.sh b/lib/core/subjects/line.sh
+index af338d1..d2638cb 100644
+--- a/lib/core/subjects/line.sh
++++ b/lib/core/subjects/line.sh
+@@ -17,5 +17,8 @@ shellspec_subject_line() {
+   fi
+   shellspec_off UNHANDLED_STDOUT
+ 
+-  eval shellspec_syntax_dispatch modifier line ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier line ;;
++    *) shellspec_syntax_dispatch modifier line "$@" ;;
++  esac
+ }
+diff --git a/lib/core/subjects/path.sh b/lib/core/subjects/path.sh
+index b381589..ddefa9e 100644
+--- a/lib/core/subjects/path.sh
++++ b/lib/core/subjects/path.sh
+@@ -19,5 +19,8 @@ shellspec_subject_path() {
+ 
+   shift
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+diff --git a/lib/core/subjects/status.sh b/lib/core/subjects/status.sh
+index 7825d14..43f50cd 100644
+--- a/lib/core/subjects/status.sh
++++ b/lib/core/subjects/status.sh
+@@ -14,5 +14,8 @@ shellspec_subject_status() {
+ 
+   shellspec_off UNHANDLED_STATUS
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+diff --git a/lib/core/subjects/stderr.sh b/lib/core/subjects/stderr.sh
+index 8efc050..b5b7f79 100644
+--- a/lib/core/subjects/stderr.sh
++++ b/lib/core/subjects/stderr.sh
+@@ -18,7 +18,10 @@ shellspec_subject_stderr() {
+ 
+   shellspec_off UNHANDLED_STDERR
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+ 
+ shellspec_subject_entire_stderr() {
+@@ -33,5 +36,8 @@ shellspec_subject_entire_stderr() {
+ 
+   shellspec_off UNHANDLED_STDERR
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+diff --git a/lib/core/subjects/stdout.sh b/lib/core/subjects/stdout.sh
+index 43306d6..d73284c 100644
+--- a/lib/core/subjects/stdout.sh
++++ b/lib/core/subjects/stdout.sh
+@@ -18,7 +18,10 @@ shellspec_subject_stdout() {
+ 
+   shellspec_off UNHANDLED_STDOUT
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+ 
+ shellspec_subject_entire_stdout() {
+@@ -33,5 +36,8 @@ shellspec_subject_entire_stdout() {
+ 
+   shellspec_off UNHANDLED_STDOUT
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+diff --git a/lib/core/subjects/value.sh b/lib/core/subjects/value.sh
+index 3f3153e..773f021 100644
+--- a/lib/core/subjects/value.sh
++++ b/lib/core/subjects/value.sh
+@@ -12,5 +12,8 @@ shellspec_subject_value() {
+   SHELLSPEC_SUBJECT=$1
+   shift
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+diff --git a/lib/core/subjects/variable.sh b/lib/core/subjects/variable.sh
+index c408eeb..559cc60 100644
+--- a/lib/core/subjects/variable.sh
++++ b/lib/core/subjects/variable.sh
+@@ -14,5 +14,8 @@ shellspec_subject_variable() {
+   fi
+   shift
+ 
+-  eval shellspec_syntax_dispatch modifier ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier ;;
++    *) shellspec_syntax_dispatch modifier "$@" ;;
++  esac
+ }
+diff --git a/lib/core/subjects/word.sh b/lib/core/subjects/word.sh
+index db38b82..e52df10 100644
+--- a/lib/core/subjects/word.sh
++++ b/lib/core/subjects/word.sh
+@@ -17,5 +17,8 @@ shellspec_subject_word() {
+   fi
+   shellspec_off UNHANDLED_STDOUT
+ 
+-  eval shellspec_syntax_dispatch modifier word ${1+'"$@"'}
++  case $# in
++    0) shellspec_syntax_dispatch modifier word ;;
++    *) shellspec_syntax_dispatch modifier word "$@" ;;
++  esac
+ }
+-- 
+2.44.2
+

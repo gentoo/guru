@@ -37,6 +37,8 @@ RDEPEND="
 
 BDEPEND="test? ( ${RDEPEND} )"
 
+PATCHES=( "${FILESDIR}/${P}-fix-tests.patch" )
+
 DOCS=(
 	CHANGELOG.md
 	CONTRIBUTING.md
