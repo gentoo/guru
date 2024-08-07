@@ -32,6 +32,7 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}
+	dev-cpp/abseil-cpp
 	cpu_flags_x86_avx2? (
 		intel-avx2? ( ~app-crypt/intel-ipsec-mb-1.3 )
 	)
