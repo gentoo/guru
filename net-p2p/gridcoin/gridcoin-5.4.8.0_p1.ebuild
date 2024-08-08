@@ -5,10 +5,11 @@ EAPI=8
 
 inherit cmake db-use multilib xdg-utils
 
+MY_PV="${PV/_p/-hotfix-}"
 DESCRIPTION="Proof-of-Stake based cryptocurrency that rewards BOINC computation"
 HOMEPAGE="https://gridcoin.us/ https://gridcoin.world/"
-SRC_URI="https://github.com/${PN}-community/${PN^}-Research/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN^}-Research-${PV}"
+SRC_URI="https://github.com/${PN}-community/${PN^}-Research/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN^}-Research-${MY_PV}"
 
 LICENSE="BSD BSD-2 Boost-1.0 MIT SSLeay"
 SLOT="0"
@@ -79,13 +80,6 @@ src_configure() {
 		-DSYSTEM_XXD=ON
 	)
 	cmake_src_configure
-}
-
-src_install() {
-	cmake_src_install
-
-	mkdir -p "${ED}"/usr/share/man/man1 || die
-	mv "${ED}"/usr/share/man/*.1 "${ED}"/usr/share/man/man1 || die
 }
 
 pkg_postinst() {
