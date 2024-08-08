@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>spamfilter-1@wadenback.se</email>
+    <name>Mårten Wadenbäck</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">stevenhoneyman/l3afpad</remote-id>
+  </upstream>
+  <use>
+    <flag name="emacs">
+      Implement Emacs key theme (experimental).
+    </flag>
+  </use>
+</pkgmetadata>
