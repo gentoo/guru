@@ -37,7 +37,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="sys-apps/sed"
 QA_PREBUILT="*"
-QA_SONAME_NO_SYMLINK=".*/amdvlk64.so"
+QA_SONAME_NO_SYMLINK=".*/amdvlk64.so .*/amdvlk32.so"
 
 pkg_pretend(){
 	ewarn "This is extremely old version which supports AMD's legacy GPUs such as:"

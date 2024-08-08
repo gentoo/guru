@@ -37,13 +37,7 @@ RDEPEND="
 	"
 DEPEND="${RDEPEND}"
 BDEPEND="sys-apps/sed"
-QA_PREBUILT="
-	usr/lib/*
-	usr/lib64/*
-"
-# TODO: Found a correct way to disable QA_SONAME for /usr/lib/amdvlk32.so
-# I don't know why the current value is not working
-QA_SONAME="usr/lib/*"
+QA_PREBUILT="*"
 
 pkg_pretend(){
 	ewarn "Mainline AMDVLK drops support for pre-NAVI graphics cards"
