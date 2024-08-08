@@ -26,7 +26,7 @@ RDEPEND="
 	>=dev-python/repology-client-0.0.2[${PYTHON_USEDEP}]
 	<dev-python/repology-client-2[${PYTHON_USEDEP}]
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
-	>=dev-util/find-work-0.90[${PYTHON_USEDEP}]
+	>=dev-util/find-work-0.91[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
