@@ -14,6 +14,12 @@ LICENSE="CC0-1.0 CC-BY-SA-4.0 GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 
+BDEPEND="
+	verify-sig? (
+		sec-keys/openpgp-keys-phosh
+	)
+"
+
 VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/phosh.asc"
 
 pkg_postinst() {
