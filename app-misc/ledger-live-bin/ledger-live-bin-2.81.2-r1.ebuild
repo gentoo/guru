@@ -51,6 +51,7 @@ QA_PREBUILT="
 	opt/ledger-live/libvk_swiftshader.so
 	opt/ledger-live/libvulkan.so.1
 "
+QA_FLAGS_IGNORED="${QT_PREBUILT}"
 
 src_unpack() {
 	cp "${DISTDIR}"/ledger-live-desktop-${PV}-linux-x86_64.AppImage ${P}.AppImage || die
