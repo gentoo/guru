@@ -24,7 +24,7 @@ RDEPEND="
 	>=dev-python/pydantic-2[${PYTHON_USEDEP}]
 	<dev-python/pydantic-3[${PYTHON_USEDEP}]
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
-	>=dev-util/find-work-0.90[${PYTHON_USEDEP}]
+	>=dev-util/find-work-0.91[${PYTHON_USEDEP}]
 	dev-util/pkgcheck[${PYTHON_USEDEP}]
 "
 BDEPEND="
