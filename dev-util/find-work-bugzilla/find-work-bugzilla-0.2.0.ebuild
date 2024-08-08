@@ -27,7 +27,7 @@ RDEPEND="
 	<dev-python/pydantic-core-3[${PYTHON_USEDEP}]
 	dev-python/python-bugzilla[${PYTHON_USEDEP}]
 	dev-python/tabulate[${PYTHON_USEDEP}]
-	>=dev-util/find-work-0.90[${PYTHON_USEDEP}]
+	>=dev-util/find-work-0.91[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
