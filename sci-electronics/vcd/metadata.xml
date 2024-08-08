@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">yne/vcd</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		The VCD (Value Change Dump) project on GitHub is a command line viewer
+		for VCD files, compatible with Windows, Linux, and MacOS.
+		It enables users to view and analyze waveform data from digital
+		simulations. The tool provides customization options for waveform
+		display and supports various output formats including YAML.
+		Installation is available via prebuilt binaries, source compilation, or
+		package managers.
+		The project is actively maintained and includes sample files and
+		detailed usage instructions. The repository is licensed under MIT and
+		supports CLI operations for efficient waveform analysis.
+	</longdescription>
+	<longdescription lang="zh">
+		VCD (Value Change Dump) 项目是一个命令行查看器，适用于 Windows、Linux 和
+		MacOS。它允许用户查看和分析数字仿真的波形数据。该工具提供波形显示的
+		自定义选项，并支持 YAML 等多种输出格式。用户可以通过预构建的二进制文件、
+		源代码编译或包管理器进行安装。该项目积极维护，包含示例文件和详细的使用
+		说明。该仓库采用 MIT 许可证，支持 CLI 操作以提高波形分析的效率。
+	</longdescription>
+</pkgmetadata>
