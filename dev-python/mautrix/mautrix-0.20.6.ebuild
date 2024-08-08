@@ -1,11 +1,11 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} )
-inherit edo databases distutils-r1 optfeature
+inherit daemons distutils-r1 optfeature
 
 DESCRIPTION="A Python 3 asyncio Matrix framework"
 HOMEPAGE="
@@ -36,7 +36,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	test? (
-		${DATABASES_DEPEND[postgres]}
 		dev-python/aiosqlite[${PYTHON_USEDEP}]
 		dev-python/asyncpg[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
@@ -46,21 +45,18 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
+daemons_enable postgresql test
+
 # Disabled because of https://bugs.gentoo.org/922488
 #distutils_enable_sphinx docs \
 #	dev-python/sphinx-rtd-theme
 
 src_test() {
-	local -x PGHOST="$(epostgres --get-sockdir)"
-	local -x PGPORT="65432"
-	local -x PGUSER="postgres"
-	local -x MEOW_TEST_PG_URL="postgresql:///meow"
-
-	epostgres --start ${PGPORT}
-	edo createdb -U postgres meow
+	daemons_start postgresql --host 127.0.0.1
+	local -x MEOW_TEST_PG_URL="${POSTGRESQL_URL:?}"
 
 	distutils-r1_src_test
-	epostgres --stop
+	daemons_stop postgresql
 }
 
 pkg_postinst() {
