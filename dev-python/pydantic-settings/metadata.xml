@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<stabilize-allarches/>
+	<upstream>
+		<remote-id type="pypi">pydantic-settings</remote-id>
+		<remote-id type="github">pydantic/pydantic-settings</remote-id>
+		<doc>https://docs.pydantic.dev/dev-v2/concepts/pydantic_settings/</doc>
+		<maintainer>
+			<name>Samuel Colvin</name>
+			<email>s@muelcolvin.com</email>
+		</maintainer>
+		<maintainer>
+			<name>Eric Jolibois</name>
+			<email>em.jolibois@gmail.com</email>
+		</maintainer>
+		<maintainer>
+			<name>Hasan Ramezani</name>
+			<email>hasan.r67@gmail.com</email>
+		</maintainer>
+	</upstream>
+</pkgmetadata>
