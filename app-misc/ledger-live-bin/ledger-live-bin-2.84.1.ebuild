@@ -51,7 +51,6 @@ QA_PREBUILT="
 	opt/ledger-live/libvk_swiftshader.so
 	opt/ledger-live/libvulkan.so.1
 "
-QA_FLAGS_IGNORED="${QT_PREBUILT}"
 
 src_unpack() {
 	cp "${DISTDIR}"/ledger-live-desktop-${PV}-linux-x86_64.AppImage ${P}.AppImage || die
@@ -68,16 +67,16 @@ src_prepare() {
 }
 
 src_install() {
-	exeinto /opt/${PN}
+	exeinto /opt/ledger-live
 	doexe chrome{-sandbox,_crashpad_handler} ledger-live-desktop
-	insinto /opt/${PN}
+	insinto /opt/ledger-live
 	doins -r *.{bin,dat,json,pak} locales resources lib*
-	fperms u+s /opt/${PN}/chrome-sandbox
+	fperms u+s /opt/ledger-live/chrome-sandbox
 	domenu ledger-live-desktop.desktop
 	insinto /usr/share
 	doins -r usr/share/icons
-	dosym -r /opt/${PN}/ledger-live-desktop /usr/bin/ledger-live
+	dosym -r /opt/ledger-live/ledger-live-desktop /usr/bin/ledger-live
 	# bug 937379
-	rm "${ED}"/opt/${PN}/resources/app-update.yml || die
+	rm "${ED}"/opt/ledger-live/resources/app-update.yml || die
 	find "${ED}" -type d -exec chmod 755 {} + || die
 }
