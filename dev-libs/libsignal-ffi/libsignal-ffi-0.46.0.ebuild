@@ -39,11 +39,5 @@ src_unpack() {
 }
 
 src_install() {
-	if use debug; then
-		TARGET=debug
-	else
-		TARGET=release
-	fi
-
-	dolib.a "${WORKDIR}/${P/-ffi/}/target/${TARGET}/${PN/-/_}.a"
+	dolib.a "${WORKDIR}/${P/-ffi/}/$(cargo_target_dir)/${PN/-/_}.a"
 }
