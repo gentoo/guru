@@ -1,0 +1,10 @@
+[Unit]
+Description=Bypass DPI SOCKS proxy
+Documentation=https://github.com/hufrea/byedpi/blob/main/readme.txt
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/ciadpi --disorder 1 --auto=torst --tlsrec 1+s
+
+[Install]
+WantedBy=multi-user.target
