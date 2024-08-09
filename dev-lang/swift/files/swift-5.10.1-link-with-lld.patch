@@ -1,0 +1,144 @@
+# Swift defaults to building with `gold` on Linux because it doesn't build with
+# `bfd`; Gentoo no longer supports `gold`, so we have to build with `lld`.
+#
+# We need to:
+# 1. Have the Swift drivers default to linking with `lld` over `gold` (both for)
+#    eventual end-user code, but also for the built Swift compiler stages to
+#    bootstrap the next stage,
+# 2. Have the `SWIFT_USE_LINKER` flag be correctly respected everywhere, and
+# 3. Set the right linker flags for `lld` because its behavior for ELF on Linux
+#    differs from other platforms, and certain Swift symbols need to not be GC'd
+#    out
+#
+# See https://github.com/swiftlang/swift/pull/69538 (merged to main after 5.10
+# branched).
+
+--- a/swift/lib/Driver/UnixToolChains.cpp
++++ b/swift/lib/Driver/UnixToolChains.cpp
+@@ -110,34 +110,7 @@ ToolChain::InvocationInfo toolchains::GenericUnix::constructInvocation(
+   return II;
+ }
+ 
+-std::string toolchains::GenericUnix::getDefaultLinker() const {
+-  if (getTriple().isAndroid())
+-    return "lld";
+-
+-  switch (getTriple().getArch()) {
+-  case llvm::Triple::arm:
+-  case llvm::Triple::aarch64:
+-  case llvm::Triple::aarch64_32:
+-  case llvm::Triple::armeb:
+-  case llvm::Triple::thumb:
+-  case llvm::Triple::thumbeb:
+-    // BFD linker has issues wrt relocation of the protocol conformance
+-    // section on these targets, it also generates COPY relocations for
+-    // final executables, as such, unless specified, we default to gold
+-    // linker.
+-    return "gold";
+-  case llvm::Triple::x86:
+-  case llvm::Triple::x86_64:
+-  case llvm::Triple::ppc64:
+-  case llvm::Triple::ppc64le:
+-  case llvm::Triple::systemz:
+-    // BFD linker has issues wrt relocations against protected symbols.
+-    return "gold";
+-  default:
+-    // Otherwise, use the default BFD linker.
+-    return "";
+-  }
+-}
++std::string toolchains::GenericUnix::getDefaultLinker() const { return "lld"; }
+ 
+ bool toolchains::GenericUnix::addRuntimeRPath(const llvm::Triple &T,
+                                               const llvm::opt::ArgList &Args) const {
+
+--- a/swift-driver/Sources/SwiftDriver/Jobs/GenericUnixToolchain+LinkerSupport.swift
++++ b/swift-driver/Sources/SwiftDriver/Jobs/GenericUnixToolchain+LinkerSupport.swift
+@@ -17,25 +17,7 @@ import struct TSCBasic.AbsolutePath
+ 
+ extension GenericUnixToolchain {
+   private func defaultLinker(for targetTriple: Triple) -> String? {
+-    if targetTriple.os == .openbsd || targetTriple.os == .freeBSD ||
+-        targetTriple.environment == .android {
+-      return "lld"
+-    }
+-
+-    switch targetTriple.arch {
+-    case .arm, .aarch64, .armeb, .thumb, .thumbeb:
+-      // BFD linker has issues wrt relocation of the protocol conformance
+-      // section on these targets, it also generates COPY relocations for
+-      // final executables, as such, unless specified, we default to gold
+-      // linker.
+-      return "gold"
+-    case .x86, .x86_64, .ppc64, .ppc64le, .systemz:
+-      // BFD linker has issues wrt relocations against protected symbols.
+-      return "gold"
+-    default:
+-      // Otherwise, use the default BFD linker.
+-      return ""
+-    }
++    "lld"
+   }
+ 
+   private func majorArchitectureName(for triple: Triple) -> String {
+--- a/swift/cmake/modules/AddPureSwift.cmake
++++ b/swift/cmake/modules/AddPureSwift.cmake
+@@ -224,6 +224,10 @@ function(add_pure_swift_host_library name)
+     target_link_options(${name} PRIVATE
+       "-use-ld=${LLVM_USE_LINKER}"
+     )
++  elseif(SWIFT_USE_LINKER)
++    target_link_options(${name} PRIVATE
++      "-use-ld=${SWIFT_USE_LINKER}"
++    )
+   endif()
+
+   # Export this target.
+@@ -322,6 +326,10 @@ function(add_pure_swift_host_tool name)
+     target_link_options(${name} PRIVATE
+       "-use-ld=${LLVM_USE_LINKER}"
+     )
++  elseif(SWIFT_USE_LINKER)
++    target_link_options(${name} PRIVATE
++      "-use-ld=${SWIFT_USE_LINKER}"
++    )
+   endif()
+
+   # Workaround to touch the library and its objects so that we don't
+--- a/swift/cmake/modules/AddSwift.cmake
++++ b/swift/cmake/modules/AddSwift.cmake
+@@ -629,6 +629,10 @@ function(_add_swift_runtime_link_flags target relpath_to_lib_dir bootstrapping)
+         endif()
+       endif()
+     endif()
++
++    if(SWIFT_HOST_VARIANT_SDK MATCHES "LINUX|ANDROID|OPENBSD|FREEBSD" AND SWIFT_USE_LINKER STREQUAL "lld")
++      target_link_options(${target} PRIVATE "LINKER:-z,nostart-stop-gc")
++    endif()
+   endif()
+
+   set_property(TARGET ${target} PROPERTY BUILD_WITH_INSTALL_RPATH YES)
+--- a/swift/tools/libStaticMirror/CMakeLists.txt
++++ b/swift/tools/libStaticMirror/CMakeLists.txt
+@@ -29,6 +29,10 @@ add_llvm_symbol_exports(libStaticMirror ${LLVM_EXPORTED_SYMBOL_FILE})
+ # Adds -dead_strip option
+ add_link_opts(libStaticMirror)
+
++if(SWIFT_HOST_VARIANT_SDK MATCHES "LINUX|ANDROID|OPENBSD|FREEBSD" AND SWIFT_USE_LINKER STREQUAL "lld")
++  target_link_options(libStaticMirror PRIVATE "LINKER:-z,nostart-stop-gc")
++endif()
++
+ add_dependencies(static-mirror-lib libStaticMirror)
+ swift_install_in_component(TARGETS libStaticMirror
+   ARCHIVE DESTINATION "lib${LLVM_LIBDIR_SUFFIX}/swift/${SWIFT_SDK_${SWIFT_HOST_VARIANT_SDK}_LIB_SUBDIR}" COMPONENT static-mirror-lib
+--- a/swift/tools/libSwiftScan/CMakeLists.txt
++++ b/swift/tools/libSwiftScan/CMakeLists.txt
+@@ -67,6 +67,10 @@ add_llvm_symbol_exports(libSwiftScan ${LLVM_EXPORTED_SYMBOL_FILE})
+ # Adds -dead_strip option
+ add_link_opts(libSwiftScan)
+
++if(SWIFT_HOST_VARIANT_SDK MATCHES "LINUX|ANDROID|OPENBSD|FREEBSD" AND SWIFT_USE_LINKER STREQUAL "lld")
++  target_link_options(libSwiftScan PRIVATE "LINKER:-z,nostart-stop-gc")
++endif()
++
+ add_dependencies(compiler libSwiftScan)
