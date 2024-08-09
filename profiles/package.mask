@@ -88,11 +88,6 @@ net-im/gtkcord4
 # Critical security vulnerability.
 <net-im/conduit-0.8.0
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-06-24)
-# Depends on kde-plasma/ksysguard, which is masked for removal.
-# Removal on 2024-08-24.
-kde-misc/plasma-applet-thermal-monitor
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
