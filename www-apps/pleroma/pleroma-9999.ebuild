@@ -31,6 +31,7 @@ BDEPEND="
 	dev-vcs/git
 "
 DEPEND="
+	dev-libs/glib
 	media-libs/vips:=
 	sys-apps/file
 	sys-libs/ncurses:=
