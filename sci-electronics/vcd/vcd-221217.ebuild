@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 DESCRIPTION="VCD file (Value Change Dump) command line viewer"
 HOMEPAGE="https://github.com/yne/vcd"
 
@@ -17,3 +19,14 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
+
+src_compile() {
+	# https://bugs.gentoo.org/243502
+	emake CC="$(tc-getCC)"
+}
+
+src_install() {
+	local DOCS=( README.md )
+	emake DESTDIR="${ED}"
+	einstalldocs
+}
