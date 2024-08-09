@@ -49,6 +49,7 @@ DEPEND="${COMMON_DEPEND}
 
 RDEPEND="${COMMON_DEPEND}
 	dev-libs/glib
+	dev-libs/libfmt
 	dev-qt/qtquickcontrols2
 "
 
