@@ -19,7 +19,7 @@ KEYWORDS="-* ~amd64"
 RESTRICT="bindist fetch strip"
 
 RDEPEND="
-	dev-libs/libappindicator
+	dev-libs/libayatana-appindicator
 	dev-libs/libffi
 	dev-libs/nss
 	media-libs/libsdl2
