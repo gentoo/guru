@@ -24,8 +24,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	>=dev-ml/dune-3.6:=
 	>=dev-lang/ocaml-4.08:=
-	dev-ml/dyn:=
-	dev-ml/stdune:=
+	dev-ml/dune-private-libs:=
 "
 
 DEPEND="
