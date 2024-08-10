@@ -3,19 +3,23 @@
 
 EAPI=8
 WANT_AUTOCONF="2.5"
-inherit autotools desktop xdg-utils flag-o-matic git-r3
+inherit autotools desktop flag-o-matic git-r3 xdg-utils
 DESCRIPTION="Dogecoin Core Qt for desktop. Downloaded blockchain is under 2.2GB. Much secure."
 HOMEPAGE="https://github.com/dogecoin"
 EGIT_REPO_URI="https://github.com/dogecoin/dogecoin.git"
-
-WORKDIR_="${WORKDIR}/${P}"
-S="${WORKDIR_}"
 
 LICENSE="MIT"
 SLOT="0"
 DB_VER="5.3"
 IUSE="cpu_flags_x86_avx2 cpu_flags_x86_sse2 intel-avx2 dogecoind experimental +gui +pie +prune scrypt-sse2 +ssp tests utils +wallet zmq"
-REQUIRED_USE="!gui? ( dogecoind utils  ) dogecoind? ( utils ) intel-avx2?  ( experimental ) scrypt-sse2? ( experimental )  experimental? ( || ( intel-avx2 scrypt-sse2 ) )"
+REQUIRED_USE="
+	!gui? ( dogecoind utils )
+	dogecoind? ( utils )
+	intel-avx2?  ( experimental )
+	scrypt-sse2? ( experimental )
+	experimental? ( || ( intel-avx2 scrypt-sse2 ) )
+"
+
 DOGEDIR="/opt/${PN}"
 DEPEND="
 	dev-libs/libevent:=
@@ -23,7 +27,14 @@ DEPEND="
 	dev-libs/openssl
 	dev-build/libtool
 	dev-build/automake:=
-	gui? ( dev-qt/qtcore dev-qt/qtgui dev-qt/qtwidgets dev-qt/qtdbus dev-qt/qtnetwork dev-qt/qtprintsupport dev-qt/linguist-tools:= )
+	gui? ( dev-qt/qtcore
+	dev-qt/qtgui
+	dev-qt/qtwidgets
+	dev-qt/qtdbus
+	dev-qt/qtnetwork
+	ev-qt/qtprintsupport
+	dev-qt/linguist-tools:=
+	)
 	>=dev-libs/boost-1.84.0
 	wallet? ( sys-libs/db:"${DB_VER}"=[cxx]
 		gui? ( media-gfx/qrencode )
@@ -45,7 +56,6 @@ BDEPEND="
 "
 
 pkg_pretend() {
-
 		if use intel-avx2 && [[ ! -e "${ROOT}"/etc/portage/patches/app-crypt/intel-ipsec-mb/remove_digest_init.patch ]]; then
 			eerror "${ROOT}/etc/portage/patches/app-crypt/intel-ipsec-mb/remove_digest_init.patch does not exist!"
 			eerror "To build with avx2 intel support, please create ${ROOT}/etc/portage/patches/app-crypt/intel-ipsec-mb directory"
@@ -68,7 +78,7 @@ src_prepare() {
 	default
 
 	einfo "Generating autotools files..."
-	eaclocal -I "${WORKDIR_}"
+	eaclocal -I "${S}"
 	eautoreconf
 }
 
