@@ -79,6 +79,7 @@ BDEPEND="
 	>=dev-build/cmake-3.24.2
 	>=dev-build/ninja-1.11
 	>=dev-db/sqlite-3
+	>=dev-libs/icu-69
 	>=dev-libs/libedit-20221030
 	>=dev-libs/libxml2-2.11.5
 	>=dev-util/patchelf-0.18
