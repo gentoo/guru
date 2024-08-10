@@ -85,6 +85,7 @@ BDEPEND="
 	>=dev-vcs/git-2.39
 	>=sys-apps/coreutils-9
 	>=sys-devel/clang-15
+	>=sys-devel/lld-15
 	>=sys-libs/ncurses-6
 	>=sys-libs/zlib-1.3
 	dev-lang/python
