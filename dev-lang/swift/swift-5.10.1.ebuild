@@ -49,10 +49,10 @@ SRC_URI="
 	https://github.com/unicode-org/icu/archive/refs/tags/release-69-1.tar.gz -> icu-69.1.tar.gz
 "
 
-PATCHES="
-	${FILESDIR}/${P}-link-with-lld.patch
-	${FILESDIR}/${P}-llbuild-link-ncurses-tinfo-gentoo.patch
-"
+PATCHES=(
+	"${FILESDIR}/${P}-link-with-lld.patch"
+	"${FILESDIR}/${P}-llbuild-link-ncurses-tinfo-gentoo.patch"
+)
 
 S="${WORKDIR}"
 LICENSE="Apache-2.0"
@@ -234,7 +234,7 @@ src_install() {
 	# `libicudataswift.so.69.1` has an empty `DT_RUNPATH`, which fails
 	# `rpath_security_checks`. It contains only data, so we can remove its rpath
 	# altogether.
-	patchelf --remove-rpath "${S}/stage2/usr/lib/swift/linux/libicudataswift.so.69.1"
+	patchelf --remove-rpath "${S}/stage2/usr/lib/swift/linux/libicudataswift.so.69.1" || die
 
 	# The Swift build output is intended to be self-contained, and is
 	# _significantly_ easier to leave as-is than attempt to splat onto the
@@ -249,6 +249,7 @@ src_install() {
 	# exposed externally, so we'll just symlink Swift-specific binaries into
 	# `/usr/bin`. (The majority of executables don't need to be exposed as
 	# `swift <command>` calls `swift-<command>` directly.)
+	local bin
 	for bin in swift swiftc sourcekit-lsp; do
 		dosym -r "${dest_dir}/usr/bin/${bin}" "/usr/bin/${bin}"
 	done
