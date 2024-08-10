@@ -16,8 +16,16 @@ S=${WORKDIR}/JPype1-${PV}
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="test"
 
-RDEPEND="virtual/jdk"
+RDEPEND="
+    test? (
+        dev-python/pyinstaller
+    )
+    virtual/jdk
+"
+
+distutils_enable_tests pytest
 
 # WORKAROUND: Overload function to nullify blocking QA check.
 # To be deleted after resolution of
