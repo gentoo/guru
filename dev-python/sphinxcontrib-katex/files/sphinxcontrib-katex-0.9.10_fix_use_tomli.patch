@@ -1,0 +1,22 @@
+Gentoo issue: https://bugs.gentoo.org/934950
+Switch to use tomli instead of toml
+diff '--color=auto' -Naur a/docs/conf.py b/docs/conf.py
+--- a/docs/conf.py
++++ b/docs/conf.py
+@@ -3,13 +3,14 @@
+ import os
+ import subprocess
+ 
+-import toml
++import tomli
+ 
+ import sphinxcontrib.katex as katex
+ 
+ 
+ # -- GENERAL -------------------------------------------------------------
+-config = toml.load(os.path.join("..", "pyproject.toml"))
++with open("../pyproject.toml", "rb") as f:
++    config = tomli.load(f)
+ 
+ project = config["project"]["name"]
+ author = ", ".join(author["name"] for author in config["project"]["authors"])

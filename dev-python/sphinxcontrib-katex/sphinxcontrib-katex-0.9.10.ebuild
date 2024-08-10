@@ -21,7 +21,10 @@ RDEPEND=">=dev-python/sphinx-4.5.0-r1[${PYTHON_USEDEP}]"
 
 DOCS=()
 
-PATCHES="${FILESDIR}/${P}_fix_install.patch"
+PATCHES="
+	${FILESDIR}/${P}_fix_install.patch
+	${FILESDIR}/${P}_fix_use_tomli.patch
+"
 
 distutils_enable_sphinx docs \
 	dev-python/insipid-sphinx-theme \
