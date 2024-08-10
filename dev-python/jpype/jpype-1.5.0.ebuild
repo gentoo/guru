@@ -18,12 +18,13 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
 
-RDEPEND="
+BDEPEND="
     test? (
         dev-python/pyinstaller
     )
-    virtual/jdk
 "
+
+RDEPEND="virtual/jdk"
 
 distutils_enable_tests pytest
 
