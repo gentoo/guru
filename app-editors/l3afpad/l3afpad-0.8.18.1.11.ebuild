@@ -14,8 +14,15 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="emacs"
 
-BDEPEND=""
-DEPEND="x11-libs/gtk+:3"
+BDEPEND="
+	dev-util/intltool
+	sys-devel/gettext
+	virtual/pkgconfig
+"
+DEPEND="
+	virtual/libintl
+	x11-libs/gtk+:3
+"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
