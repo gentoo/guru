@@ -34,15 +34,15 @@ CONFIG_CHECK="~TUN"
 ERROR_TUN="Your kernel lacks TUN support."
 
 src_compile() {
-	local ver_config="github.com/yggdrasil-network/yggdrasil-go/src/version"
-
-	local version_disable_detect_flags="-X ${ver_config}.buildName=${PN}"
-	version_disable_detect_flags+=" -X ${ver_config}.buildVersion=v${PV}"
-
 	GOFLAGS+=" -mod=vendor -trimpath"
 
+	local ver_config="github.com/yggdrasil-network/yggdrasil-go/src/version"
+
+	local custom_name_version_flags="-X ${ver_config}.buildName=${PN}"
+	custom_name_version_flags+=" -X ${ver_config}.buildVersion=git-${EGIT_VERSION}"
+
 	local GO_LDFLAGS
-	GO_LDFLAGS="-s -linkmode external -extldflags \"${LDFLAGS}\" ${version_disable_detect_flags}"
+	GO_LDFLAGS="-s -linkmode external -extldflags \"${LDFLAGS}\" ${custom_name_version_flags}"
 
 	local cmd
 	for cmd in yggdrasil{,ctl}; do
