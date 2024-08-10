@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{6..13} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit python-single-r1
 
 DESCRIPTION="A high-level, general-purpose, multi-paradigm, compiled programming language"
@@ -79,6 +79,7 @@ RDEPEND="
 "
 
 BDEPEND="
+	${PYTHON_DEPS}
 	>=dev-util/patchelf-0.18
 	>=sys-apps/coreutils-9
 "
