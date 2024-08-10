@@ -1,0 +1,29 @@
+#!/sbin/openrc-run
+# shellcheck shell=sh
+#
+# Copyright 1999-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+: ${MAUTRIX_TELEGRAM_CONFIG:=/etc/mautrix/mautrix_telegram.yaml}
+: ${MAUTRIX_TELEGRAM_LOG:=/var/log/mautrix/mautrix-telegram_daemon.log}
+
+description="A Matrix-Telegram Messenger puppeting bridge"
+
+command="/usr/bin/python"
+command_args="-m mautrix_telegram -c ${MAUTRIX_TELEGRAM_CONFIG} ${MAUTRIX_TELEGRAM_OPTS}"
+command_background=true
+command_user="mautrix-telegram:mautrix"
+pidfile="/run/${RC_SVCNAME}.pid"
+
+output_log="${MAUTRIX_TELEGRAM_LOG}"
+error_log="${output_log}"
+
+depend() {
+	need net
+	use dns postgresql
+}
+
+start_pre() {
+	checkpath -d -m 0755 -o "${command_user}" /var/lib/mautrix/telegram
+	checkpath -f -m 0644 -o "${command_user}" "${output_log}"
+}

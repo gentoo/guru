@@ -1,0 +1,8 @@
+# Configuration file
+#MAUTRIX_TELEGRAM_CONFIG="/etc/mautrix/mautrix_telegram.yaml"
+
+# Log file
+#MAUTRIX_TELEGRAM_LOG="/var/log/mautrix/mautrix-telegram_daemon.log"
+
+# Extra command-line options
+#MAUTRIX_TELEGRAM_OPTS=""

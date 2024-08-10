@@ -16,4 +16,7 @@
 		<remote-id type="github">mautrix/telegram</remote-id>
 		<remote-id type="pypi">mautrix-telegram</remote-id>
 	</upstream>
+	<use>
+		<flag name="qrcode">Enables logging in via QR code support</flag>
+	</use>
 </pkgmetadata>
