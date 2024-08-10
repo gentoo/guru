@@ -16,13 +16,6 @@ S=${WORKDIR}/JPype1-${PV}
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test"
-
-BDEPEND="
-    test? (
-        dev-python/pyinstaller
-    )
-"
 
 RDEPEND="virtual/jdk"
 
