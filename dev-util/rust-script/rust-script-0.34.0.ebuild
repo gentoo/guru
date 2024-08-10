@@ -116,13 +116,12 @@ KEYWORDS="~amd64"
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 
+PATCHES=(
+	# tests does not work with CARGO_BUILD_TARGET defined
+	"${FILESDIR}/${P}-fix-test.patch"
+)
+
 src_prepare() {
 	default
-
-	use debug || sed -i "s|/debug/|/release/|" tests/util/mod.rs || die
-
-	# cargo.eclass uses the old config and deprecation warning breaks the test.
-	if [[ ! -e "${ECARGO_HOME}/config.toml" ]]; then
-		ln -s "${ECARGO_HOME}/config" "${ECARGO_HOME}/config.toml" || die
-	fi
+	sed -i "s|\"target\"|\"$(cargo_target_dir)\"|" tests/util/mod.rs || die
 }

@@ -1,0 +1,20 @@
+- cargo_target_dir helper contains {debug,release}
+- tests does not work with CARGO_BUILD_TARGET defined
+https://github.com/fornwall/rust-script/issues/85
+--- a/tests/util/mod.rs
++++ b/tests/util/mod.rs
+@@ -15,12 +15,13 @@ macro_rules! rust_script {
+             let out = {
+                 let target_dir = ::std::env::var("CARGO_TARGET_DIR")
+                     .unwrap_or_else(|_| String::from("target"));
+-                let mut cmd = Command::new(format!("{}/debug/rust-script", target_dir));
++                let mut cmd = Command::new(format!("{}/rust-script", target_dir));
+                 $(
+                     cmd.arg($args);
+                 )*
+ 
+                 cmd.env_remove("CARGO_TARGET_DIR");
++                cmd.env_remove("CARGO_BUILD_TARGET");
+                 $(cmd.env(stringify!($env_k), $env_v);)*
+ 
+                 cmd_str = format!("{:?}", cmd);
