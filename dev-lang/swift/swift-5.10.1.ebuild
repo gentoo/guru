@@ -46,7 +46,6 @@ SRC_URI="
 	https://github.com/swiftlang/swift-syntax/archive/refs/tags/${P}-RELEASE.tar.gz -> swift-syntax-${PV}.tar.gz
 	https://github.com/swiftlang/swift-tools-support-core/archive/refs/tags/${P}-RELEASE.tar.gz -> swift-tools-support-core-${PV}.tar.gz
 	https://github.com/swiftlang/swift/archive/refs/tags/${P}-RELEASE.tar.gz -> ${P}.tar.gz
-	https://github.com/unicode-org/icu/archive/refs/tags/release-69-1.tar.gz -> icu-69.1.tar.gz
 "
 
 PATCHES=(
@@ -105,7 +104,6 @@ src_unpack() {
 
 	# Some one-off fixups:
 	pushd "${S}" \
-		&& mv 'icu-release-69' 'icu' \
 		&& mv 'swift-cmark' 'cmark' \
 		&& mv 'swift-llbuild' 'llbuild' \
 		&& mv 'swift-package-manager' 'swiftpm' \
@@ -231,11 +229,6 @@ src_compile() {
 }
 
 src_install() {
-	# `libicudataswift.so.69.1` has an empty `DT_RUNPATH`, which fails
-	# `rpath_security_checks`. It contains only data, so we can remove its rpath
-	# altogether.
-	patchelf --remove-rpath "${S}/stage2/usr/lib/swift/linux/libicudataswift.so.69.1" || die
-
 	# The Swift build output is intended to be self-contained, and is
 	# _significantly_ easier to leave as-is than attempt to splat onto the
 	# filesystem; we'll install the output versioned into `/usr/lib64` and
