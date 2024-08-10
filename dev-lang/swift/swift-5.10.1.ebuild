@@ -64,13 +64,10 @@ RESTRICT="strip"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	>=dev-build/cmake-3.24.2
-	>=dev-build/ninja-1.11
 	>=dev-db/sqlite-3
 	>=dev-libs/icu-69
 	>=dev-libs/libedit-20221030
 	>=dev-libs/libxml2-2.11.5
-	>=dev-vcs/git-2.39
 	>=net-misc/curl-8.4
 	>=sys-devel/lld-15
 	>=sys-libs/ncurses-6
@@ -80,8 +77,18 @@ RDEPEND="
 
 BDEPEND="
 	${PYTHON_DEPS}
+	>=dev-build/cmake-3.24.2
+	>=dev-build/ninja-1.11
+	>=dev-db/sqlite-3
+	>=dev-libs/libedit-20221030
+	>=dev-libs/libxml2-2.11.5
 	>=dev-util/patchelf-0.18
+	>=dev-vcs/git-2.39
 	>=sys-apps/coreutils-9
+	>=sys-devel/clang-15
+	>=sys-libs/ncurses-6
+	>=sys-libs/zlib-1.3
+	dev-lang/python
 "
 
 src_unpack() {
