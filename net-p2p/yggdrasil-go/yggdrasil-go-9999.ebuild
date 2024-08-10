@@ -18,7 +18,9 @@ DEPEND="
 	acct-group/yggdrasil
 "
 
-BDEPEND=">=dev-lang/go-1.20.0"
+BDEPEND=">=dev-lang/go-1.21"
+
+DOCS=( README.md CHANGELOG.md )
 
 FILECAPS=(
 	cap_net_admin,cap_net_bind_service "usr/bin/yggdrasil"
@@ -51,8 +53,7 @@ src_compile() {
 
 src_install() {
 	dobin yggdrasil{,ctl}
-	dodoc README.md
-	dodoc CHANGELOG.md
+	einstalldocs
 
 	systemd_dounit "contrib/systemd/yggdrasil.service"
 	systemd_dounit "contrib/systemd/yggdrasil-default-config.service"
