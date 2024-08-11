@@ -62,11 +62,6 @@ acct-group/wikijs
 acct-user/wikijs
 www-apps/wiki-js-bin
 
-# David Roman <davidroman96@gmail.com> (2024-07-15)
-# No maintainer. Can not be emerged due to dependency problems.
-# Removal on 2024-08-15
-dev-lang/swift
-
 # Remigiusz Micielski <rmicielski@purelymail.com> (2024-07-12)
 # Upstream lost interest in this package and it doesn't compile.
 # Removal on 2024-08-12
