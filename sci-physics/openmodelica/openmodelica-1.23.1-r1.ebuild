@@ -171,7 +171,7 @@ src_install() {
 
 	# Documentation housekeeping & QA
 	mv "${ED}"/usr/share/doc/omc "${ED}"/usr/share/doc/"${PF}" || die
-	rm -fr "${ED}"/usr/doc || die
+	rm -fr "${ED}"/usr/doc  "${ED}"/usr/share/zmq  "${ED}"/usr/share/cmake || die
 
 	ewarn "Upstream has deprecated OMTLMSimuulator and, therefore, it has not been installed. Use OMSimulator/SSP instead."
 }
