@@ -66,10 +66,6 @@ fetch_deps_dynamically() {
 
 	einfo "Extracted CLAP version: ${CLAP}"
 	einfo "Extracted ZIGINI commit: ${ZIGINI}"
-
-	#CLAP="refs/tags/0.9.1"
-	#ZIGINI="0bba97a12582928e097f4074cc746c43351ba4c8"
-	#ZIGLIBINI="e18d36665905c1e7ba0c1ce3e8780076b33e3002"
 }
 
 # Function to fetch nested dependency versions
@@ -174,11 +170,12 @@ pkg_setup() {
 # Unpack source and fetch dependencies
 src_unpack() {
 	git-r3_src_unpack
+	# Fetch CLAP and ZIGINI
 	fetch_deps_dynamically
 	mkdir "${WORKDIR}/deps" || die
 	ezig fetch --global-cache-dir "${WORKDIR}/deps" "https://github.com/Hejsil/zig-clap/archive/${CLAP}.tar.gz"
 	ezig fetch --global-cache-dir "${WORKDIR}/deps" "https://github.com/Kawaii-Ash/zigini/archive/${ZIGINI}.tar.gz"
-
+	# Fetch ZIGLIBINI
 	fetch_nested_deps_dynamically
 	ezig fetch --global-cache-dir "${WORKDIR}/deps" "https://github.com/ziglibs/ini/archive/${ZIGLIBINI}.tar.gz"
 }
