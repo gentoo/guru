@@ -14,11 +14,13 @@ KEYWORDS="~amd64"
 
 src_compile() {
 	tc-export CC
-	export CFLAGS
-	sed -i 's/ -O.\b/ /' Makefile
+	export CFLAGS LDFLAGS
+	sed -i 's/ -O.\b/ /' Makefile || die
+	# respect LDFLAGS
+	sed -i 's/$(CFLAGS) /$(CFLAGS) $(LDFLAGS) /' Makefile || die
 	# workaround for compiling without -O2
 	# https://github.com/hufrea/byedpi/commit/3fee8d5aed122f34ec13637f5f4b1502d13cc923
-	sed -i 's/inline bool check_port/static inline bool check_port/' extend.c
+	sed -i 's/inline bool check_port/static inline bool check_port/' extend.c || die
 
 	default
 }

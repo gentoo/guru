@@ -14,7 +14,7 @@ SLOT="0"
 src_compile() {
 	tc-export CC
 	export CFLAGS LDFLAGS
-	sed -i 's/ -O.\b/ /' Makefile
+	sed -i 's/ -O.\b/ /' Makefile || die
 
 	default
 }
