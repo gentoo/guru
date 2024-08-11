@@ -3,16 +3,12 @@
 
 EAPI=8
 
-# sphinx-theme-builder is completely unusable, as it requires pinning
-# to a very-specific nodejs version number, and ofc loves fetching
-# everything from the Internet
-
 DISTUTILS_USE_PEP517=standalone
 PYTHON_COMPAT=( pypy3 python3_{10..13} )
 
 inherit distutils-r1 pypi
 
-DESCRIPTION="Clean customisable Sphinx documentation theme"
+DESCRIPTION="Read/Write project management files (MPP, MSPDI, MPX, PMXML, etc)"
 HOMEPAGE="
 	https://pypi.org/project/mpxj/
 	https://github.com/joniles/mpxj/
