@@ -84,6 +84,7 @@ src_install() {
 		newicon -s ${x} "${S}"/mullvad-browser/Browser/browser/chrome/icons/default/default${x}.png mullvad-browser.png
 	done
 
+	fperms 755 "/opt/mullvad-browser/Browser/abicheck"
 	fperms +x "/opt/mullvad-browser/Browser/start-mullvad-browser"
 	fperms +x "/opt/mullvad-browser/Browser/mullvadbrowser"
 	fperms +x "/opt/mullvad-browser/Browser/mullvadbrowser.real"
