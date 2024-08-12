@@ -27,3 +27,8 @@ distutils_enable_tests pytest
 _distutils-r1_post_python_install() {
     local keep
 }
+
+src_prepare() {
+    sed -i "s/'-g0', //g;s/, '-O2'//g"  ${S}/setupext/platform.py
+    default
+}
