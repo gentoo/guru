@@ -8,9 +8,9 @@ PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1
 
-DESCRIPTION="Cross-language bridge to allow Python programs full access to Java class libraries"
+DESCRIPTION="Bridge to allow Python programs full access to Java class libraries"
 HOMEPAGE="https://github.com/jpype-project/jpype/"
-SRC_URI="https://github.com/jpype-project/jpype/releases/download/v1.5.0/JPype1-1.5.0.tar.gz "
+SRC_URI="https://github.com/jpype-project/jpype/releases/download/v${PV}/JPype1-${PV}.tar.gz "
 S=${WORKDIR}/JPype1-${PV}
 
 LICENSE="Apache-2.0"
@@ -25,10 +25,10 @@ distutils_enable_tests pytest
 # To be deleted after resolution of
 # https://bugs.gentoo.org/937642
 _distutils-r1_post_python_install() {
-    local keep
+	local keep
 }
 
 src_prepare() {
-    sed -i "s/'-g0', //g;s/, '-O2'//g"  ${S}/setupext/platform.py
-    default
+	sed -i "s/'-g0', //g;s/, '-O2'//g"  "${S}"/setupext/platform.py || die
+	default
 }
