@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+  <maintainer type="person">
+    <email>aidenwingard2@gmail.com</email>
+    <description>Primary maintainer</description>
+  </maintainer>
+  <longdescription>
+    An open source, cross-platform Spotify client compatible across multiple platforms
+    utilizing Spotify's data API and YouTube, Piped.video or JioSaavn as an audio source,
+    eliminating the need for Spotify Premium.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">KRTirtho/spotube</remote-id>
+  </upstream>
+</pkgmetadata>
