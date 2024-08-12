@@ -32,7 +32,7 @@ DEPEND="
 	dev-qt/qtwidgets
 	dev-qt/qtdbus
 	dev-qt/qtnetwork
-	ev-qt/qtprintsupport
+	dev-qt/qtprintsupport
 	dev-qt/linguist-tools:=
 	)
 	>=dev-libs/boost-1.84.0
