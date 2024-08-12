@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit linux-mod-r1 python-single-r1
 
 DESCRIPTION="Extensible Virtual Display Interface"
@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/DisplayLink/evdi"
 SRC_URI="https://github.com/DisplayLink/evdi/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2 LGPL-2.1"
-SLOT="0"
+SLOT="0/$(ver_cut 1)"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 IUSE="python test"
@@ -36,7 +36,8 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 RESTRICT="!test? ( test )"
 
-CONFIG_CHECK="~FB_VIRTUAL ~I2C"
+# module/Kconfig
+CONFIG_CHECK="~FB_VIRTUAL ~I2C ~DRM ~USB_SUPPORT ~USB_ARCH_HAS_HCD MODULES"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.14.4-format-truncation.patch"
@@ -49,14 +50,18 @@ pkg_setup() {
 
 src_compile() {
 	local modlist=(
-		"evdi=video:${S}/module"
+		"evdi=video:module"
+	)
+	local modargs=(
+		CONFIG_DRM_EVDI="m" # https://github.com/DisplayLink/evdi/issues/476
+		KVER="${KV_FULL}"
+		KDIR="${KV_OUT_DIR}"
 	)
 	linux-mod-r1_src_compile
 
-	emake library
-	ln -srf "${S}/library/libevdi.so"{".$(ver_cut 1)",} || die
+	emake -C library
 
-	use python && emake pyevdi
+	use python && emake -C pyevdi
 }
 
 src_test() {
@@ -66,10 +71,9 @@ src_test() {
 src_install() {
 	linux-mod-r1_src_install
 
-	dolib.so "library/libevdi.so.${PV}"
+	local -x DESTDIR="${ED}" PREFIX="${EPREFIX}"
 
-	dosym "libevdi.so.${PV}" "/usr/$(get_libdir)/libevdi.so.$(ver_cut 1)"
-	dosym "libevdi.so.$(ver_cut 1)" "/usr/$(get_libdir)/libevdi.so"
+	LIBDIR="/usr/$(get_libdir)" emake -C library install
 
-	use python && DESTDIR="${D}" emake -C pyevdi install
+	use python && emake -C pyevdi install
 }
