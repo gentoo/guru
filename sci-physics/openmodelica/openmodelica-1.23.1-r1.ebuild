@@ -85,25 +85,25 @@ PATCHES=(
 src_unpack() {
 	default
 
-	mv "${WORKDIR}/OpenModelica-332e81aa6442c4cc4761251407332f86f80e834b" "${WORKDIR}/${P}" || die
-	rmdir "${WORKDIR}/${P}/OMCompiler/3rdParty" || die
-	mv "${WORKDIR}/OMCompiler-3rdParty-b826af1c1c15acf48627ad32cc0545ffc7e58bca" "${WORKDIR}/${P}/OMCompiler/3rdParty" || die
-	rmdir "${WORKDIR}/${P}/OMSens" || die
-	mv "${WORKDIR}/OMSens-0d804d597bc385686856d453cc830fad4923fa3e" "${WORKDIR}/${P}/OMSens" || die
-	rmdir "${WORKDIR}/${P}/OMSens_Qt" || die
-	mv "${WORKDIR}/OMSens_Qt-68b1b8697ac9f8e37ebe4de13c0c1d4e6e2e56fb" "${WORKDIR}/${P}/OMSens_Qt" || die
-	rmdir "${WORKDIR}/${P}/OMSens_Qt/common" || die
-	mv "${WORKDIR}/OpenModelica-common-08a01802db5ba5edb540383c46718b89ff229ef2" "${WORKDIR}/${P}/OMSens_Qt/common" || die
-	rmdir "${WORKDIR}/${P}/OMSimulator" || die
-	mv "${WORKDIR}/OMSimulator-1eb92ef35793b73e75d0cfed0c7b0311497d6278" "${WORKDIR}/${P}/OMSimulator" || die
-	rmdir "${WORKDIR}/${P}/OMSimulator/3rdParty" || die
-	mv "${WORKDIR}/OMSimulator-3rdParty-ca418d7768c036ac15e9894d7f00d2118b3399a6" "${WORKDIR}/${P}/OMSimulator/3rdParty" || die
-	mv "OMBootstrapping-c289e97c41d00939a4a69fe504961b47283a6d8e" "${WORKDIR}/${P}/OMCompiler/Compiler/boot/bomc" || die
-	touch "${WORKDIR}/${P}/OMCompiler/Compiler/boot/bomc/sources.tar.gz" || die
+	mv "${WORKDIR}/OpenModelica-332e81aa6442c4cc4761251407332f86f80e834b" "${S}" || die
+	rmdir "${S}/OMCompiler/3rdParty" || die
+	mv "${WORKDIR}/OMCompiler-3rdParty-b826af1c1c15acf48627ad32cc0545ffc7e58bca" "${S}/OMCompiler/3rdParty" || die
+	rmdir "${S}/OMSens" || die
+	mv "${WORKDIR}/OMSens-0d804d597bc385686856d453cc830fad4923fa3e" "${S}/OMSens" || die
+	rmdir "${S}/OMSens_Qt" || die
+	mv "${WORKDIR}/OMSens_Qt-68b1b8697ac9f8e37ebe4de13c0c1d4e6e2e56fb" "${S}/OMSens_Qt" || die
+	rmdir "${S}/OMSens_Qt/common" || die
+	mv "${WORKDIR}/OpenModelica-common-08a01802db5ba5edb540383c46718b89ff229ef2" "${S}/OMSens_Qt/common" || die
+	rmdir "${S}/OMSimulator" || die
+	mv "${WORKDIR}/OMSimulator-1eb92ef35793b73e75d0cfed0c7b0311497d6278" "${S}/OMSimulator" || die
+	rmdir "${S}/OMSimulator/3rdParty" || die
+	mv "${WORKDIR}/OMSimulator-3rdParty-ca418d7768c036ac15e9894d7f00d2118b3399a6" "${S}/OMSimulator/3rdParty" || die
+	mv "OMBootstrapping-c289e97c41d00939a4a69fe504961b47283a6d8e" "${S}/OMCompiler/Compiler/boot/bomc" || die
+	touch "${S}/OMCompiler/Compiler/boot/bomc/sources.tar.gz" || die
 
 	# Solve https://bugs.gentoo.org/937038
-	rm -fr "${WORKDIR}/${P}/OMCompiler/3rdParty/FMIL/ThirdParty/Minizip/minizip" || die
-	cp -a "${WORKDIR}/${P}/OMSimulator/3rdParty/fmi4c/3rdparty/minizip" "${WORKDIR}/${P}/OMCompiler/3rdParty/FMIL/ThirdParty/Minizip/minizip" || die
+	rm -fr "${S}/OMCompiler/3rdParty/FMIL/ThirdParty/Minizip/minizip" || die
+	cp -a "${S}/OMSimulator/3rdParty/fmi4c/3rdparty/minizip" "${S}/OMCompiler/3rdParty/FMIL/ThirdParty/Minizip/minizip" || die
 }
 
 src_configure() {
@@ -128,14 +128,14 @@ src_configure() {
 
 src_compile() {
 	# [2024-07-15]
-	# OMSens is disabled in "${WORKDIR}/${P}/CMakeLists.txt" (## omc_add_subdirectory(OMSens)) due to lack of a
-	# working "${WORKDIR}/${P}/OMSens/CMakeLists.txt". So, we compile it manually.
+	# OMSens is disabled in "${S}/CMakeLists.txt" (## omc_add_subdirectory(OMSens)) due to lack of a
+	# working "${S}/OMSens/CMakeLists.txt". So, we compile it manually.
 	pushd OMSens/fortran_interface > /dev/null || die
 	${FC} -fPIC -c Rutf.for Rut.for Curvif.for || die
 	# BUG: Undefined symbol curvif_ in
-	# ${WORKDIR}/${P}/OMSens/fortran_interface/curvif_simplified.cpython-312-x86_64-linux-gnu.so
+	# ${S}/OMSens/fortran_interface/curvif_simplified.cpython-312-x86_64-linux-gnu.so
 	# See with nm -D or objdump -tT
-	# ${WORKDIR}/${P}/OMSens/fortran_interface/curvif_simplified.cpython-312-x86_64-linux-gnu.so
+	# ${S}/OMSens/fortran_interface/curvif_simplified.cpython-312-x86_64-linux-gnu.so
 	# This bug causes "Vectorial Parameter Based Sensitivity Analysis" in OMSens to fail.
 	f2py --verbose -c -I. Curvif.o Rutf.o Rut.o -m curvif_simplified curvif_simplified.pyf Curvif_simplified.f90 || die
 	popd > /dev/null || die
@@ -147,8 +147,8 @@ src_install() {
 	cmake_src_install
 
 	# [2024-07-15]
-	# OMSens is disabled in "${WORKDIR}/${P}/CMakeLists.txt" (## omc_add_subdirectory(OMSens)) due to lack of a
-	# working "${WORKDIR}/${P}/OMSens/CMakeLists.txt". So, we install it manually.
+	# OMSens is disabled in "${S}/CMakeLists.txt" (## omc_add_subdirectory(OMSens)) due to lack of a
+	# working "${S}/OMSens/CMakeLists.txt". So, we install it manually.
 	cp -a "${WORKDIR}"/"${P}"/OMSens "${ED}"/usr/share/ || die
 	rm -fr "${ED}"/usr/share/OMSens/{old,.git,.gitignore,CMakeLists.txt,.jenkins,Jenkinsfile,Makefile.omdev.mingw,Makefile.unix,README.md,setup.py,testing} || die
 
@@ -171,7 +171,7 @@ src_install() {
 
 	# Documentation housekeeping & QA
 	mv "${ED}"/usr/share/doc/omc "${ED}"/usr/share/doc/"${PF}" || die
-	rm -fr "${ED}"/usr/doc  "${ED}"/usr/share/zmq  "${ED}"/usr/share/cmake || die
+	rm -fr "${ED}"/usr/doc  "${ED}"/usr/share/{zmq,cmake} || die
 
-	ewarn "Upstream has deprecated OMTLMSimuulator and, therefore, it has not been installed. Use OMSimulator/SSP instead."
+	ewarn "Upstream has deprecated OMTLMSimulator and, therefore, it has not been installed. Use OMSimulator/SSP instead."
 }
