@@ -3,8 +3,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 # Environment variables for Redlib
-export ADDRESS=${ADDRESS:-80}
-export PORT=${PORT:-8080}
+ADDRESS=${ADDRESS:-0.0.0.0}
+PORT=${PORT:-8080}
 export REDLIB_DEFAULT_THEME=${REDLIB_DEFAULT_THEME:-system}
 export REDLIB_DEFAULT_FRONT_PAGE=${REDLIB_DEFAULT_FRONT_PAGE:-default}
 export REDLIB_DEFAULT_LAYOUT=${REDLIB_DEFAULT_LAYOUT:-card}
@@ -25,6 +25,7 @@ export REDLIB_FIXED_NAVAR=${REDLIB_FIXED_NAVAR:-on}
 name="Redlib"
 description="Private front-end for Reddit"
 command=/usr/bin/redlib
+command_args="-a ${ADDRESS} -p ${PORT}"
 pidfile="/var/run/${RC_SVCNAME}.pid"
 command_user="redlib"
 command_background=true
