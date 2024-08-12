@@ -31,8 +31,8 @@ src_compile() {
 }
 
 src_install() {
-	cp -ar "${S}"/opt/bisq "${ED}"/opt/
-	dosym ../Bisq/Bisq /opt/bisq/bin/Bisq
+	cp -ar "${S}"/opt/ "${ED}"/opt/
+	dosym ../bisq/bin/Bisq /opt/bin/Bisq
 	domenu opt/bisq/lib/bisq-Bisq.desktop
 	doicon opt/bisq/lib/Bisq.png
 }
