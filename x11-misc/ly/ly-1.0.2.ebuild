@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit edo pam systemd
+inherit edo pam systemd prefix
 
 DESCRIPTION="Ly - a TUI display manager"
 HOMEPAGE="https://github.com/fairyglade/ly"
@@ -30,6 +30,8 @@ DEPEND="
 	|| ( dev-lang/zig-bin:${EZIG_MIN} dev-lang/zig:${EZIG_MIN} )
 	sys-libs/pam
 	x11-libs/libxcb
+	x11-apps/xrdb
+	x11-apps/xmessage
 "
 RDEPEND="
 	x11-base/xorg-server
@@ -115,8 +117,15 @@ src_unpack() {
 	ezig fetch --global-cache-dir "${WORKDIR}/deps" "${DISTDIR}/ziglibini-${ZIGLIBINI}.tar.gz"
 }
 
+src_prepare(){
+	default
+	# Adjusting absolute paths in the following files to use Gentoo's ${EPREFIX}
+	hprefixify "${RES}/config.ini" "${RES}/xsetup.sh" "${RES}/wsetup.sh"
+}
+
 src_compile() {
-	ezig build --system "${WORKDIR}/deps/p" -Doptimize=ReleaseSafe
+	# Building ly & accomodate for prefixed environment
+	ezig build --system "${WORKDIR}/deps/p" -Doptimize=ReleaseSafe -Ddata_directory="${EPREFIX}/etc/ly"
 }
 
 src_install() {
