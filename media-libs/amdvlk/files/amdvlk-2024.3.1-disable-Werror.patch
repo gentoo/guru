@@ -1,0 +1,13 @@
+diff --git a/pal/shared/devdriver/cmake/DevDriver.cmake b/pal/shared/devdriver/cmake/DevDriver.cmake
+index 74e966da..64157700 100644
+--- a/pal/shared/devdriver/cmake/DevDriver.cmake
++++ b/pal/shared/devdriver/cmake/DevDriver.cmake
+@@ -93,7 +93,7 @@ function(apply_devdriver_warnings name)
+         target_compile_options(${name} PRIVATE
+             -Wall   # Enable all warnings.
+             -Wextra # Enable extra warnings that are not enabled by -Wall.
+-            -Werror # Treat warnings as errors
++        #-Werror # Treat warnings as errors
+         )
+     elseif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+         target_compile_options(${name} PRIVATE
