@@ -10,6 +10,5 @@
         </upstream>
         <use>
                 <flag name="X">Add support for X11</flag>
-                <flag name="wayland">Add support for screensharing on wayland</flag>
         </use>
 </pkgmetadata>
