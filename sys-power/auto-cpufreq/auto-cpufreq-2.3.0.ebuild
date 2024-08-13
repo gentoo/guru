@@ -120,11 +120,6 @@ pkg_postrm() {
 	xdg_icon_cache_update
 	xdg_desktop_database_update
 
-	# Remove the polkit policy
-	if [ -f "/usr/share/polkit-1/actions/org.auto-cpufreq.pkexec.policy" ]; then
-		rm -rf /usr/share/polkit-1/actions/org.auto-cpufreq.pkexec.policy || die
-	fi
-
 	# Remove the override.pickle file and directory
 	if [[ -d "/var/lib/auto-cpufreq" ]]; then
 		rm -rf /var/lib/auto-cpufreq
