@@ -175,7 +175,7 @@ src_unpack() {
 src_prepare(){
 	default
 	# Adjusting absolute paths in the following files to use Gentoo's ${EPREFIX}
-	hprefixify "${RES}/config.ini" "${RES}/xsetup.sh" "${RES}/wsetup.sh"
+	hprefixify "${RES}/config.ini" "${RES}/setup.sh"
 }
 
 src_compile() {
