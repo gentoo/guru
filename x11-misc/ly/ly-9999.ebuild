@@ -159,14 +159,6 @@ ezig() {
 	edo "${EZIG}" "${@}"
 }
 
-# Check if git is installed
-pkg_setup() {
-	if ! type -P git >/dev/null; then
-		eerror "git not found. Please install dev-vcs/git."
-		die "git not found"
-	fi
-}
-
 # Unpack source and fetch dependencies
 src_unpack() {
 	git-r3_src_unpack
