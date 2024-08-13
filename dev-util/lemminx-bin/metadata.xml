@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>gentoo@tastytea.de</email>
-		<name>tastytea</name>
+		<email>tea+gentoo@cuddleslut.fr</email>
+		<name>tea</name>
 	</maintainer>
 	<longdescription lang="en">
 		LemMinX is a XML language specific implementation of the Language Server
