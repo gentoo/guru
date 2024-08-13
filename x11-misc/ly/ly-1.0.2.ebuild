@@ -30,12 +30,12 @@ DEPEND="
 	|| ( dev-lang/zig-bin:${EZIG_MIN} dev-lang/zig:${EZIG_MIN} )
 	sys-libs/pam
 	x11-libs/libxcb
-	x11-apps/xrdb
-	x11-apps/xmessage
 "
 RDEPEND="
 	x11-base/xorg-server
 	x11-apps/xauth
+	x11-apps/xrdb
+	x11-apps/xmessage
 	sys-libs/ncurses
 "
 

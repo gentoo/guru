@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit edo pam systemd git-r3
+inherit edo pam systemd git-r3 prefix
 
 DESCRIPTION="Ly - a TUI display manager (live ebuild)"
 HOMEPAGE="https://github.com/fairyglade/ly"
@@ -12,8 +12,6 @@ EGIT_REPO_URI="https://github.com/fairyglade/ly.git"
 
 LICENSE="WTFPL-2"
 SLOT="0"
-
-# KEYWORDS is omitted for live ebuilds
 
 # Specify the required Zig version range
 EZIG_MIN="0.12"
@@ -28,6 +26,7 @@ RDEPEND="
 	x11-base/xorg-server
 	x11-apps/xauth
 	sys-libs/ncurses
+	x11-apps/xrdb
 "
 
 # Ignore QA warnings about missing build-id for Zig binaries
@@ -172,8 +171,15 @@ src_unpack() {
 	ezig fetch --global-cache-dir "${WORKDIR}/deps" "https://github.com/ziglibs/ini/archive/${ZIGLIBINI}.tar.gz"
 }
 
-# Compile the project
+
+src_prepare(){
+	default
+	# Adjusting absolute paths in the following files to use Gentoo's ${EPREFIX}
+	hprefixify "${RES}/config.ini" "${RES}/xsetup.sh" "${RES}/wsetup.sh"
+}
+
 src_compile() {
+	# Building ly & accomodate for prefixed environment
 	ezig build --system "${WORKDIR}/deps/p" -Doptimize=ReleaseSafe
 }
 
