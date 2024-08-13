@@ -7,14 +7,22 @@ inherit cmake desktop xdg fortran-2
 DESCRIPTION="Open-source Modelica-based modeling and simulation environment"
 HOMEPAGE="https://openmodelica.org/"
 SRC_URI="
-   https://github.com/OpenModelica/OpenModelica/archive/332e81aa6442c4cc4761251407332f86f80e834b.tar.gz -> ${P}.tar.gz
-   https://github.com/OpenModelica/OMCompiler-3rdParty/archive/b826af1c1c15acf48627ad32cc0545ffc7e58bca.tar.gz -> OMCompiler-3rdParty_${P}.tar.gz
-   https://github.com/OpenModelica/OMBootstrapping/archive/c289e97c41d00939a4a69fe504961b47283a6d8e.tar.gz -> OMBootstrapping_${P}.tar.gz
-   https://github.com/OpenModelica/OMSens/archive/0d804d597bc385686856d453cc830fad4923fa3e.tar.gz -> OMSens_${P}.tar.gz
-   https://github.com/OpenModelica/OMSens_Qt/archive/68b1b8697ac9f8e37ebe4de13c0c1d4e6e2e56fb.tar.gz -> OMSens_Qt_${P}.tar.gz
-   https://github.com/OpenModelica/OpenModelica-common/archive/08a01802db5ba5edb540383c46718b89ff229ef2.tar.gz -> OpenModelica-common_${P}.tar.gz
-   https://github.com/OpenModelica/OMSimulator/archive/1eb92ef35793b73e75d0cfed0c7b0311497d6278.tar.gz -> OMSimulator_${P}.tar.gz
-   https://github.com/OpenModelica/OMSimulator-3rdParty/archive/ca418d7768c036ac15e9894d7f00d2118b3399a6.tar.gz -> OMSimulator-3rdParty_${P}.tar.gz
+	https://github.com/OpenModelica/OpenModelica/archive/332e81aa6442c4cc4761251407332f86f80e834b.tar.gz
+		-> ${P}.tar.gz
+	https://github.com/OpenModelica/OMCompiler-3rdParty/archive/b826af1c1c15acf48627ad32cc0545ffc7e58bca.tar.gz
+		-> OMCompiler-3rdParty_${P}.tar.gz
+	https://github.com/OpenModelica/OMBootstrapping/archive/c289e97c41d00939a4a69fe504961b47283a6d8e.tar.gz
+		-> OMBootstrapping_${P}.tar.gz
+	https://github.com/OpenModelica/OMSens/archive/0d804d597bc385686856d453cc830fad4923fa3e.tar.gz
+		-> OMSens_${P}.tar.gz
+	https://github.com/OpenModelica/OMSens_Qt/archive/68b1b8697ac9f8e37ebe4de13c0c1d4e6e2e56fb.tar.gz
+		-> OMSens_Qt_${P}.tar.gz
+	https://github.com/OpenModelica/OpenModelica-common/archive/08a01802db5ba5edb540383c46718b89ff229ef2.tar.gz
+		-> OpenModelica-common_${P}.tar.gz
+	https://github.com/OpenModelica/OMSimulator/archive/1eb92ef35793b73e75d0cfed0c7b0311497d6278.tar.gz
+		-> OMSimulator_${P}.tar.gz
+	https://github.com/OpenModelica/OMSimulator-3rdParty/archive/ca418d7768c036ac15e9894d7f00d2118b3399a6.tar.gz
+		-> OMSimulator-3rdParty_${P}.tar.gz
 "
 
 LICENSE="OSMC-PL GPL-3 AGPL-3 BSD EPL-1.0 public-domain BSD-with-attribution LGPL-2.1+ LGPL-2 Apache-2.0 Boost-1.0 Modelica-1.1 Modelica-2 MIT WTFPL-2"
@@ -103,7 +111,8 @@ src_unpack() {
 
 	# Solve https://bugs.gentoo.org/937038
 	rm -fr "${S}/OMCompiler/3rdParty/FMIL/ThirdParty/Minizip/minizip" || die
-	cp -a "${S}/OMSimulator/3rdParty/fmi4c/3rdparty/minizip" "${S}/OMCompiler/3rdParty/FMIL/ThirdParty/Minizip/minizip" || die
+	cp -a "${S}/OMSimulator/3rdParty/fmi4c/3rdparty/minizip" \
+		"${S}/OMCompiler/3rdParty/FMIL/ThirdParty/Minizip/minizip" || die
 }
 
 src_configure() {
@@ -150,11 +159,13 @@ src_install() {
 	# OMSens is disabled in "${S}/CMakeLists.txt" (## omc_add_subdirectory(OMSens)) due to lack of a
 	# working "${S}/OMSens/CMakeLists.txt". So, we install it manually.
 	cp -a "${WORKDIR}"/"${P}"/OMSens "${ED}"/usr/share/ || die
-	rm -fr "${ED}"/usr/share/OMSens/{old,.git,.gitignore,CMakeLists.txt,.jenkins,Jenkinsfile,Makefile.omdev.mingw,Makefile.unix,README.md,setup.py,testing} || die
+	rm -fr "${ED}"/usr/share/OMSens/{old,.git,.gitignore,CMakeLists.txt,.jenkins,Jenkinsfile,Makefile.omdev.mingw,Makefile.unix} || die
+	rm -fr "${ED}"/usr/share/OMSens/{README.md,setup.py,testing} || die
 
 	newicon -s scalable OMShell/OMShell/OMShellGUI/Resources/omshell-large.svg omshell.svg
 	newicon -s scalable OMNotebook/OMNotebook/OMNotebookGUI/Resources/OMNotebook_icon.svg OMNotebook.svg
-	convert OMEdit/OMEditLIB/Resources/icons/omedit.ico[0] -thumbnail 256x256 -flatten OMEdit/OMEditLIB/Resources/icons/omedit_icon.png || die
+	convert OMEdit/OMEditLIB/Resources/icons/omedit.ico[0] -thumbnail 256x256 -flatten \
+		OMEdit/OMEditLIB/Resources/icons/omedit_icon.png || die
 	newicon -s 256 OMEdit/OMEditLIB/Resources/icons/omedit_icon.png omedit.png
 
 	make_desktop_entry "OMEdit %F" OMedit omedit "Physics;" "MimeType=text/x-modelica;"
