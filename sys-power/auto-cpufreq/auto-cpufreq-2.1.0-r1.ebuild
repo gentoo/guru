@@ -66,18 +66,18 @@ pkg_postinst() {
 
 pkg_postrm() {
 	# Remove auto-cpufreq log file
-	if [ -f "/var/log/auto-cpufreq.log" ]; then
-		rm /var/log/auto-cpufreq.log || die
+	if [ -f "${EROOT}/var/log/auto-cpufreq.log" ]; then
+		rm "${EROOT}"/var/log/auto-cpufreq.log || die
+	fi
+
+	# Restore original cpufreqctl binary if backup was made
+	if [ -f "${EROOT}/usr/bin/cpufreqctl.auto-cpufreq.bak" ]; then
+		mv "${EROOT}"/usr/bin/cpufreqctl.auto-cpufreq{.bak,} || die
 	fi
 
 	# Remove auto-cpufreq's cpufreqctl binary
 	# it overwrites cpufreqctl.sh
-	if [ -f "/usr/bin/cpufreqctl" ]; then
-		rm /usr/bin/cpufreqctl || die
-	fi
-
-	# Restore original cpufreqctl binary if backup was made
-	if [ -f "/usr/bin/cpufreqctl.auto-cpufreq.bak" ]; then
-		mv /usr/bin/cpufreqctl.auto-cpufreq.bak /usr/bin/cpufreqctl || die
+	if [ -f "${EROOT}/usr/bin/cpufreqctl" ]; then
+		rm "${EROOT}"/usr/bin/cpufreqctl || die
 	fi
 }
