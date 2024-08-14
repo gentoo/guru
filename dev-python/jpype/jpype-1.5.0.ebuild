@@ -19,8 +19,6 @@ KEYWORDS="~amd64"
 
 RDEPEND="virtual/jdk"
 
-distutils_enable_tests pytest
-
 # WORKAROUND: Overload function to nullify blocking QA check.
 # To be deleted after resolution of
 # https://bugs.gentoo.org/937642
