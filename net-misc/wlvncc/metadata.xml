@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <name>Dale Sweeney</name>
+        <email>agooglygooglr@gmail.com</email>
+    </maintainer>
+    <upstream>
+        <remote-id type="github">any1/wlvncc</remote-id>
+        <bugs-to>https://github.com/any1/wlvncc/issues</bugs-to>
+    </upstream>
+</pkgmetadata>
