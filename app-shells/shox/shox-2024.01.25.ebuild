@@ -98,14 +98,18 @@ src_prepare() {
 
 	rm -rf ./vendor
 
+    # shox fails to build when the go version in its go.mod is go 1.15. It needs to be at least 1.17.
 	sed -ie "s/go 1.15/go 1.17/" ./go.mod || die "Fails applying go version patch."
 }
 
 src_compile() {
-	#ego build -mod=vendor ./cmd/shox
+    # If the current EGO_SUM is removed, this command will fail complaining about inconsitency.
+    # It will then ask for running "ego mod vendor", which will also fail because it will try downloading dependencies.
 	ego mod tidy
+    # This command succeeds with EGO_SUM but will fail without it.
 	ego build ./cmd/shox
-	#ego build
+    # If the current EGO_SUM is removed, this command will fail.
+	#ego build -mod=vendor ./cmd/shox
 }
 
 src_test() {
