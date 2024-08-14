@@ -2,13 +2,13 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>tea+gentoo@cuddleslut.fr</email>
-		<name>tea</name>
+		<email>gentoo@tastytea.de</email>
+		<name>tastytea</name>
 	</maintainer>
 	<upstream>
 		<maintainer>
-			<name>tea</name>
-			<email>tea+gentoo@cuddleslut.fr</email>
+			<name>tastytea</name>
+			<email>tastytea@tastytea.de</email>
 		</maintainer>
 		<doc>https://doc.schlomp.space/mastodonpp/</doc>
 		<bugs-to>https://schlomp.space/tastytea/mastodonpp/issues</bugs-to>

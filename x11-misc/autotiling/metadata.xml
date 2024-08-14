@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>tea+gentoo@cuddleslut.fr</email>
-		<name>tea</name>
+		<email>gentoo@tastytea.de</email>
+		<name>tastytea</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="github">nwg-piotr/autotiling</remote-id>
