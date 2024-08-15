@@ -6,7 +6,7 @@ EAPI=7
 inherit cmake
 
 DESCRIPTION="WiVRn OpenXR streaming"
-HOMEPAGE="https://github.com/meumeu/WiVRn"
+HOMEPAGE="https://github.com/WiVRn/WiVRn"
 
 LICENSE="GPL-3 Apache-2.0 MIT"
 SLOT="0"
@@ -15,7 +15,7 @@ REQUIRED_USE="|| ( nvenc vaapi x264 )"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/Meumeu/WiVRn.git"
+	EGIT_REPO_URI="https://github.com/WiVRn/WiVRn.git"
 
 	MONADO_V=dfc602288ab05131584a3f2be18031a13fccd061
 	PFR_V=2.2.0
@@ -24,8 +24,8 @@ if [[ ${PV} == 9999 ]]; then
 	https://gitlab.freedesktop.org/monado/monado/-/archive/${MONADO_V}/monado-${MONADO_V}.tar.bz2"
 else
 	SRC_URI="
-		https://github.com/Meumeu/WiVRn/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-		https://github.com/Meumeu/WiVRn/releases/download/v${PV}/server-build-deps.tar.xz -> ${P}-server-build-deps.tar.xz"
+		https://github.com/WiVRn/WiVRn/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/WiVRn/WiVRn/releases/download/v${PV}/server-build-deps.tar.xz -> ${P}-server-build-deps.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
@@ -113,8 +113,8 @@ pkg_postinst()
 {
 	elog "WiVRn requires a compatible client on VR headset to run."
 	if [[ ${PV} == 9999 ]]; then
-		elog "For most headsets it can be downloaded from CI artifacts on https://github.com/Meumeu/WiVRn/actions/workflows/Build.yml"
+		elog "For most headsets it can be downloaded from CI artifacts on https://github.com/WiVRn/WiVRn/actions/workflows/Build.yml"
 	else
-		elog "For most headsets it can be downloaded on https://github.com/Meumeu/WiVRn/releases/tag/v${PV}"
+		elog "For most headsets it can be downloaded on https://github.com/WiVRn/WiVRn/releases/tag/v${PV}"
 	fi
 }
