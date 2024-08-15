@@ -6,7 +6,7 @@ EAPI=8
 inherit desktop git-r3 qmake-utils xdg
 
 DESCRIPTION="Stremio is a modern media center for your video entertainment."
-HOMEPAGE="https://github.com/Stremio/stremio-shell https://www.stremio.com/"
+HOMEPAGE="https://github.com/Stremio/stremio-shell/ https://www.stremio.com/"
 SRC_URI="https://dl.strem.io/server/v${PV}/desktop/server.js"
 
 EGIT_REPO_URI="https://github.com/Stremio/stremio-shell.git"
@@ -15,11 +15,10 @@ EGIT_SUBMODULES=( '*' '-test-*' )
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
 
 RESTRICT="bindist mirror test strip"
 
-RDEPEND="
+DEPEND="
 	gnome-base/librsvg
 	dev-qt/qtquickcontrols
 	dev-qt/qtopengl
