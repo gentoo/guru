@@ -200,7 +200,6 @@ CRATES="
 "
 
 inherit cargo
-
 DESCRIPTION="A terminal-ui (TUI) client for the Miniflux RSS reader"
 HOMEPAGE="https://github.com/spencerwi/cliflux"
 SRC_URI="
@@ -216,3 +215,4 @@ KEYWORDS="~amd64"
 
 DEPEND="dev-libs/openssl"
 RDEPEND="${DEPEND}"
+QA_FLAGS_IGNORED="usr/bin/${PN}"
