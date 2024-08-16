@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit flag-o-matic prefix toolchain-funcs
+LUA_COMPAT=( luajit )
+
+inherit flag-o-matic lua-single prefix toolchain-funcs
 
 DESCRIPTION="HP48 emulator"
 
@@ -17,9 +19,10 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="sdl X"
+REQUIRED_USE="${LUA_REQUIRED_USE}"
 
-RDEPEND="sys-libs/ncurses:=
-dev-lang/luajit:2=
+RDEPEND="${LUA_DEPS}
+sys-libs/ncurses:=
 sys-libs/readline:=
 X? (
 	x11-libs/libX11
@@ -36,10 +39,9 @@ DEPEND="${RDEPEND}
 BDEPEND="virtual/pkgconfig"
 
 src_prepare() {
-	# Use luajit to avoid lua version specific pkg-config
 	sed -e 's/$(LIBS)/$(LDFLAGS) &/' \
 		-e "s/pkg-config/$(tc-getPKG_CONFIG)/" \
-		-e 's/lua)/luajit)/' \
+		-e "s/lua)/${ELUA})/" \
 		-e '/gzip/d' \
 		-e 's/LICENSE//' \
 		-i Makefile || die
@@ -70,5 +72,24 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "Run ${EROOT}/usr/share/x48ng/setup-x48ng-home.sh to setup your config directory. It sets up a HP 48GX with a 128KB card in port 1 and a 4MB card in port 2"
+	elog "Run ${EROOT}/usr/share/x48ng/setup-x48ng-home.sh to setup your"
+	elog "config directory."
+	elog
+	elog "The X48 emulator requires an HP48 ROM image to run."
+	elog
+	elog "If you own an HP-48 calculator, you can use the ROMDump utility"
+	elog "included with this package to obtain it from your calculator."
+	elog "The instructions of how to do this are included in the package."
+	elog
+	elog "Alternatively, HP has provided the ROM images for non-commercial"
+	elog "use only."
+	elog
+	elog "Due to confusion over the legal status of these ROMs you must"
+	elog "manually download one from http://www.hpcalc.org/hp48/pc/emulators/"
+	elog "If you consent to it, this can be done with the aforementioned"
+	elog "script. In that case, it sets up a HP 48GX with a 128KB card in"
+	elog "port 1 and a 4MB card in port 2."
+	elog
+	elog "You will only have to do this the first time you run x48ng. The"
+	elog "ROM will be stored in your config directory for future runs."
 }
