@@ -12,9 +12,9 @@
 # TODO: Either fix per profile masking in overlays, or move
 # relevant entries to the relevant package.mask files in ::gentoo
 
-# Note: Do not use `Closes:` tag when treecleaning a package. Instead
-# use the `Bug:` tag and use the RESOLVED/PKGREMOVED status on
-# the bug manually if you can, or wait for someone else to do it.
+# Note: Use the extended `Closes: https://bugs.gentoo.org/NNNN (pkgremoved)`
+# tag when treecleaning a package. The bug will automatically get closed with
+# the PKGREMOVED resolution.
 
 # New entries go on top.
 
