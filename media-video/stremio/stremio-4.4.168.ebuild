@@ -42,7 +42,7 @@ src_compile() {
 	../libmpv \
 	../chroma || die
 
-	cp "${DISTDIR}"/*server.js server.js || die
+	cp ../../distdir/*server.js server.js || die
 
 	eqmake5
 	emake -f release.makefile
