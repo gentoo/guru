@@ -442,7 +442,7 @@ SRC_URI+=" ${CARGO_CRATE_URIS}"
 
 LICENSE="Apache-2.0 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016 WTFPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 # Prevent portage from trying to fetch bunch of *.crate from mirror despite they are not mirrored.
 RESTRICT="mirror"
 

@@ -187,7 +187,7 @@ SRC_URI="${CARGO_CRATE_URIS}"
 
 LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 CC0-1.0 MIT Unicode-DFS-2016 Unlicense"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 

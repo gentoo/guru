@@ -16,7 +16,7 @@ S="${WORKDIR}/adb_shell-${PV}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/aiofiles[${PYTHON_USEDEP}]

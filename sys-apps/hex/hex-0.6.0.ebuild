@@ -73,7 +73,7 @@ SRC_URI+=" ${CARGO_CRATE_URIS}"
 
 LICENSE="Apache-2.0 MIT Unicode-DFS-2016"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 # rust does not use *FLAGS from make.conf, silence portage warning
 # update with proper path to binaries this crate installs, omit leading /

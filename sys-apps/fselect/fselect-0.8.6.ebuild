@@ -285,7 +285,7 @@ SRC_URI="
 
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 Boost-1.0 CC0-1.0 GPL-2+ ISC MIT MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="+users"
 
 QA_FLAGS_IGNORED="/usr/bin/fselect"

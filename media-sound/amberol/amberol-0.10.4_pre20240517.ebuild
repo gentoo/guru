@@ -283,8 +283,7 @@ LICENSE+="
 	Unicode-DFS-2016
 "
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-# should probably work on x86, but needs testing.
+KEYWORDS="~amd64"
 
 COMMON_DEPEND="
 	>=dev-libs/glib-2.66:2

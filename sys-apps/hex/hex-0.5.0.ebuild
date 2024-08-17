@@ -76,7 +76,7 @@ SRC_URI="https://github.com/sitkevij/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" ${CARGO_CRATE_URIS}"
 LICENSE="Apache-2.0 MIT Unicode-DFS-2016"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 QA_FLAGS_IGNORED="usr/bin/hx"
 
