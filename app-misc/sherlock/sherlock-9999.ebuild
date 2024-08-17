@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,7 +9,7 @@ DISTUTILS_USE_PEP517=poetry
 inherit distutils-r1
 
 DESCRIPTION="Hunt down social media accounts by username across social networks"
-HOMEPAGE="http://sherlock-project.github.io/"
+HOMEPAGE="https://sherlockproject.xyz/"
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/sherlock-project/sherlock.git"
@@ -20,6 +20,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	$(python_gen_cond_dep '
@@ -32,6 +33,11 @@ RDEPEND="
 		>=dev-python/openpyxl-3.0.10.0.0[${PYTHON_USEDEP}]
 	')
 "
+BDEPEND="test? ( $(python_gen_cond_dep 'dev-python/jsonschema[${PYTHON_USEDEP}]') )"
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs
+
+python_test() {
+	epytest -m 'not online'
+}
