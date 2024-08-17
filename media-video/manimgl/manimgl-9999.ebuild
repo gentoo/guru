@@ -35,7 +35,7 @@ RDEPEND="
 	dev-python/ipython[${PYTHON_USEDEP}]
 	dev-python/isosurfaces[${PYTHON_USEDEP}]
 	=dev-python/ManimPango-0.4*[${PYTHON_USEDEP}]
-	dev-python/mapbox_earcut[${PYTHON_USEDEP}]
+	dev-python/mapbox-earcut[${PYTHON_USEDEP}]
 	dev-python/matplotlib[${PYTHON_USEDEP}]
 	dev-python/moderngl[${PYTHON_USEDEP}]
 	dev-python/moderngl-window[${PYTHON_USEDEP}]
