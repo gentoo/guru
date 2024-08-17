@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Steam.AppImage
+Exec=Steam-appimage
+Terminal=false
+Hidden=false
+Categories=Game
+Comment=Steam in AppImage, with dependencies inside, also for no-multilib profile. With Conty inside (Arch Linux)
