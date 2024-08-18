@@ -10,9 +10,9 @@ SRC_URI="https://github.com/limine-bootloader/limine/releases/download/v${PV}/li
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+bios +bios-pxe +bios-cd +cd-efi +uefi32 +uefi64 +uefiaa64 +uefirv64"
+IUSE="+bios +bios-pxe +bios-cd +cd-efi +uefi32 +uefi64 +uefiaa64 +uefirv64 +uefiloong64"
 
-MY_LLVM_TARGETS="AArch64 ARM X86 RISCV"
+MY_LLVM_TARGETS="AArch64 ARM X86 RISCV LoongArch"
 MY_LLVM_FLAGS="llvm_targets_${MY_LLVM_TARGETS// /(-),llvm_targets_}(-)"
 
 BDEPEND="
@@ -36,6 +36,7 @@ src_configure() {
 		"$(use_enable uefi64 uefi-x86-64)"
 		"$(use_enable uefiaa64 uefi-aarch64)"
 		"$(use_enable uefirv64 uefi-riscv64)"
+		"$(use_enable uefiloong64 uefi-loongarch64)"
 		"$(use_enable cd-efi uefi-cd)"
 	)
 
