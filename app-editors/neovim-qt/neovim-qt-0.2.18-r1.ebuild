@@ -12,12 +12,11 @@ SRC_URI="https://github.com/equalsraf/neovim-qt/archive/v${PV}.tar.gz -> ${P}.ta
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="qt5 qt6 test"
-REQUIRED_USE="|| ( qt5 qt6 )"
+IUSE="qt6 test"
 
 COMMON_DEPEND="
-	qt5? (
-		dev-libs/msgpack:=
+	dev-libs/msgpack:=
+	!qt6? (
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
 		dev-qt/qtnetwork:5
@@ -26,16 +25,14 @@ COMMON_DEPEND="
 	)
 	qt6? (
 		dev-qt/qtbase:6[gui,network,widgets]
-		dev-qt/qtsvg:5
+		dev-qt/qtsvg:6
 	)
 "
 # NOTE: see <https://github.com/equalsraf/neovim-qt/issues/1005> for dejavu dep
 DEPEND="
 	${COMMON_DEPEND}
-	test? (
-		qt5? ( dev-qt/qttest:5 )
-		media-fonts/dejavu[X]
-	)
+	!qt6? ( dev-qt/qttest:5 )
+	test? ( media-fonts/dejavu[X] )
 "
 RDEPEND="
 	${COMMON_DEPEND}
@@ -49,7 +46,7 @@ src_configure() {
 		-DUSE_GCOV=OFF
 		-DENABLE_TESTS=$(usex test)
 		-DBUILD_SHARED_LIBS=OFF # upstream explicitly builds static lib
-		-DQT_VERSION_MAJOR=$(usex qt5 5 6)
+		-DWITH_QT=$(usex qt6 Qt6 Qt5)
 	)
 
 	cmake_src_configure
