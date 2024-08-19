@@ -10,6 +10,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+QA_PREBUILT="usr/bin/catwalk"
+
 src_install() {
 	newbin "${DISTDIR}"/${P} catwalk
 }
