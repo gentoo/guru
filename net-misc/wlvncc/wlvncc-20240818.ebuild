@@ -6,20 +6,20 @@ COMMIT="174ad8aef7978c242861a66c481a7ca25dc04e37"
 
 inherit meson
 
-SRC_URI="https://github.com/any1/${PN}/archive/${COMMIT}.tar.gz"
-S="${WORKDIR}/${PN}-${COMMIT}"
-
 DESCRIPTION="A Wayland Native VNC Client"
 HOMEPAGE="https://github.com/any1/wlvncc"
+SRC_URI="https://github.com/any1/wlvncc/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
+S="${WORKDIR}/${PN}-${COMMIT}"
+
 LICENSE="GPL-2"
 SLOT="0"
 
 DEPEND="
-    dev-libs/wayland-protocols
+	dev-libs/wayland-protocols
 "
 RDEPEND="
-    dev-libs/aml
-    x11-libs/libxkbcommon
-    x11-libs/pixman
-    dev-libs/wayland
+	dev-libs/aml
+	x11-libs/libxkbcommon
+	x11-libs/pixman
+	dev-libs/wayland
 "
