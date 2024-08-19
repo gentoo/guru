@@ -21,7 +21,7 @@ SLOT="0"
 
 RDEPEND="
 	dev-libs/glib
-	dev-libs/libappindicator:3
+	dev-libs/libayatana-appindicator
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:3
