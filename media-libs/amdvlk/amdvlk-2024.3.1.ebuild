@@ -38,6 +38,8 @@ ${FETCH_URI}/MetroHash/archive/${METROHASH_COMMIT}.tar.gz -> amdvlk-MetroHash-${
 ${FETCH_URI}/CWPack/archive/${CWPACK_COMMIT}.tar.gz -> amdvlk-CWPack-${CWPACK_COMMIT}.tar.gz
 ${FETCH_URI}/llvm-dialects/archive/${LLVM_DIALECTS_COMMIT}.tar.gz -> amdvlk-LLVM-dialects-${LLVM_DIALECTS_COMMIT}.tar.gz"
 
+S="${WORKDIR}"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -65,7 +67,6 @@ RDEPEND=" ${DEPEND}
 
 CHECKREQS_MEMORY="7G"
 CHECKREQS_DISK_BUILD="4G"
-S="${WORKDIR}"
 CMAKE_USE_DIR="${S}/xgl"
 CMAKE_MAKEFILE_GENERATOR=ninja
 
