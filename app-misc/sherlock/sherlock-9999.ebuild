@@ -36,7 +36,6 @@ RDEPEND="
 BDEPEND="test? ( $(python_gen_cond_dep 'dev-python/jsonschema[${PYTHON_USEDEP}]') )"
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs
 
 python_test() {
 	epytest -m 'not online'
