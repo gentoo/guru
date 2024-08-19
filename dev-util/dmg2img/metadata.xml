@@ -5,9 +5,6 @@
         <name>Dale Sweeney</name>
         <email>agooglygooglr@gmail.com</email>
     </maintainer>
-    <longdescription>
-        Convert (compressed) Apple Disk Images to IMG format.
-    </longdescription>
     <upstream>
         <remote-id type="github">Lekensteyn/dmg2img</remote-id>
         <bugs-to>https://github.com/Lekensteyn/dmg2img/issues</bugs-to>
