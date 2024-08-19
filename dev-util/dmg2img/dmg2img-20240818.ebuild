@@ -12,7 +12,7 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 DESCRIPTION="Convert Apple disk images to IMG format."
 HOMEPAGE="https://github.com/Lekensteyn/dmg2img"
 LICENSE="GPL-2"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 DEPEND="
