@@ -6,22 +6,20 @@ COMMIT="a3e413489ccdd05431401357bf21690536425012"
 
 inherit toolchain-funcs
 
-SRC_URI="https://github.com/Lekensteyn/dmg2img/archive/${COMMIT}.tar.gz"
-S="${WORKDIR}/${PN}-${COMMIT}"
-
 DESCRIPTION="Convert Apple disk images to IMG format."
 HOMEPAGE="https://github.com/Lekensteyn/dmg2img"
+SRC_URI="https://github.com/Lekensteyn/dmg2img/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
+S="${WORKDIR}/${PN}-${COMMIT}"
+
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
-	app-arch/bzip2
 	dev-libs/openssl
 	sys-libs/zlib
 "
 RDEPEND="${DEPEND}"
-BDEPEND="${DEPEND}"
 
 src_compile() {
 	emake CC="$(tc-getCC)" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
