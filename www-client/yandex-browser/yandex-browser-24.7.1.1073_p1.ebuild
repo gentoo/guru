@@ -12,6 +12,8 @@ else
 	MY_PN=${PN}
 fi
 
+FFMPEG="126"
+
 DESCRIPTION="The web browser from Yandex"
 HOMEPAGE="https://browser.yandex.ru/"
 SRC_URI="
@@ -24,6 +26,7 @@ LICENSE="Yandex-EULA"
 SLOT="0"
 KEYWORDS="~amd64"
 
+IUSE="+ffmpeg-codecs"
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
@@ -52,6 +55,7 @@ RDEPEND="
 	x11-libs/libXrandr
 	x11-libs/pango[X]
 	x11-misc/xdg-utils
+	ffmpeg-codecs? ( media-video/ffmpeg-chromium:${FFMPEG} )
 	sys-libs/libudev-compat
 	dev-qt/qtcore
 	dev-qt/qtgui
@@ -110,6 +114,8 @@ src_install() {
 	mv "${D}"/usr/share/appdata "${D}"/usr/share/metainfo || die
 
 	make_wrapper "${PN}" "./${PN}" "/${YANDEX_HOME}" "/usr/$(get_libdir)/${MY_PN}/lib" || die "Failed to mae wrapper"
+
+	dosym "../../../usr/$(get_libdir)/chromium/libffmpeg.so.${FFMPEG}" "${YANDEX_HOME}/libffmpeg.so"
 
 	# yandex_browser binary loads libudev.so.0 at runtime
 
