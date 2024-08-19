@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <!-- maintainer-needed -->
+  <maintainer type="person">
+      <name>Dale Showers</name>
+      <email>gentoo@fictx.com</email>
+  </maintainer>
   <upstream>
+    <changelog>https://github.com/spencerwi/cliflux/releases</changelog>
     <doc lang="en">https://github.com/spencerwi/cliflux/blob/main/README.md</doc>
     <remote-id type="github">spencerwi/cliflux</remote-id>
     <bugs-to>https://github.com/spencerwi/cliflux/issues</bugs-to>
