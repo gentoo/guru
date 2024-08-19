@@ -12,7 +12,4 @@
         <remote-id type="github">Lekensteyn/dmg2img</remote-id>
         <bugs-to>https://github.com/Lekensteyn/dmg2img/issues</bugs-to>
     </upstream>
-    <use>
-        <flag name="lzfse">Enable support for Apple's LZFSE compression</flag>
-    </use>
 </pkgmetadata>
