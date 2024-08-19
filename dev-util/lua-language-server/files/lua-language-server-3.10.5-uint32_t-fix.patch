@@ -1,0 +1,10 @@
+--- a/3rd/EmmyLuaCodeStyle/Util/include/Util/SymSpell/SymSpell.h
++++ b/3rd/EmmyLuaCodeStyle/Util/include/Util/SymSpell/SymSpell.h
+@@ -29,6 +29,7 @@
+ #include <unordered_map>
+ #include <unordered_set>
+ #include <vector>
++#include <stdint.h>
+ 
+ class SymSpell {
+ public:
