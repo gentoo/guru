@@ -1,13 +1,13 @@
 certificate version 0.1
-pusher listout@protonmail.com 1724099356 +0530
+pusher listout@protonmail.com 1724100388 +0530
 pushee git+ssh://git.gentoo.org/repo/proj/guru.git
-nonce 1724099356-022b9221ab5754d49e14abc700d36c69d97a5a74
+nonce 1724100388-a024c17b8bd0904bddd5e9ac2b0b272244adb90c
 
-c24a5b3e4722f2fc49ad01aaae1ee3f44c44e3eb e5bbdfea2871bc1199359cbe1c30e48351d6cb6b refs/heads/dev
+e5bbdfea2871bc1199359cbe1c30e48351d6cb6b 843cf24cbffb34545832573f774ca31900da7143 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iI0EABYKADUWIQTtN06vpdXsLqkcmcaYNrR2E5J3+AUCZsOrHBccbGlzdG91dEBw
-cm90b25tYWlsLmNvbQAKCRCYNrR2E5J3+JoKAP0cqxkRchg3DF4kKS8o/GWu4Av1
-J0Mk2FevepYmT/jSYgEA5PnyeaRQaDULI2CRUuI41kEmo2lON+HboDxRTcDsVQ8=
-=Nq4Z
+iI0EABYKADUWIQTtN06vpdXsLqkcmcaYNrR2E5J3+AUCZsOvJBccbGlzdG91dEBw
+cm90b25tYWlsLmNvbQAKCRCYNrR2E5J3+DztAQCqo0OcCi8ygS/CJKjR/O+lsYbR
+UHGxRnPyHfG7OVLOKgD/V0BnDUlJCxwcYLVmBLFRUPAOCHxLISs6h78JJwIEAQ0=
+=dUG4
 -----END PGP SIGNATURE-----
