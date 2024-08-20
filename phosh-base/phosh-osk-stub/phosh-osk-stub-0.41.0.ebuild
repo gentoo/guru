@@ -27,8 +27,10 @@ COMMON_DEPEND="
 	>=dev-libs/wayland-1.14
 	>=gnome-base/gnome-desktop-3.26:3
 	>=gui-libs/libhandy-1.1.90:1
+	x11-libs/cairo
 	>=x11-libs/gtk+-3.22:3[wayland]
 	x11-libs/libxkbcommon[wayland]
+	x11-libs/pango
 	elogind? ( >=sys-auth/elogind-241 )
 	!elogind? ( >=sys-apps/systemd-241:= )
 "
