@@ -22,7 +22,10 @@ WLROOTS_DEPEND="
 	>=dev-libs/wayland-1.22.0
 	media-libs/libdisplay-info
 	media-libs/libglvnd
-	media-libs/mesa[egl(+),gles2]
+	|| (
+		>=media-libs/mesa-24.1.0_rc1[opengl]
+		<media-libs/mesa-24.1.0_rc1[egl(+),gles2]
+	)
 	sys-apps/hwdata
 	sys-auth/seatd:=
 	x11-base/xwayland
@@ -39,7 +42,7 @@ WLROOTS_DEPEND="
 "
 COMMON_DEPEND="${WLROOTS_DEPEND}
 	>=dev-libs/glib-2.74:2
-	dev-libs/json-glib
+	dev-libs/gmobile
 	dev-libs/libinput:=
 	dev-libs/wayland
 	>=gnome-base/gnome-desktop-3.26:3
@@ -85,8 +88,6 @@ src_configure() {
 
 src_test() {
 	local -x LC_ALL="C.UTF-8"
-	local -x WLR_RENDERER="pixman"
-
 	virtx meson_src_test
 }
 
