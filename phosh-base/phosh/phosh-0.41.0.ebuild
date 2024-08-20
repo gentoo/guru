@@ -20,7 +20,7 @@ RDEPEND="
 	>=phosh-base/phosh-mobile-settings-${PV}
 	>=phosh-base/phosh-shell-${PV}
 	>=phosh-base/phosh-tour-${PV}
-	x11-themes/gnome-backgrounds
+	>=x11-themes/phosh-wallpapers-${PV}
 	x11-themes/sound-theme-freedesktop
 	desktop-portal? (
 		gui-libs/xdg-desktop-portal-wlr
