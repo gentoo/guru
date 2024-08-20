@@ -28,8 +28,10 @@ DEPEND="
 		media-libs/gsound
 	)
 	introspection? ( dev-libs/gobject-introspection )
+	test? ( dev-util/umockdev )
 "
 RDEPEND="${DEPEND}
+	acct-group/video
 	dev-libs/feedbackd-device-themes
 "
 BDEPEND="
@@ -46,7 +48,7 @@ src_prepare() {
 	default
 
 	use vala && vala_setup
-	sed -i 's/-G feedbackd/-G video/g' debian/feedbackd.udev || die
+	sed -i 's/-G feedbackd/-G video/g' data/90-feedbackd.rules || die
 }
 
 src_configure() {
@@ -63,7 +65,6 @@ src_configure() {
 
 src_install() {
 	meson_src_install
-	udev_newrules debian/feedbackd.udev 90-feedbackd
 
 	if use gtk-doc; then
 		mkdir -p "${ED}"/usr/share/gtk-doc/html/ || die
