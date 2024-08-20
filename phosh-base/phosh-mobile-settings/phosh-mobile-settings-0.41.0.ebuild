@@ -14,18 +14,22 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="
-	>=dev-libs/glib-2.68:2
-	>=dev-libs/json-glib-1.6.2
+COMMON_DEPEND="
+	>=dev-libs/glib-2.74:2
+	dev-libs/gmobile
 	>=dev-libs/wayland-1.14
-	>=gui-libs/gtk-4.4:4[wayland]
-	>=gui-libs/libadwaita-1.4:1
+	>=gui-libs/gtk-4.12.5:4[wayland]
+	>=gui-libs/libadwaita-1.5:1
 	media-libs/gsound
-	phosh-base/phosh-shell
+	>=phosh-base/phosh-shell-0.37.0
 	sys-apps/lm-sensors:=
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.12
+"
+RDEPEND="${COMMON_DEPEND}
+	dev-libs/feedbackd
+	>=gui-wm/phoc-0.34.0
 "
 BDEPEND="
 	dev-libs/glib:2
