@@ -8,7 +8,7 @@ inherit xdg cmake
 MY_PV="${PV/_p/-}"
 
 DESCRIPTION="rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)"
-HOMEPAGE="https://github.com/nxengine/nxengine-evo http://nxengine.sourceforge.net/"
+HOMEPAGE="https://github.com/nxengine/nxengine-evo"
 SRC_URI="
 	https://github.com/nxengine/nxengine-evo/archive/v${MY_PV}.tar.gz -> ${PN}-${MY_PV}.tar.gz
 	https://www.cavestory.org/downloads/cavestoryen.zip
@@ -21,10 +21,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+	media-libs/libjpeg-turbo
 	media-libs/libpng:=
-	media-libs/libsdl2:=
-	media-libs/sdl2-mixer:=
-	media-libs/sdl2-ttf:=
+	media-libs/libsdl2
+	media-libs/sdl2-image[jpeg,png]
+	media-libs/sdl2-mixer
 "
 RDEPEND="${DEPEND}"
 BDEPEND="app-arch/unzip"
