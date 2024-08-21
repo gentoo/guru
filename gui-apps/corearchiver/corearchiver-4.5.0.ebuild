@@ -21,7 +21,7 @@ LICENSE="GPL-3"
 SLOT="0"
 
 DEPEND="
-	app-arch/libarchive-qt
+	app-arch/libarchive-qt[-qt6]
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
