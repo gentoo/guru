@@ -14,7 +14,7 @@ HOMEPAGE="
 	https://github.com/joniles/mpxj/
 "
 SRC_URI="$(pypi_wheel_url)"
-S=${WORKDIR}
+S="${WORKDIR}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
