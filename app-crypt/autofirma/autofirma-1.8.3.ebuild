@@ -15,7 +15,7 @@ HOMEPAGE="
 # If Gentoo's default configuration is in place, pkg_pretend() and pkg_nofetch() provide fallback options.
 SRC_URI="https://estaticos.redsara.es/comunes/autofirma/$(ver_rs 1- /)/AutoFirma_Linux_Fedora.zip -> ${PF}.zip"
 
-S=${WORKDIR}
+S="${WORKDIR}"
 
 LICENSE="|| ( GPL-2 EUPL-1.1 )"
 SLOT="0"
