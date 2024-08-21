@@ -11,7 +11,7 @@ inherit distutils-r1
 DESCRIPTION="Bridge to allow Python programs full access to Java class libraries"
 HOMEPAGE="https://github.com/jpype-project/jpype/"
 SRC_URI="https://github.com/jpype-project/jpype/releases/download/v${PV}/JPype1-${PV}.tar.gz "
-S=${WORKDIR}/JPype1-${PV}
+S="${WORKDIR}/JPype1-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
