@@ -1,0 +1,13 @@
+Bug: https://bugs.gentoo.org/910447
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -18,8 +18,6 @@ add_executable(${PROJECT_NAME})
+ 
+ if (CMAKE_BUILD_TYPE EQUAL "RELEASE")
+     set(COMPILE_PARAMS ${COMPILE_PARAMS} -O2)
+-else(CMAKE_BUILD_TYPE)
+-    set(COMPILE_PARAMS ${COMPILE_PARAMS} -O0 -g3)
+ endif()
+ 
+ option(SYSTEM_PNG "Use system dynamic libpng" 1)
