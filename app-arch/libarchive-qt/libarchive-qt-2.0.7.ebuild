@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit xdg meson
 
@@ -17,23 +17,22 @@ else
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
-LICENSE="LGPL-3"
+LICENSE="LGPL-3+"
 SLOT="0"
-IUSE="static-libs"
-RESTRICT="test"
+IUSE="qt6"
 
 DEPEND="
-	app-arch/libarchive[lzma,bzip2,zlib(+)]
-	app-arch/lrzip
-	app-arch/lzip
-	app-arch/lzop
-	dev-qt/qtgui:5
+	app-arch/libarchive:=
+	sys-libs/zlib
+	!qt6? ( dev-qt/qtcore:5 )
+	qt6? ( dev-qt/qtbase:6 )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local emesonargs=(
-		$(meson_use static-libs install_static)
+		-Dinstall_static=false
+		-Duse_qt_version=$(usex qt6 qt6 qt5)
 	)
 	meson_src_configure
 }
