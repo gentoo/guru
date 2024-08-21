@@ -17,7 +17,7 @@ else
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
 
 DEPEND="
@@ -26,6 +26,6 @@ DEPEND="
 	dev-qt/qtserialport:5
 	dev-qt/qtwidgets:5
 	gui-libs/libcprime
-	x11-libs/qtermwidget:=
+	<x11-libs/qtermwidget-2:=
 "
 RDEPEND="${DEPEND}"
