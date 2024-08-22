@@ -151,7 +151,7 @@ inherit cargo systemd
 DESCRIPTION="No-IP Dynamic Update Client (https://www.noip.com)"
 # Double check the homepage as the cargo_metadata crate
 # does not provide this value so instead repository is used
-HOMEPAGE="homepage field in Cargo.toml inaccessible to cargo metadata"
+HOMEPAGE="https://www.noip.com/download?page=linux"
 SRC_URI="
 	${CARGO_CRATE_URIS}
 	https://dmej8g5cpdyqd.cloudfront.net/downloads/noip-duc_3.1.1.tar.gz
