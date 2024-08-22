@@ -35,7 +35,6 @@ RDEPEND="
 		dev-python/pyyaml
 		dev-python/argcomplete
 		dev-python/darkdetect
-		sys-power/acpid
 	)
 	downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
 "
@@ -89,8 +88,6 @@ src_install() {
 			doexe service/legiond-onresume.sh
 		fi
 
-		insinto /etc/acpi/events
-		doins acpi/events/{legion_ppd,legion_ac}
 		dobin service/legiond/legiond
 		dobin service/legiond/legiond-ctl
 	fi
