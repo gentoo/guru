@@ -173,8 +173,8 @@ BDEPEND=""
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_install() {
-	cargo_src_install
 	default
+	cargo_src_install
 
 	sed -i "s/ auditd.service//g" "${S}/debian/service" || die
 	systemd_newunit "${S}/debian/service" "noip-duc.service"
