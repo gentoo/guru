@@ -1,0 +1,8 @@
+# IP address SOCKS proxy will listen on
+#BYEDPI_BIND_IP="0.0.0.0"
+
+# Port number SOCKS proxy will listen on
+#BYEDPI_BIND_PORT=1080
+
+# Additional command-line options for ciadpi
+#BYEDPI_OPTS="--disorder 1 --auto=torst --tlsrec 1+s"

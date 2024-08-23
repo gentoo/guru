@@ -1,0 +1,19 @@
+#!/sbin/openrc-run
+# shellcheck shell=sh
+#
+# Copyright 2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+: "${BYEDPI_BIND_IP:=0.0.0.0}"
+: "${BYEDPI_BIND_PORT:=1080}"
+: "${BYEDPI_OPTS:=--disorder 1 --auto=torst --tlsrec 1+s}"
+
+command="/usr/bin/ciadpi"
+command_args="--ip ${BYEDPI_BIND_IP} --port ${BYEDPI_BIND_PORT} ${BYEDPI_OPTS}"
+command_user="nobody:nobody"
+command_background=1
+pidfile="/run/${RC_SVCNAME}.pid"
+
+depend() {
+		need net
+}
