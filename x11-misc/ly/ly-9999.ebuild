@@ -14,8 +14,8 @@ LICENSE="WTFPL-2"
 SLOT="0"
 
 # Specify the required Zig version range
-EZIG_MIN="0.12"
-EZIG_MAX_EXCLUSIVE="0.13"
+EZIG_MIN="0.13"
+EZIG_MAX_EXCLUSIVE="0.14"
 
 DEPEND="
 	|| ( dev-lang/zig-bin:${EZIG_MIN} dev-lang/zig:${EZIG_MIN} )
