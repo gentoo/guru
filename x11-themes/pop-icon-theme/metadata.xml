@@ -5,7 +5,6 @@
 		<email>dev@dyama.net</email>
 		<name>Daichi Yamamoto</name>
 	</maintainer>
-	<stabilize-allarches />
 	<upstream>
 		<remote-id type="github">pop-os/icon-theme</remote-id>
 	</upstream>
