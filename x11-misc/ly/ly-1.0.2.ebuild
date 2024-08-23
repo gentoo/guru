@@ -23,8 +23,8 @@ LICENSE="WTFPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-EZIG_MIN="0.12"
-EZIG_MAX_EXCLUSIVE="0.13"
+EZIG_MIN="0.13"
+EZIG_MAX_EXCLUSIVE="0.14"
 
 DEPEND="
 	|| ( dev-lang/zig-bin:${EZIG_MIN} dev-lang/zig:${EZIG_MIN} )
@@ -43,6 +43,10 @@ RDEPEND="
 QA_FLAGS_IGNORED="usr/bin/ly"
 
 RES="${S}/res"
+
+PATCHES=(
+	"${FILESDIR}/ly-1.0.2-update-to-zig-0.13.0.patch"
+)
 
 # copied from sys-fs/ncdu::gentoo
 # Many thanks to Florian Schmaus (Flowdalic)!
@@ -111,10 +115,10 @@ ezig() {
 src_unpack() {
 	default
 
-	mkdir "${WORKDIR}/deps" || die
-	ezig fetch --global-cache-dir "${WORKDIR}/deps" "${DISTDIR}/zig-clap-${CLAP}.tar.gz"
-	ezig fetch --global-cache-dir "${WORKDIR}/deps" "${DISTDIR}/zigini-${ZIGINI}.tar.gz"
-	ezig fetch --global-cache-dir "${WORKDIR}/deps" "${DISTDIR}/ziglibini-${ZIGLIBINI}.tar.gz"
+	mkdir "${S}/deps" || die
+	ezig fetch --global-cache-dir "${S}/deps" "${DISTDIR}/zig-clap-${CLAP}.tar.gz"
+	ezig fetch --global-cache-dir "${S}/deps" "${DISTDIR}/zigini-${ZIGINI}.tar.gz"
+	ezig fetch --global-cache-dir "${S}/deps" "${DISTDIR}/ziglibini-${ZIGLIBINI}.tar.gz"
 }
 
 src_prepare(){
@@ -125,7 +129,7 @@ src_prepare(){
 
 src_compile() {
 	# Building ly & accomodate for prefixed environment
-	ezig build --system "${WORKDIR}/deps/p" -Doptimize=ReleaseSafe -Ddata_directory="${EPREFIX}/etc/ly"
+	ezig build --system "${S}/deps/p/" -Doptimize=ReleaseSafe -Ddata_directory="${EPREFIX}/etc/ly"
 }
 
 src_install() {

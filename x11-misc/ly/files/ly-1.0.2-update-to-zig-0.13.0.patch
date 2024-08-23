@@ -1,0 +1,122 @@
+From: Eric Joldasov <bratishkaerik@landless-city.net>
+
+Update ly source code and dependencies to Zig 0.13.0.
+
+diff --git a/build.zig b/build.zig
+index 083bd2a..720a4a5 100644
+--- a/build.zig
++++ b/build.zig
+@@ -25,7 +25,7 @@ pub fn build(b: *std.Build) !void {
+ 
+     const exe = b.addExecutable(.{
+         .name = "ly",
+-        .root_source_file = .{ .path = "src/main.zig" },
++        .root_source_file = b.path("src/main.zig"),
+         .target = target,
+         .optimize = optimize,
+     });
+@@ -38,14 +38,14 @@ pub fn build(b: *std.Build) !void {
+     const clap = b.dependency("clap", .{ .target = target, .optimize = optimize });
+     exe.root_module.addImport("clap", clap.module("clap"));
+ 
+-    exe.addIncludePath(.{ .path = "include" });
++    exe.addIncludePath(b.path("include"));
+     exe.linkSystemLibrary("pam");
+     exe.linkSystemLibrary("xcb");
+     exe.linkLibC();
+ 
+     // HACK: Only fails with ReleaseSafe, so we'll override it.
+     const translate_c = b.addTranslateC(.{
+-        .root_source_file = .{ .path = "include/termbox2.h" },
++        .root_source_file = b.path("include/termbox2.h"),
+         .target = target,
+         .optimize = if (optimize == .ReleaseSafe) .ReleaseFast else optimize,
+     });
+@@ -94,7 +94,7 @@ pub fn build(b: *std.Build) !void {
+ 
+ pub fn ExeInstaller(install_conf: bool) type {
+     return struct {
+-        pub fn make(step: *std.Build.Step, progress: *std.Progress.Node) !void {
++        pub fn make(step: *std.Build.Step, progress: std.Progress.Node) !void {
+             _ = progress;
+             try install_ly(step.owner.allocator, install_conf);
+         }
+@@ -108,7 +108,7 @@ const InitSystem = enum {
+ };
+ pub fn ServiceInstaller(comptime init_system: InitSystem) type {
+     return struct {
+-        pub fn make(step: *std.Build.Step, progress: *std.Progress.Node) !void {
++        pub fn make(step: *std.Build.Step, progress: std.Progress.Node) !void {
+             _ = progress;
+             const allocator = step.owner.allocator;
+             switch (init_system) {
+@@ -220,7 +220,7 @@ fn install_ly(allocator: std.mem.Allocator, install_config: bool) !void {
+     }
+ }
+ 
+-pub fn uninstallall(step: *std.Build.Step, progress: *std.Progress.Node) !void {
++pub fn uninstallall(step: *std.Build.Step, progress: std.Progress.Node) !void {
+     _ = progress;
+     try std.fs.cwd().deleteTree(data_directory);
+     const allocator = step.owner.allocator;
+diff --git a/deps/p/122014e73fd712190e109950837b97f6143f02d7e2b6986e1db70b6f4aadb5ba6a0d/build.zig b/deps/p/122014e73fd712190e109950837b97f6143f02d7e2b6986e1db70b6f4aadb5ba6a0d/build.zig
+index 53e5f90..0e35a04 100644
+--- a/deps/p/122014e73fd712190e109950837b97f6143f02d7e2b6986e1db70b6f4aadb5ba6a0d/build.zig
++++ b/deps/p/122014e73fd712190e109950837b97f6143f02d7e2b6986e1db70b6f4aadb5ba6a0d/build.zig
+@@ -1,14 +1,14 @@
+ const std = @import("std");
+ 
+ pub fn build(b: *std.Build) void {
+-    const clap_mod = b.addModule("clap", .{ .root_source_file = .{ .path = "clap.zig" } });
++    const clap_mod = b.addModule("clap", .{ .root_source_file = b.path("clap.zig") });
+ 
+     const optimize = b.standardOptimizeOption(.{});
+     const target = b.standardTargetOptions(.{});
+ 
+     const test_step = b.step("test", "Run all tests in all modes.");
+     const tests = b.addTest(.{
+-        .root_source_file = .{ .path = "clap.zig" },
++        .root_source_file = b.path("clap.zig"),
+         .target = target,
+         .optimize = optimize,
+     });
+@@ -25,7 +25,7 @@ pub fn build(b: *std.Build) void {
+     }) |example_name| {
+         const example = b.addExecutable(.{
+             .name = example_name,
+-            .root_source_file = .{ .path = b.fmt("example/{s}.zig", .{example_name}) },
++            .root_source_file = b.path(b.fmt("example/{s}.zig", .{example_name})),
+             .target = target,
+             .optimize = optimize,
+         });
+@@ -63,7 +63,7 @@ fn readMeStep(b: *std.Build) *std.Build.Step {
+         .name = "ReadMeStep",
+         .owner = b,
+         .makeFn = struct {
+-            fn make(step: *std.Build.Step, _: *std.Progress.Node) anyerror!void {
++            fn make(step: *std.Build.Step, _: std.Progress.Node) anyerror!void {
+                 @setEvalBranchQuota(10000);
+                 _ = step;
+                 const file = try std.fs.cwd().createFile("README.md", .{});
+diff --git a/src/main.zig b/src/main.zig
+index ddee718..022ff54 100644
+--- a/src/main.zig
++++ b/src/main.zig
+@@ -512,7 +512,7 @@ pub fn main() !void {
+                     run = false;
+                 } else if (pressed_key == sleep_key) {
+                     if (config.sleep_cmd) |sleep_cmd| {
+-                        var sleep = std.ChildProcess.init(&[_][]const u8{ "/bin/sh", "-c", sleep_cmd }, allocator);
++                        var sleep = std.process.Child.init(&[_][]const u8{ "/bin/sh", "-c", sleep_cmd }, allocator);
+                         _ = sleep.spawnAndWait() catch .{};
+                     }
+                 }
+@@ -617,7 +617,7 @@ pub fn main() !void {
+ 
+                 update = true;
+ 
+-                var restore_cursor = std.ChildProcess.init(&[_][]const u8{ "/bin/sh", "-c", config.term_restore_cursor_cmd }, allocator);
++                var restore_cursor = std.process.Child.init(&[_][]const u8{ "/bin/sh", "-c", config.term_restore_cursor_cmd }, allocator);
+                 _ = restore_cursor.spawnAndWait() catch .{};
+             },
+             else => {
