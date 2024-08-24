@@ -1,0 +1,13 @@
+https://bugs.gentoo.org/937497
+https://github.com/Chatterino/chatterino2/commit/f36c73019db582fd3fec32099b75060f27cfd98f
+--- a/src/common/SignalVector.hpp
++++ b/src/common/SignalVector.hpp
+@@ -155,7 +155,7 @@ class SignalVector
+     decltype(auto) operator[](size_t index)
+     {
+         assertInGuiThread();
+-        return this->items[index];
++        return this->items_[index];
+     }
+ 
+     auto empty()

@@ -44,6 +44,11 @@ DEPEND="
 "
 BDEPEND="dev-qt/linguist-tools:5"
 
+PATCHES=(
+	# bug #937497
+	"${FILESDIR}/${P}-gcc15.patch"
+)
+
 src_prepare() {
 	rmdir --ignore-fail-on-non-empty ./lib/*/ ./cmake/*/ || die "can't remove stubbed libdirs"
 
