@@ -8,11 +8,11 @@ inherit desktop xdg
 DESCRIPTION="Stremio is a modern media center for your video entertainment."
 HOMEPAGE="https://github.com/Stremio/stremio-shell/ https://www.stremio.com/"
 SRC_URI="
-	https://github.com/Stremio/stremio-shell/archive/refs/tags/v${PV}.tar.gz -> ${PV}-stremio-shell.tar.gz
-	https://github.com/itay-grudev/SingleApplication/archive/aede311d28d20179216c5419b581087be2a8409f.tar.gz -> ${PV}-singleapplication.tar.gz
-	https://github.com/Ivshti/libmpv/archive/b0eae77cf6dc59aaf142b7d079cb13a0904fd3ee.tar.gz -> ${PV}-libmpv.tar.gz
-	https://github.com/Ivshti/razerchroma/archive/99045142479ba0e2fc3b9cccb72e348c67cd5829.tar.gz -> ${PV}-razerchroma.tar.gz
-	https://dl.strem.io/server/v4.20.8/desktop/server.js -> ${PV}-server.js
+	https://github.com/Stremio/stremio-shell/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/itay-grudev/SingleApplication/archive/aede311d28d20179216c5419b581087be2a8409f.tar.gz -> ${P}-singleapplication.tar.gz
+	https://github.com/Ivshti/libmpv/archive/b0eae77cf6dc59aaf142b7d079cb13a0904fd3ee.tar.gz -> ${P}-libmpv.tar.gz
+	https://github.com/Ivshti/razerchroma/archive/99045142479ba0e2fc3b9cccb72e348c67cd5829.tar.gz -> ${P}-razerchroma.tar.gz
+	https://dl.strem.io/server/v4.20.8/desktop/server.js -> ${P}-server.js
 "
 
 S="${WORKDIR}/${PN}-shell-${PV}"
@@ -26,14 +26,11 @@ RDEPEND="
 "
 
 DEPEND="
-	${RDEPEND}
-"
-
-BDEPEND="
 	gnome-base/librsvg
-	dev-qt/qtbase[dbus]
-	dev-qt/qtquickcontrols
-	dev-qt/qtopengl
+	dev-qt/qtbase
+	dev-qt/qtdbus:5
+	dev-qt/qtquickcontrols:5
+	dev-qt/qtopengl:5
 	dev-qt/qtwebengine:5
 	media-video/mpv
 	net-libs/nodejs[ssl]
@@ -50,7 +47,7 @@ src_prepare() {
 	../libmpv \
 	../chroma || die
 
-	cp "${DISTDIR}"/${PV}-server.js server.js || die
+	cp "${DISTDIR}"/${P}-server.js server.js || die
 
 	default
 }
