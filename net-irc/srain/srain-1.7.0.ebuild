@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 )
 inherit meson python-any-r1 xdg
 
 DESCRIPTION="Modern, beautiful IRC client written in GTK+ 3"
@@ -21,6 +21,8 @@ RDEPEND="
 	dev-libs/libconfig:=
 	dev-libs/openssl:=
 	net-libs/libsoup:3.0
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
 	appindicator? ( dev-libs/libayatana-appindicator )
 "
