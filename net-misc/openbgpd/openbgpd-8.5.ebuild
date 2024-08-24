@@ -25,6 +25,7 @@ RDEPEND="
 	dev-libs/libevent
 	net-libs/libmnl
 "
+DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-build/libtool
 "
