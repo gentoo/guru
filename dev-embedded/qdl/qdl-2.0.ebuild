@@ -6,18 +6,15 @@ EAPI=8
 inherit toolchain-funcs
 
 DESCRIPTION="Tool to communicate with Qualcomm System On a Chip bootroms"
-COMMIT_ID="a629f43428ebd17080f55543f893d45694234f75"
 HOMEPAGE="https://github.com/linux-msm/qdl"
-SRC_URI="https://github.com/linux-msm/qdl/archive/${COMMIT_ID}.tar.gz -> ${P}.tar.gz"
-
-S="${WORKDIR}/${PN}-${COMMIT_ID}"
+SRC_URI="https://github.com/linux-msm/qdl/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
-	virtual/libudev
+	dev-libs/libusb
 	dev-libs/libxml2
 "
 RDEPEND="${DEPEND}"
@@ -27,8 +24,8 @@ BDEPEND="virtual/pkgconfig"
 src_compile() {
 	PKG_CONFIG=$(tc-getPKG_CONFIG)
 	emake CC=$(tc-getCC) \
-		"CFLAGS=${CFLAGS} `${PKG_CONFIG} --cflags libxml-2.0`" \
-		"LDFLAGS=${LDFLAGS} `${PKG_CONFIG} --libs libxml-2.0 libudev`"
+		"CFLAGS=${CFLAGS} `${PKG_CONFIG} --cflags libxml-2.0 libusb-1.0`" \
+		"LDFLAGS=${LDFLAGS} `${PKG_CONFIG} --libs libxml-2.0 libusb-1.0`"
 }
 
 src_install() {
