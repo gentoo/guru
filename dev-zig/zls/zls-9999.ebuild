@@ -125,8 +125,6 @@ src_unpack() {
 
 		cd "${S}" || die
 		ezig build --fetch --global-cache-dir "${WORKDIR}/zig-eclass/" || die "Pre-fetching Zig modules failed"
-		local ZLS_GEN_FLAGS="--generate-version-data master --generate-version-data-path version_data.zig"
-		ezig build gen --verbose -- ${ZLS_GEN_FLAGS} || die "Pre-generating Zig version data failed"
 	else
 		default_src_unpack
 	fi
@@ -137,7 +135,6 @@ src_configure() {
 		--prefix usr/
 		-Doptimize=ReleaseSafe
 		--system "${WORKDIR}/zig-eclass/p/"
-		-Dversion_data_file_path=version_data.zig
 		--verbose
 	)
 }
