@@ -29,10 +29,10 @@ SLOT="0"
 KEYWORDS="-* ~amd64 ~arm ~arm64"
 RESTRICT="bindist mirror"
 
-DEPEND="
-	app-accessibility/at-spi2-core
+RDEPEND="
+	app-accessibility/at-spi2-core:2
 	dev-libs/expat
-	dev-libs/glib
+	dev-libs/glib:2
 	dev-libs/nspr
 	dev-libs/nss
 	media-libs/alsa-lib
