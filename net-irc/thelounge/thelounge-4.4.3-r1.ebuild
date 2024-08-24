@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit python-any-r1 readme.gentoo-r1 systemd tmpfiles
 
@@ -12,8 +12,8 @@ HOMEPAGE="https://thelounge.chat/"
 
 SRC_URI="
 	https://github.com/thelounge/thelounge/archive/refs/tags/v${PV/_rc/-rc.}.tar.gz -> ${P}.tar.gz
-	https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/deps.tar.xz -> ${P}-deps.tar.xz
-	sqlite? ( https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/sqlite.tar.xz -> ${P}-sqlite.tar.xz )
+	https://github.com/rahilarious/gentoo-distfiles/releases/download/${PN}-4.4.2_rc1/deps.tar.xz -> ${PN}-4.4.2_rc1-deps.tar.xz
+	sqlite? ( https://github.com/rahilarious/gentoo-distfiles/releases/download/${PN}-4.4.2_rc1/sqlite.tar.xz -> ${PN}-4.4.2_rc1-sqlite.tar.xz )
 "
 
 S="${WORKDIR}/${PN}-${PV/_rc/-rc.}"
@@ -25,13 +25,13 @@ IUSE="+sqlite"
 RDEPEND="
 	acct-user/${PN}
 	acct-group/${PN}
-	>=net-libs/nodejs-16
+	>=net-libs/nodejs-18
 	sqlite? ( dev-db/sqlite:3= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	sqlite? ( ${PYTHON_DEPS} )
-	>=net-libs/nodejs-16[npm]
+	>=net-libs/nodejs-18[npm]
 	sys-apps/yarn
 "
 
