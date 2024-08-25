@@ -239,7 +239,11 @@ DEPENDS="
 	media-libs/libglvnd
 	x11-libs/libxkbcommon
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	sci-libs/libqalculate
+	sys-apps/fd
+"
 BDEPEND="
 	dev-build/just
 	virtual/pkgconfig
