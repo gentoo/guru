@@ -69,11 +69,6 @@ acct-group/wikijs
 acct-user/wikijs
 www-apps/wiki-js-bin
 
-# Eli Burch <eli.burch@burchbytes.com> (2024-07-05)
-# Dependency sys-fs/reiser4progs was treecleaned in ::gentoo
-# Removal on 2024-08-05
-sys-block/partclone
-
 # Pascal Jaeger <pascal.jaeger@leimstift.de> (2024-06-29)
 # Package is renamed to 'dissent'
 # Newer versions do not build in portage because of dependency
