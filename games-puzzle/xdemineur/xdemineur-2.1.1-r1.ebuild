@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 DESCRIPTION="Minesweeper clone for the X11 windowing system"
 HOMEPAGE="https://salsa.debian.org/debian/xdemineur"
 
@@ -17,6 +19,7 @@ BDEPEND="
 "
 RDEPEND="
 	x11-libs/libX11
+	x11-libs/libXext
 	x11-libs/libXpm
 "
 DEPEND="
@@ -28,9 +31,18 @@ PATCHES=(
 )
 
 src_configure() {
-	xmkmf || die
+	CC="$(tc-getBUILD_CC)" LD="$(tc-getLD)" \
+		IMAKECPP="${IMAKECPP:-${CHOST}-gcc -E}" xmkmf || die
 }
 
 src_compile() {
-	emake
+	emake \
+		CC="$(tc-getCC)" \
+		CDEBUGFLAGS="${CFLAGS}" \
+		LOCAL_LDFLAGS="${LDFLAGS}"
+}
+
+src_install() {
+	default
+	emake DESTDIR="${D}" install.man
 }
