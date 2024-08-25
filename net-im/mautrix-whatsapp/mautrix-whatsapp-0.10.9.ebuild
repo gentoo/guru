@@ -33,7 +33,7 @@ src_install() {
 	keepdir /var/log/mautrix/${PN/mautrix-/}
 	fowners -R root:mautrix /var/log/mautrix
 	fperms -R 770 /var/log/mautrix
-	sed -i -e "s_\./logs_/var/log/mautrix_" "example-config.yaml" || die
+	sed -i -e "s_\./logs_/var/log/mautrix/whatsapp_" "example-config.yaml" || die
 
 	insinto "/etc/mautrix"
 	newins "example-config.yaml" "${PN/-/_}.yaml"

@@ -12,8 +12,8 @@ command_args="-c /etc/mautrix/${module}.yaml -r /var/lib/mautrix/whatsapp/regist
 command_background=true
 command_user="mautrix-whatsapp:mautrix"
 
-output_log="/var/log/mautrix/mautrix-whatsapp_daemon.log"
-error_log="/var/log/mautrix/mautrix-whatsapp_daemon.log"
+output_log="/var/log/mautrix/whatsapp/daemon.log"
+error_log="/var/log/mautrix/whatsapp/daemon.log"
 
 depend() {
 	need net
