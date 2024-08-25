@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,7 +21,7 @@ HOMEPAGE="https://partclone.org"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="
-apfs btrfs +e2fs exfat f2fs fat fuse hfs jfs minix ncurses nilfs2 ntfs reiser4
+apfs btrfs +e2fs exfat f2fs fat fuse hfs jfs minix ncurses nilfs2 ntfs
 reiserfs static ufs vmfs xfs
 "
 
@@ -35,7 +35,6 @@ RDEPEND="
 	nilfs2? ( sys-fs/nilfs-utils )
 	ntfs? ( sys-fs/ntfs3g )
 	reiserfs? ( sys-fs/progsreiserfs )
-	reiser4? ( sys-fs/reiser4progs )
 	xfs? ( sys-apps/util-linux )
 	static? (
 		dev-libs/openssl:*[static-libs]
@@ -49,7 +48,6 @@ RDEPEND="
 		nilfs2? ( sys-fs/nilfs-utils[static-libs] )
 		ntfs? ( sys-fs/ntfs3g[static-libs] )
 		reiserfs? ( sys-fs/progsreiserfs[static-libs] )
-		reiser4? ( sys-fs/reiser4progs[static-libs] )
 	)
 "
 DEPEND="
@@ -81,7 +79,6 @@ src_configure() {
 		$(use_enable nilfs2)
 		$(use_enable ntfs)
 		$(use_enable reiserfs)
-		$(use_enable reiser4)
 		$(use_enable static)
 		$(use_enable vmfs)
 		$(use_enable ufs)

@@ -18,7 +18,6 @@
 		<flag name="minix">Compile partclone minix tool</flag>
 		<flag name="nilfs2">Compile partclone nilfs2 tool</flag>
 		<flag name="ntfs">Compile partclone ntfs tool</flag>
-		<flag name="reiser4">Compile partclone reiser4 tool</flag>
 		<flag name="reiserfs">Compile partclone reiserfs tool</flag>
 		<flag name="ufs">Compile partclone ufs tool</flag>
 		<flag name="vmfs">Compile partclone vmfs tool</flag>
