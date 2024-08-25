@@ -259,3 +259,11 @@ src_install() {
 
 	einstalldocs
 }
+
+src_test() {
+	local mytestargs=(
+		# The following tests require network access.
+		--skip web::test
+	)
+	cargo_src_test -- "${mytestargs[@]}"
+}
