@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<bugs-to>https://github.com/odin-lang/Odin/issues</bugs-to>
+		<changelog>https://github.com/odin-lang/Odin/releases</changelog>
+		<doc>https://odin-lang.org/docs/</doc>
+		<remote-id type="github">odin-lang/Odin</remote-id>
+	</upstream>
+</pkgmetadata>
