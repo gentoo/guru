@@ -18,11 +18,13 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# >=dev-python/numpy-2 is incompatible.
+# https://gitlab.com/pyspread/pyspread/-/issues/125
 RDEPEND="
 	>=dev-python/PyQt5-5.10.0[gui,printsupport,svg,widgets,${PYTHON_USEDEP}]
 	>=dev-python/markdown2-2.3[${PYTHON_USEDEP}]
 	>=dev-python/matplotlib-1.1.1[${PYTHON_USEDEP}]
-	>=dev-python/numpy-1.1.1[${PYTHON_USEDEP}]
+	<dev-python/numpy-2[${PYTHON_USEDEP}]
 	>=dev-python/pyenchant-1.1.0[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-2.7.0[${PYTHON_USEDEP}]
 "
