@@ -5,7 +5,7 @@ EAPI=8
 
 inherit check-reqs shards systemd
 
-COMMIT="08390acd0c17875fddb84cabba54197a5b5740e4"
+MY_PV="2.$(ver_rs 1-2 '')"
 MOCKS_COMMIT="11ec372f72747c09d48ffef04843f72be67d5b54"
 MOCKS_P="${PN}-mocks-${MOCKS_COMMIT:0:7}"
 DESCRIPTION="Invidious is an alternative front-end to YouTube"
@@ -16,7 +16,7 @@ HOMEPAGE="
 IV_ORG="https://github.com/iv-org"
 NPM="https://registry.npmjs.org"
 SRC_URI="
-	${IV_ORG}/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz
+	${IV_ORG}/${PN}/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.tar.gz
 	${NPM}/video.js/-/video.js-7.12.1.tgz
 	${NPM}/videojs-contrib-quality-levels/-/videojs-contrib-quality-levels-2.1.0.tgz
 	${NPM}/videojs-http-source-selector/-/videojs-http-source-selector-1.1.6.tgz
@@ -30,7 +30,7 @@ SRC_URI="
 		${IV_ORG}/mocks/archive/${MOCKS_COMMIT}.tar.gz -> ${MOCKS_P}.tar.gz
 	)
 "
-S="${WORKDIR}/${PN}-${COMMIT}"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="AGPL-3 Apache-2.0 MIT"
 SLOT="0"
@@ -54,12 +54,11 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	dev-crystal/athena-negotiation
-	<dev-crystal/crystal-db-0.12.0
-	<dev-crystal/crystal-pg-0.27.0
-	dev-crystal/crystal-sqlite3
-	~dev-crystal/kemal-1.1.2
+	>=dev-crystal/kemal-1.1.0
+	<dev-crystal/kemal-1.2.0
 	dev-crystal/kilt
 	>=dev-crystal/protodec-0.1.5
+	virtual/crystal-db[postgres,sqlite]
 	test? (
 		dev-crystal/spectator
 	)
@@ -69,10 +68,7 @@ DOCS=( {CHANGELOG,README}.md TRANSLATION )
 
 CHECKREQS_MEMORY="2G"
 
-CRYSTAL_DEFINES=(
-	-Dskip_videojs_download
-	-Ddisable_quic
-)
+CRYSTAL_DEFINES=( -Dskip_videojs_download )
 
 src_unpack() {
 	local src depname destname js css
