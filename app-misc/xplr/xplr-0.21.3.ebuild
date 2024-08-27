@@ -248,7 +248,7 @@ src_compile() {
 src_install() {
 	dodoc README.md
 
-	dobin target/$(usex debug debug release)/xplr
+	dobin $(cargo_target_dir)/xplr
 	newicon -s 16 assets/icon/${PN}16.png ${PN}.png
 	newicon -s 32 assets/icon/${PN}32.png ${PN}.png
 	newicon -s 64 assets/icon/${PN}64.png ${PN}.png
