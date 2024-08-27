@@ -7,7 +7,17 @@ inherit cmake
 
 DESCRIPTION="Command-line package manager"
 HOMEPAGE="https://github.com/rpm-software-management/dnf5"
-SRC_URI="https://github.com/rpm-software-management/dnf5/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	https://github.com/rpm-software-management/dnf5/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/rpm-software-management/dnf5/commit/f2f730229d10431272ee8991b600a17607c40f36.patch
+		-> ${P}-toml11-1.patch
+	https://github.com/rpm-software-management/dnf5/commit/87b11dc2fd152bc662bc97ff2340a6e4d10b0dc8.patch
+		-> ${P}-toml11-2.patch
+	https://github.com/rpm-software-management/dnf5/commit/7b2a6e58b103e1100bcff06e097bb94b34bde22e.patch
+		-> ${P}-toml11-3.patch
+	https://github.com/rpm-software-management/dnf5/commit/1746eabb865bc3882956128adef5f228323855a0.patch
+		-> ${P}-toml11-4.patch
+"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
@@ -19,7 +29,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	>=app-arch/rpm-4.17.0
 	dev-cpp/sdbus-c++:=
-	<dev-cpp/toml11-4.0.0
+	dev-cpp/toml11
 	>=dev-db/sqlite-3.35.0:3
 	>=dev-libs/glib-2.46.0:2
 	dev-libs/json-c:=
@@ -48,6 +58,11 @@ PATCHES=(
 	"${FILESDIR}/${P}-remove-empty-dir.patch"
 	# Prevent test suite from writing to system files.
 	"${FILESDIR}/${P}-sandbox-test.patch"
+	# toml11-4 support
+	"${DISTDIR}/${P}-toml11-1.patch"
+	"${DISTDIR}/${P}-toml11-2.patch"
+	"${DISTDIR}/${P}-toml11-3.patch"
+	"${DISTDIR}/${P}-toml11-4.patch"
 )
 
 src_prepare() {
