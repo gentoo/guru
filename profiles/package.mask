@@ -18,6 +18,15 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-08-27)
+# Does not build anymore. Unmaintained in guru since 2021.
+# Removal on 2024-09-27. Bugs #807112, #839606
+app-misc/apidb
+dev-libs/octetos-db
+dev-libs/octetos-db-abstract
+dev-libs/octetos-db-maria
+dev-libs/octetos-db-postgresql
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-08-19)
 # Maintainer has no intention of keeping those anymore. No revdeps left.
 # Removal on 2024-09-19. Bugs #848459, #900000, #930786, #932330, #932331, #932334.
