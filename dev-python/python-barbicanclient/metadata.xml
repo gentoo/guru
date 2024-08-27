@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo-bugzilla@vimja.email</email>
+		<name>Niklaus 'vimja' Hofer</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">python-barbicanclient</remote-id>
+		<remote-id type="github">openstack/python-barbicanclient</remote-id>
+	</upstream>
+</pkgmetadata>
