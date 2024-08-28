@@ -104,7 +104,7 @@ src_prepare() {
 }
 
 src_install() {
-	dobin "target/$(usex debug debug release)/framework_tool"
+	dobin "$(cargo_target_dir)/framework_tool"
 	einstalldocs
 }
 
