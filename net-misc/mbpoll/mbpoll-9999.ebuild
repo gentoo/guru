@@ -14,14 +14,3 @@ SLOT="0"
 
 DEPEND="dev-libs/libmodbus"
 RDEPEND="${DEPEND}"
-
-
-src_configure() {
-	cmake_src_configure
-}
-
-src_install() {
-	cmake_src_install
-}
-
-
