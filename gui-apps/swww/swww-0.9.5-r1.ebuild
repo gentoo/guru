@@ -240,17 +240,15 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+man"
-
-IUSE="+man"
 
 DEPEND="
-	app-arch/lz4
-	x11-libs/libxkbcommon[wayland]"
+	app-arch/lz4:=
+	x11-libs/libxkbcommon[wayland]
+"
 RDEPEND="${DEPEND}"
 BDEPEND="
-	>=virtual/rust-1.74.0
-	man? ( app-text/scdoc )
+	app-text/scdoc
+	>=virtual/rust-1.75.0
 "
 
 QA_FLAGS_IGNORED="
@@ -258,28 +256,17 @@ QA_FLAGS_IGNORED="
 	usr/bin/${PN}-daemon
 "
 
+src_compile() {
+	cargo_src_compile
+	./doc/gen.sh || die # generate man pages
+}
+
 src_install() {
+	dobin "$(cargo_target_dir)"/swww{,-daemon}
+	doman doc/generated/*.1
+
 	dodoc README.md CHANGELOG.md
-	dobashcomp "${WORKDIR}/swww-${PV}/completions/swww.bash"
-	dofishcomp "${WORKDIR}/swww-${PV}/completions/swww.fish"
-
-	if use man ; then
-		cd "${WORKDIR}/swww-${PV}/doc/" || die
-		./gen.sh || die #generate the man pages
-		doman "generated/swww.1"
-		doman "generated/swww-clear.1"
-		doman "generated/swww-daemon.1"
-		doman "generated/swww-img.1"
-		doman "generated/swww-init.1"
-		doman "generated/swww-kill.1"
-		doman "generated/swww-query.1"
-	fi
-
-	if use debug ; then
-		cd "${WORKDIR}/swww-${PV}/target/debug" || die
-	else
-		cd "${WORKDIR}/swww-${PV}/target/release"  || die
-	fi
-
-	dobin swww{,-daemon}
+	newbashcomp completions/swww.bash swww
+	dofishcomp completions/swww.fish
+	dozshcomp completions/_swww
 }
