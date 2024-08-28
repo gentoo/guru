@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -115,7 +115,7 @@ src_install() {
 	newinitd "${FILESDIR}"/lemurs.initd lemurs
 	systemd_dounit "${S}"/extra/lemurs.service
 
-	dobin target/$(usex debug debug release)/lemurs
+	dobin "$(cargo_target_dir)"/lemurs
 }
 
 pkg_postinst() {
