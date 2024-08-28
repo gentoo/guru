@@ -14,7 +14,7 @@ IUSE="+mpeg +ogg"
 
 RDEPEND="
 	media-libs/libsdl2
-	media-libs/sdl2-image
+	media-libs/sdl2-image[jpeg,png]
 	media-libs/sdl2-mixer
 	app-arch/bzip2:=
 	media-libs/freetype
