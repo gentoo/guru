@@ -277,6 +277,5 @@ KEYWORDS="~amd64 ~arm64"
 BDEPEND="dev-libs/protobuf"
 
 src_install() {
-	dobin target/release/sshx
-	dobin target/release/sshx-server
+	dobin "$(cargo_target_dir)"/sshx{,-server}
 }
