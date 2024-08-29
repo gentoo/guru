@@ -9,7 +9,7 @@
 		<remote-id type="github">pop-os/system76-power</remote-id>
 	</upstream>
 	<longdescription lang="en">
-        Power manager developed by System76 for systemd Linux distributions. This power manager allows for switching
-        between battery, balanced and performance mode and handles power consumption on dual-GPU laptops.
+		Power manager developed by System76 for systemd Linux distributions. This power manager allows for switching
+		between battery, balanced and performance mode and handles power consumption on dual-GPU laptops.
 	</longdescription>
 </pkgmetadata>
