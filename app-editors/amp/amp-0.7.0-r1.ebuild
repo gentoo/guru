@@ -102,6 +102,7 @@ CRATES="
 	net2@0.2.39
 	nix@0.24.3
 	nom@7.1.3
+	num-conv@0.1.0
 	num-traits@0.2.16
 	num_cpus@1.16.0
 	numtoa@0.1.0
@@ -157,8 +158,8 @@ CRATES="
 	thiserror-impl@1.0.50
 	thiserror@1.0.50
 	time-core@0.1.2
-	time-macros@0.2.16
-	time@0.3.31
+	time-macros@0.2.18
+	time@0.3.36
 	tinytemplate@1.2.1
 	tinyvec@1.6.0
 	tinyvec_macros@0.1.1
@@ -242,13 +243,18 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc"
 
-DEPEND="dev-libs/libgit2:="
+DEPEND="dev-libs/libgit2:0/1.7"
 RDEPEND="${DEPEND}"
+
+PATCHES=(
+	# fix build with rust 1.80
+	"${FILESDIR}/${P}-rust-1.80.patch"
+)
 
 QA_FLAGS_IGNORED="usr/bin/amp"
 
 src_install() {
-	dobin "target/$(usex debug debug release)/amp"
+	cargo_src_install
 
 	if use doc; then
 		dodoc README.md CHANGELOG.md
