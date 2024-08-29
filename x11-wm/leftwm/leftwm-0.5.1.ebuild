@@ -82,6 +82,7 @@ CRATES="
 	mio@0.8.9
 	nix@0.27.1
 	nu-ansi-term@0.46.0
+	num-conv@0.1.0
 	num-traits@0.2.17
 	num_cpus@1.16.0
 	num_threads@0.1.6
@@ -132,8 +133,8 @@ CRATES="
 	thiserror@1.0.50
 	thread_local@1.1.7
 	time-core@0.1.2
-	time-macros@0.2.15
-	time@0.3.30
+	time-macros@0.2.18
+	time@0.3.36
 	tokio-macros@2.2.0
 	tokio@1.34.0
 	toml@0.8.8
@@ -198,7 +199,11 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}-nolefthk.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-nolefthk.patch"
+	# fix build with rust-1.80
+	"${FILESDIR}/${P}-rust-1.80.patch"
+)
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 
@@ -218,7 +223,6 @@ src_install() {
 	insinto /usr/share/xsessions
 	doins leftwm.desktop
 
-	bins="target/$(usex debug debug release)"
-	dobin "${bins}"/leftwm{,-worker,-state,-check,-command}
-	use lefthk && dobin "${bins}"/lefthk-worker
+	dobin "$(cargo_target_dir)"/leftwm{,-worker,-state,-check,-command}
+	use lefthk && dobin "$(cargo_target_dir)"/leftwm-worker
 }
