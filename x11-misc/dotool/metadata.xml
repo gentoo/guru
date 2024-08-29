@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <name>Dale Showers</name>
+        <email>gentoo@fictx.com</email>
+    </maintainer>
+    <longdescription>
+      dotool reads actions from stdin and simulates keyboard/mouse input using Linux's uinput module. It works systemwide and supports keyboard layouts.
+    </longdescription>
+    <upstream>
+        <changelog>https://git.sr.ht/~geb/dotool/log</changelog>
+        <doc>https://git.sr.ht/~geb/dotool/tree/master/doc/dotool.1.scd</doc>
+        <bugs-to>https://todo.sr.ht/~geb/dotool</bugs-to>
+        <remote-id type="sourcehut">~geb/dotool</remote-id>
+    </upstream>
+</pkgmetadata>
