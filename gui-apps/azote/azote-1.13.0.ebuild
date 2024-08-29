@@ -30,7 +30,7 @@ RDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.12.6-pyproject.patch
+	"${FILESDIR}"/${PN}-1.13.0-pyproject.patch
 )
 
 python_install_all() {
