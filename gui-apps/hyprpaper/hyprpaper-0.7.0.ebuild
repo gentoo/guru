@@ -13,21 +13,23 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="
+RDEPEND="
 	dev-libs/hyprlang:=
 	dev-libs/wayland
-	dev-libs/wayland-protocols
-	dev-util/wayland-scanner
-	dev-vcs/git
-"
-RDEPEND="
-	${DEPEND}
-	gui-libs/wlroots
 	media-libs/libglvnd
-	media-libs/libjpeg-turbo
-	media-libs/libwebp
+	media-libs/libjpeg-turbo:=
+	media-libs/libwebp:=
 	x11-libs/cairo
 	x11-libs/pango
+"
+DEPEND="
+	${RDEPEND}
+	dev-libs/wayland-protocols
+"
+BDEPEND="
+	dev-util/wayland-scanner
+	dev-vcs/git
+	virtual/pkgconfig
 "
 
 src_compile() {
