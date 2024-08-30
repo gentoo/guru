@@ -37,7 +37,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-lisp/sbcl-2.0.0[threads,unicode]
-	<=dev-lisp/sbcl-2.4.4[threads,unicode]
 "
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
@@ -73,6 +72,7 @@ src_install(){
 
 pkg_postinst() {
 	xdg_pkg_postinst
+	optfeature "for Wayland clipboard support" "gui-apps/wl-clipboard"
 	optfeature "for X11 clipboard support" "x11-misc/xclip"
 	optfeature "for spellchecking" "app-text/enchant"
 	optfeature "for HTML5 audio/video" "media-libs/gstreamer"
