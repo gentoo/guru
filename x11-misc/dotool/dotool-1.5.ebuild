@@ -19,7 +19,8 @@ KEYWORDS="~amd64"
 IUSE="+man"
 
 BDEPEND="man? ( app-text/scdoc )"
-DEPEND="dev-libs/libinput"
+DEPEND="dev-libs/libinput
+		x11-libs/libxkbcommon"
 RDEPEND="${DEPEND}"
 
 src_compile() {
