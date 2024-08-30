@@ -6,6 +6,6 @@
 		<name>Takuya Wakazono</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">mattkae/miracle-wm</remote-id>
+		<remote-id type="github">miracle-window-manager/miracle-wm</remote-id>
 	</upstream>
 </pkgmetadata>
