@@ -26,6 +26,8 @@ RDEPEND="
 	dev-libs/glib:2
 	dev-libs/wayland
 	media-libs/libglvnd
+	media-libs/libjpeg-turbo:=
+	media-libs/libwebp:=
 	media-libs/mesa[opengl]
 	sys-libs/pam
 	x11-libs/cairo
