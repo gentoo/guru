@@ -16,7 +16,6 @@
         <flag name="echo">Echo server module</flag>
         <flag name="evdev">Input event device UI module</flag>
         <flag name="gtk3">GTK+ 3 menu-based UI</flag>
-        <flag name="gst">Add support for media-libs/gstreamer (Streaming media)</flag>
         <flag name="httpd">HTTP webserver UI-module</flag>
         <flag name="httpreq">HTTP request module</flag>
         <flag name="mqtt">Enable mqtt support via <pkg>app-misc/mosquitto</pkg></flag>
