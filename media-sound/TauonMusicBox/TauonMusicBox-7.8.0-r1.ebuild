@@ -60,7 +60,7 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 
-	dev-libs/libappindicator
+	dev-libs/libayatana-appindicator
 	media-sound/mpg123-base
 	x11-libs/libnotify
 "

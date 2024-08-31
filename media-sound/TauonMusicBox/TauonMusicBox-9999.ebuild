@@ -56,7 +56,7 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 
-	dev-libs/libappindicator
+	dev-libs/libayatana-appindicator
 	x11-libs/libnotify
 "
 
