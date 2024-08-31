@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-08-31)
+# Significantly outdated and unmaintained in guru since 2022.
+# Removal on 2024-09-30.
+app-emulation/proton-ge-custom-bin
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-08-27)
 # Does not build anymore. Unmaintained in guru since 2021.
 # Removal on 2024-09-27. Bugs #807112, #839606
