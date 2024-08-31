@@ -10,23 +10,28 @@ HOMEPAGE="https://github.com/jurplel/qView https://interversehq.com/qview/"
 SRC_URI="https://github.com/jurplel/qView/archive/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/qView-${PV}"
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="X"
 
 RDEPEND="
-	dev-qt/qtbase[concurrent,gui,network,widgets]
+	dev-qt/qtbase:6[concurrent,gui,network,widgets]
+	X? ( x11-libs/libX11 )
 "
 
-DEPEND="${RDEPEND}
-"
+DEPEND="${RDEPEND}"
 
 BDEPEND="
 	dev-qt/qttools[linguist]
 "
 
 src_configure() {
-	eqmake6 PREFIX=/usr qView.pro
+	local myqmakeargs=(
+		PREFIX="${EPREFIX}"/usr
+		$(usex X '' CONFIG+=NO_X11)
+	)
+	eqmake6 "${myqmakeargs[@]}"
 }
 
 src_install() {

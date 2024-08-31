@@ -1,7 +1,7 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic qmake-utils toolchain-funcs virtualx xdg
 
@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/jurplel/qView https://interversehq.com/qview/"
 SRC_URI="https://github.com/jurplel/qView/archive/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/qView-${PV}"
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 
@@ -35,7 +35,8 @@ BDEPEND="
 
 src_configure() {
 	# https://github.com/jurplel/qView/issues/395
-	if tc-is-clang && has_version "sys-devel/clang:$(clang-major-version)[default-libcxx]" || is-flagq -stdlib=libc++; then
+	if tc-is-clang && has_version "sys-devel/clang:$(clang-major-version)[default-libcxx]" || is-flagq -stdlib=libc++
+	then
 		append-cxxflags -stdlib=libstdc++
 		append-ldflags -stdlib=libstdc++
 	fi
