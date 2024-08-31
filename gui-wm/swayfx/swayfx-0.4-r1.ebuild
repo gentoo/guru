@@ -49,6 +49,7 @@ RDEPEND="
 	dev-libs/glib
 	dev-libs/libevdev
 	x11-misc/xkeyboard-config
+	!!gui-wm/sway
 	${DEPEND}
 "
 BDEPEND="
