@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>saigon-tech@tuta.io</email>
+        <name>Michal Vu</name>
+    </maintainer>
+    <upstream>
+        <remote-id type="github">zen-browser/desktop</remote-id>
+    </upstream>
+    <longdescription lang="en">
+        Firefox-based privacy oriented browser. Zen offers a wide variety of customizations and is Firefox sync compatible.
+    </longdescription>
+</pkgmetadata>
+
