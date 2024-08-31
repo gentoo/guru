@@ -19,7 +19,7 @@ S_PATTERNS="${WORKDIR}/ImHex-Patterns-ImHex-v${PV}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+system-llvm test lto"
+IUSE="+system-llvm test lto desktop-portal"
 RESTRICT="!test? ( test )"
 
 PATCHES=(
@@ -47,7 +47,6 @@ DEPEND="
 	net-libs/mbedtls:=
 	net-misc/curl
 	sys-apps/file
-	sys-apps/xdg-desktop-portal
 	sys-libs/zlib
 	virtual/libiconv
 	virtual/libintl
@@ -57,6 +56,7 @@ BDEPEND="
 	system-llvm? ( sys-devel/llvm )
 	app-admin/chrpath
 	gnome-base/librsvg
+	desktop-portal? ( sys-apps/xdg-desktop-portal )
 "
 
 pkg_pretend() {
@@ -83,7 +83,6 @@ src_configure() {
 		-D IMHEX_IGNORE_BAD_CLONE=ON \
 		-D IMHEX_PATTERNS_PULL_MASTER=OFF \
 		-D IMHEX_IGNORE_BAD_COMPILER=OFF \
-		-D IMHEX_USE_GTK_FILE_PICKER=OFF \
 		-D IMHEX_DISABLE_STACKTRACE=ON \
 		-D IMHEX_BUNDLE_DOTNET=OFF \
 		-D IMHEX_ENABLE_LTO=$(usex lto) \
@@ -91,6 +90,7 @@ src_configure() {
 		-D IMHEX_STRICT_WARNINGS=OFF \
 		-D IMHEX_ENABLE_UNIT_TESTS=$(usex test) \
 		-D IMHEX_ENABLE_PRECOMPILED_HEADERS=OFF \
+		-D IMHEX_USE_GTK_FILE_PICKER=$(usex desktop-portal) \
 		-D IMHEX_VERSION="${PV}" \
 		-D PROJECT_VERSION="${PV}" \
 		-D USE_SYSTEM_CAPSTONE=ON \
@@ -98,7 +98,7 @@ src_configure() {
 		-D USE_SYSTEM_LLVM=$(usex system-llvm) \
 		-D USE_SYSTEM_NFD=ON \
 		-D USE_SYSTEM_NLOHMANN_JSON=ON \
-		-D USE_SYSTEM_YARA=ON
+		-D USE_SYSTEM_YARA=ON \
 	)
 
 	cmake_src_configure
