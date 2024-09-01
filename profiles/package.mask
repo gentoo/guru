@@ -60,11 +60,6 @@ media-gfx/libpsautohint
 # Removal on 2024-09-02
 gui-apps/tootle
 
-# David Roman <davidroman96@gmail.com> (2024-08-01)
-# Project archived upstream. No release since 2021
-# Removal on 2024-08-31
-app-containers/dnsname-cni-plugin
-
 # Michael Mair-Keimberger <mmk@levelnine.at> (2024-07-20)
 # Decided to move my personal wiki to dokuwiki. If someone wants to
 # keep it, feel free to take over it.
