@@ -41,11 +41,13 @@ LICENSE+="
 LICENSE+=" Unicode-3.0 openssl"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="qt6"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
+	${PYTHON_DEPS}
+	!app-misc/anki
 	app-misc/ca-certificates
+	dev-qt/qtsvg:6
 	$(python_gen_cond_dep '
 		dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 		dev-python/distro[${PYTHON_USEDEP}]
@@ -57,39 +59,16 @@ RDEPEND="
 		dev-python/protobuf-python[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/send2trash[${PYTHON_USEDEP}]
-		dev-python/waitress[${PYTHON_USEDEP}]')
-	qt6? (
-		dev-qt/qtsvg:6
-		$(python_gen_cond_dep '
-			>=dev-python/PyQt6-6.6.1[gui,network,opengl,quick,webchannel,widgets,${PYTHON_USEDEP}]
-			>=dev-python/PyQt6-sip-13.6.0[${PYTHON_USEDEP}]
-			>=dev-python/PyQt6-WebEngine-6.6.0[widgets,${PYTHON_USEDEP}]')
-	)
-	!qt6? (
-		dev-qt/qtgui:5[jpeg,png]
-		dev-qt/qtsvg:5
-		$(python_gen_cond_dep '
-			>=dev-python/PyQt5-5.15.5[gui,network,webchannel,widgets,${PYTHON_USEDEP}]
-			>=dev-python/PyQt5-sip-12.9.0[${PYTHON_USEDEP}]
-			>=dev-python/PyQtWebEngine-5.15.5[${PYTHON_USEDEP}]')
-	)
-	${PYTHON_DEPS}
-	!app-misc/anki
+		dev-python/waitress[${PYTHON_USEDEP}]
+		>=dev-python/PyQt6-6.6.1[gui,network,opengl,quick,webchannel,widgets,${PYTHON_USEDEP}]
+		>=dev-python/PyQt6-sip-13.6.0[${PYTHON_USEDEP}]
+		>=dev-python/PyQt6-WebEngine-6.6.0[widgets,${PYTHON_USEDEP}]')
 "
 BDEPEND="app-arch/unzip"
 
 PATCHES="${FILESDIR}"/${PN}-24.04.1-revert-cert-store-hack.patch
 
 QA_PREBUILT="usr/lib/*"
-
-src_prepare() {
-	default
-	# Anki's Qt detection mechanism falls back to Qt5 Python bindings, if Qt6
-	# Python bindings don't get imported successfully.
-	if ! use qt6; then
-		sed -i 's/import PyQt6/raise ImportError/' aqt/qt/__init__.py || die
-	fi
-}
 
 src_install() {
 	python_domodule anki {,_}aqt *.dist-info
@@ -102,12 +81,12 @@ src_install() {
 	insinto /usr/share/mime/packages
 	newins "${DISTDIR}"/${MY_P}.xml anki.xml
 
-	local DOC_CONTENTS="Users with add-ons that still rely on Anki's Qt5 GUI can either switch
-	to ${CATEGORY}/${PN}[-qt6], or temporarily set an environment variable
-	ENABLE_QT5_COMPAT to 1 to have Anki install the previous compatibility code.
-	The latter option has additional runtime dependencies. Please take a look
-	at this package's 'optional runtime features' for a complete listing.
-	\n\nIn an early 2024 update, ENABLE_QT5_COMPAT will be removed, so this is not a
+	local DOC_CONTENTS="Users with add-ons that still rely on Anki's Qt5 GUI
+	can temporarily set the environment variable ENABLE_QT5_COMPAT to 1 to have
+	Anki install the previous compatibility code. This option has additional
+	runtime dependencies. Please take a look at this package's optional runtime
+	features for a complete listing.
+	\n\nENABLE_QT5_COMPAT may be removed in the future, so this is not a
 	long-term solution.
 	\n\nAnki's user manual is located online at https://docs.ankiweb.net/
 	\nAnki's add-on developer manual is located online at
@@ -121,10 +100,10 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	optfeature "LaTeX in cards" "app-text/texlive[extra] app-text/dvipng"
 	optfeature "sound support" media-video/mpv media-video/mplayer
-	optfeature "recording support" "media-sound/lame[frontend] dev-python/PyQt$(usex qt6 6 5)[multimedia]"
+	optfeature "recording support" "media-sound/lame[frontend] dev-python/PyQt6[multimedia]"
 	optfeature "faster database operations" dev-python/orjson
-	use qt6 && optfeature "compatibility with Qt5-dependent add-ons" dev-python/PyQt6[dbus,printsupport]
-	use qt6 && optfeature "Vulkan driver" "media-libs/vulkan-loader dev-qt/qtbase[vulkan]
+	optfeature "compatibility with Qt5-dependent add-ons" dev-python/PyQt6[dbus,printsupport]
+	optfeature "Vulkan driver" "media-libs/vulkan-loader dev-qt/qtbase:6[vulkan]
 		dev-qt/qtdeclarative:6[vulkan] dev-qt/qtwebengine:6[vulkan]"
 
 	einfo "You can customize the LaTeX header for your cards to fit your needs:"
