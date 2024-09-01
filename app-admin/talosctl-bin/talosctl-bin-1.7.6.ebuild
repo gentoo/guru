@@ -5,15 +5,18 @@ EAPI="8"
 
 DESCRIPTION="Pre-compiled talosctl is an tool for interacting with the Talos API"
 HOMEPAGE="https://www.talos.dev/v1.7/"
-SLOT="0"
 S="${WORKDIR}"
+SLOT="0"
 LICENSE="MPL-2.0"
-KEYWORDS="~amd64 ~arm ~arm64"
 SRC_URI="
-        amd64? ( https://github.com/siderolabs/talos/releases/download/v${PV}/talosctl-linux-amd64 -> talosctl-amd64-v${PV} )
-        arm64? ( https://github.com/siderolabs/talos/releases/download/v${PV}/talosctl-linux-arm64 -> talosctl-arm64-v${PV} )
-        arm? ( https://github.com/siderolabs/talos/releases/download/v${PV}/talosctl-linux-armv7 -> talosctl-armv7-v${PV} )
+        amd64? ( https://github.com/siderolabs/talos/releases/download/v${PV}/talosctl-linux-amd64 ->
+                 talosctl-amd64-v${PV} )
+        arm64? ( https://github.com/siderolabs/talos/releases/download/v${PV}/talosctl-linux-arm64 ->
+                 talosctl-arm64-v${PV} )
+        arm? ( https://github.com/siderolabs/talos/releases/download/v${PV}/talosctl-linux-armv7 ->
+                 talosctl-armv7-v${PV} )
 "
+KEYWORDS="~amd64 ~arm ~arm64"
 
 src_install() {
         if use arm; then
