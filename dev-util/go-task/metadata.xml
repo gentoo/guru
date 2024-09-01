@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+        <remote-id type="github">go-task/task</remote-id>
 	<maintainer type="person">
 		<email>sm+gentoo@skym.fi</email>
 		<name>Skyler</name>
