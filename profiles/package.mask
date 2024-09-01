@@ -65,11 +65,6 @@ gui-apps/tootle
 # Removal on 2024-08-31
 app-containers/dnsname-cni-plugin
 
-# David Roman <davidroman96@gmail.com> (2024-08-01)
-# No maintainer. Seems dead, last release from 2016
-# Removal on 2024-08-31
-dev-python/funcsigs
-
 # Michael Mair-Keimberger <mmk@levelnine.at> (2024-07-20)
 # Decided to move my personal wiki to dokuwiki. If someone wants to
 # keep it, feel free to take over it.
