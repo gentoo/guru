@@ -3,15 +3,14 @@
 
 EAPI=8
 
-inherit cmake optfeature toolchain-funcs flag-o-matic
+inherit cmake optfeature toolchain-funcs flag-o-matic git-r3
 
 DESCRIPTION="Linux Userspace x86 Emulator with a twist"
 HOMEPAGE="https://box86.org"
-SRC_URI="https://github.com/ptitSeb/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+EGIT_REPO_URI="https://github.com/ptitSeb/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~arm"
 IUSE="aot"
 REQUIRED_USE="aot? ( || ( arm arm64 ) )" #depends on NEON, VFPv3, and non-thumb ABI, I see no good way to check
 
@@ -31,19 +30,26 @@ pkg_setup() {
 		die "big endian not supported!"
 	fi
 
-	if [[ ${CHOST} != *gnu* || ${CHOST} != *linux* ]]; then
-		eerror "box86/64 requires a glibc and a linux system. Musl support is possible, upstream welcomes PRs!"
+	if [[ ${CHOST} != *linux* ]]; then
+		eerror "box86/64 requires a linux system."
 		die "Not a GNU+Linux system"
+	fi
+
+	if [[ ${CHOST} != *gnu* ]]; then #in case musl support is added in master branch
+		ewarn ""
+		ewarn "box86/64 will likely not build or run on a non-glibc system."
+		ewarn ""
 	fi
 }
 
 src_configure() {
 	local -a mycmakeargs=(
-		-DNOGIT=1
-		-DARM_DYNAREC=$(usex aot)
+		-DNOGIT=0
+		-DARM_DYNAREC=0
 	)
 
-	use amd64 && mycmakeargs+=( -DLD80BITS=1 -DNOALIGN=1 )
+	(use amd64 || use x86) && mycmakeargs+=( -DLD80BITS=1 -DNOALIGN=1 )
+	(use arm64 || use arm) && mycmakeargs+=( -DARM_DYNAREC=$(usex aot) )
 
 	append-flags "-m32"
 

@@ -40,10 +40,11 @@ pkg_setup() {
 src_configure() {
 	local -a mycmakeargs=(
 		-DNOGIT=1
-		-DARM_DYNAREC=$(usex aot)
+		-DARM_DYNAREC=0
 	)
 
-	use amd64 && mycmakeargs+=( -DLD80BITS=1 -DNOALIGN=1 )
+	(use amd64 || use x86) && mycmakeargs+=( -DLD80BITS=1 -DNOALIGN=1 )
+	(use arm64 || use arm) && mycmakeargs+=( -DARM_DYNAREC=$(usex aot) )
 
 	append-flags "-m32"
 
