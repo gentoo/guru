@@ -14,6 +14,24 @@ SLOT="0"
 KEYWORDS=""
 IUSE="static"
 
+pkg_setup() {
+	if [[ $(tc-endian) == big ]]; then
+		eerror "box86/box64 sadly does not support big endian systems."
+		die "big endian not supported!"
+	fi
+
+	if [[ ${CHOST} != *linux* ]]; then
+		eerror "box86/64 requires a linux system."
+		die "Not a GNU+Linux system"
+	fi
+
+	if [[ ${CHOST} != *gnu* ]]; then #in case musl support is added in master branch
+		ewarn ""
+		ewarn "box86/64 will likely not build or run on a non-glibc system."
+		ewarn ""
+	fi
+}
+
 src_configure() {
 	local -a mycmakeargs=(
 		-DNOGIT=0

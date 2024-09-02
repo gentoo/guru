@@ -15,6 +15,18 @@ KEYWORDS="~arm64 ~ppc64"
 IUSE="aot"
 REQUIRED_USE="aot? ( arm64 )"
 
+pkg_setup() {
+	if [[ $(tc-endian) == big ]]; then
+		eerror "box86/box64 sadly does not support big endian systems."
+		die "big endian not supported!"
+	fi
+
+	if [[ ${CHOST} != *gnu* || ${CHOST} != *linux* ]]; then
+		eerror "box86/64 requires a glibc and a linux system. Musl support is possible, upstream welcomes PRs!"
+		die "Not a GNU+Linux system"
+	fi
+}
+
 src_configure() {
 	local -a mycmakeargs=(
 		-DNOGIT=1
