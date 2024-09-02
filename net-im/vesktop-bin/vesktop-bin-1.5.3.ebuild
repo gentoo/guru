@@ -26,7 +26,6 @@ RESTRICT="bindist mirror strip test"
 
 DEPEND="
 	libnotify? ( x11-libs/libnotify )
-	app-crypt/libsecret
 	app-accessibility/at-spi2-core
 	dev-libs/expat
 	dev-libs/glib
