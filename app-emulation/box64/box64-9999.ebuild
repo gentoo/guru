@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake optfeature git-r3
+inherit cmake git-r3 toolchain-funcs optfeature
 
 DESCRIPTION="Linux Userspace x86_64 Emulator with a twist"
 HOMEPAGE="https://box86.org"
