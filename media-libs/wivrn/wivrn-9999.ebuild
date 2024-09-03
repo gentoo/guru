@@ -17,7 +17,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/WiVRn/WiVRn.git"
 
-	MONADO_V=dfc602288ab05131584a3f2be18031a13fccd061
+	MONADO_V=2d3978b1b0d0f1ce9fc20f435c7080a07124362a
 	PFR_V=2.2.0
 	SRC_URI="
 	https://github.com/boostorg/pfr/archive/refs/tags/${PFR_V}.tar.gz -> boostpfr_${PFR_V}.tar.gz
@@ -68,6 +68,15 @@ if [[ ${PV} == 9999 ]]; then
 		cd "${WORKDIR}"
 		mv "monado-${MONADO_V}" "monado-src"
 		mv "pfr-${PFR_V}" "boostpfr-src"
+
+		local THEIR_MONADO=$(grep -A1 "https://gitlab.freedesktop.org/monado/monado" "${P}/CMakeLists.txt" | tail -n1 | sed 's/.*GIT_TAG\s*//')
+		[ "${THEIR_MONADO}" == "${MONADO_V}" ] || die "Mismatched monado version: ${THEIR_MONADO} (upstream) ${MONADO_V} (ebuild)"
+	}
+
+	src_prepare() {
+		default_src_prepare
+		eapply --directory="${WORKDIR}/monado-src" "${WORKDIR}/${P}/patches/monado"/*
+		cmake_src_prepare
 	}
 else
 	src_unpack() {
@@ -79,7 +88,7 @@ fi
 
 src_configure() {
 	if [[ ${PV} == 9999 ]]; then
-		GIT_DESC=$(git describe)
+		GIT_DESC=$(git describe --always)
 	else
 		GIT_DESC=${PV}
 	fi
