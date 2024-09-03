@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -21,7 +21,15 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-DEPEND="${RDEPEND}"
+RDEPEND="
+	dev-libs/libxml2:2
+	x11-libs/gtk+:3
+"
+DEPEND="
+	${RDEPEND}
+	dev-libs/glib:2
+	x11-libs/gdk-pixbuf:2
+"
 
 DOCS=( README.md )
 
