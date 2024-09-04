@@ -3,7 +3,7 @@
 
 EAPI=8
 
-WX_GTK_VER="3.0-gtk3"
+WX_GTK_VER="3.2-gtk3"
 
 inherit cmake xdg wxwidgets
 
@@ -24,24 +24,26 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+ssl sftp samba nfs webdav +archive +wxwidgets"
+IUSE="+archive +chardet +colorer nfs samba sftp +ssl webdav wxwidgets X"
 RESTRICT="mirror"
 
-BDEPEND="sys-devel/m4"
-
-RDEPEND="dev-libs/xerces-c
-	dev-libs/spdlog
-	app-i18n/uchardet
+RDEPEND="
 	wxwidgets? ( x11-libs/wxGTK:${WX_GTK_VER} )
-	ssl? ( dev-libs/openssl )
-	sftp? ( net-libs/libssh[sftp] )
-	samba? ( net-fs/samba )
-	nfs? ( net-fs/libnfs )
-	webdav? ( net-libs/neon )
+	X? (
+		x11-libs/libX11
+		x11-libs/libXi
+	)
 	archive? (
 		dev-libs/libpcre2
 		app-arch/libarchive
-	)"
+	)
+	chardet? ( app-i18n/uchardet )
+	colorer? ( dev-libs/libxml2 )
+	nfs? ( net-fs/libnfs )
+	samba? ( net-fs/samba )
+	sftp? ( net-libs/libssh[sftp] )
+	ssl? ( dev-libs/openssl )
+	webdav? ( net-libs/neon )"
 
 DEPEND="${RDEPEND}"
 
@@ -56,10 +58,8 @@ pkg_setup() {
 src_prepare() {
 	sed -e "s:execute_process(COMMAND ln -sf \../../bin/far2l \${CMAKE_INSTALL_PREFIX}/lib/far2l/far2l_askpass)::" \
 		-i "${S}"/CMakeLists.txt || die
-
 	sed -e "s:execute_process(COMMAND ln -sf \../../bin/far2l \${CMAKE_INSTALL_PREFIX}/lib/far2l/far2l_sudoapp)::" \
 		-i "${S}"/CMakeLists.txt || die
-
 	sed -e "s:execute_process(COMMAND rm -f \${CMAKE_INSTALL_PREFIX}/lib/far2l/Plugins/.*::" \
 		-i "${S}"/CMakeLists.txt || die
 	cmake_src_prepare
@@ -68,6 +68,8 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DUSEWX="$(usex wxwidgets)"
+		-DUSEUCD=$"$(usex chardet)"
+		-DCOLORER="$(usex colorer)"
 #		FIXME: add python plugins support
 #		We need pcpp for this
 #		-DPYTHON="$(usex python)"
