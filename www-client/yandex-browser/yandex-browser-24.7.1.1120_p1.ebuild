@@ -26,7 +26,7 @@ LICENSE="Yandex-EULA"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="+ffmpeg-codecs qt5 qt6"
+IUSE="+ffmpeg-codecs qt6"
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
@@ -58,11 +58,6 @@ RDEPEND="
 	x11-libs/pango[X]
 	x11-misc/xdg-utils
 	ffmpeg-codecs? ( media-video/ffmpeg-chromium:${FFMPEG} )
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5[X]
-		dev-qt/qtwidgets:5
-	)
 	qt6? ( dev-qt/qtbase:6[gui,widgets] )
 "
 DEPEND="
@@ -129,9 +124,7 @@ src_install() {
 		newicon -s "${size}" "$icon" "${MY_PN}.png"
 	done
 
-	if ! use qt5; then
-		rm "${ED}/${YANDEX_HOME}/libqt5_shim.so" || die
-	fi
+	rm "${ED}/${YANDEX_HOME}/libqt5_shim.so" || die
 	if ! use qt6; then
 		rm "${ED}/${YANDEX_HOME}/libqt6_shim.so" || die
 	fi
