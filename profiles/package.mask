@@ -54,14 +54,6 @@ net-misc/youtube-dl
 # Removal on 2024-09-05
 media-gfx/libpsautohint
 
-# Michael Mair-Keimberger <mmk@levelnine.at> (2024-07-20)
-# Decided to move my personal wiki to dokuwiki. If someone wants to
-# keep it, feel free to take over it.
-# Removal on 2024-08-20
-acct-group/wikijs
-acct-user/wikijs
-www-apps/wiki-js-bin
-
 # Pascal Jaeger <pascal.jaeger@leimstift.de> (2024-06-29)
 # Package is renamed to 'dissent'
 # Newer versions do not build in portage because of dependency
