@@ -123,6 +123,8 @@ install_tool() {
 }
 
 src_install() {
+	echo "v${PV}" > version.txt || die
+
 	newbin - idf <<-EOF
 	#!/bin/sh
 
