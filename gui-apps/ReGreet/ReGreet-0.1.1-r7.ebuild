@@ -243,7 +243,7 @@ IUSE="systemd openrc"
 
 PATCHES="${FILESDIR}/ReGreet-0.1.1-cargo-lock-fix.diff"
 
-QA_FLAGS_IGNORED="usr/bin/regreet"
+QA_FLAGS_IGNORED="/usr/bin/regreet"
 
 src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
