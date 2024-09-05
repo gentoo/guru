@@ -29,10 +29,12 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	net-dns/c-ares
+	media-libs/mesa
 	media-video/ffmpeg[alsa]
 	x11-libs/gtk+[cups]
 	net-libs/http-parser
 	dev-libs/libappindicator
+	x11-libs/libdrm
 	dev-libs/libevent
 	x11-libs/libnotify
 	media-libs/libvpx
