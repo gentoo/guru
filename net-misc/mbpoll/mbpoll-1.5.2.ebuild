@@ -15,3 +15,10 @@ KEYWORDS="~amd64"
 
 DEPEND="dev-libs/libmodbus"
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	sed -i -e 's/add_definitions(-O2)//' CMakeLists.txt
+	sed -i -e 's/-O2 //' CMakeLists.txt
+
+	cmake_src_prepare
+}
