@@ -44,11 +44,6 @@ dev-cpp/wangle
 # Removal on 2024-09-05
 dev-python/sphinx-version-warning
 
-# David Roman <davidroman96@gmail.com> (2024-08-05)
-# No maintainer, we already have yt-dlp on ::gentoo.
-# Removal on 2024-09-05
-net-misc/youtube-dl
-
 # Pascal Jaeger <pascal.jaeger@leimstift.de> (2024-06-29)
 # Package is renamed to 'dissent'
 # Newer versions do not build in portage because of dependency
