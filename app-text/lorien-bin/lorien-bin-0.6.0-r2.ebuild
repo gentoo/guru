@@ -17,10 +17,14 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	media-libs/mesa[opengl(+)]
+	media-libs/libglvnd
+	x11-libs/libX11
 	x11-libs/libXcursor
+	x11-libs/libXext
 	x11-libs/libXi
 	x11-libs/libXinerama
 	x11-libs/libXrandr
+	x11-libs/libXrender
 "
 
 # Since is a binary package
