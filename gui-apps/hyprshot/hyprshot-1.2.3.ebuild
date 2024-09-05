@@ -14,6 +14,8 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
+IUSE="+xdg"
+
 RDEPEND="
 	app-misc/jq
 	app-shells/bash
@@ -22,13 +24,10 @@ RDEPEND="
 	gui-apps/wl-clipboard
 	gui-wm/hyprland
 	x11-libs/libnotify
+	xdg? ( x11-misc/xdg-user-dirs )
 "
 
 src_install() {
 	dobin hyprshot
 	einstalldocs
-}
-
-pkg_postinst() {
-	optfeature "XDG user dir support" x11-misc/xdg-user-dirs
 }

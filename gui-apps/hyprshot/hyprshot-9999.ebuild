@@ -11,6 +11,8 @@ EGIT_REPO_URI="https://github.com/Gustash/Hyprshot.git/"
 LICENSE="GPL-3"
 SLOT="0"
 
+IUSE="+xdg +freeze"
+
 RDEPEND="
 	app-misc/jq
 	app-shells/bash
@@ -19,14 +21,11 @@ RDEPEND="
 	gui-apps/wl-clipboard
 	gui-wm/hyprland
 	x11-libs/libnotify
+	xdg? ( x11-misc/xdg-user-dirs )
+	freeze? ( gui-apps/hyprpicker )
 "
 
 src_install() {
 	dobin hyprshot
 	einstalldocs
-}
-
-pkg_postinst() {
-	optfeature "--freeze option support" gui-apps/hyprpicker
-	optfeature "XDG user dir support" x11-misc/xdg-user-dirs
 }

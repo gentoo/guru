@@ -8,4 +8,10 @@
 	<upstream>
 		<remote-id type="github">Gustash/Hyprshot</remote-id>
 	</upstream>
+	<use>
+		<flag name="xdg">Pull xdg-home as a dependency to use $XDG_PICTURES_DIR</flag>
+	</use>
+	<use>
+		<flag name="freeze">Pull gui-apps/hyprpicker for optional freezing screen</flag>
+	</use>
 </pkgmetadata>
