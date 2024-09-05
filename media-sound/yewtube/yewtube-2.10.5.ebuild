@@ -31,6 +31,7 @@ RDEPEND="
 	dev-python/youtube-search-python
 	dev-python/pylast[${PYTHON_USEDEP}]
 	dev-python/pip[${PYTHON_USEDEP}]
+	dev-python/pipenv[${PYTHON_USEDEP}]
 	|| ( media-video/mplayer media-video/mpv )
 "
 
