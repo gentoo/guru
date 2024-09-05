@@ -387,7 +387,7 @@ RDEPEND="
 	dev-libs/glib:2
 	dev-libs/libdbusmenu[gtk3]
 	x11-libs/cairo[glib]
-	x11-libs/gdk-pixbuf:2
+	x11-libs/gdk-pixbuf:2[jpeg]
 	x11-libs/gtk+:3[X?,wayland?]
 	x11-libs/pango
 	wayland? ( gui-libs/gtk-layer-shell )
