@@ -63,6 +63,7 @@ QA_PRESTRIPPED="opt/*"
 
 PATCHES=(
 	"${FILESDIR}/allow-system-install-${PN}-5.3.patch"
+	"${FILESDIR}/${PN}-5.3-fix-cpp-build-eth.patch"
 )
 
 install_tool() {
