@@ -21,6 +21,7 @@ IUSE="allegro5 glfw sdl2 sdl3 sdl2-renderer sdl3-renderer opengl vulkan webgpu"
 
 RDEPEND="
 	dev-libs/stb:=
+	media-libs/libglvnd[${MULTILIB_USEDEP}]
 	media-libs/glew[${MULTILIB_USEDEP}]
 	allegro5? ( media-libs/allegro:5[${MULTILIB_USEDEP}] )
 	glfw? ( media-libs/glfw:0[${MULTILIB_USEDEP}] )
