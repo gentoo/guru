@@ -49,11 +49,6 @@ dev-python/sphinx-version-warning
 # Removal on 2024-09-05
 net-misc/youtube-dl
 
-# David Roman <davidroman96@gmail.com> (2024-08-05)
-# Archived upstream. No maintainer
-# Removal on 2024-09-05
-media-gfx/libpsautohint
-
 # Pascal Jaeger <pascal.jaeger@leimstift.de> (2024-06-29)
 # Package is renamed to 'dissent'
 # Newer versions do not build in portage because of dependency
