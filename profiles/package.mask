@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-09-06)
+# Depends on dev-libs/libappindicator and is unmaintained in guru.
+# Removal on 2024-10-06.
+media-sound/hushboard
+net-im/guilded-bin
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-08-31)
 # Significantly outdated and unmaintained in guru since 2022.
 # Removal on 2024-09-30.
