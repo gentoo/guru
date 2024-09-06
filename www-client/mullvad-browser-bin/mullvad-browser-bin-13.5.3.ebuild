@@ -6,8 +6,8 @@ EAPI=8
 inherit desktop optfeature toolchain-funcs xdg
 
 DESCRIPTION="The Mullvad Browser is developed to minimize tracking and fingerprinting."
-HOMEPAGE="https://github.com/mullvad/mullvad-browser https://mullvad.net/"
-SRC_URI="https://github.com/mullvad/mullvad-browser/releases/download/${PV}/mullvad-browser-linux-x86_64-${PV}.tar.xz"
+HOMEPAGE="https://github.com/mullvad/mullvad-browser/ https://mullvad.net/"
+SRC_URI="https://github.com/mullvad/mullvad-browser/releases/download/${PV}/mullvad-browser-linux-x86_64-${PV}.tar.xz -> ${P}.tar.xz"
 
 S="${WORKDIR}"
 LICENSE="MPL-2.0"
@@ -15,8 +15,6 @@ SLOT="0"
 KEYWORDS="-* ~amd64"
 
 IUSE="X"
-
-RESTRICT="bindist mirror test strip"
 
 RDEPEND="
 	app-accessibility/at-spi2-core
@@ -50,14 +48,14 @@ QA_PREBUILT="*"
 
 src_install() {
 	# Install profiles to home dir
-	touch "${S}"/mullvad-browser/Browser/is-packaged-app || die
+	touch mullvad-browser/Browser/is-packaged-app || die
 
 	# Fix desktop file vars
 	sed -i \
-		-e "s|Name=.*|Name=Mullvad Browser|g" \
-		-e "s|Exec=.*|Exec=/opt/mullvad-browser/Browser/start-mullvad-browser --detach|g" \
-		-e "s|Icon=.*|Icon=mullvad-browser|g" \
-		"${S}"/mullvad-browser/start-mullvad-browser.desktop || die
+		-e 's|Name=.*|Name=Mullvad Browser|g' \
+		-e 's|Exec=.*|Exec=/opt/mullvad-browser/Browser/start-mullvad-browser --detach|g' \
+		-e 's|Icon=.*|Icon=mullvad-browser|g' \
+		mullvad-browser/start-mullvad-browser.desktop || die
 
 	# Install shim for X11. Browser doesn't seem to launch without it, see upstream issue:
 	# https://gitlab.torproject.org/tpo/applications/tor-browser-build/-/issues/40565
@@ -68,25 +66,25 @@ src_install() {
 		      void gdk_wayland_display_get_wl_compositor() { abort(); }
 		      void gdk_wayland_device_get_wl_pointer() { abort(); }
 		      void gdk_wayland_window_get_wl_surface() { abort(); }
-		      void gdk_wayland_display_get_wl_display() { abort(); }" > "${S}"/X11shim.c
-		$(tc-getCC) -shared -o "${S}"/mullvad-browser/X11shim.so "${S}"/X11shim.c || die
-		sed -i '1iexport LD_PRELOAD=/opt/mullvad-browser/X11shim.so' "${S}"/mullvad-browser/Browser/start-mullvad-browser
+		      void gdk_wayland_display_get_wl_display() { abort(); }" > X11shim.c || die
+		$(tc-getCC) -shared -o mullvad-browser/X11shim.so X11shim.c || die
+		sed -i '1iexport LD_PRELOAD=/opt/mullvad-browser/X11shim.so' mullvad-browser/Browser/start-mullvad-browser  || die
 	fi
 
 	insinto /opt/
-	doins -r "${S}"/mullvad-browser
+	doins -r mullvad-browser
 
-	dosym "../../opt/mullvad-browser/Browser/start-mullvad-browser" /usr/bin/${PN}
-	domenu "${S}"/mullvad-browser/start-mullvad-browser.desktop
+	dosym ../../opt/mullvad-browser/Browser/start-mullvad-browser /usr/bin/${PN}
+	domenu mullvad-browser/start-mullvad-browser.desktop
 	local x
 	for x in 16 32 48 64 128; do
-		newicon -s ${x} "${S}"/mullvad-browser/Browser/browser/chrome/icons/default/default${x}.png mullvad-browser.png
+		newicon -s ${x} mullvad-browser/Browser/browser/chrome/icons/default/default${x}.png mullvad-browser.png
 	done
 
-	fperms 755 "/opt/mullvad-browser/Browser/abicheck"
-	fperms +x "/opt/mullvad-browser/Browser/start-mullvad-browser"
-	fperms +x "/opt/mullvad-browser/Browser/mullvadbrowser"
-	fperms +x "/opt/mullvad-browser/Browser/mullvadbrowser.real"
+	fperms 755 /opt/mullvad-browser/Browser/abicheck
+	fperms +x /opt/mullvad-browser/Browser/start-mullvad-browser
+	fperms +x /opt/mullvad-browser/Browser/mullvadbrowser
+	fperms +x /opt/mullvad-browser/Browser/mullvadbrowser.real
 }
 
 pkg_postinst() {
