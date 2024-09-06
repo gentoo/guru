@@ -4,9 +4,6 @@
 	<longdescription lang="en">
 		The Gnome Encfs Manager is an easy to use manager and mounter for encfs stashes featuring per-stash configuration, Gnome Keyring support, a tray menu inspired by Cryptkeeper but using the AppIndicator API and lots of unique features.
 	</longdescription>
-	<use lang="en">
-		<flag name="appindicator">Build in support for notifications using the libindicate or libappindicator plugin</flag>
-	</use>
 	<maintainer type="person">
 		<email>pascal.jaeger@leimstift.de</email>
 		<name>Pascal Jäger</name>

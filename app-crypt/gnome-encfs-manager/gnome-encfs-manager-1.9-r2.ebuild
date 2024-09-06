@@ -1,4 +1,4 @@
-# Copyright 2019-2023 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,6 @@ SRC_URI="https://launchpad.net/gencfsm/trunk/${PV}/+download/${PN}_${PV}.tar.xz 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+appindicator"
 
 DEPEND="
 	gnome-base/dconf
@@ -21,7 +20,6 @@ DEPEND="
 	app-crypt/libsecret
 	x11-libs/libICE
 	dev-libs/glib:2
-	dev-libs/libappindicator:3
 	dev-libs/libgee:0.8=
 	x11-libs/gtk+:3
 	x11-libs/libSM
@@ -31,7 +29,6 @@ BDEPEND="
 	$(vala_depend)
 	dev-build/libtool
 	>=dev-build/automake-1.11
-	appindicator? ( dev-libs/libappindicator )
 	x11-libs/gtk+:3
 	>=dev-libs/glib-2
 	gnome-base/gnome-keyring
@@ -48,18 +45,6 @@ src_prepare() {
 }
 
 src_configure() {
-	local conf
-	./autogen.sh
-	if ! use appindicator; then
-		conf+=" --disable-appindicator"
-	fi
-	econf  ${conf}
-}
-
-pkg_postinst() {
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
+	./autogen.sh || die
+	econf --disable-appindicator
 }
