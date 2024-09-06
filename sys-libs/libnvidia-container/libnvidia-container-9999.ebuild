@@ -15,12 +15,14 @@ if [[ "${PV}" == "9999" ]] ; then
 else
 	SRC_URI="
 		https://github.com/NVIDIA/${PN}/archive/v${PV/_rc/-rc.}.tar.gz -> ${P}.tar.gz
-		https://github.com/NVIDIA/nvidia-modprobe/archive/${NVMODV}.tar.gz -> ${PN}-nvidia-modprobe-${NVMODV}.tar.gz
 	"
 	S="${WORKDIR}/${PN}-${PV/_rc/-rc.}"
-	NVMODS="${WORKDIR}/nvidia-modprobe-${NVMODV}"
 	KEYWORDS="~amd64"
 fi
+NVMODS="${WORKDIR}/nvidia-modprobe-${NVMODV}"
+SRC_URI+="
+	https://github.com/NVIDIA/nvidia-modprobe/archive/${NVMODV}.tar.gz -> ${PN}-nvidia-modprobe-${NVMODV}.tar.gz
+"
 
 LICENSE="Apache-2.0"
 SLOT="0/${PV}"
@@ -50,6 +52,13 @@ PATCHES=(
 
 DOCS=( COPYING COPYING.LESSER LICENSE NOTICE README.md)
 
+src_unpack() {
+	default_src_unpack
+	if [[ "${PV}" == "9999" ]] ; then
+		git-r3_src_unpack
+	fi
+}
+
 src_prepare() {
 	# nvidia-modprobe patching based on libnvidia-container/mk/nvidia-modprobe.mk
 	mkdir -p "${S}"/deps/src/nvidia-modprobe-"${NVMODV}" || die
@@ -69,10 +78,7 @@ src_compile() {
 	emake \
 		CGO_CFLAGS="${CFLAGS}" \
 		CGO_LDFLAGS="${LDFLAGS}" \
-		GO_LDFLAGS="-compressdwarf=false -linkmode=external" \
-		REVISION="${PV}" \
-		LIB_VERSION="${MY_LIB_VERSION}" \
-		LIB_TAG="${MY_LIB_TAG}"
+		GO_LDFLAGS="-compressdwarf=false -linkmode=external"
 }
 
 src_install() {
@@ -80,9 +86,6 @@ src_install() {
 		CGO_CFLAGS="${CFLAGS}" \
 		CGO_LDFLAGS="${LDFLAGS}" \
 		GO_LDFLAGS="-compressdwarf=false -linkmode=external" \
-		REVISION="${PV}" \
-		LIB_VERSION="${MY_LIB_VERSION}" \
-		LIB_TAG="${MY_LIB_TAG}" \
 		DESTDIR="${D}" \
 		install
 	# Install docs
