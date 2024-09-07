@@ -457,6 +457,8 @@ IUSE="git"
 
 DEPEND="
 	dev-libs/openssl:=
+	dev-libs/libsodium:=
+	app-arch/zstd
 	git? ( dev-libs/libgit2:= )
 "
 RDEPEND="${DEPEND}"
