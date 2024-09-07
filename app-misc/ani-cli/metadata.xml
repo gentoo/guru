@@ -2,16 +2,16 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
+		<email>strdenis02@gmail.com</email>
+		<name>Denis Strizhkin</name>
+	</maintainer>
+	<maintainer type="person">
 		<email>j327aq10@anonaddy.me</email>
 		<description>Primary maintainer</description>
 	</maintainer>
 	<maintainer type="person">
 		<email>med.anis.jbara.2000@gmail.com</email>
 		<description>Primary maintainer</description>
-	</maintainer>
-	<maintainer type="person">
-		<email>strdenis02@gmail.com</email>
-		<name>Denis Strizhkin</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="github">pystardust/ani-cli</remote-id>
