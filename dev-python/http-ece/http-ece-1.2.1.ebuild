@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 DISTUTILS_USE_PEP517=setuptools
 # TODO re-enable pypi when it is available on there
 # <https://github.com/web-push-libs/encrypted-content-encoding/issues/79>
@@ -24,6 +24,8 @@ KEYWORDS="~amd64"
 
 RDEPEND="dev-python/cryptography[${PYTHON_USEDEP}]"
 
-RESTRICT="test" # tests seem to be broken, further investigation advised
-
 distutils_enable_tests pytest
+
+python_test() {
+	epytest -o addopts=
+}
