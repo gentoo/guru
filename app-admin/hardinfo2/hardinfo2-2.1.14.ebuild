@@ -44,6 +44,7 @@ BDEPEND="virtual/pkgconfig"
 src_configure() {
 	local mycmakeargs=(
 		-DHARDINFO2_GTK3=$(usex gtk3)
+		-DHARDINFO2_QT5=0
 	)
 	cmake_src_configure
 }
