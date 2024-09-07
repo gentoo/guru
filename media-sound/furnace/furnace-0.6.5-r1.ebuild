@@ -22,6 +22,7 @@ IUSE="jack"
 RDEPEND="
 	dev-libs/libfmt
 	media-libs/alsa-lib
+	media-libs/freetype
 	media-libs/libglvnd
 	media-libs/libsdl2
 	media-libs/libsndfile
