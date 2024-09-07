@@ -18,6 +18,26 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-09-07)
+# gevent never has been built successfully.
+# Removing reverse dependency and its dependencies as well.
+# Removal on 2024-10-07. Bugs #923266, #927808.
+dev-python/gevent
+app-misc/vocabsieve
+dev-python/simplemma
+dev-python/pystardict
+dev-python/pymorphy3
+dev-python/pymorphy3-dicts-ru
+dev-python/pymorphy3-dicts-uk
+dev-python/pyqtdarktheme
+dev-python/EbookLib
+dev-python/sentence-splitter
+dev-python/mobi
+dev-python/SLPP
+dev-python/markdownify
+dev-python/readmdict
+dev-python/pynput
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-09-06)
 # Depends on dev-libs/libappindicator and is unmaintained in guru.
 # Removal on 2024-10-06.
