@@ -388,8 +388,8 @@ CRATES="
 	zvariant_utils@1.1.0
 "
 
-PYTHON_COMPAT=( python3_{11..12} )
-inherit cargo gnome2-utils meson python-any-r1
+PYTHON_COMPAT=( python3_{11..13} )
+inherit cargo gnome2-utils meson python-any-r1 flag-o-matic
 
 DESCRIPTION="Fast and secure file transfer"
 HOMEPAGE="
@@ -439,6 +439,8 @@ src_prepare() {
 }
 
 src_configure() {
+	filter-lto
+
 	local emesonargs=(
 		$(meson_feature qrcode qr-code-scanning)
 	)
