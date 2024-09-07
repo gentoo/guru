@@ -1,9 +1,9 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 PYTHON_REQ_USE="xml(+)"
 DISTUTILS_USE_PEP517=setuptools
 
@@ -47,12 +47,22 @@ DOCS=( doc {CHANGELOG,CONTRIBUTING,INSTALL,README}.md )
 
 distutils_enable_tests unittest
 
+python_prepare_all() {
+	sed -i '/data_files/d' setup.py || die
+	distutils-r1_python_prepare_all
+}
+
 src_test() {
 	# Double sandboxing is not possible
 	if ! has usersandbox ${FEATURES}; then
 		distutils-r1_src_test
 	fi
 	return 0
+}
+
+python_install_all() {
+	distutils-r1_python_install_all
+	doman doc/mat2.1
 }
 
 pkg_postinst() {
