@@ -41,7 +41,10 @@ src_compile() {
 
 src_install() {
 	# Fixed by https://github.com/vizv
+	dobin "nvidia-cdi-hook"
 	dobin "nvidia-container-runtime"
+	dobin "nvidia-container-runtime.cdi"
+	dobin "nvidia-container-runtime.legacy"
 	dobin "nvidia-container-runtime-hook"
 	dobin "nvidia-ctk"
 	insinto "/etc/nvidia-container-runtime"
