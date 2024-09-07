@@ -13,11 +13,6 @@ HOMEPAGE="https://github.com/NVIDIA/nvidia-container-toolkit"
 if [[ "${PV}" == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/NVIDIA/${PN}.git"
 	inherit git-r3
-
-	src_unpack() {
-		git-r3_src_unpack
-		go-module_live_vendor
-	}
 else
 	SRC_URI="
 		https://github.com/NVIDIA/${PN}/archive/v${PV/_rc/-rc.}.tar.gz -> ${P}.tar.gz
