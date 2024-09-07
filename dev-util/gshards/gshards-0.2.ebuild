@@ -7,7 +7,7 @@ inherit crystal-utils multiprocessing toolchain-funcs
 
 DESCRIPTION="Small helper tools to aid installing Crystal packages in Gentoo"
 HOMEPAGE="https://git.sysrq.in/gshards/"
-SRC_URI="https://git.sysrq.in/gshards/snapshot/${P}.tar.xz"
+SRC_URI="https://git.sr.ht/~cyber/${PN}/archive/${PV}.tar.gz -> ${P}.srht.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
