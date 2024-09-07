@@ -27,6 +27,7 @@ RESTRICT="!test? ( test )"
 
 DEPEND="
 	acct-user/gemini
+	dev-libs/imsg-compat
 	dev-libs/libevent:=
 	dev-libs/openssl:=
 	!elibc_Darwin? ( dev-libs/libbsd )
