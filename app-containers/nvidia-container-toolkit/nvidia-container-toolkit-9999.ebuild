@@ -16,12 +16,9 @@ if [[ "${PV}" == "9999" ]] ; then
 else
 	SRC_URI="
 		https://github.com/NVIDIA/${PN}/archive/v${PV/_rc/-rc.}.tar.gz -> ${P}.tar.gz
-		https://github.com/vowstar/gentoo-go-deps/releases/download/${P}/${P}-deps.tar.xz
-		https://github.com/vowstar/gentoo-go-deps/releases/download/${P}/${P}-vendor.tar.xz
 	"
 	S="${WORKDIR}/${PN}-${PV/_rc/-rc.}"
 	KEYWORDS="~amd64"
-	RESTRICT="mirror"
 fi
 
 LICENSE="Apache-2.0"
@@ -34,12 +31,9 @@ RDEPEND="
 	sys-libs/libnvidia-container:0/${PV}
 "
 
-DEPEND="${RDEPEND}"
-
-BDEPEND="
-	app-arch/unzip
-	dev-build/make
-"
+PATCHES=(
+	"${FILESDIR}/extldflags-1.16.1.patch"
+)
 
 src_compile() {
 	emake binaries
@@ -47,7 +41,10 @@ src_compile() {
 
 src_install() {
 	# Fixed by https://github.com/vizv
+	dobin "nvidia-cdi-hook"
 	dobin "nvidia-container-runtime"
+	dobin "nvidia-container-runtime.cdi"
+	dobin "nvidia-container-runtime.legacy"
 	dobin "nvidia-container-runtime-hook"
 	dobin "nvidia-ctk"
 	insinto "/etc/nvidia-container-runtime"
