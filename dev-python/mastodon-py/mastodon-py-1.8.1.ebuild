@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 PYPI_NO_NORMALIZE=1
 PYPI_PN="Mastodon.py"
 inherit distutils-r1 optfeature pypi
@@ -43,6 +43,9 @@ EPYTEST_DESELECT=(
 	# something related to simplejson
 	tests/test_notifications.py::test_notifications_dismiss_pre_2_9_2
 	tests/test_status.py::test_status_card_pre_2_9_2
+	# requires PROPERTIES="test_network"
+	tests/test_streaming.py::test_stream_user_direct
+	tests/test_streaming.py::test_stream_user_local
 )
 
 distutils_enable_tests pytest
