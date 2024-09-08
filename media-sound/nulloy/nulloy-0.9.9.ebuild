@@ -8,9 +8,10 @@ inherit xdg
 DESCRIPTION="Music player with a waveform progress bar (sound visualization)"
 HOMEPAGE="https://nulloy.com"
 
-NAME="nulloy-theme-night-v1.0"
+THEME_VERSION=1.1.1
+NAME="nulloy-theme-night-${THEME_VERSION}"
 SRC_URI="https://github.com/nulloy/nulloy/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-	skins? ( https://gitlab.com/vitaly-zdanevich/nulloy-theme-night/-/archive/v1.0/${NAME}.tar.bz2 )"
+	skins? ( https://gitlab.com/vitaly-zdanevich/nulloy-theme-night/-/archive/${THEME_VERSION}/${NAME}.tar.bz2 )"
 
 LICENSE="GPL-3"
 SLOT="0"
