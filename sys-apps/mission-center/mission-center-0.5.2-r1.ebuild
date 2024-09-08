@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -261,16 +261,22 @@ IUSE="debug"
 
 DEPEND="
 	>=dev-libs/appstream-0.16.4
-	>=x11-libs/pango-1.51.0
-	>=dev-libs/glib-2.77
-	>=dev-util/gdbus-codegen-2.77
+	>=dev-libs/glib-2.80:2
 	dev-libs/wayland
-	>=gui-libs/libadwaita-1.4.0
-	>=gui-libs/gtk-4.12.3
 	gui-libs/egl-gbm
+	>=dev-util/gdbus-codegen-2.80
+	>=gui-libs/gtk-4.14:4
+	>=gui-libs/libadwaita-1.5.0:1
+	media-libs/graphene
+	media-libs/libglvnd
+	media-libs/mesa
+	sys-apps/dbus
 	virtual/rust
 	virtual/udev
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
 	x11-libs/libdrm
+	>=x11-libs/pango-1.51.0
 "
 RDEPEND="
 	${DEPEND}
@@ -296,7 +302,10 @@ src_prepare() {
 	eapply_user
 	GATHERER_BUILD_DIR=$(usex debug debug release)
 	cd "${BUILD_DIR}/src/sys_info_v2/gatherer/src/${GATHERER_BUILD_DIR}/build/native/nvtop-${NVTOP_COMMIT}" || die
-	find "${S}/src/sys_info_v2/gatherer/3rdparty/nvtop/patches" -type f -name 'nvtop-*' -exec sh -c 'patch -p1 < {}' \; || die
+	find "${S}/src/sys_info_v2/gatherer/3rdparty/nvtop/patches" \
+		-type f \
+		-name 'nvtop-*' \
+		-exec sh -c 'patch -p1 < {}' \; || die
 }
 
 src_configure() {

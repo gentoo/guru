@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -281,7 +281,7 @@ CRATES="
 	zerocopy@0.7.25
 "
 
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=( python3_{9..13} )
 
 PATHFINDER_COMMIT=ec56924f660e6faa83c81c6b62b3c69b9a9fa00e
 NVTOP_COMMIT=45a1796375cd617d16167869bb88e5e69c809468
@@ -319,14 +319,20 @@ IUSE="debug"
 DEPEND="
 	>=dev-libs/appstream-0.16.4
 	>=x11-libs/pango-1.51.0
-	>=dev-libs/glib-2.77
+	>=dev-libs/glib-2.77:2
 	>=dev-util/gdbus-codegen-2.77
 	dev-libs/wayland
-	>=gui-libs/libadwaita-1.4.0
-	>=gui-libs/gtk-4.12.3
+	>=gui-libs/libadwaita-1.4.0:1
+	>=gui-libs/gtk-4.12.3:4
 	gui-libs/egl-gbm
+	media-libs/graphene
+	media-libs/libglvnd
+	media-libs/mesa
+	sys-apps/dbus
 	virtual/rust
 	virtual/udev
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
 	x11-libs/libdrm
 "
 RDEPEND="
@@ -353,7 +359,10 @@ src_prepare() {
 	eapply_user
 	GATHERER_BUILD_DIR=$(usex debug debug release)
 	cd "${BUILD_DIR}/src/sys_info_v2/gatherer/src/${GATHERER_BUILD_DIR}/build/native/nvtop-${NVTOP_COMMIT}" || die
-	find "${S}/src/sys_info_v2/gatherer/3rdparty/nvtop/patches" -type f -name 'nvtop-*' -exec sh -c 'patch -p1 < {}' \; || die
+	find "${S}/src/sys_info_v2/gatherer/3rdparty/nvtop/patches" \
+		-type f \
+		-name 'nvtop-*' \
+		-exec sh -c 'patch -p1 < {}' \; || die
 }
 
 src_configure() {
@@ -373,10 +382,12 @@ src_test() {
 
 pkg_postinst() {
 	gnome2_schemas_update
+	xdg_pkg_postinst
 }
 
 pkg_postrm() {
 	gnome2_schemas_update
+	xdg_pkg_postrm
 }
 
 # rust does not use *FLAGS from make.conf, silence portage warning
