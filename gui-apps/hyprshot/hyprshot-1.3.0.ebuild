@@ -2,7 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit optfeature
 
 DESCRIPTION="Hyprshot is a utility to easily take screenshot in Hyprland using your mouse"
 HOMEPAGE="https://github.com/Gustash/Hyprshot/"
