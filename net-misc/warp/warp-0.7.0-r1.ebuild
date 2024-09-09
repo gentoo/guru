@@ -308,8 +308,8 @@ CRATES="
 	thiserror-impl@1.0.58
 	thiserror@1.0.58
 	time-core@0.1.2
-	time-macros@0.2.17
-	time@0.3.34
+	time-macros@0.2.18
+	time@0.3.36
 	tinyvec@1.6.0
 	tinyvec_macros@0.1.1
 	toml@0.8.12
@@ -418,6 +418,7 @@ DEPEND="
 	>=gui-libs/gtk-4.13:4[wayland]
 	>=gui-libs/libadwaita-1.5:1
 	qrcode? (
+		media-libs/graphene
 		>=media-libs/gstreamer-1.18:1.0
 		>=media-libs/gst-plugins-bad-1.18:1.0
 		>=media-libs/gst-plugins-base-1.18:1.0[wayland]
@@ -430,6 +431,11 @@ BDEPEND="
 	${PYTHON_DEPS}
 	dev-util/itstool
 "
+
+PATCHES=(
+	# bug 939378
+	"${FILESDIR}/${P}-rust-1.80.patch"
+)
 
 QA_FLAGS_IGNORED="usr/bin/warp"
 
