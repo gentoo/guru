@@ -455,12 +455,13 @@ KEYWORDS="~amd64"
 IUSE="git"
 
 DEPEND="
-	dev-libs/openssl:=
-	dev-libs/libsodium:=
 	app-arch/zstd
+	dev-libs/libsodium:=
+	dev-libs/openssl:=
 	git? ( dev-libs/libgit2:= )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 QA_FLAGS_IGNORED="usr/bin/pijul"
 
