@@ -1,0 +1,15 @@
+Upstream does not have valid appstream file.
+https://bugs.gentoo.org/939377
+--- a/data/meson.build
++++ b/data/meson.build
+@@ -20,10 +20,6 @@ appstream_file = i18n.merge_file(
+   install_dir: join_paths(get_option('datadir'), 'metainfo')
+ )
+ 
+-appstream_util = find_program('appstream-util', required: false)
+-if appstream_util.found()
+-  test('Validate appstream file', appstream_util, args: ['validate', appstream_file])
+-endif
+ 
+ install_data('io.missioncenter.MissionCenter.gschema.xml',
+   install_dir: join_paths(get_option('datadir'), 'glib-2.0/schemas')

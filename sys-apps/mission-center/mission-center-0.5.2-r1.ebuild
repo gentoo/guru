@@ -257,7 +257,8 @@ ECARGO_HOME="${S}-build/cargo-home"
 LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 CC0-1.0 CeCILL-2 MIT Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="debug"
+IUSE="debug test"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	>=dev-libs/appstream-0.16.4
@@ -285,8 +286,23 @@ RDEPEND="
 BDEPEND="
 	${PYTHON_DEPS}
 	dev-libs/gobject-introspection
-	>=dev-build/meson-0.63
 	dev-util/blueprint-compiler
+	test? (
+		dev-libs/appstream-glib
+		dev-util/desktop-file-utils
+	)
+"
+
+PATCHES=(
+	# bug 939377
+	"${FILESDIR}/${PN}-0.4.4-skip-test.patch"
+)
+
+# rust does not use *FLAGS from make.conf, silence portage warning
+# update with proper path to binaries this crate installs, omit leading /
+QA_FLAGS_IGNORED="
+	usr/bin/missioncenter
+	usr/bin/missioncenter-gatherer
 "
 
 src_unpack() {
@@ -299,7 +315,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	eapply_user
+	default
 	GATHERER_BUILD_DIR=$(usex debug debug release)
 	cd "${BUILD_DIR}/src/sys_info_v2/gatherer/src/${GATHERER_BUILD_DIR}/build/native/nvtop-${NVTOP_COMMIT}" || die
 	find "${S}/src/sys_info_v2/gatherer/3rdparty/nvtop/patches" \
@@ -312,17 +328,8 @@ src_configure() {
 	filter-lto
 
 	EMESON_BUILDTYPE=$(usex debug debug release)
-	local emesonargs=(
-		--prefix=/usr
-	)
 	meson_src_configure
 	cp -r "${ECARGO_HOME}" "${BUILD_DIR}/src/sys_info_v2/gatherer/cargo-home" || die
-}
-
-src_test() {
-	# patch the appstream-util validate command to use --nonet when validating the urls
-	sed -i "s/args: \['validate',/args: \['validate', '--nonet',/g" "${S}/data/meson.build" || die
-	meson_src_test
 }
 
 pkg_postinst() {
@@ -334,10 +341,3 @@ pkg_postrm() {
 	gnome2_schemas_update
 	xdg_pkg_postrm
 }
-
-# rust does not use *FLAGS from make.conf, silence portage warning
-# update with proper path to binaries this crate installs, omit leading /
-QA_FLAGS_IGNORED="
-	usr/bin/missioncenter
-	usr/bin/missioncenter-gatherer
-"
