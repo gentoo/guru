@@ -439,20 +439,19 @@ inherit cargo
 
 DESCRIPTION="A distributed version control system based on a theory of patches"
 HOMEPAGE="https://pijul.org/ https://nest.pijul.com/pijul/pijul"
-SRC_URI="
-	$(cargo_crate_uris)
-"
+SRC_URI="${CARGO_CRATE_URIS}"
+
+# We get the sources from one of the crates, as the Pijul source is
+# managed with Pijul on nest.pijul.com - we obviously can't clone it
+# (because we'd need a working pijul binary to do that), and the Nest
+# doesn't support exporting archives (yet).
+S="${ECARGO_VENDOR}/${PN}-${MY_PIJUL_PV}"
 
 LICENSE="GPL-2+"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0 BSD-2 BSD CC0-1.0 MIT Unicode-DFS-2016 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-# We get the sources from one of the crates, as the Pijul source is
-# managed with Pijul on nest.pijul.com - we obviously can't clone it
-# (because we'd need a working pijul binary to do that), and the Nest
-# doesn't support exporting archives (yet).
-S="${WORKDIR}/cargo_home/gentoo/${PN}-${MY_PIJUL_PV}"
 IUSE="git"
 
 DEPEND="
