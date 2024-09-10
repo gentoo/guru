@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Jonas Frei</name>
+		<email>freijon@pm.me</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">JakeStanger/ironbar</remote-id>
+		<bugs-to>https://github.com/JakeStanger/ironbar/issues</bugs-to>
+	</upstream>
+	<use>
+		<flag name="cairo">Enables the cairo module</flag>
+		<flag name="http">Enables HTTP features</flag>
+		<flag name="music">Enables the music module</flag>
+		<flag name="volume">Enables the volume module</flag>
+	</use>
+</pkgmetadata>
