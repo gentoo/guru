@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=TIDAL Hi-Fi
+Type=Application
+Comment=Web version of Tidal running in electron with Hi-Fi support thanks to Widevine.
+Exec=/usr/bin/tidal-hifi @exec_extra_flags@
+Icon=tidal-hifi
+Categories=Network;AudioVideo;Audio;Video;
+StartupWMClass=tidal-hifi
+X-PulseAudio-Properties=media.role=music
+MimeType=x-scheme-handler/tidal;
