@@ -19,13 +19,6 @@ KEYWORDS="~amd64"
 
 RDEPEND="virtual/jdk"
 
-# WORKAROUND: Overload function to nullify blocking QA check.
-# To be deleted after resolution of
-# https://bugs.gentoo.org/937642
-_distutils-r1_post_python_install() {
-	local keep
-}
-
 src_prepare() {
 	sed -i "s/'-g0', //g;s/, '-O2'//g"  "${S}"/setupext/platform.py || die
 	default
