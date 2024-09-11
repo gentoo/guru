@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-09-11)
+# Dead upstream and no revdeps left.
+# Removal on 2024-10-11.
+dev-libs/qhttpengine
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-09-07)
 # gevent never has been built successfully.
 # Removing reverse dependency and its dependencies as well.
