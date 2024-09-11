@@ -20,6 +20,7 @@ LICENSE="GPL-2"
 SLOT="0"
 
 RDEPEND="
+	app-arch/lz4
 	dev-libs/glib
 	dev-libs/libayatana-appindicator
 	x11-libs/cairo
