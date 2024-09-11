@@ -12,7 +12,7 @@ DESCRIPTION="Automatic CPU speed & power optimizer for Linux"
 HOMEPAGE="https://github.com/AdnanHodzic/auto-cpufreq"
 SRC_URI="https://github.com/AdnanHodzic/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3"
+LICENSE="LGPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 
