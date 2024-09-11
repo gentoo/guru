@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -37,15 +37,16 @@ LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="
-	dev-libs/qhttpengine:5
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtsql:5
+	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
-	media-video/mpv[libmpv]
+	media-video/mpv:=[libmpv]
 	net-misc/aria2
+	sys-libs/zlib
 "
 
 DEPEND="
