@@ -28,7 +28,7 @@ else
 		https://github.com/KikoPlayProject/${GIT_SCRIPT_PN}/archive/${GIT_SCRIPT_PV}.tar.gz \
 		    -> kikoplayscript-${GIT_SCRIPT_PV}.tar.gz
 	"
-	KEYWORDS="~amd64 ~arm ~m68k ~mips ~ppc ~ppc64 ~x86"
+	KEYWORDS="~amd64 ~arm ~m68k ~ppc ~ppc64 ~x86"
 	S="${WORKDIR}/${GIT_PN}-${PV}"
 	S_SCRIPT="${WORKDIR}/${GIT_SCRIPT_PN}-${GIT_SCRIPT_PV}"
 fi
