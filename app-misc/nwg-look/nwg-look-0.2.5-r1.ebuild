@@ -1,12 +1,13 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DESCRIPTION="GTK3 settings editor adapted to work in the sway / wlroots environment"
 HOMEPAGE="https://github.com/nwg-piotr/nwg-look"
-SRC_URI="https://github.com/nwg-piotr/nwg-look/archive/refs/tags/v${PV}.tar.gz -> nwg-look-${PV}.tar.gz
-				https://github.com/micielski/nwg-look-vendor/releases/download/${PV}/nwg-look-${PV}-vendor.tar.xz
+SRC_URI="
+	https://github.com/nwg-piotr/nwg-look/archive/refs/tags/v${PV}.tar.gz -> nwg-look-${PV}.tar.gz
+	https://github.com/micielski/nwg-look-vendor/releases/download/${PV}/nwg-look-${PV}-vendor.tar.xz
 "
 
 inherit go-module xdg desktop
@@ -16,6 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+	dev-libs/glib
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/harfbuzz
