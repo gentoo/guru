@@ -27,7 +27,7 @@ SLOT="0"
 BDEPEND="virtual/pkgconfig"
 DEPEND="
 	>=app-arch/zstd-1.5.5:=
-	>=dev-libs/libgit2-1.7.2:=
+	=dev-libs/libgit2-1.8*:0/1.8
 	dev-libs/openssl
 	net-libs/libssh2:=
 	sys-libs/zlib
