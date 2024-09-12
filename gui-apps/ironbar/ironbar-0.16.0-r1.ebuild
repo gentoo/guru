@@ -448,7 +448,7 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="cairo http music volume"
+IUSE="cairo +http +music +volume"
 
 DEPEND="
 	x11-libs/gtk+:3=[wayland]
