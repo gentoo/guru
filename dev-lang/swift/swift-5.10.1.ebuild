@@ -113,6 +113,13 @@ src_unpack() {
 		|| die
 }
 
+src_configure() {
+	default
+
+	# Necessary to respect PYTHON_SINGLE_TARGET, if defined.
+	python_setup
+}
+
 src_compile() {
 	# The Swift 5.10 compiler is partially written in Swift itself (the new
 	# `swift-driver` + macro support via `swift-syntax`), which requires
