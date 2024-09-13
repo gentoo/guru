@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..13} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit distutils-r1
 
 DESCRIPTION="Abstraction layer for xpyb"
@@ -15,6 +15,8 @@ SRC_URI="https://github.com/BurntSushi/xpybutil/archive/refs/tags/${PV}.tar.gz
 LICENSE="WTFPL"
 SLOT="0"
 KEYWORDS="~amd64"
+
+RDEPEND=">=dev-python/xcffib-1.5.0[${PYTHON_USEDEP}]"
 
 python_prepare_all() {
 	sed -i -e "s:share/doc/xpybutil:share/doc/xpybutil-${PV}:" setup.py || die
