@@ -4,8 +4,8 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..13} )
-inherit distutils-r1
+PYTHON_COMPAT=( python3_{10..13} )
+inherit distutils-r1 virtualx
 
 DESCRIPTION="Multi-platform system-wide hotkeys"
 HOMEPAGE="https://github.com/timeyyy/system_hotkey"
@@ -17,6 +17,17 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 # TODO this depends on xpybutil
-RDEPEND=">=dev-python/xcffib-1.5.0"
+RDEPEND=">=dev-python/xcffib-1.5.0[${PYTHON_USEDEP}]
+		 >=dev-python/xpybutil-0.0.6[${PYTHON_USEDEP}]
+		 >=dev-python/pytest-xvfb-3.0.0[${PYTHON_USEDEP}]"
 
-distutils_enable_tests unittest
+PATCHES=(
+	# Fix for unit test
+	"${FILESDIR}/${P}-fix-collections-iterable.patch"
+)
+
+distutils_enable_tests pytest
+
+src_test() {
+	virtx distutils-r1_src_test
+}

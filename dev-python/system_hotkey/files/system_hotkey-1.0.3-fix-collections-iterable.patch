@@ -1,0 +1,15 @@
+system_hotkey was written for a previous version of Python that had
+collections.Iterable available. That moved under collections.abc in a
+later release.
+
+--- a/system_hotkey/system_hotkey.py
++++ b/system_hotkey/system_hotkey.py
+@@ -281,7 +281,7 @@ class MixIn():
+ 
+         thread safe
+         '''
+-        assert isinstance(hotkey, collections.Iterable) and type(hotkey) not in (str, bytes)
++        assert isinstance(hotkey, collections.abc.Iterable) and type(hotkey) not in (str, bytes)
+         if self.consumer == 'callback' and not callback:
+             raise TypeError('Function register requires callback argument in non sonsumer mode')
+ 
