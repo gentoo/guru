@@ -52,7 +52,7 @@ RDEPEND="
 	libass? ( media-libs/libass:0= )
 	libusb? ( virtual/libusb:1= )
 	openal? ( media-libs/openal:0= )
-	opengl? ( media-libs/mesa:0=[gles2?] )
+	opengl? ( media-libs/mesa:0=[gles2(+)?] )
 	osmesa? ( media-libs/mesa:0=[osmesa?] )
 	pulseaudio? ( media-libs/libpulse:0= )
 	sdl? ( >=media-libs/libsdl-1.2.10:0=[joystick] )
