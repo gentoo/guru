@@ -6,7 +6,7 @@
 		<name>Vitaly Zdanevich</name>
 	</maintainer>
 	<use>
-		<flag name="skins">Add a few themes, enable if you want dark</flag>
+		<flag name="skins">Without this flag - you can choose qt5 themes not only for preferences</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">nulloy/nulloy</remote-id>
