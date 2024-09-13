@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..13} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit distutils-r1
 
 DESCRIPTION="Advanced multi monitor wallpaper manager"
@@ -16,10 +16,10 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND=">=dev-python/wxpython-4.0
-		>=dev-python/pillow-7.0.0
-		>=dev-python/screeninfo-0.6.1
-		>=dev-python/numpy-1.18.0
-		>=dev-python/system_hotkey-1.0
-		>=dev-python/xcffib-0.8.0
-		>=dev-python/xpybutil-0.0.5"
+RDEPEND=">=dev-python/wxpython-4.0[${PYTHON_USEDEP}]
+		>=dev-python/pillow-7.0.0[${PYTHON_USEDEP}]
+		>=dev-python/screeninfo-0.6.1[${PYTHON_USEDEP}]
+		>=dev-python/numpy-1.18.0[${PYTHON_USEDEP}]
+		>=dev-python/system_hotkey-1.0[${PYTHON_USEDEP}]
+		>=dev-python/xcffib-0.8.0[${PYTHON_USEDEP}]
+		>=dev-python/xpybutil-0.0.5[${PYTHON_USEDEP}]"
