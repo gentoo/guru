@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -33,25 +33,6 @@ DEPEND="
 	media-gfx/imagemagick[svg]
 "
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	git-r3_src_unpack
-
-	if use skins ; then
-		EGIT_REPO_URI=https://gitlab.com/vitaly-zdanevich/nulloy-theme-night.git
-		EGIT_CHECKOUT_DIR="${WORKDIR}/night"
-		git-r3_src_unpack
-	fi
-}
-
-src_prepare() {
-	default
-
-	if use skins ; then
-		eapply "${FILESDIR}/add-dark-theme.patch"
-		cp -r "${WORKDIR}/night" src/skins
-	fi
-}
 
 src_configure() {
 	# Upstream ./configure script does not support specifying an option's
