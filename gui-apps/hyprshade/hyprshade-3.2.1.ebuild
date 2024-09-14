@@ -26,6 +26,7 @@ SLOT="0"
 RDEPEND="
 	${PYTHON_DEPS}
 	dev-python/chevron
+	dev-python/click
 	gui-wm/hyprland
 "
 
