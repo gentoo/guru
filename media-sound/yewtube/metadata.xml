@@ -6,7 +6,7 @@
 		<name>Gonçalo Negrier Duarte</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="pypi">mps-youtube</remote-id>
-		<remote-id type="github">mps-youtube/mps-youtube</remote-id>
+		<remote-id type="pypi">yewtube</remote-id>
+		<remote-id type="github">mps-youtube/yewtube</remote-id>
 	</upstream>
 </pkgmetadata>

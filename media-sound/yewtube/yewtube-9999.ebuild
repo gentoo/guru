@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
 
 IUSE="test"
@@ -27,11 +27,12 @@ RDEPEND="
 	media-video/ffmpeg
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/pyperclip[${PYTHON_USEDEP}]
-	net-misc/yt-dlp
-	dev-python/youtube-search-python
+	net-misc/yt-dlp[${PYTHON_USEDEP}]
+	dev-python/youtube-search-python[${PYTHON_USEDEP}]
 	dev-python/pylast[${PYTHON_USEDEP}]
 	dev-python/pip[${PYTHON_USEDEP}]
 	dev-python/pipenv[${PYTHON_USEDEP}]
+	dev-python/setuptools[${PYTHON_USEDEP}]
 	|| ( media-video/mplayer media-video/mpv )
 "
 
@@ -43,6 +44,13 @@ DEPEND="
 "
 
 distutils_enable_tests pytest
+
+src_prepare() {
+	# bug #939186
+	sed -i 's/from pip\._vendor //' mps_youtube/__init__.py || die
+
+	distutils-r1_src_prepare
+}
 
 src_compile() {
 	distutils-r1_src_compile --build-dir "${WORKDIR}/${P}"
