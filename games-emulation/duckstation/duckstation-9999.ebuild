@@ -13,7 +13,7 @@ EGIT_SUBMODULES=()
 
 S="${WORKDIR}/${PN}"
 
-LICENSE="GPL-3"
+LICENSE="CC-BY-NC-ND-4.0"
 SLOT="0"
 IUSE="+dbus discord +egl +evdev fbdev +gamepad gbm +nogui qt6 retroachievements wayland X"
 
