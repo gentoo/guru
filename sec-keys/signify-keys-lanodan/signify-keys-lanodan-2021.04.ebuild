@@ -11,10 +11,10 @@ S="${WORKDIR}"
 
 LICENSE="public-domain"
 SLOT="${MY_PV}"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 src_install() {
-	local files=( ${A} )
+	local files=(${A})
 
 	insinto /usr/share/signify-keys
 	newins - ${P}.pub < <(cat "${files[@]/#/${DISTDIR}/}" || die)
