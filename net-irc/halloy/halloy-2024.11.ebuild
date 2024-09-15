@@ -13,8 +13,8 @@ CRATES="
 	aho-corasick@1.1.3
 	aliasable@0.1.3
 	allocator-api2@0.2.18
-	alsa@0.9.0
 	alsa-sys@0.3.1
+	alsa@0.9.0
 	android-activity@0.6.0
 	android-properties@0.2.2
 	android-tzdata@0.1.1
@@ -50,9 +50,9 @@ CRATES="
 	bit_field@0.10.2
 	bitflags@1.3.2
 	bitflags@2.6.0
-	block@0.1.6
 	block-buffer@0.10.4
 	block2@0.5.1
+	block@0.1.6
 	blocking@1.6.1
 	bumpalo@3.16.0
 	by_address@1.2.1
@@ -61,10 +61,10 @@ CRATES="
 	byteorder@1.5.0
 	bytes@1.7.1
 	bytesize@1.3.0
-	calloop@0.12.4
-	calloop@0.13.0
 	calloop-wayland-source@0.2.0
 	calloop-wayland-source@0.3.0
+	calloop@0.12.4
+	calloop@0.13.0
 	cc@1.1.13
 	cesu8@1.1.0
 	cexpr@0.6.0
@@ -87,10 +87,10 @@ CRATES="
 	concurrent-queue@2.5.0
 	const_format@0.2.32
 	const_format_proc_macros@0.2.32
-	core-foundation@0.9.4
 	core-foundation-sys@0.8.7
-	core-graphics@0.23.2
+	core-foundation@0.9.4
 	core-graphics-types@0.1.3
+	core-graphics@0.23.2
 	coreaudio-rs@0.11.3
 	coreaudio-sys@0.2.15
 	cosmic-text@0.12.1
@@ -111,18 +111,18 @@ CRATES="
 	deranged@0.3.11
 	detect-desktop-environment@0.2.0
 	digest@0.10.7
-	dirs@4.0.0
 	dirs-next@2.0.0
-	dirs-sys@0.3.7
 	dirs-sys-next@0.1.2
+	dirs-sys@0.3.7
+	dirs@4.0.0
 	dispatch@0.2.0
 	dlib@0.5.2
 	dlv-list@0.3.0
 	downcast-rs@1.2.1
-	drm@0.12.0
 	drm-ffi@0.8.0
 	drm-fourcc@2.2.0
 	drm-sys@0.7.0
+	drm@0.12.0
 	either@1.13.0
 	embed-resource@2.4.3
 	encoding_rs@0.8.34
@@ -134,8 +134,8 @@ CRATES="
 	error-code@3.2.0
 	etagere@0.2.13
 	euclid@0.22.10
-	event-listener@5.3.1
 	event-listener-strategy@0.5.2
+	event-listener@5.3.1
 	exr@1.72.0
 	fast-socks5@0.9.6
 	fast-srgb8@1.0.0
@@ -148,13 +148,12 @@ CRATES="
 	font-types@0.6.0
 	fontconfig-parser@0.5.7
 	fontdb@0.16.2
-	foreign-types@0.3.2
-	foreign-types@0.5.0
 	foreign-types-macros@0.2.3
 	foreign-types-shared@0.1.1
 	foreign-types-shared@0.3.1
+	foreign-types@0.3.2
+	foreign-types@0.5.0
 	form_urlencoded@1.2.1
-	futures@0.3.30
 	futures-channel@0.3.30
 	futures-core@0.3.30
 	futures-executor@0.3.30
@@ -164,6 +163,7 @@ CRATES="
 	futures-sink@0.3.30
 	futures-task@0.3.30
 	futures-util@0.3.30
+	futures@0.3.30
 	generic-array@0.14.7
 	gethostname@0.4.3
 	getrandom@0.2.15
@@ -174,11 +174,11 @@ CRATES="
 	glob@0.3.1
 	glow@0.13.1
 	glutin_wgl_sys@0.5.0
-	gpu-alloc@0.6.0
 	gpu-alloc-types@0.3.0
+	gpu-alloc@0.6.0
 	gpu-allocator@0.25.0
-	gpu-descriptor@0.2.4
 	gpu-descriptor-types@0.1.2
+	gpu-descriptor@0.2.4
 	guillotiere@0.6.2
 	h2@0.4.5
 	half@2.4.1
@@ -191,16 +191,16 @@ CRATES="
 	hex@0.4.3
 	hexf-parse@0.2.1
 	hound@3.5.1
-	http@1.1.0
-	http-body@1.0.1
 	http-body-util@0.1.2
+	http-body@1.0.1
+	http@1.1.0
 	httparse@1.9.4
-	hyper@1.4.1
 	hyper-rustls@0.27.2
 	hyper-tls@0.6.0
 	hyper-util@0.1.7
-	iana-time-zone@0.1.60
+	hyper@1.4.1
 	iana-time-zone-haiku@0.1.2
+	iana-time-zone@0.1.60
 	idna@0.5.0
 	image@0.24.9
 	indexmap@2.4.0
@@ -214,8 +214,8 @@ CRATES="
 	itertools@0.12.1
 	itertools@0.13.0
 	itoa@1.0.11
-	jni@0.21.1
 	jni-sys@0.3.0
+	jni@0.21.1
 	jobserver@0.1.32
 	jpeg-decoder@0.3.1
 	js-sys@0.3.70
@@ -252,11 +252,11 @@ CRATES="
 	mutate_once@0.1.1
 	naga@0.19.2
 	native-tls@0.2.12
-	ndk@0.8.0
-	ndk@0.9.0
 	ndk-context@0.1.1
 	ndk-sys@0.5.0+25.2.9519653
 	ndk-sys@0.6.0+11769913
+	ndk@0.8.0
+	ndk@0.9.0
 	nix@0.29.0
 	nom@7.1.3
 	notify-rust@4.11.1
@@ -266,10 +266,8 @@ CRATES="
 	num_cpus@1.16.0
 	num_enum@0.7.3
 	num_enum_derive@0.7.3
-	objc@0.2.7
 	objc-foundation@0.1.1
 	objc-sys@0.3.5
-	objc2@0.5.2
 	objc2-app-kit@0.2.2
 	objc2-cloud-kit@0.2.2
 	objc2-contacts@0.2.2
@@ -285,18 +283,20 @@ CRATES="
 	objc2-ui-kit@0.2.2
 	objc2-uniform-type-identifiers@0.2.2
 	objc2-user-notifications@0.2.2
+	objc2@0.5.2
+	objc@0.2.7
 	objc_exception@0.1.2
 	objc_id@0.1.1
 	object@0.36.3
-	oboe@0.6.1
 	oboe-sys@0.6.1
+	oboe@0.6.1
 	ogg@0.8.0
 	once_cell@1.19.0
 	open@5.3.0
-	openssl@0.10.66
 	openssl-macros@0.1.1
 	openssl-probe@0.1.5
 	openssl-sys@0.9.103
+	openssl@0.10.66
 	orbclient@0.3.47
 	ordered-multimap@0.4.3
 	ordered-stream@0.2.0
@@ -317,9 +317,9 @@ CRATES="
 	phf_generator@0.11.2
 	phf_macros@0.11.2
 	phf_shared@0.11.2
-	pin-project@1.1.5
 	pin-project-internal@1.1.5
 	pin-project-lite@0.2.14
+	pin-project@1.1.5
 	pin-utils@0.1.0
 	piper@0.2.4
 	pkg-config@0.3.30
@@ -330,8 +330,8 @@ CRATES="
 	ppv-lite86@0.2.20
 	presser@0.3.1
 	proc-macro-crate@3.1.0
-	proc-macro2@1.0.86
 	proc-macro2-diagnostics@0.10.1
+	proc-macro2@1.0.86
 	profiling@1.0.15
 	qoi@0.4.1
 	quick-xml@0.31.0
@@ -343,16 +343,16 @@ CRATES="
 	range-alloc@0.1.3
 	rangemap@1.5.1
 	raw-window-handle@0.6.2
-	rayon@1.10.0
 	rayon-core@1.12.1
+	rayon@1.10.0
 	read-fonts@0.20.0
 	redox_syscall@0.2.16
 	redox_syscall@0.4.1
 	redox_syscall@0.5.3
 	redox_users@0.4.5
-	regex@1.10.6
 	regex-automata@0.4.7
 	regex-syntax@0.8.4
+	regex@1.10.6
 	renderdoc-sys@1.1.0
 	reqwest@0.12.5
 	rfd@0.14.1
@@ -365,11 +365,11 @@ CRATES="
 	rustc-hash@2.0.0
 	rustc_version@0.4.0
 	rustix@0.38.34
-	rustls@0.23.12
 	rustls-native-certs@0.7.1
 	rustls-pemfile@2.1.3
 	rustls-pki-types@1.8.0
 	rustls-webpki@0.102.6
+	rustls@0.23.12
 	rustybuzz@0.14.1
 	ryu@1.0.18
 	same-file@1.0.6
@@ -378,8 +378,8 @@ CRATES="
 	scopeguard@1.2.0
 	sctk-adwaita@0.9.1
 	seahash@4.1.0
-	security-framework@2.11.1
 	security-framework-sys@2.11.1
+	security-framework@2.11.1
 	self_cell@1.0.4
 	semver@1.0.23
 	serde@1.0.208
@@ -412,55 +412,55 @@ CRATES="
 	subtle@2.6.1
 	svg_fmt@0.4.3
 	swash@0.1.18
-	symphonia@0.5.4
 	symphonia-bundle-mp3@0.5.4
 	symphonia-core@0.5.4
 	symphonia-metadata@0.5.4
+	symphonia@0.5.4
 	syn@1.0.109
 	syn@2.0.74
 	sync_wrapper@1.0.1
 	sys-locale@0.3.1
-	system-configuration@0.5.1
 	system-configuration-sys@0.5.0
+	system-configuration@0.5.1
 	tauri-winrt-notification@0.2.1
 	tempfile@3.12.0
 	termcolor@1.4.1
-	thiserror@1.0.63
 	thiserror-impl@1.0.63
+	thiserror@1.0.63
 	tiff@0.9.1
-	time@0.3.36
 	time-core@0.1.2
+	time@0.3.36
 	timeago@0.4.2
-	tiny-skia@0.11.4
 	tiny-skia-path@0.11.4
+	tiny-skia@0.11.4
 	tiny-xlib@0.2.3
 	tinyvec@1.8.0
 	tinyvec_macros@0.1.1
 	to_method@1.1.0
-	tokio@1.39.2
 	tokio-macros@2.4.0
 	tokio-native-tls@0.3.1
 	tokio-rustls@0.26.0
 	tokio-stream@0.1.15
 	tokio-util@0.7.11
+	tokio@1.39.2
 	toml@0.8.19
 	toml_datetime@0.6.8
 	toml_edit@0.21.1
 	toml_edit@0.22.20
-	tower@0.4.13
 	tower-layer@0.3.3
 	tower-service@0.3.3
-	tracing@0.1.40
+	tower@0.4.13
 	tracing-attributes@0.1.27
 	tracing-core@0.1.32
+	tracing@0.1.40
 	try-lock@0.2.5
 	ttf-parser@0.20.0
 	ttf-parser@0.21.1
 	ttf-parser@0.24.1
 	typenum@1.17.0
 	uds_windows@1.1.0
-	unicode-bidi@0.3.15
 	unicode-bidi-mirroring@0.2.0
+	unicode-bidi@0.3.15
 	unicode-ccc@0.2.0
 	unicode-ident@1.0.12
 	unicode-linebreak@0.1.5
@@ -476,45 +476,42 @@ CRATES="
 	uuid@1.10.0
 	vcpkg@0.2.15
 	version_check@0.9.5
-	vswhom@0.1.0
 	vswhom-sys@0.1.2
+	vswhom@0.1.0
 	walkdir@2.5.0
 	want@0.3.1
 	wasi@0.11.0+wasi-snapshot-preview1
-	wasm-bindgen@0.2.93
 	wasm-bindgen-backend@0.2.93
 	wasm-bindgen-futures@0.4.43
-	wasm-bindgen-macro@0.2.93
 	wasm-bindgen-macro-support@0.2.93
+	wasm-bindgen-macro@0.2.93
 	wasm-bindgen-shared@0.2.93
+	wasm-bindgen@0.2.93
 	wasm-timer@0.2.5
 	wayland-backend@0.3.6
 	wayland-client@0.31.5
 	wayland-csd-frame@0.3.0
 	wayland-cursor@0.31.5
-	wayland-protocols@0.31.2
-	wayland-protocols@0.32.3
 	wayland-protocols-plasma@0.2.0
 	wayland-protocols-wlr@0.2.0
 	wayland-protocols-wlr@0.3.3
+	wayland-protocols@0.31.2
+	wayland-protocols@0.32.3
 	wayland-scanner@0.31.4
 	wayland-sys@0.31.4
 	web-sys@0.3.70
 	web-time@1.1.0
 	weezl@0.1.8
-	wgpu@0.19.4
 	wgpu-core@0.19.4
 	wgpu-hal@0.19.5
 	wgpu-types@0.19.2
+	wgpu@0.19.4
 	widestring@1.1.0
-	winapi@0.3.9
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.9
 	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9
 	window_clipboard@0.4.1
-	windows@0.52.0
-	windows@0.54.0
-	windows@0.56.0
 	windows-core@0.52.0
 	windows-core@0.54.0
 	windows-core@0.56.0
@@ -529,6 +526,9 @@ CRATES="
 	windows-targets@0.48.5
 	windows-targets@0.52.6
 	windows-version@0.1.1
+	windows@0.52.0
+	windows@0.54.0
+	windows@0.56.0
 	windows_aarch64_gnullvm@0.42.2
 	windows_aarch64_gnullvm@0.48.5
 	windows_aarch64_gnullvm@0.52.6
@@ -557,11 +557,11 @@ CRATES="
 	winreg@0.10.1
 	winreg@0.52.0
 	x11-dl@2.21.0
-	x11rb@0.13.1
 	x11rb-protocol@0.13.1
+	x11rb@0.13.1
 	xcursor@0.3.8
-	xdg@2.5.2
 	xdg-home@1.3.0
+	xdg@2.5.2
 	xkbcommon-dl@0.4.2
 	xkeysym@0.2.1
 	xml-rs@0.8.21
@@ -571,14 +571,15 @@ CRATES="
 	zbus_macros@4.4.0
 	zbus_names@3.0.0
 	zeno@0.2.3
-	zerocopy@0.7.35
 	zerocopy-derive@0.7.35
+	zerocopy@0.7.35
 	zeroize@1.8.1
 	zune-inflate@0.2.54
 	zvariant@4.2.0
 	zvariant_derive@4.2.0
 	zvariant_utils@2.1.0
 "
+
 declare -A GIT_CRATES=(
 	[dpi]='https://github.com/iced-rs/winit;254d6b3420ce4e674f516f7a2bd440665e05484d;winit-%commit%/dpi'
 	[glyphon]='https://github.com/hecrj/glyphon;feef9f5630c2adb3528937e55f7bfad2da561a65;glyphon-%commit%'
@@ -602,7 +603,8 @@ HOMEPAGE="https://github.com/squidowl/halloy"
 LICENSE="GPL-3"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 BSD-2 BSD Boost-1.0 CC0-1.0 ISC MIT Unicode-DFS-2016 ZLIB
+	Apache-2.0 BSD-2 BSD Boost-1.0 CC0-1.0 ISC MIT MPL-2.0
+	Unicode-DFS-2016 ZLIB
 "
 SLOT="0"
 
@@ -631,6 +633,7 @@ BDEPEND="
 DEPEND="
 	dev-libs/expat
 	dev-libs/openssl
+	media-libs/alsa-lib
 	media-libs/fontconfig
 	media-libs/freetype[X?]
 	opengl? ( media-libs/libglvnd[X?] )
@@ -659,9 +662,8 @@ src_unpack() {
 src_configure() {
 	if [[ ${PV} != *9999* ]] ; then
 		# Fix cargo.eclass handling of patched dependencies
-		# https://github.com/squidowl/halloy/blob/2024.7/Cargo.toml#L53-L54
-		sed -i "s,'https://github.com/iced-rs/iced',crates-io,g" \
-			"${ECARGO_HOME}/config.toml" || die
+		# https://github.com/squidowl/halloy/blob/2024.11/Cargo.toml#L60-L62
+		sed -i "s,'https://github.com/iced-rs/iced',crates-io,g" "${ECARGO_HOME}/config" || die
 	fi
 	cargo_src_configure
 }
