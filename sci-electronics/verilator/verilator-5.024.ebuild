@@ -3,7 +3,7 @@
 
 EAPI="8"
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=(python3_{10..12})
 
 inherit autotools python-single-r1
 
@@ -13,12 +13,12 @@ HOMEPAGE="
 	https://github.com/verilator/verilator
 "
 
-if [[ "${PV}" == "9999" ]] ; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 LICENSE="|| ( Artistic-2 LGPL-3 )"
@@ -47,7 +47,7 @@ BDEPEND="
 
 src_prepare() {
 	default
-	if [[ ! "${PV}" == "9999" ]] ; then
+	if [[ ! "${PV}" == "9999" ]]; then
 		# https://github.com/verilator/verilator/issues/3352
 		sed -i "s/UNKNOWN_REV/(Gentoo ${PVR})/g" "${S}"/src/config_rev || die
 	fi
