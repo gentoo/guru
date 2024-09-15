@@ -15,8 +15,6 @@ HOMEPAGE="
 EGIT_REPO_URI="https://gitlab.com/famedly/${PN}"
 EGIT_BRANCH="next"
 
-#S="${WORKDIR}/${}"
-
 LICENSE="Apache-2.0"
 # Dependent crate licenses
 LICENSE+="
