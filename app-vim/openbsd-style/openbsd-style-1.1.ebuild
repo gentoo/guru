@@ -13,10 +13,9 @@ SRC_URI="https://cvsweb.openbsd.org/cgi-bin/cvsweb/~checkout~/ports/editors/vim/
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86"
 
-VIM_PLUGIN_HELPTEXT=\
-"This plugin registers OpenBSD_Style() macro for changing a buffer's
+VIM_PLUGIN_HELPTEXT="This plugin registers OpenBSD_Style() macro for changing a buffer's
 indentation rules but does not change the indentation of existing code.
 
 To activate it, simply type \\f in normal mode."
