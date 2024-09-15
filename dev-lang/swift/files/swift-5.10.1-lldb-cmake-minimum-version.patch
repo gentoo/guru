@@ -1,0 +1,15 @@
+# The LLDB Python bindings rely on CMake to find Python, and by default, CMake
+# tries to use the newest Python version found on disk. To get CMake to respect
+# the version of Python set up by `python_setup`, we to set
+# `-DPython3_FIND_UNVERSIONED_NAMES=FIRST`, which is only available from CMake
+# 3.20. (Even if the `cmake` executable is a newer version, it still relies on
+# `cmake_minimum_required` for feature testing.)
+
+--- a/llvm-project/lldb/CMakeLists.txt
++++ b/llvm-project/lldb/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.13.4)
++cmake_minimum_required(VERSION 3.20)
+
+ # Add path for custom modules.
+ set(CMAKE_MODULE_PATH

@@ -51,6 +51,7 @@ SRC_URI="
 PATCHES=(
 	"${FILESDIR}/${P}-link-with-lld.patch"
 	"${FILESDIR}/${P}-llbuild-link-ncurses-tinfo-gentoo.patch"
+	"${FILESDIR}/${P}-lldb-cmake-minimum-version.patch"
 )
 
 S="${WORKDIR}"
@@ -119,7 +120,8 @@ src_unpack() {
 src_configure() {
 	default
 
-	# Necessary to respect PYTHON_SINGLE_TARGET, if defined.
+	# Sets `${EPYTHON}` according to `PYTHON_SINGLE_TARGET`, sets up
+	# `${T}/${EPYTHON}` with that version, and adds it to the `PATH`.
 	python_setup
 }
 
@@ -159,7 +161,18 @@ src_compile() {
 		# The Clang `compiler-rt` library builds the LLVM ORC JIT component by
 		# default, which we don't need; the component builds with an executable
 		# stack, which we'd like to avoid.
-		'-DCOMPILER_RT_BUILD_ORC:BOOL=NO'
+		'-DCOMPILER_RT_BUILD_ORC:BOOL=NO',
+
+		# LLDB ships with Python bindings, and uses CMake to search for Python.
+		# By default, CMake tries to find the latest version of Python available
+		# on disk (currently `python3.13`, then `python3.12`, then...). This
+		# might not be the version of Python the rest of the system uses, or
+		# which is specified by `PYTHON_SINGLE_TARGET`.
+		#
+		# Since `python_setup` already places `${EPYTHON}` in the `PATH`, we can
+		# tell CMake to use the unversioned `python` rather than a versioned
+		# one to end up respecting `PYTHON_SINGLE_TARGET`.
+		'-DPython3_FIND_UNVERSIONED_NAMES=FIRST'
 	)
 	local extra_cmake_options="$(IFS=,; echo "${_extra_cmake_options[*]}")"
 
