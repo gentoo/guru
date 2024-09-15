@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} pypy3 )
+PYTHON_COMPAT=(python3_{10..12} pypy3)
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 pypi
 
@@ -12,4 +12,4 @@ HOMEPAGE="https://github.com/paulfitz/daff"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ia64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~sparc ~x86"
