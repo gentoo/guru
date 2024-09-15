@@ -15,7 +15,7 @@ S="${WORKDIR}/usr/share/man"
 
 LICENSE="BSD BSD-2 BSD-4 ISC MIT icu openssl"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~s390 ~sparc ~x86"
 
 src_prepare() {
 	default
