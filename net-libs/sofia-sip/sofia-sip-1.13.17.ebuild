@@ -11,7 +11,7 @@ SRC_URI="https://github.com/freeswitch/${PN}/archive/refs/tags/v${PV}.tar.gz -> 
 
 LICENSE="LGPL-2.1+ BSD public-domain" # See COPYRIGHT
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86 ~x86-linux"
 IUSE="debug doc +glib test"
 RESTRICT="!test? ( test )"
 
@@ -97,7 +97,7 @@ src_compile() {
 
 	if use doc; then
 		emake -C libsofia-sip-ua "${SOFIA_MAKEARGS[@]}" doxygen
-		HTML_DOCS=( libsofia-sip-ua/docs/html/. )
+		HTML_DOCS=(libsofia-sip-ua/docs/html/.)
 	fi
 }
 
