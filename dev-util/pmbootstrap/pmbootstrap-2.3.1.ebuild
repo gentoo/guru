@@ -19,7 +19,7 @@ SLOT="0"
 # wrote down all other arches because if I just did -* without adding x86 and
 # arm64 keywords it would seem like the package only works on amd64, but I can't
 # keyword x86 and arm64 because I can't test these.
-KEYWORDS="-alpha ~amd64 -arm -hppa -ia64 -ppc -ppc64 -riscv -sparc"
+KEYWORDS="-alpha ~amd64 -arm -hppa -ppc -ppc64 -riscv -sparc"
 # Tests are disabled because they require the pmaports repository (containing
 # postmarketOS APKBUILDs) to be cloned at runtime.
 RESTRICT="mirror test"
