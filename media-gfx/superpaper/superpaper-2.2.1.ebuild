@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} )
-inherit distutils-r1
+inherit distutils-r1 xdg-utils
 
 DESCRIPTION="Advanced multi monitor wallpaper manager"
 HOMEPAGE="https://github.com/hhannine/superpaper"
@@ -23,3 +23,13 @@ RDEPEND=">=dev-python/wxpython-4.0[${PYTHON_USEDEP}]
 		>=dev-python/system_hotkey-1.0[${PYTHON_USEDEP}]
 		>=dev-python/xcffib-0.8.0[${PYTHON_USEDEP}]
 		>=dev-python/xpybutil-0.0.5[${PYTHON_USEDEP}]"
+
+pkg_postinst() {
+	xdg_icon_cache_update
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
+	xdg_desktop_database_update
+}
