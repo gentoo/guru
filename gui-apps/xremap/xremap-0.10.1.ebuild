@@ -14,7 +14,7 @@ CRATES="
 	anstyle-query@1.0.0
 	anstyle-wincon@1.0.1
 	anstyle@1.0.1
-	anyhow@1.0.82
+	anyhow@1.0.86
 	async-io@1.13.0
 	async-lock@2.7.0
 	autocfg@1.1.0
@@ -50,11 +50,11 @@ CRATES="
 	equivalent@1.0.1
 	errno-dragonfly@0.1.2
 	errno@0.3.2
-	evdev@0.12.1
+	evdev@0.12.2
 	event-listener@2.5.3
 	fastrand@1.9.0
 	fnv@1.0.7
-	fork@0.1.23
+	fork@0.2.0
 	funty@2.0.0
 	futures-channel@0.3.28
 	futures-core@0.3.28
@@ -84,12 +84,12 @@ CRATES="
 	is-terminal@0.4.9
 	itoa@1.0.9
 	js-sys@0.3.64
-	lazy_static@1.4.0
+	lazy_static@1.5.0
 	libc@0.2.147
 	libloading@0.8.0
 	linux-raw-sys@0.3.8
 	linux-raw-sys@0.4.5
-	log@0.4.21
+	log@0.4.22
 	memchr@2.6.4
 	memoffset@0.6.5
 	memoffset@0.7.1
@@ -112,16 +112,16 @@ CRATES="
 	radium@0.7.0
 	regex-automata@0.4.5
 	regex-syntax@0.8.2
-	regex@1.10.4
+	regex@1.10.5
 	rustix@0.37.23
 	rustix@0.38.4
 	ryu@1.0.15
 	scoped-tls@1.0.1
-	serde@1.0.200
-	serde_derive@1.0.200
-	serde_json@1.0.116
+	serde@1.0.203
+	serde_derive@1.0.203
+	serde_json@1.0.121
 	serde_repr@0.1.16
-	serde_spanned@0.6.5
+	serde_spanned@0.6.6
 	serde_with@3.8.1
 	serde_with_macros@3.8.1
 	serde_yaml@0.9.34+deprecated
@@ -140,10 +140,10 @@ CRATES="
 	time-macros@0.2.11
 	time@0.3.24
 	toml@0.5.11
-	toml@0.8.12
-	toml_datetime@0.6.5
+	toml@0.8.15
+	toml_datetime@0.6.6
 	toml_edit@0.19.14
-	toml_edit@0.22.8
+	toml_edit@0.22.16
 	unicode-ident@1.0.11
 	unsafe-libyaml@0.2.11
 	utf8parse@0.2.1
@@ -176,8 +176,8 @@ CRATES="
 	winnow@0.5.3
 	winnow@0.6.5
 	wyz@0.5.1
-	x11rb-protocol@0.13.0
-	x11rb@0.13.0
+	x11rb-protocol@0.13.1
+	x11rb@0.13.1
 	zbus@1.9.3
 	zbus_macros@1.9.3
 	zvariant@2.10.0
