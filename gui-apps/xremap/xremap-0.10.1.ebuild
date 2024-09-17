@@ -187,9 +187,9 @@ CRATES="
 inherit cargo udev
 
 DESCRIPTION="Dynamic key remap for X and Wayland"
-HOMEPAGE="https://github.com/k0kubun/xremap"
+HOMEPAGE="https://github.com/xremap/xremap"
 SRC_URI="
-	https://github.com/k0kubun/xremap/archive/v${PV}/${P}.tar.gz
+	https://github.com/xremap/xremap/archive/v${PV}/${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
 

@@ -12,6 +12,6 @@
     <flag name="wlroots">Sway, Hyprland, etc.</flag>
   </use>
   <upstream>
-    <remote-id type="github">k0kubun/xremap</remote-id>
+    <remote-id type="github">xremap/xremap</remote-id>
   </upstream>
 </pkgmetadata>
