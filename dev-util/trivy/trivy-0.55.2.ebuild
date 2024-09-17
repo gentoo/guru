@@ -9,15 +9,13 @@ DESCRIPTION="Vulnerability scanner for container images, file systems, and Git r
 HOMEPAGE="https://aquasecurity.github.io/trivy"
 SRC_URI="
 	https://github.com/aquasecurity/trivy/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/ixti/trivy/releases/download/v${PV}/trivy-${PV}-vendor.tar.gz
+	https://github.com/ixti/trivy/releases/download/v${PV}/${P}-vendor.tar.xz
 "
 
 LICENSE="Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0 Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
 BDEPEND="
 	>=dev-lang/go-1.22.0
 "
