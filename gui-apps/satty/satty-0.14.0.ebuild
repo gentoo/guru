@@ -261,13 +261,7 @@ src_unpack() {
 src_install() {
 	dodoc README.md
 
-	if use debug ; then
-		cd target/debug || die
-	else
-		cd target/release  || die
-	fi
-
-	dobin satty
+	dobin "$(cargo_target_dir)"/satty
 	#Just add the icon and desktop file
 	doicon "${S}/assets/satty.svg"
 	domenu "${S}/satty.desktop"
