@@ -12,7 +12,7 @@ SRC_URI="
 	https://github.com/ixti/trivy/releases/download/v${PV}/trivy-${PV}-vendor.tar.gz
 "
 
-LICENSE=""
+LICENSE="Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0 Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
 
