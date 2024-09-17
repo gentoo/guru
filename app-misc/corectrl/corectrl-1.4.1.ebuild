@@ -24,17 +24,17 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
-	dev-libs/botan
+	dev-libs/botan:=
 	dev-libs/pugixml
 	dev-libs/spdlog:=
-	dev-libs/quazip
+	>=dev-libs/quazip-1.3:=[qt5]
 	dev-qt/qtcharts:5[qml]
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtwidgets:5
-	sys-auth/polkit
+	sys-auth/polkit[introspection]
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/units
@@ -49,7 +49,7 @@ DEPEND="${COMMON_DEPEND}
 
 RDEPEND="${COMMON_DEPEND}
 	dev-libs/glib
-	dev-libs/libfmt
+	dev-libs/libfmt:=
 	dev-qt/qtquickcontrols2
 "
 
