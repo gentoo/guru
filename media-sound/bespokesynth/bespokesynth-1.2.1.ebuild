@@ -1,8 +1,8 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 EAPI=8
 
-inherit cmake desktop
+inherit cmake desktop xdg
 
 DESCRIPTION="Software modular synth"
 HOMEPAGE="https://www.bespokesynth.com/"
@@ -31,7 +31,7 @@ DEPEND="
 	dev-python/pybind11
 	dev-libs/jsoncpp
 	dev-cpp/asio
-	media-sound/jack2
+	>=virtual/jack-2
 	x11-libs/libXrandr
 "
 
@@ -69,14 +69,14 @@ src_configure() {
 		"-DBESPOKE_SYSTEM_PYBIND11=TRUE"
 		"-DBESPOKE_SYSTEM_JSONCPP=TRUE"
 		"-DCMAKE_BUILD_TYPE=Release"
-		"-DCMAKE_INSTALL_PREFIX=/usr/share"
+		"-DCMAKE_INSTALL_PREFIX=/usr"
 		"-DCMAKE_SKIP_RPATH=ON"
 	)
 	cmake_src_configure
 }
 
 src_install() {
-	DESTDIR="/usr/share/bespokesynth"
+	DESTDIR="/usr/share/BespokeSynth"
 
 	# Install libraries
 	dolib.so "${WORKDIR}/BespokeSynth-${PV}_build/libs/freeverb/libfreeverb.so"
@@ -94,7 +94,7 @@ src_install() {
 	dobin "${WORKDIR}/BespokeSynth-${PV}_build/Source/BespokeSynth_artefacts/RelWithDebInfo/BespokeSynth"
 
 	# Install auxilary files
-	insinto /usr/share/bespokesynth/bin
+	insinto /usr/share/BespokeSynth
 	doins -r "${WORKDIR}/BespokeSynth-${PV}_build/Source/BespokeSynth_artefacts/RelWithDebInfo/resource"
 
 	dosym -r ${DESTDIR}/bin/BespokeSynth /usr/bin/BespokeSynth
@@ -102,4 +102,12 @@ src_install() {
 	# Adding icon and desktop settings
 	doicon -s 512 "${WORKDIR}/BespokeSynth-${PV}/bespoke_icon.png"
 	domenu "${WORKDIR}/BespokeSynth-${PV}/scripts/installer_linux/BespokeSynth.desktop"
+}
+
+pkg_postinst() {
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 }
