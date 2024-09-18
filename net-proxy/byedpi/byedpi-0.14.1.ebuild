@@ -8,8 +8,8 @@ inherit systemd toolchain-funcs
 DESCRIPTION="Bypass DPI SOCKS proxy"
 HOMEPAGE="https://github.com/hufrea/byedpi/"
 
-inherit git-r3
-EGIT_REPO_URI="https://github.com/hufrea/byedpi.git"
+SRC_URI="https://github.com/hufrea/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+KEYWORDS="~amd64"
 
 LICENSE="MIT"
 SLOT="0"
