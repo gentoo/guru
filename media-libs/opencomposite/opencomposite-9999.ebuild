@@ -22,14 +22,11 @@ SLOT="0"
 DEPEND="
 	dev-lang/python
 	dev-util/vulkan-headers
+	media-libs/glm
 	media-libs/libglvnd[X]
 	media-libs/openxr-loader
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=(
-	"${FILESDIR}/0001-Add-install-target.patch"
-)
 
 src_configure()
 {
@@ -43,8 +40,7 @@ src_configure()
 		"-DCMAKE_INSTALL_PREFIX=/opt"
 		# Required for Proton: https://gitlab.com/znixian/OpenOVR/-/issues/416
 		"-DUSE_SYSTEM_OPENXR=OFF"
-		# FIXME: fails because GLM_ENABLE_EXPERIMENTAL is unset
-		"-DUSE_SYSTEM_GLM=OFF"
+		"-DUSE_SYSTEM_GLM=ON"
 	)
 	cmake_src_configure
 }
