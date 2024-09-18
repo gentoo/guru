@@ -1,0 +1,45 @@
+From: Filip Kobierski <fkobi@pm.me>
+Date: Wed, 18 Sep 2024 23:16:54 +0200
+Removes -fPIE from the C{,XX}FLAGS
+https://bugs.gentoo.org/907872
+---
+ CMakeLists.txt | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ebbdff2..539e91b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -217,7 +217,6 @@ if(TARGET generate-asm)
+   add_dependencies(randomx generate-asm)
+ endif()
+ 
+-set_property(TARGET randomx PROPERTY POSITION_INDEPENDENT_CODE ON)
+ set_property(TARGET randomx PROPERTY CXX_STANDARD 11)
+ set_property(TARGET randomx PROPERTY CXX_STANDARD_REQUIRED ON)
+ set_property(TARGET randomx PROPERTY PUBLIC_HEADER src/randomx.h)
+@@ -232,7 +231,6 @@ add_executable(randomx-tests
+   src/tests/tests.cpp)
+ target_link_libraries(randomx-tests
+   PRIVATE randomx)
+-set_property(TARGET randomx-tests PROPERTY POSITION_INDEPENDENT_CODE ON)
+ set_property(TARGET randomx-tests PROPERTY CXX_STANDARD 11)
+ 
+ add_executable(randomx-codegen
+@@ -240,7 +238,6 @@ add_executable(randomx-codegen
+ target_link_libraries(randomx-codegen
+   PRIVATE randomx)
+ 
+-set_property(TARGET randomx-codegen PROPERTY POSITION_INDEPENDENT_CODE ON)
+ set_property(TARGET randomx-codegen PROPERTY CXX_STANDARD 11)
+ 
+ if(NOT Threads_FOUND AND UNIX AND NOT APPLE)
+@@ -268,5 +265,4 @@ if(NOT HAVE_CXX_ATOMICS)
+   target_link_libraries(randomx-benchmark
+     PRIVATE "atomic")
+ endif()
+-set_property(TARGET randomx-benchmark PROPERTY POSITION_INDEPENDENT_CODE ON)
+ set_property(TARGET randomx-benchmark PROPERTY CXX_STANDARD 11)
+-- 
+2.44.2
+
