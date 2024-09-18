@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Filip Kobierski <fkobi@pm.me> (2024-09-19)
+# Not maintained for over 4 years, project
+# changed it's name to wownero-seed.
+# Ebuiild did not work since at least 2022-07-21 (#859721)
+# Removal on 2024-10-19
+dev-libs/monero-seed
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-09-11)
 # Dead upstream and no revdeps left.
 # Removal on 2024-10-11.
@@ -88,10 +95,3 @@ sys-libs/gcompat
 # (See also top comment)
 # Sorry for the inconvenience.
 app-office/lotus123r3
-
-# Filip Kobierski <fkobi@pm.me> (2024-09-19)
-# Not maintained for over 4 years, project
-# changed it's name to wownero-seed.
-# Ebuiild did not work since at least 2022-07-21 (#859721)
-# Removal on 2024-10-19
-dev-libs/monero-seed
