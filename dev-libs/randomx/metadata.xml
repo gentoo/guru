@@ -2,7 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<!-- maintainer-needed -->
-  <upstream>
-    <remote-id type="github">tevador/RandomX</remote-id>
-  </upstream>
+	<upstream>
+		<bugs-to>https://github.com/tevador/RandomX/issues</bugs-to>
+		<changelog>https://github.com/tevador/RandomX/releases</changelog>
+		<remote-id type="github">tevador/RandomX</remote-id>
+	</upstream>
 </pkgmetadata>
