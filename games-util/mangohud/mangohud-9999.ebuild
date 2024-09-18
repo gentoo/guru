@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit python-single-r1 meson-multilib
+inherit flag-o-matic python-single-r1 meson-multilib
 
 MY_PV=$(ver_cut 1-3)
 [[ -n "$(ver_cut 4)" ]] && MY_PV_REV="-$(ver_cut 4)"
@@ -73,8 +73,8 @@ RDEPEND="
 	)
 	wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
 	mangoapp? (
-		>=media-libs/imgui-1.81[glfw]
-		media-libs/glfw[X]
+		=media-libs/imgui-1.89.9*[glfw]
+		media-libs/glfw[X(+)]
 		media-libs/glew
 	)
 	mangoplot? ( $(python_gen_cond_dep '
@@ -113,6 +113,10 @@ src_prepare() {
 }
 
 multilib_src_configure() {
+	# workaround for lld
+	# https://github.com/flightlessmango/MangoHud/issues/1240
+	append-ldflags $(test-flags-CCLD -Wl,--undefined-version)
+
 	local emesonargs=(
 		-Dappend_libdir_mangohud=false
 		-Dinclude_doc=false
