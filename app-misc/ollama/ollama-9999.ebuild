@@ -10,7 +10,6 @@ HOMEPAGE="https://ollama.com"
 EGIT_REPO_URI="https://github.com/ollama/ollama.git"
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
 
 IUSE="nvidia amd"
 
