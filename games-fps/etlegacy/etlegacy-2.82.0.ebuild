@@ -48,7 +48,7 @@ UIDEPEND="
 	curl? ( net-misc/curl )
 	freetype? ( media-libs/freetype )
 	gettext? ( sys-devel/gettext )
-	renderer-gles? ( media-libs/mesa[gles1] )
+	renderer-gles? ( media-libs/mesa[opengl] )
 	openal? ( media-libs/openal )
 	png? ( media-libs/libpng:0= )
 	ssl? ( dev-libs/openssl:0= )
