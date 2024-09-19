@@ -70,11 +70,6 @@ dev-libs/octetos-db-abstract
 dev-libs/octetos-db-maria
 dev-libs/octetos-db-postgresql
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-08-19)
-# Maintainer has no intention of keeping those anymore. No revdeps left.
-# Removal on 2024-09-19. Bugs #848459, #900000, #930786, #932330, #932331, #932334.
-dev-cpp/wangle
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-06-24)
 # Critical security vulnerability.
 <net-im/conduit-0.8.0
