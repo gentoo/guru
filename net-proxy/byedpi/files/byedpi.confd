@@ -5,4 +5,4 @@
 #BYEDPI_BIND_PORT=1080
 
 # Additional command-line options for ciadpi
-#BYEDPI_OPTS="--disorder 1 --auto=torst --tlsrec 1+s"
+#BYEDPI_OPTS="--disorder 5 --auto=torst --tlsrec 6+s"
