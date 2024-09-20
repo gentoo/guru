@@ -2,32 +2,25 @@
 # Distributed under the terms of the GNU General Public License v2
 EAPI=8
 
-inherit desktop wrapper
+inherit desktop wrapper xdg-utils
 
 DESCRIPTION="A feature-rich Rust IDE with timely support by JetBrarins"
-
 HOMEPAGE="https://www.jetbrains.com/rust/"
-
 SRC_URI="https://download.jetbrains.com/rustrover/RustRover-${PV}.tar.gz"
 
 # to keep it tidy.
 S="${WORKDIR}/RustRover-${PV}"
 
 LICENSE="idea-eap-EULA"
-
 SLOT="0"
-
 KEYWORDS="-* ~amd64"
-
-IUSE="gnome X"
-
+IUSE="+bundled-jdk"
 RESTRICT="bindist mirror"
-
 QA_PREBUILT="opt/RustRover"
 
 BDEPEND="dev-util/patchelf"
 
-RDEPEND="
+RDEPEND="!bundled-jdk? ( >=virtual/jre-1.8 )
 	>=app-accessibility/at-spi2-core-2.46.0:2
 	dev-debug/gdb
 	dev-debug/lldb
@@ -68,10 +61,6 @@ src_prepare() {
 		Install-Linux-tar.txt
 		bin/gdb
 		bin/lldb
-		plugins/cwm-plugin/quiche-native/darwin-aarch64
-		plugins/cwm-plugin/quiche-native/darwin-x86-64
-		plugins/cwm-plugin/quiche-native/linux-aarch64
-		plugins/cwm-plugin/quiche-native/win32-x86-64
 		plugins/remote-dev-server/selfcontained
 		plugins/intellij-rust/bin/linux/arm64
 		plugins/gateway-plugin/lib/remote-dev-workers/remote-dev-worker-linux-arm64
@@ -81,31 +70,50 @@ src_prepare() {
 
 	rm -rv "${remove_me[@]}" || die
 
-	for file in "jbr/lib/{libjcef.so,jcef_helper}"
+	sed -i \
+		-e "\$a\\\\" \
+		-e "\$a#-----------------------------------------------------------------------" \
+		-e "\$a# Disable automatic updates as these are handled through Gentoo's" \
+		-e "\$a# package manager. See bug #704494" \
+		-e "\$a#-----------------------------------------------------------------------" \
+		-e "\$aide.no.platform.update=Gentoo" bin/idea.properties
+
+	for file in "jbr/lib/"/{libjcef.so,jcef_helper}
 	do
 		if [[ -f "${file}" ]]; then
-			patchelf --set-rpath '$ORIGIN' "${file}" || die
+			patchelf --set-rpath '$ORIGIN' ${file} || die
 		fi
 	done
 }
 
 src_install() {
-	local dir="/opt/RustRover"
+	local DIR="/opt/RustRover"
+	local JRE_DIR="jbr"
 
-	insinto "${dir}"
+	insinto ${DIR}
 	doins -r *
-	fperms 755 "${dir}"/bin/{format.sh,fsnotifier,inspect.sh,jetbrains_client.sh,ltedit.sh,remote-dev-server.sh,repair,restarter,rustrover.sh}
 
-	if [[ -d jbr ]]; then
-		fperms 755 "${dir}"/jbr/bin/{java,javac,javadoc,jcmd,jdb,jfr,jhsdb,jinfo,jmap,jps,jrunscript,jstack,jstat,keytool,rmiregistry,serialver}
-		fperms 755 "${dir}"/jbr/lib/{chrome-sandbox,jcef_helper,jexec,jspawnhelper}
+	fperms 755 "${DIR}"/bin/{format.sh,fsnotifier,inspect.sh,jetbrains_client.sh,ltedit.sh,rustrover,rustrover.sh,repair,restarter}
+	fperms 755 "${DIR}/${JRE_DIR}"/bin/{java,javac,javadoc,jcmd,jdb,jfr,jhsdb,jinfo,jmap,jps,jrunscript,jstack,jstat,keytool,rmiregistry,serialver}
+	fperms 755 "${DIR}"/${JRE_DIR}/lib/{chrome-sandbox,jcef_helper,jexec,jspawnhelper}
+
+	if ! use bundled-jdk; then
+		rm -r "${D}/${DIR}/${JRE_DIR}" || die
 	fi
 
-	make_wrapper "rustrover" "${dir}/bin/rustrover.sh"
+	make_wrapper "rustrover" "${DIR}/bin/rustrover"
 	newicon "bin/rustrover.svg" "rustrover.svg"
 	make_desktop_entry "rustrover" "RustRover" "rustrover" "Development;IDE;"
 
 	# recommended by: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
-	insinto /usr/lib/sysctl.d
-	newins - 30-"${PN}"-inotify-watches.conf <<<"fs.inotify.max_user_watches = 524288"
+	dodir /etc/sysctl.d/
+	echo "fs.inotify.max_user_watches = 524288" > "${D}/etc/sysctl.d/30-idea-inotify-watches.conf" || die
+}
+
+pkg_postinst() {
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 }
