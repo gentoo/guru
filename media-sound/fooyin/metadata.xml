@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>sighunter@gmx.de</email>
+		<name>Sebastian Engel</name>
+	</maintainer>
+	<use>
+		<flag name="pipewire">Enable sound support via native PipeWire backend</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">fooyin/fooyin</remote-id>
+	</upstream>
+</pkgmetadata>
+
