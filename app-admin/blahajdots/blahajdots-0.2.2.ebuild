@@ -56,6 +56,7 @@ CRATES="
 	regex-syntax@0.8.4
 	regex@1.10.6
 	ryu@1.0.18
+	same-file@1.0.6
 	serde@1.0.210
 	serde_derive@1.0.210
 	serde_json@1.0.128
@@ -74,8 +75,11 @@ CRATES="
 	untildify@0.1.1
 	utf8parse@0.2.2
 	version_check@0.9.5
+	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
+	winapi-util@0.1.9
 	windows-sys@0.52.0
+	windows-sys@0.59.0
 	windows-targets@0.52.6
 	windows_aarch64_gnullvm@0.52.6
 	windows_aarch64_msvc@0.52.6
