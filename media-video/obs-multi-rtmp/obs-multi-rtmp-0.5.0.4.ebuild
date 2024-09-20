@@ -6,7 +6,7 @@ EAPI=8
 inherit cmake flag-o-matic
 
 DESCRIPTION="OBS Simulcast support plugin"
-HOMEPAGE="https://github.com/orayuki/obs-multi-rtmp"
+HOMEPAGE="https://github.com/sorayuki/obs-multi-rtmp"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/sorayuki/obs-multi-rtmp.git"
