@@ -17,7 +17,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/WiVRn/WiVRn.git"
 
-	MONADO_V=2d3978b1b0d0f1ce9fc20f435c7080a07124362a
+	MONADO_V=bcbe19ddd795f182df42051e5495e9727db36c1c
 	PFR_V=2.2.0
 	SRC_URI="
 	https://github.com/boostorg/pfr/archive/refs/tags/${PFR_V}.tar.gz -> boostpfr_${PFR_V}.tar.gz
@@ -69,7 +69,7 @@ if [[ ${PV} == 9999 ]]; then
 		mv "monado-${MONADO_V}" "monado-src"
 		mv "pfr-${PFR_V}" "boostpfr-src"
 
-		local THEIR_MONADO=$(grep -A1 "https://gitlab.freedesktop.org/monado/monado" "${P}/CMakeLists.txt" | tail -n1 | sed 's/.*GIT_TAG\s*//')
+		local THEIR_MONADO=$(grep "GIT_TAG" "${P}/CMakeLists.txt" | awk '{print $2}')
 		[ "${THEIR_MONADO}" == "${MONADO_V}" ] || die "Mismatched monado version: ${THEIR_MONADO} (upstream) ${MONADO_V} (ebuild)"
 	}
 
