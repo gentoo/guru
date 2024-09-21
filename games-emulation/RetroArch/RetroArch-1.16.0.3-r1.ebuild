@@ -52,12 +52,15 @@ RDEPEND="
 	libass? ( media-libs/libass:0= )
 	libusb? ( virtual/libusb:1= )
 	openal? ( media-libs/openal:0= )
-	opengl? ( media-libs/mesa:0=[gles2(+)?] )
+	opengl? ( media-libs/libglvnd )
 	osmesa? ( media-libs/mesa:0=[osmesa?] )
 	pulseaudio? ( media-libs/libpulse:0= )
 	sdl? ( >=media-libs/libsdl-1.2.10:0=[joystick] )
 	sdl2? ( media-libs/libsdl2:0=[joystick] )
-	truetype? ( media-libs/freetype:2= )
+	truetype? (
+		media-libs/fontconfig
+		media-libs/freetype:2
+	)
 	udev? ( virtual/udev:0=
 		X? ( x11-drivers/xf86-input-evdev:0= )
 	)
@@ -65,8 +68,12 @@ RDEPEND="
 	v4l2? ( media-libs/libv4l:0= )
 	wayland? ( media-libs/mesa:0=[wayland?] )
 	X? (
-		x11-base/xorg-server:0=
-		>=x11-libs/libxkbcommon-0.4.0:0=
+		x11-libs/libX11
+		x11-libs/libXext
+		x11-libs/libXrandr
+		x11-libs/libXxf86vm
+		x11-libs/libxcb:=
+		x11-libs/libxkbcommon
 	)
 	xinerama? ( x11-libs/libXinerama:0= )
 	xv? ( x11-libs/libXv:0= )
@@ -76,6 +83,11 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	# bug #936962
+	"${FILESDIR}/${P}-int-conversion.patch"
+)
 
 src_configure() {
 	if use cg; then
