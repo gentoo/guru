@@ -29,7 +29,7 @@ fi
 
 LICENSE="MEGA"
 SLOT="0"
-IUSE="dolphin mediainfo nautilus nemo thumbnail thunar"
+IUSE="mediainfo nautilus nemo thumbnail thunar"
 
 DEPEND="
 	dev-db/sqlite:3
@@ -52,12 +52,6 @@ DEPEND="
 	net-misc/curl[ssl]
 	sys-libs/zlib
 	x11-libs/libxcb:=
-	dolphin? (
-		kde-apps/dolphin:5
-		kde-frameworks/kcoreaddons:5
-		kde-frameworks/kio:5
-		kde-frameworks/kwidgetsaddons:5
-	)
 	mediainfo? (
 		media-libs/libmediainfo
 		media-libs/libzen
@@ -83,7 +77,6 @@ RDEPEND="
 "
 BDEPEND="
 	dev-qt/linguist-tools:5
-	dolphin? ( kde-frameworks/extra-cmake-modules )
 "
 
 PATCHES=(
@@ -93,15 +86,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.3.0.0-fix-install-dir.patch"
 	"${FILESDIR}/${PN}-5.3.0.0-rename-libcryptopp.patch"
 )
-
-BUILD_DIR_DOLPHIN="${S}_dolphin"
-
-dolphin_run() {
-	if use dolphin; then
-		cd "${S}/src/MEGAShellExtDolphin" || die
-		BUILD_DIR="${BUILD_DIR_DOLPHIN}" CMAKE_USE_DIR="${S}/src/MEGAShellExtDolphin" "$@"
-	fi
-}
 
 nautilus_run() {
 	if use nautilus; then
@@ -151,7 +135,6 @@ src_configure() {
 	cmake_src_configure
 
 	unset mycmakeargs
-	dolphin_run cmake_src_configure
 	nautilus_run eqmake5
 	nemo_run eqmake5
 	thunar_run eqmake5
@@ -160,7 +143,6 @@ src_configure() {
 src_compile() {
 	cmake_src_compile
 
-	dolphin_run cmake_src_compile
 	nautilus_run emake
 	nemo_run emake
 	thunar_run emake
@@ -169,7 +151,6 @@ src_compile() {
 src_install() {
 	cmake_src_install
 
-	dolphin_run cmake_src_install
 	nautilus_run emake INSTALL_ROOT="${D}" install
 	nemo_run emake INSTALL_ROOT="${D}" install
 	thunar_run emake INSTALL_ROOT="${D}" install

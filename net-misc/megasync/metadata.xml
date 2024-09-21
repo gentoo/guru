@@ -13,7 +13,6 @@
 		<remote-id type="github">meganz/MEGAsync</remote-id>
 	</upstream>
 	<use>
-		<flag name='dolphin'>Build a plugin for Dolphin</flag>
 		<flag name='mediainfo'>Use <pkg>media-libs/libmediainfo</pkg> to determine media properties</flag>
 		<flag name='nautilus'>Build a plugin for nautilus</flag>
 		<flag name='nemo'>Build a plugin for Nemo</flag>
