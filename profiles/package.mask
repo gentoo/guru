@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David Roman <davidroman96@gmail.com> (2024-09-21)
+# Dead SRC_URI for two years
+# Removal on 2024-10-21
+app-admin/customrescuecd-x86
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-09-21)
 # Depends on media-libs/kquickimageeditor:5, which has been dropped
 # from ::gentoo. Upstream has an open issue for Qt6, but it won't be
