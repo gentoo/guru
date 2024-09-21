@@ -11,7 +11,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/KhronosGroup/${MY_PN}.git"
 	SLOT="0"
 else
-	SRC_URI="https://github.com/KhronosGroup/${MY_PN}/archive/release-${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/KhronosGroup/${MY_PN}/archive/refs/tags/release-${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 	S="${WORKDIR}/${MY_PN}-release-${PV}"
 	SLOT="0/${PV}"
@@ -23,6 +23,7 @@ HOMEPAGE="https://github.com/KhronosGroup/OpenXR-SDK"
 LICENSE="Apache-2.0"
 
 IUSE="+wayland +X"
+REQUIRED_USE="|| ( wayland X )"
 
 DEPEND="
 	media-libs/vulkan-loader
@@ -31,7 +32,6 @@ DEPEND="
 	wayland? (
 		dev-libs/wayland
 		dev-libs/wayland-protocols
-		dev-util/wayland-scanner
 	)
 	X? (
 		x11-libs/libxcb
@@ -40,6 +40,14 @@ DEPEND="
 		x11-libs/libXxf86vm
 	)
 "
+RDEPEND="${DEPEND}"
+BDEPEND="wayland? ( dev-util/wayland-scanner )"
+
+src_prepare() {
+	sed -i 's;DESTINATION share/doc/openxr;DESTINATION ${CMAKE_INSTALL_DOCDIR};' CMakeLists.txt || die
+
+	cmake_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(
@@ -47,6 +55,7 @@ src_configure() {
 		-DBUILD_WITH_XLIB_HEADERS=$(usex X)
 		-DBUILD_WITH_XCB_HEADERS=$(usex X)
 		-DBUILD_WITH_WAYLAND_HEADERS=$(usex wayland)
+		-DPRESENTATION_BACKEND=$(usex X xlib wayland)
 	)
 
 	cmake_src_configure
