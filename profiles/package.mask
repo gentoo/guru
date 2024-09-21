@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-09-21)
+# Depends on media-libs/kquickimageeditor:5, which has been dropped
+# from ::gentoo. Upstream has an open issue for Qt6, but it won't be
+# ported anytime soon.
+# Removal on 2024-10-21.
+net-im/kaidan
+
 # Filip Kobierski <fkobi@pm.me> (2024-09-19)
 # Not maintained for over 4 years, project
 # changed it's name to wownero-seed.
