@@ -24,7 +24,8 @@ RESTRICT="network-sandbox"
 
 BDEPEND="
 	<dev-lang/erlang-27:=
-	<dev-lang/elixir-1.16:=
+	>=dev-lang/elixir-1.14:=
+	<dev-lang/elixir-1.18
 	dev-build/cmake
 	>=dev-util/rebar-3.20.0-r1
 	dev-elixir/hex
