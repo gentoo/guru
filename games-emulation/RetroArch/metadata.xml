@@ -31,8 +31,7 @@
 		<flag name="ozone">Ozone menu</flag>
 		<flag name="pulseaudio">PulseAudio support</flag>
 		<flag name="rgui">RGUI menu</flag>
-		<flag name="sdl">SDL support</flag>
-		<flag name="sdl2">SDL2 support (disables SDL 1.x)</flag>
+		<flag name="sdl">SDL2 support</flag>
 		<flag name="truetype">FreeType support</flag>
 		<flag name="threads">Threading support</flag>
 		<flag name="udev">Udev/Evdev gamepad support</flag>
