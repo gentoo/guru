@@ -22,7 +22,7 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-IUSE="alsa pipewire sdl test"
+IUSE="alsa +archive +openmpt pipewire sdl +sndfile test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	|| ( alsa pipewire sdl )
@@ -32,11 +32,15 @@ RDEPEND="
 	dev-libs/icu:=
 	dev-libs/kdsingleapplication
 	dev-qt/qtbase:6[concurrent,dbus,gui,network,sql,widgets]
+	dev-qt/qtsvg:6
 	media-libs/taglib
 	media-video/ffmpeg:=
 	alsa? ( media-libs/alsa-lib )
+	archive? ( app-arch/libarchive:= )
+	openmpt? ( media-libs/libopenmpt )
 	pipewire? ( media-video/pipewire:= )
 	sdl? ( media-libs/libsdl2 )
+	sndfile? ( media-libs/libsndfile )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -59,15 +63,22 @@ src_prepare() {
 	cmake_src_prepare
 }
 
+# libvgm and libgme dependencies can currently not be satisfied,
+# so building their input plugins is unconditionally disabled for now.
+# SndFile not found though it is enabled, why?
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_ALSA=$(usex alsa)
 		-DBUILD_TESTING=$(usex test)
 		-DBUILD_CCACHE=OFF
 		-DBUILD_LIBVGM=OFF
+		-DCMAKE_DISABLE_FIND_PACKAGE_LIBGME=ON
 		-DINSTALL_HEADERS=ON
-		$(cmake_use_find_package alsa ALSA)
+		$(cmake_use_find_package archive LibArchive)
+		$(cmake_use_find_package openmpt OpenMpt)
 		$(cmake_use_find_package pipewire PipeWire)
 		$(cmake_use_find_package sdl SDL2)
+		$(cmake_use_find_package sndfile SndFile)
 	)
 
 	cmake_src_configure
