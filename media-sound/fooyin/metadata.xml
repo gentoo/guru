@@ -6,6 +6,8 @@
 		<name>Sebastian Engel</name>
 	</maintainer>
 	<use>
+		<flag name="archive">Build the LibArchive input plugin using <pkg>app-arch/libarchive</pkg></flag>
+		<flag name="openmpt">Build the OpenMpt input plugin using <pkg>media-libs/libopenmpt</pkg></flag>
 		<flag name="pipewire">Enable sound support via native PipeWire backend</flag>
 	</use>
 	<upstream>
