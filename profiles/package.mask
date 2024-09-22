@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-09-22)
+# Unmaintained in guru. Upstream has Qt6 version, but no one has updated
+# the ebuild.
+# Removal on 2024-10-22.
+net-im/ruqola
+
 # David Roman <davidroman96@gmail.com> (2024-09-21)
 # Dead SRC_URI. Not much maintained downstream
 # Removal on 2024-10-21
