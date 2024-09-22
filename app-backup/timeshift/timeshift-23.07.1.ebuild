@@ -1,4 +1,4 @@
-# Copyright 2019-2023 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ DEPEND="
 	dev-libs/json-glib
 	x11-libs/vte:2.91[vala]
 	>=dev-libs/libgee-0.18.0:=
-	>=x11-libs/xapp-1.0.4
+	>=x11-libs/xapp-1.0.4[vala(+)]
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 "
