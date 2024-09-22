@@ -1,7 +1,7 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DISTUTILS_USE_PEP517="pdm-backend"
 PYTHON_COMPAT=( python3_10 python3_11 python3_12 )
@@ -33,10 +33,15 @@ distutils_enable_tests pytest
 BDEPEND+=" test? (
 	$(python_gen_cond_dep '
 		>=dev-python/pytest-mock-3.6.1[${PYTHON_USEDEP}]
-		>=dev-python/pytest-lazy-fixture-0.6.3[${PYTHON_USEDEP}]
+		dev-python/pytest-lazy-fixtures[${PYTHON_USEDEP}]
 		>=dev-python/tqdm-4.66.2[${PYTHON_USEDEP}]
 	')
 )"
+
+PATCHES=(
+	# migrate from pytest-lazy-fixture to pytest-lazy-fixtures
+	"${FILESDIR}/${P}-lazy-fixtures.patch"
+)
 
 # These tests seem to require some b2 authentication (they're integration tests
 # so this is not unreasonable)

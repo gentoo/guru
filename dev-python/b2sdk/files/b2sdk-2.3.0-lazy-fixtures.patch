@@ -1,0 +1,56 @@
+Migrate from pytest-lazy-fixture to pytest-lazy-fixtures.
+https://github.com/Backblaze/b2-sdk-python/issues/484
+--- a/test/unit/account_info/fixtures.py
++++ b/test/unit/account_info/fixtures.py
+@@ -11,6 +11,7 @@ from __future__ import annotations
+ 
+ import pytest
+ from apiver_deps import InMemoryAccountInfo, SqliteAccountInfo
++from pytest_lazy_fixtures import lf
+ 
+ 
+ @pytest.fixture
+@@ -84,8 +85,8 @@ def sqlite_account_info(sqlite_account_info_factory):
+ 
+ @pytest.fixture(
+     params=[
+-        pytest.lazy_fixture('in_memory_account_info_factory'),
+-        pytest.lazy_fixture('sqlite_account_info_factory'),
++        lf('in_memory_account_info_factory'),
++        lf('sqlite_account_info_factory'),
+     ]
+ )
+ def account_info_factory(request):
+@@ -94,8 +95,8 @@ def account_info_factory(request):
+ 
+ @pytest.fixture(
+     params=[
+-        pytest.lazy_fixture('in_memory_account_info'),
+-        pytest.lazy_fixture('sqlite_account_info'),
++        lf('in_memory_account_info'),
++        lf('sqlite_account_info'),
+     ]
+ )
+ def account_info(request):
+--- a/test/unit/test_cache.py
++++ b/test/unit/test_cache.py
+@@ -13,7 +13,7 @@ from dataclasses import dataclass
+ 
+ import pytest
+ from apiver_deps import AuthInfoCache, DummyCache, InMemoryAccountInfo, InMemoryCache
+-from pytest_lazyfixture import lazy_fixture
++from pytest_lazy_fixtures import lf
+ 
+ 
+ @pytest.fixture
+@@ -32,8 +32,8 @@ def auth_info_cache():
+ 
+ 
+ @pytest.fixture(
+-    scope="class", params=[lazy_fixture('in_memory_cache'),
+-                           lazy_fixture('auth_info_cache')]
++    params=[lf('in_memory_cache'),
++            lf('auth_info_cache')]
+ )
+ def cache(request):
+     return request.param
