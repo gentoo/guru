@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="-* ~amd64"
 IUSE="+bundled-jdk"
 RESTRICT="bindist mirror"
-QA_PREBUILT="opt/RustRover"
+QA_PREBUILT="opt/RustRover/*"
 
 BDEPEND="dev-util/patchelf"
 
