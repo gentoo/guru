@@ -1,11 +1,11 @@
-# Copyright 2021-2023 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
-COMMIT="e11026ca34b03c5ab546512f82a6f705d0c29e95"
+COMMIT="fa54118f11e373e787835d440095bd7537cea5e5"
 DESCRIPTION="SDL Emulation and Adaptation Layer for Curses"
 HOMEPAGE="https://git.skyjake.fi/skyjake/sealcurses"
 SRC_URI="https://git.skyjake.fi/skyjake/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
@@ -14,6 +14,7 @@ S="${WORKDIR}/${PN}"
 LICENSE="BSD-2"
 SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~x86"
+IUSE="debug"
 
 RDEPEND="
 	dev-libs/tfdn:=
@@ -23,7 +24,9 @@ DEPEND="${RDEPEND}"
 
 src_configure() {
 	local -a mycmakeargs=(
-		-DENABLE_STATIC=OFF
+		-DSEALCURSES_ENABLE_STATIC=OFF
 	)
+
+	append-cppflags $(usex debug "-UNDEBUG" "-DNDEBUG")
 	cmake_src_configure
 }
