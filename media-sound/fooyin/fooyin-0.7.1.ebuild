@@ -22,7 +22,7 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-IUSE="alsa +archive +openmpt pipewire sdl +sndfile test"
+IUSE="alsa +archive openmpt pipewire sdl test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	|| ( alsa pipewire sdl )
@@ -40,7 +40,6 @@ RDEPEND="
 	openmpt? ( media-libs/libopenmpt )
 	pipewire? ( media-video/pipewire:= )
 	sdl? ( media-libs/libsdl2 )
-	sndfile? ( media-libs/libsndfile )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -63,9 +62,8 @@ src_prepare() {
 	cmake_src_prepare
 }
 
-# libvgm and libgme dependencies can currently not be satisfied,
+# libvgm, sndfile and libgme dependencies can currently not be satisfied,
 # so building their input plugins is unconditionally disabled for now.
-# SndFile not found though it is enabled, why?
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_ALSA=$(usex alsa)
@@ -73,12 +71,12 @@ src_configure() {
 		-DBUILD_CCACHE=OFF
 		-DBUILD_LIBVGM=OFF
 		-DCMAKE_DISABLE_FIND_PACKAGE_LIBGME=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_SndFile=ON
 		-DINSTALL_HEADERS=ON
 		$(cmake_use_find_package archive LibArchive)
 		$(cmake_use_find_package openmpt OpenMpt)
 		$(cmake_use_find_package pipewire PipeWire)
 		$(cmake_use_find_package sdl SDL2)
-		$(cmake_use_find_package sndfile SndFile)
 	)
 
 	cmake_src_configure
