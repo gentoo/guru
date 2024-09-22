@@ -393,6 +393,7 @@ QA_FLAGS_IGNORED="
 	usr/bin/scx_bpfland
 	usr/bin/scx_lavd
 	usr/bin/scx_layered
+	usr/bin/scx_loader
 	usr/bin/scx_rlfifo
 	usr/bin/scx_rustland
 	usr/bin/scx_rusty
