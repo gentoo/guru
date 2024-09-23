@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<longdescription lang="en">
+		GStreamer plugin for the Qt Qml elements
+
+		Includes the following elements:
+		* qmlgloverlay – A filter that renders a QML scene onto a video stream
+		* qmlglsink – A video sink that renders to a QQuickItem
+		* qmlglsrc – A video src that captures a window from a QML view
+	</longdescription>
+	<use>
+		<flag name="eglfs">Enable EGL support for embedded devices</flag>
+	</use>
+	<upstream>
+		<remote-id type="freedesktop-gitlab">gstreamer/gstreamer</remote-id>
+		<!-- plugin is in subprojects/gst-plugins-good/ext/qt6 -->
+	</upstream>
+</pkgmetadata>
