@@ -1,14 +1,14 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 VALA_USE_DEPEND="vapigen"
 
-inherit vala meson gnome2-utils optfeature virtualx xdg
+inherit vala meson gnome2-utils optfeature systemd virtualx xdg
 
 MY_PN="${PN#gnome-}"
 MY_P="${MY_PN}-v${PV}"
-LCU_V="0.1.0"
+LCU_V="0.2.1"
 DESCRIPTION="Phone dialer and call handler"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/calls"
 GITLAB="https://gitlab.gnome.org"
@@ -27,17 +27,18 @@ RDEPEND="
 	app-crypt/libsecret[introspection,vala]
 	dev-libs/feedbackd[introspection,vala]
 	dev-libs/folks:=
-	dev-libs/glib:2
+	>=dev-libs/glib-2.74:2
 	dev-libs/gom[introspection]
 	dev-libs/libgee:0.8=[introspection]
-	dev-libs/libpeas
+	dev-libs/libpeas:2
 	gnome-extra/evolution-data-server:=[vala]
-	gui-libs/libhandy:1[introspection,vala]
+	>=gui-libs/gtk-4.12:4
+	>=gui-libs/libadwaita-1.5:1[introspection,vala]
+	media-libs/gst-plugins-base:1.0[introspection]
 	media-libs/gstreamer:1.0[introspection]
 	media-sound/callaudiod
 	net-libs/sofia-sip
 	net-misc/modemmanager:=[introspection]
-	x11-libs/gtk+:3
 "
 DEPEND="${RDEPEND}
 	test? ( media-plugins/gst-plugins-srtp:1.0 )
@@ -47,6 +48,7 @@ BDEPEND="
 	dev-libs/gobject-introspection
 	dev-libs/protobuf
 	dev-util/wayland-scanner
+	sys-devel/gettext
 	gtk-doc? ( dev-util/gtk-doc )
 	man? ( dev-python/docutils )
 "
@@ -69,6 +71,7 @@ src_configure() {
 		$(meson_use gtk-doc gtk_doc)
 		$(meson_use man manpages)
 		$(meson_use test tests)
+		-Dsystemd_user_unit_dir="$(systemd_get_userunitdir)"
 	)
 	meson_src_configure
 }
@@ -77,25 +80,33 @@ src_test() {
 	local tests=(
 		calls:call
 		calls:contacts
+		calls:emergency-call-types
 		calls:dbus
 		calls:manager
 		calls:media
 		calls:origin
 		calls:plugins
 		calls:provider
-		calls:ringer
 		calls:sdp-crypto
 		calls:settings
 		calls:srtp
 		calls:ui-call
 		calls:util
 
-		# TODO: needs working sound card
+		# TODO:
+		# All tests pass, but the runner doesn't exit and gets timed out
 		#calls:application
 
-		# TODO: hangs
+		# TODO:
+		# not ok /Calls/Ringer/accept_call
+		# GLib-GObject-FATAL-CRITICAL: cannot register existing type 'LfbEvent'
+		#calls:ringer
+
+		# TODO:
+		# hangs at /Calls/SIP/calls_direct_call
 		#calls:sip
 	)
+
 	virtx meson_src_test "${tests[@]}"
 }
 
