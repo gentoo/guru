@@ -9,7 +9,6 @@
 		<remote-id type="github">ilya-zlobintsev/LACT</remote-id>
 	</upstream>
 	<use>
-		<flag name="drm">Use <pkg>x11-libs/libdrm</pkg> for more GPU information.</flag>
 		<flag name="libadwaita">Build GUI with <pkg>gui-libs/libadwaita</pkg> support</flag>
 	</use>
 </pkgmetadata>
