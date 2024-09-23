@@ -12,8 +12,8 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 RDEPEND="
->=sys-libs/pam-1.5.1_p20210622-r1
->=app-crypt/gnupg-2.2.33-r1
+>=sys-libs/pam-1.6.1
+>=app-crypt/gnupg-2.4.5-r1
 "
 
 src_prepare() {
@@ -26,6 +26,6 @@ src_configure() {
 		--host=${CHOST} \
 		--prefix=/usr \
 		--infodir=/usr/share/info \
-		--with-moduledir=/$(get_libdir)/security \
+		--with-moduledir=/usr/lib64/security \
 		--mandir=/usr/share/man || die
 }
