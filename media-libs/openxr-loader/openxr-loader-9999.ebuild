@@ -55,6 +55,7 @@ src_configure() {
 		-DBUILD_WITH_XLIB_HEADERS=$(usex X)
 		-DBUILD_WITH_XCB_HEADERS=$(usex X)
 		-DBUILD_WITH_WAYLAND_HEADERS=$(usex wayland)
+		-DBUILD_WITH_SYSTEM_JSONCPP=YES
 		-DPRESENTATION_BACKEND=$(usex X xlib wayland)
 	)
 
