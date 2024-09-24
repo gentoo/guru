@@ -1,0 +1,42 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 09bbdb07..bc1b7397 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -77,7 +77,7 @@ endif()
+ # We only use these libraries for building the binary targets, we won't
+ # install them.
+ 
+-set(LIBFMT_REQUIRED_VERSION 10.0)
++set(LIBFMT_REQUIRED_VERSION 9.1)
+ set(LIBFMT_PREFERRED_VERSION 11.0.2)
+ 
+ set(GOOGLETEST_REQUIRED_VERSION 1.13.0)
+diff --git a/src/logger.cpp b/src/logger.cpp
+index 99ad5885..f8121600 100644
+--- a/src/logger.cpp
++++ b/src/logger.cpp
+@@ -278,8 +278,9 @@ std::string get_logger_context(char const* path, int line) {
+ 
+ std::string get_current_time_string() {
+   using namespace std::chrono;
+-  auto now = floor<microseconds>(system_clock::now());
+-  return fmt::format("{:%H:%M:%S}", now);
++  auto now = system_clock::now();
++  int us = floor<microseconds>(now.time_since_epoch()).count() % 1'000'000;
++  return fmt::format("{:%H:%M:%S}.{:06}", floor<seconds>(now), us);
+ }
+ 
+ } // namespace dwarfs
+diff --git a/test/tool_main_test.cpp b/test/tool_main_test.cpp
+index e56f7b34..53203f29 100644
+--- a/test/tool_main_test.cpp
++++ b/test/tool_main_test.cpp
+@@ -2488,7 +2488,7 @@ class segmenter_repeating_sequence_test : public testing::TestWithParam<char> {
+ };
+ 
+ TEST_P(segmenter_repeating_sequence_test, github161) {
+-  auto byte = GetParam();
++  uint8_t byte = GetParam();
+ 
+   static constexpr int const final_bytes{10'000'000};
+   static constexpr int const repetitions{2'000};

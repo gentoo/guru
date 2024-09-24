@@ -24,5 +24,13 @@
 		<bugs-to>https://github.com/mhx/dwarfs/issues</bugs-to>
 		<remote-id type="github">mhx/dwarfs</remote-id>
 	</upstream>
+	<use>
+		<flag name="perfmon">Simple dwarfs performance monitoring. See https://github.com/mhx/dwarfs?tab=readme-ov-file#performance-monitoring . It has no impact on performance</flag>
+		<flag name="ricepp">Enable ricepp compression algorithm, which builds on the basic idea of Rice compression (see the https://en.wikipedia.org/wiki/Golomb_coding ) with a few enhancements.</flag>
+		<flag name="fuse">Build dwarfs Fuse driver for image mounting</flag>
+		<flag name="tools">Build dwarfs tools for creating and extracting images</flag>
+		<flag name="stacktrace">Enable support for debug build with stacktracing</flag>
+		<flag name="flac">Add support for FLAC: Free Lossless Audio Codec as compression algorithm</flag>
+	</use>
 
 </pkgmetadata>
