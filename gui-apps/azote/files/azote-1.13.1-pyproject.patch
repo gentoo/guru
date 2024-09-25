@@ -56,7 +56,7 @@ Subject: [PATCH 2/2] scratch
 
 diff --git a/setup.py b/setup.py
 deleted file mode 100644
-index bc0cd1e..0000000
+index 8f1e4f6..0000000
 --- a/setup.py
 +++ /dev/null
 @@ -1,30 +0,0 @@
@@ -71,7 +71,7 @@ index bc0cd1e..0000000
 -
 -setup(
 -    name='azote',
--    version='1.13.0',
+-    version='1.13.1',
 -    description='Wallpaper manager for sway and some other WMs',
 -    packages=find_packages(),
 -    include_package_data=True,

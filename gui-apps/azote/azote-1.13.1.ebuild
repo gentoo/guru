@@ -14,7 +14,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/nwg-piotr/azote"
 else
-	SRC_URI="https://github.com/nwg-piotr/azote/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/nwg-piotr/azote/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -30,8 +30,10 @@ RDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.13.0-pyproject.patch
+	"${FILESDIR}"/${PN}-1.13.1-pyproject.patch
 )
+
+DOCS=( README.md )
 
 python_install_all() {
 	distutils-r1_python_install_all
@@ -40,10 +42,14 @@ python_install_all() {
 
 	domenu dist/azote.desktop
 
+	insinto /usr/share/pixmaps
+	doins dist/azote.svg
 	insinto /usr/share/azote
-	doins dist/azote.svg dist/indicator_{active,attention}.png
+	doins dist/indicator_*.png
 	insinto /usr/share/licenses/azote
 	doins LICENSE-COLORTHIEF
+
+	einstalldocs
 }
 
 pkg_postinst() {
