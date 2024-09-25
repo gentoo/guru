@@ -33,5 +33,5 @@ BDEPEND="
 distutils_enable_tests pytest
 
 distutils_enable_sphinx docs \
-	dev-python/sphinx-aiohttp-theme \
+	dev-python/aiohttp-theme \
 	dev-python/sphinx-prompt
