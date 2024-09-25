@@ -106,6 +106,7 @@ src_compile() {
 src_install() {
 	insinto /usr/share/nwg-drawer
 	doins -r desktop-directories
+	doins -r img
 	doins drawer.css
 	dobin bin/nwg-drawer
 }
