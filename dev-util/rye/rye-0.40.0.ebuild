@@ -344,6 +344,7 @@ src_test() {
 		# The following tests require network access.
 		--skip test_basic_list
 		--skip test_list_not_rye_managed
+		--skip test_list_never_overwrite
 		--skip test_add
 		--skip test_dotenv
 		--skip test_config
@@ -354,6 +355,7 @@ src_test() {
 		--skip test_version
 		--skip test_empty_sync
 		--skip test_autosync_remember
+		--skip test_exclude_hashes
 		--skip test_fetch
 		--skip test_basic_tool_behavior
 	)
