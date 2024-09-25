@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake systemd
 
@@ -26,7 +26,7 @@ RESTRICT="test"
 DEPEND="
 	acct-group/monero
 	acct-user/monero
-	<dev-libs/boost-1.85:=[nls]
+	dev-libs/boost:=[nls]
 	dev-libs/libsodium:=
 	dev-libs/openssl:=
 	dev-libs/randomx
@@ -34,7 +34,7 @@ DEPEND="
 	dev-libs/supercop
 	net-dns/unbound:=[threads]
 	net-libs/czmq:=
-	<net-libs/miniupnpc-2.2.8:=
+	net-libs/miniupnpc:=
 	readline? ( sys-libs/readline:0= )
 	hw-wallet? (
 		dev-libs/hidapi
@@ -47,6 +47,7 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.18.3.3-unbundle-dependencies.patch"
+	"${FILESDIR}/${PN}-0.18.3.3-miniupnp-api-18.patch"
 )
 
 src_configure() {
