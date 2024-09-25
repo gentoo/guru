@@ -5,6 +5,10 @@
 		<name>Gasc Henri</name>
 		<email>gasc@eurecom.fr</email>
 	</maintainer>
+	<maintainer type="person">
+		<name>Adel KARA SLIMANE</name>
+		<email>adel.ks@zegrapher.com</email>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">memononen/libtess2</remote-id>
 	</upstream>
