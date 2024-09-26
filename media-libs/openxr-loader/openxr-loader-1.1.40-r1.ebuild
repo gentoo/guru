@@ -25,10 +25,12 @@ LICENSE="Apache-2.0"
 IUSE="+wayland +X"
 REQUIRED_USE="|| ( wayland X )"
 
+# dev-libs/jsoncpp-1.9.6: https://bugs.gentoo.org/940262
 DEPEND="
 	media-libs/vulkan-loader
 	media-libs/mesa
 	dev-libs/jsoncpp:=
+	!=dev-libs/jsoncpp-1.9.6
 	wayland? (
 		dev-libs/wayland
 		dev-libs/wayland-protocols
