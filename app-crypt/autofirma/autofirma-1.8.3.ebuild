@@ -10,10 +10,9 @@ HOMEPAGE="
 	https://administracionelectronica.gob.es/ctt/clienteafirma
 	https://github.com/ctt-gob-es/clienteafirma
 "
-
-# Upstream blocks wget with no User Agent. It can be addressed globally (see https://wiki.gentoo.org/wiki/FETCHCOMMAND).
-# If Gentoo's default configuration is in place, pkg_pretend() and pkg_nofetch() provide fallback options.
-SRC_URI="https://estaticos.redsara.es/comunes/autofirma/$(ver_rs 1- /)/AutoFirma_Linux_Fedora.zip -> ${PF}.zip"
+# Upstream blocks wget, so we need a fallback option
+SRC_URI="https://estaticos.redsara.es/comunes/autofirma/$(ver_rs 1- /)/AutoFirma_Linux_Fedora.zip -> ${P}.zip
+	https://distfiles.chuso.net/distfiles/${P}.zip"
 
 S="${WORKDIR}"
 
@@ -23,14 +22,6 @@ KEYWORDS="~amd64"
 
 RDEPEND="virtual/jre:1.8"
 BDEPEND="app-arch/unzip"
-
-pkg_pretend() {
-	# Upstream blocks vanilla wget, so we set up a browser User-Agent as a fallback.
-	local URI="https://estaticos.redsara.es/comunes/autofirma/$(ver_rs 1- /)/AutoFirma_Linux_Fedora.zip"
-	local USER_AGENT="Mozilla/5.0 (X11; Gentoo; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
-	local DISTFILE="${PORTAGE_ACTUAL_DISTDIR}/${PF}.zip"
-	[[ -f "${DISTFILE}" ]] || /usr/sbin/wget --user-agent="${USER_AGENT}" "${URI}" -O "${DISTFILE}"
-}
 
 pkg_nofetch() {
 	einfo "Please download:"
