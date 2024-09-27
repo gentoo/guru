@@ -104,7 +104,6 @@ app-emulation/proton-ge-custom-bin
 # Does not build anymore. Unmaintained in guru since 2021.
 # Removal on 2024-09-27. Bugs #807112, #839606
 dev-libs/octetos-db
-dev-libs/octetos-db-abstract
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-06-24)
 # Critical security vulnerability.
