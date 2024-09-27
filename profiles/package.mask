@@ -106,7 +106,6 @@ app-emulation/proton-ge-custom-bin
 dev-libs/octetos-db
 dev-libs/octetos-db-abstract
 dev-libs/octetos-db-maria
-dev-libs/octetos-db-postgresql
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-06-24)
 # Critical security vulnerability.
