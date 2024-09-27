@@ -22,13 +22,19 @@ else
 	KEYWORDS="~amd64 ~arm64 ~mips ~ppc ~ppc64 ~sparc ~x86 "
 fi
 
+SRC_URI+="
+	https://github.com/scottchiefbaker/dool/pull/80/commits/5c538542a5bf2b16c496ab9d0a15f439f1ba1e49.patch
+		-> dool-1.3.2-add-site-packages-dir-to-plugin-path.patch
+"
+
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="doc examples"
+
+PATCHES=(
+	"${DISTDIR}"/dool-1.3.2-add-site-packages-dir-to-plugin-path.patch
+)
 
 src_prepare() {
-	default
-
 	# https://github.com/scottchiefbaker/dool/pull/80
 	mv dool dool.py || die
 
@@ -42,6 +48,8 @@ src_prepare() {
 	EOF
 
 	sed -i 's/dool:__main/dool.dool:__main/' pyproject.toml || die
+
+	default
 }
 
 src_install() {
@@ -51,13 +59,7 @@ src_install() {
 
 	einstalldocs
 
-	if use examples; then
-		dodoc examples/{mstat,read}.py
-	fi
-
-	if use doc; then
-		dodoc docs/*.html
-	fi
+	dodoc examples/{mstat,read}.py docs/*.html
 }
 
 src_test() {
