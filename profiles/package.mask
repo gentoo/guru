@@ -100,11 +100,6 @@ net-im/guilded-bin
 # Removal on 2024-09-30.
 app-emulation/proton-ge-custom-bin
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-08-27)
-# Does not build anymore. Unmaintained in guru since 2021.
-# Removal on 2024-09-27. Bugs #807112, #839606
-dev-libs/octetos-db
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-06-24)
 # Critical security vulnerability.
 <net-im/conduit-0.8.0
