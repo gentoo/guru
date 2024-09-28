@@ -420,7 +420,7 @@ src_configure() {
 		-Dbpf_clang="clang-${LLVM_SLOT}"
 		-Dlibbpf_a="disabled"
 		-Doffline=true
-		-Dopenrc=enabled
+		-Dopenrc=$(usex systemd disabled enabled)
 		$(meson_feature systemd)
 	)
 
