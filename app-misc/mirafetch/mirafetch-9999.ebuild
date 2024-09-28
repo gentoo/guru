@@ -15,6 +15,7 @@ LICENSE="EUPL-1.2"
 LICENSE+=" Apache-2.0 MIT MPL-2.0 Unicode-DFS-2016"
 SLOT="0"
 RESTRICT="test" # upstream has no tests. unrestrict if it adds them
+QA_FLAGS_IGNORED="usr/bin/mirafetch"
 
 src_unpack() {
 	git-r3_src_unpack

@@ -204,3 +204,4 @@ LICENSE+=" Apache-2.0 MIT MPL-2.0 Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 RESTRICT="test" # upstream has no tests. unrestrict if it adds them
+QA_FLAGS_IGNORED="usr/bin/mirafetch"
