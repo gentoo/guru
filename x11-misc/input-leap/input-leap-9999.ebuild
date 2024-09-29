@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit desktop virtualx xdg cmake git-r3
+inherit virtualx xdg cmake git-r3
 
 DESCRIPTION="Share a mouse and keyboard between computers (fork of Barrier)"
 HOMEPAGE="https://github.com/input-leap/input-leap"
@@ -25,10 +25,7 @@ RDEPEND="
 	x11-libs/libXrandr
 	x11-libs/libXtst
 	gui? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtnetwork:5
-		dev-qt/qtwidgets:5
+		dev-qt/qtbase:6[gui,network,widgets]
 		net-dns/avahi[mdnsresponder-compat]
 	)
 	dev-libs/openssl:0=
@@ -39,6 +36,10 @@ DEPEND="
 	dev-cpp/gulrak-filesystem
 	x11-base/xorg-proto
 "
+BDEPEND="
+	virtual/pkgconfig
+	gui? ( dev-qt/qttools:6[linguist] )
+"
 
 DOCS=(
 	ChangeLog
@@ -48,12 +49,9 @@ DOCS=(
 
 src_configure() {
 	local mycmakeargs=(
-		-DBARRIER_BUILD_GUI=$(usex gui)
-		-DBARRIER_BUILD_INSTALLER=OFF
-		-DBARRIER_BUILD_TESTS=$(usex test)
-		-DBARRIER_REVISION=00000000
-		-DBARRIER_USE_EXTERNAL_GTEST=ON
-		-DBARRIER_VERSION_STAGE=gentoo
+		-DINPUTLEAP_BUILD_GUI=$(usex gui)
+		-DINPUTLEAP_BUILD_TESTS=$(usex test)
+		-DINPUTLEAP_USE_EXTERNAL_GTEST=ON
 	)
 
 	cmake_src_configure
@@ -62,16 +60,4 @@ src_configure() {
 src_test() {
 	"${BUILD_DIR}"/bin/unittests || die
 	virtx "${BUILD_DIR}"/bin/integtests || die
-}
-
-src_install() {
-	cmake_src_install
-	einstalldocs
-	doman doc/${PN}{c,s}.1
-
-	if use gui; then
-		doicon -s scalable res/${PN}.svg
-		doicon -s 256 res/${PN}.png
-		make_desktop_entry ${PN} Barrier ${PN} Utility
-	fi
 }
