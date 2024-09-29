@@ -36,6 +36,12 @@ BDEPEND="
 	>=dev-ml/dune-3.12:=
 "
 
+src_prepare() {
+	default
+
+	rm -r vendor/{csexp,pp} || die
+}
+
 src_configure() {
 	:
 }
