@@ -32,6 +32,12 @@ DEPEND="
 	${RDEPEND}
 "
 
+src_prepare() {
+	default
+
+	rm -r vendor/{csexp,pp} || die
+}
+
 src_configure() {
 	:
 }
