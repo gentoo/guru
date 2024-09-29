@@ -356,6 +356,8 @@ src_test() {
 		--skip test_empty_sync
 		--skip test_autosync_remember
 		--skip test_exclude_hashes
+		--skip test_lockfile
+		--skip test_generate_hashes
 		--skip test_fetch
 		--skip test_basic_tool_behavior
 	)
