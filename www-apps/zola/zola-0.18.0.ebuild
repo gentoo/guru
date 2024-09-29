@@ -470,9 +470,13 @@ DESCRIPTION="A fast static site generator with everything built-in"
 HOMEPAGE="https://www.getzola.org/"
 SRC_URI="${CARGO_CRATE_URIS} https://github.com/getzola/zola/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-# License set may be more restrictive as OR is not respected
-# use cargo-license for a more accurate license picture
-LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 CC0-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB"
+LICENSE="MIT"
+# Dependent crate licenses
+LICENSE+="
+	Apache-2.0 BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016
+"
+# ring, tinystr
+LICENSE+=" openssl Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
