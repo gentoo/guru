@@ -59,7 +59,10 @@ src_install() {
 
 	einstalldocs
 
-	dodoc examples/{mstat,read}.py docs/*.html
+	dodoc examples/{mstat,read}.py
+
+	docinto html
+	dodoc docs/*.html
 }
 
 src_test() {
