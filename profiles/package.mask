@@ -80,11 +80,6 @@ dev-python/gevent
 media-sound/hushboard
 net-im/guilded-bin
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-08-31)
-# Significantly outdated and unmaintained in guru since 2022.
-# Removal on 2024-09-30.
-app-emulation/proton-ge-custom-bin
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-06-24)
 # Critical security vulnerability.
 <net-im/conduit-0.8.0
