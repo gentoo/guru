@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit desktop distutils-r1 optfeature xdg
 
@@ -18,12 +18,14 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="gui"
 
 RDEPEND="
 	!sys-boot/woeusb
 	app-arch/p7zip
 	$(python_gen_cond_dep '
 		dev-python/termcolor[${PYTHON_USEDEP}]
+		gui? ( dev-python/wxpython:4.0[${PYTHON_USEDEP}] )
 	')
 "
 
@@ -36,17 +38,19 @@ src_prepare() {
 
 src_install() {
 	distutils-r1_src_install
-	dobin WoeUSB/woeusbgui
 
-	insinto /usr/share/polkit-1/actions
-	doins miscellaneous/com.github.woeusb.woeusb-ng.policy
+	if use gui; then
+		dobin WoeUSB/woeusbgui
 
-	doicon -s 256 WoeUSB/data/woeusb-logo.png
-	make_desktop_entry woeusbgui WoeUSB-ng woeusb-logo Utility
+		insinto /usr/share/polkit-1/actions
+		doins miscellaneous/com.github.woeusb.woeusb-ng.policy
+
+		doicon -s 256 WoeUSB/data/woeusb-logo.png
+		make_desktop_entry woeusbgui WoeUSB-ng woeusb-logo Utility
+	fi
 }
 
 pkg_postinst() {
-	optfeature "GUI support" dev-python/wxpython:4.0
 	optfeature "Legacy PC bootmode support" "sys-boot/grub[grub_platforms_pc]"
 
 	xdg_pkg_postinst
