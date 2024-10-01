@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit flag-o-matic
+inherit autotools flag-o-matic
 
 DESCRIPTION="Convert X cursors to PNG images"
 HOMEPAGE="https://github.com/eworm-de/xcur2png"
@@ -14,10 +14,16 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
-	media-libs/libpng
+	media-libs/libpng:=
 	x11-libs/libXcursor
 "
 RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
+
+src_prepare() {
+	default
+	eautoreconf # bug 937784
+}
 
 src_configure() {
 	append-cflags "-std=gnu89" # bug 916457
