@@ -19,6 +19,12 @@
 # New entries go on top.
 
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-02)
+# Depends on <media-libs/kimageannotator-0.7, which has been dropped.
+# The latest upstream tree supports Qt6 (not released yet).
+# Removal on 2024-11-02.
+x11-misc/ksnip
+
+# Takuya Wakazono <pastalian46@gmail.com> (2024-10-02)
 # Depends on dev-libs/kirigami-addons:5, which has been dropped.
 # The latest upstream release supports Qt6, but there's no maintainer
 # in guru.
