@@ -7,15 +7,8 @@
   </maintainer>
   <use>
     <flag name="benchmark">sysbench for benchmarking</flag>
-    <flag name="dmi">dmidecode for DMI</flag>
     <flag name="fwupd">fwupd</flag>
     <flag name="gtk3">gtk+ user interface</flag>
-    <flag name="mesa">mesa-progs</flag>
-    <flag name="network">iperf for network benchmark</flag>
-    <flag name="scsi">SCSI support</flag>
-    <flag name="sensors">sensors module</flag>
-    <flag name="udisks">storage module</flag>
-    <flag name="xdg">use browser for homepage, bugs and links</flag>
   </use>
   <upstream>
     <remote-id type="github">hardinfo2/hardinfo2</remote-id>
