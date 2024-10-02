@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<name>demize</name>
+		<email>demize@unstable.systems</email>
+	</maintainer>
+	<upstream>
+		<maintainer status="active">
+			<name>tiffany352</name>
+			<email>tiffany@tiffnix.com</email>
+		</maintainer>
+		<remote-id type="github">tiffany352/rink-rs</remote-id>
+		<bugs-to>https://github.com/tiffany352/rink-rs/issues/new/choose</bugs-to>
+		<changelog>https://rinkcalc.app/releases</changelog>
+	</upstream>
+</pkgmetadata>
