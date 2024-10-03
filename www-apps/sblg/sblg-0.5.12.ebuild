@@ -17,6 +17,24 @@ IUSE="examples"
 DEPEND="dev-libs/expat"
 RDEPEND="${DEPEND}"
 
+# oconfigure specifically tests for BSD functionality on Linux
+QA_CONFIG_IMPL_DECL_SKIP=(
+	crypt_newhash
+	crypt_checkpass
+	warnc
+	errc
+	getexecname
+	getprogname
+	memset_s
+	pledge
+	recallocarray
+	strtonum
+	TAILQ_FOREACH_SAFE
+	timingsafe_bcmp
+	timingsafe_memcmp
+	unveil
+)
+
 src_configure() {
 	tc-export CC AR
 
