@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 DESCRIPTION="A utility for creating static blogs"
 HOMEPAGE="https://kristaps.bsd.lv/sblg/"
 SRC_URI="https://kristaps.bsd.lv/sblg/snapshots/${P}.tar.gz"
@@ -16,7 +18,15 @@ DEPEND="dev-libs/expat"
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	./configure PREFIX="${EPREFIX}/usr" MANDIR="${EPREFIX}/usr/share/man"
+	tc-export CC AR
+
+	./configure \
+		PREFIX="${EPREFIX}/usr" \
+		MANDIR="${EPREFIX}/usr/share/man" \
+		LDFLAGS="${LDFLAGS}" \
+		CPPFLAGS="${CPPFLAGS}" \
+		LIBDIR="/usr/$(get_libdir)" \
+		|| die "./configure failed"
 }
 
 src_install() {
