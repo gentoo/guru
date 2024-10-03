@@ -14,6 +14,15 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
+DEPEND="
+	dev-libs/boehm-gc
+	dev-libs/libevent
+	dev-libs/libpcre2
+	dev-libs/libyaml
+"
+
+RDEPEND="${DEPEND}"
+
 src_install() {
 	shards_src_install
 	dobin ${PN}
