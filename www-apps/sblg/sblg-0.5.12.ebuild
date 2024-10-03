@@ -35,6 +35,12 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 	unveil
 )
 
+src_prepare() {
+	default
+
+	sed -ie '/^CFLAGS=/s: -g : :' configure || die
+}
+
 src_configure() {
 	tc-export CC AR
 
