@@ -3,21 +3,21 @@
 
 EAPI=7
 
-inherit cmake
+inherit cmake fcaps
 
 DESCRIPTION="WiVRn OpenXR streaming"
 HOMEPAGE="https://github.com/WiVRn/WiVRn"
 
 LICENSE="GPL-3 Apache-2.0 MIT"
 SLOT="0"
-IUSE="nvenc +pipewire pulseaudio systemd vaapi wireshark-plugins x264"
+IUSE="gui nvenc +pipewire pulseaudio systemd vaapi wireshark-plugins x264"
 REQUIRED_USE="|| ( nvenc vaapi x264 )"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/WiVRn/WiVRn.git"
 
-	MONADO_V=bcbe19ddd795f182df42051e5495e9727db36c1c
+	MONADO_V=01806a3ffa62a2440da83d94e7a9297645d9d95a
 	PFR_V=2.2.0
 	SRC_URI="
 	https://github.com/boostorg/pfr/archive/refs/tags/${PFR_V}.tar.gz -> boostpfr_${PFR_V}.tar.gz
@@ -50,6 +50,9 @@ RDEPEND="
 	)
 	wireshark-plugins? (
 		net-analyzer/wireshark
+	)
+	gui? (
+		dev-qt/qtbase
 	)
 "
 
@@ -96,6 +99,7 @@ src_configure() {
 		-DGIT_DESC=${GIT_DESC}
 		-DWIVRN_BUILD_CLIENT=OFF
 		-DWIVRN_BUILD_SERVER=ON
+		-DWIVRN_BUILD_DASHBOARD=$(usex gui)
 		-DWIVRN_BUILD_DISSECTOR=$(usex wireshark-plugins)
 		-DWIVRN_USE_PIPEWIRE=$(usex pipewire)
 		-DWIVRN_USE_PULSEAUDIO=$(usex pulseaudio)
@@ -103,6 +107,8 @@ src_configure() {
 		-DWIVRN_USE_VAAPI=$(usex vaapi)
 		-DWIVRN_USE_X264=$(usex x264)
 		-DWIVRN_USE_SYSTEMD=$(usex systemd)
+		-DWIVRN_USE_SYSTEM_OPENXR=ON
+		-DWIVRN_USE_SYSTEM_BOOST=ON
 		-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
 		-DFETCHCONTENT_FULLY_DISCONNECTED=ON
 		-DFETCHCONTENT_BASE_DIR="${WORKDIR}"
@@ -120,10 +126,19 @@ src_install() {
 
 pkg_postinst()
 {
+	fcaps cap_sys_nice bin/wivrn-server
+	xdg_icon_cache_update
+	xdg_desktop_database_update
 	elog "WiVRn requires a compatible client on VR headset to run."
 	if [[ ${PV} == 9999 ]]; then
 		elog "For most headsets it can be downloaded from CI artifacts on https://github.com/WiVRn/WiVRn/actions/workflows/Build.yml"
 	else
 		elog "For most headsets it can be downloaded on https://github.com/WiVRn/WiVRn/releases/tag/v${PV}"
 	fi
+}
+
+pkg_postrm()
+{
+	xdg_icon_cache_update
+	xdg_desktop_database_update
 }
