@@ -20,7 +20,7 @@ DEPEND="
 	opengl? ( virtual/opengl )
 	postgres? ( dev-db/postgresql )
 	ssl? ( dev-libs/openssl )
-	<dev-libs/boost-1.85.0:=
+	dev-libs/boost:=
 	media-libs/libharu
 	media-gfx/graphicsmagick[jpeg,png]
 	x11-libs/pango
