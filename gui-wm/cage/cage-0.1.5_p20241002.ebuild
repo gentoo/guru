@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ inherit meson
 DESCRIPTION="A Wayland kiosk"
 HOMEPAGE="https://www.hjdskes.nl/projects/cage/ https://github.com/Hjdskes/cage"
 
-COMMIT="e7d8780f46277af87881e0be91cb2092541bb1d5"
+COMMIT="34de3f7bac48aae64bbbb09a4c10900e0150e968"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 if [[ "${PV}" == 9999 ]]; then
@@ -26,11 +26,8 @@ IUSE="X"
 
 RDEPEND="
 	dev-libs/wayland
-	>=gui-libs/wlroots-0.17.0:0[X?]
 	x11-libs/libxkbcommon[X?]
+	X? ( gui-libs/wlroots:0.18[X,x11-backend] )
+	!X? ( gui-libs/wlroots:0.18 )
 "
 DEPEND="${RDEPEND}"
-
-src_configure() {
-	meson_src_configure $(meson_feature X xwayland)
-}
