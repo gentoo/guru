@@ -1,0 +1,5 @@
+#!/bin/sh
+# Program is hard-coded to look in $PWD for shaders,
+# so this wrapper changes $PWD to something sane
+DATADIR=/usr/share/terminal-simulator/vt100
+(cd "$DATADIR" && /usr/libexec/terminal-simulator/vt100 $@)

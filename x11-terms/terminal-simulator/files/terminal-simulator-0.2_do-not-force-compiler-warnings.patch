@@ -1,0 +1,18 @@
+Remove unnecessary warning flags in Makefile.
+
+From: Seth M. Price <sprice623@aol.com>
+
+--- a/vt100/Makefile
++++ b/vt100/Makefile
+@@ -9,11 +9,10 @@ endif
+ #For clang: CFLAGS=-Ofast
+ check: vt100 ../test/test.sh
+ 	cd ..; sh test/test.sh
+-WARN=-Wall -Wno-unused-parameter -Wno-parentheses -Wno-unused-result
++WARN=
+ SRC=main.c cpu.c sys.c ddt.c pusart.c \
+ 	nvr.c keyboard.c video.c rom.c sound.c render.c \
+ 	../common/sdl.c ../common/opengl.c ../common/event.c \
+ 	../common/logger.c ../common/pty.c
+ DEPS=`sdl2-config --libs --cflags` -lSDL2_image $(LDFLAGS)
+ vt100: $(SRC) Makefile vt100.h ../common/xsdl.h ../common/opengl.h

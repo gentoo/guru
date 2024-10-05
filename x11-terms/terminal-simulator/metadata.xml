@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Seth Price</name>
+		<email>sprice623@aol.com</email>
+	</maintainer>
+	<longdescription lang="en">
+		This is a software simulation of the VT100 hardware.
+		(There is also a VT52 simulation.) The original firmware
+		ROM is built in and executed by an 8080 emulator. Other
+		components include video display with character generator
+		ROM, settings NVRAM, Intel 8251 USART, and a keyboard
+		matrix scanner. The Advanced Video Option is not included.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/larsbrinkhoff/terminal-simulator/issues</bugs-to>
+		<remote-id type="github">larsbrinkhoff/terminal-simulator</remote-id>
+	</upstream>
+</pkgmetadata>
