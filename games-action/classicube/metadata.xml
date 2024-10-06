@@ -12,7 +12,7 @@
 		and is designed to work on any OpenGL-supported graphics card. 
 	</longdescription>
 	<upstream>
-		<bugs-to>https://github.com/UnknownShadow200/ClassiCube/issues</bugs-to>
-		<remote-id type="github">UnknownShadow200/ClassiCube</remote-id>
+		<bugs-to>https://github.com/ClassiCube/ClassiCube/issues</bugs-to>
+		<remote-id type="github">ClassiCube/ClassiCube</remote-id>
 	</upstream>
 </pkgmetadata>
