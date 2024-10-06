@@ -1,9 +1,9 @@
 # Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake fcaps
+inherit cmake fcaps xdg
 
 DESCRIPTION="WiVRn OpenXR streaming"
 HOMEPAGE="https://github.com/WiVRn/WiVRn"
@@ -52,15 +52,17 @@ RDEPEND="
 		net-analyzer/wireshark
 	)
 	gui? (
-		dev-qt/qtbase
+		dev-qt/qtbase:6
 	)
 "
-
-BDEPEND="
+DEPEND="
 	${RDEPEND}
 	dev-cpp/cli11
 	dev-cpp/eigen
 	dev-cpp/nlohmann_json
+	dev-libs/boost
+"
+BDEPEND="
 	dev-util/glslang
 "
 
@@ -121,24 +123,17 @@ src_configure() {
 src_install() {
 	cmake_src_install
 
-	dosym /usr/share/openxr/1/openxr_wivrn.json /etc/openxr/1/active_runtime.json
+	dosym -r /usr/share/openxr/1/openxr_wivrn.json /etc/openxr/1/active_runtime.json
 }
 
 pkg_postinst()
 {
 	fcaps cap_sys_nice bin/wivrn-server
-	xdg_icon_cache_update
-	xdg_desktop_database_update
+	xdg_pkg_postinst
 	elog "WiVRn requires a compatible client on VR headset to run."
 	if [[ ${PV} == 9999 ]]; then
 		elog "For most headsets it can be downloaded from CI artifacts on https://github.com/WiVRn/WiVRn/actions/workflows/Build.yml"
 	else
 		elog "For most headsets it can be downloaded on https://github.com/WiVRn/WiVRn/releases/tag/v${PV}"
 	fi
-}
-
-pkg_postrm()
-{
-	xdg_icon_cache_update
-	xdg_desktop_database_update
 }
