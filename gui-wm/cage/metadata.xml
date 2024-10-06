@@ -13,8 +13,8 @@
             <name>Jente Hidskes</name>
             <email>dev@hjdskes.nl</email>
         </maintainer>
-        <doc>https://github.com/Hjdskes/cage/wiki</doc>
-        <bugs-to>https://github.com/Hjdskes/cage/issues</bugs-to>
-        <remote-id type="github">Hjdskes/cage</remote-id>
+        <doc>https://github.com/cage-kiosk/cage/wiki</doc>
+        <bugs-to>https://github.com/cage-kiosk/cage/issues</bugs-to>
+        <remote-id type="github">cage-kiosk/cage</remote-id>
     </upstream>
 </pkgmetadata>
