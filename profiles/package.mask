@@ -95,11 +95,6 @@ dev-libs/qhttpengine
 # Removal on 2024-10-07. Bugs #923266, #927808.
 dev-python/gevent
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-09-06)
-# Depends on dev-libs/libappindicator and is unmaintained in guru.
-# Removal on 2024-10-06.
-net-im/guilded-bin
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-06-24)
 # Critical security vulnerability.
 <net-im/conduit-0.8.0
