@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>	
 	<upstream>
-			<maintainer>
-				<email>cyber+gentoo@sysrq.in</email>
-				<name>Anna</name>
-			</maintainer>
-			<bugs-to>https://bugs.sysrq.in/enter_bug.cgi?product=Software&amp;component=nimbus</bugs-to>
-			<changelog>https://git.sysrq.in/nimbus/plain/ChangeLog</changelog>
+		<maintainer>
+			<email>cyber+gentoo@sysrq.in</email>
+			<name>Anna</name>
+		</maintainer>
+		<bugs-to>https://bugs.sysrq.in/enter_bug.cgi?product=Software&amp;component=nimbus</bugs-to>
+		<changelog>https://git.sysrq.in/nimbus/plain/ChangeLog</changelog>
 	</upstream>
 </pkgmetadata>
