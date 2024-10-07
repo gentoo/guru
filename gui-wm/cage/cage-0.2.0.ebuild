@@ -8,14 +8,11 @@ inherit meson
 DESCRIPTION="A Wayland kiosk"
 HOMEPAGE="https://www.hjdskes.nl/projects/cage/ https://github.com/cage-kiosk/cage"
 
-COMMIT="34de3f7bac48aae64bbbb09a4c10900e0150e968"
-S="${WORKDIR}/${PN}-${COMMIT}"
-
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/cage-kiosk/cage"
 else
-	SRC_URI="https://github.com/cage-kiosk/cage/archive/${COMMIT}/${P}.tar.gz"
+	SRC_URI="https://github.com/cage-kiosk/cage/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
