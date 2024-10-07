@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<!-- maintainer-needed -->
-<upstream>
-	<maintainer>
-		<name>Omar Polo</name>
-		<email>telescope@omarpolo.com</email>
-	</maintainer>
-	<doc>https://www.telescope-browser.org/telescope.1.html</doc>
-	<remote-id type="github">telescope-browser/telescope</remote-id>
-</upstream>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>	
+	<upstream>
+		<maintainer>
+			<name>Omar Polo</name>
+			<email>telescope@omarpolo.com</email>
+		</maintainer>
+		<doc>https://www.telescope-browser.org/telescope.1.html</doc>
+		<remote-id type="github">telescope-browser/telescope</remote-id>
+	</upstream>
 </pkgmetadata>
