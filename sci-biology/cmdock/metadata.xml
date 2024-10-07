@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>	
 	<upstream>
 		<remote-id type="gitlab">Jukic/cmdock</remote-id>
 		<bugs-to>https://gitlab.com/Jukic/cmdock/-/issues</bugs-to>
 		<doc>https://rxdock.gitlab.io/documentation/devel/html/</doc>
 	</upstream>
-	<!-- maintainer-needed -->
 	<use>
 		<flag name="apidoc">
 			Build API documentation using <pkg>app-text/doxygen</pkg>
