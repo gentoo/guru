@@ -1,0 +1,28 @@
+Smaller version of a patch merged upstream in
+https://github.com/BOINC/boinc/pull/3045, not released yet.
+
+Author: Benn Snyder <benn.snyder@gmail.com>
+Bug: https://bugs.gentoo.org/939902
+
+diff --git a/lib/proc_control.cpp b/lib/proc_control.cpp
+index 71f783d02f..090574ca4b 100644
+--- a/lib/proc_control.cpp
++++ b/lib/proc_control.cpp
+@@ -256,7 +256,7 @@ void suspend_or_resume_descendants(bool resume) {
+     int pid = getpid();
+     get_descendants(pid, descendants);
+     for (unsigned int i=0; i<descendants.size(); i++) {
+-        kill(descendants[i], resume?SIGCONT:SIGTSTP);
++        kill(descendants[i], resume?SIGCONT:SIGSTOP);
+     }
+ #endif
+ }
+@@ -269,7 +269,7 @@ void suspend_or_resume_process(int pid, bool resume) {
+     pids.push_back(pid);
+     suspend_or_resume_threads(pids, 0, resume, false);
+ #else
+-    ::kill(pid, resume?SIGCONT:SIGTSTP);
++    ::kill(pid, resume?SIGCONT:SIGSTOP);
+ #endif
+ }
+ 
