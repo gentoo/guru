@@ -5,6 +5,10 @@
 		<email>gjdijkman@gjdwebserver.nl</email>
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>	
 	<upstream>
 		<remote-id type="gnome-gitlab">GNOME/calls</remote-id>
 	</upstream>
