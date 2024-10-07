@@ -90,11 +90,6 @@ dev-libs/monero-seed
 # Removal on 2024-10-11.
 dev-libs/qhttpengine
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-09-07)
-# gevent never has been built successfully.
-# Removal on 2024-10-07. Bugs #923266, #927808.
-dev-python/gevent
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-06-24)
 # Critical security vulnerability.
 <net-im/conduit-0.8.0
