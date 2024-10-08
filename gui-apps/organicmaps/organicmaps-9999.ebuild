@@ -12,8 +12,6 @@ EGIT_WORLD_FEED_REPO_URI="https://github.com/${PN}/world_feed_integration_tests_
 # organicmaps gets more and more system libraries, we use as many
 # as currently possible, use submodules for the rest
 EGIT_SUBMODULES=(
-	3party/harfbuzz/harfbuzz
-	3party/fast_double_parser
 	3party/just_gtfs
 	3party/protobuf/protobuf # wait for https://github.com/organicmaps/organicmaps/pull/6310
 	3party/fast_obj
@@ -29,27 +27,35 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # depend on sys-libs/zlib[minizip] when it is not pulled in as subproject anymore
 RDEPEND="
+	>dev-cpp/fast_double_parser-0.7.0
 	dev-cpp/gflags
 	dev-db/sqlite
 	dev-lang/python
 	dev-libs/boost
+	dev-libs/expat
 	dev-libs/icu
 	dev-libs/jansson
-	dev-libs/utfcpp
+	>=dev-libs/utfcpp-4
+	dev-qt/qtbase:6[gui,network,opengl,widgets]
 	dev-qt/qtpositioning:6
 	dev-qt/qtsvg:6
-	dev-util/vulkan-headers
+	>=dev-util/vulkan-headers-1.3.280
+	media-libs/harfbuzz
 	media-libs/freetype
+	media-libs/libglvnd
 	sys-libs/zlib
 	${PYTHON_DEPS}
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/more-3party.patch "${FILESDIR}"/no-dynamic-download.patch )
+PATCHES=(
+	"${FILESDIR}"/fix-3party.patch  # upstream PR #6310
+	"${FILESDIR}"/fix-jansson.patch  # upstream PR #7982
+)
 
 WORLD_FEED_TESTS_S="${WORKDIR}/world_feed_integration_tests_data-${PV}"
 
-src_unpack () {
+src_unpack() {
 	git-r3_fetch
 	git-r3_checkout
 	git-r3_fetch "${EGIT_WORLD_FEED_REPO_URI}"
@@ -69,6 +75,13 @@ src_configure() {
 		-DTEST_DATA_REPO_URL="${WORLD_FEED_TESTS_S}"
 	)
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+
+	# Remove test data
+	rm -rf "${ED}"/usr/share/${PN}/data/world_feed_integration_tests_data || die
 }
 
 pkg_postinst() {
