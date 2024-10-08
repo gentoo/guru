@@ -384,6 +384,9 @@ QA_FLAGS_IGNORED="
 
 DOCS=(
 	README.md
+	"yazi-config/preset/keymap.toml"
+	"yazi-config/preset/theme.toml"
+	"yazi-config/preset/yazi.toml"
 )
 
 src_prepare() {
