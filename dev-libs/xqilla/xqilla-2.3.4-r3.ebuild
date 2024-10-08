@@ -16,7 +16,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="static-libs tidy"
 
-DEPEND=">=dev-libs/xerces-c-3.2.1 tidy? ( app-text/htmltidy )"
+DEPEND="
+	>=dev-libs/xerces-c-3.2.1
+	net-libs/libnsl:=
+	tidy? ( app-text/htmltidy:= )
+"
 RDEPEND="${DEPEND}"
 
 PATCHES=( "${FILESDIR}"/lib_to_lib64.patch )
