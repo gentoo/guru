@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David Roman <davidroman96@gmail.com> (2024-10-08)
+# Depends on libplasma:5::gentoo, which has been dropped
+# Removal on 2024-11-08
+kde-misc/plasma5-wallpapers-dynamic
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-04)
 # Unmaintained in guru and it doesn't build anymore.
 # Removal on 2024-11-04. Bug #932265.
