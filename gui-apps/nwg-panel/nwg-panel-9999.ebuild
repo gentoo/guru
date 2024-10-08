@@ -30,7 +30,7 @@ RDEPEND="
 	dev-python/dasbus[${PYTHON_USEDEP}]
 	gui-apps/nwg-icon-picker
 	media-sound/playerctl
-	gui-libs/gtk-layer-shell
+	gui-libs/gtk-layer-shell[introspection]
 "
 DEPEND="${RDEPEND}"
 
