@@ -122,14 +122,13 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-python/tree-sitter[${PYTHON_USEDEP}]
+	<dev-python/tree-sitter-0.22[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
-	test? (
-		${RDEPEND}
-	)
+	${RDEPEND}
 "
+DEPEND="${BDEPEND}"
 
 python_prepare_all() {
 	mkdir "${S}/vendor"
