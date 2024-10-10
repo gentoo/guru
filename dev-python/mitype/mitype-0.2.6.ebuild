@@ -3,10 +3,16 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+DOCS_BUILDER="sphinx"
+DOCS_DIR="docs/source"
+DOCS_DEPEND="
+	dev-python/sphinx-rtd-theme
+"
 
-inherit distutils-r1
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{10..13} )
+
+inherit distutils-r1 docs
 
 DESCRIPTION="Typing speed test in terminal"
 HOMEPAGE="https://github.com/Mithil467/mitype https://pypi.org/project/mitype/"
@@ -18,10 +24,6 @@ KEYWORDS="~amd64 ~x86"
 
 BDEPEND="
 	dev-python/versioneer[${PYTHON_USEDEP}]
-	doc? (
-		dev-python/sphinx-rtd-theme
-	)
 "
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs/source
