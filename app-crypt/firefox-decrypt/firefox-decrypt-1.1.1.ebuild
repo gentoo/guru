@@ -7,7 +7,6 @@ PYTHON_COMPAT=( python3_{11..12} )
 PYTHON_REQ_USE="sqlite"
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
-DISTUTILS_IN_SOURCE_BUILD=
 inherit distutils-r1
 
 DESCRIPTION="Tool to extract passwords from Mozilla (Firefox, Thunderbird, etc.) profiles"
@@ -31,8 +30,9 @@ src_prepare() {
 	distutils-r1_src_prepare
 }
 
-python_prepare() {
+python_prepare_all() {
 	python_fix_shebang "${S}"/tests
+	distutils-r1_python_prepare_all
 }
 
 python_test() {
