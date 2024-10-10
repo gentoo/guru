@@ -16,12 +16,7 @@ REQUIRED_USE="|| ( nvenc vaapi x264 )"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/WiVRn/WiVRn.git"
-
-	MONADO_V=01806a3ffa62a2440da83d94e7a9297645d9d95a
-	PFR_V=2.2.0
-	SRC_URI="
-	https://github.com/boostorg/pfr/archive/refs/tags/${PFR_V}.tar.gz -> boostpfr_${PFR_V}.tar.gz
-	https://gitlab.freedesktop.org/monado/monado/-/archive/${MONADO_V}/monado-${MONADO_V}.tar.bz2"
+	MONADO_REPO_URI="https://gitlab.freedesktop.org/monado/monado.git"
 else
 	SRC_URI="
 		https://github.com/WiVRn/WiVRn/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
@@ -70,12 +65,10 @@ if [[ ${PV} == 9999 ]]; then
 	src_unpack() {
 		git-r3_src_unpack
 		default_src_unpack
-		cd "${WORKDIR}"
-		mv "monado-${MONADO_V}" "monado-src"
-		mv "pfr-${PFR_V}" "boostpfr-src"
 
-		local THEIR_MONADO=$(grep "GIT_TAG" "${P}/CMakeLists.txt" | awk '{print $2}')
-		[ "${THEIR_MONADO}" == "${MONADO_V}" ] || die "Mismatched monado version: ${THEIR_MONADO} (upstream) ${MONADO_V} (ebuild)"
+		local MONADO_COMMIT=$(grep "GIT_TAG" "${P}/CMakeLists.txt" | awk '{print $2}')
+		git-r3_fetch "${MONADO_REPO_URI}" "${MONADO_COMIT}"
+		git-r3_checkout "${MONADO_REPO_URI}" "${WORKDIR}/monado-src"
 	}
 
 	src_prepare() {
