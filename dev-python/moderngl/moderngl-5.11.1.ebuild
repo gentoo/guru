@@ -12,7 +12,7 @@ DOCS_DEPEND="
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1 virtualx docs
 
@@ -30,8 +30,7 @@ RESTRICT="test"
 BDEPEND="
 	x11-libs/libX11
 	virtual/opengl
-	>=dev-python/glcontext-2.5.0[${PYTHON_USEDEP}]
-	<dev-python/glcontext-3[${PYTHON_USEDEP}]
+	>=dev-python/glcontext-3.0.0[${PYTHON_USEDEP}]
 	test? (
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}]
