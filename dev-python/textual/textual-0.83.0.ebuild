@@ -5,7 +5,6 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
 PYTHON_COMPAT=( python3_{10..12} )
-
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="
 	dev-python/mkdocstrings
@@ -14,7 +13,6 @@ DOCS_DEPEND="
 	dev-python/mkdocs-git-revision-date-localized-plugin
 	dev-python/mkdocs-material
 	dev-python/mkdocs-rss-plugin
-	dev-python/pytz
 "
 DOCS_INITIALIZE_GIT=1
 
@@ -37,16 +35,20 @@ BDEPEND="
 		dev-python/httpx[${PYTHON_USEDEP}]
 		>=dev-python/textual-dev-1.2.0[${PYTHON_USEDEP}]
 		<dev-python/textual-dev-2.0.0[${PYTHON_USEDEP}]
-		dev-python/tree-sitter-languages[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
+		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 		dev-python/griffe[${PYTHON_USEDEP}]
+		dev-python/platformdirs[${PYTHON_USEDEP}]
+	)
+	doc? (
+		dev-python/tree-sitter-languages[${PYTHON_USEDEP}]
 	)
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/fix-mkdocstrings.patch"
-)
+# PATCHES=(
+# 	"${FILESDIR}/fix-mkdocstrings.patch"
+# )
 
 EPYTEST_DESELECT=(
 	# Those tests ask to press keys
