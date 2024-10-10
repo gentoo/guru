@@ -35,20 +35,21 @@ KEYWORDS="~amd64"
 BDEPEND="
 	>=dev-python/GitPython-3.1[${PYTHON_USEDEP}]
 	<dev-python/GitPython-3.2[${PYTHON_USEDEP}]
-	>=dev-python/mkdocs-1.4[${PYTHON_USEDEP}]
+	>=dev-python/mkdocs-1.5[${PYTHON_USEDEP}]
 	<dev-python/mkdocs-2[${PYTHON_USEDEP}]
-	dev-python/pillow[${PYTHON_USEDEP},truetype]
+	>=dev-python/cachecontrol-0.14[${PYTHON_USEDEP}]
+	<dev-python/cachecontrol-1[${PYTHON_USEDEP}]
+	dev-python/filelock[${PYTHON_USEDEP}]
+	>=dev-python/requests-2.31[${PYTHON_USEDEP}]
+	<dev-python/requests-3[${PYTHON_USEDEP}]
 	test? (
-		dev-python/feedparser[${PYTHON_USEDEP}]
-		dev-python/jsonschema[${PYTHON_USEDEP}]
-		dev-python/mkdocs-material[${PYTHON_USEDEP}]
-		dev-python/validator-collection[${PYTHON_USEDEP}]
-		dev-python/pytest-cov[${PYTHON_USEDEP}]
-		dev-python/validator-collection[${PYTHON_USEDEP}]
-		dev-python/jsonfeed[${PYTHON_USEDEP}]
-	)
-	doc? (
-		dev-python/mkdocs-material[${PYTHON_USEDEP},social]
+		>=dev-python/feedparser-6.0.11[${PYTHON_USEDEP}]
+		<dev-python/feedparser-6.1[${PYTHON_USEDEP}]
+		>=dev-python/jsonfeed-1.1.2[${PYTHON_USEDEP}]
+		<dev-python/jsonfeed-2[${PYTHON_USEDEP}]
+		>=dev-python/mkdocs-material-9[${PYTHON_USEDEP},social]
+		>=dev-python/validator-collection-1.5[${PYTHON_USEDEP}]
+		<dev-python/validator-collection-1.6[${PYTHON_USEDEP}]
 	)
 "
 DEPEND="${BDEPEND}"
