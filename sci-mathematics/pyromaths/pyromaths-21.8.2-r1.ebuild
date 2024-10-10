@@ -3,10 +3,16 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+DOCS_BUILDER="sphinx"
+DOCS_DEPEND="
+	dev-python/sphinx-argparse
+"
+DOCS_DIR="Doc/source"
 
-inherit distutils-r1
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{10..12} pypy3 )
+
+inherit distutils-r1 docs
 
 DESCRIPTION="Create maths exercises in LaTeX and PDF format"
 
@@ -35,10 +41,6 @@ RDEPEND="
 "
 BDEPEND="
 	dev-python/jinja2-cli[${PYTHON_USEDEP}]
-	doc? (
-		dev-python/sphinx[${PYTHON_USEDEP}]
-		dev-python/sphinx-argparse[${PYTHON_USEDEP}]
-	)
 "
 DEPEND="${RDEPEND}"
 
@@ -47,13 +49,3 @@ PATCHES=(
 )
 
 distutils_enable_tests pytest
-
-python_compile() {
-	distutils-r1_python_compile
-	use doc && emake man -C Doc
-}
-
-python_install() {
-	distutils-r1_python_install
-	use doc && doman "${S}/Doc/build/man/pyromaths.1"
-}
