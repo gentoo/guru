@@ -13,15 +13,17 @@ LICENSE="Info-ZIP LGPL-3+ regexp-UofT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
-# libboinc-api dependencies
-# no subslot, because "-Wl,--as-needed" removes them
-DEPEND="
-	dev-libs/openssl
-	media-libs/freeglut
-	media-libs/libjpeg-turbo
-"
-
 DOCS=( job.xml )
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-26018-makefile.patch
+	"${FILESDIR}"/${PN}-26018-sigstop.patch
+)
+
+QA_CONFIG_IMPL_DECL_SKIP=(
+	# https://bugs.gentoo.org/922046
+	"_mm*"
+)
 
 src_prepare() {
 	default
@@ -30,12 +32,26 @@ src_prepare() {
 
 src_configure() {
 	edo bash generate_svn_version.sh
-	econf --enable-static --enable-pkg-devel --disable-fcgi
+
+	local myeconfargs=(
+		# build libraries only
+		--enable-pkg-devel
+		--disable-fcgi
+
+		# link with libboinc_api statically
+		--disable-shared
+		--enable-static
+
+		# do not build libboinc_graphics
+		--without-x
+		ax_cv_check_gl_libgl=no
+	)
+	econf "${myeconfargs[@]}"
 }
 
 src_compile() {
 	emake
-	emake -C samples/wrapper
+	emake -C samples/wrapper MAKEFILE_LDFLAGS="-lpthread" MAKEFILE_STDLIB=
 }
 
 src_install() {

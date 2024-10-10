@@ -1,0 +1,13 @@
+Bug: https://bugs.gentoo.org/904138
+
+--- a/samples/wrapper/Makefile
++++ b/samples/wrapper/Makefile
+@@ -22,7 +22,7 @@ else
+   MAKEFILE_STDLIB  = libstdc++.a
+ endif
+ 
+-CXXFLAGS += -g -O0 \
++CXXFLAGS += \
+ 	-Wall -W -Wshadow -Wpointer-arith -Wcast-qual -Wcast-align -Wwrite-strings -fno-common \
+     -I$(BOINC_DIR) \
+     -I$(BOINC_LIB_DIR) \
