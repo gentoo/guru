@@ -273,11 +273,17 @@ CRATES="
 inherit cargo desktop systemd xdg
 
 DEPEND="
-	gui-libs/libadwaita
-	gui-libs/gtk
+	dev-libs/glib:2
+	gui-libs/gtk:4
+	gui-libs/libadwaita:1
+	x11-libs/cairo
+	x11-libs/libX11
+	x11-libs/libXtst
+	x11-libs/pango
 	x11-themes/hicolor-icon-theme
 "
 RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 DESCRIPTION="Software KVM Switch / mouse & keyboard sharing software for Local Area Networks"
 HOMEPAGE="https://github.com/feschber/lan-mouse"
