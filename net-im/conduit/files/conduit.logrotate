@@ -1,0 +1,9 @@
+# /etc/logrotate.d/conduit
+
+/var/log/conduit.log {
+	create conduit conduit
+	maxsize 10M
+	notifempty
+	missingok
+	copytruncate
+}

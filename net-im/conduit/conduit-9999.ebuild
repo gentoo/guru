@@ -107,6 +107,9 @@ src_install() {
 	insinto /etc/conduit
 	newins conduit-example.toml conduit.toml
 
+	insinto /etc/logrotate.d
+	newins "${FILESDIR}"/conduit.logrotate conduit
+
 	newinitd "${FILESDIR}"/conduit.initd conduit
 	newconfd "${FILESDIR}"/conduit.confd conduit
 	systemd_dounit "${FILESDIR}"/conduit.service
