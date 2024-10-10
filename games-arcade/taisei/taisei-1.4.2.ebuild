@@ -49,6 +49,13 @@ BDEPEND="
 	${PYTHON_DEPS}
 	doc? ( dev-python/docutils )"
 
+# BSD qsort_r(3) and Microsoft qsort_s(3) implicit declarations
+# https://bugs.gentoo.org/941235
+QA_CONFIG_IMPL_DECL_SKIP=(
+	qsort_r
+	qsort_s
+)
+
 python_check_deps() {
 	python_has_version "dev-python/zstandard[${PYTHON_USEDEP}]"
 }
