@@ -1,0 +1,13 @@
+diff --git a/pal/shared/devdriver/shared/legacy/inc/util/queue.h b/pal/shared/devdriver/shared/legacy/inc/util/queue.h
+index 95421760..926e6c89 100644
+--- a/pal/shared/devdriver/shared/legacy/inc/util/queue.h
++++ b/pal/shared/devdriver/shared/legacy/inc/util/queue.h
+@@ -368,7 +368,7 @@ namespace DevDriver
+ 
+         // Private copy constructor to prevent implicit copies
+         Queue(const Queue& rhs)
+-            : Queue(rhs.allocCb)
++            : Queue(rhs.m_allocCb)
+         {
+             GrowBlocks(rhs.m_numBlocks);
+             for (int i = 0; i < rhs.m_size; i++)
