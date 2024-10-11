@@ -22,7 +22,10 @@ KEYWORDS="~amd64 ~x86"
 
 BDEPEND="
 	test? (
-		dev-python/pytest-regressions
+		dev-python/pytest-regressions[${PYTHON_USEDEP}]
+	)
+	doc? (
+		dev-python/myst-parser[${PYTHON_USEDEP}]
 	)
 "
 
