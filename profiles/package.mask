@@ -90,11 +90,6 @@ net-im/kaidan
 # Removal on 2024-10-19
 dev-libs/monero-seed
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-09-11)
-# Dead upstream and no revdeps left.
-# Removal on 2024-10-11.
-dev-libs/qhttpengine
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
