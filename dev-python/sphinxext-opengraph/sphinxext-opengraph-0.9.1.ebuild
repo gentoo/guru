@@ -21,13 +21,13 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-BDEPEND="
-	doc? (
-		dev-python/myst-parser[${PYTHON_USEDEP}]
-		dev-python/furo[${PYTHON_USEDEP}]
-		dev-python/sphinx-design[${PYTHON_USEDEP}]
-		dev-python/matplotlib[${PYTHON_USEDEP}]
-	)
+RDEPEND="
+	dev-python/myst-parser[${PYTHON_USEDEP}]
+	dev-python/furo[${PYTHON_USEDEP}]
+	dev-python/sphinx-design[${PYTHON_USEDEP}]
+	dev-python/matplotlib[${PYTHON_USEDEP}]
 "
+BDEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}"
 
 distutils_enable_tests pytest
