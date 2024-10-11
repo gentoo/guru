@@ -301,6 +301,8 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
+QA_FLAGS_IGNORED="usr/bin/lan-mouse"
+
 src_install() {
 	cargo_src_install
 	doicon -s scalable resources/de.feschber.LanMouse.svg
