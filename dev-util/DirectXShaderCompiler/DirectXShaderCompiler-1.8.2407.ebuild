@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit cmake check-reqs python-any-r1
 
 DESCRIPTION="Microsoft DirectX Shader Compiler which is based on LLVM/Clang"
