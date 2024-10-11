@@ -42,6 +42,7 @@ BDEPEND="
 	sys-devel/flex
 	test? (
 		dev-build/cmake
+		dev-debug/gdb
 	)
 "
 
@@ -62,6 +63,11 @@ src_prepare() {
 		sed -i '/AC_SUBST(CFG_LDFLAGS_DEBUG)/i CFG_LDFLAGS_DEBUG=""' "${S}"/configure.ac || die
 	fi
 	eautoconf --force
+}
+
+src_configure() {
+	# https://bugs.gentoo.org/887919
+	econf CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" LDFLAGS="${LDFLAGS}"
 }
 
 src_test() {
