@@ -1,7 +1,6 @@
 move dev-util/cargo-make dev-build/cargo-make
 move app-text/md4c dev-libs/md4c
 move dev-util/xmake dev-build/xmake
-move dev-python/dataclasses_json dev-python/dataclasses-json
 move media-gfx/heatshrink dev-libs/heatshrink
 move sys-apps/sdate app-misc/sdate
 move gui-libs/webp-pixbuf-loader gui-libs/gdk-pixbuf-loader-webp
