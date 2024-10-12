@@ -27,7 +27,10 @@ RDEPEND="
 	dev-python/sphinx-design[${PYTHON_USEDEP}]
 	dev-python/matplotlib[${PYTHON_USEDEP}]
 "
-BDEPEND="${RDEPEND}"
-DEPEND="${RDEPEND}"
+BDEPEND="
+	doc? (
+		${RDEPEND}
+	)
+"
 
 distutils_enable_tests pytest
