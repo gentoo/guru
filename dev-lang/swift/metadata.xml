@@ -8,4 +8,15 @@
   <upstream>
     <remote-id type="github">swiftlang/swift</remote-id>
   </upstream>
+  <slots>
+    <slot name="0">
+      The original slot for swift-5.10.1; should no longer be used.
+    </slot>
+    <slot name="5">
+      The Swift 5 language, compiler, and tooling.
+    </slot>
+    <subslots>
+      Minor Swift versions.
+    </subslots>
+  </slots>
 </pkgmetadata>
