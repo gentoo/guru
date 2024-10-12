@@ -27,7 +27,7 @@ DEPEND="
 	net-misc/zsync
 	sys-apps/usbutils
 	sys-apps/util-linux
-	|| ( sys-firmware/edk2-ovmf sys-firmware/edk2-ovmf-bin )
+	|| ( sys-firmware/edk2 sys-firmware/edk2-bin )
 	sys-process/procps
 	x11-apps/xrandr
 	x11-misc/xdg-user-dirs
