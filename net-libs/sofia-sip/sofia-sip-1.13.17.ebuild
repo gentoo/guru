@@ -38,6 +38,11 @@ DOCS=(
 	docs/.
 )
 
+PATCHES=(
+	# fix build with gcc14
+	"${FILESDIR}/${P}-gcc14.patch"
+)
+
 src_prepare() {
 	local -a TESTS_DESELECT=(
 		# Avoid tests that make too many assumptions about the
