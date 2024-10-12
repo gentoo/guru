@@ -64,6 +64,7 @@ RESTRICT="strip"
 
 RDEPEND="
 	${PYTHON_DEPS}
+	>=app-eselect/eselect-swift-1.0
 	>=dev-db/sqlite-3
 	>=dev-libs/icu-69
 	>=dev-libs/libedit-20221030
@@ -268,6 +269,27 @@ src_install() {
 	# `swift <command>` calls `swift-<command>` directly.)
 	local bin
 	for bin in swift swiftc sourcekit-lsp; do
-		dosym -r "${dest_dir}/usr/bin/${bin}" "/usr/bin/${bin}"
+		# We only install versioned symlinks; non-versioned links are maanged
+		# via `eselect swift`.
+		dosym -r "${dest_dir}/usr/bin/${bin}" "/usr/bin/${bin}-${PV}"
 	done
+}
+
+pkg_postinst() {
+	# If we're installing the latest version of Swift, then update symlinks to
+	# it. (We don't want to call `eselect swift update` unconditionally in case
+	# we're installing an older version of Swift, and the user has intentionally
+	# selected a version other than the latest.)
+	if ! has_version ">${CATEGORY}/${P}"; then
+		eselect swift update
+	fi
+}
+
+pkg_postrm() {
+	# We don't want to leave behind symlinks pointing to this Swift version on
+	# removal.
+	local eselect_swift_version="$(eselect swift show)"
+	if [[ "${eselect_swift_version}" == *"${P}" ]]; then
+		eselect swift update
+	fi
 }
