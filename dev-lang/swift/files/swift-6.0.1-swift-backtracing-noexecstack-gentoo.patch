@@ -1,0 +1,15 @@
+# The Swift backtracer needs to get CPU context information when producing
+# backtraces, which is necessarily written in assembly. Because it tries to be
+# portable, it doesn't include a note indicating that the assembled binary
+# doesn't require an executable stack; we need to include one explicitly to turn
+# it off.
+
+--- a/swift/stdlib/public/Backtracing/get-cpu-context.S
++++ b/swift/stdlib/public/Backtracing/get-cpu-context.S
+@@ -140,3 +140,6 @@ FN(_swift_get_cpu_context):
+         bx  lr
+ #endif
+
++#if defined(__linux__) && defined(__ELF__)
++.section .note.GNU-stack,"",%progbits
++#endif

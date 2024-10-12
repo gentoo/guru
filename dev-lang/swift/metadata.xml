@@ -15,6 +15,9 @@
     <slot name="5">
       The Swift 5 language, compiler, and tooling.
     </slot>
+    <slot name="6">
+      The Swift 6 language, compiler, and tooling.
+    </slot>
     <subslots>
       Minor Swift versions.
     </subslots>

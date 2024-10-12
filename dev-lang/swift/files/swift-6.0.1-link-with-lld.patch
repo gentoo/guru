@@ -1,0 +1,74 @@
+# Swift defaults to building with `gold` on Linux because `bfd` can't correctly
+# handle Swift symbols; Gentoo no longer supports `gold`, so we have to make
+# sure that we build with `lld`.
+
+--- a/swift/lib/Driver/UnixToolChains.cpp
++++ b/swift/lib/Driver/UnixToolChains.cpp
+@@ -109,36 +109,7 @@ ToolChain::InvocationInfo toolchains::GenericUnix::constructInvocation(
+   return II;
+ }
+
+-std::string toolchains::GenericUnix::getDefaultLinker() const {
+-  if (getTriple().isAndroid()
+-      || (getTriple().isMusl()
+-          && getTriple().getVendor() == llvm::Triple::Swift))
+-    return "lld";
+-
+-  switch (getTriple().getArch()) {
+-  case llvm::Triple::arm:
+-  case llvm::Triple::aarch64:
+-  case llvm::Triple::aarch64_32:
+-  case llvm::Triple::armeb:
+-  case llvm::Triple::thumb:
+-  case llvm::Triple::thumbeb:
+-    // BFD linker has issues wrt relocation of the protocol conformance
+-    // section on these targets, it also generates COPY relocations for
+-    // final executables, as such, unless specified, we default to gold
+-    // linker.
+-    return "gold";
+-  case llvm::Triple::x86:
+-  case llvm::Triple::x86_64:
+-  case llvm::Triple::ppc64:
+-  case llvm::Triple::ppc64le:
+-  case llvm::Triple::systemz:
+-    // BFD linker has issues wrt relocations against protected symbols.
+-    return "gold";
+-  default:
+-    // Otherwise, use the default BFD linker.
+-    return "";
+-  }
+-}
++std::string toolchains::GenericUnix::getDefaultLinker() const { return "lld"; }
+
+ bool toolchains::GenericUnix::addRuntimeRPath(const llvm::Triple &T,
+                                               const llvm::opt::ArgList &Args) const {
+--- a/swift-driver/Sources/SwiftDriver/Jobs/GenericUnixToolchain+LinkerSupport.swift
++++ b/swift-driver/Sources/SwiftDriver/Jobs/GenericUnixToolchain+LinkerSupport.swift
+@@ -17,26 +17,7 @@ import struct TSCBasic.AbsolutePath
+
+ extension GenericUnixToolchain {
+   private func defaultLinker(for targetTriple: Triple) -> String? {
+-    if targetTriple.os == .openbsd || targetTriple.os == .freeBSD ||
+-         targetTriple.environment == .android ||
+-         targetTriple.isFullyStaticLinux {
+-      return "lld"
+-    }
+-
+-    switch targetTriple.arch {
+-    case .arm, .aarch64, .armeb, .thumb, .thumbeb:
+-      // BFD linker has issues wrt relocation of the protocol conformance
+-      // section on these targets, it also generates COPY relocations for
+-      // final executables, as such, unless specified, we default to gold
+-      // linker.
+-      return "gold"
+-    case .x86, .x86_64, .ppc64, .ppc64le, .systemz:
+-      // BFD linker has issues wrt relocations against protected symbols.
+-      return "gold"
+-    default:
+-      // Otherwise, use the default BFD linker.
+-      return ""
+-    }
++    "lld"
+   }
+
+   private func majorArchitectureName(for triple: Triple) -> String {

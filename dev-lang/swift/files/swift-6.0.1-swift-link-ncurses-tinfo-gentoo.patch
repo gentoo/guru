@@ -1,0 +1,188 @@
+# Various Swift components require linking against `curses`; Gentoo doesn't
+# `curses` as an alias for `ncurses`, so we have to link against `ncurses`
+# explicitly. `ncurses` on Gentoo also doesn't expose the `curses` terminfo
+# database interface (e.g., `set_curterm`, `del_curterm`, etc.), so we have to
+# also explicitly link against `tinfo`.
+
+--- a/swift/utils/test-prefix-map/Makefile
++++ b/swift/utils/test-prefix-map/Makefile
+@@ -11,7 +11,7 @@ CXXFLAGS = -std=c++11 \
+           -I$(objroot)/tools/clang/include \
+           -D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS
+
+-LDFLAGS = -L$(objroot)/lib -lswiftBasic -lLLVMSupport -lcurses
++LDFLAGS = -L$(objroot)/lib -lswiftBasic -lLLVMSupport -lncurses -ltinfo
+
+ main: main.cpp $(srcroot)/tools/swift/include/swift/Basic/PrefixMap.h
+        $(CXX) $(CXXFLAGS) $(LDFLAGS) -o main main.cpp
+--- a/swift/utils/test-successor-map/Makefile
++++ b/swift/utils/test-successor-map/Makefile
+@@ -11,7 +11,7 @@ CXXFLAGS = -std=c++11 \
+           -I$(objroot)/tools/clang/include \
+           -D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS
+
+-LDFLAGS = -L$(objroot)/Debug+Asserts/lib -lLLVMSupport -lcurses
++LDFLAGS = -L$(objroot)/Debug+Asserts/lib -lLLVMSupport -lncurses -ltinfo
+
+ main: main.cpp $(srcroot)/tools/swift/include/swift/Basic/SuccessorMap.h
+        $(CXX) $(CXXFLAGS) $(LDFLAGS) -o main main.cpp
+--- a/llbuild/Package.swift
++++ b/llbuild/Package.swift
+@@ -227,7 +227,8 @@ let package = Package(
+             path: "lib/llvm/Support",
+             linkerSettings: [
+                 .linkedLibrary("m", .when(platforms: [.linux])),
+-                .linkedLibrary("ncurses", .when(platforms: [.linux, .macOS, .android]))]
++                .linkedLibrary("ncurses", .when(platforms: [.linux, .macOS, .android])),
++                .linkedLibrary("tinfo", .when(platforms: [.linux]))]
+         ),
+     ],
+     cxxLanguageStandard: .cxx14
+--- a/llbuild/lib/llvm/Support/CMakeLists.txt
++++ b/llbuild/lib/llvm/Support/CMakeLists.txt
+@@ -64,6 +64,4 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
+     execinfo)
+ endif()
+ 
+-if(${CMAKE_SYSTEM_NAME} MATCHES "Android|Darwin|Linux")
+-  target_link_libraries(llvmSupport PRIVATE curses)
+-endif()
++target_link_libraries(llvmSupport PRIVATE ncurses tinfo)
+--- a/llbuild/perftests/Xcode/PerfTests/CMakeLists.txt
++++ b/llbuild/perftests/Xcode/PerfTests/CMakeLists.txt
+@@ -33,7 +33,8 @@ target_link_libraries(XcodePerfTests PRIVATE
+   llbuildNinja
+   llbuildBuildSystem
+   llbuildCommands
+-  curses
++  ncurses
++  tinfo
+   SQLite::SQLite3
+   "${MACOSX_SDK_PATH}/System/Library/Frameworks/Foundation.framework"
+   "${MACOSX_PLATFORM_PATH}/Developer/Library/Frameworks/XCTest.framework"
+--- a/llbuild/products/libllbuild/CMakeLists.txt
++++ b/llbuild/products/libllbuild/CMakeLists.txt
+@@ -28,7 +28,7 @@ endif()
+ 
+ if(NOT CMAKE_SYSTEM_NAME STREQUAL Windows)
+   target_link_libraries(libllbuild PRIVATE
+-    curses)
++    ncurses tinfo)
+ endif()
+ 
+ target_include_directories(libllbuild
+@@ -79,7 +79,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+     llbuildNinja
+     llvmSupport
+     SQLite::SQLite3
+-    curses)
++    ncurses tinfo)
+ 
+   # Manually set up the remaining framework structure.
+   set(LLBUILD_FW_INPUTS)
+--- a/llbuild/products/llbuild/CMakeLists.txt
++++ b/llbuild/products/llbuild/CMakeLists.txt
+@@ -16,5 +16,5 @@ endif()
+ 
+ if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+   target_link_libraries(llbuild PRIVATE
+-    curses)
++    ncurses tinfo)
+ endif()
+--- a/llbuild/products/swift-build-tool/CMakeLists.txt
++++ b/llbuild/products/swift-build-tool/CMakeLists.txt
+@@ -10,7 +10,7 @@ target_link_libraries(swift-build-tool PRIVATE
+ 
+ if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+   target_link_libraries(swift-build-tool PRIVATE
+-    curses)
++    ncurses tinfo)
+ endif()
+ 
+ install(TARGETS swift-build-tool
+--- a/llbuild/tests/lit.site.cfg.in
++++ b/llbuild/tests/lit.site.cfg.in
+@@ -21,7 +21,7 @@ config.sqlite_library = "@SQLite3_LIBRARY@"
+ if sys.platform == 'Windows':
+   config.curses_library = ''
+ else:
+-  config.curses_library = '-lcurses'
++  config.curses_library = '-lncurses -ltinfo'
+ config.threads_library = "@CMAKE_THREAD_LIBS_INIT@"
+ if "@CMAKE_DL_LIBS@":
+   config.dl_library = "-l@CMAKE_DL_LIBS@"
+--- a/llbuild/unittests/Basic/CMakeLists.txt
++++ b/llbuild/unittests/Basic/CMakeLists.txt
+@@ -14,5 +14,5 @@ target_link_libraries(BasicTests PRIVATE
+ 
+ if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+   target_link_libraries(BasicTests PRIVATE
+-    curses)
++    ncurses tinfo)
+ endif()
+--- a/llbuild/unittests/BuildSystem/CMakeLists.txt
++++ b/llbuild/unittests/BuildSystem/CMakeLists.txt
+@@ -16,5 +16,5 @@ target_link_libraries(BuildSystemTests PRIVATE
+ 
+ if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+   target_link_libraries(BuildSystemTests PRIVATE
+-    curses)
++    ncurses tinfo)
+ endif()
+--- a/llbuild/unittests/CAPI/CMakeLists.txt
++++ b/llbuild/unittests/CAPI/CMakeLists.txt
+@@ -15,5 +15,5 @@ target_link_libraries(CAPITests PRIVATE
+ 
+ if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+   target_link_libraries(CAPITests PRIVATE
+-    curses)
++    ncurses tinfo)
+ endif()
+--- a/llbuild/unittests/CAS/CMakeLists.txt
++++ b/llbuild/unittests/CAS/CMakeLists.txt
+@@ -8,6 +8,6 @@ target_link_libraries(CASTests PRIVATE
+ 
+ if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+   target_link_libraries(CASTests PRIVATE
+-    curses)
++    ncurses tinfo)
+ endif()
+ 
+--- a/llbuild/unittests/Core/CMakeLists.txt
++++ b/llbuild/unittests/Core/CMakeLists.txt
+@@ -15,6 +15,6 @@ target_link_libraries(CoreTests PRIVATE
+ 
+ if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+   target_link_libraries(CoreTests PRIVATE
+-    curses)
++    ncurses tinfo)
+ endif()
+ 
+--- a/llbuild/unittests/Evo/CMakeLists.txt
++++ b/llbuild/unittests/Evo/CMakeLists.txt
+@@ -11,6 +11,6 @@ target_link_libraries(EvoTests PRIVATE
+ 
+ if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+   target_link_libraries(EvoTests PRIVATE
+-    curses)
++    ncurses tinfo)
+ endif()
+ 
+--- a/llbuild/unittests/Ninja/CMakeLists.txt
++++ b/llbuild/unittests/Ninja/CMakeLists.txt
+@@ -8,5 +8,5 @@ target_link_libraries(NinjaTests PRIVATE
+ 
+ if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+   target_link_libraries(NinjaTests PRIVATE
+-    curses)
++    ncurses tinfo)
+ endif()
+--- a/llbuild/utils/adjust-times/CMakeLists.txt
++++ b/llbuild/utils/adjust-times/CMakeLists.txt
+@@ -7,5 +7,5 @@ target_link_libraries(adjust-times PRIVATE llvmSupport)
+ 
+ if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+   target_link_libraries(adjust-times PRIVATE
+-    curses)
++    ncurses tinfo)
+ endif()

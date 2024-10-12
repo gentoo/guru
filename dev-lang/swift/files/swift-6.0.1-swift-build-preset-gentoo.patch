@@ -1,0 +1,51 @@
+# Individual preset options:
+#
+# 1. mixin-preset: building for Linux, without compiler assertions, and with
+#    most tests disabled
+# 2. build-ninja=0, libicu=0, skip-build-curl, skip-build-zlib: we'd prefer to
+#    pick these up from the system
+# 3. build-swift-libexec=0: don't build binaries normally installed in
+#    `/usr/local/libexec` because we're not allowed to install there ourselves
+# 4. extra-cmake-options:
+#    * -DSWIFT_USE_LINKER=lld: let Swift know we'll be building it with `lld`
+#    * -DBUILD_TESTING, -DSWIFT_INCLUDE_TESTS, -DSWIFT_INCLUDE_TEST_BINARIES:
+#      the `no_test` preset disables building most, but not all tests; we don't
+#      need to build any of them
+#    * -DCOMPILER_RT_BUILD_ORC: the `compiler-rt` library defaults to building
+#      the ORC LLVM JIT library, which we don't require; we disable it because
+#      it builds with executable stacks, which trip up warnings on installation
+#    * -DPython3_FIND_UNVERSIONED_NAMES: LLDB ships with Python bindings, and
+#      uses CMake to search for Python. By default, CMake tries to find the
+#      latest version installed on disk (currently, `python3.13`, then
+#      `python3.12`, then...). This might not be the version of Python specified
+#      by `PYTHON_SINGLE_TARGET`, which we want to respect. We use
+#      `python_setup` to place `${EPYTHON}` at the front of `PATH` as the
+#      unversioned `python3`, so we want CMake to discover and use this binary
+#      first before falling back to its search
+# 5. llvm-targets-to-build: we don't currently support architectures other than
+#    amd64, so there's no point in building LLVM for multiple architectures; if
+#    this changes (or we start supporting cross-compilation), we'll need to
+#    build for more than just the host
+
+--- a/swift/utils/build-presets.ini
++++ b/swift/utils/build-presets.ini
+@@ -3040,3 +3040,19 @@ skip-test-cmark
+ skip-test-swift
+ skip-build-benchmarks
+ skip-test-foundation
++
++[preset: gentoo]
++mixin-preset=buildbot_linux,no_assertions,no_test
++build-ninja=0
++build-swift-libexec=0
++extra-cmake-options=
++       -DLLVM_USE_LINKER=lld
++       -DBUILD_TESTING:BOOL=NO
++       -DSWIFT_INCLUDE_TESTS:BOOL=NO
++       -DSWIFT_INCLUDE_TEST_BINARIES:BOOL=NO
++       -DCOMPILER_RT_BUILD_ORC:BOOL=NO
++       -DPython3_FIND_UNVERSIONED_NAMES=FIRST
++libicu=0
++llvm-targets-to-build=host
++skip-build-curl
++skip-build-zlib
