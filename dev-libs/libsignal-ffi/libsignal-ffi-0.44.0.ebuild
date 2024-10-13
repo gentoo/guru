@@ -5,7 +5,9 @@
 
 EAPI=8
 
-inherit cargo
+LLVM_COMPAT=( {18..19} )
+
+inherit cargo llvm-r1
 
 DESCRIPTION="A C ABI library which exposes Signal protocol logic"
 HOMEPAGE="https://github.com/signalapp/libsignal"
@@ -23,7 +25,7 @@ KEYWORDS="~amd64"
 
 BDEPEND="
 	dev-libs/protobuf
-	sys-devel/clang
+	$(llvm_gen_dep 'sys-devel/clang:${LLVM_SLOT}')
 "
 
 src_unpack() {
