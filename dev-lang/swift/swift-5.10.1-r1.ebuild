@@ -222,6 +222,8 @@ src_compile() {
 	"${S}/swift/utils/build-script" \
 		--verbose-build \
 		--release \
+		--no-assertions \
+		--build-subdir="Ninja-Release" \
 		--install-destdir="${S}/stage0" \
 		--extra-cmake-options="${extra_cmake_options}" \
 		--bootstrapping=off \
@@ -245,6 +247,8 @@ src_compile() {
 	"${S}/swift/utils/build-script" \
 		--verbose-build \
 		--release \
+		--no-assertions \
+		--build-subdir="Ninja-Release" \
 		--install-destdir="${S}/stage1" \
 		--extra-cmake-options="${extra_cmake_options}" \
 		--build-swift-libexec=false \
@@ -267,6 +271,8 @@ src_compile() {
 	"${S}/swift/utils/build-script" \
 		--verbose-build \
 		--release \
+		--no-assertions \
+		--build-subdir="Ninja-Release" \
 		--install-destdir="${S}/stage2" \
 		--extra-cmake-options="${extra_cmake_options}" \
 		--build-swift-libexec=false \
