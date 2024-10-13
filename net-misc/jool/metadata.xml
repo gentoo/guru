@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ppn@parhuet.fr</email>
+		<name>Nicolas PARLANT</name>
+	</maintainer>
+	<use>
+		<flag name="iptables">In addition to <pkg>net-firewall/nftables</pkg>, include support for xtables with <pkg>net-firewall/iptables</pkg>.</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">NICMx/Jool</remote-id>
+	</upstream>
+</pkgmetadata>
