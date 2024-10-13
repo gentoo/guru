@@ -3,8 +3,9 @@
 
 EAPI=8
 
+LLVM_COMPAT=( {15..18} )
 PYTHON_COMPAT=( python3_{10..13} )
-inherit python-single-r1
+inherit llvm-r1 python-single-r1
 
 DESCRIPTION="A high-level, general-purpose, multi-paradigm, compiled programming language"
 HOMEPAGE="https://www.swift.org"
@@ -70,10 +71,10 @@ RDEPEND="
 	>=dev-libs/libedit-20221030
 	>=dev-libs/libxml2-2.11.5
 	>=net-misc/curl-8.4
-	>=sys-devel/lld-15
 	>=sys-libs/ncurses-6
 	>=sys-libs/zlib-1.3
 	dev-lang/python
+	$(llvm_gen_dep 'sys-devel/lld:${LLVM_SLOT}=')
 "
 
 BDEPEND="
@@ -86,15 +87,60 @@ BDEPEND="
 	>=dev-libs/libxml2-2.11.5
 	>=dev-vcs/git-2.39
 	>=sys-apps/coreutils-9
-	>=sys-devel/clang-15
-	>=sys-devel/lld-15
 	>=sys-libs/ncurses-6
 	>=sys-libs/zlib-1.3
+	$(llvm_gen_dep '
+		sys-devel/clang:${LLVM_SLOT}=
+		sys-devel/lld:${LLVM_SLOT}=
+	')
 	dev-lang/python
 	$(python_gen_cond_dep '
 		dev-python/setuptools[${PYTHON_USEDEP}]
 	' python3_{12..13})
 "
+
+# Adapted from `flag-o-matic.eclass`'s `raw-ldflags`: turns GCC-style flags
+# (`-Wl,-foo`) into Clang-style flags (`-Xlinker -foo`).
+clang-ldflags() {
+	local flag input="$@"
+	[[ -z ${input} ]] && input=${LDFLAGS}
+	set --
+	for flag in ${input//,/ } ; do
+		case ${flag} in
+			-Wl) ;;
+			*) set -- "$@" "-Xlinker ${flag}" ;;
+		esac
+	done
+	echo "$@"
+}
+
+pkg_setup() {
+	# Sets `${EPYTHON}` according to `PYTHON_SINGLE_TARGET`, sets up
+	# `${T}/${EPYTHON}` with that version, and adds it to the `PATH`.
+	python_setup
+
+	# Sets up `PATH` to point to the appropriate LLVM toolchain.
+	llvm-r1_pkg_setup
+
+	# `llvm-r1_pkg_setup` sets these tools to their absolute paths, but we need
+	# to still pick them up dynamically based on `PATH` for stage1 and stage2
+	# builds below (to keep all parts of the Swift toolchain compiling with the
+	# same internal tools).
+	export CC="clang"
+	export CXX="clang++"
+	export LD="ld.lld"
+
+	# Swift builds with CMake, which picks up `LDFLAGS` from the environment and
+	# populates `CMAKE_EXE_LINKER_FLAGS` with them. `LDFLAGS` are typically
+	# given as GCC-style flags (), which Clang understands;
+	# unfortunately, CMake passes these flags to all compilers under the
+	# assumption they support the same syntax, but `swiftc` _only_ understands
+	# Clang-style flags (`-Xlinker -foo`). In order to pass `LDFLAGS` in, we
+	# have to turn them into a format that `swiftc` will understand.
+	#
+	# We can do this because we know we're compiling with Clang specifically.
+	export LDFLAGS="$(clang-ldflags)"
+}
 
 src_unpack() {
 	default
@@ -115,14 +161,6 @@ src_unpack() {
 		&& mv 'swift-package-manager' 'swiftpm' \
 		&& popd \
 		|| die
-}
-
-src_configure() {
-	default
-
-	# Sets `${EPYTHON}` according to `PYTHON_SINGLE_TARGET`, sets up
-	# `${T}/${EPYTHON}` with that version, and adds it to the `PATH`.
-	python_setup
 }
 
 src_compile() {
