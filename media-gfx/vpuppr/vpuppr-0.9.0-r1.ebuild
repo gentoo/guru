@@ -22,7 +22,7 @@ SRC_URI="
 		-> godot-vpuppr-release-profile.${P}.tar.gz
 	osf-tracker? (
 		https://github.com/you-win/OpenSeeFace/releases/download/latest/OpenSeeFace_latest_linux.tar.gz
-			-> OpenSeeFace_latest.tar.gz
+			-> OpenSeeFace_20230108.tar.gz
 		https://github.com/virtual-puppet-project/openseeface-tracker/archive/${OPENSEEFACE_COMMIT}.tar.gz
 			-> openseeface-tracker-${OPENSEEFACE_COMMIT}.tar.gz
 	)
