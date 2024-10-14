@@ -5,6 +5,9 @@
 		<email>davidroman96@gmail.com</email>
 		<name>David Roman</name>
 	</maintainer>
+	<use>
+		<flag name="pango">Enable <pkg>x11-libs/pango</pkg>, wich is used for improved font support (WPdfImage and WRasterImage)</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">emweb/wt</remote-id>
 	</upstream>
