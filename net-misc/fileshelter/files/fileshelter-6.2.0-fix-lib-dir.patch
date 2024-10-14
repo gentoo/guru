@@ -1,0 +1,23 @@
+https://github.com/epoupon/fileshelter/pull/109/commits/c2f023133f4dd9d5826ea339bb6d278d33c389df
+use cmake libdir to satisfy some sanity checks
+
+diff -uNr a/src/libs/share/CMakeLists.txt b/src/libs/share/CMakeLists.txt
+--- a/src/libs/share/CMakeLists.txt
++++ b/src/libs/share/CMakeLists.txt
+@@ -28,5 +28,5 @@
+ 	Wt::Wt
+ 	)
+ 
+-install(TARGETS filesheltershare DESTINATION lib)
++install(TARGETS filesheltershare DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
+diff -uNr a/src/libs/utils/CMakeLists.txt b/src/libs/utils/CMakeLists.txt
+--- a/src/libs/utils/CMakeLists.txt
++++ b/src/libs/utils/CMakeLists.txt
+@@ -27,5 +27,5 @@
+ 	Wt::Wt
+ 	)
+ 
+-install(TARGETS fileshelterutils DESTINATION lib)
++install(TARGETS fileshelterutils DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 

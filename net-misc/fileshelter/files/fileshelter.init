@@ -1,0 +1,29 @@
+#!/sbin/openrc-run
+# Copyright 2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+: ${FILESHELTER_GROUP:=fileshelter}
+: ${FILESHELTER_USER:=fileshelter}
+: ${FILESHELTER_BINDIR:=/var/lib/fileshelter}
+: ${FILESHELTER_PIDFILE:=/run/fileshelter.pid}
+
+command="/usr/bin/fileshelter"
+command_user="fileshelter:fileshelter"
+command_background=true
+directory="${FILESHELTER_BINDIR}"
+pidfile="${FILESHELTER_PIDFILE}"
+extra_started_commands="reload"
+
+depend() {
+	use net
+}
+
+start_pre() {
+        checkpath -d -m 0750 -o "${FILESHELTER_USER}:${FILESHELTER_GROUP}" ${FILESHELTER_BINDIR}
+}
+
+reload () {
+	ebegin "Reloading configuration and re-opening log files"
+	start-stop-daemon --signal HUP --pidfile "${pidfile}"
+	eend $?
+}

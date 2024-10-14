@@ -1,0 +1,29 @@
+diff --git a/conf/fileshelter.conf b/conf/fileshelter.conf
+--- a/conf/fileshelter.conf
++++ b/conf/fileshelter.conf
+@@ -1,10 +1,10 @@
+ # Fileshelter Sample configuration file
+ 
+ # Working directory (must have write privileges)
+-working-dir = "/var/fileshelter";
++working-dir = "/var/lib/fileshelter";
+ 
+ # Log files, empty means stderr
+-log-file = "";
++log-file = "/var/log/fileshelter/fileshelter.log";
+ access-log-file = "";
+ # Logger configuration, see log-config in https://webtoolkit.eu/wt/doc/reference/html/overview.html#config_general
+ log-config = "* -debug -info:WebRequest";
+@@ -45,9 +45,9 @@ trusted-proxies =
+ 
+ # If enabled, these files have to exist and have correct permissions set
+ tls-enable = false;
+-tls-cert = "/var/fileshelter/cert.pem";
+-tls-key = "/var/fileshelter/privkey.pem";
+-tls-dh = "/var/fileshelter/dh2048.pem";
++tls-cert = "/var/lib/fileshelter/cert.pem";
++tls-key = "/var/lib/fileshelter/privkey.pem";
++tls-dh = "/var/lib/fileshelter/dh2048.pem";
+ 
+ # Application settings
+ app-name = "FileShelter";
