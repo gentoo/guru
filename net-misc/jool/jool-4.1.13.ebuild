@@ -12,11 +12,13 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+iptables"
 
+COMMON_DEPEND="dev-libs/libnl:3"
 DEPEND="
+	${COMMON_DEPEND}
 	iptables? ( net-firewall/iptables )
-	dev-libs/libnl:3
 "
 RDEPEND="
+	${COMMON_DEPEND}
 	|| (
 	net-firewall/nftables
 	iptables? ( net-firewall/iptables )
