@@ -19,3 +19,17 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RESTRICT="test"
+
+RDEPEND="net-misc/openvswitch"
+
+src_compile() {
+	distutils-r1_src_compile
+
+	emake mnexec
+}
+
+src_install() {
+	distutils-r1_src_install
+
+	PREFIX=${ED} emake install-mnexec
+}
