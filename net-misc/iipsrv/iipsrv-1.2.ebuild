@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit systemd
+inherit autotools systemd
 
 DESCRIPTION="High performance image server for high resolution and scientific images"
 HOMEPAGE="https://iipimage.sourceforge.io"
@@ -40,7 +40,13 @@ QA_CONFIG_IMPL_DECL_SKIP=( TIFFGetVersion )
 PATCHES=(
 	"${FILESDIR}/${P}-rawtile.patch"
 	"${FILESDIR}/${P}-make.patch"
+	"${FILESDIR}/${P}-tiff.patch"
 )
+
+src_prepare() {
+	default
+	eautoreconf
+}
 
 src_install() {
 

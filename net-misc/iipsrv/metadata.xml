@@ -21,7 +21,7 @@
 			<name>Ruven</name>
 		</maintainer>
 		<changelog>https://github.com/ruven/iipsrv/commits/master</changelog>
-		<doc>https://iipimage.sourceforge.net/documentation/server</doc>
+		<doc>https://iipimage.sourceforge.io/documentation/server</doc>
 		<remote-id type="github">ruven/iipsrv</remote-id>
 		<remote-id type="sourceforge">iipimage</remote-id>
 	</upstream>

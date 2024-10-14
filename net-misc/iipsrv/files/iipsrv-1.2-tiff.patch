@@ -1,0 +1,13 @@
+https://bugs.gentoo.org/929027
+https://github.com/ruven/iipsrv/commit/0d16fc300c809aafea5d8cd1ec39cdc1f7d47ec7
+--- a/acinclude.m4
++++ b/acinclude.m4
+@@ -460,7 +460,7 @@ if test "$TIFF_LIBS" = ""; then
+ 	INCLUDES="$TIFF_INCLUDES $INCLUDES"
+ 
+ 	# Try the standard search path first
+-	AC_TRY_LINK([#include <tiff.h>],[TIFFGetVersion();], [
++	AC_TRY_LINK([#include <tiffio.h>],[TIFFGetVersion();], [
+ 		TIFF_LIBS="-ltiff"
+ 	], [
+ 		# libtiff is not in the standard search path.
