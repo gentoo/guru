@@ -12,18 +12,18 @@ SRC_URI="https://github.com/emweb/wt/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc firebird mysql opengl pdf postgres ssl"
+IUSE="doc firebird mysql opengl +pango pdf postgres ssl"
 
 DEPEND="
 	firebird? ( dev-db/firebird )
 	mysql? ( virtual/mysql )
 	opengl? ( virtual/opengl )
+	pango? ( x11-libs/pango )
 	postgres? ( dev-db/postgresql )
 	ssl? ( dev-libs/openssl )
 	dev-libs/boost:=
 	media-libs/libharu
 	media-gfx/graphicsmagick[jpeg,png]
-	x11-libs/pango
 	sys-libs/zlib
 "
 RDEPEND="${DEPEND}"
@@ -50,7 +50,7 @@ src_configure() {
 		-DDOCUMENTATION_DESTINATION="share/doc/${PF}"
 		-DENABLE_SSL=$(usex ssl)
 		-DENABLE_HARU=$(usex pdf)
-		-DENABLE_PANGO=ON
+		-DENABLE_PANGO=$(usex pango)
 		-DENABLE_SQLITE=ON
 		-DENABLE_POSTGRES=$(usex postgres)
 		-DENABLE_FIREBIRD=$(usex firebird)
