@@ -99,7 +99,9 @@ CRATES="
 	xkeysym@0.2.1
 "
 
-inherit cargo
+LLVM_COMPAT=( {17..19} )
+
+inherit cargo llvm-r1
 
 DESCRIPTION="Xwayland outside your Wayland"
 HOMEPAGE="https://github.com/Supreeeme/xwayland-satellite"
@@ -124,7 +126,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	sys-devel/clang
+	$(llvm_gen_dep 'sys-devel/clang:${LLVM_SLOT}=')
 "
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
