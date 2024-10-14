@@ -12,13 +12,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+iptables"
 
-DEPEND="iptables? ( net-firewall/iptables )"
+DEPEND="
+	iptables? ( net-firewall/iptables )
+	dev-libs/libnl:3
+"
 RDEPEND="
 	|| (
 	net-firewall/nftables
 	iptables? ( net-firewall/iptables )
 	)
-	dev-libs/libnl
 "
 
 src_configure() {
