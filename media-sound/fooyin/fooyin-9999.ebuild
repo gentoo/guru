@@ -22,7 +22,7 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-IUSE="alsa +archive openmpt pipewire sdl test"
+IUSE="alsa +archive openmpt +pipewire +replaygain sdl sndfile test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	|| ( alsa pipewire sdl )
@@ -39,10 +39,13 @@ RDEPEND="
 	archive? ( app-arch/libarchive:= )
 	openmpt? ( media-libs/libopenmpt )
 	pipewire? ( media-video/pipewire:= )
+	replaygain? ( media-libs/libebur128:= )
 	sdl? ( media-libs/libsdl2 )
+	sndfile? ( media-libs/libsndfile )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
+	dev-qt/qttools:6[linguist]
 	test? ( dev-cpp/gtest )
 "
 
@@ -62,7 +65,7 @@ src_prepare() {
 	cmake_src_prepare
 }
 
-# libvgm, sndfile and libgme dependencies can currently not be satisfied,
+# libvgm and libgme dependencies can currently not be satisfied,
 # so building their input plugins is unconditionally disabled for now.
 src_configure() {
 	local mycmakeargs=(
@@ -71,12 +74,13 @@ src_configure() {
 		-DBUILD_CCACHE=OFF
 		-DBUILD_LIBVGM=OFF
 		-DCMAKE_DISABLE_FIND_PACKAGE_LIBGME=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_SndFile=ON
 		-DINSTALL_HEADERS=ON
 		$(cmake_use_find_package archive LibArchive)
 		$(cmake_use_find_package openmpt OpenMpt)
 		$(cmake_use_find_package pipewire PipeWire)
+		$(cmake_use_find_package replaygain Ebur128)
 		$(cmake_use_find_package sdl SDL2)
+		$(cmake_use_find_package sndfile SndFile)
 	)
 
 	cmake_src_configure
