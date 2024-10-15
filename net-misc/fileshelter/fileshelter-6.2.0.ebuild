@@ -27,6 +27,7 @@ DOCS=( INSTALL.md README.md )
 
 PATCHES="
 	${FILESDIR}/${PN}-6.2.0-fix-lib-dir.patch
+	${FILESDIR}/${PN}-6.2.0-algorithm.patch
 	${FILESDIR}/${PN}-6.2.0-hierarchy.patch
 "
 
