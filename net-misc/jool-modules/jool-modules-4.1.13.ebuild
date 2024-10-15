@@ -19,7 +19,12 @@ src_configure() {
 }
 
 src_compile() {
-	local modlist=( jool_common=:src/mod/common:common jool=:src/mod/nat64:nat64 jool_siit=:src/mod/siit:siit )
+	local modlist=(
+		jool_common=:src/mod/common:src/mod/common
+		jool=:src/mod/nat64:src/mod/nat64
+		jool_siit=:src/mod/siit:src/mod/siit
+	)
+	local modargs=( KERNEL_DIR="${KV_OUT_DIR}" MODULES_DIR="/lib/modules/${KV_FULL}" )
 	linux-mod-r1_src_compile
 }
 
