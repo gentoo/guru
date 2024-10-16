@@ -88,6 +88,7 @@ boinc-app_add_deps() {
 
 	local depend rdepend
 	if [[ ${1} == "--wrapper" ]]; then
+		inherit wrapper
 		rdepend="sci-misc/boinc-wrapper"
 	else
 		depend="sci-misc/boinc"
@@ -258,8 +259,8 @@ boinc-app_foreach_wrapper_job() {
 #
 # 1. Installs A.xml in the project's root directory, renaming it to B.xml
 #
-# 2. Installs boinc-example_wrapper symlink, which points
-#    to /usr/bin/boinc-wrapper, in the project's root directory
+# 2. Installs boinc-example_wrapper shell script, which executes
+#    /usr/bin/boinc-wrapper, in the project's root directory
 #
 # Example:
 # @CODE
@@ -296,7 +297,9 @@ boinc_install_wrapper() {
 	) || die "failed to install ${exe:?} wrapper job"
 	rm -f "${T:?}/${job_dest:?}"
 
-	dosym -r /usr/bin/boinc-wrapper "$(get_project_root)/${exe:?}"
+	# Make a shell wrapper instead of symlink to pass filesize validation on
+	# updates, bug 941384
+	make_wrapper "${exe:?}" /usr/bin/boinc-wrapper "" "" "$(get_project_root)"
 	_boinc-app_fix_permissions
 }
 
