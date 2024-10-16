@@ -1,13 +1,13 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="git://git.code.sf.net/p/quakespasm/quakespasm.git"
+	EGIT_REPO_URI="https://git.code.sf.net/p/quakespasm/quakespasm"
 else
-	SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.gz"
+	SRC_URI="https://downloads.sourceforge.net/project/${PN}/Source/${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -18,16 +18,19 @@ SLOT="0"
 IUSE="sdl2"
 
 DEPEND="
-	media-libs/libvorbis
-	media-libs/libogg
+	media-libs/libglvnd
 	media-libs/libmad
-	virtual/opengl
-	virtual/glu
-	sdl2? ( media-libs/libsdl2 )
-	!sdl2? ( media-libs/libsdl )
+	media-libs/libvorbis
+	sdl2? ( media-libs/libsdl2[opengl] )
+	!sdl2? ( media-libs/libsdl[opengl] )
 "
 RDEPEND="${DEPEND}"
 DOCS=( Quakespasm.html  Quakespasm-Music.txt  Quakespasm.txt )
+
+PATCHES=(
+	# bug 795759, 887677
+	"${FILESDIR}/${P}-makefile.patch"
+)
 
 src_compile() {
 	cd Quake || die

@@ -1,0 +1,20 @@
+https://bugs.gentoo.org/795759
+https://bugs.gentoo.org/887677
+--- a/Quake/Makefile
++++ b/Quake/Makefile
+@@ -49,7 +49,6 @@ STRIP ?= strip
+ PKG_CONFIG ?= pkg-config
+ 
+ CPUFLAGS=
+-LDFLAGS =
+ DFLAGS ?=
+ CFLAGS ?= -Wall -Wno-trigraphs
+ CFLAGS += $(CPUFLAGS)
+@@ -59,7 +58,6 @@ CFLAGS += -g
+ do_strip=
+ else
+ DFLAGS += -DNDEBUG
+-CFLAGS += -O2
+ CFLAGS += $(call check_gcc,-fweb,)
+ CFLAGS += $(call check_gcc,-frename-registers,)
+ cmd_strip=$(STRIP) $(1)
