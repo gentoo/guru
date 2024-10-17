@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-10-18)
+# Unmaintained in guru and it doesn't build since 2022.
+# Removal on 2024-11-18. Bug #831138.
+media-gfx/akira
+
 # Lucio Sauer <watermanpaint@posteo.net> (2024-10-17)
 # Doesn't build since 2024-08 and its sole consumer is up for removal.
 # Open bugs 937251, 937252
