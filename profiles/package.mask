@@ -19,6 +19,12 @@
 # New entries go on top.
 
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-18)
+# Depends on <dev-python/tree-sitter-0.22, which has been dropped.
+# Upstream does not support newer treesitter yet.
+# https://github.com/grantjenks/py-tree-sitter-languages/issues/71
+dev-python/tree-sitter-languages
+
+# Takuya Wakazono <pastalian46@gmail.com> (2024-10-18)
 # Unmaintained in guru and it doesn't build since 2022.
 # Removal on 2024-11-18. Bug #831138.
 media-gfx/akira
