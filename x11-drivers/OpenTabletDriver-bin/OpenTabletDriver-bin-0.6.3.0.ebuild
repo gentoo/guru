@@ -1,7 +1,7 @@
-# Copyright 2019-2022 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop udev
 
@@ -81,7 +81,6 @@ pkg_postrm() {
 
 pkg_postinst() {
 	udev_reload
-	udevadm control --reload || die
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		elog "Please replug your tablet before attempting to use the driver"
 	fi
