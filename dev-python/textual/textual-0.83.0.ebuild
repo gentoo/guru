@@ -16,7 +16,7 @@ DOCS_DEPEND="
 "
 DOCS_INITIALIZE_GIT=1
 
-inherit distutils-r1 docs optfeature
+inherit distutils-r1 optfeature #docs
 
 DESCRIPTION="Modern Text User Interface framework"
 HOMEPAGE="https://github.com/Textualize/textual https://pypi.org/project/textual/"
@@ -40,10 +40,9 @@ BDEPEND="
 		dev-python/griffe[${PYTHON_USEDEP}]
 		dev-python/platformdirs[${PYTHON_USEDEP}]
 	)
-	doc? (
-		dev-python/tree-sitter-languages[${PYTHON_USEDEP}]
-	)
 "
+# currently masked
+#BDEPEND+="doc? ( dev-python/tree-sitter-languages[${PYTHON_USEDEP}] )
 DEPEND="${RDEPEND}"
 
 # PATCHES=(
@@ -61,11 +60,11 @@ distutils_enable_tests pytest
 python_compile_all() {
 	echo "INHERIT: mkdocs-offline.yml" > "${S}/mkdocs.yml"
 	grep -v "\- \"*[Bb]log" "${S}/mkdocs-nav.yml" >> "${S}/mkdocs.yml"
-	docs_compile
+	#docs_compile
 	rm "${S}/mkdocs.yml"
 }
 
 pkg_postinst() {
 	optfeature "bindings for python" dev-python/tree-sitter
-	optfeature "support for all languages" dev-python/tree-sitter-languages
+	#optfeature "support for all languages" dev-python/tree-sitter-languages
 }
