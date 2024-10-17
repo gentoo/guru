@@ -6,8 +6,8 @@ EAPI=8
 inherit cmake xdg
 
 DESCRIPTION="An unofficial WhatsApp desktop application for Linux"
-HOMEPAGE="https://github.com/eneshecan/whatsapp-for-linux"
-SRC_URI="https://github.com/eneshecan/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/xeco23/WasIstLos"
+SRC_URI="https://github.com/xeco23/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
