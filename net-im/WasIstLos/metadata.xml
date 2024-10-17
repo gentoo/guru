@@ -6,7 +6,7 @@
 		<name>Thomas Clarke</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">eneshecan/whatsapp-for-linux</remote-id>
-		<bugs-to>https://github.com/eneshecan/whatsapp-for-linux/issues</bugs-to>
+		<remote-id type="github">xeco23/WasIstLos</remote-id>
+		<bugs-to>https://github.com/xeco23/WasIstLos/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
