@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-18)
+# Outdated prebuilt binary. Unmaintained since 2022.
+# Removal on 2024-11-18.
+app-admin/enpass-desktop-bin
+
+# Takuya Wakazono <pastalian46@gmail.com> (2024-10-18)
 # Doesn't build with GCC 14 and upstream is inactive.
 # Removal on 2024-11-18. Bug #922024.
 media-sound/ibniz
