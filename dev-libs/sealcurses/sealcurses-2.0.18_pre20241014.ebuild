@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake flag-o-matic
 
-COMMIT="e06cbc502693a891525833b1131c6ab559bcd096"
+COMMIT="700f9b10b84a86e95f9981a5618202c29446c967"
 DESCRIPTION="SDL Emulation and Adaptation Layer for Curses"
 HOMEPAGE="https://git.skyjake.fi/skyjake/sealcurses"
 SRC_URI="https://git.skyjake.fi/skyjake/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
@@ -24,7 +24,7 @@ DEPEND="${RDEPEND}"
 
 src_configure() {
 	local -a mycmakeargs=(
-		-DENABLE_STATIC=OFF
+		-DSEALCURSES_ENABLE_STATIC=OFF
 	)
 
 	append-cppflags $(usex debug "-UNDEBUG" "-DNDEBUG")
