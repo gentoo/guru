@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<!-- maintainer-needed -->
-<longdescription>
-	the_Foundation is a C11 library and a coding convention for
-	object-oriented programming that has been designed from the point of
-	view of someone who appreciates the user-friendliness of Qt and some of
-	the thinking behind C++ STL. The preprocessor is used heavily to provide
-	flexibility and convenience for the programmer.
-</longdescription>
-<upstream>
-	<maintainer>
-		<email>jaakko.keranen@iki.fi</email>
-		<name>Jaakko Keränen</name>
-	</maintainer>
-	<bugs-to>https://codeberg.org/skyjake/the_Foundation/issues/</bugs-to>
-</upstream>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>	
+	<longdescription>
+		Implementation of selected parts of the SDL API using Curses. Intended
+		to be used as a drop-in replacement for the regular SDL.
+	</longdescription>
+	<upstream>
+		<maintainer>
+			<email>jaakko.keranen@iki.fi</email>
+			<name>Jaakko Keränen</name>
+		</maintainer>
+		<remote-id type="codeberg">skyjake/sealcurses</remote-id>
+		<bugs-to>https://codeberg.org/skyjake/sealcurses/issues</bugs-to>
+	</upstream>
 </pkgmetadata>
