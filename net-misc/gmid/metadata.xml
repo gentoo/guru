@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
 	<upstream>
 		<maintainer>
 			<name>Omar Polo</name>
 			<email>op@omarpolo.com</email>
 		</maintainer>
+		<changelog>https://gmid.omarpolo.com/changelog.html</changelog>
+		<remote-id type="codeberg">op/gmid</remote-id>
 		<remote-id type="github">omar-polo/gmid</remote-id>
 	</upstream>
-	<!-- maintainer-needed -->
 </pkgmetadata>
