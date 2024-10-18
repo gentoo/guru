@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-18)
+# It has been broken ever since its first submission in 2022.
+# Removal on 2024-11-18. Bug #836143.
+app-misc/yaf
+
+# Takuya Wakazono <pastalian46@gmail.com> (2024-10-18)
 # Unmaintained in guru and depends on a dead eclass.
 # Removal on 2024-11-18.
 net-misc/yacy
