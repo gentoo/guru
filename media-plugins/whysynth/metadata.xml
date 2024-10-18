@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
-		<remote-id type="github">smbolton/whysynth</remote-id>
+		<remote-id type="github">theabolton/whysynth</remote-id>
 	</upstream>
 	<longdescription lang="en">
 		WhySynth is a versatile softsynth which operates as a plugin for the DSSI Soft Synth Interface. A brief list of features:
