@@ -14,18 +14,24 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="
+COMMON_DEPEND="
 	>=dev-libs/glib-2.74:2
+	>=dev-libs/gmobile-0.2.0
 	>=dev-libs/json-glib-1.6.2
 	>=dev-libs/wayland-1.14
+	>=gnome-base/gnome-desktop-44:4=
 	>=gui-libs/gtk-4.12.5:4[wayland]
-	>=gui-libs/libadwaita-1.4:1
+	>=gui-libs/libadwaita-1.5:1
 	media-libs/gsound
-	phosh-base/phosh-shell
+	>=phosh-base/phosh-shell-0.40.0
 	sys-apps/lm-sensors:=
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.12
+"
+RDEPEND="${COMMON_DEPEND}
+	dev-libs/feedbackd
+	>=gui-wm/phoc-0.34.0
 "
 BDEPEND="
 	dev-libs/glib:2
@@ -43,10 +49,6 @@ QA_DESKTOP_FILE="usr/share/applications/mobi.phosh.MobileSettings.desktop"
 src_test() {
 	# No useful tests
 	:
-}
-
-src_install() {
-	meson_src_install --skip-subprojects gmobile
 }
 
 pkg_postinst() {
