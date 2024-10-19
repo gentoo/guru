@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -49,6 +49,11 @@ DEPEND="
 BDEPEND="
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	# bug 887913
+	"${FILESDIR}/${PN}-1.3.0-fix-flags.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
