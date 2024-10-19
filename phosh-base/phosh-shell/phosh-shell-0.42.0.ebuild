@@ -16,37 +16,46 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="CC0-1.0 CC-BY-SA-4.0 GPL-2+ GPL-3+ LGPL-2+ LGPL-2.1+ MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="elogind gtk-doc +lockscreen-plugins man test test-full"
-REQUIRED_USE="test? ( lockscreen-plugins )"
+IUSE="elogind gtk-doc introspection +lockscreen-plugins man test test-full"
+REQUIRED_USE="
+	gtk-doc? ( introspection )
+	test? ( lockscreen-plugins )
+"
 
 COMMON_DEPEND="
-	>=app-crypt/gcr-3.7.5:0
+	>=app-crypt/gcr-3.7.5:0[introspection?]
 	app-crypt/libsecret
-	>=dev-libs/feedbackd-0.2.0
+	>=dev-libs/feedbackd-0.4.0
 	dev-libs/fribidi
 	>=dev-libs/glib-2.76:2
-	>=dev-libs/json-glib-1.6.2
+	dev-libs/gmobile
 	dev-libs/libgudev:=
+	dev-libs/libical:=
 	>=dev-libs/wayland-1.14
 	>=gnome-base/gnome-desktop-3.26:3
 	>=gnome-base/gsettings-desktop-schemas-42
 	>=gnome-extra/evolution-data-server-3.33.1:=
-	>=gui-libs/libhandy-1.1.90:1
+	>=gui-libs/libhandy-1.1.90:1[introspection?]
 	media-libs/libpulse[glib]
 	media-sound/callaudiod
 	net-libs/libsoup:3.0
-	>=net-misc/networkmanager-1.14
+	net-misc/modemmanager:=
+	>=net-misc/networkmanager-1.14[introspection?]
+	>=net-wireless/gnome-bluetooth-46.0:3
 	sys-apps/dbus
-	>=sys-auth/polkit-0.105
+	>=sys-auth/polkit-0.122
 	sys-libs/pam
 	>=sys-power/upower-0.99.1:=
-	>=x11-libs/gtk+-3.22:3[wayland]
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/pango
+	>=x11-libs/gtk+-3.22:3[introspection?,wayland]
 	elogind? ( >=sys-auth/elogind-241 )
 	!elogind? ( >=sys-apps/systemd-241:= )
 	lockscreen-plugins? (
 		app-text/evince:=
-		gui-libs/gtk:4
-		gui-libs/libadwaita:1
+		>=gui-libs/gtk-4.12:4
+		>=gui-libs/libadwaita-1.5:1
 	)
 "
 RUNTIME_DEPEND="
@@ -83,10 +92,11 @@ VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/phosh.asc"
 src_configure() {
 	local emesonargs=(
 		-Dcompositor="${EPREFIX}"/usr/bin/phoc
+		-Dbindings-lib=true
 		-Dtools=true
 		-Dquick-setting-plugins=true
-		$(meson_use !elogind systemd)
 		$(meson_use gtk-doc gtk_doc)
+		$(meson_use introspection)
 		$(meson_use lockscreen-plugins)
 		$(meson_use man)
 		$(meson_use test tests)
@@ -101,12 +111,15 @@ src_test() {
 
 	virtx meson_src_test --suite unit
 	if use test-full; then
-		virtx meson_src_test --suite integration
+		# Passing "-j 1" because "phosh:integration / shell" test is flaky
+		virtx meson_src_test --suite integration -j 1
 	fi
 }
 
 src_install() {
-	meson_src_install --skip-subprojects gmobile
+	meson_src_install
+	rm -f "${ED}"/usr/$(get_libdir)/libphosh*.a
+
 	pamd_mimic system-local-login phosh auth account session
 	systemd_douserunit data/phosh.service
 
