@@ -136,13 +136,6 @@ sys-boot/customrescuecd-x86-grub
 # Removal on 2024-10-21.
 net-im/kaidan
 
-# Filip Kobierski <fkobi@pm.me> (2024-09-19)
-# Not maintained for over 4 years, project
-# changed it's name to wownero-seed.
-# Ebuiild did not work since at least 2022-07-21 (#859721)
-# Removal on 2024-10-19
-dev-libs/monero-seed
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
