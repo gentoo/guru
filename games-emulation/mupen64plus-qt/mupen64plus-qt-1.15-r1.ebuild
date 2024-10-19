@@ -1,4 +1,4 @@
-# Copyright 2018-2022 Gentoo Authors
+# Copyright 2018-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,11 +15,12 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-qt/qtcore:5
+	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtxml:5
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
-	|| ( <dev-libs/quazip-1.3 >=dev-libs/quazip-1.3[qt5] )
+	dev-libs/quazip:=[qt5(+)]
 "
 DEPEND=">=games-emulation/mupen64plus-core-2.5
 		${RDEPEND}"
