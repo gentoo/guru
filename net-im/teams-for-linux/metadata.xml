@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pkgmetadata>
-	<!-- maintainer-needed -->
-	<upstream>
-		<remote-id type="github">IsmaelMartinez/teams-for-linux</remote-id>
-	</upstream>
+  <maintainer type="person">
+    <email>tomclarke2006@hotmail.com</email>
+    <name>Thomas Clarke</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">IsmaelMartinez/teams-for-linux</remote-id>
+  </upstream>
 </pkgmetadata>
