@@ -1,0 +1,231 @@
+# Copyright 2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+CRATES="
+	adler32@1.2.0
+	ahash@0.8.11
+	aho-corasick@1.1.3
+	allocator-api2@0.2.18
+	android-tzdata@0.1.1
+	android_system_properties@0.1.5
+	anstream@0.6.15
+	anstyle@1.0.8
+	anstyle-parse@0.2.5
+	anstyle-query@1.1.1
+	anstyle-wincon@3.0.4
+	arc-swap@1.7.1
+	autocfg@1.3.0
+	bitflags@1.3.2
+	bitflags@2.6.0
+	bumpalo@3.16.0
+	byteorder@1.5.0
+	cc@1.1.13
+	cfg-if@1.0.0
+	chrono@0.4.38
+	clap@4.5.16
+	clap_builder@4.5.15
+	clap_lex@0.7.2
+	colorchoice@1.0.2
+	core-foundation-sys@0.8.7
+	core2@0.4.0
+	crc32fast@1.4.2
+	crossbeam-channel@0.5.13
+	crossbeam-utils@0.8.20
+	daemonize@0.5.0
+	dary_heap@0.3.6
+	deranged@0.3.11
+	diffs@0.5.1
+	dirs@5.0.1
+	dirs-next@2.0.0
+	dirs-sys@0.4.1
+	dirs-sys-next@0.1.2
+	either@1.13.0
+	enum_primitive@0.1.1
+	equivalent@1.0.1
+	errno@0.3.9
+	field-offset@0.3.6
+	file-id@0.2.1
+	filetime@0.2.24
+	form_urlencoded@1.2.1
+	fs4@0.8.4
+	fsevent-sys@4.1.0
+	futures@0.3.30
+	futures-channel@0.3.30
+	futures-core@0.3.30
+	futures-executor@0.3.30
+	futures-io@0.3.30
+	futures-macro@0.3.30
+	futures-sink@0.3.30
+	futures-task@0.3.30
+	futures-util@0.3.30
+	getopts@0.2.21
+	getrandom@0.2.15
+	glob@0.3.1
+	hashbrown@0.14.5
+	hermit-abi@0.4.0
+	iana-time-zone@0.1.60
+	iana-time-zone-haiku@0.1.2
+	idna@0.5.0
+	indexmap@2.4.0
+	indoc@2.0.5
+	inotify@0.9.6
+	inotify-sys@0.1.5
+	is-terminal@0.4.13
+	is_terminal_polyfill@1.70.1
+	itertools@0.13.0
+	itoa@1.0.11
+	js-sys@0.3.70
+	jsonrpc-core@18.0.0
+	kqueue@1.0.8
+	kqueue-sys@1.0.4
+	lazy_static@1.5.0
+	libc@0.2.156
+	libflate@2.1.0
+	libflate_lz77@2.1.0
+	libredox@0.1.3
+	linux-raw-sys@0.4.14
+	lock_api@0.4.12
+	log@0.4.22
+	lsp-types@0.95.1
+	memchr@2.7.4
+	memoffset@0.9.1
+	mio@0.8.11
+	notify@6.1.1
+	notify-debouncer-full@0.3.1
+	num-conv@0.1.0
+	num-traits@0.1.43
+	num-traits@0.2.19
+	once_cell@1.19.0
+	option-ext@0.2.0
+	parking_lot@0.12.3
+	parking_lot_core@0.9.10
+	percent-encoding@2.3.1
+	pin-project-lite@0.2.14
+	pin-utils@0.1.0
+	powerfmt@0.2.0
+	ppv-lite86@0.2.20
+	proc-macro2@1.0.86
+	pulldown-cmark@0.9.6
+	quote@1.0.36
+	rand@0.8.5
+	rand_chacha@0.3.1
+	rand_core@0.6.4
+	redox_syscall@0.4.1
+	redox_syscall@0.5.3
+	redox_users@0.4.5
+	regex@1.10.6
+	regex-automata@0.4.7
+	regex-syntax@0.8.4
+	rle-decode-fast@1.0.3
+	ropey@1.6.1
+	rustc_version@0.4.0
+	rustix@0.38.34
+	rustversion@1.0.17
+	ryu@1.0.18
+	same-file@1.0.6
+	scopeguard@1.2.0
+	semver@1.0.23
+	serde@1.0.208
+	serde_derive@1.0.208
+	serde_json@1.0.125
+	serde_repr@0.1.19
+	serde_spanned@0.6.7
+	shlex@1.3.0
+	slab@0.4.9
+	slog@2.7.0
+	slog-async@2.8.0
+	slog-kvfilter@0.7.0
+	slog-scope@4.4.0
+	slog-stdlog@4.1.1
+	slog-term@2.9.1
+	sloggers@2.2.0
+	smallvec@1.13.2
+	str_indices@0.4.3
+	strsim@0.11.1
+	syn@1.0.109
+	syn@2.0.74
+	take_mut@0.2.2
+	term@0.7.0
+	thiserror@1.0.63
+	thiserror-impl@1.0.63
+	thread_local@1.1.8
+	time@0.3.36
+	time-core@0.1.2
+	time-macros@0.2.18
+	tinyvec@1.8.0
+	tinyvec_macros@0.1.1
+	toml@0.8.19
+	toml_datetime@0.6.8
+	toml_edit@0.22.20
+	trackable@1.3.0
+	trackable_derive@1.0.0
+	unicase@2.7.0
+	unicode-bidi@0.3.15
+	unicode-ident@1.0.12
+	unicode-normalization@0.1.23
+	unicode-width@0.1.13
+	url@2.5.2
+	utf8parse@0.2.2
+	version_check@0.9.5
+	walkdir@2.5.0
+	wasi@0.11.0+wasi-snapshot-preview1
+	wasite@0.1.0
+	wasm-bindgen@0.2.93
+	wasm-bindgen-backend@0.2.93
+	wasm-bindgen-macro@0.2.93
+	wasm-bindgen-macro-support@0.2.93
+	wasm-bindgen-shared@0.2.93
+	web-sys@0.3.70
+	whoami@1.5.1
+	widestring@0.4.3
+	winapi@0.3.9
+	winapi-i686-pc-windows-gnu@0.4.0
+	winapi-util@0.1.9
+	winapi-x86_64-pc-windows-gnu@0.4.0
+	windows-acl@0.3.0
+	windows-core@0.52.0
+	windows-sys@0.48.0
+	windows-sys@0.52.0
+	windows-sys@0.59.0
+	windows-targets@0.48.5
+	windows-targets@0.52.6
+	windows_aarch64_gnullvm@0.48.5
+	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_msvc@0.48.5
+	windows_aarch64_msvc@0.52.6
+	windows_i686_gnu@0.48.5
+	windows_i686_gnu@0.52.6
+	windows_i686_gnullvm@0.52.6
+	windows_i686_msvc@0.48.5
+	windows_i686_msvc@0.52.6
+	windows_x86_64_gnu@0.48.5
+	windows_x86_64_gnu@0.52.6
+	windows_x86_64_gnullvm@0.48.5
+	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_msvc@0.48.5
+	windows_x86_64_msvc@0.52.6
+	winnow@0.6.18
+	zerocopy@0.7.35
+	zerocopy-derive@0.7.35
+"
+
+inherit cargo
+
+DESCRIPTION="Kakoune Language Server Protocol Client"
+HOMEPAGE="https://github.com/kakoune-lsp/kakoune-lsp"
+SRC_URI="
+	https://github.com/kakoune-lsp/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	${CARGO_CRATE_URIS}
+"
+
+LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions Boost-1.0 CC0-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB"
+SLOT="0"
+KEYWORDS="~amd64"
+
+QA_FLAGS_IGNORED="usr/bin/kak-lsp"
+
+src_install() {
+	cargo_src_install
+}
