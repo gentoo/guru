@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-10-19)
+# Doesn't build anymore. Unmaintained since 2022.
+# Removal on 2024-11-19. Bug #927878.
+dev-util/glsl-language-server
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-18)
 # Outdated prebuilt binary. Unmaintained since 2022.
 # Removal on 2024-11-18.
