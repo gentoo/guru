@@ -8,5 +8,6 @@
 	<use>
 		<flag name="desktop-portal">Enable <pkg>sys-apps/xdg-desktop-portal</pkg> backend implementation</flag>
 		<flag name="iio">Enable support for IIO sensors via <pkg>gnome-extra/iio-sensor-proxy</pkg></flag>
+		<flag name="screenshot">Enable screenshot manager support via <pkg>gui-apps/slurp</pkg></flag>
 	</use>
 </pkgmetadata>
