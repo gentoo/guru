@@ -13,3 +13,7 @@ HOMEPAGE="https://github.com/paulfitz/daff"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv ~sparc ~x86"
+
+python_test() {
+	"${EPYTHON}" test/test_example.py || die
+}
