@@ -20,7 +20,7 @@ RESTRICT="!test? ( test )"
 WLROOTS_DEPEND="
 	>=dev-libs/libinput-1.14.0:=
 	>=dev-libs/wayland-1.22.0
-	media-libs/libdisplay-info
+	media-libs/libdisplay-info:=
 	media-libs/libglvnd
 	|| (
 		>=media-libs/mesa-24.1.0_rc1[opengl]
