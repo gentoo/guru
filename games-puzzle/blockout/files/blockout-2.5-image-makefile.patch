@@ -1,0 +1,19 @@
+--- a/ImageLib/src/Makefile
++++ b/ImageLib/src/Makefile
+@@ -32,11 +32,14 @@
+ 
+ #---------------------------------------------------------------------
+ 
++UCXXFLAGS := $(shell emerge --info | grep -w CXXFLAGS=".*" | cut -d '"' -f2)
++UCFLAGS := $(shell emerge --info | grep -w CFLAGS=".*" | cut -d '"' -f2)
++
+ CXX	= g++
+ CC	= gcc
+ 
+-CXXFLAGS    = -O2 -Dlinux -c -I.
+-CFLAGS      = -O2 -Dlinux -c -I.
++CXXFLAGS    := $(UCXXFLAGS) -Dlinux -c -I.
++CFLAGS      := $(UCFLAGS) -Dlinux -c -I.
+ 
+ 
+ #--------------------------------------------------------------------

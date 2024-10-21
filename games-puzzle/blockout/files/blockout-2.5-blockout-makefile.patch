@@ -1,0 +1,32 @@
+--- a/BlockOut/Makefile
++++ b/BlockOut/Makefile
+@@ -48,23 +48,25 @@
+ endif
+ 
+ CXX		= g++
++UCXXFLAGS := $(shell emerge --info | grep -w CXXFLAGS=".*" | cut -d '"' -f2)
++ULFLAGS := $(shell emerge --info | grep -w LDFLAGS=".*" | cut -d '"' -f2)
+ 
+ ifdef _release
+ 
+-CXXFLAGS =     -O2 -Dlinux -c \
++CXXFLAGS :=     $(UCXXFLAGS) -Dlinux -c \
+                -I/usr/include/SDL -I../ImageLib/src -I.
+ 
+-LFLAGS   =      -Wl,--strip-all \
++LFLAGS   :=      $(ULFLAGS) \
+ 		$(ADD_LIBS) \
+ 		-lSDL_mixer -lSDL -lasound \
+ 		-lGL -lGLU -lpthread -lm -ldl
+ 
+ else
+ 
+-CXXFLAGS =     -g -D_DEBUG -Dlinux -c \
++CXXFLAGS :=     $(UCXXFLAGS) -g -D_DEBUG -Dlinux -c \
+                -I/usr/include/SDL -I../ImageLib/src -I.
+ 
+-LFLAGS   =      -L $(SDL_LIBS) \
++LFLAGS   :=     $(UCXXFLAGS) -L $(SDL_LIBS) \
+ 		$(ADD_LIBS) \
+ 		-lSDL_mixer -lSDL -lasound \
+ 		-lGL -lGLU -lpthread -lm -ldl

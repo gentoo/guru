@@ -16,6 +16,10 @@
 			<name>Jean-Luc Pons</name>
 			<email>jlp_38@yahoo.com</email>
 		</maintainer>
+		<maintainer status="active">
+			<name>Abdelrahman Sarhan</name>
+			<email>abdulrahmanayman1@gmail.com</email>
+		</maintainer>
 		<remote-id type="sourceforge">blockout</remote-id>
 	</upstream>
 </pkgmetadata>
