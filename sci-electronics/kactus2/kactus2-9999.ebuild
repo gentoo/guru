@@ -40,11 +40,6 @@ BDEPEND="
 	dev-qt/qttools:6[linguist,qdoc]
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-3.12.0-fix-createhelp.patch
-	"${FILESDIR}"/${PN}-3.12.0-fix-missing-qsharedpointer.patch
-)
-
 src_prepare() {
 	default
 	# Fix QA pre-stripped warnings, bug 781674
