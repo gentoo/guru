@@ -27,7 +27,6 @@ RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-makefile.patch
-	"${FILESDIR}"/${P}-makeopts.patch
 	"${FILESDIR}"/${P}-savedir.patch
 	"${FILESDIR}"/${P}-strict-aliasing.patch
 )
