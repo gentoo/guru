@@ -1,7 +1,7 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake xdg
 
@@ -22,6 +22,7 @@ LICENSE="GPL-3"
 SLOT="0"
 
 BDEPEND="
+	dev-qt/qtwaylandscanner:5
 	kde-frameworks/extra-cmake-modules
 "
 DEPEND="
@@ -30,6 +31,7 @@ DEPEND="
 	dev-libs/wayland-protocols
 	dev-qt/designer:5
 	dev-qt/qtcore:5
+	dev-qt/qtdbus:5
 	dev-qt/qtgui:5[wayland,X]
 	dev-qt/qtnetwork:5
 	dev-qt/qtsvg:5
@@ -45,10 +47,9 @@ RDEPEND="
 	x11-misc/qt5ct
 "
 
-src_prepare() {
-	cmake_src_prepare
-	xdg_src_prepare
-}
+PATCHES=(
+	"${FILESDIR}/${P}-fix-deps.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
