@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 DEPEND="
 	dev-libs/expat
 	media-libs/alsa-lib
-	media-libs/glew:0
+	media-libs/glew
 	media-libs/libsdl
 	x11-libs/libX11
 	virtual/opengl
