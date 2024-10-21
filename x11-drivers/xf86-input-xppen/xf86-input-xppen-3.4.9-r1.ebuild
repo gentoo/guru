@@ -3,8 +3,8 @@
 
 EAPI=8
 
-#240607
-
+# This date info can be find in the download page of the driver
+# You can use any tablet page since the driver is the same to all
 M_PV=3.4.9
 P_YEAR=24
 P_MONTH=06
@@ -35,6 +35,8 @@ RDEPEND="
 	dev-qt/qtx11extras:5
 	dev-qt/qtxml:5
 	dev-libs/icu
+	dev-libs/libusb
+	x11-libs/libxcb
 	virtual/libudev:="
 DEPEND="${RDEPEND}"
 
@@ -64,12 +66,12 @@ src_install() {
 
 	# Remove pre-compiled libaries (use system ones)
 	# Might be reverted if system ones dont work
-	rm -r "${S}/App/usr/lib/pentablet/lib" "${S}/App/usr/lib/pentablet/platform"
-	rm "${S}/App/usr/lib/pentablet/PenTablet.sh"
+	rm -r "${S}/App/usr/lib/pentablet/lib" "${S}/App/usr/lib/pentablet/platforms" || die
+	rm "${S}/App/usr/lib/pentablet/PenTablet.sh" || die
 
 	# Install Application folder
 	dodir "${app_root%/*}"
-	cp -r  "${S}/App/usr/lib/pentablet/" "${app_dest}"
+	cp -r  "${S}/App/usr/lib/pentablet/" "${app_dest}" || die
 
 	# Install udev rule
 	udev_dorules "${S}/App/lib/udev/rules.d/10-xp-pen.rules"
