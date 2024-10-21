@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=xppentablet
+Comment=XPPen driver
+Exec=env QT_QPA_PLATFORM=xcb /usr/lib/pentablet/PenTablet
+Icon=xppentablet
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+StartupNotify=true
+Name[en_US]=xppentablet
