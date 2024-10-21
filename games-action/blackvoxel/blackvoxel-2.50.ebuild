@@ -29,7 +29,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-makefile.patch
 	"${FILESDIR}"/${P}-makeopts.patch
 	"${FILESDIR}"/${P}-savedir.patch
-	"${FILESDIR}"/${P}-strict-aliasing.patch
+	"${FILESDIR}"/${P}-backported-ltofix.patch #For ver. 2.50 Remove for next ver.
 )
 
 src_compile() {
