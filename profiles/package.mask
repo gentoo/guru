@@ -129,13 +129,6 @@ app-misc/tai
 app-admin/customrescuecd-x86
 sys-boot/customrescuecd-x86-grub
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-09-21)
-# Depends on media-libs/kquickimageeditor:5, which has been dropped
-# from ::gentoo. Upstream has an open issue for Qt6, but it won't be
-# ported anytime soon.
-# Removal on 2024-10-21.
-net-im/kaidan
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
