@@ -22,9 +22,6 @@ RDEPEND="
 	${DEPEND}
 	dev-python/cffi[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	test? ( dev-python/aspectlib[${PYTHON_USEDEP}] )
-"
 
 EPYTEST_DESELECT=(
 	# disable benchmarks
