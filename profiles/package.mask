@@ -118,11 +118,6 @@ net-im/ruqola
 # Removal on 2024-10-21
 mail-client/heirloom-mailx
 
-# David Roman <davidroman96@gmail.com> (2024-09-21)
-# Dead SRC_URI and HOMEPAGE. Project doesn't seems to exist anymore
-# Removal on 2024-10-21
-app-misc/tai
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
