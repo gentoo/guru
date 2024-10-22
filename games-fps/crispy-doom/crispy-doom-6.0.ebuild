@@ -43,10 +43,6 @@ DOCS=(
 	"README.Strife.md"
 )
 
-PATCHES=(
-	"${FILESDIR}"/"${P}"-makeopts.patch
-)
-
 src_prepare() {
 	default
 

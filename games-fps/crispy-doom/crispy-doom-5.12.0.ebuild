@@ -50,10 +50,6 @@ src_prepare() {
 	eautoreconf
 }
 
-PATCHES=(
-	"${FILESDIR}"/${P}-makeopts.patch
-)
-
 src_configure() {
 	econf \
 		--enable-bash-completion \
