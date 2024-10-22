@@ -1,0 +1,13 @@
+diff --git a/configure.ac b/configure.ac
+index e4614a1..5908e1a 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -28,7 +28,7 @@ OPT_LEVEL=2
+ if test "$GCC" = "yes"
+ then
+         WARNINGS="-Wall -Wdeclaration-after-statement -Wredundant-decls"
++        CFLAGS="$WARNINGS $orig_CFLAGS"
+-        CFLAGS="-O$OPT_LEVEL -g $WARNINGS $orig_CFLAGS"
+ fi
+ 
+ PKG_CHECK_MODULES(SDL, [sdl2 >= 2.0.7])

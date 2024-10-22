@@ -42,6 +42,10 @@ DOCS=(
 	"README.Strife.md"
 )
 
+PATCHES=(
+	${FILESDIR}/${P}-cflags.patch
+)
+
 src_prepare() {
 	default
 
