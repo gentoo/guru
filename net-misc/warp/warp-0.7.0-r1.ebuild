@@ -415,7 +415,7 @@ IUSE="qrcode"
 
 DEPEND="
 	>=dev-libs/glib-2.76:2
-	>=gui-libs/gtk-4.13:4[wayland]
+	>=gui-libs/gtk-4.13:4[wayland,X]
 	>=gui-libs/libadwaita-1.5:1
 	qrcode? (
 		media-libs/graphene
