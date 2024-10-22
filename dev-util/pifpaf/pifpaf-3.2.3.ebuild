@@ -17,23 +17,21 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-# dev-python/pbr: for pbr.version
-# dev-python/setuptools: for pkg_resources and distutils
 RDEPEND="
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/daiquiri[${PYTHON_USEDEP}]
 	dev-python/fixtures[${PYTHON_USEDEP}]
 	dev-python/jinja[${PYTHON_USEDEP}]
-	dev-python/pbr[${PYTHON_USEDEP}]
+	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/psutil[${PYTHON_USEDEP}]
-	dev-python/setuptools[${PYTHON_USEDEP}]
 	dev-python/xattr[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	dev-python/pbr[${PYTHON_USEDEP}]
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
 		app-admin/consul
 		app-admin/vault
+		dev-db/etcd[server]
 		dev-db/postgresql[server]
 		dev-db/redis
 		dev-python/httpbin[${PYTHON_USEDEP}]
@@ -46,14 +44,21 @@ BDEPEND="
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-3.2.3-psql17.patch
+)
+
 EPYTEST_DESELECT=(
 	# Need updates to new CLIs and APIs
-	pifpaf/tests/test_drivers.py::TestDrivers::test_etcd
 	pifpaf/tests/test_drivers.py::TestDrivers::test_influxdb
 	pifpaf/tests/test_drivers.py::TestDrivers::test_mongodb
+	pifpaf/tests/test_drivers.py::TestDrivers::test_redis_sentinel
+
+	# RabbitMQ wants to be run only as root
 	pifpaf/tests/test_drivers.py::TestDrivers::test_rabbitmq
 	pifpaf/tests/test_drivers.py::TestDrivers::test_rabbitmq_cluster
-	pifpaf/tests/test_drivers.py::TestDrivers::test_redis_sentinel
 )
 
 distutils_enable_tests pytest
+
+export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}

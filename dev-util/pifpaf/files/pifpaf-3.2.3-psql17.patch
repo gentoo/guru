@@ -1,0 +1,17 @@
+Space after "-A" causes the following error in PostgreSQL 17:
+> initdb: error: invalid authentication method " trust" for "local"
+> connections
+
+Commit: https://github.com/jd/pifpaf/commit/0f4abc1306563ccca72bddf89f430fcbd8a7a6e9
+
+--- a/pifpaf/drivers/postgresql.py
++++ b/pifpaf/drivers/postgresql.py
+@@ -53,7 +53,7 @@ class PostgreSQLDriver(drivers.Driver):
+         self.putenv("PGDATABASE", "postgres", True)
+         _, pgbindir = self._exec(["pg_config", "--bindir"], stdout=True)
+         pgctl = os.path.join(pgbindir.strip().decode(), "pg_ctl")
+-        self._exec([pgctl, "-o", "'-A trust'", "initdb"])
++        self._exec([pgctl, "-o", "'-Atrust'", "initdb"])
+         if not self.sync:
+             cfgfile = os.path.join(self.tempdir, 'postgresql.conf')
+             with open(cfgfile, 'a') as cfg:
