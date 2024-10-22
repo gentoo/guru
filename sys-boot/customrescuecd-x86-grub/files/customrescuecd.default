@@ -1,7 +1,0 @@
-Here you can set custom bootoptions for the CustomRescueCD
-#
-# You can add for example in a space separated list:
-#  copytoram: causes the iso file to be fully loaded into memory
-#           this requires 1.5G of memory to cache everything
-#
-CRCD_BOOTOPTIONS=""

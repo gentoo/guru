@@ -123,11 +123,6 @@ mail-client/heirloom-mailx
 # Removal on 2024-10-21
 app-misc/tai
 
-# David Roman <davidroman96@gmail.com> (2024-09-21)
-# Dead SRC_URI for two years
-# Removal on 2024-10-21
-sys-boot/customrescuecd-x86-grub
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
