@@ -1,0 +1,64 @@
+Try to support prompt_toolkit >3.0.37
+
+Fixes: https://github.com/tmbo/questionary/issues/344
+
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -33,7 +33,7 @@ license = "MIT"
+ 
+ [tool.poetry.dependencies]
+ python = ">=3.8"
+-prompt_toolkit = ">=2.0,<=3.0.36"  # once https://github.com/prompt-toolkit/python-prompt-toolkit/issues/1726 is fixed, this can be changed to ">=2.0,<4.0"
++prompt_toolkit = ">=2.0,<4.0"
+ 
+ [tool.poetry.group.docs]
+ optional = true
+diff --git a/tests/prompts/test_common.py b/tests/prompts/test_common.py
+index d6ce51e..b6bbe1b 100644
+--- a/tests/prompts/test_common.py
++++ b/tests/prompts/test_common.py
+@@ -1,8 +1,10 @@
++import asyncio
+ from unittest.mock import Mock
+ from unittest.mock import call
+ 
+ import pytest
+ from prompt_toolkit.document import Document
++from prompt_toolkit.input.defaults import create_pipe_input
+ from prompt_toolkit.output import DummyOutput
+ from prompt_toolkit.styles import Attrs
+ from prompt_toolkit.validation import ValidationError
+@@ -13,7 +15,6 @@ from questionary.prompts import common
+ from questionary.prompts.common import InquirerControl
+ from questionary.prompts.common import build_validator
+ from questionary.prompts.common import print_formatted_text
+-from tests.utils import execute_with_input_pipe
+ from tests.utils import prompt_toolkit_version
+ 
+ 
+@@ -72,7 +73,7 @@ def test_blank_line_fix():
+ 
+     ic = InquirerControl(["a", "b", "c"])
+ 
+-    def run(inp):
++    async def run(inp):
+         inp.send_text("")
+         layout = common.create_inquirer_layout(
+             ic, get_prompt_tokens, input=inp, output=DummyOutput()
+@@ -86,7 +87,15 @@ def test_blank_line_fix():
+             == 1000000000000000000000000000001
+         )
+ 
+-    execute_with_input_pipe(run)
++    if prompt_toolkit_version < (3, 0, 29):
++        inp = create_pipe_input()
++        try:
++            return asyncio.run(run(inp))
++        finally:
++            inp.close()
++    else:
++        with create_pipe_input() as inp:
++            asyncio.run(run(inp))
+ 
+ 
+ def test_prompt_highlight_coexist():
