@@ -113,11 +113,6 @@ sys-firmware/pinephone-firmware
 # Removal on 2024-10-22.
 net-im/ruqola
 
-# David Roman <davidroman96@gmail.com> (2024-09-21)
-# Dead SRC_URI. Not much maintained downstream
-# Removal on 2024-10-21
-mail-client/heirloom-mailx
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
