@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ppn@parhuet.fr</email>
+		<name>Nicolas PARLANT</name>
+	</maintainer>
+	<use>
+		<flag name="textcat">Add libtextcat language guessing support for full text search (FTS)</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">slusarz/dovecot-fts-flatcurve</remote-id>
+	</upstream>
+</pkgmetadata>
