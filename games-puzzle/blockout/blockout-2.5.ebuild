@@ -27,14 +27,15 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/blockout-2.5-blockout-makefile.patch"
-	"${FILESDIR}/blockout-2.5-image-makefile.patch"
-	"${FILESDIR}/blockout-2.5-datadir.patch"
+	"${FILESDIR}/${P}-blockout-makefile.patch"
+	"${FILESDIR}/${P}-image-makefile.patch"
+	"${FILESDIR}/${P}-datadir.patch"
 )
 
 src_prepare() {
 	default
 }
+
 src_compile() {
 	GAME_DATADIR="/usr/share/${PN}"
 	emake -C ImageLib/src
