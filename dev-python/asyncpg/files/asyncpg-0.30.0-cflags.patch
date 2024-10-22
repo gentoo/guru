@@ -1,0 +1,15 @@
+Do not overwrite user's optimization.
+
+Bug: https://bugs.gentoo.org/887651
+
+--- a/setup.py
++++ b/setup.py
+@@ -27,7 +27,7 @@ from setuptools.command import build_ext as setuptools_build_ext
+ 
+ CYTHON_DEPENDENCY = 'Cython(>=0.29.24,<4.0.0)'
+ 
+-CFLAGS = ['-O2']
++CFLAGS = []
+ LDFLAGS = []
+ 
+ if platform.uname().system != 'Windows':
