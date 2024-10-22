@@ -9,7 +9,7 @@
 	<upstream>
 		<remote-id type="pypi">pydantic-settings</remote-id>
 		<remote-id type="github">pydantic/pydantic-settings</remote-id>
-		<doc>https://docs.pydantic.dev/dev-v2/concepts/pydantic_settings/</doc>
+		<doc>https://docs.pydantic.dev/dev/concepts/pydantic_settings/</doc>
 		<maintainer>
 			<name>Samuel Colvin</name>
 			<email>s@muelcolvin.com</email>

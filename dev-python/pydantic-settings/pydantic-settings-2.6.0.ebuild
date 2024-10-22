@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1 pypi
 
@@ -33,12 +33,26 @@ BDEPEND="
 	)
 "
 
-EPYTEST_IGNORE=( tests/test_docs.py )
+EPYTEST_IGNORE=(
+	# Dependencies not packaged: pytest-examples
+	tests/test_docs.py
+	# Dependencies not packaged: azure-keyvault-secrets, azure-identity
+	tests/test_source_azure_key_vault.py
+)
+
 EPYTEST_DESELECT=(
-	tests/test_settings.py::test_ignore_empty_with_dotenv_when_empty_uses_default
-	tests/test_settings.py::test_ignore_empty_with_dotenv_when_not_empty_uses_value
+	# Failed: DID NOT RAISE <class 'UserWarning'>
 	tests/test_settings.py::test_protected_namespace_defaults
-	tests/test_settings.py::test_cli_help_differentiation
 )
 
 distutils_enable_tests pytest
+
+python_test() {
+	# Parsing --help output is width dependent
+	local -x COLUMNS=80
+
+	# Ebuild's "A" variable conflicts with test expectations
+	local -x A=
+
+	epytest
+}
