@@ -97,11 +97,6 @@ x11-misc/ksnip
 # Removal on 2024-11-02.
 kde-apps/plasma-settings
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-09-23)
-# Unmaintained in guru. src filesize mismatch since 2022.
-# Removal on 2024-10-23. Bug #860534.
-sys-cluster/booth
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
