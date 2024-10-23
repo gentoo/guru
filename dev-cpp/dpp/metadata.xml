@@ -2,10 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>nex+b-g-o@nexadn.de</email>
-		<name>Adrian Schollmeyer</name>
-	</maintainer>
-	<maintainer type="person">
 		<email>samuel@seals-are-bouncy.tech</email>
 	</maintainer>
 	<maintainer type="person">
