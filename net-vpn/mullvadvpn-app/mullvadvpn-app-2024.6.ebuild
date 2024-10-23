@@ -5,12 +5,11 @@ EAPI=8
 
 inherit desktop rpm systemd shell-completion xdg
 
-MYPV="${PV/_beta/-beta}"
 DESCRIPTION="Tool used to manage daemon setup"
 HOMEPAGE="https://github.com/mullvad/mullvadvpn-app https://mullvad.net/"
 SRC_URI="
-	amd64? ( https://github.com/mullvad/mullvadvpn-app/releases/download/${MYPV}/MullvadVPN-${MYPV}_x86_64.rpm )
-	arm64? ( https://github.com/mullvad/mullvadvpn-app/releases/download/${MYPV}/MullvadVPN-${MYPV}_aarch64.rpm )
+	amd64? ( https://github.com/mullvad/mullvadvpn-app/releases/download/${PV}/MullvadVPN-${PV}_x86_64.rpm )
+	arm64? ( https://github.com/mullvad/mullvadvpn-app/releases/download/${PV}/MullvadVPN-${PV}_aarch64.rpm )
 "
 
 S="${WORKDIR}"
@@ -45,8 +44,6 @@ RDEPEND="
 "
 
 QA_PREBUILT="*"
-
-MULLVAD_GUI_NEEDS_RESTART=0
 
 src_install() {
 	sed -i "s|SCRIPT_DIR=.*|SCRIPT_DIR=\"/opt/Mullvad VPN/\"|g" "${S}/opt/Mullvad VPN/mullvad-vpn" || die
