@@ -54,22 +54,27 @@ distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	dev-python/sphinx-rtd-theme
 
-src_prepare() {
+python_prepare_all() {
+	# bug #926720
+	cat <<-EOF >> setup.cfg || die
+		[build_ext]
+		cython_always=True
+		cython_annotate=False
+		cython_directives=
+	EOF
+
 	# remove pre-generated Cython sources
 	rm asyncpg/{pgproto/pgproto,protocol/protocol}.c || die
 
-	distutils-r1_src_prepare
+	distutils-r1_python_prepare_all
 }
 
-src_configure() {
+python_configure_all() {
 	use debug && \
 		export ASYNCPG_DEBUG=1
 
-	if ! use kerberos; then
+	use kerberos || \
 		EPYTEST_DESELECT+=( tests/test_connect.py::TestGssAuthentication )
-	fi
-
-	distutils-r1_src_configure
 }
 
 python_test() {
