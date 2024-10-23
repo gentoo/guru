@@ -37,7 +37,6 @@ src_prepare() {
 	sed \
 		-e '/LUAPATH :=/d' \
 		-e '/LUAPATH_FN =/d' \
-		-e '/ALL_LIBS +=/d' \
 		-i GNUmakefile || die
 
 	lua_copy_sources
