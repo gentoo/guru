@@ -23,6 +23,12 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	default
+
+	sed \
+		-e 's/CFLAGS="$CFLAGS $EXTRA_CFLAGS"/CFLAGS=""/' \
+		-e 's/CFLAGS="$CFLAGS /CFLAGS="/' \
+		-i configure.ac || die
+
 	eautoreconf
 }
 
