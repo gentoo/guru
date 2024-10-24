@@ -1,0 +1,29 @@
+Regular expression strings are not explicitly defined as raw strings. This
+causes modern python versions (tested with 3.12) to trigger warnings/errors.
+
+See-also: https://github.com/OpenModelica/OpenModelica/issues/12757
+--- a/OMSens/analysis/indiv_sens.py
++++ b/OMSens/analysis/indiv_sens.py
+@@ -323,8 +323,8 @@ def slugify(value):
+     and converts spaces to hyphens.
+     """
+     value = unicodedata.normalize('NFKD', value)
+-    value = re.sub('[^\w\s-]', '', value).strip().lower()
+-    value = re.sub('[-\s]+', '-', value)
++    value = re.sub(r'[^\w\s-]', '', value).strip().lower()
++    value = re.sub(r'[-\s]+', '-', value)
+     return value
+ 
+ 
+--- a/OMSens/modelica_interface/run_omc.py
++++ b/OMSens/modelica_interface/run_omc.py
+@@ -36,7 +36,8 @@ def writeOMCLog(log_str, output_path):
+     final_str = intro_str+separator_str+log_str
+     filesystem.files_aux.writeStrToFile(final_str,output_path)
+     return 0
++
+ def removeTemporaryFiles(folder_path):
+-    regex = '.*\.(c|o|h|makefile|log|libs|json)$'
++    regex = r'.*\.(c|o|h|makefile|log|libs|json)$'
+     filesystem.files_aux.removeFilesWithRegexAndPath(regex,folder_path)
+ 
