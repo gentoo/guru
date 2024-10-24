@@ -106,14 +106,24 @@ src_configure() {
 }
 
 src_test() {
-	local -x LC_ALL="C.UTF-8"
-	local -x WLR_RENDERER="pixman"
+	my_src_test() {
+		local -x LC_ALL="C.UTF-8"
+		local -x WLR_RENDERER="pixman"
+		local -x PHOSH_TEST_PHOC_INI="${T}/phoc.ini"
 
-	virtx meson_src_test --suite unit
-	if use test-full; then
-		# Passing "-j 1" because "phosh:integration / shell" test is flaky
-		virtx meson_src_test --suite integration -j 1
-	fi
+		meson_src_test --suite unit || return 1
+		if use test-full; then
+			meson_src_test --suite integration || return 1
+		fi
+	}
+
+	# Xwayland breaks "phosh:integration / shell", pollutes /tmp
+	cat data/phoc.ini - > "${T}"/phoc.ini <<- EOF || die
+		[core]
+		xwayland=false
+	EOF
+
+	virtx my_src_test
 }
 
 src_install() {
