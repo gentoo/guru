@@ -54,7 +54,7 @@ lua_src_compile() {
 	fi
 
 	emake CC="$(tc-getCC)" \
-		ALL_CFLAGS="${CFLAGS} $(lua_get_CFLAGS)" \
+		ALL_CFLAGS="${CFLAGS} -std=gnu99 -fPIC $(lua_get_CFLAGS)" \
 		ALL_CPPFLAGS="${CPPFLAGS} -D_GNU_SOURCE" \
 		ALL_SOFLAGS="${SOFLAGS} -shared" \
 		ALL_LDFLAGS="${LDFLAGS}" \
