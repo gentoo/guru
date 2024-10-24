@@ -17,23 +17,19 @@ IUSE="textcat"
 
 DEPEND="
 	<net-mail/dovecot-2.4.0:=[stemmer,textcat?]
-	>=dev-libs/xapian-1.4.0
+	dev-libs/xapian:=
 "
 RDEPEND="${DEPEND}"
 
 src_prepare() {
 	default
-
-	sed \
-		-e 's/CFLAGS="$CFLAGS $EXTRA_CFLAGS"/CFLAGS=""/' \
-		-e 's/CFLAGS="$CFLAGS /CFLAGS="/' \
-		-i configure.ac || die
-
 	eautoreconf
 }
 
 src_configure() {
-	econf --with-dovecot="${EPREFIX}/usr/$(get_libdir)/dovecot"
+	econf \
+		--enable-hardening=no \
+		--with-dovecot="${EPREFIX}/usr/$(get_libdir)/dovecot"
 }
 
 src_install() {
