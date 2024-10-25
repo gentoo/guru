@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pkgmetadata>
+  <maintainer type="person">
+    <email>alec-guru@pm.me</email>
+    <name>Alec Stewart</name>
+  </maintainer>
+  <longdescription lang="en">
+    Atkinson Hyperlegible is a freely available typeface built around a
+    grotesque sans-serif core, intended to be optimally
+    legible for readers who are partially visually impaired, with all
+    characters maximally distinguishable from one another. It was
+    developed by the Braille Institute of America in collaboration with
+    Applied Design Works and is available under the SIL Open Font
+    License. It won Fast Company's Innovation by Design Award for
+    Graphic Design in 2019 and was shortlisted for a graphic design
+    award by Dezeen in 2020.
+  </longdescription>
+  <use>
+    <flag name="ttf">Use the provided True Type Font font files</flag>
+    <flag name="otf">Use the provided Open Type Font font files</flag>
+  </use>
+</pkgmetadata>
