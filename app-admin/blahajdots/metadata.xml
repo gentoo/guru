@@ -5,9 +5,6 @@
 		<email>vimproved@inventati.org</email>
 		<name>Violet Purcell</name>
 	</maintainer>
-	<use>
-		<flag name="gsettings">Enable the gsettings backend.</flag>
-	</use>
 	<upstream>
 		<remote-id type="codeberg">vimproved/blahajdots</remote-id>
 	</upstream>
