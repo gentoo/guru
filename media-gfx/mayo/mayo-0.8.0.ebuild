@@ -18,6 +18,7 @@ RDEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qttranslations:5
 	dev-qt/qtwidgets:5
+	dev-qt/qtbase:6[opengl]
 	>=media-libs/assimp-5.3.1
 	>=sci-libs/opencascade-7.7.0-r2
 	<sci-libs/opencascade-7.8.0
