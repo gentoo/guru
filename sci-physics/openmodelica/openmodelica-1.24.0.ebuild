@@ -84,7 +84,7 @@ RDEPEND="
 
 BDEPEND="
 	dev-util/ccache
-	media-gfx/imagemagick[png]
+	>=media-gfx/imagemagick[png]-7.1.1.25-r1
 "
 
 DEPEND="${RDEPEND}"
@@ -104,7 +104,7 @@ src_unpack() {
 	# OMOptim depends on a working CORBA interface (which fails to compile) supplied by OmniORB.
 	# For compilation trials remember setting -DOM_OMC_USE_CORBA=ON.
 	#rmdir "${S}/OMOptim" || die
-	#mv "${WORKDIR}/OMOptim-e4fb998f99e3fefc63c661715dbc06cbea1f0134" "${S}/OMOptim" || die
+	#mv "${WORKDIR}/OMOptim-f1036f43db18c5015da259771004cfb80e08a110" "${S}/OMOptim" || die
 	#rmdir "${S}/OMOptim/common" || die
 	#cp -a "${WORKDIR}/OpenModelica-common-08a01802db5ba5edb540383c46718b89ff229ef2" "${S}/OMOptim/common" || die
 
@@ -177,7 +177,7 @@ src_install() {
 
 	newicon -s scalable OMShell/OMShell/OMShellGUI/Resources/omshell-large.svg omshell.svg
 	newicon -s scalable OMNotebook/OMNotebook/OMNotebookGUI/Resources/OMNotebook_icon.svg OMNotebook.svg
-	convert OMEdit/OMEditLIB/Resources/icons/omedit.ico[0] -thumbnail 256x256 -flatten \
+	magick convert OMEdit/OMEditLIB/Resources/icons/omedit.ico[0] -thumbnail 256x256 -flatten \
 		OMEdit/OMEditLIB/Resources/icons/omedit_icon.png || die
 	newicon -s 256 OMEdit/OMEditLIB/Resources/icons/omedit_icon.png omedit.png
 
