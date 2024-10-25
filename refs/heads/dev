@@ -1,14 +1,23 @@
 certificate version 0.1
-pusher Alec Stewart <alec-stewart@protonmail.com> 1729824323 -0500
-pushee gentoo-guru:repo/proj/guru.git
-nonce 1729824323-e1bf8dcc1f0c801b3195c2b66d6958a9bef6eb0a
+pusher torokhov-s-a@yandex.ru 1729849281 +0300
+pushee git.gentoo.org:repo/proj/guru.git
+nonce 1729849281-0b06c7e383b65c707750f8666d7ce4d595ef526e
 
-a869422227f43e9446a5356de736ef1a2a90f581 76f7d5b971ee0a66b1d84ef67312053962ec7ae0 refs/heads/dev
+76f7d5b971ee0a66b1d84ef67312053962ec7ae0 016fbdc6f11ca216fbc4d125ce170d9975a7bdfe refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iJIEABYKADoWIQRzh6aY8wTQfo4zug/LDJPeYzLqFwUCZxsGQxwcYWxlYy1zdGV3
-YXJ0QHByb3Rvbm1haWwuY29tAAoJEMsMk95jMuoX46oBALlOUyv7QmkemVDOt0uk
-XXVau2j+ECg+ZS3HtJj/W+JCAP9CyFgUndCsBdHB0CyiyJZehv3QYipy7pVqDDQG
-lllYAA==
-=fV63
+iQJLBAABCAA1FiEE9ENucPfUBrMMmlEhZ4eqcTBJFeMFAmcbZ8EXHHRvcm9raG92
+LXMtYUB5YW5kZXgucnUACgkQZ4eqcTBJFeN35g/9EtKZisfx86drt02hsNoL+1ZR
+8ZfgCCIGckRO01o9Lw1N35oVViY+/AXhadD0lneFZIm3izQf+pUjb2BBL9Y4Sybj
+wUxlOtsQmCn4QsEV59YQizBu8lMHApAj1Hv7mAhs/pcKZQAYvrx/n8zHc8iO2bFW
+SsBc+S6I7bf4pm1F7fMLN1UsdFHFhHkxr4ARBULiIQ9ZaFhR59dyPzJNHpeie1aO
+j83TycRtZRW+MEQVW77/+F6N7XaqUMDNOOyC0IduaU4Y6c3d4AGyFPM+XpUL51AP
+zss9/Bee7IRGV0UU+VmW4p6cmwgvRMlVtgRgE31atlmuROFF9l/bv92KxQxaIJX6
+R/Yp4m9umJ5MnAX/eelWeCpt6wnmVul3Ddub3WkszWxRJdg+LWq0RKRHM8P9hGHs
+57/UTEdQtuioP15yhIO7Of+73O5z097EKtaU6a3i9nwySNIWtPK9IesM0HG0L92f
+7BvMdrgLSdSUMMg9rsyLCVdatk1p1uiBAXZ7ouPSkEeJAS+UUdoPk6AIEqass7wV
+ruDji8UjuX+AOMPoZvk0w0UrbUibEjZ395+ESz3fZcdhRdhsxrYCLb9Nqxpltxdz
+rkrb2VDvs6rLYXNJK3yCqDFgRjjVGNT8zY1Z6WR9LKnOmuCh576KuLFAjf59mHic
+zzf00K0aj+CyhUIi9uo=
+=AqtG
 -----END PGP SIGNATURE-----
