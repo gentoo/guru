@@ -7,7 +7,7 @@ inherit wrapper
 
 DESCRIPTION="A remake of the 1996 classic game Z, with network play"
 HOMEPAGE="https://sourceforge.net/projects/zedonline/"
-SRC_URI="https://master.dl.sourceforge.net/project/zedonline/releases/ZED%20Online%20v$PV%20Linux.zip"
+SRC_URI="https://downloads.sourceforge.net/project/zedonline/releases/ZED%20Online%20v$PV%20Linux.zip"
 
 S="$WORKDIR"
 
@@ -18,9 +18,21 @@ KEYWORDS="~amd64"
 
 RESTRICT="strip"
 
+RDEPEND="
+	dev-libs/glib:2
+	media-libs/freetype
+	media-libs/libglvnd
+	net-misc/curl
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
+	x11-libs/gtk+:3
+	x11-libs/pango
+"
 BDEPEND="
 	app-arch/unzip
 "
+
+QA_PREBUILT="opt/zedonline/*"
 
 src_install() {
 	P="$ED/opt/zedonline"
