@@ -20,6 +20,10 @@ KEYWORDS="~amd64"
 IUSE="examples"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}"
+
+# tests with starttls are buggy
+RESTRICT="test"
+
 DEPEND="
 	${LUA_DEPS}
 	dev-libs/openssl:0=
