@@ -6,10 +6,11 @@
     <name>Daichi Yamamoto</name>
   </maintainer>
   <use>
-    <flag name="x11">X11</flag>
-    <flag name="gnome">GNOME Wayland</flag>
-    <flag name="kde">KDE-Plasma Wayland</flag>
-    <flag name="wlroots">Sway, Hyprland, etc.</flag>
+    <flag name="x11">build client for X11</flag>
+    <flag name="gnome">build client for GNOME Wayland</flag>
+    <flag name="kde">build client for KDE-Plasma Wayland</flag>
+    <flag name="wlroots">build client for Sway, Wayfire, etc.</flag>
+    <flag name="hyprland">build client for Hyprland</flag>
   </use>
   <upstream>
     <remote-id type="github">xremap/xremap</remote-id>

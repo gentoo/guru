@@ -6,6 +6,8 @@
 EAPI=8
 
 CRATES="
+	addr2line@0.21.0
+	adler@1.0.2
 	aho-corasick@1.0.2
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
@@ -14,16 +16,19 @@ CRATES="
 	anstyle-query@1.0.0
 	anstyle-wincon@1.0.1
 	anstyle@1.0.1
-	anyhow@1.0.86
+	anyhow@1.0.89
 	async-io@1.13.0
 	async-lock@2.7.0
+	async-trait@0.1.83
 	autocfg@1.1.0
+	backtrace@0.3.69
 	base64@0.22.1
 	bitflags@1.3.2
 	bitflags@2.3.3
 	bitvec@1.0.1
 	bumpalo@3.13.0
 	byteorder@1.4.3
+	bytes@1.8.0
 	cc@1.0.80
 	cfg-if@1.0.0
 	chrono@0.4.26
@@ -34,6 +39,7 @@ CRATES="
 	clap_lex@0.5.0
 	colorchoice@1.0.0
 	concurrent-queue@2.2.0
+	convert_case@0.4.0
 	core-foundation-sys@0.8.4
 	crossbeam-utils@0.8.16
 	darling@0.20.3
@@ -42,7 +48,9 @@ CRATES="
 	deranged@0.3.6
 	derivative@2.2.0
 	derive-where@1.2.7
+	derive_more@0.99.18
 	dlib@0.5.2
+	doc-comment@0.3.3
 	downcast-rs@1.2.0
 	enumflags2@0.6.4
 	enumflags2_derive@0.6.4
@@ -67,12 +75,16 @@ CRATES="
 	futures-util@0.3.28
 	futures@0.3.28
 	gethostname@0.4.3
+	gimli@0.28.1
 	hashbrown@0.12.3
 	hashbrown@0.14.3
 	heck@0.4.1
+	heck@0.5.0
 	hermit-abi@0.3.2
 	hex@0.4.3
 	humantime@2.1.0
+	hyprland-macros@0.3.4
+	hyprland@0.3.13
 	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.57
 	ident_case@1.0.1
@@ -89,17 +101,25 @@ CRATES="
 	libloading@0.8.0
 	linux-raw-sys@0.3.8
 	linux-raw-sys@0.4.5
+	lock_api@0.4.12
 	log@0.4.22
 	memchr@2.6.4
 	memoffset@0.6.5
 	memoffset@0.7.1
+	miniz_oxide@0.7.4
+	mio@0.8.8
 	nb-connect@1.2.0
 	nix@0.22.3
 	nix@0.23.2
 	nix@0.26.2
 	num-traits@0.2.16
+	num_cpus@1.16.0
+	object@0.32.2
 	once_cell@1.18.0
 	parking@2.1.0
+	parking_lot@0.12.3
+	parking_lot_core@0.9.9
+	paste@1.0.15
 	pin-project-lite@0.2.10
 	pin-utils@0.1.0
 	pkg-config@0.3.27
@@ -110,26 +130,35 @@ CRATES="
 	quick-xml@0.28.2
 	quote@1.0.35
 	radium@0.7.0
-	regex-automata@0.4.5
-	regex-syntax@0.8.2
-	regex@1.10.5
+	redox_syscall@0.4.1
+	regex-automata@0.4.8
+	regex-syntax@0.8.5
+	regex@1.11.0
+	rustc-demangle@0.1.24
+	rustc_version@0.4.1
 	rustix@0.37.23
 	rustix@0.38.4
+	rustversion@1.0.18
 	ryu@1.0.15
 	scoped-tls@1.0.1
-	serde@1.0.203
-	serde_derive@1.0.203
-	serde_json@1.0.121
+	scopeguard@1.2.0
+	semver@1.0.23
+	serde@1.0.210
+	serde_derive@1.0.210
+	serde_json@1.0.128
 	serde_repr@0.1.16
 	serde_spanned@0.6.6
 	serde_with@3.8.1
 	serde_with_macros@3.8.1
 	serde_yaml@0.9.34+deprecated
+	signal-hook-registry@1.4.2
 	slab@0.4.8
 	smallvec@1.11.0
 	socket2@0.4.9
 	static_assertions@1.1.0
 	strsim@0.10.0
+	strum@0.26.3
+	strum_macros@0.26.4
 	syn@1.0.109
 	syn@2.0.48
 	tap@1.0.1
@@ -139,6 +168,8 @@ CRATES="
 	time-core@0.1.1
 	time-macros@0.2.11
 	time@0.3.24
+	tokio-macros@2.1.0
+	tokio@1.29.1
 	toml@0.5.11
 	toml@0.8.15
 	toml_datetime@0.6.6
@@ -148,6 +179,7 @@ CRATES="
 	unsafe-libyaml@0.2.11
 	utf8parse@0.2.1
 	waker-fn@1.1.0
+	wasi@0.11.0+wasi-snapshot-preview1
 	wasm-bindgen-backend@0.2.87
 	wasm-bindgen-macro-support@0.2.87
 	wasm-bindgen-macro@0.2.87
@@ -195,11 +227,11 @@ SRC_URI="
 
 LICENSE="MIT"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0 BSD ISC MIT Unicode-DFS-2016"
+LICENSE+=" Apache-2.0 BSD GPL-3+ ISC MIT Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="x11 gnome kde wlroots"
-REQUIRED_USE="?? ( x11 gnome kde wlroots )"
+IUSE="x11 gnome kde hyprland wlroots"
+REQUIRED_USE="?? ( x11 gnome kde hyprland wlroots )"
 
 RDEPEND="x11? ( x11-libs/libX11 )"
 
@@ -210,6 +242,7 @@ src_configure() {
 		$(usev x11)
 		$(usev gnome)
 		$(usev kde)
+		$(usev hyprland hypr)
 		$(usev wlroots)
 	)
 	cargo_src_configure --no-default-features
