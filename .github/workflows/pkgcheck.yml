@@ -15,7 +15,6 @@ jobs:
       - name: Prepare job
         run: |
           LAST_STATUS=$(gh run list -R ${GITHUB_REPOSITORY} \
-            --branch=dev \
             --workflow=pkgcheck.yml \
             --status=completed \
             --json=event,conclusion \
