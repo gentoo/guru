@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person" proxied="yes">
+    <email>justin026@protonmail.com</email>
+    <name>Justin Donofrio</name>
+  </maintainer>
+  <longdescription lang="en">
+    Monero is a private, secure, untraceable, decentralised digital
+    currency. You are your bank, you control your funds, and nobody
+    can trace your transfers unless you allow them to do so.
+  </longdescription>
+  <use>
+    <flag name="daemon">
+      Install the Monero daemon used to connect to the P2P network.
+    </flag>
+    <flag name="tools">
+      Install tools used to manipulate the blockchain as it is stored on
+      disk.
+    </flag>
+    <flag name="wallet-cli">
+      Install the command line wallet, monero-wallet-cli.
+    </flag>
+    <flag name="wallet-rpc">
+      Install the RPC wallet, monero-wallet-rpc.
+    </flag>
+  </use>
+  <upstream>
+    <remote-id type="github">monero-project/monero-gui</remote-id>
+  </upstream>
+</pkgmetadata>
