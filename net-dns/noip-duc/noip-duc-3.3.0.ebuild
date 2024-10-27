@@ -157,13 +157,15 @@ DESCRIPTION="No-IP Dynamic Update Client (https://www.noip.com)"
 HOMEPAGE="https://www.noip.com"
 SRC_URI="
 	${CARGO_CRATE_URIS}
-	https://dmej8g5cpdyqd.cloudfront.net/downloads/noip-duc_3.3.0.tar.gz
+	https://dmej8g5cpdyqd.cloudfront.net/downloads/noip-duc_${PV}.tar.gz
 "
 S="${WORKDIR}/noip-duc_${PV}"
 
 LICENSE="Apache-2.0"
 # Dependent crate licenses
 LICENSE+=" ISC MIT MPL-2.0 Unicode-DFS-2016"
+# ring
+LICENSE+=" openssl"
 SLOT="0"
 KEYWORDS="~amd64"
 
