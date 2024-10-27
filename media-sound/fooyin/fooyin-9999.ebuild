@@ -32,6 +32,7 @@ RDEPEND="
 	dev-libs/icu:=
 	dev-libs/kdsingleapplication
 	dev-qt/qtbase:6[concurrent,dbus,gui,network,sql,widgets]
+	dev-qt/qtimageformats:6
 	dev-qt/qtsvg:6
 	media-libs/taglib
 	media-video/ffmpeg:=
