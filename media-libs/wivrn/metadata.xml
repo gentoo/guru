@@ -17,6 +17,6 @@
 		</flag>
 	</use>
 	<upstream>
-			<remote-id type="github">Meumeu/WiVRn</remote-id>
+			<remote-id type="github">WiVRn/WiVRn</remote-id>
 	</upstream>
 </pkgmetadata>
