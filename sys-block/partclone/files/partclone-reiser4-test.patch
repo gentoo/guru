@@ -1,0 +1,33 @@
+https://github.com/Thomas-Tsai/partclone/pull/253
+
+From 94e8111b9a1b001548f8ffb993c9a31d54f7c3ca Mon Sep 17 00:00:00 2001
+From: James Le Cuirot <chewi@gentoo.org>
+Date: Sun, 27 Oct 2024 16:55:40 +0000
+Subject: [PATCH] Conditionally run the reiser4 test
+
+The line to add the test was uncommented a while ago, possibly
+intentionally, but the surrounding lines to make it conditional were
+not. Disclaimer: I have not actually tried to run the test.
+---
+ tests/Makefile.am | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tests/Makefile.am b/tests/Makefile.am
+index ee190f1..36d91d2 100644
+--- a/tests/Makefile.am
++++ b/tests/Makefile.am
+@@ -19,9 +19,9 @@ if ENABLE_REISERFS
+ TESTS += reiserfs.test
+ endif
+ 
+-#if ENABLE_REISER4
++if ENABLE_REISER4
+ TESTS += reiser4.test
+-#endif
++endif
+ 
+ if ENABLE_HFSP
+ TESTS += hfsplus.test
+-- 
+2.47.0
+

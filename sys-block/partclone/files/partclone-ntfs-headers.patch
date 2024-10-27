@@ -1,0 +1,27 @@
+https://github.com/Thomas-Tsai/partclone/pull/254
+
+From 1e1b01b67d2a2779f38647fd16bb9b6b5b1d730e Mon Sep 17 00:00:00 2001
+From: James Le Cuirot <chewi@gentoo.org>
+Date: Sun, 27 Oct 2024 17:07:40 +0000
+Subject: [PATCH] ntfstime.h uses the time.h, sys/stat.h, sys/time.h headers
+
+Not doing this check can result in an implicit declaration error.
+---
+ configure.ac | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/configure.ac b/configure.ac
+index bb9ed99..00f4688 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -290,6 +290,7 @@ if test "$enable_ntfs" = "yes"; then
+     #check library of some filesystems
+     dnl Check for NTFS-3g
+     AS_MESSAGE([checking  for NTFS-3g Library and Header files ... ...])
++    AC_CHECK_HEADERS([sys/time.h sys/stat.h time.h])
+     AC_CHECK_HEADERS([ntfs-3g/misc.h], ntfs_3g_h=1,
+     AC_MSG_WARN([*** NTFS(libntfs-3g-dev) header not found]))
+     AC_CHECK_LIB([ntfs-3g], [ntfs_mount], ntfs_3g_l=1,
+-- 
+2.47.0
+
