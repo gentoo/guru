@@ -7,12 +7,12 @@ inherit desktop xdg
 
 DESCRIPTION="An open-source GUI wallet developed by the Monero community."
 HOMEPAGE="https://github.com/monero-project/monero-gui/ https://www.getmonero.org/"
-SRC_URI="https://downloads.getmonero.org/gui/monero-gui-linux-x64-v${PV}.tar.bz2"
+SRC_URI="https://downloads.getmonero.org/gui/monero-gui-linux-x64-v${PV}.tar.bz2 -> ${P}.tar.bz2"
 
 S="${WORKDIR}/monero-gui-v${PV}"
 LICENSE="BSD MIT"
 SLOT="0"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 
 IUSE="+daemon tools wallet-cli wallet-rpc"
 
