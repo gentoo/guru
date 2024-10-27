@@ -1,5 +1,5 @@
 #!/sbin/openrc-run
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 command="/usr/bin/python"
@@ -12,50 +12,50 @@ description="Syncplay Server to synchronize media playback"
 start() {
 	ebegin "Starting ${name}"
 
-	args=()
+	args=""
 
-	if [[ ${port} ]]; then
-		args+=" --port=${port}"
+	if [ -n "${port}" ]; then
+		args="${args} --port=${port}"
 	fi
 
-	if [[ ${isolate} == True ]]; then
-		args+=" --isolate-rooms"
+	if [ "${isolate}" = True ]; then
+		args="${args} --isolate-rooms"
 	fi
 
-	if [[ ${password} ]]; then
-		args+=" --password=${password}"
+	if [ -n "${password}" ]; then
+		args="${args} --password=${password}"
 	fi
 
-	if [[ ${salt} ]]; then
-		args+=" --salt=${salt}"
+	if [ -n "${salt}" ]; then
+		args="${args} --salt=${salt}"
 	fi
 
-	if [[ ${motd} ]]; then
-		args+=" --motd-file=${motd}"
+	if [ -n "${motd}" ]; then
+		args="${args} --motd-file=${motd}"
 	fi
 
-	if [[ ${noReady} == True ]]; then
-		args+=" --disable-ready"
+	if [ "${noReady}" = True ]; then
+		args="${args} --disable-ready"
 	fi
 
-	if [[ ${noChat} == True ]]; then
-		args+=" --disable-chat"
+	if [ "${noChat}" = True ]; then
+		args="${args} --disable-chat"
 	fi
 
-	if [[ ${maxChatLength} ]]; then
-		args+=" --max-chat-message-length=${maxChatLength}"
+	if [ -n "${maxChatLength}" ]; then
+		args="${args} --max-chat-message-length=${maxChatLength}"
 	fi
 
-	if [[ ${usernameLength} ]]; then
-		args+=" --max-username-length=${usernameLength}"
+	if [ -n "${usernameLength}" ]; then
+		args="${args} --max-username-length=${usernameLength}"
 	fi
 
-	if [[ ${statsFile} ]]; then
-		args+=" --stats-db-file=${statsFile}"
+	if [ -n "${statsFile}" ]; then
+		args="${args} --stats-db-file=${statsFile}"
 	fi
 
-	if [[ ${tls} ]]; then
-		args+=" --tls=${tls}"
+	if [ -n "${tls}" ]; then
+		args="${args} --tls=${tls}"
 	fi
 
 	start-stop-daemon --start --background --make-pid --pidfile="${pidfile}" \
