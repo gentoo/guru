@@ -1,0 +1,12 @@
+diff --git a/usr/share/applications/legcord.desktop b/usr/share/applications/legcord.desktop
+index fdecb63..c374b75 100644
+--- a/usr/share/applications/legcord.desktop
++++ b/usr/share/applications/legcord.desktop
+@@ -1,6 +1,6 @@
+ [Desktop Entry]
+ Name=Legcord
+-Exec=/opt/Legcord/legcord %U
++Exec=/usr/bin/legcord-bin %U
+ Terminal=false
+ Type=Application
+ Icon=legcord

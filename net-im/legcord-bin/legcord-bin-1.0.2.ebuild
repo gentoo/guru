@@ -5,9 +5,9 @@ EAPI=8
 
 inherit unpacker desktop xdg
 
-DESCRIPTION="ArmCord is a custom client designed to enhance your Discord experience."
-HOMEPAGE="https://armcord.app/"
-SRC_URI="https://github.com/ArmCord/ArmCord/releases/download/v${PV}/ArmCord_${PV}_amd64.deb -> ${P}.deb"
+DESCRIPTION="Legcord is a custom client designed to enhance your Discord experience."
+HOMEPAGE="https://legcord.app/"
+SRC_URI="https://github.com/Legcord/Legcord/releases/download/v${PV}/Legcord-${PV}-linux-amd64.deb -> ${P}.deb"
 S="${WORKDIR}"
 
 LICENSE="MIT BSD OSL-3.0"
@@ -52,8 +52,8 @@ src_unpack() {
 src_prepare() {
 	default
 
-	mv "${WORKDIR}/opt/ArmCord" "${WORKDIR}/opt/${PN}" || die
-	mv "${WORKDIR}/usr/share/applications/armcord.desktop" "${WORKDIR}/${PN}.desktop" || die
+	mv "${WORKDIR}/opt/Legcord" "${WORKDIR}/opt/${PN}" || die
+	mv "${WORKDIR}/usr/share/applications/legcord.desktop" "${WORKDIR}/${PN}.desktop" || die
 	mv "${WORKDIR}"/usr/share/icons/hicolor/* "${WORKDIR}/" || die
 	rm -rf "${WORKDIR}/usr/share/doc" || die
 }
@@ -61,19 +61,19 @@ src_prepare() {
 src_install() {
 	DESTDIR="/opt/${PN}"
 
-	doicon -s 16 "16x16/apps/armcord.png"
-	doicon -s 32 "32x32/apps/armcord.png"
-	doicon -s 48 "48x48/apps/armcord.png"
-	doicon -s 64 "64x64/apps/armcord.png"
-	doicon -s 128 "128x128/apps/armcord.png"
-	doicon -s 256 "256x256/apps/armcord.png"
-	doicon -s 512 "512x512/apps/armcord.png"
-	doicon -s 1024 "1024x1024/apps/armcord.png"
+	doicon -s 16 "16x16/apps/legcord.png"
+	doicon -s 32 "32x32/apps/legcord.png"
+	doicon -s 48 "48x48/apps/legcord.png"
+	doicon -s 64 "64x64/apps/legcord.png"
+	doicon -s 128 "128x128/apps/legcord.png"
+	doicon -s 256 "256x256/apps/legcord.png"
+	doicon -s 512 "512x512/apps/legcord.png"
+	doicon -s 1024 "1024x1024/apps/legcord.png"
 
 	domenu "${PN}.desktop"
 
 	exeinto "${DESTDIR}"
-	doexe "opt/${PN}/armcord" "opt/${PN}/chrome-sandbox" "opt/${PN}/libEGL.so" \
+	doexe "opt/${PN}/legcord" "opt/${PN}/chrome-sandbox" "opt/${PN}/libEGL.so" \
 	"opt/${PN}/libffmpeg.so" "opt/${PN}/libGLESv2.so" "opt/${PN}/libvk_swiftshader.so"
 
 	insinto "${DESTDIR}"
@@ -95,5 +95,5 @@ src_install() {
 	doins "opt/${PN}/chrome_crashpad_handler"
 	fperms 755 "${DESTDIR}/chrome_crashpad_handler"
 
-	dosym -r /opt/${PN}/armcord /usr/bin/${PN}
+	dosym -r /opt/${PN}/legcord /usr/bin/${PN}
 }

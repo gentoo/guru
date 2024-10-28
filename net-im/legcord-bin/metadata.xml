@@ -6,6 +6,6 @@
         <name>AquaOneLove</name>
     </maintainer>
     <upstream>
-        <remote-id type="github">ArmCord/ArmCord</remote-id>
+        <remote-id type="github">Legcord/Legcord</remote-id>
     </upstream>
 </pkgmetadata>
