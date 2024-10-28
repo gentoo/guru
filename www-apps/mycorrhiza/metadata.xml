@@ -6,6 +6,7 @@
 		<name>Eric Joldasov</name>
 	</maintainer>
 	<upstream>
+		<remote-id type="codeberg">bouncepaw/mycorrhiza</remote-id>
 		<remote-id type="github">bouncepaw/mycorrhiza</remote-id>
 		<remote-id type="sourcehut">~bouncepaw/mycorrhiza</remote-id>
 		<changelog>https://mycorrhiza.wiki/hypha/release</changelog>
