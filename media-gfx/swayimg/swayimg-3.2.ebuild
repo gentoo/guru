@@ -39,7 +39,13 @@ RDEPEND="
 	webp? ( media-libs/libwebp:= )"
 DEPEND="${RDEPEND}
 	dev-libs/wayland-protocols"
-BDEPEND="dev-util/wayland-scanner"
+BDEPEND="
+	dev-util/wayland-scanner
+	svg? (
+		dev-build/cmake
+		x11-base/xorg-proto
+	)
+"
 
 src_configure() {
 	local emesonargs=(
