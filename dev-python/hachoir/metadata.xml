@@ -11,7 +11,7 @@
 			<email>vstinner@python.org</email>
 		</maintainer>
 		<changelog>https://github.com/vstinner/hachoir/releases</changelog>
-		<doc>http://hachoir.readthedocs.io/</doc>
+		<doc>https://hachoir.readthedocs.io/</doc>
 		<bugs-to>https://github.com/vstinner/hachoir/issues</bugs-to>
 		<remote-id type="github">vstinner/hachoir</remote-id>
 		<remote-id type="pypi">hachoir</remote-id>
