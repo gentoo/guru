@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 PYTHON_REQ_USE="ncurses"
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature
@@ -17,6 +17,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-python/dbus-python[${PYTHON_USEDEP}]"
+
+distutils_enable_tests import-check
 
 pkg_postinst() {
 	optfeature "MPD player support" dev-python/python-mpd2
