@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517=hatchling
 inherit distutils-r1
 
@@ -19,7 +19,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RESTRICT="test"
-PROPERTIES="test_network"
+
+# Tests broken by Google, might be fixed in the next release
+#PROPERTIES="test_network"
 
 RDEPEND="
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
