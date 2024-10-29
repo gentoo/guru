@@ -7,17 +7,11 @@ inherit systemd toolchain-funcs
 
 DESCRIPTION="Bypass DPI SOCKS proxy"
 HOMEPAGE="https://github.com/hufrea/byedpi/"
-
-if [[ ${PV} == *9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/hufrea/byedpi.git"
-else
-	SRC_URI="https://github.com/hufrea/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
-fi
+SRC_URI="https://github.com/hufrea/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 
 src_prepare() {
 	default
@@ -36,5 +30,5 @@ src_install() {
 
 	newinitd "${FILESDIR}"/byedpi.initd byedpi
 	newconfd "${FILESDIR}"/byedpi.confd byedpi
-	systemd_dounit "${FILESDIR}"/byedpi.service
+	systemd_dounit "${FILESDIR}/${PN}.service"
 }
