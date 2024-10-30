@@ -24,6 +24,10 @@ BDEPEND="
 	app-shells/bash
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-remove-O3.patch"
+	"${FILESDIR}/${P}-remove-Werror.patch"
+)
 
 src_configure() {
 	# basisu_kernels_sse.cpp has a #error if any of those are set

@@ -1,0 +1,16 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e99fb143..05691fa4 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -280,11 +280,8 @@ if(MSVC)
+ elseif(${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU"
+        OR ${CMAKE_CXX_COMPILER_ID} MATCHES "Clang")
+     add_compile_options( -Wall -Wextra $<$<BOOL:${KTX_WERROR}>:-Werror>)
+-    add_compile_options( $<IF:$<CONFIG:Debug>,-O0,-O3> )
+     if(EMSCRIPTEN)
+         add_link_options( $<IF:$<CONFIG:Debug>,-gsource-map,-O3> )
+-    else()
+-        add_link_options( $<IF:$<CONFIG:Debug>,-g,-O3> )
+     endif()
+ else()
+     message(FATAL_ERROR "${CMAKE_CXX_COMPILER_ID} not yet supported.")
