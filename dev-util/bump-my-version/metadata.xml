@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Corey Oordt</name>
+			<email>coreyoordt@gmail.com</email>
+		</maintainer>
+		<remote-id type="github">callowayproject/bump-my-version</remote-id>
+		<remote-id type="pypi">bump-my-version</remote-id>
+		<doc>https://callowayproject.github.io/bump-my-version/</doc>
+	</upstream>
+</pkgmetadata>
