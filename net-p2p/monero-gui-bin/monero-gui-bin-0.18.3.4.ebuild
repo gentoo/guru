@@ -16,6 +16,18 @@ KEYWORDS="-* ~amd64"
 
 IUSE="+daemon tools wallet-cli wallet-rpc"
 
+RDEPEND="
+	dev-libs/glib
+	media-libs/libglvnd
+	x11-libs/libX11
+	x11-libs/libxcb
+	x11-libs/libxkbcommon
+	x11-libs/xcb-util-image
+	x11-libs/xcb-util-keysyms
+	x11-libs/xcb-util-renderutil
+	x11-libs/xcb-util-wm
+"
+
 QA_PREBUILT="*"
 
 src_install() {
