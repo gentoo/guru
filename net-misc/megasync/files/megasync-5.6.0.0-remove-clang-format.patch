@@ -1,0 +1,9 @@
+We don't need to run clang-format to build the app.
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -63,5 +63,3 @@ include(desktopapp_configuration)
+ # Load the MEGA targets
+ add_subdirectory(src)
+ 
+-include(get_clang_format)
+-get_clang_format()
