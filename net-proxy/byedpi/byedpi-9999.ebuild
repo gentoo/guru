@@ -31,7 +31,8 @@ src_install() {
 
 	newinitd "${FILESDIR}"/byedpi.initd byedpi
 	newconfd "${FILESDIR}"/byedpi.confd byedpi
-# Replace distributed service file with working one
-#	systemd_dounit dist/linux/byedpi.service
-	systemd_dounit "${FILESDIR}/${PN}.service"
+	systemd_dounit "dist/linux/${PN}.service"
+
+	insinto /etc
+	newins "dist/linux/${PN}.conf" "${PN}.conf"
 }
