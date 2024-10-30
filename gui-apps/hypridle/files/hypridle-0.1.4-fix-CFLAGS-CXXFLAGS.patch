@@ -1,0 +1,29 @@
+From e2b3acf133c104574724f705f9f07007ec8bbe3b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Gon=C3=A7alo=20Negrier=20Duarte?=
+ <gonegrier.duarte@gmail.com>
+Date: Wed, 21 Feb 2024 15:29:01 +0000
+Subject: [PATCH] Removed added CFLAGS/CXXFLAGS by CMakeLists.txt
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Gonçalo Negrier Duarte <gonegrier.duarte@gmail.com>
+---
+ CMakeLists.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3d60b42..bb37060 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -14,7 +14,6 @@ if(CMAKE_BUILD_TYPE MATCHES Debug OR CMAKE_BUILD_TYPE MATCHES DEBUG)
+   message(STATUS "Configuring hypridle in Debug with CMake")
+   add_compile_definitions(HYPRLAND_DEBUG)
+ else()
+-  add_compile_options(-O3)
+   message(STATUS "Configuring hypridle in Release with CMake")
+ endif()
+
+--
+2.43.2
+
