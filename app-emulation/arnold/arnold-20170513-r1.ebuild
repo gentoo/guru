@@ -1,15 +1,15 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 WX_GTK_VER="3.0-gtk3"
 
 inherit cmake desktop wxwidgets
 
 DESCRIPTION="Amstrad CPC emulator"
-HOMEPAGE="http://www.cpctech.org.uk"
-SRC_URI="http://cpctech.cpc-live.com/arnsrc.zip -> ${P}.zip"
+HOMEPAGE="https://cpctech.cpc-live.com/"
+SRC_URI="https://cpctech.cpc-live.com/arnsrc.zip -> ${P}.zip"
 
 S=${WORKDIR}/src
 
@@ -21,7 +21,7 @@ IUSE="inkz80"
 RDEPEND="
 	media-libs/libsdl2
 	virtual/opengl
-	x11-libs/wxGTK:${WX_GTK_VER}
+	x11-libs/wxGTK:${WX_GTK_VER}[X]
 "
 DEPEND="${RDEPEND}"
 BDEPEND="app-arch/unzip"
@@ -45,7 +45,7 @@ src_configure() {
 }
 
 src_install() {
-	cd "${WORKDIR}"/exe/Gentoo/${PN} || die
+	cd "${WORKDIR}"/exe/${CMAKE_BUILD_TYPE}/${PN} || die
 	doicon "${FILESDIR}"/${PN}.png
 	insinto /usr/share/${PN}/
 	dobin arnold
