@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -33,6 +33,7 @@ RDEPEND="
 	dev-qt/qtsvg:5
 	media-fonts/noto-cjk
 	media-gfx/imagemagick
+	media-libs/freetype
 	media-libs/jbigkit
 	media-libs/libglvnd
 	media-libs/libpng
@@ -146,8 +147,7 @@ export IBUS_USE_PORTAL=1
 		"${S}"/opt/apps/${MY_PGK_NAME}/files/zw3drun.sh || die
 
 	# Use system libraries
-	# rm -rf "${S}"/opt/apps/${MY_PGK_NAME}/files/lib3rd/libMagickCore* || die
-	# rm -rf "${S}"/opt/apps/${MY_PGK_NAME}/files/lib3rd/libjpeg* || die
+	rm -rf "${S}"/opt/apps/${MY_PGK_NAME}/files/lib3rd/libfreetype* || die
 
 	# Fix coredump while draw 2D sketch due to not find fonts
 	# media-fonts/noto-cjk is required
