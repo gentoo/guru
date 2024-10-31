@@ -58,6 +58,7 @@ python_prepare_all() {
 	# bug #926720
 	cat <<-EOF >> setup.cfg || die
 		[build_ext]
+		debug=False
 		cython_always=True
 		cython_annotate=False
 		cython_directives=
