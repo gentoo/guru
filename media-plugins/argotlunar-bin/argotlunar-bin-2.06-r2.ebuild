@@ -1,11 +1,10 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 DESCRIPTION="Argotlunar is a sound granulator. Binary Linux VST"
 HOMEPAGE="https://mourednik.github.io/argotlunar/"
-#It's impossible to obtain package directly from DROPBOX, so I've just uploaded it to my own webserver
 SRC_URI="https://www.dropbox.com/s/fwtg6jfkzakj7is/argotlunar-2.06-linux_64.tar.gz -> ${P}.tar.gz"
 
 S="${WORKDIR}/argotlunar-${PV}-linux_64"
@@ -22,6 +21,7 @@ RDEPEND="
 	media-libs/libpng:0/16
 	sys-libs/glibc
 	sys-libs/zlib
+	x11-libs/libX11
 	x11-libs/libXau
 	x11-libs/libXdmcp
 	x11-libs/libXext
@@ -30,7 +30,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-QA_PRESTRIPPED="/usr/lib64/vst/${PN}/argotlunar.so"
+QA_PREBUILT="*"
 
 src_install(){
 	into "/usr/$(get_libdir)/vst/${PN}"
