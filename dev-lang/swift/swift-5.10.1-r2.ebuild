@@ -50,6 +50,8 @@ SRC_URI="
 "
 
 PATCHES=(
+	"${FILESDIR}/${PF}/backtracing-noexecstack.patch"
+	"${FILESDIR}/${PF}/disable-libdispatch-werror.patch"
 	"${FILESDIR}/${PF}/link-ncurses-tinfo.patch"
 	"${FILESDIR}/${PF}/link-with-lld.patch"
 	"${FILESDIR}/${PF}/lldb-cmake-minimum-version.patch"
@@ -227,7 +229,6 @@ src_compile() {
 		--install-destdir="${S}/stage0" \
 		--extra-cmake-options="${extra_cmake_options}" \
 		--bootstrapping=off \
-		--build-swift-libexec=false \
 		--llvm-install-components='llvm-ar;llvm-cov;llvm-profdata;IndexStore;clang;clang-resource-headers;compiler-rt;clangd;lld;LTO;clang-features-file' \
 		--llvm-targets-to-build=host \
 		--skip-build-benchmarks \
@@ -251,7 +252,6 @@ src_compile() {
 		--build-subdir="Ninja-Release" \
 		--install-destdir="${S}/stage1" \
 		--extra-cmake-options="${extra_cmake_options}" \
-		--build-swift-libexec=false \
 		--cmark --skip-test-cmark \
 		--foundation --skip-test-foundation \
 		--libdispatch --skip-test-libdispatch \
@@ -275,7 +275,6 @@ src_compile() {
 		--build-subdir="Ninja-Release" \
 		--install-destdir="${S}/stage2" \
 		--extra-cmake-options="${extra_cmake_options}" \
-		--build-swift-libexec=false \
 		--foundation --skip-test-foundation \
 		--indexstore-db --skip-test-indexstore-db \
 		--libdispatch --skip-test-libdispatch \
