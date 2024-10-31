@@ -11,8 +11,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="
-"
 RDEPEND="x11-libs/gtk+:3
 x11-libs/libnotify
 dev-libs/nss
@@ -43,7 +41,7 @@ x11-libs/libxkbcommon
 x11-libs/pango
 "
 
-
+QA_PREBUILT="*"
 src_prepare(){
 	default
 	unpacker "${S}/usr/share/doc/ipfs-desktop/changelog.gz"
