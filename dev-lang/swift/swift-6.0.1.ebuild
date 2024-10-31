@@ -52,10 +52,10 @@ SRC_URI="
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-link-with-lld.patch"
-	"${FILESDIR}/${P}-swift-backtracing-noexecstack-gentoo.patch"
-	"${FILESDIR}/${P}-swift-build-preset-gentoo.patch"
-	"${FILESDIR}/${P}-swift-link-ncurses-tinfo-gentoo.patch"
+	"${FILESDIR}/${PF}/backtracing-noexecstack.patch"
+	"${FILESDIR}/${PF}/gentoo-build-preset.patch"
+	"${FILESDIR}/${PF}/link-ncurses-tinfo.patch"
+	"${FILESDIR}/${PF}/link-with-lld.patch"
 )
 
 S="${WORKDIR}"

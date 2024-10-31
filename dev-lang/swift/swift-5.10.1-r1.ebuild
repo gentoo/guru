@@ -50,9 +50,9 @@ SRC_URI="
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-link-with-lld.patch"
-	"${FILESDIR}/${P}-llbuild-link-ncurses-tinfo-gentoo.patch"
-	"${FILESDIR}/${P}-lldb-cmake-minimum-version.patch"
+	"${FILESDIR}/${PF}/link-ncurses-tinfo.patch"
+	"${FILESDIR}/${PF}/link-with-lld.patch"
+	"${FILESDIR}/${PF}/lldb-cmake-minimum-version.patch"
 )
 
 S="${WORKDIR}"
