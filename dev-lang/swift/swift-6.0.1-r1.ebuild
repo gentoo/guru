@@ -53,6 +53,7 @@ SRC_URI="
 
 PATCHES=(
 	"${FILESDIR}/${PF}/backtracing-noexecstack.patch"
+	"${FILESDIR}/${PF}/disable-libdispatch-werror.patch"
 	"${FILESDIR}/${PF}/gentoo-build-preset.patch"
 	"${FILESDIR}/${PF}/link-ncurses-tinfo.patch"
 	"${FILESDIR}/${PF}/link-with-lld.patch"
@@ -69,7 +70,6 @@ RESTRICT="strip"
 RDEPEND="
 	${PYTHON_DEPS}
 	!~dev-lang/swift-5.10.1:0
-	>=app-eselect/eselect-swift-1.0
 	>=dev-db/sqlite-3
 	>=dev-libs/icu-69
 	>=dev-libs/libedit-20221030
@@ -77,6 +77,7 @@ RDEPEND="
 	>=net-misc/curl-8.4
 	>=sys-libs/ncurses-6
 	>=sys-libs/zlib-1.3
+	app-eselect/eselect-swift
 	dev-lang/python
 	$(llvm_gen_dep 'sys-devel/lld:${LLVM_SLOT}=')
 "
@@ -95,8 +96,8 @@ BDEPEND="
 	>=sys-libs/ncurses-6
 	>=sys-libs/zlib-1.3
 	|| (
-		<dev-lang/swift-${PV}:*
-		>dev-lang/swift-${PV}:*
+		dev-lang/swift
+		dev-lang/swift-bootstrap
 	)
 	$(llvm_gen_dep '
 		sys-devel/clang:${LLVM_SLOT}=
