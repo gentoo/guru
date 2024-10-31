@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>itai@itaiferber.net</email>
+    <name>Itai Ferber</name>
+  </maintainer>
+  <longdescription>
+    A virtual package which provides a base version of Swift to bootstrap
+    ">=dev-lang/swift-6*" with. Swift 6 and later require an earlier Swift
+    compiler to bootstrap with; "dev-lang/swift" can depend on earlier versions
+    of itself, but to avoid arbitrarily long dependency chains on a first
+    install of Swift on a new machine, this package vends a base version of
+    Swift that newer versions can BDEPEND on.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">swiftlang/swift</remote-id>
+  </upstream>
+  <slots>
+    <slot name="5">
+      The Swift 5 language, compiler, and tooling, used to bootstrap future versions of Swift.
+    </slot>
+    <subslots>
+      Minor Swift versions.
+    </subslots>
+  </slots>
+</pkgmetadata>
