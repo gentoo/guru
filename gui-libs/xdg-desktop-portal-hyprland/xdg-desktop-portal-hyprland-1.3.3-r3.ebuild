@@ -21,6 +21,7 @@ SLOT="0"
 IUSE="elogind systemd"
 REQUIRED_USE="?? ( elogind systemd )"
 
+# sdbus is restricted to 0/1 due to #938139
 DEPEND="
 	>=media-video/pipewire-1.2.0:=
 	dev-cpp/sdbus-c++:0/1
