@@ -18,16 +18,16 @@ FETCH_URI="https://github.com/GPUOpen-Drivers"
 ## and place commits in the desired variables
 ## EXAMPLE: XGL_COMMIT="80e5a4b11ad2058097e77746772ddc9ab2118e07"
 ## SRC_URI="... ${FETCH_URI}/$PART/archive/$COMMIT.zip -> $PART-$COMMIT.zip ..."
-XGL_COMMIT="c4ca1f6077c7fecc8df2ad2ed8719fb943b4e4b1"
-PAL_COMMIT="31f6a70d0e9ee22894daab5305dd91b3ebb599a5"
-LLPC_COMMIT="872ddfdeecfd1e56ddbc0db2012b96788129fee9"
-GPURT_COMMIT="95c27c4031b112daaa231b76dee07f7ff05357d0"
-LLVM_PROJECT_COMMIT="8abfff872ebbb1f57ebe83149f8166fb5dd487dc"
+XGL_COMMIT="8e7968c48914873b1c98b21cfb079573f9488d79"
+PAL_COMMIT="135eafd1b599b3dd57a1163701477f29259f5066"
+LLPC_COMMIT="b36b68fff3bc4bfb171ffa1e23597309d5d52cd6"
+GPURT_COMMIT="f2d96f116cbbe34b2784c589b63d851c8b31b2e0"
+LLVM_PROJECT_COMMIT="56f5582fdb0cc1d3f8f33bbb6ce1d9c32342c1d3"
 METROHASH_COMMIT="18893fb28601bb9af1154cd1a671a121fff6d8d3"
 CWPACK_COMMIT="4f8cf0584442a91d829d269158567d7ed926f026"
 # Submodule of LLPC, also updates often. Grab commit version from
 # https://github.com/GPUOpen-Drivers/llpc/tree/${LLPC_COMMIT}/imported
-LLVM_DIALECTS_COMMIT="bdfb113d8d765bdf4554a2b30ae909b93f26aeea"
+LLVM_DIALECTS_COMMIT="c4365946902436063f872dbcf1a370fe73982a54"
 ### end of variables
 SRC_URI="${FETCH_URI}/xgl/archive/${XGL_COMMIT}.tar.gz -> amdvlk-xgl-${XGL_COMMIT}.tar.gz
 ${FETCH_URI}/pal/archive/${PAL_COMMIT}.tar.gz -> amdvlk-pal-${PAL_COMMIT}.tar.gz
@@ -49,7 +49,7 @@ REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )"
 BUNDLED_LLVM_DEPEND="sys-libs/zlib:0=[${MULTILIB_USEDEP}]"
 DEPEND="wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
 	${BUNDLED_LLVM_DEPEND}
-	>=dev-util/vulkan-headers-1.3.283
+	>=dev-util/vulkan-headers-1.3.296
 	raytracing? ( dev-util/DirectXShaderCompiler )
 	dev-util/glslang[${MULTILIB_USEDEP}]"
 BDEPEND="${BUNDLED_LLVM_DEPEND}
@@ -61,7 +61,7 @@ RDEPEND=" ${DEPEND}
 	x11-libs/libXrandr[${MULTILIB_USEDEP}]
 	x11-libs/libxcb[${MULTILIB_USEDEP}]
 	x11-libs/libxshmfence[${MULTILIB_USEDEP}]
-	>=media-libs/vulkan-loader-1.3.290[${MULTILIB_USEDEP}]
+	>=media-libs/vulkan-loader-1.3.296[${MULTILIB_USEDEP}]
 	dev-util/glslang[${MULTILIB_USEDEP}]
 	dev-libs/openssl[${MULTILIB_USEDEP}]" #890449
 
@@ -73,11 +73,12 @@ CMAKE_MAKEFILE_GENERATOR=ninja
 PATCHES=(
 	"${FILESDIR}/amdvlk-2022.3.5-no-compiler-presets.patch" #875821
 	"${FILESDIR}/amdvlk-2022.4.1-proper-libdir.patch"
-	"${FILESDIR}/amdvlk-2022.4.2-license-path.patch" #878803
+	"${FILESDIR}/amdvlk-2024.4.1-license-path.patch" #878803
 	#"${FILESDIR}/amdvlk-2022.4.2-reduced-llvm-installations.patch"
 	#"${FILESDIR}/amdvlk-2022.4.2-reduced-llvm-installations-part2.patch"
 	"${FILESDIR}/amdvlk-2024.3.1-disable-Werror.patch"
 	"${FILESDIR}/amdvlk-2024.3.3-fix-build.patch"
+	"${FILESDIR}/amdvlk-2024.4.1-missing-header.patch"
 )
 
 pkg_pretend(){
