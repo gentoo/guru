@@ -101,8 +101,6 @@ pkg_postinst() {
 	xdg_icon_cache_update
 	xdg_desktop_database_update
 
-	elog "Updating XDG database"
-
 	elog "The auto-cpufreq override file will be stored in /var/lib/auto-cpufreq/override.pickle"
 
 	# Create log file
