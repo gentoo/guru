@@ -1,7 +1,7 @@
-# Copyright 2019-2020 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools
 
@@ -14,7 +14,7 @@ else
 fi
 
 DESCRIPTION="Mycroft's TTS engine, based on CMU's Flite (Festival Lite)"
-HOMEPAGE="https://mimic.mycroft.ai/"
+HOMEPAGE="https://community.openconversational.ai/"
 
 LICENSE="BSD MIT public-domain freetts BSD-2 Apache-2.0"
 SLOT="0"
@@ -31,10 +31,8 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}/${PN}-1.3.0.1-gcc10.patch" )
-
 src_prepare() {
 	default
-	sed -i 's/-Werror//' Makefile.am
+	sed -i 's/-Werror //' Makefile.am || die
 	eautoreconf
 }

@@ -1,0 +1,41 @@
+https://bugs.gentoo.org/859640
+https://github.com/MycroftAI/mimic1/commit/8b7bb9678035c54d5249062be89eadb5067483c2
+--- a/lang/cmu_grapheme_lex/cmu_grapheme_lex.h
++++ b/lang/cmu_grapheme_lex/cmu_grapheme_lex.h
+@@ -43,8 +43,9 @@ extern "C" {
+ #include "cst_lexicon.h"
+ cst_lexicon *cmu_grapheme_lex_init(void);
+ 
++#define UNICODE_SAMPA_MAPPING_SIZE 16674
+ extern const int num_unicode_sampa_mapping;
+-extern const char * const unicode_sampa_mapping[16663][5];
++extern const char * const unicode_sampa_mapping[UNICODE_SAMPA_MAPPING_SIZE][5];
+ 
+ #ifdef __cplusplus
+ } /* extern "C" */
+--- a/lang/cmu_grapheme_lex/grapheme_unitran_tables.c
++++ b/lang/cmu_grapheme_lex/grapheme_unitran_tables.c
+@@ -5,8 +5,10 @@
+ /* Ported for Festvox by Gopala Anumachipalli gopalakr@cs.cmu.edu Sep 2012  */
+ /* Then converted to C for CMU Mimic (cmuflite.org)                         */
+ #include <mimic.h>
+-const int num_unicode_sampa_mapping = 16673;
+-const char * const unicode_sampa_mapping[16674][5] =
++#include "cmu_grapheme_lex.h"
++
++const int num_unicode_sampa_mapping = UNICODE_SAMPA_MAPPING_SIZE - 1;
++const char * const unicode_sampa_mapping[UNICODE_SAMPA_MAPPING_SIZE][5] =
+ {
+    {"let_a", "A", NULL, NULL, NULL},
+    {"let_b", "b", NULL, NULL, NULL},
+--- a/lang/cmulex/cmu_lex.c
++++ b/lang/cmulex/cmu_lex.c
+@@ -46,7 +46,7 @@ extern const int cmu_lex_entry[];
+ extern const unsigned char cmu_lex_data[];
+ extern const int cmu_lex_num_entries;
+ extern const int cmu_lex_num_bytes;
+-extern const char * const cmu_lex_phone_table[54];
++extern const char * const cmu_lex_phone_table[57];
+ extern const char * const cmu_lex_phones_huff_table[];
+ extern const char * const cmu_lex_entries_huff_table[];
+ 
