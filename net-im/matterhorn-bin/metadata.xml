@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
-	<upstream>
-		<remote-id type="github">matterhorn-chat/matterhorn</remote-id>
-	</upstream>
+  <maintainer type="person">
+    <name>Dale Showers</name>
+    <email>gentoo@fictx.com</email>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">matterhorn-chat/matterhorn</remote-id>
+    <changelog>https://github.com/matterhorn-chat/matterhorn/blob/master/CHANGELOG.md</changelog>
+    <doc>https://github.com/matterhorn-chat/matterhorn/tree/master/docs</doc>
+    <bugs-to>https://github.com/matterhorn-chat/matterhorn/issues</bugs-to>
+  </upstream>
 </pkgmetadata>
