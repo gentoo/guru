@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit daemons distutils-r1 optfeature
 
 DESCRIPTION="A Python 3 asyncio Matrix framework"
