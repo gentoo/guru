@@ -13,7 +13,7 @@ SRC_URI="https://github.com/artemsen/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="avif exif exr gif heif jpeg jpegxl png svg test tiff webp bash-completion"
+IUSE="avif bash-completion exif exr gif heif jpeg jpegxl png svg test tiff webp X"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -44,7 +44,7 @@ BDEPEND="
 	dev-util/wayland-scanner
 	svg? (
 		dev-build/cmake
-		x11-base/xorg-proto
+		X? ( x11-base/xorg-proto )
 	)
 	test? ( dev-cpp/gtest )
 "
