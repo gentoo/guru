@@ -42,7 +42,6 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="
 	dev-util/wayland-scanner
-	svg? ( dev-build/cmake )
 "
 
 src_configure() {

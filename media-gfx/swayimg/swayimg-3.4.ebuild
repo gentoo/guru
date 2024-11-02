@@ -43,7 +43,6 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="
 	dev-util/wayland-scanner
-	svg? ( dev-build/cmake )
 	test? ( dev-cpp/gtest )
 "
 
