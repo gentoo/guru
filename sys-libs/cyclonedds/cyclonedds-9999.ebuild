@@ -21,18 +21,23 @@ SLOT="0/$(ver_cut 1-2)"
 IUSE="test ssl shm parser doc examples ipv6 idlc get-kind"
 RESTRICT="!test? ( test )"
 
-RDEPEND=(
-	"doc? ( app-text/doxygen )"
-	"ssl? ( dev-libs/openssl )"
-	"shm? ( sys-libs/iceoryx )"
-	"parser? ( sys-devel/bison )"
-)
-DEPEND="${RDEPEND[@]}"
+RDEPEND="
+	doc? ( app-text/doxygen )
+	ssl? ( dev-libs/openssl:= )
+	shm? ( sys-libs/iceoryx:= )
+	parser? ( sys-devel/bison )
+"
+DEPEND="${RDEPEND}"
+BDEPEND="test? ( dev-util/cunit )"
 
 CMAKE_BUILD_TYPE=Release
 
 src_prepare() {
 	use get-kind && eapply "${FILESDIR}/${PN}-0.10.3-get_kind.patch"
+
+	# disable tests that requires FEATURES=-network-sandbox
+	sed -i '/ifaddrs.c$/d' src/ddsrt/tests/CMakeLists.txt || die
+
 	cmake_src_prepare
 }
 
