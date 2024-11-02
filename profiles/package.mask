@@ -97,13 +97,6 @@ dev-libs/octetos-coreutils
 # Removal on 2024-11-02.
 x11-misc/ksnip
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-10-02)
-# Depends on dev-libs/kirigami-addons:5, which has been dropped.
-# The latest upstream release supports Qt6, but there's no maintainer
-# in guru.
-# Removal on 2024-11-02.
-kde-apps/plasma-settings
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
