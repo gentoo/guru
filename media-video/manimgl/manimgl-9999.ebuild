@@ -14,7 +14,7 @@ DOCS_DEPEND="
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit distutils-r1 git-r3 docs
+inherit distutils-r1 docs git-r3
 
 DESCRIPTION="Animation engine for explanatory math videos"
 HOMEPAGE="https://github.com/3b1b/manim https://pypi.org/project/manimgl/"
@@ -32,10 +32,10 @@ SLOT="0"
 
 RDEPEND="
 	dev-python/colour[${PYTHON_USEDEP}]
-	dev-python/ipython[${PYTHON_USEDEP}]
+	>=dev-python/ipython-8.18.0[${PYTHON_USEDEP}]
 	dev-python/isosurfaces[${PYTHON_USEDEP}]
-	=dev-python/ManimPango-0.4*[${PYTHON_USEDEP}]
-	dev-python/mapbox-earcut[${PYTHON_USEDEP}]
+	dev-python/fonttools[${PYTHON_USEDEP}]
+	>=dev-python/ManimPango-0.6.0[${PYTHON_USEDEP}]
 	dev-python/matplotlib[${PYTHON_USEDEP}]
 	dev-python/moderngl[${PYTHON_USEDEP}]
 	dev-python/moderngl-window[${PYTHON_USEDEP}]
