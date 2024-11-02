@@ -1,4 +1,3 @@
-
 # Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
@@ -33,18 +32,17 @@ RDEPEND="
 	svg? (
 		dev-libs/glib:2
 		gnome-base/librsvg:2
-		x11-libs/cairo
+		x11-libs/cairo[X=]
 	)
 	tiff? ( media-libs/tiff:= )
 	webp? ( media-libs/libwebp:= )"
 DEPEND="${RDEPEND}
-	dev-libs/wayland-protocols"
+	dev-libs/wayland-protocols
+	svg? ( X? ( x11-base/xorg-proto ) )
+"
 BDEPEND="
 	dev-util/wayland-scanner
-	svg? (
-		dev-build/cmake
-		X? ( x11-base/xorg-proto )
-	)
+	svg? ( dev-build/cmake )
 "
 
 src_configure() {
