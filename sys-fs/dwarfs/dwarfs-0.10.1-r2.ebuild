@@ -42,6 +42,8 @@ RDEPEND="
 	jemalloc? ( >=dev-libs/jemalloc-5.2.1 )
 	test? ( >=dev-cpp/gtest-1.13.0 )
 	>=dev-cpp/range-v3-0.12.0
+	dev-libs/date
+	dev-cpp/nlohmann_json
 "
 
 DEPEND="
