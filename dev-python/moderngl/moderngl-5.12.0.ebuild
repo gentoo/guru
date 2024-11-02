@@ -24,24 +24,28 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
+# All tests fails because they cannot access the video card
+# see https://forums.gentoo.org/viewtopic.php?p=8843999
 RESTRICT="test"
-# The tests need moderngl compiled AND installed, otherwise they fail
 
 BDEPEND="
-	x11-libs/libX11
-	virtual/opengl
+	media-libs/libglvnd[X]
 	>=dev-python/glcontext-3.0.0[${PYTHON_USEDEP}]
 	test? (
 		dev-python/numpy[${PYTHON_USEDEP}]
-		dev-python/pytest[${PYTHON_USEDEP}]
 		dev-python/scipy[${PYTHON_USEDEP}]
 		dev-python/pycodestyle[${PYTHON_USEDEP}]
+		dev-python/pyopengl[${PYTHON_USEDEP}]
 	)
 "
 DEPEND="${BDEPEND}"
 
-# distutils_enable_tests pytest
-
+EPYTEST_DESELECT=(
+	# Make sure we are not using the system-wide install
+	"tests/test_local.py"
+)
+distutils_enable_tests pytest
 src_test() {
+	rm -rf "${S}/${PN}"
 	virtx distutils-r1_src_test
 }
