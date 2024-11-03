@@ -33,4 +33,7 @@ src_unpack() {
 python_compile() {
 	distutils_wheel_install "${BUILD_DIR}/install" \
 		"${DISTDIR}/${P}-py3-none-any.whl"
+
+	# Clean up spurious folder
+	rm -fr "${BUILD_DIR}/install"/usr/lib/python*/site-packages/legal || die
 }
