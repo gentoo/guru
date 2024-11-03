@@ -59,6 +59,10 @@ DEPEND="
 "
 BDEPEND="
 	dev-util/glslang
+	dev-util/gdbus-codegen
+	gui? (
+		gnome-base/librsvg
+	)
 "
 
 if [[ ${PV} == 9999 ]]; then
