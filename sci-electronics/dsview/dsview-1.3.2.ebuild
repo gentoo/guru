@@ -52,9 +52,9 @@ BDEPEND="
 
 PATCHES=(
 	# bug 887877
-	"${FILESDIR}/${P}-gcc13.patch"
+	"${FILESDIR}/${PN}-1.3.0-gcc13.patch"
 	# bug 887913
-	"${FILESDIR}/${P}-fix-flags.patch"
+	"${FILESDIR}/${PN}-1.3.0-fix-flags.patch"
 )
 
 src_configure() {
