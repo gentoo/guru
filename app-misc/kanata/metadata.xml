@@ -5,6 +5,9 @@
 		<email>eetu@muffinpower.fi</email>
 		<name>Eetu Eloranta</name>
 	</maintainer>
+	<use>
+		<flag name="cmd">Enable potentially dangerous "cmd" action to be able run arbitrary commands.</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">jtroo/kanata</remote-id>
 	</upstream>
