@@ -5,4 +5,7 @@
 		<email>eetu@muffinpower.fi</email>
 		<name>Eetu Eloranta</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">jtroo/kanata</remote-id>
+	</upstream>
 </pkgmetadata>

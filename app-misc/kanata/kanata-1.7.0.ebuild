@@ -210,7 +210,7 @@ inherit cargo
 DESCRIPTION="Multi-layer keyboard customization"
 HOMEPAGE="https://github.com/jtroo/kanata"
 SRC_URI="
-	https://github.com/jtroo/kanata/archive/refs/tags/v${PV}.tar.gz
+	https://github.com/jtroo/kanata/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
 
@@ -219,3 +219,6 @@ LICENSE="LGPL-3"
 LICENSE+=" Apache-2.0 BSD ISC LGPL-3 MIT MPL-2.0 Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
+
+# Rust package
+QA_FLAGS_IGNORED="usr/bin/kanata"
