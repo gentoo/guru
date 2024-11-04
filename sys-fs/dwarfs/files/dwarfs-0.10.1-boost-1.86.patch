@@ -1,0 +1,57 @@
+From 6c8a1cdbd3c889c9cdf8bbbfe7c39cc9c25202a0 Mon Sep 17 00:00:00 2001
+From: Marcus Holland-Moritz <github@mhxnet.de>
+Date: Sun, 25 Aug 2024 10:10:21 +0200
+Subject: [PATCH] fix: workaround for new boost versions which have a `process`
+ component
+
+---
+ CMakeLists.txt               | 4 +++-
+ cmake/dwarfs-config.cmake.in | 4 +++-
+ cmake/libdwarfs.cmake        | 4 ++++
+ 3 files changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 331a4334..3350f794 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -187,7 +187,9 @@ include(${CMAKE_SOURCE_DIR}/cmake/need_range_v3.cmake)
+ if(WITH_LIBDWARFS)
+   include(${CMAKE_SOURCE_DIR}/cmake/need_phmap.cmake)
+ 
+-  find_package(Boost ${BOOST_REQUIRED_VERSION} REQUIRED COMPONENTS chrono iostreams program_options)
++  find_package(Boost ${BOOST_REQUIRED_VERSION} REQUIRED CONFIG
++               COMPONENTS chrono iostreams program_options
++               OPTIONAL_COMPONENTS process)
+ 
+   if(APPLE)
+     if(USE_HOMEBREW_LIBARCHIVE)
+diff --git a/cmake/dwarfs-config.cmake.in b/cmake/dwarfs-config.cmake.in
+index 3ae4e10e..342c6177 100644
+--- a/cmake/dwarfs-config.cmake.in
++++ b/cmake/dwarfs-config.cmake.in
+@@ -21,7 +21,9 @@ endif()
+ find_dependency(Threads REQUIRED)
+ find_dependency(fmt CONFIG REQUIRED)
+ find_dependency(gflags CONFIG REQUIRED)
+-find_dependency(Boost @BOOST_REQUIRED_VERSION@ REQUIRED COMPONENTS chrono context filesystem iostreams program_options regex system thread)
++find_dependency(Boost @BOOST_REQUIRED_VERSION@ REQUIRED CONFIG
++                COMPONENTS chrono context filesystem iostreams program_options regex system thread
++                OPTIONAL_COMPONENTS process)
+ pkg_check_modules(LIBCRYPTO REQUIRED IMPORTED_TARGET libcrypto>=@LIBCRYPTO_REQUIRED_VERSION@)
+ pkg_check_modules(LIBARCHIVE REQUIRED IMPORTED_TARGET libarchive>=@LIBARCHIVE_REQUIRED_VERSION@)
+ pkg_check_modules(XXHASH REQUIRED IMPORTED_TARGET libxxhash>=@XXHASH_REQUIRED_VERSION@)
+diff --git a/cmake/libdwarfs.cmake b/cmake/libdwarfs.cmake
+index 6b0d227f..fe73d05b 100644
+--- a/cmake/libdwarfs.cmake
++++ b/cmake/libdwarfs.cmake
+@@ -221,6 +221,10 @@ target_link_libraries(
+   dwarfs_fsst
+ )
+ 
++if(TARGET Boost::process)
++  target_link_libraries(dwarfs_common PUBLIC Boost::process)
++endif()
++
+ list(APPEND LIBDWARFS_TARGETS
+   dwarfs_common
+   dwarfs_reader

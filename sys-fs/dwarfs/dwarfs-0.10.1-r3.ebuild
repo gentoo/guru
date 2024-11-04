@@ -17,6 +17,7 @@ S="${WORKDIR}/dwarfs-${PV}"
 
 PATCHES=(
 	"${FILESDIR}"/dwarfs-libfmt9.patch
+	"${FILESDIR}"/dwarfs-0.10.1-boost-1.86.patch
 )
 
 RDEPEND="
