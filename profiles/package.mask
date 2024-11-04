@@ -78,11 +78,6 @@ www-apps/librarian
 # Removal on 2024-11-08
 kde-misc/plasma5-wallpapers-dynamic
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-10-04)
-# Unmaintained in guru and it doesn't build anymore.
-# Removal on 2024-11-04. Bug #932265.
-dev-libs/octetos-core
-
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-02)
 # Depends on <media-libs/kimageannotator-0.7, which has been dropped.
 # Upstream is working on Qt6 port.
