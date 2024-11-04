@@ -81,7 +81,6 @@ kde-misc/plasma5-wallpapers-dynamic
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-04)
 # Unmaintained in guru and it doesn't build anymore.
 # Removal on 2024-11-04. Bug #932265.
-app-portage/version
 dev-libs/octetos-biblion
 dev-libs/octetos-core
 dev-libs/octetos-coreutils
