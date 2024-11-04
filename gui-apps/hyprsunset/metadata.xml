@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>saigon-tech@tuta.io</email>
+		<name>Michal Vu</name>
+	</maintainer>
+	<upstream>
+		<changelog>https://github.com/hyprwm/hyprsunset/releases</changelog>
+		<doc>https://wiki.hyprland.org/Hypr-Ecosystem/hyprsunset/</doc>
+		<bugs-to>https://github.com/hyprwm/hyprsunset/issues</bugs-to>
+		<remote-id type="github">hyprwm/hyprsunset</remote-id>
+	</upstream>
+</pkgmetadata>
