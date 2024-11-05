@@ -12,7 +12,7 @@ SRC_URI="
          https://github.com/github/gemoji/archive/v$_VERSION.tar.gz -> gemoji-$_VERSION.tar.gz
 "
 S="${WORKDIR}/jq-${P}"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~amd64 ~arm64"
 
 LICENSE="GPL-3"
 SLOT="0"
