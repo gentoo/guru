@@ -9,7 +9,7 @@ HOMEPAGE="https://github.com/Freed-Wu/manpager"
 SRC_URI="
          $HOMEPAGE/archive/${PV}.tar.gz -> $P.tar.gz
 "
-KEYWORDS="~amd64 ~arm ~arm64 ~x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~amd64 ~arm64"
 
 LICENSE="GPL-3"
 SLOT="0"
