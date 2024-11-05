@@ -85,7 +85,7 @@ LICENSE="|| ( Apache-2.0 MIT )"
 LICENSE+=" Apache-2.0 ISC MIT Unicode-DFS-2016 ZLIB"
 SLOT="0"
 IUSE="man"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 BDEPEND="
 	>=virtual/rust-1.66
