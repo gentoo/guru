@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit cmake
+PYTHON_COMPAT=( python3_{12..13} )
+
+inherit cmake python-any-r1
 
 DESCRIPTION="Eclipse Cyclone DDS project"
 HOMEPAGE="https://cyclonedds.io/"
@@ -22,15 +24,35 @@ IUSE="test ssl shm parser doc examples ipv6 idlc get-kind"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	doc? ( app-text/doxygen )
 	ssl? ( dev-libs/openssl:= )
 	shm? ( sys-libs/iceoryx:= )
 	parser? ( sys-devel/bison )
 "
 DEPEND="${RDEPEND}"
-BDEPEND="test? ( dev-util/cunit )"
+BDEPEND="
+	doc? (
+		app-text/doxygen
+		$(python_gen_any_dep '
+			dev-python/breathe[${PYTHON_USEDEP}]
+			dev-python/sphinx[${PYTHON_USEDEP}]
+		')
+	)
+	test? ( dev-util/cunit )
+"
 
 CMAKE_BUILD_TYPE=Release
+
+python_check_deps() {
+	if use doc; then
+		python_has_version \
+			"dev-python/breathe[${PYTHON_USEDEP}]" \
+			"dev-python/sphinx[${PYTHON_USEDEP}]"
+	fi
+}
+
+pkg_setup() {
+	use doc && python-any-r1_pkg_setup
+}
 
 src_prepare() {
 	use get-kind && eapply "${FILESDIR}/${PN}-0.10.3-get_kind.patch"
@@ -38,12 +60,15 @@ src_prepare() {
 	# disable tests that requires FEATURES=-network-sandbox
 	sed -i '/ifaddrs.c$/d' src/ddsrt/tests/CMakeLists.txt || die
 
+	# fix the dependency detection in cmake
+	sed -i "/set(/s/\${_Sphinx_shebang}/${EPYTHON}/" cmake/Modules/FindSphinx.cmake || die
+
 	cmake_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_DOCS= $(usex doc)
+		-DBUILD_DOCS=$(usex doc)
 		-DBUILD_DDSPERF=OFF
 		-DBUILD_EXAMPLES=$(usex examples)
 		-DBUILD_TESTING=$(usex test)
