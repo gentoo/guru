@@ -2,6 +2,7 @@ app-voices
 dev-crystal
 dev-elixir
 dev-hare
+dev-jq
 dev-nim
 dev-zig
 mpv-plugin

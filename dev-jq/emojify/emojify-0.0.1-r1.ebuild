@@ -30,8 +30,12 @@ src_prepare() {
 	sed -i s=/usr=$EPREFIX/usr=g emojify scripts/generate-emoji.jq.jq
 }
 
+src_compile() {
+	scripts/generate-emoji.jq.jq ../gemoji-$_VERSION/db/emoji.json > emoji.jq
+}
+
 src_install() {
-	install -d "$ED/usr/lib/jq"
-	scripts/generate-emoji.jq.jq ../gemoji-$_VERSION/db/emoji.json > "$ED/usr/lib/jq/emoji.jq"
-	install -D emojify -t "$ED/usr/bin"
+	insinto /usr/lib/jq
+	doins emoji.jq
+	dobin emojify
 }
