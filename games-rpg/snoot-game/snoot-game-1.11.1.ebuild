@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10,11,12} )
 inherit python-single-r1 desktop wrapper
 
-MY_PV="Patch10-KurwaBobr"
+MY_PV="Patch11.1-MoldyBuenoAlDante"
 
 DESCRIPTION="Visual novel parody of Goodbye Volcano High"
 HOMEPAGE="https://snootgame.xyz/en"
@@ -31,7 +31,6 @@ src_install() {
 	insinto "${dir}"
 
 	doins -r "${S}/."
-	dodoc README.md
 
 	fperms +x ${dir}/lib/py3-linux-x86_64/SnootGame
 	fperms +x ${dir}/SnootGame.sh
