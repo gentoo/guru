@@ -1,3 +1,5 @@
+# Copyright 2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
 EAPI=8
 DESCRIPTION="Utility for identifying, reading, writing, verifying and erasing flash chips."
 HOMEPAGE="https://flashprog.org/"
@@ -10,3 +12,4 @@ RDEPEND=">=dev-libs/libusb-1.0.26
 >=dev-embedded/libftdi-1.5-r7
 >=dev-libs/libgpiod-1.6.4
 >=sys-apps/pciutils-3.13.0"
+DEPEND="${RDEPEND}"
