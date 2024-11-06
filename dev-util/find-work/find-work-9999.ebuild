@@ -3,9 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517=hatchling
-inherit distutils-r1
+inherit distutils-r1 shell-completion
 
 DESCRIPTION="Personal advice utility for Gentoo package maintainers"
 HOMEPAGE="
@@ -65,3 +65,24 @@ distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	dev-python/insipid-sphinx-theme \
 	dev-python/sphinx-prompt
+
+python_compile() {
+	distutils-r1_python_compile
+
+	emake completions BIN="${BUILD_DIR}/install${EPREFIX}/usr/bin/find-work"
+}
+
+src_install() {
+	distutils-r1_src_install
+
+	local mymakeargs=(
+		DESTDIR="${D}"
+		PREFIX="${EPREFIX}"/usr
+
+		BASHCOMPDIR="$(get_bashcompdir)"
+		ZSHCOMPDIR="$(get_zshcompdir)"
+		FISHCOMPDIR="$(get_fishcompdir)"
+	)
+
+	emake "${mymakeargs[@]}" install-data
+}
