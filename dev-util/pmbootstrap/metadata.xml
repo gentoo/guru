@@ -6,7 +6,6 @@
 		<email>blackwell@disroot.org</email>
 	</maintainer>
 	<upstream>
-		<bugs-to>https://gitlab.com/postmarketOS/pmbootstrap/-/issues</bugs-to>
-		<remote-id type="gitlab">postmarketOS/pmbootstrap</remote-id>
+		<bugs-to>https://gitlab.postmarketos.org/postmarketOS/pmbootstrap/-/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
