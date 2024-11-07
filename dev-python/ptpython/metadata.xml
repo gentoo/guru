@@ -5,6 +5,10 @@
                 <email>wuzhenyu@ustc.edu</email>
                 <name>Wu, Zhenyu</name>
         </maintainer>
+        <use>
+                <flag name="black">Add support for dev-python/black. Black not always possible on PyPy</flag>
+                <flag name="ipython">Add support for dev-python/ipython for ptipython</flag>
+        </use>
         <upstream>
                 <remote-id type="pypi">ptpython</remote-id>
                 <remote-id type="github">prompt-toolkit/ptpython</remote-id>

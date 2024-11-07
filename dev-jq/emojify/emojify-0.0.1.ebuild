@@ -8,30 +8,30 @@ HOMEPAGE="https://github.com/Freed-Wu/jq-emojify"
 
 _VERSION=4.1.0
 SRC_URI="
-         $HOMEPAGE/archive/${PV}.tar.gz -> jq-$P.tar.gz
-         https://github.com/github/gemoji/archive/v$_VERSION.tar.gz -> gemoji-$_VERSION.tar.gz
+	$HOMEPAGE/archive/${PV}.tar.gz -> jq-$P.tar.gz
+	https://github.com/github/gemoji/archive/v$_VERSION.tar.gz -> gemoji-$_VERSION.tar.gz
 "
 S="${WORKDIR}/jq-${P}"
-KEYWORDS="~amd64 ~arm64"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
-         app-misc/jq
+	app-misc/jq
 "
 
 BDEPEND="
-         app-misc/jq
+	app-misc/jq
 "
 
 src_prepare() {
 	default
-	sed -i s=/usr=$EPREFIX/usr=g emojify scripts/generate-emoji.jq.jq
+	sed -i "s=/usr=$EPREFIX/usr=g" emojify scripts/generate-emoji.jq.jq
 }
 
 src_compile() {
-	scripts/generate-emoji.jq.jq ../gemoji-$_VERSION/db/emoji.json > emoji.jq
+	scripts/generate-emoji.jq.jq "../gemoji-$_VERSION/db/emoji.json" > emoji.jq
 }
 
 src_install() {

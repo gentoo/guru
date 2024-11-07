@@ -10,11 +10,11 @@ DESCRIPTION="input method for typing Japanese with RIME"
 HOMEPAGE="https://rime.im/ https://github.com/gkovacs/rime-japanese"
 SRC_URI="https://github.com/gkovacs/${MY_PN}/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${MY_PN}-${MY_COMMIT}"
+
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-
-S="${WORKDIR}/${MY_PN}-${MY_COMMIT}"
 
 DOCS=(
 	README.md

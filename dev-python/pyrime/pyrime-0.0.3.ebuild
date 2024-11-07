@@ -4,13 +4,13 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=meson-python
-PYTHON_COMPAT=( python3_{8..13} python3_13t pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 )
 inherit distutils-r1 pypi
 
 DESCRIPTION="rime for python"
 HOMEPAGE="
-          https://github.com/Freed-Wu/$PN
-          https://pypi.org/project/$PN
+	https://github.com/Freed-Wu/pyrime
+	https://pypi.org/project/pyrime
 "
 
 LICENSE="GPL-3"
@@ -18,7 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="
-        app-i18n/librime
+	app-i18n/librime
 "
 
 RDEPEND="$DEPEND"
