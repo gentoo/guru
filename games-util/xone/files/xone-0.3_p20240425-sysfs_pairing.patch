@@ -1,0 +1,163 @@
+From 3463d0e2335998c1b94bb1605dc7a6668d4ba262 Mon Sep 17 00:00:00 2001
+From: Daniel Lundqvist <daniel@malarhojden.nu>
+Date: Thu, 20 Apr 2023 17:12:54 +0200
+Subject: [PATCH 1/2] Revert "Remove dongle pairing sysfs attribute"
+
+This reverts commit 304da811e94081156376a8e10ff5eee5876c6e41.
+---
+ README.md          | 18 ++++++++++++++++-
+ transport/dongle.c | 50 ++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 67 insertions(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index 8e7c9f1..05181f1 100644
+--- a/README.md
++++ b/README.md
+@@ -111,7 +111,9 @@ Xbox devices have to be paired to the wireless dongle. They will not automatical
+ 
+ Instructions for pairing your devices can be found [here](https://support.xbox.com/en-US/help/hardware-network/controller/connect-xbox-wireless-controller-to-pc) (see the section on *Xbox Wireless*).
+ 
+-## LED control
++## Kernel interface
++
++### LED control
+ 
+ The guide button LED can be controlled via `sysfs`:
+ 
+@@ -129,6 +131,20 @@ ACTION=="add", SUBSYSTEM=="leds", KERNEL=="gip*", ATTR{mode}="2", ATTR{brightnes
+ Replace the wildcard (`gip*`) if you want to control the LED of a specific device.
+ The modes and the maximum brightness can vary from device to device.
+ 
++### Pairing mode
++
++The pairing mode of the dongle can be queried via `sysfs`:
++
++```
++cat /sys/bus/usb/drivers/xone-dongle/*/pairing
++```
++
++You can enable (`1`) or disable (`0`) the pairing using the following command:
++
++```
++echo 1 | sudo tee /sys/bus/usb/drivers/xone-dongle/*/pairing
++```
++
+ ## Troubleshooting
+ 
+ Uninstall the release version and install a debug build of `xone` (see installation guide).
+diff --git a/transport/dongle.c b/transport/dongle.c
+index aa58ac2..5eb6f9c 100644
+--- a/transport/dongle.c
++++ b/transport/dongle.c
+@@ -8,6 +8,7 @@
+ #include <linux/bitfield.h>
+ #include <linux/version.h>
+ #include <linux/usb.h>
++#include <linux/sysfs.h>
+ #include <linux/ieee80211.h>
+ #include <net/cfg80211.h>
+ 
+@@ -262,6 +263,47 @@ static void xone_dongle_pairing_timeout(struct work_struct *work)
+ 			__func__, err);
+ }
+ 
++static ssize_t xone_dongle_pairing_show(struct device *dev,
++					struct device_attribute *attr,
++					char *buf)
++{
++	struct usb_interface *intf = to_usb_interface(dev);
++	struct xone_dongle *dongle = usb_get_intfdata(intf);
++
++	return sprintf(buf, "%d\n", dongle->pairing);
++}
++
++static ssize_t xone_dongle_pairing_store(struct device *dev,
++					 struct device_attribute *attr,
++					 const char *buf, size_t count)
++{
++	struct usb_interface *intf = to_usb_interface(dev);
++	struct xone_dongle *dongle = usb_get_intfdata(intf);
++	bool enable;
++	int err;
++
++	err = kstrtobool(buf, &enable);
++	if (err)
++		return err;
++
++	err = xone_dongle_toggle_pairing(dongle, enable);
++	if (err)
++		return err;
++
++	return count;
++}
++
++static struct device_attribute xone_dongle_attr_pairing =
++	__ATTR(pairing, 0644,
++	       xone_dongle_pairing_show,
++	       xone_dongle_pairing_store);
++
++static struct attribute *xone_dongle_attrs[] = {
++	&xone_dongle_attr_pairing.attr,
++	NULL,
++};
++ATTRIBUTE_GROUPS(xone_dongle);
++
+ static struct xone_dongle_client *
+ xone_dongle_create_client(struct xone_dongle *dongle, u8 *addr)
+ {
+@@ -942,6 +984,12 @@ static int xone_dongle_probe(struct usb_interface *intf,
+ 
+ 	usb_set_intfdata(intf, dongle);
+ 
++	err = device_add_groups(&intf->dev, xone_dongle_groups);
++	if (err) {
++		xone_dongle_destroy(dongle);
++		return err;
++	}
++
+ 	/* enable USB remote wakeup and autosuspend */
+ 	intf->needs_remote_wakeup = true;
+ 	device_wakeup_enable(&dongle->mt.udev->dev);
+@@ -957,6 +1005,8 @@ static void xone_dongle_disconnect(struct usb_interface *intf)
+ 	struct xone_dongle *dongle = usb_get_intfdata(intf);
+ 	int err;
+ 
++	device_remove_groups(&intf->dev, xone_dongle_groups);
++
+ 	/* can fail during USB device removal */
+ 	err = xone_dongle_power_off_clients(dongle);
+ 	if (err)
+
+From 810bdccb08cbebd610de76a4da210e02920c535b Mon Sep 17 00:00:00 2001
+From: Daniel Lundqvist <daniel@malarhojden.nu>
+Date: Fri, 19 May 2023 16:13:30 +0200
+Subject: [PATCH 2/2] usb: Resume adapter before trying to enable pairing via
+ sysfs
+
+If device is suspended, enabling pairing will fail. Make sure device
+is resumed before trying.
+---
+ transport/dongle.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/transport/dongle.c b/transport/dongle.c
+index 5eb6f9c..243bf02 100644
+--- a/transport/dongle.c
++++ b/transport/dongle.c
+@@ -286,10 +286,16 @@ static ssize_t xone_dongle_pairing_store(struct device *dev,
+ 	if (err)
+ 		return err;
+ 
++	err = pm_runtime_resume_and_get(dev);
++	if (err)
++		return err;
++
+ 	err = xone_dongle_toggle_pairing(dongle, enable);
+ 	if (err)
+ 		return err;
+ 
++	pm_runtime_put(dev);
++
+ 	return count;
+ }
+ 
