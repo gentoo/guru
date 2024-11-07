@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,16 +20,18 @@ RDEPEND="
 	media-libs/libsdl2[opengl]
 	media-libs/sdl2-image[jpeg,png]
 	x11-libs/libX11
+	media-libs/libglvnd[X]
 	media-libs/libogg
 	media-libs/libvorbis
 	media-libs/openal
 "
 DEPEND="${RDEPEND}"
-BDEPEND="sys-devel/clang"
 PATCHES=(
 	"${FILESDIR}/${PN}-1.3.0.2-respect-ldflags.patch"
 	# a script which checks for required libs and certain parts of the game
 	"${FILESDIR}/${PN}-1.3.0.2-fix-checkinstall.patch"
+	# bug #921915
+	"${FILESDIR}/${PN}-1.3.0.2-unset-variables.patch"
 	"${FILESDIR}/0001-Fix-unnecessary-rebuild-on-make-install.patch"
 	"${FILESDIR}/0002-Don-t-configure-libenet-in-Makefile.patch"
 )
