@@ -30,7 +30,8 @@ src_prepare() {
 	sed -i -e '/message("Submodule update:")/d' \
 		-e "/system(git submodule update --init --recursive)/d" \
 		-e "/GQ_SHA =/s| \$\$system(git rev-parse --short HEAD)||" \
-		-e "/VERSION =/s| \$\$system(git describe --abbrev=0)||" "${MY_PN}".pro || die
+		-e "/VERSION =/s| \$\$system(git describe --abbrev=0)||" \
+		-e "s/ -Werror//" "${MY_PN}".pro || die
 }
 
 src_configure() {
