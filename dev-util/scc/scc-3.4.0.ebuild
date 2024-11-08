@@ -12,17 +12,20 @@ SRC_URI="https://github.com/boyter/scc/archive/refs/tags/v${PV}.tar.gz -> ${P}.t
 LICENSE="MIT Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="examples"
 
-DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND=""
-DOCS="CONTRIBUTING.md LANGUAGES.md README.md examples"
+DOCS="CONTRIBUTING.md LANGUAGES.md README.md"
 
 src_compile() {
-	go build
+	ego build
 }
 
 src_install() {
 	dobin scc
 	einstalldocs
+	if use examples; then
+		insinto "/usr/share/doc/${PF}"
+		doins -r examples
+	fi
 }
