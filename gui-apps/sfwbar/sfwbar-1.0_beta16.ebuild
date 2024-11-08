@@ -28,6 +28,9 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	virtual/freedesktop-icon-theme
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/pango
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.17
@@ -45,6 +48,9 @@ src_configure() {
 		-Dbluez=enabled
 		-Dbsdctl=disabled
 		-Diwd=enabled
+		-Dnm=enabled
+		-Dappmenu=enabled
+		-Dncenter=enabled
 	)
 
 	meson_src_configure
