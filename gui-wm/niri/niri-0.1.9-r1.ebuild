@@ -4,8 +4,9 @@
 EAPI=8
 
 LLVM_COMPAT=( {16..18} )
+RUST_MIN_VER="1.77.0"
 
-inherit cargo llvm-r1 systemd
+inherit llvm-r1 cargo systemd
 
 DESCRIPTION="Scrollable-tiling Wayland compositor"
 HOMEPAGE="https://github.com/YaLTeR/niri"
@@ -47,13 +48,17 @@ DEPEND="
 RDEPEND="${DEPEND}"
 # Clang is required for bindgen
 BDEPEND="
-	>=virtual/rust-1.77.0
 	screencast? ( $(llvm_gen_dep 'sys-devel/clang:${LLVM_SLOT}') )
 "
 
 ECARGO_VENDOR="${WORKDIR}/vendor"
 
 QA_FLAGS_IGNORED="usr/bin/niri"
+
+pkg_setup() {
+	llvm-r1_pkg_setup
+	rust_pkg_setup
+}
 
 src_prepare() {
 	sed -i 's/git = "[^ ]*"/version = "*"/' Cargo.toml || die
