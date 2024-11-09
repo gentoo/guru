@@ -106,6 +106,8 @@ CRATES="
 	winreg@0.52.0
 "
 
+RUST_MIN_VER="1.74.1"
+
 inherit cargo
 
 DESCRIPTION="Command-line tool to run Rust scripts which can make use of crates"
@@ -120,8 +122,6 @@ LICENSE="|| ( Apache-2.0 MIT )"
 LICENSE+=" MIT MPL-2.0 Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
-
-BDEPEND=">=virtual/rust-1.74"
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 
