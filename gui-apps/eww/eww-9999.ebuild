@@ -3,6 +3,8 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.74.0"
+
 inherit cargo shell-completion
 
 DESCRIPTION="Elkowars Wacky Widgets is a standalone widget system made in Rust"

@@ -196,7 +196,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="!app-text/tldr"
-BDEPEND=">=virtual/rust-1.54.0"
 
 QA_FLAGS_IGNORED="usr/bin/tldr"
 
