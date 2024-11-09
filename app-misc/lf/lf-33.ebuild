@@ -24,7 +24,7 @@ src_compile() {
 		ldflags+=' -extldflags "-static"'
 	}
 
-	go build -ldflags="${ldflags}" || die 'go build failed'
+	ego build -ldflags="${ldflags}"
 }
 
 src_install() {
