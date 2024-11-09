@@ -535,6 +535,8 @@ CRATES="
 	zune-jpeg@0.4.11
 "
 
+RUST_MIN_VER="1.79.0"
+
 inherit cargo
 
 DESCRIPTION="A fast static site generator with everything built-in"
@@ -550,8 +552,5 @@ LICENSE+="
 LICENSE+=" openssl Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
-
-RDEPEND="${DEPEND}"
-BDEPEND=">=virtual/rust-1.79.0"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
