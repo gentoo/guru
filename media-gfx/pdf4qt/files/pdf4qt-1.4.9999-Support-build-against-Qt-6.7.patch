@@ -1,0 +1,125 @@
+From d324d980f9be0f7056286c9b251edcbb4b48b920 Mon Sep 17 00:00:00 2001
+From: Alexander Golubev <fatzer2@gmail.com>
+Date: Fri, 8 Nov 2024 22:48:12 +0300
+Subject: [PATCH 1/2] Support build against Qt-6.7
+
+---
+ Pdf4QtEditor/main.cpp                       | 6 ++++++
+ Pdf4QtLibWidgets/sources/pdfwidgetutils.cpp | 2 ++
+ Pdf4QtLibWidgets/sources/pdfwidgetutils.h   | 2 ++
+ Pdf4QtViewer/main.cpp                       | 6 ++++++
+ 4 files changed, 16 insertions(+)
+
+diff --git a/Pdf4QtEditor/main.cpp b/Pdf4QtEditor/main.cpp
+index 9825250..e21c440 100644
+--- a/Pdf4QtEditor/main.cpp
++++ b/Pdf4QtEditor/main.cpp
+@@ -40,14 +40,18 @@ int main(int argc, char *argv[])
+     QApplication::setApplicationDisplayName(QApplication::translate("Application", "PDF4QT Editor"));
+ 
+     QCommandLineOption noDrm("no-drm", "Disable DRM settings of documents.");
++#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+     QCommandLineOption lightGui("theme-light", "Use a light theme for the GUI.");
+     QCommandLineOption darkGui("theme-dark", "Use a dark theme for the GUI.");
++#endif
+ 
+     QCommandLineParser parser;
+     parser.setApplicationDescription(QCoreApplication::applicationName());
+     parser.addOption(noDrm);
++#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+     parser.addOption(lightGui);
+     parser.addOption(darkGui);
++#endif
+     parser.addHelpOption();
+     parser.addVersionOption();
+     parser.addPositionalArgument("file", "The PDF file to open.");
+@@ -58,6 +62,7 @@ int main(int argc, char *argv[])
+         pdf::PDFSecurityHandler::setNoDRMMode();
+     }
+ 
++#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+     if (parser.isSet(lightGui))
+     {
+         pdf::PDFWidgetUtils::setDarkTheme(false);
+@@ -67,6 +72,7 @@ int main(int argc, char *argv[])
+     {
+         pdf::PDFWidgetUtils::setDarkTheme(true);
+     }
++#endif
+ 
+     QIcon appIcon(":/app-icon.svg");
+     QApplication::setWindowIcon(appIcon);
+diff --git a/Pdf4QtLibWidgets/sources/pdfwidgetutils.cpp b/Pdf4QtLibWidgets/sources/pdfwidgetutils.cpp
+index 67f15d7..2a39184 100644
+--- a/Pdf4QtLibWidgets/sources/pdfwidgetutils.cpp
++++ b/Pdf4QtLibWidgets/sources/pdfwidgetutils.cpp
+@@ -174,10 +174,12 @@ void PDFWidgetUtils::style(QWidget* widget)
+     }
+ }
+ 
++#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+ void PDFWidgetUtils::setDarkTheme(bool isDarkTheme)
+ {
+     QApplication::styleHints()->setColorScheme(isDarkTheme ? Qt::ColorScheme::Dark : Qt::ColorScheme::Light);
+ }
++#endif
+ 
+ bool PDFWidgetUtils::isDarkTheme()
+ {
+diff --git a/Pdf4QtLibWidgets/sources/pdfwidgetutils.h b/Pdf4QtLibWidgets/sources/pdfwidgetutils.h
+index bfa296e..7ac120c 100644
+--- a/Pdf4QtLibWidgets/sources/pdfwidgetutils.h
++++ b/Pdf4QtLibWidgets/sources/pdfwidgetutils.h
+@@ -60,8 +60,10 @@ public:
+     /// Apply style to the widget
+     static void style(QWidget* widget);
+ 
++#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+     /// Overrides automatically detected dark theme / light theme settings
+     static void setDarkTheme(bool isDarkTheme);
++#endif
+ 
+     /// Returns true if the dark theme is currently set for the application.
+     static bool isDarkTheme();
+diff --git a/Pdf4QtViewer/main.cpp b/Pdf4QtViewer/main.cpp
+index a22ef72..1050d8b 100644
+--- a/Pdf4QtViewer/main.cpp
++++ b/Pdf4QtViewer/main.cpp
+@@ -34,14 +34,18 @@ int main(int argc, char *argv[])
+     QApplication::setApplicationDisplayName(QApplication::translate("Application", "PDF4QT Viewer"));
+ 
+     QCommandLineOption noDrm("no-drm", "Disable DRM settings of documents.");
++#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+     QCommandLineOption lightGui("theme-light", "Use a light theme for the GUI.");
+     QCommandLineOption darkGui("theme-dark", "Use a dark theme for the GUI.");
++#endif
+ 
+     QCommandLineParser parser;
+     parser.setApplicationDescription(QCoreApplication::applicationName());
+     parser.addOption(noDrm);
++#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+     parser.addOption(lightGui);
+     parser.addOption(darkGui);
++#endif
+     parser.addHelpOption();
+     parser.addVersionOption();
+     parser.addPositionalArgument("file", "The PDF file to open.");
+@@ -52,6 +56,7 @@ int main(int argc, char *argv[])
+         pdf::PDFSecurityHandler::setNoDRMMode();
+     }
+ 
++#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+     if (parser.isSet(lightGui))
+     {
+         pdf::PDFWidgetUtils::setDarkTheme(false);
+@@ -61,6 +66,7 @@ int main(int argc, char *argv[])
+     {
+         pdf::PDFWidgetUtils::setDarkTheme(true);
+     }
++#endif
+ 
+     QIcon appIcon(":/app-icon.svg");
+     QApplication::setWindowIcon(appIcon);
+-- 
+2.45.2
+

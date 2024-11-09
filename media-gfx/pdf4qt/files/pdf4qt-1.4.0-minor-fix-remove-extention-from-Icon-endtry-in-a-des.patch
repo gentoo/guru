@@ -1,0 +1,26 @@
+From 18b4543b2a5d294c220e5dc4b558c52d2a36eeb0 Mon Sep 17 00:00:00 2001
+From: Golubev Alexander <fatzer2@gmail.com>
+Date: Sat, 9 Nov 2024 00:36:30 +0300
+Subject: [PATCH] minor fix: remove extention from Icon endtry in a desktop
+ file
+
+---
+ Desktop/io.github.JakubMelka.Pdf4qt.Pdf4QtEditor.desktop | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Desktop/io.github.JakubMelka.Pdf4qt.Pdf4QtEditor.desktop b/Desktop/io.github.JakubMelka.Pdf4qt.Pdf4QtEditor.desktop
+index 62009ba..f604504 100644
+--- a/Desktop/io.github.JakubMelka.Pdf4qt.Pdf4QtEditor.desktop
++++ b/Desktop/io.github.JakubMelka.Pdf4qt.Pdf4QtEditor.desktop
+@@ -4,7 +4,7 @@ Type=Application
+ Name=PDF4QT Editor
+ Comment=Edit and modify PDF files
+ Exec=Pdf4QtEditor
+-Icon=io.github.JakubMelka.Pdf4qt.Pdf4QtEditor.svg
++Icon=io.github.JakubMelka.Pdf4qt.Pdf4QtEditor
+ Terminal=false
+ Categories=Office;
+ MimeType=application/pdf;
+-- 
+2.45.2
+

@@ -1,0 +1,55 @@
+From 2a93ca5a1f40ee8178f07ac1590889c3d2623d6c Mon Sep 17 00:00:00 2001
+From: Jakub Melka <Mgr.Jakub.Melka@gmail.com>
+Date: Wed, 10 Jul 2024 20:19:06 +0200
+Subject: [PATCH 01/11] Issue #185: Latest git fails to build in linux
+
+---
+ Pdf4QtLibCore/sources/pdfblpainter.cpp | 12 ++++++------
+ RELEASES.txt                           |  1 +
+ 2 files changed, 7 insertions(+), 6 deletions(-)
+
+diff --git a/Pdf4QtLibCore/sources/pdfblpainter.cpp b/Pdf4QtLibCore/sources/pdfblpainter.cpp
+index a8b3e85..007c39b 100644
+--- a/Pdf4QtLibCore/sources/pdfblpainter.cpp
++++ b/Pdf4QtLibCore/sources/pdfblpainter.cpp
+@@ -302,7 +302,7 @@ void PDFBLPaintEngine::updateState(const QPaintEngineState& updatedState)
+     if (updatedState.state().testFlag(QPaintEngine::DirtyTransform))
+     {
+         m_currentTransform = updatedState.transform();
+-        m_blContext->setMatrix(getBLMatrix(updatedState.transform()));
++        m_blContext->setTransform(getBLMatrix(updatedState.transform()));
+     }
+ 
+     if (updatedState.state().testFlag(QPaintEngine::DirtyFont))
+@@ -580,7 +580,7 @@ void PDFBLPaintEngine::drawPathImpl(const QPainterPath& path, bool enableStroke,
+                 if (!fillPath.isEmpty())
+                 {
+                     m_blContext->save();
+-                    m_blContext->resetMatrix();
++                    m_blContext->resetTransform();
+                     m_blContext->fillPath(getBLPath(fillPath));
+                     m_blContext->restore();
+                 }
+@@ -596,7 +596,7 @@ void PDFBLPaintEngine::drawPathImpl(const QPainterPath& path, bool enableStroke,
+                 if (!finalTransformedStrokedPath.isEmpty())
+                 {
+                     m_blContext->save();
+-                    m_blContext->resetMatrix();
++                    m_blContext->resetTransform();
+                     setBLBrush(m_blContext.value(), m_currentPen.brush());
+                     m_blContext->fillPath(getBLPath(finalTransformedStrokedPath));
+                     m_blContext->restore();
+@@ -1183,10 +1183,10 @@ void PDFBLPaintEngine::updateClipping(std::optional<QRegion> clipRegion,
+ 
+     if (m_clipSingleRect)
+     {
+-        BLMatrix2D matrix = m_blContext->userMatrix();
+-        m_blContext->resetMatrix();
++        BLMatrix2D matrix = m_blContext->userTransform();
++        m_blContext->resetTransform();
+         m_blContext->clipToRect(getBLRect(m_finalClipPath->boundingRect()));
+-        m_blContext->setMatrix(matrix);
++        m_blContext->setTransform(matrix);
+     }
+     else
+     {
