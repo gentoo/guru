@@ -1,0 +1,83 @@
+https://bugs.gentoo.org/917418
+--- a/cmake/toolchain-clang.cmake
++++ b/cmake/toolchain-clang.cmake
+@@ -87,27 +87,12 @@ endif()
+ string(REGEX MATCH "-O[a-zA-Z|0-9]+" CXX_OPT_FLAG ${CXX_BASE_FLAGS})
+ string(REGEX MATCH "-O[a-zA-Z|0-9]+" C_OPT_FLAG ${C_BASE_FLAGS})
+ 
+-# If no user-set opt flag, set -O2 and -Og
+-if ("${CXX_OPT_FLAG}" STREQUAL "")
+-	set(CXX_OPT_FLAG_RELEASE "-O2")
+-	set(CXX_OPT_FLAG_DEBUG "-Og")
+-else()
+-	set(CXX_OPT_FLAG_RELEASE "${CXX_OPT_FLAG}")
+-	set(CXX_OPT_FLAG_DEBUG "${CXX_OPT_FLAG}")
+-endif()
+-if ("${C_OPT_FLAG}" STREQUAL "")
+-	set(C_OPT_FLAG_RELEASE "-O2")
+-	set(C_OPT_FLAG_DEBUG "-Og")
+-else()
+-	set(C_OPT_FLAG_RELEASE "${C_OPT_FLAG}")
+-	set(C_OPT_FLAG_DEBUG "${C_OPT_FLAG}")
+-endif()
+ 
+ set(CXX_FLAGS_RELEASE "${CXX_OPT_FLAG_RELEASE} -Wno-unused-variable -Wno-unused-parameter")
+ set(C_FLAGS_RELEASE "${C_OPT_FLAG_RELEASE} -Wno-unused-variable -Wno-unused-parameter")
+ 
+-set(CXX_FLAGS_DEBUG "${CXX_OPT_FLAG_DEBUG} -g -Wshadow")
+-set(C_FLAGS_DEBUG "${C_OPT_FLAG_DEBUG} -g -Wshadow")
++set(CXX_FLAGS_DEBUG "${CXX_OPT_FLAG_DEBUG} -Wshadow")
++set(C_FLAGS_DEBUG "${C_OPT_FLAG_DEBUG} -Wshadow")
+ 
+ # Always use the base flags and add our compiler flags at the back
+ set(CMAKE_CXX_FLAGS "${CXX_BASE_FLAGS} ${COMPILER_FLAGS}")
+@@ -134,7 +119,7 @@ if (SANITIZE_FLAGS)
+ endif()
+ 
+ set(CMAKE_EXE_LINKER_FLAGS_RELEASE "")
+-set(CMAKE_EXE_LINKER_FLAGS_DEBUG "-g -rdynamic")
++set(CMAKE_EXE_LINKER_FLAGS_DEBUG "")
+ 
+ if (FSO_FATAL_WARNINGS)
+ 	# Make warnings fatal if the right variable is set
+--- a/cmake/toolchain-gcc.cmake
++++ b/cmake/toolchain-gcc.cmake
+@@ -117,27 +117,12 @@ endif()
+ string(REGEX MATCH "-O[a-zA-Z|0-9]+" CXX_OPT_FLAG ${CXX_BASE_FLAGS})
+ string(REGEX MATCH "-O[a-zA-Z|0-9]+" C_OPT_FLAG ${C_BASE_FLAGS})
+ 
+-# If no user-set opt flag, set -O2 and -Og
+-if ("${CXX_OPT_FLAG}" STREQUAL "")
+-	set(CXX_OPT_FLAG_RELEASE "-O2")
+-	set(CXX_OPT_FLAG_DEBUG "-Og")
+-else()
+-	set(CXX_OPT_FLAG_RELEASE "${CXX_OPT_FLAG}")
+-	set(CXX_OPT_FLAG_DEBUG "${CXX_OPT_FLAG}")
+-endif()
+-if ("${C_OPT_FLAG}" STREQUAL "")
+-	set(C_OPT_FLAG_RELEASE "-O2")
+-	set(C_OPT_FLAG_DEBUG "-Og")
+-else()
+-	set(C_OPT_FLAG_RELEASE "${C_OPT_FLAG}")
+-	set(C_OPT_FLAG_DEBUG "${C_OPT_FLAG}")
+-endif()
+ 
+ set(CXX_FLAGS_RELEASE "${CXX_OPT_FLAG_RELEASE} -Wno-unused-variable -Wno-unused-but-set-variable -Wno-array-bounds -Wno-empty-body -Wno-clobbered -Wno-unused-parameter")
+ set(C_FLAGS_RELEASE "${C_OPT_FLAG_RELEASE} -Wno-unused-variable -Wno-unused-but-set-variable -Wno-array-bounds -Wno-empty-body -Wno-clobbered -Wno-unused-parameter")
+ 
+-set(CXX_FLAGS_DEBUG "${CXX_OPT_FLAG_DEBUG} -g -Wshadow")
+-set(C_FLAGS_DEBUG "${C_OPT_FLAG_DEBUG} -g -Wshadow")
++set(CXX_FLAGS_DEBUG "${CXX_OPT_FLAG_DEBUG} -Wshadow")
++set(C_FLAGS_DEBUG "${C_OPT_FLAG_DEBUG} -Wshadow")
+ 
+ # Always use the base flags and add our compiler flags at the back
+ set(CMAKE_CXX_FLAGS "${CXX_BASE_FLAGS} ${COMPILER_FLAGS}")
+@@ -161,7 +146,7 @@ if (SANITIZE_FLAGS)
+ endif()
+ 
+ set(CMAKE_EXE_LINKER_FLAGS_RELEASE "")
+-set(CMAKE_EXE_LINKER_FLAGS_DEBUG "-g")
++set(CMAKE_EXE_LINKER_FLAGS_DEBUG "")
+ 
+ if (GCC_GENERATE_GDB_INDEX)
+ 	# For pure debug binaries, generate a gdb index for better debugging

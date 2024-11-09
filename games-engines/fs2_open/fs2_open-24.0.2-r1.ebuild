@@ -30,27 +30,33 @@ KEYWORDS="~amd64"
 IUSE="clang debug discord"
 
 DEPEND="
-	app-arch/lz4
+	app-arch/lz4:=
 	<dev-lang/lua-5.1.6:5.1
-	dev-libs/jansson
+	dev-libs/jansson:=
 	media-libs/freetype:2
 	media-libs/glu
-	media-libs/libjpeg-turbo
-	media-libs/libpng
-	media-libs/libsdl2
+	media-libs/libjpeg-turbo:=
+	media-libs/libpng:=
+	media-libs/libsdl2[X]
 	media-libs/libtheora
 	media-libs/libvorbis
 	media-libs/mesa
 	media-libs/openal
-	media-video/ffmpeg
+	media-video/ffmpeg:=
+	x11-libs/libX11
 "
+RDEPEND="${DEPEND}"
 BDEPEND="
-	clang? ( sys-devel/clang:= )
+	clang? ( sys-devel/clang )
 "
 PATCHES=(
 	"${FILESDIR}/${P}-deps-fix.patch"
 	"${FILESDIR}/${P}-dont-build-lz4.patch"
 	"${FILESDIR}/${P}-make-arch-independent.patch"
+	# bug 859982
+	"${FILESDIR}/${P}-fix-odr.patch"
+	# bug 917418
+	"${FILESDIR}/${P}-respect-flags.patch"
 )
 
 CMAKE_BUILD_TYPE=Release
