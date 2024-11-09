@@ -2,17 +2,20 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit cmake
+inherit cmake xdg-utils
 
 DESCRIPTION="Open source PDF WYSIWYG editor based on Qt"
 HOMEPAGE="https://jakubmelka.github.io/"
+MY_PN="${PN^^}"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/JakubMelka/${PN^^}"
+	EGIT_REPO_URI="https://github.com/JakubMelka/${MY_PN}"
 else
-	SRC_URI="https://github.com/JakubMelka/${PN^^}/archive/refs/tags/v${PV}.tar.gz
-		-> ${P}.tar.gz"
+	MY_P="${MY_PN}-${PV}"
+	SRC_URI="https://github.com/JakubMelka/${MY_PN}/archive/refs/tags/v${PV}.tar.gz
+		-> ${MY_P}.tar.gz"
 	KEYWORDS="~amd64"
+	S=${WORKDIR}/${MY_P}
 fi
 
 LICENSE="LGPL-3+"
@@ -50,4 +53,14 @@ src_configure() {
 		-DVCPKG_OVERLAY_PORTS="" # suppress a warning
 	)
 	cmake_src_configure
+}
+
+pkg_postinst() {
+	xdg_icon_cache_update
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
+	xdg_desktop_database_update
 }
