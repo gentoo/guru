@@ -55,7 +55,7 @@ inherit cargo
 DESCRIPTION="mpc-like tool which connects to existing mpv instances through sockets."
 HOMEPAGE="https://gitlab.com/mpv-ipc/mpvc"
 SRC_URI="
-$(cargo_crate_uris ${CRATES})
+${CARGO_CRATE_URIS}
 https://gitlab.com/mpv-ipc/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2 -> ${P}.tar.bz2
 "
 
@@ -73,6 +73,5 @@ RESTRICT="mirror"
 
 DEPEND="media-video/mpv"
 RDEPEND="${DEPEND}"
-BDEPEND="virtual/rust"
 
 QA_FLAGS_IGNORED="usr/bin/mpvc"

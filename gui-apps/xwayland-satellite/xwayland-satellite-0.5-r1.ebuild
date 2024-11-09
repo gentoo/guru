@@ -102,8 +102,9 @@ CRATES="
 "
 
 LLVM_COMPAT=( {17..19} )
+RUST_NEEDS_LLVM=1
 
-inherit cargo llvm-r1
+inherit llvm-r1 cargo
 
 DESCRIPTION="Xwayland outside your Wayland"
 HOMEPAGE="https://github.com/Supreeeme/xwayland-satellite"

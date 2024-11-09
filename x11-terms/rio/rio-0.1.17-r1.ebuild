@@ -418,6 +418,8 @@ CRATES="
 	zune-jpeg@0.4.13
 "
 
+RUST_MIN_VER="1.80.1"
+
 inherit cargo desktop
 
 DESCRIPTION="A hardware-accelerated GPU terminal emulator powered by WebGPU"
