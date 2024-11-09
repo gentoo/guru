@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>johu@gmx.de</email>
+		<name>Johannes Huber</name>
+	</maintainer>
+	<upstream>
+		<changelog>https://github.com/hyprwm/hyprpolkitagent/releases</changelog>
+		<doc>https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent</doc>
+		<bugs-to>https://github.com/hyprwm/hyprpolkitagent/issues</bugs-to>
+		<remote-id type="github">hyprwm/hyprpolkitagent</remote-id>
+	</upstream>
+</pkgmetadata>
