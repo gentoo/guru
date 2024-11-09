@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PLOCALES="cs de en es fr it nl pt ru uk"
 PLOCALE_BACKUP="en"
@@ -22,9 +22,8 @@ HOMEPAGE="https://instead.hugeping.ru/"
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="doc +iconv +sdl2"
+IUSE="doc +iconv +harfbuzz"
 # gtk3 is forced since gtk2 already near its end-of-life
-# harfbuzz support requres features from SDL2_ttf version which is not yet released (>2.0.15)
 
 REQUIRED_USE="
 	${LUA_REQUIRED_USE}
@@ -35,25 +34,20 @@ BDEPEND="
 	${LUA_DEPS}
 "
 
-SDL_DEPS="
-	media-libs/libsdl!VER![sound,video]
-	media-libs/sdl!VER!-mixer
-	media-libs/sdl!VER!-image
-	media-libs/sdl!VER!-ttf
-"
-
 COMMON_DEPEND="
 	${LUA_DEPS}
+	media-libs/libsdl2[sound,video]
+	media-libs/sdl2-image
+	media-libs/sdl2-mixer
+	media-libs/sdl2-ttf
 	sys-libs/zlib
 	x11-libs/gtk+:3
-	sdl2? ( ${SDL_DEPS//!VER!/2} )
-	!sdl2? ( ${SDL_DEPS//!VER!/} )
 	iconv? ( >=virtual/libiconv-0-r1 )
+	harfbuzz? (
+		media-libs/harfbuzz
+		media-libs/sdl2-ttf[harfbuzz]
+	)
 "
-# harfbuzz? (
-# 		media-libs/harfbuzz
-#   	media-libs/sdl!VER!-ttf[harfbuzz]
-#	)
 
 RDEPEND="${COMMON_DEPEND}"
 DEPEND="${COMMON_DEPEND}"
@@ -90,9 +84,8 @@ src_configure() {
 		-DWITH_GTK3=ON
 		-DWITH_LUAJIT="$(usex lua_single_target_luajit)"
 		-DWITH_ICONV="$(usex iconv)"
-		-DWITH_SDL2="$(usex sdl2)"
+		-DWITH_HARFBUZZ="$(usex harfbuzz)"
 	)
-#		-DWITH_HARFBUZZ="$(usex harfbuzz)"
 
 	cmake_src_configure
 }

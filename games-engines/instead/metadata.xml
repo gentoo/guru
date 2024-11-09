@@ -7,6 +7,7 @@
 	</maintainer>
 	<use>
 		<flag name="doc">Include some additional documentation on how to create games for the instead engine</flag>
+		<flag name="harfbuzz">Use <pkg>media-libs/harfbuzz</pkg> for better support of RTL languages</flag>
 		<flag name="sdl2">Use libsdl2 instead of libsdl</flag>
 	</use>
 	<longdescription lang="en">INSTEAD is a tool to make and run textographic games. The exact look and feel of such games may vary from interactive fiction and visual novels to classic point &amp; click or text-based adventures.</longdescription>
