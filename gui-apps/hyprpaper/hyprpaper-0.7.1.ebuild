@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-libs/hyprlang:=
+	dev-libs/hyprlang
 	dev-libs/wayland
 	gui-libs/hyprutils
 	media-libs/libglvnd
