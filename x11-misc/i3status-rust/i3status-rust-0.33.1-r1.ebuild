@@ -374,7 +374,8 @@ CRATES="
 	zvariant_derive@4.0.2
 	zvariant_utils@1.1.0
 "
-inherit cargo optfeature
+RUST_MIN_VER="1.76.0"
+inherit cargo optfeature rust
 
 DESCRIPTION="A feature-rich and resource-friendly replacement for i3status, written in Rust."
 HOMEPAGE="https://github.com/greshake/i3status-rust/"
@@ -403,7 +404,6 @@ DEPEND="dev-libs/openssl:=
 RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
-	>=virtual/rust-1.76.0
 	pipewire? ( sys-devel/clang )
 "
 
