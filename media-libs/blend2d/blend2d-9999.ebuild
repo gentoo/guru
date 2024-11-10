@@ -17,19 +17,19 @@ fi
 
 LICENSE="ZLIB"
 SLOT="0"
-IUSE="test"
-
+IUSE="+jit test"
 RESTRICT="!test? ( test )"
+
+RDEPEND="jit? ( >=dev-libs/asmjit-2024.10.25 )"
+DEPEND="${RDEPEND}"
 
 DOCS=( README.md CONTRIBUTING.md )
 
 src_configure() {
 	local mycmakeargs=(
+		-DBLEND2D_NO_JIT=$(usex !jit)
 		-DBLEND2D_TEST=$(usex test)
 		-DBLEND2D_EXTERNAL_ASMJIT=ON
-		# dev-libs/asmjit-2022.07.02 is incompatible, disable JIT for now.
-		# https://github.com/gentoo/gentoo/pull/39251
-		-DBLEND2D_NO_JIT=ON
 	)
 	cmake_src_configure
 }
