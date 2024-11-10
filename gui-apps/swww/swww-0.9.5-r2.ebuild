@@ -248,7 +248,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	app-text/scdoc
-	>=virtual/rust-1.75.0
 "
 
 QA_FLAGS_IGNORED="
