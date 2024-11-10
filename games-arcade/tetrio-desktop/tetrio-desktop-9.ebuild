@@ -9,7 +9,7 @@ DESCRIPTION="TETR.IO desktop client."
 HOMEPAGE="https://tetr.io/"
 
 SRC_URI="https://tetr.io/about/desktop/builds/${PV}/TETR.IO%20Setup.deb -> ${P}.deb
-tetrio-plus?	( https://gitlab.com/UniQMG/tetrio-plus/-/jobs/6734605389/artifacts/raw/tetrio-plus_v0.27.2_for_desktop_v9.asar.zip -> tetrio-plus-${PV}.zip )"
+tetrio-plus?	( https://gitlab.com/UniQMG/tetrio-plus/-/jobs/7958268756/artifacts/raw/tetrio-plus_v0.27.4_for_desktop_v9.asar.zip -> tetrio-plus-${PV}.zip )"
 
 S="${WORKDIR}"
 
