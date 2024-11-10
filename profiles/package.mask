@@ -18,6 +18,14 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-11-10)
+# Upstream doesn't want us to package their software, so they
+# intentionally make it harder to unbundle dependencies.
+# Please use upstream AppImage instead.
+# https://github.com/raspberrypi/rpi-imager/issues/924
+# Removal on 2024-12-10.
+dev-util/rpi-imager
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-31)
 # Unmaintained in guru since 2020 and the upstream suggests using their
 # new project.
