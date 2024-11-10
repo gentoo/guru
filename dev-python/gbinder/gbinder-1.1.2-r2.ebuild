@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 DISTUTILS_USE_PEP517="setuptools"
 DISTUTILS_EXT=1
@@ -21,7 +21,7 @@ else
 	EGIT_REPO_URI="https://github.com/erfanoabdi/gbinder-python.git"
 fi
 
-DESCRIPTION="Python bindings for libgbinder"
+DESCRIPTION="Python bindings for dev-libs/gbinder"
 HOMEPAGE="https://github.com/erfanoabdi/gbinder-python"
 LICENSE="GPL-3"
 SLOT="0"
