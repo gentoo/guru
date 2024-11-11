@@ -67,4 +67,3 @@ src_install(){
 	fperms +x "/opt/IPFS Desktop/chrome-sandbox"
 	fperms +x "/opt/IPFS Desktop/chrome_crashpad_handler"
 }
-
