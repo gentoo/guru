@@ -22,10 +22,15 @@ SLOT="0"
 KEYWORDS="-alpha ~amd64 -arm -hppa -ppc -ppc64 -riscv -sparc"
 # Tests are disabled because they require the pmaports repository (containing
 # postmarketOS APKBUILDs) to be cloned at runtime.
-RESTRICT="mirror test"
+RESTRICT="mirror"
 
 DEPEND="${PYTHON_DEPS}"
-RDEPEND="dev-vcs/git"
+RDEPEND="
+	dev-vcs/git
+	sys-fs/multipath-tools
+"
+
+distutils_enable_tests pytest
 
 pkg_pretend() {
 	if kernel_is -lt 3 17 0; then
@@ -37,4 +42,16 @@ pkg_pretend() {
 # Without this, emerge errors with an "EPYTHON not set" error.
 pkg_setup() {
 	python-single-r1_pkg_setup
+}
+
+python_test() {
+	local -x EPYTEST_DESELECT=()
+
+	# test_pkgrepo.py is disabled because it requires the pmaports repository (containing
+	# postmarketOS APKBUILDs) to be cloned at runtime.
+	EPYTEST_DESELECT+=(
+		"pmb/core/test_pkgrepo.py"
+	)
+
+	distutils-r1_python_test
 }
