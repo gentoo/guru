@@ -1,0 +1,21 @@
+Avoid adding -O2 to CFLAGS; gentoo bug #943226
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7372bab..665ed23 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -555,7 +555,6 @@ if ("x${CMAKE_CXX_COMPILER_ID}" STREQUAL "xMSVC" OR "x${CMAKE_CXX_COMPILER_FRONT
+ 
+   list(APPEND BLEND2D_PRIVATE_CFLAGS_REL
+     -GS-                          # [-] Buffer security-check.
+-    -O2                           # [+] Favor speed over size.
+     -Oi)                          # [+] Generate Intrinsic Functions.
+ 
+   if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+@@ -564,7 +563,6 @@ if ("x${CMAKE_CXX_COMPILER_ID}" STREQUAL "xMSVC" OR "x${CMAKE_CXX_COMPILER_FRONT
+ elseif ("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU|Clang")
+   list(APPEND BLEND2D_PRIVATE_CFLAGS -Wall -Wextra)
+   list(APPEND BLEND2D_PRIVATE_CFLAGS -fno-exceptions -fno-rtti -fno-math-errno)
+-  list(APPEND BLEND2D_PRIVATE_CFLAGS_REL -O2)
+ 
+   if (NOT "${CMAKE_SYSTEM_NAME}" STREQUAL "iOS")
+     # Disable these flags in case somebody uses -ffast-math globally.

@@ -24,6 +24,9 @@ RDEPEND="jit? ( >=dev-libs/asmjit-2024.10.25 )"
 DEPEND="${RDEPEND}"
 
 DOCS=( README.md CONTRIBUTING.md )
+PATCHES=(
+	"${FILESDIR}/blend2d-0.11.4-avoid-adding-O2-to-cflags-gentoo-bug-943226.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
