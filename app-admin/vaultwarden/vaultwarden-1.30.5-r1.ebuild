@@ -3,6 +3,9 @@
 
 EAPI=8
 
+# https://github.com/dani-garcia/vaultwarden/issues/4649
+RUST_MAX_VER="1.77.1"
+
 inherit cargo check-reqs readme.gentoo-r1 systemd tmpfiles
 
 DESCRIPTION="Unofficial Bitwarden compatible password manager server written in Rust"
@@ -14,8 +17,8 @@ if [[ ${PV} == 9999* ]]; then
 else
 	SRC_URI="
 	https://github.com/dani-garcia/vaultwarden/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/deps.tar.xz -> ${P}-deps.tar.xz
-	https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/wiki.tar.xz -> ${P}-docs.tar.xz
+	https://github.com/rahilarious/gentoo-distfiles/releases/download/${PN}-1.30.4/deps.tar.xz -> ${PN}-1.30.4-deps.tar.xz
+	https://github.com/rahilarious/gentoo-distfiles/releases/download/${PN}-1.30.4/wiki.tar.xz -> ${PN}-1.30.4-docs.tar.xz
 "
 	KEYWORDS="~amd64"
 fi

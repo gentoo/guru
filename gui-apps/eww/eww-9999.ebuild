@@ -47,7 +47,6 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="
 	virtual/pkgconfig
-	>=virtual/rust-1.74.0
 "
 
 QA_FLAGS_IGNORED="usr/bin/.*"

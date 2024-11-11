@@ -42,6 +42,7 @@ pkg_setup() {
 	export OPENSSL_NO_VENDOR=1
 	export PKG_CONFIG_ALLOW_CROSS=1
 	export ZSTD_SYS_USE_PKG_CONFIG=1
+	rust_pkg_setup
 }
 
 src_unpack() {

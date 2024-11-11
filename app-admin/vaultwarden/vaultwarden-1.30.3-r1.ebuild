@@ -3,6 +3,9 @@
 
 EAPI=8
 
+# https://github.com/dani-garcia/vaultwarden/issues/4649
+RUST_MAX_VER="1.77.1"
+
 inherit cargo check-reqs readme.gentoo-r1 systemd tmpfiles
 
 DESCRIPTION="Unofficial Bitwarden compatible password manager server written in Rust"

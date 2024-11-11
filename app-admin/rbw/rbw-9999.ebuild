@@ -3,6 +3,8 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.75.0"
+
 inherit cargo optfeature shell-completion
 
 DESCRIPTION="Unofficial Bitwarden CLI"
@@ -25,7 +27,6 @@ LICENSE+=" openssl"
 SLOT="0"
 
 RDEPEND="app-crypt/pinentry"
-BDEPEND=">=virtual/rust-1.75.0"
 
 QA_FLAGS_IGNORED="
 	usr/bin/rbw

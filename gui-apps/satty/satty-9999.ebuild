@@ -25,7 +25,6 @@ LICENSE="MPL-2.0"
 SLOT="0"
 
 RDEPEND="
-	virtual/rust
 	dev-libs/glib:2
 	media-libs/fontconfig
 	media-libs/libepoxy

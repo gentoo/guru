@@ -5,6 +5,8 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.75.0"
+
 inherit cargo git-r3 systemd toolchain-funcs
 
 DESCRIPTION="Matrix homeserver written in Rust"
@@ -52,7 +54,6 @@ RDEPEND="${DEPEND}
 	app-misc/ca-certificates
 "
 BDEPEND="
-	>=virtual/rust-1.75.0
 	rocksdb? (
 		sys-devel/clang
 		virtual/pkgconfig
