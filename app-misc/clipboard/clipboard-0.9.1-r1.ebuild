@@ -16,11 +16,11 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="alsa debug lto wayland X"
+IUSE="debug lto wayland X"
 
 RDEPEND="X? ( x11-libs/libXext )
 		wayland? ( dev-libs/wayland-protocols )
-		alsa? ( media-libs/alsa-lib )
+		media-libs/alsa-lib
 "
 
 DEPEND="${RDEPEND}"
@@ -33,7 +33,7 @@ src_configure() {
 		"-DNO_WAYLAND=$(usex !wayland)"
 		"-DNO_X11=$(usex !X)"
 		"-DNO_LTO=$(usex !lto)"
-		"-DNO_ALSA=$(usex !alsa)"
+		"-DNO_ALSA=no"
 	)
 	cmake_src_configure
 }
