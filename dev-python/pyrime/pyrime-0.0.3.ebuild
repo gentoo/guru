@@ -17,8 +17,21 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+IUSE="prompt-toolkit ptpython"
+
 DEPEND="
 	app-i18n/librime
 "
 
-RDEPEND="$DEPEND"
+EPYTEST_XDIST=1
+distutils_enable_tests pytest
+
+RDEPEND="
+	$DEPEND
+	prompt-toolkit? ( dev-python/prompt-toolkit )
+	ptpython? ( dev-python/ptpython )
+"
+
+python_test() {
+	epytest
+}

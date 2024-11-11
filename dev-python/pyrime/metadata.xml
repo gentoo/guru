@@ -5,6 +5,10 @@
                 <email>wuzhenyu@ustc.edu</email>
                 <name>Wu, Zhenyu</name>
         </maintainer>
+        <use>
+                <flag name="ptpython">Add support for dev-python/ptpython</flag>
+                <flag name="prompt-toolkit">Add support for dev-python/prompt-toolkit</flag>
+        </use>
         <upstream>
                 <remote-id type="pypi">pyrime</remote-id>
                 <remote-id type="github">Freed-Wu/pyrime</remote-id>

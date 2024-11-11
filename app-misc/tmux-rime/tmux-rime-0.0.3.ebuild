@@ -16,6 +16,8 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
+inherit toolchain-funcs
+
 DEPEND="
 	app-i18n/librime
 	dev-libs/glib
@@ -43,7 +45,9 @@ src_configure() {
 	ln -sf "$WORKDIR/xmake-repo-$_VERSION" "$HOME/.xmake/repositories/xmake-repo" || die
 
 	xmake g --network=private || die 'fail to set private network'
-	xmake f --verbose || die 'fail to increase verbosity'
+	xmake f --cflags="$CFLAGS" --cxxflags="$CXXFLAGS" --ldflags="$LDFLAGS" \
+		--cc="$(tc-getCC)" --cpp="$(tc-getCXX)" --ld="$(tc-getCC)" --verbose ||
+		die 'fail to config'
 }
 
 src_compile() {

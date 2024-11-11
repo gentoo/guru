@@ -15,6 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
+	!app-text/manpager
 	sys-apps/bat
 	app-text/ansifilter
 "
