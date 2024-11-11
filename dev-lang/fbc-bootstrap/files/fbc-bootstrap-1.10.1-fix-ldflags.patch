@@ -1,0 +1,17 @@
+https://github.com/freebasic/fbc/issues/170
+https://bugs.gentoo.org/799860
+--- a/makefile
++++ b/makefile
+@@ -1409,10 +1409,10 @@ endif
+ # Use gcc to link fbc from the bootstrap .o's
+ # (assuming the rtlib was built already)
+ ifneq ($(filter darwin freebsd dragonfly linux netbsd openbsd solaris,$(TARGET_OS)),)
+-  BOOTSTRAP_LIBS := -lncurses -lm -pthread
++  BOOTSTRAP_LIBS := -ltinfo -lncurses -lm -pthread
+ endif
+ $(BOOTSTRAP_FBC): rtlib $(BOOTSTRAP_OBJ)
+-	$(QUIET_LINK)$(CC) -o $@ $(libdir)/fbrt0.o bootstrap/$(FBTARGET)/*.o $(libdir)/libfb.a $(BOOTSTRAP_LIBS)
++	$(QUIET_LINK)$(CC) -o $@ $(libdir)/fbrt0.o bootstrap/$(FBTARGET)/*.o $(libdir)/libfb.a $(BOOTSTRAP_LIBS) $(LDFLAGS)
+ 
+ .PHONY: clean-bootstrap
+ clean-bootstrap:
