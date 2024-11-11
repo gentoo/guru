@@ -47,15 +47,12 @@ SRC_URI="
 LICENSE="MIT"
 SLOT="0"
 
-IUSE="+osf-tracker ifm-tracker mouse-tracker vts-tracker meowface-tracker remote-control"
+IUSE="+osf-tracker ifm-tracker vts-tracker meowface-tracker remote-control"
 REQUIRED_USE="osf-tracker? ( ${PYTHON_REQUIRED_USE} )"
 
 RESTRICT="strip"
 RDEPEND="
 	osf-tracker? ( ${PYTHON_DEPS} )
-"
-BDEPEND="
-	mouse-tracker? ( virtual/rust )
 "
 
 export EDITOR="${WORKDIR}/Godot_v3.x-stable_linux_headless.64"
