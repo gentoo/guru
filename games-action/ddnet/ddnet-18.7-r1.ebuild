@@ -5,21 +5,30 @@ EAPI=8
 
 PYTHON_COMPAT=(python3_{9..12})
 
-inherit cargo git-r3 cmake python-any-r1 xdg
+CRATES="
+cc@1.0.73
+cxx@1.0.71
+cxxbridge-flags@1.0.71
+cxxbridge-macro@1.0.71
+link-cplusplus@1.0.6
+proc-macro2@1.0.40
+quote@1.0.20
+syn@1.0.98
+unicode-ident@1.0.1
+"
+
+inherit cargo cmake python-any-r1 xdg
 
 DESCRIPTION="DDraceNetwork, a cooperative racing mod of Teeworlds "
 HOMEPAGE="https://ddnet.org/
 	https://github.com/ddnet/ddnet"
-
-#SRC_URI="$(cargo_crate_uris ${CRATES})"
-EGIT_REPO_URI="https://github.com/ddnet/ddnet"
-EGIT_BRANCH="master"
-EGIT_MIN_CLONE_TYPE="shallow"
-EGIT_CHECKOUT_DIR=${WORKDIR}/${P}
-EGIT_SUBMODULES=()
+SRC_URI="https://github.com/ddnet/ddnet/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+${CARGO_CRATE_URIS}"
 
 LICENSE="CC-BY-SA-3.0 OFL-1.1 BSD"
 SLOT="0"
+KEYWORDS="~amd64"
+
 IUSE="antibot autoupdate +client download-gtest headless-client +inform-update +server +tools upnp +videorecorder vulkan websockets"
 
 DEPEND="
@@ -37,9 +46,10 @@ DEPEND="
 		x11-libs/libnotify
 		videorecorder? ( media-video/ffmpeg )
 	)
+	dev-libs/glib
+	sys-libs/zlib
 	dev-libs/openssl
 	dev-db/sqlite
-	dev-libs/glib
 	download-gtest? (
 		dev-cpp/gtest
 		dev-vcs/git
@@ -66,11 +76,7 @@ pkg_setup() {
 
 src_unpack() {
 	default_src_unpack
-
-	git-r3_fetch
-	git-r3_checkout
-
-	cargo_live_src_unpack
+	cargo_src_unpack
 }
 
 src_configure() {

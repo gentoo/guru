@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -32,9 +32,6 @@ RDEPEND="
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf
 	x11-libs/pango
-"
-BDEPEND="
-	virtual/rust
 "
 IUSE="systemd openrc"
 

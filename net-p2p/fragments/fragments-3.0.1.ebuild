@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit gnome2-utils meson xdg
+inherit gnome2-utils meson rust xdg
 
 UPLOADHASH="4a5dcb11cec0b0438ad575db08aa755c"
 DESCRIPTION="Fragments is an easy to use BitTorrent client"
@@ -32,7 +32,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	sys-devel/gettext
-	virtual/rust
 "
 
 # Rust package
