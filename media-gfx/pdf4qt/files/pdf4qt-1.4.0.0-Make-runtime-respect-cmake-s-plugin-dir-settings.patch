@@ -1,0 +1,113 @@
+From 5475c2ba7ae732463b6502b916613be9cef02eb5 Mon Sep 17 00:00:00 2001
+From: Alexander Golubev <fatzer2@gmail.com>
+Date: Mon, 11 Nov 2024 18:15:32 +0300
+Subject: [PATCH 2/2] Make runtime respect cmake's plugin dir settings
+
+---
+ CMakeLists.txt                        |  7 +++++++
+ Pdf4QtEditorPlugins/CMakeLists.txt    |  6 ------
+ Pdf4QtLibGui/CMakeLists.txt           |  6 ++++++
+ Pdf4QtLibGui/pdfprogramcontroller.cpp | 24 +++++++++++-------------
+ 4 files changed, 24 insertions(+), 19 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c70868a..7f3bf14 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -120,6 +120,13 @@ else()
+     set(PDF4QT_INSTALL_SHARE_DIR share)
+ endif()
+ 
++if(PDF4QT_LINUX)
++    set(PDF4QT_PLUGINS_DIR ${PDF4QT_INSTALL_LIB_DIR}/pdf4qt      CACHE PATH "Path to where pdf4qt plugins will be installed")
++else()
++    set(PDF4QT_PLUGINS_DIR ${PDF4QT_INSTALL_LIB_DIR}/pdfplugins  CACHE PATH "Path to where pdf4qt plugins will be installed")
++endif()
++mark_as_advanced(PDF4QT_PLUGINS_DIR)
++
+ add_subdirectory(Pdf4QtLibCore)
+ 
+ if(NOT PDF4QT_BUILD_ONLY_CORE_LIBRARY)
+diff --git a/Pdf4QtEditorPlugins/CMakeLists.txt b/Pdf4QtEditorPlugins/CMakeLists.txt
+index 177f01c..a5dae48 100644
+--- a/Pdf4QtEditorPlugins/CMakeLists.txt
++++ b/Pdf4QtEditorPlugins/CMakeLists.txt
+@@ -15,12 +15,6 @@
+ #    You should have received a copy of the GNU Lesser General Public License
+ #    along with PDF4QT.  If not, see <https://www.gnu.org/licenses/>.
+ 
+-if(PDF4QT_LINUX)
+-    set(PDF4QT_PLUGINS_DIR ${PDF4QT_INSTALL_LIB_DIR}/pdf4qt)
+-else()
+-    set(PDF4QT_PLUGINS_DIR ${PDF4QT_INSTALL_LIB_DIR}/pdfplugins)
+-endif()
+-
+ add_subdirectory(AudioBookPlugin)
+ add_subdirectory(DimensionsPlugin)
+ add_subdirectory(ObjectInspectorPlugin)
+diff --git a/Pdf4QtLibGui/CMakeLists.txt b/Pdf4QtLibGui/CMakeLists.txt
+index 8e7354e..d95b064 100644
+--- a/Pdf4QtLibGui/CMakeLists.txt
++++ b/Pdf4QtLibGui/CMakeLists.txt
+@@ -86,6 +86,12 @@ GENERATE_EXPORT_HEADER(Pdf4QtLibGui
+                        PDF4QTLIBGUILIBSHARED_EXPORT
+                        EXPORT_FILE_NAME "${CMAKE_BINARY_DIR}/${INSTALL_INCLUDEDIR}/pdf4qtlibgui_export.h")
+ 
++cmake_path(RELATIVE_PATH PDF4QT_PLUGINS_DIR
++           BASE_DIRECTORY PDF4QT_INSTALL_BIN_DIR
++           OUTPUT_VARIABLE PDF4QT_PLUGINS_RELATIVE_PATH)
++set_source_files_properties(pdfprogramcontroller.cpp
++           PROPERTIES COMPILE_DEFINITIONS "PDF4QT_PLUGINS_RELATIVE_PATH=\"${PDF4QT_PLUGINS_RELATIVE_PATH}\"")
++
+ target_link_libraries(Pdf4QtLibGui PRIVATE Pdf4QtLibCore Pdf4QtLibWidgets Qt6::Core Qt6::Gui Qt6::Widgets Qt6::PrintSupport Qt6::TextToSpeech Qt6::Xml Qt6::Svg)
+ target_include_directories(Pdf4QtLibGui INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+ target_include_directories(Pdf4QtLibGui PUBLIC ${CMAKE_BINARY_DIR}/${INSTALL_INCLUDEDIR})
+diff --git a/Pdf4QtLibGui/pdfprogramcontroller.cpp b/Pdf4QtLibGui/pdfprogramcontroller.cpp
+index ec75f95..422a329 100644
+--- a/Pdf4QtLibGui/pdfprogramcontroller.cpp
++++ b/Pdf4QtLibGui/pdfprogramcontroller.cpp
+@@ -70,6 +70,16 @@
+ #pragma comment(lib, "Shell32")
+ #endif
+ 
++#ifndef PDF4QT_PLUGINS_RELATIVE_PATH
++# if defined(Q_OS_WIN)
++#  define PDF4QT_PLUGINS_RELATIVE_PATH "pdfplugins"
++# elif defined(Q_OS_UNIX)
++#  define PDF4QT_PLUGINS_RELATIVE_PATH "../lib/pdf4qt"
++# else
++#  error Implement this for another OS!
++# endif
++#endif
++
+ namespace pdfviewer
+ {
+ 
+@@ -2160,23 +2170,11 @@ void PDFProgramController::updatePageLayoutActions()
+ void PDFProgramController::loadPlugins()
+ {
+     QStringList availablePlugins;
+-
++    QDir directory(QApplication::applicationDirPath() + "/" PDF4QT_PLUGINS_RELATIVE_PATH);
+ #if defined(Q_OS_WIN)
+-    QDir directory(QApplication::applicationDirPath() + "/pdfplugins");
+     availablePlugins = directory.entryList(QStringList("*.dll"));
+ #elif defined(Q_OS_UNIX)
+-#ifndef NDEBUG
+-    QDir directory(QApplication::applicationDirPath() + "/../pdfplugins");
+     availablePlugins = directory.entryList(QStringList("*.so"));
+-#else
+-    QDir directory(QApplication::applicationDirPath());
+-    if (directory.cdUp() &&
+-            directory.cd("lib") &&
+-            directory.cd("pdf4qt"))
+-    {
+-        availablePlugins = directory.entryList(QStringList("*.so"));
+-    }
+-#endif
+ #else
+     static_assert(false, "Implement this for another OS!");
+ #endif
+-- 
+2.45.2
+

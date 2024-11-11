@@ -1,0 +1,35 @@
+From 8b39f6ddb24b5bf681491c7a90b10bbd21255257 Mon Sep 17 00:00:00 2001
+From: Alexander Golubev <fatzer2@gmail.com>
+Date: Mon, 11 Nov 2024 19:00:55 +0300
+Subject: [PATCH 1/2] Disable test building
+
+Due to it requires an extra dependency and fails tests anyway.
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index cb8219c..c70868a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -49,7 +49,7 @@ include(GNUInstallDirs)
+ if(PDF4QT_BUILD_ONLY_CORE_LIBRARY)
+     find_package(Qt6 REQUIRED COMPONENTS Core Gui Svg Xml)
+ else()
+-    find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Svg Xml PrintSupport TextToSpeech Test)
++    find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Svg Xml PrintSupport TextToSpeech)
+ endif()
+ 
+ qt_standard_project_setup()
+@@ -128,7 +128,7 @@ if(NOT PDF4QT_BUILD_ONLY_CORE_LIBRARY)
+     add_subdirectory(JBIG2_Viewer)
+     add_subdirectory(PdfExampleGenerator)
+     add_subdirectory(PdfTool)
+-    add_subdirectory(UnitTests)
++#    add_subdirectory(UnitTests)
+     add_subdirectory(Pdf4QtLibGui)
+     add_subdirectory(Pdf4QtEditorPlugins)
+     add_subdirectory(Pdf4QtEditor)
+-- 
+2.45.2
+

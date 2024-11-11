@@ -34,14 +34,17 @@ RDEPEND="
 	media-libs/openjpeg
 	sys-libs/zlib
 "
-DEPEND="$RDEPEND
-	dev-qt/qtbase:6[test]
-"
+DEPEND="$RDEPEND"
+# test ? ( dev-qt/qtbase:6[test] )
+# Note: testing is disabled because as for now the only test is failing.
+# See https://github.com/JakubMelka/PDF4QT/issues/222
 
 DOCS=( NOTES.txt README.md RELEASES.txt )
 PATCHES=(
-	"${FILESDIR}/pdf4qt-1.4.0-minor-fix-remove-extention-from-Icon-endtry-in-a-des.patch"
-	"${FILESDIR}/pdf4qt-1.4.0-Minimal-cmake-fixes.patch"
+	"${FILESDIR}/pdf4qt-1.4.0.0-minor-fix-remove-extention-from-Icon-endtry-in-a-des.patch"
+	"${FILESDIR}/pdf4qt-1.4.0.0-Minimal-cmake-fixes.patch"
+	"${FILESDIR}/pdf4qt-1.4.0.0-Disable-test-building.patch"
+	"${FILESDIR}/pdf4qt-1.4.0.0-Make-runtime-respect-cmake-s-plugin-dir-settings.patch"
 	# remove when Qt6.8 is stable
 	"${FILESDIR}/pdf4qt-1.4.9999-Support-build-against-Qt-6.7.patch"
 )

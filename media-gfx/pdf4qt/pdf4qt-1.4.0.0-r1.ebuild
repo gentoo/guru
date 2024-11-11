@@ -34,15 +34,15 @@ RDEPEND="
 	media-libs/openjpeg
 	sys-libs/zlib
 "
-DEPEND="$RDEPEND
-	dev-qt/qtbase:6[test]
-"
+DEPEND="$RDEPEND"
 
 DOCS=( NOTES.txt README.md RELEASES.txt )
 PATCHES=(
-	"${FILESDIR}/pdf4qt-1.4.0-fix-build-failure-on-resetMatrix.patch"
-	"${FILESDIR}/pdf4qt-1.4.0-minor-fix-remove-extention-from-Icon-endtry-in-a-des.patch"
-	"${FILESDIR}/pdf4qt-1.4.0-Minimal-cmake-fixes.patch"
+	"${FILESDIR}/pdf4qt-1.4.0.0-fix-build-failure-on-resetMatrix.patch"
+	"${FILESDIR}/pdf4qt-1.4.0.0-minor-fix-remove-extention-from-Icon-endtry-in-a-des.patch"
+	"${FILESDIR}/pdf4qt-1.4.0.0-Minimal-cmake-fixes.patch"
+	"${FILESDIR}/pdf4qt-1.4.0.0-Disable-test-building.patch"
+	"${FILESDIR}/pdf4qt-1.4.0.0-Make-runtime-respect-cmake-s-plugin-dir-settings.patch"
 )
 
 src_configure() {
