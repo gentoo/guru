@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>me@aidanharr.is</email>
+		<name>Aidan Harris</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">joakim666/colortail</remote-id>
+	</upstream>
+
+</pkgmetadata>

@@ -1,0 +1,46 @@
+Patch to use /etc/colortail/conf.colortail by default to colorizer
+without the option -k
+Index: colortail-0.3.2/ColorTail.cc
+===================================================================
+--- colortail-0.3.2.orig/ColorTail.cc	2010-01-02 13:13:03.000000000 -0500
++++ colortail-0.3.2/ColorTail.cc	2010-01-02 13:17:31.000000000 -0500
+@@ -20,6 +20,8 @@
+ #include <iostream>
+ #include <assert.h>
+ #include <unistd.h>
++#include <string.h>
++#include <stdio.h>
+ 
+ #include "ColorTail.h"
+ #include "TailFile.h"
+@@ -102,9 +104,14 @@
+ 	    {
+ 	       // no config file
+ 	       // print error
+-	       cout << "colortail: Couldn't open global color config file. Skipping colors for the " << argv[i] << " file." << endl;
++	       //cout << "colortail: Couldn't open global color config file. Skipping colors for the " << argv[i] << " file." << endl;
+                // open the tailfile without colorizer
+-	       new_tailfile->open(argv[i], NULL);
++	       //new_tailfile->open(argv[i], NULL);
++	       string cade = "/etc/colortail/conf.colortail";
++			char* ccade = new char[cade.length()+1];
++			strcpy(ccade, cade.c_str());
++			colorizer = new Colorizer(ccade);
++			new_tailfile->open(argv[i], colorizer);
+ 	    }  
+ 	 }
+ 	 else
+@@ -126,7 +133,12 @@
+ 	       // no config file
+ 	       // no error message because it can be cfgfile1,,cfgfile2 
+ 	       // open the tailfile without colorizer
+-	       new_tailfile->open(argv[i], NULL);
++	       //new_tailfile->open(argv[i], NULL);
++			string cade = "/etc/colortail/conf.colortail";
++			char* ccade = new char[cade.length()+1];
++			strcpy(ccade, cade.c_str());
++			colorizer = new Colorizer(ccade);
++			new_tailfile->open(argv[i], colorizer);	       
+ 	    }
+ 	 }
+       }

@@ -1,0 +1,13 @@
+Patch to show the option -l to display  without colors.
+Index: colortail-0.3.2/Usage.cc
+===================================================================
+--- colortail-0.3.2.orig/Usage.cc	2010-01-02 13:22:27.000000000 -0500
++++ colortail-0.3.2/Usage.cc	2010-01-02 13:24:43.000000000 -0500
+@@ -46,6 +46,7 @@
+    cout << "\t\t\t\tIf only one config file it's global otherwise" << endl;
+    cout << "\t\t\t\tone config file for each tail file" << endl;
+    cout << "  -n, --lines=N\t\t\toutput the last N lines, instead of last 10" << endl;
++   cout << "  -l \t\t\t\tdisplay without colors" << endl;
+    cout << "  -q, --quiet, --silent\t\tnever output headers giving file names" << endl;
+    cout << "  -v, --version\t\t\toutput version information and exit" << endl;
+    cout << endl;
