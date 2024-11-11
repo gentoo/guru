@@ -27,7 +27,7 @@ RDEPEND="
 	dev-python/colorama[${PYTHON_USEDEP}]
 	dev-python/commonmark[${PYTHON_USEDEP}]
 	dev-python/cryptg[${PYTHON_USEDEP}]
-	dev-python/jinja[${PYTHON_USEDEP}]
+	dev-python/jinja2[${PYTHON_USEDEP}]
 	dev-python/mautrix[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/pycryptodome[${PYTHON_USEDEP}]

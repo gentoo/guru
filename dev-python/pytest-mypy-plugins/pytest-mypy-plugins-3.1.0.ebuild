@@ -26,7 +26,7 @@ RDEPEND="
 	>=dev-python/pytest-7.0.0[${PYTHON_USEDEP}]
 	>=dev-python/tomlkit-0.11[${PYTHON_USEDEP}]
 	dev-python/decorator[${PYTHON_USEDEP}]
-	dev-python/jinja[${PYTHON_USEDEP}]
+	dev-python/jinja2[${PYTHON_USEDEP}]
 	dev-python/jsonschema[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]

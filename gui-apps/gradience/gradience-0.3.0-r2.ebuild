@@ -38,7 +38,7 @@ DEPEND="
 		dev-python/svglib[${PYTHON_USEDEP}]
 		dev-python/yapsy[${PYTHON_USEDEP}]
 		dev-python/cssutils[${PYTHON_USEDEP}]
-		dev-python/jinja[${PYTHON_USEDEP}]
+		dev-python/jinja2[${PYTHON_USEDEP}]
 		dev-python/aiohttp[${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]
 	')

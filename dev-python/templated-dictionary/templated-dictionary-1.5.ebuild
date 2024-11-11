@@ -21,4 +21,4 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-python/jinja[${PYTHON_USEDEP}]"
+RDEPEND="dev-python/jinja2[${PYTHON_USEDEP}]"

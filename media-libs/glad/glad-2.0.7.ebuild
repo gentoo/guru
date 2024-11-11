@@ -16,7 +16,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="dev-python/jinja"
+DEPEND="dev-python/jinja2"
 RDEPEND="${DEPEND}"
 
 src_prepare(){
