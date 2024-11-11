@@ -10,7 +10,7 @@ HOMEPAGE="https://www.webtoolkit.eu/wt https://github.com/emweb/wt"
 SRC_URI="https://github.com/emweb/wt/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="doc firebird mysql opengl +pango pdf postgres ssl"
 
