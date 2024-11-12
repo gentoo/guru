@@ -1,0 +1,15 @@
+diff --git a/shard.yml b/shard.yml
+index 2e4df045..e59fa733 100644
+--- a/shard.yml
++++ b/shard.yml
+@@ -5,6 +5,10 @@ authors:
+   - Invidious team <contact@invidious.io>
+   - Contributors!
+ 
++targets:
++  invidious:
++    main: src/invidious.cr
++
+ description: |
+    Invidious is an alternative front-end to YouTube 
+ 
