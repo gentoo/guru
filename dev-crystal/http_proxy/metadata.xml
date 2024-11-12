@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Anton Maminov</name>
+			<email>anton.maminov@gmail.com</email>
+		</maintainer>
+		<remote-id type="github">mamantoha/http_proxy</remote-id>
+	</upstream>
+</pkgmetadata>
