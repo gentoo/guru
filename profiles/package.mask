@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2021-03-29)
+# Nowa Ammerlaan <nowa@gentoo.org> (2021-03-29)
 # James Beddek <telans@posteo.de> (2021-10-09)
 # Per profile masking in overlays is currently not working
 # with pkgcore/pkgdev/pkgcheck. Mask offending packages for all profiles
