@@ -1,0 +1,22 @@
+#!/sbin/openrc-run
+# Copyright 2022-2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="Invidious Signature Helper"
+description="Rust service that decrypts YouTube signatures and manages player information"
+
+command="/usr/bin/inv_sig_helper_rust"
+command_user="invidious:invidious"
+command_background=1
+
+pidfile="/run/inv_sig_helper.pid"
+output_log="/var/log/inv_sig_helper.log"
+error_log="${output_log}"
+
+depend() {
+	use logger net
+}
+
+start_pre() {
+	checkpath -fo invidious:invidious /var/log/inv_sig_helper.log
+}

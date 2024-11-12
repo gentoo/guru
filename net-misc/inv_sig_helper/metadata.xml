@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/iv-org/inv_sig_helper/issues</bugs-to>
+		<remote-id type="github">iv-org/inv_sig_helper</remote-id>
+	</upstream>
+</pkgmetadata>
