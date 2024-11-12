@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Eli Schwartz <eschwartz@gentoo.org> (2024-11-12)
+# Duplicate of dev-python/cchardet. Unused by any packages.
+# Removal on 2024-12-12
+dev-python/faust-cchardet
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-11-10)
 # Upstream doesn't want us to package their software, so they
 # intentionally make it harder to unbundle dependencies.
