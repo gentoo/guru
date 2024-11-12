@@ -1,0 +1,8 @@
+# See gitmailmap(5) for format details.
+# Please keep this list sorted.
+# Use "grep -v '^#' .mailmap | LC_ALL=en_US.utf-8 sort".
+Nowa Ammerlaan <nowa@gentoo.org> <aammerlaan@science.ru.nl>
+Nowa Ammerlaan <nowa@gentoo.org> <andrewammerlaan@gentoo.org>
+Nowa Ammerlaan <nowa@gentoo.org> <andrewammerlaan@riseup.net>
+Nowa Ammerlaan <nowa@gentoo.org> <andrew.ammerlaan@ru.nl>
+Nowa Ammerlaan <nowa@gentoo.org> <nowa-ammerlaan@riseup.net>
