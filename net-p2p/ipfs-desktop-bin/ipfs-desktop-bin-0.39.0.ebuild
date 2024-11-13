@@ -47,7 +47,7 @@ QA_PREBUILT="*"
 src_prepare(){
 	default
 	unpacker "${S}/usr/share/doc/ipfs-desktop/changelog.gz"
-	sed -i 's|/opt/IPFS Desktop/ipfs-desktop|/usr/bin/ipfs-desktop|g' "${S}/usr/share/applications/ipfs-desktop.desktop" | die
+	sed -i 's|/opt/IPFS Desktop/ipfs-desktop|/usr/bin/ipfs-desktop|g' "${S}/usr/share/applications/ipfs-desktop.desktop" || die
 }
 src_install(){
 	# clean up build-in kubo
