@@ -8,7 +8,7 @@ inherit cargo git-r3
 DESCRIPTION="Keep Wayland clipboard even after programs close"
 HOMEPAGE="https://github.com/Linus789/wl-clip-persist"
 
-EGIT_REPO_URI="https://github.com/Linus789/wl-clip-persist.git"
+EGIT_REPO_URI="https://github.com/Linus789/${PN}.git"
 
 LICENSE="MIT"
 # Dependent crate licenses
