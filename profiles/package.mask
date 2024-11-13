@@ -86,11 +86,6 @@ games-engines/easyrpg-player
 # Removal on 2024-11-13.
 www-apps/librarian
 
-# David Roman <davidroman96@gmail.com> (2024-10-08)
-# Depends on libplasma:5::gentoo, which has been dropped
-# Removal on 2024-11-08
-kde-misc/plasma5-wallpapers-dynamic
-
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-02)
 # Depends on <media-libs/kimageannotator-0.7, which has been dropped.
 # Upstream is working on Qt6 port.
