@@ -117,7 +117,7 @@ HOMEPAGE="https://github.com/Linus789/wl-clip-persist"
 
 SRC_URI="
 	${CARGO_CRATE_URIS}
-	https://github.com/Linus789/wl-clip-persist/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/Linus789/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 "
 
 LICENSE="MIT"
