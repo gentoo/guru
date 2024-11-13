@@ -1,5 +1,5 @@
 #!/sbin/openrc-run
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 depend() {
@@ -40,7 +40,7 @@ start() {
 
 stop() {
 	ebegin "Shutting down YaCy"
-	sudo -u ${YACY_USER} ${JAVA} ${JAVA_OPTIONS} ${JAVA_ARGS} ${CLASSPATH} net.yacy.yacy -shutdown &> /dev/null &
+	sudo -u ${YACY_USER} ${JAVA} ${JAVA_OPTIONS} ${JAVA_ARGS} ${CLASSPATH} net.yacy.yacy -shutdown >/dev/null 2>&1 &
 	einfon "Waiting ."
 	cnt=0
 	while ( ps ax|grep "^ *$(cat /var/run/yacy.pid)" > /dev/null )
@@ -51,7 +51,7 @@ stop() {
 			exit
 		fi
 		sleep 2
-		echo -n "."
+		printf "."
 	done
 	rm /var/run/yacy.pid
 	echo "done."
@@ -60,7 +60,7 @@ stop() {
 
 status() {
 	if service_started "${myservice}" ; then
-		if ! ps p `cat /var/run/yacy.pid` &> /dev/null ; then
+		if ! ps p `cat /var/run/yacy.pid` >/dev/null 2>&1 ; then
 			eerror "Service seems to be down"
 			return 1
 		fi
