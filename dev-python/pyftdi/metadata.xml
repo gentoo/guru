@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">pyftdi</remote-id>
+		<remote-id type="github">eblot/pyftdi</remote-id>
+		<maintainer>
+			<name>Emmanuel Blot</name>
+			<email>emmanuel.blot@free.fr</email>
+		</maintainer>
+		<bugs-to>https://github.com/eblot/pyftdi/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+	PyFtdi aims at providing a user-space driver for popular FTDI devices,
+	implemented in pure Python language.
+	PyFtdi supports various features, including UART/Serial USB conversion with
+	speeds up to 12Mbps, depending on the FTDI device. It also offers
+	GPIO/Bitbang functionality, supporting 8-bit asynchronous,
+	8-bit synchronous, and 8-/16-bit MPSSE modes. For SPI and I2C, PyFtdi
+	provides master capabilities with simultaneous GPIO support, managing up to
+	12 pins per port for SPI and up to 14 pins for I2C. Additionally, it
+	includes basic JTAG master functions, EEPROM access (though some parameters
+	are read-only), and experimental CBUS support on selected devices with
+	4 pins per port.
+	</longdescription>
+</pkgmetadata>
