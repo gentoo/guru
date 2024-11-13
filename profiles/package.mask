@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# David Roman <davidroman96@gmail.com> (2024-11-13)
+# dev-schemes/guile-3.0.9 has been removed from ::guru
+# No maintainer.
+# Removal on 2025-01-13
+gui-apps/riverguile
+
 # Eli Schwartz <eschwartz@gentoo.org> (2024-11-12)
 # Duplicate of dev-python/cchardet. Unused by any packages.
 # Removal on 2024-12-12
