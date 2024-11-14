@@ -82,11 +82,6 @@ dev-games/liblcf
 # Removal on 2024-11-17
 games-engines/easyrpg-player
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-10-13)
-# Archived upstream. Mismatched src filesize.
-# Removal on 2024-11-13.
-www-apps/librarian
-
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-02)
 # Depends on <media-libs/kimageannotator-0.7, which has been dropped.
 # Upstream is working on Qt6 port.
