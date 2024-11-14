@@ -56,7 +56,7 @@ RDEPEND="
 		dev-python/flask-cors[${PYTHON_USEDEP}]
 		dev-python/jsonschema[${PYTHON_USEDEP}]
 		dev-python/markdown[${PYTHON_USEDEP}]
-		dev-python/protobuf-python[${PYTHON_USEDEP}]
+		dev-python/protobuf[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/send2trash[${PYTHON_USEDEP}]
 		dev-python/waitress[${PYTHON_USEDEP}]
