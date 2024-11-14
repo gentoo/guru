@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="
 	dev-python/mkdocstrings
@@ -33,8 +33,7 @@ RDEPEND="
 BDEPEND="
 	test? (
 		dev-python/httpx[${PYTHON_USEDEP}]
-		>=dev-python/textual-dev-1.2.0[${PYTHON_USEDEP}]
-		<dev-python/textual-dev-2.0.0[${PYTHON_USEDEP}]
+		=dev-python/textual-dev-1*[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 		dev-python/griffe[${PYTHON_USEDEP}]
@@ -52,6 +51,8 @@ DEPEND="${RDEPEND}"
 EPYTEST_DESELECT=(
 	# Those tests ask to press keys
 	tests/snapshot_tests/test_snapshots.py
+	tests/test_xterm_parser.py::test_escape_sequence_resulting_in_multiple_keypresses
+
 	# Need a package that should be optional
 	tests/text_area/test_languages.py
 )
