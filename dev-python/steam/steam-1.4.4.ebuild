@@ -21,7 +21,7 @@ DEPEND="dev-python/six
 	dev-python/requests
 	dev-python/urllib3
 	dev-python/vdf
-	dev-python/protobuf-python
+	dev-python/protobuf
 	dev-python/cachetools
 "
 
