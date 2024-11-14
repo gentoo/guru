@@ -18,7 +18,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=app-arch/rpm-4.17.0
-	dev-cpp/sdbus-c++:=
+	dev-cpp/sdbus-c++:0/1
 	dev-cpp/toml11
 	>=dev-db/sqlite-3.35.0:3
 	>=dev-libs/glib-2.46.0:2
@@ -48,6 +48,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.2.5.0-remove-empty-dir.patch"
 	# Prevent test suite from writing to system files.
 	"${FILESDIR}/${PN}-5.2.5.0-sandbox-test.patch"
+	# bug #939518
+	"${FILESDIR}/${P}-remove-buggy-tests.patch"
 )
 
 src_prepare() {

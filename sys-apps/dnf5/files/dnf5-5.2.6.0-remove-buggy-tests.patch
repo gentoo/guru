@@ -1,0 +1,22 @@
+Those tests causes a use-after-free.
+https://bugs.gentoo.org/939518
+https://github.com/rpm-software-management/dnf5/issues/1692
+diff --git a/test/dnf5-plugins/copr_plugin/CMakeLists.txt b/test/dnf5-plugins/copr_plugin/CMakeLists.txt
+index 2a99f6c6..ce87b437 100644
+--- a/test/dnf5-plugins/copr_plugin/CMakeLists.txt
++++ b/test/dnf5-plugins/copr_plugin/CMakeLists.txt
+@@ -24,5 +24,3 @@ target_link_libraries(run_tests_copr PRIVATE ${JSONC_LIBRARIES})
+ 
+ add_compile_definitions(TEST_DATADIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+ 
+-add_test(NAME test_copr COMMAND run_tests_copr)
+-set_tests_properties(test_copr PROPERTIES RUN_SERIAL TRUE)
+diff --git a/test/libdnf5-cli/CMakeLists.txt b/test/libdnf5-cli/CMakeLists.txt
+index e37cbfa5..02722d40 100644
+--- a/test/libdnf5-cli/CMakeLists.txt
++++ b/test/libdnf5-cli/CMakeLists.txt
+@@ -19,4 +19,3 @@ target_link_directories(run_tests_cli PRIVATE ${CMAKE_BINARY_DIR}/libdnf5)
+ target_link_libraries(run_tests_cli PRIVATE stdc++ libdnf5_static libdnf5-cli cppunit test_shared)
+ 
+ 
+-add_test(NAME test_libdnf_cli COMMAND run_tests_cli)
