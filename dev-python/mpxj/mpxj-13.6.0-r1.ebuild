@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=standalone
-PYTHON_COMPAT=( pypy3 python3_{10..12} )
+PYTHON_COMPAT=( pypy3 python3_{10..13} )
 
 inherit distutils-r1 pypi
 
@@ -21,6 +21,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	dev-python/gpep517
 	>=dev-python/jpype-1.5.0
 "
 
