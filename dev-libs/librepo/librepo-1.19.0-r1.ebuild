@@ -41,6 +41,9 @@ src_prepare() {
 
 	# respect temp directory during tests, bug #924463
 	sed -i "s|/tmp/|${T}/|" tests/testsys.h || die
+
+	# disable python docs
+	sed -i "/python/d" doc/CMakeLists.txt || die
 }
 
 src_configure() {
@@ -54,4 +57,14 @@ src_configure() {
 		-DWITH_ZCHUNK=$(usex zchunk)
 	)
 	cmake_src_configure
+}
+
+src_compile() {
+	cmake_src_compile
+	use doc && cmake_src_compile doc-c
+}
+
+src_install() {
+	use doc && HTML_DOCS=( "${BUILD_DIR}"/doc/c/html/. )
+	cmake_src_install
 }
