@@ -110,7 +110,7 @@ CRATES="
 	windows_x86_64_msvc@0.52.6
 "
 
-inherit cargo
+inherit cargo shell-completion
 
 DESCRIPTION="High performance screen/audio recorder for wlroots"
 HOMEPAGE="https://github.com/russelltg/wl-screenrec"
@@ -134,6 +134,22 @@ RDEPEND="${BDEPEND}"
 DEPEND="${RDEPEND}"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
+
+src_compile() {
+	cargo_src_compile
+
+	./"${S}"/target/release/"${PN}" --generate-completions bash > "${S}/wl-screenrec.bash"
+	./"${S}"/target/release/"${PN}" --generate-completions fish > "${S}/wl-screenrec.fish"
+	./"${S}"/target/release/"${PN}" --generate-completions zsh > "${S}/wl-screenrec.zsh"
+}
+
+src_install() {
+	cargo_src_install
+
+	dobashcomp "${S}/wl-screenrec.bash"
+	dofishcomp "${S}/wl-screenrec.fish"
+	dozshcomp "${S}/wl-screenrec.zsh"
+}
 
 pkg_postinst() {
 	elog "To use this software, you need vaapi encoding support."
