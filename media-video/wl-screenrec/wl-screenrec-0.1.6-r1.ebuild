@@ -110,7 +110,10 @@ CRATES="
 	windows_x86_64_msvc@0.52.6
 "
 
-inherit cargo shell-completion
+LLVM_COMPAT=( {16..19} )
+RUST_NEEDS_LLVM=1
+
+inherit cargo shell-completion llvm-r1
 
 DESCRIPTION="High performance screen/audio recorder for wlroots"
 HOMEPAGE="https://github.com/russelltg/wl-screenrec"
@@ -127,13 +130,20 @@ RESTRICT="test"
 
 BDEPEND="
 	media-video/ffmpeg:=
-	sys-devel/clang
 	x11-libs/libdrm
+	$(llvm_gen_dep '
+		sys-devel/clang:${LLVM_SLOT}
+	')
 "
 RDEPEND="${BDEPEND}"
 DEPEND="${RDEPEND}"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
+
+pkg_setup() {
+	llvm-r1_pkg_setup
+	rust_pkg_setup
+}
 
 src_compile() {
 	cargo_src_compile
