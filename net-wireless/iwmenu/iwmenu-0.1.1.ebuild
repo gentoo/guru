@@ -269,10 +269,6 @@ src_prepare() {
 	sed -i -e 's/^strip = true$/strip = false/g' Cargo.toml || die "failed to disable stripping"
 }
 
-src_configure() {
-	cargo_src_configure
-}
-
 src_install() {
 	cargo_src_install
 
