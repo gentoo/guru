@@ -129,14 +129,17 @@ KEYWORDS="~amd64"
 RESTRICT="test"
 
 BDEPEND="
-	media-video/ffmpeg:=
-	x11-libs/libdrm
 	$(llvm_gen_dep '
 		sys-devel/clang:${LLVM_SLOT}
 	')
 "
-RDEPEND="${BDEPEND}"
-DEPEND="${RDEPEND}"
+RDEPEND="
+	media-video/ffmpeg:=[vaapi]
+	x11-libs/libdrm
+"
+DEPEND="
+	${RDEPEND}
+"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
@@ -148,23 +151,27 @@ pkg_setup() {
 src_compile() {
 	cargo_src_compile
 
-	./"${S}"/target/release/"${PN}" --generate-completions bash > "${S}/wl-screenrec.bash"
-	./"${S}"/target/release/"${PN}" --generate-completions fish > "${S}/wl-screenrec.fish"
-	./"${S}"/target/release/"${PN}" --generate-completions zsh > "${S}/wl-screenrec.zsh"
+	./"$(cargo_target_dir)/${PN}" --generate-completions bash > "${S}/wl-screenrec" || \
+		die "Could not generate bash completion"
+	./"$(cargo_target_dir)/${PN}" --generate-completions fish > "${S}/wl-screenrec.fish" || \
+		die "Could not generate fish completion"
+	./"$(cargo_target_dir)/${PN}" --generate-completions zsh > "${S}/_wl-screenrec" || \
+		die "Could not generate zsh completion"
 }
 
 src_install() {
 	cargo_src_install
 
-	dobashcomp "${S}/wl-screenrec.bash"
-	dofishcomp "${S}/wl-screenrec.fish"
-	dozshcomp "${S}/wl-screenrec.zsh"
+	dobashcomp "${S}/wl-screenrec" || die "Could not install bash completion"
+	dofishcomp "${S}/wl-screenrec.fish" || die "Could not install fish completion"
+	dozshcomp "${S}/_wl-screenrec" || die "Could not install zsh completion"
 }
 
 pkg_postinst() {
-	elog "To use this software, you need vaapi encoding support."
-	elog "You also need a wayland compositor that supports the"
+	elog "You need a wayland compositor that supports the"
 	elog "following unstable protocols:"
 	elog "  - wlr-output-management-unstable-v1"
 	elog "  - wlr-screencopy-unstable-v1"
+	elog "You should also make sure you have the correct librairies"
+	elog "installed. See: https://trac.ffmpeg.org/wiki/Hardware/VAAPI"
 }
