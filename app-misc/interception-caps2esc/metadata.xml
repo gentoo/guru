@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>hoelbezier@riseup.net</email>
+		<name>Hoël Bézier</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="gitlab">interception/linux/plugins/caps2esc</remote-id>
+	</upstream>
+</pkgmetadata>
