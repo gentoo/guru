@@ -1,0 +1,166 @@
+A lot of changes to cmake:
+ - bump cmake_minimum_required to 3.5 to avoid cmake's warnings about obsolete version
+ - avoid adding -Werror to C/XXFLAGS (it didn't actually get anywhere beside the tests)
+ - remove bundeled FindGtest in favour of use of a config file provided by GTest itself
+ - bumb CMAKE_CXX_STANDARD to 14 to apace modern GTest
+ - bump version number to 0.0.2 to match tarball
+ - change include instalation directrory to [/usr]/inclyde/properties-cpp/ to not clutter
+   the root include dir
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0c7394e..6d08f34 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.5)
+ 
+ project(properties-cpp)
+ 
+@@ -8,9 +8,10 @@ include(cmake/EnableCoverageReport.cmake)
+ include(cmake/PrePush.cmake)
+ include(GNUInstallDirs)
+ 
+-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror -Wall -pedantic -Wextra -fPIC -fvisibility=hidden -pthread")
+-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Werror -Wall -fno-strict-aliasing -fvisibility=hidden -fvisibility-inlines-hidden -pedantic -Wextra -fPIC -pthread")
++set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -pedantic -Wextra -fPIC -fvisibility=hidden -pthread")
++set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fno-strict-aliasing -fvisibility=hidden -fvisibility-inlines-hidden -pedantic -Wextra -fPIC -pthread")
+ set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--no-undefined")
++set(CMAKE_CXX_STANDARD 14)
+ 
+ #####################################################################
+ # Enable code coverage calculation with gcov/gcovr/lcov
+@@ -29,7 +30,7 @@ ENDIF(CMAKE_BUILD_TYPE MATCHES [cC][oO][vV][eE][rR][aA][gG][eE])
+ 
+ set(PROPERTIES_CPP_VERSION_MAJOR 0)
+ set(PROPERTIES_CPP_VERSION_MINOR 0)
+-set(PROPERTIES_CPP_VERSION_PATCH 1)
++set(PROPERTIES_CPP_VERSION_PATCH 2)
+ 
+ include(CTest)
+ 
+diff --git a/cmake/FindGtest.cmake b/cmake/FindGtest.cmake
+deleted file mode 100644
+index 1283174..0000000
+--- a/cmake/FindGtest.cmake
++++ /dev/null
+@@ -1,53 +0,0 @@
+-include(ExternalProject)
+-include(FindPackageHandleStandardArgs)
+-
+-#gtest
+-set(GTEST_INSTALL_DIR /usr/src/gmock/gtest/include)
+-find_path(GTEST_INCLUDE_DIR gtest/gtest.h
+-            HINTS ${GTEST_INSTALL_DIR})
+-
+-#gmock
+-find_path(GMOCK_INSTALL_DIR gmock/CMakeLists.txt
+-          HINTS /usr/src)
+-if(${GMOCK_INSTALL_DIR} STREQUAL "GMOCK_INSTALL_DIR-NOTFOUND")
+-    message(FATAL_ERROR "google-mock package not found")
+-endif()
+-
+-set(GMOCK_INSTALL_DIR ${GMOCK_INSTALL_DIR}/gmock)
+-find_path(GMOCK_INCLUDE_DIR gmock/gmock.h)
+-
+-set(GMOCK_PREFIX gmock)
+-set(GMOCK_BINARY_DIR ${CMAKE_BINARY_DIR}/${GMOCK_PREFIX}/libs)
+-set(GTEST_BINARY_DIR ${GMOCK_BINARY_DIR}/gtest)
+-
+-set(GTEST_CMAKE_ARGS "")
+-if (${MIR_IS_CROSS_COMPILING})
+-    set(GTEST_CMAKE_ARGS
+-        -DCMAKE_TOOLCHAIN_FILE=${CMAKE_MODULE_PATH}/LinuxCrossCompile.cmake)
+-endif()
+-
+-ExternalProject_Add(
+-    GMock
+-    #where to build in source tree
+-    PREFIX ${GMOCK_PREFIX}
+-    #where the source is external to the project
+-    SOURCE_DIR ${GMOCK_INSTALL_DIR}
+-    #forward the compilers to the subproject so cross-arch builds work
+-    CMAKE_ARGS ${GTEST_CMAKE_ARGS}
+-    BINARY_DIR ${GMOCK_BINARY_DIR}
+-
+-    #we don't need to install, so skip
+-    INSTALL_COMMAND ""
+-)
+-
+-set(GMOCK_LIBRARY ${GMOCK_BINARY_DIR}/libgmock.a)
+-set(GMOCK_MAIN_LIBRARY ${GMOCK_BINARY_DIR}/libgmock_main.a)
+-set(GMOCK_BOTH_LIBRARIES ${GMOCK_LIBRARY} ${GMOCK_MAIN_LIBRARY})
+-set(GTEST_LIBRARY ${GTEST_BINARY_DIR}/libgtest.a)
+-set(GTEST_MAIN_LIBRARY ${GTEST_BINARY_DIR}/libgtest_main.a)
+-set(GTEST_BOTH_LIBRARIES ${GTEST_LIBRARY} ${GTEST_MAIN_LIBRARY})
+-set(GTEST_ALL_LIBRARIES ${GTEST_BOTH_LIBRARIES} ${GMOCK_BOTH_LIBRARIES})
+-
+-find_package_handle_standard_args(GTest  DEFAULT_MSG
+-                                    GMOCK_INCLUDE_DIR
+-                                    GTEST_INCLUDE_DIR)
+diff --git a/cmake/PrePush.cmake b/cmake/PrePush.cmake
+index aba8823..5f7949b 100644
+--- a/cmake/PrePush.cmake
++++ b/cmake/PrePush.cmake
+@@ -79,4 +79,4 @@ add_custom_target(
+ add_dependencies(extract-pre-push-tarball pre-push-source-tarball)
+ add_dependencies(pdebuild extract-pre-push-tarball)
+ 
+-add_dependencies(pre-push pdebuild android-build)
++#add_dependencies(pre-push pdebuild android-build)
+diff --git a/data/properties-cpp.pc.in b/data/properties-cpp.pc.in
+index da8c36d..db730c9 100644
+--- a/data/properties-cpp.pc.in
++++ b/data/properties-cpp.pc.in
+@@ -1,7 +1,7 @@
+ prefix=@CMAKE_INSTALL_PREFIX@
+ exec_prefix=${prefix}
+ libdir=${exec_prefix}/lib
+-includedir=${exec_prefix}/include
++includedir=${exec_prefix}/include/@CMAKE_PROJECT_NAME@
+  
+ Name: @CMAKE_PROJECT_NAME@
+ Description: A very simple convenience library for handling properties and signals in C++11.
+diff --git a/include/CMakeLists.txt b/include/CMakeLists.txt
+index 3a45575..bf9663c 100644
+--- a/include/CMakeLists.txt
++++ b/include/CMakeLists.txt
+@@ -1,4 +1,4 @@
+ install(
+   DIRECTORY core
+-  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/
++  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${CMAKE_PROJECT_NAME}
+ )
+diff --git a/tests/CMakeLists.txt b/tests/CMakeLists.txt
+index 180498f..9303983 100644
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -1,11 +1,4 @@
+-set (OLD_CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})
+-# Don't treat warnings as errors in 3rd_party/{gmock,cucumber-cpp}
+-string (REPLACE " -Werror " " " CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})
+-find_package(Gtest REQUIRED)
+-include_directories(${GMOCK_INCLUDE_DIR} ${GTEST_INCLUDE_DIR})
+-set (CMAKE_CXX_FLAGS ${OLD_CMAKE_CXX_FLAGS})
+-
+-include_directories(${GTEST_INCLUDE_DIRS})
++find_package(GTest REQUIRED)
+ 
+ add_executable(
+   properties_test
+@@ -20,13 +13,13 @@ add_executable(
+ target_link_libraries(
+   properties_test
+ 
+-  ${GTEST_BOTH_LIBRARIES}
++  GTest::gtest GTest::gmock GTest::gtest_main
+ )
+ 
+ target_link_libraries(
+   signals_test
+ 
+-  ${GTEST_BOTH_LIBRARIES}
++  GTest::gtest GTest::gmock GTest::gtest_main
+ )
+ 
+ add_test(properties_test ${CMAKE_CURRENT_BINARY_DIR}/properties_test)
