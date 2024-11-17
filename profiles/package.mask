@@ -19,6 +19,12 @@
 # New entries go on top.
 
 # Takuya Wakazono <pastalian46@gmail.com> (2024-11-17)
+# This ebuild has been broken since 2022 because it tries to pull
+# dependencies from the internet.
+# Removal on 2024-12-17. Bug #817947, #924133.
+phosh-base/squeekboard
+
+# Takuya Wakazono <pastalian46@gmail.com> (2024-11-17)
 # Unmaintained since 2021, no maintainer.
 # Removal on 2024-12-17.
 media-gfx/grafx2
