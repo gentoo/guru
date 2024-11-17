@@ -21,5 +21,10 @@ fi
 
 LICENSE="ISC"
 SLOT="0"
-IUSE="test"
-RESTRICT="!test? ( test )"
+IUSE="static-libs"
+
+src_install() {
+	meson_src_install
+
+	use static-libs || rm "${ED}/usr/$(get_libdir)/libimsg.a" || die
+}
