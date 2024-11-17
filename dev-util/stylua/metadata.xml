@@ -9,9 +9,10 @@
     <remote-id type="github">JohnnyMorganz/StyLua</remote-id>
   </upstream>
   <use>
-    <flag name="lua52">Build for Lua 5.2</flag>
-    <flag name="lua53">Build for Lua 5.3</flag>
-    <flag name="lua54">Build for Lua 5.4</flag>
-    <flag name="luau">Build for Luau</flag>
+    <flag name="lua52">Build support for Lua 5.2</flag>
+    <flag name="lua53">Build support for Lua 5.3</flag>
+    <flag name="lua54">Build support for Lua 5.4</flag>
+    <flag name="luajit">Build support for LuaJIT</flag>
+    <flag name="luau">Build support for Luau</flag>
   </use>
 </pkgmetadata>
