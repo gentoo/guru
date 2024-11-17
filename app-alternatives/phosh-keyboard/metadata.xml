@@ -9,8 +9,5 @@
 		<flag name="phosh-osk-stub">
 			Symlink to <pkg>phosh-base/phosh-osk-stub</pkg>
 		</flag>
-		<flag name="squeekboard">
-			Symlink to <pkg>phosh-base/squeekboard</pkg>
-		</flag>
 	</use>
 </pkgmetadata>

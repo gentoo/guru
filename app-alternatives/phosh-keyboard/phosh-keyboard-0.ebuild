@@ -5,7 +5,6 @@ EAPI=8
 
 ALTERNATIVES=(
 	phosh-osk-stub:phosh-base/phosh-osk-stub
-	squeekboard:phosh-base/squeekboard
 )
 
 inherit app-alternatives
@@ -19,7 +18,5 @@ src_install() {
 	case $(get_alternative) in
 		phosh-osk-stub)
 			dosym sm.puri.Phosh.OskStub.desktop "${target:?}";;
-		squeekboard)
-			dosym sm.puri.Squeekboard.desktop "${target:?}";;
 	esac
 }
