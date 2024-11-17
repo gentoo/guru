@@ -22,6 +22,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc64 ~s390 ~x86"
 
 RESTRICT="mirror strip"
+QA_PREBUILT="*"
 
 src_compile() {
 :
