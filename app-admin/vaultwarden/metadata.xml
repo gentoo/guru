@@ -5,6 +5,10 @@
     <email>me@rahil.rocks</email>
     <name>Rahil Bhimjiani</name>
   </maintainer>
+  <maintainer type="person">
+    <email>julien@jroy.ca</email>
+    <name>Julien Roy</name>
+  </maintainer>
   <use>
     <flag name="cli">
       Install client with the Command-Line Interface
