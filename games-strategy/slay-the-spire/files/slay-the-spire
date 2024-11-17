@@ -1,0 +1,6 @@
+#!/bin/sh
+
+gamedir="${XDG_DATA_DIR:-${HOME}/.local/share}/slay-the-spire"
+mkdir -p "$gamedir" &&
+cd  "$gamedir" &&
+exec java -jar /opt/slay-the-spire/desktop-1.0.jar
