@@ -5,7 +5,7 @@ EAPI=8
 
 PYPI_NO_NORMALIZE=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1 optfeature pypi systemd
 
@@ -45,6 +45,19 @@ RDEPEND="
 	socks5? ( dev-python/python-socks[${PYTHON_USEDEP}] )
 	sqlite? ( dev-python/aiosqlite[${PYTHON_USEDEP}] )
 "
+
+distutils_enable_tests import-check
+
+python_test() {
+	local sitedir="${BUILD_DIR}/install$(python_get_sitedir)"
+	local EPYTEST_IGNORE=(
+		"${sitedir}/mautrix_telegram/__main__.py"
+		"${sitedir}/mautrix_telegram/abstract_user.py"
+		"${sitedir}/mautrix_telegram/scripts/unicodemojipack/__main__.py"
+	)
+
+	epytest --import-check "${sitedir}"
+}
 
 src_install() {
 	distutils-r1_src_install
