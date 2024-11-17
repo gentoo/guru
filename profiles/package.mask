@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # Takuya Wakazono <pastalian46@gmail.com> (2024-11-17)
+# Unmaintained since 2021, no maintainer.
+# Removal on 2024-12-17.
+media-gfx/grafx2
+
+# Takuya Wakazono <pastalian46@gmail.com> (2024-11-17)
 # Unmaintained in guru, no reverse dependencies.
 # Removal on 2024-12-17.
 dev-libs/properties-cpp
