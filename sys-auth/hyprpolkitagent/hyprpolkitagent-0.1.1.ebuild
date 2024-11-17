@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake toolchain-funcs
 
 DESCRIPTION="Polkit authentication agent for Hyprland, written in Qt/QML"
 HOMEPAGE="https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent"
@@ -28,3 +28,17 @@ RDEPEND="
 BDEPEND="
 	virtual/pkgconfig
 "
+
+kg_setup() {
+	[[ ${MERGE_TYPE} == binary ]] && return
+
+	if tc-is-gcc && ver_test $(gcc-version) -lt 14 ; then
+		eerror "Hyprpolkitagent requires >=sys-devel/gcc-14 to build"
+		eerror "Please upgrade GCC: emerge -v1 sys-devel/gcc"
+		die "GCC version is too old to compile Hyprland!"
+	elif tc-is-clang && ver_test $(clang-version) -lt 18 ; then
+		eerror "Hyprpolkitagent requires >=sys-devel/clang-18 to build"
+		eerror "Please upgrade Clang: emerge -v1 sys-devel/clang"
+		die "Clang version is too old to compile Hyprland!"
+	fi
+}
