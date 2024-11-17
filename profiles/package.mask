@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-11-17)
+# Unmaintained in guru, no reverse dependencies.
+# Removal on 2024-12-17.
+dev-libs/properties-cpp
+
 # Julien Roy <julien@jroy.ca> (2024-11-15)
 # >=x11-themes/adw-gtk3-5.4 requires >=gui-libs/gtk-4.16
 # which is not packaged in ::gentoo
