@@ -9,7 +9,7 @@ MY_PN="${PN^}"
 
 DESCRIPTION="Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks"
 HOMEPAGE="https://dn-works.com/ufas/"
-SRC_URI="https://dn-works.com/wp-content/uploads/2020/UFAS-Fonts/Symbola.zip -> ${P}.zip"
+SRC_URI="https://web.archive.org/web/20220327073316/https://dn-works.com/wp-content/uploads/2020/UFAS-Fonts/Symbola.zip -> ${P}.zip"
 
 S="${WORKDIR}"
 
