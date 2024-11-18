@@ -40,6 +40,8 @@ src_install() {
 	doins common/*.shader
 	insinto "/usr/share/terminal-simulator/vt52"
 	doins common/*.shader
+	insinto "/usr/share/terminal-simulator/vt52/rom"
+	doins vt52/rom/*
 
 	dodoc README.md
 }
