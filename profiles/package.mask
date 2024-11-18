@@ -18,6 +18,17 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-11-18)
+# Upstream is dead because of the Reddit API changes.
+# Official Flathub page is gone as well.
+# https://gitlab.gnome.org/World/giara/-/issues/130
+# Removal on 2024-12-18. Bug #922029.
+net-misc/giara
+dev-python/praw
+dev-python/prawcore
+dev-python/sphinx-rtd-dark-mode
+dev-python/betamax-serializers
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-11-17)
 # This ebuild has been broken since 2022 because it tries to pull
 # dependencies from the internet.
