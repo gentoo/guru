@@ -22,7 +22,7 @@ REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
 # Test phase fails: make: *** [Makefile:1146: ../bin/tests-sdl] Error 1
 RESTRICT="test"
 
-DEPEND="
+RDEPEND="
 	media-libs/libsdl
 	media-libs/sdl-image[tiff]
 	media-libs/freetype
@@ -30,6 +30,7 @@ DEPEND="
 	ttf? ( media-libs/sdl-ttf )
 	lua? ( ${LUA_DEPS} )
 "
+DEPEND="${RDEPEND}"
 
 PATCHES=( "${FILESDIR}/${PN}-desktop-file.patch" )
 

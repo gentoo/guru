@@ -23,7 +23,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-desktop-file.patch"
 )
 
-DEPEND="
+RDEPEND="
 	media-libs/libsdl
 	media-libs/sdl-image[tiff]
 	media-libs/freetype
@@ -31,6 +31,7 @@ DEPEND="
 	ttf? ( media-libs/sdl-ttf )
 	lua? ( >=dev-lang/lua-5.1.0 )
 "
+DEPEND="${RDEPEND}"
 
 src_prepare() {
 	pushd ../
