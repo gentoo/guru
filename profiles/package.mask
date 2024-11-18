@@ -82,11 +82,6 @@ dev-util/glsl-language-server
 app-admin/enpass-desktop-bin
 
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-18)
-# Doesn't build with GCC 14 and upstream is inactive.
-# Removal on 2024-11-18. Bug #922024.
-media-sound/ibniz
-
-# Takuya Wakazono <pastalian46@gmail.com> (2024-10-18)
 # Depends on <dev-python/tree-sitter-0.22, which has been dropped.
 # Upstream does not support newer treesitter and is no longer
 # maintained.
