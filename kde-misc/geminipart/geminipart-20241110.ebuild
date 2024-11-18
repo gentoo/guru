@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-COMMIT="d3fb6f32fb9112d2073d0b0251ae9069224096df"
+COMMIT="22ca8046fb9ce852a9dd928475ca2d216c8662a5"
 ECM_TEST="forceoptional"
 KFMIN=5.98.0
 QTMIN=5.4.0
@@ -14,7 +14,7 @@ HOMEPAGE="https://gitlab.com/tobiasrautenkranz/geminipart"
 SRC_URI="https://gitlab.com/tobiasrautenkranz/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.bz2"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
-LICENSE="LGPL-2+"
+LICENSE="LGPL-2.1+"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
