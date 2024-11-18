@@ -77,11 +77,6 @@ app-editors/kitscenarist
 dev-util/glsl-language-server
 
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-18)
-# Outdated prebuilt binary. Unmaintained since 2022.
-# Removal on 2024-11-18.
-app-admin/enpass-desktop-bin
-
-# Takuya Wakazono <pastalian46@gmail.com> (2024-10-18)
 # Depends on <dev-python/tree-sitter-0.22, which has been dropped.
 # Upstream does not support newer treesitter and is no longer
 # maintained.
