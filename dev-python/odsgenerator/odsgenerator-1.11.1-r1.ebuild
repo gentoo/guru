@@ -11,7 +11,6 @@ inherit distutils-r1
 DESCRIPTION="Generate an OpenDocument Format .ods file from a .json or .yaml file."
 HOMEPAGE="https://github.com/jdum/odsgenerator"
 SRC_URI="https://github.com/jdum/odsgenerator/archive/refs/tags/v${PV}.tar.gz -> odsgenerator-${PV}.tar.gz"
-S="${WORKDIR}/odsgenerator-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
