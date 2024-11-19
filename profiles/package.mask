@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Nicolas PARLANT <nicolas.parhuet@parhuet.fr> (2024-11-20)
+# No maintener and SRC_URI / license issue #262
+# Replaced by media-fonts/ttf-ancient-fonts wich includes
+# this font and few others by authors
+# Removal on 2024-12-21
+media-fonts/symbola
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-11-18)
 # Upstream is dead because of the Reddit API changes.
 # Official Flathub page is gone as well.
