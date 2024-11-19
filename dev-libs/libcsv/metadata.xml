@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Pham Văn Phúc</name>
+			<email>phuclaplace@gmail.com</email>
+		</maintainer>
+		<bugs-to>https://github.com/ppvan/libcsv/issues</bugs-to>
+		<remote-id type="github">ppvan/libcsv</remote-id>
+	</upstream>
+</pkgmetadata>
