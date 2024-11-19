@@ -11,7 +11,6 @@ inherit distutils-r1
 DESCRIPTION="Generate a JSON file from an OpenDocument Format .ods file."
 HOMEPAGE="https://github.com/jdum/odsparsator"
 SRC_URI="https://github.com/jdum/odsparsator/archive/refs/tags/v${PV}.tar.gz -> odsparsator-${PV}.tar.gz"
-S="${WORKDIR}/odsparsator-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
