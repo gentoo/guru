@@ -110,6 +110,7 @@ sys-libs/gcompat
 # Dracut fails to boot with Clevis 20
 # https://github.com/latchset/clevis/issues/456
 ~app-crypt/clevis-20
+~app-crypt/clevis-21
 
 # Viorel Munteanu <ceamac@gentoo.org> (2023-06-07)
 # Does not work on no-multilib profiles and cannot be masked per profile
