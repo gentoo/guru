@@ -68,7 +68,7 @@ src_install() {
 		      void gdk_wayland_window_get_wl_surface() { abort(); }
 		      void gdk_wayland_display_get_wl_display() { abort(); }" > X11shim.c || die
 		$(tc-getCC) -shared -o mullvad-browser/X11shim.so X11shim.c || die
-		sed -i '1iexport LD_PRELOAD=/opt/mullvad-browser/X11shim.so' mullvad-browser/Browser/start-mullvad-browser  || die
+		sed -i '1a export LD_PRELOAD=/opt/mullvad-browser/X11shim.so' mullvad-browser/Browser/start-mullvad-browser || die
 	fi
 
 	insinto /opt/
