@@ -11,7 +11,6 @@ inherit distutils-r1
 DESCRIPTION="Python library for OpenDocument format (ODF)"
 HOMEPAGE="https://github.com/jdum/odfdo"
 SRC_URI="https://github.com/jdum/odfdo/archive/refs/tags/v${PV}.tar.gz -> odfdo-${PV}.tar.gz"
-S="${WORKDIR}/odfdo-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
