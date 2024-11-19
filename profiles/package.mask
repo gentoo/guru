@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Nicolas PARLANT <nicolas.parhuet@parhuet.fr> (2024-11-21)
+# No maintener and SRC_URI / license issue #262
+# Replaced by media-fonts/ttf-ancient-fonts wich includes
+# this font and few others by authors
+# Removal on 2024-12-22
+media-fonts/symbola
+
 # Julien Roy <julien@jroy.ca> (2024-11-20)
 # Dependency with no revdeps
 # Removal in 30 days
