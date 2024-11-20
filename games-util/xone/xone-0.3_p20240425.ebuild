@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,6 +29,7 @@ CONFIG_CHECK="SND CFG80211 INPUT_FF_MEMLESS USB POWER_SUPPLY LEDS_CLASS HID"
 MODULES_KERNEL_MIN=5.11
 PATCHES=(
 	"${FILESDIR}/${PN}-0.3_p20240425-kernel_6.11.patch"
+	"${FILESDIR}/${PN}-0.3_p20240425-kernel_6.12.patch"
 	"${FILESDIR}/${PN}-0.3_p20240425-sysfs_pairing.patch"
 )
 
