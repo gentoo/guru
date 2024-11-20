@@ -3,15 +3,15 @@
 
 EAPI=8
 
-inherit cmake git-r3 toolchain-funcs optfeature
+inherit cmake toolchain-funcs optfeature
 
 DESCRIPTION="Linux Userspace x86_64 Emulator with a twist"
 HOMEPAGE="https://box86.org"
-EGIT_REPO_URI="https://github.com/ptitSeb/${PN}"
+SRC_URI="https://github.com/ptitSeb/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~arm64 ~ppc64"
 IUSE="static"
 
 pkg_setup() {
@@ -20,21 +20,15 @@ pkg_setup() {
 		die "big endian not supported!"
 	fi
 
-	if [[ ${CHOST} != *linux* ]]; then
-		eerror "box86/64 requires a linux system."
+	if [[ ${CHOST} != *gnu* || ${CHOST} != *linux* ]]; then
+		eerror "box86/64 requires a glibc and a linux system. Musl support is possible, upstream welcomes PRs!"
 		die "Not a GNU+Linux system"
-	fi
-
-	if [[ ${CHOST} != *gnu* ]]; then #in case musl support is added in master branch
-		ewarn ""
-		ewarn "box86/64 will likely not build or run on a non-glibc system."
-		ewarn ""
 	fi
 }
 
 src_configure() {
 	local -a mycmakeargs=(
-		-DNOGIT=0
+		-DNOGIT=1
 		-DARM_DYNAREC=0
 		-DRV64_DYNAREC=0
 	)
