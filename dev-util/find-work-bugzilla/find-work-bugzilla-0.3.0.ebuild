@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517=flit
 inherit distutils-r1 pypi
 
@@ -26,8 +26,7 @@ RDEPEND="
 	>=dev-python/pydantic-core-2[${PYTHON_USEDEP}]
 	<dev-python/pydantic-core-3[${PYTHON_USEDEP}]
 	dev-python/python-bugzilla[${PYTHON_USEDEP}]
-	dev-python/tabulate[${PYTHON_USEDEP}]
-	>=dev-util/find-work-0.91[${PYTHON_USEDEP}]
+	>=dev-util/find-work-0.990.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
@@ -37,8 +36,7 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-python_test() {
-	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
-	distutils_write_namespace find_work
-	epytest "${S}"
+src_install() {
+	distutils-r1_src_install
+	doman man/*.1
 }
