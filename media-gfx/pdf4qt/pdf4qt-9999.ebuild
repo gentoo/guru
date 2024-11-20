@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit cmake xdg-utils
+inherit cmake xdg
 
 DESCRIPTION="Open source PDF WYSIWYG editor based on Qt"
 HOMEPAGE="https://jakubmelka.github.io/"
@@ -20,6 +20,8 @@ fi
 
 LICENSE="LGPL-3+"
 SLOT="0"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-cpp/tbb:=
@@ -34,20 +36,29 @@ RDEPEND="
 	media-libs/openjpeg
 	sys-libs/zlib
 "
-DEPEND="$RDEPEND"
-# test ? ( dev-qt/qtbase:6[test] )
-# Note: testing is disabled because as for now the only test is failing.
-# See https://github.com/JakubMelka/PDF4QT/issues/222
+DEPEND="$RDEPEND
+	test? ( dev-qt/qtbase:6[test] )
+"
 
 DOCS=( NOTES.txt README.md RELEASES.txt )
 PATCHES=(
 	"${FILESDIR}/pdf4qt-1.4.0.0-minor-fix-remove-extention-from-Icon-endtry-in-a-des.patch"
 	"${FILESDIR}/pdf4qt-1.4.0.0-Minimal-cmake-fixes.patch"
-	"${FILESDIR}/pdf4qt-1.4.0.0-Disable-test-building.patch"
 	"${FILESDIR}/pdf4qt-1.4.0.0-Make-runtime-respect-cmake-s-plugin-dir-settings.patch"
 	# remove when Qt6.8 is stable
 	"${FILESDIR}/pdf4qt-1.4.9999-Support-build-against-Qt-6.7.patch"
 )
+
+src_prepare() {
+	cmake_src_prepare
+
+	# Conditionally dissable test build
+	if ! use test; then
+		sed -i -e '/find_package(Qt6/s/Test//' \
+			   -e '/add_subdirectory(UnitTests)/d' \
+			CMakeLists.txt || die
+	fi
+}
 
 src_configure() {
 	local mycmakeargs=(
@@ -58,12 +69,6 @@ src_configure() {
 	cmake_src_configure
 }
 
-pkg_postinst() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
+src_test() {
+	"${BUILD_DIR}"/bin/UnitTests || die "tests failed"
 }
