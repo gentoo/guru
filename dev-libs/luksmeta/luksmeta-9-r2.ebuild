@@ -25,10 +25,10 @@ PATCHES=(
 )
 
 src_prepare() {
-	default
-	eautoreconf
 	# Bug https://bugs.gentoo.org/921710
 	sed -i -e '/^-Werror \\$/d' configure.ac || die
+	default
+	eautoreconf
 }
 
 src_install() {
