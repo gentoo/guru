@@ -12,5 +12,6 @@
 		</maintainer>
 		<remote-id type="pypi">find-work-pkgcheck</remote-id>
 		<bugs-to>https://bugs.sysrq.in/enter_bug.cgi?product=Software&amp;component=find-work</bugs-to>
+		<changelog>https://git.sysrq.in/find-work-plugins/plain/find-work-pkgcheck/ChangeLog</changelog>
 	</upstream>
 </pkgmetadata>

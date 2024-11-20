@@ -50,6 +50,7 @@ src_configure() {
 }
 
 src_install() {
+	cmake_src_install
 	dostrip -x "usr/lib/x86_64-linux-gnu/*"
 }
 

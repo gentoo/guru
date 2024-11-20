@@ -21,12 +21,12 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	dev-libs/libsignal-ffi
+	~dev-libs/libsignal-ffi-0.62.0
 	dev-libs/olm
 "
 
 src_compile() {
-	ego build
+	ego build "${S}"/cmd/"${PN}"
 }
 
 src_install() {
@@ -35,10 +35,10 @@ src_install() {
 	keepdir /var/log/mautrix/signal
 	fowners -R root:mautrix /var/log/mautrix
 	fperms -R 770 /var/log/mautrix
-	sed -i -e "s/\.\/logs/\/var\/log\/${PN/-/\\\/}/" "example-config.yaml" || die
+	sed -i -e "s/\.\/logs/\/var\/log\/${PN/-/\\\/}/" "${S}/pkg/connector/example-config.yaml" || die
 
 	insinto "/etc/mautrix"
-	newins "example-config.yaml" "${PN/-/_}.yaml"
+	newins "${S}/pkg/connector/example-config.yaml" "${PN/-/_}.yaml"
 
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
 	systemd_dounit "${FILESDIR}/${PN}.service"

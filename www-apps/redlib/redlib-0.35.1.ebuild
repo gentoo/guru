@@ -6,181 +6,179 @@
 EAPI=8
 
 CRATES="
-	addr2line@0.21.0
+	addr2line@0.22.0
 	adler32@1.2.0
 	adler@1.0.2
 	ahash@0.8.11
-	aho-corasick@1.1.2
+	aho-corasick@1.1.3
 	alloc-no-stdlib@2.0.4
 	alloc-stdlib@0.2.2
-	allocator-api2@0.2.16
-	anstyle@1.0.6
+	allocator-api2@0.2.18
+	anstyle@1.0.7
+	arc-swap@1.7.1
 	askama@0.12.1
 	askama_derive@0.12.5
 	askama_escape@0.10.3
 	askama_parser@0.2.1
-	async-trait@0.1.77
-	autocfg@1.1.0
-	backtrace@0.3.69
-	base64@0.21.7
-	bitflags@1.3.2
-	bitflags@2.4.2
+	async-trait@0.1.80
+	autocfg@1.3.0
+	backtrace@0.3.73
+	base64@0.22.1
+	bitflags@2.6.0
 	block-buffer@0.10.4
-	brotli-decompressor@2.5.1
-	brotli@3.4.0
+	brotli-decompressor@4.0.1
+	brotli@6.0.0
 	bstr@1.9.1
 	build_html@2.4.0
-	bytes@1.5.0
-	cached@0.48.1
-	cached_proc_macro@0.19.1
+	bytes@1.6.0
+	cached@0.51.4
+	cached_proc_macro@0.21.0
 	cached_proc_macro_types@0.1.1
-	cc@1.0.89
+	cc@1.0.101
 	cfg-if@1.0.0
-	clap@4.5.1
-	clap_builder@4.5.1
-	clap_lex@0.7.0
-	cookie@0.18.0
+	clap@4.5.7
+	clap_builder@4.5.7
+	clap_lex@0.7.1
+	cookie@0.18.1
 	core-foundation-sys@0.8.6
 	core-foundation@0.9.4
 	core2@0.4.0
 	cpufeatures@0.2.12
-	crc32fast@1.4.0
+	crc32fast@1.4.2
 	crypto-common@0.1.6
-	darling@0.14.4
-	darling_core@0.14.4
-	darling_macro@0.14.4
+	darling@0.20.9
+	darling_core@0.20.9
+	darling_macro@0.20.9
 	dary_heap@0.3.6
 	deranged@0.3.11
 	digest@0.10.7
 	dotenvy@0.15.7
 	env_logger@0.10.2
 	equivalent@1.0.1
-	errno@0.3.8
-	fastrand@2.0.1
+	errno@0.3.9
+	fastrand@2.1.0
 	fnv@1.0.7
 	form_urlencoded@1.2.1
 	fs_extra@1.3.0
 	futures-channel@0.3.30
 	futures-core@0.3.30
 	futures-io@0.3.30
-	futures-lite@2.2.0
+	futures-lite@2.3.0
 	futures-sink@0.3.30
 	futures-task@0.3.30
 	futures-util@0.3.30
 	futures@0.3.30
 	generic-array@0.14.7
-	getrandom@0.2.12
-	gimli@0.28.1
+	getrandom@0.2.15
+	gimli@0.29.0
 	globset@0.4.14
-	h2@0.3.24
-	hashbrown@0.13.2
-	hashbrown@0.14.3
+	h2@0.3.26
+	hashbrown@0.14.5
 	hermit-abi@0.3.9
 	http-body@0.4.6
 	http@0.2.12
-	httparse@1.8.0
+	httparse@1.9.4
 	httpdate@1.0.3
 	humantime@2.1.0
 	hyper-rustls@0.25.0
-	hyper@0.14.28
+	hyper@0.14.29
 	ident_case@1.0.1
 	idna@0.5.0
-	indexmap@2.2.5
-	instant@0.1.12
+	indexmap@2.2.6
+	instant@0.1.13
 	is-terminal@0.4.12
-	itoa@1.0.10
-	libc@0.2.153
-	libflate@2.0.0
-	libflate_lz77@2.0.0
-	linux-raw-sys@0.4.13
-	lipsum@0.9.0
-	lock_api@0.4.11
+	itoa@1.0.11
+	libc@0.2.155
+	libflate@2.1.0
+	libflate_lz77@2.1.0
+	linux-raw-sys@0.4.14
+	lipsum@0.9.1
+	lock_api@0.4.12
 	log@0.4.21
-	memchr@2.7.1
+	memchr@2.7.4
 	mime@0.3.17
 	mime_guess@2.0.4
 	minimal-lexical@0.2.1
-	miniz_oxide@0.7.2
+	miniz_oxide@0.7.4
 	mio@0.8.11
 	nom@7.1.3
 	num-conv@0.1.0
 	num_cpus@1.16.0
 	num_threads@0.1.7
-	object@0.32.2
+	object@0.36.0
 	once_cell@1.19.0
 	openssl-probe@0.1.5
 	parking@2.2.0
-	parking_lot@0.12.1
-	parking_lot_core@0.9.9
+	parking_lot@0.12.3
+	parking_lot_core@0.9.10
 	percent-encoding@2.3.1
-	pin-project-lite@0.2.13
+	pin-project-lite@0.2.14
 	pin-utils@0.1.0
 	powerfmt@0.2.0
 	ppv-lite86@0.2.17
 	pretty_env_logger@0.5.0
-	proc-macro2@1.0.78
+	proc-macro2@1.0.86
 	quick-error@1.2.3
-	quote@1.0.35
+	quote@1.0.36
 	rand@0.8.5
 	rand_chacha@0.3.1
 	rand_core@0.6.4
-	redox_syscall@0.4.1
-	regex-automata@0.4.6
-	regex-syntax@0.8.2
-	regex@1.10.3
+	redox_syscall@0.5.2
+	regex-automata@0.4.7
+	regex-syntax@0.8.4
+	regex@1.10.5
 	ring@0.17.8
 	rle-decode-fast@1.0.3
 	route-recognizer@0.3.1
-	rust-embed-impl@8.3.0
-	rust-embed-utils@8.3.0
-	rust-embed@8.3.0
-	rustc-demangle@0.1.23
-	rustix@0.38.31
+	rust-embed-impl@8.4.0
+	rust-embed-utils@8.4.0
+	rust-embed@8.4.0
+	rustc-demangle@0.1.24
+	rustix@0.38.34
 	rustls-native-certs@0.7.0
-	rustls-pemfile@2.1.1
-	rustls-pki-types@1.3.1
-	rustls-webpki@0.102.2
-	rustls@0.22.2
+	rustls-pemfile@2.1.2
+	rustls-pki-types@1.7.0
+	rustls-webpki@0.102.4
+	rustls@0.22.4
 	rusty-forkfork@0.4.0
-	ryu@1.0.17
+	ryu@1.0.18
 	same-file@1.0.6
 	schannel@0.1.23
 	scopeguard@1.2.0
-	sealed_test@1.0.0
-	sealed_test_derive@1.0.0
-	security-framework-sys@2.9.1
-	security-framework@2.9.2
-	serde@1.0.197
-	serde_derive@1.0.197
-	serde_json@1.0.114
-	serde_spanned@0.6.5
-	serde_yaml@0.9.32
+	sealed_test@1.1.0
+	sealed_test_derive@1.1.0
+	security-framework-sys@2.11.0
+	security-framework@2.11.0
+	serde@1.0.203
+	serde_derive@1.0.203
+	serde_json@1.0.118
+	serde_spanned@0.6.6
+	serde_yaml@0.9.34+deprecated
 	sha2@0.10.8
-	signal-hook-registry@1.4.1
+	signal-hook-registry@1.4.2
 	slab@0.4.9
-	smallvec@1.13.1
-	socket2@0.5.6
+	smallvec@1.13.2
+	socket2@0.5.7
 	spin@0.9.8
-	strsim@0.10.0
-	subtle@2.5.0
-	syn@1.0.109
-	syn@2.0.52
+	strsim@0.11.1
+	subtle@2.6.1
+	syn@2.0.68
 	tempfile@3.10.1
 	termcolor@1.4.1
-	thiserror-impl@1.0.57
-	thiserror@1.0.57
+	thiserror-impl@1.0.61
+	thiserror@1.0.61
 	time-core@0.1.2
-	time-macros@0.2.17
-	time@0.3.34
-	tinyvec@1.6.0
+	time-macros@0.2.18
+	time@0.3.36
+	tinyvec@1.6.1
 	tinyvec_macros@0.1.1
-	tokio-macros@2.2.0
+	tokio-macros@2.3.0
 	tokio-rustls@0.25.0
-	tokio-util@0.7.10
-	tokio@1.36.0
-	toml@0.8.10
-	toml_datetime@0.6.5
-	toml_edit@0.22.6
+	tokio-util@0.7.11
+	tokio@1.38.0
+	toml@0.8.14
+	toml_datetime@0.6.6
+	toml_edit@0.22.14
 	tower-service@0.3.2
 	tracing-core@0.1.32
 	tracing@0.1.40
@@ -190,41 +188,39 @@ CRATES="
 	unicode-bidi@0.3.15
 	unicode-ident@1.0.12
 	unicode-normalization@0.1.23
-	unsafe-libyaml@0.2.10
+	unsafe-libyaml@0.2.11
 	untrusted@0.9.0
-	url@2.5.0
-	uuid@1.7.0
+	url@2.5.2
+	uuid@1.9.1
 	version_check@0.9.4
 	wait-timeout@0.2.0
 	walkdir@2.5.0
 	want@0.3.1
 	wasi@0.11.0+wasi-snapshot-preview1
-	winapi-i686-pc-windows-gnu@0.4.0
-	winapi-util@0.1.6
-	winapi-x86_64-pc-windows-gnu@0.4.0
-	winapi@0.3.9
+	winapi-util@0.1.8
 	windows-sys@0.48.0
 	windows-sys@0.52.0
 	windows-targets@0.48.5
-	windows-targets@0.52.4
+	windows-targets@0.52.5
 	windows_aarch64_gnullvm@0.48.5
-	windows_aarch64_gnullvm@0.52.4
+	windows_aarch64_gnullvm@0.52.5
 	windows_aarch64_msvc@0.48.5
-	windows_aarch64_msvc@0.52.4
+	windows_aarch64_msvc@0.52.5
 	windows_i686_gnu@0.48.5
-	windows_i686_gnu@0.52.4
+	windows_i686_gnu@0.52.5
+	windows_i686_gnullvm@0.52.5
 	windows_i686_msvc@0.48.5
-	windows_i686_msvc@0.52.4
+	windows_i686_msvc@0.52.5
 	windows_x86_64_gnu@0.48.5
-	windows_x86_64_gnu@0.52.4
+	windows_x86_64_gnu@0.52.5
 	windows_x86_64_gnullvm@0.48.5
-	windows_x86_64_gnullvm@0.52.4
+	windows_x86_64_gnullvm@0.52.5
 	windows_x86_64_msvc@0.48.5
-	windows_x86_64_msvc@0.52.4
-	winnow@0.6.5
-	zerocopy-derive@0.7.32
-	zerocopy@0.7.32
-	zeroize@1.7.0
+	windows_x86_64_msvc@0.52.5
+	winnow@0.6.13
+	zerocopy-derive@0.7.34
+	zerocopy@0.7.34
+	zeroize@1.8.1
 "
 
 inherit cargo systemd

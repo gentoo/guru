@@ -1,0 +1,585 @@
+From 65568d3a884857ce08d1170f5801a6891a5c187c Mon Sep 17 00:00:00 2001
+From: jeffro256 <jeffro256@tutanota.com>
+Date: Fri, 23 Aug 2024 12:15:17 -0500
+Subject: [PATCH] build: fix build with Boost 1.85 and remove instances of
+ viewkey logging [RELEASE]
+
+1. Use std::is_standard_layout and std::is_trivially_copyable instead of std::is_pod for KV byte-wise serialization, which fixes compile issue for Boost UUIDs
+2. Removed reimplementation of std::hash for boost::uuids::uuid
+3. Removed << operator overload for crypto::secret_key
+4. Removed instances in code where private view key was dumped to the log in plaintext
+
+Release version of #9450, containing C++14 modified assertions
+---
+ CMakeLists.txt                                |  2 ++
+ .../serialization/keyvalue_serialization.h    | 18 ++++++++-------
+ contrib/epee/include/span.h                   | 23 +++++++++++--------
+ contrib/epee/include/string_tools.h           |  3 +++
+ src/crypto/crypto.h                           | 14 ++++++++---
+ .../cryptonote_format_utils.cpp               |  4 ++--
+ src/cryptonote_core/cryptonote_tx_utils.cpp   |  4 ++--
+ src/cryptonote_protocol/block_queue.cpp       | 13 ++---------
+ src/device/device_default.cpp                 |  8 ++++---
+ src/lmdb/util.h                               |  4 ++--
+ src/simplewallet/simplewallet.cpp             |  6 ++---
+ src/wallet/api/wallet.cpp                     |  8 +++----
+ src/wallet/wallet2.cpp                        | 18 +++++++--------
+ src/wallet/wallet_rpc_server.cpp              |  4 ++--
+ tests/benchmark.cpp                           |  2 +-
+ tests/core_tests/multisig.cpp                 | 10 ++++----
+ tests/functional_tests/make_test_signature.cc |  2 +-
+ tests/unit_tests/crypto.cpp                   |  2 +-
+ tests/unit_tests/multisig.cpp                 |  2 +-
+ tests/unit_tests/serialization.cpp            |  2 +-
+ 20 files changed, 80 insertions(+), 69 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8fb03ba1ff..7b77c37393 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1077,6 +1077,8 @@ if(STATIC)
+ endif()
+ find_package(Boost 1.58 QUIET REQUIRED COMPONENTS system filesystem thread date_time chrono regex serialization program_options locale)
+ add_definitions(-DBOOST_ASIO_ENABLE_SEQUENTIAL_STRAND_ALLOCATION)
++add_definitions(-DBOOST_NO_AUTO_PTR)
++add_definitions(-DBOOST_UUID_DISABLE_ALIGNMENT) # This restores UUID's std::has_unique_object_representations property
+ 
+ set(CMAKE_FIND_LIBRARY_SUFFIXES ${OLD_LIB_SUFFIXES})
+ if(NOT Boost_FOUND)
+diff --git a/contrib/epee/include/serialization/keyvalue_serialization.h b/contrib/epee/include/serialization/keyvalue_serialization.h
+index 06d74329f1..fbbddc7d2f 100644
+--- a/contrib/epee/include/serialization/keyvalue_serialization.h
++++ b/contrib/epee/include/serialization/keyvalue_serialization.h
+@@ -98,16 +98,18 @@ public: \
+ #define KV_SERIALIZE_VAL_POD_AS_BLOB_FORCE_N(varialble, val_name) \
+   epee::serialization::selector<is_store>::serialize_t_val_as_blob(this_ref.varialble, stg, hparent_section, val_name); 
+ 
+-#define KV_SERIALIZE_VAL_POD_AS_BLOB_N(varialble, val_name) \
+-  static_assert(std::is_pod<decltype(this_ref.varialble)>::value, "t_type must be a POD type."); \
+-  KV_SERIALIZE_VAL_POD_AS_BLOB_FORCE_N(varialble, val_name)
++#define KV_SERIALIZE_VAL_POD_AS_BLOB_N(variable, val_name) \
++  static_assert(std::is_trivially_copyable<decltype(this_ref.variable)>(), "t_type must be a trivially copyable type."); \
++  static_assert(std::is_standard_layout<decltype(this_ref.variable)>(), "t_type must be a standard layout type."); \
++  KV_SERIALIZE_VAL_POD_AS_BLOB_FORCE_N(variable, val_name)
+ 
+-#define KV_SERIALIZE_VAL_POD_AS_BLOB_OPT_N(varialble, val_name, default_value) \
++#define KV_SERIALIZE_VAL_POD_AS_BLOB_OPT_N(variable, val_name, default_value) \
+   do { \
+-    static_assert(std::is_pod<decltype(this_ref.varialble)>::value, "t_type must be a POD type."); \
+-    bool ret = KV_SERIALIZE_VAL_POD_AS_BLOB_FORCE_N(varialble, val_name); \
++    static_assert(std::is_trivially_copyable<decltype(this_ref.variable)>(), "t_type must be a trivially copyable type."); \
++    static_assert(std::is_standard_layout<decltype(this_ref.variable)>(), "t_type must be a standard layout type."); \
++    bool ret = KV_SERIALIZE_VAL_POD_AS_BLOB_FORCE_N(variable, val_name) \
+     if (!ret) \
+-      epee::serialize_default(this_ref.varialble, default_value); \
++      epee::serialize_default(this_ref.variable, default_value); \
+   } while(0);
+ 
+ #define KV_SERIALIZE_CONTAINER_POD_AS_BLOB_N(varialble, val_name) \
+@@ -118,7 +120,7 @@ public: \
+ #define KV_SERIALIZE(varialble)                           KV_SERIALIZE_N(varialble, #varialble)
+ #define KV_SERIALIZE_VAL_POD_AS_BLOB(varialble)           KV_SERIALIZE_VAL_POD_AS_BLOB_N(varialble, #varialble)
+ #define KV_SERIALIZE_VAL_POD_AS_BLOB_OPT(varialble, def)  KV_SERIALIZE_VAL_POD_AS_BLOB_OPT_N(varialble, #varialble, def)
+-#define KV_SERIALIZE_VAL_POD_AS_BLOB_FORCE(varialble)     KV_SERIALIZE_VAL_POD_AS_BLOB_FORCE_N(varialble, #varialble) //skip is_pod compile time check
++#define KV_SERIALIZE_VAL_POD_AS_BLOB_FORCE(varialble)     KV_SERIALIZE_VAL_POD_AS_BLOB_FORCE_N(varialble, #varialble) //skip is_trivially_copyable and is_standard_layout compile time check
+ #define KV_SERIALIZE_CONTAINER_POD_AS_BLOB(varialble)     KV_SERIALIZE_CONTAINER_POD_AS_BLOB_N(varialble, #varialble)
+ #define KV_SERIALIZE_OPT(variable,default_value)          KV_SERIALIZE_OPT_N(variable, #variable, default_value)
+ 
+diff --git a/contrib/epee/include/span.h b/contrib/epee/include/span.h
+index 23bd51f8c2..01dc387d6d 100644
+--- a/contrib/epee/include/span.h
++++ b/contrib/epee/include/span.h
+@@ -133,17 +133,14 @@ namespace epee
+     return {src.data(), src.size()};
+   }
+ 
+-  template<typename T>
+-  constexpr bool has_padding() noexcept
+-  {
+-    return !std::is_standard_layout<T>() || alignof(T) != 1;
+-  }
+-
+   //! \return Cast data from `src` as `span<const std::uint8_t>`.
+   template<typename T>
+   span<const std::uint8_t> to_byte_span(const span<const T> src) noexcept
+   {
+-    static_assert(!has_padding<T>(), "source type may have padding");
++    static_assert(!std::is_empty<T>(), "empty value types will not work -> sizeof == 1");
++    static_assert(std::is_standard_layout<T>(), "type must have standard layout");
++    static_assert(std::is_trivially_copyable<T>(), "type must be trivially copyable");
++    static_assert(alignof(T) == 1, "type may have padding");
+     return {reinterpret_cast<const std::uint8_t*>(src.data()), src.size_bytes()}; 
+   }
+ 
+@@ -153,7 +150,9 @@ namespace epee
+   {
+     using value_type = typename T::value_type;
+     static_assert(!std::is_empty<value_type>(), "empty value types will not work -> sizeof == 1");
+-    static_assert(!has_padding<value_type>(), "source value type may have padding");
++    static_assert(std::is_standard_layout<value_type>(), "value type must have standard layout");
++    static_assert(std::is_trivially_copyable<value_type>(), "value type must be trivially copyable");
++    static_assert(alignof(value_type) == 1, "value type may have padding");
+     return {reinterpret_cast<std::uint8_t*>(src.data()), src.size() * sizeof(value_type)};
+   }
+ 
+@@ -162,7 +161,9 @@ namespace epee
+   span<const std::uint8_t> as_byte_span(const T& src) noexcept
+   {
+     static_assert(!std::is_empty<T>(), "empty types will not work -> sizeof == 1");
+-    static_assert(!has_padding<T>(), "source type may have padding");
++    static_assert(std::is_standard_layout<T>(), "type must have standard layout");
++    static_assert(std::is_trivially_copyable<T>(), "type must be trivially copyable");
++    static_assert(alignof(T) == 1, "type may have padding");
+     return {reinterpret_cast<const std::uint8_t*>(std::addressof(src)), sizeof(T)};
+   }
+ 
+@@ -171,7 +172,9 @@ namespace epee
+   span<std::uint8_t> as_mut_byte_span(T& src) noexcept
+   {
+     static_assert(!std::is_empty<T>(), "empty types will not work -> sizeof == 1");
+-    static_assert(!has_padding<T>(), "source type may have padding");
++    static_assert(std::is_standard_layout<T>(), "type must have standard layout");
++    static_assert(std::is_trivially_copyable<T>(), "type must be trivially copyable");
++    static_assert(alignof(T) == 1, "type may have padding");
+     return {reinterpret_cast<std::uint8_t*>(std::addressof(src)), sizeof(T)};
+   }
+ 
+diff --git a/contrib/epee/include/string_tools.h b/contrib/epee/include/string_tools.h
+index 31c55b97ba..7de73cbf5a 100644
+--- a/contrib/epee/include/string_tools.h
++++ b/contrib/epee/include/string_tools.h
+@@ -91,6 +91,7 @@ namespace string_tools
+   std::string pod_to_hex(const t_pod_type& s)
+   {
+     static_assert(std::is_standard_layout<t_pod_type>(), "expected standard layout type");
++    static_assert(alignof(t_pod_type) == 1, "type may have padding");
+     return to_hex::string(as_byte_span(s));
+   }
+   //----------------------------------------------------------------------------
+@@ -98,6 +99,8 @@ namespace string_tools
+   bool hex_to_pod(const boost::string_ref hex_str, t_pod_type& s)
+   {
+     static_assert(std::is_standard_layout<t_pod_type>(), "expected standard layout type");
++    static_assert(alignof(t_pod_type) == 1, "type may have padding");
++    static_assert(std::is_trivially_copyable<t_pod_type>(), "type must be trivially copyable");
+     return from_hex::to_buffer(as_mut_byte_span(s), hex_str);
+   }
+   //----------------------------------------------------------------------------
+diff --git a/src/crypto/crypto.h b/src/crypto/crypto.h
+index d8cd6c6a01..ee1cac04a6 100644
+--- a/src/crypto/crypto.h
++++ b/src/crypto/crypto.h
+@@ -171,7 +171,9 @@ namespace crypto {
+   /* Generate a value filled with random bytes.
+    */
+   template<typename T>
+-  typename std::enable_if<std::is_pod<T>::value, T>::type rand() {
++  T rand() {
++    static_assert(std::is_standard_layout<T>(), "cannot write random bytes into non-standard layout type");
++    static_assert(std::is_trivially_copyable<T>(), "cannot write random bytes into non-trivially copyable type");
+     typename std::remove_cv<T>::type res;
+     generate_random_bytes_thread_safe(sizeof(T), (uint8_t*)&res);
+     return res;
+@@ -314,8 +316,14 @@ namespace crypto {
+   inline std::ostream &operator <<(std::ostream &o, const crypto::public_key &v) {
+     epee::to_hex::formatted(o, epee::as_byte_span(v)); return o;
+   }
+-  inline std::ostream &operator <<(std::ostream &o, const crypto::secret_key &v) {
+-    epee::to_hex::formatted(o, epee::as_byte_span(v)); return o;
++  /* Do NOT overload the << operator for crypto::secret_key here. Use secret_key_explicit_print_ref
++   * instead to prevent accidental implicit dumping of secret key material to the logs (which has
++   * happened before). For the same reason, do not overload it for crypto::ec_scalar either since
++   * crypto::secret_key is a subclass. I'm not sorry that it's obtuse; that's the point, bozo.
++   */
++  struct secret_key_explicit_print_ref { const crypto::secret_key &sk; };
++  inline std::ostream &operator <<(std::ostream &o, const secret_key_explicit_print_ref v) {
++    epee::to_hex::formatted(o, epee::as_byte_span(unwrap(unwrap(v.sk)))); return o;
+   }
+   inline std::ostream &operator <<(std::ostream &o, const crypto::key_derivation &v) {
+     epee::to_hex::formatted(o, epee::as_byte_span(v)); return o;
+diff --git a/src/cryptonote_basic/cryptonote_format_utils.cpp b/src/cryptonote_basic/cryptonote_format_utils.cpp
+index 8be23583b5..e6e424c719 100644
+--- a/src/cryptonote_basic/cryptonote_format_utils.cpp
++++ b/src/cryptonote_basic/cryptonote_format_utils.cpp
+@@ -292,7 +292,7 @@ namespace cryptonote
+     bool r = hwdev.generate_key_derivation(tx_public_key, ack.m_view_secret_key, recv_derivation);
+     if (!r)
+     {
+-      MWARNING("key image helper: failed to generate_key_derivation(" << tx_public_key << ", " << ack.m_view_secret_key << ")");
++      MWARNING("key image helper: failed to generate_key_derivation(" << tx_public_key << ", <viewkey>)");
+       memcpy(&recv_derivation, rct::identity().bytes, sizeof(recv_derivation));
+     }
+ 
+@@ -303,7 +303,7 @@ namespace cryptonote
+       r = hwdev.generate_key_derivation(additional_tx_public_keys[i], ack.m_view_secret_key, additional_recv_derivation);
+       if (!r)
+       {
+-        MWARNING("key image helper: failed to generate_key_derivation(" << additional_tx_public_keys[i] << ", " << ack.m_view_secret_key << ")");
++        MWARNING("key image helper: failed to generate_key_derivation(" << additional_tx_public_keys[i] << ", <viewkey>)");
+       }
+       else
+       {
+diff --git a/src/cryptonote_core/cryptonote_tx_utils.cpp b/src/cryptonote_core/cryptonote_tx_utils.cpp
+index dc9d6612f6..8f044154b1 100644
+--- a/src/cryptonote_core/cryptonote_tx_utils.cpp
++++ b/src/cryptonote_core/cryptonote_tx_utils.cpp
+@@ -144,7 +144,7 @@ namespace cryptonote
+       crypto::key_derivation derivation = AUTO_VAL_INIT(derivation);
+       crypto::public_key out_eph_public_key = AUTO_VAL_INIT(out_eph_public_key);
+       bool r = crypto::generate_key_derivation(miner_address.m_view_public_key, txkey.sec, derivation);
+-      CHECK_AND_ASSERT_MES(r, false, "while creating outs: failed to generate_key_derivation(" << miner_address.m_view_public_key << ", " << txkey.sec << ")");
++      CHECK_AND_ASSERT_MES(r, false, "while creating outs: failed to generate_key_derivation(" << miner_address.m_view_public_key << ", " << crypto::secret_key_explicit_print_ref{txkey.sec} << ")");
+ 
+       r = crypto::derive_public_key(derivation, no, miner_address.m_spend_public_key, out_eph_public_key);
+       CHECK_AND_ASSERT_MES(r, false, "while creating outs: failed to derive_public_key(" << derivation << ", " << no << ", "<< miner_address.m_spend_public_key << ")");
+@@ -484,7 +484,7 @@ namespace cryptonote
+           crypto::generate_ring_signature(tx_prefix_hash, boost::get<txin_to_key>(tx.vin[i]).k_image, keys_ptrs, in_contexts[i].in_ephemeral.sec, src_entr.real_output, sigs.data());
+         ss_ring_s << "signatures:" << ENDL;
+         std::for_each(sigs.begin(), sigs.end(), [&](const crypto::signature& s){ss_ring_s << s << ENDL;});
+-        ss_ring_s << "prefix_hash:" << tx_prefix_hash << ENDL << "in_ephemeral_key: " << in_contexts[i].in_ephemeral.sec << ENDL << "real_output: " << src_entr.real_output << ENDL;
++        ss_ring_s << "prefix_hash:" << tx_prefix_hash << ENDL << "in_ephemeral_key: " << crypto::secret_key_explicit_print_ref{in_contexts[i].in_ephemeral.sec} << ENDL << "real_output: " << src_entr.real_output << ENDL;
+         i++;
+       }
+ 
+diff --git a/src/cryptonote_protocol/block_queue.cpp b/src/cryptonote_protocol/block_queue.cpp
+index 4e65eafa4f..e5a4c0c99a 100644
+--- a/src/cryptonote_protocol/block_queue.cpp
++++ b/src/cryptonote_protocol/block_queue.cpp
+@@ -40,15 +40,6 @@
+ #undef MONERO_DEFAULT_LOG_CATEGORY
+ #define MONERO_DEFAULT_LOG_CATEGORY "cn.block_queue"
+ 
+-namespace std {
+-  static_assert(sizeof(size_t) <= sizeof(boost::uuids::uuid), "boost::uuids::uuid too small");
+-  template<> struct hash<boost::uuids::uuid> {
+-    std::size_t operator()(const boost::uuids::uuid &_v) const {
+-      return reinterpret_cast<const std::size_t &>(_v);
+-    }
+-  };
+-}
+-
+ namespace cryptonote
+ {
+ 
+@@ -472,7 +463,7 @@ bool block_queue::has_spans(const boost::uuids::uuid &connection_id) const
+ float block_queue::get_speed(const boost::uuids::uuid &connection_id) const
+ {
+   boost::unique_lock<boost::recursive_mutex> lock(mutex);
+-  std::unordered_map<boost::uuids::uuid, float> speeds;
++  std::unordered_map<boost::uuids::uuid, float, boost::hash<boost::uuids::uuid>> speeds;
+   for (const auto &span: blocks)
+   {
+     if (span.blocks.empty())
+@@ -480,7 +471,7 @@ float block_queue::get_speed(const boost::uuids::uuid &connection_id) const
+     // note that the average below does not average over the whole set, but over the
+     // previous pseudo average and the latest rate: this gives much more importance
+     // to the latest measurements, which is fine here
+-    std::unordered_map<boost::uuids::uuid, float>::iterator i = speeds.find(span.connection_id);
++    const auto i = speeds.find(span.connection_id);
+     if (i == speeds.end())
+       speeds.insert(std::make_pair(span.connection_id, span.rate));
+     else
+diff --git a/src/device/device_default.cpp b/src/device/device_default.cpp
+index d70ece229c..c770a6e221 100644
+--- a/src/device/device_default.cpp
++++ b/src/device/device_default.cpp
+@@ -317,13 +317,15 @@ namespace hw {
+             {
+             // sending change to yourself; derivation = a*R
+                 r = generate_key_derivation(txkey_pub, sender_account_keys.m_view_secret_key, derivation);
+-                CHECK_AND_ASSERT_MES(r, false, "at creation outs: failed to generate_key_derivation(" << txkey_pub << ", " << sender_account_keys.m_view_secret_key << ")");
++                CHECK_AND_ASSERT_MES(r, false, "at creation outs: failed to generate_key_derivation(" << txkey_pub << ", <viewkey>)");
+             }
+             else
+             {
+             // sending to the recipient; derivation = r*A (or s*C in the subaddress scheme)
+-                r = generate_key_derivation(dst_entr.addr.m_view_public_key, dst_entr.is_subaddress && need_additional_txkeys ? additional_txkey.sec : tx_key, derivation);
+-                CHECK_AND_ASSERT_MES(r, false, "at creation outs: failed to generate_key_derivation(" << dst_entr.addr.m_view_public_key << ", " << (dst_entr.is_subaddress && need_additional_txkeys ? additional_txkey.sec : tx_key) << ")");
++                const crypto::secret_key &tx_privkey{dst_entr.is_subaddress && need_additional_txkeys ? additional_txkey.sec : tx_key};
++                r = generate_key_derivation(dst_entr.addr.m_view_public_key, tx_privkey, derivation);
++                CHECK_AND_ASSERT_MES(r, false, "at creation outs: failed to generate_key_derivation("
++                    << dst_entr.addr.m_view_public_key << ", " << crypto::secret_key_explicit_print_ref{tx_privkey} << ")");
+             }
+ 
+             if (need_additional_txkeys)
+diff --git a/src/lmdb/util.h b/src/lmdb/util.h
+index c6c75bc004..392ff20390 100644
+--- a/src/lmdb/util.h
++++ b/src/lmdb/util.h
+@@ -127,7 +127,7 @@ namespace lmdb
+     /*!
+         A LMDB comparison function that uses `std::memcmp`.
+ 
+-        \toaram T is `!epee::has_padding`
++        \toaram T has standard layout and an alignment of 1
+         \tparam offset to `T` within the value.
+ 
+         \return The result of `std::memcmp` over the value.
+@@ -135,7 +135,7 @@ namespace lmdb
+     template<typename T, std::size_t offset = 0>
+     inline int compare(MDB_val const* left, MDB_val const* right) noexcept
+     {
+-        static_assert(!epee::has_padding<T>(), "memcmp will not work");
++        static_assert(std::is_standard_layout<T>() && alignof(T) == 1, "memcmp will not work");
+         if (!left || !right || left->mv_size < sizeof(T) + offset || right->mv_size < sizeof(T) + offset)
+         {
+             assert("invalid use of custom comparison" == 0);
+diff --git a/src/simplewallet/simplewallet.cpp b/src/simplewallet/simplewallet.cpp
+index b9e30f9d94..011b1c7613 100644
+--- a/src/simplewallet/simplewallet.cpp
++++ b/src/simplewallet/simplewallet.cpp
+@@ -1979,7 +1979,7 @@ bool simple_wallet::rpc_payment_info(const std::vector<std::string> &args)
+     crypto::public_key pkey;
+     crypto::secret_key_to_public_key(m_wallet->get_rpc_client_secret_key(), pkey);
+     message_writer() << tr("RPC client ID: ") << pkey;
+-    message_writer() << tr("RPC client secret key: ") << m_wallet->get_rpc_client_secret_key();
++    message_writer() << tr("RPC client secret key: ") << crypto::secret_key_explicit_print_ref{m_wallet->get_rpc_client_secret_key()};
+     if (!m_wallet->get_rpc_payment_info(false, payment_required, credits, diff, credits_per_hash_found, hashing_blob, height, seed_height, seed_hash, next_seed_hash, cookie))
+     {
+       fail_msg_writer() << tr("Failed to query daemon");
+@@ -8026,9 +8026,9 @@ bool simple_wallet::submit_transfer(const std::vector<std::string> &args_)
+ std::string get_tx_key_stream(crypto::secret_key tx_key, std::vector<crypto::secret_key> additional_tx_keys)
+ {
+   ostringstream oss;
+-  oss << epee::string_tools::pod_to_hex(tx_key);
++  oss << epee::string_tools::pod_to_hex(unwrap(unwrap(tx_key)));
+   for (size_t i = 0; i < additional_tx_keys.size(); ++i)
+-    oss << epee::string_tools::pod_to_hex(additional_tx_keys[i]);
++    oss << epee::string_tools::pod_to_hex(unwrap(unwrap(additional_tx_keys[i])));
+   return oss.str();
+ }
+ 
+diff --git a/src/wallet/api/wallet.cpp b/src/wallet/api/wallet.cpp
+index fc4f891281..2ed14bfbd5 100644
+--- a/src/wallet/api/wallet.cpp
++++ b/src/wallet/api/wallet.cpp
+@@ -881,7 +881,7 @@ std::string WalletImpl::integratedAddress(const std::string &payment_id) const
+ 
+ std::string WalletImpl::secretViewKey() const
+ {
+-    return epee::string_tools::pod_to_hex(m_wallet->get_account().get_keys().m_view_secret_key);
++    return epee::string_tools::pod_to_hex(unwrap(unwrap(m_wallet->get_account().get_keys().m_view_secret_key)));
+ }
+ 
+ std::string WalletImpl::publicViewKey() const
+@@ -891,7 +891,7 @@ std::string WalletImpl::publicViewKey() const
+ 
+ std::string WalletImpl::secretSpendKey() const
+ {
+-    return epee::string_tools::pod_to_hex(m_wallet->get_account().get_keys().m_spend_secret_key);
++    return epee::string_tools::pod_to_hex(unwrap(unwrap(m_wallet->get_account().get_keys().m_spend_secret_key)));
+ }
+ 
+ std::string WalletImpl::publicSpendKey() const
+@@ -1878,9 +1878,9 @@ std::string WalletImpl::getTxKey(const std::string &txid_str) const
+         {
+             clearStatus();
+             std::ostringstream oss;
+-            oss << epee::string_tools::pod_to_hex(tx_key);
++            oss << epee::string_tools::pod_to_hex(unwrap(unwrap(tx_key)));
+             for (size_t i = 0; i < additional_tx_keys.size(); ++i)
+-                oss << epee::string_tools::pod_to_hex(additional_tx_keys[i]);
++                oss << epee::string_tools::pod_to_hex(unwrap(unwrap(additional_tx_keys[i])));
+             return oss.str();
+         }
+         else
+diff --git a/src/wallet/wallet2.cpp b/src/wallet/wallet2.cpp
+index ad8c361909..90b5731695 100644
+--- a/src/wallet/wallet2.cpp
++++ b/src/wallet/wallet2.cpp
+@@ -4613,7 +4613,7 @@ boost::optional<wallet2::keys_file_data> wallet2::get_keys_file_data(const epee:
+     original_address = get_account_address_as_str(m_nettype, false, m_original_address);
+     value.SetString(original_address.c_str(), original_address.length());
+     json.AddMember("original_address", value, json.GetAllocator());
+-    original_view_secret_key = epee::string_tools::pod_to_hex(m_original_view_secret_key);
++    original_view_secret_key = epee::string_tools::pod_to_hex(unwrap(unwrap(m_original_view_secret_key)));
+     value.SetString(original_view_secret_key.c_str(), original_view_secret_key.length());
+     json.AddMember("original_view_secret_key", value, json.GetAllocator());
+   }
+@@ -7077,7 +7077,7 @@ void wallet2::commit_tx(pending_tx& ptx)
+     cryptonote::COMMAND_RPC_SUBMIT_RAW_TX::request oreq;
+     cryptonote::COMMAND_RPC_SUBMIT_RAW_TX::response ores;
+     oreq.address = get_account().get_public_address_str(m_nettype);
+-    oreq.view_key = string_tools::pod_to_hex(get_account().get_keys().m_view_secret_key);
++    oreq.view_key = string_tools::pod_to_hex(unwrap(unwrap(get_account().get_keys().m_view_secret_key)));
+     oreq.tx = epee::string_tools::buff_to_hex_nodelimer(tx_to_blob(ptx.tx));
+     {
+       const boost::lock_guard<boost::recursive_mutex> lock{m_daemon_rpc_mutex};
+@@ -10075,7 +10075,7 @@ bool wallet2::light_wallet_login(bool &new_address)
+   tools::COMMAND_RPC_LOGIN::request request;
+   tools::COMMAND_RPC_LOGIN::response response;
+   request.address = get_account().get_public_address_str(m_nettype);
+-  request.view_key = string_tools::pod_to_hex(get_account().get_keys().m_view_secret_key);
++  request.view_key = string_tools::pod_to_hex(unwrap(unwrap(get_account().get_keys().m_view_secret_key)));
+   // Always create account if it doesn't exist.
+   request.create_account = true;
+   m_daemon_rpc_mutex.lock();
+@@ -10102,7 +10102,7 @@ bool wallet2::light_wallet_import_wallet_request(tools::COMMAND_RPC_IMPORT_WALLE
+   MDEBUG("Light wallet import wallet request");
+   tools::COMMAND_RPC_IMPORT_WALLET_REQUEST::request oreq;
+   oreq.address = get_account().get_public_address_str(m_nettype);
+-  oreq.view_key = string_tools::pod_to_hex(get_account().get_keys().m_view_secret_key);
++  oreq.view_key = string_tools::pod_to_hex(unwrap(unwrap(get_account().get_keys().m_view_secret_key)));
+   m_daemon_rpc_mutex.lock();
+   bool r = invoke_http_json("/import_wallet_request", oreq, response, rpc_timeout, "POST");
+   m_daemon_rpc_mutex.unlock();
+@@ -10121,7 +10121,7 @@ void wallet2::light_wallet_get_unspent_outs()
+   
+   oreq.amount = "0";
+   oreq.address = get_account().get_public_address_str(m_nettype);
+-  oreq.view_key = string_tools::pod_to_hex(get_account().get_keys().m_view_secret_key);
++  oreq.view_key = string_tools::pod_to_hex(unwrap(unwrap(get_account().get_keys().m_view_secret_key)));
+   // openMonero specific
+   oreq.dust_threshold = boost::lexical_cast<std::string>(::config::DEFAULT_DUST_THRESHOLD);
+   // below are required by openMonero api - but are not used.
+@@ -10273,7 +10273,7 @@ bool wallet2::light_wallet_get_address_info(tools::COMMAND_RPC_GET_ADDRESS_INFO:
+   tools::COMMAND_RPC_GET_ADDRESS_INFO::request request;
+   
+   request.address = get_account().get_public_address_str(m_nettype);
+-  request.view_key = string_tools::pod_to_hex(get_account().get_keys().m_view_secret_key);
++  request.view_key = string_tools::pod_to_hex(unwrap(unwrap(get_account().get_keys().m_view_secret_key)));
+   m_daemon_rpc_mutex.lock();
+   bool r = invoke_http_json("/get_address_info", request, response, rpc_timeout, "POST");
+   m_daemon_rpc_mutex.unlock();
+@@ -10290,7 +10290,7 @@ void wallet2::light_wallet_get_address_txs()
+   tools::COMMAND_RPC_GET_ADDRESS_TXS::response ires;
+   
+   ireq.address = get_account().get_public_address_str(m_nettype);
+-  ireq.view_key = string_tools::pod_to_hex(get_account().get_keys().m_view_secret_key);
++  ireq.view_key = string_tools::pod_to_hex(unwrap(unwrap(get_account().get_keys().m_view_secret_key)));
+   m_daemon_rpc_mutex.lock();
+   bool r = invoke_http_json("/get_address_txs", ireq, ires, rpc_timeout, "POST");
+   m_daemon_rpc_mutex.unlock();
+@@ -10520,7 +10520,7 @@ bool wallet2::light_wallet_key_image_is_ours(const crypto::key_image& key_image,
+   const account_keys& ack = get_account().get_keys();
+   crypto::key_derivation derivation;
+   bool r = crypto::generate_key_derivation(tx_public_key, ack.m_view_secret_key, derivation);
+-  CHECK_AND_ASSERT_MES(r, false, "failed to generate_key_derivation(" << tx_public_key << ", " << ack.m_view_secret_key << ")");
++  CHECK_AND_ASSERT_MES(r, false, "failed to generate_key_derivation(" << tx_public_key << ", " << crypto::secret_key_explicit_print_ref{ack.m_view_secret_key} << ")");
+ 
+   r = crypto::derive_public_key(derivation, out_index, ack.m_account_address.m_spend_public_key, in_ephemeral.pub);
+   CHECK_AND_ASSERT_MES(r, false, "failed to derive_public_key (" << derivation << ", " << out_index << ", " << ack.m_account_address.m_spend_public_key << ")");
+@@ -10528,7 +10528,7 @@ bool wallet2::light_wallet_key_image_is_ours(const crypto::key_image& key_image,
+   crypto::derive_secret_key(derivation, out_index, ack.m_spend_secret_key, in_ephemeral.sec);
+   crypto::public_key out_pkey_test;
+   r = crypto::secret_key_to_public_key(in_ephemeral.sec, out_pkey_test);
+-  CHECK_AND_ASSERT_MES(r, false, "failed to secret_key_to_public_key(" << in_ephemeral.sec << ")");
++  CHECK_AND_ASSERT_MES(r, false, "failed to secret_key_to_public_key(" << crypto::secret_key_explicit_print_ref{in_ephemeral.sec} << ")");
+   CHECK_AND_ASSERT_MES(in_ephemeral.pub == out_pkey_test, false, "derived secret key doesn't match derived public key");
+ 
+   crypto::generate_key_image(in_ephemeral.pub, in_ephemeral.sec, calculated_key_image);
+diff --git a/src/wallet/wallet_rpc_server.cpp b/src/wallet/wallet_rpc_server.cpp
+index b1419949f8..3c548de135 100644
+--- a/src/wallet/wallet_rpc_server.cpp
++++ b/src/wallet/wallet_rpc_server.cpp
+@@ -1247,9 +1247,9 @@ namespace tools
+       res.tx_hash_list.push_back(epee::string_tools::pod_to_hex(cryptonote::get_transaction_hash(ptx.tx)));
+       if (req.get_tx_keys)
+       {
+-        res.tx_key_list.push_back(epee::string_tools::pod_to_hex(ptx.tx_key));
++        res.tx_key_list.push_back(epee::string_tools::pod_to_hex(unwrap(unwrap(ptx.tx_key))));
+         for (const crypto::secret_key& additional_tx_key : ptx.additional_tx_keys)
+-          res.tx_key_list.back() += epee::string_tools::pod_to_hex(additional_tx_key);
++          res.tx_key_list.back() += epee::string_tools::pod_to_hex(unwrap(unwrap(additional_tx_key)));
+       }
+     }
+ 
+diff --git a/tests/benchmark.cpp b/tests/benchmark.cpp
+index 6a845d61a4..660783dd91 100644
+--- a/tests/benchmark.cpp
++++ b/tests/benchmark.cpp
+@@ -109,7 +109,7 @@ namespace
+     template<typename T>
+     bool compare(const T& lhs, const T& rhs) noexcept
+     {
+-        static_assert(!epee::has_padding<T>(), "type might have padding");
++        static_assert(std::is_standard_layout<T>() && alignof(T) == 1, "type might have padding");
+         return std::memcmp(std::addressof(lhs), std::addressof(rhs), sizeof(T)) == 0;
+     }
+ 
+diff --git a/tests/core_tests/multisig.cpp b/tests/core_tests/multisig.cpp
+index 966c761163..1d3a6a3a10 100644
+--- a/tests/core_tests/multisig.cpp
++++ b/tests/core_tests/multisig.cpp
+@@ -227,13 +227,13 @@ bool gen_multisig_tx_validation_base::generate_with(std::vector<test_event_entry
+         CHECK_AND_ASSERT_MES(r, false, "Failed to generate multisig export key image");
+       }
+       MDEBUG("Party " << msidx << ":");
+-      MDEBUG("spend: sec " << miner_account[msidx].get_keys().m_spend_secret_key << ", pub " << miner_account[msidx].get_keys().m_account_address.m_spend_public_key);
+-      MDEBUG("view: sec " << miner_account[msidx].get_keys().m_view_secret_key << ", pub " << miner_account[msidx].get_keys().m_account_address.m_view_public_key);
++      MDEBUG("spend: sec " << crypto::secret_key_explicit_print_ref{miner_account[msidx].get_keys().m_spend_secret_key} << ", pub " << miner_account[msidx].get_keys().m_account_address.m_spend_public_key);
++      MDEBUG("view: sec " << crypto::secret_key_explicit_print_ref{miner_account[msidx].get_keys().m_view_secret_key} << ", pub " << miner_account[msidx].get_keys().m_account_address.m_view_public_key);
+       for (const auto &k: miner_account[msidx].get_multisig_keys())
+-        MDEBUG("msk: " << k);
++        MDEBUG("msk: " << crypto::secret_key_explicit_print_ref{k});
+       for (size_t n = 0; n < account_k[msidx][tdidx].size(); ++n)
+       {
+-        MDEBUG("k: " << account_k[msidx][tdidx][n]);
++        MDEBUG("k: " << crypto::secret_key_explicit_print_ref{account_k[msidx][tdidx][n]});
+         MDEBUG("L: " << account_L[msidx][tdidx][n]);
+         MDEBUG("R: " << account_R[msidx][tdidx][n]);
+       }
+@@ -406,7 +406,7 @@ bool gen_multisig_tx_validation_base::generate_with(std::vector<test_event_entry
+       MDEBUG("signing with k " << k.back()[n]);
+     MDEBUG("signing with sk " << skey);
+     for (const auto &sk: used_keys)
+-      MDEBUG("  created with sk " << sk);
++      MDEBUG("  created with sk " << crypto::secret_key_explicit_print_ref{sk});
+     CHECK_AND_ASSERT_MES(signer_tx_builder.next_partial_sign(sig.total_alpha_G, sig.total_alpha_H, k, skey, sig.c_0, sig.s), false, "error: multisig::signing::tx_builder_ringct_t::next_partial_sign");
+ 
+     // in round-robin signing, the last signer finalizes the tx
+diff --git a/tests/functional_tests/make_test_signature.cc b/tests/functional_tests/make_test_signature.cc
+index e9dab8bd46..09a3f51c1a 100644
+--- a/tests/functional_tests/make_test_signature.cc
++++ b/tests/functional_tests/make_test_signature.cc
+@@ -48,7 +48,7 @@ int main(int argc, const char **argv)
+     crypto::public_key pkey;
+     crypto::random32_unbiased((unsigned char*)skey.data);
+     crypto::secret_key_to_public_key(skey, pkey);
+-    printf("%s %s\n", epee::string_tools::pod_to_hex(skey).c_str(), epee::string_tools::pod_to_hex(pkey).c_str());
++    printf("%s %s\n", epee::string_tools::pod_to_hex(unwrap(unwrap(skey))).c_str(), epee::string_tools::pod_to_hex(pkey).c_str());
+     return 0;
+   }
+ 
+diff --git a/tests/unit_tests/crypto.cpp b/tests/unit_tests/crypto.cpp
+index 7f926534a3..329992463c 100644
+--- a/tests/unit_tests/crypto.cpp
++++ b/tests/unit_tests/crypto.cpp
+@@ -72,10 +72,10 @@ TEST(Crypto, Ostream)
+   EXPECT_TRUE(is_formatted<crypto::hash8>());
+   EXPECT_TRUE(is_formatted<crypto::hash>());
+   EXPECT_TRUE(is_formatted<crypto::public_key>());
+-  EXPECT_TRUE(is_formatted<crypto::secret_key>());
+   EXPECT_TRUE(is_formatted<crypto::signature>());
+   EXPECT_TRUE(is_formatted<crypto::key_derivation>());
+   EXPECT_TRUE(is_formatted<crypto::key_image>());
++  EXPECT_TRUE(is_formatted<rct::key>());
+ }
+ 
+ TEST(Crypto, null_keys)
+diff --git a/tests/unit_tests/multisig.cpp b/tests/unit_tests/multisig.cpp
+index 3b3c4197c0..71416aaf33 100644
+--- a/tests/unit_tests/multisig.cpp
++++ b/tests/unit_tests/multisig.cpp
+@@ -80,7 +80,7 @@ static void make_wallet(unsigned int idx, tools::wallet2 &wallet)
+     wallet.generate("", "", spendkey, true, false);
+     ASSERT_TRUE(test_addresses[idx].address == wallet.get_account().get_public_address_str(cryptonote::TESTNET));
+     wallet.decrypt_keys("");
+-    ASSERT_TRUE(test_addresses[idx].spendkey == epee::string_tools::pod_to_hex(wallet.get_account().get_keys().m_spend_secret_key));
++    ASSERT_TRUE(test_addresses[idx].spendkey == epee::string_tools::pod_to_hex(unwrap(unwrap(wallet.get_account().get_keys().m_spend_secret_key))));
+     wallet.encrypt_keys("");
+   }
+   catch (const std::exception &e)
+diff --git a/tests/unit_tests/serialization.cpp b/tests/unit_tests/serialization.cpp
+index 0fdd832856..fdf6032722 100644
+--- a/tests/unit_tests/serialization.cpp
++++ b/tests/unit_tests/serialization.cpp
+@@ -1103,7 +1103,7 @@ TEST(Serialization, portability_signed_tx)
+   ASSERT_TRUE(ptx.selected_transfers.front() == 2);
+   // ptx.{key_images, tx_key}
+   ASSERT_TRUE(ptx.key_images == "<6c3cd6af97c4070a7aef9b1344e7463e29c7cd245076fdb65da447a34da3ca76> ");
+-  ASSERT_TRUE(epee::string_tools::pod_to_hex(ptx.tx_key) == "0100000000000000000000000000000000000000000000000000000000000000");
++  ASSERT_TRUE(epee::string_tools::pod_to_hex(unwrap(unwrap(ptx.tx_key))) == "0100000000000000000000000000000000000000000000000000000000000000");
+   // ptx.dests
+   ASSERT_TRUE(ptx.dests.size() == 1);
+   ASSERT_TRUE(ptx.dests[0].amount == 1400000000000);

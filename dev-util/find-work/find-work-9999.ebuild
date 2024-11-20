@@ -39,6 +39,9 @@ RDEPEND="
 	<dev-python/pydantic-3[${PYTHON_USEDEP}]
 	>=dev-python/requests-2[${PYTHON_USEDEP}]
 	<dev-python/requests-3[${PYTHON_USEDEP}]
+	!minimal? (
+		dev-python/tabulate[${PYTHON_USEDEP}]
+	)
 "
 BDEPEND="
 	test? (
@@ -66,10 +69,22 @@ distutils_enable_sphinx docs \
 	dev-python/insipid-sphinx-theme \
 	dev-python/sphinx-prompt
 
-python_compile() {
-	distutils-r1_python_compile
+python_compile_all() {
+	# copy-pasted from distutils_write_namespace
+	local path="${BUILD_DIR}/install$(python_get_sitedir)/find_work/__init__.py"
+	cat > "${path}" <<-EOF || die
+		__path__ = __import__('pkgutil').extend_path(__path__, __name__)
+	EOF
 
 	emake completions BIN="${BUILD_DIR}/install${EPREFIX}/usr/bin/find-work"
+	sphinx_compile_all
+
+	rm "${path}" || die
+}
+
+python_test() {
+	distutils_write_namespace find_work
+	distutils-r1_python_test
 }
 
 src_install() {
