@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Julien Roy <julien@jroy.ca> (2024-11-20)
+# Dependency with no revdeps
+# Removal in 30 days
+dev-python/kurbopy
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-11-18)
 # Upstream is dead because of the Reddit API changes.
 # Official Flathub page is gone as well.
