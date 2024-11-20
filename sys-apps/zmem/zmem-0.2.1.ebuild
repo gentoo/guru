@@ -106,6 +106,8 @@ LICENSE+=" MIT MPL-2.0 Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
 
+QA_FLAGS_IGNORED="usr/bin/zmem"
+
 src_prepare() {
 	default
 	if ! tc-is-lto; then
