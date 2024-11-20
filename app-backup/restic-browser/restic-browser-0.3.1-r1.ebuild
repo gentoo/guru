@@ -448,6 +448,8 @@ BDEPEND="
 	net-libs/nodejs[npm]
 "
 
+QA_FLAGS_IGNORED="usr/bin/restic-browser"
+
 src_prepare() {
 	pushd .. >/dev/null || die
 	default
