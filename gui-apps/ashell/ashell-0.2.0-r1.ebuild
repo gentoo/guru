@@ -491,5 +491,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	dev-libs/wayland
+	dev-libs/wayland-protocols
 	media-fonts/symbols-nerd-font
+	media-libs/libpulse
+	media-video/pipewire
+	sys-apps/dbus
+	x11-libs/libxkbcommon
 "
