@@ -6,4 +6,8 @@
 		<remote-id type="github">Whonix/kloak</remote-id>
 		<remote-id type="gitlab">whonix/kloak</remote-id>
 	</upstream>
+	<use>
+		<flag name="apparmor">Install AppArmor profile</flag>
+		<flag name="systemd">Install systemd service file</flag>
+	</use>
 </pkgmetadata>
