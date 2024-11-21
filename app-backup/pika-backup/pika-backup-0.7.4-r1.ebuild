@@ -376,8 +376,13 @@ src_prepare() {
 	default
 }
 
+src_configure() {
+	python_fix_shebang build-aux/meson-cargo-manifest.py
+	meson_src_configure
+	cargo_src_configure
+}
+
 src_compile() {
-	python_fix_shebang "${S}/build-aux"
 	meson_src_compile
 	cargo_src_compile
 }
