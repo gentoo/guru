@@ -3,6 +3,9 @@
 
 <pkgmetadata>
 	<!-- maintainer-needed -->
+	<upstream>
+		<remote-id type="gitlab">GrafX2/grafX2</remote-id>
+	</upstream>
 	<use>
 		<flag name="ttf">Add support for TTF fonts</flag>
 		<flag name="sdl">Use <pkg>media-libs/libsdl</pkg> as a rendering backend</flag>
