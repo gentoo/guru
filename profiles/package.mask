@@ -34,7 +34,7 @@ media-fonts/symbola
 
 # Julien Roy <julien@jroy.ca> (2024-11-20)
 # Dependency with no revdeps
-# Removal in 30 days
+# Removal on 2024-12-20
 dev-python/kurbopy
 
 # Takuya Wakazono <pastalian46@gmail.com> (2024-11-18)
