@@ -159,6 +159,7 @@ CRATES="
 	winsafe@0.0.19
 	yansi@1.0.1
 	zerocopy-derive@0.7.35
+	zerocopy@0.7.35
 	${PN}@${PV}
 "
 
