@@ -26,13 +26,39 @@ BDEPEND="${RDEPEND}"
 
 QA_PREBUILT="*"
 
+src_prepare() {
+	default
+
+	MY_ARCH="$(uname -m)"
+
+	# Remove executables for other architectures
+	# (I tried using arrays but it was too much pain)
+	case "$MY_ARCH" in
+		aarch64)
+			rm -r "lib/py3-linux-armv7l"
+			rm -r "lib/py3-linux-x86_64"
+			;;
+		armv7l)
+			rm -r "lib/py3-linux-aarch64"
+			rm -r "lib/py3-linux-x86_64"
+			;;
+		x86_64)
+			rm -r "lib/py3-linux-aarch64"
+			rm -r "lib/py3-linux-armv7l"
+			;;
+		*)
+			die "unsupported architecture: $MY_ARCH"
+			;;
+	esac
+}
+
 src_install() {
 	local dir=/opt/${PN}
 	insinto "${dir}"
 
 	doins -r "${S}/."
 
-	fperms +x ${dir}/lib/py3-linux-x86_64/SnootGame
+	fperms +x ${dir}/lib/py3-linux-${MY_ARCH}/SnootGame
 	fperms +x ${dir}/SnootGame.sh
 
 	make_wrapper ${PN} "./SnootGame.sh" "${dir}" "${dir}"
