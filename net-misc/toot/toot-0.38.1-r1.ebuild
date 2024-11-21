@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,7 +19,7 @@ KEYWORDS="~amd64"
 DEPEND="
 		>=dev-python/urwid-2.1.2-r1
 		>=dev-python/wcwidth-0.2.6
-		>=media-fonts/symbola-13.00
+		media-fonts/ttf-ancient-fonts
 		>=dev-python/beautifulsoup4-4.12.2
 		>=dev-python/tomlkit-0.11.8
 		test? ( dev-python/psycopg:2
