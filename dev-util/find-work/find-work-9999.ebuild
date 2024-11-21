@@ -69,6 +69,16 @@ distutils_enable_sphinx docs \
 	dev-python/insipid-sphinx-theme \
 	dev-python/sphinx-prompt
 
+pkg_setup() {
+	DISTUTILS_ALL_SUBPHASE_IMPLS=()
+
+	# bug #944221
+	for impl in "${PYTHON_COMPAT[@]}"; do
+		use "python_targets_${impl}" && \
+			DISTUTILS_ALL_SUBPHASE_IMPLS+=( "${impl}" )
+	done
+}
+
 python_compile_all() {
 	# copy-pasted from distutils_write_namespace
 	local path="${BUILD_DIR}/install$(python_get_sitedir)/find_work/__init__.py"
