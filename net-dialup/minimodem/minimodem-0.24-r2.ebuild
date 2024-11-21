@@ -3,16 +3,20 @@
 
 EAPI=8
 
-inherit autotools git-r3
+inherit autotools
 
 DESCRIPTION="General-purpose software audio FSK modem"
 HOMEPAGE="http://www.whence.com/minimodem/"
-EGIT_REPO_URI="https://github.com/kamalmostafa/minimodem"
+SRC_URI="http://www.whence.com/minimodem/minimodem-${PV}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-IUSE="alsa +pulseaudio sndfile sndio"
-REQUIRED_USE+="|| ( alsa pulseaudio sndfile sndio )"
+KEYWORDS="~amd64"
+IUSE="alsa pulseaudio +sndfile sndio test"
+REQUIRED_USE+="|| ( alsa pulseaudio sndfile )
+	test? ( sndfile )"
+
+RESTRICT="!test? ( test )"
 
 DEPEND="sndfile? ( media-libs/libsndfile )
 	sci-libs/fftw:3.0
@@ -27,6 +31,6 @@ src_prepare() {
 }
 
 src_configure() {
-	my_args="$(use_with alsa) $(use_with pulseaudio) $(use_with sndfile) $(use_with sndio)"
+	my_args="$(use_with alsa) $(use_with pulseaudio) $(use_with sndfile)"
 	econf $my_args
 }
