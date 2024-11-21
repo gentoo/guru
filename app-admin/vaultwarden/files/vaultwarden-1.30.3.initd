@@ -2,7 +2,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-set -a && source ../"${RC_SVCNAME}".env && set +a
+set -a && . ../"${RC_SVCNAME}".env && set +a
 
 name="Vaultwarden"
 description="Unofficial Bitwarden compatible password manager server in Rust"
