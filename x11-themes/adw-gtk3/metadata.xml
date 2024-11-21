@@ -2,10 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email>mail@konstantintutsch.com</email>
-    <name>Konstantin Tutsch</name>
-  </maintainer>
-  <maintainer type="person">
     <name>Julien Roy</name>
     <email>julien@jroy.ca</email>
   </maintainer>
