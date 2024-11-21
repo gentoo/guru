@@ -17,12 +17,13 @@ RESTRICT="!test? ( test )"
 
 DOCS=( {CHANGELOG,README}.md )
 
-RDEPEND="
-	test? ( dev-crystal/http_proxy )
+DEPEND="
+	test? ( dev-crystal/webmock )
 "
 
 src_test() {
-	# Only run tests that don't need net
+	# Only run tests that don't need net.
+	# Upstream issue: https://github.com/mamantoha/http_proxy/issues/38
 	crystal_spec \
 		"${S}"/spec/client_spec.cr:5 \
 		"${S}"/spec/client_spec.cr:13 \
