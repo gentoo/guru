@@ -104,12 +104,6 @@ dev-python/tree-sitter-languages
 # Removal on 2024-11-17
 dev-games/liblcf
 
-# Lucio Sauer <watermanpaint@posteo.net> (2024-10-17)
-# Doesn't build since 2024-03 and package maintainer lost interest in it.
-# Open bugs 932475, 927882
-# Removal on 2024-11-17
-games-engines/easyrpg-player
-
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-02)
 # Depends on <media-libs/kimageannotator-0.7, which has been dropped.
 # Upstream is working on Qt6 port.
