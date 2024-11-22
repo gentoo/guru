@@ -9,10 +9,10 @@ CRATES="
 	android_system_properties@0.1.5
 	ansi_term@0.12.1
 	anstream@0.6.18
+	anstyle@1.0.10
 	anstyle-parse@0.2.6
 	anstyle-query@1.1.2
 	anstyle-wincon@3.0.6
-	anstyle@1.0.10
 	arrayref@0.3.9
 	arrayvec@0.7.6
 	autocfg@1.4.0
@@ -45,8 +45,8 @@ CRATES="
 	derive-where@1.2.7
 	diff@0.1.13
 	digest@0.10.7
-	dirs-sys@0.4.1
 	dirs@5.0.1
+	dirs-sys@0.4.1
 	dotenvy@0.15.7
 	edit-distance@2.1.3
 	either@1.13.0
@@ -59,8 +59,8 @@ CRATES="
 	heck@0.5.0
 	hermit-abi@0.3.9
 	home@0.5.9
-	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.61
+	iana-time-zone-haiku@0.1.2
 	is_terminal_polyfill@1.70.1
 	itoa@1.0.13
 	js-sys@0.3.72
@@ -80,17 +80,17 @@ CRATES="
 	ppv-lite86@0.2.20
 	pretty_assertions@1.4.1
 	proc-macro2@1.0.89
-	pulldown-cmark-to-cmark@10.0.4
 	pulldown-cmark@0.9.6
+	pulldown-cmark-to-cmark@10.0.4
 	quote@1.0.37
 	rand@0.8.5
 	rand_chacha@0.3.1
 	rand_core@0.6.4
 	rayon-core@1.12.1
 	redox_users@0.4.6
+	regex@1.11.1
 	regex-automata@0.4.9
 	regex-syntax@0.8.5
-	regex@1.11.1
 	roff@0.2.2
 	rustix@0.38.41
 	rustversion@1.0.18
@@ -103,8 +103,8 @@ CRATES="
 	shellexpand@3.1.0
 	shlex@1.3.0
 	similar@2.6.0
-	snafu-derive@0.8.5
 	snafu@0.8.5
+	snafu-derive@0.8.5
 	strsim@0.11.1
 	strum@0.26.3
 	strum_macros@0.26.4
@@ -113,8 +113,8 @@ CRATES="
 	tempfile@3.14.0
 	temptree@0.2.0
 	terminal_size@0.4.0
-	thiserror-impl@1.0.69
 	thiserror@1.0.69
+	thiserror-impl@1.0.69
 	typed-arena@2.0.2
 	typenum@1.17.0
 	unicase@2.8.0
@@ -126,15 +126,15 @@ CRATES="
 	uuid@1.11.0
 	version_check@0.9.5
 	wasi@0.11.0+wasi-snapshot-preview1
-	wasm-bindgen-backend@0.2.95
-	wasm-bindgen-macro-support@0.2.95
-	wasm-bindgen-macro@0.2.95
-	wasm-bindgen-shared@0.2.95
 	wasm-bindgen@0.2.95
+	wasm-bindgen-backend@0.2.95
+	wasm-bindgen-macro@0.2.95
+	wasm-bindgen-macro-support@0.2.95
+	wasm-bindgen-shared@0.2.95
 	which@7.0.0
+	winapi@0.3.9
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-x86_64-pc-windows-gnu@0.4.0
-	winapi@0.3.9
 	windows-core@0.52.0
 	windows-sys@0.48.0
 	windows-sys@0.52.0
@@ -158,6 +158,7 @@ CRATES="
 	windows_x86_64_msvc@0.52.6
 	winsafe@0.0.19
 	yansi@1.0.1
+	zerocopy@0.7.35
 	zerocopy-derive@0.7.35
 	zerocopy@0.7.35
 	${PN}@${PV}
