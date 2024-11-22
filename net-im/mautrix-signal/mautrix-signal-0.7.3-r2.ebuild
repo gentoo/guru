@@ -31,7 +31,6 @@ src_compile() {
 
 src_install() {
 	dobin mautrix-signal
-	fperms 555 /usr/bin/mautrix-signal
 
 	keepdir /var/log/mautrix/signal
 	fowners -R root:mautrix /var/log/mautrix
