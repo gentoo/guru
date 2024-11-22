@@ -40,7 +40,9 @@ src_prepare() {
 	eapply "${FILESDIR}"/gfs2_withdraw_helper.patch
 	eapply "${FILESDIR}"/python3.patch
 
-	sed -i '/^CFLAGS=/s!\$\(GDB_FLAGS\|OPT_CFLAGS\)\s*!!g' configure.ac || die
+	sed -e '/^CFLAGS=/s!\s*\$\(GDB_FLAGS\|OPT_CFLAGS\)!!g' \
+		-e '/^CPPFLAGS=/s!\s*\$OPT_CPPFLAGS!!' \
+		-i configure.ac || die
 
 	default
 
