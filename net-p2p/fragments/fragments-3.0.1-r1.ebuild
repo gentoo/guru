@@ -22,7 +22,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	>=dev-libs/glib-2.76.0:2
 	>=dev-libs/openssl-1.0.0:=
-	>=gui-libs/gtk-4.12.0:4
+	>=gui-libs/gtk-4.12.0:4[wayland]
 	>=gui-libs/libadwaita-1.5.0:1
 	net-p2p/transmission
 	sys-apps/dbus
