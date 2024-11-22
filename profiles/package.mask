@@ -98,12 +98,6 @@ app-editors/kitscenarist
 # Removal on 2025-01-18.
 dev-python/tree-sitter-languages
 
-# Lucio Sauer <watermanpaint@posteo.net> (2024-10-17)
-# Doesn't build since 2024-08 and its sole consumer is up for removal.
-# Open bugs 937251, 937252
-# Removal on 2024-11-17
-dev-games/liblcf
-
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-02)
 # Depends on <media-libs/kimageannotator-0.7, which has been dropped.
 # Upstream is working on Qt6 port.
