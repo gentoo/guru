@@ -16,6 +16,7 @@ KEYWORDS="~amd64"
 IUSE="wayland"
 
 DEPEND="
+	dev-libs/glib:2
 	!wayland? ( x11-misc/rofi )
 	wayland? ( gui-apps/rofi-wayland )
 "
