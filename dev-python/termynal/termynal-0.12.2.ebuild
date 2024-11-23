@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=poetry
+DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{10..12} )
 
 DOCS_BUILDER="mkdocs"
@@ -31,11 +31,8 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
-		>=dev-python/pytest-mock-3.11.1[${PYTHON_USEDEP}]
-		<dev-python/pytest-mock-4.0.0[${PYTHON_USEDEP}]
-		>=dev-python/pyyaml-6.0.1[${PYTHON_USEDEP}]
-		<dev-python/pyyaml-7.0.0[${PYTHON_USEDEP}]
-		dev-util/ruff
+		>=dev-python/pytest-mock-3.14[${PYTHON_USEDEP}]
+		>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
 	)
 "
 DEPEND="${RDEPEND}"
