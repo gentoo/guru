@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gasc@eurecom.fr</email>
+		<name>Gasc Henri</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">textual-serve</remote-id>
+		<remote-id type="github">Textualize/textual-serve</remote-id>
+		<doc>https://textual.textualize.io/</doc>
+	</upstream>
+</pkgmetadata>
