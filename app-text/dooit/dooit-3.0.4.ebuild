@@ -19,7 +19,7 @@ KEYWORDS="~amd64"
 BDEPEND="
 	test? (
 		=dev-python/pytest-asyncio-0.24*[${PYTHON_USEDEP}]
-		~dev-python/Faker-30.8.2[${PYTHON_USEDEP}]
+		~dev-python/faker-30.8.2[${PYTHON_USEDEP}]
 	)
 "
 
@@ -27,7 +27,7 @@ RDEPEND="
 	=dev-python/pyperclip-1.9*[${PYTHON_USEDEP}]
 	=dev-python/pyyaml-6*[${PYTHON_USEDEP}]
 	=dev-python/tzlocal-5.2*[${PYTHON_USEDEP}]
-	=dev-python/textual-0.85*[${PYTHON_USEDEP}]
+	=dev-python/textual-0.86*[${PYTHON_USEDEP}]
 	=dev-python/python-dateutil-2.9*[${PYTHON_USEDEP}]
 	~dev-python/sqlalchemy-2.0.36[${PYTHON_USEDEP}]
 	~dev-python/platformdirs-4.3.6[${PYTHON_USEDEP}]
