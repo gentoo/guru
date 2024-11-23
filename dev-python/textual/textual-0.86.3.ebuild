@@ -28,16 +28,18 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	>=dev-python/markdown-it-py-2.1.0[${PYTHON_USEDEP}]
+	>=dev-python/platformdirs-3.6.0[${PYTHON_USEDEP}]
+	<dev-python/platformdirs-5[${PYTHON_USEDEP}]
 	>=dev-python/rich-13.3.3[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
+		dev-python/griffe[${PYTHON_USEDEP}]
 		dev-python/httpx[${PYTHON_USEDEP}]
-		=dev-python/textual-dev-1*[${PYTHON_USEDEP}]
+		dev-python/platformdirs[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/pytest-xdist[${PYTHON_USEDEP}]
-		dev-python/griffe[${PYTHON_USEDEP}]
-		dev-python/platformdirs[${PYTHON_USEDEP}]
+		=dev-python/textual-dev-1.7*[${PYTHON_USEDEP}]
 	)
 "
 # currently masked
