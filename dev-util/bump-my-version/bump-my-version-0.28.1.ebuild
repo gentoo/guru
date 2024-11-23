@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{11..13} )
-inherit distutils-r1 pypi
+inherit click-app distutils-r1 pypi
 
 DESCRIPTION="Version bump your Python project"
 HOMEPAGE="
@@ -39,6 +39,8 @@ BDEPEND="
 DOCS=( {CHANGELOG,CODE_OF_CONDUCT,CONTRIBUTING,README}.md )
 
 distutils_enable_tests pytest
+
+click-app_enable_completions bump-my-version
 
 python_test() {
 	epytest -o "addopts="
