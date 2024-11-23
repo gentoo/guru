@@ -6,17 +6,19 @@ EAPI=8
 DISTUTILS_USE_PEP517=poetry
 PYTHON_COMPAT=( python3_{10..13} )
 
-inherit distutils-r1 pypi
+inherit distutils-r1
 
 DESCRIPTION="Modern Text User Interface framework"
 HOMEPAGE="https://github.com/Textualize/textual-dev https://pypi.org/project/textual-dev/"
+SRC_URI="https://github.com/Textualize/textual-dev/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-python/textual-0.36.0[${PYTHON_USEDEP}]
+	>=dev-python/textual-0.86.2[${PYTHON_USEDEP}]
+	>=dev-python/textual-serve-1.0.3[${PYTHON_USEDEP}]
 	>=dev-python/aiohttp-3.8.1[${PYTHON_USEDEP}]
 	>=dev-python/click-8.1.2[${PYTHON_USEDEP}]
 	>=dev-python/msgpack-1.0.3[${PYTHON_USEDEP}]
@@ -25,10 +27,8 @@ RDEPEND="
 
 BDEPEND="
 	test? (
-		${RDEPEND}
 		dev-python/pytest-aiohttp[${PYTHON_USEDEP}]
-		>=dev-python/time-machine-2.6.0[${PYTHON_USEDEP}]
-		<dev-python/time-machine-3[${PYTHON_USEDEP}]
+		=dev-python/time-machine-2*[${PYTHON_USEDEP}]
 	)
 "
 
