@@ -1,4 +1,3 @@
-move dev-python/faker dev-python/Faker
 move sci-geosciences/geographiclib sci-geosciences/GeographicLib
 move x11-libs/kimageannotator media-libs/kimageannotator
 move x11-libs/kcolorpicker media-libs/kcolorpicker
