@@ -24,7 +24,7 @@ KEYWORDS="~amd64"
 
 DEPEND="test? (
 		dev-python/mypy[${PYTHON_USEDEP}]
-		dev-python/PyQtWebEngine[${PYTHON_USEDEP}]
+		dev-python/pyqtwebengine[${PYTHON_USEDEP}]
 		dev-python/pyqt5[${PYTHON_USEDEP},bluetooth,dbus,declarative,designer,location,multimedia,network,opengl,positioning,serialport,sql,svg,widgets]
 	)
 "
