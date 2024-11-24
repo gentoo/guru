@@ -26,7 +26,7 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/certifi-2019.6.16[${PYTHON_USEDEP}]
 		>=dev-python/colorama-0.4.1[${PYTHON_USEDEP}]
-		>=dev-python/PySocks-1.7.0[${PYTHON_USEDEP}]
+		>=dev-python/pysocks-1.7.0[${PYTHON_USEDEP}]
 		>=dev-python/requests-2.22.0[${PYTHON_USEDEP}]
 		>=dev-python/requests-futures-1.00.0[${PYTHON_USEDEP}]
 		>=dev-python/pandas-1.0.0[${PYTHON_USEDEP}]

@@ -28,7 +28,7 @@ RDEPEND="
 	dev-python/hachoir[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/pyaes[${PYTHON_USEDEP}]
-	dev-python/PySocks[${PYTHON_USEDEP}]
+	dev-python/pysocks[${PYTHON_USEDEP}]
 	dev-python/python-socks[${PYTHON_USEDEP}]
 	dev-python/rsa[${PYTHON_USEDEP}]
 "
