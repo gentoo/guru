@@ -33,8 +33,8 @@ KEYWORDS="~amd64"
 # RESTRICT="doc? ( network-sandbox )"
 
 BDEPEND="
-	>=dev-python/GitPython-3.1[${PYTHON_USEDEP}]
-	<dev-python/GitPython-3.2[${PYTHON_USEDEP}]
+	>=dev-python/gitpython-3.1[${PYTHON_USEDEP}]
+	<dev-python/gitpython-3.2[${PYTHON_USEDEP}]
 	>=dev-python/mkdocs-1.5[${PYTHON_USEDEP}]
 	<dev-python/mkdocs-2[${PYTHON_USEDEP}]
 	>=dev-python/cachecontrol-0.14[${PYTHON_USEDEP}]
