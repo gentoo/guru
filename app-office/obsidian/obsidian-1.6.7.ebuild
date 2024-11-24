@@ -34,7 +34,7 @@ S="${WORKDIR}"
 LICENSE="Obsidian-EULA"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="appindicator"
+IUSE="appindicator wayland"
 RESTRICT="mirror strip bindist"
 
 RDEPEND="
@@ -158,7 +158,9 @@ src_install() {
 	fi
 
 	domenu usr/share/applications/obsidian.desktop
-	domenu usr/share/applications/obsidian-wayland.desktop
+	if use wayland; then
+		domenu usr/share/applications/obsidian-wayland.desktop
+	fi
 
 	for size in 16 32 48 64 128 256 512; do
 		doicon --size ${size} usr/share/icons/hicolor/${size}x${size}/apps/${PN}.png
