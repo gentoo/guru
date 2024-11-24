@@ -29,7 +29,7 @@ RDEPEND="
 	>=dev-python/keyrings-alt-3.1.0[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	>=dev-python/pathspec-0.5.8[${PYTHON_USEDEP}]
-	>=dev-python/Pyro5-5.10[${PYTHON_USEDEP}]
+	>=dev-python/pyro5-5.10[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.16.2[${PYTHON_USEDEP}]
 	dev-python/rich[${PYTHON_USEDEP}]
 	dev-python/survey[${PYTHON_USEDEP}]
