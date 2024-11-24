@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
+		<doc>https://amp.rs/docs/</doc>
 		<remote-id type="github">jmacdonald/amp</remote-id>
 	</upstream>
 </pkgmetadata>
-
