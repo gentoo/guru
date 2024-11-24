@@ -45,7 +45,7 @@ DEPEND="
 	dev-python/musicbrainzngs[${PYTHON_USEDEP}]
 	dev-python/natsort[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
-	dev-python/PySDL2[${PYTHON_USEDEP}]
+	dev-python/pysdl2[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/setproctitle[${PYTHON_USEDEP}]
 	dev-python/send2trash[${PYTHON_USEDEP}]
