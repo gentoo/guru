@@ -21,6 +21,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-python/PyGithub[${PYTHON_USEDEP}]
+	dev-python/pygithub[${PYTHON_USEDEP}]
 	>=dev-python/mkdocs-1.0[${PYTHON_USEDEP}]
 "
