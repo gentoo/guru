@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="$(python_gen_cond_dep \
-	'dev-python/QtPy[${PYTHON_USEDEP},gui,network,pyqt5,widgets]'
+	'dev-python/qtpy[${PYTHON_USEDEP},gui,network,pyqt5,widgets]'
 )"
 
 distutils_enable_tests pytest

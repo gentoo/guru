@@ -27,7 +27,7 @@ RDEPEND="
 	)
 	qt6? (
 		dev-python/pyside6[${PYTHON_USEDEP},webengine]
-		dev-python/QtPy[${PYTHON_USEDEP},webengine]
+		dev-python/qtpy[${PYTHON_USEDEP},webengine]
 	)
 "
 

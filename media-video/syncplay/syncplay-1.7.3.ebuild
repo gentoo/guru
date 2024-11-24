@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,11 +29,11 @@ RDEPEND="
 	client? (
 		gui? (
 			$( python_gen_cond_dep \
-				'dev-python/QtPy[${PYTHON_USEDEP},gui,pyside2]' \
+				'dev-python/qtpy[${PYTHON_USEDEP},gui,pyside2]' \
 				python3_{10,11}
 			)
 			$( python_gen_cond_dep \
-				'dev-python/QtPy[${PYTHON_USEDEP},gui,pyside6]' \
+				'dev-python/qtpy[${PYTHON_USEDEP},gui,pyside6]' \
 				python3_12
 			)
 		)

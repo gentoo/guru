@@ -1,4 +1,4 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,7 +27,7 @@ RDEPEND="
 	)
 	qt6? (
 		dev-python/pyside6[${PYTHON_USEDEP},webengine]
-		dev-python/QtPy[${PYTHON_USEDEP},webengine]
+		dev-python/qtpy[${PYTHON_USEDEP},webengine]
 	)
 "
 

@@ -28,7 +28,7 @@ RDEPEND="
 		dev-python/appdirs[${PYTHON_USEDEP}]
 		dev-python/atomicwrites[${PYTHON_USEDEP}]
 		dev-python/colorspacious[${PYTHON_USEDEP}]
-		dev-python/QtPy[${PYTHON_USEDEP}]
+		dev-python/qtpy[${PYTHON_USEDEP}]
 	')
 	media-video/ffmpeg
 "
