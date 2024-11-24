@@ -31,7 +31,7 @@ BDEPEND="
 
 RDEPEND="
 	gui? (
-		dev-python/PyQt6[gui,widgets]
+		dev-python/pyqt6[gui,widgets]
 		dev-python/pyyaml
 		dev-python/argcomplete
 		dev-python/darkdetect
