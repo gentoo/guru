@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ REQUIRED_USE="|| ( pyqt5 pyqt6 )"
 
 RDEPEND="
 	pyqt5? ( dev-python/PyQt5[${PYTHON_USEDEP}] )
-	pyqt6? ( dev-python/PyQt6[${PYTHON_USEDEP}] )
+	pyqt6? ( dev-python/pyqt6[${PYTHON_USEDEP}] )
 
 	dev-python/h5py[${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]

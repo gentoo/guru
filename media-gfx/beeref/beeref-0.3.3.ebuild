@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-python/PyQt6-6.6.1
+	>=dev-python/pyqt6-6.6.1
 	>=dev-python/rectangle-packer-2.0.2
 	>=dev-python/exif-1.6.0
 	>=dev-python/lxml-5.1.0
