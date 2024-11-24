@@ -1,10 +1,10 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=no
-PYTHON_COMPAT=(python3_{9..12})
+PYTHON_COMPAT=(python3_{10..12})
 
 inherit linux-mod-r1 distutils-r1 desktop
 
@@ -25,7 +25,7 @@ BDEPEND="dev-python/setuptools
 
 RDEPEND="net-misc/freerdp
 	dev-python/libvirt-python
-	dev-python/PyQt5
+	dev-python/pyqt5
 "
 
 DEPEND="${RDEPEND}"

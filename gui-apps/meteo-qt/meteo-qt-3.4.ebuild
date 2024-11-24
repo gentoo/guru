@@ -18,12 +18,12 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	$(python_gen_cond_dep '
-		dev-python/PyQt5[${PYTHON_USEDEP}]
+		dev-python/pyqt5[${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]
 	')
 "
 BDEPEND="
-	dev-python/PyQt5
+	dev-python/pyqt5
 	dev-qt/linguist-tools
 "
 

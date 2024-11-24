@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="debug"
 
-RDEPEND=">=dev-python/PyQt5-5.13.2[${PYTHON_USEDEP}]"
+RDEPEND=">=dev-python/pyqt5-5.13.2[${PYTHON_USEDEP}]"
 DOCS="README.md AUTHORS"
 
 distutils_enable_tests pytest

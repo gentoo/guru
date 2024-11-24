@@ -1,4 +1,4 @@
-# Copyright 2021-2023 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-python/PyQt5[${PYTHON_USEDEP},multimedia]
+	dev-python/pyqt5[${PYTHON_USEDEP},multimedia]
 	dev-python/loguru[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/simplemma[${PYTHON_USEDEP}]

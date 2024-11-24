@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,7 +24,7 @@ KEYWORDS="~amd64"
 
 DEPEND="test? (
 		dev-python/mypy[${PYTHON_USEDEP}]
-		dev-python/PyQt5[${PYTHON_USEDEP},widgets]
+		dev-python/pyqt5[${PYTHON_USEDEP},widgets]
 	)
 "
 

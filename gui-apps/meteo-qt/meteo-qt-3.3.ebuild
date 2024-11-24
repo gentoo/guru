@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,12 +18,12 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	$(python_gen_cond_dep '
-		dev-python/PyQt5[${PYTHON_USEDEP}]
+		dev-python/pyqt5[${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]
 	')
 "
 BDEPEND="
-	dev-python/PyQt5
+	dev-python/pyqt5
 	dev-qt/linguist-tools
 "
 
