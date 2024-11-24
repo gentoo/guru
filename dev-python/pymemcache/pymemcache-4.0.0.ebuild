@@ -20,7 +20,7 @@ KEYWORDS="~amd64"
 BDEPEND="
 	test? (
 		${DATABASES_DEPEND[memcached]}
-		dev-python/Faker[${PYTHON_USEDEP}]
+		dev-python/faker[${PYTHON_USEDEP}]
 		dev-python/zstd[${PYTHON_USEDEP}]
 	)
 "
