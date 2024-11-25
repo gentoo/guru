@@ -35,6 +35,13 @@ BDEPEND="
 	')
 "
 
+python_prepare_all() {
+	# bug #931488
+	sed -i "s|\(target_data =\).*|\1 '${EPREFIX}/usr/'|" setup.py || die
+
+	distutils-r1_python_prepare_all
+}
+
 python_install() {
 	distutils-r1_python_install $(usex xfce '--xfce-integration' '')
 	rm -r "${ED}/usr/share/doc/${PN}" || die
