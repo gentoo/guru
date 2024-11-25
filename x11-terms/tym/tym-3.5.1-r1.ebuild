@@ -27,7 +27,12 @@ DEPEND="
 	x11-libs/gtk+:3
 	x11-libs/vte
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	dev-libs/glib
+	dev-libs/libpcre2
+	x11-libs/cairo
+	x11-libs/pango
+"
 
 src_prepare() {
 	default
