@@ -5,6 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_EXT=1
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 desktop xdg
 
 DESCRIPTION="An image viewer with vim-like keybindings"
