@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_12 )
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
 
@@ -29,12 +29,7 @@ RDEPEND="
 	client? (
 		gui? (
 			$( python_gen_cond_dep \
-				'dev-python/qtpy[${PYTHON_USEDEP},gui,pyside2]' \
-				python3_{10,11}
-			)
-			$( python_gen_cond_dep \
-				'dev-python/qtpy[${PYTHON_USEDEP},gui,pyside6]' \
-				python3_12
+				'dev-python/qtpy[${PYTHON_USEDEP},gui,pyside6]'
 			)
 		)
 		|| (
