@@ -13,6 +13,7 @@
 		<flag name="cairo">Enables the cairo module</flag>
 		<flag name="http">Enables HTTP features</flag>
 		<flag name="music">Enables the music module</flag>
+		<flag name="tray">Enables the tray module</flag>
 		<flag name="volume">Enables the volume module</flag>
 	</use>
 </pkgmetadata>
