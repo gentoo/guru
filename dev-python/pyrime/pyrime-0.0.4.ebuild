@@ -17,7 +17,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="prompt-toolkit ptpython"
+IUSE="+prompt-toolkit +ptpython"
 
 DEPEND="
 	app-i18n/librime
