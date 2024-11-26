@@ -19,3 +19,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 distutils_enable_tests pytest
+
+src_prepare() {
+	default
+
+	sed -i '/typedef char    bool/d' src/common.h || die
+}
