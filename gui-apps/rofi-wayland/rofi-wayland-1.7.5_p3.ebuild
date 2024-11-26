@@ -15,7 +15,7 @@ S="${WORKDIR}"/rofi-${MY_PV}
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="drun windowmode test"
+IUSE="+drun windowmode test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
