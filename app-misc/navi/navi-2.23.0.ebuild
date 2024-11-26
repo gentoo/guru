@@ -183,6 +183,7 @@ QA_FLAGS_IGNORED="usr/bin/navi"
 
 src_test() {
 	cargo_src_test
-	sed -i "s|target/debug|target/$(usex debug debug release)|" tests/run || die
+
+	sed -i "s|target/debug|$(cargo_target_dir)|" tests/run || die
 	./tests/run || die
 }
