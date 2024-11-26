@@ -14,7 +14,7 @@ RDEPEND="
 	<dev-crystal/crystal-db-0.14
 	postgres? (
 		>=dev-crystal/crystal-pg-0.28
-		<dev-crystal/crystal-pg-0.29
+		<dev-crystal/crystal-pg-0.30
 	)
 	sqlite? (
 		>=dev-crystal/crystal-sqlite3-0.21.0
