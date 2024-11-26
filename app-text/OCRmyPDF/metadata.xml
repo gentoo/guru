@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -7,5 +7,12 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="github">ocrmypdf/OCRmyPDF</remote-id>
+		<maintainer>
+			<name>James R. Barlow</name>
+			<email>james@purplerock.ca</email>
+		</maintainer>
+		<doc>https://ocrmypdf.readthedocs.io/</doc>
+		<bugs-to>https://github.com/ocrmypdf/OCRmyPDF/issues</bugs-to>
+		<changelog>https://github.com/ocrmypdf/OCRmyPDF/docs/release_notes.rst</changelog>
 	</upstream>
 </pkgmetadata>
