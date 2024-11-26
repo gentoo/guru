@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517=hatchling
-inherit distutils-r1 shell-completion
+inherit click-app distutils-r1
 
 DESCRIPTION="Personal advice utility for Gentoo package maintainers"
 HOMEPAGE="
@@ -69,28 +69,7 @@ distutils_enable_sphinx docs \
 	dev-python/insipid-sphinx-theme \
 	dev-python/sphinx-prompt
 
-pkg_setup() {
-	DISTUTILS_ALL_SUBPHASE_IMPLS=()
-
-	# bug #944221
-	for impl in "${PYTHON_COMPAT[@]}"; do
-		use "python_targets_${impl}" && \
-			DISTUTILS_ALL_SUBPHASE_IMPLS+=( "${impl}" )
-	done
-}
-
-python_compile_all() {
-	# copy-pasted from distutils_write_namespace
-	local path="${BUILD_DIR}/install$(python_get_sitedir)/find_work/__init__.py"
-	cat > "${path}" <<-EOF || die
-		__path__ = __import__('pkgutil').extend_path(__path__, __name__)
-	EOF
-
-	emake completions BIN="${BUILD_DIR}/install${EPREFIX}/usr/bin/find-work"
-	sphinx_compile_all
-
-	rm "${path}" || die
-}
+click-app_enable_completions find-work
 
 python_test() {
 	distutils_write_namespace find_work
@@ -99,15 +78,5 @@ python_test() {
 
 src_install() {
 	distutils-r1_src_install
-
-	local mymakeargs=(
-		DESTDIR="${D}"
-		PREFIX="${EPREFIX}"/usr
-
-		BASHCOMPDIR="$(get_bashcompdir)"
-		ZSHCOMPDIR="$(get_zshcompdir)"
-		FISHCOMPDIR="$(get_fishcompdir)"
-	)
-
-	emake "${mymakeargs[@]}" install-data
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}"/usr install-man
 }
