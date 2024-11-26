@@ -5,7 +5,7 @@ EAPI=8
 
 inherit go-module
 
-DESCRIPTION="A basic clipboard manager for Wayland."
+DESCRIPTION="Multi-Purpose Launcher with a lot of features. Highly Customizable and fast"
 HOMEPAGE="https://github.com/abenz1267/walker"
 SRC_URI="
 	https://github.com/abenz1267/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
