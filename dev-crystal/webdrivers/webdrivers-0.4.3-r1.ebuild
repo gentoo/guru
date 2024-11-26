@@ -17,7 +17,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-crystal/crystar
-	dev-crystal/habitat
+	>=dev-crystal/habitat-0.4.9
 "
 
 src_prepare() {
