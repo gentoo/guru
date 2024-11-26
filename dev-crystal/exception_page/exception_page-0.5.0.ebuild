@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,9 +22,8 @@ BDEPEND="
 	)
 "
 
-src_prepare() {
-	default
-
-	# test error, related to lucky_flow ('be_on_page' method)
-	rm spec/exception_page_spec.cr || die
+src_test() {
+	# Passing '--debug' option is required for a test that checks if
+	# code frames are displayed.
+	crystal_spec --debug
 }
