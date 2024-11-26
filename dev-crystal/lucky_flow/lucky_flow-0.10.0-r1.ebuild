@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-crystal/crystal-html5
-	dev-crystal/habitat
+	>=dev-crystal/habitat-0.4.9
 	dev-crystal/selenium
 	dev-crystal/webdrivers
 	dev-crystal/webless
