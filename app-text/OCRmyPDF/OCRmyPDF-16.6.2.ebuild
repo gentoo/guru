@@ -6,11 +6,10 @@ EAPI=8
 DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{11..12} )
 
-inherit distutils-r1 optfeature shell-completion
+inherit distutils-r1 optfeature pypi shell-completion
 
 DESCRIPTION="OCRmyPDF adds an OCR text layer to scanned PDF files"
 HOMEPAGE="https://github.com/ocrmypdf/OCRmyPDF"
-SRC_URI="https://github.com/ocrmypdf/ocrmypdf/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="CC-BY-SA-2.5 CC-BY-SA-4.0 MIT MPL-2.0 ZLIB"
 SLOT="0"
@@ -50,6 +49,9 @@ EPYTEST_IGNORE=(
 EPYTEST_DESELECT=(
 	# Fails if Tesseract was compiled with Clang
 	tests/test_rotation.py::test_rotate_deskew_ocr_timeout
+
+	# XFAIL reason should be a string, not a tuple
+	tests/test_metadata.py::test_malformed_docinfo
 )
 
 distutils_enable_tests pytest
