@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..13} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1 pypi
+inherit click-app distutils-r1 pypi
 
 DESCRIPTION="Suite of tools and fixtures to manage daemons for testing"
 HOMEPAGE="
@@ -60,5 +60,7 @@ EPYTEST_DESELECT=(
 )
 
 distutils_enable_tests pytest
+
+click-app_enable_completions pifpaf
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
