@@ -18,6 +18,10 @@
 
 # New entries go on top.
 
+# Julien Roy <julien@jroy.ca> (2024-11-25)
+# Depends on <sci-libs/opencascade-7.8.0 which was removed from ::gentoo
+media-gfx/mayo
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-11-21)
 # SRC_URI is 410. No maintainer.
 # x11-misc/xscreensaver is available in ::gentoo and users can apply
