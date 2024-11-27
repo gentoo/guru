@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop
+inherit desktop toolchain-funcs
 
 DESCRIPTION="BBS (bulletin board system) terminal"
 HOMEPAGE="https://syncterm.bbsdev.net/"
@@ -20,8 +20,11 @@ DEPEND="ncurses? ( sys-libs/ncurses )
 RDEPEND="${DEPEND}"
 
 src_prepare() {
+	tc-export AR STRIP
 	eapply "${FILESDIR}/${P}_use-sched-yield-instead-of-pthread-yield.patch"
+	eapply "${FILESDIR}/${P}_do-not-strip-3rdp-test.patch"
 	eapply "${FILESDIR}/${P}_disable-parallel-build.patch"
+	eapply "${FILESDIR}/${P}_respect-toolchain-variables.patch"
 	eapply_user
 }
 

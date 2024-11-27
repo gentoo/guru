@@ -1,0 +1,89 @@
+Respect CFLAGS, AR and other environment variables when building
+cryptlib.
+
+From: Seth M. Price <sprice623@aol.com>
+Bug: https://bugs.gentoo.org/933184
+Depends: syncterm-1.1_do-not-strip-3rdp-test.patch
+
+--- a/3rdp/build/GNUmakefile
++++ b/3rdp/build/GNUmakefile
+@@ -67,7 +67,7 @@ $(CRYPT_SRC): | $(3RDPSRCDIR)
+ $(CRYPT_IDIR): | $(3RDPODIR)
+ 	$(QUIET)$(IFNOTEXIST) mkdir $(CRYPT_IDIR)
+ 
+-$(CRYPTLIB_BUILD): $(3RDP_ROOT)$(DIRSEP)dist/cryptlib.zip $(3RDP_ROOT)$(DIRSEP)build/terminal-params.patch $(3RDP_ROOT)$(DIRSEP)build/cl-mingw32-static.patch $(3RDP_ROOT)$(DIRSEP)build/cl-ranlib.patch $(3RDP_ROOT)$(DIRSEP)build/cl-win32-noasm.patch $(3RDP_ROOT)$(DIRSEP)build/cl-zz-country.patch $(3RDP_ROOT)$(DIRSEP)build/cl-algorithms.patch $(3RDP_ROOT)$(DIRSEP)build/cl-allow-duplicate-ext.patch $(3RDP_ROOT)$(DIRSEP)build/cl-macosx-minver.patch $(3RDP_ROOT)$(DIRSEP)build/cl-endian.patch $(3RDP_ROOT)$(DIRSEP)build/cl-cryptodev.patch $(3RDP_ROOT)$(DIRSEP)build/cl-posix-me-gently.patch $(3RDP_ROOT)$(DIRSEP)build/cl-tpm-linux.patch $(3RDP_ROOT)$(DIRSEP)build/cl-PAM-noprompts.patch $(3RDP_ROOT)$(DIRSEP)build/cl-zlib.patch $(3RDP_ROOT)$(DIRSEP)build/Dynamic-linked-static-lib.patch $(3RDP_ROOT)$(DIRSEP)build/SSL-fix.patch $(3RDP_ROOT)$(DIRSEP)build/cl-bigger-maxattribute.patch $(3RDP_ROOT)$(DIRSEP)build/cl-vcxproj.patch $(3RDP_ROOT)$(DIRSEP)build/cl-mingw-vcver.patch $(3RDP_ROOT)$(DIRSEP)build/cl-win32-build-fix.patch $(3RDP_ROOT)$(DIRSEP)build/cl-gcc-non-const-time-val.patch $(3RDP_ROOT)$(DIRSEP)build/cl-no-odbc.patch $(3RDP_ROOT)$(DIRSEP)build/cl-noasm-defines.patch $(3RDP_ROOT)$(DIRSEP)build/cl-bn-noasm64-fix.patch $(3RDP_ROOT)$(DIRSEP)build/cl-no-RSA-suites.patch $(3RDP_ROOT)$(DIRSEP)build/cl-fix-ECC-RSA.patch $(3RDP_ROOT)$(DIRSEP)build/cl-prefer-ECC.patch $(3RDP_ROOT)$(DIRSEP)build/cl-prefer-ECC-harder.patch $(3RDP_ROOT)$(DIRSEP)build/cl-more-RSA-ECC-fixes.patch $(3RDP_ROOT)$(DIRSEP)build/cl-DH-key-init.patch $(3RDP_ROOT)$(DIRSEP)build/cl-clear-GCM-flag.patch $(3RDP_ROOT)$(DIRSEP)build/cl-use-ssh-ctr.patch $(3RDP_ROOT)$(DIRSEP)build/cl-ssh-list-ctr-modes.patch $(3RDP_ROOT)$(DIRSEP)build/cl-ssh-incCtr.patch $(3RDP_ROOT)$(DIRSEP)build/cl-ssl-suite-blocksizes.patch $(3RDP_ROOT)$(DIRSEP)build/cl-no-tpm.patch $(3RDP_ROOT)$(DIRSEP)build/cl-no-via-aes.patch $(3RDP_ROOT)$(DIRSEP)build/cl-fix-ssh-ecc-ephemeral.patch $(3RDP_ROOT)$(DIRSEP)/build/cl-just-use-cc.patch $(3RDP_ROOT)$(DIRSEP)/build/cl-learn-numbers.patch $(3RDP_ROOT)$(DIRSEP)/build/cl-linux-yield.patch $(3RDP_ROOT)$(DIRSEP)build/cl-no-strip.patch | $(CRYPT_SRC) $(CRYPT_IDIR)
++$(CRYPTLIB_BUILD): $(3RDP_ROOT)$(DIRSEP)dist/cryptlib.zip $(3RDP_ROOT)$(DIRSEP)build/terminal-params.patch $(3RDP_ROOT)$(DIRSEP)build/cl-mingw32-static.patch $(3RDP_ROOT)$(DIRSEP)build/cl-ranlib.patch $(3RDP_ROOT)$(DIRSEP)build/cl-win32-noasm.patch $(3RDP_ROOT)$(DIRSEP)build/cl-zz-country.patch $(3RDP_ROOT)$(DIRSEP)build/cl-algorithms.patch $(3RDP_ROOT)$(DIRSEP)build/cl-allow-duplicate-ext.patch $(3RDP_ROOT)$(DIRSEP)build/cl-macosx-minver.patch $(3RDP_ROOT)$(DIRSEP)build/cl-endian.patch $(3RDP_ROOT)$(DIRSEP)build/cl-cryptodev.patch $(3RDP_ROOT)$(DIRSEP)build/cl-posix-me-gently.patch $(3RDP_ROOT)$(DIRSEP)build/cl-tpm-linux.patch $(3RDP_ROOT)$(DIRSEP)build/cl-PAM-noprompts.patch $(3RDP_ROOT)$(DIRSEP)build/cl-zlib.patch $(3RDP_ROOT)$(DIRSEP)build/Dynamic-linked-static-lib.patch $(3RDP_ROOT)$(DIRSEP)build/SSL-fix.patch $(3RDP_ROOT)$(DIRSEP)build/cl-bigger-maxattribute.patch $(3RDP_ROOT)$(DIRSEP)build/cl-vcxproj.patch $(3RDP_ROOT)$(DIRSEP)build/cl-mingw-vcver.patch $(3RDP_ROOT)$(DIRSEP)build/cl-win32-build-fix.patch $(3RDP_ROOT)$(DIRSEP)build/cl-gcc-non-const-time-val.patch $(3RDP_ROOT)$(DIRSEP)build/cl-no-odbc.patch $(3RDP_ROOT)$(DIRSEP)build/cl-noasm-defines.patch $(3RDP_ROOT)$(DIRSEP)build/cl-bn-noasm64-fix.patch $(3RDP_ROOT)$(DIRSEP)build/cl-no-RSA-suites.patch $(3RDP_ROOT)$(DIRSEP)build/cl-fix-ECC-RSA.patch $(3RDP_ROOT)$(DIRSEP)build/cl-prefer-ECC.patch $(3RDP_ROOT)$(DIRSEP)build/cl-prefer-ECC-harder.patch $(3RDP_ROOT)$(DIRSEP)build/cl-more-RSA-ECC-fixes.patch $(3RDP_ROOT)$(DIRSEP)build/cl-DH-key-init.patch $(3RDP_ROOT)$(DIRSEP)build/cl-clear-GCM-flag.patch $(3RDP_ROOT)$(DIRSEP)build/cl-use-ssh-ctr.patch $(3RDP_ROOT)$(DIRSEP)build/cl-ssh-list-ctr-modes.patch $(3RDP_ROOT)$(DIRSEP)build/cl-ssh-incCtr.patch $(3RDP_ROOT)$(DIRSEP)build/cl-ssl-suite-blocksizes.patch $(3RDP_ROOT)$(DIRSEP)build/cl-no-tpm.patch $(3RDP_ROOT)$(DIRSEP)build/cl-no-via-aes.patch $(3RDP_ROOT)$(DIRSEP)build/cl-fix-ssh-ecc-ephemeral.patch $(3RDP_ROOT)$(DIRSEP)/build/cl-just-use-cc.patch $(3RDP_ROOT)$(DIRSEP)/build/cl-learn-numbers.patch $(3RDP_ROOT)$(DIRSEP)/build/cl-linux-yield.patch $(3RDP_ROOT)$(DIRSEP)build/cl-no-strip.patch $(3RDP_ROOT)$(DIRSEP)build/cl-respect-env-vars.patch | $(CRYPT_SRC) $(CRYPT_IDIR)
+ 	@echo Creating $@ ...
+ 	$(QUIET)-rm -rf $(CRYPT_SRC)/*
+ 	$(QUIET)unzip -oa $(3RDPDISTDIR)$(DIRSEP)cryptlib.zip -d $(CRYPT_SRC)
+@@ -114,6 +114,7 @@ $(CRYPTLIB_BUILD): $(3RDP_ROOT)$(DIRSEP)dist/cryptlib.zip $(3RDP_ROOT)$(DIRSEP)b
+ 	$(QUIET)patch -p0 -d $(CRYPT_SRC) < cl-learn-numbers.patch
+	$(QUIET)patch -p0 -d $(CRYPT_SRC) < cl-linux-yield.patch
+	$(QUIET)patch -p0 -d $(CRYPT_SRC) < cl-no-strip.patch
++	$(QUIET)patch -p0 -d $(CRYPT_SRC) < cl-respect-env-vars.patch
+ ifeq ($(CC),mingw32-gcc)
+ 	$(QUIET)cd $(CRYPT_SRC) && env - PATH="$(PATH)" CC="$(CC)" AR="$(AR)" RANLIB="$(RANLIB)" make directories
+ 	$(QUIET)cd $(CRYPT_SRC) && env - PATH="$(PATH)" CC="$(CC)" AR="$(AR)" RANLIB="$(RANLIB)" make toolscripts
+
+--- /dev/null
++++ b/3rdp/build/cl-respect-env-vars.patch
+@@ -0,0 +1,59 @@
++--- makefile
+++++ makefile
++@@ -90,16 +90,16 @@ DYLIBNAME = lib$(PROJ).$(MAJ).$(MIN).dylib
++ # Further cc flags are gathered dynamically at runtime via the ccopts.sh
++ # script.
++ 
++-CFLAGS			= -c -D__UNIX__ -DNDEBUG -I.
+++CFLAGS			+= -c -D__UNIX__ -I. -DNDEBUG
++ CFLAGS_DEBUG	= -c -D__UNIX__ -I. -g -O1
++-CFLAGS_DEBUGGCC	= -c -D__UNIX__ -I. -ggdb3 -fno-omit-frame-pointer -O1
++-CFLAGS_ANALYSE	= -c -D__UNIX__ -I.
++-CFLAGS_COVERAGE	= -c -D__UNIX__ -I. -ggdb3 -fno-omit-frame-pointer -O1 --coverage -fprofile-arcs -ftest-coverage
++-CFLAGS_FUZZ		= -c -D__UNIX__ -I. -ggdb3 -fno-omit-frame-pointer -funwind-tables -fsanitize=address -O1 -DCONFIG_FUZZ
++-CFLAGS_LIBFUZZER = -c -D__UNIX__ -I. -g -fno-omit-frame-pointer -fsanitize=fuzzer,address,undefined -O1 -DCONFIG_FUZZ -DCONFIG_LIBFUZZER
++-CFLAGS_HONGGFUZZ = -c -D__UNIX__ -I. -g -fno-omit-frame-pointer -O1 -DCONFIG_FUZZ -DCONFIG_LIBFUZZER
++-CFLAGS_UBSAN	= -c -D__UNIX__ -I. -ggdb3 -fno-omit-frame-pointer -funwind-tables -fsanitize=undefined -fsanitize-blacklist=ubsan_blacklist.txt -O1
++-CFLAGS_VALGRIND	= -c -D__UNIX__ -I. -ggdb3 -fno-omit-frame-pointer -O1
+++CFLAGS_DEBUGGCC	= $(CFLAGS) -ggdb3 -fno-omit-frame-pointer -O1
+++CFLAGS_ANALYSE	= $(CFLAGS)
+++CFLAGS_COVERAGE	= $(CFLAGS) -ggdb3 -fno-omit-frame-pointer -O1 --coverage -fprofile-arcs -ftest-coverage
+++CFLAGS_FUZZ		= $(CFLAGS) -ggdb3 -fno-omit-frame-pointer -funwind-tables -fsanitize=address -O1 -DCONFIG_FUZZ
+++CFLAGS_LIBFUZZER = $(CFLAGS) -g -fno-omit-frame-pointer -fsanitize=fuzzer,address,undefined -O1 -DCONFIG_FUZZ -DCONFIG_LIBFUZZER
+++CFLAGS_HONGGFUZZ = $(CFLAGS) -g -fno-omit-frame-pointer -O1 -DCONFIG_FUZZ -DCONFIG_LIBFUZZER
+++CFLAGS_UBSAN	= $(CFLAGS) -ggdb3 -fno-omit-frame-pointer -funwind-tables -fsanitize=undefined -fsanitize-blacklist=ubsan_blacklist.txt -O1
+++CFLAGS_VALGRIND	= $(CFLAGS) -ggdb3 -fno-omit-frame-pointer -O1
++ 
++ # Paths and command names.  We have to be careful with comments attached to
++ # path defines because some makes don't strip trailing spaces.
++@@ -115,9 +115,6 @@ STATIC_OBJ_PATH = $(STATIC_OBJ_DIR)/
++ SHARED_OBJ_PATH = $(SHARED_OBJ_DIR)/
++ CPP			= $(CC) -E
++ LD			= $(CC)
++-MAKE		= make
++-AR			= ar
++-STRIP		= strip
++ SHELL		= /bin/sh
++ OSNAME		= `uname`
++ LINKFILE	= link.tmp
++
++--- tools/buildall.sh
+++++ tools/buildall.sh
++@@ -195,13 +195,13 @@ fi
++ # we add an extra character to the comparison string to avoid syntax errors.
++ 
++ if [ $ANALYSE -gt 0 ] ; then
++-	CFLAGS="$(./tools/ccopts.sh analyse $CC $OSNAME)" ;
+++	CFLAGS="$CFLAGS $(./tools/ccopts.sh analyse $CC $OSNAME)" ;
++ elif [ $ISSPECIAL -gt 0 ] ; then
++-	CFLAGS="$(./tools/ccopts.sh special $CC $OSNAME)" ;
+++	CFLAGS="$CFLAGS $(./tools/ccopts.sh special $CC $OSNAME)" ;
++ elif [ $SHARED -gt 0 ] ; then
++-	CFLAGS="$(./tools/ccopts.sh shared $CC $OSNAME)" ;
+++	CFLAGS="$CFLAGS $(./tools/ccopts.sh shared $CC $OSNAME)" ;
++ else
++-	CFLAGS="$(./tools/ccopts.sh $CC $OSNAME)" ;
+++	CFLAGS="$CFLAGS $(./tools/ccopts.sh $CC $OSNAME)" ;
++ fi
++ if [ '$(CFLAGS)x' = 'x' ] ; then
++ 	echo "$0: Couldn't get compiler flags via tools/ccopts.sh." >&2 ;
