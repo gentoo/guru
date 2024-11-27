@@ -23,6 +23,7 @@ DEPEND="
 
 RDEPEND="
 	${DEPEND}
+	kde-frameworks/qqc2-desktop-style:6
 "
 
 BDEPEND="
