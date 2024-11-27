@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-11-27)
+# C++ library with no reverse dependencies.
+# Unmaintained in guru since 2022.
+# Removal on 2024-12-27. Bug #945035.
+dev-libs/fsst
+
 # Julien Roy <julien@jroy.ca> (2024-11-25)
 # Depends on <sci-libs/opencascade-7.8.0 which was removed from ::gentoo
 media-gfx/mayo
