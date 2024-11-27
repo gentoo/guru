@@ -17,9 +17,13 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	gui-libs/gtk
+	dev-libs/glib:2
+	gui-libs/gtk:4
 	>=gui-libs/gtk4-layer-shell-1.0.4
 	dev-libs/gobject-introspection
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
+	x11-libs/pango
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
