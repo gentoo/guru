@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/ErikReider/SwayOSD/issues</bugs-to>
+		<changelog>https://github.com/ErikReider/SwayOSD/releases</changelog>
+		<remote-id type="github">ErikReider/SwayOSD</remote-id>
+	</upstream>
+</pkgmetadata>
