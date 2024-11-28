@@ -43,7 +43,10 @@ RDEPEND="
 "
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}/remove-optimization-flag.patch" )
+src_prepare() {
+	sed -i -e 's:-O0 ::' CMakeLists.txt || die
+	cmake_src_prepare
+}
 
 src_configure() {
 	filter-flags -O*
