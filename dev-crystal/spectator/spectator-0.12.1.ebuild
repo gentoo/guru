@@ -15,6 +15,13 @@ KEYWORDS="~amd64"
 
 DOCS=( {ARCHITECTURE,CHANGELOG,CONTRIBUTING,README}.md )
 
+src_prepare() {
+	default
+
+	# remove a test that might fail to build (bug 945172)
+	rm spec/issues/github_issue_48_spec.cr || die
+}
+
 src_test() {
 	# adopted from .gitlab-ci.yml
 	shards_src_test spec/matchers/ spec/spectator/*.cr
@@ -26,7 +33,7 @@ src_test() {
 	# Build failure
 	#shards_src_test spec/spectator/dsl/
 
-	# Compile each test individually because otherwise
+	# Compile each test individually, because otherwise
 	# up to 3G of RAM is eaten by compilation.
 	local t
 	for t in spec/spectator/mocks/*; do
