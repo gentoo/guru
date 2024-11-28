@@ -96,6 +96,7 @@ crystal_configure() {
 
 	local args=(
 		--link-flags="\"${LDFLAGS}\""
+		--error-trace
 		--release
 		--progress
 		$(_crystal_get_debug_opt)
