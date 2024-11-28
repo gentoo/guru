@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<upstream>
+		<changelog>https://github.com/yuezk/GlobalProtect-openconnect/issues</changelog>
+		<bugs-to>https://github.com/yuezk/GlobalProtect-openconnect/releases</bugs-to>
+		<remote-id type="github">yuezk/GlobalProtect-openconnect</remote-id>
+	</upstream>
+</pkgmetadata>
