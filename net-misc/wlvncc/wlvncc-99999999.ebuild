@@ -11,6 +11,8 @@ EGIT_REPO_URI="https://github.com/any1/wlvncc"
 LICENSE="GPL-2"
 SLOT="0"
 
+DOCS=("README.md" "scripts/auth-script.sh")
+
 DEPEND="
 	dev-libs/wayland-protocols
 "
