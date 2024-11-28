@@ -23,5 +23,7 @@ distutils_enable_tests pytest
 src_prepare() {
 	default
 
-	sed -i '/typedef char    bool/d' src/common.h || die
+	if tc-is-gcc && ver_test $(gcc-version) -ge 15 ; then
+		sed -i '/typedef char    bool/d' src/common.h || die
+	fi
 }
