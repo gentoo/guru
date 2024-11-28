@@ -32,6 +32,7 @@ RDEPEND=" ${DEPEND}
 	>=dev-python/anyio-4.3.0[${PYTHON_USEDEP}]
 	>=dev-python/distro-1.7.0[${PYTHON_USEDEP}]
 	>=dev-python/sniffio-1.3.1[${PYTHON_USEDEP}]
+	<dev-python/httpx-0.28.0[${PYTHON_USEDEP}]
 	 "
 
 BDEPEND="test? (
