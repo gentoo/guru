@@ -27,12 +27,11 @@ LICENSE="MIT test? ( ISC Apache-2.0 MIT BSD CC0-1.0 0BSD )"
 SLOT="3"
 RDEPEND=" ${DEPEND}
 	>=dev-python/httpx-0.23.0[${PYTHON_USEDEP}]
-	>=dev-python/pydantic-1.9.0[${PYTHON_USEDEP}]
+	=dev-python/pydantic-2.9*[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-4.7.0[${PYTHON_USEDEP}]
 	>=dev-python/anyio-4.3.0[${PYTHON_USEDEP}]
 	>=dev-python/distro-1.7.0[${PYTHON_USEDEP}]
 	>=dev-python/sniffio-1.3.1[${PYTHON_USEDEP}]
-	<dev-python/pydantic-2.10.0[${PYTHON_USEDEP}]
 	 "
 
 BDEPEND="test? (
