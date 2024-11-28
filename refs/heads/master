@@ -1,19 +1,19 @@
 certificate version 0.1
-pusher Julien Roy <julien@jroy.ca> 1732831647 -0500
+pusher Julien Roy <julien@jroy.ca> 1732832529 -0500
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1732831647-882f16344b42002e0014d1d97df2bbff30e6565e
+nonce 1732832529-156354ad23bd15350d1942daedb7f90057cfcf1a
 
-f51a90f5975bcf7a3192a673ad1c7029adff4b1d 72054efff7365fe4b5df88330cd3c89279eeb612 refs/heads/master
+72054efff7365fe4b5df88330cd3c89279eeb612 d710bba82900dd7858b265c51f389eb29ab04ec9 refs/heads/master
 -----BEGIN PGP SIGNATURE-----
 
-iQGjBAABCgCNFiEEUri1ZrRDZASH+Q0NvvIpdEiEiEIFAmdI6Z9fFIAAAAAALgAo
+iQGjBAABCgCNFiEEUri1ZrRDZASH+Q0NvvIpdEiEiEIFAmdI7RFfFIAAAAAALgAo
 aXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5maWZ0aGhvcnNlbWFuLm5ldDUy
 QjhCNTY2QjQ0MzY0MDQ4N0Y5MEQwREJFRjIyOTc0NDg4NDg4NDIPHGp1bGllbkBq
-cm95LmNhAAoJEL7yKXRIhIhCQiAIAL3ipN19GbctJqGgy/0wY+aprRRZfAkeXCtn
-iBIfKDkaZcD0gfah8tNGA5tKChCx2eS+qqJqU+8QIW4sR4+115vt67r3/kZpxIhk
-3Hi26siddj+2U/CfJJtO2Ld0Im3Rgx+A3Los2B65af7eGvZmBhs/ORgVGzgVwfKE
-h+wO5qtbuvl6M97uFAwnaW5JritFJ7QJLBOO3tsFjcj1kcrCoUXl/p3tuCeneZ1w
-8m4yGBuwQrBHmQeCS5P+eOcvc/bCVDzeSP2K6W7nZ743lPQEM7eQerrZ40nnaY4n
-nBXXkFn+5pe+NsNcnVhnzgo2w7b92lkJL7o6ZFe9gt9iF7VEMhs=
-=4/sN
+cm95LmNhAAoJEL7yKXRIhIhCptoH/Ama4XRTos1U0JpGEl24DMRjmJqkqVlKaBrx
+FuUSOmawFeyLb6ZNxbbMSK6Dx4HtfZGSV8hFYFk4e0QHb2FIgZwd9PR5V2Gmqdei
+YJOgpuSTsCmSkTeNhueIp3clNf+e5BrQUZmFOVOQtohW/5B4Jo67jfg6O4q3H1XN
+lm/XSYkSjGOeJMxk0KWYf7XtlcWns74tMmhSmJ7RDSmT/aQ6EmKaN+32NgvH+HPx
+7wzsbC9NVoXsAmTHtmrbuvEldVeNnWgewtaVYpImEr7RGvO25dNkYLF9Nvb7JccT
+hDDiymAnezIizLe+4s3bo2IDft9ZF42rsNaE0js/AhtCgjxcYhA=
+=jxVJ
 -----END PGP SIGNATURE-----
