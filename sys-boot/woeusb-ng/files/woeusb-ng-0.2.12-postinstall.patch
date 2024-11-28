@@ -1,9 +1,0 @@
---- a/setup.py
-+++ b/setup.py
-@@ -68,6 +68,5 @@ setup(
-     ],
-     cmdclass={
-         'develop': PostDevelopCommand,
--        'install': PostInstallCommand
-     }
- )
