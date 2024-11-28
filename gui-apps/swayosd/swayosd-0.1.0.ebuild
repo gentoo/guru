@@ -261,6 +261,9 @@ BDEPEND="
 	dev-lang/sassc
 "
 
+# Rust
+QA_FLAGS_IGNORED="usr/bin/${PN}-{client,libinput-backend,server}"
+
 src_unpack() {
 	default
 	cargo_src_unpack
