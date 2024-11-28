@@ -32,6 +32,11 @@ DEPEND="
 "
 BDEPEND="dev-util/wayland-scanner"
 
+PATCHES=(
+	# bug #945227
+	"${FILESDIR}/${P}-gcc15.patch"
+)
+
 src_install() {
 	meson_src_install
 	newman mpvpaper.man mpvpaper.1
