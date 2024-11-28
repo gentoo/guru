@@ -14,13 +14,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-db/postgresql
+	dev-db/sqlite:3
 	dev-db/pg_query_vala
-	dev-libs/glib
+	dev-libs/glib:2
 	dev-libs/json-glib
+	dev-libs/libcsv
 	gui-libs/gtk:4
-	gui-libs/gtksourceview
+	gui-libs/gtksourceview:5
 	gui-libs/libadwaita:1
+	x11-libs/cairo
 	x11-libs/pango
 "
 DEPEND="${RDEPEND}"
