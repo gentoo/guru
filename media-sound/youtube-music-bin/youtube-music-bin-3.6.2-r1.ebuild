@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -32,7 +32,9 @@ RDEPEND="
 	media-libs/mesa
 	net-print/cups
 	sys-apps/dbus
+	virtual/udev
 	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
 	x11-libs/libdrm
 	x11-libs/libX11
 	x11-libs/libxcb
