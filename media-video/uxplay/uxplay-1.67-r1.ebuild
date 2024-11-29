@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,6 +26,7 @@ IUSE="+vaapi +X"
 
 RDEPEND="
 	app-pda/libplist
+	dev-libs/glib:2
 	dev-libs/openssl
 	media-libs/gstreamer
 	media-libs/gst-plugins-bad
