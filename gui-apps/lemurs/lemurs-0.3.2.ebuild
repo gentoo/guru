@@ -79,10 +79,15 @@ RDEPEND="${DEPEND}
 				!systemd? ( sys-apps/kbd )
 "
 
+PATCHES=(
+	# bug #942191
+	"${FILESDIR}/${P}-rust-1.81.patch"
+)
+
 QA_FLAGS_IGNORED="usr/bin/lemurs"
 
 src_prepare() {
-	eapply_user
+	default
 	# Run lemurs on tty7 so it doesn't conflict with agetty
 	# And replace systemd's reboot and shutdown commands
 	if ! use systemd ; then

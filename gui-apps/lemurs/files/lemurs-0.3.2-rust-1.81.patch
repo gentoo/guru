@@ -1,0 +1,14 @@
+Fix build with rust-1.81.
+https://bugs.gentoo.org/942191
+https://github.com/coastalwhite/lemurs/commit/09003a830400250ec7745939399fc942c505e6c6
+--- a/src/config.rs
++++ b/src/config.rs
+@@ -645,7 +645,7 @@ struct Variable<'a> {
+ }
+ 
+ impl<'a> Variable<'a> {
+-    const START_SYMBOL: &str = "$";
++    const START_SYMBOL: &'static str = "$";
+ 
+     fn span(&self) -> std::ops::Range<usize> {
+         self.start..self.start + Self::START_SYMBOL.len() + self.ident.len()
