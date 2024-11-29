@@ -13,12 +13,7 @@ LICENSE="ZLIB"
 SLOT="0"
 
 src_compile() {
-	ewarn "According to an upstream maintainer, cc65 has a tendency to"
-	ewarn "\"fail randomly\" when using \`make -j' to build in parallel."
-	ewarn "If compiling this package fails, and you have parallel jobs"
-	ewarn "enabled, try again with \`MAKEOPTS+=-j1' to disable them."
-
-	emake CC="$(tc-getCC)" AR="$(tc-getAR)" PREFIX="${EPREFIX}/usr"
+	emake CC="$(tc-getCC)" AR="$(tc-getAR)" PREFIX="${EPREFIX}/usr" -j1
 }
 
 src_install() {
