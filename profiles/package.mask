@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-11-30)
+# The service shut down in 2022.
+# Removal on 2024-12-30. Bug #945311.
+net-fs/hubicfuse
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-11-27)
 # C++ library with no reverse dependencies.
 # Unmaintained in guru since 2022.
