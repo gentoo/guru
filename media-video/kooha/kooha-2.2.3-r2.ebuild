@@ -19,15 +19,19 @@ RESTRICT="!test? ( test )"
 DEPEND="
 		x264? ( >=media-libs/x264-0.0.20220222
 				>=media-libs/gst-plugins-ugly-1.20.6 )
-		>=media-libs/gstreamer-1.20.6
-		>=media-libs/gst-plugins-base-1.20.6
+		>=media-libs/gstreamer-1.20.6:1.0
+		>=media-libs/gst-plugins-base-1.20.6:1.0
 		vaapi? ( >=media-plugins/gst-plugins-vaapi-1.20.6 )
-		>=dev-libs/glib-2.76.3
-		>=gui-libs/gtk-4.10.4
-		>=gui-libs/libadwaita-1.3.3
+		>=dev-libs/glib-2.76.3:2
+		>=gui-libs/gtk-4.10.4:4
+		>=gui-libs/libadwaita-1.3.3:1
+		media-libs/graphene
 		>=media-libs/libpulse-15.0[glib]
 		>=media-video/pipewire-0.3.77-r1[gstreamer]
 		>=sys-apps/xdg-desktop-portal-1.16.0-r1
+		x11-libs/cairo
+		x11-libs/gdk-pixbuf:2
+		x11-libs/pango
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
