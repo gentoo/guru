@@ -420,10 +420,8 @@ src_unpack() {
 
 src_configure() {
 	# handled by xdg & gnome2-utils eclass
-	sed -i \
-		-e '/^gnome.post_install(/,/)/d' \
-		src/meson.build \
-		|| die
+	sed -i '/^meson.add_install_script/d' meson.build || die
+	sed -i '/^gnome.post_install(/,/)/d' src/meson.build || die
 
 	# appdata dir is deprecated
 	sed -i \
