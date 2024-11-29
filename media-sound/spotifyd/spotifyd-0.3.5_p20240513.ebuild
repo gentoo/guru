@@ -79,7 +79,7 @@ CRATES="
 	dbus-crossroads@0.5.2
 	dbus-tokio@0.7.6
 	dbus@0.9.7
-	deranged@0.3.8
+	deranged@0.3.11
 	derivative@2.2.0
 	digest@0.10.7
 	digest@0.9.0
@@ -200,6 +200,7 @@ CRATES="
 	nom@7.1.3
 	num-bigint@0.4.4
 	num-complex@0.4.4
+	num-conv@0.1.0
 	num-derive@0.3.3
 	num-integer@0.1.45
 	num-iter@0.1.43
@@ -235,6 +236,7 @@ CRATES="
 	polling@2.8.0
 	portaudio-rs@0.3.2
 	portaudio-sys@0.1.1
+	powerfmt@0.2.0
 	ppv-lite86@0.2.17
 	priority-queue@1.3.2
 	proc-macro-crate@1.3.1
@@ -317,10 +319,10 @@ CRATES="
 	thiserror@1.0.47
 	thread-id@4.2.0
 	thread_local@1.1.7
-	time-core@0.1.1
-	time-macros@0.2.14
+	time-core@0.1.2
+	time-macros@0.2.18
 	time@0.1.45
-	time@0.3.28
+	time@0.3.36
 	tinyvec@1.6.0
 	tinyvec_macros@0.1.1
 	tokio-macros@2.1.0
@@ -418,6 +420,11 @@ DEPEND="media-libs/alsa-lib
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
+
+PATCHES=(
+	# bug #945307
+	"${FILESDIR}/${P}-rust-1.80.patch"
+)
 
 QA_FLAGS_IGNORED="usr/bin/spotifyd"
 
