@@ -60,3 +60,7 @@ src_install() {
 		rm -rf "${ED}/usr/share/${PN}/examples" || die
 	fi
 }
+
+src_test() {
+	emake regress
+}
