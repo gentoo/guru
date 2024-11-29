@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/larsbrinkhoff/terminal-simulator.git"
 LICENSE="GPL-3"
 SLOT="0"
 
-DEPEND="media-libs/libsdl2 media-libs/sdl2-image virtual/opengl"
+DEPEND="media-libs/libsdl2[opengl] media-libs/sdl2-image virtual/opengl"
 RDEPEND="${DEPEND}"
 
 src_compile() {
