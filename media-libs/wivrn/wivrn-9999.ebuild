@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/WiVRn/WiVRn"
 
 LICENSE="GPL-3 Apache-2.0 MIT"
 SLOT="0"
-IUSE="gui nvenc +pipewire pulseaudio systemd vaapi wireshark-plugins x264"
+IUSE="gui nvenc +pipewire pulseaudio systemd vaapi vulkan-encode wireshark-plugins x264"
 REQUIRED_USE="|| ( nvenc vaapi x264 )"
 
 if [[ ${PV} == 9999 ]]; then
@@ -25,29 +25,32 @@ else
 fi
 
 RDEPEND="
-	vaapi? (
-		media-video/ffmpeg[libdrm,vaapi]
-	)
-	x264? (
-		media-libs/x264
-	)
+	dev-libs/glib
 	dev-libs/libbsd
+	dev-libs/openssl
+	media-libs/openxr-loader
+	net-dns/avahi
+	x11-libs/libnotify
+	gui? (
+		dev-qt/qtbase:6
+	)
 	pipewire? (
 		media-video/pipewire
 	)
 	pulseaudio? (
 		media-libs/libpulse
 	)
-	media-libs/openxr-loader
-	net-dns/avahi
 	systemd? (
 		sys-apps/systemd
+	)
+	vaapi? (
+		media-video/ffmpeg[libdrm,vaapi]
 	)
 	wireshark-plugins? (
 		net-analyzer/wireshark
 	)
-	gui? (
-		dev-qt/qtbase:6
+	x264? (
+		media-libs/x264
 	)
 "
 DEPEND="
@@ -63,6 +66,7 @@ BDEPEND="
 	gui? (
 		gnome-base/librsvg
 	)
+	dev-util/vulkan-headers
 "
 
 if [[ ${PV} == 9999 ]]; then
@@ -71,7 +75,7 @@ if [[ ${PV} == 9999 ]]; then
 		default_src_unpack
 
 		local MONADO_COMMIT=$(grep "GIT_TAG" "${P}/CMakeLists.txt" | awk '{print $2}')
-		git-r3_fetch "${MONADO_REPO_URI}" "${MONADO_COMIT}"
+		git-r3_fetch "${MONADO_REPO_URI}" "${MONADO_COMMIT}"
 		git-r3_checkout "${MONADO_REPO_URI}" "${WORKDIR}/monado-src"
 	}
 
@@ -98,12 +102,15 @@ src_configure() {
 		-DGIT_DESC=${GIT_DESC}
 		-DWIVRN_BUILD_CLIENT=OFF
 		-DWIVRN_BUILD_SERVER=ON
+		-DWIVRN_OPENXR_MANIFEST_TYPE=relative
 		-DWIVRN_BUILD_DASHBOARD=$(usex gui)
 		-DWIVRN_BUILD_DISSECTOR=$(usex wireshark-plugins)
+		-DWIVRN_BUILD_WIVRNCTL=$(usex systemd)
 		-DWIVRN_USE_PIPEWIRE=$(usex pipewire)
 		-DWIVRN_USE_PULSEAUDIO=$(usex pulseaudio)
 		-DWIVRN_USE_NVENC=$(usex nvenc)
 		-DWIVRN_USE_VAAPI=$(usex vaapi)
+		-DWIVRN_USE_VULKAN_ENCODE=$(usex vulkan-encode)
 		-DWIVRN_USE_X264=$(usex x264)
 		-DWIVRN_USE_SYSTEMD=$(usex systemd)
 		-DWIVRN_USE_SYSTEM_OPENXR=ON

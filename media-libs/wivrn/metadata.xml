@@ -12,6 +12,9 @@
 		<flag name="pulseaudio">
 			Enable support for audio sink/source through pulseaudio modules 
 		</flag>
+		<flag name="vulkan-encode">
+			Enable support for encoding with vulkan video
+		</flag>
 		<flag name="wireshark-plugins">
 			Build the <pkg>net-analyzer/wireshark</pkg> plugin for the WiVRn protocol
 		</flag>
