@@ -262,7 +262,7 @@ BDEPEND="
 "
 
 # Rust
-QA_FLAGS_IGNORED="usr/bin/${PN}-{client,libinput-backend,server}"
+QA_FLAGS_IGNORED="usr/bin/${PN}-client usr/bin/${PN}-libinput-backend usr/bin/${PN}-server"
 
 src_unpack() {
 	default
