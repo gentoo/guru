@@ -136,6 +136,11 @@ QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 DOCS=( README.md )
 
+pkg_setup() {
+	llvm-r1_pkg_setup
+	rust_pkg_setup
+}
+
 src_install() {
 	cargo_src_install
 	einstalldocs
