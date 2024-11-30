@@ -1,0 +1,14 @@
+https://bugs.gentoo.org/945308
+https://gitlab.com/megapixels-org/Megapixels/-/merge_requests/34
+Fix build with GCC 15.
+--- a/src/process_pipeline.c
++++ b/src/process_pipeline.c
+@@ -693,7 +693,7 @@ mp_process_pipeline_process_image(MPBuffer buffer)
+ }
+ 
+ static void
+-capture()
++capture(struct _MPPipeline *, const void *)
+ {
+         char template[] = "/tmp/megapixels.XXXXXX";
+         char *tempdir;

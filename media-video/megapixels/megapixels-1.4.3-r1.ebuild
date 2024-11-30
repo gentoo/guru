@@ -1,11 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit gnome2-utils meson xdg
 
-DESCRIPTION="A GTK3 camera application that knows how to deal with the media request api"
+DESCRIPTION="GTK4 camera application that knows how to deal with the media request api"
 HOMEPAGE="https://git.sr.ht/~martijnbraam/megapixels"
 SRC_URI="https://gitlab.com/postmarketOS/megapixels/-/archive/${PV}/${P}.tar.bz2"
 
@@ -14,17 +14,22 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 DEPEND="
-	gui-libs/gtk
-	x11-libs/gtk+:3
-	media-libs/tiff
+	dev-libs/glib:2
+	gui-libs/gtk:4
 	media-gfx/zbar
 	media-libs/libepoxy
-	media-libs/libraw
+	media-libs/tiff:=
+"
+RDEPEND="
+	${DEPEND}
 	media-gfx/dcraw
 	media-gfx/imagemagick
 "
 
-RDEPEND="${DEPEND}"
+PATCHES=(
+	# bug #945308
+	"${FILESDIR}/${P}-gcc15.patch"
+)
 
 pkg_postinst() {
 	xdg_pkg_postinst
