@@ -26,7 +26,6 @@ SLOT="0"
 IUSE="minimal"
 
 RDEPEND="
-	<app-portage/gentoopm-2[${PYTHON_USEDEP}]
 	>=dev-python/aiohttp-3[${PYTHON_USEDEP}]
 	<dev-python/aiohttp-4[${PYTHON_USEDEP}]
 	dev-python/click[${PYTHON_USEDEP}]
@@ -39,7 +38,10 @@ RDEPEND="
 	<dev-python/pydantic-3[${PYTHON_USEDEP}]
 	>=dev-python/requests-2[${PYTHON_USEDEP}]
 	<dev-python/requests-3[${PYTHON_USEDEP}]
+	>=dev-python/typing-extensions-4.3.0[${PYTHON_USEDEP}]
+	<dev-python/typing-extensions-5[${PYTHON_USEDEP}]
 	!minimal? (
+		>=dev-python/lxml-4.5[${PYTHON_USEDEP}]
 		dev-python/tabulate[${PYTHON_USEDEP}]
 	)
 "
@@ -57,11 +59,6 @@ PDEPEND="
 		dev-util/find-work-repology
 	)
 "
-
-EPYTEST_DESELECT=(
-	# fails with plug-ins installed
-	find_work/__main__.py::import-check
-)
 
 distutils_enable_tests pytest
 
