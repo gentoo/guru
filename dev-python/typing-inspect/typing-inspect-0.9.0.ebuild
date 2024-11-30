@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 pypi
@@ -24,9 +24,3 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 distutils_enable_tests pytest
-
-python_test() {
-	# https://github.com/ilevkivskyi/typing_inspect/issues/84
-	local EPYTEST_DESELECT=( 'test_typing_inspect.py::GetUtilityTestCase::test_typed_dict_typing_extension' )
-	epytest
-}
