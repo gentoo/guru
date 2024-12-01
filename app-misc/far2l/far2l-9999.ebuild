@@ -36,7 +36,6 @@ RDEPEND="
 		x11-libs/libXi
 	)
 	archive? (
-		dev-libs/libpcre2
 		app-arch/libarchive
 	)
 	chardet? ( app-i18n/uchardet )
@@ -72,10 +71,10 @@ src_configure() {
 		-DUSEWX="$(usex wxwidgets)"
 		-DUSEUCD=$"$(usex chardet)"
 		-DCOLORER="$(usex colorer)"
+#		FIXME: add python plugins support
 #		-DPYTHON="$(usex python)"
 		-DBUILD_SHARED_LIBS=OFF
 	)
-
 	cmake_src_configure
 }
 
