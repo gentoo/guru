@@ -22,7 +22,10 @@ HOMEPAGE="https://git.sr.ht/~lanodan/deblob"
 LICENSE="BSD"
 SLOT="0"
 
-DEPEND="dev-lang/hare:="
+DEPEND="
+	dev-lang/hare:=
+	dev-hare/hare-json
+"
 
 # built by hare
 QA_FLAGS_IGNORED="usr/bin/deblob"
