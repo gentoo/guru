@@ -1,0 +1,197 @@
+https://bugs.gentoo.org/945309
+https://todo.sr.ht/~scoopta/wlrobs/28
+Fix build with GCC 15 (C23).
+--- a/src/dmabuf_source.c
++++ b/src/dmabuf_source.c
+@@ -86,7 +86,11 @@ static void add_interface(void* data, struct wl_registry* registry, uint32_t nam
+ 	}
+ }
+ 
+-static void nop() {}
++static void remove_interface(void* data, struct wl_registry* registry, uint32_t name) {
++	(void) data;
++	(void) registry;
++	(void) name;
++}
+ 
+ static void get_xdg_name(void* data, struct zxdg_output_v1* output, const char* name) {
+ 	(void) output;
+@@ -94,6 +98,31 @@ static void get_xdg_name(void* data, struct zxdg_output_v1* output, const char*
+ 	node->name = strdup(name);
+ }
+ 
++static void output_description(void* data, struct zxdg_output_v1* output, const char* description) {
++	(void) data;
++	(void) output;
++	(void) description;
++}
++
++static void output_done(void* data, struct zxdg_output_v1* output) {
++	(void) data;
++	(void) output;
++}
++
++static void output_logical_position(void* data, struct zxdg_output_v1* output, int32_t x, int32_t y) {
++	(void) data;
++	(void) output;
++	(void) x;
++	(void) y;
++}
++
++static void output_logical_size(void* data, struct zxdg_output_v1* output, int32_t width, int32_t height) {
++	(void) data;
++	(void) output;
++	(void) width;
++	(void) height;
++}
++
+ static void destroy(void* data) {
+ 	struct wlr_source* this = data;
+ 	struct output_node* node, *safe_node;
+@@ -156,7 +185,7 @@ static void setup_display(struct wlr_source* this, const char* display) {
+ 	struct wl_registry* registry = wl_display_get_registry(this->wl);
+ 	struct wl_registry_listener listener = {
+ 		.global = add_interface,
+-		.global_remove = nop
++		.global_remove = remove_interface
+ 	};
+ 	wl_registry_add_listener(registry, &listener, this);
+ 	wl_display_roundtrip(this->wl);
+@@ -164,10 +193,10 @@ static void setup_display(struct wlr_source* this, const char* display) {
+ 	wl_list_for_each(node, &this->outputs, link) {
+ 		struct zxdg_output_v1* xdg_output = zxdg_output_manager_v1_get_xdg_output(this->output_manager, node->output);
+ 		node->listener = malloc(sizeof(struct zxdg_output_v1_listener));
+-		node->listener->description = nop;
+-		node->listener->done = nop;
+-		node->listener->logical_position = nop;
+-		node->listener->logical_size = nop;
++		node->listener->description = output_description;
++		node->listener->done = output_done;
++		node->listener->logical_position = output_logical_position;
++		node->listener->logical_size = output_logical_size;
+ 		node->listener->name = get_xdg_name;
+ 		zxdg_output_v1_add_listener(xdg_output, node->listener, node);
+ 	}
+--- a/src/scpy_source.c
++++ b/src/scpy_source.c
+@@ -89,7 +89,11 @@ static void add_interface(void* data, struct wl_registry* registry, uint32_t nam
+ 	}
+ }
+ 
+-static void nop() {}
++static void remove_interface(void* data, struct wl_registry* registry, uint32_t name) {
++	(void) data;
++	(void) registry;
++	(void) name;
++}
+ 
+ static void get_xdg_name(void* data, struct zxdg_output_v1* output, const char* name) {
+ 	(void) output;
+@@ -97,6 +101,31 @@ static void get_xdg_name(void* data, struct zxdg_output_v1* output, const char*
+ 	node->name = strdup(name);
+ }
+ 
++static void output_description(void* data, struct zxdg_output_v1* output, const char* description) {
++	(void) data;
++	(void) output;
++	(void) description;
++}
++
++static void output_done(void* data, struct zxdg_output_v1* output) {
++	(void) data;
++	(void) output;
++}
++
++static void output_logical_position(void* data, struct zxdg_output_v1* output, int32_t x, int32_t y) {
++	(void) data;
++	(void) output;
++	(void) x;
++	(void) y;
++}
++
++static void output_logical_size(void* data, struct zxdg_output_v1* output, int32_t width, int32_t height) {
++	(void) data;
++	(void) output;
++	(void) width;
++	(void) height;
++}
++
+ static void destroy(void* data) {
+ 	struct wlr_source* this = data;
+ 	struct output_node* node, *safe_node;
+@@ -148,7 +177,7 @@ static void setup_display(struct wlr_source* this, const char* display) {
+ 	struct wl_registry* registry = wl_display_get_registry(this->wl);
+ 	struct wl_registry_listener listener = {
+ 		.global = add_interface,
+-		.global_remove = nop
++		.global_remove = remove_interface
+ 	};
+ 	wl_registry_add_listener(registry, &listener, this);
+ 	wl_display_roundtrip(this->wl);
+@@ -156,10 +185,10 @@ static void setup_display(struct wlr_source* this, const char* display) {
+ 	wl_list_for_each(node, &this->outputs, link) {
+ 		struct zxdg_output_v1* xdg_output = zxdg_output_manager_v1_get_xdg_output(this->output_manager, node->output);
+ 		node->listener = malloc(sizeof(struct zxdg_output_v1_listener));
+-		node->listener->description = nop;
+-		node->listener->done = nop;
+-		node->listener->logical_position = nop;
+-		node->listener->logical_size = nop;
++		node->listener->description = output_description;
++		node->listener->done = output_done;
++		node->listener->logical_position = output_logical_position;
++		node->listener->logical_size = output_logical_size;
+ 		node->listener->name = get_xdg_name;
+ 		zxdg_output_v1_add_listener(xdg_output, node->listener, node);
+ 	}
+@@ -248,6 +277,34 @@ static void failed(void* data, struct zwlr_screencopy_frame_v1* frame) {
+ 	this->waiting = false;
+ }
+ 
++static void flags(void* data, struct zwlr_screencopy_frame_v1* frame, uint32_t flags) {
++	(void) data;
++	(void) frame;
++	(void) flags;
++}
++
++static void damage(void* data, struct zwlr_screencopy_frame_v1* frame, uint32_t x, uint32_t y, uint32_t width, uint32_t height) {
++	(void) data;
++	(void) frame;
++	(void) x;
++	(void) y;
++	(void) width;
++	(void) height;
++}
++
++static void linux_dmabuf(void* data, struct zwlr_screencopy_frame_v1* frame, uint32_t format, uint32_t width, uint32_t height) {
++	(void) data;
++	(void) frame;
++	(void) format;
++	(void) width;
++	(void) height;
++}
++
++static void buffer_done(void* data, struct zwlr_screencopy_frame_v1* frame) {
++	(void) data;
++	(void) frame;
++}
++
+ static void render(void* data, gs_effect_t* effect) {
+ 	(void) effect;
+ 	struct wlr_source* this = data;
+@@ -265,12 +322,12 @@ static void render(void* data, gs_effect_t* effect) {
+ 
+ 	struct zwlr_screencopy_frame_v1_listener listener = {
+ 		.buffer = buffer,
+-		.flags = nop,
++		.flags = flags,
+ 		.ready = ready,
+ 		.failed = failed,
+-		.damage = nop,
+-		.linux_dmabuf = nop,
+-		.buffer_done = nop,
++		.damage = damage,
++		.linux_dmabuf = linux_dmabuf,
++		.buffer_done = buffer_done,
+ 	};
+ 	zwlr_screencopy_frame_v1_add_listener(frame, &listener, this);
+ 	while(this->waiting) {
