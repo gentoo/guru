@@ -15,12 +15,17 @@ KEYWORDS=""
 RDEPEND="
 	~gui-wm/hyprland-9999
 	dev-libs/wayland
-	>=dev-libs/hyprland-protocols-0.4.0
+	>=gui-libs/hyprutils-0.2.3
 "
+
 DEPEND="
 	${RDEPEND}
-	dev-util/wayland-scanner
-	>=gui-libs/hyprutils-0.2.3
+	dev-libs/wayland-protocols
+	>=dev-libs/hyprland-protocols-0.4.0
 	>=dev-util/hyprwayland-scanner-0.4.0
+	dev-util/wayland-scanner
+"
+
+BDEPEND="
 	virtual/pkgconfig
 "
