@@ -4,24 +4,46 @@ inherit desktop linux-info unpacker xdg
 
 DESCRIPTION="Package for UnityHub"
 
-# Homepage, not used by Portage directly but handy for developer reference
 HOMEPAGE="https://unity.com/unity-hub"
 
-# Point to any required sources; these will be automatically downloaded by
-# Portage.
 SRC_URI="https://hub.unity3d.com/linux/repos/deb/pool/main/u/unity/unityhub_amd64/unityhub-amd64-3.9.1.deb"
 
-LICENSE="CC0-1.0"
+S="${WORKDIR}"
+
+LICENSE="Unity-TOS"
 
 SLOT="0"
 
 KEYWORDS="~amd64"
 
-S="${WORKDIR}"
-
 # IUSE=""
 
-RDEPEND="dev-libs/nss x11-libs/gtk+ app-alternatives/cpio dev-libs/openssl" # technically this is supposed to be openssl 1.1
+RDEPEND="
+		app-accessibility/at-spi2-core:2
+		dev-libs/expat
+		dev-libs/glib:2
+		dev-libs/nspr
+		dev-util/lttng-ust
+		media-libs/alsa-lib
+		media-libs/mesa
+		net-print/cups
+		sys-apps/dbus
+		sys-libs/zlib
+		x11-libs/cairo
+		dev-libs/nss
+		x11-libs/gtk+:3
+		app-alternatives/cpio
+		x11-libs/libdrm
+		x11-libs/libX11
+		x11-libs/libxcb
+		x11-libs/libXcomposite
+		x11-libs/libXdamage
+		x11-libs/libXext
+		x11-libs/libXfixes
+		x11-libs/libxkbcommon
+		x11-libs/libXrandr
+		x11-libs/pango
+"
 
 # DEPEND=""
 
@@ -31,15 +53,11 @@ QA_PREBUILT="*"
 
 src_install() {
 	dodir /opt/unityhub
-	cp -r opt/* "${D}/opt/"
+	cp -r opt/* "${D}/opt/" || die
 	dosym -r /opt/unityhub/unityhub /usr/bin/unityhub
 	domenu usr/share/applications/unityhub.desktop
 
 	for size in 16 32 48 64 128 256 512; do
 		doicon --size ${size} usr/share/icons/hicolor/${size}x${size}/apps/unityhub.png
 	done
-}
-
-pkg_postinst() {
-	xdg_pkg_postinst
 }
