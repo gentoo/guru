@@ -6,6 +6,8 @@ EAPI=8
 DESCRIPTION="wlr-output-power-management-v1 client"
 HOMEPAGE="https://git.sr.ht/~leon_plickat/wlopm/"
 
+inherit toolchain-funcs
+
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.sr.ht/~leon_plickat/wlopm"
@@ -20,10 +22,17 @@ SLOT="0"
 
 DEPEND="dev-libs/wayland"
 RDEPEND="${DEPEND}"
-BDEPEND="dev-libs/wayland-protocols"
+BDEPEND="dev-util/wayland-scanner"
+
+src_prepare() {
+	default
+	sed '/^CFLAGS/s/-Werror//' -i Makefile || die
+}
+
+src_compile() {
+	emake CC="$(tc-getCC)"
+}
 
 src_install() {
-	# Need to install to /usr instead of /usr/local
-	# and the Makefile doens't handle DESTDIR properly
-	emake PREFIX="${D}"/usr install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
 }
