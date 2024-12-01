@@ -17,6 +17,7 @@ IUSE="wayland"
 
 DEPEND="
 	dev-libs/glib:2
+	x11-libs/cairo[X]
 	!wayland? ( x11-misc/rofi )
 	wayland? ( gui-apps/rofi-wayland )
 "
