@@ -19,8 +19,9 @@ SLOT="0"
 # said dependencies have their checksum verified via `yarn.lock`
 RESTRICT="network-sandbox"
 
+# npm: https://bugs.gentoo.org/945533
 BDEPEND="
-	net-libs/nodejs
+	net-libs/nodejs[npm]
 	sys-apps/yarn
 "
 
