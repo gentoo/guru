@@ -231,11 +231,14 @@ pkg_setup() {
 	rust_pkg_setup
 }
 
-src_unpack() {
+src_prepare() {
 	cargo_src_unpack
 
-	# Apply patch <https://github.com/rtbo/rust-xcb/pull/87> for python 3.9 support.
-	( cd "${WORKDIR}"/cargo_home/gentoo/xcb-0.8.2 && eapply "${FILESDIR}"/rust-xcb-0.8.2-python-3.9.patch )
+	# Apply patch <https://github.com/rust-x-bindings/rust-xcb/pull/87> for python 3.9 and above.
+	( cd "${WORKDIR}"/cargo_home/gentoo/xcb-0.8.2 \
+		&& eapply "${FILESDIR}"/rust-xcb-0.8.2-python-3.9.patch )
+
+	default_src_prepare
 }
 
 src_compile() {
