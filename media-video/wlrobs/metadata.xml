@@ -5,8 +5,4 @@
     <upstream>
         <bugs-to>https://todo.sr.ht/~scoopta/wlrobs</bugs-to>
     </upstream>
-    <use>
-        <flag name="dmabuf">Enable the dmabuf backend</flag>
-        <flag name="scpy">Enable the screen copy backend</flag>
-    </use>
 </pkgmetadata>
