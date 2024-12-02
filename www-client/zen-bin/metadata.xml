@@ -5,6 +5,10 @@
         <email>saigon-tech@tuta.io</email>
         <name>Michal Vu</name>
     </maintainer>
+    <maintainer type="person">
+        <email>julien@jroy.ca</email>
+        <name>Julien Roy</name>
+    </maintainer>
     <upstream>
         <remote-id type="github">zen-browser/desktop</remote-id>
     </upstream>
@@ -12,4 +16,3 @@
         Firefox-based privacy oriented browser. Zen offers a wide variety of customizations and is Firefox sync compatible.
     </longdescription>
 </pkgmetadata>
-
