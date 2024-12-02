@@ -27,6 +27,7 @@ DEPEND+="
 	sys-libs/zlib
 "
 BDEPEND+="dev-ruby/asciidoctor"
+RDEPEND+="net-misc/curl"
 
 QA_FLAGS_IGNORED="usr/bin/rink"
 

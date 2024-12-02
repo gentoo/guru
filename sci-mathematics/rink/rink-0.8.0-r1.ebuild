@@ -252,6 +252,7 @@ DEPEND+="
 	dev-libs/openssl
 	sys-libs/zlib
 "
+RDEPEND+="net-misc/curl"
 
 QA_FLAGS_IGNORED="usr/bin/rink"
 
