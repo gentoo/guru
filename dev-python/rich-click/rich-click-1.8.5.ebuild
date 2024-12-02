@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..13} )
 
-inherit distutils-r1
+inherit click-app distutils-r1
 
 DESCRIPTION="Format click help output nicely with rich"
 HOMEPAGE="
@@ -22,10 +22,12 @@ KEYWORDS="~amd64"
 RDEPEND="
 	>=dev-python/click-7[${PYTHON_USEDEP}]
 	>=dev-python/rich-10.7[${PYTHON_USEDEP}]
-	dev-python/typing-extensions[${PYTHON_USEDEP}]
+	>=dev-python/typing-extensions-4[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
+
+click-app_enable_completions rich-click
 
 src_prepare() {
 	distutils-r1_src_prepare
