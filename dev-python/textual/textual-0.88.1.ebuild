@@ -38,7 +38,6 @@ BDEPEND="
 		dev-python/httpx[${PYTHON_USEDEP}]
 		dev-python/platformdirs[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 		=dev-python/textual-dev-1.7*[${PYTHON_USEDEP}]
 	)
 "
@@ -50,6 +49,7 @@ DEPEND="${RDEPEND}"
 # 	"${FILESDIR}/fix-mkdocstrings.patch"
 # )
 
+EPYTEST_XDIST=1
 EPYTEST_DESELECT=(
 	# Those tests ask to press keys
 	tests/snapshot_tests/test_snapshots.py
@@ -59,6 +59,17 @@ EPYTEST_DESELECT=(
 	tests/text_area/test_languages.py
 )
 distutils_enable_tests pytest
+python_test() {
+	if [[ ${EPYTHON} == python3.13 ]]; then
+		EPYTEST_DESELECT+=(
+			# See https://github.com/Textualize/textual/issues/5327
+			"tests/text_area"
+		)
+		epytest -m 'not syntax' tests
+	else
+		epytest tests
+	fi
+}
 
 python_compile_all() {
 	echo "INHERIT: mkdocs-offline.yml" > "${S}/mkdocs.yml"
