@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1
 
-HASH="3ddc373822ff16a680d5dff647f52f0afcf552cf"
+HASH="6d13319e689766f41cb6bd589379d4a692cae081"
 DESCRIPTION="Serve Textual apps locally"
 HOMEPAGE="https://github.com/Textualize/textual-serve https://pypi.org/project/textual-serve/"
 SRC_URI="https://github.com/Textualize/${PN}/archive/${HASH}.tar.gz -> ${P}.gh.tar.gz"
