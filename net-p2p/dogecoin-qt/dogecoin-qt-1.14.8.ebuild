@@ -3,7 +3,7 @@
 
 EAPI=8
 WANT_AUTOCONF="2.5"
-inherit autotools desktop flag-o-matic xdg-utils
+inherit autotools desktop xdg-utils
 DESCRIPTION="Dogecoin Core Qt for desktop. Downloaded blockchain is under 2.2GB. Much secure."
 HOMEPAGE="https://github.com/dogecoin"
 SRC_URI="https://github.com/dogecoin/dogecoin/archive/refs/tags/v${PV}.tar.gz -> ${PN}-v${PV}.tar.gz"
@@ -89,7 +89,7 @@ src_configure() {
 	local my_econf=(
 		--bindir="${DOGEDIR}/bin"
 		--disable-bench
-		--enable-c++14
+		--enable-c++17
 		$(use_with gui qt5)
 		$(use_with intel-avx2 intel-avx2)
 		$(use_with dogecoind daemon)
