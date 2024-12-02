@@ -26,7 +26,8 @@ RDEPEND="
 	>=dev-python/repology-client-0.0.2[${PYTHON_USEDEP}]
 	<dev-python/repology-client-2[${PYTHON_USEDEP}]
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
-	>=dev-util/find-work-0.91[${PYTHON_USEDEP}]
+	>=dev-util/find-work-1[${PYTHON_USEDEP}]
+	<dev-util/find-work-2[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
@@ -35,12 +36,6 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
-
-python_test() {
-	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
-	distutils_write_namespace find_work
-	epytest "${S}"
-}
 
 src_install() {
 	distutils-r1_src_install
