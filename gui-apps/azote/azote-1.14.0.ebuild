@@ -14,7 +14,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/nwg-piotr/azote"
 else
-	SRC_URI="https://github.com/nwg-piotr/azote/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/nwg-piotr/azote/archive/v${PV}/${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -28,10 +28,6 @@ RDEPEND="
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/send2trash[${PYTHON_USEDEP}]
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.13.1-pyproject.patch
-)
 
 DOCS=( README.md )
 
