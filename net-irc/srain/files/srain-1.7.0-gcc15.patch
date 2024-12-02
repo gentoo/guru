@@ -1,0 +1,37 @@
+https://bugs.gentoo.org/945702
+https://github.com/SrainApp/srain/pull/430
+Fix build with GCC 15.
+--- a/src/core/app.c
++++ b/src/core/app.c
+@@ -234,7 +234,7 @@ SrnRet srn_application_add_server(SrnApplication *app, const char *name){
+     SrnRet ret;
+     SrnServerConfig *srv_cfg;
+ 
+-    srv_cfg = srn_server_config_new(name);
++    srv_cfg = srn_server_config_new();
+     ret = srn_config_manager_read_server_config(app->cfg_mgr, srv_cfg, name);
+     if (!RET_IS_OK(ret)){
+         goto ERR;
+--- a/src/filter/filter2.h
++++ b/src/filter/filter2.h
+@@ -32,7 +32,7 @@ typedef struct _SrnMessageFilter SrnMessageFilter;
+ struct _SrnMessageFilter {
+     const char *name;
+     void (*init) (void);
+-    SrnRet (*filter) (const SrnMessage *msg);
++    bool (*filter) (const SrnMessage *msg);
+     void (*finalize) (void);
+ };
+ 
+--- a/src/inc/srain.h
++++ b/src/inc/srain.h
+@@ -22,7 +22,9 @@
+ #include <stdint.h>
+ #include <glib.h>
+ 
++#if defined __STDC_VERSION__ && __STDC_VERSION__ <= 201710L
+ typedef gboolean bool;
++#endif
+ 
+ /* General result value */
+ #define SRN_OK      0

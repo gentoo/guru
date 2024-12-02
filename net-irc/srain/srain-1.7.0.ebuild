@@ -36,6 +36,10 @@ BDEPEND="
 	${PYTHON_DEPS}
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-gcc15.patch"
+)
+
 python_check_deps() {
 	if use doc || use man; then
 		python_has_version -b "dev-python/sphinx[${PYTHON_USEDEP}]"
