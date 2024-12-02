@@ -26,8 +26,8 @@ RDEPEND="
 	>=dev-python/pydantic-core-2[${PYTHON_USEDEP}]
 	<dev-python/pydantic-core-3[${PYTHON_USEDEP}]
 	dev-python/python-bugzilla[${PYTHON_USEDEP}]
-	dev-python/tabulate[${PYTHON_USEDEP}]
-	>=dev-util/find-work-0.91[${PYTHON_USEDEP}]
+	>=dev-util/find-work-1[${PYTHON_USEDEP}]
+	<dev-util/find-work-2[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
@@ -36,12 +36,6 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
-
-python_test() {
-	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
-	distutils_write_namespace find_work
-	epytest "${S}"
-}
 
 src_install() {
 	distutils-r1_src_install
