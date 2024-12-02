@@ -1,0 +1,68 @@
+From ef7c2b2547fc3e1d26bc1d423edc2792a8056649 Mon Sep 17 00:00:00 2001
+From: Nicolas PARLANT <nicolas.parlant@parhuet.fr>
+Date: Mon, 2 Dec 2024 09:14:19 +0000
+Subject: [PATCH] add 5.4
+
+---
+ regress/GNUmakefile |  2 +-
+ regress/regress.sh  | 10 ++++++++--
+ 2 files changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/regress/GNUmakefile b/regress/GNUmakefile
+index 70c8dfe..fb9cd5a 100644
+--- a/regress/GNUmakefile
++++ b/regress/GNUmakefile
+@@ -12,7 +12,7 @@ include $(d)/../GNUmakefile
+ .PHONY: $(d)/check check
+ 
+ $(d)/check:
+-	@for V in 5.1 5.2 5.3; do \
++	@for V in 5.1 5.2 5.3 5.4; do \
+ 		printf "Building $${V}... "; \
+ 		if (cd $(@D) && ./regress.sh -r"$${V}" build >/dev/null 2>&1); then \
+ 			printf "OK\n"; \
+diff --git a/regress/regress.sh b/regress/regress.sh
+index ae55657..862f1c9 100755
+--- a/regress/regress.sh
++++ b/regress/regress.sh
+@@ -70,6 +70,8 @@ lua52path="${CQUEUES_SRCDIR}/regress/.local/share/5.2"
+ lua52cpath="${CQUEUES_SRCDIR}/regress/.local/lib/5.2"
+ lua53path="${CQUEUES_SRCDIR}/regress/.local/share/5.3"
+ lua53cpath="${CQUEUES_SRCDIR}/regress/.local/lib/5.3"
++lua54path="${CQUEUES_SRCDIR}/regress/.local/share/5.4"
++lua54cpath="${CQUEUES_SRCDIR}/regress/.local/lib/5.4"
+ 
+ export LUA_PATH="${lua51path}/?.lua;${CQUEUES_SRCDIR}/regress/?.lua;${LUA_PATH:-;}"
+ export LUA_CPATH="${lua51cpath}/?.so;${LUA_CPATH:-;}"
+@@ -77,6 +79,8 @@ export LUA_PATH_5_2="${lua52path}/?.lua;${CQUEUES_SRCDIR}/regress/?.lua;${LUA_PA
+ export LUA_CPATH_5_2="${lua52cpath}/?.so;${LUA_CPATH_5_2:-;}"
+ export LUA_PATH_5_3="${lua53path}/?.lua;${CQUEUES_SRCDIR}/regress/?.lua;${LUA_PATH_5_3:-;}"
+ export LUA_CPATH_5_3="${lua53cpath}/?.so;${LUA_CPATH_5_3:-;}"
++export LUA_PATH_5_4="${lua54path}/?.lua;${CQUEUES_SRCDIR}/regress/?.lua;${LUA_PATH_5_4:-;}"
++export LUA_CPATH_5_4="${lua54cpath}/?.so;${LUA_CPATH_5_4:-;}"
+ 
+ 
+ if [ "${0##*/}" = "regress.sh" ]; then
+@@ -87,7 +91,8 @@ if [ "${0##*/}" = "regress.sh" ]; then
+ 		(cd "${CQUEUES_SRCDIR}" && make -s "install${LUA_API}" \
+ 			lua51path="${lua51path}" lua51cpath="${lua51cpath}" \
+ 			lua52path="${lua52path}" lua52cpath="${lua52cpath}" \
+-			lua53path="${lua53path}" lua53cpath="${lua53cpath}")
++			lua53path="${lua53path}" lua53cpath="${lua53cpath}" \
++			lua54path="${lua54path}" lua54cpath="${lua54cpath}")
+ 		exit $?
+ 		;;
+ 	*)
+@@ -102,7 +107,8 @@ else
+ 		(cd "${CQUEUES_SRCDIR}" && make -s install \
+ 			lua51path="${lua51path}" lua51cpath="${lua51cpath}" \
+ 			lua52path="${lua52path}" lua52cpath="${lua52cpath}" \
+-			lua53path="${lua53path}" lua53cpath="${lua53cpath}")
++			lua53path="${lua53path}" lua53cpath="${lua53cpath}" \
++			lua54path="${lua54path}" lua54cpath="${lua54cpath}")
+ 	fi
+ 
+ 	if [ ! -d "${CQUEUES_SRCDIR}/regress/.local/lib/5.3" ] || ! runlua -e 'require"_cqueues"' >>/dev/null 2>&1; then
+-- 
+2.45.2
+

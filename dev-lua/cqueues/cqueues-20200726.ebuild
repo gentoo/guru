@@ -21,9 +21,6 @@ IUSE="examples"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
-# tests with starttls are buggy
-RESTRICT="test"
-
 DEPEND="
 	${LUA_DEPS}
 	dev-libs/openssl:0=
@@ -33,7 +30,7 @@ BDEPEND="virtual/pkgconfig"
 
 DOCS=( "doc/." )
 
-# Thanks to dev-lua/luaossl for workarounds
+PATCHES="${FILESDIR}/cqueues-20200726-5-4_tests.patch"
 
 src_prepare() {
 	default
@@ -42,6 +39,14 @@ src_prepare() {
 		-e '/LUAPATH :=/d' \
 		-e '/LUAPATH_FN =/d' \
 		-i GNUmakefile || die
+
+	# tests deleted :
+	# 22, 73, 87 = weak/old ssl
+	# 30 = call google.com
+	rm	regress/22-client-dtls.lua \
+		regress/73-starttls-buffering.lua \
+		regress/87-alpn-disappears.lua \
+		regress/30-starttls-completion.lua || die
 
 	lua_copy_sources
 }
@@ -52,6 +57,7 @@ lua_src_compile() {
 	if [[ ${ELUA} != luajit ]]; then
 		LUA_VERSION="$(ver_cut 1-2 $(lua_get_version))"
 	else
+		# Thanks to dev-lua/luaossl for this workaround
 		# This is a workaround for luajit, as it confirms to lua5.1
 		# and the 'GNUmakefile' doesn't understand LuaJITs version.
 		LUA_VERSION="5.1"
@@ -71,14 +77,37 @@ src_compile() {
 	lua_foreach_impl lua_src_compile
 }
 
+lua_src_test() {
+	pushd "${BUILD_DIR}" || die
+
+	if [[ ${ELUA} != luajit ]]; then
+		LUA_VERSION="$(ver_cut 1-2 $(lua_get_version))"
+		# these two tests are forced upstream for luajit only
+		rm "${BUILD_DIR}"/regress/{44-resolvers-gc,51-join-defunct-thread}.lua || die
+	else
+		LUA_VERSION="5.1"
+	fi
+
+	if [[ ${ELUA} != lua5.3 ]]; then
+		# this test is forced upstream for lua5-3 only
+		rm "${BUILD_DIR}"/regress/152-thread-integer-passing.lua || die
+	fi
+
+	default
+
+	popd
+}
+
+src_test() {
+	lua_foreach_impl lua_src_test
+}
+
 lua_src_install() {
 	pushd "${BUILD_DIR}" || die
 
 	if [[ ${ELUA} != luajit ]]; then
 		LUA_VERSION="$(ver_cut 1-2 $(lua_get_version))"
 	else
-		# This is a workaround for luajit, as it confirms to lua5.1
-		# and the 'GNUmakefile' doesn't understand LuaJITs version.
 		LUA_VERSION="5.1"
 	fi
 
