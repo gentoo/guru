@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..13} pypy3 )
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_EXT=1
 inherit distutils-r1
@@ -20,7 +20,9 @@ KEYWORDS="~amd64"
 DEPEND="dev-libs/olm"
 RDEPEND="
 	${DEPEND}
-	dev-python/cffi[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		dev-python/cffi[${PYTHON_USEDEP}]
+	' 'python*')
 "
 
 EPYTEST_DESELECT=(
