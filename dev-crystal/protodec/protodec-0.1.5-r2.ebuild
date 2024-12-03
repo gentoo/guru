@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 DEPEND="
 	dev-libs/boehm-gc
 	dev-libs/libevent:=
-	dev-libs/libpcre
+	dev-libs/libpcre2:=
 "
 RDEPEND="${DEPEND}"
 
@@ -27,4 +27,9 @@ src_prepare() {
 		-e 's/\(CURRENT_BRANCH \) = .*/\1 = "master"/' \
 		-e 's/\(CURRENT_COMMIT \) = .*/\1 = "gentoo"/' \
 		-e "s/\(CURRENT_VERSION\) = .*/\1 = \"v${PV}\"/" || die
+}
+
+src_install() {
+	dobin protodec
+	shards_src_install
 }
