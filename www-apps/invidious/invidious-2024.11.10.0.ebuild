@@ -56,7 +56,7 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}
 	dev-crystal/athena-negotiation
 	dev-crystal/http_proxy
-	>=dev-crystal/kemal-1.1.0
+	>=dev-crystal/kemal-1.1.2-r1
 	<dev-crystal/kemal-1.2.0
 	dev-crystal/kilt
 	>=dev-crystal/protodec-0.1.5
