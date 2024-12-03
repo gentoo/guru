@@ -21,6 +21,8 @@ IUSE="+prompt-toolkit +ptpython"
 
 DEPEND="
 	app-i18n/librime
+	dev-python/cython[${PYTHON_USEDEP}]
+	dev-python/autopxd[${PYTHON_USEDEP}]
 "
 
 EPYTEST_XDIST=1
@@ -28,8 +30,8 @@ distutils_enable_tests pytest
 
 RDEPEND="
 	$DEPEND
-	prompt-toolkit? ( dev-python/prompt-toolkit )
-	ptpython? ( dev-python/ptpython )
+	prompt-toolkit? ( dev-python/prompt-toolkit[${PYTHON_USEDEP}] )
+	ptpython? ( dev-python/ptpython[${PYTHON_USEDEP}] )
 "
 
 python_test() {
