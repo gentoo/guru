@@ -31,7 +31,8 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/0.6.0_remove_network_tests.patch"
+	"${FILESDIR}"/${PN}-0.6.0-remove-network-tests.patch
+	"${FILESDIR}"/${PN}-0.10.0-fmt11.patch
 )
 
 src_configure() {
