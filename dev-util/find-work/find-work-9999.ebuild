@@ -41,8 +41,8 @@ RDEPEND="
 	>=dev-python/typing-extensions-4.3.0[${PYTHON_USEDEP}]
 	<dev-python/typing-extensions-5[${PYTHON_USEDEP}]
 	!minimal? (
-		>=dev-python/lxml-4.5[${PYTHON_USEDEP}]
-		dev-python/tabulate[${PYTHON_USEDEP}]
+		$(python_gen_any_dep '>=dev-python/lxml-4.5[${PYTHON_USEDEP}]')
+		$(python_gen_any_dep 'dev-python/tabulate[${PYTHON_USEDEP}]')
 	)
 "
 BDEPEND="
@@ -51,12 +51,11 @@ BDEPEND="
 	)
 "
 
-# No ${PYTHON_USEDEP} because plugin deps can lag behind
 PDEPEND="
 	!minimal? (
-		dev-util/find-work-bugzilla
-		dev-util/find-work-pkgcheck
-		dev-util/find-work-repology
+		$(python_gen_any_dep 'dev-util/find-work-bugzilla[${PYTHON_USEDEP}]')
+		$(python_gen_any_dep 'dev-util/find-work-pkgcheck[${PYTHON_USEDEP}]')
+		$(python_gen_any_dep 'dev-util/find-work-repology[${PYTHON_USEDEP}]')
 	)
 "
 
