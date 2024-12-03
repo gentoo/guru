@@ -24,20 +24,49 @@ REQUIRED_USE="${LUA_REQUIRED_USE}"
 DEPEND="
 	${LUA_DEPS}
 	dev-libs/openssl:0=
+	dev-lua/compat53[${LUA_USEDEP}]
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 DOCS=( "doc/." )
 
-PATCHES="${FILESDIR}/cqueues-20200726-5-4_tests.patch"
+PATCHES=(
+	"${FILESDIR}"/${PN}-20200726-5-4_tests.patch
+	"${FILESDIR}"/${PN}-20200726-rm-vendor-compat53.patch
+)
+
+lua_src_prepare() {
+	pushd "${BUILD_DIR}" || die
+
+	if [[ ${ELUA} != luajit ]]; then
+		LUA_VERSION="$(ver_cut 1-2 $(lua_get_version))"
+		# these two tests are forced upstream for luajit only
+		rm "${BUILD_DIR}"/regress/{44-resolvers-gc,51-join-defunct-thread}.lua || die
+	else
+		# Thanks to dev-lua/luaossl for this workaround
+		# This is a workaround for luajit, as it confirms to lua5.1
+		# and the 'GNUmakefile' doesn't understand LuaJITs version.
+		LUA_VERSION="5.1"
+	fi
+
+	if [[ ${LUA_VERSION} != 5.3 ]]; then
+		# this test is forced upstream for lua5-3 only
+		rm "${BUILD_DIR}"/regress/152-thread-integer-passing.lua || die
+	fi
+
+	# install test for lua_version only
+	sed -e 's:for V in 5.1 5.2 5.3 5.4:for V in '${LUA_VERSION}':' -i "${BUILD_DIR}"/regress/GNUmakefile || die
+
+	popd
+}
 
 src_prepare() {
 	default
-
 	sed \
-		-e '/LUAPATH :=/d' \
-		-e '/LUAPATH_FN =/d' \
+		-e '/HAVE_API_FN =/d' \
+		-e '/ALL_CFLAGS += -g/d' \
+		-e 's:$(shell env CC="$(CC)" $(d)/mk/vendor.cc):'$(tc-get-compiler-type)':' \
 		-i GNUmakefile || die
 
 	# tests deleted :
@@ -49,6 +78,7 @@ src_prepare() {
 		regress/30-starttls-completion.lua || die
 
 	lua_copy_sources
+	lua_foreach_impl lua_src_prepare
 }
 
 lua_src_compile() {
@@ -57,20 +87,13 @@ lua_src_compile() {
 	if [[ ${ELUA} != luajit ]]; then
 		LUA_VERSION="$(ver_cut 1-2 $(lua_get_version))"
 	else
-		# Thanks to dev-lua/luaossl for this workaround
-		# This is a workaround for luajit, as it confirms to lua5.1
-		# and the 'GNUmakefile' doesn't understand LuaJITs version.
 		LUA_VERSION="5.1"
 	fi
 
-	emake CC="$(tc-getCC)" \
-		AR="$(tc-getAR)" \
-		RANLIB="$(tc-getRANLIB)" \
-		ALL_CFLAGS="${CFLAGS} -std=gnu99 -fPIC $(lua_get_CFLAGS)" \
-		ALL_CPPFLAGS="${CPPFLAGS} -D_GNU_SOURCE" \
-		ALL_SOFLAGS="${SOFLAGS} -shared" \
-		ALL_LDFLAGS="${LDFLAGS}" \
-		all${LUA_VERSION}
+	tc-env_build emake \
+				$(lua_get_CFLAGS) \
+				ALL_LDFLAGS="${LDFLAGS}" \
+				all${LUA_VERSION}
 
 	popd
 }
@@ -84,18 +107,11 @@ lua_src_test() {
 
 	if [[ ${ELUA} != luajit ]]; then
 		LUA_VERSION="$(ver_cut 1-2 $(lua_get_version))"
-		# these two tests are forced upstream for luajit only
-		rm "${BUILD_DIR}"/regress/{44-resolvers-gc,51-join-defunct-thread}.lua || die
 	else
 		LUA_VERSION="5.1"
 	fi
 
-	if [[ ${ELUA} != lua5.3 ]]; then
-		# this test is forced upstream for lua5-3 only
-		rm "${BUILD_DIR}"/regress/152-thread-integer-passing.lua || die
-	fi
-
-	default
+	emake CC=$(tc-getCC) check
 
 	popd
 }
@@ -113,7 +129,8 @@ lua_src_install() {
 		LUA_VERSION="5.1"
 	fi
 
-	emake "DESTDIR=${D}" \
+	emake CC=$(tc-getCC) \
+		"DESTDIR=${D}" \
 		"lua${LUA_VERSION/./}cpath=$(lua_get_cmod_dir)" \
 		"lua${LUA_VERSION/./}path=$(lua_get_lmod_dir)" \
 		"prefix=${EPREFIX}/usr" \
