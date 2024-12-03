@@ -18,6 +18,6 @@ KEYWORDS="~amd64"
 RESTRICT="test"
 
 RDEPEND="
-	dev-crystal/exception_page
+	<dev-crystal/exception_page-0.5
 	dev-crystal/radix
 "

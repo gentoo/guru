@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-crystal/exception_page
+	<dev-crystal/exception_page-0.5
 	dev-crystal/radix
 "
 
