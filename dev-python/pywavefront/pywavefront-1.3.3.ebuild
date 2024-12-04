@@ -4,13 +4,14 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1 virtualx
 
 DESCRIPTION="Python library for importing Wavefront .obj files"
-HOMEPAGE="https://github.com/pywavefront/PyWavefront https://pypi.org/project/PyWavefront"
+HOMEPAGE="https://github.com/pywavefront/PyWavefront https://pypi.org/project/pywavefront"
 SRC_URI="https://github.com/pywavefront/PyWavefront/archive/refs/tags/${PV}.tar.gz -> v${PV}.gh.tar.gz"
+S="${WORKDIR}/PyWavefront-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
