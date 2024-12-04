@@ -21,7 +21,7 @@ RDEPEND="
 	dev-libs/glib:2
 	dev-libs/json-c:=
 	dev-libs/libevdev
-	>=gui-libs/mir-2.18
+	<gui-libs/mir-2.19:=
 	dev-libs/libpcre2:=
 	media-libs/libglvnd
 	x11-base/xwayland
