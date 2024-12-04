@@ -16,6 +16,7 @@ SRC_URI="
 	https://github.com/Zuzu-Typ/PyGLM/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz
 	https://github.com/Zuzu-Typ/glm/archive/${HASH}.tar.gz -> ${P}-glm.gh.tar.gz
 "
+S="${WORKDIR}/PyGLM-${PV}"
 
 LICENSE="ZLIB"
 SLOT="0"
@@ -26,14 +27,14 @@ RDEPEND="
 	test? ( dev-python/numpy[${PYTHON_USEDEP}] )
 "
 
-src_prepare() {
-	default
-	mv "${WORKDIR}/glm-${HASH}"/* -t "${S}/glm"
-}
-
 EPYTEST_DESELECT=(
 	# Tests fails, see https://github.com/Zuzu-Typ/PyGLM/issues/227
 	test/PyGLM_test.py::test_findMSB
 	test/PyGLM_test.py::test_bitCount
 )
 distutils_enable_tests pytest
+
+src_prepare() {
+	default
+	mv "${WORKDIR}/glm-${HASH}"/* -t "${S}/glm" || die "Could not move the glm source"
+}
