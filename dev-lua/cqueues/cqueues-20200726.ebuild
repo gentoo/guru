@@ -9,7 +9,8 @@ MY_P="${PN}-rel-${PV}"
 inherit lua toolchain-funcs
 
 DESCRIPTION="Stackable Continuation Queues"
-HOMEPAGE="http://25thandclement.com/~william/projects/cqueues.html https://github.com/wahern/cqueues"
+HOMEPAGE="https://github.com/wahern/cqueues"
+HOMEPAGE+=" http://25thandclement.com/~william/projects/cqueues.html"
 SRC_URI="https://github.com/wahern/${PN}/archive/rel-${PV}.tar.gz -> ${MY_P}.tar.gz"
 
 S="${WORKDIR}/${MY_P}"
@@ -33,7 +34,6 @@ DOCS=( "doc/." )
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-20200726-5-4_tests.patch
-	"${FILESDIR}"/${PN}-20200726-rm-vendor-compat53.patch
 )
 
 lua_src_prepare() {
@@ -55,19 +55,29 @@ lua_src_prepare() {
 		rm "${BUILD_DIR}"/regress/152-thread-integer-passing.lua || die
 	fi
 
-	# install test for lua_version only
-	sed -e 's:for V in 5.1 5.2 5.3 5.4:for V in '${LUA_VERSION}':' -i "${BUILD_DIR}"/regress/GNUmakefile || die
+	# install tests for lua_version only
+	sed -e 's:for V in 5.1 5.2 5.3 5.4:for V in '${LUA_VERSION}':' \
+		-i "${BUILD_DIR}"/regress/GNUmakefile || die
 
 	popd
 }
 
 src_prepare() {
 	default
+	rm -r vendor || die
 	sed \
 		-e '/HAVE_API_FN =/d' \
 		-e '/ALL_CFLAGS += -g/d' \
-		-e 's:$(shell env CC="$(CC)" $(d)/mk/vendor.cc):'$(tc-get-compiler-type)':' \
 		-i GNUmakefile || die
+
+	# use header from package compat53 instead of vendor
+	sed	-e 's:-DCOMPAT53_PREFIX=cqueues::' \
+		-e 's:$$(d)/../vendor/compat53/c-api/compat-5.3.h::' \
+		-e '/)\/compat53/,/)\/compat53/d' \
+		-i src/GNUmakefile || die
+
+	sed -e 's:"../vendor/compat53/c-api\/compat-5.3.h":<compat-5.3.h>:' \
+		-i src/cqueues.h || die
 
 	# tests deleted :
 	# 22, 73, 87 = weak/old ssl
