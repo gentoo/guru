@@ -3,21 +3,20 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
-DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{10..13} )
 DISTUTILS_EXT=1
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 pypi
 
-hash="fa6de52d9cb3a44158431d4cce870e7c2a56cdccedc8fa1262cbf61d4e1e"
-
+HASH="4c6ce1f1f3e8d3888165f2830adcf340922416c155647b12ebac2dcc423e"
 DESCRIPTION="Python bindings for the Skia Path Ops"
 HOMEPAGE="
 	https://skia.org/dev/present/pathops
 	https://pypi.org/project/skia-pathops/
 	https://github.com/fonttools/skia-pathops
 "
-SRC_URI="https://files.pythonhosted.org/packages/37/15/${hash}/${P}.post1.zip"
-S="${WORKDIR}/${P}.post1"
+SRC_URI="https://files.pythonhosted.org/packages/e5/85/${HASH}/skia_pathops-${PV}.post2.zip"
+S="${WORKDIR}/skia_pathops-${PV}.post2"
 
 LICENSE="BSD"
 SLOT="0"
@@ -30,7 +29,7 @@ BDEPEND="
 	dev-build/gn
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-0.7.4-no-net.patch )
+PATCHES=( "${FILESDIR}"/${PN}-0.8.0-no-net.patch )
 
 REPYTEST_DESELECT=(
 	tests/pathops_test.py::PathTest::test_transform
