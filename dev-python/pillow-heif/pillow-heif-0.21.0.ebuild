@@ -41,8 +41,7 @@ PATCHES=( "${FILESDIR}/${P}-respect-cflags.patch" )
 EPYTEST_DESELECT=(
 	# only works with libeif-1.19.5
 	# https://github.com/bigcat88/pillow_heif/pull/312/commits/d740dcce7d967d025c4100611cc7a4632aa3fc3a
-	"tests/read_test.py::test_heif_read_images[image_path16]"
-	"tests/read_test.py::test_heif_read_images[image_path43]"
+	"tests/read_test.py::test_heif_read_images"
 )
 
 distutils_enable_tests pytest
