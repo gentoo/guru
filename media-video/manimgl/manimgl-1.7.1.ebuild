@@ -14,7 +14,7 @@ DOCS_DEPEND="
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit distutils-r1 docs git-r3
+inherit distutils-r1 docs
 
 DESCRIPTION="Animation engine for explanatory math videos"
 HOMEPAGE="https://github.com/3b1b/manim https://pypi.org/project/manimgl/"
