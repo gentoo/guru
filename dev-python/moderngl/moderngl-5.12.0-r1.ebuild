@@ -28,9 +28,7 @@ IUSE="debug"
 # see https://forums.gentoo.org/viewtopic.php?p=8843999
 RESTRICT="test"
 
-BDEPEND="
-	media-libs/libglvnd[X]
-	>=dev-python/glcontext-3.0.0[${PYTHON_USEDEP}]
+BDPEND="
 	test? (
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/scipy[${PYTHON_USEDEP}]
@@ -38,7 +36,10 @@ BDEPEND="
 		dev-python/pyopengl[${PYTHON_USEDEP}]
 	)
 "
-DEPEND="${BDEPEND}"
+RDEPEND="
+	media-libs/libglvnd[X]
+	>=dev-python/glcontext-3.0.0[${PYTHON_USEDEP}]
+"
 
 EPYTEST_DESELECT=(
 	# Make sure we are not using the system-wide install
