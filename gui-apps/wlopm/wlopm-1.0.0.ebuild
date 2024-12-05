@@ -6,7 +6,7 @@ EAPI=8
 DESCRIPTION="wlr-output-power-management-v1 client"
 HOMEPAGE="https://git.sr.ht/~leon_plickat/wlopm/"
 
-inherit toolchain-funcs
+inherit bash-completion-r1 toolchain-funcs
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
@@ -34,5 +34,8 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
+	# Makefile doesn't make sure this directory exists
+	# which is a problem when using PREFIX
+	install -d "${D}$(get_bashcompdir)"
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" BASHCOMPDIR="$(get_bashcompdir)" install
 }
