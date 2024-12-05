@@ -1,0 +1,12 @@
+diff --git a/pal/src/core/misc/cacheLayer/multiElfCacheLayer.cpp b/pal/src/core/misc/cacheLayer/multiElfCacheLayer.cpp
+index 93af97aa..73db7af8 100644
+--- a/pal/src/core/misc/cacheLayer/multiElfCacheLayer.cpp
++++ b/pal/src/core/misc/cacheLayer/multiElfCacheLayer.cpp
+@@ -24,6 +24,7 @@
+  **********************************************************************************************************************/
+ #include "multiElfCacheLayer.h"
+ #include <cinttypes>
++#include <cstdio>
+ 
+ namespace Util
+ {

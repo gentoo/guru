@@ -1,0 +1,13 @@
+diff --git a/xgl/cmake/XglPackaging.cmake b/xgl/cmake/XglPackaging.cmake
+index 05a84a4..cc878d7 100644
+--- a/xgl/cmake/XglPackaging.cmake
++++ b/xgl/cmake/XglPackaging.cmake
+@@ -141,7 +141,7 @@ function(generateInstallTargets)
+     endif()
+   elseif(PACKAGE_NAME STREQUAL "amdvlk")
+     if(EXISTS ${CMAKE_SOURCE_DIR}/LICENSE.txt)
+-      install(FILES ${CMAKE_SOURCE_DIR}/LICENSE.txt COMPONENT icd DESTINATION share/doc/${PACKAGE_NAME})
++      install(FILES ${CMAKE_SOURCE_DIR}/LICENSE.txt COMPONENT icd DESTINATION share/doc/${PACKAGE_NAME}-${PACKAGE_VERSION})
+     else()
+       message(WARNING "LICENSE.txt is not found under ${CMAKE_SOURCE_DIR}, please put it there")
+     endif()
