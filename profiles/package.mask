@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Gasc Henri <gasc@eurecom.fr> (2024-12-05)
+# Last release was in 2017, 2 commits in the last 3 years
+# Removal on 2025-01-05
+dev-python/pyrr
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-11-30)
 # The service shut down in 2022.
 # Removal on 2024-12-30. Bug #945311.
