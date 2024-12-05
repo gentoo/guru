@@ -11,6 +11,8 @@ LICENSE="BSD"
 SLOT=0
 KEYWORDS="~amd64"
 
+inherit toolchain-funcs
+
 IUSE="test"
 
 RESTRICT="!test? ( test )"
@@ -23,7 +25,7 @@ DEPEND="
 "
 
 src_compile() {
-	emake mh VERSION="${PV}"
+	emake mh VERSION="${PV}" CC="$(tc-getCC)"
 }
 
 src_install() {
