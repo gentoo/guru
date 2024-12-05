@@ -81,11 +81,13 @@ src_prepare() {
 
 	# tests deleted :
 	# 22, 73, 87 = weak/old ssl
-	# 30 = call google.com
+	# 30,62,153 = network required
 	rm	regress/22-client-dtls.lua \
 		regress/73-starttls-buffering.lua \
 		regress/87-alpn-disappears.lua \
-		regress/30-starttls-completion.lua || die
+		regress/30-starttls-completion.lua \
+		regress/62-noname.lua \
+		regress/153-dns-resolvers.lua || die
 
 	lua_copy_sources
 	lua_foreach_impl lua_src_prepare
