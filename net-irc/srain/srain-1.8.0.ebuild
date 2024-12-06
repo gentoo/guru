@@ -30,9 +30,13 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	doc? ( $(python_gen_any_dep '
-		dev-python/sphinx[${PYTHON_USEDEP}]' ) )
+		dev-python/sphinx[${PYTHON_USEDEP}]
+		dev-python/sphinxnotes-mock[${PYTHON_USEDEP}]
+		' ) )
 	man? ( $(python_gen_any_dep '
-		dev-python/sphinx[${PYTHON_USEDEP}]' ) )
+		dev-python/sphinx[${PYTHON_USEDEP}]
+		dev-python/sphinxnotes-mock[${PYTHON_USEDEP}]
+		' ) )
 	${PYTHON_DEPS}
 "
 
@@ -42,7 +46,8 @@ PATCHES=(
 
 python_check_deps() {
 	if use doc || use man; then
-		python_has_version -b "dev-python/sphinx[${PYTHON_USEDEP}]"
+		python_has_version "dev-python/sphinx[${PYTHON_USEDEP}]" &&
+		python_has_version "dev-python/sphinxnotes-mock[${PYTHON_USEDEP}]"
 	fi
 }
 
