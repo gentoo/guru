@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-12-08)
+# One of the Qt5 dependencies has been dropped from ::gentoo.
+# No maintainer.
+# Removal on 2024-01-08.
+gui-apps/coreterminal
+gui-apps/coreapps-meta
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-12-07)
 # No reverse dependencies left.
 # Removal on 2024-01-07. Bug #929981.
