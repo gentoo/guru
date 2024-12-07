@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2024-12-07)
+# No reverse dependencies left.
+# Removal on 2024-01-07. Bug #929981.
+dev-python/colored
+
 # Gasc Henri <gasc@eurecom.fr> (2024-12-05)
 # Last release was in 2017, 2 commits in the last 3 years
 # Removal on 2025-01-05
