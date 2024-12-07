@@ -1,2 +1,3 @@
 move net-im/WhatsAppForLinux net-im/WasIstLos
 move net-im/armcord-bin net-im/legcord-bin
+move dev-python/pytest-syrupy dev-python/syrupy

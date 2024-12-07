@@ -11,7 +11,6 @@ inherit distutils-r1
 DESCRIPTION="The sweeter pytest snapshot plugin"
 HOMEPAGE="https://github.com/syrupy-project/syrupy https://pypi.org/project/syrupy"
 SRC_URI="https://github.com/syrupy-project/syrupy/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
-S="${WORKDIR}/syrupy-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
