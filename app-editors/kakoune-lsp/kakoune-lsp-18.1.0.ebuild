@@ -11,10 +11,10 @@ CRATES="
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
 	anstream@0.6.15
-	anstyle@1.0.8
 	anstyle-parse@0.2.5
 	anstyle-query@1.1.1
 	anstyle-wincon@3.0.4
+	anstyle@1.0.8
 	arc-swap@1.7.1
 	autocfg@1.4.0
 	bitflags@1.3.2
@@ -37,10 +37,10 @@ CRATES="
 	dary_heap@0.3.7
 	deranged@0.3.11
 	diffs@0.5.1
-	dirs@5.0.1
 	dirs-next@2.0.0
-	dirs-sys@0.4.1
 	dirs-sys-next@0.1.2
+	dirs-sys@0.4.1
+	dirs@5.0.1
 	either@1.13.0
 	enum_primitive@0.1.1
 	equivalent@1.0.1
@@ -51,7 +51,6 @@ CRATES="
 	form_urlencoded@1.2.1
 	fs4@0.8.4
 	fsevent-sys@4.1.0
-	futures@0.3.31
 	futures-channel@0.3.31
 	futures-core@0.3.31
 	futures-executor@0.3.31
@@ -60,27 +59,29 @@ CRATES="
 	futures-sink@0.3.31
 	futures-task@0.3.31
 	futures-util@0.3.31
+	futures@0.3.31
 	getopts@0.2.21
 	getrandom@0.2.15
 	glob@0.3.1
 	hashbrown@0.14.5
 	hashbrown@0.15.0
+	hermit-abi@0.3.9
 	hermit-abi@0.4.0
-	iana-time-zone@0.1.61
 	iana-time-zone-haiku@0.1.2
+	iana-time-zone@0.1.61
 	idna@0.5.0
 	indexmap@2.6.0
 	indoc@2.0.5
-	inotify@0.9.6
 	inotify-sys@0.1.5
+	inotify@0.9.6
 	is-terminal@0.4.13
 	is_terminal_polyfill@1.70.1
 	itertools@0.13.0
 	itoa@1.0.11
 	js-sys@0.3.72
 	jsonrpc-core@18.0.0
-	kqueue@1.0.8
 	kqueue-sys@1.0.4
+	kqueue@1.0.8
 	lazy_static@1.5.0
 	libc@0.2.161
 	libflate@2.1.0
@@ -93,8 +94,9 @@ CRATES="
 	memchr@2.7.4
 	memoffset@0.9.1
 	mio@0.8.11
-	notify@6.1.1
+	mio@1.0.2
 	notify-debouncer-full@0.3.2
+	notify@6.1.1
 	num-conv@0.1.0
 	num-traits@0.1.43
 	num-traits@0.2.19
@@ -115,9 +117,9 @@ CRATES="
 	rand_core@0.6.4
 	redox_syscall@0.5.7
 	redox_users@0.4.6
-	regex@1.11.0
 	regex-automata@0.4.8
 	regex-syntax@0.8.5
+	regex@1.11.0
 	rle-decode-fast@1.0.3
 	ropey@1.6.1
 	rustc_version@0.4.1
@@ -134,12 +136,12 @@ CRATES="
 	serde_spanned@0.6.8
 	shlex@1.3.0
 	slab@0.4.9
-	slog@2.7.0
 	slog-async@2.8.0
 	slog-kvfilter@0.7.0
 	slog-scope@4.4.0
 	slog-stdlog@4.1.1
 	slog-term@2.9.1
+	slog@2.7.0
 	sloggers@2.2.0
 	smallvec@1.13.2
 	str_indices@0.4.3
@@ -148,12 +150,12 @@ CRATES="
 	syn@2.0.85
 	take_mut@0.2.2
 	term@0.7.0
-	thiserror@1.0.65
 	thiserror-impl@1.0.65
+	thiserror@1.0.65
 	thread_local@1.1.8
-	time@0.3.36
 	time-core@0.1.2
 	time-macros@0.2.18
+	time@0.3.36
 	tinyvec@1.8.0
 	tinyvec_macros@0.1.1
 	toml@0.8.19
@@ -172,18 +174,18 @@ CRATES="
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
 	wasite@0.1.0
-	wasm-bindgen@0.2.95
 	wasm-bindgen-backend@0.2.95
-	wasm-bindgen-macro@0.2.95
 	wasm-bindgen-macro-support@0.2.95
+	wasm-bindgen-macro@0.2.95
 	wasm-bindgen-shared@0.2.95
+	wasm-bindgen@0.2.95
 	web-sys@0.3.72
 	whoami@1.5.2
 	widestring@0.4.3
-	winapi@0.3.9
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.9
 	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9
 	windows-acl@0.3.0
 	windows-core@0.52.0
 	windows-sys@0.48.0
@@ -207,8 +209,8 @@ CRATES="
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.6
 	winnow@0.6.20
-	zerocopy@0.7.35
 	zerocopy-derive@0.7.35
+	zerocopy@0.7.35
 "
 
 inherit cargo
