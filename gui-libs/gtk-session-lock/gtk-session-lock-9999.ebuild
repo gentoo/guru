@@ -30,6 +30,7 @@ DEPEND="
 	x11-libs/gtk+:3[introspection?,wayland]
 	>=dev-libs/wayland-1.22.0
 	>=dev-libs/wayland-protocols-1.34
+	gui-libs/gtk-layer-shell
 	test? ( gui-libs/gtk-layer-shell[introspection?] )
 "
 RDEPEND="
