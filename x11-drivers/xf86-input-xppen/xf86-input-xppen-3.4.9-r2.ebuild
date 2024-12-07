@@ -36,6 +36,7 @@ RDEPEND="
 	dev-qt/qtxml:5
 	dev-libs/icu
 	dev-libs/libusb
+	media-libs/libglvnd[X]
 	x11-libs/libxcb
 	virtual/libudev:="
 DEPEND="${RDEPEND}"
