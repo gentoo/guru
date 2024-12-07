@@ -41,14 +41,17 @@ BDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-python_install_all() {
-	dodoc -r examples
-	docompress -x /usr/share/doc/${PF}/examples
-}
-
 distutils_enable_tests pytest
 src_test() {
 	virtx distutils-r1_src_test
+}
+
+python_install_all() {
+	distutils-r1_python_install_all
+	if use doc; then
+		dodoc -r examples
+		docompress -x /usr/share/doc/${PF}/examples
+	fi
 }
 
 pkg_postinst() {
