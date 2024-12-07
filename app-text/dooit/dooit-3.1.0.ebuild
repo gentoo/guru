@@ -20,7 +20,7 @@ BDEPEND="
 	test? (
 		=dev-python/pytest-asyncio-0.24*[${PYTHON_USEDEP}]
 		=dev-python/textual-dev-1*[${PYTHON_USEDEP}]
-		~dev-python/faker-30.8.2[${PYTHON_USEDEP}]
+		>=dev-python/faker-30.8.2[${PYTHON_USEDEP}]
 	)
 "
 
