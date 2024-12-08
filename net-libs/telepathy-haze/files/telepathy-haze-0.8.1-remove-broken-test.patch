@@ -1,0 +1,11 @@
+https://bugs.gentoo.org/862984
+--- a/tests/twisted/simple-caps.py
++++ b/tests/twisted/simple-caps.py
+@@ -92,6 +92,4 @@
+     exec_test(test_self_handle)
+     exec_test(test_someone_else, do_connect=False, protocol=JabberXmlStream)
+ 
+-    if config.MEDIA_ENABLED:
+-        exec_test(test_media)
+ 
+

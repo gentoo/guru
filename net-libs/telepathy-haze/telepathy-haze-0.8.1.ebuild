@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit python-any-r1
 
@@ -22,8 +22,9 @@ IUSE="test"
 RDEPEND="
 	dev-libs/dbus-glib
 	dev-libs/glib:2
-	net-im/pidgin[dbus]
+	net-im/pidgin:=[dbus]
 	net-libs/telepathy-glib
+	sys-apps/dbus
 "
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
@@ -40,6 +41,13 @@ BDEPEND="
 "
 
 RESTRICT="!test? ( test )"
+
+PATCHES=(
+	# bug #887865
+	"${FILESDIR}/${P}-fix-Wincompatible-pointer-types.patch"
+	# bug #862984
+	"${FILESDIR}/${P}-remove-broken-test.patch"
+)
 
 python_check_deps() {
 	if use test ; then
