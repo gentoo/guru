@@ -4,7 +4,7 @@
 EAPI=7
 
 MY_PN=OpenXR-SDK
-inherit cmake
+inherit cmake-multilib
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
@@ -27,19 +27,19 @@ REQUIRED_USE="|| ( wayland X )"
 
 # dev-libs/jsoncpp-1.9.6: https://bugs.gentoo.org/940262
 DEPEND="
-	media-libs/vulkan-loader
-	media-libs/mesa
-	dev-libs/jsoncpp:=
+	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
+	media-libs/mesa[${MULTILIB_USEDEP}]
+	dev-libs/jsoncpp:=[${MULTILIB_USEDEP}]
 	!=dev-libs/jsoncpp-1.9.6
 	wayland? (
-		dev-libs/wayland
+		dev-libs/wayland[${MULTILIB_USEDEP}]
 		dev-libs/wayland-protocols
 	)
 	X? (
-		x11-libs/libxcb
+		x11-libs/libxcb[${MULTILIB_USEDEP}]
 		x11-libs/xcb-util-keysyms
-		x11-libs/libXrandr
-		x11-libs/libXxf86vm
+		x11-libs/libXrandr[${MULTILIB_USEDEP}]
+		x11-libs/libXxf86vm[${MULTILIB_USEDEP}]
 	)
 "
 RDEPEND="${DEPEND}"
@@ -51,13 +51,12 @@ src_prepare() {
 	cmake_src_prepare
 }
 
-src_configure() {
+multilib_src_configure() {
 	local mycmakeargs=(
 		-DBUILD_WITH_SYSTEM_JSONCPP=ON
 		-DBUILD_WITH_XLIB_HEADERS=$(usex X)
 		-DBUILD_WITH_XCB_HEADERS=$(usex X)
 		-DBUILD_WITH_WAYLAND_HEADERS=$(usex wayland)
-		-DBUILD_WITH_SYSTEM_JSONCPP=YES
 		-DPRESENTATION_BACKEND=$(usex X xlib wayland)
 	)
 
