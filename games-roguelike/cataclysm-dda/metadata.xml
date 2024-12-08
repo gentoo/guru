@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>strategictraveler@proton.me</email>
+		<name>strategictraveler</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<email>kevin.granade@gmail.com</email>
+			<name>Kevin Granade</name>
+		</maintainer>
+		<bugs-to>https://github.com/CleverRaven/Cataclysm-DDA/issues/</bugs-to>
+		<doc lang="en">https://docs.cataclysmdda.org</doc>
+		<remote-id type="github">CleverRaven/Cataclysm-DDA</remote-id>
+	</upstream>
+	<use>
+		<flag name="ncurses">Build console (ncurses) variant</flag>
+		<flag name="tiles">Build graphical (tiles) variant</flag>
+		<flag name="soundpack">Install complete soundpack
+			(as opposed to only menu sounds) </flag>
+	</use>
+	<longdescription lang="en">
+		Cataclysm: Dark Days Ahead is a turn-based survival game set in a
+		post-apocalyptic world. While some have described it as a "zombie game",
+		there is far more to Cataclysm than that. Struggle to survive in a harsh,
+		persistent, procedurally generated world. Scavenge the remnants of a dead
+		civilization for food, equipment, or, if you are lucky, a vehicle with a full
+		tank of gas to get you the hell out of Dodge. Fight to defeat or escape from a
+		wide variety of powerful monstrosities, from zombies to giant insects to
+		killer robots and things far stranger and deadlier, and against the others
+		like yourself, who want what you have...
+	</longdescription>
+</pkgmetadata>
