@@ -5,10 +5,6 @@
     <email>dev@dyama.net</email>
     <name>Daichi Yamamoto</name>
   </maintainer>
-  <stabilize-allarches />
-  <use>
-    <flag name="nerdfonts">Install Nerd Fonts composite version</flag>
-  </use>
   <upstream>
     <remote-id type="github">yuru7/Firge</remote-id>
   </upstream>
