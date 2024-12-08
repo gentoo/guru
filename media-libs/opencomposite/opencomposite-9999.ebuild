@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake-multilib
 
 DESCRIPTION="OpenVR over OpenXR compatibility layer"
 HOMEPAGE="https://gitlab.com/znixian/OpenOVR"
@@ -23,12 +23,12 @@ DEPEND="
 	dev-lang/python
 	dev-util/vulkan-headers
 	media-libs/glm
-	media-libs/libglvnd[X]
-	media-libs/openxr-loader
+	media-libs/libglvnd[${MULTILIB_USEDEP},X]
+	media-libs/openxr-loader[${MULTILIB_USEDEP}]
 "
 RDEPEND="${DEPEND}"
 
-src_configure()
+multilib_src_configure()
 {
 	# Installing to /usr would not work with Steam bacause pressure vessel
 	# sandbox mounts /usr as /run/host/usr and openvr path would point to a
@@ -45,7 +45,7 @@ src_configure()
 	cmake_src_configure
 }
 
-src_install()
+multilib_src_install()
 {
 	cmake_src_install
 
