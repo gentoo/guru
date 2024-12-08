@@ -41,7 +41,7 @@ lua_enable_tests busted
 
 src_compile() {
 	default
-	use doc && emake -C doc lua-http.html
+	use doc && emake -C doc lua-http.html lua-http.3
 }
 
 lua_src_install() {
@@ -51,8 +51,10 @@ lua_src_install() {
 
 src_install() {
 	lua_foreach_impl lua_src_install
-	use doc && local HTML_DOCS=( doc/lua-http.html )
+	if use doc; then
+		local HTML_DOCS=( doc/lua-http.html )
+		doman doc/lua-http.3
+	fi
 	dodoc -r "examples"
-	doman "${FILESDIR}"/lua-http.3
 	einstalldocs
 }
