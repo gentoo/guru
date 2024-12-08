@@ -1,0 +1,35 @@
+--- a/Makefile
++++ b/Makefile
+@@ -120,7 +120,6 @@ ifeq ($(NATIVE), emscripten)
+ endif
+ # Uncomment below to disable warnings
+ #WARNINGS = -w
+-DEBUGSYMS = -g
+ #PROFILE = -pg
+ #OTHERS = -O3
+ #DEFINES = -DNDEBUG
+@@ -388,8 +387,6 @@ LDFLAGS += $(PROFILE)
+ 
+ ifneq ($(SANITIZE),)
+   SANITIZE_FLAGS := -fsanitize=$(SANITIZE) -fno-sanitize-recover=all -fno-omit-frame-pointer
+-  CXXFLAGS += $(SANITIZE_FLAGS)
+-  LDFLAGS += $(SANITIZE_FLAGS)
+ endif
+ 
+ # enable optimizations. slow to build
+@@ -478,7 +475,6 @@ else
+       OPTLEVEL = -O0
+     endif
+   endif
+-  CXXFLAGS += $(OPTLEVEL)
+ endif
+ 
+ ifeq ($(shell sh -c 'uname -o 2>/dev/null || echo not'),Cygwin)
+@@ -911,7 +907,6 @@ ifeq ($(TARGETSYSTEM),LINUX)
+   endif
+   ifeq ($(BACKTRACE),1)
+     # -rdynamic needed for symbols in backtraces
+-    LDFLAGS += -rdynamic
+   endif
+ endif
+ 
