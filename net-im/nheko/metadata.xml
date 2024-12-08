@@ -5,6 +5,10 @@
 		<email>tea+gentoo@cuddleslut.fr</email>
 		<name>tea</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">Nheko-Reborn/nheko</remote-id>
 	</upstream>
