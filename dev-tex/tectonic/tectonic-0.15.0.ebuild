@@ -250,9 +250,9 @@ CRATES="
 	textwrap@0.11.0
 	thiserror@1.0.56
 	thiserror-impl@1.0.56
-	time@0.3.34
+	time@0.3.36
 	time-core@0.1.2
-	time-macros@0.2.17
+	time-macros@0.2.18
 	tinyvec@1.6.0
 	tinyvec_macros@0.1.1
 	tokio@1.36.0
@@ -345,20 +345,32 @@ CRATES="
 inherit cargo
 
 DESCRIPTION="A modernized, complete, embeddable TeX/LaTeX engine."
-# Double check the homepage as the cargo_metadata crate
-# does not provide this value so instead repository is used
 HOMEPAGE="https://github.com/tectonic-typesetting/tectonic/"
 SRC_URI="
 	https://github.com/tectonic-typesetting/tectonic/archive/refs/tags/tectonic@${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
+S="${WORKDIR}/${PN}-${P}"
 
-# License set may be more restrictive as OR is not respected
-# use cargo-license for a more accurate license picture
 LICENSE="MIT"
+# Dependent crate licenses
+LICENSE+="
+	Apache-2.0 BSD ISC MIT Unicode-DFS-2016 WTFPL-2
+	|| ( Artistic-2 CC0-1.0 )
+"
 SLOT="0"
 KEYWORDS="~amd64"
 
+DEPEND="
+	dev-libs/icu:=
+	dev-libs/openssl:=
+	media-gfx/graphite2
+	media-libs/fontconfig
+	media-libs/freetype
+	media-libs/harfbuzz:=
+	media-libs/libpng:=
+	sys-libs/zlib
+"
 RDEPEND="${DEPEND}"
 BDEPEND="media-libs/harfbuzz"
 
@@ -366,20 +378,14 @@ BDEPEND="media-libs/harfbuzz"
 # update with proper path to binaries this crate installs, omit leading /
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
-src_unpack() {
-	cargo_src_unpack
-	mv tectonic-${P}/* ${P}/
-}
+PATCHES=(
+	"${FILESDIR}/${P}-fix-xetex_layout-build.patch"
+	"${FILESDIR}/${P}-rust-1.80.patch"
+)
 
-src_compile() {
-	cargo_gen_config
-	cargo_src_compile --features external-harfbuzz
-}
-
-src_test() {
-	cargo_src_test --features external-harfbuzz
-}
-
-src_install() {
-	cargo_src_install --features external-harfbuzz
+src_configure() {
+	local myfeatures=(
+		external-harfbuzz
+	)
+	cargo_src_configure
 }

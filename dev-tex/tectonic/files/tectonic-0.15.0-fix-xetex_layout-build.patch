@@ -1,0 +1,12 @@
+https://github.com/tectonic-typesetting/tectonic/commit/d260961426b01f7643ba0f35f493bdb671eeaf3f
+--- a/crates/xetex_layout/build.rs      2024-12-08 10:19:21.243061431 -0000
++++ b/crates/xetex_layout/build.rs      2024-12-08 10:44:13.539667493 -0000
+@@ -86,7 +86,7 @@
+     let mut cppcfg = cc::Build::new();
+
+     let cppflags = [
+-        "-std=c++14",
++        "-std=c++17",
+         "-Wall",
+         "-Wdate-time",
+         "-Wendif-labels",
