@@ -76,7 +76,10 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}"/${P}-remove-wayland-dep-on-x11.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.12.0-fmt11.patch
+	"${FILESDIR}"/${PN}-0.12.0-remove-wayland-dep-on-x11.patch
+)
 
 src_configure() {
 	local -a mycmakeargs=(
