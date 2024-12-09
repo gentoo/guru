@@ -1,11 +1,11 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit nimble
 
-DESCRIPTION="a Nim implementation of linenoise"
+DESCRIPTION="Nim implementation of linenoise"
 HOMEPAGE="
 	https://github.com/jangko/nim-noise
 	https://nimble.directory/pkg/noise
