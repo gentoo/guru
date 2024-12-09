@@ -12,7 +12,7 @@ else
 	MY_PN=${PN}
 fi
 
-FFMPEG="128"
+FFMPEG="130"
 
 DESCRIPTION="The web browser from Yandex"
 HOMEPAGE="https://browser.yandex.ru/"
