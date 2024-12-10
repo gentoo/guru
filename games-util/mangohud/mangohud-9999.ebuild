@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit flag-o-matic python-single-r1 meson-multilib
 
@@ -80,7 +80,8 @@ RDEPEND="
 	mangoplot? ( $(python_gen_cond_dep '
 		|| (
 			dev-python/matplotlib[gtk3,${PYTHON_USEDEP}]
-			dev-python/matplotlib[qt5,${PYTHON_USEDEP}]
+			dev-python/matplotlib[qt5(-),${PYTHON_USEDEP}]
+			dev-python/matplotlib[qt6(-),${PYTHON_USEDEP}]
 			dev-python/matplotlib[wxwidgets,${PYTHON_USEDEP}]
 		)
 	') )
@@ -127,7 +128,6 @@ multilib_src_configure() {
 		$(meson_feature wayland with_wayland)
 		$(meson_feature dbus with_dbus)
 		$(meson_use mangoapp mangoapp)
-		$(meson_use mangoapp mangoapp_layer)
 		$(meson_use mangohudctl mangohudctl)
 		$(meson_feature mangoplot mangoplot)
 	)
