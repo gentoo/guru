@@ -107,14 +107,6 @@ dev-libs/properties-cpp
 # Removal on 2025-01-13
 gui-apps/riverguile
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-11-10)
-# Upstream doesn't want us to package their software, so they
-# intentionally make it harder to unbundle dependencies.
-# Please use upstream AppImage instead.
-# https://github.com/raspberrypi/rpi-imager/issues/924
-# Removal on 2024-12-10.
-dev-util/rpi-imager
-
 # Takuya Wakazono <pastalian46@gmail.com> (2024-10-18)
 # Depends on <dev-python/tree-sitter-0.22, which has been dropped.
 # Upstream does not support newer treesitter and is no longer
