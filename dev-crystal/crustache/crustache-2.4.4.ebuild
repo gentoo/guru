@@ -5,7 +5,7 @@ EAPI=8
 
 inherit shards
 
-SPEC_PV="1.3.0"
+SPEC_PV="1.1.3"
 DESCRIPTION="{{Mustache}} for Crystal"
 HOMEPAGE="https://github.com/MakeNowJust/crustache"
 SRC_URI="
@@ -19,10 +19,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
-#RESTRICT="!test? ( test )"
-
-# interpolation test fails
-RESTRICT="test"
+RESTRICT="!test? ( test )"
 
 DOCS=( {CHANGELOG,README}.md )
 
