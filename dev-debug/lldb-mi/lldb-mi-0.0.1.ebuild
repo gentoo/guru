@@ -29,7 +29,7 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-debug/lldb:=
+	llvm-core/lldb:=
 	$(llvm_gen_dep '
 		sys-devel/llvm:${LLVM_SLOT}
 	')

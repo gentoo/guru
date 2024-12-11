@@ -23,7 +23,7 @@ BDEPEND="dev-util/patchelf"
 RDEPEND="!bundled-jdk? ( >=virtual/jre-1.8 )
 	>=app-accessibility/at-spi2-core-2.46.0:2
 	dev-debug/gdb
-	dev-debug/lldb
+	llvm-core/lldb
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/nspr
