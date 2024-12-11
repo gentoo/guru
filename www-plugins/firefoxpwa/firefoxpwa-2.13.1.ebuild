@@ -429,7 +429,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	lto? (
 		!custom-cflags? (
-			sys-devel/clang
+			llvm-core/clang
 			sys-devel/lld
 		)
 	)

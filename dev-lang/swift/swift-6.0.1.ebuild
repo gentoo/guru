@@ -99,7 +99,7 @@ BDEPEND="
 		>dev-lang/swift-${PV}:*
 	)
 	$(llvm_gen_dep '
-		sys-devel/clang:${LLVM_SLOT}=
+		llvm-core/clang:${LLVM_SLOT}=
 		sys-devel/lld:${LLVM_SLOT}=
 	')
 	dev-lang/python

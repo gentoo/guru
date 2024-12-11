@@ -49,7 +49,7 @@ BDEPEND="
 	>=dev-libs/wayland-protocols-1.24
 	dev-libs/hyprland-protocols
 	virtual/pkgconfig
-	|| ( >=sys-devel/gcc-13:* >=sys-devel/clang-17:* )
+	|| ( >=sys-devel/gcc-13:* >=llvm-core/clang-17:* )
 "
 
 pkg_setup() {
@@ -61,7 +61,7 @@ pkg_setup() {
 		die "GCC version is too old to compile XDPH!"
 	elif tc-is-clang && ver_test $(clang-version) -lt 17 ; then
 		eerror "XDPH needs >=gcc-13 or >=clang-17 to compile."
-		eerror "Please upgrade Clang: emerge -v1 sys-devel/clang"
+		eerror "Please upgrade Clang: emerge -v1 llvm-core/clang"
 		die "Clang version is too old to compile XDPH!"
 	fi
 }

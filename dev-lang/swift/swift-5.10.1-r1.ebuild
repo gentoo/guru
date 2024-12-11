@@ -90,7 +90,7 @@ BDEPEND="
 	>=sys-libs/ncurses-6
 	>=sys-libs/zlib-1.3
 	$(llvm_gen_dep '
-		sys-devel/clang:${LLVM_SLOT}=
+		llvm-core/clang:${LLVM_SLOT}=
 		sys-devel/lld:${LLVM_SLOT}=
 	')
 	dev-lang/python

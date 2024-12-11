@@ -404,7 +404,7 @@ DEPEND="dev-libs/openssl:=
 RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
-	pipewire? ( sys-devel/clang )
+	pipewire? ( llvm-core/clang )
 "
 
 PATCHES="${FILESDIR}"/gitless-hash-and-date.patch

@@ -38,8 +38,8 @@ kg_setup() {
 		eerror "Please upgrade GCC: emerge -v1 sys-devel/gcc"
 		die "GCC version is too old to compile Hyprland!"
 	elif tc-is-clang && ver_test $(clang-version) -lt 18 ; then
-		eerror "Hyprpolkitagent requires >=sys-devel/clang-18 to build"
-		eerror "Please upgrade Clang: emerge -v1 sys-devel/clang"
+		eerror "Hyprpolkitagent requires >=llvm-core/clang-18 to build"
+		eerror "Please upgrade Clang: emerge -v1 llvm-core/clang"
 		die "Clang version is too old to compile Hyprland!"
 	fi
 }

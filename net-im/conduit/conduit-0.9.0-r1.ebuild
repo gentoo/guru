@@ -444,7 +444,7 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="
 	rocksdb? (
-		sys-devel/clang
+		llvm-core/clang
 		virtual/pkgconfig
 	)
 "

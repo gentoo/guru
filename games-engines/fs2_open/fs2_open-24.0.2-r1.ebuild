@@ -47,7 +47,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	clang? ( sys-devel/clang )
+	clang? ( llvm-core/clang )
 "
 PATCHES=(
 	"${FILESDIR}/${P}-deps-fix.patch"

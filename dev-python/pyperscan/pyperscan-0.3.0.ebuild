@@ -107,7 +107,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-libs/vectorscan:=
-	sys-devel/clang
+	llvm-core/clang
 "
 DEPEND="${RDEPEND}"
 

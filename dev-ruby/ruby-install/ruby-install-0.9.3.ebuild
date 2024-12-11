@@ -24,7 +24,7 @@ RDEPEND="${DEPEND}
 	app-arch/bzip2
 	app-arch/xz-utils
 	sys-devel/patch
-	|| ( >=sys-devel/gcc-4.2 sys-devel/clang )"
+	|| ( >=sys-devel/gcc-4.2 llvm-core/clang )"
 BDEPEND="test? ( dev-util/shunit2 )"
 
 # BUG: `make check` fails: https://github.com/postmodern/ruby-install/issues/442

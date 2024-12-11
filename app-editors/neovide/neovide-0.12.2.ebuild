@@ -451,7 +451,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-build/gn
 	dev-util/bindgen
-	sys-devel/clang
+	llvm-core/clang
 "
 
 # rust does not use *FLAGS from make.conf, silence portage warning

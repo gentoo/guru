@@ -48,7 +48,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 # Clang is required for bindgen
 BDEPEND="
-	screencast? ( $(llvm_gen_dep 'sys-devel/clang:${LLVM_SLOT}') )
+	screencast? ( $(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}') )
 "
 
 ECARGO_VENDOR="${WORKDIR}/vendor"

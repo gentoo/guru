@@ -129,7 +129,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	$(llvm_gen_dep 'sys-devel/clang:${LLVM_SLOT}=')
+	$(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}=')
 "
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"

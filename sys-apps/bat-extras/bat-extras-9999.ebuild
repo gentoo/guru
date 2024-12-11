@@ -34,7 +34,7 @@ RDEPEND="
 	dev-vcs/git
 	sys-apps/eza
 	sys-apps/ripgrep
-	sys-devel/clang[extra(+)]
+	llvm-core/clang[extra(+)]
 	sys-libs/ncurses
 "
 

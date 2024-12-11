@@ -35,7 +35,7 @@ RDEPEND="
 
 DEPEND="
 	>=dev-build/cmake-3.17
-	clang? ( >=sys-devel/clang-10 )
+	clang? ( >=llvm-core/clang-10 )
 	${RDEPEND}
 "
 

@@ -35,7 +35,7 @@ BDEPEND="
 
 src_configure() {
 	# https://github.com/jurplel/qView/issues/395
-	if tc-is-clang && has_version "sys-devel/clang:$(clang-major-version)[default-libcxx]" || is-flagq -stdlib=libc++
+	if tc-is-clang && has_version "llvm-core/clang:$(clang-major-version)[default-libcxx]" || is-flagq -stdlib=libc++
 	then
 		append-cxxflags -stdlib=libstdc++
 		append-ldflags -stdlib=libstdc++
