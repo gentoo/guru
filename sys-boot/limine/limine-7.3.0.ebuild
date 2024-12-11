@@ -20,7 +20,7 @@ BDEPEND="
 	dev-lang/nasm
 	sys-apps/findutils
 	llvm-core/clang[${MY_LLVM_FLAGS}]
-	sys-devel/lld
+	llvm-core/lld
 	sys-devel/llvm[${MY_LLVM_FLAGS}]
 
 	cd-efi? ( sys-fs/mtools )

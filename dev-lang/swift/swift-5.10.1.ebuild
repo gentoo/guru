@@ -69,7 +69,7 @@ RDEPEND="
 	>=dev-libs/libedit-20221030
 	>=dev-libs/libxml2-2.11.5
 	>=net-misc/curl-8.4
-	>=sys-devel/lld-15
+	>=llvm-core/lld-15
 	>=sys-libs/ncurses-6
 	>=sys-libs/zlib-1.3
 	dev-lang/python
@@ -87,7 +87,7 @@ BDEPEND="
 	>=dev-vcs/git-2.39
 	>=sys-apps/coreutils-9
 	>=llvm-core/clang-15
-	>=sys-devel/lld-15
+	>=llvm-core/lld-15
 	>=sys-libs/ncurses-6
 	>=sys-libs/zlib-1.3
 	dev-lang/python

@@ -430,7 +430,7 @@ BDEPEND="
 	lto? (
 		!custom-cflags? (
 			llvm-core/clang
-			sys-devel/lld
+			llvm-core/lld
 		)
 	)
 	!static? ( virtual/pkgconfig )

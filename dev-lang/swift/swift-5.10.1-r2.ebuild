@@ -76,7 +76,7 @@ RDEPEND="
 	>=sys-libs/ncurses-6
 	>=sys-libs/zlib-1.3
 	dev-lang/python
-	$(llvm_gen_dep 'sys-devel/lld:${LLVM_SLOT}=')
+	$(llvm_gen_dep 'llvm-core/lld:${LLVM_SLOT}=')
 "
 
 BDEPEND="
@@ -93,7 +93,7 @@ BDEPEND="
 	>=sys-libs/zlib-1.3
 	$(llvm_gen_dep '
 		llvm-core/clang:${LLVM_SLOT}=
-		sys-devel/lld:${LLVM_SLOT}=
+		llvm-core/lld:${LLVM_SLOT}=
 	')
 	dev-lang/python
 	$(python_gen_cond_dep '
