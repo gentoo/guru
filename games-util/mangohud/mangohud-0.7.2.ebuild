@@ -48,20 +48,18 @@ REQUIRED_USE="
 
 BDEPEND="
 	app-arch/unzip
-	>=dev-util/vulkan-headers-1.2.158
+	dev-util/glslang
 	test? ( dev-util/cmocka )
 	$(python_gen_cond_dep 'dev-python/mako[${PYTHON_USEDEP}]')
 "
 
-RDEPEND="
+DEPEND="
 	${PYTHON_DEPS}
 	=media-libs/imgui-1.89.9*[opengl,vulkan,${MULTILIB_USEDEP}]
 	=media-libs/implot-0.16*[${MULTILIB_USEDEP}]
 	=dev-libs/spdlog-1.13.0*[${MULTILIB_USEDEP}]
 	dev-libs/libfmt[${MULTILIB_USEDEP}]
 	dev-cpp/nlohmann_json
-	dev-util/glslang
-	media-fonts/lato
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
 	media-libs/libglvnd[${MULTILIB_USEDEP}]
 	x11-libs/libdrm[${MULTILIB_USEDEP}]
@@ -77,8 +75,13 @@ RDEPEND="
 		media-libs/glfw[X(+)]
 		media-libs/glew
 	)
+"
+
+RDEPEND="
+	${DEPEND}
 	mangoplot? ( $(python_gen_cond_dep '
 		|| (
+			media-fonts/lato
 			dev-python/matplotlib[gtk3,${PYTHON_USEDEP}]
 			dev-python/matplotlib[qt5(-),${PYTHON_USEDEP}]
 			dev-python/matplotlib[qt6(-),${PYTHON_USEDEP}]
