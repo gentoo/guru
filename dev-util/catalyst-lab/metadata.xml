@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>damiandudycz@yahoo.com</email>
+		<name>Damian Dudycz</name>
+	</maintainer>
+	<longdescription lang="en">
+		Catalyst-Lab is an automation tool designed to streamline the process of building various Gentoo release stages and binhost packages.
+		It manages the dependencies between stages, prepares the necessary files, and performs the builds.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">damiandudycz/catalyst-lab</remote-id>
+		<bugs-to>https://github.com/damiandudycz/catalyst-lab/issues</bugs-to>
+	</upstream>
+	<use>
+		<flag name="qemu">Building stages for different architecture using QEMU.</flag>
+		<flag name="git">Uploading binpkgs and releases to git repository.</flag>
+		<flag name="binhost">Binhost targets support to build selected packages.</flag>
+	</use>
+</pkgmetadata>
