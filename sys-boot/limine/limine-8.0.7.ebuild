@@ -23,7 +23,7 @@ BDEPEND="
 	dev-lang/nasm
 	sys-apps/findutils
 	$(llvm_gen_dep "
-		sys-devel/llvm:\${LLVM_SLOT}[${MY_LLVM_FLAGS}]
+		llvm-core/llvm:\${LLVM_SLOT}[${MY_LLVM_FLAGS}]
 		llvm-core/clang:\${LLVM_SLOT}[${MY_LLVM_FLAGS}]
 		llvm-core/lld:\${LLVM_SLOT}
 	")

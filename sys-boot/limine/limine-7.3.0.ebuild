@@ -21,7 +21,7 @@ BDEPEND="
 	sys-apps/findutils
 	llvm-core/clang[${MY_LLVM_FLAGS}]
 	llvm-core/lld
-	sys-devel/llvm[${MY_LLVM_FLAGS}]
+	llvm-core/llvm[${MY_LLVM_FLAGS}]
 
 	cd-efi? ( sys-fs/mtools )
 "

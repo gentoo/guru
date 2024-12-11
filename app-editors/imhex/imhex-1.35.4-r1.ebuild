@@ -53,7 +53,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	system-llvm? ( sys-devel/llvm )
+	system-llvm? ( llvm-core/llvm )
 	app-admin/chrpath
 	gnome-base/librsvg
 	desktop-portal? ( sys-apps/xdg-desktop-portal )

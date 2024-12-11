@@ -59,7 +59,7 @@ DEPEND="
 	media-libs/openal
 	media-video/ffmpeg:=
 	net-misc/curl
-	sys-devel/llvm:=
+	llvm-core/llvm:=
 	sys-libs/zlib
 	virtual/libusb:1
 	faudio? ( app-emulation/faudio )

@@ -31,7 +31,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	llvm-core/lldb:=
 	$(llvm_gen_dep '
-		sys-devel/llvm:${LLVM_SLOT}
+		llvm-core/llvm:${LLVM_SLOT}
 	')
 "
 DEPEND="${RDEPEND}
