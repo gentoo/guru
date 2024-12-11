@@ -5,7 +5,11 @@ EAPI=8
 
 inherit xdg-utils desktop
 
+<<<<<<< HEAD
 MY_PV="${PV/_alpha/-a.}"
+=======
+MY_PV="1.0.1-a.22"
+>>>>>>> 07e9d37fd (www-client/zen-bin: add 1.0.1_alpha22)
 MY_P="zen"
 
 DESCRIPTION="Zen Browser - A Firefox-based browser focused on privacy"
