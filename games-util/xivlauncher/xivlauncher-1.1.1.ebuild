@@ -269,7 +269,7 @@ RDEPEND="
 	x11-libs/libXdamage
 	x11-libs/libXi
 	sys-devel/gettext
-	|| ( sys-libs/libunwind sys-libs/llvm-libunwind )
+	|| ( sys-libs/libunwind llvm-runtimes/libunwind )
 	media-libs/freetype:2
 	media-libs/glu
 	x11-libs/libSM
