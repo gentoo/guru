@@ -19,7 +19,7 @@ RDEPEND="
 "
 IDEPEND="${RDEPEND}"
 BDEPEND="
-	>=dev-lang/go-1.21.0
+	>=dev-lang/go-1.23.4
 	>=dev-build/cmake-3.24
 	>=sys-devel/gcc-11.4.0
 	nvidia? ( dev-util/nvidia-cuda-toolkit )
