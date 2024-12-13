@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake xdg
 
-DESCRIPTION="(h)top like task monitor for AMD, Intel, NVIDIA, … GPUs"
+DESCRIPTION="(h)top like task monitor for AMD, NVIDIA, Intel and other GPUs"
 HOMEPAGE="https://github.com/Syllo/nvtop"
 
 if [[ "${PV}" == "9999" ]] ; then
