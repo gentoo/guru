@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit vim-plugin
 
 MY_PN="${PN}.vim"
-COMMIT="b0f26cab7b6f630c8645d418935b698c5d3cd6ed"
+COMMIT="429b669e6158be3a9fc110799607c232e6ed8e29"
 DESCRIPTION="A simple Vimscript test framework"
 HOMEPAGE="https://github.com/junegunn/vader.vim"
 SRC_URI="https://github.com/junegunn/${MY_PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
