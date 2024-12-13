@@ -30,8 +30,14 @@ distutils_enable_tests pytest
 
 RDEPEND="
 	$DEPEND
-	prompt-toolkit? ( dev-python/prompt-toolkit[${PYTHON_USEDEP}] )
-	ptpython? ( dev-python/ptpython[${PYTHON_USEDEP}] )
+	prompt-toolkit? (
+		dev-python/prompt-toolkit[${PYTHON_USEDEP}]
+		dev-python/platformdirs[${PYTHON_USEDEP}]
+	)
+	ptpython? (
+		dev-python/ptpython[${PYTHON_USEDEP}]
+		dev-python/platformdirs[${PYTHON_USEDEP}]
+	)
 "
 
 python_test() {
