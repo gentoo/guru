@@ -16,7 +16,7 @@ else
 fi
 
 DESCRIPTION="GTK-based lockscreen for Wayland"
-HOMEPAGE="https://github.com/Cu3PO42/${PN}"
+HOMEPAGE="https://github.com/Cu3PO42/gtk-session-lock"
 
 LICENSE="GPL-3"
 SLOT="0"
