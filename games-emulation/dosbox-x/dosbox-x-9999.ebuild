@@ -151,6 +151,7 @@ src_compile() {
 }
 
 src_test() {
+	local -x XDG_CONFIG_HOME="${T}" # Tests may create configuration files
 	set -- src/dosbox-x -tests
 	echo "${@}" >&2
 	"${@}" || die "Unit tests failed"
