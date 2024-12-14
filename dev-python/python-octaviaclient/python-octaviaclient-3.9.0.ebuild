@@ -31,7 +31,17 @@ RDEPEND="
 	>dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.14.2[${PYTHON_USEDEP}]
 "
+BDEPEND="
+	test? (
+		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
+		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
+		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
+	)
+"
 
-src_prepare() {
-	distutils-r1_src_prepare
-}
+EPYTEST_IGNORE=(
+	# not packaged
+	octaviaclient/tests/unit/test_hacking.py
+)
+
+distutils_enable_tests pytest
