@@ -30,10 +30,11 @@ fi
 LICENSE="MIT"
 SLOT="0"
 
-PATCHES=( "${FILESDIR}/drop-pyrr.patch" )
-
 RDEPEND="
+	dev-python/addict[${PYTHON_USEDEP}]
+	dev-python/appdirs[${PYTHON_USEDEP}]
 	dev-python/colour[${PYTHON_USEDEP}]
+	dev-python/diskcache[${PYTHON_USEDEP}]
 	>=dev-python/ipython-8.18.0[${PYTHON_USEDEP}]
 	dev-python/isosurfaces[${PYTHON_USEDEP}]
 	dev-python/fonttools[${PYTHON_USEDEP}]
@@ -72,8 +73,10 @@ DEPEND="${RDEPEND}"
 
 python_install_all() {
 	default
-	docinto examples
-	dodoc example_scenes.py
-	dodoc docs/example.py
-	docompress -x /usr/share/doc/${PF}/examples
+	if use doc; then
+		docinto examples
+		dodoc example_scenes.py
+		dodoc docs/example.py
+		docompress -x /usr/share/doc/${PF}/examples
+	fi
 }
