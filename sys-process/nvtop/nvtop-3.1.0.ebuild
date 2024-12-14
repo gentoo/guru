@@ -26,7 +26,7 @@ RDEPEND="
 	video_cards_amdgpu? ( x11-libs/libdrm[video_cards_amdgpu] )
 	video_cards_nvidia? ( x11-drivers/nvidia-drivers )
 	video_cards_freedreno? ( x11-libs/libdrm[video_cards_freedreno] )
-	sys-libs/ncurses:0=
+	sys-libs/ncurses[unicode(+)?]
 "
 
 DEPEND="${RDEPEND}"
@@ -41,7 +41,6 @@ PATCHES=(
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
 		-DCURSES_NEED_WIDE=$(usex unicode)
 		-DINTEL_SUPPORT=$(usex video_cards_intel)
 		-DNVIDIA_SUPPORT=$(usex video_cards_nvidia)
