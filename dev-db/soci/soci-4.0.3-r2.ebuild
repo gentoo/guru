@@ -10,8 +10,7 @@ SRC_URI="https://sourceforge.net/projects/soci/files/soci/${P}/${P}.tar.gz/downl
 LICENSE="Boost-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="odbc sqlite oracle postgres mysql +shared +static test ubsan lto cxx11"
-REQUIRED_USE="|| ( shared static )"
+IUSE="odbc sqlite oracle postgres mysql +static test ubsan lto +cxx11"
 RESTRICT="!test? ( test )"
 
 CMAKE_SKIP_TESTS=(
@@ -39,7 +38,6 @@ DEPEND="${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		-DSOCI_SHARED="$(usex shared)"
 		-DSOCI_STATIC="$(usex static)"
 		-DSOCI_TESTS="$(usex test)"
 		-DSOCI_UBSAN="$(usex ubsan)"
