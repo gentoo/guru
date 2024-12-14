@@ -14,4 +14,4 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="dev-libs/xxhash"
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND} dev-libs/openssl"
