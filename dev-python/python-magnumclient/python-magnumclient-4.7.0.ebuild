@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..12} )
 
 inherit distutils-r1 pypi
 
@@ -35,7 +35,12 @@ RDEPEND="
 	>=dev-python/cryptography-3.0.0[${PYTHON_USEDEP}]
 	>=dev-python/decorator-3.4.0[${PYTHON_USEDEP}]
 "
+BDEPEND="
+	test? (
+		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
+		>=dev-python/python-openstackclient-3.12.0[${PYTHON_USEDEP}]
+		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
+	)
+"
 
-src_prepare() {
-	distutils-r1_src_prepare
-}
+distutils_enable_tests pytest
