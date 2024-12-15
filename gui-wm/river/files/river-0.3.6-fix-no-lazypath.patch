@@ -1,0 +1,31 @@
+From: Eric Joldasov <bratishkaerik@landless-city.net>
+
+Temporary fix for building river when out-of-source. This is exactly
+things that "separate BUILD_DIR by default" in `zig.eclass` was meant
+to catch.
+
+Proper fix here would be to patch upstream to use `std.Build.LazyPath`
+instead of plain string, like mentioned in TODO here:
+https://codeberg.org/ifreund/zig-wayland/src/tag/v0.2.0/build.zig#L134-L135
+
+diff --git a/build.zig b/build.zig
+index 55f7ced..f49f9b1 100644
+--- a/build.zig
++++ b/build.zig
+@@ -100,11 +100,11 @@ pub fn build(b: *Build) !void {
+     scanner.addSystemProtocol("unstable/pointer-gestures/pointer-gestures-unstable-v1.xml");
+     scanner.addSystemProtocol("unstable/xdg-decoration/xdg-decoration-unstable-v1.xml");
+ 
+-    scanner.addCustomProtocol("protocol/river-control-unstable-v1.xml");
+-    scanner.addCustomProtocol("protocol/river-status-unstable-v1.xml");
+-    scanner.addCustomProtocol("protocol/river-layout-v3.xml");
+-    scanner.addCustomProtocol("protocol/wlr-layer-shell-unstable-v1.xml");
+-    scanner.addCustomProtocol("protocol/wlr-output-power-management-unstable-v1.xml");
++    scanner.addCustomProtocol(b.pathFromRoot("protocol/river-control-unstable-v1.xml"));
++    scanner.addCustomProtocol(b.pathFromRoot("protocol/river-status-unstable-v1.xml"));
++    scanner.addCustomProtocol(b.pathFromRoot("protocol/river-layout-v3.xml"));
++    scanner.addCustomProtocol(b.pathFromRoot("protocol/wlr-layer-shell-unstable-v1.xml"));
++    scanner.addCustomProtocol(b.pathFromRoot("protocol/wlr-output-power-management-unstable-v1.xml"));
+ 
+     // Some of these versions may be out of date with what wlroots implements.
+     // This is not a problem in practice though as long as river successfully compiles.
