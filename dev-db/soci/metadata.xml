@@ -6,7 +6,6 @@
     <description>Jan-Espen Oversand</description>
   </maintainer>
   <use>
-    <flag name="ubsan">Enable running with UB sanitizer</flag>
     <flag name="cxx11">Enable c++11 support</flag>
   </use>
   <upstream>
