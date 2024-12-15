@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/aome510/spotify-player.git"
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 ISC LGPL-3 LGPL-3+ MIT MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
 
-IUSE="daemon image +libnotify lyrics +media-control pulseaudio sixel +streaming"
+IUSE="daemon image +libnotify +media-control pulseaudio sixel +streaming"
 REQUIRED_USE="
 	sixel? ( image )
 	daemon? ( streaming )
@@ -37,7 +37,6 @@ src_configure() {
 		"$(usex daemon daemon '')"
 		"$(usex image image '')"
 		"$(usex libnotify notify '')"
-		"$(usex lyrics lyric-finder '')"
 		"$(usex media-control media-control '')"
 		"$(usex pulseaudio pulseaudio-backend alsa-backend)"
 		"$(usex sixel sixel '')"
