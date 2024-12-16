@@ -13,5 +13,8 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="dev-libs/xxhash"
-RDEPEND="${DEPEND} dev-libs/openssl"
+DEPEND="
+dev-libs/xxhash
+dev-libs/openssl:=
+"
+RDEPEND="${DEPEND}"
