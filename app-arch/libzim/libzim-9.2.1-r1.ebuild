@@ -22,4 +22,5 @@ RDEPEND="
 	dev-libs/icu:=
 	dev-libs/xapian:=
 "
+DEPEND="${RDEPEND}"
 BDEPEND="${PYTHON_DEPS}"
