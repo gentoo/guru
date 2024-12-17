@@ -316,3 +316,8 @@ src_install() {
 
 	einstalldocs
 }
+
+src_test() {
+	export RUST_BACKTRACE=full
+	cargo_src_test
+}
