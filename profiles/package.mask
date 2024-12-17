@@ -80,12 +80,6 @@ dev-python/prawcore
 dev-python/sphinx-rtd-dark-mode
 dev-python/betamax-serializers
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-11-17)
-# This ebuild has been broken since 2022 because it tries to pull
-# dependencies from the internet.
-# Removal on 2024-12-17. Bug #817947, #924133.
-phosh-base/squeekboard
-
 # Julien Roy <julien@jroy.ca> (2024-11-15)
 # >=x11-themes/adw-gtk3-5.4 requires >=gui-libs/gtk-4.16
 # which is not packaged in ::gentoo
