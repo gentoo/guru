@@ -11,6 +11,7 @@ declare -g -r -A ZBS_DEPENDENCIES=(
 	[known_folders-12209cde192558f8b3dc098ac2330fc2a14fdd211c5433afd33085af75caa9183147.tar.gz]='https://github.com/ziglibs/known-folders/archive/0ad514dcfb7525e32ae349b9acc0a53976f3a9fa.tar.gz'
 )
 
+# Sync with "minimum_build_zig_version" from upstream's "build.zig".
 if [[ ${PV} == 9999 ]]; then
 	ZIG_SLOT="9999"
 
