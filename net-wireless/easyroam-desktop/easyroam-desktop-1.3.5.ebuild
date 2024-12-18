@@ -9,6 +9,8 @@ DESCRIPTION="Easily connect your device to eduroam®."
 HOMEPAGE="https://www.easyroam.de/"
 SRC_URI="https://packages.easyroam.de/repos/easyroam-desktop/pool/main/e/easyroam-desktop/easyroam_connect_desktop-${PV}+${PV}-linux.deb"
 
+QA_FLAGS_IGNORED=".*"
+
 S="${WORKDIR}"
 
 LICENSE="all-rights-reserved"
