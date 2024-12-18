@@ -21,7 +21,7 @@ DEPEND="
 	pango? ( x11-libs/pango )
 	postgres? ( dev-db/postgresql )
 	ssl? ( dev-libs/openssl )
-	dev-libs/boost:=
+	<=dev-libs/boost-1.86.0:=
 	media-libs/libharu
 	media-gfx/graphicsmagick[jpeg,png]
 	sys-libs/zlib
