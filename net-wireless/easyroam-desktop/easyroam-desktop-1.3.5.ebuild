@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit unpacker
+inherit unpacker xdg-utils
 
 DESCRIPTION="Easily connect your device to eduroam®."
 HOMEPAGE="https://www.easyroam.de/"
@@ -38,4 +38,12 @@ src_prepare() {
 
 src_install() {
 	mv "${S}/usr" "${D}/"
+}
+
+pkg_postinst() {
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 }
