@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
-<pkgmetadata>
-	<!-- maintainer-needed -->
-	<upstream>
-		<remote-id type="pypi">sphinx-rtd-dark-mode</remote-id>
-		<remote-id type="github">MrDogeBro/sphinx_rtd_dark_mode</remote-id>
-	</upstream>
-</pkgmetadata>
