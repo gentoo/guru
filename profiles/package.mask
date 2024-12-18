@@ -81,7 +81,6 @@ dev-python/kurbopy
 # Official Flathub page is gone as well.
 # https://gitlab.gnome.org/World/giara/-/issues/130
 # Removal on 2024-12-18. Bug #922029.
-dev-python/prawcore
 dev-python/sphinx-rtd-dark-mode
 dev-python/betamax-serializers
 
