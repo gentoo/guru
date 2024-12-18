@@ -76,13 +76,6 @@ media-fonts/symbola
 # Removal on 2024-12-20
 dev-python/kurbopy
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-11-18)
-# Upstream is dead because of the Reddit API changes.
-# Official Flathub page is gone as well.
-# https://gitlab.gnome.org/World/giara/-/issues/130
-# Removal on 2024-12-18. Bug #922029.
-dev-python/betamax-serializers
-
 # Julien Roy <julien@jroy.ca> (2024-11-15)
 # >=x11-themes/adw-gtk3-5.4 requires >=gui-libs/gtk-4.16
 # which is not packaged in ::gentoo
