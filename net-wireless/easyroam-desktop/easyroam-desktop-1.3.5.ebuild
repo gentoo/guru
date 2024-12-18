@@ -15,6 +15,10 @@ LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="-* amd64"
 
+PATCHES=(
+	"${FILESDIR}"/0001-fix-desktop-file.patch
+)
+
 RDEPEND="
 	dev-libs/glib
 	x11-libs/gtk+
