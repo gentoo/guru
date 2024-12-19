@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
+# Copyright 2022-2024 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -18,13 +18,16 @@ fi
 LICENSE="AGPL-3 CC-BY-SA-4.0 CC-BY-4.0"
 SLOT="otp"
 
+IUSE="+system-lexbor"
+
 # Requires network access (https) as long as elixir dependencies aren't packaged
 # said dependencies have their checksum verified via `mix.lock`
 RESTRICT="network-sandbox"
 
 BDEPEND="
 	<dev-lang/erlang-27:=
-	<dev-lang/elixir-1.16:=
+	>=dev-lang/elixir-1.14:=
+	<dev-lang/elixir-1.18
 	dev-build/cmake
 	>=dev-util/rebar-3.20.0-r1
 	dev-elixir/hex
@@ -35,6 +38,7 @@ DEPEND="
 	media-libs/vips:=
 	sys-apps/file
 	sys-libs/ncurses:=
+	system-lexbor? ( dev-libs/lexbor )
 "
 RDEPEND="
 	${DEPEND}
@@ -83,6 +87,8 @@ src_compile() {
 	mkdir -p pleroma || die
 
 	export VIX_COMPILATION_MODE="PLATFORM_PROVIDED_LIBVIPS"
+
+	use system-lexbor && export WITH_SYSTEM_LEXBOR=1
 
 	emix release --overwrite --path pleroma
 }

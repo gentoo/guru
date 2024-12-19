@@ -5,4 +5,7 @@
 		<email>contact@hacktivis.me</email>
 		<name>Haelwenn (lanodan) Monnier</name>
 	</maintainer>
+	<use>
+		<flag name="system-lexbor">Use <pkg>dev-libs/lexbor</pkg> instead of vendored version</flag>
+	</use>
 </pkgmetadata>
