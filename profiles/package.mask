@@ -18,6 +18,18 @@
 
 # New entries go on top.
 
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2024-12-19)
+# pytest-benchmark is unmaintained in ::guru, should not be used in tests.
+# https://public-inbox.gentoo.org/gentoo-guru/Z2L4IZBNBJEMqnbj@sysrq.in/
+# Bugs: #921898, #835526, #921893
+# Removal on 2025-01-19
+dev-python/pytest-benchmark
+dev-python/aspectlib
+dev-python/hunter
+dev-python/manhole
+dev-python/pygal
+dev-python/pygaljs
+
 # Julien Roy <julien@jroy.ca> (2024-12-17)
 # Depends on dev-libs/icu:0/74.1
 # Which has been dropped from ::gentoo
