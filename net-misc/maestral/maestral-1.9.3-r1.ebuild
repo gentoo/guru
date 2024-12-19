@@ -42,7 +42,7 @@ BDEPEND="
 "
 
 EPYTEST_DESELECT=(
-	# requires dev-python/pytest-benchmark not available for py3.11
+	# disable benchmarks
 	tests/offline/test_clean_local_events.py::test_performance
 
 	# requires systemd
