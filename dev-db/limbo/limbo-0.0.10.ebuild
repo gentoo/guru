@@ -280,7 +280,7 @@ EAPI=8
 	zerocopy@0.7.35
 	"
 
-inherit cargo
+inherit cargo linux-info
 
 DESCRIPTION="The Limbo interactive SQL shell"
 HOMEPAGE="https://github.com/tursodatabase/limbo"
@@ -297,6 +297,14 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
+
+pkg_setup() {
+	CONFIG_CHECK="~IO_URING"
+	WARNING_IO_URING="limbo needs IO_URING to be enabled to work properly."
+
+	linux-info_pkg_setup
+	rust_pkg_setup
+}
 
 src_install() {
 	cargo_src_install --path cli
