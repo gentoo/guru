@@ -16,8 +16,13 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="
-	test? ( dev-python/pytest-benchmark )
-"
+EPYTEST_IGNORE=(
+	# benchmarks
+	tests/performance
+)
 
 distutils_enable_tests pytest
+
+python_test() {
+	epytest -o "addopts="
+}
