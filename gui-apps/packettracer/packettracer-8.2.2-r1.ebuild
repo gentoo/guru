@@ -16,9 +16,39 @@ SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="fetch mirror strip"
 
-RDEPEND="${DEPEND}
+RDEPEND="
+	dev-libs/expat
+	dev-libs/glib:2
 	dev-libs/icu
+	dev-libs/libxml2
+	dev-libs/libxslt
+	dev-libs/nspr
+	dev-libs/nss
+	dev-libs/wayland
+	media-libs/alsa-lib
+	media-libs/fontconfig
+	media-libs/freetype
+	media-libs/libglvnd[X]
+	media-libs/libpulse
+	sys-apps/dbus
+	virtual/udev
+	x11-libs/libICE
+	x11-libs/libSM
+	x11-libs/libX11
+	x11-libs/libXcomposite
+	x11-libs/libXdamage
+	x11-libs/libXext
+	x11-libs/libXfixes
+	x11-libs/libXrandr
+	x11-libs/libXtst
+	x11-libs/libdrm
+	x11-libs/libxcb
+	x11-libs/libxkbcommon
 	x11-libs/xcb-util
+	x11-libs/xcb-util-image
+	x11-libs/xcb-util-keysyms
+	x11-libs/xcb-util-renderutil
+	x11-libs/xcb-util-wm
 "
 
 QA_PREBUILT="opt/pt/*"
