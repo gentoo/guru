@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/Enter-tainer/typstyle/issues</bugs-to>
+		<changelog>https://github.com/Enter-tainer/typstyle/releases</changelog>
+		<doc>https://enter-tainer.github.io/typstyle</doc>
+		<remote-id type="github">Enter-tainer/typstyle</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		Typstyle is a code formatter designed for Typst, aiming to produce
+		consistent and aesthetically pleasing code layouts. It is opinionated,
+		enforcing a uniform style across all codebases, and focuses solely on
+		formatting code without altering content. Typstyle ensures convergence,
+		meaning running the formatter multiple times does not change the code
+		further. It also maintains correctness by preserving the rendered
+		output's appearance. Users can access Typstyle via a command-line
+		interface, integrate it into editors through plugins like tinymist, or
+		utilize its web application for online code formatting.
+	</longdescription>
+	<longdescription lang="zh">
+		Typstyle 是一款为 Typst 设计的代码格式化工具，旨在生成一致且美观的代码
+		布局。它是一个武断的工具，在所有代码库中应用统一的风格，只专注于格式化
+		代码，而不会更改代码内容。Typstyle 保证格式化的收敛性，即多次运行格式化
+		器不会对代码产生进一步变化。同时，它确保代码格式化后仍保持渲染结果的正确
+		性。用户可以通过命令行界面使用 Typstyle，也可以通过插件（如 tinymist）将
+		其集成到编辑器中，或者使用其网络应用在线格式化代码。
+	</longdescription>
+</pkgmetadata>
