@@ -3,10 +3,6 @@
 
 # New entries go on top.
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2024-12-21)
-# app-i18n/fcitx-qt5:4 is masked in ::gentoo.
-app-i18n/fcitx-skk qt5
-
 # John-Henry Lim <johnhenrylim12@gmail.com> (2024-02-19)
 # warp-dex relies on libpcap.so.0.8 which is not in tree.
 net-vpn/cloudflare-warp dex
