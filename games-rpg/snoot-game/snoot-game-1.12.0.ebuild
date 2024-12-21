@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10,11,12} )
 inherit python-single-r1 desktop wrapper
 
-MY_PV="Patch11.1-MoldyBuenoAlDante"
+MY_PV="Patch12-Monkeyborea"
 
 DESCRIPTION="Visual novel parody of Goodbye Volcano High"
 HOMEPAGE="https://snootgame.xyz/en"
