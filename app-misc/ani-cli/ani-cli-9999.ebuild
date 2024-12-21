@@ -10,7 +10,7 @@ if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="
-		https://github.com/pystardust/${PN}/archive/refs/tags/v${PV}.tar.gz
+		https://github.com/pystardust/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	"
 	S="${WORKDIR}/${P}"
 	KEYWORDS="~amd64 ~arm64 ~x86"
@@ -20,10 +20,12 @@ LICENSE="GPL-3"
 SLOT="0"
 
 DEPEND="
-	media-video/mpv
 	app-shells/fzf
-	media-video/ffmpeg
-	net-misc/aria2"
+	media-video/mpv
+	net-misc/aria2
+	net-misc/curl
+	net-misc/yt-dlp
+"
 
 RDEPEND="${DEPEND}"
 
