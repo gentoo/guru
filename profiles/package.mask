@@ -74,13 +74,6 @@ dev-libs/fsst
 # Removal on 2025-12-17
 media-gfx/mayo
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-11-21)
-# SRC_URI is 410. No maintainer.
-# x11-misc/xscreensaver is available in ::gentoo and users can apply
-# patches themselves.
-# Removal on 2024-12-21.
-x11-misc/xscreensaver-anclock
-
 # Nicolas PARLANT <nicolas.parhuet@parhuet.fr> (2024-11-21)
 # No maintener and SRC_URI / license issue #262
 # Replaced by media-fonts/ttf-ancient-fonts wich includes
