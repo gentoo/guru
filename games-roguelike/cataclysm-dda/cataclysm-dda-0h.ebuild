@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit xdg toolchain-funcs flag-o-matic
+inherit xdg toolchain-funcs
 
 SP_VER="2024-10-27"
 
@@ -18,8 +18,12 @@ else
 	v2="$(ver_cut 2)"
 	MY_PV="$(ver_cut 1).${v2^^}"
 	unset v2
-	SRC_URI="https://github.com/CleverRaven/Cataclysm-DDA/archive/${MY_PV}-RELEASE.tar.gz -> ${P}.tar.gz \
-		soundpack? ( https://github.com/Fris0uman/CDDA-Soundpacks/releases/download/${SP_VER}/CC-Sounds.zip -> ${P}-soundpack.zip )"
+	SRC_URI="
+		https://github.com/CleverRaven/Cataclysm-DDA/archive/${MY_PV}-RELEASE.tar.gz -> ${P}.tar.gz
+		soundpack? (
+			https://github.com/Fris0uman/CDDA-Soundpacks/releases/download/${SP_VER}/CC-Sounds.zip -> ${P}-soundpack.zip
+		)
+	"
 	SLOT="${MY_PV}"
 	S="${WORKDIR}/Cataclysm-DDA-${MY_PV}-RELEASE"
 	KEYWORDS="~amd64"
@@ -104,21 +108,13 @@ src_prepare() {
 src_compile() {
 	myemakeargs=(
 		ASTYLE=0
+		BACKTRACE=$(usex debug 1 0)
 		CXX="$(tc-getCXX)"
 		LINTJSON=0
+		PCH=0
 		PREFIX="${EPREFIX}/usr"
 		USE_XDG_DIR=1
 	)
-
-	if use debug; then
-		append-ldflags "-rdynamic"
-		DEFINES+="-DENABLE_LOGGING"
-		DEFINES+="$(echo -DDEBUG_{INFO,WARNING,ERROR,PEDANTIC_INFO})"
-		DEFINES+="$(echo -DDEBUG_ENABLE_{MAIN,MAP,MAP_GEN,GAME})"
-		export DEFINES
-	else
-		export BACKTRACE=0
-	fi
 
 	if use ncurses; then
 		# don't build tests twice
