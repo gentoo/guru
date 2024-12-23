@@ -14,14 +14,19 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-qt/qtbase
+	dev-qt/qtbase:6[widgets]
 	sys-auth/polkit
 	x11-misc/sddm
 "
-DEPEND="${RDEPEND} "
+DEPEND="${RDEPEND}"
 BDEPEND="
-	dev-build/cmake
-	dev-qt/qttools
 	dev-build/qtilitools
-	dev-qt/linguist-tools
+	dev-qt/qttools:6[linguist]
 "
+
+src_configure() {
+	local mycmakeargs=(
+		-DPROJECT_QT_VERSION=6
+	)
+	cmake_src_configure
+}
