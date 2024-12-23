@@ -527,6 +527,8 @@ BDEPEND="
 	test? ( dev-util/cargo-nextest )
 "
 
+QA_FLAGS_IGNORED="usr/bin/typstyle"
+
 DOCS=( README.md )
 
 src_compile() {
