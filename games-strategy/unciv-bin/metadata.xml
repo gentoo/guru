@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>fkobi@pm.me</email>
+		<name>Filip Kobierski</name>
+	</maintainer>
+	<longdescription>
+		Unciv is an open source, mod-friendly  remake of Civ V, made with Kotlin and LibGDX.
+		It has a touch-friendly user interface but also keyboard binds, so do not think it is mainly for Android.
+		In this game you can build your civilization, research technologies, expand your cities and finally defeat your foes!
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/yairm210/Unciv/issues</bugs-to>
+		<changelog>https://github.com/yairm210/Unciv/blob/master/changelog.md</changelog>
+		<doc>https://yairm210.itch.io/unciv</doc>
+		<remote-id type="github">yairm210/Unciv</remote-id>
+	</upstream>
+</pkgmetadata>
