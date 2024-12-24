@@ -56,7 +56,7 @@ BDEPEND="${BUNDLED_LLVM_DEPEND}
 	${PYTHON_DEPS}
 	$(python_gen_any_dep '
 		dev-python/ruamel-yaml[${PYTHON_USEDEP}]
-        dev-python/jinja2[${PYTHON_USEDEP}]
+    	dev-python/jinja2[${PYTHON_USEDEP}]
 	')
 	virtual/linux-sources"
 RDEPEND=" ${DEPEND}
