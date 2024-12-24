@@ -17,10 +17,9 @@ REQUIRED_USE="
 "
 
 RDEPEND="
-	dev-qt/qtbase:6[X?,eglfs?,gui,wayland?]
-	dev-qt/qtdeclarative:6
+	dev-qt/qtbase:6[X?,eglfs?,gui,opengl,wayland?]
+	dev-qt/qtdeclarative:6[opengl]
 	>=media-libs/gst-plugins-base-${PV}:${SLOT}[X?,opengl,wayland?]
-	media-libs/mesa[wayland?,X?]
 	eglfs? ( media-libs/gst-plugins-base:${SLOT}[egl] )
 	wayland? (
 		dev-qt/qtwayland:6
