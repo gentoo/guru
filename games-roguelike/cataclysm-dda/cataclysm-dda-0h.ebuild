@@ -116,6 +116,8 @@ src_compile() {
 		USE_XDG_DIR=1
 	)
 
+	use nls && export LANGUAGES="all"
+
 	if use ncurses; then
 		# don't build tests twice
 		if ! use tiles; then
@@ -134,10 +136,6 @@ src_compile() {
 			"SOUND=$(usex sound 1 0)" \
 			"TESTS=$(usex test 1 0)" \
 			"TILES=$(usex tiles 1 0)"
-	fi
-
-	if use nls; then
-		emake localization
 	fi
 }
 
