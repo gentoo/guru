@@ -18,11 +18,11 @@ FETCH_URI="https://github.com/GPUOpen-Drivers"
 ## and place commits in the desired variables
 ## EXAMPLE: XGL_COMMIT="80e5a4b11ad2058097e77746772ddc9ab2118e07"
 ## SRC_URI="... ${FETCH_URI}/$PART/archive/$COMMIT.zip -> $PART-$COMMIT.zip ..."
-XGL_COMMIT="a367518e0bf308056492d994c5713e06af9429af"
-PAL_COMMIT="b6da370a9bc66d86820fd3034a16e5b59ed7ff86"
-LLPC_COMMIT="1d04cdcb4c3d4edc300d9a61969a87208d44dcc4"
-GPURT_COMMIT="aa5ba689e8c33b6d42d4261687988e6e0b13998c"
-LLVM_PROJECT_COMMIT="07d4dd012428b5a8c563de7c51ef33ab09bae53b"
+XGL_COMMIT="62710fd4e7ccc159a3609aa4c307a81ac0a8453c"
+PAL_COMMIT="c7fc61289a6eae6c87458fe362f88a44c0c53900"
+LLPC_COMMIT="6aecd3da132c62e9b38c1596f62865b8178a73d6"
+GPURT_COMMIT="c3a4d170f0bacc81df90716887b6546ab41ff5f2"
+LLVM_PROJECT_COMMIT="70c9463695fa8cda473c543f6819ca0c79dea53c"
 METROHASH_COMMIT="18893fb28601bb9af1154cd1a671a121fff6d8d3"
 CWPACK_COMMIT="4f8cf0584442a91d829d269158567d7ed926f026"
 # Submodule of LLPC, also updates often. Grab commit version from
@@ -54,7 +54,10 @@ DEPEND="wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
 	dev-util/glslang[${MULTILIB_USEDEP}]"
 BDEPEND="${BUNDLED_LLVM_DEPEND}
 	${PYTHON_DEPS}
-	dev-python/ruamel-yaml
+	$(python_gen_any_dep '
+		dev-python/ruamel-yaml[${PYTHON_USEDEP}]
+        dev-python/jinja2[${PYTHON_USEDEP}]
+	')
 	virtual/linux-sources"
 RDEPEND=" ${DEPEND}
 	x11-libs/libdrm[${MULTILIB_USEDEP}]
@@ -78,6 +81,11 @@ PATCHES=(
 	#"${FILESDIR}/amdvlk-2022.4.2-reduced-llvm-installations-part2.patch"
 	"${FILESDIR}/amdvlk-2024.3.1-disable-Werror.patch"
 )
+
+python_check_deps() {
+	python_has_version "dev-python/ruamel-yaml[${PYTHON_USEDEP}]" &&
+	python_has_version "dev-python/jinja2[${PYTHON_USEDEP}]"
+}
 
 pkg_pretend(){
 	ewarn "It's generally recomended to have at least 16GB memory to build"
