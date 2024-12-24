@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2024-12-19)
+# GStreamer plugin with no revdeps left, since Nheko was ported to Qt6.
+# Removal on 2024-01-25.
+media-plugins/gst-plugins-qt5
+
 # Takuya Wakazono <pastalian46@gmail.com> (2024-12-21)
 # Fails to build since fcitx:5 was added. No maintainer.
 # Removal on 2024-01-21. Bug #927492.
