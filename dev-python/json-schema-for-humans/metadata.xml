@@ -6,7 +6,7 @@
 		<name>Nicolas PARLANT</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">coveoss/json-schema-for-humans</remote-id>
+		<remote-id type="github">coveooss/json-schema-for-humans</remote-id>
 		<remote-id type="pypi">json-schema-for-humans</remote-id>
 	</upstream>
 </pkgmetadata>
