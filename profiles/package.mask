@@ -79,11 +79,6 @@ dev-libs/fsst
 # Removal on 2025-12-17
 media-gfx/mayo
 
-# Julien Roy <julien@jroy.ca> (2024-11-20)
-# Dependency with no revdeps
-# Removal on 2024-12-20
-dev-python/kurbopy
-
 # Julien Roy <julien@jroy.ca> (2024-11-15)
 # >=x11-themes/adw-gtk3-5.4 requires >=gui-libs/gtk-4.16
 # which is not packaged in ::gentoo
