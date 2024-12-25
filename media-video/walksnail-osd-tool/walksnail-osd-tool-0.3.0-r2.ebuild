@@ -355,9 +355,9 @@ CRATES="
 	thiserror-impl@1.0.56
 	thread_local@1.1.7
 	tiff@0.9.1
-	time@0.3.34
+	time@0.3.36
 	time-core@0.1.2
-	time-macros@0.2.17
+	time-macros@0.2.18
 	tiny-skia@0.8.4
 	tiny-skia-path@0.8.4
 	tinyvec@1.6.0
@@ -474,9 +474,6 @@ declare -A GIT_CRATES=(
 	[poll-promise]="https://github.com/EmbarkStudios/poll-promise;b493586107b0e508860aa2e9d18049fd8cd9d13f"
 )
 
-# <time@0.3.35
-# https://github.com/time-rs/time/issues/693
-RUST_MAX_VER="1.79.0"
 RUST_MIN_VER="1.71.1"
 
 inherit cargo desktop xdg-utils
@@ -490,11 +487,19 @@ LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 GPL
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="media-video/ffmpeg"
+DEPEND="
+	dev-libs/openssl:=
+	x11-libs/gtk+:3
+"
+RDEPEND="
+	${DEPEND}
+	media-video/ffmpeg
+"
 
 PATCHES=(
 	"${FILESDIR}/${P}-version-parse-fix.patch"
 	"${FILESDIR}/${P}-build-remove-git-dep.patch"
+	"${FILESDIR}/${P}-rust-1.80.patch"
 )
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
@@ -502,15 +507,15 @@ QA_FLAGS_IGNORED="usr/bin/${PN}"
 src_unpack() {
 	cargo_src_unpack
 	# rename the repo to match what the build expects
-	mv ffprobe-rs-8c863431ebf0df913e325ec490589023b193402f ffprobe-8c863431ebf0df913e325ec490589023b193402f
+	mv ffprobe-rs-8c863431ebf0df913e325ec490589023b193402f ffprobe-8c863431ebf0df913e325ec490589023b193402f || die
 }
 
 src_install() {
-	cd ui
+	cd ui || die
 	cargo_src_install
 
-	cd ..
-	cp resources/icons/app-icon.svg walksnail-osd-tool.svg
+	cd .. || die
+	cp resources/icons/app-icon.svg walksnail-osd-tool.svg || die
 	doicon -s scalable walksnail-osd-tool.svg
 	make_desktop_entry walksnail-osd-tool 'Walksnail OSD Tool' walksnail-osd-tool
 }
