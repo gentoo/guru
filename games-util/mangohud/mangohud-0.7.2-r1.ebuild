@@ -91,6 +91,8 @@ RDEPEND="
 "
 
 src_unpack() {
+    # Since the package dosent compile with lto (for LLVM at least) just filter it
+    filter-lto
 
 	default
 
