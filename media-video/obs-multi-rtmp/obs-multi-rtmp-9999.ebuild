@@ -18,8 +18,12 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="+obs-frontend-api +qt"
-RDEPEND="
+DEPEND="
+	qt? ( dev-qt/qtbase:6 )
 	media-video/obs-studio
+"
+RDEPEND="
+	${DEPEND}
 "
 
 src_unpack() {
