@@ -28,6 +28,6 @@ src_install() {
 
 	if use doc; then
 		docinto html
-		dodoc -r changelog.htm fpdf.css FAQ.htm html/ tutorial/
+		dodoc -r changelog.htm fpdf.css FAQ.htm doc/ tutorial/
 	fi
 }
