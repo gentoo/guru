@@ -79,9 +79,10 @@ DEPEND="
 
 RDEPEND="
 	${DEPEND}
-	mangoplot? ( $(python_gen_cond_dep '
+	mangoplot? (
+		media-fonts/lato
+		$(python_gen_cond_dep '
 		|| (
-			media-fonts/lato
 			dev-python/matplotlib[gtk3,${PYTHON_USEDEP}]
 			dev-python/matplotlib[qt5(-),${PYTHON_USEDEP}]
 			dev-python/matplotlib[qt6(-),${PYTHON_USEDEP}]
@@ -91,8 +92,8 @@ RDEPEND="
 "
 
 src_unpack() {
-    # Since the package dosent compile with lto (for LLVM at least) just filter it
-    filter-lto
+	# Since the package dosent compile with lto (for LLVM at least) just filter it
+	filter-lto
 
 	default
 
