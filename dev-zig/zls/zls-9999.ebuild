@@ -36,8 +36,8 @@ SLOT="0"
 # Sync with "minimum_runtime_zig_version" from upstream's "build.zig".
 RDEPEND="
 	|| (
-		>=dev-lang/zig-0.12.0
-		>=dev-lang/zig-bin-0.12.0
+		>=dev-lang/zig-9999
+		>=dev-lang/zig-bin-9999
 	)
 "
 
@@ -46,7 +46,7 @@ DOCS=( "README.md" )
 src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
-		zig_live_fetch -Denable_tracy=false
+		zig_live_fetch -Denable-tracy=false
 	else
 		zig_src_unpack
 	fi
@@ -55,7 +55,7 @@ src_unpack() {
 src_configure() {
 	local my_zbs_args=(
 		-Dpie=true
-		-Denable_tracy=false
+		-Denable-tracy=false
 	)
 
 	zig_src_configure
