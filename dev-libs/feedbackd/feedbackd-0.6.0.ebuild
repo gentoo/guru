@@ -1,12 +1,12 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 VALA_USE_DEPEND="vapigen"
 
-inherit meson udev vala verify-sig
+inherit meson systemd udev vala verify-sig
 
-DESCRIPTION="A daemon to provide haptic feedback on events"
+DESCRIPTION="DBus activated daemon that provides haptic/visual/audio feedback based on events"
 HOMEPAGE="https://source.puri.sm/Librem5/feedbackd"
 SRC_URI="https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz
 	verify-sig? ( https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz.asc )"
@@ -59,6 +59,7 @@ src_configure() {
 		$(meson_use man)
 		$(meson_use test tests)
 		$(meson_use vala vapi)
+		-Dsystemd_user_unit_dir="$(systemd_get_userunitdir)"
 	)
 	meson_src_configure
 }
