@@ -1,0 +1,13 @@
+https://bugs.gentoo.org/947003
+Requires network access.
+--- a/data/metainfo/meson.build
++++ b/data/metainfo/meson.build
+@@ -15,7 +15,7 @@ if not get_option('network_tests')
+ endif
+ appstream_args += ['validate-relax', appstream_file]
+ 
+-if appstream_util.found()
++if false
+   test('Validate appstream file', appstream_util,
+        args: appstream_args)
+ endif

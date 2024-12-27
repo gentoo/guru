@@ -25,6 +25,11 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	# requires network access
+	"${FILESDIR}/${P}-skip-appstream-validation.patch"
+)
+
 pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_schemas_update
