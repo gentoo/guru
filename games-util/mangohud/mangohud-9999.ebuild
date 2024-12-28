@@ -55,14 +55,12 @@ BDEPEND="
 
 DEPEND="
 	${PYTHON_DEPS}
-	=media-libs/imgui-1.89.9*[opengl,vulkan,${MULTILIB_USEDEP}]
-	=media-libs/implot-0.16*[${MULTILIB_USEDEP}]
-	=dev-libs/spdlog-1.13.0*[${MULTILIB_USEDEP}]
-	dev-libs/libfmt[${MULTILIB_USEDEP}]
+	=media-libs/imgui-1.89.9*:=[opengl,vulkan,${MULTILIB_USEDEP}]
+	=media-libs/implot-0.16*:=[${MULTILIB_USEDEP}]
+	dev-libs/spdlog:=[${MULTILIB_USEDEP}]
+	dev-libs/libfmt:=[${MULTILIB_USEDEP}]
 	dev-cpp/nlohmann_json
-	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
-	media-libs/libglvnd[${MULTILIB_USEDEP}]
-	x11-libs/libdrm[${MULTILIB_USEDEP}]
+	x11-libs/libxkbcommon
 	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	X? ( x11-libs/libX11[${MULTILIB_USEDEP}] )
 	video_cards_nvidia? (
@@ -72,23 +70,26 @@ DEPEND="
 	wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
 	mangoapp? (
 		=media-libs/imgui-1.89.9*[glfw]
-		media-libs/glfw[X(+)]
+		media-libs/glfw[X(+)?,wayland(+)?]
 		media-libs/glew
 	)
 "
 
 RDEPEND="
 	${DEPEND}
+	media-libs/libglvnd[${MULTILIB_USEDEP}]
+	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
 	mangoplot? (
 		media-fonts/lato
 		$(python_gen_cond_dep '
-		|| (
-			dev-python/matplotlib[gtk3,${PYTHON_USEDEP}]
-			dev-python/matplotlib[qt5(-),${PYTHON_USEDEP}]
-			dev-python/matplotlib[qt6(-),${PYTHON_USEDEP}]
-			dev-python/matplotlib[wxwidgets,${PYTHON_USEDEP}]
-		)
-	') )
+			|| (
+				dev-python/matplotlib[gtk3,${PYTHON_USEDEP}]
+				dev-python/matplotlib[qt5(-),${PYTHON_USEDEP}]
+				dev-python/matplotlib[qt6(-),${PYTHON_USEDEP}]
+				dev-python/matplotlib[wxwidgets,${PYTHON_USEDEP}]
+			)
+		')
+	)
 "
 
 src_unpack() {
