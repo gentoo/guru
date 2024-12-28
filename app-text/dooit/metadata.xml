@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="pypi">dooit</remote-id>
-		<remote-id type="github">kraanzu/dooit</remote-id>
+		<remote-id type="github">dooit-org/dooit</remote-id>
 	</upstream>
 </pkgmetadata>

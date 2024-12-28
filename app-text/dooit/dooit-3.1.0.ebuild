@@ -9,8 +9,8 @@ PYTHON_COMPAT=( python3_{10..13} )
 inherit distutils-r1
 
 DESCRIPTION="A TUI todo manager"
-HOMEPAGE="https://github.com/kraanzu/dooit https://pipy.org/project/dooit"
-SRC_URI="https://github.com/kraanzu/dooit/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+HOMEPAGE="https://github.com/dooit-org/dooit https://pipy.org/project/dooit"
+SRC_URI="https://github.com/dooit-org/dooit/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 
 BDEPEND="
 	test? (
-		=dev-python/pytest-asyncio-0.24*[${PYTHON_USEDEP}]
+		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		=dev-python/textual-dev-1*[${PYTHON_USEDEP}]
 		>=dev-python/faker-30.8.2[${PYTHON_USEDEP}]
 	)
