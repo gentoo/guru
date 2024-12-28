@@ -1,0 +1,12 @@
+https://bugs.gentoo.org/937500
+https://github.com/machinezone/IXWebSocket/pull/538
+Fix build with GCC 15.
+--- a/third_party/msgpack11/msgpack11.hpp
++++ b/third_party/msgpack11/msgpack11.hpp
+@@ -1,5 +1,6 @@
+ #pragma once
+ 
++#include <cstdint>
+ #include <string>
+ #include <vector>
+ #include <map>
