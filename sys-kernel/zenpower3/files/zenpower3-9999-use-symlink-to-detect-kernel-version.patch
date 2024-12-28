@@ -1,0 +1,9 @@
+--- a/Makefile	2024-12-27 20:38:15.878880229 -0600
++++ b/Makefile	2024-12-27 20:38:36.776225483 -0600
+@@ -1,5 +1,5 @@
+ VERSION         := 0.1.12
+-TARGET          := $(shell uname -r)
++TARGET          ?= $(shell uname -r)
+ DKMS_ROOT_PATH  := /usr/src/zenpower-$(VERSION)
+ 
+ KERNEL_MODULES	:= /lib/modules/$(TARGET)

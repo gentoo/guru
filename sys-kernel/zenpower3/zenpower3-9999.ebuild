@@ -7,8 +7,15 @@ inherit linux-mod-r1
 
 DESCRIPTION="Linux kernel driver for reading sensors of AMD Zen family CPUs"
 HOMEPAGE="https://git.exozy.me/a/zenpower3"
-SRC_URI="https://git.exozy.me/a/zenpower3/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}"
+if [[ ${PV} -eq 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/ocerman/zenpower"
+	S="${WORKDIR}/${PN}-9999"
+else
+	SRC_URI="https://git.exozy.me/a/zenpower3/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}"
+fi
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -27,6 +34,5 @@ src_compile() {
 
 src_install() {
 	linux-mod-r1_src_install
-	dobin zp_read_debug.sh
 	dodoc README.md
 }
