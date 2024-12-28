@@ -7,8 +7,8 @@ inherit linux-mod-r1
 
 DESCRIPTION="Linux kernel driver for reading sensors of AMD Zen family CPUs"
 HOMEPAGE="https://git.exozy.me/a/zenpower3"
-SRC_URI="https://git.exozy.me/a/zenpower3/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}"
+SRC_URI="https://github.com/koweda/zenpower3/archive/refs/tags/v0.2.0.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${P}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
