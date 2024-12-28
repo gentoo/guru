@@ -92,9 +92,6 @@ RDEPEND="
 "
 
 src_unpack() {
-	# Since the package dosent compile with lto (for LLVM at least) just filter it
-	filter-lto
-
 	default
 
 	[[ -n "${MY_PV_REV}" ]] && ( mv "${WORKDIR}/MangoHud-${MY_PV}${MY_PV_REV}" "${WORKDIR}/MangoHud-${PV}" || die )
