@@ -52,10 +52,6 @@ PATCHES=( "${FILESDIR}/${P}-fix-no-lazypath.patch" )
 
 DOCS=( "README.md" )
 
-src_unpack() {
-	zig_src_unpack
-}
-
 src_configure() {
 	local my_zbs_args=(
 		-Dstrip=false # Let Portage control this
