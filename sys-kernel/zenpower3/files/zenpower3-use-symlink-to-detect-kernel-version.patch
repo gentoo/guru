@@ -1,0 +1,37 @@
+From 580c957c1159e38b3b909504652782acc0317deb Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Gon=C3=A7alo=20Negrier=20Duarte?=
+ <gonegrier.duarte@gmail.com>
+Date: Sun, 29 Dec 2024 10:56:13 +0000
+Subject: [PATCH] zenpower3: use KV_FULL to detect kernel version. * fix CFLAGS
+ for clang
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Gonçalo Negrier Duarte <gonegrier.duarte@gmail.com>
+---
+ Makefile | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 72c831c..03cbdc3 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,8 +1,12 @@
+ VERSION         := 0.2.0
+-TARGET          := $(shell uname -r)
++TARGET          := ${KV_FULL}
+ DKMS_ROOT_PATH  := /usr/src/zenstats-$(VERSION)
+ 
+-KBUILD_CFLAGS   += -Wimplicit-fallthrough=3
++ifeq ($(CC),clang)
++    CXXFLAGS += -Wimplicit-fallthrough
++else ifeq ($(CC),gcc)
++    CXXFLAGS += -Wimplicit-fallthrough=3
++endif
+ 
+ KERNEL_MODULES	:= /lib/modules/$(TARGET) 
+
+-- 
+2.47.1
+
