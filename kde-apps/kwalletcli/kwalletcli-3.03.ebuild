@@ -16,12 +16,16 @@ LICENSE="MirOS"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="
+DEPEND="
 	dev-qt/qtcore:5
-	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
 	kde-frameworks/kcoreaddons:5
 	kde-frameworks/ki18n:5
 	kde-frameworks/kwallet:5
+"
+
+RDEPEND="
+	${DEPEND}
 "
 
 PDEPEND="
