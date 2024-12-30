@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	dev-libs/hyprlang
 	dev-libs/wayland
-	gui-libs/hyprutils
+	gui-libs/hyprutils:=
 	media-libs/libglvnd
 	media-libs/libjpeg-turbo:=
 	media-libs/libwebp:=
