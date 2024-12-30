@@ -21,7 +21,7 @@ SLOT="0"
 
 RDEPEND="
 	>=dev-libs/hyprlang-0.4.0
-	>=gui-libs/hyprutils-0.2.0
+	>=gui-libs/hyprutils-0.2.0:=
 	dev-libs/date
 	dev-libs/glib:2
 	dev-libs/wayland
