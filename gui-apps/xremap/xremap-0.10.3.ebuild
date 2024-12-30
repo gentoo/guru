@@ -16,7 +16,7 @@ CRATES="
 	anstyle-query@1.0.0
 	anstyle-wincon@1.0.1
 	anstyle@1.0.1
-	anyhow@1.0.89
+	anyhow@1.0.93
 	async-io@1.13.0
 	async-lock@2.7.0
 	async-trait@0.1.83
@@ -126,14 +126,14 @@ CRATES="
 	polling@2.8.0
 	proc-macro-crate@0.1.5
 	proc-macro-crate@1.3.1
-	proc-macro2@1.0.78
+	proc-macro2@1.0.89
 	quick-xml@0.28.2
 	quote@1.0.35
 	radium@0.7.0
 	redox_syscall@0.4.1
 	regex-automata@0.4.8
 	regex-syntax@0.8.5
-	regex@1.11.0
+	regex@1.11.1
 	rustc-demangle@0.1.24
 	rustc_version@0.4.1
 	rustix@0.37.23
@@ -143,9 +143,9 @@ CRATES="
 	scoped-tls@1.0.1
 	scopeguard@1.2.0
 	semver@1.0.23
-	serde@1.0.210
-	serde_derive@1.0.210
-	serde_json@1.0.128
+	serde@1.0.215
+	serde_derive@1.0.215
+	serde_json@1.0.133
 	serde_repr@0.1.16
 	serde_spanned@0.6.6
 	serde_with@3.8.1
@@ -160,7 +160,7 @@ CRATES="
 	strum@0.26.3
 	strum_macros@0.26.4
 	syn@1.0.109
-	syn@2.0.48
+	syn@2.0.86
 	tap@1.0.1
 	termcolor@1.2.0
 	thiserror-impl@1.0.44
