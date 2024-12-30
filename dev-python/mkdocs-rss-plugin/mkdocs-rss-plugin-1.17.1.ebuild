@@ -33,9 +33,9 @@ KEYWORDS="~amd64"
 # RESTRICT="doc? ( network-sandbox )"
 
 BDEPEND="
-	>=dev-python/gitpython-3.1[${PYTHON_USEDEP}]
+	>=dev-python/gitpython-3.1.43[${PYTHON_USEDEP}]
 	<dev-python/gitpython-3.2[${PYTHON_USEDEP}]
-	>=dev-python/mkdocs-1.5[${PYTHON_USEDEP}]
+	>=dev-python/mkdocs-1.6.1[${PYTHON_USEDEP}]
 	<dev-python/mkdocs-2[${PYTHON_USEDEP}]
 	>=dev-python/cachecontrol-0.14[${PYTHON_USEDEP}]
 	<dev-python/cachecontrol-1[${PYTHON_USEDEP}]
@@ -47,7 +47,7 @@ BDEPEND="
 		<dev-python/feedparser-6.1[${PYTHON_USEDEP}]
 		>=dev-python/jsonfeed-1.1.2[${PYTHON_USEDEP}]
 		<dev-python/jsonfeed-2[${PYTHON_USEDEP}]
-		>=dev-python/mkdocs-material-9[${PYTHON_USEDEP},social]
+		>=dev-python/mkdocs-material-9.5.47[${PYTHON_USEDEP},social]
 		>=dev-python/validator-collection-1.5[${PYTHON_USEDEP}]
 		<dev-python/validator-collection-1.6[${PYTHON_USEDEP}]
 	)
