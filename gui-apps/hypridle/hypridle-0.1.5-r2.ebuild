@@ -23,7 +23,7 @@ RDEPEND="
 	dev-cpp/sdbus-c++:0/2
 	>=dev-libs/hyprlang-0.4.0
 	dev-libs/wayland
-	gui-libs/hyprutils
+	gui-libs/hyprutils:=
 "
 DEPEND="
 	${RDEPEND}
