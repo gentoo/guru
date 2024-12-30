@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 DEPEND="
 	dev-qt/qtbase:6[gui,widgets]
 	dev-qt/qtdeclarative:6
-	gui-libs/hyprutils
+	gui-libs/hyprutils:=
 	sys-auth/polkit
 	sys-auth/polkit-qt[qt6]
 "
