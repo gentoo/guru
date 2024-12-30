@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	gui-wm/hyprland:=
 	dev-libs/wayland
-	>=gui-libs/hyprutils-0.2.3
+	>=gui-libs/hyprutils-0.2.3:=
 "
 
 DEPEND="

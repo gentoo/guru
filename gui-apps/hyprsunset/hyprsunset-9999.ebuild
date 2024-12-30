@@ -15,7 +15,7 @@ KEYWORDS=""
 RDEPEND="
 	~gui-wm/hyprland-9999
 	dev-libs/wayland
-	>=gui-libs/hyprutils-0.2.3
+	>=gui-libs/hyprutils-0.2.3:=
 "
 
 DEPEND="
