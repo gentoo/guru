@@ -94,6 +94,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	linux-mod-r1_pkg_postinst
+
 	ewarn "Default config files are present in /usr/share/legion_linux"
 	ewarn "Copy folder /usr/share/legion_linux to /etc/legion_linux"
 	ewarn "Note: Fancurve can be edit using the gui app"
