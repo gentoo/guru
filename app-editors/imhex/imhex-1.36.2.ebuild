@@ -3,9 +3,9 @@
 
 EAPI=8
 
-LLVM_COMPAT=( {15..18} )
+LLVM_COMPAT=( {15..19} )
 
-inherit cmake llvm-r1 toolchain-funcs
+inherit cmake llvm-r1 toolchain-funcs flag-o-matic xdg-utils
 
 DESCRIPTION="A hex editor for reverse engineers, programmers, and eyesight"
 HOMEPAGE="https://github.com/WerWolv/ImHex"
@@ -19,7 +19,7 @@ S_PATTERNS="${WORKDIR}/ImHex-Patterns-ImHex-v${PV}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+system-llvm test lto desktop-portal"
+IUSE="+system-llvm test lto +desktop-portal"
 RESTRICT="!test? ( test )"
 
 PATCHES=(
@@ -38,8 +38,9 @@ DEPEND="
 	app-forensics/yara:=
 	>=dev-cpp/nlohmann_json-3.10.2
 	dev-libs/capstone:=
-	>=dev-libs/nativefiledialog-extended-1.2.0:=
+	>=dev-libs/nativefiledialog-extended-1.2.1[desktop-portal?]
 	>=dev-libs/libfmt-8.0.0:=
+	media-libs/fontconfig
 	media-libs/freetype
 	>=media-libs/glfw-3.4[X]
 	media-libs/glm
@@ -56,22 +57,26 @@ BDEPEND="
 	system-llvm? ( llvm-core/llvm )
 	app-admin/chrpath
 	gnome-base/librsvg
-	desktop-portal? ( sys-apps/xdg-desktop-portal )
 "
 
 pkg_pretend() {
-	if tc-is-gcc && [[ $(gcc-major-version) -lt 12 ]]; then
-		die "${PN} requires GCC 12 or newer"
+	if tc-is-gcc && [[ $(gcc-major-version) -lt 14 ]]; then
+		die "${PN} requires GCC 14 or newer"
 	fi
 }
 
 src_unpack() {
 	default
 
-	mv "${WORKDIR}/ImHex-Patterns-ImHex-v${PV}" "${S}/ImHex-Patterns"
+	mv "${S_PATTERNS}" "${S}/ImHex-Patterns"
 }
 
 src_configure() {
+	# Building ImHex with -Werror=strict-aliasing gives a failed build
+	# for tests/algorithms/source/endian.cpp, and ImHex usually has pretty
+	# clean build (without warnings), so it should be safe to do
+	filter-flags -Werror=strict-aliasing
+
 	if use test; then
 		sed -ie "s/tests EXCLUDE_FROM_ALL/tests ALL/" "${S}/CMakeLists.txt"
 	fi
@@ -83,14 +88,18 @@ src_configure() {
 		-D IMHEX_IGNORE_BAD_CLONE=ON \
 		-D IMHEX_PATTERNS_PULL_MASTER=OFF \
 		-D IMHEX_IGNORE_BAD_COMPILER=OFF \
-		-D IMHEX_DISABLE_STACKTRACE=ON \
+		-D IMHEX_USE_GTK_FILE_PICKER=$(usex !desktop-portal) \
+		-D IMHEX_DISABLE_STACKTRACE=OFF \
 		-D IMHEX_BUNDLE_DOTNET=OFF \
 		-D IMHEX_ENABLE_LTO=$(usex lto) \
 		-D IMHEX_USE_DEFAULT_BUILD_SETTINGS=OFF \
 		-D IMHEX_STRICT_WARNINGS=OFF \
+		-D IMHEX_STATIC_LINK_PLUGINS=OFF \
+		-D IMHEX_ENABLE_UNITY_BUILD=OFF \
+		-D IMHEX_ENABLE_STD_ASSERTS=OFF \
 		-D IMHEX_ENABLE_UNIT_TESTS=$(usex test) \
 		-D IMHEX_ENABLE_PRECOMPILED_HEADERS=OFF \
-		-D IMHEX_USE_GTK_FILE_PICKER=$(usex desktop-portal) \
+		-D IMHEX_COMPRESS_DEBUG_INFO=OFF \
 		-D IMHEX_VERSION="${PV}" \
 		-D PROJECT_VERSION="${PV}" \
 		-D USE_SYSTEM_CAPSTONE=ON \
@@ -102,4 +111,13 @@ src_configure() {
 	)
 
 	cmake_src_configure
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
+}
+pkg_postrm() {
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
 }
