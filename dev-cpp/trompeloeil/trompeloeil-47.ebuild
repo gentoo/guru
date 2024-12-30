@@ -17,6 +17,12 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="test? ( >=dev-cpp/catch-2:0 )"
 
+src_prepare() {
+	# bug #947154
+	sed -i '/-Werror/d' test/CMakeLists.txt || die
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DTROMPELOEIL_BUILD_TESTS=$(usex test)
