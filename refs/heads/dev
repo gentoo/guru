@@ -1,19 +1,13 @@
 certificate version 0.1
-pusher Julien Roy <julien@jroy.ca> 1735674672 -0500
-pushee git.gentoo.org:repo/proj/guru.git
-nonce 1735674672-62ceb5b798ed72aa696439b315f573e24e1e2ce5
+pusher listout@protonmail.com 1735682086 +0530
+pushee git+ssh://git.gentoo.org/repo/proj/guru.git
+nonce 1735682086-59fb9821c2ccd5bcd82daa4065e552b653b2b542
 
-900b6304736eba6a7dd7beec9dcf282da69b2e21 96715f15832ec1065220166a937389318e9e2bc8 refs/heads/dev
+96715f15832ec1065220166a937389318e9e2bc8 d2c0bf8cc1e2bc6a66753caa48b0d9fc99ee41e7 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQGjBAABCgCNFiEEUri1ZrRDZASH+Q0NvvIpdEiEiEIFAmd0SzBfFIAAAAAALgAo
-aXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5maWZ0aGhvcnNlbWFuLm5ldDUy
-QjhCNTY2QjQ0MzY0MDQ4N0Y5MEQwREJFRjIyOTc0NDg4NDg4NDIPHGp1bGllbkBq
-cm95LmNhAAoJEL7yKXRIhIhC7JIH/2ovaE4r4iwI5iRtHrtT4m5SSMzi8kLwtruj
-jZ5vc66BnmZtUfPY3D63BTrTszPgC08Eop1t1OmfhHvGC6BsxrqOriY5jg/66QGv
-yk2DKvBzWon3G3eEEGPSfSaeZMoRiL7bIsMn1PkHChqt6PoNQCLeeE1XPo004IAc
-jr1ckoqQacumcwXoS62M+7C1vEElatsVrLv2mh4p/nrNE+yo1dibBrt1VhYvOv1u
-rTv27Nk/ECvM+8Vz7Byn75p2XrfIdrOKv4zw7btGkyDs0/eP7Mf2blP67eElPy/m
-s3GXwJgzpMGExWxhrEpkhEg1XcAobZH+PcXDTjlk+LviZcSYVww=
-=I2Qa
+iI0EABYKADUWIQTtN06vpdXsLqkcmcaYNrR2E5J3+AUCZ3RoJhccbGlzdG91dEBw
+cm90b25tYWlsLmNvbQAKCRCYNrR2E5J3+JgDAPwIpgshxGOMOQDWEz2v+zZmO7iv
+2wC8Zm7ZL6Tqi+BPhQEAj+TTjmMu3HgwogfjPDScib/MyH11GiQ3vWzIM901XAU=
+=gyLV
 -----END PGP SIGNATURE-----
