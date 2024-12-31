@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>jiruifan@protonmail.com</email>
+        <name>Revan Ji</name>
+    </maintainer>
+    <longdescription lang="en">LunarG's Vulkan Tools that contains monitor and screenshot layers, unrelated to Khronos' Vulkan-Tools.</longdescription>
+    <upstream><remote-id type="github">LunarG/VulkanTools</remote-id></upstream>
+</pkgmetadata>

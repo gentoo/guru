@@ -1,0 +1,38 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6bb7d207d..246988c67 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -26,8 +26,6 @@ find_package(VulkanLoader CONFIG)
+ 
+ find_package(VulkanUtilityLibraries REQUIRED CONFIG)
+ 
+-find_package(valijson REQUIRED CONFIG)
+-
+ option(BUILD_TESTS "Build tests")
+ option(RUN_ON_GITHUB "Build only tests that can run on Github" OFF)
+ option(BUILD_EXPERIMENTAL "Build tests for debugging layers" OFF)
+diff --git a/via/CMakeLists.txt b/via/CMakeLists.txt
+index 975fdb3b0..01ff74fe1 100644
+--- a/via/CMakeLists.txt
++++ b/via/CMakeLists.txt
+@@ -88,7 +88,6 @@ endif()
+ 
+ target_link_libraries(vkvia PRIVATE
+     Vulkan::Headers
+-    valijson
+     ${CMAKE_DL_LIBS}
+     $<TARGET_NAME_IF_EXISTS:Vulkan::Loader>
+ )
+diff --git a/vkconfig_core/CMakeLists.txt b/vkconfig_core/CMakeLists.txt
+index 165ad94c8..6a1ac3875 100644
+--- a/vkconfig_core/CMakeLists.txt
++++ b/vkconfig_core/CMakeLists.txt
+@@ -58,7 +58,7 @@ if(Qt5_FOUND)
+         target_link_libraries(vkconfig_core Cfgmgr32)
+     endif()
+ 
+-    target_link_libraries(vkconfig_core Vulkan::Headers valijson Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Network)
++    target_link_libraries(vkconfig_core Vulkan::Headers Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Network)
+ 
+     if(BUILD_TESTS)
+         add_subdirectory(test)
