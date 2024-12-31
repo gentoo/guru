@@ -39,7 +39,7 @@ RDEPEND="
 	>=dev-games/openscenegraph-3.6.5-r114
 	dev-lang/python:3.12
 	>=dev-libs/expat-2.5.0
-	dev-libs/icu:0/74.1
+	>=dev-libs/icu-74.1
 	>=dev-libs/libxml2-2.12.7
 	>=dev-python/kiwisolver-1.3.2
 	>=dev-python/matplotlib-3.3
