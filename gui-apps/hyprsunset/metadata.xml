@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person" proxied="yes">
-		<email>saigon-tech@tuta.io</email>
+	<maintainer type="person">
 		<name>Michal Vu</name>
+		<email>saigon-tech@tuta.io</email>
+	</maintainer>
+	<maintainer type="person">
+		<name>John M. Harris, Jr.</name>
+		<email>johnmh@johnmh.me</email>
 	</maintainer>
 	<upstream>
 		<changelog>https://github.com/hyprwm/hyprsunset/releases</changelog>

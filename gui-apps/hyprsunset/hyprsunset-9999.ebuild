@@ -5,15 +5,14 @@ EAPI=8
 inherit cmake git-r3
 
 DESCRIPTION="An application to enable a blue-light filter on Hyprland"
-HOMEPAGE="https://github.com/hyprwm/hyprsunset.git"
+HOMEPAGE="https://github.com/hyprwm/hyprsunset"
 EGIT_REPO_URI="https://github.com/hyprwm/hyprsunset.git"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS=""
 
 RDEPEND="
-	~gui-wm/hyprland-9999
+	gui-wm/hyprland:=
 	dev-libs/wayland
 	>=gui-libs/hyprutils-0.2.3:=
 "
