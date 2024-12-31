@@ -5,6 +5,10 @@
 		<name>Julien Roy</name>
 		<email>julien@jroy.ca</email>
 	</maintainer>
+	<maintainer type="person">
+		<name>John M. Harris, Jr.</name>
+		<email>johnmh@johnmh.me</email>
+	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/hyprwm/hyprpaper/issues</bugs-to>
 		<changelog>https://github.com/hyprwm/hyprpaper/releases</changelog>
