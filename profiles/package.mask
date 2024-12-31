@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Julien Roy <julien@jroy.ca>
+# Depends on dev-python/zenlib-3.1.2 which isn't yet in tree
+# https://github.com/gentoo/gentoo/pull/39922
+# Shall be unmasked when the PR is merged
+dev-util/genTree
+
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2024-12-19)
 # GStreamer plugin with no revdeps left, since Nheko was ported to Qt6.
 # Removal on 2025-01-25.
