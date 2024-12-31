@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<longdescription>
+		Clapper is a modern media player designed for simplicity and ease of use. Powered by GStreamer and built for the GNOME desktop environment using GTK4 toolkit, it has a clean and stylish interface that lets you focus on enjoying your favorite videos.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/Rafostar/clapper/issues</bugs-to>
+		<changelog>https://github.com/Rafostar/clapper/releases</changelog>
+		<remote-id type="github">Rafostar/clapper</remote-id>
+	</upstream>
+	<use>
+		<flag name="discoverer">Build Clapper Discoverer feature</flag>
+		<flag name="mpris">Build Clapper MPRIS feature</flag>
+		<flag name="rawimporter">Build RAW system memory importer for clappersink</flag>
+		<flag name="server">Build Clapper Server feature</flag>
+	</use>
+</pkgmetadata>
