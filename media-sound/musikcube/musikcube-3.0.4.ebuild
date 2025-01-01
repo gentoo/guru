@@ -19,13 +19,14 @@ REQUIRED_USE="
 "
 
 DEPEND="
-	net-libs/libmicrohttpd
-	sys-libs/ncurses
+	net-libs/libmicrohttpd:=
+	sys-libs/ncurses:=
 	media-libs/libogg
-	media-video/ffmpeg
-	sys-libs/zlib
+	media-video/ffmpeg:=
+	sys-libs/zlib:=
 	media-libs/libvorbis
 	net-misc/curl
+	dev-libs/openssl:=
 	media-sound/lame
 	dev-libs/libev
 	media-libs/taglib
@@ -42,7 +43,7 @@ DEPEND="
 		)
 	)
 	pipewire? (
-		media-video/pipewire
+		media-video/pipewire:=
 	)
 	portaudio? (
 		media-libs/portaudio
@@ -51,7 +52,7 @@ DEPEND="
 		media-libs/libpulse
 	)
 	sndio? (
-		media-sound/sndio
+		media-sound/sndio:=
 	)
 	alsa? (
 		media-libs/alsa-lib

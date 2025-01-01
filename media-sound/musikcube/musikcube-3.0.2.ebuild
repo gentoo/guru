@@ -22,14 +22,14 @@ DEPEND="
 	net-libs/libmicrohttpd:=
 	sys-libs/ncurses:=
 	media-libs/libogg
-	media-video/ffmpeg:=
+	<media-video/ffmpeg-7.0:=
 	sys-libs/zlib:=
 	media-libs/libvorbis
 	net-misc/curl
 	dev-libs/openssl:=
 	media-sound/lame
 	dev-libs/libev
-	media-libs/taglib
+	<media-libs/taglib-2.0
 	dev-cpp/asio
 	libopenmpt? (
 		media-libs/libopenmpt
