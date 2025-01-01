@@ -54,6 +54,6 @@ src_configure() {
 
 pkg_postinst() {
 	if ! use pam; then
-		  fcaps cap_sys_admin usr/bin/swaylock
+		fcaps cap_sys_admin usr/bin/swaylock
 	fi
 }
