@@ -244,8 +244,8 @@ CRATES="
 	thiserror-impl@1.0.57
 	thiserror@1.0.57
 	time-core@0.1.2
-	time-macros@0.2.17
-	time@0.3.34
+	time-macros@0.2.18
+	time@0.3.36
 	tinyvec@1.6.0
 	tinyvec_macros@0.1.1
 	tokio-stream@0.1.14
@@ -367,6 +367,8 @@ QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 PATCHES=(
 	"${FILESDIR}"/disable-clippy-test-2.1.0.patch
+	# bug #944770
+	"${FILESDIR}"/${P}-rust-1.80.patch
 )
 
 src_configure() {
