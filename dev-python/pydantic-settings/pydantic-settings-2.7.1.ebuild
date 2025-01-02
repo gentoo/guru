@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -36,23 +36,6 @@ BDEPEND="
 EPYTEST_IGNORE=(
 	# Dependencies not packaged: pytest-examples
 	tests/test_docs.py
-	# Dependencies not packaged: azure-keyvault-secrets, azure-identity
-	tests/test_source_azure_key_vault.py
-)
-
-EPYTEST_DESELECT=(
-	# Failed: DID NOT RAISE <class 'UserWarning'>
-	tests/test_settings.py::test_protected_namespace_defaults
 )
 
 distutils_enable_tests pytest
-
-python_test() {
-	# Parsing --help output is width dependent
-	local -x COLUMNS=80
-
-	# Ebuild's "A" variable conflicts with test expectations
-	local -x A=
-
-	epytest
-}
