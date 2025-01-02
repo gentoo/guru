@@ -30,7 +30,7 @@ BDEPEND="
 	>=dev-lang/lazarus-3.0[qt6]
 "
 
-PATCHES=( "${FILESDIR}"/${P}-build.patch )
+PATCHES=( "${FILESDIR}"/00-lazbuild-command.patch )
 
 # Built with fpc, does not respect anything
 QA_FLAGS_IGNORED=".*"
