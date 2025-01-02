@@ -1,9 +1,9 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit edo toolchain-funcs
+inherit eapi9-pipestatus edo toolchain-funcs
 
 COMMIT="660795b2834aebb2217c9849d668b6e4bd4ef810"
 
@@ -41,9 +41,9 @@ src_prepare() {
 	fi
 
 	awk '/Introduction/,/\*\//' dr_wav.h | sed '$d' > README
-	assert
+	pipestatus || die
 	awk '/REVISION HISTORY/,/\*\//' dr_wav.h | sed '$d' > CHANGELOG
-	assert
+	pipestatus || die
 	default
 
 }
