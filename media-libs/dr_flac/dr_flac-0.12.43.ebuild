@@ -1,9 +1,9 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit edo toolchain-funcs
+inherit eapi9-pipestatus edo toolchain-funcs
 
 declare -A COMMITS=(
 	[dr_flac]="a1dd66cb680522a753bac7dff306b4a1cfd75e26"
@@ -49,9 +49,9 @@ src_prepare() {
 	fi
 
 	awk '/Introduction/,/\*\//' dr_flac.h | sed '$d' > README
-	assert
+	pipestatus || die
 	awk '/REVISION HISTORY/,/\*\//' dr_flac.h | sed '$d' > CHANGELOG
-	assert
+	pipestatus || die
 	default
 }
 
