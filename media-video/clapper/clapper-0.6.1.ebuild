@@ -12,7 +12,7 @@ SRC_URI="https://github.com/Rafostar/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.g
 LICENSE="|| ( GPL-3 LGPL-2.1 )"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="discoverer doc egl gles2 +gstreamer +gtk +introspection mpris rawimporter server vala wayland X"
+IUSE="discoverer doc egl gles2 +gstreamer +gtk app +introspection mpris rawimporter server vala wayland X"
 
 RDEPEND="
 	>=dev-libs/glib-2.76.0:2
