@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>sam@binarycake.ca</email>
+    <name>Sam Wilson</name>
+  </maintainer>
+  <use>
+    <flag name="openvr">Support Valve's SteamVR SDK.</flag>
+    <flag name="openxr">Support Khronos Group's OpenXR API.</flag>
+    <flag name="osc">Support VRChat's Open Sound Control protocol.</flag>
+    <flag name="pipewire">Enable pipewire support for desktop capture.</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">galister/wlx-overlay-s</remote-id>
+    <bugs-to>https://github.com/galister/wlx-overlay-s/issues</bugs-to>
+    <changelog>https://github.com/galister/wlx-overlay-s/releases</changelog>
+    <doc>https://github.com/galister/wlx-overlay-s/blob/main/README.md</doc>
+  </upstream>
+</pkgmetadata>

@@ -1,0 +1,21 @@
+diff --git a/src/overlays/screen.rs b/src/overlays/screen.rs
+index 8dc0336..6bef238 100644
+--- a/src/overlays/screen.rs
++++ b/src/overlays/screen.rs
+@@ -18,7 +18,6 @@ use wlx_capture::{
+         DrmFormat, FrameFormat, MouseMeta, WlxFrame, DRM_FORMAT_ABGR2101010, DRM_FORMAT_ABGR8888,
+         DRM_FORMAT_ARGB8888, DRM_FORMAT_XBGR2101010, DRM_FORMAT_XBGR8888, DRM_FORMAT_XRGB8888,
+     },
+-    pipewire::PipewireSelectScreenResult,
+     WlxCapture,
+ };
+ 
+@@ -27,7 +26,7 @@ use {
+     crate::config_io,
+     std::error::Error,
+     std::{ops::Deref, path::PathBuf, task},
+-    wlx_capture::pipewire::PipewireCapture,
++    wlx_capture::pipewire::{PipewireCapture, PipewireSelectScreenResult},
+ };
+ 
+ #[cfg(all(feature = "x11", feature = "pipewire"))]
