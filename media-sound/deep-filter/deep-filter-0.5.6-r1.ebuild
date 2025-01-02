@@ -546,7 +546,8 @@ SRC_URI+=" ${CARGO_CRATE_URIS}"
 S=${WORKDIR}/DeepFilterNet-${PV}
 
 PATCHES=(
-	"${FILESDIR}/${PN}-${PV}-use-updated-time.patch"
+	"${FILESDIR}/${PN}-library-path.patch"
+	"${FILESDIR}/${PN}-0.5.6-use-updated-time.patch"
 )
 
 LICENSE="|| ( Apache-2.0 MIT )"
@@ -559,24 +560,44 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
+IUSE="ladspa"
 DEPEND="
 	sci-libs/hdf5
 "
 
+BDEPEND="
+	ladspa? ( dev-util/patchelf )
+"
+
+QA_FLAGS_IGNORED="usr/bin/deep-filter"
+
 src_configure() {
-	pushd libDF >/dev/null || die
 	local myfeatures=(
 		bin
 		tract
 		transforms
 		wav-utils
 	)
-	cargo_src_configure --offline --no-default-features --bin deep-filter
-	popd >/dev/null || die
+	local projects=(-p deep_filter)
+	if use ladspa; then
+		projects+=(-p deep-filter-ladspa)
+	fi
+	cargo_src_configure "${projects[@]}" --offline --no-default-features --bin deep-filter --lib
+}
+
+src_compile() {
+	cargo_src_compile
+	if use ladspa; then
+		patchelf --set-soname libdeep_filter_ladspa.so "$(cargo_target_dir)"/libdeep_filter_ladspa.so
+	fi
 }
 
 src_install() {
-	pushd libDF >/dev/null || die
-	cargo_src_install
-	popd >/dev/null || die
+	dobin "$(cargo_target_dir)"/deep-filter
+	if use ladspa; then
+		dolib.so "$(cargo_target_dir)"/libdeep_filter_ladspa.so
+
+		insinto "/usr/share/${PN}"
+		doins -r ladspa/filter-chain-configs
+	fi
 }

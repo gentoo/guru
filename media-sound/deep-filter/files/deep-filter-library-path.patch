@@ -1,0 +1,26 @@
+diff --git a/ladspa/filter-chain-configs/deepfilter-mono-source.conf b/ladspa/filter-chain-configs/deepfilter-mono-source.conf
+index e0879b1..9725998 100644
+--- a/ladspa/filter-chain-configs/deepfilter-mono-source.conf
++++ b/ladspa/filter-chain-configs/deepfilter-mono-source.conf
+@@ -32,7 +32,7 @@ context.modules = [
+                     {
+                         type   = ladspa
+                         name   = "DeepFilter Mono"
+-                        plugin = /usr/lib/ladspa/libdeep_filter_ladspa.so
++                        plugin = /usr/lib64/libdeep_filter_ladspa.so
+                         label  = deep_filter_mono
+                         control = {
+                             "Attenuation Limit (dB)" 100
+diff --git a/ladspa/filter-chain-configs/deepfilter-stereo-sink.conf b/ladspa/filter-chain-configs/deepfilter-stereo-sink.conf
+index 5576561..3d170ca 100644
+--- a/ladspa/filter-chain-configs/deepfilter-stereo-sink.conf
++++ b/ladspa/filter-chain-configs/deepfilter-stereo-sink.conf
+@@ -35,7 +35,7 @@ context.modules = [
+                     {
+                         type   = ladspa
+                         name   = "DeepFilter Stereo"
+-                        plugin = /usr/lib/ladspa/libdeep_filter_ladspa.so
++                        plugin = /usr/lib64/libdeep_filter_ladspa.so
+                         label  = deep_filter_stereo
+                         control = {
+                             "Attenuation Limit (dB)" 100
