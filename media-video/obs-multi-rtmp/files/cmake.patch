@@ -1,42 +1,51 @@
-# Fix hard-coded install dirs with upstream template code from https://github.com/obsproject/obs-plugintemplate
-# so we get things installed in proper folders
+From 27dedd5c11194b4de4e6c205fdba8454d5be8823 Mon Sep 17 00:00:00 2001
+From: Adel KARA SLIMANE <adel.ks@zegrapher.com>
+Date: Mon, 30 Dec 2024 23:47:44 +0100
+Subject: [PATCH] Sync with upstream plugin template
+
+When installing on linux, currently the project has things
+hard-coded in cmake to install to
+
+- usr/dist/obs-multi-rtmp/data/locale for the translation files
+- usr/dist/obs-multi-rtmp/bin/64bit/obs-multi-rtmp.so for
+  the shared library
+
+Yet we want things to go to these two folders instead
+
+- usr/share/obs/obs-plugins/obs-multi-rtmp/locale/
+- usr/lib64/obs-plugins/obs-multi-rtmp.so
+
+Use upstream template code [1] that enables using these vars
+to decide where things get installed
+
+- CMAKE_INSTALL_BINDIR
+- CMAKE_INSTALL_LIBDIR
+- CMAKE_INSTALL_DATAROOTDIR
+
+[1] https://github.com/obsproject/obs-plugintemplate
+---
+ cmake/common/buildspec_common.cmake |  4 ++--
+ cmake/linux/helpers.cmake           | 30 ++++-------------------------
+ 2 files changed, 6 insertions(+), 28 deletions(-)
+
+diff --git a/cmake/common/buildspec_common.cmake b/cmake/common/buildspec_common.cmake
+index b991e9d..b2c2414 100644
 --- a/cmake/common/buildspec_common.cmake
 +++ b/cmake/common/buildspec_common.cmake
-@@ -87,7 +87,7 @@ function(_setup_obs_studio)
-
-   message(STATUS "Build ${label} (${arch})")
-   execute_process(
+@@ -90 +90 @@ function(_setup_obs_studio)
 -    COMMAND "${CMAKE_COMMAND}" --build build_${arch} --target obs-frontend-api --config RelWithDebInfo --parallel
 +    COMMAND "${CMAKE_COMMAND}" --build build_${arch} --target obs-frontend-api --config Debug --parallel
-     WORKING_DIRECTORY "${dependencies_dir}/${_obs_destination}"
-     RESULT_VARIABLE _process_result COMMAND_ERROR_IS_FATAL ANY
-     OUTPUT_QUIET)
-@@ -100,7 +100,7 @@ function(_setup_obs_studio)
-     set(_cmake_extra "")
-   endif()
-   execute_process(
+@@ -103 +103 @@ function(_setup_obs_studio)
 -    COMMAND "${CMAKE_COMMAND}" --install build_${arch} --component Development --config RelWithDebInfo --prefix
 +    COMMAND "${CMAKE_COMMAND}" --install build_${arch} --component Development --config Debug --prefix
-             "${dependencies_dir}" ${_cmake_extra}
-     WORKING_DIRECTORY "${dependencies_dir}/${_obs_destination}"
-     RESULT_VARIABLE _process_result COMMAND_ERROR_IS_FATAL ANY
 diff --git a/cmake/linux/helpers.cmake b/cmake/linux/helpers.cmake
-index 92974fd..191a827 100644
+index 92974fd..e662f96 100644
 --- a/cmake/linux/helpers.cmake
 +++ b/cmake/linux/helpers.cmake
-@@ -4,8 +4,6 @@ include_guard(GLOBAL)
-
- include(helpers_common)
-
+@@ -7,2 +6,0 @@ include(helpers_common)
 -set(PLUGIN_FOLDER ${CMAKE_PROJECT_NAME})
 -
- # set_target_properties_plugin: Set target properties for use in obs-studio
- function(set_target_properties_plugin target)
-   set(options "")
-@@ -26,23 +24,10 @@ function(set_target_properties_plugin target)
-                SOVERSION ${PLUGIN_VERSION}
-                PREFIX "")
-
+@@ -29,13 +26,0 @@ function(set_target_properties_plugin target)
 -  # install(
 -  #   TARGETS ${target}
 -  #   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
@@ -50,39 +59,16 @@ index 92974fd..191a827 100644
 -    message(FATAL_ERROR "Unsupport architecture")
 -  endif()
 -
-   install(
-     TARGETS ${target}
+@@ -44,2 +29,2 @@ function(set_target_properties_plugin target)
 -    RUNTIME DESTINATION dist/${PLUGIN_FOLDER}/bin/${OBSARCHNAME}
 -    LIBRARY DESTINATION dist/${PLUGIN_FOLDER}/bin/${OBSARCHNAME})
 +    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 +    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/obs-plugins)
-
-   if(TARGET plugin-support)
-     target_link_libraries(${target} PRIVATE plugin-support)
-@@ -72,14 +57,9 @@ function(target_install_resources target)
-       source_group("Resources/${relative_path}" FILES "${data_file}")
-     endforeach()
-
--    # install(
--    #   DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/data/"
--    #   DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/obs/obs-plugins/${target}
--    #   USE_SOURCE_PERMISSIONS)
--
-     install(
-       DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/data/"
+@@ -82 +67 @@ function(target_install_resources target)
 -      DESTINATION dist/${PLUGIN_FOLDER}/data
 +      DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/obs/obs-plugins/${target}
-       USE_SOURCE_PERMISSIONS)
-   endif()
- endfunction()
-@@ -88,9 +68,7 @@ endfunction()
- function(target_add_resource target resource)
-   message(DEBUG "Add resource '${resource}' to target ${target} at destination '${target_destination}'...")
-
+@@ -91,3 +76 @@ function(target_add_resource target resource)
 -  # install(FILES "${resource}" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/obs/obs-plugins/${target})
 -
 -  install(FILES "${resource}" DESTINATION dist/${PLUGIN_FOLDER}/data)
 +  install(FILES "${resource}" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/obs/obs-plugins/${target})
-
-   source_group("Resources" FILES "${resource}")
- endfunction()
