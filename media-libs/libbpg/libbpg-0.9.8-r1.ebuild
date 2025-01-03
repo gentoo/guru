@@ -1,4 +1,4 @@
-# Copyright 2021-2023 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -36,6 +36,7 @@ IUSE="bpgview jctvc"
 PATCHES=(
 	"${FILESDIR}"/${P}-add-fpic.patch
 	"${FILESDIR}"/${P}-backport-GNU-stack-note-fix.patch
+	"${FILESDIR}"/${P}-cmake-3.31.patch
 	"${FILESDIR}"/${P}-dont-strip-bins.patch
 	"${FILESDIR}"/${P}-fix-implicit-declaration.patch
 	"${FILESDIR}"/${P}-remove-forced-options.patch
