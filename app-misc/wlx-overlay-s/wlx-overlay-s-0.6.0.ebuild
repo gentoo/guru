@@ -619,8 +619,8 @@ src_install() {
 
 		dolib.so "${LIBOPENVR_PATH}/libopenvr_api.so" || die
 	fi
-	doicon wlx-overlay-s.png
-	doicon wlx-overlay-s.svg
+	doicon --size 256 wlx-overlay-s.png
+	doicon --size scalable wlx-overlay-s.svg
 	domenu wlx-overlay-s.desktop
 	cargo_src_install
 }
