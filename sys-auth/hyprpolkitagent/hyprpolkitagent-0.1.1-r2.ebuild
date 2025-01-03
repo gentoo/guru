@@ -30,7 +30,7 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-kg_setup() {
+pkg_setup() {
 	[[ ${MERGE_TYPE} == binary ]] && return
 
 	if tc-is-gcc && ver_test $(gcc-version) -lt 14 ; then
