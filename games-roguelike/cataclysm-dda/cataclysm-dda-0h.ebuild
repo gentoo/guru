@@ -85,8 +85,11 @@ src_prepare() {
 		-e "s/cataclysm.a/cataclysm-${SLOT}.a/g" \
 		-e "s/\$(BUILD_PREFIX)//g" || die # BUILD_PREFIX is also used by portage
 
-	sed -i -e "/${PN}.mo/"'!'"s/${PN}/${PN}-${SLOT}/" \
-		"src/path_info.cpp" || die
+	sed -i -e "s/${PN}/${PN}-${SLOT}/" \
+		"lang/Makefile" \
+		"src/path_info.cpp" \
+		"src/translation_manager_impl.cpp" \
+		"tests/translation_system_test.cpp" || die
 
 	# from upstream 1ab7d17
 	# NOTE: remove when bumping
