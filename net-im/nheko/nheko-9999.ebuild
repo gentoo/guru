@@ -51,6 +51,7 @@ RDEPEND="
 		video? (
 			>=media-libs/gst-plugins-base-${MY_GST_V}[opengl]
 			>=media-plugins/gst-plugins-meta-${MY_GST_V}[v4l,vpx]
+			>=media-plugins/gst-plugins-qt6-${MY_GST_V}:1.0
 			X? (
 				>=media-plugins/gst-plugins-ximagesrc-${MY_GST_V}
 			)
