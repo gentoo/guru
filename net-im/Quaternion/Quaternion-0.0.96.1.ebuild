@@ -1,4 +1,4 @@
-# Copyright 2019-2022 Gentoo Authors
+# Copyright 2019-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,6 +21,7 @@ RDEPEND="
 	dev-qt/qttools:6[linguist]
 	dev-qt/qtdeclarative:6[widgets]
 	>=net-libs/libquotient-0.8.0:=
+	<net-libs/libquotient-0.9.0
 	dev-libs/qtkeychain:=[qt6]
 "
 DEPEND="
