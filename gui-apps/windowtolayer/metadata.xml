@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>pascal.jaeger@leimstift.de</email>
+        <name>Pascal Jaeger</name>
+    </maintainer>
+    <upstream>
+        <maintainer>
+            <name>M. Stoeckl</name>
+        </maintainer>
+        <remote-id type="freedesktop-gitlab">mstoeckl/windowtolayer</remote-id>
+    </upstream>
+</pkgmetadata>
