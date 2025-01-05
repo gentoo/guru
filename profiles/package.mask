@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Nowa Ammerlaan <nowa@gentoo.org> (2021-03-29)
@@ -17,6 +17,14 @@
 # the PKGREMOVED resolution.
 
 # New entries go on top.
+
+# Julien Roy <julien@jroy.ca>
+# Depends on <dev-python/httpx-0.28.0 which is no longer in tree
+# Masked for removal on 2024-02-05
+# Or not if a newer version supports a httpx version that's in tree
+dev-python/cloudflare
+# Revdeps
+app-crypt/certbot-dns-cloudflare
 
 # Julien Roy <julien@jroy.ca>
 # Depends on dev-python/zenlib-3.1.2 which isn't yet in tree
