@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit toolchain-funcs flag-o-matic
 
 DESCRIPTION="Read-only FUSE file system for mounting archives and compressed files"
 HOMEPAGE="https://github.com/google/fuse-archive"
@@ -35,13 +35,11 @@ src_configure() {
 }
 
 src_compile() {
-	local incpath=""
-	incpath="${incpath} -I../intrusive-${BOOST_VERSION}/include"
-	incpath="${incpath} -I../config-${BOOST_VERSION}/include"
-	incpath="${incpath} -I../assert-${BOOST_VERSION}/include"
-	incpath="${incpath} -I../move-${BOOST_VERSION}/include"
-	emake CXX="$(tc-getCXX)" PKG_CONFIG="$(tc-getPKG_CONFIG)" \
-		CPPFLAGS="${incpath} ${CPPFLAGS}"
+	append-cppflags "-I../intrusive-${BOOST_VERSION}/include"
+	append-cppflags "-I../config-${BOOST_VERSION}/include"
+	append-cppflags "-I../assert-${BOOST_VERSION}/include"
+	append-cppflags "-I../move-${BOOST_VERSION}/include"
+	emake CXX="$(tc-getCXX)" PKG_CONFIG="$(tc-getPKG_CONFIG)"
 }
 
 src_install() {
