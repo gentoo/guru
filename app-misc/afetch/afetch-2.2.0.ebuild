@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit savedconfig
 
@@ -16,11 +16,15 @@ IUSE="savedconfig"
 
 src_prepare() {
 	default
-	sed -e '/^CFLAGS/d' -e 's/LDFLAGS =/LDFLAGS +=/' -i Makefile || die
+	sed -e 's/-O2//' \
+		-e 's/-Wextra//' \
+		-e 's/CFLAGS =/CFLAGS +=/' \
+		-e 's/LDFLAGS =/LDFLAGS +=/' -i Makefile || die
+
 	restore_config src/config.h
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="/usr" install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
 	save_config src/config.h
 }
