@@ -29,10 +29,9 @@ DEPEND="
 BDEPEND="virtual/pkgconfig"
 RDEPEND="${DEPEND}"
 
-# TODO(NRK): enable tests. requires python.
-# also takes a lot of disk space (and time) by generating big.zip.
-src_test() {
-	:
+src_configure() {
+	sed -i 's|-O2||g' Makefile || die "sed failed"
+	sed -i 's|-O0 -g||g' Makefile || die "sed failed"
 }
 
 src_compile() {
@@ -48,4 +47,10 @@ src_compile() {
 src_install() {
 	dobin out/fuse-archive
 	doman fuse-archive.1
+}
+
+# TODO(NRK): enable tests. requires python.
+# also takes a lot of disk space (and time) by generating big.zip.
+src_test() {
+	:
 }
