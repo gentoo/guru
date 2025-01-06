@@ -5,10 +5,11 @@ EAPI=8
 
 inherit cmake db-use multilib xdg-utils
 
+MY_PV="${PV/_p/-hotfix-}"
 DESCRIPTION="Proof-of-Stake based cryptocurrency that rewards BOINC computation"
 HOMEPAGE="https://gridcoin.us/ https://gridcoin.world/"
-SRC_URI="https://github.com/${PN}-community/${PN^}-Research/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN^}-Research-${PV}"
+SRC_URI="https://github.com/${PN}-community/${PN^}-Research/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN^}-Research-${MY_PV}"
 
 LICENSE="BSD BSD-2 Boost-1.0 MIT SSLeay"
 SLOT="0"
@@ -25,6 +26,7 @@ REQUIRED_USE="
 BDB_SLOT="5.3"
 RDEPEND="
 	>=dev-libs/boost-1.63.0:=[zlib(+)]
+	<dev-libs/boost-1.87.0:=
 	>=dev-libs/libsecp256k1-0.2.0:=[recovery(+)]
 	>=dev-libs/leveldb-1.21:=
 	dev-libs/libzip:=
