@@ -6,7 +6,9 @@
 		<name>Thomas Clarke</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">xeco23/WasIstLos</remote-id>
 		<bugs-to>https://github.com/xeco23/WasIstLos/issues</bugs-to>
+		<changelog>https://github.com/xeco23/WasIstLos/releases</changelog>
+		<doc>https://github.com/xeco23/WasIstLos/wiki</doc>
+		<remote-id type="github">xeco23/WasIstLos</remote-id>
 	</upstream>
 </pkgmetadata>
