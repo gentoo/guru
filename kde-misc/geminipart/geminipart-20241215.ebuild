@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-COMMIT="22ca8046fb9ce852a9dd928475ca2d216c8662a5"
+COMMIT="54cde426b7a58710abed491e80cf4084f5d7d55e"
 ECM_TEST="forceoptional"
 KFMIN=5.98.0
 QTMIN=5.4.0
