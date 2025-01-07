@@ -18,7 +18,8 @@ else
 fi
 
 DESCRIPTION="remove binary executables from a directory"
-HOMEPAGE="https://git.sr.ht/~lanodan/deblob"
+# permalink
+HOMEPAGE="https://hacktivis.me/projects/deblob"
 LICENSE="BSD"
 SLOT="0"
 
