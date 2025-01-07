@@ -1,4 +1,4 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,7 +27,10 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}"
-BDEPEND="dev-qt/qtbase:6"
+BDEPEND="
+	dev-qt/qtbase:6
+	dev-qt/qtshadertools:6
+"
 
 GST_PLUGINS_BUILD_DIR="qt6"
 
