@@ -1,4 +1,4 @@
-# Copyright 2020-2024 Gentoo Authors
+# Copyright 2020-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,7 +22,7 @@ RDEPEND="
 	>=dev-python/deprecation-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/packaging-20[${PYTHON_USEDEP}]
 	>=dev-python/pikepdf-8.10.1[${PYTHON_USEDEP}]
-	>=dev-python/pillow-10.0.1[lcms,${PYTHON_USEDEP}]
+	>=dev-python/pillow-10.0.1[jpeg2k,lcms,${PYTHON_USEDEP}]
 	>=dev-python/pluggy-1.0[${PYTHON_USEDEP}]
 	>=dev-python/rich-13.0[${PYTHON_USEDEP}]
 	>=media-gfx/img2pdf-0.5[${PYTHON_USEDEP}]
