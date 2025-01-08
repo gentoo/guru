@@ -1,0 +1,29 @@
+https://bugs.gentoo.org/945237
+https://lists.sr.ht/~raphi/public-inbox/patches/56817
+C23 compatibility patch.
+--- a/someblocks.c
++++ b/someblocks.c
+@@ -34,7 +34,7 @@ void setupsignals();
+ void sighandler(int signum);
+ int getstatus(char *str, char *last);
+ void statusloop();
+-void termhandler();
++void termhandler(int signum);
+ void pstdout();
+ void psomebar();
+ static void (*writestatus) () = psomebar;
+@@ -178,12 +178,12 @@ void sighandler(int signum)
+ 	writestatus();
+ }
+ 
+-void termhandler()
++void termhandler(int signum)
+ {
+ 	statusContinue = 0;
+ }
+ 
+-void sigpipehandler()
++void sigpipehandler(int signum)
+ {
+ 	close(somebarFd);
+ 	somebarFd = -1;
