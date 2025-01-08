@@ -1,7 +1,7 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit savedconfig git-r3 meson
 
@@ -12,14 +12,17 @@ EGIT_REPO_URI="https://git.sr.ht/~raphi/somebar"
 LICENSE="MIT"
 SLOT="0"
 
-DEPEND="
+RDEPEND="
+	dev-libs/glib:2
 	dev-libs/wayland
 	x11-libs/cairo
 	x11-libs/pango
 "
-RDEPEND="${DEPEND}"
-BDEPEND="
+DEPEND="
+	${RDEPEND}
 	dev-libs/wayland-protocols
+"
+BDEPEND="
 	dev-util/wayland-scanner
 "
 
