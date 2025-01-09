@@ -1,0 +1,17 @@
+Replace mkdocs-simple-hooks with built-in hooks so we don't need to
+pacakge the plugin.
+https://www.mkdocs.org/user-guide/configuration/#hooks
+--- a/mkdocs.yml
++++ b/mkdocs.yml
+@@ -56,8 +56,5 @@ plugins:
+     - build/*
+     - examples/*
+     - requirements.txt
+-- mkdocs-simple-hooks:
+-    hooks:
+-      on_pre_build: 'docs.plugins:on_pre_build'
+-      on_files: 'docs.plugins:on_files'
+-      on_page_markdown: 'docs.plugins:on_page_markdown'
++hooks:
++  - docs/plugins.py
+
