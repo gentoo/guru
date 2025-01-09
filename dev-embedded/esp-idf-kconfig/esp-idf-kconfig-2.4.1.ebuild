@@ -23,3 +23,8 @@ RDEPEND="
 "
 
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	default
+	rm -r docs || die
+}
