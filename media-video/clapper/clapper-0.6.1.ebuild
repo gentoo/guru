@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/Rafostar/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.g
 LICENSE="|| ( GPL-3 LGPL-2.1 )"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="discoverer doc egl gles2 +gstreamer +gtk +introspection mpris rawimporter server vala wayland X"
+IUSE="discoverer doc egl gles2 +gstreamer +gtk gui +introspection mpris rawimporter server vala wayland X"
 
 RDEPEND="
 	>=dev-libs/glib-2.76.0:2
@@ -23,7 +23,12 @@ RDEPEND="
 	>=gui-libs/libadwaita-1.4.0:1
 	x11-libs/pango
 
+	doc? (
+		dev-util/gi-docgen
+		media-gfx/graphviz
+	)
 	introspection? ( dev-libs/gobject-introspection )
+	server? ( net-libs/libmicrodns )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -37,8 +42,9 @@ BDEPEND="
 src_configure() {
 	local emesonargs=(
 		-Dclapper=enabled
+		-Dvapi=disabled
 		$(meson_feature gtk clapper-gtk)
-		$(meson_feature app clapper-app)
+		$(meson_feature gui clapper-app)
 		$(meson_feature discoverer discoverer)
 		$(meson_use doc doc)
 		$(meson_feature gstreamer gst-plugin)
@@ -48,7 +54,6 @@ src_configure() {
 		$(meson_feature mpris mpris)
 		$(meson_feature rawimporter rawimporter)
 		$(meson_feature server server)
-		$(meson_feature vala vapi)
 	)
 	meson_src_configure
 }
