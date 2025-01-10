@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,7 @@ SRC_URI="https://gitlab.com/esr/${PN}/-/archive/${PV}/${P}.tar.bz2"
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="autosave nosave test"
+IUSE="autosave +doc nosave test"
 # autosave and nosave are mutually exclusive
 # tests require that they are both disabled
 REQUIRED_USE="
@@ -26,6 +26,7 @@ DEPEND="dev-libs/libedit"
 RDEPEND="${DEPEND}"
 BDEPEND="
 	$(python_gen_any_dep 'dev-python/pyyaml[${PYTHON_USEDEP}]' )
+	doc? ( dev-ruby/asciidoctor )
 "
 
 DOCS=( NEWS.adoc hints.adoc history.adoc README.adoc notes.adoc )
@@ -40,10 +41,6 @@ src_prepare() {
 		-i Makefile || die "Makefile patching failed"
 
 	eapply_user
-
-	# Add missing semicolon
-	sed -e 's/rspeak(SAVERESUME_DISABLED)/rspeak(SAVERESUME_DISABLED);/' \
-		-i saveresume.c || die "Typo fix failed"
 }
 
 src_compile() {
@@ -54,12 +51,16 @@ src_compile() {
 		append-cflags "-DADVENT_NOSAVE"
 	fi
 
-	emake advent advent.6
+	emake advent
+
+	use doc && emake advent.6
 }
 
 src_install() {
-	einstalldocs
-	doman advent.6
+	if use doc; then
+		einstalldocs
+		doman advent.6
+	fi
 
 	dobin advent
 
@@ -68,6 +69,9 @@ src_install() {
 }
 
 src_test() {
+	emake cheat
+	pushd tests || die
 	# parallel tests often fail
-	emake -j1 check
+	emake -j1
+	popd || die
 }
