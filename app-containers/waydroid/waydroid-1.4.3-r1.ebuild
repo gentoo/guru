@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,7 +19,6 @@ IUSE="apparmor +clipboard systemd"
 PATCHES=(
 	"${FILESDIR}/waydroid-1.4.3-r1.patch"
 	)
-
 DEPEND="|| ( virtual/linux-sources virtual/dist-kernel )"
 RDEPEND="
 	systemd? ( sys-apps/systemd )
@@ -36,7 +35,6 @@ RDEPEND="
 	>=dev-libs/gbinder-1.1.41
 	${PYTHON_DEPS}
 "
-
 CONFIG_CHECK="
 	~ANDROID_BINDER_IPC
 	~ANDROID_BINDERFS
@@ -101,11 +99,9 @@ pkg_postinst() {
 	elog "Contact https://docs.waydro.id/usage/install-on-desktops for how-to guides"
 	elog "(does not cover Gentoo-specific things sadly)"
 	elog
-
 	ewarn "Make sure you have NFTABLES up and running in your kernel. See"
 	ewarn "https://wiki.gentoo.org/wiki/Nftables for how-to details"
 	ewarn
-
 	if use apparmor; then
 		ewarn "Check the known issues for apparmor:"
 		ewarn "https://docs.waydro.id/debugging/known-issues"
