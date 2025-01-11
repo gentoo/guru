@@ -32,7 +32,7 @@ RDEPEND="
 	=dev-python/tzlocal-5.2*[${PYTHON_USEDEP}]
 	~dev-python/sqlalchemy-2.0.36[${PYTHON_USEDEP}]
 	~dev-python/platformdirs-4.3.6[${PYTHON_USEDEP}]
-	~dev-python/click-8.1.7[${PYTHON_USEDEP}]
+	<dev-python/click-9.0.0[${PYTHON_USEDEP}]
 "
 
 DEPEND="${RDEPEND}"
