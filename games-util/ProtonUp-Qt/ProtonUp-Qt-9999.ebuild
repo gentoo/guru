@@ -19,7 +19,7 @@ SLOT="0"
 
 DEPEND="dev-python/steam
 	dev-python/requests
-	dev-python/pyside6[designer(+)]
+	dev-python/pyside6[dbus,gui,uitools,widgets]
 	dev-python/vdf
 	dev-python/pyxdg
 	dev-python/pyaml
