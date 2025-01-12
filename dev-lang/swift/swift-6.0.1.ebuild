@@ -108,6 +108,18 @@ BDEPEND="
 	' python3_{12..13})
 "
 
+# Swift 6 upstream currently doesn't build with oneTBB installed because Swift's
+# `libstdcxx.h` includes `<execution>`, which, in combination with recent
+# `libstdc++` versions, causes `tbb/execution` to get picked up; this results in
+# a circular dependency back on the stdlib, failing the build.
+#
+# See:
+# * https://bugs.gentoo.org/947141
+# * https://github.com/swiftlang/swift/issues/76166
+BDEPEND+="
+	!!dev-cpp/tbb
+"
+
 # Adapted from `flag-o-matic.eclass`'s `raw-ldflags`: turns GCC-style flags
 # (`-Wl,-foo`) into Clang-style flags (`-Xlinker -foo`).
 clang-ldflags() {
