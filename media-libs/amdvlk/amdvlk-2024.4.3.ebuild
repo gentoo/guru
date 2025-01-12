@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -49,6 +49,7 @@ REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )"
 BUNDLED_LLVM_DEPEND="sys-libs/zlib:0=[${MULTILIB_USEDEP}]"
 DEPEND="wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
 	${BUNDLED_LLVM_DEPEND}
+	app-arch/zstd:=[${MULTILIB_USEDEP}]
 	>=dev-util/vulkan-headers-1.3.296
 	raytracing? ( dev-util/DirectXShaderCompiler )
 	dev-util/glslang[${MULTILIB_USEDEP}]"
@@ -114,13 +115,13 @@ src_prepare() {
 
 multilib_src_configure() {
 	local mycmakeargs=(
-		-DBUILD_WAYLAND_SUPPORT=$(usex wayland)
+		-DVKI_BUILD_WAYLAND=$(usex wayland)
 		-DVKI_RAY_TRACING=$(usex raytracing)
 		-DLLVM_HOST_TRIPLE="${CHOST}"
 		-DLLVM_ENABLE_WERROR=OFF
 		-DENABLE_WERROR=OFF
 		-DVAM_ENABLE_WERROR=OFF
-		-DICD_ANALYSIS_WARNINGS_AS_ERRORS=OFF
+		-DVKI_ANALYSIS_WARNINGS_AS_ERRORS=OFF
 		-DMETROHASH_ENABLE_WERROR=OFF
 		-DBUILD_SHARED_LIBS=OFF #LLVM parts don't support shared libs
 		-DPython3_EXECUTABLE="${PYTHON}"
