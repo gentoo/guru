@@ -64,7 +64,6 @@ sci-physics/openmodelica
 # One of the Qt5 dependencies has been dropped from ::gentoo.
 # No maintainer.
 # Removal on 2025-01-08.
-gui-apps/coreterminal
 gui-apps/coreapps-meta
 
 # Gasc Henri <gasc@eurecom.fr> (2024-12-05)
