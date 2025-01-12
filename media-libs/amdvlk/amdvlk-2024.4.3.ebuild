@@ -111,6 +111,9 @@ src_prepare() {
 	mv MetroHash-${METROHASH_COMMIT}/ third_party/metrohash || die
 	mv CWPack-${CWPACK_COMMIT}/ third_party/cwpack || die
 	cmake_src_prepare
+
+	# disable forced optimization
+	sed -i '/-O3/d' xgl/cmake/XglCompilerOptions.cmake || die
 }
 
 multilib_src_configure() {
