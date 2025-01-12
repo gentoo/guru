@@ -3,6 +3,6 @@
 <pkgmetadata>
   <!-- maintainer-needed -->
   <upstream>
-    <remote-id type="gitlab">cubocore/coreapps/libcprime</remote-id>
+    <remote-id type="gitlab">cubocore/libcprime</remote-id>
   </upstream>
 </pkgmetadata>

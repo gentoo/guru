@@ -12,9 +12,10 @@ if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/cubocore/libcprime.git"
 else
-	SRC_URI="https://gitlab.com/cubocore/libcprime/-/archive/v${PV}/${PN}-v${PV}.tar.bz2"
+	COMMIT="eff16e1d89bd98d8a4fd22c6decbdc1c573ecca1"
+	SRC_URI="https://gitlab.com/cubocore/libcprime/-/archive/${COMMIT}.tar.bz2 -> ${P}.tar.bz2"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/${PN}-v${PV}"
+	S="${WORKDIR}/${PN}-${COMMIT}"
 fi
 
 LICENSE="GPL-3+"
