@@ -7,5 +7,7 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="github">ValvePython/steam</remote-id>
+		<remote-id type="github">solsticegamestudios/steam</remote-id>
+		<remote-id type="pypi">steam</remote-id>
 	</upstream>
 </pkgmetadata>
