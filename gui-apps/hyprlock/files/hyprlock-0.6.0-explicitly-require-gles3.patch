@@ -1,0 +1,37 @@
+https://github.com/hyprwm/hyprlock/commit/023aff52ad45a3c55144c6bbda33395dfb9e9db0
+https://bugs.gentoo.org/947781
+Allow building on a system that lacks GLX support.
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.19)
++cmake_minimum_required(VERSION 3.27)
+ 
+ file(READ "${CMAKE_SOURCE_DIR}/VERSION" VER_RAW)
+ string(STRIP ${VER_RAW} VERSION)
+@@ -37,7 +37,7 @@ message(STATUS "Checking deps...")
+ 
+ find_package(Threads REQUIRED)
+ find_package(PkgConfig REQUIRED)
+-find_package(OpenGL REQUIRED)
++find_package(OpenGL REQUIRED COMPONENTS EGL GLES3)
+ pkg_check_modules(
+   deps
+   REQUIRED
+@@ -47,7 +47,6 @@ pkg_check_modules(
+   wayland-egl
+   hyprlang>=0.4.0
+   egl
+-  opengl
+   xkbcommon
+   libjpeg
+   libwebp
+@@ -63,7 +62,7 @@ pkg_check_modules(
+ file(GLOB_RECURSE SRCFILES CONFIGURE_DEPENDS "src/*.cpp")
+ add_executable(hyprlock ${SRCFILES})
+ target_link_libraries(hyprlock PRIVATE pam rt Threads::Threads PkgConfig::deps
+-                                       OpenGL::EGL OpenGL::GL)
++                                       OpenGL::EGL OpenGL::GLES3)
+ 
+ # protocols
+ find_program(WaylandScanner NAMES wayland-scanner)
