@@ -42,6 +42,7 @@ CONFIG_CHECK="~FB_VIRTUAL ~I2C ~DRM ~USB_SUPPORT ~USB_ARCH_HAS_HCD MODULES"
 PATCHES=(
 	"${FILESDIR}/${PN}-1.14.4-format-truncation.patch"
 	"${FILESDIR}/${PN}-1.14.7-removed-output_poll_changed.patch"
+	"${FILESDIR}/${PN}-1.14.7-drm_fb_helper.info.patch" # backport from 1.14.8
 )
 
 pkg_setup() {
