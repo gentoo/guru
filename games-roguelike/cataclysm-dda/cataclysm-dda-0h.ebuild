@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -31,7 +31,7 @@ fi
 
 # CC-BY-SA-4.0 for soundpack
 LICENSE="Apache-2.0 CC-BY-SA-3.0 CC-BY-SA-4.0 MIT OFL-1.1 Unicode-3.0"
-IUSE="debug ncurses nls +sound +soundpack test +tiles"
+IUSE="debug doc ncurses nls +sound +soundpack test +tiles"
 REQUIRED_USE="soundpack? ( sound ) sound? ( tiles ) \
 	|| ( tiles ncurses )"
 RESTRICT="!test? ( test )"
@@ -50,6 +50,7 @@ RDEPEND="
 	)"
 DEPEND="${RDEPEND}"
 BDEPEND="
+	doc? ( app-text/doxygen[dot] )
 	soundpack? ( app-arch/unzip )
 	nls? ( sys-devel/gettext )
 	"
@@ -121,6 +122,8 @@ src_compile() {
 
 	use nls && export LANGUAGES="all"
 
+	use doc && doxygen doxygen_doc/doxygen_conf.txt || die "Failed to generate docs"
+
 	if use ncurses; then
 		# don't build tests twice
 		if ! use tiles; then
@@ -150,6 +153,11 @@ src_install() {
 		install
 
 	[[ -e "${WORKDIR}/cataclysm-${SLOT}" ]] && dobin "${WORKDIR}/cataclysm-${SLOT}"
+
+	use doc && dodoc -r doxygen_doc/html
+
+	use tiles && newman "doc/cataclysm-tiles.6" "cataclysm-tiles-${SLOT}.6"
+	use ncurses && newman "doc/cataclysm.6" "cataclysm-${SLOT}.6"
 
 	if use soundpack; then
 		insinto "/usr/share/${PN}-${SLOT}/sound"
