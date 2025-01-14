@@ -3,7 +3,7 @@
 
 EAPI=8
 
-	CRATES=""
+CRATES=""
 
 inherit cargo
 
