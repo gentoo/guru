@@ -1,0 +1,11 @@
+Add a GUI entry point.
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -30,3 +30,7 @@ install_requires =
+     zstandard>=0.19.0
+ 
+ packages = find:
++
++[options.entry_points]
++gui_scripts =
++    ProtonUp-Qt = pupgui2.pupgui2:main

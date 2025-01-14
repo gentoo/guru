@@ -6,14 +6,15 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit desktop distutils-r1 git-r3 xdg
+inherit desktop distutils-r1 xdg
 
 DESCRIPTION="Install and manage GE-Proton, Luxtorpeda & more for Steam Lutris and Heroic."
 HOMEPAGE="https://davidotek.github.io/protonup-qt/"
-EGIT_REPO_URI="https://github.com/DavidoTek/ProtonUp-Qt.git"
+SRC_URI="https://github.com/DavidoTek/ProtonUp-Qt/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/pyaml[${PYTHON_USEDEP}]
