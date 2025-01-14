@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<stabilize-allarches/>
+	<upstream>
+		<changelog>https://github.com/jdum/odfdo/blob/master/CHANGES.md</changelog>
+		<maintainer>
+			<email>jerome.dumonteil@gmail.com</email>
+			<name>Jérôme Dumonteil</name>
+		</maintainer>
+		<remote-id type="github">jdum/odfdo</remote-id>
+		<remote-id type="pypi">odfdo</remote-id>
+	</upstream>
+</pkgmetadata>
