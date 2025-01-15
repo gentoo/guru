@@ -93,6 +93,7 @@ BDEPEND="
 	>=dev-util/patchelf-0.18
 	>=dev-vcs/git-2.39
 	>=sys-apps/coreutils-9
+	>=sys-devel/gcc-11
 	>=sys-libs/ncurses-6
 	>=sys-libs/zlib-1.3
 	|| (
@@ -107,18 +108,6 @@ BDEPEND="
 	$(python_gen_cond_dep '
 		dev-python/setuptools[${PYTHON_USEDEP}]
 	' python3_{12..13})
-"
-
-# Swift 6 upstream currently doesn't build with oneTBB installed because Swift's
-# `libstdcxx.h` includes `<execution>`, which, in combination with recent
-# `libstdc++` versions, causes `tbb/execution` to get picked up; this results in
-# a circular dependency back on the stdlib, failing the build.
-#
-# See:
-# * https://bugs.gentoo.org/947141
-# * https://github.com/swiftlang/swift/issues/76166
-BDEPEND+="
-	!!dev-cpp/tbb
 "
 
 # Adapted from `flag-o-matic.eclass`'s `raw-ldflags`: turns GCC-style flags
