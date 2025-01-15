@@ -1,0 +1,21 @@
+# A backport of https://github.com/swiftlang/swift/pull/75662, to avoid cyclic
+# header dependencies when `dev-cpp/tbb` is installed. Since Gentoo no longer
+# supports GCC <11 (and we explicitly require >=11 in the ebuild), we avoid
+# including `<execution>` and picking up the tbb headers if they're present.
+#
+# See https://bugs.gentoo.org/947141
+
+--- a/swift/stdlib/public/Cxx/libstdcxx/libstdcxx.h
++++ b/swift/stdlib/public/Cxx/libstdcxx/libstdcxx.h
+@@ -1,7 +1,10 @@
++#include "cstddef"
++
+ // C++17 and newer:
+
+ // <execution> includes tbb headers, which might not be installed.
+ // Only include <execution> if tbb is installed.
+-#if __has_include("execution") && __has_include(<tbb/blocked_range.h>)
++#if __has_include("execution") && __has_include(<tbb/blocked_range.h>) && (!defined(_GLIBCXX_RELEASE) || (_GLIBCXX_RELEASE < 11))
+ #include "execution"
+ #endif
++
