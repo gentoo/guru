@@ -116,7 +116,9 @@ src_compile() {
 
 	use nls && export LANGUAGES="all"
 
-	use doc && doxygen doxygen_doc/doxygen_conf.txt || die "Failed to generate docs"
+	if use doc; then
+		doxygen doxygen_doc/doxygen_conf.txt || die "Failed to generate docs"
+	fi
 
 	if use ncurses; then
 		# don't build tests twice
