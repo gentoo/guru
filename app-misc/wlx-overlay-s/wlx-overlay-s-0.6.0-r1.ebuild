@@ -300,7 +300,7 @@ CRATES="
 	piper@0.2.3
 	pipewire-sys@0.8.0
 	pipewire@0.8.0
-	pkg-config@0.3.30
+	pkg-config@0.3.31
 	polling@3.7.2
 	ppv-lite86@0.2.18
 	prettyplease@0.2.20
@@ -494,8 +494,8 @@ declare -A GIT_CRATES=(
 	[libmonado-rs]='https://github.com/technobaboo/libmonado-rs;a495f6d162fce47ae5aafeb7ec38e774cb731c29;libmonado-rs-%commit%'
 	[openxr-sys]='https://github.com/galister/openxrs;af4a55df60125491c80c61464c824219c6019b76;openxrs-%commit%/sys'
 	[openxr]='https://github.com/galister/openxrs;af4a55df60125491c80c61464c824219c6019b76;openxrs-%commit%/openxr'
-	[ovr_overlay]='https://github.com/galister/ovr_overlay_oyasumi;bd03e5bf886f84d438aad95da5c5cc28725013a8;ovr_overlay_oyasumi-%commit%'
-	[ovr_overlay_sys]='https://github.com/galister/ovr_overlay_oyasumi;bd03e5bf886f84d438aad95da5c5cc28725013a8;ovr_overlay_oyasumi-%commit%/sys'
+	[ovr_overlay]='https://github.com/galister/ovr_overlay_oyasumi;5b5b8bbfdd6d9059f79b2847d8f657e093f2b120;ovr_overlay_oyasumi-%commit%'
+	[ovr_overlay_sys]='https://github.com/galister/ovr_overlay_oyasumi;5b5b8bbfdd6d9059f79b2847d8f657e093f2b120;ovr_overlay_oyasumi-%commit%/sys'
 	[vulkano-macros]='https://github.com/vulkano-rs/vulkano;94f50f18bd25971ea123adb8b5782ad65a8f085c;vulkano-%commit%/vulkano-macros'
 	[vulkano-shaders]='https://github.com/vulkano-rs/vulkano;94f50f18bd25971ea123adb8b5782ad65a8f085c;vulkano-%commit%/vulkano-shaders'
 	[vulkano]='https://github.com/vulkano-rs/vulkano;94f50f18bd25971ea123adb8b5782ad65a8f085c;vulkano-%commit%/vulkano'
@@ -514,9 +514,6 @@ OPENVR_PATH="${WORKDIR}/ovr_overlay_oyasumi-bd03e5bf886f84d438aad95da5c5cc287250
 
 SRC_URI="
 	${CARGO_CRATE_URIS}
-	openvr? (
-		https://github.com/ValveSoftware/openvr/archive/${OPENVR_REV}.tar.gz -> ValveSoftware-openvr-${OPENVR_REV}.tar.gz
-	)
 	https://github.com/galister/wlx-overlay-s/archive/refs/tags/v$(ver_cut 1-2).tar.gz -> ${P}.tar.gz
 "
 
@@ -548,6 +545,9 @@ DEPEND="
 		x11-libs/libXext
 		x11-libs/libXrandr
 	)
+	openvr? (
+		=media-libs/openvr-1.23.8-r0
+	)
 	openxr? (
 		media-libs/openxr-loader[X?,wayland?]
 	)
@@ -568,21 +568,13 @@ RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${P}-fix-use-pipewire.patch"
+	"${FILESDIR}/${P}-devendor-openvr.patch"
 )
 
 pkg_setup() {
 	export PKG_CONFIG_ALLOW_CROSS=1
+	export OPENVR_NO_VENDOR=1
 	rust_pkg_setup
-}
-
-src_prepare() {
-	if use openvr ; then
-		# ovr_overlay_sys uses a submodule, so we move the repo to that location.
-		rm -d "${OPENVR_PATH}" || die
-		mv "${WORKDIR}/openvr-${OPENVR_REV}" "${OPENVR_PATH}" || die
-	fi
-
-	default
 }
 
 src_configure() {
@@ -598,27 +590,6 @@ src_configure() {
 }
 
 src_install() {
-	if use openvr ; then
-		# TODO: Figure out how to compile libopenvr_api.so and package it.
-		case "${ARCH}" in
-			arm64)
-				LIBOPENVR_PATH="${OPENVR_PATH}/bin/linuxarm64"
-				;;
-
-			amd64)
-				LIBOPENVR_PATH="${OPENVR_PATH}/bin/linux64"
-				;;
-
-			x86)
-				LIBOPENVR_PATH="${OPENVR_PATH}/bin/linux32"
-				;;
-
-			*) die "unsupported arch"
-				;;
-		esac
-
-		dolib.so "${LIBOPENVR_PATH}/libopenvr_api.so" || die
-	fi
 	doicon --size 256 wlx-overlay-s.png
 	doicon --size scalable wlx-overlay-s.svg
 	domenu wlx-overlay-s.desktop
