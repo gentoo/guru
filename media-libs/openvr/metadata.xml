@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>sam@binarycake.ca</email>
+    <name>Sam Wilson</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">ValveSoftware/openvr</remote-id>
+    <bugs-to>https://github.com/ValveSoftware/openvr/issues</bugs-to>
+    <changelog>https://github.com/ValveSoftware/openvr/releases</changelog>
+    <doc>https://github.com/ValveSoftware/openvr/blob/master/README.md</doc>
+  </upstream>
+</pkgmetadata>

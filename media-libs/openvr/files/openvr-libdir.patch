@@ -1,0 +1,31 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 29b69c5..0b32140 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -101,12 +101,12 @@ endif()
+ target_link_libraries(${LIBNAME} ${EXTRA_LIBS} ${CMAKE_DL_LIBS})
+ target_include_directories(${LIBNAME} PUBLIC ${OPENVR_HEADER_DIR})
+ 
+-install(TARGETS ${LIBNAME} DESTINATION lib)
++install(TARGETS ${LIBNAME} DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ install(FILES ${PUBLIC_HEADER_FILES} DESTINATION include/openvr)
+ 
+ # Generate a .pc file for linux environments
+ if(PLATFORM_NAME MATCHES "linux")
+-    set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
++    set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
+     CONFIGURE_FILE("openvr.pc.in" "openvr.pc" @ONLY)
+ 
+     set(OPENVR_PC ${CMAKE_CURRENT_BINARY_DIR}/openvr.pc)
+diff --git a/src/openvr.pc.in b/src/openvr.pc.in
+index 3edba91..89ec276 100644
+--- a/src/openvr.pc.in
++++ b/src/openvr.pc.in
+@@ -1,6 +1,6 @@
+ prefix=@CMAKE_INSTALL_PREFIX@
+ exec_prefix=${prefix}
+-libdir=${prefix}/lib
++libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
+ includedir=${prefix}/include/openvr
+ 
+ Name: openvr
