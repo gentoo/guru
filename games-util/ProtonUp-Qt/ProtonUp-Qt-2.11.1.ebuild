@@ -10,20 +10,24 @@ inherit desktop distutils-r1 xdg
 
 DESCRIPTION="Install and manage GE-Proton, Luxtorpeda & more for Steam Lutris and Heroic."
 HOMEPAGE="https://davidotek.github.io/protonup-qt/"
-SRC_URI="https://github.com/DavidoTek/ProtonUp-Qt/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+
+SRC_URI="
+	https://github.com/DavidoTek/ProtonUp-Qt/archive/refs/tags/v${PV}.tar.gz
+		-> ${P}.tar.gz
+"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-python/pyaml[${PYTHON_USEDEP}]
-	dev-python/pyside6[dbus,gui,uitools,widgets,${PYTHON_USEDEP}]
-	dev-python/pyxdg[${PYTHON_USEDEP}]
-	dev-python/requests[${PYTHON_USEDEP}]
-	dev-python/steam[${PYTHON_USEDEP}]
-	dev-python/vdf[${PYTHON_USEDEP}]
-	dev-python/zstandard[${PYTHON_USEDEP}]
+	>=dev-python/pyaml-6.0[${PYTHON_USEDEP}]
+	>=dev-python/pyside6-6.3.0[dbus,gui,uitools,widgets,${PYTHON_USEDEP}]
+	>=dev-python/pyxdg-0.27[${PYTHON_USEDEP}]
+	>=dev-python/requests-2.27.0[${PYTHON_USEDEP}]
+	>=dev-python/steam-1.6.1[${PYTHON_USEDEP}]
+	>=dev-python/vdf-4.0[${PYTHON_USEDEP}]
+	>=dev-python/zstandard-0.19.0[${PYTHON_USEDEP}]
 "
 
 PATCHES=(
