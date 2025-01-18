@@ -11,63 +11,65 @@ CRATES="
 	aho-corasick@1.1.3
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
-	anstream@0.6.17
+	anstream@0.6.18
 	anstyle-parse@0.2.6
 	anstyle-query@1.1.2
-	anstyle-wincon@3.0.6
-	anstyle@1.0.9
-	anyhow@1.0.91
+	anstyle-wincon@3.0.7
+	anstyle@1.0.10
+	anyhow@1.0.95
 	assert_cmd@2.0.16
 	assert_fs@1.1.2
 	autocfg@1.4.0
 	backtrace@0.3.74
 	base64@0.22.1
-	bitflags@2.6.0
-	bstr@1.10.0
+	bitflags@2.7.0
+	bstr@1.11.3
 	built@0.7.5
 	bumpalo@3.16.0
 	byteorder@1.5.0
-	bytes@1.8.0
-	cc@1.1.31
+	bytes@1.9.0
+	cc@1.2.9
 	cfg-if@1.0.0
 	cfg_aliases@0.2.1
-	chrono@0.4.38
-	clap@4.5.20
-	clap_builder@4.5.20
-	clap_complete@4.5.35
-	clap_derive@4.5.18
-	clap_lex@0.7.2
+	chrono@0.4.39
+	clap@4.5.26
+	clap_builder@4.5.26
+	clap_complete@4.5.42
+	clap_derive@4.5.24
+	clap_lex@0.7.4
 	cli-table-derive@0.4.6
 	cli-table@0.4.9
 	cluFlock@1.2.7
 	colorchoice@1.0.3
-	console@0.15.8
+	console@0.15.10
 	core-foundation-sys@0.8.7
+	core-foundation@0.10.0
 	core-foundation@0.9.4
 	crc32fast@1.4.2
-	crossbeam-deque@0.8.5
+	crossbeam-deque@0.8.6
 	crossbeam-epoch@0.9.18
-	crossbeam-utils@0.8.20
+	crossbeam-utils@0.8.21
 	csv-core@0.1.11
-	csv@1.3.0
+	csv@1.3.1
 	ctrlc@3.4.5
 	dialoguer@0.11.0
 	difflib@0.4.0
 	dirs-sys@0.4.1
 	dirs@5.0.1
+	displaydoc@0.2.5
 	doc-comment@0.3.3
 	dunce@1.0.5
 	either@1.13.0
-	encode_unicode@0.3.6
-	env_filter@0.1.2
-	env_logger@0.11.5
+	encode_unicode@1.0.0
+	env_filter@0.1.3
+	env_logger@0.11.6
 	env_proxy@0.4.1
 	equivalent@1.0.1
-	errno@0.3.9
-	fastrand@2.1.1
+	errno@0.3.10
+	fastrand@2.3.0
 	filetime@0.2.25
-	flate2@1.0.34
-	float-cmp@0.9.0
+	flate2@1.0.35
+	float-cmp@0.10.0
 	fnv@1.0.7
 	foreign-types-shared@0.1.1
 	foreign-types@0.3.2
@@ -83,101 +85,112 @@ CRATES="
 	gimli@0.31.1
 	globset@0.4.15
 	globwalk@0.9.1
-	hashbrown@0.15.0
+	hashbrown@0.15.2
 	heck@0.5.0
-	hermit-abi@0.3.9
 	hermit-abi@0.4.0
 	http-body-util@0.1.2
 	http-body@1.0.1
-	http@1.1.0
+	http@1.2.0
 	httparse@1.9.5
 	human-panic@2.0.2
 	human-sort@0.2.2
 	humantime@2.1.0
-	hyper-rustls@0.27.3
+	hyper-rustls@0.27.5
 	hyper-tls@0.6.0
-	hyper-util@0.1.9
-	hyper@1.5.0
+	hyper-util@0.1.10
+	hyper@1.5.2
 	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.61
-	idna@0.5.0
+	icu_collections@1.5.0
+	icu_locid@1.5.0
+	icu_locid_transform@1.5.0
+	icu_locid_transform_data@1.5.0
+	icu_normalizer@1.5.0
+	icu_normalizer_data@1.5.0
+	icu_properties@1.5.1
+	icu_properties_data@1.5.0
+	icu_provider@1.5.0
+	icu_provider_macros@1.5.0
+	idna@1.0.3
+	idna_adapter@1.2.0
 	ignore@0.4.23
-	indexmap@2.6.0
-	indicatif@0.17.8
+	indexmap@2.7.0
+	indicatif@0.17.9
 	indoc@2.0.5
-	instant@0.1.13
 	ipnet@2.10.1
 	is-terminal@0.4.13
 	is_terminal_polyfill@1.70.1
-	itertools@0.13.0
-	itoa@1.0.11
-	js-sys@0.3.72
-	lazy_static@1.5.0
-	libc@0.2.161
+	itertools@0.14.0
+	itoa@1.0.14
+	js-sys@0.3.77
+	libc@0.2.169
 	libredox@0.1.3
-	linux-raw-sys@0.4.14
-	log@0.4.22
+	linux-raw-sys@0.4.15
+	litemap@0.7.4
+	log@0.4.25
 	memchr@2.7.4
 	mime@0.3.17
-	miniz_oxide@0.8.0
-	mio@1.0.2
+	miniz_oxide@0.8.3
+	mio@1.0.3
 	native-tls@0.2.12
 	nix@0.29.0
 	normalize-line-endings@0.3.0
 	normpath@1.3.0
 	num-traits@0.2.19
 	number_prefix@0.4.0
-	object@0.36.5
+	object@0.36.7
 	once_cell@1.20.2
 	openssl-macros@0.1.1
 	openssl-probe@0.1.5
 	openssl-sys@0.9.104
 	openssl@0.10.68
 	option-ext@0.2.0
-	os_info@3.8.2
+	os_info@3.9.2
 	path-absolutize@3.1.1
 	path-dedot@3.1.1
 	percent-encoding@2.3.1
-	pin-project-lite@0.2.15
+	pin-project-lite@0.2.16
 	pin-utils@0.1.0
 	pkg-config@0.3.31
-	portable-atomic@1.9.0
+	portable-atomic@1.10.0
 	ppv-lite86@0.2.20
-	predicates-core@1.0.8
-	predicates-tree@1.0.11
-	predicates@3.1.2
-	proc-macro2@1.0.89
-	quinn-proto@0.11.8
-	quinn-udp@0.5.5
-	quinn@0.11.5
-	quote@1.0.37
+	predicates-core@1.0.9
+	predicates-tree@1.0.12
+	predicates@3.1.3
+	proc-macro2@1.0.93
+	quinn-proto@0.11.9
+	quinn-udp@0.5.9
+	quinn@0.11.6
+	quote@1.0.38
 	rand@0.8.5
 	rand_chacha@0.3.1
 	rand_core@0.6.4
-	redox_syscall@0.5.7
+	redox_syscall@0.5.8
 	redox_users@0.4.6
-	regex-automata@0.4.8
+	regex-automata@0.4.9
 	regex-syntax@0.8.5
 	regex@1.11.1
-	reqwest@0.12.8
+	reqwest@0.12.12
 	ring@0.17.8
 	rustc-demangle@0.1.24
-	rustc-hash@2.0.0
-	rustix@0.38.37
-	rustls-native-certs@0.8.0
+	rustc-hash@2.1.0
+	rustix@0.38.43
+	rustls-native-certs@0.8.1
 	rustls-pemfile@2.2.0
-	rustls-pki-types@1.10.0
+	rustls-pki-types@1.10.1
 	rustls-webpki@0.102.8
-	rustls@0.23.15
+	rustls@0.23.21
+	rustversion@1.0.19
 	ryu@1.0.18
 	same-file@1.0.6
-	schannel@0.1.26
-	security-framework-sys@2.12.0
+	schannel@0.1.27
+	security-framework-sys@2.14.0
 	security-framework@2.11.1
-	semver@1.0.23
-	serde@1.0.213
-	serde_derive@1.0.213
-	serde_json@1.0.132
+	security-framework@3.2.0
+	semver@1.0.24
+	serde@1.0.217
+	serde_derive@1.0.217
+	serde_json@1.0.135
 	serde_spanned@0.6.8
 	serde_urlencoded@0.7.1
 	shell-words@1.1.0
@@ -185,90 +198,118 @@ CRATES="
 	shlex@1.3.0
 	slab@0.4.9
 	smallvec@1.13.2
-	socket2@0.5.7
+	socket2@0.5.8
 	spin@0.9.8
+	stable_deref_trait@1.2.0
 	strsim@0.11.1
 	subtle@2.6.1
 	syn@1.0.109
-	syn@2.0.85
-	sync_wrapper@1.0.1
-	tar@0.4.42
-	tempfile@3.13.0
+	syn@2.0.96
+	sync_wrapper@1.0.2
+	synstructure@0.13.1
+	tar@0.4.43
+	tempfile@3.15.0
 	termcolor@1.4.1
-	termtree@0.4.1
-	thiserror-impl@1.0.65
-	thiserror@1.0.65
-	tinyvec@1.8.0
+	termtree@0.5.1
+	thiserror-impl@1.0.69
+	thiserror-impl@2.0.11
+	thiserror@1.0.69
+	thiserror@2.0.11
+	tinystr@0.7.6
+	tinyvec@1.8.1
 	tinyvec_macros@0.1.1
 	tokio-native-tls@0.3.1
-	tokio-rustls@0.26.0
+	tokio-rustls@0.26.1
 	tokio-socks@0.5.2
-	tokio@1.41.0
+	tokio@1.43.0
 	toml@0.5.11
 	toml@0.8.19
 	toml_datetime@0.6.8
 	toml_edit@0.22.22
+	tower-layer@0.3.3
 	tower-service@0.3.3
-	tracing-core@0.1.32
-	tracing@0.1.40
+	tower@0.5.2
+	tracing-core@0.1.33
+	tracing@0.1.41
 	try-lock@0.2.5
-	unicode-bidi@0.3.17
-	unicode-ident@1.0.13
-	unicode-normalization@0.1.24
+	unicode-ident@1.0.14
 	unicode-width@0.1.14
+	unicode-width@0.2.0
 	untrusted@0.9.0
-	url@2.5.2
+	url@2.5.4
+	utf16_iter@1.0.5
+	utf8_iter@1.0.4
 	utf8parse@0.2.2
-	uuid@1.11.0
+	uuid@1.12.0
 	vcpkg@0.2.15
 	wait-timeout@0.2.0
 	walkdir@2.5.0
 	want@0.3.1
 	wasi@0.11.0+wasi-snapshot-preview1
-	wasm-bindgen-backend@0.2.95
-	wasm-bindgen-futures@0.4.45
-	wasm-bindgen-macro-support@0.2.95
-	wasm-bindgen-macro@0.2.95
-	wasm-bindgen-shared@0.2.95
-	wasm-bindgen@0.2.95
-	web-sys@0.3.72
+	wasm-bindgen-backend@0.2.100
+	wasm-bindgen-futures@0.4.50
+	wasm-bindgen-macro-support@0.2.100
+	wasm-bindgen-macro@0.2.100
+	wasm-bindgen-shared@0.2.100
+	wasm-bindgen@0.2.100
+	web-sys@0.3.77
+	web-time@1.1.0
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.9
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
 	windows-core@0.52.0
-	windows-core@0.58.0
-	windows-implement@0.58.0
-	windows-interface@0.58.0
+	windows-core@0.59.0
+	windows-implement@0.59.0
+	windows-interface@0.59.0
 	windows-registry@0.2.0
 	windows-result@0.2.0
+	windows-result@0.3.0
 	windows-strings@0.1.0
+	windows-strings@0.3.0
 	windows-sys@0.48.0
 	windows-sys@0.52.0
 	windows-sys@0.59.0
 	windows-targets@0.48.5
 	windows-targets@0.52.6
-	windows@0.58.0
+	windows-targets@0.53.0
+	windows@0.59.0
 	windows_aarch64_gnullvm@0.48.5
 	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_gnullvm@0.53.0
 	windows_aarch64_msvc@0.48.5
 	windows_aarch64_msvc@0.52.6
+	windows_aarch64_msvc@0.53.0
 	windows_i686_gnu@0.48.5
 	windows_i686_gnu@0.52.6
+	windows_i686_gnu@0.53.0
 	windows_i686_gnullvm@0.52.6
+	windows_i686_gnullvm@0.53.0
 	windows_i686_msvc@0.48.5
 	windows_i686_msvc@0.52.6
+	windows_i686_msvc@0.53.0
 	windows_x86_64_gnu@0.48.5
 	windows_x86_64_gnu@0.52.6
+	windows_x86_64_gnu@0.53.0
 	windows_x86_64_gnullvm@0.48.5
 	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_gnullvm@0.53.0
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.6
+	windows_x86_64_msvc@0.53.0
 	winres@0.1.12
-	xattr@1.3.1
+	write16@1.0.0
+	writeable@0.5.5
+	xattr@1.4.0
+	yoke-derive@0.7.5
+	yoke@0.7.5
 	zerocopy-derive@0.7.35
 	zerocopy@0.7.35
+	zerofrom-derive@0.1.5
+	zerofrom@0.1.5
 	zeroize@1.8.1
+	zerovec-derive@0.10.3
+	zerovec@0.10.4
 "
 
 inherit cargo
@@ -282,7 +323,7 @@ SRC_URI="
 
 LICENSE="MIT"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0 BSD ISC MIT MPL-2.0 Unicode-DFS-2016"
+LICENSE+=" Apache-2.0 BSD ISC MIT MPL-2.0 Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
