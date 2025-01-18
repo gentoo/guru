@@ -70,6 +70,7 @@ RESTRICT="strip"
 RDEPEND="
 	${PYTHON_DEPS}
 	!~dev-lang/swift-5.10.1:0
+	>=app-arch/zstd-1.5
 	>=dev-db/sqlite-3
 	>=dev-libs/icu-69
 	>=dev-libs/libedit-20221030

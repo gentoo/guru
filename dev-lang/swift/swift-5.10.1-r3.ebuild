@@ -68,6 +68,7 @@ RESTRICT="strip"
 
 RDEPEND="
 	${PYTHON_DEPS}
+	>=app-arch/zstd-1.5
 	>=app-eselect/eselect-swift-1.0
 	>=dev-db/sqlite-3
 	>=dev-libs/icu-69
