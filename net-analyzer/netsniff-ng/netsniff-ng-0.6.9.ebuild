@@ -26,6 +26,7 @@ RDEPEND="
 	net-libs/libnet:1.1
 	net-libs/libnetfilter_conntrack
 	net-libs/libpcap
+	dev-libs/libsodium:=
 	sys-libs/ncurses:0=
 	geoip? ( dev-libs/geoip )
 	zlib? ( sys-libs/zlib:= )
@@ -34,7 +35,6 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	app-alternatives/lex
 	sys-devel/bison
-	dev-libs/libsodium
 	virtual/pkgconfig
 "
 
