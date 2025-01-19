@@ -23,7 +23,6 @@ SRC_URI+=" https://github.com/chriskohlhoff/asio/archive/${ASIO_COMMIT}.tar.gz -
 EXPRTK_COMMIT="ca58bbd8bcf1165dbe20268e91ccfd2d0e18e5dc"
 SRC_URI+=" https://github.com/ArashPartow/exprtk/archive/${EXPRTK_COMMIT}.tar.gz -> ${PN}-exprtk-{${EXPRTK_COMMIT}.tar.gz"
 
-
 S="${WORKDIR}/BespokeSynth-${PV}"
 
 LICENSE="GPL-3"
@@ -61,7 +60,6 @@ src_prepare() {
 	#  For now, I'll leave it in here like this.
 	# rm "${S}/libs/ableton-link/cmake_include/AsioStandaloneConfig.cmake" || die
 	# eapply "${FILESDIR}/ableton-link-dependencies.patch"
-
 
 	rmdir "${S}/libs/oddsound-mts/MTS-ESP" || die
 	mv "${WORKDIR}/MTS-ESP-${ODDSOUND_COMMIT}" "${S}/libs/oddsound-mts/MTS-ESP" || die
