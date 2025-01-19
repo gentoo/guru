@@ -12,7 +12,7 @@ SRC_URI="https://github.com/artemsen/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="avif bash-completion exif exr gif heif jpeg jpegxl png svg test tiff webp X"
+IUSE="avif bash-completion exif exr gif heif jpeg jpegxl png sixel svg test tiff webp X"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -30,6 +30,7 @@ RDEPEND="
 	jpeg? ( media-libs/libjpeg-turbo:= )
 	jpegxl? ( media-libs/libjxl:= )
 	png? ( media-libs/libpng:= )
+	sixel? ( media-libs/libsixel )
 	svg? (
 		dev-libs/glib:2
 		gnome-base/librsvg:2
@@ -56,6 +57,7 @@ src_configure() {
 		$(meson_feature jpeg)
 		$(meson_feature jpegxl jxl)
 		$(meson_feature png)
+		$(meson_feature sixel)
 		$(meson_feature svg)
 		$(meson_feature test tests)
 		$(meson_feature tiff)
