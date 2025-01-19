@@ -1,0 +1,43 @@
+diff --git a/libDF/Cargo.toml b/libDF/Cargo.toml
+index 3f30115..35ee53c 100644
+--- a/libDF/Cargo.toml
++++ b/libDF/Cargo.toml
+@@ -31,7 +31,13 @@ required-features = ["bin", "tract", "wav-utils", "transforms"]
+ [features]
+ default = ["default-model", "vorbis", "flac"]
+ 
+-transforms = ["dep:thiserror", "dep:ndarray", "dep:rubato"]
++transforms = [
++  "wav-utils",
++  "dep:thiserror",
++  "dep:ndarray",
++  "dep:rubato",
++]
++
+ dataset = [
+   "dep:thiserror",
+   "dep:ndarray",
+@@ -125,6 +131,8 @@ rand = "0.8"
+ rstest = "0.17"
+ env_logger = "0.10"
+ log = { version = "0.4", features = ["std"] }
++rand_xoshiro = "0.6"
++crossbeam-channel = "^0.5"
+ 
+ [package.metadata.capi.header]
+ name = "deep_filter"
+diff --git a/libDF/src/lib.rs b/libDF/src/lib.rs
+index bac7f48..e9b9b4d 100644
+--- a/libDF/src/lib.rs
++++ b/libDF/src/lib.rs
+@@ -14,6 +14,10 @@ pub const UNIT_NORM_INIT: [f32; 2] = [0.001, 0.0001];
+ 
+ #[cfg(any(feature = "transforms", feature = "dataset"))]
+ pub mod transforms;
++
++#[cfg(all(feature = "transforms", test))]
++pub mod util;
++
+ #[cfg(feature = "dataset")]
+ #[path = ""]
+ mod reexport_dataset_modules {

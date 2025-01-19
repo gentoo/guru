@@ -547,6 +547,7 @@ S=${WORKDIR}/DeepFilterNet-${PV}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-library-path.patch"
+	"${FILESDIR}/${PN}-test-deps.patch"
 	"${FILESDIR}/${PN}-0.5.6-use-updated-time.patch"
 )
 
