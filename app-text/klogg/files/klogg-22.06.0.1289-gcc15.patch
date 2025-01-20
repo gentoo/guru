@@ -1,0 +1,12 @@
+https://bugs.gentoo.org/945010
+Add missing include.
+--- a/maddy/bb6b5ce266bb630fda8e2296d64604959cd99c66/include/maddy/blockparser.h
++++ b/maddy/bb6b5ce266bb630fda8e2296d64604959cd99c66/include/maddy/blockparser.h
+@@ -6,6 +6,7 @@
+ 
+ // -----------------------------------------------------------------------------
+ 
++#include <cstdint>
+ #include <functional>
+ #include <sstream>
+ #include <string>

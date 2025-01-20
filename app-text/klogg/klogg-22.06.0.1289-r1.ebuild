@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit xdg cmake
+inherit cmake xdg
 
 DESCRIPTION="A GUI application to browse and search through long and complex log files"
 HOMEPAGE="https://klogg.filimonov.dev"
@@ -44,6 +44,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${P}-missing-include.patch"
+	"${FILESDIR}/${P}-respect-cxxflags.patch"
 )
 
 src_unpack() {
@@ -55,6 +56,9 @@ src_unpack() {
 
 src_prepare() {
 	cmake_src_prepare
+
+	cd "${WORKDIR}/cpm_cache" || die
+	eapply "${FILESDIR}/${P}-gcc15.patch"
 }
 
 src_configure() {
