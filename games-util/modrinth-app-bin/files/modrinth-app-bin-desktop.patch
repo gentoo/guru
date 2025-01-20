@@ -1,0 +1,15 @@
+diff --git a/usr/share/applications/modrinth-app-bin.desktop b/usr/share/applications/modrinth-app-bi.desktop
+index 802f685..898b247 100644
+--- a/usr/share/applications/modrinth-app-bin.desktop
++++ b/usr/share/applications/modrinth-app-bin.desktop
+@@ -1,8 +1,8 @@
+ [Desktop Entry]
+ Categories=Game;
+-Exec=ModrinthApp
++Exec="/opt/modrinth-app-bin/modrinth-app-bin" %U
+ Icon=ModrinthApp
+ Name=Modrinth App
+ Terminal=false
+ Type=Application
+ MimeType=application/zip+mrpack;x-scheme-handler/modrinth
+
