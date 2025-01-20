@@ -11,25 +11,23 @@ SRC_URI="https://launcher-files.modrinth.com/versions/${PV}/linux/Modrinth%20App
 
 S="${WORKDIR}"
 
-LICENSE="GPL-3.0-only"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 # Tauri deps
 RDEPEND="
-    sys-apps/dbus
-    net-libs/webkit-gtk:4.1
-    dev-libs/libappindicator
-    x11-libs/gtk+:3
-    net-libs/libsoup
-    gnome-base/librsvg
+	sys-apps/dbus
+	net-libs/webkit-gtk:4.1
+	x11-libs/gtk+:3
+	net-libs/libsoup
+	gnome-base/librsvg
 "
 # Minecraft deps
 RDEPEND+="
-    x11-libs/libX11
-    media-libs/libpulse
-    x11-libs/libXxf86vm
+	x11-libs/libX11
+	media-libs/libpulse
+	x11-libs/libXxf86vm
 "
 BDEPEND="app-arch/unzip"
 
@@ -40,11 +38,11 @@ PATCHES=(
 )
 
 src_unpack() {
-    unpack_deb ${A}
+	unpack_deb ${A}
 }
 
 src_prepare() {
-    mv "${S}/usr/share/applications/Modrinth App.desktop"\
+	mv "${S}/usr/share/applications/Modrinth App.desktop"\
 		"${S}/usr/share/applications/${PN}.desktop"
 
 	default
@@ -53,18 +51,18 @@ src_prepare() {
 }
 
 src_install() {
-    ICONDIR="usr/share/icons/hicolor"
+	ICONDIR="usr/share/icons/hicolor"
 	DESTDIR="/opt/${PN}"
 
-    doicon -s 128 "${ICONDIR}/128x128/apps/ModrinthApp.png"
+	doicon -s 128 "${ICONDIR}/128x128/apps/ModrinthApp.png"
 	doicon -s 256 "${ICONDIR}/256x256@2/apps/ModrinthApp.png"
 
-    domenu "${S}/usr/share/applications/${PN}.desktop"
+	domenu "${S}/usr/share/applications/${PN}.desktop"
 
-    dodir /opt/${PN}
+	dodir /opt/${PN}
 
-    exeinto "${DESTDIR}"
-    doexe "${S}/usr/bin/${PN}"
+	exeinto "${DESTDIR}"
+	doexe "${S}/usr/bin/${PN}"
 }
 
 pkg_postinst() {
