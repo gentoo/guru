@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>truffle074@gmail.com</email>
+		<name>Bryce Copeland</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Hendrik Wolff</name>
+			<email>hendrik.wolff@agdsn.me</email>
+		</maintainer>
+		<bugs-to>https://gitlab.com/w0lff/shikane/-/issues</bugs-to>
+		<remote-id type="gitlab">w0lff/shikane</remote-id>
+	</upstream>
+</pkgmetadata>
