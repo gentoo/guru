@@ -6,9 +6,6 @@
     <name>Daichi Yamamoto</name>
   </maintainer>
   <stabilize-allarches />
-  <use>
-    <flag name="nerdfonts">Install Nerd Fonts composite version</flag>
-  </use>
   <upstream>
     <remote-id type="github">yuru7/moralerspace</remote-id>
   </upstream>
