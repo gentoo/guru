@@ -29,11 +29,6 @@ dev-util/genTree
 # Removal on 2025-01-25.
 media-plugins/gst-plugins-qt5
 
-# Takuya Wakazono <pastalian46@gmail.com> (2024-12-21)
-# Fails to build since fcitx:5 was added. No maintainer.
-# Removal on 2025-01-21. Bug #927492.
-app-i18n/fcitx-skk
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2024-12-19)
 # pytest-benchmark is unmaintained in ::guru, should not be used in tests.
 # https://public-inbox.gentoo.org/gentoo-guru/Z2L4IZBNBJEMqnbj@sysrq.in/
