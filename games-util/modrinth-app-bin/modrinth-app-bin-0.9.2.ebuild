@@ -18,10 +18,14 @@ KEYWORDS="~amd64"
 # Tauri deps
 RDEPEND="
 	sys-apps/dbus
+	dev-libs/openssl
 	net-libs/webkit-gtk:4.1
 	x11-libs/gtk+:3
 	net-libs/libsoup
 	gnome-base/librsvg
+	dev-libs/glib
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
 "
 # Minecraft deps
 RDEPEND+="
