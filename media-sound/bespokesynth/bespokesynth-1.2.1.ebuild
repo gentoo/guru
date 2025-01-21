@@ -32,6 +32,7 @@ DEPEND="
 	dev-libs/jsoncpp
 	dev-cpp/asio
 	>=virtual/jack-2
+	x11-libs/libX11
 	x11-libs/libXrandr
 "
 
