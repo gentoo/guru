@@ -1,0 +1,47 @@
+The patch provided by Bill Binder on Gentoo bugzilla[1]; it:
+- Removes bundled tinyxml2
+- Removes mimedb actions from build
+
+[1]: https://bugs.gentoo.org/903035
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 43ba5ede..5a6d1c3f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -31,6 +31,8 @@ option(WXFB_ENABLE_EXTRA_CHECKS "Enable additional static code analysis." OFF)
+ # TODO: Currently generator languages cannot be configured
+ set(WXFB_GENERATOR_LANGUAGES cpp python lua php CACHE INTERNAL "")
+ 
++find_package(TINYXML2 REQUIRED)
++
+ # Adjust paths to match wxStandardPaths implementation, use own cache variables to share across CMake scopes
+ include(GNUInstallDirs)
+ if(WIN32)
+@@ -103,9 +105,6 @@ add_subdirectory(plugins)
+ add_subdirectory(sdk)
+ add_subdirectory(third_party/md5)
+ add_subdirectory(third_party/stack_trace)
+-stash_variable(BUILD_SHARED_LIBS ${WXFB_TINYXML2_SHARED})
+-add_subdirectory(third_party/tinyxml2 EXCLUDE_FROM_ALL)
+-restore_variable(BUILD_SHARED_LIBS)
+ 
+ if(NOT WXFB_BUILD_PLUGIN_HOST)
+   wxfb_configure_postbuild()
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index dfd612d2..d13907b3 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -280,14 +280,6 @@ if(NOT WIN32 AND NOT APPLE)
+     DIRECTORY "${PROJECT_SOURCE_DIR}/data/platform/linux/share/"
+     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}
+   )
+-  install(
+-    CODE
+-    "
+-      find_program(update-mime-database_cmd NAMES update-mime-database REQUIRED)
+-      mark_as_advanced(update-mime-database_cmd)
+-      execute_process(COMMAND \"\${update-mime-database_cmd}\" \"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATAROOTDIR}/mime\")
+-    "
+-  )
+ endif()
+ 
+ if(WIN32)
