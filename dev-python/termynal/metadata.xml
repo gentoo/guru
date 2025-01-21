@@ -6,6 +6,6 @@
         <name>Gasc Henri</name>
     </maintainer>
     <upstream>
-        <remote-id type="github">termynal/termynal.py.git</remote-id>
+        <remote-id type="github">termynal/termynal.py</remote-id>
     </upstream>
 </pkgmetadata>

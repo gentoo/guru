@@ -1,10 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="
@@ -28,12 +28,6 @@ RDEPEND="
 	dev-python/markdown[${PYTHON_USEDEP}]
 	>=dev-python/mkdocs-1.4[${PYTHON_USEDEP}]
 	<dev-python/mkdocs-2.0[${PYTHON_USEDEP}]
-"
-BDEPEND="
-	test? (
-		>=dev-python/pytest-mock-3.14[${PYTHON_USEDEP}]
-		>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
-	)
 "
 DEPEND="${RDEPEND}"
 
