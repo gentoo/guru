@@ -19,14 +19,6 @@
 # New entries go on top.
 
 # Julien Roy <julien@jroy.ca>
-# Depends on <dev-python/httpx-0.28.0 which is no longer in tree
-# Masked for removal on 2024-02-05
-# Or not if a newer version supports a httpx version that's in tree
-dev-python/cloudflare
-# Revdeps
-app-crypt/certbot-dns-cloudflare
-
-# Julien Roy <julien@jroy.ca>
 # Depends on dev-python/zenlib-3.1.2 which isn't yet in tree
 # https://github.com/gentoo/gentoo/pull/39922
 # Shall be unmasked when the PR is merged
