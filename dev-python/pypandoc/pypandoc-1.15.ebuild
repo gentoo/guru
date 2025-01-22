@@ -15,7 +15,6 @@ SRC_URI="https://github.com/JessicaTegner/pypandoc/archive/refs/tags/v${PV}.tar.
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-RESTRICT="test"
 
 DOCS+=( examples README.md LICENSE )
 
