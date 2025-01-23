@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2025-01-23)
+# Depends on dev-qt/qtbluetooth:5, which is masked in ::gentoo and will
+# be removed.
+# Removal on 2025-02-23.
+gui-apps/coretoppings
+
 # Julien Roy <julien@jroy.ca>
 # Depends on dev-python/zenlib-3.1.2 which isn't yet in tree
 # https://github.com/gentoo/gentoo/pull/39922
