@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson xdg
+inherit meson
 
 DESCRIPTION="S* Floating Window Bar"
 HOMEPAGE="https://github.com/LBCrion/sfwbar"
@@ -13,7 +13,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="X mpd pulseaudio alsa"
+IUSE="+menu X mpd pulseaudio alsa network networkmanager iwd bluetooth notification man idleinhibit bsdctl"
 
 COMMON_DEPEND="
 	dev-libs/glib:2
@@ -43,14 +43,16 @@ src_configure() {
 		$(meson_feature mpd)
 		$(meson_feature pulseaudio pulse)
 		$(meson_feature X xkb)
-		-Dnetwork=enabled
-		-Didleinhibit=enabled
-		-Dbluez=enabled
-		-Dbsdctl=disabled
-		-Diwd=enabled
-		-Dnm=enabled
-		-Dappmenu=enabled
-		-Dncenter=enabled
+		$(meson_feature network)
+		$(meson_feature networkmanager nm)
+		$(meson_feature iwd)
+		$(meson_feature menu appmenu)
+		$(meson_feature bluetooth bluez)
+		$(meson_feature bsdctl)
+		$(meson_feature notification ncenter)
+		$(meson_feature notification idle)
+		$(meson_feature man build-docs)
+		$(meson_feature idleinhibit)
 	)
 
 	meson_src_configure
