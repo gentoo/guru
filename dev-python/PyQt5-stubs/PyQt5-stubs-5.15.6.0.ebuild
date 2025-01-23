@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11,12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1
 
@@ -25,7 +25,7 @@ KEYWORDS="~amd64"
 DEPEND="test? (
 		dev-python/mypy[${PYTHON_USEDEP}]
 		dev-python/pyqtwebengine[${PYTHON_USEDEP}]
-		dev-python/pyqt5[${PYTHON_USEDEP},bluetooth,dbus,declarative,designer,location,multimedia,network,opengl,positioning,serialport,sql,svg,widgets]
+		dev-python/pyqt5[${PYTHON_USEDEP},dbus,declarative,designer,location,multimedia,network,opengl,positioning,serialport,sql,svg,widgets]
 	)
 "
 
