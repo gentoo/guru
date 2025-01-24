@@ -61,8 +61,8 @@ src_configure() {
 
 src_install() {
 	default
-	dobashcomp "${S}"/completions/bash/ug "${S}"/completions/bash/ugrep-indexer
-	dofishcomp "${S}"/completions/fish/*.fish
+	dobashcomp "${S}"/completions/bash/*
+	dofishcomp "${S}"/completions/fish/*
 	dozshcomp "${S}"/completions/zsh/_*
 }
 
