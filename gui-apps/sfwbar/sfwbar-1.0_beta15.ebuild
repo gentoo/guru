@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson
+inherit meson xdg-utils
 
 DESCRIPTION="S* Floating Window Bar"
 HOMEPAGE="https://github.com/LBCrion/sfwbar"
@@ -53,4 +53,12 @@ src_configure() {
 	)
 
 	meson_src_configure
+}
+
+pkg_postinst() {
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 }
