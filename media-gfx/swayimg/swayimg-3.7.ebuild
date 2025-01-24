@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -46,6 +46,11 @@ BDEPEND="
 	dev-util/wayland-scanner
 	test? ( dev-cpp/gtest )
 "
+
+PATCHES=(
+	# bug #948480
+	"${FILESDIR}/${P}-fix-build-without-libpng.patch"
+)
 
 src_configure() {
 	local emesonargs=(
