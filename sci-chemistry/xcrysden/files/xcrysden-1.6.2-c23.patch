@@ -1,0 +1,12 @@
+https://bugs.gentoo.org/945707
+Fix conflicting types for fabs.
+--- a/C/xcBz.c
++++ b/C/xcBz.c
+@@ -1397,7 +1397,6 @@ static int
+ BzGetISS( int typ )
+ {
+   int imen[3 * BZ_MAXPOINTS], imin = 0;
+-  double fabs();
+   register int iss;
+   register double f, point;
+   register double tol = (double)(BZ_ISS - 1)/(double)BZ_ISS - (double)(BZ_ISS - 2)/(double)(BZ_ISS - 1);
