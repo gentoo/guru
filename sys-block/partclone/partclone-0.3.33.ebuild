@@ -3,7 +3,8 @@
 
 EAPI=8
 
-inherit autotools flag-o-matic
+inherit autotools
+
 if [[ -z ${PV%%*9999} ]]; then
 	EGIT_REPO_URI="https://github.com/Thomas-Tsai/${PN}.git"
 	inherit git-r3
@@ -14,36 +15,33 @@ else
 	"
 	KEYWORDS="~amd64 ~x86"
 fi
-
+RESTRICT="strip"
 DESCRIPTION="Partition cloning tool"
 HOMEPAGE="https://partclone.org"
 
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="
-apfs btrfs +e2fs exfat f2fs fat fuse hfs jfs minix ncurses nilfs2 ntfs
-reiserfs static ufs vmfs xfs
+apfs btrfs +e2fs exfat f2fs fat fuse hfs minix ncurses nilfs2 ntfs
+reiserfs static test ufs vmfs xfs
 "
+RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-libs/openssl:*
+	dev-libs/openssl:0=
 	e2fs? ( sys-fs/e2fsprogs )
 	btrfs? ( sys-apps/util-linux )
-	fuse? ( sys-fs/fuse:0 )
-	jfs? ( sys-fs/jfsutils )
-	ncurses? ( sys-libs/ncurses:0 )
+	fuse? ( sys-fs/fuse:3 )
+	ncurses? ( sys-libs/ncurses:0= )
 	nilfs2? ( sys-fs/nilfs-utils )
 	ntfs? ( sys-fs/ntfs3g )
 	reiserfs? ( sys-fs/progsreiserfs )
 	xfs? ( sys-apps/util-linux )
 	static? (
-		dev-libs/openssl:*[static-libs]
-		e2fs? (
-			sys-fs/e2fsprogs[static-libs]
-		)
+		dev-libs/openssl:0[static-libs]
+		e2fs? ( sys-fs/e2fsprogs[static-libs] )
 		btrfs? ( sys-apps/util-linux[static-libs] )
 		fuse? ( sys-fs/fuse:0[static-libs] )
-		jfs? ( sys-fs/jfsutils[static] )
 		ncurses? ( sys-libs/ncurses:0[static-libs] )
 		nilfs2? ( sys-fs/nilfs-utils[static-libs] )
 		ntfs? ( sys-fs/ntfs3g[static-libs] )
@@ -53,12 +51,23 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-DOCS=( AUTHORS ChangeLog HACKING NEWS README.md TODO )
+BDEPEND="
+	virtual/pkgconfig
+"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-fix-ncurses-linking.patch
+)
+
+DOCS=(
+	AUTHORS
+	ChangeLog
+	HACKING
+	NEWS
+	README.md
+)
 
 src_prepare() {
-	for f in "${FILESDIR}/${PN}-"*.patch; do
-		eapply "$f"
-	done
 	default
 	eautoreconf
 }
@@ -73,17 +82,18 @@ src_configure() {
 		$(use_enable fat)
 		$(use_enable fuse)
 		$(use_enable hfs hfsp)
-		$(use_enable jfs)
 		$(use_enable minix)
 		$(use_enable ncurses ncursesw)
 		$(use_enable nilfs2)
 		$(use_enable ntfs)
 		$(use_enable reiserfs)
+		$(use_enable test fs-test)
 		$(use_enable static)
 		$(use_enable vmfs)
 		$(use_enable ufs)
 		$(use_enable xfs)
+		--disable-jfs
+		--disable-reiser4
 	)
-	append-flags -fcommon
 	econf "${myconf[@]}"
 }
