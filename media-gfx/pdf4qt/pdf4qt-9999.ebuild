@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -43,10 +43,8 @@ DEPEND="$RDEPEND
 DOCS=( NOTES.txt README.md RELEASES.txt )
 PATCHES=(
 	"${FILESDIR}/pdf4qt-1.4.0.0-minor-fix-remove-extention-from-Icon-endtry-in-a-des.patch"
-	"${FILESDIR}/pdf4qt-1.4.0.0-Minimal-cmake-fixes.patch"
+	"${FILESDIR}/pdf4qt-1.4.9999-Minimal-cmake-fixes.patch"
 	"${FILESDIR}/pdf4qt-1.4.0.0-Make-runtime-respect-cmake-s-plugin-dir-settings.patch"
-	# remove when Qt6.8 is stable
-	"${FILESDIR}/pdf4qt-1.4.9999-Support-build-against-Qt-6.7.patch"
 )
 
 src_prepare() {
