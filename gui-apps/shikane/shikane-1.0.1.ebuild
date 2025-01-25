@@ -135,7 +135,7 @@ S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="+man"
 
 BDEPEND="
@@ -145,6 +145,12 @@ BDEPEND="
 # Crates handle pretty much all dependencies,
 # final binary only depends on stdlib
 #DEPEND="dev-libs/wayland-protocols"
+
+# exception for rust binaries trigger "doesn't respect CFLAGS"
+QA_FLAGS_IGNORED=(
+	"/usr/bin/shikane"
+	"/usr/bin/shikanectl"
+)
 
 src_prepare() {
 	default
