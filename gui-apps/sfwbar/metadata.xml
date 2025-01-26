@@ -6,7 +6,16 @@
 		<name>Lev Babiev</name>
 	</maintainer>
 	<use>
-		<flag name="mpd">Add support for Music Player Daemon</flag>
+		<flag name="mpd">Enable support for Music Player Daemon</flag>
+		<flag name="menu">Enable support for application menu generator. Default enabled by upstream</flag>
+		<flag name="network">Enable support for network related features</flag>
+		<flag name="networkmanager">Enable support for the networkmanager wifi module</flag>
+		<flag name="iwd">Enable support for the iwd wifi module</flag>
+		<flag name="notification">Enable support for notification center and idle notifications</flag>
+		<flag name="bluetooth">Enable support for bluetooth with the bluez module</flag>
+		<flag name="idleinhibit">Enable support for Idle inhibit protocol. Prevents screenlockers (e.g swaylock) from popping up by inhibiting idle mode</flag>
+		<flag name="bsdctl">Enable support for BSD sysctl module. Default disabled by upstream</flag>
+		<flag name="man">Rebuild man pages from rst files</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">LBCrion/sfwbar</remote-id>
