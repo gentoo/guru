@@ -7,8 +7,7 @@
 		<description>A copy from https://github.com/MrPenguin07/ebuilds/tree/master/dev-ml/ollama</description>
 	</maintainer>
 	<use>
-		<flag name="nvidia">Add support of nvidia</flag>
-		<flag name="amd">Add support of amd</flag>
+		<flag name="cuda">Enable NVIDIA CUDA support</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">ollama/ollama</remote-id>
