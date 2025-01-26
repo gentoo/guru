@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<remote-id type="github">stevenshiau/clonezilla</remote-id>
+	</upstream>
+	<use>
+		<flag name="apfs">Support apfs by partclone</flag>
+		<flag name="btrfs">Support btrfs by partclone</flag>
+		<flag name="e2fs">Support e2fs by partclone</flag>
+		<flag name="exfat">Support exfat by partclone</flag>
+		<flag name="f2fs">Support f2fs by partclone</flag>
+		<flag name="fat">Support fat by partclone</flag>
+		<flag name="fuse">Support fuse by partclone</flag>
+		<flag name="hfs">Support hfs by partclone</flag>
+		<flag name="minix">Support minix by partclone</flag>
+		<flag name="nilfs2">Support nilfs2 by partclone</flag>
+		<flag name="ntfs">Support ntfs by partclone</flag>
+		<flag name="reiserfs">Support reiserfs by partclone</flag>
+		<flag name="ufs">Support ufs by partclone</flag>
+		<flag name="vmfs">Support vmfs by partclone</flag>
+		<flag name="xfs">Support xfs by partclone</flag>
+	</use>
+</pkgmetadata>
