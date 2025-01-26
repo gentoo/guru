@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop flag-o-matic xdg
+inherit desktop flag-o-matic toolchain-funcs xdg
 
 DESCRIPTION="For the visualisation of molecular and crystal structures."
 
@@ -41,24 +41,27 @@ PATCHES=(
 src_prepare() {
 	default
 	cp "${S}/system/Make.sys-shared" "${S}/Make.sys" || die 'Copying Make.sys to build dir failed.'
+
+	# fix doc install path
+	sed -e "s|share/doc/\$(xcrysden)|share/doc/${PF}|" \
+		-e "/ln -sf .*doc/d" \
+		-e "/gzip/d" \
+		-i Makefile || die
 }
 
 src_compile() {
 	append-cflags "-fcommon"
-	emake xcrysden
+	emake xcrysden \
+		CC="$(tc-getBUILD_CC)" \
+		FC="$(tc-getFC)"
 }
 
 src_install() {
 	emake \
-		prefix="${D}"/usr \
+		prefix="${ED}"/usr \
 		install
 
 	domenu "${FILESDIR}/${PN}.desktop"
 	doicon -s 32x32 "${FILESDIR}/icons/${PN}.png"
-	docompress -x /usr/share/doc/${P}/examples/GAUSSIAN_files/ \
-		/usr/share/doc/${P}/examples/Orca_files/ \
-		/usr/share/doc/${P}/examples/XSF_Files/ \
-		/usr/share/doc/${P}/examples/Scripting/ \
-		/usr/share/doc/${P}/examples/FermiSurface \
-		/usr/share/man/
+	docompress -x /usr/share/doc/${PF}/examples
 }
