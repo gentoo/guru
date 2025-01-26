@@ -1,7 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+inherit toolchain-funcs
 
 COMMIT="55ff64349dec3012cfbbb1c4f92d4dbd46920213"
 
@@ -17,11 +19,21 @@ KEYWORDS="~amd64"
 
 PATCHES=(
 	"${FILESDIR}"/${PV}-fix-tests.patch
-	"${FILESDIR}"/${PV}-fix-flags-directly.patch
 )
 
-src_test() {
+src_prepare() {
 	default
+
+	# fix hardcoded ar
+	sed -i "s/ar/$(tc-getAR)/" Makefile || die
+}
+
+src_compile() {
+	emake CC="$(tc-getCC)" CFLAGS="${CFLAGS}"
+}
+
+src_test() {
+	emake test CC="$(tc-getCC)" CFLAGS="${CFLAGS}"
 	./bcrypt_test || die "Tests failed!"
 }
 
