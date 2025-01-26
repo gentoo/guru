@@ -14,7 +14,6 @@
 		<flag name="fat">Compile partclone fat tool</flag>
 		<flag name="fuse">Compile partclone fuse tool</flag>
 		<flag name="hfs">Compile partclone hfs tool</flag>
-		<flag name="jfs">Compile partclone jfs tool</flag>
 		<flag name="minix">Compile partclone minix tool</flag>
 		<flag name="nilfs2">Compile partclone nilfs2 tool</flag>
 		<flag name="ntfs">Compile partclone ntfs tool</flag>
