@@ -16,7 +16,7 @@ CRATES="
 	anstyle-query@1.0.0
 	anstyle-wincon@1.0.1
 	anstyle@1.0.1
-	anyhow@1.0.93
+	anyhow@1.0.95
 	async-io@1.13.0
 	async-lock@2.7.0
 	async-trait@0.1.83
@@ -143,9 +143,9 @@ CRATES="
 	scoped-tls@1.0.1
 	scopeguard@1.2.0
 	semver@1.0.23
-	serde@1.0.215
-	serde_derive@1.0.215
-	serde_json@1.0.133
+	serde@1.0.217
+	serde_derive@1.0.217
+	serde_json@1.0.134
 	serde_repr@0.1.16
 	serde_spanned@0.6.6
 	serde_with@3.8.1
