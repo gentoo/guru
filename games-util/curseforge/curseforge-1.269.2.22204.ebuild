@@ -3,47 +3,58 @@
 
 EAPI=8
 
-inherit desktop
+CHROMIUM_LANGS="
+	af am ar bg bn ca cs da de el en-GB en-US es es-419 et fa fi fil fr gu he hi
+	hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv
+	sw ta te th tr uk ur vi zh-CN zh-TW
+"
+
+inherit chromium-2 desktop unpacker
 
 DESCRIPTION="The CurseForge Electron App"
 HOMEPAGE="https://www.curseforge.com/"
-SRC_URI="https://curseforge.overwolf.com/downloads/curseforge-latest-linux.zip"
-S="${WORKDIR}/build"
+SRC_URI="https://curseforge.overwolf.com/downloads/curseforge-latest-linux.deb"
+S="${WORKDIR}/"
 
 LICENSE="Overwolf MIT Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="bindist mirror strip test"
 
-RDEPEND="
-	sys-fs/fuse:0
-"
-DEPEND=${RDEPEND}
-BDEPEND="
-	app-arch/unzip
-"
-
 DESTDIR="/opt/${PN}"
 
-src_install() {
-	mv ./CurseForge-*.AppImage CurseForge.AppImage
-	chmod +x CurseForge.AppImage
-	./CurseForge.AppImage --appimage-extract >/dev/null
-	sed -i 's/Exec=.*/Exec=\/usr\/bin\/curseforge %U/' squashfs-root/curseforge.desktop
+src_configure() {
+	default
+	chromium_suid_sandbox_check_kernel_config
+}
 
-	doicon -s 256 squashfs-root/curseforge.png
-	domenu squashfs-root/curseforge.desktop
+src_install() {
+	sed -i 's/Exec=.*/Exec=\/usr\/bin\/curseforge %U/'  \
+		"usr/share/applications/curseforge.desktop" \
+		|| die "Failed correcting .desktop file"
+
+	doicon -s 256 "usr/share/icons/hicolor/256x256/apps/curseforge.png"
+	domenu "usr/share/applications/curseforge.desktop"
 
 	exeinto "${DESTDIR}"
-	doexe CurseForge.AppImage "${FILESDIR}/curseforge"
+	cd opt/CurseForge/ || die "Failed changing directory to unpacked source"
+	doexe curseforge chrome-sandbox libEGL.so libGLESv2.so libffmpeg.so libvk_swiftshader.so libvulkan.so.1
+
+	insinto "${DESTDIR}"
+	doins chrome_100_percent.pak chrome_200_percent.pak icudtl.dat resources.pak snapshot_blob.bin v8_context_snapshot.bin
+	insopts -m0755
+	doins -r locales resources
+
+	fowners root "${DESTDIR}/chrome-sandbox"
+	fperms 4711 "${DESTDIR}/chrome-sandbox"
+
+	[[ -x chrome_crashpad_handler ]] && doins chrome_crashpad_handler
 
 	dosym "${DESTDIR}/curseforge" "/usr/bin/curseforge"
 }
 
 pkg_postinst() {
-	elog "This package is an AppImage that will keep itself up-to-date."
-	elog "Older versions cannot be saved since only the latest version"
-	elog "is available upstream. Fuse is required as of Version 1.269.2-22204"
-	elog "because the AppImage is the only way to start the App. May change in"
-	elog "the future. CurseForge is not open-source."
+	elog "This package will keep itself up-to-date."
+	elog "No need to download any ebuilds in the future."
+	elog "CurseForge is not open-source."
 }
