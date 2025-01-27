@@ -10,7 +10,8 @@ SRC_URI="https://github.com/stevenshiau/drbl/archive/refs/tags/v${PV}.tar.gz -> 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-DEPEND="
+
+RDEPEND="
 	net-misc/ipcalc
 	sys-devel/bc
 	sys-fs/e2fsprogs
