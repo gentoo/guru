@@ -9,7 +9,7 @@ CHROMIUM_LANGS="
 	sw ta te th tr uk ur vi zh-CN zh-TW
 "
 
-inherit chromium-2 desktop unpacker
+inherit chromium-2 desktop unpacker linux-info
 
 DESCRIPTION="The CurseForge Electron App"
 HOMEPAGE="https://www.curseforge.com/"
