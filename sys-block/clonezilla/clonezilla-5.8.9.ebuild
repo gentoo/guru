@@ -13,7 +13,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="apfs btrfs +e2fs exfat f2fs fat fuse hfs minix nilfs2 ntfs
 reiserfs ufs vmfs xfs"
 
-RDEPEND="${DEPEND}
+DEPEND="
 	sys-apps/file
 	sys-block/parted
 	sys-boot/drbl
