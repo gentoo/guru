@@ -21,7 +21,39 @@ SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="bindist mirror strip test"
 
+DEPEND="
+	app-accessibility/at-spi2-core
+	dev-libs/expat
+	dev-libs/glib
+	dev-libs/nspr
+	dev-libs/nss
+	media-libs/alsa-lib
+	media-libs/fontconfig
+	media-libs/mesa[gbm(+)]
+	net-print/cups
+	sys-apps/dbus
+	sys-libs/glibc
+	x11-libs/cairo
+	x11-libs/libdrm
+	x11-libs/gdk-pixbuf:2
+	x11-libs/gtk+:3
+	x11-libs/libXcomposite
+	x11-libs/libXdamage
+	x11-libs/libXext
+	x11-libs/libXfixes
+	x11-libs/libXrandr
+	x11-libs/libdrm
+	x11-libs/libxcb
+	x11-libs/libxkbcommon
+	x11-libs/pango
+	x11-misc/xdg-utils
+"
+
 DESTDIR="/opt/${PN}"
+
+QA_PREBUILT="*"
+
+CONFIG_CHECK="~USER_NS"
 
 src_configure() {
 	default
