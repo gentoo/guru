@@ -6,6 +6,6 @@
     <name>Steffen Winter</name>
   </maintainer>
   <upstream>
-    <remote-id type="github">martinvonz/jj</remote-id>
+    <remote-id type="github">jj-vcs/jj</remote-id>
   </upstream>
 </pkgmetadata>

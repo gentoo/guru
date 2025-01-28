@@ -6,14 +6,14 @@ EAPI=8
 inherit cargo
 
 DESCRIPTION="Jujutsu - an experimental version control system"
-HOMEPAGE="https://github.com/martinvonz/jj"
+HOMEPAGE="https://github.com/jj-vcs/jj"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/martinvonz/jj.git"
+	EGIT_REPO_URI="https://github.com/jj-vcs/jj.git"
 else
 	SRC_URI="
-		https://github.com/martinvonz/jj/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/jj-vcs/jj/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 		${CARGO_CRATE_URIS}
 	"
 	KEYWORDS="~amd64"
