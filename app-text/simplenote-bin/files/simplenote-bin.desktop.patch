@@ -1,0 +1,12 @@
+diff --git a/usr/share/applications/simplenote.desktop b/usr/share/applications/simplenote.desktop
+index cadb5cc..0bed967 100644
+--- a/usr/share/applications/simplenote.desktop
++++ b/usr/share/applications/simplenote.desktop
+@@ -1,6 +1,6 @@
+ [Desktop Entry]
+ Name=Simplenote
+-Exec=/opt/Simplenote/simplenote %U
++Exec=simplenote --in-process-gpu %U
+ Terminal=false
+ Type=Application
+ Icon=simplenote
