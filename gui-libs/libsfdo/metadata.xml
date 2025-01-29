@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>vincentahluwalia@protonmail.com</email>
+    <name>Vincent Ahluwalia</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="freedesktop-gitlab">vyivel/libsfdo</remote-id>
+  </upstream>
+</pkgmetadata>
