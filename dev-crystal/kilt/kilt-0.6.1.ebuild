@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,7 +18,7 @@ RESTRICT="!test? ( test )"
 TEST_DEPEND="
 	dev-crystal/crustache
 	dev-crystal/jbuilder
-	dev-crystal/liquid
+	<dev-crystal/liquid-1
 	dev-crystal/slang
 	dev-crystal/temel
 	dev-crystal/water
