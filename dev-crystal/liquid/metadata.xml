@@ -7,6 +7,6 @@
 			<name>Arnaud Fernandés</name>
 			<email>arnaud.fernandes@laposte.net</email>
 		</maintainer>
-		<remote-id type="github">TechMagister/liquid.cr</remote-id>
+		<remote-id type="github">amberframework/liquid.cr</remote-id>
 	</upstream>
 </pkgmetadata>
