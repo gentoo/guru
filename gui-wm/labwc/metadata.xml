@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>vincentahluwalia@protonmail.com</email>
+    <name>Vincent Ahluwalia</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">labwc/labwc</remote-id>
+  </upstream>
+  <use>
+    <flag name="icons">Add support for window icons. Icons will only be displayed with USE=svg enabled</flag>
+    <flag name="static-analyzer">Run gcc static analyzer</flag>
+  </use>
+</pkgmetadata>

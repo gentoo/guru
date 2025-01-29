@@ -1,0 +1,9 @@
+--- a/docs/meson.build	2024-07-19 23:06:14.000000000 +0200
++++ b/docs/meson.build	2024-07-20 16:52:29.360804236 +0200
+@@ -35,5 +35,5 @@
+     'rc.xml',
+     'rc.xml.all'
+   ],
+-  install_dir: get_option('datadir') / 'doc' / meson.project_name()
++  install_dir: get_option('datadir') / 'doc' / meson.project_name() + '-' + meson.project_version()
+ )
