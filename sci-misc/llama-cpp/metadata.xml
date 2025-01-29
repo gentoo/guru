@@ -5,7 +5,7 @@
 		<remote-id type="github">ggerganov/llama.cpp</remote-id>
 	</upstream>
 	<maintainer type="person">
-		<email>l29ah@riseup.net</email>
+		<email>zl29ah@gmail.com</email>
 		<name>Sergey Alirzaev</name>
 	</maintainer>
 </pkgmetadata>
