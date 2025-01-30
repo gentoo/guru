@@ -538,6 +538,8 @@ DEPEND="
 	media-libs/alsa-lib
 	media-libs/shaderc
 	media-libs/fontconfig
+	sys-apps/dbus
+	media-libs/freetype
 	X? (
 		x11-libs/libxcb
 		x11-libs/libxkbcommon[X]
