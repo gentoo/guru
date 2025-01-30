@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# David Roman <davidroman96@gmail.com> (2025-01-30)
+# Broken ebuild. Upstream don't version they releases. According to the 
+# ebuild author, it "keep itself up-to-date", so an ebuild for it is useless.
+# Removal on 2025-02-28
+games-util/curseforge
+
 # Takuya Wakazono <pastalian46@gmail.com> (2025-01-23)
 # Depends on dev-qt/qtbluetooth:5, which is masked in ::gentoo and will
 # be removed.
