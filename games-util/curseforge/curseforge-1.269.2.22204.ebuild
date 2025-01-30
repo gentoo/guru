@@ -9,7 +9,7 @@ CHROMIUM_LANGS="
 	sw ta te th tr uk ur vi zh-CN zh-TW
 "
 
-inherit chromium-2 desktop unpacker linux-info xdg-utils
+inherit chromium-2 desktop unpacker linux-info xdg
 
 DESCRIPTION="The CurseForge Electron App"
 HOMEPAGE="https://www.curseforge.com/"
@@ -90,11 +90,9 @@ pkg_postinst() {
 	elog "This package will keep itself up-to-date."
 	elog "No need to download any ebuilds in the future."
 	elog "CurseForge is not open-source."
-	xdg_icon_cache_update
-	xdg_desktop_database_update
+	xdg_pkg_postinst
 }
 
 pkg_postrm() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
+	xdg_pkg_postrm
 }
