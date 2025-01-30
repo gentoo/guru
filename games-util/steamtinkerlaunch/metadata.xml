@@ -2,13 +2,12 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <description>new maintainers welcome</description>
-    <name>Peter Levine</name>
-    <email>plevine457@gmail.com</email>
+    <name>Vincent Ahluwalia</name>
+    <email>vincentahluwalia@protonmail.com</email>
   </maintainer>
   <upstream>
-    <bugs-to>https://github.com/frostworx/steamtinkerlaunch/issues</bugs-to>
-    <changelog>https://github.com/frostworx/steamtinkerlaunch/wiki/Changelog</changelog>
-    <remote-id type="github">frostworx/steamtinkerlaunch</remote-id>
+    <bugs-to>https://github.com/sonic2kk/steamtinkerlaunch/issues</bugs-to>
+    <changelog>https://github.com/sonic2kk/steamtinkerlaunch/wiki/Changelog</changelog>
+    <remote-id type="github">sonic2kk/steamtinkerlaunch</remote-id>
   </upstream>
 </pkgmetadata>
