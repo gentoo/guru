@@ -19,7 +19,6 @@ IUSE="examples test"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
-	dev-build/meson
 	virtual/pkgconfig
 "
 
