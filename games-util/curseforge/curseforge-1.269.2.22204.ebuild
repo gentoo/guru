@@ -9,7 +9,7 @@ CHROMIUM_LANGS="
 	sw ta te th tr uk ur vi zh-CN zh-TW
 "
 
-inherit chromium-2 desktop unpacker linux-info
+inherit chromium-2 desktop unpacker linux-info xdg-utils
 
 DESCRIPTION="The CurseForge Electron App"
 HOMEPAGE="https://www.curseforge.com/"
@@ -21,7 +21,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="bindist mirror strip test"
 
-DEPEND="
+RDEPEND="
 	app-accessibility/at-spi2-core
 	dev-libs/expat
 	dev-libs/glib
@@ -48,6 +48,7 @@ DEPEND="
 	x11-libs/pango
 	x11-misc/xdg-utils
 "
+DEPEND="${RDEPEND}"
 
 DESTDIR="/opt/${PN}"
 
@@ -89,4 +90,11 @@ pkg_postinst() {
 	elog "This package will keep itself up-to-date."
 	elog "No need to download any ebuilds in the future."
 	elog "CurseForge is not open-source."
+	xdg_icon_cache_update
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
+	xdg_desktop_database_update
 }
