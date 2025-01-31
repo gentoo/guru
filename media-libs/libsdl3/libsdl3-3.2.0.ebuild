@@ -28,7 +28,7 @@ REQUIRED_USE="
 	opengl? ( video )
 	pulseaudio? ( sound )
 	sndio? ( sound )
-	test? ( static-libs )
+	test? ( static-libs vulkan )
 	vulkan? ( video )
 	wayland? ( gles2 )
 	xscreensaver? ( X )
