@@ -15,12 +15,12 @@ LICENSE="ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="alsa aqua cpu_flags_ppc_altivec cpu_flags_x86_mmx cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_avx512f cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 custom-cflags dbus doc fcitx gles1 gles2 +haptic ibus jack +joystick kms opengl oss pipewire pulseaudio sndio +sound static-libs test udev +video vulkan wayland X xscreensaver"
+CPU_FLAGS_USE="cpu_flags_ppc_altivec cpu_flags_x86_mmx cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_avx512f cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2"
+IUSE="alsa aqua ${CPU_FLAGS_USE} custom-cflags dbus doc fcitx gles2 +haptic ibus jack +joystick kms opengl oss pipewire pulseaudio sndio +sound static-libs test udev +video vulkan wayland X xscreensaver"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	alsa? ( sound )
 	fcitx? ( dbus )
-	gles1? ( video )
 	gles2? ( video )
 	haptic? ( joystick )
 	ibus? ( dbus )
@@ -71,13 +71,11 @@ COMMON_DEPEND="
 RDEPEND="
 	${COMMON_DEPEND}
 	fcitx? ( app-i18n/fcitx:* )
-	gles1? ( media-libs/mesa[${MULTILIB_USEDEP},gles1(+)] )
 	gles2? ( media-libs/mesa[${MULTILIB_USEDEP},gles2(+)] )
 	vulkan? ( media-libs/vulkan-loader )
 "
 DEPEND="
 	${COMMON_DEPEND}
-	gles1? ( media-libs/libglvnd )
 	gles2? ( media-libs/libglvnd )
 	ibus? ( dev-libs/glib:2[${MULTILIB_USEDEP}] )
 	test? ( x11-libs/libX11[${MULTILIB_USEDEP}] )
@@ -158,7 +156,7 @@ src_configure() {
 		-DSDL_KMSDRM_SHARED=OFF
 		-DSDL_DUMMYVIDEO=$(usex video)
 		-DSDL_OPENGL=$(usex opengl)
-		-DSDL_OPENGLES=$(use gles1 || use gles2 && echo ON || echo OFF)
+		-DSDL_OPENGLES=$(usex gles2)
 		-DSDL_VULKAN=$(usex vulkan)
 		-DSDL_LIBUDEV=$(usex udev)
 		-DSDL_DBUS=$(usex dbus)
