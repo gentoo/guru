@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit ecm
+inherit ecm linux-info optfeature
 
 DESCRIPTION="Core control application"
 HOMEPAGE="https://gitlab.com/corectrl/corectrl"
@@ -52,10 +52,20 @@ RDEPEND="${COMMON_DEPEND}
 	dev-libs/libfmt:=
 	dev-qt/qtquickcontrols2
 "
+CONFIG_CHECK="~CONNECTOR ~PROC_EVENTS ~NETLINK_DIAG"
+
+pkg_setup() {
+	linux-info_pkg_setup
+}
 
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test ON OFF)
 	)
 	cmake_src_configure
+}
+
+pkg_postinst() {
+	optfeature "vulkaninfo" dev-util/vulkan-tools
+	optfeature "glxinfo" x11-apps/mesa-progs
 }
