@@ -24,8 +24,8 @@ BDEPEND="
 
 src_configure() {
 	local emesonargs=(
-		$(meson_feature examples)
-		$(meson_feature test tests)
+		$(meson_use examples)
+		$(meson_use test tests)
 	)
 	meson_src_configure
 }
