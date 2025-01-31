@@ -14,6 +14,8 @@ S="${WORKDIR}/${PN}-${PV}"
 LICENSE="MIT"
 SLOT="0"
 
+KEYWORDS="~amd64"
+
 IUSE="cuda video_cards_amdgpu
 cpu_flags_x86_avx cpu_flags_x86_avx2
 cpu_flags_x86_avx512f cpu_flags_x86_avx512vbmi cpu_flags_x86_avx512_vnni cpu_flags_x86_avx512_bf16
