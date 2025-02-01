@@ -29,8 +29,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-# CC-BY-SA-4.0 for soundpack
-LICENSE="Apache-2.0 CC-BY-SA-3.0 CC-BY-SA-4.0 MIT OFL-1.1 Unicode-3.0"
+LICENSE="CC-BY-SA-3.0 Apache-2.0 BSD soundpack? ( CC-BY-SA-4.0 ) MIT OFL-1.1 Unicode-3.0"
 IUSE="debug doc ncurses nls +sound +soundpack test +tiles"
 REQUIRED_USE="soundpack? ( sound ) sound? ( tiles ) \
 	|| ( tiles ncurses )"
