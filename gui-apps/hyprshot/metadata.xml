@@ -6,6 +6,8 @@
 		<name>Misha Zavertkin</name>
 	</maintainer>
 	<upstream>
+		<bugs-to>https://github.com/Gustash/Hyprshot/issues</bugs-to>
+		<changelog>https://github.com/Gustash/Hyprshot/releases</changelog>
 		<remote-id type="github">Gustash/Hyprshot</remote-id>
 	</upstream>
 	<use>
