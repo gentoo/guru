@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop java-pkg-2
+inherit desktop java-pkg-2 xdg
 
 MY_PV=${PV/_p/-patch}
 DESCRIPTION="Turn-based historical strategy game, a remake of Civ V"
@@ -31,4 +31,9 @@ src_install() {
 	newicon --size 32 ${IMG_PATH} unciv.png || die "Installing icon failed"
 	# this desktop file is better than upstream's
 	make_desktop_entry "${PN}" Unciv-bin unciv "Game;StrategyGame" "Terminal=false"
+}
+
+pkg_preinst() {
+	java-pkg-2_pkg_preinst
+	xdg_pkg_preinst
 }
