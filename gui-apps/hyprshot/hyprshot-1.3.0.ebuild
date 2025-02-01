@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,6 @@ IUSE="+xdg +freeze"
 
 RDEPEND="
 	app-misc/jq
-	app-shells/bash
 	gui-apps/grim
 	gui-apps/slurp
 	gui-apps/wl-clipboard
