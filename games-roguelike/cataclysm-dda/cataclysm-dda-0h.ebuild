@@ -91,12 +91,15 @@ src_prepare() {
 		"src/translation_manager_impl.cpp" \
 		"tests/translation_system_test.cpp" || die
 
+	sed -i "s#data#${EPREFIX}/usr/share/${PN}-${SLOT}#" \
+		"data/fontdata.json" || die
+
 	# from upstream 1ab7d17
 	# NOTE: remove when bumping
-	sed -i -e "s/const size_type/size_type/" \
+	sed -i "s/const size_type/size_type/" \
 		"src/third-party/flatbuffers/stl_emulation.h" || die
 
-	sed -i -e "s/cataclysm-tiles/cataclysm-tiles-${SLOT}/g" \
+	sed -i "s/cataclysm-tiles/cataclysm-tiles-${SLOT}/g" \
 		"data/xdg/org.cataclysmdda.CataclysmDDA.desktop" || die
 
 	local f="org.cataclysmdda.CataclysmDDA"

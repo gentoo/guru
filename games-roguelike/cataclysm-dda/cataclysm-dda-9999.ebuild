@@ -90,7 +90,10 @@ src_prepare() {
 		"src/translation_manager_impl.cpp" \
 		"tests/translation_system_test.cpp" || die
 
-	sed -i -e "s/cataclysm-tiles/cataclysm-tiles-${SLOT}/g" \
+	sed -i "s#data#${EPREFIX}/usr/share/${PN}-${SLOT}#" \
+		"data/fontdata.json" || die
+
+	sed -i "s/cataclysm-tiles/cataclysm-tiles-${SLOT}/g" \
 		"data/xdg/org.cataclysmdda.CataclysmDDA.desktop" || die
 
 	local f="org.cataclysmdda.CataclysmDDA"
