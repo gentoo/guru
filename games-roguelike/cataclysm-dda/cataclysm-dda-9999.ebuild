@@ -109,7 +109,6 @@ src_compile() {
 	myemakeargs=(
 		BACKTRACE=$(usex debug 1 0)
 		CXX="$(tc-getCXX)"
-		DESTDIR="${D}"
 		LINTJSON=0
 		PCH=0
 		PREFIX="${EPREFIX}/usr"
@@ -148,6 +147,7 @@ src_install() {
 		"TILES=$(usex tiles 1 0)" \
 		"SOUND=$(usex sound 1 0)" \
 		"${myemakeargs[@]}" \
+		DESTDIR="${D}" \
 		install
 
 	[[ -e "${WORKDIR}/cataclysm-${SLOT}" ]] && dobin "${WORKDIR}/cataclysm-${SLOT}"
