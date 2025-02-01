@@ -27,6 +27,7 @@ src_configure() {
 		-DLLAMA_BUILD_TESTS=OFF
 		-DLLAMA_BUILD_SERVER=ON
 		-DCMAKE_SKIP_BUILD_RPATH=ON
+		-DGGML_NATIVE=0	# don't set march
 		-DBUILD_NUMBER="1"
 	)
 	cmake_src_configure
