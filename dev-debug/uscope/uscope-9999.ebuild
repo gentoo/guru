@@ -15,8 +15,8 @@ SLOT="0"
 
 DOCS=( "README.md" )
 
-# Workaround failures for out-of-source build, fix in progress
-BUILD_DIR="${S}"
+DEPEND="x11-libs/libX11"
+RDEPEND="x11-libs/libX11"
 
 src_unpack() {
 	git-r3_src_unpack
