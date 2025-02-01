@@ -3,11 +3,13 @@
 <pkgmetadata>
    <upstream>
        <remote-id type="github">tldr-pages/tldr-python-client</remote-id>
-       <bugs-to>https://github.com/tldr-pages/tldr-python-client/issues</bugs-to>
        <remote-id type="pypi">tldr</remote-id>
+       <bugs-to>https://github.com/tldr-pages/tldr-python-client/issues</bugs-to>
+       <changelog>https://github.com/tldr-pages/tldr-python-client/blob/main/CHANGELOG.md</changelog>
    </upstream>
    <maintainer type="person">
        <email>contrib_x@protonmail.com</email>
        <name>James Kalyan</name>
    </maintainer>
+   <stabilize-allarches/>
 </pkgmetadata>
