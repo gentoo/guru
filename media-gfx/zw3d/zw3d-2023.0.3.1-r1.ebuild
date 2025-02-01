@@ -137,7 +137,7 @@ cat >> insert.txt <<- EOF || die
 unset WAYLAND_DISPLAY
 export XDG_SESSION_TYPE=x11
 export QT_QPA_PLATFORM=xcb
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_STYLE_OVERRIDE=fusion
 export IBUS_USE_PORTAL=1
 	EOF
