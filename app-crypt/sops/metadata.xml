@@ -5,6 +5,10 @@
     <email>arianxdehghani@gmail.com</email>
     <name>Arian Dehghani</name>
   </maintainer>
+  <maintainer type="person">
+    <email>sm+gentoo@skym.fi</email>
+    <name>Skyler Mäntysaari</name>
+  </maintainer>
   <upstream>
     <remote-id type="github">getsops/sops</remote-id>
     <bugs-to>https://github.com/getsops/sops/issues</bugs-to>
