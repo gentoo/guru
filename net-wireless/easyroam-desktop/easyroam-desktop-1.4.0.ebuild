@@ -15,7 +15,7 @@ S="${WORKDIR}"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 
 PATCHES=(
 	"${FILESDIR}"/0001-fix-desktop-file.patch
