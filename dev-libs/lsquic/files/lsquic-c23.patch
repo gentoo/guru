@@ -1,0 +1,17 @@
+https://bugs.gentoo.org/945037
+https://github.com/litespeedtech/lsquic/pull/528/
+Remove unused function parameter for C23 compatibility
+
+In C23, `void foo()` is equivalent to `void foo(void)`, which causes a
+conflicting type error for lsquic_data_in_error_new.
+--- a/src/liblsquic/lsquic_di_error.c
++++ b/src/liblsquic/lsquic_di_error.c
+@@ -21,7 +21,7 @@ static const struct data_in *error_data_in_ptr;
+ 
+ 
+ struct data_in *
+-lsquic_data_in_error_new (struct lsquic_conn_public *conn_pub)
++lsquic_data_in_error_new ()
+ {
+     return (struct data_in *) error_data_in_ptr;
+ }
