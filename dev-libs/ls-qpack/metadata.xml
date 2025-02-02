@@ -8,4 +8,7 @@
   <upstream>
     <remote-id type="github">litespeedtech/ls-qpack</remote-id>
   </upstream>
+  <use>
+    <flag name="tools">Build testing tools</flag>
+  </use>
 </pkgmetadata>

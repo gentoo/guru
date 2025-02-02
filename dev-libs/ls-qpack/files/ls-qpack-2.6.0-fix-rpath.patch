@@ -1,0 +1,26 @@
+https://github.com/litespeedtech/ls-qpack/pull/75
+Fix binary rpath handling
+
+Binaries should be installed using `install(TARGETS)` instead of  
+`install(FILES)`, so that CMake properly handles runtime path stripping.
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -147,12 +147,12 @@ install(FILES lsqpack.h lsxpack_header.h
+ 	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+ 
+ if(LSQPACK_BIN)
+-    install(FILES
+-          ${CMAKE_CURRENT_BINARY_DIR}/bin/encode-int
+-          ${CMAKE_CURRENT_BINARY_DIR}/bin/fuzz-decode
+-          ${CMAKE_CURRENT_BINARY_DIR}/bin/interop-decode
+-          ${CMAKE_CURRENT_BINARY_DIR}/bin/interop-encode
+-          DESTINATION ${CMAKE_INSTALL_BINDIR})
++    install(TARGETS
++            encode-int
++            fuzz-decode
++            interop-decode
++            interop-encode
++            RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+ endif()
+ 
+ if(WIN32 OR EMSCRIPTEN)
