@@ -53,6 +53,8 @@ BDEPEND="
 	nls? ( sys-devel/gettext )
 	"
 
+[[ ${PV} != 9999 ]] && BDEPEND+=" soundpack? ( app-arch/unzip )"
+
 src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack

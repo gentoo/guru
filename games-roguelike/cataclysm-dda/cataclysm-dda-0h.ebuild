@@ -29,6 +29,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
+# NOTE: Add BSD license on bump
 LICENSE="CC-BY-SA-3.0 Apache-2.0 soundpack? ( CC-BY-SA-4.0 ) MIT OFL-1.1 Unicode-3.0"
 IUSE="debug doc ncurses nls +sound +soundpack test +tiles"
 REQUIRED_USE="soundpack? ( sound ) sound? ( tiles ) \
@@ -50,9 +51,10 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	doc? ( app-text/doxygen[dot] )
-	soundpack? ( app-arch/unzip )
 	nls? ( sys-devel/gettext )
 	"
+
+[[ ${PV} != 9999 ]] && BDEPEND+=" soundpack? ( app-arch/unzip )"
 
 src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
