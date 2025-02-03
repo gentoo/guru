@@ -4,7 +4,7 @@
 EAPI="8"
 
 DESCRIPTION="Pre-compiled talosctl is an tool for interacting with the Talos API"
-HOMEPAGE="https://www.talos.dev/v1.7/"
+HOMEPAGE="https://www.talos.dev/v1.9/"
 SRC_URI="
 amd64? ( https://github.com/siderolabs/talos/releases/download/v${PV}/talosctl-linux-amd64 ->
 	talosctl-amd64-v${PV} )
