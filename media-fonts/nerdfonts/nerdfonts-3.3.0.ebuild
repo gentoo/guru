@@ -25,6 +25,7 @@ SRC_URI="
 	d2coding? ( https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/D2Coding.tar.xz -> D2Coding-${PV}.tar.xz )
 	daddytimemono? ( https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/DaddyTimeMono.tar.xz -> DaddyTimeMono-${PV}.tar.xz )
 	dejavusansmono? ( https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/DejaVuSansMono.tar.xz -> DejaVuSansMono-${PV}.tar.xz )
+	departuremono? ( https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/DepartureMono.tar.xz -> DepartureMono-${PV}.tar.xz )
 	droidsansmono? ( https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/DroidSansMono.tar.xz -> DroidSansMono-${PV}.tar.xz )
 	envycoder? ( https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/EnvyCodeR.tar.xz -> EnvyCodeR-${PV}.tar.xz )
 	fantasquesansmono? ( https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/FantasqueSansMono.tar.xz -> FantasqueSansMono-${PV}.tar.xz )
@@ -85,8 +86,8 @@ KEYWORDS="~amd64"
 
 IUSE_FONTS="0xproto 3270 agave anonymouspro arimo aurulentsansmono bigblueterminal bitstreamverasansmono
 cascadiacode cascadiamono codenewroman comicshannsmono commitmono cousine d2coding daddytimemono
-dejavusansmono droidsansmono envycoder fantasquesansmono firacode firamono geistmono gomono gohu
-hack hasklig heavydata hermit iawriter ibmplexmono inconsolata inconsolatago inconsolatalgc
+dejavusansmono departuremono droidsansmono envycoder fantasquesansmono firacode firamono geistmono
+gomono gohu hack hasklig heavydata hermit iawriter ibmplexmono inconsolata inconsolatago inconsolatalgc
 intelonemono iosevka iosevkaterm iosevkatermslab jetbrainsmono lekton liberationmono lilex
 martianmono meslo monaspace monofur monoid mononoki mplus nerdfontssymbolsonly noto opendyslexic
 overpass profont proggyclean recursive robotomono sharetechmono sourcecodepro spacemono terminus
