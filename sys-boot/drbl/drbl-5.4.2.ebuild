@@ -17,3 +17,4 @@ RDEPEND="
 	sys-fs/e2fsprogs
 	net-misc/wakeonlan
 "
+BDEPEND="app-editors/vim-core"
