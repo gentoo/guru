@@ -59,5 +59,5 @@ pkg_postinst() {
 	optfeature "supporting pysdl2 as backend" dev-python/pysdl2
 	optfeature "supporting GLFW as backend" dev-python/glfw
 	optfeature "supporting QT5 as backend" dev-python/pyqt5
-	optfeature "supporting PySide as backend" dev-python/pyside6
+	optfeature "supporting PySide as backend" dev-python/pyside
 }

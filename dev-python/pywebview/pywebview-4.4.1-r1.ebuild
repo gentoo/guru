@@ -1,4 +1,4 @@
-# Copyright 2020-2024 Gentoo Authors
+# Copyright 2020-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,7 +26,7 @@ RDEPEND="
 		net-libs/webkit-gtk
 	)
 	qt6? (
-		dev-python/pyside6[${PYTHON_USEDEP},webengine]
+		dev-python/pyside[${PYTHON_USEDEP},webengine]
 		dev-python/qtpy[${PYTHON_USEDEP},webengine]
 	)
 "

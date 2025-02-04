@@ -17,7 +17,7 @@ SLOT="0"
 
 RDEPEND="
 	dev-python/pyaml[${PYTHON_USEDEP}]
-	dev-python/pyside6[dbus,gui,uitools,widgets,${PYTHON_USEDEP}]
+	dev-python/pyside[dbus,gui,uitools,widgets,${PYTHON_USEDEP}]
 	dev-python/pyxdg[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/steam[${PYTHON_USEDEP}]

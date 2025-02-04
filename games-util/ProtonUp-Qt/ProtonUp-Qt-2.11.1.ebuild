@@ -22,7 +22,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	>=dev-python/pyaml-6.0[${PYTHON_USEDEP}]
-	>=dev-python/pyside6-6.3.0[dbus,gui,uitools,widgets,${PYTHON_USEDEP}]
+	>=dev-python/pyside-6.3.0[dbus,gui,uitools,widgets,${PYTHON_USEDEP}]
 	>=dev-python/pyxdg-0.27[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.27.0[${PYTHON_USEDEP}]
 	>=dev-python/steam-1.6.1[${PYTHON_USEDEP}]
