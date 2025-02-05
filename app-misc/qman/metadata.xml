@@ -5,7 +5,6 @@
 		<email>rolferen@gmail.com</email>
 		<name>Mazunki Hoksaas</name>
 	</maintainer>
-	<stabilize-allarches/>
 	<upstream>
 		<remote-id type="github">plp13/qman</remote-id>
 	</upstream>

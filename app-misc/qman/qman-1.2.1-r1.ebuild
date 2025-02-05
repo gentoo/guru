@@ -12,17 +12,20 @@ SRC_URI="https://github.com/plp13/qman/archive/refs/tags/v${PV}.tar.gz -> ${P}.t
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+doc +man"
+IUSE="+doc"
 
-DEPEND="sys-libs/ncurses
+DEPEND="
+	sys-libs/ncurses:=
 	dev-libs/inih
 	sys-libs/zlib
-	dev-python/cogapp"
+"
+BDEPEND="
+	dev-python/cogapp
+"
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local emesonargs=(
-		$(meson_feature man man-pages)
 		$(meson_feature doc docs)
 		-Ddocdir="/usr/share/doc/${PF}"
 	)
