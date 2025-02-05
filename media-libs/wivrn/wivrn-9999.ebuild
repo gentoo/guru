@@ -99,9 +99,9 @@ fi
 
 src_configure() {
 	if [[ ${PV} == 9999 ]]; then
-		GIT_DESC=$(git describe --always)
+		GIT_DESC=$(git describe --tags --always)
 	else
-		GIT_DESC=${PV}
+		GIT_DESC=v${PV}
 	fi
 	local mycmakeargs=(
 		-DGIT_DESC=${GIT_DESC}
