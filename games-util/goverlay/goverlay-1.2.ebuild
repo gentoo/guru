@@ -3,9 +3,9 @@
 
 EAPI=8
 
-inherit xdg-utils
+inherit xdg
 
-DESCRIPTION="Graphical UI to help manage Linux overlays."
+DESCRIPTION="Graphical UI to help manage Linux game overlays (MangoHud)."
 HOMEPAGE="https://github.com/benjamimgois/goverlay"
 
 if [[ ${PV} == *9999 ]]; then
@@ -20,13 +20,12 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-DEPEND="
-	dev-lang/lazarus
+RDEPEND="
+	games-util/mangohud
 "
 
-RDEPEND="
-	${DEPEND}
-	games-util/mangohud
+BDEPEND="
+	>=dev-lang/lazarus-3.0[qt6]
 "
 
 src_prepare() {
@@ -36,14 +35,4 @@ src_prepare() {
 
 src_compile() {
 	emake LAZBUILDOPTS="--lazarusdir=/usr/share/lazarus"
-}
-
-pkg_postinst() {
-	xdg_icon_cache_update
-	xdg_mimeinfo_database_update
-	xdg_desktop_database_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
 }
