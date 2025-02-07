@@ -5,12 +5,11 @@ EAPI=8
 
 inherit desktop rpm systemd shell-completion xdg
 
-MYPV="${PV/_beta/-beta}"
 DESCRIPTION="Tool used to manage daemon setup"
 HOMEPAGE="https://github.com/mullvad/mullvadvpn-app https://mullvad.net/"
 SRC_URI="
-	amd64? ( https://github.com/mullvad/mullvadvpn-app/releases/download/${MYPV}/MullvadVPN-${MYPV}_x86_64.rpm )
-	arm64? ( https://github.com/mullvad/mullvadvpn-app/releases/download/${MYPV}/MullvadVPN-${MYPV}_aarch64.rpm )
+	amd64? ( https://github.com/mullvad/mullvadvpn-app/releases/download/${PV}/MullvadVPN-${PV}_x86_64.rpm )
+	arm64? ( https://github.com/mullvad/mullvadvpn-app/releases/download/${PV}/MullvadVPN-${PV}_aarch64.rpm )
 "
 
 S="${WORKDIR}"
@@ -85,10 +84,14 @@ src_install() {
 MULLVAD_IS_BEING_UPDATED=false
 
 pkg_preinst() {
+	xdg_pkg_preinst
+
 	[[ -n "$(best_version "${CATEGORY}/${PN}")" ]] && MULLVAD_IS_BEING_UPDATED=true
 }
 
 pkg_postrm() {
+	xdg_pkg_postrm
+
 	if [[ ${MULLVAD_IS_BEING_UPDATED} = "false" ]]; then
 		if ! command -v pgrep &>/dev/null || pgrep -f "mullvad-(daemon|gui)"; then
 			elog "Mullvad has been uninstalled. To stop the service,"
@@ -107,6 +110,8 @@ pkg_postrm() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
+
 	if [[ ${MULLVAD_IS_BEING_UPDATED} = "true" ]]; then
 		if command -v pgrep &>/dev/null && pgrep -f "mullvad-(daemon|gui)" &>/dev/null; then
 			elog "Mullvad has been updated. To restart the service,"
