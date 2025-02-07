@@ -26,8 +26,8 @@ get_loader_name() {
 	case "$ABI" in
 		x86) echo "ld-linux.so.2" ;;
 		amd64) echo "ld-linux-x86-64.so.2" ;;
-		arm*) echo "ld-linux-armhf.so.3" ;;
 		arm64) echo "ld-linux-aarch64.so.1" ;;
+		arm*) echo "ld-linux-armhf.so.3" ;;
 		mips | powerpc | s390) echo "ld.so.1" ;;
 	esac
 }
