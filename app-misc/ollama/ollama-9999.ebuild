@@ -4,61 +4,153 @@
 EAPI=8
 
 ROCM_VERSION=6.1
-inherit git-r3 go-module rocm
+inherit cuda rocm
+inherit cmake
+inherit go-module toolchain-funcs
 
 DESCRIPTION="Get up and running with Llama 3, Mistral, Gemma, and other language models."
 HOMEPAGE="https://ollama.com"
-EGIT_REPO_URI="https://github.com/ollama/ollama.git"
+
+if [[ ${PV} == *9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/ollama/ollama.git"
+else
+	KEYWORDS="~amd64"
+fi
+
 LICENSE="MIT"
 SLOT="0"
 
-IUSE="cuda video_cards_amdgpu
-cpu_flags_x86_avx cpu_flags_x86_avx2
-cpu_flags_x86_avx512f cpu_flags_x86_avx512vbmi cpu_flags_x86_avx512_vnni cpu_flags_x86_avx512_bf16
-"
+X86_CPU_FLAGS=(
+	avx
+	f16c
+	avx2
+	fma3
+	avx512f
+	avx512vbmi
+	avx512_vnni
+	avx512_bf16
+	avx_vnni
+	amx_tile
+	amx_int8
+)
+CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
+IUSE="${CPU_FLAGS[*]} cuda blas mkl rocm"
+# IUSE+=" opencl vulkan"
 
-REQUIRED_USE="
-	cpu_flags_x86_avx2? ( cpu_flags_x86_avx )
-	cpu_flags_x86_avx512f? ( cpu_flags_x86_avx2 )
-	cpu_flags_x86_avx512vbmi? ( cpu_flags_x86_avx512f )
-	cpu_flags_x86_avx512_vnni? ( cpu_flags_x86_avx512f )
-	cpu_flags_x86_avx512_bf16? ( cpu_flags_x86_avx512f )
-"
-
-RDEPEND="
-	acct-group/ollama
-	acct-user/ollama
-"
-IDEPEND="${RDEPEND}"
-BDEPEND="
-	>=dev-lang/go-1.23.4
-	>=dev-build/cmake-3.24
-	>=sys-devel/gcc-11.4.0
-	cuda? ( dev-util/nvidia-cuda-toolkit )
-	video_cards_amdgpu? (
-		=sci-libs/hipBLAS-${ROCM_VERSION}*
+COMMON_DEPEND="
+	cuda? (
+		dev-util/nvidia-cuda-toolkit:=
+	)
+	blas? (
+		!mkl? (
+			virtual/blas
+		)
+		mkl? (
+			sci-libs/mkl
+		)
+	)
+	rocm? (
+		>=sci-libs/hipBLAS-${ROCM_VERSION}:=[${ROCM_USEDEP}]
 	)
 "
 
-pkg_pretend() {
-	if use video_cards_amdgpu || use cuda; then
-		ewarn "WARNING: AMD & Nvidia support in this ebuild are experimental"
-		einfo "If you run into issues, especially compiling dev-libs/rocm-opencl-runtime"
-		einfo "you may try the docker image here https://github.com/ROCm/ROCm-docker"
-		einfo "and follow instructions here"
-		einfo "https://rocm.docs.amd.com/projects/install-on-linux/en/latest/how-to/docker.html"
+DEPEND="
+	${COMMON_DEPEND}
+	>=dev-lang/go-1.23.4
+"
+
+RDEPEND="
+	${COMMON_DEPEND}
+	acct-group/${PN}
+	acct-user/${PN}
+"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-9999-include-cstdint.patch"
+)
+
+src_unpack() {
+	if [[ "${PV}" == *9999* ]]; then
+		git-r3_src_unpack
+		go-module_live_vendor
+	else
+		go-module_src_unpack
 	fi
 }
 
-src_unpack() {
-	git-r3_src_unpack
-	go-module_live_vendor
-}
-
 src_prepare() {
-	default
+	cmake_src_prepare
 
-	if use video_cards_amdgpu; then
+	sed -e "/set(GGML_CCACHE/s/ON/OFF/g" -i CMakeLists.txt || die
+
+	if use amd64; then
+		if ! use cpu_flags_x86_avx; then
+			sed -e "/ggml_add_cpu_backend_variant(sandybridge/s/^/# /g" -i ml/backend/ggml/ggml/src/CMakeLists.txt || die
+			# AVX)
+		fi
+		if
+			! use cpu_flags_x86_avx ||
+			! use cpu_flags_x86_f16c ||
+			! use cpu_flags_x86_avx2 ||
+			! use cpu_flags_x86_fma3; then
+			sed -e "/ggml_add_cpu_backend_variant(haswell/s/^/# /g" -i ml/backend/ggml/ggml/src/CMakeLists.txt || die
+			# AVX F16C AVX2 FMA)
+		fi
+		if
+			! use cpu_flags_x86_avx ||
+			! use cpu_flags_x86_f16c ||
+			! use cpu_flags_x86_avx2 ||
+			! use cpu_flags_x86_fma3 ||
+			! use cpu_flags_x86_avx512f; then
+			sed -e "/ggml_add_cpu_backend_variant(skylakex/s/^/# /g" -i ml/backend/ggml/ggml/src/CMakeLists.txt ||  die
+			# AVX F16C AVX2 FMA AVX512)
+		fi
+		if
+			! use cpu_flags_x86_avx ||
+			! use cpu_flags_x86_f16c ||
+			! use cpu_flags_x86_avx2 ||
+			! use cpu_flags_x86_fma3 ||
+			! use cpu_flags_x86_avx512f ||
+			! use cpu_flags_x86_avx512vbmi ||
+			! use cpu_flags_x86_avx512_vnni; then
+			sed -e "/ggml_add_cpu_backend_variant(icelake/s/^/# /g" -i ml/backend/ggml/ggml/src/CMakeLists.txt || die
+			# AVX F16C AVX2 FMA AVX512 AVX512_VBMI AVX512_VNNI)
+		fi
+		if
+			! use cpu_flags_x86_avx ||
+			! use cpu_flags_x86_f16c ||
+			! use cpu_flags_x86_avx2 ||
+			! use cpu_flags_x86_fma3 ||
+			! use cpu_flags_x86_avx_vnni; then
+			sed -e "/ggml_add_cpu_backend_variant(alderlake/s/^/# /g" -i ml/backend/ggml/ggml/src/CMakeLists.txt || die
+			# AVX F16C AVX2 FMA AVX_VNNI)
+		fi
+
+		if
+			! use cpu_flags_x86_avx ||
+			! use cpu_flags_x86_f16c ||
+			! use cpu_flags_x86_avx2 ||
+			! use cpu_flags_x86_fma3 ||
+			! use cpu_flags_x86_avx512f ||
+			! use cpu_flags_x86_avx512vbmi ||
+			! use cpu_flags_x86_avx512_vnni ||
+			! use cpu_flags_x86_avx512_bf16 ||
+			! use cpu_flags_x86_amx_tile ||
+			! use cpu_flags_x86_amx_int8 ; then
+			sed -e "/ggml_add_cpu_backend_variant(sapphirerapids/s/^/# /g" -i ml/backend/ggml/ggml/src/CMakeLists.txt || die
+			#AVX F16C AVX2 FMA AVX512 AVX512_VBMI AVX512_VNNI AVX512_BF16 AMX_TILE AMX_INT8)
+		fi
+		: # ml/backend/ggml/ggml/src/CMakeLists.txt
+	fi
+
+	# default
+	# return
+	if use cuda; then
+		cuda_src_prepare
+	fi
+
+	if use rocm; then
 		# --hip-version gets appended to the compile flags which isn't a known flag.
 		# This causes rocm builds to fail because -Wunused-command-line-argument is turned on.
 		# Use nuclear option to fix this.
@@ -67,45 +159,124 @@ src_prepare() {
 	fi
 }
 
-src_compile() {
-	CUSTOM_CPU_FLAGS=""
-	use cpu_flags_x86_avx && CUSTOM_CPU_FLAGS+="avx"
-	use cpu_flags_x86_avx2 && CUSTOM_CPU_FLAGS+=",avx2"
-	use cpu_flags_x86_avx512f && CUSTOM_CPU_FLAGS+=",avx512"
-	use cpu_flags_x86_avx512vbmi && CUSTOM_CPU_FLAGS+=",avx512vbmi"
-	use cpu_flags_x86_avx512_vnni && CUSTOM_CPU_FLAGS+=",avx512vnni"
-	use cpu_flags_x86_avx512_bf16 && CUSTOM_CPU_FLAGS+=",avx512bf16"
+src_configure() {
+	local mycmakeargs=(
+		-DGGML_CCACHE="no"
 
-	# Build basic ollama executable with cpu features built in
-	export CUSTOM_CPU_FLAGS
+		-DGGML_BLAS="$(usex blas)"
+		# -DGGML_CUDA="$(usex cuda)"
+		# -DGGML_HIP="$(usex rocm)"
 
-	if use video_cards_amdgpu; then
-		export HIP_ARCHS=$(get_amdgpu_flags)
-		export HIP_PATH="/usr"
+		# -DGGML_METAL="yes" # apple
+		# missing from ml/backend/ggml/ggml/src/
+		# -DGGML_CANN="yes"
+		# -DGGML_MUSA="yes"
+		# -DGGML_RPC="yes"
+		# -DGGML_SYCL="yes"
+		# -DGGML_KOMPUTE="$(usex kompute)"
+		# -DGGML_OPENCL="$(usex opencl)"
+		# -DGGML_VULKAN="$(usex vulkan)"
+	)
+
+	if use blas; then
+		if use mkl; then
+			mycmakeargs+=(
+				-DGGML_BLAS_VENDOR="Intel"
+			)
+		else
+			mycmakeargs+=(
+				-DGGML_BLAS_VENDOR="Generic"
+			)
+		fi
+	fi
+	if use cuda; then
+		local -x CUDAHOSTCXX CUDAHOSTLD
+		CUDAHOSTCXX="$(cuda_gccdir)"
+		CUDAHOSTLD="$(tc-getCXX)"
+
+		cuda_add_sandbox -w
 	else
-		export OLLAMA_SKIP_ROCM_GENERATE=1
+		mycmakeargs+=(
+			-DCMAKE_CUDA_COMPILER="NOTFOUND"
+		)
 	fi
 
-	if ! use cuda; then
-		export OLLAMA_SKIP_CUDA_GENERATE=1
+	if use rocm; then
+		mycmakeargs+=(
+			-DCMAKE_HIP_PLATFORM="amd"
+		)
+		local -x HIP_ARCHS=$(get_amdgpu_flags)
+		local -x HIP_PATH="/usr"
+
+		check_amdgpu
+	else
+		mycmakeargs+=(
+			-DCMAKE_HIP_COMPILER="NOTFOUND"
+		)
 	fi
-	emake dist
+
+	cmake_src_configure
+
+	# if ! use cuda && ! use rocm; then
+	# 	# to configure and build only CPU variants
+	# 	set -- cmake --preset Default "${mycmakeargs[@]}"
+	# fi
+
+	# if use cuda; then
+	# 	# to configure and build only CUDA
+	# 	set -- cmake --preset CUDA "${mycmakeargs[@]}"
+	# fi
+
+	# if use rocm; then
+	# 	# to configure and build only ROCm
+	# 	set -- cmake --preset ROCm "${mycmakeargs[@]}"
+	# fi
+
+	# echo "$@" >&2
+	# "$@" || die -n "${*} failed"
+}
+
+src_compile() {
+	ego build
+
+	cmake_src_compile
+
+	# if ! use cuda && ! use rocm; then
+	# 	# to configure and build only CPU variants
+	# 	set -- cmake --build --preset Default -j16
+	# fi
+
+	# if use cuda; then
+	# 	# to configure and build only CUDA
+	# 	set -- cmake --build --preset CUDA -j16
+	# fi
+
+	# if use rocm; then
+	# 	# to configure and build only ROCm
+	# 	set -- cmake --build --preset ROCm -j16
+	# fi
+
+	# echo "$@" >&2
+	# "$@" || die -n "${*} failed"
 }
 
 src_install() {
-	dobin dist/linux-${ARCH}/bin/ollama
+	dobin ollama
 
-	if [[ -d "dist/linux-${ARCH}/lib/ollama" ]] ; then
-		insinto /usr/lib
-		doins -r dist/linux-${ARCH}/lib/ollama
+	cmake_src_install
+
+	if use cuda; then
+		# remove the copied cuda files...
+		rm "${ED}/usr/lib/ollama"/cuda_*/libcu*.so* || die
 	fi
 
-	doinitd "${FILESDIR}"/ollama
+	doinitd "${FILESDIR}"/ollama.init
 }
 
 pkg_preinst() {
 	keepdir /var/log/ollama
-	fowners ollama:ollama /var/log/ollama
+	# fowners ollama:ollama /var/log/ollama
+	fperms 777 /var/log/ollama
 }
 
 pkg_postinst() {
