@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person" proxied="yes">
-		<email>zdanevich.vitaly@ya.ru</email>
-		<name>Vitaly Zdanevich</name>
-		<description>A copy from https://github.com/MrPenguin07/ebuilds/tree/master/dev-ml/ollama</description>
+	<maintainer type="person">
+		<email>negril.nx+gentoo@gmail.com</email>
+		<name>Paul Zander</name>
 	</maintainer>
 	<use>
 		<flag name="cuda">Enable NVIDIA CUDA support</flag>
