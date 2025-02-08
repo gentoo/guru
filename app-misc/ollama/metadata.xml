@@ -8,6 +8,7 @@
 	</maintainer>
 	<use>
 		<flag name="cuda">Enable NVIDIA CUDA support</flag>
+		<flag name="rocm">Enable ROCm gpu computing support</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">ollama/ollama</remote-id>
