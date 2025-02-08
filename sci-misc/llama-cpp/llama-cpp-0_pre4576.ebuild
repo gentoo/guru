@@ -21,6 +21,14 @@ HOMEPAGE="https://github.com/ggerganov/llama.cpp"
 LICENSE="MIT"
 SLOT="0"
 CPU_FLAGS_X86=( avx avx2 f16c )
+IUSE="curl"
+
+# curl is needed for pulling models from huggingface
+# numpy is used by convert_hf_to_gguf.py
+DEPEND="curl? ( net-misc/curl:= )"
+RDEPEND="${DEPEND}
+	dev-python/numpy
+"
 
 src_configure() {
 	local mycmakeargs=(
@@ -28,6 +36,7 @@ src_configure() {
 		-DLLAMA_BUILD_SERVER=ON
 		-DCMAKE_SKIP_BUILD_RPATH=ON
 		-DGGML_NATIVE=0	# don't set march
+		-DLLAMA_CURL=$(usex curl ON OFF)
 		-DBUILD_NUMBER="1"
 	)
 	cmake_src_configure
