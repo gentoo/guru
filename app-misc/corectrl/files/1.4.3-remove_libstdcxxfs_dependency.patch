@@ -1,0 +1,24 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 789f15e..69504df 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -373,7 +373,6 @@ target_compile_definitions(corectrl_lib PRIVATE ${APP_COMPILE_DEFINITIONS})
+ target_link_libraries(corectrl_lib PRIVATE
+   Qt5::Core
+   QuaZip::QuaZip
+-  stdc++fs
+   pthread
+   spdlog::spdlog
+   pugixml::pugixml
+diff --git a/src/helper/CMakeLists.txt b/src/helper/CMakeLists.txt
+index c262086..2c5ffd8 100644
+--- a/src/helper/CMakeLists.txt
++++ b/src/helper/CMakeLists.txt
+@@ -101,7 +101,6 @@ target_compile_definitions(corectrl_helper PRIVATE ${HELPER_COMPILE_DEFINITIONS}
+ target_link_libraries(corectrl_helper PRIVATE
+   Qt5::Core
+   Qt5::DBus
+-  stdc++fs
+   pthread
+   spdlog::spdlog
+   ${Botan_LIBRARIES}
