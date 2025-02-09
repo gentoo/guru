@@ -31,10 +31,11 @@ RDEPEND="${DEPEND}"
 
 DOCS=( README.md )
 
-src_prepare() {
-	mv -v ../vendor ./ || die
+src_unpack() {
 	default
+	mv -v vendor "${S}" || die
 }
+
 src_compile() {
 	ego build
 }
