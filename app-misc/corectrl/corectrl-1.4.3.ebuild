@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit ecm linux-info optfeature
+inherit ecm linux-info optfeature toolchain-funcs
 
 DESCRIPTION="Core control application"
 HOMEPAGE="https://gitlab.com/corectrl/corectrl"
@@ -55,7 +55,7 @@ RDEPEND="${COMMON_DEPEND}
 CONFIG_CHECK="~CONNECTOR ~PROC_EVENTS ~NETLINK_DIAG"
 
 src_prepare() {
-	(clang++ --version 2>&1 | grep -q "libcxx") && eapply "${FILESDIR}/1.4.3-remove_libstdcxxfs_dependency.patch"
+	! tc-is-gcc && (clang++ --version 2>&1 | grep -q "libcxx") && eapply "${FILESDIR}/1.4.3-remove_libstdcxxfs_dependency.patch"
 	cmake_src_prepare
 }
 
