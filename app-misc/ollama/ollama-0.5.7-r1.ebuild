@@ -160,6 +160,10 @@ src_install() {
 		doins -r "dist/linux-${ARCH}/lib/ollama"
 	fi
 
+	if use rocm; then
+		fperms +x /usr/lib/ollama/runners/rocm/ollama_llama_server
+	fi
+
 	doinitd "${FILESDIR}"/ollama.init
 }
 
