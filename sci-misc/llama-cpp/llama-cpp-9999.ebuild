@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,14 +21,20 @@ HOMEPAGE="https://github.com/ggerganov/llama.cpp"
 LICENSE="MIT"
 SLOT="0"
 CPU_FLAGS_X86=( avx avx2 f16c )
-IUSE="curl"
+IUSE="curl openblas blis"
+REQUIRED_USE="?? ( openblas blis )"
 
 # curl is needed for pulling models from huggingface
 # numpy is used by convert_hf_to_gguf.py
-DEPEND="curl? ( net-misc/curl:= )"
+DEPEND="
+	curl? ( net-misc/curl:= )
+	openblas? ( sci-libs/openblas:= )
+	blis? ( sci-libs/blis:= )
+"
 RDEPEND="${DEPEND}
 	dev-python/numpy
 "
+PATCHES=( "${FILESDIR}/blas-ld.diff" )
 
 src_configure() {
 	local mycmakeargs=(
@@ -39,5 +45,18 @@ src_configure() {
 		-DLLAMA_CURL=$(usex curl ON OFF)
 		-DBUILD_NUMBER="1"
 	)
+
+	if use openblas ; then
+		mycmakeargs+=(
+			-DGGML_BLAS=ON -DGGML_BLAS_VENDOR=OpenBLAS
+		)
+	fi
+
+	if use blis ; then
+		mycmakeargs+=(
+			-DGGML_BLAS=ON -DGGML_BLAS_VENDOR=FLAME
+		)
+	fi
+
 	cmake_src_configure
 }

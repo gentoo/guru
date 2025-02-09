@@ -4,6 +4,10 @@
 	<upstream>
 		<remote-id type="github">ggerganov/llama.cpp</remote-id>
 	</upstream>
+	<use>
+		<flag name="blis">Build a BLIS backend</flag>
+		<flag name="openblas">Build an OpenBLAS backend</flag>
+	</use>
 	<maintainer type="person">
 		<email>zl29ah@gmail.com</email>
 		<name>Sergey Alirzaev</name>
