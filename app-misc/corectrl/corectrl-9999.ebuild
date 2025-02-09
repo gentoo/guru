@@ -27,19 +27,16 @@ COMMON_DEPEND="
 	dev-libs/botan:=
 	dev-libs/pugixml
 	dev-libs/spdlog:=
-	>=dev-libs/quazip-1.3:=[qt5]
-	dev-qt/qtcharts:5[qml]
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
+	>=dev-libs/quazip-1.3:=[qt6]
+	dev-qt/qtbase:6[dbus,gui,network,widgets]
+	dev-qt/qtcharts:6[qml]
+	dev-qt/qtdeclarative:6
 	sys-auth/polkit[introspection]
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/units
-	dev-qt/linguist-tools:5
-	dev-qt/qtsvg:5
+	dev-qt/qttools:6[linguist]
+	dev-qt/qtsvg:6
 	x11-libs/libdrm[video_cards_amdgpu]
 	test? (
 		>=dev-cpp/catch-3.5.2
