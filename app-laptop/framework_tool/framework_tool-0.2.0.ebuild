@@ -214,7 +214,7 @@ if is_live; then
 	EGIT_REPO_URI="https://github.com/FrameworkComputer/framework-system.git"
 else
 	if [[ ${PV} == *_pre* || ${PV} == *_p* ]]; then
-		GIT_COMMIT="96a7ed9127d987779cd435898876ac2e2dca68a5"
+		GIT_COMMIT=""
 		[[ -n ${GIT_COMMIT} ]] ||
 			die "GIT_COMMIT is not defined for snapshot ebuild"
 		MY_PV="${GIT_COMMIT}"
