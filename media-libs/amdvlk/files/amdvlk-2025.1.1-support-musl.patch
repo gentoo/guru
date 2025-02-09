@@ -1,0 +1,28 @@
+diff --git a/pal/src/util/file.cpp b/pal/src/util/file.cpp
+index db9df291..61c1969f 100644
+--- a/pal/src/util/file.cpp
++++ b/pal/src/util/file.cpp
+@@ -481,7 +481,7 @@ void File::Seek(
+ {
+     if (m_pFileHandle != nullptr)
+     {
+-        const int32 ret = fseeko64(m_pFileHandle, offset, static_cast<int>(pos));
++        const int32 ret = fseeko(m_pFileHandle, offset, static_cast<int>(pos));
+         PAL_ASSERT(ret == 0);
+     }
+ }
+diff --git a/pal/src/util/lnx/lnxSysUtil.cpp b/pal/src/util/lnx/lnxSysUtil.cpp
+index 0a05f3ae..ec05e28d 100644
+--- a/pal/src/util/lnx/lnxSysUtil.cpp
++++ b/pal/src/util/lnx/lnxSysUtil.cpp
+@@ -51,6 +51,10 @@
+ #include <sys/types.h>
+ #include <unistd.h>
+ 
++#if !defined(ACCESSPERMS)
++#define ACCESSPERMS (S_IRWXU|S_IRWXG|S_IRWXO)
++#endif
++
+ using namespace std::chrono;
+ 
+ namespace Util

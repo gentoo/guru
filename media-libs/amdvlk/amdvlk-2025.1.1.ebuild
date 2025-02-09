@@ -99,6 +99,8 @@ pkg_pretend(){
 }
 
 src_prepare() {
+	use elibc_musl && PATCHES+=( "${FILESDIR}/amdvlk-2025.1.1-support-musl.patch" )
+
 	einfo "moving src to proper directories"
 	mkdir third_party || die
 	mv xgl-${XGL_COMMIT}/ xgl || die
