@@ -194,6 +194,7 @@ src_compile() {
 		# BFD doesn't link Swift symbols properly, so we have to ensure Swift is
 		# built with LLD.
 		'-DSWIFT_USE_LINKER=lld',
+		'-DLLVM_USE_LINKER=lld',
 
 		# We don't need to build any test code or test executables, which Swift
 		# (and some components) does by default.
