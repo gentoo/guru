@@ -196,6 +196,15 @@ src_compile() {
 		'-DSWIFT_USE_LINKER=lld',
 		'-DLLVM_USE_LINKER=lld',
 
+		# Bug 949266
+		# Building Swift with llvm-core/clang-common[default-libcxx] fails
+		# with missing symbol errors due to some libraries getting linked
+		# against libc++ and some against libstdc++, and when the Swift llvm is
+		# told to link against libc++ (via -DCLANG_DEFAULT_CXX_STDLIB=libc++),
+		# Swift fails to load the c++ symbols later in the build. Therefore,
+		# unconditionally force libstdc++.
+		'-DCMAKE_CXX_FLAGS=-stdlib=libstdc++',
+
 		# We don't need to build any test code or test executables, which Swift
 		# (and some components) does by default.
 		'-DBUILD_TESTING:BOOL=NO',
