@@ -509,9 +509,6 @@ inherit cargo llvm-r2 desktop
 DESCRIPTION="A lightweight OpenXR/OpenVR overlay for Wayland and X11 desktops"
 HOMEPAGE="https://github.com/galister/wlx-overlay-s"
 
-OPENVR_REV="08de3821dfd3aa46f778376680c68f33b9fdcb6c"
-OPENVR_PATH="${WORKDIR}/ovr_overlay_oyasumi-bd03e5bf886f84d438aad95da5c5cc28725013a8/sys/openvr"
-
 SRC_URI="
 	${CARGO_CRATE_URIS}
 	https://github.com/galister/wlx-overlay-s/archive/refs/tags/v$(ver_cut 1-2).tar.gz -> ${P}.tar.gz
