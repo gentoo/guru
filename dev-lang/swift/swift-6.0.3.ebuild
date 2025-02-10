@@ -64,6 +64,7 @@ LICENSE="Apache-2.0"
 SLOT="6/0"
 KEYWORDS="~amd64"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+IUSE="libcxx"
 
 RESTRICT="strip"
 
@@ -182,10 +183,16 @@ src_compile() {
 	swift_version="${swift_version#${CATEGORY}/}" # reduce to ${PVR} form
 	swift_version="${swift_version%-r[[:digit:]]*}" # reduce to ${P} form
 
+	local swift_preset='gentoo'
+
+	if use libcxx; then
+		swift_preset='gentoo,libcxx'
+	fi
+
 	local original_path="${PATH}"
 	export PATH="/usr/lib64/${swift_version}/usr/bin:${original_path}"
 	"${S}/swift/utils/build-script" \
-		--preset=gentoo \
+		--preset="${swift_preset}" \
 		install_destdir="${S}/${P}" \
 		installable_package="" \
 		|| die

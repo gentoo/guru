@@ -8,6 +8,11 @@
   <upstream>
     <remote-id type="github">swiftlang/swift</remote-id>
   </upstream>
+  <use>
+    <flag name="libcxx">
+      Use <pkg>llvm-runtimes/libcxx</pkg> as the default C++ runtime library.
+    </flag>
+  </use>
   <slots>
     <slot name="0">
       The original slot for swift-5.10.1; should no longer be used.

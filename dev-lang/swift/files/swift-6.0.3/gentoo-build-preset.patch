@@ -29,7 +29,7 @@
 
 --- a/swift/utils/build-presets.ini
 +++ b/swift/utils/build-presets.ini
-@@ -3051,3 +3051,17 @@ skip-test-cmark
+@@ -3051,3 +3051,24 @@ skip-test-cmark
 
  llvm-cmake-options=
    -DCLANG_DEFAULT_LINKER=gold
@@ -47,3 +47,10 @@
 +llvm-targets-to-build=host
 +skip-build-curl
 +skip-build-zlib
++
++[preset: gentoo,libcxx]
++mixin-preset=gentoo
++libcxx
++llvm-cmake-options=
++       -DCLANG_DEFAULT_LINKER=lld
++       -DCLANG_DEFAULT_CXX_STDLIB=libc++
