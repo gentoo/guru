@@ -27,7 +27,7 @@ BDEPEND="
 	x11-misc/xdotool
 	x11-apps/xprop
 	x11-apps/xrandr
-	dev-util/xxd
+	|| ( app-editors/vim-core dev-util/xxd )
 	x11-apps/xwininfo
 	>=gnome-extra/yad-7.2
 "
