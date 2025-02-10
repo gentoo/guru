@@ -1,0 +1,41 @@
+diff --git a/wlx-overlay-s-9999/Cargo.lock b/wlx-overlay-s-9999/Cargo.lock
+index 1662153..d7a76af 100644
+--- a/wlx-overlay-s-9999/Cargo.lock
++++ b/wlx-overlay-s-9999/Cargo.lock
+@@ -3025,7 +3025,7 @@ dependencies = [
+ [[package]]
+ name = "ovr_overlay"
+ version = "0.0.0"
+-source = "git+https://github.com/galister/ovr_overlay_oyasumi#bd03e5bf886f84d438aad95da5c5cc28725013a8"
++source = "git+https://github.com/galister/ovr_overlay_oyasumi?rev=5b5b8bbfdd6d9059f79b2847d8f657e093f2b120#5b5b8bbfdd6d9059f79b2847d8f657e093f2b120"
+ dependencies = [
+  "byteorder",
+  "derive_more",
+@@ -3040,12 +3040,13 @@ dependencies = [
+ [[package]]
+ name = "ovr_overlay_sys"
+ version = "0.0.0"
+-source = "git+https://github.com/galister/ovr_overlay_oyasumi#bd03e5bf886f84d438aad95da5c5cc28725013a8"
++source = "git+https://github.com/galister/ovr_overlay_oyasumi?rev=5b5b8bbfdd6d9059f79b2847d8f657e093f2b120#5b5b8bbfdd6d9059f79b2847d8f657e093f2b120"
+ dependencies = [
+  "autocxx",
+  "autocxx-build",
+  "cxx",
+  "normpath",
++ "pkg-config",
+ ]
+ 
+ [[package]]
+diff --git a/wlx-overlay-s-9999/Cargo.toml b/wlx-overlay-s-9999/Cargo.toml
+index f1d8e91..73a08ea 100644
+--- a/wlx-overlay-s-9999/Cargo.toml
++++ b/wlx-overlay-s-9999/Cargo.toml
+@@ -39,7 +39,7 @@ openxr = { git = "https://github.com/galister/openxrs", rev = "af4a55d", feature
+ ovr_overlay = { features = [
+   "ovr_input",
+   "ovr_system",
+-], git = "https://github.com/galister/ovr_overlay_oyasumi", optional = true }
++], git = "https://github.com/galister/ovr_overlay_oyasumi", rev = "5b5b8bbfdd6d9059f79b2847d8f657e093f2b120", optional = true }
+ regex = "1.10.4"
+ rodio = { version = "0.20.1", default-features = false, features = [
+   "wav",

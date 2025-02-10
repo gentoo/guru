@@ -10,6 +10,7 @@
     <flag name="openxr">Support Khronos Group's OpenXR API.</flag>
     <flag name="osc">Support VRChat's Open Sound Control protocol.</flag>
     <flag name="pipewire">Enable pipewire support for desktop capture.</flag>
+    <flag name="wayvr">Enable WayVR, a Wayland server for a VR environment.</flag>
   </use>
   <upstream>
     <remote-id type="github">galister/wlx-overlay-s</remote-id>

@@ -1,0 +1,13 @@
+diff --git a/src/overlays/screen.rs b/src/overlays/screen.rs
+index e4a6c3d..c092b29 100644
+--- a/src/overlays/screen.rs
++++ b/src/overlays/screen.rs
+@@ -33,7 +33,7 @@ use {
+ };
+ 
+ #[cfg(all(feature = "x11", feature = "pipewire"))]
+-use wlx_capture::pipewire::PipewireStream;
++use {crate::config::AStrMapExt, wlx_capture::pipewire::PipewireStream};
+ 
+ #[cfg(feature = "wayland")]
+ use {
