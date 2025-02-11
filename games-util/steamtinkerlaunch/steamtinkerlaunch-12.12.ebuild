@@ -63,14 +63,14 @@ pkg_postinst() {
 	optfeature "starting ScummVM games natively via Roberta." games-engines/scummvm
 	optfeature "writing game logs." dev-util/strace
 	optfeature "checking if a VR headset is present." sys-apps/usbutils
-	optfeature "Vulkan post-processing (shader) layer similar to and \
+	optfeature "vulkan post-processing (shader) layer similar to and \
 			 mostly compatible with ReShade shaders." games-util/vkbasalt
 	optfeature "playing stereoscopic videos, regular videos \
 			and games in VR." media-gfx/vr-video-player
 	optfeature "running applications with system Wine and performing \
 			associated Wine configurations." app-emulation/wine-vanilla
 	optfeature "installing Winetricks workarounds/verbs on Wine/Proton prefixes." app-emulation/winetricks
-	optfeature "Desktop environment application integration, such as \
+	optfeature "desktop environment application integration, such as \
 			opening default browsers or text editors." x11-misc/xdg-utils
 
 	ewarn ""
