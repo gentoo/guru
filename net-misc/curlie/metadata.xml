@@ -7,6 +7,7 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="github">rs/curlie</remote-id>
+                <remote-id type="gitlab">freijon_gentoo/net-misc/curlie</remote-id>
 		<bugs-to>https://github.com/rs/curlie/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
