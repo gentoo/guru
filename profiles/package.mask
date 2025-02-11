@@ -16,7 +16,17 @@
 # tag when treecleaning a package. The bug will automatically get closed with
 # the PKGREMOVED resolution.
 
+
+
 # New entries go on top.
+
+# Skyler Mäntysaari <sm+gentoo@skym.fi> (2025-02-11)
+# No maintainer
+# Bugs: 945712, 928370
+# Removal on 2025-03-11
+www-apps/gotosocial
+www-apps/castopod
+www-apps/honk
 
 # David Roman <davidroman96@gmail.com> (2025-01-30)
 # Broken ebuild. Upstream don't version they releases. According to the 
