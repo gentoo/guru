@@ -7,7 +7,7 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="github">charmbracelet/pop</remote-id>
-                <remote-id type="gitlab">freijon_gentoo/net-mail/pop</remote-id>
+		<remote-id type="gitlab">freijon_gentoo/net-mail/pop</remote-id>
 		<bugs-to>https://github.com/charmbracelet/pop/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
