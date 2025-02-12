@@ -1,7 +1,9 @@
 # Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-#TODO: enable/fix GRPC dependency and add it as USE flag (https://github.com/SChernykh/p2pool/issues/313)
+#TODO: enable/fix GRPC/TLS dependency and add it as USE flag (https://github.com/SChernykh/p2pool/issues/313)
+#	These features build fine in cmake outside of portage, I can't figure out how to link them here for the life of me.
+#	It's probably better to just re-write the CMakeLists.txt to dynamicially link with gRPC
 
 EAPI=8
 
@@ -17,11 +19,13 @@ SRC_URI="
 LICENSE="BSD GPL-3+ ISC LGPL-3+ MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-#IUSE="grpc"
+#IUSE="grpc tls"
 
 DEPEND="
-	dev-libs/libsodium
+	dev-libs/openssl
 	net-libs/czmq
+	dev-libs/libuv
+	net-misc/curl
 "
 BDEPEND="
 	verify-sig? ( sec-keys/openpgp-keys-schernykh )
@@ -45,18 +49,13 @@ src_unpack() {
 	mv -T "${WORKDIR}"/${PN} "${WORKDIR}"/${P} || die
 }
 
-src_prepare(){
-	rm "${S}/cmake/flags.cmake" || die
-	cp "${FILESDIR}/flags.cmake" "${S}/cmake/flags.cmake" || die
-	cmake_src_prepare
-	default_src_prepare
-}
-
 src_configure() {
 	local mycmakeargs=(
+		-DSTATIC_BINARY=OFF
+		-DSTATIC_LIBS=OFF
 		-DWITH_RANDOMX=OFF
-		-DWITH_GRPC=OFF
-		#-DWITH_GRPC=$(usex grpc)
+		-DWITH_GRPC=OFF #$(usex grpc)
+		-DWITH_TLS=OFF #$(usex tls)
 	)
 	cmake_src_configure
 }

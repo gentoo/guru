@@ -13,24 +13,20 @@ LICENSE="BSD GPL-3+ ISC LGPL-3+ MIT"
 SLOT="0"
 
 DEPEND="
-	dev-libs/libsodium
+	dev-libs/openssl
 	net-libs/czmq
+	dev-libs/libuv
+	net-misc/curl
 "
-
-src_prepare() {
-	default
-
-	# 884447: remove -s from OPTIMIZATION_FLAGS
-	sed -i 's/-s\>//' cmake/flags.cmake || die
-
-	cmake_src_prepare
-}
 
 src_configure() {
 	local mycmakeargs=(
+		-DSTATIC_BINARY=OFF
+		-DSTATIC_LIBS=OFF
 		-DWITH_RANDOMX=OFF
+		-DWITH_GRPC=OFF
+		-DWITH_TLS=OFF
 	)
-
 	cmake_src_configure
 }
 
