@@ -1,13 +1,13 @@
-# Copyright 2018-2024 Gentoo Authors
+# Copyright 2018-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake git-r3
+inherit cmake
 
 DESCRIPTION="A basic launcher for Mupen64Plus"
 HOMEPAGE="https://github.com/dh4/mupen64plus-qt"
-EGIT_REPO_URI="https://github.com/dh4/mupen64plus-qt"
+SRC_URI="https://github.com/dh4/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
@@ -21,7 +21,5 @@ DEPEND=">=games-emulation/mupen64plus-core-2.5
 
 src_install() {
 	cmake_src_install
-	rm -rf "${D}"/usr/$(get_libdir)/ \
-		"${D}"/usr/plugins/ \
-		"${D}"/usr/bin/qt.conf
+	rm -rf "${D}"/usr/$(get_libdir)/
 }
