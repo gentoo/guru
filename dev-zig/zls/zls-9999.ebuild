@@ -31,13 +31,13 @@ inherit zig
 SRC_URI+="${ZBS_DEPENDENCIES_SRC_URI}"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="${ZIG_SLOT}"
 
 # Sync with "minimum_runtime_zig_version" from upstream's "build.zig".
 RDEPEND="
 	|| (
-		>=dev-lang/zig-9999
-		>=dev-lang/zig-bin-9999
+		dev-lang/zig:${ZIG_SLOT}=
+		dev-lang/zig-bin:${ZIG_SLOT}=
 	)
 "
 
@@ -59,6 +59,12 @@ src_configure() {
 	)
 
 	zig_src_configure
+}
+
+src_install() {
+    local zls_install_dest="${EPREFIX}/usr/$(get_libdir)/zls/${PV}"
+    zig_src_install --prefix ${zls_install_dest}
+    dosym -r "${zls_install_dest}/bin/zls" "/usr/bin/zls-${PV}"
 }
 
 pkg_postinst() {
