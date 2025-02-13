@@ -5,7 +5,7 @@ EAPI=8
 
 ROCM_VERSION=6.1
 inherit cuda rocm
-inherit go-module
+inherit go-module systemd
 
 DESCRIPTION="Get up and running with Llama 3, Mistral, Gemma, and other language models."
 HOMEPAGE="https://ollama.com"
@@ -32,7 +32,7 @@ X86_CPU_FLAGS=(
 	avx512_vnni
 	avx512_bf16
 )
-CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
+CPU_FLAGS=("${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}")
 IUSE="${CPU_FLAGS[*]} cuda rocm"
 
 REQUIRED_USE="
@@ -91,17 +91,20 @@ src_prepare() {
 
 src_configure() {
 	local CUSTOM_CPU_FLAGS=()
-	use cpu_flags_x86_avx && CUSTOM_CPU_FLAGS+=( "avx" )
-	use cpu_flags_x86_avx2 && CUSTOM_CPU_FLAGS+=( "avx2" )
-	use cpu_flags_x86_avx512f && CUSTOM_CPU_FLAGS+=( "avx512" )
-	use cpu_flags_x86_avx512vbmi && CUSTOM_CPU_FLAGS+=( "avx512vbmi" )
-	use cpu_flags_x86_avx512_vnni && CUSTOM_CPU_FLAGS+=( "avx512vnni" )
-	use cpu_flags_x86_avx512_bf16 && CUSTOM_CPU_FLAGS+=( "avx512bf16" )
+	use cpu_flags_x86_avx && CUSTOM_CPU_FLAGS+=("avx")
+	use cpu_flags_x86_avx2 && CUSTOM_CPU_FLAGS+=("avx2")
+	use cpu_flags_x86_avx512f && CUSTOM_CPU_FLAGS+=("avx512")
+	use cpu_flags_x86_avx512vbmi && CUSTOM_CPU_FLAGS+=("avx512vbmi")
+	use cpu_flags_x86_avx512_vnni && CUSTOM_CPU_FLAGS+=("avx512vnni")
+	use cpu_flags_x86_avx512_bf16 && CUSTOM_CPU_FLAGS+=("avx512bf16")
 
 	# Build basic ollama executable with cpu features built in
 	emakeargs=(
 		# CCACHE=""
-		"CUSTOM_CPU_FLAGS=$( IFS=','; echo "${CUSTOM_CPU_FLAGS[*]}")"
+		"CUSTOM_CPU_FLAGS=$(
+			IFS=','
+			echo "${CUSTOM_CPU_FLAGS[*]}"
+		)"
 	)
 
 	if use cuda; then
@@ -130,7 +133,7 @@ src_configure() {
 
 		cuda_add_sandbox -w
 	else
-		emakeargs+=( OLLAMA_SKIP_CUDA_GENERATE="1" )
+		emakeargs+=(OLLAMA_SKIP_CUDA_GENERATE="1")
 	fi
 
 	if use rocm; then
@@ -141,7 +144,7 @@ src_configure() {
 
 		check_amdgpu
 	else
-		emakeargs+=( OLLAMA_SKIP_ROCM_GENERATE="1" )
+		emakeargs+=(OLLAMA_SKIP_ROCM_GENERATE="1")
 	fi
 
 	emake "${emakeargs[@]}" help-runners
@@ -155,7 +158,7 @@ src_compile() {
 src_install() {
 	dobin "dist/linux-${ARCH}/bin/ollama"
 
-	if [[ -d "dist/linux-${ARCH}/lib/ollama" ]] ; then
+	if [[ -d "dist/linux-${ARCH}/lib/ollama" ]]; then
 		insinto /usr/lib
 		doins -r "dist/linux-${ARCH}/lib/ollama"
 	fi
@@ -165,6 +168,7 @@ src_install() {
 	fi
 
 	doinitd "${FILESDIR}"/ollama.init
+	systemd_dounit "${FILESDIR}"/ollama.service
 }
 
 pkg_preinst() {
