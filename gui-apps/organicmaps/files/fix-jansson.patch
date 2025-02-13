@@ -1,0 +1,31 @@
+commit 905b161487865a200ce4a43fb2c1d96ecb38e102
+Author: Gerion Entrup <gerion.entrup@flump.de>
+Date:   Thu Apr 25 10:14:41 2024 +0200
+
+    CMakeLists: import jansson with pkgconfig
+    
+    Upstream jansson offers compiling with autotools and CMake.
+    If it is compiled with autotools (the recommended way) it does only
+    provide a pkgconfig file and not a cmake file.
+    This is also the way most distributions provide jansson, so this commit
+    changes the behavior to use pkgconfig, too.
+    
+    Signed-off-by: Gerion Entrup <gerion.entrup@flump.de>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1902f0e618..975a402f8a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -320,8 +320,11 @@ if (WITH_SYSTEM_PROVIDED_3PARTY)
+   set(GFLAGS_USE_TARGET_NAMESPACE ON)
+   find_package(gflags REQUIRED)
+ 
++  find_package(PkgConfig)
++  pkg_check_modules(jansson REQUIRED IMPORTED_TARGET jansson)
++  add_library(jansson::jansson ALIAS PkgConfig::jansson)
++
+   find_package(expat CONFIG REQUIRED)
+-  find_package(jansson CONFIG REQUIRED)
+   find_package(pugixml REQUIRED)
+   find_package(utf8cpp REQUIRED)
+ endif()
