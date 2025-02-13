@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ LICENSE="|| ( GPL-2 EUPL-1.1 )"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="virtual/jre:1.8"
+RDEPEND="virtual/jre:11"
 BDEPEND="app-arch/unzip"
 
 pkg_nofetch() {
