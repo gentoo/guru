@@ -69,6 +69,7 @@ src_install() {
 }
 
 pkg_postinst() {
+    eselect zls update ifunset || die
 	elog "You can find configuration guide here:"
 	elog "https://zigtools.org/zls/"
 }
