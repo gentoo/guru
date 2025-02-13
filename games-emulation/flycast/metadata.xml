@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+	<name>Samuel Bauer</name>
+	<email>samuel.bauer@yahoo.fr</email>
+</maintainer>
+<use>
+	<flag name="vulkan">Compile vulkan backend</flag>
+</use>
+	<upstream>
+		<remote-id type="github">flyinghead/flycast</remote-id>
+	</upstream>
+</pkgmetadata>
