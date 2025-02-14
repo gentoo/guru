@@ -6,7 +6,7 @@ index 802f685..898b247 100644
  [Desktop Entry]
  Categories=Game;
 -Exec=ModrinthApp
-+Exec="/opt/modrinth-app-bin/modrinth-app-bin" %U
++Exec="MODRINTH_EXTERNAL_UPDATE_PROVIDER=1 /opt/modrinth-app-bin/modrinth-app-bin" %U
  Icon=ModrinthApp
  Name=Modrinth App
  Terminal=false
