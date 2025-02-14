@@ -55,7 +55,9 @@ RDEPEND="${COMMON_DEPEND}
 CONFIG_CHECK="~CONNECTOR ~PROC_EVENTS ~NETLINK_DIAG"
 
 src_prepare() {
-	! tc-is-gcc && (clang++ --version 2>&1 | grep -q "libcxx") && eapply "${FILESDIR}/1.4.3-remove_libstdcxxfs_dependency.patch"
+	if [[ $(tc-get-cxx-stdlib) == "libc++" ]]; then
+		sed -i 's/stdc++fs//g' src/CMakeLists.txt src/helper/CMakeLists.txt || die
+	fi
 	cmake_src_prepare
 }
 
