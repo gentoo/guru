@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+	<name>mazes-80</name>
+	<email>samuel.bauer@yahoo.fr</email>
+</maintainer>
+<use>
+	<flag name="discord">Enables Discord Rich Presence</flag>
+	<flag name="faudio">Add faudio sound backend support</flag>
+	<flag name="llvm">Use llvm backend for PPU cache generation</flag>
+	<flag name="opencv">Enable PS Move support</flag>
+	<flag name="vulkan">Build vulkan renderer</flag>
+</use>
+</pkgmetadata>
