@@ -167,6 +167,15 @@ src_install() {
 		fperms +x /usr/lib/ollama/runners/rocm/ollama_llama_server
 	fi
 
+	if use cuda; then
+		if has_version "=dev-util/nvidia-cuda-toolkit-11*"; then
+			fperms +x /usr/lib/ollama/runners/cuda_v11/ollama_llama_server
+		fi
+		if has_version "=dev-util/nvidia-cuda-toolkit-12*"; then
+			fperms +x /usr/lib/ollama/runners/cuda_v12/ollama_llama_server
+		fi
+	fi
+
 	doinitd "${FILESDIR}"/ollama.init
 	systemd_dounit "${FILESDIR}"/ollama.service
 }
