@@ -60,7 +60,7 @@ DEPEND="
 	dev-libs/spdlog:=[${MULTILIB_USEDEP}]
 	dev-libs/libfmt:=[${MULTILIB_USEDEP}]
 	dev-cpp/nlohmann_json
-	x11-libs/libxkbcommon
+	x11-libs/libxkbcommon:=[${MULTILIB_USEDEP}]
 	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	X? ( x11-libs/libX11[${MULTILIB_USEDEP}] )
 	video_cards_nvidia? (
