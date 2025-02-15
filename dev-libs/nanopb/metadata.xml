@@ -9,6 +9,6 @@
     <remote-id type="github">nanopb/nanopb</remote-id>
   </upstream>
   <use>
-    <flag name="pb-malloc">Enable dynamic allocation support in the decoder</flag>	
+    <flag name="pb-malloc">Enable dynamic allocation support in the decoder</flag>
   </use>
 </pkgmetadata>
