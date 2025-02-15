@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -395,6 +395,11 @@ QA_FLAGS_IGNORED="
 	usr/bin/ya.*
 "
 
+RDEPEND="
+	dev-libs/oniguruma
+"
+DEPEND="${RDEPEND}"
+
 DOCS=(
 	"README.md"
 	"yazi-config/preset/keymap-default.toml"
@@ -410,6 +415,9 @@ src_prepare() {
 }
 
 src_compile() {
+	# workaround for GCC 15 issues:
+	# unvendor libonig from rust-onig. see bugs 943785, 945008
+	export RUSTONIG_SYSTEM_LIBONIG=1
 	cargo_src_compile
 	use cli && cargo_src_compile -p "${PN}-cli"
 }
