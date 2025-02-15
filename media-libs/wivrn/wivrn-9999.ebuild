@@ -36,7 +36,7 @@ RDEPEND="
 		sys-auth/elogind
 	)
 	gui? (
-		dev-libs/qcoro
+		dev-libs/qcoro[qml]
 		kde-frameworks/kcoreaddons:6
 		kde-frameworks/ki18n:6
 		kde-frameworks/kiconthemes:6
