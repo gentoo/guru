@@ -8,6 +8,7 @@ inherit meson git-r3
 DESCRIPTION="A more modern manual page viewer for our terminals"
 HOMEPAGE="https://github.com/plp13/qman"
 EGIT_REPO_URI="https://github.com/plp13/qman.git"
+EGIT_BRANCH="devel"
 
 LICENSE="BSD-2"
 SLOT="0"
