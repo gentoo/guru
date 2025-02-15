@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,25 +20,30 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+cli +gui test"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+IUSE="+cli +gui +sdl +ffmpeg system-jerasure system-nanopb mbedtls test"
+REQUIRED_USE="
+	${PYTHON_REQUIRED_USE}
+	gui? ( ffmpeg )
+"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	dev-libs/jerasure
 	dev-libs/libevdev
-	dev-libs/openssl:=
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtconcurrent:5
-	dev-qt/qtmultimedia:5
-	dev-qt/qtopengl:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
-	media-libs/libsdl2
 	media-libs/opus
-	media-video/ffmpeg:=
+	sdl? ( media-libs/libsdl2[joystick,haptic] )
+	gui? ( dev-qt/qtcore:5 )
+	gui? ( dev-qt/qtwidgets:5 )
+	gui? ( dev-qt/qtgui:5 )
+	gui? ( dev-qt/qtconcurrent:5 )
+	gui? ( dev-qt/qtmultimedia:5 )
+	gui? ( dev-qt/qtopengl:5 )
+	gui? ( dev-qt/qtsvg:5 )
+	!mbedtls? ( dev-libs/openssl:= )
+	mbedtls? ( net-libs/mbedtls )
+	ffmpeg?	( media-video/ffmpeg:= )
+	system-jerasure? ( dev-libs/jerasure )
+	system-nanopb? ( dev-libs/nanopb )
 "
 
 DEPEND="${RDEPEND}"
@@ -53,10 +58,14 @@ BDEPEND="
 src_configure() {
 	local mycmakeargs=(
 		-DPYTHON_EXECUTABLE="${PYTHON}"
-		-DCHIAKI_USE_SYSTEM_JERASURE=TRUE
+		-DCHIAKI_USE_SYSTEM_JERASURE=$(usex system-jerasure)
+		-DCHIAKI_USE_SYSTEM_NANOPB=$(usex system-nanopb)
 		-DCHIAKI_ENABLE_TESTS=$(usex test)
 		-DCHIAKI_ENABLE_CLI=$(usex cli)
 		-DCHIAKI_ENABLE_GUI=$(usex gui)
+		-DCHIAKI_ENABLE_FFMPEG_DECODER=$(usex ffmpeg)
+		-DCHIAKI_LIB_ENABLE_MBEDTLS=$(usex mbedtls)
+		-DCHIAKI_GUI_ENABLE_SDL_GAMECONTROLLER=$(usex sdl)
 	)
 
 	cmake_src_configure
@@ -66,5 +75,5 @@ src_install() {
 	cmake_src_install
 
 	dolib.so "${BUILD_DIR}"/lib/*.so
-	dolib.so "${BUILD_DIR}"/setsu/*.so
+	use sdl || dolib.so "${BUILD_DIR}"/setsu/*.so
 }

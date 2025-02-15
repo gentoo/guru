@@ -7,6 +7,11 @@
 	</maintainer>
 	<use>
 		<flag name="cli">Build CLI interface</flag>
+		<flag name="gui">Build Qt GUI interface</flag>
+		<flag name="system-jerasure">Use system-provided jerasure instead of submodule</flag>
+		<flag name="system-nanopb">Use system-provided nanopb instead of submodule</flag>
+		<flag name="sdl">Add support for touchpad and sensor handling via SDL. Adds support for any controller supported by SDL</flag>
+		<flag name="mbedtls">Use mbedtls instead of OpenSSL as part of Chiaki lib</flag>
 	</use>
 	<longdescription lang="en">
 	Chiaki is a Free and Open Source Software Client for PlayStation 4 and
