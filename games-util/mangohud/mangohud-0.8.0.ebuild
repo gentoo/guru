@@ -133,7 +133,6 @@ multilib_src_configure() {
 		$(meson_feature wayland with_wayland)
 		$(meson_feature dbus with_dbus)
 		$(meson_use mangoapp mangoapp)
-		$(meson_use mangoapp mangoapp_layer)
 		$(meson_use mangohudctl mangohudctl)
 		$(meson_feature mangoplot mangoplot)
 	)
