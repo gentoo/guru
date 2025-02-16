@@ -10,9 +10,9 @@ HOMEPAGE="https://kind.sigs.k8s.io/"
 SRC_URI="https://github.com/kubernetes-sigs/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://github.com/dmdutra/gentoo-distfiles/raw/refs/heads/main/${PN}-v${PV}-vendor.tar.xz"
 
-LICENSE="Apache-2.0"
+LICENSE="Apache-2.0 BSD BSD-2 MPL-2.0 MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv"
+KEYWORDS="~amd64"
 
 RDEPEND=">=app-containers/docker-cli-23.0.0"
 
