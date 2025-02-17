@@ -137,12 +137,6 @@ src_configure() {
 	cmake_src_configure
 }
 
-src_install() {
-	cmake_src_install
-
-	dosym -r /usr/share/openxr/1/openxr_wivrn.json /etc/openxr/1/active_runtime.json
-}
-
 pkg_postinst()
 {
 	fcaps cap_sys_nice bin/wivrn-server
