@@ -47,11 +47,6 @@ gui-apps/coretoppings
 dev-util/genTree
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2024-12-19)
-# GStreamer plugin with no revdeps left, since Nheko was ported to Qt6.
-# Removal on 2025-01-25.
-media-plugins/gst-plugins-qt5
-
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2024-12-19)
 # pytest-benchmark is unmaintained in ::guru, should not be used in tests.
 # https://public-inbox.gentoo.org/gentoo-guru/Z2L4IZBNBJEMqnbj@sysrq.in/
 # Bugs: #921898, #835526, #921893
