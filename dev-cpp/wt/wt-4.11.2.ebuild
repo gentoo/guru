@@ -12,10 +12,9 @@ SRC_URI="https://github.com/emweb/wt/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.
 LICENSE="GPL-2"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="doc firebird mysql opengl +pango pdf postgres ssl"
+IUSE="doc mysql opengl +pango pdf postgres ssl"
 
 DEPEND="
-	firebird? ( dev-db/firebird )
 	mysql? ( virtual/mysql )
 	opengl? ( virtual/opengl )
 	pango? ( x11-libs/pango )
@@ -48,8 +47,8 @@ src_configure() {
 		-DENABLE_PANGO=$(usex pango)
 		-DENABLE_SQLITE=ON
 		-DENABLE_POSTGRES=$(usex postgres)
-		-DENABLE_FIREBIRD=$(usex firebird)
 		-DENABLE_MYSQL=$(usex mysql)
+		-DENABLE_FIREBIRD=OFF
 		-DENABLE_QT4=OFF
 		-DENABLE_QT5=OFF
 		-DENABLE_QT6=ON
