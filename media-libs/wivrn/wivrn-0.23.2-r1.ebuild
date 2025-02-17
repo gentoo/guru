@@ -3,14 +3,14 @@
 
 EAPI=8
 
-inherit cmake fcaps xdg
+inherit cmake fcaps flag-o-matic xdg
 
 DESCRIPTION="WiVRn OpenXR streaming"
 HOMEPAGE="https://github.com/WiVRn/WiVRn"
 
 LICENSE="GPL-3 Apache-2.0 MIT"
 SLOT="0"
-IUSE="gui nvenc +pipewire pulseaudio systemd vaapi wireshark-plugins x264"
+IUSE="debug gui nvenc +pipewire pulseaudio systemd vaapi wireshark-plugins x264"
 REQUIRED_USE="|| ( nvenc vaapi x264 )"
 
 if [[ ${PV} == 9999 ]]; then
@@ -102,6 +102,8 @@ else
 fi
 
 src_configure() {
+	use debug || append-cflags "-DNDEBUG"
+	use debug || append-cxxflags "-DNDEBUG"
 	if [[ ${PV} == 9999 ]]; then
 		GIT_DESC=$(git describe --tags --always)
 		GIT_COMMIT=$(git rev-parse HEAD)
