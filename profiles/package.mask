@@ -40,12 +40,6 @@ games-util/curseforge
 # Removal on 2025-02-23.
 gui-apps/coretoppings
 
-# Julien Roy <julien@jroy.ca>
-# Depends on dev-python/zenlib-3.1.2 which isn't yet in tree
-# https://github.com/gentoo/gentoo/pull/39922
-# Shall be unmasked when the PR is merged
-dev-util/genTree
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2024-12-19)
 # pytest-benchmark is unmaintained in ::guru, should not be used in tests.
 # https://public-inbox.gentoo.org/gentoo-guru/Z2L4IZBNBJEMqnbj@sysrq.in/
