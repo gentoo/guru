@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,6 +26,7 @@ REQUIRED_USE="
 BDB_SLOT="5.3"
 RDEPEND="
 	>=dev-libs/boost-1.63.0:=[zlib(+)]
+	<dev-libs/boost-1.87.0:=
 	>=dev-libs/libsecp256k1-0.2.0:=[recovery(+)]
 	>=dev-libs/leveldb-1.21:=
 	dev-libs/libzip:=
