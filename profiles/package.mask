@@ -63,12 +63,6 @@ dev-python/manhole
 dev-python/pygal
 dev-python/pygaljs
 
-# Julien Roy <julien@jroy.ca> (2024-12-17)
-# Depends on dev-libs/icu:0/74.1
-# Which has been dropped from ::gentoo
-# Removal on 2025-01-17
-sci-physics/openmodelica
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
