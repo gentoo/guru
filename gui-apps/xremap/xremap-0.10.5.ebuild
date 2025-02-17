@@ -102,7 +102,7 @@ CRATES="
 	linux-raw-sys@0.3.8
 	linux-raw-sys@0.4.5
 	lock_api@0.4.12
-	log@0.4.22
+	log@0.4.25
 	memchr@2.6.4
 	memoffset@0.6.5
 	memoffset@0.7.1
@@ -145,7 +145,7 @@ CRATES="
 	semver@1.0.23
 	serde@1.0.217
 	serde_derive@1.0.217
-	serde_json@1.0.134
+	serde_json@1.0.138
 	serde_repr@0.1.16
 	serde_spanned@0.6.6
 	serde_with@3.8.1
