@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,6 +19,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/click[${PYTHON_USEDEP}]
+	>=dev-python/httpx-0.28.1[${PYTHON_USEDEP}]
 	>=dev-python/pydantic-2.0[${PYTHON_USEDEP}]
 	dev-python/pydantic-settings[${PYTHON_USEDEP}]
 	dev-python/questionary[${PYTHON_USEDEP}]
@@ -32,6 +33,7 @@ BDEPEND="
 		dev-vcs/git
 		dev-vcs/mercurial
 		dev-python/freezegun[${PYTHON_USEDEP}]
+		>=dev-python/pytest-localserver-0.9.0_p0[${PYTHON_USEDEP}]
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
 	)
 "
