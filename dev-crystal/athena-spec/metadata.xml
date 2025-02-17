@@ -7,7 +7,7 @@
 			<name>George Dietrich</name>
 			<email>george@dietrich.app</email>
 		</maintainer>
-		<doc>https://athenaframework.org/Spec</doc>
+		<doc>https://athenaframework.org/Spec/</doc>
 		<remote-id type="github">athena-framework/spec</remote-id>
 	</upstream>
 </pkgmetadata>
