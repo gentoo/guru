@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1 pypi
+inherit click-app distutils-r1 pypi
 
 DESCRIPTION="Suite of tools and fixtures to manage daemons for testing"
 HOMEPAGE="
@@ -17,7 +17,6 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-# dev-python/setuptools: for pkg_resources and distutils
 RDEPEND="
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/daiquiri[${PYTHON_USEDEP}]
@@ -25,7 +24,12 @@ RDEPEND="
 	dev-python/jinja2[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/psutil[${PYTHON_USEDEP}]
-	dev-python/xattr[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		|| (
+			dev-python/pyxattr[${PYTHON_USEDEP}]
+			dev-python/xattr[${PYTHON_USEDEP}]
+		)'
+	)
 "
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
@@ -40,22 +44,27 @@ BDEPEND="
 		dev-python/testtools[${PYTHON_USEDEP}]
 		net-misc/kafka-bin
 		net-misc/memcached
+		net-misc/rabbitmq-server
 		sys-cluster/ceph
 		virtual/mysql[server]
 	)
 "
 
 EPYTEST_DESELECT=(
-	# Need updates to new CLIs and APIs
+	# Drivers need fixes
 	pifpaf/tests/test_drivers.py::TestDrivers::test_influxdb
 	pifpaf/tests/test_drivers.py::TestDrivers::test_mongodb
 	pifpaf/tests/test_drivers.py::TestDrivers::test_redis_sentinel
-
-	# RabbitMQ wants to be run only as root
-	pifpaf/tests/test_drivers.py::TestDrivers::test_rabbitmq
-	pifpaf/tests/test_drivers.py::TestDrivers::test_rabbitmq_cluster
 )
 
 distutils_enable_tests pytest
 
+click-app_enable_completions pifpaf
+
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
+
+python_test() {
+	# RabbitMQ wrappers installed to /usr/sbin require to be run as root.
+	local -x PATH="${BUILD_DIR}/install${EPREFIX}/usr/bin:${BROOT}/usr/libexec/rabbitmq:${PATH}"
+	epytest
+}
