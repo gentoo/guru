@@ -19,6 +19,9 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RDEPEND="
+	$(python_gen_cond_dep '!dev-python/pyxattr[${PYTHON_USEDEP}]')
+"
 BDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/cffi-1.16.0[${PYTHON_USEDEP}]
