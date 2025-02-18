@@ -582,7 +582,7 @@ CRATES="
 "
 
 declare -A GIT_CRATES=(
-	[dark-light]='https://github.com/frewsxcv/rust-dark-light;3eb3e93dd0fa30733c3e93082dd9517fb580ae95;rust-dark-light-%commit%'
+	[dark-light]='https://github.com/frewsxcv/rust-dark-light;3eb3e93dd0fa30733c3e93082dd9517fb580ae95;dark-light-%commit%'
 	[dpi]='https://github.com/iced-rs/winit;254d6b3420ce4e674f516f7a2bd440665e05484d;winit-%commit%/dpi'
 	[glyphon]='https://github.com/hecrj/glyphon;0d7ba1bba4dd71eb88d2cface5ce649db2413cb7;glyphon-%commit%'
 	[iced]='https://github.com/iced-rs/iced;d660fad33d97cf78507c6797b5fe45b3daf47454;iced-%commit%'
