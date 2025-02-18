@@ -109,15 +109,15 @@ src_install() {
 	insinto "${DOGEDIR}/bin"
 
 	if use gui ; then
-        insinto /usr/share/pixmaps
-        doins src/qt/res/icons/dogecoin.png
-        dosym "${DOGEDIR}/bin/${PN}" "/usr/bin/${PN}"
+	insinto /usr/share/pixmaps
+	doins src/qt/res/icons/dogecoin.png
+	dosym "${DOGEDIR}/bin/${PN}" "/usr/bin/${PN}"
 
-        if use prune ; then
-            domenu "${FILESDIR}"/"${PN}-prune.desktop"
-        else
-            domenu "${FILESDIR}"/"${PN}.desktop"
-        fi
+	if use prune ; then
+		domenu "${FILESDIR}"/"${PN}-prune.desktop"
+	else
+		domenu "${FILESDIR}"/"${PN}.desktop"
+	fi
 	fi
 
 	if use dogecoind ; then
