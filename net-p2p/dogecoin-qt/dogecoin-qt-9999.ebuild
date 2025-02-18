@@ -50,11 +50,6 @@ RDEPEND="${DEPEND}
 	)
 "
 
-BDEPEND="
-	dev-build/autoconf
-	dev-build/automake
-"
-
 pkg_pretend() {
 		if use intel-avx2 && [[ ! -e "${ROOT}"/etc/portage/patches/app-crypt/intel-ipsec-mb/remove_digest_init.patch ]]; then
 			eerror "${ROOT}/etc/portage/patches/app-crypt/intel-ipsec-mb/remove_digest_init.patch does not exist!"
