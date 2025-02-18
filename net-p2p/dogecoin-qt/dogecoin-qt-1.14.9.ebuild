@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-WANT_AUTOCONF="2.5"
+WANT_AUTOCONF="2.71"
 inherit autotools desktop xdg-utils
 DESCRIPTION="Dogecoin Core Qt for desktop. Downloaded blockchain is under 2.2GB. Much secure."
 HOMEPAGE="https://github.com/dogecoin"
