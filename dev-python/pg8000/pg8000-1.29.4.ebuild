@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_11 )
 DISTUTILS_USE_PEP517=setuptools
 declare -A DATABASES_REQ_USE=( [postgres]="xml" )
 

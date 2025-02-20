@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{7..12} )
+PYTHON_COMPAT=( python3_{11..12} )
 inherit git-r3 python-r1 xdg cmake
 EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 # this URL is to make the tests compile since organicmaps usually dynamically clones the repo

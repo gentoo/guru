@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..12} )
 inherit desktop xdg python-single-r1
 
 IFACIALMOCAP_COMMIT="8095807804b138a3236d9ce21e800e02fe44e53a"

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..12} )
 inherit meson vala gnome2-utils python-any-r1
 
 MY_PN="SwayNotificationCenter"

@@ -6,7 +6,7 @@ EAPI=8
 # required because of manual install in src_install
 CMAKE_MAKEFILE_GENERATOR="emake"
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..12} )
 
 inherit cmake python-any-r1 optfeature toolchain-funcs
 

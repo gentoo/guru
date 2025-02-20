@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{7..12} )
+PYTHON_COMPAT=( python3_{11..12} )
 inherit python-single-r1
 
 DESCRIPTION="A simple bash + python script to restore your i3 session"

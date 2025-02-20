@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=(python3_{9..12})
+PYTHON_COMPAT=(python3_{11..12})
 
 inherit cargo git-r3 cmake python-any-r1 xdg
 

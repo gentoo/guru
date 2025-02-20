@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=no
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 inherit distutils-r1 systemd
 
 DESCRIPTION="A self-hosted, ad-free, privacy-respecting metasearch engine"

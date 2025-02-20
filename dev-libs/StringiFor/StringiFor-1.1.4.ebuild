@@ -4,7 +4,7 @@
 EAPI=8
 
 FORTRAN_STANDARD=2003
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..12} )
 
 inherit  fortran-2 python-any-r1 toolchain-funcs
 

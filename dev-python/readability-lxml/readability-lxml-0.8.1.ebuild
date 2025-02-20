@@ -1,9 +1,9 @@
-# Copyright 2019-2024 Gentoo Authors
+# Copyright 2019-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..12} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
@@ -26,15 +26,14 @@ RDEPEND="
 	dev-python/lxml-html-clean[${PYTHON_USEDEP}]
 	|| (
 		dev-python/chardet[${PYTHON_USEDEP}]
-		( $(python_gen_cond_dep \
-			'dev-python/faust-cchardet[${PYTHON_USEDEP}]' python3_{8..10}) )
+		dev-python/faust-cchardet[${PYTHON_USEDEP}]
 	)
 "
 BDEPEND="
 	test? (
 		dev-python/chardet[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep \
-			'dev-python/timeout-decorator[${PYTHON_USEDEP}]' python3_{8..11})
+			'dev-python/timeout-decorator[${PYTHON_USEDEP}]' python3_11)
 	)
 "
 

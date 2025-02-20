@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 inherit python-single-r1
 
 DESCRIPTION="Steam Play compatibility tool to run DOS games using native Linux DOSBox"

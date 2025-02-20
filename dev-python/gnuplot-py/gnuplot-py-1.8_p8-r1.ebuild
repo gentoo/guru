@@ -6,7 +6,7 @@ EAPI=8
 MYPN="python-gnuplot"
 MYPV="$(ver_cut 1-2)"
 MYP="${PN}-${MYPV}"
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..12} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1

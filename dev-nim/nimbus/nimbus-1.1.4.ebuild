@@ -6,7 +6,7 @@ EAPI=8
 DOCS_BUILDER="sphinx"
 DOCS_AUTODOC=0
 DOCS_DIR="docs"
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..12} )
 inherit python-any-r1 docs nim-utils
 
 DESCRIPTION="Packaging-friendly Nim build system"

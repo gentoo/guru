@@ -212,7 +212,7 @@ CRATES="
 	zerocopy@0.7.35
 "
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit cargo python-any-r1
 

@@ -5,7 +5,7 @@ EAPI=8
 
 VER_MUNIT="439de4a9b136bc3b5163e73d4caf37c590bef875"
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 inherit cmake python-single-r1 xdg
 
 DESCRIPTION="Client for PlayStation 4 and PlayStation 5 Remote Play"
