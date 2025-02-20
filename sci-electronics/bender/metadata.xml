@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">pulp-platform/bender</remote-id>
+		<bugs-to>https://github.com/pulp-platform/bender/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		Bender is a dependency management tool for hardware design projects.
+		It provides a way to define dependencies among IPs, execute unit tests,
+		and verify that the source files are valid input for various simulation
+		and synthesis tools.
+	</longdescription>
+</pkgmetadata>
