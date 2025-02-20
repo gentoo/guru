@@ -6,6 +6,7 @@
 	</upstream>
 	<use>
 		<flag name="blis">Build a BLIS backend</flag>
+		<flag name="hip">Build a HIP (ROCm) backend</flag>
 		<flag name="openblas">Build an OpenBLAS backend</flag>
 	</use>
 	<maintainer type="person">

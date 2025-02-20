@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit cmake
+ROCM_VERSION="6.3"
+
+inherit cmake rocm
 
 if [[ "${PV}" != "9999" ]]; then
 	KEYWORDS="~amd64"
@@ -21,8 +23,29 @@ HOMEPAGE="https://github.com/ggerganov/llama.cpp"
 LICENSE="MIT"
 SLOT="0"
 CPU_FLAGS_X86=( avx avx2 f16c )
-IUSE="curl openblas blis"
+IUSE="curl openblas blis hip"
 REQUIRED_USE="?? ( openblas blis )"
+
+AMDGPU_TARGETS_COMPAT=(
+	gfx900
+	gfx90c
+	gfx902
+	gfx1010
+	gfx1011
+	gfx1012
+	gfx1030
+	gfx1031
+	gfx1032
+	gfx1034
+	gfx1035
+	gfx1036
+	gfx1100
+	gfx1101
+	gfx1102
+	gfx1103
+	gfx1150
+	gfx1151
+)
 
 # curl is needed for pulling models from huggingface
 # numpy is used by convert_hf_to_gguf.py
@@ -30,6 +53,7 @@ DEPEND="
 	curl? ( net-misc/curl:= )
 	openblas? ( sci-libs/openblas:= )
 	blis? ( sci-libs/blis:= )
+	hip? (  >=dev-util/hip-6.3:= )
 "
 RDEPEND="${DEPEND}
 	dev-python/numpy
@@ -55,6 +79,13 @@ src_configure() {
 	if use blis ; then
 		mycmakeargs+=(
 			-DGGML_BLAS=ON -DGGML_BLAS_VENDOR=FLAME
+		)
+	fi
+
+	if use hip; then
+		rocm_use_hipcc
+		mycmakeargs+=(
+			-DGGML_HIP=ON -DAMDGPU_TARGETS=$(get_amdgpu_flags)
 		)
 	fi
 
