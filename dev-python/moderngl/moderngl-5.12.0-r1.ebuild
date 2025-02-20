@@ -12,7 +12,7 @@ DOCS_DEPEND="
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1 virtualx docs
 

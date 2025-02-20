@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517=setuptools
 # TODO re-enable pypi when it is available on there
 # <https://github.com/web-push-libs/encrypted-content-encoding/issues/79>

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 inherit linux-mod-r1 python-single-r1 flag-o-matic
 
 DESCRIPTION="Extensible Virtual Display Interface"

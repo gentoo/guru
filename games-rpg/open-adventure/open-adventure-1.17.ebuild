@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..12} )
 inherit desktop flag-o-matic python-any-r1
 
 DESCRIPTION="Forward-port of the Crowther/Woods Adventure 2.5"

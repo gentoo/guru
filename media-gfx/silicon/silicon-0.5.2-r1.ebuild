@@ -193,7 +193,7 @@ CRATES="
 	yeslogic-fontconfig-sys@3.2.0
 "
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..12} )
 # <time@0.3.35
 # https://github.com/time-rs/time/issues/693
 RUST_MAX_VER="1.79.0"

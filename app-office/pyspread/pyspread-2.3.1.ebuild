@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 # csv import is broken in python3_13
 # https://gitlab.com/pyspread/pyspread/-/issues/132
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..12} )
 
 inherit desktop distutils-r1 optfeature xdg
 

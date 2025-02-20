@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} ) #py3.13 doesn't compile
+PYTHON_COMPAT=( python3_{11..12} ) #py3.13 doesn't compile
 
 inherit databases distutils-r1 optfeature pypi
 

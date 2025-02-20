@@ -6,7 +6,7 @@ EAPI=8
 M_PN=LenovoLegionLinux
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=(python3_{9..12})
+PYTHON_COMPAT=(python3_{11..12})
 
 inherit linux-mod-r1 distutils-r1 systemd optfeature
 
