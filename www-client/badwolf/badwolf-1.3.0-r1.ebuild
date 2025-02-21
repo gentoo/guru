@@ -15,8 +15,8 @@ else
 
 	MY_P="${PN}-$(ver_rs 3 - 4 .)"
 	SRC_URI="
-		https://hacktivis.me/releases/${MY_P}.tar.gz
-		verify-sig? ( https://hacktivis.me/releases/${MY_P}.tar.gz.sign )
+		https://distfiles.hacktivis.me/releases/${MY_P}.tar.gz
+		verify-sig? ( https://distfiles.hacktivis.me/releases/${MY_P}.tar.gz.sign )
 	"
 	KEYWORDS="~amd64 ~arm64 ~ppc64"
 	S="${WORKDIR}/${MY_P}"

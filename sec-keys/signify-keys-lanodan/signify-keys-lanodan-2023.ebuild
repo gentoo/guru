@@ -8,10 +8,10 @@ inherit verify-sig
 
 MY_PREV_PV="2021-04"
 DESCRIPTION="Signify keys used by Haelwenn (lanodan) Monnier"
-HOMEPAGE="https://hacktivis.me/releases/signify/"
+HOMEPAGE="https://distfiles.hacktivis.me/releases/signify/"
 SRC_URI="
-	https://hacktivis.me/releases/signify/${PV}.pub -> ${P}.pub
-	verify-sig? ( https://hacktivis.me/releases/signify/${PV}.pub.${MY_PREV_PV}.sig -> ${P}.pub.${MY_PREV_PV}.sig )
+	https://distfiles.hacktivis.me/releases/signify/${PV}.pub -> ${P}.pub
+	verify-sig? ( https://distfiles.hacktivis.me/releases/signify/${PV}.pub.${MY_PREV_PV}.sig -> ${P}.pub.${MY_PREV_PV}.sig )
 "
 S="${WORKDIR}"
 
