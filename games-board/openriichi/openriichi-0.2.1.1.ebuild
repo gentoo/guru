@@ -24,7 +24,7 @@ RDEPEND="
 	$(vala_depend)
 	dev-libs/libgee:0.8
 	media-libs/glew:0
-	media-libs/libsdl2[haptic,joystick,opengl,sound,threads,video]
+	media-libs/libsdl2[haptic,joystick,opengl,sound,video]
 	media-libs/sdl2-image[jpeg,png,tiff,webp]
 	media-libs/sdl2-mixer
 	x11-libs/gtk+:3
