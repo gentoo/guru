@@ -5,4 +5,8 @@
 		<email>ruifanj2@illinois.edu</email>
 		<name>Revan Ji</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>stefan.cristian+git@rogentos.ro</email>
+		<name>Stefan Cristian B.</name>
+	</maintainer>
 </pkgmetadata>
