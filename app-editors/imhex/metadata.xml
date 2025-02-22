@@ -13,6 +13,7 @@
 	<use>
 		<flag name="system-llvm">Use the system LLVM installation</flag>
 		<flag name="desktop-portal">Use sys-apps/xdg-desktop-portal file picker instead of the GTK one</flag>
+		<flag name="lz4">Enable lz4 compression / decompression support</flag>
 	</use>
 	<longdescription lang="en">
 		Features

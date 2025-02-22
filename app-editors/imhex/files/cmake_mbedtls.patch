@@ -1,0 +1,20 @@
+--- a/cmake/modules/FindmbedTLS.cmake
++++ b/cmake/modules/FindmbedTLS.cmake
+@@ -19,13 +19,13 @@
+ # All rights reserved.
+ 
+ 
+-FIND_PATH(MBEDTLS_INCLUDE_DIR mbedtls/version.h)
++FIND_PATH(MBEDTLS_INCLUDE_DIR mbedtls/version.h PATH_SUFFIXES mbedtls3)
+ 
+ SET(MBEDTLS_FIND_QUIETLY TRUE)
+ 
+-FIND_LIBRARY(MBEDTLS_LIBRARY NAMES mbedtls libmbedtls libmbedx509)
+-FIND_LIBRARY(MBEDX509_LIBRARY NAMES mbedx509 libmbedx509)
+-FIND_LIBRARY(MBEDCRYPTO_LIBRARY NAMES mbedcrypto libmbedcrypto)
++FIND_LIBRARY(MBEDTLS_LIBRARY NAMES mbedtls mbedtls3 libmbedtls libmbedx509)
++FIND_LIBRARY(MBEDX509_LIBRARY NAMES mbedx509 mbedx5093 libmbedx509)
++FIND_LIBRARY(MBEDCRYPTO_LIBRARY NAMES mbedcrypto mbedcrypto3 libmbedcrypto)
+ 
+ IF(MBEDTLS_INCLUDE_DIR AND MBEDTLS_LIBRARY AND MBEDX509_LIBRARY AND MBEDCRYPTO_LIBRARY)
+     SET(MBEDTLS_FOUND TRUE)
