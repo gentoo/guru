@@ -1,10 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{10..13} pypy3 )
 
 inherit distutils-r1
 
@@ -15,6 +15,8 @@ SRC_URI="https://github.com/janluke/cloup/archive/refs/tags/v${PV}.tar.gz -> ${P
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
+
+DOCS+=( CHANGELOG.rst CREDITS.rst LICENSE examples )
 
 RDEPEND="
 	>=dev-python/click-8.0[${PYTHON_USEDEP}]
@@ -35,7 +37,4 @@ BDEPEND="
 distutils_enable_tests pytest
 # distutils_enable_sphinx docs # The doc need dev-python/sphinx < 5, which we don't have
 
-src_prepare() {
-	default
-	export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
-}
+export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
