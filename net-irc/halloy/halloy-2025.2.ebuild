@@ -12,6 +12,7 @@ CRATES="
 	ahash@0.8.11
 	aho-corasick@1.1.3
 	aliasable@0.1.3
+	aligned-vec@0.5.0
 	alsa-sys@0.3.1
 	alsa@0.9.1
 	amplify@4.8.0
@@ -24,6 +25,8 @@ CRATES="
 	android_system_properties@0.1.5
 	anyhow@1.0.95
 	approx@0.5.1
+	arbitrary@1.4.1
+	arg_enum_proc_macro@0.3.4
 	arrayref@0.3.9
 	arrayvec@0.7.6
 	arti-client@0.26.0
@@ -55,6 +58,8 @@ CRATES="
 	atomic@0.5.3
 	atomic@0.6.0
 	autocfg@1.4.0
+	av1-grain@0.2.3
+	avif-serialize@0.8.2
 	backtrace@0.3.74
 	base16ct@0.2.0
 	base64@0.13.1
@@ -67,6 +72,7 @@ CRATES="
 	bit_field@0.10.2
 	bitflags@1.3.2
 	bitflags@2.7.0
+	bitstream-io@2.6.0
 	bitvec@1.0.1
 	blanket@0.3.0
 	block-buffer@0.10.4
@@ -75,21 +81,22 @@ CRATES="
 	blocking@1.6.1
 	bounded-vec-deque@0.1.1
 	bstr@1.11.3
+	built@0.7.6
 	bumpalo@3.16.0
 	by_address@1.2.1
 	bytemuck@1.21.0
 	bytemuck_derive@1.8.1
+	byteorder-lite@0.1.0
 	byteorder@1.5.0
 	bytes@1.9.0
 	bytesize@1.3.0
-	calloop-wayland-source@0.2.0
 	calloop-wayland-source@0.3.0
-	calloop@0.12.4
 	calloop@0.13.0
 	caret@0.5.1
 	cc@1.2.7
 	cesu8@1.1.0
 	cexpr@0.6.0
+	cfg-expr@0.15.8
 	cfg-if@1.0.0
 	cfg_aliases@0.1.1
 	cfg_aliases@0.2.1
@@ -177,6 +184,7 @@ CRATES="
 	either@1.13.0
 	elliptic-curve@0.13.8
 	embed-resource@2.5.1
+	emojis@0.6.4
 	encoding_rs@0.8.35
 	endi@1.1.0
 	enum-ordinalize@3.1.15
@@ -289,13 +297,17 @@ CRATES="
 	ident_case@1.0.1
 	idna@1.0.3
 	idna_adapter@1.2.0
+	image-webp@0.2.1
 	image@0.24.9
+	image@0.25.5
+	imgref@1.11.0
 	indexmap@1.9.3
 	indexmap@2.7.0
 	inotify-sys@0.1.5
 	inotify@0.10.2
 	inout@0.1.3
 	instant@0.1.13
+	interpolate_name@0.2.4
 	interprocess@1.2.1
 	intmap@0.7.1
 	inventory@0.3.18
@@ -323,22 +335,26 @@ CRATES="
 	lebe@0.5.2
 	lewton@0.10.2
 	libc@0.2.169
+	libfuzzer-sys@0.4.9
 	libloading@0.8.6
 	libm@0.2.11
 	libredox@0.1.3
 	libsqlite3-sys@0.30.1
+	lilt@0.8.0
 	linux-raw-sys@0.4.15
 	linux-raw-sys@0.6.5
 	litemap@0.7.4
 	litrs@0.4.1
 	lock_api@0.4.12
 	log@0.4.22
+	loop9@0.1.5
 	lru@0.12.5
 	lzma-sys@0.1.20
 	mac-notification-sys@0.6.2
 	mach2@0.4.2
 	malloc_buf@0.0.6
 	matchers@0.1.0
+	maybe-rayon@0.1.1
 	memchr@2.7.4
 	memmap2@0.9.5
 	memoffset@0.9.1
@@ -356,8 +372,10 @@ CRATES="
 	ndk-sys@0.6.0+11769913
 	ndk@0.8.0
 	ndk@0.9.0
+	new_debug_unreachable@1.0.6
 	nix@0.29.0
 	nom@7.1.3
+	noop_proc_macro@0.3.0
 	notify-rust@4.11.3
 	notify-types@1.0.1
 	notify@7.0.0
@@ -368,6 +386,7 @@ CRATES="
 	num-derive@0.4.2
 	num-integer@0.1.46
 	num-iter@0.1.45
+	num-rational@0.4.2
 	num-traits@0.2.19
 	num_cpus@1.16.0
 	num_enum@0.7.3
@@ -451,9 +470,11 @@ CRATES="
 	proc-macro-crate@3.2.0
 	proc-macro2-diagnostics@0.10.1
 	proc-macro2@1.0.92
+	profiling-procmacros@1.0.16
 	profiling@1.0.16
 	pwd-grp@1.0.0
 	qoi@0.4.1
+	quick-error@2.0.1
 	quick-xml@0.31.0
 	quick-xml@0.36.2
 	quote@1.0.38
@@ -463,6 +484,8 @@ CRATES="
 	rand_core@0.6.4
 	range-alloc@0.1.3
 	rangemap@1.5.1
+	rav1e@0.7.1
+	ravif@0.11.11
 	raw-window-handle@0.6.2
 	rayon-core@1.12.1
 	rayon@1.10.0
@@ -481,6 +504,7 @@ CRATES="
 	retry-error@0.6.2
 	rfc6979@0.4.0
 	rfd@0.15.2
+	rgb@0.8.50
 	ring@0.16.20
 	ring@0.17.8
 	rodio@0.19.0
@@ -507,7 +531,7 @@ CRATES="
 	schannel@0.1.27
 	scoped-tls@1.0.1
 	scopeguard@1.2.0
-	sctk-adwaita@0.9.1
+	sctk-adwaita@0.10.1
 	seahash@4.1.0
 	sec1@0.7.3
 	security-framework-sys@2.14.0
@@ -533,13 +557,14 @@ CRATES="
 	signal-hook-registry@1.4.2
 	signature@2.2.0
 	simd-adler32@0.3.7
+	simd_helpers@0.1.0
 	siphasher@1.0.1
+	sipper@0.1.0
 	skrifa@0.22.3
 	slab@0.4.9
 	slotmap-careful@0.2.3
 	slotmap@1.0.7
 	smallvec@1.13.2
-	smithay-client-toolkit@0.18.1
 	smithay-client-toolkit@0.19.2
 	smithay-clipboard@0.7.2
 	smol_str@0.2.2
@@ -574,7 +599,9 @@ CRATES="
 	sys-locale@0.3.2
 	system-configuration-sys@0.6.0
 	system-configuration@0.6.1
+	system-deps@6.2.2
 	tap@1.0.1
+	target-lexicon@0.12.16
 	tauri-winrt-notification@0.2.1
 	tempfile@3.15.0
 	termcolor@1.4.1
@@ -674,8 +701,10 @@ CRATES="
 	utf8-width@0.1.7
 	utf8_iter@1.0.4
 	uuid@1.11.1
+	v_frame@0.3.8
 	valuable@0.1.1
 	vcpkg@0.2.15
+	version-compare@0.2.0
 	version_check@0.9.5
 	visibility@0.1.1
 	void@1.0.2
@@ -696,10 +725,8 @@ CRATES="
 	wayland-client@0.31.7
 	wayland-csd-frame@0.3.0
 	wayland-cursor@0.31.7
-	wayland-protocols-plasma@0.2.0
-	wayland-protocols-wlr@0.2.0
+	wayland-protocols-plasma@0.3.5
 	wayland-protocols-wlr@0.3.5
-	wayland-protocols@0.31.2
 	wayland-protocols@0.32.5
 	wayland-scanner@0.31.5
 	wayland-sys@0.31.5
@@ -810,7 +837,9 @@ CRATES="
 	zstd-safe@7.2.1
 	zstd-sys@2.0.13+zstd.1.5.6
 	zstd@0.13.2
+	zune-core@0.4.12
 	zune-inflate@0.2.54
+	zune-jpeg@0.4.14
 	zvariant@4.2.0
 	zvariant@5.2.0
 	zvariant_derive@4.2.0
@@ -821,19 +850,19 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[dark-light]='https://github.com/frewsxcv/rust-dark-light;3eb3e93dd0fa30733c3e93082dd9517fb580ae95;dark-light-%commit%'
-	[dpi]='https://github.com/iced-rs/winit;254d6b3420ce4e674f516f7a2bd440665e05484d;winit-%commit%/dpi'
+	[dpi]='https://github.com/iced-rs/winit;11414b6aa45699f038114e61b4ddf5102b2d3b4b;winit-%commit%/dpi'
 	[glyphon]='https://github.com/hecrj/glyphon;09712a70df7431e9a3b1ac1bbd4fb634096cb3b4;glyphon-%commit%'
-	[iced]='https://github.com/iced-rs/iced;e722c4ee4f80833ba0b1013cadd546ebc3f490ce;iced-%commit%'
-	[iced_core]='https://github.com/iced-rs/iced;e722c4ee4f80833ba0b1013cadd546ebc3f490ce;iced-%commit%/core'
-	[iced_futures]='https://github.com/iced-rs/iced;e722c4ee4f80833ba0b1013cadd546ebc3f490ce;iced-%commit%/futures'
-	[iced_graphics]='https://github.com/iced-rs/iced;e722c4ee4f80833ba0b1013cadd546ebc3f490ce;iced-%commit%/graphics'
-	[iced_renderer]='https://github.com/iced-rs/iced;e722c4ee4f80833ba0b1013cadd546ebc3f490ce;iced-%commit%/renderer'
-	[iced_runtime]='https://github.com/iced-rs/iced;e722c4ee4f80833ba0b1013cadd546ebc3f490ce;iced-%commit%/runtime'
-	[iced_tiny_skia]='https://github.com/iced-rs/iced;e722c4ee4f80833ba0b1013cadd546ebc3f490ce;iced-%commit%/tiny_skia'
-	[iced_wgpu]='https://github.com/iced-rs/iced;e722c4ee4f80833ba0b1013cadd546ebc3f490ce;iced-%commit%/wgpu'
-	[iced_widget]='https://github.com/iced-rs/iced;e722c4ee4f80833ba0b1013cadd546ebc3f490ce;iced-%commit%/widget'
-	[iced_winit]='https://github.com/iced-rs/iced;e722c4ee4f80833ba0b1013cadd546ebc3f490ce;iced-%commit%/winit'
-	[winit]='https://github.com/iced-rs/winit;254d6b3420ce4e674f516f7a2bd440665e05484d;winit-%commit%'
+	[iced]='https://github.com/iced-rs/iced;97f1db3783dca5a4f60a9f89668613de4dfe9edd;iced-%commit%'
+	[iced_core]='https://github.com/iced-rs/iced;97f1db3783dca5a4f60a9f89668613de4dfe9edd;iced-%commit%/core'
+	[iced_futures]='https://github.com/iced-rs/iced;97f1db3783dca5a4f60a9f89668613de4dfe9edd;iced-%commit%/futures'
+	[iced_graphics]='https://github.com/iced-rs/iced;97f1db3783dca5a4f60a9f89668613de4dfe9edd;iced-%commit%/graphics'
+	[iced_renderer]='https://github.com/iced-rs/iced;97f1db3783dca5a4f60a9f89668613de4dfe9edd;iced-%commit%/renderer'
+	[iced_runtime]='https://github.com/iced-rs/iced;97f1db3783dca5a4f60a9f89668613de4dfe9edd;iced-%commit%/runtime'
+	[iced_tiny_skia]='https://github.com/iced-rs/iced;97f1db3783dca5a4f60a9f89668613de4dfe9edd;iced-%commit%/tiny_skia'
+	[iced_wgpu]='https://github.com/iced-rs/iced;97f1db3783dca5a4f60a9f89668613de4dfe9edd;iced-%commit%/wgpu'
+	[iced_widget]='https://github.com/iced-rs/iced;97f1db3783dca5a4f60a9f89668613de4dfe9edd;iced-%commit%/widget'
+	[iced_winit]='https://github.com/iced-rs/iced;97f1db3783dca5a4f60a9f89668613de4dfe9edd;iced-%commit%/winit'
+	[winit]='https://github.com/iced-rs/winit;11414b6aa45699f038114e61b4ddf5102b2d3b4b;winit-%commit%'
 )
 
 RUST_MIN_VER="1.79.0"
@@ -845,8 +874,8 @@ HOMEPAGE="https://github.com/squidowl/halloy"
 LICENSE="GPL-3"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 BSD-2 BSD Boost-1.0 CC0-1.0 ISC MIT MPL-2.0 Unicode-3.0
-	Unlicense ZLIB
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD Boost-1.0
+	CC0-1.0 ISC MIT MPL-2.0 UoI-NCSA Unicode-3.0 Unlicense ZLIB
 "
 SLOT="0"
 
@@ -903,7 +932,7 @@ src_unpack() {
 src_configure() {
 	if [[ ${PV} != *9999* ]] ; then
 		# Fix cargo.eclass handling of patched dependencies
-		# https://github.com/squidowl/halloy/blob/2025.1/Cargo.toml#L70-L72
+		# https://github.com/squidowl/halloy/blob/2025.2/Cargo.toml#L72-L74
 		sed -i "s,'https://github.com/iced-rs/iced',crates-io,g" \
 			"${ECARGO_HOME}/config.toml" || die
 	fi
