@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
 <pkgmetadata>
-	<maintainer type="person">
-		<email>denis7774@gmail.com</email>
-		<name>Denis Reva</name>
-		<description>rarogcmex</description>
+<!--	<maintainer type="person">
+		<email>maintainer-needed@gentoo.org</email>
+		<name>No active maintainer</name>
+		<description>This package currently has no active maintainer</description>
 	</maintainer>
+-->
 	<use>
 		<flag name="raytracing">Enable Vulkan raytracing support in AMDVLK, requires dev-util/DirectXShaderCompiler to build. Disable if you have weak hardware.</flag>
 	</use>
