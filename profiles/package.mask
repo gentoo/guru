@@ -32,12 +32,6 @@ www-apps/honk
 # Removal on 2025-02-28
 games-util/curseforge
 
-# Takuya Wakazono <pastalian46@gmail.com> (2025-01-23)
-# Depends on dev-qt/qtbluetooth:5, which is masked in ::gentoo and will
-# be removed.
-# Removal on 2025-02-23.
-gui-apps/coretoppings
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
