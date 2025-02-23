@@ -30,8 +30,8 @@ RDEPEND="
 	=dev-python/pyyaml-6*[${PYTHON_USEDEP}]
 	=dev-python/textual-0.88*[${PYTHON_USEDEP}]
 	=dev-python/tzlocal-5.2*[${PYTHON_USEDEP}]
-	~dev-python/sqlalchemy-2.0.36[${PYTHON_USEDEP}]
-	~dev-python/platformdirs-4.3.6[${PYTHON_USEDEP}]
+	=dev-python/sqlalchemy-2*[${PYTHON_USEDEP}]
+	=dev-python/platformdirs-4*[${PYTHON_USEDEP}]
 	<dev-python/click-9.0.0[${PYTHON_USEDEP}]
 "
 
