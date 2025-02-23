@@ -21,5 +21,7 @@ DEPEND=">=games-emulation/mupen64plus-core-2.5
 
 src_install() {
 	cmake_src_install
-	rm -rf "${D}"/usr/$(get_libdir)/
+	rm -rf "${D}"/usr/$(get_libdir)/ \
+		"${D}"/usr/plugins/ \
+		"${D}"/usr/bin/qt.conf
 }
