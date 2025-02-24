@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2025-02-24)
+# No reverse dependencies left. (The last one was removed in e17a1e7.)
+# One of its test dependencies, dev-python/zstd, is being removed.
+# Removal on 2025-03-24. Bug #928259.
+dev-python/pymemcache
+
 # David Roman <davidroman96@gmail.com> (2025-01-30)
 # Depends on qtpy[pyqt5] but pyqt5 USE has been removed from it
 # Removal on 2025-03-24
