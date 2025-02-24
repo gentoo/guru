@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David Roman <davidroman96@gmail.com> (2025-01-30)
+# Depends on qtpy[pyqt5] but pyqt5 USE has been removed from it
+# Removal on 2025-03-24
+app-misc/brightness-control
+
 # Skyler Mäntysaari <sm+gentoo@skym.fi> (2025-02-11)
 # No maintainer
 # Bugs: 945712, 928370
