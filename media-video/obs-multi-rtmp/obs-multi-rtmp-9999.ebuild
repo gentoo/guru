@@ -26,10 +26,6 @@ RDEPEND="
 	${DEPEND}
 "
 
-PATCHES=(
-	"${FILESDIR}/cmake.patch"
-)
-
 src_unpack() {
 	default
 
