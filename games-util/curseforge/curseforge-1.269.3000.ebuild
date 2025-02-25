@@ -17,7 +17,7 @@ SRC_URI="
 	amd64? ( https://${PN}.overwolf.com/downloads/${PN}-latest-linux.deb -> ${P}.deb )"
 S="${WORKDIR}/"
 
-LICENSE="Apache-2.0 BSD BSD-2 GPL-2 LGPL-2+ LGPL-2.1 MPL-2.0 MIT"
+LICENSE="Overwolf Apache-2.0 BSD BSD-2 GPL-2 LGPL-2+ LGPL-2.1 MPL-2.0 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="bindist mirror strip test"
