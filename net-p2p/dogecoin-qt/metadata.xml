@@ -7,7 +7,7 @@
 		<doc>https://github.com/dogecoin/dogecoin/tree/master/doc</doc>
 		<remote-id type="github">dogecoin/dogecoin</remote-id>
 	</upstream>
-	<maintainer type="person" proxied="yes">
+	<maintainer type="person">
 		<email>victor3.14@yandex.com</email>
 		<name>Victor Skovorodnikov</name>
 	</maintainer>

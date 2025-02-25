@@ -8,13 +8,9 @@
     diagnostic and debug tools to debug system issues around USB-C/USB
     PD topology.
   </longdescription>
-  <maintainer type="person" proxied="yes">
+  <maintainer type="person">
     <name>Adrian Ratiu</name>
     <email>adrian.ratiu@collabora.com</email>
-  </maintainer>
-  <maintainer type="project" proxied="proxy">
-    <email>proxy-maint@gentoo.org</email>
-    <name>Proxy Maintainers</name>
   </maintainer>
   <upstream>
     <maintainer>
