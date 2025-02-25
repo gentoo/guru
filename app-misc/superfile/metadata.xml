@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>ingenarelitems@gmail.com</email>
+    <name>ingenarel</name>
+  </maintainer>
+<longdescription lang="en">
+Superfile is a very fancy and modern terminal file manager that can complete the file operations you need!!
+It can be said that good-looking is the original intention of superfile, so the entire superfile should be as beautiful as possible.
+From basic Hotkey, the entire theme color and even the border Style can be customized.
+This file manager allows you to do almost everything you want to do on a file manager.
+Multiple panel allows you to view multiple directories at the same time and copy and paste in just a few simple steps without having to return to the main directory.
+</longdescription>
+<upstream>
+  <remote-id type="github">yorukot/superfile</remote-id>
+</upstream>
+</pkgmetadata>

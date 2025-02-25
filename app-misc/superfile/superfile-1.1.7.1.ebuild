@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 src_compile() {
-    go build -o ./bin/spf
+    ego build -o bin/spf
 }
 
 src_install() {
