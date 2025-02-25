@@ -9,6 +9,7 @@
 	</upstream>
 	<use>
 		<flag name="lefthk">Use LeftHK hotkey daemon</flag>
+		<flag name="x11rb">Enable x11rb backend</flag>
 	</use>
 </pkgmetadata>
 
