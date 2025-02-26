@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,6 @@ DESCRIPTION="A terminal for a more modern age"
 HOMEPAGE="https://tabby.sh"
 SRC_URI="
 	amd64? ( https://github.com/Eugeny/tabby/releases/download/v${PV}/${MY_P}-x64.tar.gz )
-	arm? ( https://github.com/Eugeny/tabby/releases/download/v${PV}/${MY_P}-armhf.tar.gz )
 "
 
 # This needs to be adjusted to allow for arm
@@ -19,7 +18,7 @@ S="${WORKDIR}/${MY_P}-x64"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm"
+KEYWORDS="~amd64"
 
 DEPEND="
 	|| (
