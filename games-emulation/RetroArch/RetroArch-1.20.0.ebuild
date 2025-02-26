@@ -135,6 +135,7 @@ src_configure() {
 		$(use_enable oss) \
 		$(use_enable ozone) \
 		$(use_enable pulseaudio pulse) \
+		$(use_enable pipewire) \
 		$(use_enable rgui) \
 		$(use_enable sdl sdl2) \
 		$(use_enable threads) \
