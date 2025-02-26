@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -106,16 +106,4 @@ src_prepare() {
 src_install() {
 	dobin "$(cargo_target_dir)/framework_tool"
 	einstalldocs
-}
-
-pkg_postinst() {
-	[[ -n ${REPLACING_VERSIONS} ]] && return
-	elog "Framework Laptop 13 Ryzen 7040 Series users might need to"
-	elog "follow these steps to use most features of framework_tool:"
-	elog
-	elog "1. Disable kernel_lockdown(7)"
-	elog "2. Run 'framework_tool' with option '--driver portio'"
-	elog
-	elog "For more information, please consult:"
-	elog "  https://github.com/FrameworkComputer/framework-system/issues/20"
 }
