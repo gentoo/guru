@@ -1,0 +1,20 @@
+- remove nonexistent file from long_description
+- disable deprecated universal wheel build
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -1,5 +1,5 @@
+ [metadata]
+-long_description = file: README.rst, CHANGES.rst
++long_description = file: README.rst
+ keywords = compare baseline string test
+ platforms = any
+ classifiers =
+@@ -49,8 +49,6 @@ test =
+ [sdist]
+ formats = zip
+ 
+-[bdist_wheel]
+-universal = True
+ 
+ [build_sphinx]
+ source-dir = docs
