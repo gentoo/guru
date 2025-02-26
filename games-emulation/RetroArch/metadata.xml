@@ -30,6 +30,7 @@
 		<flag name="oss">OSS support</flag>
 		<flag name="ozone">Ozone menu</flag>
 		<flag name="pulseaudio">PulseAudio support</flag>
+		<flag name="pipewire">PulseAudio support</flag>
 		<flag name="rgui">RGUI menu</flag>
 		<flag name="sdl">SDL2 support</flag>
 		<flag name="truetype">FreeType support</flag>
