@@ -23,5 +23,11 @@ src_install() {
 	cmake_src_install
 	rm -rf "${D}"/usr/$(get_libdir)/ \
 		"${D}"/usr/plugins/ \
-		"${D}"/usr/bin/qt.conf
+		"${D}"/usr/bin/qt.conf || die
+	mkdir -p "${D}"/usr/share/qt6 || die
+	mv "${D}"/usr/translations "${D}"/usr/share/qt6/ || die
+	for i in "${D}"/usr/share/qt6/translations/*; do
+		echo mv "${i}" "${i/qt_/mupen64plus-qt_}"
+		mv "${i}" "${i/qt_/mupen64plus-qt_}" || die
+	done
 }
