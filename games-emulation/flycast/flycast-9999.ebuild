@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,6 +18,7 @@ SLOT="0"
 IUSE="alsa ao lua opengl +openmp pulseaudio vulkan"
 
 DEPEND="
+	dev-cpp/asio
 	dev-libs/libchdr
 	dev-libs/libzip
 	dev-libs/xxhash
@@ -31,7 +32,7 @@ DEPEND="
 	openmp? ( sys-devel/gcc:*[openmp] )
 	pulseaudio? ( media-libs/libpulse )
 	vulkan? (
-		>=dev-util/glslang-1.3.231:=
+		dev-util/glslang:=
 		dev-util/spirv-headers
 	)
 "
@@ -75,9 +76,6 @@ src_prepare() {
 	# Do not use ccache
 	sed -i -e '/find_program(CCACHE_FOUND/d' CMakeLists.txt
 
-	# Ensure static libs are not built
-	sed -i -e '/BUILD_SHARED_LIBS/d' CMakeLists.txt
-
 	# Vulkan-header
 	sed -i -e '/add_subdirectory(core.*Vulkan-Headers)$/,/Vulkan::Headers/d' \
 		-e '/core\/deps\/Vulkan-Headers\/include)/d' CMakeLists.txt
@@ -109,6 +107,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_SHARED_LIBS=OFF
 		-DUSE_OPENGL=$(usex opengl)
 		-DUSE_OPENMP=$(usex openmp)
 		-DUSE_VULKAN=$(usex vulkan)
