@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>hoelbezier@riseup.net</email>
+		<name>Hoël Bézier</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/FiloSottile/passage/issues</bugs-to>
+		<remote-id type="github">FiloSottile/passage</remote-id>
+	</upstream>
+</pkgmetadata>
