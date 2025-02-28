@@ -5,9 +5,6 @@
 	<email>joe@wt.gd</email>
 	<name>Joe Kappus</name>
 </maintainer>
-	<use>
-		<flag name="swiftshader">Use SwiftShader OpenGL graphics</flag>
-	</use>
 	<upstream>
 		<remote-id type="github">jitsi/jitsi-meet-electron</remote-id>
 	</upstream>
