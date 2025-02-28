@@ -281,7 +281,7 @@ HOMEPAGE="https://explosion-mental.codeberg.page/wallust"
 SRC_URI="
 	${CARGO_CRATE_URIS}
 "
-
+QA_FLAGS_IGNORED=".*"
 LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
