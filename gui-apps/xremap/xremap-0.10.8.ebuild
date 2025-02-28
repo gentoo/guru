@@ -99,6 +99,7 @@ CRATES="
 	lazy_static@1.5.0
 	libc@0.2.147
 	libloading@0.8.0
+	libudev-sys@0.1.4
 	linux-raw-sys@0.3.8
 	linux-raw-sys@0.4.5
 	lock_api@0.4.12
@@ -175,6 +176,7 @@ CRATES="
 	toml_datetime@0.6.6
 	toml_edit@0.19.14
 	toml_edit@0.22.16
+	udev@0.9.3
 	unicode-ident@1.0.11
 	unsafe-libyaml@0.2.11
 	utf8parse@0.2.1
@@ -230,10 +232,11 @@ LICENSE="MIT"
 LICENSE+=" Apache-2.0 BSD GPL-3+ ISC MIT Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="x11 gnome kde hyprland wlroots"
+IUSE="x11 gnome kde hyprland wlroots udev"
 REQUIRED_USE="?? ( x11 gnome kde hyprland wlroots )"
 
-RDEPEND="x11? ( x11-libs/libX11 )"
+DEPEND="udev? ( virtual/libudev )"
+RDEPEND="${DEPEND}"
 
 QA_FLAGS_IGNORED=".*"
 
@@ -244,6 +247,7 @@ src_configure() {
 		$(usev kde)
 		$(usev hyprland hypr)
 		$(usev wlroots)
+		$(usev udev)
 	)
 	cargo_src_configure --no-default-features
 }
