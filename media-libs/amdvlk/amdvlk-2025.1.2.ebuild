@@ -18,16 +18,16 @@ FETCH_URI="https://github.com/GPUOpen-Drivers"
 ## and place commits in the desired variables
 ## EXAMPLE: XGL_COMMIT="80e5a4b11ad2058097e77746772ddc9ab2118e07"
 ## SRC_URI="... ${FETCH_URI}/$PART/archive/$COMMIT.zip -> $PART-$COMMIT.zip ..."
-XGL_COMMIT="f1409335d242ba9007b108f10a8c5bdb7372e275"
-PAL_COMMIT="29f5d822b6d450dc669a47d2fa709c0b76dfff33"
-LLPC_COMMIT="6222f1ff6ba7f00b085003c1a05fdbdc31356235"
-GPURT_COMMIT="c3a4d170f0bacc81df90716887b6546ab41ff5f2"
-LLVM_PROJECT_COMMIT="4acbac52642be426f92d3f86ad44089e5f65ea5d"
+XGL_COMMIT="393503c25d5cf32828bc6d954a3a218dbcbfd085"
+PAL_COMMIT="cc31c8a8915e416185551dae494d49bdbf16fcbd"
+LLPC_COMMIT="eaf7c1d444cbf7f4ca31dfd24d213632afdae3ab"
+GPURT_COMMIT="d142df384ebb5ef818e7b001a2d2523633a17cda"
+LLVM_PROJECT_COMMIT="a1231d2f58522ed0170f492c804a7f01f2708c50"
 METROHASH_COMMIT="18893fb28601bb9af1154cd1a671a121fff6d8d3"
 CWPACK_COMMIT="4f8cf0584442a91d829d269158567d7ed926f026"
 # Submodule of LLPC, also updates often. Grab commit version from
 # https://github.com/GPUOpen-Drivers/llpc/tree/${LLPC_COMMIT}/imported
-LLVM_DIALECTS_COMMIT="50e4ca3a5c365b0bde36b122cc34256406723049"
+LLVM_DIALECTS_COMMIT="50260f8bdd9ce47b388f5009546a438aba8b9d16"
 ### end of variables
 SRC_URI="${FETCH_URI}/xgl/archive/${XGL_COMMIT}.tar.gz -> amdvlk-xgl-${XGL_COMMIT}.tar.gz
 ${FETCH_URI}/pal/archive/${PAL_COMMIT}.tar.gz -> amdvlk-pal-${PAL_COMMIT}.tar.gz
