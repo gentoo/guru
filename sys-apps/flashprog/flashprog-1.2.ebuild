@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 EAPI=8
 DESCRIPTION="Utility for identifying, reading, writing, verifying and erasing flash chips."
@@ -13,3 +13,9 @@ RDEPEND=">=dev-libs/libusb-1.0.26
 >=dev-libs/libgpiod-1.6.4
 >=sys-apps/pciutils-3.13.0"
 DEPEND="${RDEPEND}"
+src_compile() {
+	emake WARNERROR=no
+}
+src_install() {
+	emake DESTDIR="${D}" PREFIX="/usr" install
+}
