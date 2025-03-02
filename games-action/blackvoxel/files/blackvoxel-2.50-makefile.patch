@@ -1,3 +1,5 @@
+https://bugs.gentoo.org/887667
+Respect user FLAGS.
 diff --git a/Makefile b/Makefile2
 index 3e5933a..c8787d8 100644
 --- a/Makefile
@@ -109,14 +111,58 @@ index 08fb2ef..8cc1cbc 100644
  	
  sq32:
 -	$(CXX) -O2 -s -fno-exceptions -fno-rtti -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
-+	$(CXX) -O2 -fno-exceptions -fno-rtti -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
++	$(CXX) -fno-exceptions -fno-rtti -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
  
  sqprof:
  	$(CXX) -O2 -pg -fno-exceptions -fno-rtti -pie -gstabs -g3 -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
  	
  sq64:
 -	$(CXX) -O2 -s -m64 -fno-exceptions -fno-rtti -D_SQ64 -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
-+	$(CXX) -O2 -m64 -fno-exceptions -fno-rtti -D_SQ64 -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
++	$(CXX) -m64 -fno-exceptions -fno-rtti -D_SQ64 -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
  	
  sq64d:
  	$(CXX) -O0 -g3 -m64 -fno-exceptions -fno-rtti -D_SQ64 -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
+diff --git a/src/sc_Squirrel3/sqstdlib/Makefile b/src/sc_Squirrel3/sqstdlib/Makefile
+index 41ee3f7..7b74586 100644
+--- a/src/sc_Squirrel3/sqstdlib/Makefile
++++ b/src/sc_Squirrel3/sqstdlib/Makefile
+@@ -26,7 +26,7 @@ SRCS= \
+ 	
+ 	
+ sq32:
+-	$(CC) -O2 -fno-exceptions -fno-rtti -Wall -fno-strict-aliasing -c $(SRCS) $(INCZ)
++	$(CC) -fno-exceptions -fno-rtti -Wall -fno-strict-aliasing -c $(SRCS) $(INCZ)
+ 	$(AR) rc $(OUT) *.o
+ 	rm *.o
+ 
+@@ -36,7 +36,7 @@ sqprof:
+ 	rm *.o
+ 	
+ sq64:
+-	$(CC) -O2 -m64 -fno-exceptions -D_SQ64 -fno-rtti -Wall -fno-strict-aliasing -c $(SRCS) $(INCZ)
++	$(CC) -m64 -fno-exceptions -D_SQ64 -fno-rtti -Wall -fno-strict-aliasing -c $(SRCS) $(INCZ)
+ 	$(AR) rc $(OUT) *.o
+ 	rm *.o
+ 	
+diff --git a/src/sc_Squirrel3/squirrel/Makefile b/src/sc_Squirrel3/squirrel/Makefile
+index be2c281..30bc48b 100644
+--- a/src/sc_Squirrel3/squirrel/Makefile
++++ b/src/sc_Squirrel3/squirrel/Makefile
+@@ -37,7 +37,7 @@ SRCS= \
+ 	
+ 	
+ sq32:
+-	$(CC) -O2 -fno-exceptions -fno-rtti -Wall -fno-strict-aliasing -c $(SRCS) $(INCZ) $(DEFS)
++	$(CC) -fno-exceptions -fno-rtti -Wall -fno-strict-aliasing -c $(SRCS) $(INCZ) $(DEFS)
+ 	$(AR) rc $(OUT) *.o
+ 	rm *.o
+ 
+@@ -47,7 +47,7 @@ sqprof:
+ 	rm *.o
+ 
+ sq64:
+-	$(CC) -O2 -m64 -D_SQ64 -fno-exceptions -fno-rtti -Wall -fno-strict-aliasing -c $(SRCS) $(INCZ) $(DEFS)
++	$(CC) -m64 -D_SQ64 -fno-exceptions -fno-rtti -Wall -fno-strict-aliasing -c $(SRCS) $(INCZ) $(DEFS)
+ 	$(AR) rc $(OUT) *.o
+ 	rm *.o
+ 

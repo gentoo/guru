@@ -1,4 +1,4 @@
-# Copyright 2020-2022 Gentoo Authors
+# Copyright 2020-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,12 +16,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
-	dev-libs/expat
-	media-libs/alsa-lib
-	media-libs/glew
-	media-libs/libsdl
-	x11-libs/libX11
-	virtual/opengl
+	media-libs/glew:0=
+	media-libs/glu
+	media-libs/libglvnd[X]
+	media-libs/libsdl[sound]
 "
 RDEPEND="${DEPEND}"
 
