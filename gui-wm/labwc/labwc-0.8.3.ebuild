@@ -18,7 +18,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="X icons nls svg  man static-analyzer test"
+IUSE="X icons nls svg man static-analyzer test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -26,8 +26,9 @@ RDEPEND="
 	dev-libs/glib:2
 	>=dev-libs/libinput-1.14
 	dev-libs/libxml2:2
-	gui-libs/wlroots:0.18[X?]
+	>=gui-libs/wlroots-0.18.1[X?]
 	media-libs/libpng
+	!<=xfce-base/xfce4-panel-4.20.1
 	x11-libs/cairo[X?]
 	x11-libs/libdrm:=
 	x11-libs/libxkbcommon:=[X?]
