@@ -11,6 +11,8 @@ EGIT_REPO_URI="https://github.com/oracle/bpftune.git"
 
 LICENSE="GPL-2"
 SLOT="0"
+RESTRICT="test" # The tests require root.
+
 BDEPEND="
 	dev-util/bpftool
 	dev-util/pahole
