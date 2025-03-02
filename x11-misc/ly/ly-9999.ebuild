@@ -171,7 +171,6 @@ src_unpack() {
 	ezig fetch --global-cache-dir "${WORKDIR}/deps" "https://github.com/ziglibs/ini/archive/${ZIGLIBINI}.tar.gz"
 }
 
-
 src_prepare(){
 	default
 	# Adjusting absolute paths in the following files to use Gentoo's ${EPREFIX}
