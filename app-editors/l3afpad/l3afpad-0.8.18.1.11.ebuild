@@ -20,8 +20,11 @@ BDEPEND="
 	virtual/pkgconfig
 "
 DEPEND="
+	dev-libs/glib
 	virtual/libintl
+	x11-libs/cairo
 	x11-libs/gtk+:3
+	x11-libs/pango
 "
 RDEPEND="${DEPEND}"
 
