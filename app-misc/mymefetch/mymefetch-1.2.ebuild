@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Neofetch-like Bash script with small ASCII art of MymeType's robot OC, MYME"
+DESCRIPTION="MymeType's own neofetch-like Bash script"
 HOMEPAGE="https://codeberg.org/MymeType/mymefetch"
 SRC_URI="https://codeberg.org/MymeType/mymefetch/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}"
