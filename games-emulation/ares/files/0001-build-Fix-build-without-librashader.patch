@@ -1,0 +1,36 @@
+From cbb215a84d655d20f06451eccaa8cc56b8e759cc Mon Sep 17 00:00:00 2001
+From: Tobias Jakobi <tjakobi@math.uni-bielefeld.de>
+Date: Mon, 3 Mar 2025 14:58:02 +0100
+Subject: [PATCH 1/3] build: Fix build without librashader
+
+Fixes a build error on Gentoo Linux x86-64.
+
+Signed-off-by: Tobias Jakobi <tjakobi@math.uni-bielefeld.de>
+---
+ ruby/cmake/os-linux.cmake | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/ruby/cmake/os-linux.cmake b/ruby/cmake/os-linux.cmake
+index 5fb9002fe..0ffb7f4be 100644
+--- a/ruby/cmake/os-linux.cmake
++++ b/ruby/cmake/os-linux.cmake
+@@ -43,6 +43,7 @@ if(librashader_FOUND AND ARES_ENABLE_LIBRASHADER)
+ else()
+   # continue to define the runtime so openGL compiles
+   target_compile_definitions(ruby PRIVATE LIBRA_RUNTIME_OPENGL)
++  target_include_directories(ruby PUBLIC ../thirdparty/librashader/include)
+ endif()
+ 
+ option(ARES_ENABLE_OPENAL "Enable the OpenAL audio driver" ON)
+@@ -132,7 +133,7 @@ target_link_libraries(
+   PRIVATE
+     $<$<BOOL:${SDL_FOUND}>:SDL::SDL>
+     $<$<BOOL:${OpenAL_FOUND}>:OpenAL::OpenAL>
+-    $<$<BOOL:TRUE>:librashader::librashader>
++    $<$<BOOL:${librashader_FOUND}>:librashader::librashader>
+     $<$<BOOL:${OSS_FOUND}>:OSS::OSS>
+     $<$<BOOL:${ALSA_FOUND}>:ALSA::ALSA>
+     $<$<BOOL:${PulseAudio_FOUND}>:PulseAudio::PulseAudio>
+-- 
+2.45.3
+
