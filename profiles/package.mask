@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
+# Unmaintained in GURU, no revdeps left. Open bugs: #922914.
+# Removal on 2025-04-05.
+dev-python/aiomysql
+
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
 # Unmaintained upstream, suggested replacement is dev-util/bump-my-version.
 # Open bugs: #945117.
 # Removal on 2025-04-05.
