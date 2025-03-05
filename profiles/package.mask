@@ -29,9 +29,10 @@ dev-python/pyodbc
 dev-python/pykeepass
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
-# Unmaintained in GURU, no revdeps left. Open bugs: #928257.
+# Unmaintained in GURU, no revdeps left. Open bugs: #928257, #928265.
 # Removal on 2025-04-05.
 dev-python/pg8000
+dev-python/scramp
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
 # Unmaintained in GURU, no revdeps.
