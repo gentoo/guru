@@ -7,16 +7,16 @@ inherit edo
 
 DESCRIPTION="Small screenlocker for Wayland compositors"
 HOMEPAGE="https://codeberg.org/ifreund/waylock"
-LICENSE="ISC"
-
 SRC_URI="
 	https://codeberg.org/ifreund/waylock/releases/download/v${PV}/${P}.tar.gz
 	https://codeberg.org/ifreund/zig-wayland/archive/v0.2.0.tar.gz -> zig-wayland-0.2.0.tar.gz
 	https://codeberg.org/ifreund/zig-xkbcommon/archive/v0.2.0.tar.gz -> zig-xkbcommon-0.2.0.tar.gz
 "
-KEYWORDS="~amd64"
+LICENSE="ISC"
 
 SLOT="0"
+KEYWORDS="~amd64 ~arm64"
+
 IUSE="+man pie test"
 RESTRICT="!test? ( test )"
 
