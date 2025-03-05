@@ -1,0 +1,17 @@
+https://bugs.gentoo.org/950311
+https://github.com/meganz/MEGAsync/issues/1055
+Fix build with clang by removing broken and unused constructor.
+--- a/src/MEGASync/control/ProtectedQueue.h
++++ b/src/MEGASync/control/ProtectedQueue.h
+@@ -13,11 +13,6 @@ public:
+     ProtectedQueue(){}
+     virtual ~ProtectedQueue(){}
+ 
+-    ProtectedQueue(const ProtectedQueue& other)
+-    {
+-        std::lock_guard<std::mutex> guard( other.mMutex );
+-        mQueue = other.mQueue;
+-    }
+ 
+     ProtectedQueue& operator= (ProtectedQueue& other)
+     {

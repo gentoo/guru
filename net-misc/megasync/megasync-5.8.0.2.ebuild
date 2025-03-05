@@ -83,6 +83,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.7.0.0-fix-install-dir.patch"
 	"${FILESDIR}/${PN}-5.7.0.0-link-zlib.patch"
 	"${FILESDIR}/${PN}-5.7.0.0-rename-libcryptopp.patch"
+	"${FILESDIR}/${PN}-5.8.0.2-clang.patch"
 )
 
 nemo_run() {
