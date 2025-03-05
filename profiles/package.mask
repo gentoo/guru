@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
+# Unmaintained upstream, suggested replacement is dev-util/bump-my-version.
+# Open bugs: #945117.
+# Removal on 2025-04-05.
+dev-util/bump2version
+
 # Lucio Sauer <watermanpaint@posteo.net> (2025-03-04)
 # https://github.com/gentoo/guru/commit/efd7528c2e2d4d87fc53fc1395a357bee54fc99a#commitcomment-153258350
 # The maintainer wishes to move this package to ::gentoo-zh.  Anyone who wants
