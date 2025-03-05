@@ -21,6 +21,11 @@
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
 # Unmaintained in GURU, no revdeps.
 # Removal on 2025-04-05.
+dev-python/opentype-sanitizer
+
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
+# Unmaintained in GURU, no revdeps.
+# Removal on 2025-04-05.
 dev-python/notion-client
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
