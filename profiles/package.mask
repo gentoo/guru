@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Eric Joldasov <bratishkaerik@landless-city.net> (2025-03-05)
+# Unbuildable now. Required Zig version diverged a lot, now seems like
+# it requires so called "Mach-nominated" version (somewhere between
+# stable and 9999). Gentoo does not provide such versions.
+# Removal on 2025-04-05.
+dev-debug/uscope
+
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
 # Unmaintained in GURU.
 # Removal on 2025-04-05.
