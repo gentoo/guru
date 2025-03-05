@@ -5,8 +5,8 @@ EAPI=8
 
 inherit toolchain-funcs
 
-COMMIT="d7a079ad644be3e55d2f7c5074a732166ffec19f"
-I2PD_COMMIT="c98926abf2dcd3cbe2cbbfc00a9e9159240c3df9" # keep in sync with bundled version
+COMMIT="33fce4b087d92ee90653460bbe7a07cdc0c7b121"
+I2PD_COMMIT="dcd15cc2449d6320de6351054e61ef2ee7ebee40" # keep in sync with bundled version
 DESCRIPTION="Some useful tools for I2P"
 HOMEPAGE="https://github.com/PurpleI2P/i2pd-tools"
 SRC_URI="
@@ -59,8 +59,17 @@ src_install() {
 	binaries=(
 		vain keygen keyinfo famtool routerinfo regaddr regaddr_3ld
 		i2pbase64 offlinekeys b33address regaddralias x25519 verifyhost
+		autoconf
 	)
-	dobin "${binaries[@]}"
+
+	for bin in "${binaries[@]}"; do
+		newbin "${bin}" "ip2d-${bin}"
+	done
 
 	einstalldocs
+}
+
+pkg_postinst() {
+	elog "All binaries are prefixed with 'i2pd-' to avoid file collisions,"
+	elog "e.g. 'vain' becomes 'i2pd-vain'."
 }
