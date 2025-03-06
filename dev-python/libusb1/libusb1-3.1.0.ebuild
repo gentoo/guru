@@ -1,4 +1,4 @@
-# Copyright 2020-2024 Gentoo Authors
+# Copyright 2020-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,4 +20,10 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="virtual/libusb"
 
-distutils_enable_tests setup.py
+distutils_enable_tests unittest
+
+src_prepare() {
+	# Don't need this.
+	rm -r usb1/__pyinstaller || die
+	default
+}
