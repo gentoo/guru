@@ -1,17 +1,14 @@
 https://bugs.gentoo.org/950311
 https://github.com/meganz/MEGAsync/issues/1055
-Fix build with clang by removing broken and unused constructor.
+Fix build with clang by mark mutex as mutable.
 --- a/src/MEGASync/control/ProtectedQueue.h
 +++ b/src/MEGASync/control/ProtectedQueue.h
-@@ -13,11 +13,6 @@ public:
-     ProtectedQueue(){}
-     virtual ~ProtectedQueue(){}
+@@ -107,7 +107,7 @@ public:
  
--    ProtectedQueue(const ProtectedQueue& other)
--    {
--        std::lock_guard<std::mutex> guard( other.mMutex );
--        mQueue = other.mQueue;
--    }
+ private:
+     std::queue<T> mQueue;
+-    std::mutex mMutex;
++    mutable std::mutex mMutex;
+ };
  
-     ProtectedQueue& operator= (ProtectedQueue& other)
-     {
+ #endif // PROTECTED_QUEUE
