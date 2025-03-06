@@ -5,6 +5,10 @@
     <email>stffn.mobil@freenet.de</email>
     <name>Steffen Winter</name>
   </maintainer>
+  <maintainer type="person">
+    <name>demize</name>
+    <email>demize@unstable.systems</email>
+  </maintainer>
   <upstream>
     <remote-id type="github">jj-vcs/jj</remote-id>
   </upstream>
