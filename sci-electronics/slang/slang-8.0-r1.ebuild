@@ -32,6 +32,7 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/pybind11-2.10[${PYTHON_USEDEP}]
 	')
+	dev-libs/libfmt:=
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
