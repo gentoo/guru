@@ -52,6 +52,7 @@ SRC_URI="
 PATCHES=(
 	"${FILESDIR}/${PF}/backport-swift-75662.patch"
 	"${FILESDIR}/${PF}/backtracing-noexecstack.patch"
+	"${FILESDIR}/${PF}/clang-indexstore-exports.patch"
 	"${FILESDIR}/${PF}/disable-libdispatch-werror.patch"
 	"${FILESDIR}/${PF}/link-ncurses-tinfo.patch"
 	"${FILESDIR}/${PF}/link-with-lld.patch"
