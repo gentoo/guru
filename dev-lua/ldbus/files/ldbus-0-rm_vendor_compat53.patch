@@ -1,0 +1,112 @@
+diff '--color=auto' -uNr a/src/Makefile b/src/Makefile
+--- a/src/Makefile	2025-03-07 10:43:16.062118401 -0000
++++ b/src/Makefile	2025-03-07 10:42:40.390660824 -0000
+@@ -5,11 +5,10 @@
+ CFLAGS += -Wall -Wextra --pedantic -Wno-long-long
+ CFLAGS += `$(PKG_CONFIG) --cflags $(LUA_PKGNAME) dbus-1`
+ CFLAGS += -fPIC
+-CFLAGS += -I ../vendor/compat-5.3/c-api
+ 
+ LIBS = `$(PKG_CONFIG) --libs dbus-1`
+ 
+-OBJS = ldbus.o error.o pending_call.o connection.o bus.o message.o message_iter.o timeout.o watch.o ../vendor/compat-5.3/c-api/compat-5.3.o
++OBJS = ldbus.o error.o pending_call.o connection.o bus.o message.o message_iter.o timeout.o watch.o
+ 
+ all:	ldbus.so
+ 
+diff '--color=auto' -uNr a/src/bus.c b/src/bus.c
+--- a/src/bus.c	2025-03-07 10:43:16.062118401 -0000
++++ b/src/bus.c	2025-03-07 10:42:40.390660824 -0000
+@@ -2,7 +2,7 @@
+ 
+ #include <lua.h>
+ #include <lauxlib.h>
+-#include "compat-5.3.h"
++#include <compat-5.3.h>
+ 
+ #include <dbus/dbus.h>
+ 
+diff '--color=auto' -uNr a/src/connection.c b/src/connection.c
+--- a/src/connection.c	2025-03-07 10:43:16.062118401 -0000
++++ b/src/connection.c	2025-03-07 10:42:40.390660824 -0000
+@@ -3,7 +3,7 @@
+ 
+ #include <lua.h>
+ #include <lauxlib.h>
+-#include "compat-5.3.h"
++#include <compat-5.3.h>
+ 
+ #include <dbus/dbus.h>
+ 
+diff '--color=auto' -uNr a/src/ldbus.c b/src/ldbus.c
+--- a/src/ldbus.c	2025-03-07 10:43:16.062118401 -0000
++++ b/src/ldbus.c	2025-03-07 10:42:40.390660824 -0000
+@@ -2,7 +2,7 @@
+ #include <lua.h>
+ #include <lauxlib.h>
+ 
+-#include "compat-5.3.h"
++#include <compat-5.3.h>
+ 
+ #include <dbus/dbus.h>
+ 
+diff '--color=auto' -uNr a/src/message.c b/src/message.c
+--- a/src/message.c	2025-03-07 10:43:16.062118401 -0000
++++ b/src/message.c	2025-03-07 10:42:40.390660824 -0000
+@@ -2,7 +2,7 @@
+ 
+ #include <lua.h>
+ #include <lauxlib.h>
+-#include "compat-5.3.h"
++#include <compat-5.3.h>
+ 
+ #include <dbus/dbus.h>
+ 
+diff '--color=auto' -uNr a/src/message_iter.c b/src/message_iter.c
+--- a/src/message_iter.c	2025-03-07 10:43:16.062118401 -0000
++++ b/src/message_iter.c	2025-03-07 10:42:40.390660824 -0000
+@@ -4,7 +4,7 @@
+ 
+ #include <lua.h>
+ #include <lauxlib.h>
+-#include "compat-5.3.h"
++#include <compat-5.3.h>
+ 
+ #include <dbus/dbus.h>
+ 
+diff '--color=auto' -uNr a/src/pending_call.c b/src/pending_call.c
+--- a/src/pending_call.c	2025-03-07 10:43:16.062118401 -0000
++++ b/src/pending_call.c	2025-03-07 10:42:40.390660824 -0000
+@@ -2,7 +2,7 @@
+ 
+ #include <lua.h>
+ #include <lauxlib.h>
+-#include "compat-5.3.h"
++#include <compat-5.3.h>
+ 
+ #include <dbus/dbus.h>
+ 
+diff '--color=auto' -uNr a/src/timeout.c b/src/timeout.c
+--- a/src/timeout.c	2025-03-07 10:43:16.062118401 -0000
++++ b/src/timeout.c	2025-03-07 10:42:40.394660763 -0000
+@@ -2,7 +2,7 @@
+ 
+ #include <lua.h>
+ #include <lauxlib.h>
+-#include "compat-5.3.h"
++#include <compat-5.3.h>
+ 
+ #include <dbus/dbus.h>
+ 
+diff '--color=auto' -uNr a/src/watch.c b/src/watch.c
+--- a/src/watch.c	2025-03-07 10:43:16.062118401 -0000
++++ b/src/watch.c	2025-03-07 10:42:40.394660763 -0000
+@@ -2,7 +2,7 @@
+ 
+ #include <lua.h>
+ #include <lauxlib.h>
+-#include "compat-5.3.h"
++#include <compat-5.3.h>
+ 
+ #include <dbus/dbus.h>
+ 
