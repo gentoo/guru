@@ -498,7 +498,10 @@ DEPEND="
 	net-libs/libssh2:=
 	sys-libs/zlib
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	dev-vcs/git
+"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
