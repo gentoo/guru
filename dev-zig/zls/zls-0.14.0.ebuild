@@ -6,6 +6,12 @@ EAPI=8
 DESCRIPTION="The officially unofficial Ziglang language server"
 HOMEPAGE="https://zigtools.org/zls/ https://github.com/zigtools/zls"
 
+declare -g -r -A ZBS_DEPENDENCIES=(
+	[known_folders-0.0.0-Fy-PJtLDAADGDOwYwMkVydMSTp_aN-nfjCZw6qPQ2ECL.tar.gz]='https://github.com/ziglibs/known-folders/archive/aa24df42183ad415d10bc0a33e6238c437fc0f59.tar.gz'
+	[lsp_codegen-0.1.0-CMjjo0ZXCQB-rAhPYrlfzzpU0u0u2MeGvUucZ-_g32eg.tar.gz]='https://github.com/zigtools/zig-lsp-codegen/archive/063a98c13a2293d8654086140813bdd1de6501bc.tar.gz'
+	[N-V-__8AABhrAQAQLLLGadghhPsdxTgBk9N9aLVOjXW3ay0V.tar.gz]='https://github.com/ziglibs/diffz/archive/ef45c00d655e5e40faf35afbbde81a1fa5ed7ffb.tar.gz'
+)
+
 # Sync with "minimum_build_zig_version" from upstream's "build.zig".
 if [[ ${PV} == 9999 ]]; then
 	ZIG_SLOT="9999"
@@ -30,8 +36,8 @@ SLOT="0"
 # Sync with "minimum_runtime_zig_version" from upstream's "build.zig".
 RDEPEND="
 	|| (
-		>=dev-lang/zig-9999
-		>=dev-lang/zig-bin-9999
+		>=dev-lang/zig-0.14.0
+		>=dev-lang/zig-bin-0.14.0
 	)
 "
 
