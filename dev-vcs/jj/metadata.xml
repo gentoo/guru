@@ -2,10 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email>stffn.mobil@freenet.de</email>
-    <name>Steffen Winter</name>
-  </maintainer>
-  <maintainer type="person">
     <name>demize</name>
     <email>demize@unstable.systems</email>
   </maintainer>
