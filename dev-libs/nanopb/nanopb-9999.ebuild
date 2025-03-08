@@ -19,7 +19,7 @@ fi
 
 LICENSE="ZLIB"
 SLOT="0"
-IUSE="+pb-malloc test"
+IUSE="+pb-malloc static-libs test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -38,6 +38,10 @@ src_configure() {
 	if is-flagq "-flto" ; then
 		append-cflags "-fno-use-linker-plugin -fwhole-program"
 	fi
+	local mycmakeargs=(
+		DBUILD_SHARED_LIBS=$(usex !static-libs)
+		DBUILD_STATIC_LIBS=$(usex static-libs)
+	)
 	cmake_src_configure
 }
 
