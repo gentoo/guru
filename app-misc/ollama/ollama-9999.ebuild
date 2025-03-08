@@ -66,10 +66,6 @@ RDEPEND="
 	acct-user/${PN}
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-9999-include-cstdint.patch"
-)
-
 src_unpack() {
 	if [[ "${PV}" == *9999* ]]; then
 		git-r3_src_unpack
