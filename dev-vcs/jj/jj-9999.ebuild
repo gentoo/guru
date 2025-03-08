@@ -20,7 +20,7 @@ SLOT="0"
 
 BDEPEND="virtual/pkgconfig"
 DEPEND="
-	>=dev-libs/libgit2-1.8.1:0/1.8
+	>=dev-libs/libgit2-1.9.0:0/1.9
 	dev-libs/openssl:=
 	net-libs/libssh2:=
 	sys-libs/zlib
