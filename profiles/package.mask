@@ -117,14 +117,6 @@ dev-python/aiomysql
 # Removal on 2025-04-05.
 dev-util/bump2version
 
-# Lucio Sauer <watermanpaint@posteo.net> (2025-03-04)
-# https://github.com/gentoo/guru/commit/efd7528c2e2d4d87fc53fc1395a357bee54fc99a#commitcomment-153258350
-# The maintainer wishes to move this package to ::gentoo-zh.  Anyone who wants
-# to step up and maintain this package in GURU is invited to unmask the
-# package.
-# Removal on 2025-04-04
-games-strategy/zedonline-bin
-
 # Takuya Wakazono <pastalian46@gmail.com> (2025-02-24)
 # No reverse dependencies left. (The last one was removed in e17a1e7.)
 # One of its test dependencies, dev-python/zstd, is being removed.
