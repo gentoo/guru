@@ -1,22 +1,13 @@
 certificate version 0.1
-pusher Gabriel M. Dutra <me@dmdutra.dev> 1741447855 -0300
+pusher 34dc11e9 1741454760 -0500
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1741447855-4dc09b7176379a5c6f52d968079c42702934cb41
+nonce 1741454760-f219a15df5ae27602dd898a4cb78a2acd70ea372
 
-eb5141b34f696e7632eafdb6adec25ba11c13c30 31acd353f0eae011edf1ff1a0bff3ddc8b983e31 refs/heads/dev
+31acd353f0eae011edf1ff1a0bff3ddc8b983e31 f09099b57957bff8d3ad98d4edc177f0d2bb83c0 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCAAdFiEEjKMVtxNLoM7D752k8UyN/r9jQpsFAmfMYq8ACgkQ8UyN/r9j
-Qpv7XxAAi4auAivvwiwW+Nc/5TOSYn961XyzxLerrshIyavRFJqulwBSTZtllaow
-NLvIVtxkUoLErjm9lf8NwoCqE+ZHrCYqVTJVuDC1fyaqXMQXmA8WdgP90N1ToFdL
-8W76Kguga49dFZ3X4qdyJ3qYxarQiWYjq8UdefTorYAdmJXLTEN4l1ftFO8koLE/
-8IVCjQE2iuqFPe0WrccOeUCpcmTGLAn+6K72KO26r+0oW+qBpJllNdRml3T+OhIx
-3rwhCqZSKV/Mo0ozOST/ghPPf6JUmdtKH2NKpACFyg0OCA2oShVF6FVYRddKdzeW
-MDFWDjyRwPKAt+a8eEhGZdUSHBhRbNQQT2l7B8rZnX9m8TnIqFqI/BjhkxHugEfQ
-sJ/zoDqAky8GE3CkJSMxzS2jsuR1eCctRW853ALlqvIWgiP3kLeKxcrZbIYRcuvv
-VKe/8heArE45thSFI2v4t5KwZeka6h+/ezEnbmK71Np8SpJbnCaQfXP64maHMuYT
-JR8i6LV1CG7AwnJQw2K7vB2cZIZ8wrLVTkRuvKzbq+Hz8BiDzg8XHLM4EtoSY9ce
-xcrpTPXdzjpw1UwmICltf/xXdr9fe/1lVA4rKfEalr0l1dqJ8AA+JLHbFp0ez1un
-lu5+NPdExEH3gosy6iCr4YQvZXEVOrZFF7v9KB9aFjAmydif2U8=
-=g1sd
+iHUEABYKAB0WIQQ0AFdlIjX9aj0PPy2uzmloNNwR6QUCZ8x9qAAKCRCuzmloNNwR
+6WiLAQD+0zKvONImZi7fCP3k9tBzwQ6LCvhMKiJVqmNFHIPlLAD/Y53y/xIpU8Nj
+v2ARn/oHs3vrxXnxyz8XMt0WlKgcJwc=
+=CgAM
 -----END PGP SIGNATURE-----
