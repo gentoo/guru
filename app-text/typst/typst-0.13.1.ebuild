@@ -300,7 +300,7 @@ CRATES="
 	ttf-parser@0.24.1
 	two-face@0.4.3
 	typed-arena@2.0.2
-	typst-assets@0.13.0
+	typst-assets@0.13.1
 	unic-langid-impl@0.9.5
 	unic-langid@0.9.5
 	unicase@2.8.1
@@ -381,7 +381,7 @@ CRATES="
 "
 
 declare -A GIT_CRATES=(
-	[typst-dev-assets]='https://github.com/typst/typst-dev-assets;61aebe9575a5abff889f76d73c7b01dc8e17e340;typst-dev-assets-%commit%'
+	[typst-dev-assets]='https://github.com/typst/typst-dev-assets;9879589f4b3247b12c5e694d0d7fa86d4d8a198e;typst-dev-assets-%commit%'
 )
 
 inherit cargo shell-completion
