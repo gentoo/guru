@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{11..13} )
 
-inherit flag-o-matic python-single-r1 meson-multilib
+inherit flag-o-matic python-single-r1 meson-multilib toolchain-funcs
 
 MY_PV=$(ver_cut 1-3)
 [[ -n "$(ver_cut 4)" ]] && MY_PV_REV="-$(ver_cut 4)"
@@ -120,7 +120,9 @@ src_prepare() {
 multilib_src_configure() {
 	# workaround for lld
 	# https://github.com/flightlessmango/MangoHud/issues/1240
-	append-ldflags $(test-flags-CCLD -Wl,--undefined-version)
+	if tc-ld-is-lld; then
+		append-ldflags -Wl,--undefined-version
+	fi
 
 	local emesonargs=(
 		-Dappend_libdir_mangohud=false
