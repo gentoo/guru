@@ -2,23 +2,22 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+_PN=zenpower
 
 inherit linux-mod-r1
-_PN="zenstats"
-_P="${_PN}-${PV}"
 DESCRIPTION="Linux kernel driver for reading sensors of AMD Zen family CPUs"
 HOMEPAGE="
-	https://github.com/Sid127/zenstats
+	https://github.com/koweda/zenpower3
 	https://github.com/ocerman/zenpower
 "
 
 if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
 	# Mantain fork of zenpower3
-	EGIT_REPO_URI="https://github.com/Sid127/zenstats"
+	EGIT_REPO_URI="https://github.com/koweda/zenpower3"
 else
-	SRC_URI="https://github.com/Sid127/zenstats/archive/v0.1.0.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/zenstats-0.1.0"
+	SRC_URI="https://github.com/koweda/zenpower3/archive/v0.2.0.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${P}"
 	KEYWORDS="~amd64"
 fi
 
@@ -26,8 +25,6 @@ LICENSE="GPL-2"
 SLOT="0"
 
 CONFIG_CHECK="HWMON PCI AMD_NB"
-
-PATCHES="${FILESDIR}/${PN}-use-symlink-to-detect-kernel-version.patch"
 
 src_compile() {
 	MODULES_MAKEARGS+=(

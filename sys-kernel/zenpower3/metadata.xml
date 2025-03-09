@@ -6,6 +6,6 @@
 		<email>gonegrier.duarte@gmail.com</email>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">Sid127/zenstats</remote-id>
+		<remote-id type="github">koweda/zenpower3</remote-id>
 	</upstream>
 </pkgmetadata>
