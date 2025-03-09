@@ -63,7 +63,7 @@ src_install() {
 	)
 
 	for bin in "${binaries[@]}"; do
-		newbin "${bin}" "ip2d-${bin}"
+		newbin "${bin}" "i2pd-${bin}"
 	done
 
 	einstalldocs
