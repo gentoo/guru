@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,13 +18,12 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-
 IUSE="X"
 
 RDEPEND="
 	dev-libs/wayland
+	gui-libs/wlroots:0.18[X?]
 	x11-libs/libxkbcommon[X?]
-	X? ( gui-libs/wlroots:0.18[X,x11-backend] )
-	!X? ( gui-libs/wlroots:0.18 )
+	X? ( gui-libs/wlroots:0.18[x11-backend] )
 "
 DEPEND="${RDEPEND}"
