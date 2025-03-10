@@ -50,7 +50,7 @@ src_install() {
 	exeinto "${DESTDIR}"
 	doexe "${PN}" chrome-sandbox libEGL.so libffmpeg.so libGLESv2.so libvk_swiftshader.so
 
-	ln -sf "$(command -v python3)" resources/app.asar.unpacked/node_modules/register-scheme/build/node_gyp_bins/python3 || die
+	ln -sf "$(command -v python-exec2c)" resources/app.asar.unpacked/node_modules/register-scheme/build/node_gyp_bins/python3 || die
 
 	insinto "${DESTDIR}"
 	doins chrome_crashpad_handler chrome_{100,200}_percent.pak icudtl.dat resources.pak snapshot_blob.bin v8_context_snapshot.bin
