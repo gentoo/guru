@@ -344,8 +344,9 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="gui libadwaita"
-REQUIRED_USE="libadwaita? ( gui )"
+IUSE="gui libadwaita test"
+REQUIRED_USE="libadwaita? ( gui ) test? ( gui )"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	x11-libs/libdrm[video_cards_amdgpu]
