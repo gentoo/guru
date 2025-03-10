@@ -12,10 +12,10 @@ HOMEPAGE="https://git.tozt.net/rbw"
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://git.tozt.net/rbw"
+	EGIT_REPO_URI="https://github.com/doy/rbw.git"
 else
 	SRC_URI="
-		https://git.tozt.net/rbw/snapshot/${P}.tar.gz
+		https://github.com/doy/rbw/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 		https://github.com/pastalian/distfiles/releases/download/${P}/${P}-crates.tar.xz
 	"
 	KEYWORDS="~amd64"

@@ -7,7 +7,7 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/doy/rbw/issues</bugs-to>
-		<changelog>https://git.tozt.net/rbw/plain/CHANGELOG.md</changelog>
+		<changelog>https://github.com/doy/rbw/blob/main/CHANGELOG.md</changelog>
 		<maintainer status="active">
 			<name>Jesse Luehrs</name>
 			<email>doy@tozt.net</email>
