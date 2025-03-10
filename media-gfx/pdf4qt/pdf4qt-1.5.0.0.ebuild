@@ -42,9 +42,9 @@ DEPEND="$RDEPEND
 
 DOCS=( NOTES.txt README.md RELEASES.txt )
 PATCHES=(
-	"${FILESDIR}/pdf4qt-1.4.0.0-minor-fix-remove-extention-from-Icon-endtry-in-a-des.patch"
-	"${FILESDIR}/pdf4qt-1.5.0.0-Minimal-cmake-fixes.patch"
-	"${FILESDIR}/pdf4qt-1.4.0.0-Make-runtime-respect-cmake-s-plugin-dir-settings.patch"
+	"${FILESDIR}/${PN}-1.4.0.0-minor-fix-remove-extention-from-Icon-endtry-in-a-des.patch"
+	"${FILESDIR}/${P}-Minimal-cmake-fixes.patch"
+	"${FILESDIR}/${PN}-1.4.0.0-Make-runtime-respect-cmake-s-plugin-dir-settings.patch"
 )
 
 src_prepare() {
