@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David Roman <davidroman96@gmail.com> (2025-03-12)
+# Uses deprecated EGO_SUM. Last release in 2023.
+# Removal on 2025-05-12
+www-misc/gorss
+
 # Eric Joldasov <bratishkaerik@landless-city.net> (2025-03-05)
 # Unbuildable now. Required Zig version diverged a lot, now seems like
 # it requires so called "Mach-nominated" version (somewhere between
