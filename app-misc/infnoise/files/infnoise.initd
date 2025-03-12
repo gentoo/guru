@@ -1,0 +1,9 @@
+#!/sbin/openrc-run
+
+description="infinite noise TRNG program daemon"
+pidfile="/run/infnoise.pid"
+command="/sbin/infnoise"
+command_args="-R -d -p /run/infnoise.pid"
+supervisor="supervise-daemon"
+
+

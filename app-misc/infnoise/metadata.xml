@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Milan Bartos</name>
+		<email>gentoo@bartos.fi</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">leetronics/infnoise</remote-id>
+	</upstream>
+</pkgmetadata>
