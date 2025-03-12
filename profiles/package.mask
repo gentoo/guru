@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # David Roman <davidroman96@gmail.com> (2025-03-12)
+# It's just a Windows .exe with a wine wrapper
+# Removal on 2025-04-12
+games-strategy/swine
+
+# David Roman <davidroman96@gmail.com> (2025-03-12)
 # Uses deprecated EGO_SUM. Last release in 2019.
 # Unmaintained upstream + security vulnerabilities: 
 # 	- https://github.com/sqshq/sampler/issues/128
