@@ -19,6 +19,14 @@
 # New entries go on top.
 
 # David Roman <davidroman96@gmail.com> (2025-03-12)
+# Uses deprecated EGO_SUM. Last release in 2019.
+# Unmaintained upstream + security vulnerabilities: 
+# 	- https://github.com/sqshq/sampler/issues/128
+# Removal on 2025-04-12
+sys-apps/sampler
+sys-apps/sampler-bin
+
+# David Roman <davidroman96@gmail.com> (2025-03-12)
 # Uses deprecated EGO_SUM. Last release in 2023.
 # Removal on 2025-05-12
 www-misc/gorss
