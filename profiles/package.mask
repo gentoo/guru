@@ -20,8 +20,11 @@
 
 # David Roman <davidroman96@gmail.com> (2025-03-12)
 # It's just a Windows .exe with a wine wrapper
+# HOMEPAGE just points to a Wikipedia article
 # Removal on 2025-04-12
 games-strategy/swine
+games-strategy/ground-control
+games-rpg/sacred-demo
 
 # David Roman <davidroman96@gmail.com> (2025-03-12)
 # Uses deprecated EGO_SUM. Last release in 2019.
