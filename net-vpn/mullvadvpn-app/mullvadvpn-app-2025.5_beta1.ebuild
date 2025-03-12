@@ -16,7 +16,7 @@ SRC_URI="
 S="${WORKDIR}"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 
 RESTRICT="bindist mirror strip"
 
