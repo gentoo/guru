@@ -128,14 +128,6 @@ dev-python/pymemcache
 # Removal on 2025-03-24
 app-misc/brightness-control
 
-# Skyler Mäntysaari <sm+gentoo@skym.fi> (2025-02-11)
-# No maintainer
-# Bugs: 945712, 928370
-# Removal on 2025-03-11
-www-apps/gotosocial
-www-apps/castopod
-www-apps/honk
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
