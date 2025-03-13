@@ -7,7 +7,10 @@ EAPI=8
 
 CRATES=""
 
-inherit cargo plocale
+LLVM_COMPAT=( {17..19} )
+RUST_NEEDS_LLVM=1
+
+inherit llvm-r1 cargo plocale
 
 PLOCALES="de fr it nb nn ru sv"
 
@@ -43,6 +46,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
+	$(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}=')
 "
 
 # See https://github.com/cortex/ripasso/issues/348
