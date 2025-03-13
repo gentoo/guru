@@ -49,6 +49,7 @@ RDEPEND="
 	dev-qt/qt5compat:6
 	dev-qt/qtbase:6[concurrent,gui,network,widgets]
 	dev-qt/qtsvg:6
+	dev-qt/qtimageformats:6
 "
 # boost-1.87.0: https://github.com/Chatterino/chatterino2/issues/5766
 DEPEND="
