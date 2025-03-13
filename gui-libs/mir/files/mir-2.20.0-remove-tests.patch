@@ -1,0 +1,40 @@
+Prevent test libraries from being installed and remove tests that lack dependencies to build.
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -173,6 +173,7 @@ configure_file(
+   @ONLY
+ )
+ 
++if(0)
+ install(TARGETS mir-test-assist
+   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+ )
+@@ -200,6 +201,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/mirtest.pc
+ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/mirtest-internal.pc
+   DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig
+ )
++endif()
+ 
+ mir_add_memcheck_test()
+ mir_add_detect_fd_leaks_test()
+--- a/tests/mir_test_framework/CMakeLists.txt
++++ b/tests/mir_test_framework/CMakeLists.txt
+@@ -55,7 +55,6 @@ add_library(mir-public-test-framework OBJECT
+   ${PROJECT_SOURCE_DIR}/tests/include/mir_test_framework/open_wrapper.h
+   test_server.cpp  ${PROJECT_SOURCE_DIR}/include/test/miral/test_server.h
+   test_display_server.cpp  ${PROJECT_SOURCE_DIR}/include/test/miral/test_display_server.h
+-  test_wlcs_display_server.cpp ${PROJECT_SOURCE_DIR}/include/test/miral/test_wlcs_display_server.h
+   ${PROJECT_SOURCE_DIR}/tests/include/mir_test_framework/mmap_wrapper.h
+   mmap_wrapper.cpp
+   window_management_test_harness.cpp ${PROJECT_SOURCE_DIR}/tests/include/mir_test_framework/window_management_test_harness.h
+@@ -183,8 +182,10 @@ set_target_properties(
+   LINK_FLAGS "-Wl,--version-script,${server_symbol_map}"
+ )
+ 
++if(0)
+ install(TARGETS mirplatformgraphicsstub LIBRARY DESTINATION ${MIR_SERVER_PLATFORM_PATH})
+ install(TARGETS mirplatforminputstub LIBRARY DESTINATION ${MIR_SERVER_PLATFORM_PATH})
++endif()
+ 
+ add_library(
+   mirplatformgraphicsthrow MODULE
