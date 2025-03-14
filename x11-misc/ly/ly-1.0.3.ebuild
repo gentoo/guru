@@ -8,7 +8,7 @@ inherit edo pam systemd prefix
 DESCRIPTION="Ly - a TUI display manager"
 HOMEPAGE="https://github.com/fairyglade/ly"
 
-CLAP="8c98e6404b22aafc0184e999d8f068b81cc22fa1"
+CLAP="0.9.1"
 ZIGINI="0bba97a12582928e097f4074cc746c43351ba4c8"
 ZIGLIBINI="e18d36665905c1e7ba0c1ce3e8780076b33e3002"
 
@@ -45,7 +45,6 @@ QA_FLAGS_IGNORED="usr/bin/ly"
 RES="${S}/res"
 
 PATCHES=(
-	"${FILESDIR}/ly-1.0.2-update-to-zig-0.13.0.patch"
 )
 
 # copied from sys-fs/ncdu::gentoo
