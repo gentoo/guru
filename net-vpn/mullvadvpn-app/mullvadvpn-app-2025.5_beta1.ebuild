@@ -4,8 +4,8 @@
 EAPI=8
 
 inherit desktop rpm systemd shell-completion xdg
-MYPV="${PV/_beta/-beta}"
 
+MYPV="${PV/_beta/-beta}"
 DESCRIPTION="Tool used to manage daemon setup"
 HOMEPAGE="https://github.com/mullvad/mullvadvpn-app https://mullvad.net/"
 SRC_URI="
@@ -16,7 +16,7 @@ SRC_URI="
 S="${WORKDIR}"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="-* ~amd64 ~arm64"
 
 RESTRICT="bindist mirror strip"
 
