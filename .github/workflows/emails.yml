@@ -40,17 +40,13 @@ jobs:
 
       - name: Get changed files
         if: ${{ fromJSON(env.is_commit_valid) }}
-        uses: tj-actions/changed-files@v44
-        with:
-          base_sha: ${{ env.last_successful_commit }}
-          write_output_files: true
-          files: |
-            **/metadata.xml
+        run: |
+          git diff --diff-filter d --name-only ${last_successful_commit} -- '*/metadata.xml' | tr '\n' ' ' | tee all_changed_files.txt
 
       - name: Check emails against Bugzilla
         if: ${{ fromJSON(env.is_commit_valid) }}
         run: |
-          python ./scripts/email-checker.py < .github/outputs/all_changed_files.txt
+          python ./scripts/email-checker.py < all_changed_files.txt
 
       - name: Inform on IRC
         if: ${{ failure() && github.repository == 'gentoo/guru' && github.event_name == 'push' }}
