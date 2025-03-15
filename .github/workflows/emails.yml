@@ -8,6 +8,10 @@ on:
   pull_request:
     branches: [dev]
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   bugzilla:
     runs-on: ubuntu-latest
