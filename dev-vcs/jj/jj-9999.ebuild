@@ -17,13 +17,22 @@ LICENSE+="
 	Apache-2.0 BSD MIT MPL-2.0 Unicode-3.0 Unicode-DFS-2016 WTFPL-2
 "
 SLOT="0"
+IUSE="
+	+git2
+	gix-max-performance
+"
 
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	virtual/pkgconfig
+	gix-max-performance? ( dev-build/cmake )
+"
 DEPEND="
-	>=dev-libs/libgit2-1.9.0:0/1.9
-	dev-libs/openssl:=
-	net-libs/libssh2:=
-	sys-libs/zlib
+	git2? (
+		>=dev-libs/libgit2-1.9.0:0/1.9
+		sys-libs/zlib
+		dev-libs/openssl:=
+		net-libs/libssh2:=
+	)
 "
 RDEPEND="
 	${DEPEND}
@@ -43,6 +52,16 @@ pkg_setup() {
 src_unpack() {
 	git-r3_src_unpack
 	cargo_live_src_unpack
+}
+
+src_configure() {
+	local myfeatures=(
+		$(usev git2)
+		$(usev gix-max-performance)
+		watchman
+		git
+	)
+	cargo_src_configure --no-default-features
 }
 
 src_install() {

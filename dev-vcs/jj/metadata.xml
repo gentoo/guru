@@ -8,4 +8,10 @@
   <upstream>
     <remote-id type="github">jj-vcs/jj</remote-id>
   </upstream>
+  <use>
+    <flag name="git2">Enables transitory support for <pkg>dev-libs/libgit2</pkg>.</flag>
+    <flag name="gix-max-performance">
+      Enables the "max-performance" feature when building gitoxide, allowing gitoxide to achieve better performance at the cost of wider compatibility.
+    </flag>
+  </use>
 </pkgmetadata>
