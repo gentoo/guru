@@ -19,6 +19,7 @@ inherit udev
 src_prepare() {
 	default
 	sed -i 's|PREFIX = $(DESTDIR)/usr/local|PREFIX=${DESTDIR}|' "${S}/software/Makefile.linux"
+	sed -i '31s/ar/${AR}/' "${S}/software/Makefile.linux"
 	sed -i '18s/$(CFLAGS)/$(CFLAGS) $(LDFLAGS)/' "${S}/software/Makefile.linux"
 	sed -i '36s/$(CFLAGS)/$(CFLAGS) $(LDFLAGS)/' "${S}/software/Makefile.linux"
 	sed -i '/^GIT_/d' "${S}/software/Makefile.linux"
