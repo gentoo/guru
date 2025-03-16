@@ -19,6 +19,8 @@ inherit udev
 src_prepare() {
 	default
 	sed -i 's|PREFIX = $(DESTDIR)/usr/local|PREFIX=${DESTDIR}|' "${S}/software/Makefile.linux"
+	sed -i '18s/$(CFLAGS)/$(CFLAGS) $(LDFLAGS)/' "${S}/software/Makefile.linux"
+	sed -i '36s/$(CFLAGS)/$(CFLAGS) $(LDFLAGS)/' "${S}/software/Makefile.linux"
 	sed -i '/^GIT_/d' "${S}/software/Makefile.linux"
 }
 
@@ -33,7 +35,7 @@ src_compile() {
 
 	cd "${S}"/software
 	emake -f Makefile.linux CFLAGS="${CFLAGS} ${origCFLAGS} ${ftdi_cflags}" LDFLAGS="${LDFLAGS}\
-		   ${ftdi_ldflags}" -j$(nproc)
+		${ftdi_ldflags}" -j$(nproc)
 }
 
 src_install() {
