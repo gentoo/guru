@@ -18,6 +18,16 @@
 
 # New entries go on top.
 
+# Rahil Bhimjiani <me@rahil.rocks> (2025-03-17)
+# Not worth the hassle of maintaining
+# Removal on 2025-04-17
+www-apps/vaultwarden-web
+
+# Rahil Bhimjiani <me@rahil.rocks> (2025-03-17)
+# Not worth the hassle of maintaining
+# Removal on 2025-04-17
+app-admin/bitwarden-cli
+
 # David Roman <davidroman96@gmail.com> (2025-03-12)
 # It's just a Windows .exe with a wine wrapper
 # HOMEPAGE just points to a Wikipedia article
