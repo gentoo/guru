@@ -14,7 +14,7 @@ declare -A VOICES=(
 	[ru]="redistributable? ( app-voices/rhvoice-arina )"
 )
 
-DESCRIPTION="TTS engine with extended languages support (metapackage)"
+DESCRIPTION="Multilingual text-to-speech engine (metapackage)"
 HOMEPAGE="
 	https://rhvoice.org
 	https://github.com/RHVoice/RHVoice
