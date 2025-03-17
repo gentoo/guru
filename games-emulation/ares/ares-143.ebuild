@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic toolchain-funcs xdg
 
 DESCRIPTION="Cross-platform, open source, multi-system emulator, focusing on accuracy and preservation"
 HOMEPAGE="https://github.com/ares-emulator/ares"
@@ -45,8 +45,22 @@ PATCHES=(
 	"${FILESDIR}"/0003-Unbundle-libchdr.patch
 )
 
+src_prepare() {
+	cmake_src_prepare
+
+	if ! use gtk && tc-is-lto; then
+		ewarn "The Qt5 GUI of ares is unstable when building with LTO."
+		ewarn "If you really want to use LTO, then enable the Gtk GUI."
+		ewarn "Also note that you need to force the use of the Qt XCB"
+		ewarn "backend via QT_QPA_PLATFORM=xcb if you are running this"
+		ewarn "inside a Wayland session."
+
+		filter-lto
+	fi
+}
+
 src_configure() {
-	# Disable the LTO (CMake calls it IPO) handling of the buils system.
+	# Disable the LTO (CMake calls it IPO) handling of the build system.
 	local mycmakeargs=(
 		-DENABLE_IPO=NO
 		-DARES_VERSION_OVERRIDE=${PV}
@@ -60,9 +74,6 @@ src_configure() {
 	)
 
 	if ! use gtk; then
-		ewarn "The Qt5 GUI of ares is unstable when building ares with LTO."
-		ewarn "If you intend to use LTO, then please use the Gtk GUI."
-
 		mycmakeargs+=(-DUSE_QT5=ON)
 	fi
 
