@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<maintainer type="person">
+		<email>tjakobi@math.uni-bielefeld.de</email>
+		<name>Tobias Jakobi</name>
+	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/ares-emulator/ares/issues</bugs-to>
 		<remote-id type="github">ares-emulator/ares</remote-id>
