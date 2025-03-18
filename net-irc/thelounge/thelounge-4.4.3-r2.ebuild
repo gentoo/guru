@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,7 @@ HOMEPAGE="https://thelounge.chat/"
 SRC_URI="
 	https://github.com/thelounge/thelounge/archive/refs/tags/v${PV/_rc/-rc.}.tar.gz -> ${P}.tar.gz
 	https://github.com/rahilarious/gentoo-distfiles/releases/download/${PN}-4.4.2_rc1/deps.tar.xz -> ${PN}-4.4.2_rc1-deps.tar.xz
-	sqlite? ( https://github.com/rahilarious/gentoo-distfiles/releases/download/${PN}-4.4.2_rc1/sqlite.tar.xz -> ${PN}-4.4.2_rc1-sqlite.tar.xz )
+	sqlite? ( https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/sqlite.tar.xz -> ${P}-sqlite.tar.xz )
 "
 
 S="${WORKDIR}/${PN}-${PV/_rc/-rc.}"
