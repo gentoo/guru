@@ -1,0 +1,11 @@
+--- a/setup.py
++++ b/setup.py
+@@ -18,7 +18,7 @@ class BuildQm(build):
+             return pyproject_files
+ 
+     subprocess.run(["pylupdate6"] + extract_py_sources() + ["-ts", "translations/meteo-qt_en.ts"])
+-    subprocess.run(subprocess.run(["lrelease-pro-qt6", "meteo_qt/meteo_qt.pro"]))
++    subprocess.run(["lrelease-pro", "meteo_qt/meteo_qt.pro"])
+ 
+ 
+ PROJECT_PATH = Path(__file__).parent
