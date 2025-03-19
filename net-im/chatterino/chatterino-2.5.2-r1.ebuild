@@ -59,6 +59,10 @@ DEPEND="
 "
 BDEPEND="dev-qt/qttools:6[linguist]"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.5.2-disable-ccache.patch
+)
+
 src_prepare() {
 	rmdir --ignore-fail-on-non-empty ./lib/*/ || die "can't remove stubbed libdirs"
 

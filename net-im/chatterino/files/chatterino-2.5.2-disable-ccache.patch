@@ -1,0 +1,20 @@
+diff --git ./CMakeLists.txt ./CMakeLists.txt
+index ad9bdef..4feb6e1 100644
+--- ./CMakeLists.txt
++++ ./CMakeLists.txt
+@@ -60,15 +60,6 @@ else()
+     set(MAJOR_QT_VERSION "5")
+ endif()
+ 
+-find_program(CCACHE_PROGRAM ccache)
+-find_program(SCCACHE_PROGRAM sccache)
+-if (SCCACHE_PROGRAM)
+-    set(_compiler_launcher ${SCCACHE_PROGRAM})
+-elseif (CCACHE_PROGRAM)
+-    set(_compiler_launcher ${CCACHE_PROGRAM})
+-endif ()
+-
+-
+ # Alternate linker code taken from heavyai/heavydb
+ # https://github.com/heavyai/heavydb/blob/0517d99b467806f6af7b4c969e351368a667497d/CMakeLists.txt#L87-L103
+ macro(set_alternate_linker linker)
