@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit go-module systemd
 
 MY_P="${PN}-v${PV}"
-JOB_ID="504153"
+JOB_ID="898266"
 DESCRIPTION="Pluggable Transport using WebRTC, inspired by Flashproxy"
 HOMEPAGE="
 	https://snowflake.torproject.org/
