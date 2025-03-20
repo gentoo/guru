@@ -27,7 +27,10 @@ BDEPEND="
 	dev-qt/qttools:6[linguist]
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-4.0-lrelease.patch )
+src_prepare() {
+	sed "s/lrelease-pro-qt6/lrelease-pro/g" -i setup.py || die
+	distutils-r1_src_prepare
+}
 
 src_compile() {
 	local -x PATH="${EPREFIX}$(qt6_get_libdir)/qt6/libexec:${PATH}"
