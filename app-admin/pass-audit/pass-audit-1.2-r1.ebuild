@@ -5,9 +5,9 @@ EAPI=8
 
 PYPI_NO_NORMALIZE=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{{11..13},13t} )
 
-inherit distutils-r1 pypi shell-completion
+inherit distutils-r1 pypi
 
 DESCRIPTION="A pass extension for auditing your password repository. "
 HOMEPAGE="https://github.com/roddhjav/pass-audit"
@@ -31,8 +31,6 @@ src_prepare() {
 src_install() {
 	distutils-r1_src_install
 
-	newbashcomp share/bash-completion/completions/pass-audit "${PN}"
-	newzshcomp share/zsh/site-functions/_pass-audit _"${PN}"
 	doman share/man/man1/pass-audit.1
 
 	exeinto /usr/lib/password-store/extensions
