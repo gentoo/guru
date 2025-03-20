@@ -1,0 +1,31 @@
+https://github.com/Moonbase59/loudgain/pull/37
+From 31fc71b9970f22a116a9ad7eae66dc9cc66a54c1 Mon Sep 17 00:00:00 2001
+From: Peter Oliver <git@mavit.org.uk>
+Date: Sun, 18 Oct 2020 00:51:52 +0100
+Subject: [PATCH] =?UTF-8?q?Don=E2=80=99t=20override=20CFLAGS=20and=20CXXFL?=
+ =?UTF-8?q?AGS=20env=20variables?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This is necessary, for example, to build with the [hardened build flags](https://src.fedoraproject.org/rpms/redhat-rpm-config/blob/master/f/buildflags.md#hardened-builds) used by default for Fedora.
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9487ab9..eb030e2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -72,9 +72,9 @@ SET_TARGET_PROPERTIES(loudgain PROPERTIES
+   COMPILE_FLAGS "-Wall -pedantic -g"
+ )
+ 
+-SET(CMAKE_C_FLAGS "-std=gnu99 -D_GNU_SOURCE")
++SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu99 -D_GNU_SOURCE")
+ 
+-SET(CMAKE_CXX_FLAGS "-std=gnu++11 -D_GNU_SOURCE")
++SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -D_GNU_SOURCE")
+ 
+ INSTALL(TARGETS loudgain DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+ 

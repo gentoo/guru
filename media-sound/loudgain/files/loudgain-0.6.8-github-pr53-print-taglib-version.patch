@@ -1,0 +1,77 @@
+https://github.com/Moonbase59/loudgain/pull/53
+From f15d7dd9e7617e6d2a7c295a9ee83bf9ae93d0e3 Mon Sep 17 00:00:00 2001
+From: sagudev <16504129+sagudev@users.noreply.github.com>
+Date: Sat, 13 Aug 2022 18:27:52 +0200
+Subject: [PATCH] Print taglib version
+
+---
+ src/loudgain.c | 10 ++++++++++
+ src/tag.cc     |  6 ++++++
+ src/tag.h      |  2 ++
+ 3 files changed, 18 insertions(+)
+
+diff --git a/src/loudgain.c b/src/loudgain.c
+index 04f40e3..6b6b253 100644
+--- a/src/loudgain.c
++++ b/src/loudgain.c
+@@ -148,6 +148,10 @@ int  ebur128_v_major     = 0;
+ int  ebur128_v_minor     = 0;
+ int  ebur128_v_patch     = 0;
+ char ebur128_version[15] = "";
++int  tag_v_major     = 0;
++int  tag_v_minor     = 0;
++int  tag_v_patch     = 0;
++char tag_version[15] = "";
+ unsigned swr_ver         = 0;
+ char     swr_version[15] = "";
+ unsigned lavf_ver         = 0;
+@@ -176,6 +180,11 @@ int main(int argc, char *argv[]) {
+ 	bool strip          = false; // MP3 ID3v2: strip other tag types?
+ 	int  id3v2version   = 4;     // MP3 ID3v2 version to write; can be 3 or 4
+ 
++	// taglib version 
++	tag_get_version(&tag_v_major, &tag_v_minor, &tag_v_patch);
++	snprintf(tag_version, sizeof(tag_version), "%d.%d.%d",
++		tag_v_major, tag_v_minor, tag_v_patch);
++
+ 	// libebur128 version check -- versions before 1.2.4 aren’t recommended
+ 	ebur128_get_version(&ebur128_v_major, &ebur128_v_minor, &ebur128_v_patch);
+ 	snprintf(ebur128_version, sizeof(ebur128_version), "%d.%d.%d",
+@@ -725,6 +734,7 @@ static inline void help(void) {
+ 
+ static inline void version(void) {
+ 	printf("%s %s - using:\n", PROJECT_NAME, PROJECT_VER);
++	printf("  %s %s\n", "libtag", tag_version);
+ 	printf("  %s %s\n", "libebur128", ebur128_version);
+ 	printf("  %s %s\n", "libavformat", lavf_version);
+ 	printf("  %s %s\n", "libswresample", swr_version);
+diff --git a/src/tag.cc b/src/tag.cc
+index 1c149f3..cd0eaa4 100644
+--- a/src/tag.cc
++++ b/src/tag.cc
+@@ -84,6 +84,12 @@
+ #include "tag.h"
+ #include "printf.h"
+ 
++void tag_get_version(int* major, int* minor, int* patch) {
++  *major = TAGLIB_MAJOR_VERSION;
++  *minor = TAGLIB_MINOR_VERSION;
++  *patch = TAGLIB_PATCH_VERSION;
++}
++
+ // define possible replaygain tags
+ 
+ enum RG_ENUM {
+diff --git a/src/tag.h b/src/tag.h
+index da80c1e..8d28e18 100644
+--- a/src/tag.h
++++ b/src/tag.h
+@@ -32,6 +32,8 @@
+ extern "C" {
+ #endif
+ 
++void tag_get_version(int* major, int* minor, int* patch);
++
+ bool tag_write_mp3(scan_result *scan, bool do_album, char mode, char *unit,
+   bool lowercase, bool strip, int id3v2version);
+ bool tag_clear_mp3(scan_result *scan, bool strip, int id3v2version);

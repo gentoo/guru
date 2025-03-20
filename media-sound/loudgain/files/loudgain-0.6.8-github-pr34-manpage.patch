@@ -1,0 +1,69 @@
+https://github.com/Moonbase59/loudgain/pull/34
+From 3b0bcd99b030908d55796e147eb5e4ab18ca579c Mon Sep 17 00:00:00 2001
+From: Hugh McMaster <hugh.mcmaster@outlook.com>
+Date: Mon, 3 Aug 2020 22:29:38 +1000
+Subject: [PATCH] docs/loudgain.1: Print apostrophes instead of acute accents
+
+This manual page uses the \' groff sequence to print acute accents,
+when you actually just need to print apostrophes.
+
+Signed-off-by: Hugh McMaster <hugh.mcmaster@outlook.com>
+---
+ docs/loudgain.1 | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/docs/loudgain.1 b/docs/loudgain.1
+index 0aaeac2..55d01a2 100644
+--- a/docs/loudgain.1
++++ b/docs/loudgain.1
+@@ -13,7 +13,7 @@
+ \fBloudgain\fR is a loudness normalizer that scans music files and calculates loudness\-normalized gain and loudness peak values according to the EBU R128 standard, and can optionally write ReplayGain\-compatible metadata\.
+ .
+ .P
+-loudgain implements a subset of mp3gain\'s command\-line options, which means that it can be used as a drop\-in replacement in some situations\.
++loudgain implements a subset of mp3gain's command\-line options, which means that it can be used as a drop\-in replacement in some situations\.
+ .
+ .P
+ loudgain will \fInot\fR modify the actual audio data, but instead just write ReplayGain \fItags\fR if so requested\. It is up to the player to interpret these\. (In some players, you need to enable this feature\.)
+@@ -71,19 +71,19 @@ Write ReplayGain 2\.0 tags to files\. ID3v2 for MP2, MP3, WAV and AIFF; Vorbis C
+ .
+ .TP
+ \fB\-s e, \-\-tagmode=e\fR
+-like \'\-s i\', plus extra tags (reference, ranges)\.
++like '\-s i', plus extra tags (reference, ranges)\.
+ .
+ .TP
+ \fB\-s l, \-\-tagmode=l\fR
+-like \'\-s e\', but LU units instead of dB\.
++like '\-s e', but LU units instead of dB\.
+ .
+ .TP
+ \fB\-s s, \-\-tagmode=s\fR
+-Don\'t write ReplayGain tags (default)\.
++Don't write ReplayGain tags (default)\.
+ .
+ .TP
+ \fB\-L, \-\-lowercase\fR
+-Force lowercase \'REPLAYGAIN_*\' tags (MP2/MP3/MP4/ASF/WMA/WAV/AIFF only)\. This is non\-standard, but sometimes needed\.
++Force lowercase 'REPLAYGAIN_*' tags (MP2/MP3/MP4/ASF/WMA/WAV/AIFF only)\. This is non\-standard, but sometimes needed\.
+ .
+ .TP
+ \fB\-S, \-\-striptags\fR
+@@ -107,7 +107,7 @@ Database\-friendly new format tab\-delimited list output\. Ideal for analysis of
+ .
+ .TP
+ \fB\-q, \-\-quiet\fR
+-Don\'t print scanning status messages\.
++Don't print scanning status messages\.
+ .
+ .SH "RECOMMENDATIONS"
+ To give you a head start, here are my personal recommendations for being (almost) universally compatible\.
+@@ -135,7 +135,7 @@ $ loudgain \-S \-a \-k \-s e *\.ape
+ .IP "" 0
+ .
+ .P
+-I’ve been happy with these settings for many years now\. Your mileage may vary\.
++I've been happy with these settings for many years now\. Your mileage may vary\.
+ .
+ .P
+ For easy mass\-tagging, there is a bash script called \fBrgbpm\fR included with loudgain, which follows above recommendations\. You can make a copy, put that into your personal \fB~/bin\fR folder and modify it to whatever \fIyou\fR need\.
