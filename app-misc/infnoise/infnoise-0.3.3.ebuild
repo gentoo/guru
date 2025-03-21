@@ -14,12 +14,14 @@ KEYWORDS="~amd64"
 DEPEND="dev-embedded/libftdi"
 RDEPEND="${DEPEND}"
 
-inherit udev
+inherit udev toolchain-funcs
 
 src_prepare() {
 	default
+	tc-export AR RANLIB
 	sed -i 's|PREFIX = $(DESTDIR)/usr/local|PREFIX=${DESTDIR}|' "${S}/software/Makefile.linux"
 	sed -i '31s/ar/${AR}/' "${S}/software/Makefile.linux"
+	sed -i '32s/ranlib/${RANLIB}/' "${S}/software/Makefile.linux"
 	sed -i '18s/$(CFLAGS)/$(CFLAGS) $(LDFLAGS)/' "${S}/software/Makefile.linux"
 	sed -i '36s/$(CFLAGS)/$(CFLAGS) $(LDFLAGS)/' "${S}/software/Makefile.linux"
 	sed -i '/^GIT_/d' "${S}/software/Makefile.linux"
