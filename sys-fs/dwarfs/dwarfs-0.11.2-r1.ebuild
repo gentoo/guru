@@ -39,6 +39,7 @@ RDEPEND="
 	test? ( >=dev-cpp/gtest-1.15.2 )
 	>=dev-cpp/range-v3-0.12.0
 	dev-libs/date
+	>=dev-libs/openssl-1.1
 	dev-cpp/nlohmann_json
 "
 
