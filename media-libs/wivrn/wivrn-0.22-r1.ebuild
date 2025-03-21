@@ -50,8 +50,8 @@ RDEPEND="
 		sys-apps/systemd
 	)
 	vaapi? ( || (
-		media-video/ffmpeg[libdrm,vaapi]
-		media-video/ffmpeg[drm,vaapi]
+		media-video/ffmpeg[libdrm(-),vaapi]
+		media-video/ffmpeg[drm(-),vaapi]
 	) )
 	wireshark-plugins? (
 		net-analyzer/wireshark
