@@ -20,8 +20,8 @@ RDEPEND="
 	dev-qt/qtbase:6[widgets,network,gui]
 	dev-qt/qttools:6[linguist]
 	dev-qt/qtdeclarative:6[widgets]
-	>=net-libs/libquotient-0.8.0:=
-	<net-libs/libquotient-0.9.0
+	>=net-libs/libquotient-0.9.0:=
+	<net-libs/libquotient-0.10.0
 	dev-libs/qtkeychain:=[qt6]
 "
 DEPEND="
@@ -33,14 +33,6 @@ BDEPEND="
 "
 
 DOCS=( {README,SECURITY}.md )
-
-src_configure() {
-	local mycmakeargs=(
-		-DBUILD_WITH_QT6=On
-	)
-
-	cmake_src_configure
-}
 
 pkg_postinst() {
 	xdg_icon_cache_update
