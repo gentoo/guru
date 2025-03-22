@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,7 +29,7 @@ RDEPEND="
 	=dev-python/python-dateutil-2.9*[${PYTHON_USEDEP}]
 	=dev-python/pyyaml-6*[${PYTHON_USEDEP}]
 	=dev-python/textual-0.88*[${PYTHON_USEDEP}]
-	=dev-python/tzlocal-5.2*[${PYTHON_USEDEP}]
+	>=dev-python/tzlocal-5.2[${PYTHON_USEDEP}]
 	=dev-python/sqlalchemy-2*[${PYTHON_USEDEP}]
 	=dev-python/platformdirs-4*[${PYTHON_USEDEP}]
 	<dev-python/click-9.0.0[${PYTHON_USEDEP}]
