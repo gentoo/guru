@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>pastalian46@gmail.com</email>
+    <name>Takuya Wakazono</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">Open-Wine-Components/umu-launcher</remote-id>
+  </upstream>
+  <use>
+    <flag name="delta-update">Enable delta updates</flag>
+  </use>
+</pkgmetadata>
