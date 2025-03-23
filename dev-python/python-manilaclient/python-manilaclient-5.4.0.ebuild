@@ -11,7 +11,7 @@ inherit distutils-r1 pypi
 DESCRIPTION="Python bindings to the OpenStack Manila API"
 HOMEPAGE="
 	https://opendev.org/openstack/python-manilaclient
-	https://github.com/openstack/ython-manilaclient/
+	https://github.com/openstack/python-manilaclient/
 	https://pypi.org/project/python-manilaclient/
 "
 
@@ -43,6 +43,10 @@ BDEPEND="
 	)
 "
 
-# The functional tests would requier the OpenStack manila service to be
-# packaged, too.
 distutils_enable_tests unittest
+
+python_test() {
+	# The functional tests would requier the OpenStack manila service to be
+	# packaged, too.
+	eunittest manilaclient/tests/unit
+}
