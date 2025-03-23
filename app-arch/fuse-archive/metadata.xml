@@ -4,6 +4,9 @@
 	<maintainer type="person">
 		<email>nrk@disroot.org</email>
 	</maintainer>
+	<use>
+		<flag name="fuse2">Build with fuse2 instead of fuse3</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">google/fuse-archive</remote-id>
 	</upstream>
