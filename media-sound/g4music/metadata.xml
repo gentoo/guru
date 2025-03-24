@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <!-- maintainer-needed -->
+  <maintainer type="person">
+    <email>hex@iwakura.rip</email>
+    <name>hexlocation</name>
+  </maintainer>
   <use>
     <flag name="pipewire">Enable support for the PipeWire audio sink</flag>
   </use>
