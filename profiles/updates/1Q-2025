@@ -1,1 +1,2 @@
 move games-util/chiaki games-util/chiaki-ng
+move media-sound/g4music media-sound/gapless
