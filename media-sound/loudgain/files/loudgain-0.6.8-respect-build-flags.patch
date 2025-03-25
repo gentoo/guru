@@ -1,0 +1,22 @@
+Respect CFLAGS and CXXFLAGS provided by the package manager.
+https://bugs.gentoo.org/952032
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9487ab98a594..a8e1bed7a527 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -68,14 +68,6 @@ TARGET_LINK_LIBRARIES(loudgain
+   ${LTAG_LIBRARIES}
+ )
+ 
+-SET_TARGET_PROPERTIES(loudgain PROPERTIES
+-  COMPILE_FLAGS "-Wall -pedantic -g"
+-)
+-
+-SET(CMAKE_C_FLAGS "-std=gnu99 -D_GNU_SOURCE")
+-
+-SET(CMAKE_CXX_FLAGS "-std=gnu++11 -D_GNU_SOURCE")
+-
+ INSTALL(TARGETS loudgain DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+ 
+ INSTALL(FILES

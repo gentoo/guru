@@ -28,11 +28,11 @@ DEPEND="${COMMON_DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/loudgain-0.6.8-github-pr34-manpage.patch"
-	"${FILESDIR}/loudgain-0.6.8-github-pr37-respect-build-flags.patch"
 	"${FILESDIR}/loudgain-0.6.8-github-pr50-ffmpeg6.patch"
 	"${FILESDIR}/loudgain-0.6.8-github-pr53-print-taglib-version.patch"
 	"${FILESDIR}/loudgain-0.6.8-github-pr65-ffmpeg6-gcc14.patch"
 	"${FILESDIR}/loudgain-0.6.8-github-pr66-ffmpeg7.patch"
+	"${FILESDIR}/loudgain-0.6.8-respect-build-flags.patch"
 )
 
 src_install() {
