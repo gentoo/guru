@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
+# Unmaintained in GURU, no revdeps left. No working tests, because test
+# dependencies are not worth packaging and maintaining.
+# Removal on 2025-04-25.
+dev-python/notofonttools
+
 # Rahil Bhimjiani <me@rahil.rocks> (2025-03-17)
 # Not worth the hassle of maintaining
 # Removal on 2025-04-17
