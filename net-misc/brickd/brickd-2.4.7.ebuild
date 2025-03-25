@@ -10,6 +10,8 @@ S="${WORKDIR}/${P}/src/${PN}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="systemd"
+
 RDEPEND="
 	>=dev-libs/libusb-1.0.27:1
 	>=dev-libs/libgpiod-1.6.4:="
@@ -28,4 +30,14 @@ src_configure() {
 	# source code of daemonlib package must be linked into brickd sources
 	# reference: https://github.com/Tinkerforge/brickd
 	ln -s "${WORKDIR}/daemonlib-${P}" "${WORKDIR}/${P}/src/daemonlib" || die
+}
+
+src_install() {
+	local myemakeargs=(
+		prefix="${EPREFIX}/usr"
+		DESTDIR="${D}"
+		WITH_SYSTEMD="$(usex systemd)"
+	)
+	emake "${myemakeargs[@]}" install
+	newinitd "${WORKDIR}/${P}"/src/build_data/alpine/brickd/brickd.initd brickd
 }
