@@ -1,0 +1,120 @@
+From 1fc64afcdb5d1c161d62e9da50ab884ee3938230 Mon Sep 17 00:00:00 2001
+From: Tobias Jakobi <tjakobi@math.uni-bielefeld.de>
+Date: Mon, 3 Mar 2025 16:45:40 +0100
+Subject: [PATCH 3/3] Unbundle libchdr
+
+Signed-off-by: Tobias Jakobi <tjakobi@math.uni-bielefeld.de>
+---
+ desktop-ui/CMakeLists.txt |  5 +++-
+ nall/CMakeLists.txt       |  5 +++-
+ thirdparty/CMakeLists.txt | 55 ---------------------------------------
+ 3 files changed, 8 insertions(+), 57 deletions(-)
+
+diff --git a/desktop-ui/CMakeLists.txt b/desktop-ui/CMakeLists.txt
+index e85ca806d..cdd302f40 100644
+--- a/desktop-ui/CMakeLists.txt
++++ b/desktop-ui/CMakeLists.txt
+@@ -45,9 +45,12 @@ elseif(OS_LINUX OR OS_FREEBSD OR OS_OPENBSD)
+   include(cmake/os-linux.cmake)
+ endif()
+ 
++find_package(PkgConfig)
++pkg_check_modules(CHDR REQUIRED libchdr)
++
+ target_link_libraries(
+   desktop-ui
+-  PRIVATE ares::ruby ares::hiro ares::ares mia chdr-static sljit
++  PRIVATE ares::ruby ares::hiro ares::ares mia sljit PUBLIC ${CHDR_LIBRARIES}
+ )
+ 
+ set_target_properties(desktop-ui PROPERTIES OUTPUT_NAME ares)
+diff --git a/nall/CMakeLists.txt b/nall/CMakeLists.txt
+index e8146728b..213f662a4 100644
+--- a/nall/CMakeLists.txt
++++ b/nall/CMakeLists.txt
+@@ -3,7 +3,10 @@ add_library(ares::nall ALIAS nall)
+ 
+ include(cmake/sources.cmake)
+ 
+-target_link_libraries(nall PUBLIC sljit chdr-static)
++find_package(PkgConfig)
++pkg_check_modules(CHDR REQUIRED libchdr)
++
++target_link_libraries(nall PUBLIC sljit ${CHDR_LIBRARIES})
+ target_compile_definitions(nall PUBLIC CMAKE)
+ target_compile_options(
+   nall
+diff --git a/thirdparty/CMakeLists.txt b/thirdparty/CMakeLists.txt
+index 93e0893d8..e5b361108 100644
+--- a/thirdparty/CMakeLists.txt
++++ b/thirdparty/CMakeLists.txt
+@@ -4,55 +4,6 @@ target_include_directories(sljit PUBLIC ../thirdparty)
+ target_compile_definitions(sljit PUBLIC SLJIT_HAVE_CONFIG_PRE=1 SLJIT_HAVE_CONFIG_POST=1)
+ target_compile_options(sljit PRIVATE $<$<COMPILE_LANG_AND_ID:C,AppleClang,Clang,GNU>:-Wno-conditional-uninitialized>)
+ 
+-# lzma
+-add_subdirectory(libchdr/deps/lzma-24.05 EXCLUDE_FROM_ALL)
+-list(APPEND CHDR_LIBS lzma)
+-list(APPEND CHDR_INCLUDES lzma)
+-
+-if(OS_MACOS)
+-  option(WITH_SYSTEM_ZLIB "Use system zlib" ON)
+-endif()
+-# zlib
+-if(WITH_SYSTEM_ZLIB)
+-  find_package(ZLIB REQUIRED)
+-  list(APPEND PLATFORM_LIBS ZLIB::ZLIB)
+-else()
+-  option(ZLIB_BUILD_EXAMPLES "Enable Zlib Examples" OFF)
+-  add_subdirectory(libchdr/deps/zlib-1.3.1 EXCLUDE_FROM_ALL)
+-  set_target_properties(
+-    zlibstatic
+-    PROPERTIES POSITION_INDEPENDENT_CODE ON FOLDER thirdparty PREFIX ""
+-  )
+-  list(APPEND CHDR_LIBS zlibstatic)
+-endif()
+-
+-# zstd
+-option(ZSTD_BUILD_SHARED "BUILD SHARED LIBRARIES" OFF)
+-option(ZSTD_BUILD_PROGRAMS "BUILD PROGRAMS" OFF)
+-add_subdirectory(libchdr/deps/zstd-1.5.6/build/cmake EXCLUDE_FROM_ALL)
+-list(APPEND CHDR_LIBS libzstd_static)
+-#--------------------------------------------------
+-# chdr
+-#--------------------------------------------------
+-
+-set(
+-  CHDR_SOURCES
+-  libchdr/src/libchdr_bitstream.c
+-  libchdr/src/libchdr_cdrom.c
+-  libchdr/src/libchdr_chd.c
+-  libchdr/src/libchdr_flac.c
+-  libchdr/src/libchdr_huffman.c
+-)
+-
+-list(APPEND CHDR_INCLUDES ${CMAKE_CURRENT_BINARY_DIR}/libchdr/include)
+-
+-add_library(chdr-static STATIC ${CHDR_SOURCES})
+-target_include_directories(chdr-static PUBLIC ${CHDR_INCLUDES} PUBLIC libchdr/include)
+-target_link_libraries(chdr-static PRIVATE ${CHDR_LIBS} ${PLATFORM_LIBS})
+-target_compile_options(
+-  chdr-static
+-  PRIVATE $<$<CXX_COMPILER_ID:Clang,AppleClang>:-Wno-unreachable-code -Wno-unused-function>
+-)
+ 
+ add_library(
+   tzxfile
+@@ -104,10 +55,4 @@ endif()
+ 
+ set_target_properties(ymfm PROPERTIES FOLDER thirdparty PREFIX "")
+ set_target_properties(tzxfile PROPERTIES FOLDER thirdparty PREFIX "")
+-set_target_properties(chdr-static PROPERTIES FOLDER thirdparty PREFIX "")
+ set_target_properties(sljit PROPERTIES FOLDER thirdparty PREFIX "")
+-if(NOT WITH_SYSTEM_ZLIB)
+-  set_target_properties(zlib PROPERTIES FOLDER thirdparty PREFIX "")
+-endif()
+-set_target_properties(lzma PROPERTIES FOLDER thirdparty PREFIX "")
+-set_target_properties(libzstd_static PROPERTIES FOLDER thirdparty PREFIX "")
+-- 
+2.45.3
+
