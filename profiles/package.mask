@@ -154,11 +154,6 @@ dev-util/bump2version
 # Removal on 2025-03-24. Bug #928259.
 dev-python/pymemcache
 
-# David Roman <davidroman96@gmail.com> (2025-01-30)
-# Depends on qtpy[pyqt5] but pyqt5 USE has been removed from it
-# Removal on 2025-03-24
-app-misc/brightness-control
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
