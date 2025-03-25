@@ -148,12 +148,6 @@ dev-python/aiomysql
 # Removal on 2025-04-05.
 dev-util/bump2version
 
-# Takuya Wakazono <pastalian46@gmail.com> (2025-02-24)
-# No reverse dependencies left. (The last one was removed in e17a1e7.)
-# One of its test dependencies, dev-python/zstd, is being removed.
-# Removal on 2025-03-24. Bug #928259.
-dev-python/pymemcache
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
