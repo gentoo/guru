@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<remote-id type="github">Tinkerforge/brickd</remote-id>
+		<doc>https://www.tinkerforge.com/en/doc/Software/Brickd.html</doc>
+	</upstream>
+</pkgmetadata>
