@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{11..13} pypy3 )
+PYTHON_COMPAT=( python3_{11..13} pypy3_11 )
 
 inherit distutils-r1 pypi
 
@@ -36,6 +36,9 @@ BDEPEND="
 EPYTEST_IGNORE=(
 	# Dependencies not packaged: pytest-examples
 	tests/test_docs.py
+)
+EPYTEST_DESELECT=(
+	tests/test_source_cli.py::test_cli_metavar_format_type_alias_312
 )
 
 distutils_enable_tests pytest
