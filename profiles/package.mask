@@ -57,11 +57,6 @@ www-misc/gorss
 dev-debug/uscope
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
-# Unmaintained in GURU.
-# Removal on 2025-04-05.
-media-fonts/twemoji
-
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
 # Unmaintained in GURU, no revdeps left. Open bugs: #901337.
 # Removal on 2025-04-05.
 net-libs/td
