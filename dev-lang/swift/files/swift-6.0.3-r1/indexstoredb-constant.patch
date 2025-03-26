@@ -1,0 +1,19 @@
+# Prior to C23, the C standard restricts enum values to the range of `int`;
+# relaxing this is a GNU extension that Clang follows. On LLVM-profile systems,
+# though, this appears to not be enabled by default, causing Clang to complain
+# that `1 << 63` is not a compile-time expression (since it overflows an `int`
+# and can't be computed at compile-time). This can be suppressed by causing the
+# enum to be interpreted explicitly as containing `unsigned long long` values
+# instead.
+
+--- a/indexstore-db/include/CIndexStoreDB/CIndexStoreDB.h
++++ b/indexstore-db/include/CIndexStoreDB/CIndexStoreDB.h
+@@ -82,7 +82,7 @@ typedef enum {
+   INDEXSTOREDB_SYMBOL_ROLE_REL_IBTYPEOF    = 1 << 17,
+   INDEXSTOREDB_SYMBOL_ROLE_REL_SPECIALIZATIONOF = 1 << 18,
+
+-  INDEXSTOREDB_SYMBOL_ROLE_CANONICAL = 1 << 63,
++  INDEXSTOREDB_SYMBOL_ROLE_CANONICAL = 1ULL << 63,
+ } indexstoredb_symbol_role_t;
+
+ typedef enum {

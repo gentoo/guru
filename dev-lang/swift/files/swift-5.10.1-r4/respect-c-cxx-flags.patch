@@ -1,0 +1,64 @@
+# CMake automatically reads `CFLAGS`, `CXXFLAGS`, `LDFLAGS`, etc. from the
+# environment and uses them to populate its default flag variables -- but the
+# Swift build system blows away `CMAKE_C{XX}_FLAGS` without picking up the
+# environment. These need to be picked up again to not be ignored.
+
+--- a/swift/utils/build-script-impl
++++ b/swift/utils/build-script-impl
+@@ -1820,10 +1820,10 @@ for host in "${ALL_HOSTS[@]}"; do
+
+                 cmake_options=(
+                     "${cmake_options[@]}"
+-                    -DCMAKE_C_FLAGS="$(swift_c_flags ${host})"
+-                    -DCMAKE_CXX_FLAGS="$(swift_c_flags ${host})"
+-                    -DCMAKE_C_FLAGS_RELWITHDEBINFO="-O2 -DNDEBUG"
+-                    -DCMAKE_CXX_FLAGS_RELWITHDEBINFO="-O2 -DNDEBUG"
++                    -DCMAKE_C_FLAGS="${CFLAGS} $(swift_c_flags ${host})"
++                    -DCMAKE_CXX_FLAGS="${CXXFLAGS} $(swift_c_flags ${host})"
++                    -DCMAKE_C_FLAGS_RELWITHDEBINFO="${CFLAGS} -O2 -DNDEBUG"
++                    -DCMAKE_CXX_FLAGS_RELWITHDEBINFO="${CXXFLAGS} -O2 -DNDEBUG"
+                     -DCMAKE_BUILD_TYPE:STRING="${SWIFT_BUILD_TYPE}"
+                     -DLLVM_ENABLE_ASSERTIONS:BOOL=$(true_false "${SWIFT_ENABLE_ASSERTIONS}")
+                     -DBOOTSTRAPPING_MODE:STRING=$(to_bootstrapping_mode "${BOOTSTRAPPING}")
+@@ -2215,8 +2215,8 @@ for host in "${ALL_HOSTS[@]}"; do
+                 cmake_options=(
+                     "${cmake_options[@]}"
+                     -C${LLDB_SOURCE_DIR}/cmake/caches/${cmake_cache}
+-                    -DCMAKE_C_FLAGS="$(llvm_c_flags ${host})"
+-                    -DCMAKE_CXX_FLAGS="$(llvm_c_flags ${host})"
++                    -DCMAKE_C_FLAGS="${CFLAGS} $(llvm_c_flags ${host})"
++                    -DCMAKE_CXX_FLAGS="${CXXFLAGS} $(llvm_c_flags ${host})"
+                     -DCMAKE_BUILD_TYPE:STRING="${LLDB_BUILD_TYPE}"
+                     -DLLDB_SWIFTC:PATH=${SWIFTC_BIN}
+                     -DLLDB_SWIFT_LIBS:PATH="$(build_directory ${LOCAL_HOST} swift)/lib/swift"
+--- a/swift/utils/swift_build_support/swift_build_support/products/llvm.py
++++ b/swift/utils/swift_build_support/swift_build_support/products/llvm.py
+@@ -261,10 +261,10 @@ class LLVM(cmake_product.CMakeProduct):
+         # llvm/tools, e.g. to build LLDB.
+
+         llvm_c_flags = ' '.join(self.llvm_c_flags(platform, arch))
+-        llvm_cmake_options.define('CMAKE_C_FLAGS', llvm_c_flags)
+-        llvm_cmake_options.define('CMAKE_CXX_FLAGS', llvm_c_flags)
+-        llvm_cmake_options.define('CMAKE_C_FLAGS_RELWITHDEBINFO', '-O2 -DNDEBUG')
+-        llvm_cmake_options.define('CMAKE_CXX_FLAGS_RELWITHDEBINFO', '-O2 -DNDEBUG')
++        llvm_cmake_options.define('CMAKE_C_FLAGS', ' '.join([os.environ.get('CFLAGS', ''), llvm_c_flags]))
++        llvm_cmake_options.define('CMAKE_CXX_FLAGS', ' '.join([os.environ.get('CXXFLAGS', ''), llvm_c_flags]))
++        llvm_cmake_options.define('CMAKE_C_FLAGS_RELWITHDEBINFO', ' '.join([os.environ.get('CFLAGS', ''), '-O2 -DNDEBUG']))
++        llvm_cmake_options.define('CMAKE_CXX_FLAGS_RELWITHDEBINFO', ' '.join([os.environ.get('CXXFLAGS', ''), '-O2 -DNDEBUG']))
+         llvm_cmake_options.define('CMAKE_BUILD_TYPE:STRING',
+                                   self.args.llvm_build_variant)
+         llvm_cmake_options.define('LLVM_TOOL_SWIFT_BUILD:BOOL', 'FALSE')
+--- a/swift/utils/swift_build_support/swift_build_support/products/product.py
++++ b/swift/utils/swift_build_support/swift_build_support/products/product.py
+@@ -440,8 +440,8 @@ class Product(object):
+
+         (platform, arch) = host_target.split('-')
+         common_c_flags = ' '.join(self.common_cross_c_flags(platform, arch))
+-        self.cmake_options.define('CMAKE_C_FLAGS', common_c_flags)
+-        self.cmake_options.define('CMAKE_CXX_FLAGS', common_c_flags)
++        self.cmake_options.define('CMAKE_C_FLAGS', ' '.join([os.environ.get('CFLAGS', ''), common_c_flags]))
++        self.cmake_options.define('CMAKE_CXX_FLAGS', ' '.join([os.environ.get('CXXFLAGS', ''), common_c_flags]))
+
+         toolchain_file = None
+         if self.is_darwin_host(host_target):
+
