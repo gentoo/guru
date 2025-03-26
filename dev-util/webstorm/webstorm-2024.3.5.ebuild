@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop wrapper
+inherit desktop wrapper toolchain-funcs
 
 DESCRIPTION="An integrated development environment for JavaScript and related technologies."
 HOMEPAGE="https://www.jetbrains.com/webstorm/"
@@ -51,6 +51,7 @@ src_unpack() {
 }
 
 src_prepare() {
+		tc-export OBJCOPY
 		default
 
 		local remove_me=(
@@ -65,7 +66,7 @@ src_prepare() {
 		# as they should not be executed
 		find . -type f ! -name '*$(*)*' -exec sh -c '
 			if file "{}" | grep -qE "ELF (32|64)-bit"; then
-				objcopy --remove-section .note.gnu.build-id "{}"
+				${OBJCOPY} --remove-section .note.gnu.build-id "{}"
 				debugedit -b "${EPREFIX}/opt/${PN}" -d "/usr/lib/debug" -i "{}"
 			fi
 		' \;
