@@ -202,6 +202,26 @@ src_compile() {
 	# contents are irrelevant.
 	addpredict /var/lib/portage/home/.swiftpm
 
+	# Setting `-j<n>`/`--jobs=<n>` in MAKEOPTS needs to be manually exposed to
+	# the Swift build system.
+	local jobs_flag
+	if [[ -n "${MAKEOPTS}" ]]; then
+		local num_jobs make_opts=( $(getopt -qu -o 'j:' -l 'jobs:' -- ${MAKEOPTS}) )
+		while [[ "${#make_opts[@]}" -gt 1 ]]; do
+			case "${make_opts[0]}" in
+				-j | --jobs )
+					num_jobs="${make_opts[1]}"
+					make_opts=("${make_opts[@]:2}") ;;
+				-- ) break ;;
+				* ) make_opts=("${make_opts[@]:1}") ;;
+			esac
+		done
+
+		if [[ -n "${num_jobs}" ]]; then
+			jobs_flag="--jobs=${num_jobs}"
+		fi
+	fi
+
 	local _extra_cmake_options=(
 		# BFD doesn't link Swift symbols properly, so we have to ensure Swift is
 		# built with LLD.
@@ -243,6 +263,7 @@ src_compile() {
 		--no-assertions \
 		--build-subdir="Ninja-Release" \
 		--install-destdir="${S}/stage0" \
+		"${jobs_flag}" \
 		--extra-cmake-options="${extra_cmake_options}" \
 		--bootstrapping=off \
 		--llvm-install-components='llvm-ar;llvm-cov;llvm-profdata;IndexStore;clang;clang-resource-headers;compiler-rt;clangd;lld;LTO;clang-features-file' \
@@ -267,6 +288,7 @@ src_compile() {
 		--no-assertions \
 		--build-subdir="Ninja-Release" \
 		--install-destdir="${S}/stage1" \
+		"${jobs_flag}" \
 		--extra-cmake-options="${extra_cmake_options}" \
 		--cmark --skip-test-cmark \
 		--foundation --skip-test-foundation \
@@ -290,6 +312,7 @@ src_compile() {
 		--no-assertions \
 		--build-subdir="Ninja-Release" \
 		--install-destdir="${S}/stage2" \
+		"${jobs_flag}" \
 		--extra-cmake-options="${extra_cmake_options}" \
 		--foundation --skip-test-foundation \
 		--indexstore-db --skip-test-indexstore-db \

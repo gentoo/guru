@@ -182,6 +182,25 @@ src_configure() {
 	cp "${FILESDIR}/${PF}/gentoo.ini" "${SWIFT_BUILD_PRESETS_INI_PATH}"
 	local extra_build_flags=()
 
+	# Setting `-j<n>`/`--jobs=<n>` in MAKEOPTS needs to be manually exposed to
+	# the Swift build system.
+	if [[ -n "${MAKEOPTS}" ]]; then
+		local num_jobs make_opts=( $(getopt -qu -o 'j:' -l 'jobs:' -- ${MAKEOPTS}) )
+		while [[ "${#make_opts[@]}" -gt 1 ]]; do
+			case "${make_opts[0]}" in
+				-j | --jobs )
+					num_jobs="${make_opts[1]}"
+					make_opts=("${make_opts[@]:2}") ;;
+				-- ) break ;;
+				* ) make_opts=("${make_opts[@]:1}") ;;
+			esac
+		done
+
+		if [[ -n "${num_jobs}" ]]; then
+			extra_build_flags+=(--jobs="${num_jobs}")
+		fi
+	fi
+
 	if [[ "$(tc-get-cxx-stdlib)" = 'libc++' ]]; then
 		# On systems which use libc++ as their default C++ stdlib (e.g. systems
 		# with the LLVM profile), we want to build the internal libc++ and
