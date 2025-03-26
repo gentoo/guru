@@ -71,7 +71,7 @@ RESTRICT="strip"
 RDEPEND="
 	${PYTHON_DEPS}
 	>=app-arch/zstd-1.5
-	>=app-eselect/eselect-swift-1.0
+	>=app-eselect/eselect-swift-1.0-r1
 	>=dev-db/sqlite-3
 	>=dev-libs/icu-69
 	>=dev-libs/libedit-20221030
@@ -105,6 +105,8 @@ BDEPEND="
 		dev-python/setuptools[${PYTHON_USEDEP}]
 	' python3_{12..13})
 "
+
+PKG_PREINST_SWIFT_INTENTIONALLY_SET='true'
 
 # Adapted from `flag-o-matic.eclass`'s `raw-ldflags`: turns GCC-style flags
 # (`-Wl,-foo`) into Clang-style flags (`-Xlinker -foo`).
@@ -357,12 +359,22 @@ src_install() {
 	done
 }
 
+pkg_preinst() {
+	# After installation, we ideally want the system to have the latest Swift
+	# version set -- but if the system already has a Swift version set and it
+	# isn't the latest version, that's likely an intentional decision that we
+	# don't want to override.
+	local current_swift_version="$(eselect swift show | tail -n1 | xargs)"
+	local latest_swift_version="$(eselect swift show --latest | tail -n1 | xargs)"
+	[[ "${current_swift_version}" == '(unset)' ]] \
+		|| [[ "${current_swift_version}" == "${latest_swift_version}" ]] \
+		&& PKG_PREINST_SWIFT_INTENTIONALLY_SET='false'
+}
+
 pkg_postinst() {
-	# If we're installing the latest version of Swift, then update symlinks to
-	# it. (We don't want to call `eselect swift update` unconditionally in case
-	# we're installing an older version of Swift, and the user has intentionally
-	# selected a version other than the latest.)
-	if ! has_version ">${CATEGORY}/${P}"; then
+	# If the system doesn't have Swift intentionally set to an older version, we
+	# can update to the latest.
+	if [[ "${PKG_PREINST_SWIFT_INTENTIONALLY_SET}" == 'false' ]]; then
 		eselect swift update
 	fi
 }
@@ -370,8 +382,8 @@ pkg_postinst() {
 pkg_postrm() {
 	# We don't want to leave behind symlinks pointing to this Swift version on
 	# removal.
-	local eselect_swift_version="$(eselect swift show)"
-	if [[ "${eselect_swift_version}" == *"${P}" ]]; then
+	local current_swift_version="$(eselect swift show | tail -n1 | xargs)"
+	if [[ "${current_swift_version}" == "${P}" ]]; then
 		eselect swift update
 	fi
 }
