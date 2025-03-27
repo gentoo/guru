@@ -18,12 +18,17 @@
 
 # New entries go on top.
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-27)
+# Superseded by Beeper v4, which has only AppImage builds available.
+# Removal on 2025-04-27.
+net-im/beeper
+
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-25)
 # Unmaintained in GURU, no revdeps left.
 # Removal on 2025-04-25.
 dev-python/defcon
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-25)
 # Unmaintained in GURU, no revdeps left. No working tests, because test
 # dependencies are not worth packaging and maintaining.
 # Removal on 2025-04-25.
