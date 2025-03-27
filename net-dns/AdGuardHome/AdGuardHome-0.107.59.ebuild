@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,12 +8,12 @@ inherit fcaps go-module readme.gentoo-r1 systemd
 DESCRIPTION="Network-wide ads & trackers blocking DNS server like Pi-Hole with web ui"
 HOMEPAGE="https://github.com/AdguardTeam/AdGuardHome/"
 
-WIKI_COMMIT="3b27176"
+WIKI_COMMIT="5657b4b"
 SRC_URI="
 	https://github.com/AdguardTeam/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/deps.tar.xz -> ${P}-deps.tar.xz
-	https://github.com/rahilarious/gentoo-distfiles/releases/download/${PN}-0.107.49/wiki.tar.xz -> ${PN}-wiki-${WIKI_COMMIT}.tar.xz
-	web? ( https://github.com/rahilarious/gentoo-distfiles/releases/download/${PN}-0.107.49/npm-deps.tar.xz -> ${PN}-0.107.49-npm-deps.tar.xz )
+	https://github.com/rahilarious/gentoo-distfiles/releases/download/${PN}-0.107.57/wiki.tar.xz -> ${PN}-wiki-${WIKI_COMMIT}.tar.xz
+	web? ( https://github.com/AdguardTeam/AdGuardHome/releases/download/v${PV}/AdGuardHome_frontend.tar.gz -> ${P}-web.tar.gz )
 "
 
 # main
@@ -26,10 +26,6 @@ KEYWORDS="~amd64 ~arm64"
 
 IUSE="+web"
 # RESTRICT="test"
-
-BDEPEND="
-	web? ( net-libs/nodejs[npm] )
-"
 
 FILECAPS=(
 	-m 755 'cap_net_bind_service=+eip cap_net_raw=+eip' usr/bin/${PN}
@@ -60,17 +56,11 @@ src_prepare() {
 
 	default
 
-	if use web; then
-		# mimicking `make js-deps`
-		export npm_config_cache="${WORKDIR}/npm-cache" NODE_OPTIONS=--openssl-legacy-provider || die
-		npm --verbose --offline --prefix client/ --no-progress --ignore-engines --ignore-optional --ignore-platform --ignore-scripts ci || die
-	fi
+	# symlinking doesn't work for some reason so MUST `mv`
+	use web && { rm -v build/gitkeep && rmdir build && mv ../build ./ || die ; }
 }
 
 src_compile() {
-	# mimicking `make js-build`
-	use web && npm --verbose --offline --prefix client run build-prod || die
-
 	# mimicking https://github.com/AdguardTeam/AdGuardHome/blob/master/scripts/make/go-build.sh
 
 	local MY_LDFLAGS="-s -w"
@@ -143,7 +133,7 @@ src_install() {
 	einstalldocs
 	readme.gentoo_create_doc
 
-	systemd_newunit "${FILESDIR}"/AdGuardHome-0.107.43.service "${PN}".service
+	systemd_newunit "${FILESDIR}"/AdGuardHome-0.107.57.service "${PN}".service
 }
 
 pkg_postinst() {
