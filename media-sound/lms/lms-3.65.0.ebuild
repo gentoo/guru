@@ -22,7 +22,7 @@ RDEPEND="
 	dev-libs/boost:=
 	dev-libs/libconfig[cxx]
 	media-libs/taglib:=
-	media-video/ffmpeg[mp3,opus]
+	media-video/ffmpeg[opus]
 	sys-libs/pam
 
 	!stb? ( media-gfx/graphicsmagick )
