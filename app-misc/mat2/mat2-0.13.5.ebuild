@@ -34,7 +34,7 @@ BDEPEND="
 	verify-sig? ( >sec-keys/openpgp-keys-jvoisin-20200714 )
 	test? (
 		media-libs/exiftool:*
-		media-video/ffmpeg[mp3,vorbis]
+		media-video/ffmpeg[lame,vorbis]
 	)
 "
 

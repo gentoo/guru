@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # You will need games-util/steam-client-meta from the steam-overlay for this to work
@@ -530,8 +530,8 @@ KEYWORDS="~amd64"
 IUSE="+client +server vaapi vulkan x264 x265"
 
 RDEPEND="
-	>=media-video/ffmpeg-4.3[encode,vulkan?,x264?,x265?]
-	vaapi? ( media-video/ffmpeg[libdrm,vaapi] )
+	>=media-video/ffmpeg-4.3[vulkan?,x264?,x265?]
+	vaapi? ( media-video/ffmpeg[drm,vaapi] )
 	sys-libs/libunwind
 	www-client/chromium
 "
