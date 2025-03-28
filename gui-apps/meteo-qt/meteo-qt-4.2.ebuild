@@ -1,9 +1,9 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
 inherit distutils-r1 qmake-utils xdg
@@ -18,17 +18,22 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	$(python_gen_cond_dep '
-		dev-python/pyqt5[${PYTHON_USEDEP}]
+		dev-python/pyqt6[${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]
 	')
 "
 BDEPEND="
-	dev-python/pyqt5
-	dev-qt/linguist-tools
+	dev-python/pyqt6
+	dev-qt/qttools:6[linguist]
 "
 
+src_prepare() {
+	sed "s/lrelease-pro-qt6/lrelease-pro/g" -i setup.py || die
+	distutils-r1_src_prepare
+}
+
 src_compile() {
-	local -x PATH="$(qt5_get_bindir):${PATH}"
+	local -x PATH="${EPREFIX}$(qt6_get_libdir)/qt6/libexec:${PATH}"
 	distutils-r1_src_compile
 }
 
