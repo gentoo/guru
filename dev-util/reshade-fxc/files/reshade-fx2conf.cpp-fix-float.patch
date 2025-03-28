@@ -1,0 +1,46 @@
+--- a/tools/fx2conf.cpp
++++ b/tools/fx2conf.cpp
+@@ -114,9 +120,15 @@
+ 
+ 
+   // Create config
+-  output << "# Spec constants" << std::endl;
+-  for (auto& spc : module.spec_constants) {
+-    output << std::endl;
++  output << "# " << fxFile << std::endl;
++  for (std::string hold; auto& spc : module.spec_constants) {
++    // float2/3/4 handle
++    if (hold == spc.name) {
++      output << ", " << print_value(spc.type, spc.initializer_value);
++      continue;
++    }
++
++    output << std::endl << std::endl;
+     // Hints
+     for (auto& hnt : spc.annotations) {
+       output << "# ";
+@@ -134,14 +120,21 @@
+     }
+ 
+     // Default value
+-    output << spc.name << " = ";
+-    output << print_value(spc.type, spc.initializer_value);
++    output << "#" << spc.name << " = " << print_value(spc.type, spc.initializer_value);
++
++    // float2/3/4 handle
++    if (hold != spc.name) {
++      hold.assign(spc.name);
++      continue;
++    }
++
+     output << std::endl;
+   }
+ 
+ 
+   // Additional info
+-  output << std::endl << "# Directives" << std::endl;
++  output << std::endl << std::endl;
++  output << "# Directives" << std::endl;
+   for (auto &ppd : preprocessor.used_macro_definitions()) {
+     output << "#" << ppd.first << "=" << ppd.second << std::endl;
+   }
