@@ -7,4 +7,7 @@
 	<upstream>
 		<remote-id type="github">skeeto/u-config</remote-id>
 	</upstream>
+	<use>
+		<flag name="symlink">Install pkg-config and pkgconf symlink</flag>
+	</use>
 </pkgmetadata>
