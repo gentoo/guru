@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,6 +18,11 @@ IUSE="pipewire"
 
 DEPEND="
 		>=gui-libs/gtk-4.6
+		>=dev-libs/glib-2.78.6
+		>=media-libs/graphene-1.10.8-r1
+		>=media-libs/gst-plugins-base-1.22.12
+		>=x11-libs/gdk-pixbuf-2.42.10-r1
+		>=x11-libs/pango-1.52.2
 		>=gui-libs/libadwaita-1
 		>=media-libs/gstreamer-1.20.6[introspection]
 		>=media-plugins/gst-plugins-taglib-1.20.6
