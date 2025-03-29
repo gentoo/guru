@@ -14,7 +14,7 @@ S="${WORKDIR}"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-RDEPEND=">=virtual/jre-11-r2"
+RDEPEND="=virtual/jdk-17"
 
 src_install() {
 	MY_PN="cytoscape"
