@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2025-03-30)
+# FTBFS bugs open for 2 years.
+# Removal on 2025-04-30. Bugs #887641, #887643, #945212.
+games-action/netrek-brmh
+
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-27)
 # Superseded by Beeper v4.
 # Removal on 2025-04-27.
