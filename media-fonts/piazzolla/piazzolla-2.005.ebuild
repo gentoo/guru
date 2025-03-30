@@ -13,23 +13,20 @@ SRC_URI="
 	https://github.com/huertatipografica/${PN}/releases/download/v${PV}/${MY_PN}SC.zip -> ${PN}-sc-${PV}.zip
 	"
 
+S="${WORKDIR}"
 LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND=""
-DEPEND="${RDEPEND}"
 BDEPEND="app-arch/unzip"
 
-DOCS=""
-S="${WORKDIR}"
-FONT_S="${S}/install_files"
+FONT_S=(
+	"${S}/${FONT_PN}/static/otf"
+	"${S}/${FONT_PN}SC/static/otf"
+)
 FONT_SUFFIX="otf"
 
-src_unpack() {
-	unpack ${P}.zip
-	unpack ${PN}-sc-${PV}.zip
-	mkdir install_files
-	mv ${MY_PN}/static/otf/* install_files/
-	mv ${MY_PN}SC/static/otf/* install_files/
+font_src_install() {
+	insinto ${FONTDIR}
+	doins ${MY_PN}/static/otf/*.otf ${MY_PN}SC/static/otf/*.otf
 }
