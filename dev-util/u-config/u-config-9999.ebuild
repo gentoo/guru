@@ -39,12 +39,12 @@ RDEPEND="
 "
 
 src_compile() {
-	edo $(tc-getCC) ${CFLAGS} -o u-config generic_main.c \
+	edo $(tc-getCC) ${CFLAGS} -o u-config main_posix.c \
 		-D PKG_CONFIG_LIBDIR="\"${EPREFIX}/usr/$(get_libdir)/pkgconfig:${EPREFIX}/usr/share/pkgconfig\"" \
 		-D PKG_CONFIG_SYSTEM_INCLUDE_PATH="\"${EPREFIX}/usr/include\"" \
 		-D PKG_CONFIG_SYSTEM_LIBRARY_PATH="\"${EPREFIX}/$(get_libdir):${EPREFIX}/usr/$(get_libdir)\"" \
 		${LDFLAGS}
-	use test && edo $(tc-getCC) ${CFLAGS} -o tests test_main.c ${LDFLAGS}
+	use test && edo $(tc-getCC) ${CFLAGS} -o tests main_test.c ${LDFLAGS}
 }
 
 src_install() {
