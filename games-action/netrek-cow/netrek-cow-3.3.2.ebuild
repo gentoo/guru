@@ -1,8 +1,8 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit autotools
+inherit autotools flag-o-matic
 
 DESCRIPTION="cow client for netrek"
 HOMEPAGE="https://netrek.org"
@@ -34,6 +34,12 @@ src_prepare() {
 	default
 	./autogen.sh
 	eautoreconf
+}
+
+src_configure() {
+	# Incompatible function declarations under C23. Bug #945213
+	append-cflags -std=gnu17
+	default
 }
 
 src_install() {
