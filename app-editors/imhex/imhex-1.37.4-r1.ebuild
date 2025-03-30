@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_COMPAT=( {15..19} )
+LLVM_COMPAT=( {15..20} )
 
 inherit cmake llvm-r1 toolchain-funcs flag-o-matic xdg-utils
 
@@ -39,12 +39,12 @@ DEPEND="
 	app-arch/bzip2
 	app-arch/xz-utils
 	app-arch/zstd:=
-	app-forensics/yara:=
+	>=app-forensics/yara-4.2.0:=
 	>=dev-cpp/nlohmann_json-3.10.2
 	dev-libs/boost
-	dev-libs/capstone:=
+	>=dev-libs/capstone-5.0.3:=
 	>=dev-libs/nativefiledialog-extended-1.2.1[desktop-portal?]
-	>=dev-libs/libfmt-8.0.0:=
+	>=dev-libs/libfmt-11.1.3:=
 	media-libs/fontconfig
 	media-libs/freetype
 	>=media-libs/glfw-3.4[X]
