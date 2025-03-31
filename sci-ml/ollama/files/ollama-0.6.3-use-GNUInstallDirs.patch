@@ -1,0 +1,26 @@
+From 3e250053458fa33c97023ff8943e8c5daa4beeca Mon Sep 17 00:00:00 2001
+From: Paul Zander <negril.nx+gentoo@gmail.com>
+Date: Mon, 31 Mar 2025 18:07:47 +0200
+Subject: [PATCH] use GNUInstallDirs
+
+Signed-off-by: Paul Zander <negril.nx+gentoo@gmail.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9e107fe..79407ea 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -35,8 +35,9 @@ if (CMAKE_OSX_ARCHITECTURES MATCHES "x86_64")
+     set(CMAKE_INSTALL_RPATH "@loader_path")
+ endif()
+ 
+-set(OLLAMA_BUILD_DIR ${CMAKE_BINARY_DIR}/lib/ollama)
+-set(OLLAMA_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/lib/ollama)
++include(GNUInstallDirs)
++set(OLLAMA_BUILD_DIR ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}/ollama)
++set(OLLAMA_INSTALL_DIR ${CMAKE_INSTALL_FULL_LIBDIR}/ollama)
+ 
+ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY         ${OLLAMA_BUILD_DIR})
+ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG   ${OLLAMA_BUILD_DIR})
+-- 
+2.49.0
+
