@@ -1,0 +1,11 @@
+# Copyright 1999-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# Whenever the flag name does not correspond to /proc/cpuinfo flags,
+# please put the cpuinfo flag in square brackets. If more than one flag
+# is specified, any of them will enable the respective USE flag.
+
+amx_bf16 - Use Advanced Matrix Extensions BFloat16 instruction set
+amx_tile - Use Advanced Matrix Extensions Tile Matrix Multiply Instruction set
+amx_int8 - Use Advanced Matrix Extensions INT8 instruction set
+avx_vnni - Use VEX-coded vector neural network instructions for 8- and 16-bit multiply-add operations
