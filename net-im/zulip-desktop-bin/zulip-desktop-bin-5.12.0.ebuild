@@ -14,7 +14,7 @@ inherit chromium-2 desktop unpacker xdg
 DESCRIPTION="Organized chat for distributed teams."
 HOMEPAGE="https://zulip.com/"
 SRC_URI="
-	amd64? ( https://download.zulip.com/desktop/apt/pool/main/z/zulip/Zulip-5.11.1-amd64.deb )
+	amd64? ( https://download.zulip.com/desktop/apt/pool/main/z/zulip/Zulip-${PV}-amd64.deb )
 "
 
 S="${WORKDIR}"
@@ -73,9 +73,9 @@ src_configure() {
 }
 
 src_install() {
-	for size in {16,32,64,128,512,1024}; do
-		doicon -s ${size} "usr/share/icons/hicolor/${size}x${size}/apps/zulip.png"
-	done
+	# why does this release only have one icon size?!?
+	size=512
+	doicon -s ${size} "usr/share/icons/hicolor/${size}x${size}/apps/zulip.png"
 
 	domenu usr/share/applications/zulip.desktop
 
