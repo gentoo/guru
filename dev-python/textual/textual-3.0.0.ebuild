@@ -37,7 +37,6 @@ BDEPEND="
 	test? (
 		dev-python/griffe[${PYTHON_USEDEP}]
 		dev-python/httpx[${PYTHON_USEDEP}]
-		dev-python/platformdirs[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		=dev-python/textual-dev-1.7*[${PYTHON_USEDEP}]
 	)
@@ -54,21 +53,34 @@ EPYTEST_DESELECT=(
 
 	# Need a package that should be optional
 	tests/text_area/test_languages.py
+
+	# Xdist fails thoses
+	tests/test_focus.py::test_focus_next_and_previous
+	tests/test_focus.py::test_focus_next_wrap_around
+	tests/test_focus.py::test_focus_previous_wrap_around
+	tests/test_focus.py::test_wrap_around_selector
+	tests/test_focus.py::test_no_focus_empty_selector
+	tests/test_focus.py::test_focus_next_and_previous_with_type_selector
+	tests/test_focus.py::test_focus_next_and_previous_with_str_selector
+	tests/test_focus.py::test_focus_next_and_previous_with_str_selector_without_self
+	tests/test_focus.py::test_focus_chain
+	tests/test_focus.py::test_allow_focus
+	tests/test_focus.py::test_focus_next_and_previous_with_type_selector_without_self
 )
 distutils_enable_tests pytest
-python_test() {
-	if [[ ${EPYTHON} == python3.13 ]]; then
-		EPYTEST_DESELECT+=(
-			# See https://github.com/Textualize/textual/issues/5327
-			"tests/text_area"
-			# Some tests just do not work under python3.13 (more than half of those in this file)
-			tests/test_focus.py
-		)
-		epytest -m 'not syntax' tests
-	else
-		epytest tests
-	fi
-}
+# python_test() {
+# 	if [[ ${EPYTHON} == python3.13 ]]; then
+# 		EPYTEST_DESELECT+=(
+# 			# See https://github.com/Textualize/textual/issues/5327
+# 			"tests/text_area"
+# 			# Some tests just do not work under python3.13 (more than half of those in this file)
+# 			tests/test_focus.py
+# 		)
+# 		epytest -m 'not syntax' tests
+# 	else
+# 		epytest tests
+# 	fi
+# }
 
 python_compile_all() {
 	echo "INHERIT: mkdocs-offline.yml" > "${S}/mkdocs.yml"
