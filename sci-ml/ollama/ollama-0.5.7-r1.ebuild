@@ -55,7 +55,7 @@ DEPEND="
 
 RDEPEND="
 	acct-group/${PN}
-	acct-user/${PN}
+	acct-user/${PN}[cuda?]
 "
 
 PATCHES=(
