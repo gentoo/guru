@@ -21,38 +21,29 @@
 		later be adopted in the reference wallets.
 	</longdescription>
 	<use>
-		<flag name="qrcode">
-			Enable QR code scanning with media-gfx/zbar
-		</flag>
-		<flag name="xmrig">
-			Enable mining support using a user specified xmrig binary
+		<flag name="bounties">
+ 			Enable bounties page plugin
 		</flag>
 		<flag name="calc">
 			Enable price calculator page plugin
 		</flag>
+		<flag name="crowdfunding">
+			Enable crowdfunding page plugin
+		</flag>
 		<flag name="home">
 			Enable home page plugin
+		</flag>
+		<flag name="qrcode">
+			Enable QR code scanning with media-gfx/zbar
+ 		</flag>
+		<flag name="revuo">
+			Enable revuo plugin
 		</flag>
 		<flag name="tickers">
 			Enable price tickers plugin
 		</flag>
-		<flag name="exchange">
-			Enable exchange plugin
-		</flag>
-		<flag name="crowdfunding">
-			Enable crowdfunding page plugin
-		</flag>
-		<flag name="bounties">
-			Enable bounties page plugin
-		</flag>
-		<flag name="reddit">
-			Enable reddit.com page plugin
-		</flag>
-		<flag name="localmonero">
-			Enable LocalMonero.com support
-		</flag>
-		<flag name="revuo">
-			Enable revuo plugin
+		<flag name="xmrig">
+			Enable mining support using a user specified xmrig binary
 		</flag>
 	</use>
 </pkgmetadata>
