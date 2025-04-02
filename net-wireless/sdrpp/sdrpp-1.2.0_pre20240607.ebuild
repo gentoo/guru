@@ -50,7 +50,10 @@ DEPEND="sci-libs/fftw
 		net-wireless/soapysdr
 	)
 	rtlsdr? (
-		net-wireless/rtl-sdr
+		|| (
+			net-wireless/rtl-sdr
+			net-wireless/rtl-sdr-blog
+		)
 	)
 	uhd? (
 		net-wireless/uhd
