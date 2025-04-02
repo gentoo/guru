@@ -27,7 +27,7 @@ SRC_URI+=" riscv32? (
 	https://github.com/espressif/binutils-gdb/releases/download/esp-gdb-v${GDB_VER}/riscv32-esp-elf-gdb-${GDB_VER}-x86_64-linux-gnu.tar.gz
 )"
 
-S="${WORKDIR}/${PN}"
+S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
