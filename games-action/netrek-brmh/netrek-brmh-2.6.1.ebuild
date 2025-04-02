@@ -1,8 +1,8 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-inherit toolchain-funcs
+EAPI=8
+inherit toolchain-funcs flag-o-matic
 
 DESCRIPTION="brmh client for netrek"
 HOMEPAGE="https://netrek.org"
@@ -36,6 +36,7 @@ src_configure() {
 }
 
 src_compile() {
+	append-cflags -Wno-error=incompatible-pointer-types
 	emake \
 		CC="$(tc-getCC)" \
 		CDEBUGFLAGS="${CFLAGS}" \
