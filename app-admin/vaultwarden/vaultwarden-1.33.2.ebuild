@@ -113,7 +113,7 @@ src_compile() {
 }
 
 src_install() {
-	dobin target/*/*/"${PN}"
+	dobin "$(cargo_target_dir)/${PN}"
 	systemd_newunit "${FILESDIR}"/vaultwarden-1.30.3.service "${PN}".service
 	newinitd "${FILESDIR}"/vaultwarden-1.30.3.initd "${PN}"
 	newtmpfiles "${FILESDIR}"/vaultwarden-tmpfiles-1.30.3.conf "${PN}".conf
