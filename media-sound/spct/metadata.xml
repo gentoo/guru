@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <name>demize</name>
+    <email>demize@unstable.systems</email>
+  </maintainer>
+  <upstream>
+    <maintainer status="active">
+      <name>jneen</name>
+      <email>jneen@jneen.ca</email>
+    </maintainer>
+    <remote-id type="codeberg">jneen/spct</remote-id>
+    <bugs-to>https://codeberg.org/jneen/spct/issues/new</bugs-to>
+  </upstream>
+</pkgmetadata>
