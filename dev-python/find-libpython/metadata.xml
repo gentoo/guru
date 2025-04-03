@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">find-libpython</remote-id>
+		<remote-id type="github">ktbarrett/find_libpython</remote-id>
+		<maintainer>
+			<name>Takafumi Arakaki</name>
+			<email>dev.ktbarrett@gmail.com</email>
+		</maintainer>
+		<bugs-to>https://github.com/ktbarrett/find_libpython/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		find-libpython is a library designed to locate the path of the
+		libpython dynamic library in the current Python environment.
+		Supports various installation types including conda-managed,
+		system-managed, and other configurations. Works across Windows,
+		Mac OS/OS X, and major Linux distributions.
+		find_libpython is both a script and a Python package. Usage as
+		a script is useful for obtaining the libpython path in
+		makefile-based build systems. It can also determine the path
+		for embedding Python in processes written in other languages.
+		Recommended usage is to call the script in a subprocess without
+		arguments and parse the output.
+	</longdescription>
+	<longdescription lang="zh">
+		find-libpython 是一个用于定位当前 Python 环境中 libpython 动态库
+		路径的库。支持多种安装方式，包括 conda 管理、系统管理或其他方式，
+		可在 Windows、Mac OS/OS X 和各种 Linux 发行版上使用。
+		find_libpython 同时是一个脚本和 Python 包。作为脚本使用时，
+		可用于在基于 makefile 的构建系统中获取 libpython 路径，
+		或嵌入其他语言编写的进程中的 Python 解释器路径。
+		推荐用法是无参数调用子进程中的脚本并解析输出。
+	</longdescription>
+</pkgmetadata>

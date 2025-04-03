@@ -1,0 +1,29 @@
+From 3570824dfd3115d53523beeac6f346c279ddc569 Mon Sep 17 00:00:00 2001
+From: Huang Rui <vowstar@gmail.com>
+Date: Thu, 3 Apr 2025 16:17:42 +0800
+Subject: [PATCH] fix(setup): Update deprecated license classifier in setup.cfg
+
+- Remove deprecated MIT License classifier from setup.cfg
+- Keep remaining classifiers for Python 3 and software development
+
+Signed-off-by: Huang Rui <vowstar@gmail.com>
+---
+ setup.cfg | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/setup.cfg b/setup.cfg
+index 7f50ce27c5dc..b519197c7055 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -12,7 +12,6 @@
+ keywords = 
+ 	libpython
+ classifiers = 
+-	License :: OSI Approved :: MIT License
+ 	Programming Language :: Python :: 3
+ 	Topic :: Software Development :: Libraries
+ 
+
+--
+2.49.0
+
