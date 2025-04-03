@@ -15,7 +15,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64"
 IUSE="+gnome-keyring pass"
 REQUIRED_USE="|| ( gnome-keyring pass )"
 
