@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,7 +9,7 @@ DESCRIPTION="Precompiled CLI frontend which connects to Bitwarden comapatible se
 HOMEPAGE="https://github.com/bitwarden/clients/tree/main/apps/cli"
 
 SRC_URI="
-	https://github.com/bitwarden/clients/releases/download/cli-v${PV}/bw-linux-${PV}.zip
+	https://github.com/bitwarden/clients/releases/download/cli-v${PV}/bw-oss-linux-${PV}.zip
 "
 
 S="${WORKDIR}"
