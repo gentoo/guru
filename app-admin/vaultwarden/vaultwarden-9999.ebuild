@@ -36,13 +36,11 @@ RDEPEND="
 	mysql? ( dev-db/mysql-connector-c:= )
 	postgres? ( dev-db/postgresql:* )
 	sqlite? ( dev-db/sqlite:3 )
+	web? ( www-apps/vaultwarden-web-bin )
 "
 
 DEPEND="${RDEPEND}"
-BDEPEND="
-	virtual/pkgconfig
-	web? ( www-apps/vaultwarden-web-bin )
-"
+BDEPEND="virtual/pkgconfig"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 QA_PRESTRIPPED="usr/bin/${PN}"
