@@ -1,0 +1,29 @@
+From 23d621a170eb82de4fe4dd38b257286b36e5cfab Mon Sep 17 00:00:00 2001
+From: Huang Rui <vowstar@gmail.com>
+Date: Thu, 3 Apr 2025 15:10:25 +0800
+Subject: [PATCH] fix(setup): Remove deprecated license classifier from
+ setup.py
+
+- Remove BSD license classifier as it's deprecated
+- Keep other metadata like description and URL unchanged
+
+Signed-off-by: Huang Rui <vowstar@gmail.com>
+---
+ setup.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 38fba97b70bd..e2e415cc800b 100755
+--- a/setup.py
++++ b/setup.py
+@@ -127,7 +127,6 @@ setup(
+         "Programming Language :: Python :: 3.11",
+         "Programming Language :: Python :: 3.12",
+         "Programming Language :: Python :: 3.13",
+-        "License :: OSI Approved :: BSD License",
+         "Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)",
+         "Framework :: cocotb",
+     ],
+-- 
+2.49.0
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">cocotb</remote-id>
+		<remote-id type="github">cocotb/cocotb</remote-id>
+		<maintainer>
+			<name>Cocotb Contributors</name>
+			<email>cocotb@lists.librecores.org</email>
+		</maintainer>
+		<bugs-to>https://github.com/cocotb/cocotb/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		cocotb is an open source coroutine-based cosimulation testbench
+		environment for verifying VHDL and SystemVerilog RTL using Python.
+		It allows you to write testbenches in Python and interface with
+		simulators like Icarus Verilog, GHDL, VCS, ModelSim, Questa and
+		others to verify hardware designs.
+	</longdescription>
+	<longdescription lang="zh">
+		cocotb 是一个基于协程的开源协同仿真测试平台环境，用于使用Python验证
+		VHDL和SystemVerilog RTL。它允许您使用Python编写测试平台，并与
+		Icarus Verilog、GHDL、VCS、ModelSim、Questa等仿真器接口以验证硬件设计。
+	</longdescription>
+</pkgmetadata>
