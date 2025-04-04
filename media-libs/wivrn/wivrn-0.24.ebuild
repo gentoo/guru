@@ -3,17 +3,15 @@
 
 EAPI=8
 
-inherit cmake fcaps xdg
+inherit cmake fcaps flag-o-matic xdg
 
 DESCRIPTION="WiVRn OpenXR streaming"
 HOMEPAGE="https://github.com/WiVRn/WiVRn"
 
 LICENSE="GPL-3 Apache-2.0 MIT"
 SLOT="0"
-IUSE="gui nvenc +pipewire pulseaudio systemd vaapi vulkan-encode wireshark-plugins x264"
+IUSE="debug gui nvenc +pipewire pulseaudio systemd vaapi wireshark-plugins x264"
 REQUIRED_USE="|| ( nvenc vaapi x264 )"
-
-PATCHES=( "${FILESDIR}/${P}-vulkan-304.patch" )
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -38,7 +36,12 @@ RDEPEND="
 		sys-auth/elogind
 	)
 	gui? (
-		dev-qt/qtbase:6
+		dev-libs/qcoro[qml]
+		kde-frameworks/kcoreaddons:6
+		kde-frameworks/ki18n:6
+		kde-frameworks/kiconthemes:6
+		kde-frameworks/kirigami:6
+		kde-frameworks/qqc2-desktop-style:6
 	)
 	pipewire? (
 		media-video/pipewire
@@ -81,7 +84,7 @@ if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
 		default_src_unpack
 
-		local MONADO_COMMIT=$(grep "GIT_TAG" "${P}/CMakeLists.txt" | awk '{print $2}')
+		local MONADO_COMMIT=$(grep "GIT_TAG" "${P}/CMakeLists.txt" | awk '{print $2}' | tail -1)
 		git-r3_fetch "${MONADO_REPO_URI}" "${MONADO_COMMIT}"
 		git-r3_checkout "${MONADO_REPO_URI}" "${WORKDIR}/monado-src"
 	}
@@ -100,13 +103,18 @@ else
 fi
 
 src_configure() {
+	use debug || append-cflags "-DNDEBUG"
+	use debug || append-cxxflags "-DNDEBUG"
 	if [[ ${PV} == 9999 ]]; then
 		GIT_DESC=$(git describe --tags --always)
+		GIT_COMMIT=$(git rev-parse HEAD)
 	else
 		GIT_DESC=v${PV}
+		GIT_COMMIT=v${PV}
 	fi
 	local mycmakeargs=(
 		-DGIT_DESC=${GIT_DESC}
+		-DGIT_COMMIT=${GIT_COMMIT}
 		-DWIVRN_BUILD_CLIENT=OFF
 		-DWIVRN_BUILD_SERVER=ON
 		-DWIVRN_OPENXR_MANIFEST_TYPE=relative
@@ -117,7 +125,7 @@ src_configure() {
 		-DWIVRN_USE_PULSEAUDIO=$(usex pulseaudio)
 		-DWIVRN_USE_NVENC=$(usex nvenc)
 		-DWIVRN_USE_VAAPI=$(usex vaapi)
-		-DWIVRN_USE_VULKAN_ENCODE=$(usex vulkan-encode)
+		-DWIVRN_USE_VULKAN_ENCODE=ON
 		-DWIVRN_USE_X264=$(usex x264)
 		-DWIVRN_USE_SYSTEMD=$(usex systemd)
 		-DWIVRN_USE_SYSTEM_OPENXR=ON
@@ -128,12 +136,6 @@ src_configure() {
 	)
 
 	cmake_src_configure
-}
-
-src_install() {
-	cmake_src_install
-
-	dosym -r /usr/share/openxr/1/openxr_wivrn.json /etc/openxr/1/active_runtime.json
 }
 
 pkg_postinst()
