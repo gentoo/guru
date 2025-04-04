@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Vivian Heisz (demize) <demize@unstable.systems> (2025-04-04)
+# Unmaintained in GURU. Current versions are very old and have security
+# issues.
+# Removal on 2025-05-04. Bugs #937552, #937552.
+www-client/firefox-developer-bin
+
 # Takuya Wakazono <pastalian46@gmail.com> (2025-03-30)
 # FTBFS bugs open for 2 years.
 # Removal on 2025-04-30. Bugs #887641, #887643, #945212.
