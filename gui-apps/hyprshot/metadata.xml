@@ -6,6 +6,10 @@
 		<name>Misha Zavertkin</name>
 	</maintainer>
 	<upstream>
+		<maintainer status="active">
+			<email>gustavotcparreira@gmail.com</email>
+			<name>Gustavo Parreira</name>
+		</maintainer>
 		<bugs-to>https://github.com/Gustash/Hyprshot/issues</bugs-to>
 		<changelog>https://github.com/Gustash/Hyprshot/releases</changelog>
 		<remote-id type="github">Gustash/Hyprshot</remote-id>
