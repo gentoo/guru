@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cargo git-r3
 
-DESCRIPTION="Fast lsp implementation for typst."
+DESCRIPTION="An integrated language service for Typst."
 HOMEPAGE="https://github.com/Myriad-Dreamin/tinymist"
 EGIT_REPO_URI="https://github.com/Myriad-Dreamin/tinymist"
 
