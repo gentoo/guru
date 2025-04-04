@@ -13,7 +13,7 @@ SRC_URI="https://github.com/Ferdi265/wl-mirror/releases/download/v${PV}/wl-mirro
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="man"
+IUSE="+examples man"
 
 DEPEND="
 	gui-libs/wlroots
@@ -32,7 +32,7 @@ src_configure() {
 		-DINSTALL_DOCUMENTATION=$(usex man ON OFF)
 		-DFORCE_SYSTEM_WL_PROTOCOLS=ON
 		-DFORCE_SYSTEM_WLR_PROTOCOLS=OFF
-		-DINSTALL_EXAMPLE_SCRIPTS=OFF
+		-DINSTALL_EXAMPLE_SCRIPTS=$(usex examples ON OFF)
 	)
 
 	cmake_src_configure
