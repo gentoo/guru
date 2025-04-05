@@ -30,5 +30,5 @@ src_install() {
 
 pkg_postinst() {
 	optfeature "Screen freezing with --freeze" gui-apps/hyprpicker
-	optfeature "$XDG_PICTURES_DIR detection" x11-misc/xdg-user-dirs
+	optfeature "\$XDG_PICTURES_DIR detection" x11-misc/xdg-user-dirs
 }
