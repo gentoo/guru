@@ -1,10 +1,10 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 inherit distutils-r1 systemd
 
 DESCRIPTION="A bouncer-style Matrix IRC bridge"
@@ -20,7 +20,7 @@ RDEPEND="
 	<dev-python/aiohttp-4[${PYTHON_USEDEP}]
 	dev-python/async-timeout[${PYTHON_USEDEP}]
 	dev-python/irc[${PYTHON_USEDEP}]
-	dev-python/mautrix[${PYTHON_USEDEP}]
+	>=dev-python/mautrix-0.20.5[${PYTHON_USEDEP}]
 	dev-python/python-socks[${PYTHON_USEDEP}]
 	dev-python/ruamel-yaml[${PYTHON_USEDEP}]
 "
@@ -63,5 +63,4 @@ pkg_postinst() {
 	elog "The registration file is located at /var/lib/${PN}/registration.yaml"
 	elog "Finally, you may start the ${PN} daemon."
 	einfo
-
 }
