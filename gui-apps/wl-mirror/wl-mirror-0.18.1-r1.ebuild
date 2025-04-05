@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake shell-completion
 
 DESCRIPTION="A simple Wayland output mirror client"
 HOMEPAGE="https://github.com/Ferdi265/wl-mirror"
@@ -36,4 +36,12 @@ src_configure() {
 	)
 
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+	dobashcomp scripts/completions/bash-completions/_wl-mirror
+	dobashcomp scripts/completions/bash-completions/_wl-present
+	dozshcomp scripts/completions/zsh-completions/_wl-mirror
+	dozshcomp scripts/completions/zsh-completions/_wl-present
 }
