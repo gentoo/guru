@@ -164,12 +164,6 @@ dev-python/asyncmy
 # Removal on 2025-04-05.
 dev-python/aiomysql
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
-# Unmaintained upstream, suggested replacement is dev-util/bump-my-version.
-# Open bugs: #945117.
-# Removal on 2025-04-05.
-dev-util/bump2version
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
