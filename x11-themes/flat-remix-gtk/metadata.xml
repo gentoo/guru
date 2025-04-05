@@ -1,10 +1,7 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type='person'>
-		<name>Vitaly Zdanevich</name>
-		<email>zdanevich.vitaly@ya.ru</email>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<upstream>
 		<changelog>https://github.com/daniruiz/flat-remix-gtk/commits/master/</changelog>
 		<doc>https://www.gnome-look.org/p/1293697</doc>

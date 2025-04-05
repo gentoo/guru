@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>zdanevich.vitaly@ya.ru</email>
-		<name>Vitaly Zdanevich</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription>
 A simple Python and Bash script to restore your i3 session. It works very similar to how Firefox restores a previous session. The script can correctly restore terminal subprocesses (such as Vim and ssh) and web browser instances exactly how they were before.
 	</longdescription>

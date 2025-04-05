@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>zdanevich.vitaly@ya.ru</email>
-		<name>Vitaly Zdanevich</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<use>
 		<flag name="skins">Without this flag - you can choose qt5 themes not only for preferences</flag>
 	</use>

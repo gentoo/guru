@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<name>Vitaly Zdanevich</name>
-		<email>zdanevich.vitaly@ya.ru</email>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 		* Fast. Up to 2x faster than the alternatives.
 

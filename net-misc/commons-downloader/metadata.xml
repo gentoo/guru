@@ -1,14 +1,11 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type='person'>
-		<name>Vitaly Zdanevich</name>
-		<email>zdanevich.vitaly@ya.ru</email>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<upstream>
 		<changelog>https://sr.ht/~nytpu/commons-downloader/feed</changelog>
 		<doc>https://sr.ht/~nytpu/commons-downloader</doc>
 		<bugs-to>https://lists.sr.ht/~nytpu/public-inbox</bugs-to>
-		<remote-id type='sourcehut'>~nytpu/commons-downloader</remote-id>
+		<remote-id type="sourcehut">~nytpu/commons-downloader</remote-id>
 	</upstream>
 </pkgmetadata>
