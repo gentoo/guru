@@ -123,11 +123,6 @@ dev-python/sphinx-argparse-cli
 # Removal on 2025-04-05.
 dev-python/pyodbc
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
-# Unmaintained in GURU, no revdeps left.
-# Removal on 2025-04-05.
-dev-python/pykeepass
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
