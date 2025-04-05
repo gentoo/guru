@@ -16,7 +16,7 @@ EGIT_BRANCH="feature-xdg-portal"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="man"
+IUSE="+examples man"
 
 DEPEND="
 	gui-libs/wlroots
@@ -35,7 +35,7 @@ src_configure() {
 		-DINSTALL_DOCUMENTATION=$(usex man ON OFF)
 		-DFORCE_SYSTEM_WL_PROTOCOLS=ON
 		-DFORCE_SYSTEM_WLR_PROTOCOLS=OFF
-		-DINSTALL_EXAMPLE_SCRIPTS=OFF
+		-DINSTALL_EXAMPLE_SCRIPTS=$(usex examples ON OFF)
 		-DWITH_XDG_PORTAL_BACKEND=ON
 	)
 
