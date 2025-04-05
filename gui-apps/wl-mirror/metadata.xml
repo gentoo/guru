@@ -14,5 +14,6 @@
 	</upstream>
 	<use>
 		<flag name="gbm">Enable capturing with libgbm (generally more efficient).</flag>
+		<flag name="examples">Also install wl-present</flag>
 	</use>
 </pkgmetadata>
