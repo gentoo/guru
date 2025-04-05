@@ -41,7 +41,6 @@ BDEPEND="
 	vala? ( $(vala_depend) )
 	verify-sig? ( sec-keys/openpgp-keys-phosh )
 "
-
 VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/phosh.asc"
 
 src_prepare() {
@@ -62,6 +61,12 @@ src_configure() {
 		-Dsystemd_user_unit_dir="$(systemd_get_userunitdir)"
 	)
 	meson_src_configure
+}
+
+src_test() {
+	ewarn "fbd-dev-led tests might fail if umockdev is broken on your system"
+	ewarn "See https://bugs.gentoo.org/868204"
+	meson_src_test
 }
 
 src_install() {
