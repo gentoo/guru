@@ -12,4 +12,7 @@
 	<upstream>
 		<remote-id type="github">Ferdi265/wl-mirror</remote-id>
 	</upstream>
+	<use>
+		<flag name="gbm">Enable capturing with libgbm (generally more efficient).</flag>
+	</use>
 </pkgmetadata>

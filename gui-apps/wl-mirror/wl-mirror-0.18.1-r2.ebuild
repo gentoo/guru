@@ -13,13 +13,16 @@ SRC_URI="https://github.com/Ferdi265/wl-mirror/releases/download/v${PV}/wl-mirro
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+examples man"
+IUSE="+examples +gbm man"
 
 DEPEND="
 	gui-libs/wlroots
 	dev-libs/wayland-protocols
 	dev-libs/wayland
 	media-libs/libglvnd
+	gbm? (
+		media-libs/mesa[opengl]
+	)
 	dev-util/wayland-scanner
 	man? (
 		app-text/scdoc
@@ -33,6 +36,7 @@ src_configure() {
 		-DFORCE_SYSTEM_WL_PROTOCOLS=ON
 		-DFORCE_SYSTEM_WLR_PROTOCOLS=OFF
 		-DINSTALL_EXAMPLE_SCRIPTS=$(usex examples ON OFF)
+		-DWITH_GBM=$(usex gbm ON OFF)
 	)
 
 	cmake_src_configure
