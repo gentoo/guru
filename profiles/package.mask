@@ -76,13 +76,6 @@ sys-apps/sampler-bin
 # Removal on 2025-05-12
 www-misc/gorss
 
-# Eric Joldasov <bratishkaerik@landless-city.net> (2025-03-05)
-# Unbuildable now. Required Zig version diverged a lot, now seems like
-# it requires so called "Mach-nominated" version (somewhere between
-# stable and 9999). Gentoo does not provide such versions.
-# Removal on 2025-04-05.
-dev-debug/uscope
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
