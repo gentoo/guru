@@ -103,11 +103,6 @@ dev-python/zopfli
 # Removal on 2025-04-05.
 dev-python/webpy
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-05)
-# Unmaintained in GURU, no revdeps left.
-# Removal on 2025-04-05.
-dev-python/trailrunner
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
