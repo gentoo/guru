@@ -6,8 +6,9 @@
 		<name>Eric Joldasov</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">zigtools/zls</remote-id>
-		<doc lang="en">https://github.com/zigtools/zls/wiki</doc>
 		<bugs-to>https://github.com/zigtools/zls/issues</bugs-to>
+		<changelog>https://zigtools.org/zls/releases/</changelog>
+		<doc>https://zigtools.github.io/zig-lsp-codegen/</doc>
+		<remote-id type="github">zigtools/zls</remote-id>
 	</upstream>
 </pkgmetadata>
