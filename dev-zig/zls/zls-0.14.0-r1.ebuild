@@ -12,17 +12,17 @@ declare -g -r -A ZBS_DEPENDENCIES=(
 	[N-V-__8AABhrAQAQLLLGadghhPsdxTgBk9N9aLVOjXW3ay0V.tar.gz]='https://github.com/ziglibs/diffz/archive/ef45c00d655e5e40faf35afbbde81a1fa5ed7ffb.tar.gz'
 )
 
-# Sync with "minimum_build_zig_version" from upstream's "build.zig".
 if [[ ${PV} == 9999 ]]; then
 	ZIG_SLOT="${PV}"
 
 	EGIT_REPO_URI="https://github.com/zigtools/zls"
 	inherit git-r3
 else
-	ZIG_SLOT="$(ver_cut 1-2)"
+	# Sync with "minimum_build_zig_version" from upstream's "build.zig".
+	ZIG_SLOT="$(ver_cut 1-2)" # works only for releases, but that's okay
 
 	SRC_URI="https://github.com/zigtools/zls/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	# KEYWORDS="~amd64" uncomment to approve the changes
 fi
 
 inherit zig
@@ -31,11 +31,12 @@ SRC_URI+="${ZBS_DEPENDENCIES_SRC_URI}"
 LICENSE="MIT"
 SLOT="0/${ZIG_SLOT}"
 
-# Sync with "minimum_runtime_zig_version" from upstream's "build.zig".
+# Sync with upstream's build.zig. Seems to be the latest zig release
+minimum_runtime_zig_version="0.14.0"
 RDEPEND="
 	|| (
-		>=dev-lang/zig-0.14.0
-		>=dev-lang/zig-bin-0.14.0
+		>=dev-lang/zig-${minimum_runtime_zig_version}
+		>=dev-lang/zig-bin-${minimum_runtime_zig_version}
 	)
 "
 
