@@ -9,4 +9,4 @@ SRC_URI="https://codeberg.org/MymeType/mymefetch/archive/v${PV}.tar.gz -> ${P}.t
 S="${WORKDIR}/${PN}"
 LICENSE="Unlicense"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
