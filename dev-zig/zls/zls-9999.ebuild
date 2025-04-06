@@ -30,8 +30,8 @@ SLOT="0"
 # Sync with "minimum_runtime_zig_version" from upstream's "build.zig".
 RDEPEND="
 	|| (
-		>=dev-lang/zig-9999
-		>=dev-lang/zig-bin-9999
+		>=dev-lang/zig-0.14.0
+		>=dev-lang/zig-bin-0.14.0
 	)
 "
 
