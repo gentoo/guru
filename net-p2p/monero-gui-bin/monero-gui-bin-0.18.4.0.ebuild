@@ -32,10 +32,13 @@ QA_PREBUILT="*"
 
 src_install() {
 	insinto /usr/bin
+
 	doins monero-wallet-gui
+	fperms +x /usr/bin/monero-wallet-gui
 
 	if use daemon ; then
 		doins monerod
+		fperms +x /usr/bin/monerod
 	fi
 
 	if use tools ; then
@@ -50,30 +53,6 @@ src_install() {
 		doins extras/monero-blockchain-usage
 		doins extras/monero-gen-ssl-cert
 		doins extras/monero-gen-trusted-multisig
-	fi
-
-	if use wallet-cli ; then
-		doins extras/monero-wallet-cli
-	fi
-
-	if use wallet-rpc ; then
-		doins extras/monero-wallet-rpc
-	fi
-
-	domenu "${FILESDIR}"/monero-gui.desktop
-
-	local x
-	for x in 16 24 32 48 64 96 128 256; do
-		newicon -s ${x} "${FILESDIR}"/${x}x${x}.png monero-gui.png
-	done
-
-	fperms +x /usr/bin/monero-wallet-gui
-
-	if use daemon ; then
-		fperms +x /usr/bin/monerod
-	fi
-
-	if use tools ; then
 		fperms +x /usr/bin/monero-blockchain-ancestry
 		fperms +x /usr/bin/monero-blockchain-depth
 		fperms +x /usr/bin/monero-blockchain-export
@@ -88,10 +67,20 @@ src_install() {
 	fi
 
 	if use wallet-cli ; then
+		doins extras/monero-wallet-cli
+
 		fperms +x /usr/bin/monero-wallet-cli
 	fi
 
 	if use wallet-rpc ; then
+		doins extras/monero-wallet-rpc
 		fperms +x /usr/bin/monero-wallet-rpc
 	fi
+
+	domenu "${FILESDIR}"/monero-gui.desktop
+
+	local x
+	for x in 16 24 32 48 64 96 128 256; do
+		newicon -s ${x} "${FILESDIR}"/${x}x${x}.png monero-gui.png
+	done
 }
