@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,10 +11,11 @@ EGIT_REPO_URI="https://github.com/input-leap/input-leap.git"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="gui test"
+IUSE="gui test wayland"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	dev-libs/openssl:0=
 	net-misc/curl
 	x11-libs/libICE
 	x11-libs/libSM
@@ -28,17 +29,21 @@ RDEPEND="
 		dev-qt/qtbase:6[gui,network,widgets]
 		net-dns/avahi[mdnsresponder-compat]
 	)
-	dev-libs/openssl:0=
+	wayland? (
+		dev-libs/glib:2
+		>=dev-libs/libei-0.99.1
+		dev-libs/libportal:=
+		x11-libs/libxkbcommon
+	)
 "
 DEPEND="
 	${RDEPEND}
-	dev-cpp/gtest
-	dev-cpp/gulrak-filesystem
 	x11-base/xorg-proto
 "
 BDEPEND="
 	virtual/pkgconfig
 	gui? ( dev-qt/qttools:6[linguist] )
+	test? ( dev-cpp/gtest )
 "
 
 DOCS=(
@@ -52,8 +57,9 @@ src_configure() {
 		-DINPUTLEAP_BUILD_GUI=$(usex gui)
 		-DINPUTLEAP_BUILD_TESTS=$(usex test)
 		-DINPUTLEAP_USE_EXTERNAL_GTEST=ON
+		-DINPUTLEAP_BUILD_X11=ON
+		-DINPUTLEAP_BUILD_LIBEI=$(usex wayland)
 	)
-
 	cmake_src_configure
 }
 
