@@ -5,6 +5,8 @@
     <name>Thomas Clarke</name>
   </maintainer>
   <upstream>
+    <bugs-to>https://github.com/IsmaelMartinez/teams-for-linux/issues</bugs-to>
+    <changelog>https://github.com/IsmaelMartinez/teams-for-linux/releases</changelog>
     <remote-id type="github">IsmaelMartinez/teams-for-linux</remote-id>
   </upstream>
 </pkgmetadata>
