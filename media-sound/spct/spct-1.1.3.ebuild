@@ -21,8 +21,6 @@ RDEPEND="
 	${DEPEND}
 "
 
-PATCHES="${FILESDIR}/0001-respect-cflags.patch"
-
 src_compile() {
 	emake VERSION="${PV}" LIBGME_NO_VENDOR=1
 }
