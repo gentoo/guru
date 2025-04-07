@@ -57,5 +57,7 @@ EPYTEST_DESELECT=(
 	tests/test_pipeline_files.py::TestFTPFileStore::test_persist
 	# Flaky test: https://github.com/scrapy/scrapy/issues/6193
 	tests/test_crawl.py::CrawlTestCase::test_start_requests_laziness
+	# Missing dependencies
+	tests/test_spidermiddleware_output_chain.py
 	)
 EPYTEST_IGNORE=( docs )
