@@ -7,6 +7,7 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="github">scrapy/scrapy</remote-id>
+		<remote-id type="pypi">scrapy</remote-id>
 		<doc>https://docs.scrapy.org/</doc>
 		<bugs-to>https://github.com/scrapy/scrapy/issues</bugs-to>
 	</upstream>
