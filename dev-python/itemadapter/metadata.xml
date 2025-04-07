@@ -7,5 +7,7 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="github">scrapy/itemadapter</remote-id>
+		<remote-id type="pypi">itemadapter</remote-id>
+		<bugs-to>https://github.com/scrapy/itemadapter/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
