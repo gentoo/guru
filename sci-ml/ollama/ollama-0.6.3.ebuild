@@ -68,7 +68,7 @@ DEPEND="
 RDEPEND="
 	${COMMON_DEPEND}
 	acct-group/${PN}
-	acct-user/${PN}
+	acct-user/${PN}[cuda?]
 "
 
 PATCHES=(
