@@ -1,8 +1,8 @@
 diff --git a/Makefile b/Makefile
-index 7531109..8c107b5 100644
+index 7531109..561e059 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -24,74 +24,93 @@ endif
+@@ -24,74 +24,95 @@ endif
  
  VERSION ?= git:$(shell git rev-parse --short HEAD || echo unknown)
  
@@ -20,6 +20,7 @@ index 7531109..8c107b5 100644
 -  FLAGS += $(shell pkg-config --cflags --libs ncurses)
 +  SPCT_CXXFLAGS += $(shell pkg-config --cflags ncurses)
 +  SPCT_LDLIBS += $(shell pkg-config --libs ncurses)
++  SPCT_LDFLAGS += -arch $(ARCH)
    GME_CMAKE_FLAGS += -DCMAKE_OSX_ARCHITECTURES='$(ARCH)'
 -  FLAGS += -arch '$(ARCH)'
 -  FLAGS += -DMACOS
@@ -42,10 +43,10 @@ index 7531109..8c107b5 100644
 +  SPCT_LDFLAGS += -static
  endif
  
-+BUILDDIR ?= build/$(PLATFORM)
++BUILDDIR ?= build/$(PLATFORM)-$(ARCH)
 +GETCH2 = $(BUILDDIR)/getch2.o
 +OBJ = $(BUILDDIR)/main.o
-+BIN ?= build/$(PLATFORM)/spct
++BIN ?= $(BUILDDIR)/spct
 +
 +.PHONY: all
 +all: $(BIN)
@@ -92,7 +93,7 @@ index 7531109..8c107b5 100644
 +  $(LIBGME):
 +	  mkdir -p $(GME_BUILD_DIR)
 +	  CC="$(CC)" CXX="$(CXX)" LD="$(LD)" CFLAGS="$(CFLAGS)" CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)" $(CMAKE) -S vendor/libgme -B $(GME_BUILD_DIR) $(GME_CMAKE_FLAGS)
-+	  CC="$(CC)" CXX="$(CXX)" LD="$(LD)" CFLAGS="$(CFLAGS)" CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)" $(CMAKE) --build $(GME_BUILD_DIR) -v
++	  CC="$(CC)" CXX="$(CXX)" LD="$(LD)" CFLAGS="$(CFLAGS)" CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)" $(CMAKE) --build $(GME_BUILD_DIR)
  endif
  
 -
@@ -103,6 +104,7 @@ index 7531109..8c107b5 100644
 -
 -$(BIN): $(LIBGME) main.cpp $(GETCH2_CPP) getch2.h
 +$(GETCH2): $(GETCH2_CPP) getch2.h
++	mkdir -p $(dir $@)
 +	$(CXX) -std=c++17 $(SPCT_CXXFLAGS) -c -o $@ $<
 +	
 +$(OBJ): main.cpp
@@ -131,8 +133,8 @@ index 7531109..8c107b5 100644
 -GME_CMAKE_FLAGS += -DGME_ZLIB=OFF
 +	$(CXX) -std=c++17 $(SPCT_CXXFLAGS) -c -o $@ $<
 +
-+$(BIN): $(LIBGME) $(OBJ) $(GETCH2)
-+	$(CXX) -std=c++17 $(SPCT_LDFLAGS) $^ $(SPCT_LDLIBS) -o $@
++$(BIN): $(OBJ) $(GETCH2) $(LIBGME)
++	$(CXX) $(SPCT_LDFLAGS) $^ $(SPCT_LDLIBS) -o $@
  
  clean:
 +	rm -f $(GETCH2)
