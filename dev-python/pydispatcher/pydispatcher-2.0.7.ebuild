@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517=setuptools
 PYPI_PN="PyDispatcher"
 PYPI_NO_NORMALIZE=1
@@ -14,6 +14,6 @@ HOMEPAGE="https://github.com/mcfletch/pydispatcher"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 distutils_enable_tests unittest
