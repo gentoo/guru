@@ -1,0 +1,142 @@
+diff --git a/Makefile b/Makefile
+index 7531109..8c107b5 100644
+--- a/Makefile
++++ b/Makefile
+@@ -24,74 +24,93 @@ endif
+ 
+ VERSION ?= git:$(shell git rev-parse --short HEAD || echo unknown)
+ 
+-FLAGS = -DSPCT_VERSION=\"$(VERSION)\"
++CXXFLAGS ?= -Wall -g -O0
++SPCT_CXXFLAGS = $(CXXFLAGS) $(CPPFLAGS)
++SPCT_LDFLAGS = $(LDFLAGS)
++SPCT_LDLIBS = $(LOADLIBES) $(LDLIBS)
++
++SPCT_CXXFLAGS += -DSPCT_VERSION=\"$(VERSION)\"
+ 
+ GETCH2_CPP = getch2.cpp
+ 
+ ifeq ($(PLATFORM),macos)
+-  FLAGS += $(shell pkg-config --cflags --libs ncurses)
++  SPCT_CXXFLAGS += $(shell pkg-config --cflags ncurses)
++  SPCT_LDLIBS += $(shell pkg-config --libs ncurses)
+   GME_CMAKE_FLAGS += -DCMAKE_OSX_ARCHITECTURES='$(ARCH)'
+-  FLAGS += -arch '$(ARCH)'
+-  FLAGS += -DMACOS
++  SPCT_CXXFLAGS += -arch '$(ARCH)'
++  SPCT_CXXFLAGS += -DMACOS
+ endif
+ 
+ ifeq ($(PLATFORM),linux)
+-  FLAGS += -DLINUX
+-  FLAGS += $(shell pkg-config --cflags --libs tinfo)
++  SPCT_CXXFLAGS += -DLINUX
++  SPCT_CXXFLAGS += $(shell pkg-config --cflags tinfo)
++  SPCT_LDLIBS += $(shell pkg-config --libs tinfo)
+ endif
+ 
+ ifeq ($(PLATFORM),windows)
+   GETCH2_CPP = getch2-win.cpp
+-  FLAGS += -static -DWINDOWS
++  SPCT_CXXFLAGS += -DWINDOWS
++  SPCT_LDFLAGS += -static
+ endif
+ 
++BUILDDIR ?= build/$(PLATFORM)
++GETCH2 = $(BUILDDIR)/getch2.o
++OBJ = $(BUILDDIR)/main.o
++BIN ?= build/$(PLATFORM)/spct
++
++.PHONY: all
++all: $(BIN)
++
+ GME_BUILD_DIR ?= ./tmp/gme-build-$(PLATFORM)-$(ARCH)
+ 
+ ifeq ($(LIBGME_NO_VENDOR),1)
+-LIBGME=
+-FLAGS += $(shell pkg-config --cflags --libs libgme)
++  LIBGME=
++  SPCT_CXXFLAGS += $(shell pkg-config --cflags libgme)
++  SPCT_LDLIBS += $(shell pkg-config --libs libgme)
+ else
+-LIBGME ?= $(GME_BUILD_DIR)/gme/libgme.a
+-FLAGS += -I./vendor/libgme
+-
+-$(LIBGME):
+-	mkdir -p $(GME_BUILD_DIR)
+-	$(CMAKE) -S vendor/libgme -B $(GME_BUILD_DIR) $(GME_CMAKE_FLAGS)
+-	$(CMAKE) --build $(GME_BUILD_DIR)
++  LIBGME ?= $(GME_BUILD_DIR)/gme/libgme.a
++  SPCT_CXXFLAGS += -I./vendor/libgme
++
++  GME_CMAKE_FLAGS += -DBUILD_SHARED_LIBS=OFF
++  GME_CMAKE_FLAGS += -DGME_BUILD_TESTING=OFF
++  GME_CMAKE_FLAGS += -DGME_BUILD_EXAMPLES=OFF
++
++  # only use SPC functionality
++  GME_CMAKE_FLAGS += -DUSE_GME_SPC=ON
++  GME_CMAKE_FLAGS += -DUSE_GME_VGM=OFF
++  GME_CMAKE_FLAGS += -DUSE_GME_AY=OFF
++  GME_CMAKE_FLAGS += -DUSE_GME_GBS=OFF
++  GME_CMAKE_FLAGS += -DUSE_GME_GYM=OFF
++  GME_CMAKE_FLAGS += -DUSE_GME_HES=OFF
++  GME_CMAKE_FLAGS += -DUSE_GME_KSS=OFF
++  GME_CMAKE_FLAGS += -DUSE_GME_NSF=OFF
++  GME_CMAKE_FLAGS += -DUSE_GME_NSFE=OFF
++  GME_CMAKE_FLAGS += -DUSE_GME_SAP=OFF
++  GME_CMAKE_FLAGS += -DUSE_GME_VGM=OFF
++
++  # disable zlib, we don't need compression for SPC only
++  GME_CMAKE_FLAGS += -DGME_ZLIB=OFF
++
++  $(LIBGME):
++	  mkdir -p $(GME_BUILD_DIR)
++	  CC="$(CC)" CXX="$(CXX)" LD="$(LD)" CFLAGS="$(CFLAGS)" CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)" $(CMAKE) -S vendor/libgme -B $(GME_BUILD_DIR) $(GME_CMAKE_FLAGS)
++	  CC="$(CC)" CXX="$(CXX)" LD="$(LD)" CFLAGS="$(CFLAGS)" CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)" $(CMAKE) --build $(GME_BUILD_DIR) -v
+ endif
+ 
+-
+-BIN ?= build/$(PLATFORM)/spct
+-
+-.PHONY: all
+-all: $(BIN)
+-
+-$(BIN): $(LIBGME) main.cpp $(GETCH2_CPP) getch2.h
++$(GETCH2): $(GETCH2_CPP) getch2.h
++	$(CXX) -std=c++17 $(SPCT_CXXFLAGS) -c -o $@ $<
++	
++$(OBJ): main.cpp
+ 	@echo Building for $(PLATFORM)
+ 	mkdir -p $(dir $@)
+-	$(CXX) -std=c++17 -Wall -g -O0 $(GETCH2_CPP) main.cpp $(LIBGME) $(FLAGS) -o $@
+-
+-GME_CMAKE_FLAGS += -DBUILD_SHARED_LIBS=OFF
+-GME_CMAKE_FLAGS += -DGME_BUILD_TESTING=OFF
+-GME_CMAKE_FLAGS += -DGME_BUILD_EXAMPLES=OFF
+-
+-# only use SPC functionality
+-GME_CMAKE_FLAGS += -DUSE_GME_SPC=ON
+-GME_CMAKE_FLAGS += -DUSE_GME_VGM=OFF
+-GME_CMAKE_FLAGS += -DUSE_GME_AY=OFF
+-GME_CMAKE_FLAGS += -DUSE_GME_GBS=OFF
+-GME_CMAKE_FLAGS += -DUSE_GME_GYM=OFF
+-GME_CMAKE_FLAGS += -DUSE_GME_HES=OFF
+-GME_CMAKE_FLAGS += -DUSE_GME_KSS=OFF
+-GME_CMAKE_FLAGS += -DUSE_GME_NSF=OFF
+-GME_CMAKE_FLAGS += -DUSE_GME_NSFE=OFF
+-GME_CMAKE_FLAGS += -DUSE_GME_SAP=OFF
+-GME_CMAKE_FLAGS += -DUSE_GME_VGM=OFF
+-
+-# disable zlib, we don't need compression for SPC only
+-GME_CMAKE_FLAGS += -DGME_ZLIB=OFF
++	$(CXX) -std=c++17 $(SPCT_CXXFLAGS) -c -o $@ $<
++
++$(BIN): $(LIBGME) $(OBJ) $(GETCH2)
++	$(CXX) -std=c++17 $(SPCT_LDFLAGS) $^ $(SPCT_LDLIBS) -o $@
+ 
+ clean:
++	rm -f $(GETCH2)
++	rm -f $(OBJ)
+ 	rm -f $(BIN)
+ 	rm -rf $(GME_BUILD_DIR)
+ 
