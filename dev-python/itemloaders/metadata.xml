@@ -7,6 +7,8 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="github">scrapy/itemloaders</remote-id>
+		<remote-id type="pypi">itemloaders</remote-id>
+		<bugs-to>https://github.com/scrapy/itemloaders/issues</bugs-to>
 		<doc>https://itemloaders.readthedocs.io/</doc>
 	</upstream>
 </pkgmetadata>
