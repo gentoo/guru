@@ -9,7 +9,6 @@ inherit git-r3 go-module
 
 DESCRIPTION="Environment variable manager for shell"
 HOMEPAGE="https://github.com/direnv/direnv"
-SRC_URI=""
 
 LICENSE="MIT"
 SLOT="0"
