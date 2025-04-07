@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">cocotb-bus</remote-id>
+		<remote-id type="github">cocotb/cocotb-bus</remote-id>
+		<maintainer>
+			<name>Cocotb Contributors</name>
+			<email>cocotb@lists.librecores.org</email>
+		</maintainer>
+		<bugs-to>https://github.com/cocotb/cocotb-bus/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		cocotb-bus provides pre-packaged testbenching tools and reusable bus
+		interfaces for the cocotb project. It helps with verification of
+		digital designs by providing ready-to-use bus protocol implementations
+		and utilities to make testing hardware easier.
+	</longdescription>
+	<longdescription lang="zh">
+		cocotb-bus 为 cocotb 项目提供预打包的测试台工具和可重用的总线接口。
+		通过提供即用型总线协议实现和实用工具，它有助于数字设计的验证，使硬件
+		测试变得更加容易。
+	</longdescription>
+</pkgmetadata>
