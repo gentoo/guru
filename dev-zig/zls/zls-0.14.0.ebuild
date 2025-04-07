@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="The officially unofficial Ziglang language server"
+DESCRIPTION="Non-official language server for Zig"
 HOMEPAGE="https://zigtools.org/zls/ https://github.com/zigtools/zls"
 
 declare -g -r -A ZBS_DEPENDENCIES=(
@@ -12,14 +12,18 @@ declare -g -r -A ZBS_DEPENDENCIES=(
 	[N-V-__8AABhrAQAQLLLGadghhPsdxTgBk9N9aLVOjXW3ay0V.tar.gz]='https://github.com/ziglibs/diffz/archive/ef45c00d655e5e40faf35afbbde81a1fa5ed7ffb.tar.gz'
 )
 
-# Sync with "minimum_build_zig_version" from upstream's "build.zig".
 if [[ ${PV} == 9999 ]]; then
 	ZIG_SLOT="9999"
 
 	EGIT_REPO_URI="https://github.com/zigtools/zls"
 	inherit git-r3
+	src_unpack() {
+		git-r3_src_unpack
+		zig_live_fetch -Denable-tracy=false
+	}
 else
-	ZIG_SLOT="0.14"
+	# Should be the "minimum_build_zig_version" from upstream's "build.zig".
+	ZIG_SLOT="$(ver_cut 1-2)" # works only for releases, but that's okay
 
 	SRC_URI="
 		https://github.com/zigtools/zls/archive/refs/tags/${PV}.tar.gz -> zls-${PV}.tar.gz
@@ -42,15 +46,6 @@ RDEPEND="
 "
 
 DOCS=( README.md )
-
-src_unpack() {
-	if [[ ${PV} == 9999 ]]; then
-		git-r3_src_unpack
-		zig_live_fetch -Denable-tracy=false
-	else
-		zig_src_unpack
-	fi
-}
 
 src_configure() {
 	local my_zbs_args=(
