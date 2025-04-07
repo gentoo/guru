@@ -18,13 +18,13 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
-IUSE="static-libs test"
+IUSE="test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
 	dev-lang/go
-	dev-libs/ls-qpack:=[static-libs=]
-	dev-libs/ls-hpack:=[static-libs=]
+	dev-libs/ls-qpack:=
+	dev-libs/ls-hpack:=
 "
 RDEPEND="
 	${DEPEND}
@@ -47,7 +47,7 @@ src_unpack() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DLSQUIC_SHARED_LIB=$(usex !static-libs)
+		-DLSQUIC_SHARED_LIB=ON
 		-DLSQUIC_TESTS=$(usex test)
 	)
 	cmake_src_configure
