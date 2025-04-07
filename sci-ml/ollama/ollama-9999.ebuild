@@ -93,6 +93,10 @@ src_prepare() {
 		-e "/PRE_INCLUDE_REGEXES.*hip/d" \
 		-i CMakeLists.txt || die sed
 
+	sed \
+		-e "s/-O3/${CFLAGS}/g" \
+		-i ml/backend/ggml/ggml/src/ggml-cpu/cpu.go || die sed
+
 	if use amd64; then
 		if ! use cpu_flags_x86_avx; then
 			sed -e "/ggml_add_cpu_backend_variant(sandybridge/s/^/# /g" -i ml/backend/ggml/ggml/src/CMakeLists.txt || die
