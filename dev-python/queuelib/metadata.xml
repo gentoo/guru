@@ -7,5 +7,7 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="github">scrapy/queuelib</remote-id>
+		<remote-id type="pypi">queuelib</remote-id>
+		<bugs-to>https://github.com/scrapy/queuelib/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
