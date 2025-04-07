@@ -14,9 +14,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
-# Tests can't work inside network sandbox
-RESTRICT=test
-
 PATCHES=(
 	"${FILESDIR}/find-libpython-0.4.0-fix-license-qa.patch"
 )
+
+distutils_enable_tests pytest
