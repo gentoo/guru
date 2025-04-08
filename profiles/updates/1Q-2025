@@ -1,3 +1,5 @@
 move games-util/chiaki games-util/chiaki-ng
 move media-sound/g4music media-sound/gapless
-move app-misc/ollama sci-misc/ollama
+move dev-ml/ollama sci-ml/ollama
+move app-misc/ollama sci-ml/ollama
+move sci-misc/ollama sci-ml/ollama
