@@ -32,6 +32,8 @@ src_unpack() {
 
 	cd "${S}" || die
 	yarn install --no-bin-links --frozen-lockfile --non-interactive || die
+	mkdir -p node_modules/.bin || die
+	ln -s ../vite/bin/vite.js node_modules/.bin/vite || die
 }
 
 # FIXME src_prepare: Point to the correct source repo, needed for AGPL compliance
