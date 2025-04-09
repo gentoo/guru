@@ -195,7 +195,7 @@ CRATES="
 	zerocopy@0.7.35
 "
 
-inherit cargo
+inherit cargo systemd
 
 DESCRIPTION="ListenBrainz submission client for MPD"
 HOMEPAGE="https://codeberg.org/elomatreb/listenbrainz-mpd"
@@ -210,3 +210,28 @@ LICENSE="AGPL-3"
 LICENSE+=" Apache-2.0 MIT MPL-2.0 Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
+
+IUSE="systemd"
+
+RDEPEND="
+	dev-db/sqlite
+	dev-libs/openssl
+"
+
+DOCS="listenbrainz-mpd.adoc"
+
+QA_FLAGS_IGNORED="usr/bin/listenbrainz-mpd"
+
+src_configure() {
+	local myfeatures=(
+		$(usev systemd)
+	)
+	cargo_src_configure
+}
+
+src_install() {
+	default
+
+	cargo_src_install
+	systemd_douserunit listenbrainz-mpd.service
+}
