@@ -19,11 +19,8 @@ declare -A GIT_CRATES=(
 	[pipewire-sys]='https://gitlab.freedesktop.org/galister/pipewire-rs;ba32202c3c391004c3bb533b58fa75a50e47ff57;pipewire-rs-%commit%/pipewire-sys;gitlab'
 	[pipewire]='https://gitlab.freedesktop.org/galister/pipewire-rs;ba32202c3c391004c3bb533b58fa75a50e47ff57;pipewire-rs-%commit%/pipewire;gitlab'
 	[smithay]='https://github.com/Smithay/smithay;0cd3345c59f7cb139521f267956a1a4e33248393;smithay-%commit%'
-	[vulkano-macros]='https://github.com/vulkano-rs/vulkano;94f50f18bd25971ea123adb8b5782ad65a8f085c;vulkano-%commit%/vulkano-macros'
-	[vulkano-shaders]='https://github.com/vulkano-rs/vulkano;94f50f18bd25971ea123adb8b5782ad65a8f085c;vulkano-%commit%/vulkano-shaders'
-	[vulkano]='https://github.com/vulkano-rs/vulkano;94f50f18bd25971ea123adb8b5782ad65a8f085c;vulkano-%commit%/vulkano'
 	[wayvr_ipc]='https://github.com/olekolek1000/wayvr-ipc;a72587d23f3bb8624d9aeb1f13c0a21e65350f51;wayvr-ipc-%commit%'
-	[wlx-capture]='https://github.com/galister/wlx-capture;514a81c0cfd900edb89ae4ec33f927848a49eae3;wlx-capture-%commit%'
+	[wlx-capture]='https://github.com/galister/wlx-capture;fc77da75dcf8c9d59cdeea384da21bdab685d18b;wlx-capture-%commit%'
 )
 
 LLVM_COMPAT=({15..19})
