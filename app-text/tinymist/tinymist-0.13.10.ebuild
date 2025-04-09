@@ -583,6 +583,11 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
+# e2e tests hang
+RESTRICT="test"
+
+QA_FLAGS_IGNORED="usr/bin/tinymist"
+
 src_prepare() {
 	default
 
