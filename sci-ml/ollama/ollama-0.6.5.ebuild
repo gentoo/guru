@@ -174,6 +174,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_POLICY_DEFAULT_CMP0177="OLD"
 		-DGGML_CCACHE="no"
 
 		# -DGGML_CPU="yes"
