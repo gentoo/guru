@@ -1,0 +1,23 @@
+From 4ce8f33a909f5e2e19483dfde03c4ebe7ff0da91 Mon Sep 17 00:00:00 2001
+From: Tobias Jakobi <tjakobi@math.uni-bielefeld.de>
+Date: Mon, 3 Mar 2025 16:14:33 +0100
+Subject: [PATCH 2/2] cmake: disable tests
+
+Signed-off-by: Tobias Jakobi <tjakobi@math.uni-bielefeld.de>
+---
+ CMakeLists.txt | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6114214..e845380 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -109,5 +109,3 @@ if (BUILD_SHARED_LIBS)
+   configure_file(pkg-config.pc.in ${CMAKE_BINARY_DIR}/libchdr.pc @ONLY)
+   install(FILES ${CMAKE_BINARY_DIR}/libchdr.pc DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
+ endif()
+-
+-add_subdirectory(tests)
+-- 
+2.45.3
+
