@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/medialab/xan/issues</bugs-to>
+		<changelog>https://github.com/medialab/xan/releases</changelog>
+		<remote-id type="github">medialab/xan</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		Xan is a powerful CSV processing tool written in Rust. It provides a
+		command-line interface for handling CSV data with ease and efficiency.
+		The tool offers various functions including data manipulation, statistical
+		analysis, format conversion, and visualization capabilities. Xan is designed
+		to work with large datasets and provides fast performance for data processing
+		tasks. It supports operations like filtering, aggregation, joining, and
+		transforming CSV data through a simple and intuitive interface.
+	</longdescription>
+	<longdescription lang="zh">
+		Xan 是一个用 Rust 编写的强大的 CSV 处理工具。它提供了一个命令行界面，
+		可以轻松高效地处理 CSV 数据。该工具提供了各种功能，包括数据操作、统计分析、
+		格式转换和可视化功能。Xan 设计用于处理大型数据集，并为数据处理任务提供快速性能。
+		它支持通过简单直观的界面进行过滤、聚合、连接和转换 CSV 数据等操作。
+	</longdescription>
+</pkgmetadata>
