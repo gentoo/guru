@@ -33,5 +33,5 @@ src_test() {
 }
 
 src_install() {
-	dobin target/release/wstunnel
+	dobin "${S}"/target/release/wstunnel
 }
