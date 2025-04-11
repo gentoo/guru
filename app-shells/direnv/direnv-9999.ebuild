@@ -14,6 +14,9 @@ LICENSE="MIT"
 SLOT="0"
 RESTRICT="test" # fails
 
+# Upstream requires Go >=1.24
+BDEPEND+=">=dev-lang/go-1.24:="
+
 DOCS=( {CHANGELOG,README}.md )
 
 src_install() {

@@ -18,6 +18,9 @@ KEYWORDS="~amd64 ~x86"
 # test dependencies are unreasonable, and tests fail without patches
 RESTRICT="test"
 
+# Upstream requires Go >=1.24
+BDEPEND+=">=dev-lang/go-1.24:="
+
 DOCS=( {CHANGELOG,README}.md )
 
 src_install() {
