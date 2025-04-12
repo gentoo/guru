@@ -21,6 +21,7 @@ DEPEND="
 "
 BDEPEND="
 	dev-python/cogapp
+	dev-util/cunit
 "
 RDEPEND="${DEPEND}"
 
