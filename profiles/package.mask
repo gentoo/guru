@@ -63,7 +63,6 @@ app-admin/bitwarden-cli
 # HOMEPAGE just points to a Wikipedia article
 # Removal on 2025-04-12
 games-strategy/swine
-games-strategy/ground-control
 
 # David Roman <davidroman96@gmail.com> (2025-03-12)
 # Uses deprecated EGO_SUM. Last release in 2023.
