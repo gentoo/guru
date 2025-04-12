@@ -59,12 +59,6 @@ www-apps/vaultwarden-web
 app-admin/bitwarden-cli
 
 # David Roman <davidroman96@gmail.com> (2025-03-12)
-# It's just a Windows .exe with a wine wrapper
-# HOMEPAGE just points to a Wikipedia article
-# Removal on 2025-04-12
-games-strategy/swine
-
-# David Roman <davidroman96@gmail.com> (2025-03-12)
 # Uses deprecated EGO_SUM. Last release in 2023.
 # Removal on 2025-05-12
 www-misc/gorss
