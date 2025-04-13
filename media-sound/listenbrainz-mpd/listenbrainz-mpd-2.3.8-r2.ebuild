@@ -195,7 +195,7 @@ CRATES="
 	zerocopy@0.7.35
 "
 
-inherit cargo systemd
+inherit cargo systemd shell-completion
 
 DESCRIPTION="ListenBrainz submission client for MPD"
 HOMEPAGE="https://codeberg.org/elomatreb/listenbrainz-mpd"
@@ -225,6 +225,7 @@ QA_FLAGS_IGNORED="usr/bin/listenbrainz-mpd"
 src_configure() {
 	local myfeatures=(
 		$(usev systemd)
+		shell_completion
 	)
 	cargo_src_configure
 }
@@ -234,4 +235,7 @@ src_install() {
 
 	cargo_src_install
 	systemd_douserunit listenbrainz-mpd.service
+	dobashcomp generated_completions/listenbrainz-mpd.bash
+	dofishcomp generated_completions/listenbrainz-mpd.fish
+	dozshcomp generated_completions/_listenbrainz-mpd
 }
