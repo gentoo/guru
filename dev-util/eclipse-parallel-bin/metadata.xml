@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>torokhov-s-a@yandex.ru</email>
-		<name>Sergey Torokhov</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 		Tools for C, C++, Fortran, and UPC, including MPI, OpenMP, OpenACC,
 		a parallel debugger, and remotely building, running and monitoring applications.
