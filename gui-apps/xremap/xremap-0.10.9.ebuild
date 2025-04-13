@@ -16,7 +16,7 @@ CRATES="
 	anstyle-query@1.0.0
 	anstyle-wincon@1.0.1
 	anstyle@1.0.1
-	anyhow@1.0.95
+	anyhow@1.0.97
 	async-io@1.13.0
 	async-lock@2.7.0
 	async-trait@0.1.83
@@ -77,7 +77,7 @@ CRATES="
 	gethostname@0.4.3
 	gimli@0.28.1
 	hashbrown@0.12.3
-	hashbrown@0.14.3
+	hashbrown@0.15.2
 	heck@0.4.1
 	heck@0.5.0
 	hermit-abi@0.3.2
@@ -89,8 +89,8 @@ CRATES="
 	iana-time-zone@0.1.57
 	ident_case@1.0.1
 	indexmap@1.9.3
-	indexmap@2.2.2
-	indoc@2.0.5
+	indexmap@2.7.1
+	indoc@2.0.6
 	instant@0.1.12
 	io-lifetimes@1.0.11
 	is-terminal@0.4.9
@@ -103,7 +103,7 @@ CRATES="
 	linux-raw-sys@0.3.8
 	linux-raw-sys@0.4.5
 	lock_api@0.4.12
-	log@0.4.25
+	log@0.4.27
 	memchr@2.6.4
 	memoffset@0.6.5
 	memoffset@0.7.1
@@ -144,11 +144,11 @@ CRATES="
 	scoped-tls@1.0.1
 	scopeguard@1.2.0
 	semver@1.0.23
-	serde@1.0.217
-	serde_derive@1.0.217
-	serde_json@1.0.138
+	serde@1.0.219
+	serde_derive@1.0.219
+	serde_json@1.0.140
 	serde_repr@0.1.16
-	serde_spanned@0.6.6
+	serde_spanned@0.6.8
 	serde_with@3.8.1
 	serde_with_macros@3.8.1
 	serde_yaml@0.9.34+deprecated
@@ -172,10 +172,10 @@ CRATES="
 	tokio-macros@2.1.0
 	tokio@1.29.1
 	toml@0.5.11
-	toml@0.8.15
-	toml_datetime@0.6.6
+	toml@0.8.20
+	toml_datetime@0.6.8
 	toml_edit@0.19.14
-	toml_edit@0.22.16
+	toml_edit@0.22.24
 	udev@0.9.3
 	unicode-ident@1.0.11
 	unsafe-libyaml@0.2.11
@@ -208,7 +208,7 @@ CRATES="
 	windows_x86_64_gnullvm@0.48.0
 	windows_x86_64_msvc@0.48.0
 	winnow@0.5.3
-	winnow@0.6.5
+	winnow@0.7.3
 	wyz@0.5.1
 	x11rb-protocol@0.13.1
 	x11rb@0.13.1
