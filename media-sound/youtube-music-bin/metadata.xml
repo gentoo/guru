@@ -5,6 +5,10 @@
 		<name>Maël GUERIN</name>
 		<email>mael.guerin@murena.io</email>
 	</maintainer>
+	<maintainer type="person">
+		<name>Thomas Clarke</name>
+		<email>colonia_duck@posteo.net</email>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">th-ch/youtube-music</remote-id>
 	</upstream>
