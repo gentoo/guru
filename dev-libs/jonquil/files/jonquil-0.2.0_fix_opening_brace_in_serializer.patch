@@ -1,0 +1,22 @@
+From eedf6947abcafe2967714922ecbf403426454e1d Mon Sep 17 00:00:00 2001
+From: Sebastian Ehlert <28669218+awvwgk@users.noreply.github.com>
+Date: Tue, 11 Apr 2023 21:36:39 +0200
+Subject: [PATCH] Correctly emit opening brace in serializer (#14)
+
+---
+ src/jonquil/ser.f90 | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/jonquil/ser.f90 b/src/jonquil/ser.f90
+index d2a19d5..c9dad41 100644
+--- a/src/jonquil/ser.f90
++++ b/src/jonquil/ser.f90
+@@ -344,7 +344,7 @@ subroutine visit_table(visitor, table)
+       visitor%output = visitor%output // """" // key // """: "
+    end if
+ 
+-   visitor%output = visitor%output // ","
++   visitor%output = visitor%output // "{"
+    visitor%depth = visitor%depth + 1
+ 
+    call table%get_keys(list)

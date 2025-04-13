@@ -1,0 +1,54 @@
+From 4fbd4cf34d577c0fd25e32667ee9e41bf231ece8 Mon Sep 17 00:00:00 2001
+From: urbanjost <urbanjost@comcast.net>
+Date: Wed, 21 Jun 2023 04:08:07 -0400
+Subject: [PATCH] Prevent exceeding array bounds (#17)
+
+---
+ src/jonquil/lexer.f90 | 18 ++++++++++--------
+ 1 file changed, 10 insertions(+), 8 deletions(-)
+
+diff --git a/src/jonquil/lexer.f90 b/src/jonquil/lexer.f90
+index e52123a..aa6e4a0 100644
+--- a/src/jonquil/lexer.f90
++++ b/src/jonquil/lexer.f90
+@@ -181,10 +181,12 @@ subroutine next_token(lexer, token)
+ 
+    select case(lexer%chunk(pos:pos))
+    case(" ", toml_escape%tabulator, toml_escape%newline, toml_escape%carriage_return)
+-      do while(any(lexer%chunk(pos+1:pos+1) == [" ", toml_escape%tabulator, &
+-            & toml_escape%newline, toml_escape%carriage_return]) .and. pos < len(lexer%chunk))
+-         pos = pos + 1
++      do pos = pos, len(lexer%chunk) - 1
++         if (all(lexer%chunk(pos+1:pos+1) /= [" ", toml_escape%tabulator,&
++            & toml_escape%newline, toml_escape%carriage_return])) &
++            & exit
+       end do
++
+       token = toml_token(token_kind%whitespace, prev, pos)
+       return
+    case(":")
+@@ -216,10 +218,10 @@ subroutine next_token(lexer, token)
+       return
+    end select
+ 
+-   ! If the current token is invalid, advance to the next terminator
+-   do while(verify(lexer%chunk(pos+1:pos+1), terminated) > 0 .and. pos < len(lexer%chunk))
+-      pos = pos + 1
++   do pos=pos,len(lexer%chunk)-1
++      if (verify(lexer%chunk(pos+1:pos+1), terminated) <= 0) exit
+    end do
++
+    token = toml_token(token_kind%invalid, prev, pos)
+ end subroutine next_token
+ 
+@@ -338,8 +340,8 @@ subroutine next_boolean(lexer, token)
+    prev = lexer%pos
+    pos = lexer%pos
+ 
+-   do while(verify(lexer%chunk(pos+1:pos+1), terminated) > 0 .and. pos < len(lexer%chunk))
+-      pos = pos + 1
++   do pos=lexer%pos,len(lexer%chunk)-1
++      if (verify(lexer%chunk(pos+1:pos+1), terminated) <= 0) exit
+    end do
+ 
+    select case(lexer%chunk(prev:pos))
