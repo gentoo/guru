@@ -53,6 +53,12 @@ DOCS=(
 	doc/${PN}.conf.example{,-advanced,-basic}
 )
 
+src_prepare() {
+	# respect CXXFLAGS
+	sed -i '/CMAKE_POSITION_INDEPENDENT_CODE/d' CMakeLists.txt || die
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DINPUTLEAP_BUILD_GUI=$(usex gui)
