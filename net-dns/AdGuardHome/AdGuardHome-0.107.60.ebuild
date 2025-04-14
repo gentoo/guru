@@ -12,7 +12,7 @@ WIKI_COMMIT="5657b4b"
 SRC_URI="
 	https://github.com/AdguardTeam/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/deps.tar.xz -> ${P}-deps.tar.xz
-	https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/wiki.tar.xz -> ${PN}-wiki-${WIKI_COMMIT}.tar.xz
+	https://github.com/rahilarious/gentoo-distfiles/releases/download/${PN}-0.107.57/wiki.tar.xz -> ${PN}-wiki-${WIKI_COMMIT}.tar.xz
 	web? ( https://github.com/AdguardTeam/AdGuardHome/releases/download/v${PV}/AdGuardHome_frontend.tar.gz -> ${P}-web.tar.gz )
 "
 
