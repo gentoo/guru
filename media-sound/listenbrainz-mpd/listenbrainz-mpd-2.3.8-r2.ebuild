@@ -235,7 +235,7 @@ src_install() {
 
 	cargo_src_install
 	systemd_douserunit listenbrainz-mpd.service
-	dobashcomp generated_completions/listenbrainz-mpd.bash
+	newbashcomp generated_completions/listenbrainz-mpd.bash listenbrainz-mpd
 	dofishcomp generated_completions/listenbrainz-mpd.fish
 	dozshcomp generated_completions/_listenbrainz-mpd
 }
