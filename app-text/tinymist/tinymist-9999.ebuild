@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cargo git-r3
+inherit cargo git-r3 shell-completion
 
 DESCRIPTION="An integrated language service for Typst."
 HOMEPAGE="https://github.com/Myriad-Dreamin/tinymist"
@@ -26,6 +26,18 @@ src_configure() {
 	cargo_src_configure --frozen
 }
 
+src_compile() {
+	cargo_src_compile
+
+	"$(cargo_target_dir)"/tinymist completion bash > tinymist || die
+	"$(cargo_target_dir)"/tinymist completion fish > tinymist.fish || die
+	"$(cargo_target_dir)"/tinymist completion zsh > _tinymist || die
+}
+
 src_install() {
 	cargo_src_install --path ./crates/tinymist
+
+	dobashcomp tinymist
+	dofishcomp tinymist.fish
+	dozshcomp _tinymist
 }

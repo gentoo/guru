@@ -565,7 +565,7 @@ declare -A GIT_CRATES=(
 	[typstfmt]='https://github.com/Myriad-Dreamin/typstfmt;cdfe44ed065a90d80040c3b29dee7ed431a710ee;typstfmt-%commit%'
 )
 
-inherit cargo
+inherit cargo shell-completion
 
 DESCRIPTION="An integrated language service for Typst."
 HOMEPAGE="https://github.com/Myriad-Dreamin/tinymist"
@@ -610,6 +610,18 @@ src_prepare() {
 		die "Failed to override dependencies in Cargo.toml"
 }
 
+src_compile() {
+	cargo_src_compile
+
+	"$(cargo_target_dir)"/tinymist completion bash > tinymist || die
+	"$(cargo_target_dir)"/tinymist completion fish > tinymist.fish || die
+	"$(cargo_target_dir)"/tinymist completion zsh > _tinymist || die
+}
+
 src_install() {
 	cargo_src_install --path ./crates/tinymist
+
+	dobashcomp tinymist
+	dofishcomp tinymist.fish
+	dozshcomp _tinymist
 }
