@@ -6,7 +6,7 @@
 		<name>Adam Pimentel</name>
 	</maintainer>
 	<maintainer type="person">
-		<email>b747xx@gmail.com</email>
+		<email>ravfx@xmr.mx</email>
 		<name>RavFX</name>
 	</maintainer>
 	<upstream>
@@ -26,7 +26,7 @@
 	</longdescription>
 	<use>
 		<flag name="bounties">
- 			Enable bounties page plugin
+			Enable bounties page plugin
 		</flag>
 		<flag name="calc">
 			Enable price calculator page plugin
@@ -39,7 +39,7 @@
 		</flag>
 		<flag name="qrcode">
 			Enable QR code scanning with media-gfx/zbar
- 		</flag>
+		</flag>
 		<flag name="revuo">
 			Enable revuo plugin
 		</flag>
