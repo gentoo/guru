@@ -5,6 +5,10 @@
     <email>sam@binarycake.ca</email>
     <name>Sam Wilson</name>
   </maintainer>
+  <maintainer type="person">
+    <email>patricknicolas@laposte.net</email>
+    <name>Patrick Nicolas</name>
+  </maintainer>
   <use>
     <flag name="openvr">Support Valve's SteamVR SDK.</flag>
     <flag name="openxr">Support Khronos Group's OpenXR API.</flag>
