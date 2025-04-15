@@ -103,6 +103,7 @@ src_install() {
 		LICENSES.chromium.html
 		beepertexts.desktop
 		beepertexts.png
+		resources/app/node_modules/classic-level/prebuilds/linux-x64/classic-level.musl.node
 		usr
 	)
 	rm -f -r "${toremove[@]}" || die
