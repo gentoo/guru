@@ -18,9 +18,8 @@ declare -A GIT_CRATES=(
 	[ovr_overlay_sys]='https://github.com/galister/ovr_overlay_oyasumi;49b0d856c282d1f696b87e85a55674f4db913872;ovr_overlay_oyasumi-%commit%/sys'
 	[pipewire-sys]='https://gitlab.freedesktop.org/galister/pipewire-rs;ba32202c3c391004c3bb533b58fa75a50e47ff57;pipewire-rs-%commit%/pipewire-sys;gitlab'
 	[pipewire]='https://gitlab.freedesktop.org/galister/pipewire-rs;ba32202c3c391004c3bb533b58fa75a50e47ff57;pipewire-rs-%commit%/pipewire;gitlab'
-	[smithay]='https://github.com/Smithay/smithay;0cd3345c59f7cb139521f267956a1a4e33248393;smithay-%commit%'
 	[wayvr_ipc]='https://github.com/olekolek1000/wayvr-ipc;a72587d23f3bb8624d9aeb1f13c0a21e65350f51;wayvr-ipc-%commit%'
-	[wlx-capture]='https://github.com/galister/wlx-capture;fc77da75dcf8c9d59cdeea384da21bdab685d18b;wlx-capture-%commit%'
+	[wlx-capture]='https://github.com/galister/wlx-capture;c68c66d487ef0f57bab23b5c780472a31a01ecab;wlx-capture-%commit%'
 )
 
 LLVM_COMPAT=({15..19})
