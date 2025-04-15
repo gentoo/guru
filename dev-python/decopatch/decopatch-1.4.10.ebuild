@@ -1,9 +1,9 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517=setuptools
 
 DOCS_BUILDER="mkdocs"
@@ -27,6 +27,11 @@ BDEPEND="
 "
 
 PATCHES=( "${FILESDIR}/${P}-python12.patch" )
+
+EPYTEST_DESELECT=(
+	# fails with whitespace differences in python 3.13
+	tests/test_doc.py::test_doc_add_tag_function
+)
 
 distutils_enable_tests pytest
 
