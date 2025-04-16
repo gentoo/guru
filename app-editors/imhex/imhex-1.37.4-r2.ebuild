@@ -44,7 +44,7 @@ DEPEND="
 	dev-libs/boost
 	>=dev-libs/capstone-5.0.3:=
 	>=dev-libs/nativefiledialog-extended-1.2.1[desktop-portal?]
-	>=dev-libs/libfmt-11.1.3:=
+	>=dev-libs/libfmt-11.0.2:=
 	media-libs/fontconfig
 	media-libs/freetype
 	>=media-libs/glfw-3.4[X]
