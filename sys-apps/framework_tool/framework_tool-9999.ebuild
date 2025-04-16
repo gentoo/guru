@@ -23,7 +23,7 @@ if ! is_live; then
 	)
 fi
 
-inherit cargo
+inherit cargo shell-completion
 
 MY_PN="framework-system"
 
@@ -106,4 +106,6 @@ src_prepare() {
 src_install() {
 	dobin "$(cargo_target_dir)/framework_tool"
 	einstalldocs
+	dobashcomp completions/bash/framework_tool
+	dozshcomp completions/zsh/_framework_tool
 }
