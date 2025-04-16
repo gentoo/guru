@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Yuan Liao <liaoyuan@gmail.com> (2025-04-16)
+# No reverse dependencies left.  Was added only for
+# <gnome-extra/extension-manager-0.6.0; not widely used by
+# other applications.
+# Removal on 2025-05-16.
+gui-libs/text-engine
+
 # Haelwenn (lanodan) Monnier <contact@hacktivis.me>
 # Package hasn't been maintained for almost a year.
 # As I dropped myself as maintainer on 2024-05-25 21:54:47 with
