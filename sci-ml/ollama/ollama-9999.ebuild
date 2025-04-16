@@ -94,7 +94,7 @@ src_prepare() {
 		-i CMakeLists.txt || die sed
 
 	sed \
-		-e "s/-O3/$(get-flag O)/g" \
+		-e "s/ -O3//g" \
 		-i ml/backend/ggml/ggml/src/ggml-cpu/cpu.go || die sed
 
 	# fix library location
