@@ -19,7 +19,9 @@ DEPEND="dev-python/jsonlines[${PYTHON_USEDEP}]"
 RDEPEND="( ${DEPEND}
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}] )"
-#PROPERTIES="test_network" #actually sends many test requests. currently has 2 failing tests that can't seem to be deselected
+#PROPERTIES="test_network"
+#actually sends many test requests.
+# currently has 2 failing tests that can't seem to be deselected :(
 distutils_enable_tests pytest
 KEYWORDS="~amd64 ~arm64"
 RESTRICT="test mirror" #mirror restricted only because overlay
