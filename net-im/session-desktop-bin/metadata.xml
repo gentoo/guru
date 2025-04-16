@@ -6,6 +6,6 @@
                 <name>Akash paul</name>
         </maintainer>
         <upstream>
-                <remote-id type="github">oxen-io/session-desktop</remote-id>
+                <remote-id type="github">session-foundation/session-desktop</remote-id>
         </upstream>
 </pkgmetadata>

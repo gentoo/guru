@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,30 +6,30 @@ EAPI=8
 MY_PN="${PN/-bin/}"
 
 CHROMIUM_LANGS="
-	am ar bg bn ca cs da de el en-GB en-US es es-419 et fa fi fil fr gu he hi
+	af am ar bg bn ca cs da de el en-GB en-US es es-419 et fa fi fil fr gu he hi
 	hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv
-	sw ta te th tr uk vi zh-CN zh-TW
+	sw ta te th tr uk ur vi zh-CN zh-TW
 "
 
 inherit chromium-2 linux-info unpacker optfeature xdg
 
 DESCRIPTION="Session Desktop - Onion routing based messenger"
 HOMEPAGE="https://getsession.org/ https://github.com/oxen-io/session-desktop"
-SRC_URI="https://github.com/oxen-io/session-desktop/releases/download/v${PV}/session-desktop-linux-amd64-${PV}.deb"
+SRC_URI="https://github.com/session-foundation/session-desktop/releases/download/v${PV}/session-desktop-linux-amd64-${PV}.deb"
 
 S="${WORKDIR}"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-RESTRICT="splitdebug"
+RESTRICT="splitdebug bindist mirror strip test"
 
 RDEPEND="
 		|| (
 			>=app-accessibility/at-spi2-core-2.46.0:2
 		)
 	dev-libs/expat
-	dev-libs/glib:2
+	>=dev-libs/glib-2.35
 	dev-libs/nspr
 	dev-libs/nss
 	dev-libs/wayland
@@ -106,12 +106,12 @@ src_install(){
 	pushd "opt/Session/" > /dev/null || die "change dir failed"
 
 	exeinto "${DESTDIR}"
-	doexe "${MY_PN}" chrome-sandbox libEGL.so libGLESv2.so libvk_swiftshader.so libffmpeg.so
+	doexe "${MY_PN}" chrome-sandbox libEGL.so libGLESv2.so libvk_swiftshader.so libffmpeg.so libvulkan.so.1
 
 	insinto "${DESTDIR}"
 	doins chrome_100_percent.pak chrome_200_percent.pak icudtl.dat resources.pak snapshot_blob.bin v8_context_snapshot.bin
 	insopts -m0755
-	doins -r  locales resources swiftshader
+	doins -r  locales resources
 
 	popd > /dev/null || die "change dir reset failed"
 
