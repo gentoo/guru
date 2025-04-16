@@ -51,7 +51,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-DESCRIPTION="Tool to interact with a Framework Laptop's hardware system"
+DESCRIPTION="Tool to interact with a Framework Computer's hardware system"
 HOMEPAGE="https://github.com/FrameworkComputer/framework-system"
 
 LICENSE="BSD"
