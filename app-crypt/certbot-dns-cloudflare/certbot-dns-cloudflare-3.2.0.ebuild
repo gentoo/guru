@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=(python3_{11..12})
+PYTHON_COMPAT=(python3_{11..13})
 # certbot ready for 3.13, but not cloudflare
 #DISTUTILS_USE_SETUPTOOLS=rdepend
 DISTUTILS_USE_PEP517=setuptools
