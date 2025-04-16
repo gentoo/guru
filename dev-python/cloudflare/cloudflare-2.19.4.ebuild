@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517="setuptools"
 inherit distutils-r1
 
@@ -14,12 +14,12 @@ HOMEPAGE="https://pypi.org/project/cloudflare/"
 SRC_URI="https://github.com/cloudflare/python-cloudflare/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/python-${P}"
 LICENSE="MIT"
-SLOT="0"
+SLOT="2"
 DEPEND="dev-python/jsonlines[${PYTHON_USEDEP}]"
 RDEPEND="( ${DEPEND}
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}] )"
-PROPERTIES="test_network" #actually sends many test requests
+#PROPERTIES="test_network" #actually sends many test requests. currently has 2 failing tests that can't seem to be deselected
 distutils_enable_tests pytest
 KEYWORDS="~amd64 ~arm64"
 RESTRICT="test mirror" #mirror restricted only because overlay
@@ -29,7 +29,7 @@ python_prepare_all() {
 	sed -i -e "s/'cli4', 'examples'/'cli4'/" \
 		-e "s#'CloudFlare/tests',##" \
 		 setup.py || die
-	sed -i -e "/def test_ips7_should_fail():/i@pytest.mark.xfail(reason='Now fails upstream')" \
+	sed -i \
 		-e "2s/^/import pytest/" \
 		CloudFlare/tests/test_cloudflare_calls.py || die
 	distutils-r1_python_prepare_all
@@ -65,6 +65,8 @@ python_test() {
 		'test_rulesets.py::test_zones_ruleset_post'
 		'test_rulesets.py::test_zones_rulesets_get_specific'
 		'test_rulesets.py::test_zones_ruleset_delete'
+		'test_api_dump.py::test_api_from_openapi'
+		'test_dns_records.py::test_dns_records_port_invalid'
 	)
 	epytest
 }
