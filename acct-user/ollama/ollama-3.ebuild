@@ -11,6 +11,8 @@ ACCT_USER_HOME=/var/lib/ollama
 ACCT_USER_HOME_PERMS=0750
 ACCT_USER_GROUPS=( ollama )
 
+KEYWORDS="~amd64"
+
 IUSE="cuda"
 
 acct-user_add_deps
