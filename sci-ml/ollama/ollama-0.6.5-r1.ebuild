@@ -68,7 +68,7 @@ DEPEND="
 RDEPEND="
 	${COMMON_DEPEND}
 	acct-group/${PN}
-	acct-user/${PN}[cuda?]
+	>=acct-user/${PN}-3[cuda?]
 "
 
 PATCHES=(
@@ -96,6 +96,19 @@ src_prepare() {
 	sed \
 		-e "s/-O3/$(get-flag O)/g" \
 		-i ml/backend/ggml/ggml/src/ggml-cpu/cpu.go || die sed
+
+	# fix library location
+	sed \
+		-e "s#lib/ollama#$(get_libdir)/ollama#g" \
+		-i CMakeLists.txt || die sed
+
+	sed \
+		-e "s/\"..\", \"lib\"/\"..\", \"$(get_libdir)\"/" \
+		-e "s#\"lib/ollama\"#\"$(get_libdir)/ollama\"#" \
+		-i \
+			ml/backend/ggml/ggml/src/ggml.go \
+			discover/path.go \
+		|| die
 
 	if use amd64; then
 		if ! use cpu_flags_x86_avx; then
@@ -218,12 +231,11 @@ src_configure() {
 
 	if use rocm; then
 		mycmakeargs+=(
+			-DCMAKE_HIP_ARCHITECTURES="$(get_amdgpu_flags)"
 			-DCMAKE_HIP_PLATFORM="amd"
 		)
 
-		local -x HIP_ARCHS HIP_PATH
-		HIP_ARCHS="$(get_amdgpu_flags)"
-		HIP_PATH="${ESYSROOT}/usr"
+		local -x HIP_PATH="${ESYSROOT}/usr"
 
 		check_amdgpu
 	else
@@ -233,48 +245,12 @@ src_configure() {
 	fi
 
 	cmake_src_configure
-
-	# if ! use cuda && ! use rocm; then
-	# 	# to configure and build only CPU variants
-	# 	set -- cmake --preset Default "${mycmakeargs[@]}"
-	# fi
-
-	# if use cuda; then
-	# 	# to configure and build only CUDA
-	# 	set -- cmake --preset CUDA "${mycmakeargs[@]}"
-	# fi
-
-	# if use rocm; then
-	# 	# to configure and build only ROCm
-	# 	set -- cmake --preset ROCm "${mycmakeargs[@]}"
-	# fi
-
-	# echo "$@" >&2
-	# "$@" || die -n "${*} failed"
 }
 
 src_compile() {
 	ego build
 
 	cmake_src_compile
-
-	# if ! use cuda && ! use rocm; then
-	# 	# to configure and build only CPU variants
-	# 	set -- cmake --build --preset Default -j16
-	# fi
-
-	# if use cuda; then
-	# 	# to configure and build only CUDA
-	# 	set -- cmake --build --preset CUDA -j16
-	# fi
-
-	# if use rocm; then
-	# 	# to configure and build only ROCm
-	# 	set -- cmake --build --preset ROCm -j16
-	# fi
-
-	# echo "$@" >&2
-	# "$@" || die -n "${*} failed"
 }
 
 src_install() {
@@ -301,5 +277,10 @@ pkg_postinst() {
 		einfo "\tollama run llama3:70b"
 		einfo
 		einfo "See available models at https://ollama.com/library"
+	fi
+
+	if use cuda ; then
+		einfo "When using cuda the user running ${PN} has to be in the video group or it won't detect devices."
+		einfo "The ebuild ensures this for user ${PN} via acct-user/${PN}[cuda]"
 	fi
 }
