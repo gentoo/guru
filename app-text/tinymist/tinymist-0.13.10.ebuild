@@ -591,7 +591,7 @@ QA_FLAGS_IGNORED="usr/bin/tinymist"
 src_prepare() {
 	default
 
-	# Taken from app-laptop/framework_tool::guru,
+	# Taken from sys-apps/framework_tool::guru,
 	# adapted to also remove the tag field
 	# Upstream uses [patch] on some dependencies in Cargo.toml,
 	# which are not patched by cargo.eclass's ${ECARGO_HOME}/config
