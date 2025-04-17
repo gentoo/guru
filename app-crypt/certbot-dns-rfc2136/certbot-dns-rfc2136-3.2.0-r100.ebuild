@@ -14,7 +14,7 @@ HOMEPAGE="
 LICENSE="metapackage"
 SLOT="0"
 
-KEYWORDS="~amd64 ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
 
 # Meta package for transition
 # No need to upgrade thanks to ">="
