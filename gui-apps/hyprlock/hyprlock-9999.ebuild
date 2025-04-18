@@ -22,7 +22,7 @@ SLOT="0"
 RDEPEND="
 	dev-cpp/sdbus-c++:0/2
 	dev-libs/hyprgraphics
-	>=dev-libs/hyprlang-0.4.0
+	>=dev-libs/hyprlang-0.6.0
 	>=gui-libs/hyprutils-0.2.6:=
 	dev-libs/date
 	dev-libs/glib:2
