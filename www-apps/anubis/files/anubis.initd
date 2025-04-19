@@ -1,0 +1,31 @@
+#!/sbin/openrc-run
+# Copyright 2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+#
+# shellcheck shell=sh
+
+instance=${RC_SVCNAME#*.}
+
+supervisor="supervise-daemon"
+command="/usr/bin/anubis"
+command_args="\
+		-bind ${ANUBIS_BIND_PORT:-/run/anubis_${instance?}/anubis.sock -bind-network unix} \
+		-metrics-bind ${ANUBIS_METRICS_BIND_PORT:-/run/anubis_${instance?}/metrics.sock -metrics-bind-network unix} \
+		-target ${ANUBIS_TARGET:-http://localhost:3923} \
+		-difficulty ${ANUBIS_DIFFICULTY:-4} \
+		${ANUBIS_OPTS}
+"
+command_user="${ANUBIS_USER:-anubis:anubis}"
+command_background=1
+pidfile="/run/anubis_${instance?}/anubis.pid"
+
+start_pre() {
+	if [ "${instance?}" = "${RC_SVCNAME?}" ]; then
+		eerror "${RC_SVCNAME?} cannot be started directly. You must create"
+		eerror "symbolic links to it for the services you want to start"
+		eerror "and add those to the appropriate runlevels."
+		return 1
+	fi
+
+	checkpath -d -o "${command_user?}" "/run/anubis_${instance?}"
+}
