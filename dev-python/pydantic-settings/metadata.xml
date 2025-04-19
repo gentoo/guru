@@ -5,6 +5,9 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
+	<use>
+		<flag name="yaml">Enable YAML support</flag>
+	</use>
 	<stabilize-allarches/>
 	<upstream>
 		<remote-id type="pypi">pydantic-settings</remote-id>
