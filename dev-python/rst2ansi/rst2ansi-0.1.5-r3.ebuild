@@ -26,7 +26,7 @@ BDEPEND="
 	test? ( dev-util/cram )
 "
 
-distutils_enable_tests setup.py
+distutils_enable_tests unittest
 
 src_prepare() {
 	distutils-r1_src_prepare
