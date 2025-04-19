@@ -23,7 +23,7 @@ BDEPEND="
 	$(python_gen_cond_dep 'dev-python/setuptools-scm[${PYTHON_USEDEP}]')
 "
 
-distutils_enable_tests setup.py
+distutils_enable_tests unittest
 
 src_prepare() {
 	rm tests/version.t || die
