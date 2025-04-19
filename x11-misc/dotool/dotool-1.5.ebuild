@@ -9,7 +9,7 @@ DESCRIPTION="Command to simulate input anywhere"
 HOMEPAGE="https://git.sr.ht/~geb/dotool"
 EGIT_COMMIT="945a7daedeef076db91261266b802498096f6f91"
 SRC_URI="https://git.sr.ht/~geb/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${PN}-${PV}.tar.gz ${EGO_SUM_SRC_URI}"
-SRC_URI+="https://gitlab.com/fictitiousexistence-public/gentoo-gofiles/-/raw/main/dotool/${PN}-${PV}-deps.tar.xz"
+SRC_URI+="https://codeberg.org/fictitiousexistence/gentoo-gofiles/raw/branch/main/dotool/${PN}-${PV}-deps.tar.xz"
 
 S=${WORKDIR}/${PN}-${EGIT_COMMIT}
 
