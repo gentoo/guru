@@ -44,6 +44,8 @@ DEPEND="
 	)
 "
 
+# USE=doc also required dev-ruby/asciidoctor-pdf,
+# which is masked due to bug 954116.
 BDEPEND="
 	dev-haskell/cabal:0=
 	dev-lang/ghc:0=
@@ -51,7 +53,6 @@ BDEPEND="
 	dev-util/gperf
 	doc? (
 		dev-ruby/asciidoctor
-		dev-ruby/asciidoctor-pdf
 		dev-texlive/texlive-bibtexextra
 		dev-texlive/texlive-fontsextra
 		dev-texlive/texlive-fontutils

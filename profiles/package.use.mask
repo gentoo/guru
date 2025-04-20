@@ -3,6 +3,12 @@
 
 # New entries go on top.
 
+# Vivian Heisz (demize) <demize@unstable.systems> (2025-04-20)
+# Building docs requires dev-ruby/asciidoctor-pdf, which is
+# currently masked due to dependency issues.
+# Bug 954116.
+sci-electronics/bluespec doc
+
 # John-Henry Lim <johnhenrylim12@gmail.com> (2024-02-19)
 # warp-dex relies on libpcap.so.0.8 which is not in tree.
 net-vpn/cloudflare-warp dex
