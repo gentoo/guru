@@ -1,0 +1,33 @@
+#!/sbin/openrc-run
+# Copyright 2022-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+#
+# shellcheck shell=sh
+
+extra_started_commands="reload"
+
+description="IRC bouncer"
+description_reload="Refresh TLS keys"
+
+supervisor="supervise-daemon"
+command="/usr/bin/pounce"
+command_args="${POUNCE_CONFIG:-/etc/pounce/pounce.conf}"
+command_user="${POUNCE_USER:-pounce:pounce}"
+pidfile="/run/pounce/${RC_SVCNAME}.pid"
+output_logger="logger -p daemon.info -t pounce --"
+error_logger="logger -p daemon.err -t pounce --"
+
+depend() {
+	use dns logger
+	need net
+}
+
+start_pre() {
+	checkpath -d -o "${command_user}" /run/pounce
+}
+
+reload() {
+	ebegin "Refreshing ${RC_SVCNAME} keys"
+	start-stop-daemon --signal SIGUSR1 --pidfile "${pidfile}"
+	eend $? "Failed to reload ${RC_SVCNAME}"
+}

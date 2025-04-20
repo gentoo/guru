@@ -1,0 +1,5 @@
+# Configuration file.
+POUNCE_CONFIG="/etc/pounce/example.conf"
+
+# Configure the user[:group] pounce will run as.
+#POUNCE_USER="pounce:pounce"
