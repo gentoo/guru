@@ -25,7 +25,7 @@
 # Removal on 2025-05-16.
 gui-libs/text-engine
 
-# Haelwenn (lanodan) Monnier <contact@hacktivis.me>
+# Haelwenn (lanodan) Monnier <contact@hacktivis.me> (2025-04-09)
 # Package hasn't been maintained for almost a year.
 # As I dropped myself as maintainer on 2024-05-25 21:54:47 with
 # commit d72436666f91bf44a2478674a19b51fa614b5833
@@ -36,7 +36,7 @@ games-emulation/duckstation
 # Vivian Heisz (demize) <demize@unstable.systems> (2025-04-04)
 # Unmaintained in GURU. Current versions are very old and have security
 # issues.
-# Removal on 2025-05-04. Bugs #937552, #937552.
+# Removal on 2025-05-04. Bugs #934956, #937552.
 www-client/firefox-developer-bin
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-27)
