@@ -10,7 +10,6 @@
 		<bugs-to>https://codeberg.org/dnkl/fuzzel/issues</bugs-to>
 	</upstream>
 	<use>
-		<flag name="cairo">Required for rounded corners and SVG icons</flag>
 		<flag name="png">Enable support for PNG icons</flag>
 		<flag name="svg">enables support for SVG icons</flag>
 	</use>
