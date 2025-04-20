@@ -1,0 +1,30 @@
+#!/sbin/openrc-run
+# Copyright 1999-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+#
+# shellcheck shell=sh
+
+description="Bouncer-style Matrix IRC bridge"
+
+supervisor="supervise-daemon"
+command="/usr/bin/python"
+command_args="-m heisenbridge \
+	-c ${REGISTRATION:-/var/lib/heisenbridge/registration.yaml} \
+	${LISTEN_ADDRESS+-l ${LISTEN_ADDRESS}} \
+	${LISTEN_PORT+-p ${LISTEN_PORT}} \
+	${OWNER+-o ${OWNER}} \
+	-u heisenbridge -g heisenbridge \
+	${HEISENBRIDGE_OPTS} ${HOMESERVER}"
+pidfile="/run/${RC_SVCNAME}.pid"
+
+output_logger="logger -p daemon.info -t heisenbridge --"
+error_logger="logger -p daemon.err -t heisenbridge --"
+
+depend() {
+	use dns logger
+	need net
+}
+
+start_pre() {
+	checkpath -d -m 0755 -o heisenbridge:heisenbridge /var/lib/heisenbridge
+}
