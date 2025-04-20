@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>timovanveen@hotmail.nl</email>
+		<name>Timo van Veen</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Automattic/harper</remote-id>
+	</upstream>
+</pkgmetadata>
