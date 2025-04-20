@@ -15,19 +15,19 @@ else
 	MY_PV="$(ver_rs 1- -)"
 	SRC_URI="https://github.com/Gargaj/Bonzomatic/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/Bonzomatic-${MY_PV}"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="Unlicense"
 SLOT="0"
-IUSE="system-glfw system-glew system-stb wayland"
+IUSE="system-glfw system-glew system-miniaudio system-stb wayland"
 
-# TODO: system-miniaudio, system-jsonxx/json++, system-scintilla
+# TODO: system-jsonxx/json++, system-scintilla
 # !system-glfw copied from media-libs/glfw-3.3.3::gentoo
 # !system-glew copied from media-libs/glew-2.2.0::gentoo
 # kissfft: Bonzomatic targets non-existent `kissfft` pkg-config name
 #	system-kissfft? ( sci-libs/kissfft )
-DEPEND="
+RDEPEND="
 	system-glfw? ( media-libs/glfw )
 	!system-glfw? (
 		wayland? (
@@ -57,17 +57,22 @@ DEPEND="
 	media-libs/alsa-lib
 	media-libs/fontconfig
 "
-RDEPEND="${DEPEND}"
+# miniaudio: Uses miniaudio-0.10.4 while miniaudio-0.11.x broke API
+DEPEND="${RDEPEND}"
 BDEPEND="!system-glfw? ( wayland? ( dev-libs/wayland-protocols ) )"
 
 src_configure() {
 	local mycmakeargs=(
 		-DBONZOMATIC_USE_SYSTEM_GLFW=$(usex system-glfw)
-		-DGLFW_USE_WAYLAND="$(usex wayland)"
 		-DBONZOMATIC_USE_SYSTEM_GLEW=$(usex system-glew)
+		-DBONZOMATIC_USE_SYSTEM_MINIAUDIO=OFF
 		-DBONZOMATIC_USE_SYSTEM_STB=$(usex system-stb)
 		-DBONZOMATIC_USE_SYSTEM_KISSFFT=OFF
 	)
+
+	if use !system-glfw; then
+		mycmakeargs+=( -DGLFW_USE_WAYLAND="$(usex wayland)" )
+	fi
 
 	cmake_src_configure
 }
