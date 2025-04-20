@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-04-21)
+# Unmaintained in GURU, no revdeps left.
+# Removal on 2025-05-21.
+dev-python/glicko2
+
 # Vivian Heisz (demize) <demize@unstable.systems> (2025-04-20)
 # Depends on ~dev-ruby/prawn-2.34.0, which was removed in
 # ::gentoo, making this unable to build.
