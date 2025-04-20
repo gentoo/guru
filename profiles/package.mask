@@ -18,6 +18,15 @@
 
 # New entries go on top.
 
+# Vivian Heisz (demize) <demize@unstable.systems> (2025-04-20)
+# Depends on ~dev-ruby/prawn-2.34.0, which was removed in
+# ::gentoo, making this unable to build.
+#
+# This update will likely happen in asciidoctor-pdf 3.0.0.
+# Please unmask when appropriate.
+# Bug #954116.
+dev-ruby/asciidoctor-pdf
+
 # Yuan Liao <liaoyuan@gmail.com> (2025-04-16)
 # No reverse dependencies left.  Was added only for
 # <gnome-extra/extension-manager-0.6.0; not widely used by
