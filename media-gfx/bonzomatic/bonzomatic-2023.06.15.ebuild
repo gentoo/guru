@@ -20,7 +20,7 @@ fi
 
 LICENSE="Unlicense"
 SLOT="0"
-IUSE="system-glfw system-glew system-miniaudio system-stb wayland"
+IUSE="system-glfw system-glew system-stb wayland"
 
 # TODO: system-jsonxx/json++, system-scintilla
 # !system-glfw copied from media-libs/glfw-3.3.3::gentoo
