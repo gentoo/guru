@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,16 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 # no tests in v1.1.4 tarball
-RESTRICT="test"
-
-BDEPEND="
-	test? (
-		dev-python/numpy[${PYTHON_USEDEP}]
-		dev-python/pillow[${PYTHON_USEDEP}]
-	)
-"
-
-distutils_enable_tests pytest
+distutils_enable_tests import-check
 
 src_prepare() {
 	distutils-r1_src_prepare
