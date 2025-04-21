@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-04-21)
+# Unmaintained upstream, no revdeps left. Breaks dev-python/pytest-recording.
+# Removal on 2025-05-21.
+dev-python/pytest-vcr
+
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-04-21)
 # Unmaintained upstream, not compatible with Mastodon.py v2.
 # Removal on 2025-05-21.
 net-misc/fedigroup
