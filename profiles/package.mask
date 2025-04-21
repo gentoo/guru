@@ -24,6 +24,7 @@
 dev-ml/bheap
 dev-ml/cdrom
 dev-ml/domain-name
+dev-ml/gmap
 dev-ml/pecu
 dev-ml/randomconv
 
