@@ -21,6 +21,7 @@
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-04-21)
 # Unmaintained in GURU, no revdeps left.
 # Removal on 2025-05-21.
+dev-ml/domain-name
 dev-ml/pecu
 dev-ml/randomconv
 
