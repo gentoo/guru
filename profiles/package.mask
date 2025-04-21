@@ -22,6 +22,7 @@
 # Unmaintained in GURU, no revdeps left.
 # Removal on 2025-05-21.
 dev-ml/pecu
+dev-ml/randomconv
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-04-21)
 # Unmaintained upstream, no revdeps left. Breaks dev-python/pytest-recording.
