@@ -1,0 +1,14 @@
+There is no 'upstream_ontologist.__main__' module.
+
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -45,9 +45,6 @@ readme = [
+ testing = ["breezy>=3.3.0"]
+ dev = ["ruff==0.8.3"]
+ 
+-[project.scripts]
+-guess-upstream-metadata = "upstream_ontologist.__main__:main"
+-
+ [tool.setuptools]
+ include-package-data = false
+ 
