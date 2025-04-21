@@ -32,7 +32,7 @@ CRATES="
 	console@0.15.8
 	criterion-plot@0.5.0
 	criterion@0.4.0
-	crossbeam-channel@0.5.11
+	crossbeam-channel@0.5.15
 	crossbeam-deque@0.8.5
 	crossbeam-epoch@0.9.18
 	crossbeam-utils@0.8.19
@@ -48,7 +48,7 @@ CRATES="
 	equivalent@1.0.1
 	errno@0.3.8
 	fastrand@2.0.1
-	full_moon@1.1.2
+	full_moon@2.0.0
 	full_moon_derive@0.11.0
 	globset@0.4.14
 	globwalk@0.9.1
