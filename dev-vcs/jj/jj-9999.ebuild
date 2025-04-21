@@ -19,17 +19,14 @@ LICENSE+="
 SLOT="0"
 IUSE="
 	+git2
-	gix-max-performance
 "
 
 BDEPEND="
 	virtual/pkgconfig
-	gix-max-performance? ( dev-build/cmake )
 "
 DEPEND="
 	git2? (
 		>=dev-libs/libgit2-1.9.0:0/1.9
-		sys-libs/zlib
 		dev-libs/openssl:=
 		net-libs/libssh2:=
 	)
@@ -57,7 +54,6 @@ src_unpack() {
 src_configure() {
 	local myfeatures=(
 		$(usev git2)
-		$(usev gix-max-performance)
 		watchman
 		git
 	)
