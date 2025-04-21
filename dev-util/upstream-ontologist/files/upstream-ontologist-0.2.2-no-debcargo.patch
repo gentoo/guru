@@ -1,0 +1,13 @@
+debcargo pulls lots of extra dependencies.
+
+--- a/setup.py
++++ b/setup.py
+@@ -6,7 +6,7 @@ from setuptools_rust import Binding, RustExtension
+ 
+ extra_features = []
+ 
+-if sys.platform != "win32":
++if False:
+     extra_features.append("debcargo")
+ 
+ setup(
