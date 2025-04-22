@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David (stkw0) Roman <davidroman96@gmail.com> (2025-04-22)
+# Unmaintained in GURU. Last release on 2021
+# Removal on 2025-05-22.
+dev-util/reflex
+
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-04-21)
 # Unmaintained in GURU, no revdeps left.
 # Removal on 2025-05-21.
