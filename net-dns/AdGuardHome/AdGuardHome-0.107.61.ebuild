@@ -8,7 +8,7 @@ inherit fcaps go-module readme.gentoo-r1 systemd
 DESCRIPTION="Network-wide ads & trackers blocking DNS server like Pi-Hole with web ui"
 HOMEPAGE="https://github.com/AdguardTeam/AdGuardHome/"
 
-WIKI_COMMIT="5657b4b"
+WIKI_COMMIT="ad09f2b"
 SRC_URI="
 	https://github.com/AdguardTeam/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/deps.tar.xz -> ${P}-deps.tar.xz
