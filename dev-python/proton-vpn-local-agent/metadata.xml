@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+	<maintainer type="person">
+		<email>beatussum@protonmail.com</email>
+		<name>Mattéo Rossillol‑‑Laruelle</name>
+	</maintainer>
+
+	<upstream>
+		<maintainer status="active">
+			<name>ProtonVPN</name>
+		</maintainer>
+
+		<bugs-to>https://github.com/ProtonVPN/local-agent-rs/issues</bugs-to>
+		<remote-id type="github">ProtonVPN/local-agent-rs</remote-id>
+	</upstream>
+</pkgmetadata>
