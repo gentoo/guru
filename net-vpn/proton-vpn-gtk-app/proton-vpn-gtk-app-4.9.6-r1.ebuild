@@ -34,6 +34,8 @@ RDEPEND="
 	')
 "
 
+PATCHES=( "${FILESDIR}/${P}-remove-call-to-apt.patch" )
+
 src_install() {
 	distutils-r1_src_install
 
