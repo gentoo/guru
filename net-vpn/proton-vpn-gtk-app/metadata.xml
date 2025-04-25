@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>beatussum@protonmail.com</email>
+		<name>Mattéo Rossillol‑‑Laruelle</name>
+	</maintainer>
+
+	<stabilize-allarches/>
+
+	<upstream>
+		<maintainer status="active">
+			<name>Proton AG</name>
+			<email>opensource@proton.me</email>
+		</maintainer>
+
+		<bugs-to>https://github.com/ProtonVPN/proton-vpn-gtk-app/issues</bugs-to>
+		<remote-id type="github">ProtonVPN/proton-vpn-gtk-app</remote-id>
+	</upstream>
+</pkgmetadata>
