@@ -5,6 +5,9 @@
 		<email>nicolas.parlant@parhuet.fr</email>
 		<name>Nicolas PARLANT</name>
 	</maintainer>
+	<use>
+		<flag name="iptables">Include support for xtables.</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">NICMx/Jool</remote-id>
 	</upstream>
