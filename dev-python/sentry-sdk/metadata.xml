@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+	<maintainer type="person">
+		<email>beatussum@protonmail.com</email>
+		<name>Mattéo Rossillol‑‑Laruelle</name>
+	</maintainer>
+
+	<stabilize-allarches/>
+
+	<upstream>
+		<maintainer status="active">
+			<name>Sentry Team and Contributors</name>
+			<email>hello@sentry.io</email>
+		</maintainer>
+
+		<changelog>https://github.com/getsentry/sentry-python/blob/master/CHANGELOG.md</changelog>
+		<doc>https://docs.sentry.io/platforms/python/</doc>
+		<bugs-to>https://github.com/getsentry/sentry-python/issues</bugs-to>
+
+		<remote-id type="github">getsentry/sentry-python</remote-id>
+		<remote-id type="pypi">sentry-sdk</remote-id>
+	</upstream>
+</pkgmetadata>
