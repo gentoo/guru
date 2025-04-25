@@ -32,6 +32,7 @@ RDEPEND="
 "
 
 CONFIG_CHECK="~DUMMY ~WIREGUARD"
+PATCHES=( "${FILESDIR}/${P}-remove-call-to-apt.patch" )
 
 distutils_enable_tests pytest
 
