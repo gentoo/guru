@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David (stkw0) Roman <davidroman96@gmail.com> (2025-04-25)
+# No revdeps. PyQt5 is being deprecated
+# Removal on 2025-05-25.
+dev-python/PyQt5-stubs
+
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-04-22)
 # Unmaintained in GURU. Last release on 2021
 # Removal on 2025-05-22.
