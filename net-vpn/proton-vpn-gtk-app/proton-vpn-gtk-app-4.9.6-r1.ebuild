@@ -10,7 +10,7 @@ PYTHON_COMPAT=( python3_{11..13} )
 
 inherit desktop distutils-r1
 
-DESCRIPTION="Proton AG VPN Core API"
+DESCRIPTION="Proton VPN GTK app"
 HOMEPAGE="https://github.com/ProtonVPN/proton-vpn-gtk-app"
 SRC_URI="https://github.com/ProtonVPN/proton-vpn-gtk-app/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-3+"
