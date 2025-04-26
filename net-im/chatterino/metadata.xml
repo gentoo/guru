@@ -5,4 +5,8 @@
   <upstream>
     <remote-id type="github">Chatterino/chatterino2</remote-id>
   </upstream>
+  <use>
+    <flag name="plugins">Enable plugin support</flag>
+    <flag name="qtkeychain">Enable qtkeychain support to secure passwords</flag>
+  </use>
 </pkgmetadata>
