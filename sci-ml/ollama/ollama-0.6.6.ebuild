@@ -222,7 +222,6 @@ src_configure() {
 		CUDAHOSTLD="$(tc-getCXX)"
 
 		cuda_add_sandbox -w
-		addpredict "/dev/char/"
 	else
 		mycmakeargs+=(
 			-DCMAKE_CUDA_COMPILER="NOTFOUND"
