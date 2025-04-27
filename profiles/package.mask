@@ -85,11 +85,6 @@ games-emulation/duckstation
 # Removal on 2025-05-04. Bugs #934956, #937552.
 www-client/firefox-developer-bin
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-27)
-# Superseded by Beeper v4.
-# Removal on 2025-04-27.
-net-im/beeper:0
-
 # David Roman <davidroman96@gmail.com> (2025-03-12)
 # Uses deprecated EGO_SUM. Last release in 2023.
 # Removal on 2025-05-12
