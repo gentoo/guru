@@ -90,11 +90,6 @@ www-client/firefox-developer-bin
 # Removal on 2025-04-27.
 net-im/beeper:0
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-25)
-# Unmaintained in GURU, no revdeps left.
-# Removal on 2025-04-25.
-dev-python/defcon
-
 # David Roman <davidroman96@gmail.com> (2025-03-12)
 # Uses deprecated EGO_SUM. Last release in 2023.
 # Removal on 2025-05-12
