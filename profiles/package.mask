@@ -95,12 +95,6 @@ net-im/beeper:0
 # Removal on 2025-04-25.
 dev-python/defcon
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-03-25)
-# Unmaintained in GURU, no revdeps left. No working tests, because test
-# dependencies are not worth packaging and maintaining.
-# Removal on 2025-04-25.
-dev-python/notofonttools
-
 # David Roman <davidroman96@gmail.com> (2025-03-12)
 # Uses deprecated EGO_SUM. Last release in 2023.
 # Removal on 2025-05-12
