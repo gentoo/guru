@@ -26,7 +26,7 @@ LICENSE="|| ( JetBrains-business JetBrains-classroom JetBrains-educational JetBr
 		OFL-1.1
 		ZLIB
 "
-SLOT="0/2024"
+SLOT="0/2025"
 KEYWORDS="~amd64"
 IUSE="wayland"
 
@@ -46,7 +46,7 @@ RDEPEND="
 src_unpack() {
 		# WebStorm unarchived directory is in format WebStorm-xxx.yyy.zzz, not ${P}
 		cp "${DISTDIR}"/WebStorm-${PV}.tar.gz "${WORKDIR}"/ || die
-		mkdir -p "${P}"
+		mkdir -p "${P}" || die
 		tar --strip-components=1 -xzf "WebStorm-${PV}".tar.gz -C "${P}" || die
 }
 
