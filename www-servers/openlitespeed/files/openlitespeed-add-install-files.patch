@@ -1,0 +1,84 @@
+I plan to eventually change the patch to install openlitespeed in the appropriate location instead of installing it in /usr/local/lsws/.
+diff --git a/dist/bin/lswsctrl b/dist/bin/lswsctrl
+index 0da2490e..6c294b35 100755
+--- a/dist/bin/lswsctrl
++++ b/dist/bin/lswsctrl
+@@ -7,7 +7,7 @@ PROG="$0"
+ #    WSWATCH=1
+ #fi
+ 
+-EXECUTABLE=litespeed
++EXECUTABLE=openlitespeed
+ DESC="litespeed"
+ BASE_DIR=`dirname "$PROG"`
+ cd "$BASE_DIR"
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 34df52ff..90145c9a 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -178,6 +178,64 @@ target_link_libraries(ls_shmhashstat lsshm log4cxx edio util lsr pthread rt )
+ # target_link_libraries(shmlru_test ${litespeedlib} )
+ 
+ 
++file(MAKE_DIRECTORY ../dist/logs/)
++file(TOUCH ../dist/logs/lsrestart.log)
++install(FILES
++    ../dist/GPL.txt
++    ../dist/VERSION DESTINATION local/lsws
++)
++install(FILES ../dist/conf/httpd_config.conf DESTINATION local/lsws/conf)
++install(FILES
++    ../dist/conf/templates/rails.conf
++    ../dist/conf/templates/ccl.conf DESTINATION local/lsws/conf/templates
++)
++install(FILES
++    ../dist/conf/vhosts/Example/vhconf.conf
++    ../dist/conf/vhosts/Example/htgroup
++    ../dist/conf/vhosts/Example/htpasswd DESTINATION local/lsws/conf/vhosts/Example
++)
++install(FILES
++    ../dist/conf/mime.properties DESTINATION local/lsws/conf
++)
++install(FILES
++    ../dist/admin/conf/php.ini
++    ../dist/admin/conf/admin_config.conf DESTINATION local/lsws/admin/conf/
++)
++install(FILES
++    ../dist/admin/misc/convertxml.php
++    ../dist/admin/misc/gdb-bt
++    ../dist/admin/misc/genjCryptionKeyPair.php
++    ../dist/admin/misc/htpasswd.php
++    ../dist/admin/misc/lshttpd.service
++    ../dist/admin/misc/php.ini DESTINATION local/lsws/admin/misc
++)
++install(FILES
++    ../dist/admin/misc/admpass.sh
++    ../dist/admin/misc/build_admin_php.sh
++    ../dist/admin/misc/create_admin_keypair.sh
++    ../dist/admin/misc/convertxml.sh
++    ../dist/admin/misc/enable_phpa.sh
++    ../dist/admin/misc/gzipStatic.sh
++    ../dist/admin/misc/lscmctl
++    ../dist/admin/misc/lsup.sh
++    ../dist/admin/misc/lsws.rc
++    ../dist/admin/misc/lsws.rc.gentoo
++    ../dist/admin/misc/rc-inst.sh
++    ../dist/admin/misc/rc-uninst.sh
++    ../dist/admin/misc/testbeta.sh
++    ../dist/admin/misc/uninstall.sh DESTINATION local/lsws/admin/misc PERMISSIONS OWNER_READ OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
++)
++install(FILES ../dist/bin/lswsctrl DESTINATION local/lsws/bin PERMISSIONS OWNER_READ OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
++install(DIRECTORY
++    ../dist/fcgi-bin
++    ../dist/add-ons
++    ../dist/lsrecaptcha
++    ../dist/docs
++    ../dist/logs
++    ../dist/Example
++    ../dist/share DESTINATION local/lsws
++)
++install(DIRECTORY ../dist/admin/html.open DESTINATION local/lsws/admin/html.open)
+ 
+-install(TARGETS openlitespeed DESTINATION bin)
++install(TARGETS openlitespeed DESTINATION local/lsws/bin)
+ 
