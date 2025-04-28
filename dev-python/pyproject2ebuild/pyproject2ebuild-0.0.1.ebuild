@@ -3,20 +3,15 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_11 python3_12 )
+PYTHON_COMPAT=( python3_1{1..3})
 
 inherit distutils-r1
+DISTUTILS_USE_PEP517=setuptools
 
 DESCRIPTION="Convert pyproject.toml to Gentoo ebuilds automatically."
-HOMEPAGE=""
-SRC_URI="https://pypi.io/packages/source/p/pyproject2ebuild/pyproject2ebuild-0.0.1.tar.gz"
+HOMEPAGE="https://gitlab.com/oz123/pyproject2ebuild"
+SRC_URI="https://pypi.io/packages/source/p/${PN}/${PN}-${PV}.tar.gz"
 
-LICENSE="GPL-3.0-or-later"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
-
-DEPEND="
-	
-"
-RDEPEND="${DEPEND}"
-
