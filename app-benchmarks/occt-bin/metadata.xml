@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>undefined.behavior</name>
+		<email>bugs.gentoo@igrek.fastem.com</email>
+	</maintainer>
+	<use>
+		<flag name="msr-user-access">Allow non-root access to /dev/cpu/*/msr to read CPU power/voltage</flag>
+	</use>
+</pkgmetadata>

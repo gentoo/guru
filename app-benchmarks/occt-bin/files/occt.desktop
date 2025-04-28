@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=OCCT
+GenericName=OCCT Stability Test
+Categories=System;Monitor;
+Comment=Free, all-in-one stability, stress test, benchmark and monitoring tool for your PC
+Keywords=cpu;memory;gpu;stress;stability;vram;monitor;
+Exec=/opt/occt/occt
+Path=/opt/occt
+Icon=occt
+SingleMainWindow=true
+StartupWMClass=OCCT
+Terminal=false
+Type=Application

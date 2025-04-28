@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="msr", MODE="0666"
