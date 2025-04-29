@@ -5,6 +5,7 @@
 pidfile=/var/run/monerod.pid
 command=/usr/bin/monerod
 command_args="${monerod_args}"
+command_progress=1
 start_stop_daemon_args="-u ${monerod_user} -b -m -p ${pidfile}"
 retry="SIGTERM/30/SIGKILL/5"
 
