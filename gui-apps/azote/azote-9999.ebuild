@@ -20,6 +20,7 @@ fi
 
 LICENSE="GPL-3 BSD"
 SLOT="0"
+IUSE="avif heif jpegxl"
 
 RDEPEND="
 	dev-cpp/gtkmm:3.0
@@ -27,6 +28,8 @@ RDEPEND="
 	dev-python/pygobject:3=[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/send2trash[${PYTHON_USEDEP}]
+	heif? ( dev-python/pillow-heif )
+	jpegxl? ( dev-python/pillow-jxl-plugin )
 "
 
 DOCS=( README.md )
