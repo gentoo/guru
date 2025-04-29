@@ -1,11 +1,6 @@
-<<<<<<< Updated upstream
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 # RavFX (2025) Bump version and remove deprecated plugins
-=======
-# Copyright 1999-2024 Gentoo Authors
-# Distributed under the terms of the GNU General Public License v2
->>>>>>> Stashed changes
 
 EAPI=8
 
@@ -23,11 +18,7 @@ SRC_URI="
 LICENSE="BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-<<<<<<< Updated upstream
 IUSE="bounties calc crowdfunding home qrcode revuo tickers xmrig"
-=======
-IUSE="bounties calc crowdfunding exchange home localmonero qrcode reddit revuo tickers xmrig"
->>>>>>> Stashed changes
 DEPEND="
 	dev-libs/libsodium:=
 	media-gfx/qrencode:=
@@ -77,16 +68,8 @@ src_configure() {
 		-DWITH_PLUGIN_TICKERS=$(usex tickers)
 		-DWITH_PLUGIN_CROWDFUNDING=$(usex crowdfunding)
 		-DWITH_PLUGIN_BOUNTIES=$(usex bounties)
-<<<<<<< Updated upstream
 		-DWITH_PLUGIN_REVUO=$(usex revuo)
 		-DWITH_PLUGIN_CALC=$(usex calc)
-=======
-		-DWITH_PLUGIN_REDDIT=$(usex reddit)
-		-DWITH_PLUGIN_REVUO=$(usex revuo)
-		-DWITH_PLUGIN_CALC=$(usex calc)
-		-DWITH_PLUGIN_EXCHANGE=$(usex exchange)
-		-DWITH_PLUGIN_LOCALMONERO=$(usex localmonero)
->>>>>>> Stashed changes
 		-DWITH_PLUGIN_XMRIG=$(usex xmrig)
 		-DCHECK_UPDATES=OFF
 		-DPLATFORM_INSTALLER=OFF
