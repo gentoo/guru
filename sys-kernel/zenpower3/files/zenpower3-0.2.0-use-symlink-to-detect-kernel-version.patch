@@ -1,0 +1,28 @@
+From 07dd08e27ecd4580040a9acf2c1d3b910cf23131 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Gon=C3=A7alo=20Negrier=20Duarte?=
+ <gonegrier.duarte@gmail.com>
+Date: Tue, 29 Apr 2025 13:40:28 +0100
+Subject: [PATCH] zenpower3: use KV_FULL to detect kernel version.
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Gonçalo Negrier Duarte <gonegrier.duarte@gmail.com>
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 0dcb668..b24c7be 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,5 +1,5 @@
+ VERSION         := 0.2.0
+-TARGET          := $(shell uname -r)
++TARGET          := ${KV_FULL}
+ DKMS_ROOT_PATH  := /usr/src/zenpower-$(VERSION)
+ 
+ KERNEL_MODULES	:= /lib/modules/$(TARGET)
+-- 
+2.49.0
+

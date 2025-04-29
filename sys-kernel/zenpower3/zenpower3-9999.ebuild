@@ -16,7 +16,7 @@ if [[ ${PV} == "9999" ]]; then
 	# Mantain fork of zenpower3
 	EGIT_REPO_URI="https://github.com/koweda/zenpower3"
 else
-	SRC_URI="https://github.com/koweda/zenpower3/archive/v0.2.0.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/koweda/zenpower3/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${P}"
 	KEYWORDS="~amd64"
 fi
@@ -26,7 +26,10 @@ SLOT="0"
 
 CONFIG_CHECK="HWMON PCI AMD_NB"
 
-PATCHES="${FILESDIR}/${PN}-use-symlink-to-detect-kernel-version.patch"
+PATCHES="
+	${FILESDIR}/${P}-use-symlink-to-detect-kernel-version.patch
+	${FILESDIR}/${PN}-amd_pci_dev_to_node_id-kernel-6.14.patch
+"
 
 src_compile() {
 	MODULES_MAKEARGS+=(

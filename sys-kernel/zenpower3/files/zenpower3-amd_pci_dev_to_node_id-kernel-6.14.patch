@@ -1,0 +1,43 @@
+From c3f5b941864c978f39e91199abc8b8445924c8b3 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Gon=C3=A7alo=20Negrier=20Duarte?=
+ <gonegrier.duarte@gmail.com>
+Date: Tue, 29 Apr 2025 13:47:47 +0100
+Subject: [PATCH] Implement amd_pci_dev_to_node_id from Kernel 6.14
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Gonçalo Negrier Duarte <gonegrier.duarte@gmail.com>
+---
+ zenpower.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/zenpower.c b/zenpower.c
+index 6d47732..dedba5c 100644
+--- a/zenpower.c
++++ b/zenpower.c
+@@ -35,6 +35,7 @@
+ #include <linux/hwmon.h>
+ #include <linux/module.h>
+ #include <linux/pci.h>
++#include <linux/version.h>
+ #include <asm/amd_nb.h>
+ 
+ MODULE_DESCRIPTION("AMD ZEN family CPU Sensors Driver");
+@@ -150,6 +151,13 @@ static const struct tctl_offset tctl_offset_table[] = {
+ static DEFINE_MUTEX(nb_smu_ind_mutex);
+ static bool multicpu = false;
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 14, 0)
++static u16 amd_pci_dev_to_node_id(struct pci_dev *pdev)
++{
++	return PCI_SLOT(pdev->devfn) - AMD_NODE0_PCI_SLOT;
++}
++#endif
++
+ static umode_t zenpower_is_visible(const void *rdata,
+ 									enum hwmon_sensor_types type,
+ 									u32 attr, int channel)
+-- 
+2.49.0
+
