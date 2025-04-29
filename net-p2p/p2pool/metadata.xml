@@ -5,6 +5,9 @@
 		<email>adam.pimentel46@gmail.com</email>
 		<name>Adam Pimentel</name>
 	</maintainer>
+	<use>
+		<flag name="daemon">Install OpenRC scripts allowing for running p2pool as a system service</flag>
+	</use>
 	<upstream>
 		<bugs-to>https://github.com/SChernykh/p2pool/issues</bugs-to>
 		<changelog>https://github.com/SChernykh/p2pool/releases</changelog>
