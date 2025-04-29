@@ -6,6 +6,8 @@
 		<name>Adam Pimentel</name>
 	</maintainer>
 	<upstream>
+		<bugs-to>https://github.com/SChernykh/p2pool/issues</bugs-to>
+		<changelog>https://github.com/SChernykh/p2pool/releases</changelog>
 		<remote-id type="github">SChernykh/p2pool</remote-id>
 	</upstream>
 </pkgmetadata>
