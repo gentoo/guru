@@ -147,8 +147,6 @@ multilib_check_headers() {
 multilib_src_install_all() {
 	default
 	einfo "Removing unused LLVM parts…"
-	rm "${ED}"/usr/lib/libLTO* || die "Can't remove unused LLVM lto library"
-	rm "${ED}"/usr/lib/libRemarks* || die "Can't remove unused LLVM libRemarks library"
 	rm -r "${ED}"/usr/lib/cmake || die "Can't remove unused LLVM cmake folder"
 	einfo "Removal done"
 }
