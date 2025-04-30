@@ -3,9 +3,6 @@
 
 EAPI=8
 
-CMAKE_MAKEFILE_GENERATOR="emake"
-CMAKE_BUILD_TYPE=Release
-
 inherit git-r3 cmake
 
 DESCRIPTION="Klassy QT6 window decoration theme for KDE Plasma 6.3+"
