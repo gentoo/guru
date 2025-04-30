@@ -18,6 +18,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND=""
+# Testing is unsupported in upstream.
+RESTRICT="test"
 RDEPEND="${DEPEND}"
 BDEPEND="=kde-frameworks/frameworkintegration-6.13.0
 		 =kde-frameworks/frameworkintegration-5.116.0
