@@ -1,0 +1,1329 @@
+From 2543c3e584c9553e5ad33f410fc031c680ed2379 Mon Sep 17 00:00:00 2001
+From: Foxinatel <nathanielma5on@yahoo.com>
+Date: Fri, 10 Jan 2025 16:08:24 +0000
+Subject: [PATCH 1/2] naive bump from KDecoration2 to KDecoration3 for Plasma
+ 6.3
+
+---
+ CMakeLists.txt                         |   2 +-
+ README.md                              |   4 +-
+ kdecoration/CMakeLists.txt             |   2 +-
+ kdecoration/breezebutton.cpp           |  90 +++++------
+ kdecoration/breezebutton.h             |  10 +-
+ kdecoration/breezedecoration.cpp       | 204 ++++++++++++-------------
+ kdecoration/breezedecoration.h         |  46 +++---
+ kdecoration/breezesettingsprovider.cpp |   2 +-
+ kdecoration/config/CMakeLists.txt      |   2 +-
+ kdecoration/config/buttoncolors.cpp    |   2 +-
+ kstyle/breezehelper.cpp                |   2 +-
+ libbreezecommon/breeze.h               |  31 ++--
+ 12 files changed, 198 insertions(+), 199 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 27cc41efc..ecb0aee1e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -165,7 +165,7 @@ function(build_Qt6)
+     add_subdirectory(libbreezecommon libbreezecommon6)
+ 
+     if(WITH_DECORATIONS)
+-        find_package(KDecoration2 REQUIRED)
++        find_package(KDecoration3 REQUIRED)
+         add_subdirectory(kdecoration)
+         add_subdirectory(icons)
+         add_subdirectory(layout-templates)
+diff --git a/README.md b/README.md
+index e4fc72caf..3f9e880f8 100644
+--- a/README.md
++++ b/README.md
+@@ -86,7 +86,7 @@ sudo zypper in git cmake kf6-extra-cmake-modules gettext
+ ```
+ 
+ ```
+-sudo zypper in "cmake(KF5Config)" "cmake(KF5CoreAddons)" "cmake(KF5FrameworkIntegration)"  "cmake(KF5GuiAddons)" "cmake(KF5Kirigami2)" "cmake(KF5WindowSystem)" "cmake(KF5I18n)" "cmake(KF5KCMUtils)" "cmake(Qt5DBus)" "cmake(Qt5Quick)" "cmake(Qt5Widgets)" "cmake(Qt5X11Extras)" "cmake(KDecoration2)" "cmake(KF6ColorScheme)" "cmake(KF6Config)" "cmake(KF6CoreAddons)" "cmake(KF6FrameworkIntegration)" "cmake(KF6GuiAddons)" "cmake(KF6I18n)" "cmake(KF6KCMUtils)" "cmake(KF6KirigamiPlatform)" "cmake(KF6WindowSystem)" "cmake(Qt6Core)" "cmake(Qt6DBus)" "cmake(Qt6Quick)" "cmake(Qt6Svg)" "cmake(Qt6Widgets)" "cmake(Qt6Xml)"
++sudo zypper in "cmake(KF5Config)" "cmake(KF5CoreAddons)" "cmake(KF5FrameworkIntegration)"  "cmake(KF5GuiAddons)" "cmake(KF5Kirigami2)" "cmake(KF5WindowSystem)" "cmake(KF5I18n)" "cmake(KF5KCMUtils)" "cmake(Qt5DBus)" "cmake(Qt5Quick)" "cmake(Qt5Widgets)" "cmake(Qt5X11Extras)" "cmake(KDecoration3)" "cmake(KF6ColorScheme)" "cmake(KF6Config)" "cmake(KF6CoreAddons)" "cmake(KF6FrameworkIntegration)" "cmake(KF6GuiAddons)" "cmake(KF6I18n)" "cmake(KF6KCMUtils)" "cmake(KF6KirigamiPlatform)" "cmake(KF6WindowSystem)" "cmake(Qt6Core)" "cmake(Qt6DBus)" "cmake(Qt6Quick)" "cmake(Qt6Svg)" "cmake(Qt6Widgets)" "cmake(Qt6Xml)"
+ ```
+ 
+ #### Debian/Ubuntu build dependencies
+@@ -110,7 +110,7 @@ sudo dnf install git cmake extra-cmake-modules gettext
+ ```
+ 
+ ```
+-sudo dnf install "cmake(KF5Config)" "cmake(KF5CoreAddons)" "cmake(KF5FrameworkIntegration)"  "cmake(KF5GuiAddons)" "cmake(KF5Kirigami2)" "cmake(KF5WindowSystem)" "cmake(KF5I18n)" "cmake(Qt5DBus)" "cmake(Qt5Quick)" "cmake(Qt5Widgets)" "cmake(Qt5X11Extras)" "cmake(KDecoration2)" "cmake(KF6ColorScheme)" "cmake(KF6Config)" "cmake(KF6CoreAddons)" "cmake(KF6FrameworkIntegration)" "cmake(KF6GuiAddons)" "cmake(KF6I18n)" "cmake(KF6KCMUtils)" "cmake(KF6KirigamiPlatform)" "cmake(KF6WindowSystem)" "cmake(Qt6Core)" "cmake(Qt6DBus)" "cmake(Qt6Quick)" "cmake(Qt6Svg)" "cmake(Qt6Widgets)" "cmake(Qt6Xml)"
++sudo dnf install "cmake(KF5Config)" "cmake(KF5CoreAddons)" "cmake(KF5FrameworkIntegration)"  "cmake(KF5GuiAddons)" "cmake(KF5Kirigami2)" "cmake(KF5WindowSystem)" "cmake(KF5I18n)" "cmake(Qt5DBus)" "cmake(Qt5Quick)" "cmake(Qt5Widgets)" "cmake(Qt5X11Extras)" "cmake(KDecoration3)" "cmake(KF6ColorScheme)" "cmake(KF6Config)" "cmake(KF6CoreAddons)" "cmake(KF6FrameworkIntegration)" "cmake(KF6GuiAddons)" "cmake(KF6I18n)" "cmake(KF6KCMUtils)" "cmake(KF6KirigamiPlatform)" "cmake(KF6WindowSystem)" "cmake(Qt6Core)" "cmake(Qt6DBus)" "cmake(Qt6Quick)" "cmake(Qt6Svg)" "cmake(Qt6Widgets)" "cmake(Qt6Xml)"
+ ```
+ 
+ ### Step 2: Then download, build and install
+diff --git a/kdecoration/CMakeLists.txt b/kdecoration/CMakeLists.txt
+index 414dac1cb..59f798394 100644
+--- a/kdecoration/CMakeLists.txt
++++ b/kdecoration/CMakeLists.txt
+@@ -33,7 +33,7 @@ target_link_libraries(klassydecoration
+         KF6::I18n
+         KF6::IconThemes
+         KF6::WindowSystem
+-        KDecoration2::KDecoration
++        KDecoration3::KDecoration
+ )
+ 
+ install(TARGETS klassydecoration DESTINATION ${KDE_INSTALL_PLUGINDIR}/${KDECORATION_PLUGIN_DIR})
+diff --git a/kdecoration/breezebutton.cpp b/kdecoration/breezebutton.cpp
+index ea7831c20..07d439ff3 100644
+--- a/kdecoration/breezebutton.cpp
++++ b/kdecoration/breezebutton.cpp
+@@ -14,8 +14,8 @@
+ 
+ #include <KColorScheme>
+ #include <KColorUtils>
+-#include <KDecoration2/DecoratedClient>
+-#include <KDecoration2/DecorationButtonGroup>
++#include <KDecoration3/DecoratedWindow>
++#include <KDecoration3/DecorationButtonGroup>
+ #include <KIconLoader>
+ #include <KWindowSystem>
+ 
+@@ -26,17 +26,17 @@
+ namespace Breeze
+ {
+ 
+-using KDecoration2::ColorGroup;
+-using KDecoration2::ColorRole;
++using KDecoration3::ColorGroup;
++using KDecoration3::ColorRole;
+ 
+ //__________________________________________________________________
+-Button::Button(KDecoration2::DecorationButtonType type, Decoration *decoration, QObject *parent)
++Button::Button(KDecoration3::DecorationButtonType type, Decoration *decoration, QObject *parent)
+     : DecorationButton(type, decoration, parent)
+     , m_d(qobject_cast<Decoration *>(decoration))
+     , m_animation(new QVariantAnimation(this))
+     , m_isGtkCsdButton(false)
+ {
+-    auto c = decoration->client();
++    auto c = decoration->window();
+ 
+     // setup animation
+     // It is important start and end value are of the same type, hence 0.0 and not just 0
+@@ -66,16 +66,16 @@ Button::Button(KDecoration2::DecorationButtonType type, Decoration *decoration,
+     // connections
+     connect(c, SIGNAL(iconChanged(QIcon)), this, SLOT(update()));
+     connect(decoration, &Decoration::reconfigured, this, &Button::reconfigure);
+-    connect(this, &KDecoration2::DecorationButton::hoveredChanged, this, &Button::updateAnimationState);
+-    connect(this, &KDecoration2::DecorationButton::hoveredChanged, this, &Button::updateThinWindowOutlineWithButtonColor);
+-    connect(this, &KDecoration2::DecorationButton::pressedChanged, this, &Button::updateThinWindowOutlineWithButtonColor);
++    connect(this, &KDecoration3::DecorationButton::hoveredChanged, this, &Button::updateAnimationState);
++    connect(this, &KDecoration3::DecorationButton::hoveredChanged, this, &Button::updateThinWindowOutlineWithButtonColor);
++    connect(this, &KDecoration3::DecorationButton::pressedChanged, this, &Button::updateThinWindowOutlineWithButtonColor);
+ 
+     reconfigure();
+ }
+ 
+ //__________________________________________________________________
+ Button::Button(QObject *parent, const QVariantList &args)
+-    : Button(args.at(0).value<KDecoration2::DecorationButtonType>(), args.at(1).value<Decoration *>(), parent)
++    : Button(args.at(0).value<KDecoration3::DecorationButtonType>(), args.at(1).value<Decoration *>(), parent)
+ {
+     m_standAlone = true;
+     //! small button size must return to !valid because it was altered from the default constructor,
+@@ -84,40 +84,40 @@ Button::Button(QObject *parent, const QVariantList &args)
+ }
+ 
+ //__________________________________________________________________
+-Button *Button::create(KDecoration2::DecorationButtonType type, KDecoration2::Decoration *decoration, QObject *parent)
++Button *Button::create(KDecoration3::DecorationButtonType type, KDecoration3::Decoration *decoration, QObject *parent)
+ {
+     if (auto d = qobject_cast<Decoration *>(decoration)) {
+-        auto c = d->client();
++        auto c = d->window();
+ 
+         Button *b = new Button(type, d, parent);
+         switch (type) {
+-        case KDecoration2::DecorationButtonType::Close:
++        case KDecoration3::DecorationButtonType::Close:
+             b->setVisible(c->isCloseable());
+-            QObject::connect(c, &KDecoration2::DecoratedClient::closeableChanged, b, &Breeze::Button::setVisible);
++            QObject::connect(c, &KDecoration3::DecoratedWindow::closeableChanged, b, &Breeze::Button::setVisible);
+             break;
+ 
+-        case KDecoration2::DecorationButtonType::Maximize:
++        case KDecoration3::DecorationButtonType::Maximize:
+             b->setVisible(c->isMaximizeable());
+-            QObject::connect(c, &KDecoration2::DecoratedClient::maximizeableChanged, b, &Breeze::Button::setVisible);
++            QObject::connect(c, &KDecoration3::DecoratedWindow::maximizeableChanged, b, &Breeze::Button::setVisible);
+             break;
+ 
+-        case KDecoration2::DecorationButtonType::Minimize:
++        case KDecoration3::DecorationButtonType::Minimize:
+             b->setVisible(c->isMinimizeable());
+-            QObject::connect(c, &KDecoration2::DecoratedClient::minimizeableChanged, b, &Breeze::Button::setVisible);
++            QObject::connect(c, &KDecoration3::DecoratedWindow::minimizeableChanged, b, &Breeze::Button::setVisible);
+             break;
+ 
+-        case KDecoration2::DecorationButtonType::ContextHelp:
++        case KDecoration3::DecorationButtonType::ContextHelp:
+             b->setVisible(c->providesContextHelp());
+-            QObject::connect(c, &KDecoration2::DecoratedClient::providesContextHelpChanged, b, &Breeze::Button::setVisible);
++            QObject::connect(c, &KDecoration3::DecoratedWindow::providesContextHelpChanged, b, &Breeze::Button::setVisible);
+             break;
+ 
+-        case KDecoration2::DecorationButtonType::Shade:
++        case KDecoration3::DecorationButtonType::Shade:
+             b->setVisible(c->isShadeable());
+-            QObject::connect(c, &KDecoration2::DecoratedClient::shadeableChanged, b, &Breeze::Button::setVisible);
++            QObject::connect(c, &KDecoration3::DecoratedWindow::shadeableChanged, b, &Breeze::Button::setVisible);
+             break;
+ 
+-        case KDecoration2::DecorationButtonType::Menu:
+-            QObject::connect(c, &KDecoration2::DecoratedClient::iconChanged, b, [b]() {
++        case KDecoration3::DecorationButtonType::Menu:
++            QObject::connect(c, &KDecoration3::DecoratedWindow::iconChanged, b, [b]() {
+                 b->update();
+             });
+             break;
+@@ -133,7 +133,7 @@ Button *Button::create(KDecoration2::DecorationButtonType type, KDecoration2::De
+ }
+ 
+ //__________________________________________________________________
+-void Button::paint(QPainter *painter, const QRect &repaintRegion)
++void Button::paint(QPainter *painter, const QRectF &repaintRegion)
+ {
+     if (!geometry().intersects(repaintRegion)) {
+         return;
+@@ -141,7 +141,7 @@ void Button::paint(QPainter *painter, const QRect &repaintRegion)
+     if (!m_d) {
+         return;
+     }
+-    auto c = m_d->client();
++    auto c = m_d->window();
+ 
+     m_buttonPalette =
+         m_d->decorationColors()->buttonPalette(static_cast<DecorationButtonType>(type())); // this is in paint() in-case caching type on m_buttonPalette changes
+@@ -170,7 +170,7 @@ void Button::paint(QPainter *painter, const QRect &repaintRegion)
+     painter->save();
+ 
+     // menu button (with application icon)
+-    if (type() == KDecoration2::DecorationButtonType::Menu) {
++    if (type() == KDecoration3::DecorationButtonType::Menu) {
+         // draw a background only with Full-sized background shapes;
+         // for standalone/GTK we draw small buttons so can't draw menu
+         if (m_d->buttonBackgroundType() == ButtonBackgroundType::FullHeight && !(isStandAlone() || m_isGtkCsdButton))
+@@ -271,7 +271,7 @@ void Button::drawIcon(QPainter *painter) const
+     painter->setPen(pen);
+ 
+     if (m_renderSystemIcon) {
+-        auto c = m_d->client();
++        auto c = m_d->window();
+         QString systemIconName;
+         systemIconName = isChecked() ? m_systemIconCheckedName : m_systemIconName;
+         SystemIconTheme iconRenderer(painter,
+@@ -310,16 +310,16 @@ QColor Button::foregroundColor(const bool getNonAnimatedColor) const
+     if (!m_d)
+         return QColor();
+ 
+-    auto c = m_d->client();
++    auto c = m_d->window();
+     const bool active = c->isActive();
+ 
+     // return a variant of normal, hover and press colours, depending on state
+     if (isPressed()) {
+         return foregroundPressActiveStateAnimated(active, getNonAnimatedColor);
+     } else if (isChecked()
+-               && (type() == KDecoration2::DecorationButtonType::KeepBelow || type() == KDecoration2::DecorationButtonType::KeepAbove
+-                   || type() == KDecoration2::DecorationButtonType::Shade
+-                   || (type() == KDecoration2::DecorationButtonType::OnAllDesktops && !m_titlebarTextPinnedInversion))) {
++               && (type() == KDecoration3::DecorationButtonType::KeepBelow || type() == KDecoration3::DecorationButtonType::KeepAbove
++                   || type() == KDecoration3::DecorationButtonType::Shade
++                   || (type() == KDecoration3::DecorationButtonType::OnAllDesktops && !m_titlebarTextPinnedInversion))) {
+         if (m_d->internalSettings()->buttonStateChecked(active) == InternalSettings::EnumButtonStateChecked::Hover) {
+             return foregroundHoverActiveStateAnimated(active, getNonAnimatedColor);
+         } else {
+@@ -407,16 +407,16 @@ QColor Button::backgroundColor(const bool getNonAnimatedColor) const
+         return QColor();
+     }
+ 
+-    auto c = m_d->client();
++    auto c = m_d->window();
+     const bool active = c->isActive();
+ 
+     // return a variant of normal, hover and press colours, depending on state
+     if (isPressed()) {
+         return backgroundPressActiveStateAnimated(active, getNonAnimatedColor);
+     } else if (isChecked()
+-               && (type() == KDecoration2::DecorationButtonType::KeepBelow || type() == KDecoration2::DecorationButtonType::KeepAbove
+-                   || type() == KDecoration2::DecorationButtonType::Shade
+-                   || (type() == KDecoration2::DecorationButtonType::OnAllDesktops && !m_titlebarTextPinnedInversion))) {
++               && (type() == KDecoration3::DecorationButtonType::KeepBelow || type() == KDecoration3::DecorationButtonType::KeepAbove
++                   || type() == KDecoration3::DecorationButtonType::Shade
++                   || (type() == KDecoration3::DecorationButtonType::OnAllDesktops && !m_titlebarTextPinnedInversion))) {
+         if (m_d->internalSettings()->buttonStateChecked(active) == InternalSettings::EnumButtonStateChecked::Hover) {
+             return backgroundHoverActiveStateAnimated(active, getNonAnimatedColor);
+         } else {
+@@ -503,16 +503,16 @@ QColor Button::outlineColor(const bool getNonAnimatedColor) const
+     if (!m_d)
+         return QColor();
+ 
+-    auto c = m_d->client();
++    auto c = m_d->window();
+     const bool active = c->isActive();
+ 
+     // return a variant of normal, hover and press colours, depending on state
+     if (isPressed()) {
+         return outlinePressActiveStateAnimated(active, getNonAnimatedColor);
+     } else if (isChecked()
+-               && (type() == KDecoration2::DecorationButtonType::KeepBelow || type() == KDecoration2::DecorationButtonType::KeepAbove
+-                   || type() == KDecoration2::DecorationButtonType::Shade
+-                   || (type() == KDecoration2::DecorationButtonType::OnAllDesktops && !m_titlebarTextPinnedInversion))) {
++               && (type() == KDecoration3::DecorationButtonType::KeepBelow || type() == KDecoration3::DecorationButtonType::KeepAbove
++                   || type() == KDecoration3::DecorationButtonType::Shade
++                   || (type() == KDecoration3::DecorationButtonType::OnAllDesktops && !m_titlebarTextPinnedInversion))) {
+         if (m_d->internalSettings()->buttonStateChecked(active) == InternalSettings::EnumButtonStateChecked::Hover) {
+             return outlineHoverActiveStateAnimated(active, getNonAnimatedColor);
+         } else {
+@@ -597,10 +597,10 @@ bool Button::titlebarTextPinnedInversion() const
+ {
+     if (!m_d)
+         return false;
+-    auto c = m_d->client();
++    auto c = m_d->window();
+     bool active = c->isActive();
+ 
+-    return type() == KDecoration2::DecorationButtonType::OnAllDesktops
++    return type() == KDecoration3::DecorationButtonType::OnAllDesktops
+         && m_d->internalSettings()->buttonIconStyle() != InternalSettings::EnumButtonIconStyle::StyleSystemIconTheme
+         && (m_d->internalSettings()->buttonBackgroundOpacity(active) > 50 && m_d->internalSettings()->buttonIconOpacity(active) > 50
+             && (((m_d->internalSettings()->buttonBackgroundColors(active) == InternalSettings::EnumButtonBackgroundColors::TitleBarText
+@@ -671,7 +671,7 @@ void Button::updateThinWindowOutlineWithButtonColor(bool on)
+         // This is to prevent glitches when you directly mouse over one button to another and the second button does not trigger on.
+         // In the case where another button is hovered/pressed do not send an off flag.
+         const auto decButtons = m_d->leftButtons()->buttons() + m_d->rightButtons()->buttons();
+-        for (KDecoration2::DecorationButton *decButton : decButtons) {
++        for (KDecoration3::DecorationButton *decButton : decButtons) {
+             Button *button = static_cast<Button *>(decButton);
+ 
+             if (button != this && (button->isHovered() || button->isPressed())) {
+@@ -788,7 +788,7 @@ void Button::paintFullHeightButtonBackground(QPainter *painter) const
+ 
+             outline = outline.subtracted(inner);
+         } else if (m_d->internalSettings()->buttonShape() == InternalSettings::EnumButtonShape::ShapeIntegratedRoundedRectangleGrouped) {
+-            if (type() != KDecoration2::DecorationButtonType::Menu) {
++            if (type() != KDecoration3::DecorationButtonType::Menu) {
+                 QPainterPath inner;
+                 qreal halfPenWidth = penWidth / 2;
+                 geometryShrinkOffsetHorizontal = halfPenWidth;
+@@ -954,7 +954,7 @@ void Button::paintFullHeightButtonBackground(QPainter *painter) const
+                 background = GeometryTools::roundedPath(backgroundBoundingRect, CornersBottom, cornerRadius);
+             }
+         } else if (m_d->internalSettings()->buttonShape() == InternalSettings::EnumButtonShape::ShapeIntegratedRoundedRectangleGrouped) {
+-            if (type() != KDecoration2::DecorationButtonType::Menu) {
++            if (type() != KDecoration3::DecorationButtonType::Menu) {
+                 painter->setPen(Qt::NoPen);
+                 bool visibleAfterSpacer = m_visibleAfterMenu || m_visibleAfterSpacer;
+                 bool visibleBeforeSpacer = m_visibleBeforeMenu || m_visibleBeforeSpacer;
+diff --git a/kdecoration/breezebutton.h b/kdecoration/breezebutton.h
+index 9c4f03b7b..d43c6af35 100644
+--- a/kdecoration/breezebutton.h
++++ b/kdecoration/breezebutton.h
+@@ -10,7 +10,7 @@
+ 
+ #include "breezedecoration.h"
+ #include "decorationbuttoncolors.h"
+-#include <KDecoration2/DecorationButton>
++#include <KDecoration3/DecorationButton>
+ 
+ #include <QHash>
+ #include <QImage>
+@@ -20,7 +20,7 @@ class QVariantAnimation;
+ namespace Breeze
+ {
+ 
+-class Button : public KDecoration2::DecorationButton
++class Button : public KDecoration3::DecorationButton
+ {
+     Q_OBJECT
+ 
+@@ -32,10 +32,10 @@ class Button : public KDecoration2::DecorationButton
+     virtual ~Button() = default;
+ 
+     //* button creation
+-    static Button *create(KDecoration2::DecorationButtonType type, KDecoration2::Decoration *decoration, QObject *parent);
++    static Button *create(KDecoration3::DecorationButtonType type, KDecoration3::Decoration *decoration, QObject *parent);
+ 
+     //* render
+-    void paint(QPainter *painter, const QRect &repaintRegion) override;
++    void paint(QPainter *painter, const QRectF &repaintRegion) override;
+ 
+     //* standalone buttons
+     bool isStandAlone() const
+@@ -187,7 +187,7 @@ private Q_SLOTS:
+ 
+ private:
+     //* private constructor
+-    explicit Button(KDecoration2::DecorationButtonType type, Decoration *decoration, QObject *parent = nullptr);
++    explicit Button(KDecoration3::DecorationButtonType type, Decoration *decoration, QObject *parent = nullptr);
+ 
+     //* draw button icon
+     void drawIcon(QPainter *) const;
+diff --git a/kdecoration/breezedecoration.cpp b/kdecoration/breezedecoration.cpp
+index f8f282524..105b7b4b2 100644
+--- a/kdecoration/breezedecoration.cpp
++++ b/kdecoration/breezedecoration.cpp
+@@ -19,8 +19,8 @@
+ #include "dbusupdatenotifier.h"
+ #include "geometrytools.h"
+ 
+-#include <KDecoration2/DecorationButtonGroup>
+-#include <KDecoration2/DecorationShadow>
++#include <KDecoration3/DecorationButtonGroup>
++#include <KDecoration3/DecorationShadow>
+ 
+ #include <KColorUtils>
+ #include <KConfigGroup>
+@@ -123,8 +123,8 @@ namespace Breeze
+ 
+ KSharedConfig::Ptr Decoration::s_kdeGlobalConfig = KSharedConfig::Ptr();
+ 
+-using KDecoration2::ColorGroup;
+-using KDecoration2::ColorRole;
++using KDecoration3::ColorGroup;
++using KDecoration3::ColorRole;
+ 
+ static std::mutex g_setGlobalLookAndFeelOptionsMutex;
+ 
+@@ -142,12 +142,12 @@ static int g_thinWindowOutlineStyleInactive = 0;
+ static QColor g_thinWindowOutlineColorActive = Qt::black;
+ static QColor g_thinWindowOutlineColorInactive = Qt::black;
+ static qreal g_thinWindowOutlineThickness = 1;
+-static std::shared_ptr<KDecoration2::DecorationShadow> g_sShadow;
+-static std::shared_ptr<KDecoration2::DecorationShadow> g_sShadowInactive;
++static std::shared_ptr<KDecoration3::DecorationShadow> g_sShadow;
++static std::shared_ptr<KDecoration3::DecorationShadow> g_sShadowInactive;
+ 
+ //________________________________________________________________
+ Decoration::Decoration(QObject *parent, const QVariantList &args)
+-    : KDecoration2::Decoration(parent, args)
++    : KDecoration3::Decoration(parent, args)
+     , m_animation(new QVariantAnimation(this))
+     , m_shadowAnimation(new QVariantAnimation(this))
+     , m_overrideOutlineFromButtonAnimation(new QVariantAnimation(this))
+@@ -185,7 +185,7 @@ void Decoration::setOpacity(qreal value)
+ //________________________________________________________________
+ QColor Decoration::titleBarColor(bool returnNonAnimatedColor) const
+ {
+-    auto c = client();
++    auto c = window();
+     if (hideTitleBar() && !m_internalSettings->useTitleBarColorForAllBorders())
+         return c->color(ColorGroup::Inactive, ColorRole::TitleBar);
+ 
+@@ -207,7 +207,7 @@ QColor Decoration::titleBarColor(bool returnNonAnimatedColor) const
+ //________________________________________________________________
+ QColor Decoration::titleBarSeparatorColor() const
+ {
+-    auto c = client();
++    auto c = window();
+     if (!m_internalSettings->drawTitleBarSeparator())
+         return QColor();
+     if (m_animation->state() == QAbstractAnimation::Running) {
+@@ -224,7 +224,7 @@ QColor Decoration::overriddenOutlineColorAnimateIn() const
+ {
+     QColor color = m_thinWindowOutlineOverride;
+     if (m_overrideOutlineFromButtonAnimation->state() == QAbstractAnimation::Running) {
+-        auto c = client();
++        auto c = window();
+         QColor originalColor;
+         c->isActive() ? originalColor = m_originalThinWindowOutlineActivePreOverride : originalColor = m_originalThinWindowOutlineInactivePreOverride;
+ 
+@@ -241,7 +241,7 @@ QColor Decoration::overriddenOutlineColorAnimateIn() const
+ QColor Decoration::overriddenOutlineColorAnimateOut(const QColor &destinationColor)
+ {
+     if (m_overrideOutlineFromButtonAnimation->state() == QAbstractAnimation::Running) {
+-        auto c = client();
++        auto c = window();
+         QColor originalColor;
+         c->isActive() ? originalColor = m_originalThinWindowOutlineActivePreOverride : originalColor = m_originalThinWindowOutlineInactivePreOverride;
+ 
+@@ -269,7 +269,7 @@ QColor Decoration::overriddenOutlineColorAnimateOut(const QColor &destinationCol
+ //________________________________________________________________
+ QColor Decoration::fontColor(bool returnNonAnimatedColor) const
+ {
+-    auto c = client();
++    auto c = window();
+ 
+     if (m_animation->state() == QAbstractAnimation::Running && !returnNonAnimatedColor) {
+         return KColorUtils::mix(m_decorationColors->inactive()->titleBarText, m_decorationColors->active()->titleBarText);
+@@ -285,7 +285,7 @@ bool Decoration::init()
+ void Decoration::init()
+ #endif
+ {
+-    auto c = client();
++    auto c = window();
+ 
+     reconfigureMain(true);
+     
+@@ -354,14 +354,14 @@ void Decoration::init()
+ 
+     updateTitleBar();
+     auto s = settings();
+-    connect(s.get(), &KDecoration2::DecorationSettings::borderSizeChanged, this, &Decoration::recalculateBorders);
+-    connect(s.get(), &KDecoration2::DecorationSettings::borderSizeChanged, this, &Decoration::updateBlur); // for the case when a border with transparency
++    connect(s.get(), &KDecoration3::DecorationSettings::borderSizeChanged, this, &Decoration::recalculateBorders);
++    connect(s.get(), &KDecoration3::DecorationSettings::borderSizeChanged, this, &Decoration::updateBlur); // for the case when a border with transparency
+ 
+     // a change in font might cause the borders to change
+-    connect(s.get(), &KDecoration2::DecorationSettings::fontChanged, this, &Decoration::recalculateBorders);
+-    connect(s.get(), &KDecoration2::DecorationSettings::fontChanged, this, &Decoration::updateBlur); // for the case when a border with transparency
+-    connect(s.get(), &KDecoration2::DecorationSettings::spacingChanged, this, &Decoration::recalculateBorders);
+-    connect(s.get(), &KDecoration2::DecorationSettings::spacingChanged, this, &Decoration::updateBlur); // for the case when a border with transparency
++    connect(s.get(), &KDecoration3::DecorationSettings::fontChanged, this, &Decoration::recalculateBorders);
++    connect(s.get(), &KDecoration3::DecorationSettings::fontChanged, this, &Decoration::updateBlur); // for the case when a border with transparency
++    connect(s.get(), &KDecoration3::DecorationSettings::spacingChanged, this, &Decoration::recalculateBorders);
++    connect(s.get(), &KDecoration3::DecorationSettings::spacingChanged, this, &Decoration::updateBlur); // for the case when a border with transparency
+ 
+     // color cache update
+     // The slot will only update if the UUID has changed, hence preventing unnecessary multiple colour cache updates
+@@ -372,41 +372,41 @@ void Decoration::init()
+             Q_EMIT reconfigured(); // this will trigger Button::reconfigure
+         }
+     });
+-    connect(c, &KDecoration2::DecoratedClient::paletteChanged, this, &Decoration::generateDecorationColorsOnClientPaletteUpdate);
++    connect(c, &KDecoration3::DecoratedWindow::paletteChanged, this, &Decoration::generateDecorationColorsOnClientPaletteUpdate);
+ 
+     // buttons
+-    connect(s.get(), &KDecoration2::DecorationSettings::spacingChanged, this, &Decoration::updateButtonsGeometryDelayed);
+-    connect(s.get(), &KDecoration2::DecorationSettings::decorationButtonsLeftChanged, this, &Decoration::updateButtonsGeometryDelayed);
+-    connect(s.get(), &KDecoration2::DecorationSettings::decorationButtonsRightChanged, this, &Decoration::updateButtonsGeometryDelayed);
++    connect(s.get(), &KDecoration3::DecorationSettings::spacingChanged, this, &Decoration::updateButtonsGeometryDelayed);
++    connect(s.get(), &KDecoration3::DecorationSettings::decorationButtonsLeftChanged, this, &Decoration::updateButtonsGeometryDelayed);
++    connect(s.get(), &KDecoration3::DecorationSettings::decorationButtonsRightChanged, this, &Decoration::updateButtonsGeometryDelayed);
+ 
+     // full reconfiguration
+-    connect(s.get(), &KDecoration2::DecorationSettings::reconfigured, this, &Decoration::reconfigure);
+-    connect(s.get(), &KDecoration2::DecorationSettings::reconfigured, this, &Decoration::updateButtonsGeometryDelayed);
+-
+-    connect(c, &KDecoration2::DecoratedClient::adjacentScreenEdgesChanged, this, &Decoration::recalculateBorders);
+-    connect(c, &KDecoration2::DecoratedClient::maximizedHorizontallyChanged, this, &Decoration::recalculateBorders);
+-    connect(c, &KDecoration2::DecoratedClient::maximizedVerticallyChanged, this, &Decoration::recalculateBorders);
+-    connect(c, &KDecoration2::DecoratedClient::shadedChanged, this, &Decoration::recalculateBorders);
+-    connect(c, &KDecoration2::DecoratedClient::shadedChanged, this, &Decoration::updateShadowOnShadedChange);
+-    connect(c, &KDecoration2::DecoratedClient::captionChanged, this, [this]() {
++    connect(s.get(), &KDecoration3::DecorationSettings::reconfigured, this, &Decoration::reconfigure);
++    connect(s.get(), &KDecoration3::DecorationSettings::reconfigured, this, &Decoration::updateButtonsGeometryDelayed);
++
++    connect(c, &KDecoration3::DecoratedWindow::adjacentScreenEdgesChanged, this, &Decoration::recalculateBorders);
++    connect(c, &KDecoration3::DecoratedWindow::maximizedHorizontallyChanged, this, &Decoration::recalculateBorders);
++    connect(c, &KDecoration3::DecoratedWindow::maximizedVerticallyChanged, this, &Decoration::recalculateBorders);
++    connect(c, &KDecoration3::DecoratedWindow::shadedChanged, this, &Decoration::recalculateBorders);
++    connect(c, &KDecoration3::DecoratedWindow::shadedChanged, this, &Decoration::updateShadowOnShadedChange);
++    connect(c, &KDecoration3::DecoratedWindow::captionChanged, this, [this]() {
+         // update the caption area
+         update(titleBar());
+     });
+ 
+-    connect(c, &KDecoration2::DecoratedClient::activeChanged, this, &Decoration::updateAnimationState);
+-    connect(c, &KDecoration2::DecoratedClient::activeChanged, this, &Decoration::updateOpaque);
+-    connect(c, &KDecoration2::DecoratedClient::activeChanged, this, &Decoration::updateBlur);
+-    connect(c, &KDecoration2::DecoratedClient::adjacentScreenEdgesChanged, this, &Decoration::updateTitleBar);
+-    connect(c, &KDecoration2::DecoratedClient::widthChanged, this, &Decoration::updateTitleBar);
+-    connect(c, &KDecoration2::DecoratedClient::sizeChanged, this, &Decoration::updateBlur);
++    connect(c, &KDecoration3::DecoratedWindow::activeChanged, this, &Decoration::updateAnimationState);
++    connect(c, &KDecoration3::DecoratedWindow::activeChanged, this, &Decoration::updateOpaque);
++    connect(c, &KDecoration3::DecoratedWindow::activeChanged, this, &Decoration::updateBlur);
++    connect(c, &KDecoration3::DecoratedWindow::adjacentScreenEdgesChanged, this, &Decoration::updateTitleBar);
++    connect(c, &KDecoration3::DecoratedWindow::widthChanged, this, &Decoration::updateTitleBar);
++    connect(c, &KDecoration3::DecoratedWindow::sizeChanged, this, &Decoration::updateBlur);
+ 
+-    connect(c, &KDecoration2::DecoratedClient::maximizedChanged, this, &Decoration::updateTitleBar);
+-    connect(c, &KDecoration2::DecoratedClient::maximizedChanged, this, &Decoration::updateOpaque);
++    connect(c, &KDecoration3::DecoratedWindow::maximizedChanged, this, &Decoration::updateTitleBar);
++    connect(c, &KDecoration3::DecoratedWindow::maximizedChanged, this, &Decoration::updateOpaque);
+ 
+-    connect(c, &KDecoration2::DecoratedClient::widthChanged, this, &Decoration::updateButtonsGeometry);
+-    connect(c, &KDecoration2::DecoratedClient::maximizedChanged, this, &Decoration::updateButtonsGeometry);
+-    connect(c, &KDecoration2::DecoratedClient::adjacentScreenEdgesChanged, this, &Decoration::updateButtonsGeometry);
+-    connect(c, &KDecoration2::DecoratedClient::shadedChanged, this, &Decoration::updateButtonsGeometry);
++    connect(c, &KDecoration3::DecoratedWindow::widthChanged, this, &Decoration::updateButtonsGeometry);
++    connect(c, &KDecoration3::DecoratedWindow::maximizedChanged, this, &Decoration::updateButtonsGeometry);
++    connect(c, &KDecoration3::DecoratedWindow::adjacentScreenEdgesChanged, this, &Decoration::updateButtonsGeometry);
++    connect(c, &KDecoration3::DecoratedWindow::shadedChanged, this, &Decoration::updateButtonsGeometry);
+ 
+     createButtons();
+     updateShadow();
+@@ -418,7 +418,7 @@ void Decoration::init()
+ //________________________________________________________________
+ void Decoration::updateTitleBar()
+ {
+-    auto c = client();
++    auto c = window();
+ 
+     const bool maximized = isMaximized();
+     int width, height, x, y;
+@@ -447,7 +447,7 @@ void Decoration::updateTitleBar()
+ void Decoration::updateAnimationState()
+ {
+     if (m_shadowAnimation->duration() > 0) {
+-        auto c = client();
++        auto c = window();
+         m_shadowAnimation->setDirection(c->isActive() ? QAbstractAnimation::Forward : QAbstractAnimation::Backward);
+         m_shadowAnimation->setEasingCurve(c->isActive() ? QEasingCurve::OutCubic : QEasingCurve::InCubic);
+         if (m_shadowAnimation->state() != QAbstractAnimation::Running) {
+@@ -459,7 +459,7 @@ void Decoration::updateAnimationState()
+     }
+ 
+     if (m_animation->duration() > 0) {
+-        auto c = client();
++        auto c = window();
+         m_animation->setDirection(c->isActive() ? QAbstractAnimation::Forward : QAbstractAnimation::Backward);
+         if (m_animation->state() != QAbstractAnimation::Running) {
+             m_animation->start();
+@@ -513,24 +513,24 @@ int Decoration::borderSize(bool bottom) const
+ 
+     } else {
+         switch (settings()->borderSize()) {
+-        case KDecoration2::BorderSize::None:
++        case KDecoration3::BorderSize::None:
+             return 0;
+-        case KDecoration2::BorderSize::NoSides:
++        case KDecoration3::BorderSize::NoSides:
+             return bottom ? qMax(4, baseSize) : 0;
+         default:
+-        case KDecoration2::BorderSize::Tiny:
++        case KDecoration3::BorderSize::Tiny:
+             return bottom ? qMax(4, baseSize) : baseSize;
+-        case KDecoration2::BorderSize::Normal:
++        case KDecoration3::BorderSize::Normal:
+             return baseSize * 2;
+-        case KDecoration2::BorderSize::Large:
++        case KDecoration3::BorderSize::Large:
+             return baseSize * 3;
+-        case KDecoration2::BorderSize::VeryLarge:
++        case KDecoration3::BorderSize::VeryLarge:
+             return baseSize * 4;
+-        case KDecoration2::BorderSize::Huge:
++        case KDecoration3::BorderSize::Huge:
+             return baseSize * 5;
+-        case KDecoration2::BorderSize::VeryHuge:
++        case KDecoration3::BorderSize::VeryHuge:
+             return baseSize * 6;
+-        case KDecoration2::BorderSize::Oversized:
++        case KDecoration3::BorderSize::Oversized:
+             return baseSize * 10;
+         }
+     }
+@@ -539,7 +539,7 @@ int Decoration::borderSize(bool bottom) const
+ //________________________________________________________________
+ void Decoration::reconfigureMain(const bool noUpdateShadow)
+ {
+-    auto c = client();
++    auto c = window();
+ 
+     SettingsProvider::self()->reconfigure();
+     m_internalSettings = SettingsProvider::self()->internalSettings(this);
+@@ -574,8 +574,8 @@ void Decoration::reconfigureMain(const bool noUpdateShadow)
+ 
+     m_colorSchemeHasHeaderColor = KColorScheme::isColorSetSupported(s_kdeGlobalConfig, KColorScheme::Header);
+ 
+-    // m_toolsAreaWillBeDrawn = ( m_colorSchemeHasHeaderColor && ( settings()->borderSize() == KDecoration2::BorderSize::None || settings()->borderSize() ==
+-    // KDecoration2::BorderSize::NoSides ) );
++    // m_toolsAreaWillBeDrawn = ( m_colorSchemeHasHeaderColor && ( settings()->borderSize() == KDecoration3::BorderSize::None || settings()->borderSize() ==
++    // KDecoration3::BorderSize::NoSides ) );
+     m_toolsAreaWillBeDrawn = (m_colorSchemeHasHeaderColor);
+ 
+     // animation
+@@ -641,7 +641,7 @@ void Decoration::updateDecorationColors(const QPalette &clientPalette, QByteArra
+             generateColors = true;
+         }
+ 
+-        // TODO: palette may not be a reliable indicator of the entire colour scheme - get an update to KDecoration2::DecoratedClient to read QString
++        // TODO: palette may not be a reliable indicator of the entire colour scheme - get an update to KDecoration3::DecoratedWindow to read QString
+         // m_colorScheme instead
+         if (!generateColors && palette != *m_decorationColors->basePalette()) {
+             generateColors = true;
+@@ -649,7 +649,7 @@ void Decoration::updateDecorationColors(const QPalette &clientPalette, QByteArra
+     }
+ 
+     if (generateColors) {
+-        auto c = client();
++        auto c = window();
+ 
+         QColor activeTitleBarBase = c->color(ColorGroup::Active, ColorRole::TitleBar);
+         QColor inactiveTitlebarBase = c->color(ColorGroup::Inactive, ColorRole::TitleBar);
+@@ -678,7 +678,7 @@ void Decoration::generateDecorationColorsOnClientPaletteUpdate(const QPalette &c
+ 
+ void Decoration::generateDecorationColorsOnDecorationColorSettingsUpdate(QByteArray uuid)
+ {
+-    auto c = client();
++    auto c = window();
+     QPalette clientPalette = c->palette();
+ 
+     SettingsProvider::self()->reconfigure();
+@@ -690,7 +690,7 @@ void Decoration::generateDecorationColorsOnDecorationColorSettingsUpdate(QByteAr
+ 
+ void Decoration::generateDecorationColorsOnSystemColorSettingsUpdate(QByteArray uuid)
+ {
+-    auto c = client();
++    auto c = window();
+     QPalette clientPalette = c->palette();
+ 
+     SettingsProvider::self()->reconfigure();
+@@ -733,7 +733,7 @@ void Decoration::setGlobalLookAndFeelOptions(QString lookAndFeelPackageName)
+ //________________________________________________________________
+ void Decoration::recalculateBorders()
+ {
+-    auto c = client();
++    auto c = window();
+     auto s = settings();
+ 
+     setScaledTitleBarTopBottomMargins();
+@@ -797,8 +797,8 @@ void Decoration::recalculateBorders()
+ //________________________________________________________________
+ void Decoration::createButtons()
+ {
+-    m_leftButtons = new KDecoration2::DecorationButtonGroup(KDecoration2::DecorationButtonGroup::Position::Left, this, &Button::create);
+-    m_rightButtons = new KDecoration2::DecorationButtonGroup(KDecoration2::DecorationButtonGroup::Position::Right, this, &Button::create);
++    m_leftButtons = new KDecoration3::DecorationButtonGroup(KDecoration3::DecorationButtonGroup::Position::Left, this, &Button::create);
++    m_rightButtons = new KDecoration3::DecorationButtonGroup(KDecoration3::DecorationButtonGroup::Position::Right, this, &Button::create);
+     updateButtonsGeometry();
+ }
+ 
+@@ -845,7 +845,7 @@ void Decoration::updateButtonsGeometry()
+ 
+             qreal shiftUpWithOutline = 0; // how much to shift up the icon to appear more centred - only do when there is a colorizeThinWindowOutlineWithButton
+                                           // or not window outline none/shadow
+-            if (!client()->isMaximized()
++            if (!window()->isMaximized()
+                 && (((m_internalSettings->showOutlineOnHover(true) || m_internalSettings->showOutlineOnHover(false))
+                      && (m_internalSettings->colorizeThinWindowOutlineWithButton()
+                          || !((m_internalSettings->thinWindowOutlineStyle(true) == InternalSettings::EnumThinWindowOutlineStyle::WindowOutlineNone
+@@ -902,7 +902,7 @@ void Decoration::updateButtonsGeometry()
+ 
+         qreal bHeight = bHeightNormal;
+         qreal verticalIconOffset = verticalIconOffsetNormal;
+-        if (button->type() == KDecoration2::DecorationButtonType::Menu) {
++        if (button->type() == KDecoration3::DecorationButtonType::Menu) {
+             if (m_internalSettings->buttonShape() == InternalSettings::EnumButtonShape::ShapeIntegratedRoundedRectangleGrouped) {
+                 bHeight = bHeightMenuGrouped;
+                 verticalIconOffset = verticalIconOffsetMenuGrouped;
+@@ -911,7 +911,7 @@ void Decoration::updateButtonsGeometry()
+ 
+         qreal bWidth;
+         if (m_buttonBackgroundType == ButtonBackgroundType::FullHeight) {
+-            if (button->type() == KDecoration2::DecorationButtonType::Close) {
++            if (button->type() == KDecoration3::DecorationButtonType::Close) {
+                 qreal bWidthMargin = bWidthMarginLeft * m_internalSettings->closeFullHeightButtonWidthMarginRelative() / 100.0f;
+                 bWidth = m_smallButtonPaddedSize + bWidthMargin;
+                 horizontalIconOffsetLeftFullHeightClose = bWidthMargin / 2;
+@@ -923,12 +923,12 @@ void Decoration::updateButtonsGeometry()
+             bWidth = bWidthLeft;
+             button->setBackgroundVisibleSize(QSizeF(m_smallButtonBackgroundSize, m_smallButtonBackgroundSize));
+         }
+-        if (button->type() == KDecoration2::DecorationButtonType::Spacer) {
++        if (button->type() == KDecoration3::DecorationButtonType::Spacer) {
+             bWidth *= m_internalSettings->spacerButtonWidthRelative() / 100.0f;
+         }
+ 
+         button->setGeometry(QRectF(QPoint(0, 0), QSizeF(bWidth, bHeight)));
+-        if (m_buttonBackgroundType == ButtonBackgroundType::FullHeight && button->type() == KDecoration2::DecorationButtonType::Close) {
++        if (m_buttonBackgroundType == ButtonBackgroundType::FullHeight && button->type() == KDecoration3::DecorationButtonType::Close) {
+             button->setIconOffset(QPointF(horizontalIconOffsetLeftFullHeightClose, verticalIconOffset));
+         } else {
+             button->setIconOffset(QPointF(horizontalIconOffsetLeftButtons, verticalIconOffset));
+@@ -951,12 +951,12 @@ void Decoration::updateButtonsGeometry()
+             } else {
+                 Button *buttonBefore = static_cast<Button *>(m_leftButtons->buttons()[i - 1]);
+                 switch (buttonBefore->type()) {
+-                case KDecoration2::DecorationButtonType::Menu:
++                case KDecoration3::DecorationButtonType::Menu:
+                     if (buttonBefore->isVisible() && buttonBefore->isEnabled()) {
+                         button->setVisibleAfterMenu();
+                     }
+                     break;
+-                case KDecoration2::DecorationButtonType::Spacer:
++                case KDecoration3::DecorationButtonType::Spacer:
+                     button->setVisibleAfterSpacer();
+                     break;
+                 default:
+@@ -975,12 +975,12 @@ void Decoration::updateButtonsGeometry()
+             if (button->isEnabled() && button->isVisible()) {
+                 Button *buttonAfter = static_cast<Button *>(m_leftButtons->buttons()[i + 1]);
+                 switch (buttonAfter->type()) {
+-                case KDecoration2::DecorationButtonType::Menu:
++                case KDecoration3::DecorationButtonType::Menu:
+                     if (buttonAfter->isVisible() && buttonAfter->isEnabled()) {
+                         button->setVisibleBeforeMenu();
+                     }
+                     break;
+-                case KDecoration2::DecorationButtonType::Spacer:
++                case KDecoration3::DecorationButtonType::Spacer:
+                     button->setVisibleBeforeSpacer();
+                     break;
+                 default:
+@@ -1000,7 +1000,7 @@ void Decoration::updateButtonsGeometry()
+         qreal bHeight = bHeightNormal;
+         qreal verticalIconOffset = verticalIconOffsetNormal;
+ 
+-        if (button->type() == KDecoration2::DecorationButtonType::Menu) {
++        if (button->type() == KDecoration3::DecorationButtonType::Menu) {
+             if (m_internalSettings->buttonShape() == InternalSettings::EnumButtonShape::ShapeIntegratedRoundedRectangleGrouped) {
+                 bHeight = bHeightMenuGrouped;
+                 verticalIconOffset = verticalIconOffsetMenuGrouped;
+@@ -1009,7 +1009,7 @@ void Decoration::updateButtonsGeometry()
+ 
+         qreal bWidth;
+         if (m_buttonBackgroundType == ButtonBackgroundType::FullHeight) {
+-            if (button->type() == KDecoration2::DecorationButtonType::Close) {
++            if (button->type() == KDecoration3::DecorationButtonType::Close) {
+                 qreal bWidthMargin = bWidthMarginRight * m_internalSettings->closeFullHeightButtonWidthMarginRelative() / 100.0f;
+                 bWidth = m_smallButtonPaddedSize + bWidthMargin;
+                 horizontalIconOffsetRightFullHeightClose = bWidthMargin / 2;
+@@ -1021,12 +1021,12 @@ void Decoration::updateButtonsGeometry()
+             bWidth = bWidthRight;
+             button->setBackgroundVisibleSize(QSizeF(m_smallButtonBackgroundSize, m_smallButtonBackgroundSize));
+         }
+-        if (button->type() == KDecoration2::DecorationButtonType::Spacer) {
++        if (button->type() == KDecoration3::DecorationButtonType::Spacer) {
+             bWidth *= m_internalSettings->spacerButtonWidthRelative() / 100.0f;
+         }
+ 
+         button->setGeometry(QRectF(QPoint(0, 0), QSizeF(bWidth, bHeight)));
+-        if (m_buttonBackgroundType == ButtonBackgroundType::FullHeight && button->type() == KDecoration2::DecorationButtonType::Close) {
++        if (m_buttonBackgroundType == ButtonBackgroundType::FullHeight && button->type() == KDecoration3::DecorationButtonType::Close) {
+             button->setIconOffset(QPointF(horizontalIconOffsetRightFullHeightClose, verticalIconOffset));
+         } else {
+             button->setIconOffset(QPointF(horizontalIconOffsetRightButtons, verticalIconOffset));
+@@ -1049,12 +1049,12 @@ void Decoration::updateButtonsGeometry()
+             } else {
+                 Button *buttonBefore = static_cast<Button *>(m_rightButtons->buttons()[i - 1]);
+                 switch (buttonBefore->type()) {
+-                case KDecoration2::DecorationButtonType::Menu:
++                case KDecoration3::DecorationButtonType::Menu:
+                     if (buttonBefore->isVisible() && buttonBefore->isEnabled()) {
+                         button->setVisibleAfterMenu();
+                     }
+                     break;
+-                case KDecoration2::DecorationButtonType::Spacer:
++                case KDecoration3::DecorationButtonType::Spacer:
+                     button->setVisibleAfterSpacer();
+                     break;
+                 default:
+@@ -1073,12 +1073,12 @@ void Decoration::updateButtonsGeometry()
+             if (button->isEnabled() && button->isVisible()) {
+                 Button *buttonAfter = static_cast<Button *>(m_rightButtons->buttons()[i + 1]);
+                 switch (buttonAfter->type()) {
+-                case KDecoration2::DecorationButtonType::Menu:
++                case KDecoration3::DecorationButtonType::Menu:
+                     if (buttonAfter->isVisible() && buttonAfter->isEnabled()) {
+                         button->setVisibleBeforeMenu();
+                     }
+                     break;
+-                case KDecoration2::DecorationButtonType::Spacer:
++                case KDecoration3::DecorationButtonType::Spacer:
+                     button->setVisibleBeforeSpacer();
+                     break;
+                 default:
+@@ -1106,7 +1106,7 @@ void Decoration::updateButtonsGeometry()
+             // add offsets on the side buttons, to preserve padding, but satisfy Fitts law
+             firstButton->setGeometry(QRectF(QPoint(0, 0), QSizeF(firstButton->geometry().width() + hPadding, firstButton->geometry().height())));
+ 
+-            if (m_buttonBackgroundType == ButtonBackgroundType::FullHeight && firstButton->type() == KDecoration2::DecorationButtonType::Close) {
++            if (m_buttonBackgroundType == ButtonBackgroundType::FullHeight && firstButton->type() == KDecoration3::DecorationButtonType::Close) {
+                 firstButton->setHorizontalIconOffset(horizontalIconOffsetLeftFullHeightClose + hPadding);
+             } else {
+                 firstButton->setHorizontalIconOffset(horizontalIconOffsetLeftButtons + hPadding);
+@@ -1149,12 +1149,12 @@ void Decoration::updateButtonsGeometry()
+ }
+ 
+ //________________________________________________________________
+-void Decoration::paint(QPainter *painter, const QRect &repaintRegion)
++void Decoration::paint(QPainter *painter, const QRectF &repaintRegion)
+ {
+     m_painting = true;
+ 
+     // TODO: optimize based on repaintRegion
+-    auto c = client();
++    auto c = window();
+     auto s = settings();
+ 
+     calculateWindowAndTitleBarShapes();
+@@ -1207,7 +1207,7 @@ void Decoration::paint(QPainter *painter, const QRect &repaintRegion)
+ 
+ void Decoration::calculateWindowAndTitleBarShapes(const bool windowShapeOnly)
+ {
+-    auto c = client();
++    auto c = window();
+     auto s = settings();
+ 
+     if (!windowShapeOnly || c->isShaded()) {
+@@ -1241,11 +1241,11 @@ void Decoration::calculateWindowAndTitleBarShapes(const bool windowShapeOnly)
+ }
+ 
+ //________________________________________________________________
+-void Decoration::paintTitleBar(QPainter *painter, const QRect &repaintRegion)
++void Decoration::paintTitleBar(QPainter *painter, const QRectF &repaintRegion)
+ {
+-    const auto c = client();
++    const auto c = window();
+ 
+-    if (!m_titleRect.intersects(repaintRegion)) {
++    if (!QRectF(m_titleRect).intersects(repaintRegion)) {
+         return;
+     }
+ 
+@@ -1428,7 +1428,7 @@ QPair<QRect, Qt::Alignment> Decoration::captionRect() const
+     if (hideTitleBar()) {
+         return qMakePair(QRect(), Qt::AlignCenter);
+     } else {
+-        auto c = client();
++        auto c = window();
+ 
+         int padding = m_internalSettings->titleSidePadding() * settings()->smallSpacing();
+ 
+@@ -1475,7 +1475,7 @@ QPair<QRect, Qt::Alignment> Decoration::captionRect() const
+ //________________________________________________________________
+ void Decoration::updateShadow(const bool forceUpdateCache, bool noCache, const bool isThinWindowOutlineOverride)
+ {
+-    auto c = client();
++    auto c = window();
+ 
+     // if the decoration is painting, abandon setting the shadow.
+     // Setting the shadow at the same time as paint() being executed causes a EGL_BAD_SURFACE error and a SEGFAULT from Plasma 5.26 onwards.
+@@ -1530,8 +1530,8 @@ void Decoration::updateShadow(const bool forceUpdateCache, bool noCache, const b
+         g_thinWindowOutlineThickness = m_internalSettings->thinWindowOutlineThickness();
+     }
+ 
+-    std::shared_ptr<KDecoration2::DecorationShadow> nonCachedShadow;
+-    std::shared_ptr<KDecoration2::DecorationShadow> *shadow = nullptr;
++    std::shared_ptr<KDecoration3::DecorationShadow> nonCachedShadow;
++    std::shared_ptr<KDecoration3::DecorationShadow> *shadow = nullptr;
+ 
+     if (noCache)
+         shadow = &nonCachedShadow;
+@@ -1547,9 +1547,9 @@ void Decoration::updateShadow(const bool forceUpdateCache, bool noCache, const b
+ }
+ 
+ //________________________________________________________________
+-std::shared_ptr<KDecoration2::DecorationShadow> Decoration::createShadowObject(QColor shadowColor, const bool isThinWindowOutlineOverride)
++std::shared_ptr<KDecoration3::DecorationShadow> Decoration::createShadowObject(QColor shadowColor, const bool isThinWindowOutlineOverride)
+ {
+-    auto c = client();
++    auto c = window();
+ 
+     // determine when a window outline does not need to be drawn (even when set to none, sometimes needs to be drawn if there is an animation)
+     bool windowOutlineNone =
+@@ -1661,7 +1661,7 @@ std::shared_ptr<KDecoration2::DecorationShadow> Decoration::createShadowObject(Q
+     }
+     painter.end();
+ 
+-    auto ret = std::make_shared<KDecoration2::DecorationShadow>();
++    auto ret = std::make_shared<KDecoration3::DecorationShadow>();
+     ret->setPadding(padding);
+     ret->setInnerShadowRect(QRect(outerRect.center(), QSize(1, 1)));
+     ret->setShadow(shadowTexture);
+@@ -1670,7 +1670,7 @@ std::shared_ptr<KDecoration2::DecorationShadow> Decoration::createShadowObject(Q
+ 
+ void Decoration::setThinWindowOutlineOverrideColor(const bool on, const QColor &color)
+ {
+-    auto c = client();
++    auto c = window();
+ 
+     if (on) {
+         if (!c->isMaximized()) {
+@@ -1690,7 +1690,7 @@ void Decoration::setThinWindowOutlineOverrideColor(const bool on, const QColor &
+ 
+ void Decoration::setThinWindowOutlineColor()
+ {
+-    auto c = client();
++    auto c = window();
+ 
+     if (m_thinWindowOutlineOverride.isValid()) {
+         m_thinWindowOutline = overriddenOutlineColorAnimateIn();
+@@ -1736,7 +1736,7 @@ void Decoration::setThinWindowOutlineColor()
+ void Decoration::setScaledTitleBarTopBottomMargins()
+ {
+     // access client
+-    auto c = client();
++    auto c = window();
+ 
+     qreal topMargin = m_internalSettings->titleBarTopMargin();
+     qreal bottomMargin = m_internalSettings->titleBarBottomMargin();
+@@ -1780,7 +1780,7 @@ void Decoration::setScaledCornerRadius()
+ void Decoration::updateOpaque()
+ {
+     // access client
+-    auto c = client();
++    auto c = window();
+ 
+     if (isOpaqueTitleBar()) { // opaque titlebar colours
+         if (c->isMaximized())
+@@ -1822,7 +1822,7 @@ bool Decoration::isOpaqueTitleBar()
+ int Decoration::titleBarSeparatorHeight() const
+ {
+     // access client
+-    auto c = client();
++    auto c = window();
+ 
+     if (m_internalSettings->drawTitleBarSeparator() && !c->isShaded() && !m_toolsAreaWillBeDrawn) {
+         qreal height = 1;
+diff --git a/kdecoration/breezedecoration.h b/kdecoration/breezedecoration.h
+index 152778937..e7d76597a 100644
+--- a/kdecoration/breezedecoration.h
++++ b/kdecoration/breezedecoration.h
+@@ -14,9 +14,9 @@
+ #include "colortools.h"
+ #include "decorationcolors.h"
+ 
+-#include <KDecoration2/DecoratedClient>
+-#include <KDecoration2/Decoration>
+-#include <KDecoration2/DecorationSettings>
++#include <KDecoration3/DecoratedWindow>
++#include <KDecoration3/Decoration>
++#include <KDecoration3/DecorationSettings>
+ #include <KSharedConfig>
+ 
+ #include <QPainterPath>
+@@ -26,7 +26,7 @@
+ 
+ #include <memory>
+ 
+-namespace KDecoration2
++namespace KDecoration3
+ {
+ class DecorationButton;
+ class DecorationButtonGroup;
+@@ -40,7 +40,7 @@ enum struct ButtonBackgroundType {
+     FullHeight,
+ };
+ 
+-class Decoration : public KDecoration2::Decoration
++class Decoration : public KDecoration3::Decoration
+ {
+     Q_OBJECT
+ 
+@@ -52,7 +52,7 @@ class Decoration : public KDecoration2::Decoration
+     virtual ~Decoration();
+ 
+     //* paint
+-    void paint(QPainter *painter, const QRect &repaintRegion) override;
++    void paint(QPainter *painter, const QRectF &repaintRegion) override;
+ 
+     //* internal settings
+     InternalSettingsPtr internalSettings() const
+@@ -142,12 +142,12 @@ class Decoration : public KDecoration2::Decoration
+         return m_scaledCornerRadius;
+     }
+ 
+-    KDecoration2::DecorationButtonGroup *leftButtons()
++    KDecoration3::DecorationButtonGroup *leftButtons()
+     {
+         return m_leftButtons;
+     }
+ 
+-    KDecoration2::DecorationButtonGroup *rightButtons()
++    KDecoration3::DecorationButtonGroup *rightButtons()
+     {
+         return m_rightButtons;
+     }
+@@ -205,9 +205,9 @@ private Q_SLOTS:
+     void updateDecorationColors(const QPalette &clientPalette, QByteArray uuid = "");
+     void createButtons();
+     void calculateWindowAndTitleBarShapes(const bool windowShapeOnly = false);
+-    void paintTitleBar(QPainter *painter, const QRect &repaintRegion);
++    void paintTitleBar(QPainter *painter, const QRectF &repaintRegion);
+     void updateShadow(const bool forceUpdateCache = false, bool noCache = false, const bool isThinWindowOutlineOverride = false);
+-    std::shared_ptr<KDecoration2::DecorationShadow> createShadowObject(QColor shadowColor, const bool isThinWindowOutlineOverride = false);
++    std::shared_ptr<KDecoration3::DecorationShadow> createShadowObject(QColor shadowColor, const bool isThinWindowOutlineOverride = false);
+     void setScaledCornerRadius();
+ 
+     //*@name border size
+@@ -237,8 +237,8 @@ private Q_SLOTS:
+ 
+     static KSharedConfig::Ptr s_kdeGlobalConfig;
+     InternalSettingsPtr m_internalSettings;
+-    KDecoration2::DecorationButtonGroup *m_leftButtons = nullptr;
+-    KDecoration2::DecorationButtonGroup *m_rightButtons = nullptr;
++    KDecoration3::DecorationButtonGroup *m_leftButtons = nullptr;
++    KDecoration3::DecorationButtonGroup *m_rightButtons = nullptr;
+ 
+     //* Whether the paint() method is active
+     bool m_painting = false;
+@@ -310,7 +310,7 @@ bool Decoration::hasBorders() const
+     if (m_internalSettings && m_internalSettings->exceptionBorder()) {
+         return m_internalSettings->borderSize() > InternalSettings::EnumBorderSize::NoSides;
+     } else {
+-        return settings()->borderSize() > KDecoration2::BorderSize::NoSides;
++        return settings()->borderSize() > KDecoration3::BorderSize::NoSides;
+     }
+ }
+ 
+@@ -319,7 +319,7 @@ bool Decoration::hasNoBorders() const
+     if (m_internalSettings && m_internalSettings->exceptionBorder()) {
+         return m_internalSettings->borderSize() == InternalSettings::EnumBorderSize::None;
+     } else {
+-        return settings()->borderSize() == KDecoration2::BorderSize::None;
++        return settings()->borderSize() == KDecoration3::BorderSize::None;
+     }
+ }
+ 
+@@ -328,58 +328,58 @@ bool Decoration::hasNoSideBorders() const
+     if (m_internalSettings && m_internalSettings->exceptionBorder()) {
+         return m_internalSettings->borderSize() == InternalSettings::EnumBorderSize::NoSides;
+     } else {
+-        return settings()->borderSize() == KDecoration2::BorderSize::NoSides;
++        return settings()->borderSize() == KDecoration3::BorderSize::NoSides;
+     }
+ }
+ 
+ bool Decoration::isMaximized() const
+ {
+-    auto c = client();
++    auto c = window();
+     return c->isMaximized() && !m_internalSettings->drawBorderOnMaximizedWindows();
+ }
+ 
+ bool Decoration::isMaximizedHorizontally() const
+ {
+-    auto c = client();
++    auto c = window();
+     return c->isMaximizedHorizontally() && !m_internalSettings->drawBorderOnMaximizedWindows();
+ }
+ 
+ bool Decoration::isMaximizedVertically() const
+ {
+-    auto c = client();
++    auto c = window();
+     return c->isMaximizedVertically() && !m_internalSettings->drawBorderOnMaximizedWindows();
+ }
+ 
+ bool Decoration::isLeftEdge() const
+ {
+-    auto c = client();
++    auto c = window();
+     return (c->isMaximizedHorizontally() || c->adjacentScreenEdges().testFlag(Qt::LeftEdge)) && !m_internalSettings->drawBorderOnMaximizedWindows();
+ }
+ 
+ bool Decoration::isRightEdge() const
+ {
+-    auto c = client();
++    auto c = window();
+ 
+     return (c->isMaximizedHorizontally() || c->adjacentScreenEdges().testFlag(Qt::RightEdge)) && !m_internalSettings->drawBorderOnMaximizedWindows();
+ }
+ 
+ bool Decoration::isTopEdge() const
+ {
+-    auto c = client();
++    auto c = window();
+ 
+     return (c->isMaximizedVertically() || c->adjacentScreenEdges().testFlag(Qt::TopEdge)) && !m_internalSettings->drawBorderOnMaximizedWindows();
+ }
+ 
+ bool Decoration::isBottomEdge() const
+ {
+-    auto c = client();
++    auto c = window();
+ 
+     return (c->isMaximizedVertically() || c->adjacentScreenEdges().testFlag(Qt::BottomEdge)) && !m_internalSettings->drawBorderOnMaximizedWindows();
+ }
+ 
+ bool Decoration::hideTitleBar() const
+ {
+-    auto c = client();
++    auto c = window();
+     return m_internalSettings->hideTitleBar() && !c->isShaded();
+ }
+ 
+diff --git a/kdecoration/breezesettingsprovider.cpp b/kdecoration/breezesettingsprovider.cpp
+index 566257c35..faffa9796 100644
+--- a/kdecoration/breezesettingsprovider.cpp
++++ b/kdecoration/breezesettingsprovider.cpp
+@@ -58,7 +58,7 @@ void SettingsProvider::reconfigure()
+ InternalSettingsPtr SettingsProvider::internalSettings(Decoration *decoration)
+ {
+     // get the client
+-    auto client = decoration->client();
++    auto client = decoration->window();
+ 
+     for (auto internalSettings : std::as_const(m_exceptions)) {
+         // discard disabled exceptions
+diff --git a/kdecoration/config/CMakeLists.txt b/kdecoration/config/CMakeLists.txt
+index 1b376e046..45e84f63b 100644
+--- a/kdecoration/config/CMakeLists.txt
++++ b/kdecoration/config/CMakeLists.txt
+@@ -46,7 +46,7 @@ target_link_libraries(kcm_klassydecoration
+         Qt6::Gui
+         Qt6::DBus
+         Qt6::Widgets
+-        KDecoration2::KDecoration
++        KDecoration3::KDecoration
+     PRIVATE
+         KF6::ConfigCore
+         KF6::CoreAddons
+diff --git a/kdecoration/config/buttoncolors.cpp b/kdecoration/config/buttoncolors.cpp
+index eb4e33b0e..cf628b0d3 100644
+--- a/kdecoration/config/buttoncolors.cpp
++++ b/kdecoration/config/buttoncolors.cpp
+@@ -2076,7 +2076,7 @@ void ButtonColors::getButtonsOrderFromKwinConfig()
+     QString buttonsOnLeft;
+     QString buttonsOnRight;
+ 
+-    // very hacky way to do this -- better would be to find a way to get the settings from <KDecoration2/DecorationSettings>
++    // very hacky way to do this -- better would be to find a way to get the settings from <KDecoration3/DecorationSettings>
+     //  read kwin button border setting
+     KSharedConfig::Ptr kwinConfig = KSharedConfig::openConfig(QStringLiteral("kwinrc"));
+     if (kwinConfig && kwinConfig->hasGroup(QStringLiteral("org.kde.kdecoration2"))) {
+diff --git a/kstyle/breezehelper.cpp b/kstyle/breezehelper.cpp
+index 2b891ac99..0bb4de85d 100644
+--- a/kstyle/breezehelper.cpp
++++ b/kstyle/breezehelper.cpp
+@@ -118,7 +118,7 @@ void Helper::loadConfig()
+                         != _decorationColors->settingsUpdateUuid()))) { // case from generateDecorationColorsOnDecorationSettingsPaletteUpdate()
+             generateColors = true;
+         }
+-        // TODO: palette may not be a reliable indicator of the entire colour scheme - get an update to KDecoration2::DecoratedClient to read QString
++        // TODO: palette may not be a reliable indicator of the entire colour scheme - get an update to KDecoration3::DecoratedClient to read QString
+         // m_colorScheme instead and update to compare m_colorScheme and system titlebar colours
+         if (!generateColors && palette != *_decorationColors->basePalette()) {
+             generateColors = true;
+diff --git a/libbreezecommon/breeze.h b/libbreezecommon/breeze.h
+index f3eed3f6a..5d49a2d52 100644
+--- a/libbreezecommon/breeze.h
++++ b/libbreezecommon/breeze.h
+@@ -48,8 +48,8 @@ struct BREEZECOMMON_EXPORT PenWidth {
+     static constexpr int NoPen = 0;
+ };
+ 
+-// copied from KDecoration2/src/decorationdefines.h -- needs to be kept in sync
+-// originally Klassy linked directly to KDecoration2 but this did not work on the combined Qt5/Qt6 build on Plasma 6 with Qt5 applications
++// copied from KDecoration3/src/decorationdefines.h -- needs to be kept in sync
++// originally Klassy linked directly to KDecoration but this did not work on the combined Qt5/Qt6 build on Plasma 6 with Qt5 applications
+ enum class DecorationButtonType {
+     /**
+      * The Menu button requests showing the window menu on left or right click.
+@@ -60,44 +60,44 @@ enum class DecorationButtonType {
+      */
+     ApplicationMenu,
+     /**
+-     * The OnAllDesktops button requests toggling the DecoratedClient's on all desktops state.
++     * The OnAllDesktops button requests toggling the DecoratedWindow's on all desktops state.
+      * The DecoratedButton is only visible if multiple virtual desktops are available.
+      **/
+     OnAllDesktops,
+     /**
+-     * The Minimize button requests minimizing the DecoratedClient. The DecorationButton is only
+-     * enabled if the DecoratedClient is minimizeable.
++     * The Minimize button requests minimizing the DecoratedWindow. The DecorationButton is only
++     * enabled if the DecoratedWindow is minimizeable.
+      **/
+     Minimize,
+     /**
+-     * The Maximize button requests maximizing the DecoratedClient. The DecorationButton is checkable
+-     * and if the DecoratedClient is maximized the DecorationButton is checked. The DecorationButton
++     * The Maximize button requests maximizing the DecoratedWindow. The DecorationButton is checkable
++     * and if the DecoratedWindow is maximized the DecorationButton is checked. The DecorationButton
+      * supports multiple mouse buttons to change horizontal, vertical and overall maximized state.
+      *
+-     * The DecorationButton is only enabled if the DecoratedClient is maximizeable.
++     * The DecorationButton is only enabled if the DecoratedWindow is maximizeable.
+      **/
+     Maximize,
+     /**
+-     * The Close button requests closing the DecoratedClient. The DecorationButton is only enabled
+-     * if the DecoratedClient is closeable.
++     * The Close button requests closing the DecoratedWindow. The DecorationButton is only enabled
++     * if the DecoratedWindow is closeable.
+      **/
+     Close,
+     /**
+      * The ContextHelp button requests entering the context help mode. The DecorationButton is only
+-     * visible if the DecoratedClient provides context help.
++     * visible if the DecoratedWindow provides context help.
+      **/
+     ContextHelp,
+     /**
+-     * The Shade button requests toggling the DecoratedClient's shaded state. The DecoratedButton
+-     * is only enabled if the DecoratedClient is shadeable.
++     * The Shade button requests toggling the DecoratedWindow's shaded state. The DecoratedButton
++     * is only enabled if the DecoratedWindow is shadeable.
+      **/
+     Shade,
+     /**
+-     * The KeepBelow button requests toggling the DecoratedClient's keep below state.
++     * The KeepBelow button requests toggling the DecoratedWindow's keep below state.
+      **/
+     KeepBelow,
+     /**
+-     * The KeepAbove button requests toggling the DecoratedClient's keep above state.
++     * The KeepAbove button requests toggling the DecoratedWindow's keep above state.
+      **/
+     KeepAbove,
+     /**
+@@ -108,7 +108,6 @@ enum class DecorationButtonType {
+      * The Spacer button provides some space between buttons.
+      */
+     Spacer,
+-
+     COUNT
+ };
+ 
+
+From 3b26f96c7ace61331506f87d71d3cd7145cdba11 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Ivan=20=C4=8Cuki=C4=87?= <ivan.cukic@kde.org>
+Date: Thu, 16 Jan 2025 23:19:07 +0100
+Subject: [PATCH 2/2] Missing fix for kdecoration3
+
+---
+ CMakeLists.txt                            | 2 +-
+ kdecoration/config/breezeconfigwidget.cpp | 2 +-
+ kstyle/config/main.cpp                    | 2 +-
+ uninstall.sh                              | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ecb0aee1e..014be10b1 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,6 +1,6 @@
+ cmake_minimum_required(VERSION 3.16)
+ project(klassy)
+-set(PROJECT_VERSION "6.2.breeze6.2.1")
++set(PROJECT_VERSION "6.2.1")
+ set(PROJECT_VERSION_MAJOR 6)
+ 
+ add_definitions( -DKLASSY_VERSION="${PROJECT_VERSION}" -DKLASSY_GIT_MASTER=0)
+diff --git a/kdecoration/config/breezeconfigwidget.cpp b/kdecoration/config/breezeconfigwidget.cpp
+index c10fc3caa..0b8b09e32 100644
+--- a/kdecoration/config/breezeconfigwidget.cpp
++++ b/kdecoration/config/breezeconfigwidget.cpp
+@@ -50,7 +50,7 @@ ConfigWidget::ConfigWidget(QObject *parent, const KPluginMetaData &data, const Q
+ {
+     // this is a hack to get an Apply button
+     if (widget() && QCoreApplication::applicationName() == QStringLiteral("systemsettings")) {
+-        system("kcmshell6 org.kde.kdecoration2.kcm/kcm_klassydecoration.so &");
++        system("kcmshell6 org.kde.kdecoration3.kcm/kcm_klassydecoration.so &");
+         if (widget()->window()) {
+             widget()->window()->close();
+         }
+diff --git a/kstyle/config/main.cpp b/kstyle/config/main.cpp
+index 6001f63b0..1ae7680f7 100644
+--- a/kstyle/config/main.cpp
++++ b/kstyle/config/main.cpp
+@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
+     dialog.setWindowTitle(i18n("Klassy Settings"));
+     dialog.setMinimumWidth(800);
+     dialog.addModule(KPluginMetaData(QStringLiteral("kstyle_config/klassystyleconfig")));
+-    dialog.addModule(KPluginMetaData(QStringLiteral("org.kde.kdecoration2.kcm/kcm_klassydecoration.so")));
++    dialog.addModule(KPluginMetaData(QStringLiteral("org.kde.kdecoration3.kcm/kcm_klassydecoration.so")));
+     dialog.show();
+ 
+     const auto children = dialog.findChildren<QAbstractScrollArea *>();
+diff --git a/uninstall.sh b/uninstall.sh
+index cecbbc4f3..831f49717 100755
+--- a/uninstall.sh
++++ b/uninstall.sh
+@@ -33,7 +33,7 @@ install_and_uninstall() {
+     uninstall
+     echo It is possible that some files left over at the following locations
+     echo Please remove any files containing klassy in their name
+-    echo - /usr/lib64/qt5/plugins/org.kde.kdecoration2/
++    echo - /usr/lib64/qt5/plugins/org.kde.kdecoration3/
+     echo - /usr/share/kservices5/
+     echo - /usr/lib64/
+     echo - /usr/share/kstyle/themes/

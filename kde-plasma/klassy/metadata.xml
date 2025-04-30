@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription lang="en">
+        Klassy is a highly customizable Window Decoration, Application Style and
+        Global Theme plugin for recent versions of the KDE Plasma desktop. The
+        Klassy defaults are an attempt to create a usable and appealing look for
+        the modern Plasma desktop.
+	</longdescription>
+	<maintainer type="person">
+		<email>yaslam0x1@gmail.com</email>
+		<name>Yusef Aslam</name>
+	</maintainer>
+	<upstream>
+		<maintainer status="active">
+			<name>Paul A McAuley</name>
+		</maintainer>
+		<bugs-to>https://github.com/paulmcauley/klassy/issues</bugs-to>
+		<remote-id type="github">paulmcauley/klassy</remote-id>
+	</upstream>
+</pkgmetadata>
