@@ -10,7 +10,8 @@ inherit cmake
 
 DESCRIPTION="Klassy QT6 window decoration theme for KDE Plasma 6.1+"
 HOMEPAGE="https://github.com/paulmcauley/klassy"
-SRC_URI="https://github.com/paulmcauley/klassy/archive/refs/tags/6.2.breeze6.2.1.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/paulmcauley/klassy/archive/refs/tags/${PV}.breeze6.2.1.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${P}.breeze6.2.1"
 
 LICENSE="GPL-2 GPL-2+ GPL-3 GPL-3+ LGPL-2.1+ MIT"
 SLOT="0"
@@ -18,10 +19,10 @@ KEYWORDS="~amd64"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND="=kde-frameworks/frameworkintegration-6.13.0
-		 =kde-frameworks/frameworkintegration-5.116.0
-		 =kde-frameworks/kcmutils-6.13.0
-		 =kde-frameworks/kcmutils-5.116.0
+BDEPEND"=kde-frameworks/frameworkintegration-6.13.0
+		 kde-frameworks/frameworkintegration-5.116.0
+		 kde-frameworks/kcmutils-6.13.0
+		 kde-frameworks/kcmutils-5.116.0
 		 kde-frameworks/kcolorscheme
 		 kde-frameworks/kconfig
 		 kde-frameworks/kcoreaddons
@@ -32,14 +33,14 @@ BDEPEND="=kde-frameworks/frameworkintegration-6.13.0
 		 kde-frameworks/kirigami
 		 kde-frameworks/kwidgetsaddons
 		 kde-frameworks/kwindowsystem
-		 =kde-frameworks/kwindowsystem-5.116.0
-		 =dev-qt/qtbase-6.8.3-r1
-		 =dev-qt/qtdeclarative-6.8.3
-		 =dev-qt/qtsvg-6.8.3
+		 kde-frameworks/kwindowsystem-5.116.0
+		 dev-qt/qtbase-6.8.3-r1
+		 dev-qt/qtdeclarative-6.8.3
+		 dev-qt/qtsvg-6.8.3
 		 x11-misc/xdg-utils
 		 kde-frameworks/extra-cmake-modules
-		 =kde-frameworks/kconfigwidgets-5.116.0
-		 =kde-frameworks/kiconthemes-5.116.0"
+		 kde-frameworks/kconfigwidgets-5.116.0
+		 kde-frameworks/kiconthemes-5.116.0"
 
 PATCHES=("${FILESDIR}/${P}-port-to-kdecoration3.patch")
 
@@ -51,8 +52,6 @@ src_configure() {
 
 	cmake_src_configure
 }
-
-S="${WORKDIR}/${P}.breeze6.2.1"
 
 src_compile() {
 	cmake_src_compile
