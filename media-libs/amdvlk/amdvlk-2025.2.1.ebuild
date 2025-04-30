@@ -51,7 +51,7 @@ DEPEND="wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
 	${BUNDLED_LLVM_DEPEND}
 	app-arch/zstd:=[${MULTILIB_USEDEP}]
 	>=dev-util/vulkan-headers-1.3.296
-	raytracing? ( dev-util/DirectXShaderCompiler )
+	raytracing? ( >=dev-util/DirectXShaderCompiler-1.8.2502 )
 	dev-util/glslang[${MULTILIB_USEDEP}]"
 BDEPEND="${BUNDLED_LLVM_DEPEND}
 	${PYTHON_DEPS}
