@@ -19,7 +19,7 @@ KEYWORDS="~amd64"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND"=kde-frameworks/frameworkintegration-6.13.0
+BDEPEND="kde-frameworks/frameworkintegration-6.13.0
 		 kde-frameworks/frameworkintegration-5.116.0
 		 kde-frameworks/kcmutils-6.13.0
 		 kde-frameworks/kcmutils-5.116.0
