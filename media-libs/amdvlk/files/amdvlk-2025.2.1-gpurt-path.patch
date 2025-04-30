@@ -1,0 +1,13 @@
+diff --git a/gpurt/cmake/GpuRtGenerateShaders.cmake b/gpurt/cmake/GpuRtGenerateShaders.cmake
+index ccc06fe..b4893a8 100644
+--- a/gpurt/cmake/GpuRtGenerateShaders.cmake
++++ b/gpurt/cmake/GpuRtGenerateShaders.cmake
+@@ -72,7 +72,7 @@ set(gpurtDebugInfoFile "${CMAKE_CURRENT_BINARY_DIR}/g_gpurtDebugInfo.h")
+     find_program(gpurtSpirvRemap spirv-remap REQUIRED)
+     # Find dxcompiler library.
+     get_filename_component(gpurtDxcCompilerDirectory "${gpurtDxcCompiler}" DIRECTORY)
+-    find_library(gpurtDxcompilerLib dxcompiler HINTS ${gpurtDxcCompilerDirectory} /usr/lib/dxc REQUIRED)
++    find_library(gpurtDxcompilerLib dxcompiler HINTS ${gpurtDxcCompilerDirectory} /usr/lib/llvm/dxc/lib REQUIRED)
+ 
+ set(originalShaderSourceDir "${GPU_RAY_TRACING_SOURCE_DIR}/src/shaders/")
+ set(originalShaderSource ${GPURT_SHADER_SOURCE_FILES})

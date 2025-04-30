@@ -18,16 +18,16 @@ FETCH_URI="https://github.com/GPUOpen-Drivers"
 ## and place commits in the desired variables
 ## EXAMPLE: XGL_COMMIT="80e5a4b11ad2058097e77746772ddc9ab2118e07"
 ## SRC_URI="... ${FETCH_URI}/$PART/archive/$COMMIT.zip -> $PART-$COMMIT.zip ..."
-XGL_COMMIT="ba24064a9c93e76d0cafb0196996e779fbe70bf4"
-PAL_COMMIT="04bc1e796dd15fc90fff8fa826d32e431d8722f6"
-LLPC_COMMIT="188bbf6a5b9403813e51d39f6fc8429550dbf267"
-GPURT_COMMIT="f734985ebc31f471c376ed0cb217f43bdd40ee17"
-LLVM_PROJECT_COMMIT="cf4271cbb7c60a6517c45e9fc9fa09a9f420f512"
-METROHASH_COMMIT="18893fb28601bb9af1154cd1a671a121fff6d8d3"
-CWPACK_COMMIT="4f8cf0584442a91d829d269158567d7ed926f026"
+XGL_COMMIT="e9782eb33ce5e5e4ed2e339542a28c1b933624b4"
+PAL_COMMIT="c5e800072a32f68b6ccc4422936d96167c6e0728"
+LLPC_COMMIT="40cb8d95ad8d6f7f1652e3fd47d39667594cce08"
+GPURT_COMMIT="7b226d48b46b7e92fec3b9ecc5712e5bf2bf3dd9"
+LLVM_PROJECT_COMMIT="8fd93e26cf9b1235fc9573b68b96233818be0ed4"
+METROHASH_COMMIT="6ab6ee5d31d001ba73feb5e7f13dbc75da96b620"
+CWPACK_COMMIT="73d612971b3a73341f241b021e5cbda220eef7f2"
 # Submodule of LLPC, also updates often. Grab commit version from
 # https://github.com/GPUOpen-Drivers/llpc/tree/${LLPC_COMMIT}/imported
-LLVM_DIALECTS_COMMIT="50260f8bdd9ce47b388f5009546a438aba8b9d16"
+LLVM_DIALECTS_COMMIT="b249d1d3285696bd2a6a5729f5dfb7f69150047e"
 ### end of variables
 SRC_URI="${FETCH_URI}/xgl/archive/${XGL_COMMIT}.tar.gz -> amdvlk-xgl-${XGL_COMMIT}.tar.gz
 ${FETCH_URI}/pal/archive/${PAL_COMMIT}.tar.gz -> amdvlk-pal-${PAL_COMMIT}.tar.gz
@@ -81,6 +81,8 @@ PATCHES=(
 	#"${FILESDIR}/amdvlk-2022.4.2-reduced-llvm-installations.patch"
 	#"${FILESDIR}/amdvlk-2022.4.2-reduced-llvm-installations-part2.patch"
 	"${FILESDIR}/amdvlk-2024.3.1-disable-Werror.patch"
+	"${FILESDIR}/amdvlk-2025.2.1-gpurt-path.patch"
+	"${FILESDIR}/amdvlk-2025.2.1-rapidjson-fix.patch"
 )
 
 python_check_deps() {
