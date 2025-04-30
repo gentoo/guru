@@ -3,6 +3,6 @@
 <pkgmetadata>
   <!-- maintainer-needed -->
   <upstream>
-    <remote-id type="gitlab">cubocore/coreapps/corehunt</remote-id>
+    <remote-id type="gitlab">cubocore/coreapps/coreimage</remote-id>
   </upstream>
 </pkgmetadata>
