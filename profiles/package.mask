@@ -19,6 +19,12 @@
 # New entries go on top.
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-01)
+# No activity upstream, no revdeps left.
+# There is a fork named playsound3 on PyPI.
+# Removal on 2025-06-01.
+dev-python/playsound
+
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-01)
 # No activity upstream, no revdeps left. Open bugs: #901147.
 # Removal on 2025-06-01.
 dev-python/aiopg
