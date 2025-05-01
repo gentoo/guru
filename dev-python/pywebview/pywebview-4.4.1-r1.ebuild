@@ -18,9 +18,9 @@ IUSE="gtk qt6"
 REQUIRED_USE="|| ( gtk qt6 )"
 
 RDEPEND="
-	dev-python/bottle
-	dev-python/cryptography
-	dev-python/proxy_tools
+	dev-python/bottle[${PYTHON_USEDEP}]
+	dev-python/cryptography[${PYTHON_USEDEP}]
+	dev-python/proxy_tools[${PYTHON_USEDEP}]
 	gtk? (
 		dev-python/pygobject[cairo,${PYTHON_USEDEP}]
 		net-libs/webkit-gtk
