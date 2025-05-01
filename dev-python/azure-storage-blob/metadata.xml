@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>svdm-gentoo@protonmail.com</email>
-		<name>Simon van der Maas</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="github">Azure/azure-sdk-for-python</remote-id>
 		<remote-id type="pypi">azure-storage-blob</remote-id>
