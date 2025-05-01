@@ -3,6 +3,6 @@
 <pkgmetadata>
   <!-- maintainer-needed -->
   <upstream>
-    <remote-id type="gitlab">cubocore/coreapps/corefm</remote-id>
+    <remote-id type="gitlab">cubocore/coreapps/coregarage</remote-id>
   </upstream>
 </pkgmetadata>
