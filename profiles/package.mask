@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-01)
+# Archived repo on GitHub, no revdeps left.
+# Removal on 2025-06-01.
+dev-python/codecov
+
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-01)
 # No activity upstream, no revdeps left.
 # There is a compatible fork named stringcase-new on PyPI.
 # Removal on 2025-06-01.
