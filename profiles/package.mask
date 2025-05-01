@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-01)
+# Unmaintained in GURU, no revdeps left. Open bugs: #856874.
+# Removal on 2025-06-01.
+dev-python/sse-starlette
+
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-01)
 # Unmaintained in GURU, no revdeps left. Open bugs: #928254.
 # Removal on 2025-06-01.
 dev-python/graphene
