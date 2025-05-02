@@ -5,6 +5,9 @@
 		<name>Adel Kara Slimane</name>
 		<email>adel.ks@zegrapher.com</email>
 	</maintainer>
+	<use>
+		<flag name="wayland">Run in wayland mode under wayland sessions, x11/xwayland otherwise (x11 sessions are unaffected).</flag>
+	</use>
 	<upstream>
 		<maintainer>
 			<name>Ben Gotow</name>
