@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 
 DEPEND="
 	acct-user/eturnal
-	>=dev-lang/erlang-21:=[ssl]
+	>=dev-lang/erlang-23.1:=[ssl]
 	dev-libs/libyaml
 	dev-libs/openssl:=
 	>=dev-erlang/conf-0.1
@@ -38,7 +38,7 @@ src_configure() {
 	export ETURNAL_USER=eturnal
 	export ETURNAL_PREFIX="${EPREFIX}"/opt/eturnal
 	export ETURNAL_ETC_DIR="${EPREFIX}"/etc
-	export ERL_EPMD_ADDRESS=""
+	export ERL_DIST_PORT=3470
 	export CODE_LOADING=dynamic
 
 	export SKIP_DEPS=true
@@ -50,7 +50,7 @@ rebar3_install_release() {
 	cp -pR bin lib releases "${ED}"/opt/eturnal/ || die
 
 	systemd_dounit etc/systemd/system/eturnal.service
-	newinitd "${FILESDIR}"/eturnal.initd eturnal
+	newinitd "${FILESDIR}"/eturnal.initd-r1 eturnal
 	newconfd etc/openrc/eturnal.confd eturnal
 
 	insinto /etc

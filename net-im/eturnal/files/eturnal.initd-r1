@@ -1,0 +1,47 @@
+#!/sbin/openrc-run
+# shellcheck shell=sh
+#
+# Copyright 2024-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+extra_started_commands="reload"
+description_reload="Reload eturnal's configuration"
+
+supervisor="supervise-daemon"
+description="STUN/TURN server"
+command="/usr/sbin/eturnalctl"
+command_args_foreground="foreground"
+command_args_background="daemon"
+command_user="eturnal:turnserver"
+pidfile="/run/eturnal.pid"
+capabilities="^cap_net_bind_service"
+healthcheck_delay=300
+healthcheck_timer=60
+output_log="/opt/eturnal/log/eturnal.log"
+error_log="${output_log}"
+
+depend() {
+	need net
+	want epmd
+	use firewall
+}
+
+healthcheck() {
+	su -g turnserver -s /bin/sh eturnal -c "'${command}' ping" >/dev/null
+}
+
+start_post() {
+	local i=10
+	while [ $((i = i - 1)) -gt 0 ]; do
+		healthcheck && return 0
+		sleep 1
+	done
+
+	return 1
+}
+
+reload() {
+	ebegin "Reloading ${RC_SVCNAME}"
+	"${command}" reload
+	eend $?
+}
