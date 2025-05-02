@@ -1,10 +1,10 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..12} )
+DISTUTILS_USE_PEP517=hatchling
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1
 
@@ -32,22 +32,18 @@ BDEPEND="
 	)
 "
 
+EPYTEST_DESELECT=(
+	# violates network sandbox
+	tests/test_tldr.py::test_error_message
+)
+
 distutils_enable_tests pytest
 
 src_prepare() {
-	use man || sed -i '/data_files/d' setup.py || die
 	distutils-r1_src_prepare
 }
 
 src_compile() {
 	use man && emake -C docs
 	distutils-r1_src_compile
-}
-
-python_test() {
-	local EPYTEST_DESELECT=(
-		# tries to access internet
-		tests/test_tldr.py::test_error_message
-	)
-	epytest
 }
