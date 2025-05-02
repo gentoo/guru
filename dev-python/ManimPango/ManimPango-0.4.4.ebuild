@@ -12,7 +12,7 @@ DOCS_DIR="docs"
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..12} pypy3 ) # Python 13 fails
+PYTHON_COMPAT=( python3_{11..12} ) # Python 13 fails
 
 inherit distutils-r1 docs
 

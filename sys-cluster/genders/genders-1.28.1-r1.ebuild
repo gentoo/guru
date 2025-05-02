@@ -8,7 +8,7 @@ DISTUTILS_OPTIONAL=1
 DISTUTILS_USE_PEP517=setuptools
 MY_PV="$(ver_rs 1-2 -)"
 MY_P="${PN}-${MY_PV}"
-PYTHON_COMPAT=( python3_{11..12} pypy3 )
+PYTHON_COMPAT=( python3_{11..12} )
 
 inherit distutils-r1 edo flag-o-matic java-pkg-opt-2 perl-module
 
