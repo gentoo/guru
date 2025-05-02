@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David (stkw0) Roman <davidroman96@gmail.com> (2025-05-03)
+# Live ebuild only, not maintained since 2023. Uses EAPI=7
+# Removal on 2025-06-03
+www-servers/quark
+
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-01)
 # Archived repo on GitHub, no revdeps left.
 # Removal on 2025-06-01.
