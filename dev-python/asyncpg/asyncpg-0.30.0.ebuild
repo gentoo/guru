@@ -20,9 +20,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="kerberos"
 
 RDEPEND="
-	$(python_gen_cond_dep '
-		>=dev-python/async-timeout-4.0.3[${PYTHON_USEDEP}]
-	' python3_10)
 	kerberos? ( dev-python/gssapi[${PYTHON_USEDEP}] )
 "
 BDEPEND="
