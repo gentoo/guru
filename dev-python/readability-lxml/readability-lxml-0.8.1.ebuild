@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
@@ -43,9 +43,7 @@ distutils_enable_sphinx doc/source \
 	dev-python/recommonmark \
 	dev-python/sphinx-rtd-theme
 
-python_test() {
-	[[ ${EPYTHON} == pypy3 ]] && \
-		return 0  # unsatisfied dep
-
-	distutils-r1_python_test
+src_prepare() {
+	rm readability/compat/two.py || die
+	distutils-r1_src_prepare
 }
