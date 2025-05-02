@@ -62,12 +62,7 @@ RDEPEND="
 	media-video/ffmpeg
 	virtual/opengl
 	x11-libs/pango
-	$(python_gen_cond_dep '
-		dev-python/typing-extensions[${PYTHON_USEDEP}]
-	' python3_{7..10})
 "
-# typing-extensions is only needed for python < 3.11
-# so, only python3.10 should work too (because of PYTHON_COMPAT)
 
 DEPEND="${RDEPEND}"
 
