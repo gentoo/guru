@@ -23,6 +23,7 @@
 # Removal on 2025-06-03
 app-vim/vim-nix
 media-gfx/dustr
+x11-misc/betterlockscreen_rapid
 x11-misc/i3lock-fancy-rapid
 
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-05-03)
