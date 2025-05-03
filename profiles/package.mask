@@ -18,24 +18,6 @@
 
 # New entries go on top.
 
-# David (stkw0) Roman <davidroman96@gmail.com> (2025-05-03)
-# Live ebuild only, not maintained since 2021. Uses EAPI=7
-# Removal on 2025-06-03
-app-vim/vim-nix
-media-gfx/dustr
-x11-misc/betterlockscreen_rapid
-x11-misc/i3lock-fancy-rapid
-
-# David (stkw0) Roman <davidroman96@gmail.com> (2025-05-03)
-# Live ebuild only, not maintained since 2022. Uses EAPI=7
-# Removal on 2025-06-03
-media-libs/monado
-
-# David (stkw0) Roman <davidroman96@gmail.com> (2025-05-03)
-# Live ebuild only, not maintained since 2023. Uses EAPI=7
-# Removal on 2025-06-03
-www-servers/quark
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-01)
 # Archived repo on GitHub, no revdeps left.
 # Removal on 2025-06-01.
