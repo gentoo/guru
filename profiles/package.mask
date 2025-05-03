@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-05-03)
+# Live ebuild only, not maintained since 2021. Uses EAPI=7
+# Removal on 2025-06-03
+app-vim/vim-nix
+
+# David (stkw0) Roman <davidroman96@gmail.com> (2025-05-03)
 # Live ebuild only, not maintained since 2022. Uses EAPI=7
 # Removal on 2025-06-03
 media-libs/monado
