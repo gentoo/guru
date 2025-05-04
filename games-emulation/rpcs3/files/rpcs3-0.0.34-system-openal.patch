@@ -1,0 +1,23 @@
+Unbundle openal.
+--- a/rpcs3/Emu/Cell/Modules/cellMic.h
++++ b/rpcs3/Emu/Cell/Modules/cellMic.h
+@@ -3,7 +3,7 @@
+ #include "Utilities/Thread.h"
+ #include "Emu/Cell/timers.hpp"
+ 
+-#include "3rdparty/OpenAL/openal-soft/include/AL/alext.h"
++#include <AL/alext.h>
+ 
+ // Error Codes
+ enum CellMicInError : u32
+--- a/rpcs3/rpcs3qt/microphone_creator.cpp
++++ b/rpcs3/rpcs3qt/microphone_creator.cpp
+@@ -4,7 +4,7 @@
+ #include "Utilities/StrFmt.h"
+ #include "Utilities/StrUtil.h"
+ 
+-#include "3rdparty/OpenAL/openal-soft/include/AL/alext.h"
++#include <AL/alext.h>
+ 
+ LOG_CHANNEL(cfg_log, "CFG");
+ 

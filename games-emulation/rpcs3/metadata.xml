@@ -12,4 +12,7 @@
 	<flag name="opencv">Enable PS Move support</flag>
 	<flag name="vulkan">Build vulkan renderer</flag>
 </use>
+<upstream>
+	<remote-id type="github">RPCS3/rpcs3</remote-id>
+</upstream>
 </pkgmetadata>

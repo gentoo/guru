@@ -1,0 +1,21 @@
+Unbundle stb.
+--- a/3rdparty/CMakeLists.txt
++++ b/3rdparty/CMakeLists.txt
+@@ -129,7 +130,8 @@ endif()
+ 
+ 
+ # stblib
+-add_subdirectory(stblib)
++pkg_check_modules(stb REQUIRED IMPORTED_TARGET GLOBAL stb)
++add_library(3rdparty::stblib ALIAS PkgConfig::stb)
+ 
+ # DiscordRPC
+ add_subdirectory(discord-rpc)
+@@ -359,7 +360,6 @@ add_library(3rdparty::xxhash ALIAS xxhash)
+ add_library(3rdparty::hidapi ALIAS 3rdparty_hidapi)
+ add_library(3rdparty::libpng ALIAS ${LIBPNG_TARGET})
+ add_library(3rdparty::opengl ALIAS 3rdparty_opengl)
+-add_library(3rdparty::stblib ALIAS 3rdparty_stblib)
+ add_library(3rdparty::discordRPC ALIAS 3rdparty_discordRPC)
+ add_library(3rdparty::faudio ALIAS ${FAUDIO_TARGET})
+ add_library(3rdparty::libevdev ALIAS ${LIBEVDEV_TARGET})
