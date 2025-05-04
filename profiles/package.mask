@@ -124,12 +124,6 @@ gui-libs/text-engine
 # Removal on 2025-05-09. Bugs #912996, #916321, #926268, #932124
 games-emulation/duckstation
 
-# Vivian Heisz (demize) <demize@unstable.systems> (2025-04-04)
-# Unmaintained in GURU. Current versions are very old and have security
-# issues.
-# Removal on 2025-05-04. Bugs #934956, #937552.
-www-client/firefox-developer-bin
-
 # David Roman <davidroman96@gmail.com> (2025-03-12)
 # Uses deprecated EGO_SUM. Last release in 2023.
 # Removal on 2025-05-12
