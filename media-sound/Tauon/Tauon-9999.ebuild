@@ -22,8 +22,6 @@ else
 	KEYWORDS="~amd64"
 fi
 
-S="${WORKDIR}/Tauon-${PV}"
-
 LICENSE="GPL-3"
 SLOT="0"
 
