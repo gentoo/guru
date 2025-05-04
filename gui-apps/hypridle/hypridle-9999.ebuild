@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,10 +20,10 @@ LICENSE="BSD"
 SLOT="0"
 
 RDEPEND="
-	>=dev-cpp/sdbus-c++-0.2.0
+	dev-cpp/sdbus-c++:0/2
 	>=dev-libs/hyprlang-0.4.0
-	>=gui-libs/hyprutils-0.2.0:=
 	dev-libs/wayland
+	gui-libs/hyprutils:=
 "
 DEPEND="
 	${RDEPEND}
@@ -36,5 +36,5 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/hypridle-9999-fix-CFLAGS-CXXFLAGS.patch"
+	"${FILESDIR}/${P}-fix-CFLAGS-CXXFLAGS.patch"
 )
