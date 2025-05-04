@@ -20,9 +20,12 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-distutils_enable_tests setup.py
-
 RDEPEND="
 	dev-python/pycryptodome[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
+
+python_test() {
+	# Uses unittest which is builtin
+	"${EPYTHON?}" tests/simple.py || die
+}
