@@ -9,7 +9,7 @@
   </maintainer>
   <upstream>
     <bugs-to>https://github.com/squidowl/halloy/issues</bugs-to>
-    <doc>https://halloy.chat/</doc>
+    <doc>https://halloy.chat</doc>
     <remote-id type="github">squidowl/halloy</remote-id>
   </upstream>
 </pkgmetadata>
