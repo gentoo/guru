@@ -6,7 +6,7 @@ EAPI="8"
 MY_PV="${PV//./\/}"
 MY_LLVM_PV="6595e7fa1b5588f860aa057aac47c43623169584"
 CMAKE_BUILD_TYPE="Release"
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 inherit cmake python-r1
 
 DESCRIPTION="The fast free Verilog/SystemVerilog simulator"
