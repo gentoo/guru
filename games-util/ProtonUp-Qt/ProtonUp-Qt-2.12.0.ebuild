@@ -31,7 +31,7 @@ RDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-add-entrypoint.patch"
+	"${FILESDIR}/${PN}-2.11.1-add-entrypoint.patch"
 )
 
 distutils_enable_tests pytest
@@ -48,4 +48,9 @@ src_install() {
 	for size in 64 128 256; do
 		doicon -s ${size} share/icons/hicolor/${size}x${size}/apps/net.davidotek.pupgui2.png
 	done
+}
+
+src_test() {
+	local -x QT_QPA_PLATFORM=offscreen
+	distutils-r1_src_test
 }
