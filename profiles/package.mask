@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2025-05-05)
+# Upstream has been archived.
+# An active fork is packaged as x11-misc/pywal16.
+# Removal on 2025-06-05. Bug #955253.
+x11-misc/pywal
+
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-01)
 # Archived repo on GitHub, no revdeps left.
 # Removal on 2025-06-01.
