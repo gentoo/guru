@@ -7,12 +7,11 @@ PYTHON_COMPAT=( python3_{10,11,12} )
 
 DISTUTILS_USE_PEP517="setuptools"
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="A Python library in building OAuth and OpenID Connect servers and clients."
 
 HOMEPAGE="https://authlib.org/"
-SRC_URI="https://pypi.org/project/Authlib/#${PN}-${PV}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
