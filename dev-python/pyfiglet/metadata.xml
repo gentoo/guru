@@ -7,4 +7,7 @@
         <remote-id type="pypi">pyfiglet</remote-id>
         <bugs-to>https://github.com/pwaller/pyfiglet/issues</bugs-to>
     </upstream>
+    <use>
+        <flag name="contrib">Install fonts that don't have a clear license</flag>
+    </use>
 </pkgmetadata>
