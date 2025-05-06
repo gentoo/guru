@@ -8,6 +8,12 @@
 	<upstream>
 		<remote-id type="github">ryanoasis/nerd-fonts</remote-id>
 	</upstream>
+	<longdescription lang="en">
+		Iconic font aggregator, collection and patcher. 3,600+ icons,
+		50+ patched fonts: Hack, Source Code Pro, more. Glyph
+		collections: Font Awesome, Material Design Icons, Octicons
+		and more.
+	</longdescription>
 	<use>
 		<flag name="0xproto">Installs 0xProto Nerd Font</flag>
 		<flag name="3270">Installs 3270 Nerd Font</flag>

@@ -5,7 +5,7 @@ EAPI=8
 
 inherit font
 
-DESCRIPTION="Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts: Hack, Source Code Pro, more. Glyph collections: Font Awesome, Material Design Icons, Octicons, & more"
+DESCRIPTION="Patched font collection with a high number of glyphs (icons)"
 HOMEPAGE="https://github.com/ryanoasis/nerd-fonts"
 SRC_URI="
 	0xproto? ( https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/0xProto.tar.xz -> 0xProto-${PV}.tar.xz )
