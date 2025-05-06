@@ -17,9 +17,11 @@
 	<use>
 		<flag name="0xproto">Installs 0xProto Nerd Font</flag>
 		<flag name="3270">Installs 3270 Nerd Font</flag>
+		<flag name="adwaitamono">Installs AdwaitaMono Nerd Font</flag>
 		<flag name="agave">Installs Agave Nerd Font</flag>
 		<flag name="anonymouspro">Installs AnonymicePro Nerd Font</flag>
 		<flag name="arimo">Installs Arimo Nerd Font</flag>
+		<flag name="atkinsonhyperlegiblemono">Installs AtkynsonMono Nerd Font</flag>
 		<flag name="aurulentsansmono">Installs AurulentSansMono Nerd Font</flag>
 		<flag name="bigblueterminal">Installs BigBlueTerminal Nerd Font</flag>
 		<flag name="bitstreamverasansmono">Installs BitstromWera Nerd Font</flag>
