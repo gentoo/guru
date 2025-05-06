@@ -1,0 +1,27 @@
+# /etc/conf.d/p2pool: config file for /etc/init.d/p2pool
+
+# Wallet address to recieve the payouts.
+# Note that it needs to be the primary address (start with 4)
+P2POOL_WALLET=""
+
+# IP address of your Monero node
+#P2POOL_HOST="127.0.0.1"
+
+#P2POOL_USER="monero"
+#P2POOL_GROUP="monero"
+
+#P2POOL_DATADIR="/var/lib/p2pool"
+#P2POOL_LOGLEVEL=1
+
+#P2POOL_NICE=5
+#P2POOL_IONICE=2:4 # See START-STOP-DAEMON(8) for details
+
+
+# Uncomment to have a persistent log.
+# This is not recommended as it does not rotate.
+#P2POOL_KEEPLOG=1
+
+# Extra options passed to the daemon
+#P2POOL_OPTS="--mini"
+
+#umask=007

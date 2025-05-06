@@ -1,0 +1,43 @@
+#!/sbin/openrc-run
+# Copyright 1999-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+description="Decentralized Monero mining pool daemon"
+name="P2Pool daemon"
+command="/usr/bin/${RC_SVCNAME}"
+command_background=1
+command_progress=1
+pidfile="/run/${RC_SVCNAME}.pid"
+retry="SIGTERM/31/SIGKILL/5" # shutting down takes 30s
+
+command_user="${P2POOL_USER:-monero}:${P2POOL_GROUP:-monero}"
+umask="${P2POOL_UMASK:=007}"
+SSD_IONICELEVEL="${P2POOL_IONICE:=2:4}"
+SSD_NICELEVEL="${P2POOL_NICE:=5}"
+
+P2POOL_HOST="${P2POOL_HOST:=127.0.0.1}"
+P2POOL_DATADIR="${P2POOL_DATADIR:=/var/lib/p2pool}"
+P2POOL_LOGLEVEL="${P2POOL_LOGLEVEL:=1}"
+
+command_args="--wallet ${P2POOL_WALLET} \
+	--loglevel ${P2POOL_LOGLEVEL} \
+	--data-dir ${P2POOL_DATADIR} \
+	${P2POOL_OPTS} \
+"
+
+depend() {
+	need net
+	[ ${P2POOL_HOST} = "127.0.0.1" ] && need monerod
+}
+
+start_pre() {
+	if [ ! ${P2POOL_WALLET} ]; then
+		eerror "p2pool cannot be started without a wallet address"
+		eerror "Please set P2POOL_WALLET in /etc/conf.d/p2pool"
+		return 1
+	fi
+	einfo "Will mine for wallet ${P2POOL_WALLET}"
+	checkpath --owner ${command_user} --directory ${P2POOL_DATADIR}
+
+	[ $P2POOL_KEEPLOG ] || rm -f "${P2POOL_DATADIR}"/p2pool.log
+}
