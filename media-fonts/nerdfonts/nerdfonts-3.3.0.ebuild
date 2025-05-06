@@ -95,14 +95,6 @@ tinos ubuntu ubuntumono ubuntusans victormono zedmono"
 IUSE="${IUSE_FONTS}"
 REQUIRED_USE="|| ( ${IUSE_FONTS} )"
 
-RDEPEND="
-	firacode? ( !media-fonts/firacode-nerdfont )
-	iosevka? ( !media-fonts/iosevka-nerdfont )
-	jetbrainsmono? ( !media-fonts/jetbrainsmono-nerdfont )
-	robotomono? ( !media-fonts/robotomono-nerdfont )
-	ubuntumono? ( !media-fonts/ubuntumono-nerdfont )
-"
-
 FONT_SUFFIX=""
 
 src_install() {
