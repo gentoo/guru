@@ -1,0 +1,7 @@
+# Copyright 2020-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+#MONEROD_USER=monero
+#MONEROD_GROUP=monero
+
+MONEROD_ARGS="--config-file /etc/monero/monerod.conf"
