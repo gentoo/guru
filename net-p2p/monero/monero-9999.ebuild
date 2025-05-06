@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,15 +26,17 @@ RESTRICT="test"
 DEPEND="
 	acct-group/monero
 	acct-user/monero
+	app-crypt/libmd
 	dev-libs/boost:=[nls]
 	dev-libs/libsodium:=
+	dev-libs/libbsd
 	dev-libs/openssl:=
 	dev-libs/randomx
 	dev-libs/rapidjson
 	dev-libs/supercop
 	net-dns/unbound:=[threads]
-	net-libs/czmq:=
 	net-libs/miniupnpc:=
+	net-libs/zeromq:=
 	readline? ( sys-libs/readline:0= )
 	hw-wallet? (
 		dev-libs/hidapi
@@ -99,8 +101,8 @@ src_install() {
 		doins "${FILESDIR}/monerod.conf"
 
 		# OpenRC
-		newconfd "${FILESDIR}/monerod.confd" monerod
-		newinitd "${FILESDIR}/monerod.initd" monerod
+		newconfd "${FILESDIR}/monerod-0.18.4.0.confd" monerod
+		newinitd "${FILESDIR}/monerod-0.18.4.0.initd" monerod
 
 		# systemd
 		systemd_dounit "${FILESDIR}/monerod.service"
