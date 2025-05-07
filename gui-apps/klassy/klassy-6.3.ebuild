@@ -7,7 +7,8 @@ inherit cmake
 
 DESCRIPTION="Klassy QT6 window decoration theme for KDE Plasma 6.3+"
 HOMEPAGE="https://github.com/paulmcauley/klassy"
-SRC_URI="https://github.com/paulmcauley/klassy/archive/refs/tags/6.3.breeze6.3.5.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/paulmcauley/klassy/archive/refs/tags/${PV}.breeze6.3.5.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${P}.breeze6.3.5"
 
 LICENSE="GPL-2 GPL-2+ GPL-3 GPL-3+ LGPL-2.1+ MIT"
 SLOT="0"
