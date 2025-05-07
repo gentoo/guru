@@ -33,7 +33,7 @@ RDEPEND="
 	flac? ( >=media-libs/flac-1.5.0 )
 	fuse? ( sys-fs/fuse:3 )
 	sys-libs/binutils-libs
-	stacktrace? ( sys-libs/libunwind )
+	stacktrace? ( >=dev-cpp/cpptrace-0.8.0 )
 	sys-libs/zlib
 	jemalloc? ( >=dev-libs/jemalloc-5.3.0 )
 	test? ( >=dev-cpp/gtest-1.15.2 )
@@ -60,12 +60,8 @@ RESTRICT="!test? ( test )"
 CHECKREQS_DISK_BUILD="500M"
 CMAKE_WARN_UNUSED_CLI=0
 
-src_prepare(){
-	cmake_src_prepare
-	sed "s/DESTINATION lib/DESTINATION $(get_libdir)/" -i cmake/libdwarfs.cmake || die
-}
-
 src_configure(){
+	use stacktrace && append-flags -g
 	mycmakeargs=(
 		-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
 		-DWITH_TESTS=$(usex test ON OFF)
