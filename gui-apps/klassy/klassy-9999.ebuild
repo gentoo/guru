@@ -3,6 +3,11 @@
 
 EAPI=8
 
+KF5MIN=5.102.0
+KFMIN=6.10.0
+QT5MIN=5.15.2
+QTMIN=6.6.0
+
 inherit git-r3 cmake
 
 DESCRIPTION="Klassy QT6 window decoration theme for KDE Plasma 6.3+"
@@ -16,10 +21,10 @@ KEYWORDS=""
 # Testing is unsupported in upstream.
 RESTRICT="test"
 
-DEPEND="=kde-frameworks/frameworkintegration-6.13.0
-		=kde-frameworks/frameworkintegration-5.116.0
-		=kde-frameworks/kcmutils-6.13.0
-		=kde-frameworks/kcmutils-5.116.0
+DEPEND=">=kde-frameworks/frameworkintegration-${KFMIN}:6
+		>=kde-frameworks/frameworkintegration-${KF5MIN}:5
+		>=kde-frameworks/kcmutils-${KFMIN}:6
+		>=kde-frameworks/kcmutils-${KF5MIN}:5
 		kde-frameworks/kcolorscheme
 		kde-frameworks/kconfig
 		kde-frameworks/kcoreaddons
@@ -30,14 +35,14 @@ DEPEND="=kde-frameworks/frameworkintegration-6.13.0
 		kde-frameworks/kirigami
 		kde-frameworks/kwidgetsaddons
 		kde-frameworks/kwindowsystem
-		=kde-frameworks/kwindowsystem-5.116.0
-		=dev-qt/qtbase-6.8.3-r1
-		=dev-qt/qtdeclarative-6.8.3
-		=dev-qt/qtsvg-6.8.3
+		>=kde-frameworks/kwindowsystem-${KF5MIN}:5
+		>=dev-qt/qtbase-${QTMIN}:6
+		>=dev-qt/qtdeclarative-${QTMIN}:6
+		>=dev-qt/qtsvg-${QTMIN}:6
 		x11-misc/xdg-utils
 		kde-frameworks/extra-cmake-modules
-		=kde-frameworks/kconfigwidgets-5.116.0
-		=kde-frameworks/kiconthemes-5.116.0"
+		>=kde-frameworks/kconfigwidgets-${KF5MIN}:5
+		>=kde-frameworks/kiconthemes-${KF5MIN}:5"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
