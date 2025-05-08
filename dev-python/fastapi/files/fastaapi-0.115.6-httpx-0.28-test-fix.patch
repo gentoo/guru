@@ -1,0 +1,26 @@
+--- a/tests/test_tutorial/test_custom_request_and_route/test_tutorial002.py
++++ b/tests/test_tutorial/test_custom_request_and_route/test_tutorial002.py
+@@ -14,6 +14,22 @@ def test_endpoint_works():
+ def test_exception_handler_body_access():
+     response = client.post("/", json={"numbers": [1, 2, 3]})
+     assert response.json() == IsDict(
++        {
++            'detail': {
++                'body': '{"numbers":[1,2,3]}',
++                'errors': [
++                    {
++                        'input': {'numbers': [1, 2, 3]},
++                        'loc': ['body'],
++                        'msg': 'Input should be a valid list',
++                        'type': 'list_type'
++                    }
++                ]
++            }
++        }
++    ) | IsDict(
++        # Pre httpx-0.28.0 json output
++        # https://github.com/encode/httpx/pull/3367
+         {
+             "detail": {
+                 "errors": [
+
