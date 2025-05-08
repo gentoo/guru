@@ -37,7 +37,6 @@ BDEPEND="
 	test? (
 		dev-python/pytest[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		dev-python/coverage[${PYTHON_USEDEP}]
 		dev-python/anyio[${PYTHON_USEDEP}]
 		dev-python/cachelib[${PYTHON_USEDEP}]
 		dev-python/httpx[${PYTHON_USEDEP}]
