@@ -1,0 +1,54 @@
+From e55e506862c8c2bc37520fc72a16093f9a2a23fc Mon Sep 17 00:00:00 2001
+From: Alfred Wingate <parona@protonmail.com>
+Date: Mon, 23 Sep 2024 14:35:35 +0300
+Subject: [PATCH] Allow disabling linking to libdrm_amdgpu
+
+Notably users on Gentoo may choose to disable building libdrm with amdgpu support leading to a build
+failure.
+
+Signed-off-by: Alfred Wingate <parona@protonmail.com>
+--- a/coolercontrold/Cargo.toml
++++ b/coolercontrold/Cargo.toml
+@@ -17,6 +17,7 @@ license = "GPL-3.0-or-later"
+ [features]
+ default = []
+ io_uring = ["dep:tokio-uring"]
++libdrm_amdgpu = []
+ 
+ [dependencies]
+ log = "0.4.27"
+--- a/coolercontrold/src/repositories/gpu/amd.rs
++++ b/coolercontrold/src/repositories/gpu/amd.rs
+@@ -37,7 +37,9 @@ use crate::repositories::hwmon::{devices, fans, freqs, power, temps};
+ use crate::repositories::repository::DeviceLock;
+ use anyhow::{anyhow, Context, Result};
+ use heck::ToTitleCase;
++#[cfg(feature = "libdrm_amdgpu")]
+ use libdrm_amdgpu_sys::LibDrmAmdgpu;
++#[cfg(feature = "libdrm_amdgpu")]
+ use libdrm_amdgpu_sys::AMDGPU::GPU_INFO;
+ use log::{debug, error, info, trace, warn};
+ use regex::Regex;
+@@ -145,7 +147,11 @@ impl GpuAMD {
+                     debug!("Could not get RDNA3/4 fan curve info: {err}");
+                 })
+                 .ok();
++            #[cfg(feature = "libdrm_amdgpu")]
+             let drm_device_name = Self::get_drm_device_name(&path).await;
++            #[cfg(not(feature = "libdrm_amdgpu"))]
++            // https://github.com/Umio-Yasuno/libdrm-amdgpu-sys-rs/blob/c10593dd00ad822d71e284424455023a3ad6a20c/amdgpu/mod.rs#L14
++            let drm_device_name = Some(String::from("AMD Radeon Graphics"));
+             let pci_device_names = devices::get_device_pci_names(&path).await;
+             let model = devices::get_device_model_name(&path)
+                 .await
+@@ -187,6 +193,7 @@ impl GpuAMD {
+         }
+     }
+ 
++    #[cfg(feature = "libdrm_amdgpu")]
+     async fn get_drm_device_name(base_path: &Path) -> Option<String> {
+         let drm_amdgpu = LibDrmAmdgpu::new().ok()?;
+         let slot_name = devices::get_pci_slot_name(base_path).await?;
+-- 
+2.49.0
+
