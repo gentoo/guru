@@ -6,9 +6,7 @@
     <name>Quincy Fleming</name>
   </maintainer>
   <use>
-    <flag name="benchmark">sysbench for benchmarking</flag>
     <flag name="fwupd">fwupd</flag>
-    <flag name="gtk3">gtk+ user interface</flag>
   </use>
   <upstream>
     <remote-id type="github">hardinfo2/hardinfo2</remote-id>
