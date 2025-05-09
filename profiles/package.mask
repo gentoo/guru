@@ -122,13 +122,6 @@ dev-ruby/asciidoctor-pdf
 # Removal on 2025-05-16.
 gui-libs/text-engine
 
-# Haelwenn (lanodan) Monnier <contact@hacktivis.me> (2025-04-09)
-# Package hasn't been maintained for almost a year.
-# As I dropped myself as maintainer on 2024-05-25 21:54:47 with
-# commit d72436666f91bf44a2478674a19b51fa614b5833
-# Fails to build and hasn't seen bugfixes since.
-# Removal on 2025-05-09. Bugs #912996, #916321, #926268, #932124
-games-emulation/duckstation
 
 # David Roman <davidroman96@gmail.com> (2025-03-12)
 # Uses deprecated EGO_SUM. Last release in 2023.
