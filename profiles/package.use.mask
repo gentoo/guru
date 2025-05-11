@@ -19,7 +19,7 @@ sci-electronics/bluespec doc
 net-vpn/cloudflare-warp dex
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-11-21)
-# Bindings are generated for RocksDB 8.1.1, which is not in the tree.
+# Bindings are written for those RocksDB versions which are not in the tree.
 net-im/conduit system-rocksdb
 
 # Leonardo Hernández Hernández <leohdz172@proton.me> (2023-11-01)

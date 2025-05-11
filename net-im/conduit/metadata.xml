@@ -27,6 +27,8 @@
 			<email>timo@koesters.xyz</email>
 		</maintainer>
 		<bugs-to>https://gitlab.com/famedly/conduit/-/issues</bugs-to>
+		<changelog>https://conduit.rs/changelog/</changelog>
+		<doc>https://docs.conduit.rs/</doc>
 		<remote-id type="gitlab">famedly/conduit</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -1,0 +1,26 @@
+#!/sbin/openrc-run
+# Copyright 2023-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+#
+# shellcheck shell=sh
+
+export NO_COLOR=1
+export CONDUIT_CONFIG=${CONDUIT_CONFIG:-/etc/conduit/conduit.toml}
+
+description="Matrix homeserver"
+supervisor="supervise-daemon"
+command="/usr/bin/conduit"
+command_user="conduit:conduit"
+pidfile="/run/${RC_SVCNAME}.pid"
+
+output_log="/var/log/conduit.log"
+error_log="/var/log/conduit.log"
+
+depend() {
+	need net
+}
+
+start_pre() {
+	checkpath -d -m 0750 -o "${command_user}" /var/lib/matrix-conduit
+	checkpath -f -m 0640 -o "${command_user}" "${output_log}"
+}
