@@ -9,3 +9,4 @@ amx_bf16 - Use Advanced Matrix Extensions BFloat16 instruction set
 amx_tile - Use Advanced Matrix Extensions Tile Matrix Multiply Instruction set
 amx_int8 - Use Advanced Matrix Extensions INT8 instruction set
 avx_vnni - Use VEX-coded vector neural network instructions for 8- and 16-bit multiply-add operations
+bmi2 - Use Bit Manipulation Instruction Set 2
