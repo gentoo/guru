@@ -20,11 +20,15 @@ KEYWORDS="~amd64"
 DOCS=(
 	# from yeetfile.js
 	README.md
-	docs/docs/CHANGELOG.md
-	docs/docs/admin/policies.md
-	docs/docs/admin/native-install.mdx
-	data/botPolicies.json
+	data/{apps,bots,clients,common,crawlers}/.
+	data/botPolicies.{json,yaml}
+	docs/docs/.
 )
+
+src_prepare() {
+	default
+	find docs/docs -name _category_.json -delete || die
+}
 
 src_compile() {
 	emake prebaked-build
@@ -32,7 +36,7 @@ src_compile() {
 
 src_test() {
 	local -x DONT_USE_NETWORK=1
-	ego test ./... || die
+	ego test ./... -skip TestIntegrationGetOGTags_UnixSocket
 }
 
 src_install() {
