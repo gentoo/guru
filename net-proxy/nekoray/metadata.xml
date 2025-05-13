@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>contact@paveloom.dev</email>
+    <name>Pavel Sobolev</name>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://github.com/Mahdi-zarei/nekoray/issues</bugs-to>
+    <remote-id type="github">Mahdi-zarei/nekoray</remote-id>
+  </upstream>
+</pkgmetadata>
