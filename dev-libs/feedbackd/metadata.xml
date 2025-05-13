@@ -5,10 +5,20 @@
 		<email>gjdijkman@gjdwebserver.nl</email>
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
 	<use>
 		<flag name="daemon">Build the feedbackd daemon</flag>
 	</use>
+	<longdescription>
+		Feedbackd is a DBus activated daemon that provides haptic/
+		visual/audio feedback based on events selected from configurable
+		profiles.
+	</longdescription>
 	<upstream>
-		<remote-id type="gnome-gitlab">guidog/gmobile</remote-id>
+		<remote-id type="freedesktop-gitlab">agx/feedbackd</remote-id>
+		<bugs-to>https://gitlab.freedesktop.org/agx/feedbackd/-/issues</bugs-to>
 	</upstream>
 </pkgmetadata>

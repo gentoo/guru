@@ -6,8 +6,8 @@ VALA_USE_DEPEND="vapigen"
 
 inherit meson systemd udev vala verify-sig
 
-DESCRIPTION="DBus activated daemon that provides haptic/visual/audio feedback based on events"
-HOMEPAGE="https://source.puri.sm/Librem5/feedbackd"
+DESCRIPTION="DBus service for haptic/visual/audio feedback"
+HOMEPAGE="https://gitlab.freedesktop.org/agx/feedbackd"
 SRC_URI="https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz
 	verify-sig? ( https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz.asc )"
 
@@ -32,7 +32,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	acct-group/video
-	dev-libs/feedbackd-device-themes
+	>=dev-libs/feedbackd-device-themes-0.8.0
 "
 BDEPEND="
 	dev-util/gdbus-codegen
@@ -46,7 +46,7 @@ VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/phosh.asc"
 src_prepare() {
 	default
 
-	use vala && vala_setup
+	vala_setup
 	sed -i 's/-G feedbackd/-G video/g' data/90-feedbackd.rules || die
 }
 
@@ -79,9 +79,13 @@ src_install() {
 }
 
 pkg_postinst() {
+	use daemon || return 0
+
 	udev_reload
 }
 
 pkg_postrm() {
+	use daemon || return 0
+
 	udev_reload
 }
