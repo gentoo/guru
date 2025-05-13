@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<longdescription>
+		Feedbackd is a DBus activated daemon that provides haptic/
+		visual/audio feedback based on events.
+
+		This package contains device-specific feedback theme files.
+	</longdescription>
+	<upstream>
+		<remote-id type="freedesktop-gitlab">agx/feedbackd-device-themes</remote-id>
+	</upstream>
 </pkgmetadata>

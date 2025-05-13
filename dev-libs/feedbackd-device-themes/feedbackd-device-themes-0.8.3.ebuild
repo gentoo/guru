@@ -5,8 +5,8 @@ EAPI=8
 
 inherit meson verify-sig
 
-DESCRIPTION="A daemon to provide haptic feedback on events (themes package)"
-HOMEPAGE="https://source.puri.sm/Librem5/feedbackd-device-themes"
+DESCRIPTION="Device specific themes for Feedbackd"
+HOMEPAGE="https://gitlab.freedesktop.org/agx/feedbackd-device-themes"
 SRC_URI="https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz
 	verify-sig? ( https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz.asc )"
 
