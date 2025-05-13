@@ -3,6 +3,10 @@
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
+		<maintainer>
+			<name>Yuri Baburov</name>
+			<email>burchik@gmail.com</email>
+		</maintainer>
 		<remote-id type="pypi">readability-lxml</remote-id>
 		<remote-id type="github">buriy/python-readability</remote-id>
 	</upstream>
