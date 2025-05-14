@@ -12,12 +12,9 @@ SRC_URI="https://github.com/cowtoolz/webcamize/archive/refs/tags/v${PV}.tar.gz -
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="systemd"
 
 src_install() {
 	dobin webcamize
-	if use systemd; then
-		elog "Installing webcamize systemd service"
-		systemd_dounit webcamize.service
-	fi
+	elog "Installing webcamize systemd service"
+	systemd_dounit webcamize.service
 }
