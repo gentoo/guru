@@ -7,7 +7,7 @@ LUA_COMPAT=( lua5-4 )
 
 inherit git-r3 lua-single
 
-DESCRIPTION="Wikimedia Commons export plugin for Darktable. Every upload is converted"
+DESCRIPTION="Wikimedia Commons export plugin for Darktable"
 HOMEPAGE="https://github.com/trougnouf/dtMediaWiki"
 EGIT_REPO_URI="https://github.com/trougnouf/dtMediaWiki"
 
