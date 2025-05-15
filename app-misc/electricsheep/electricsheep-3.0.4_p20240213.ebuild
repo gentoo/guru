@@ -1,18 +1,17 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-WX_GTK_VER="3.0-gtk3"
+WX_GTK_VER="3.2-gtk3"
 inherit autotools wxwidgets desktop flag-o-matic
 
 DESCRIPTION="Realize the collective dream of sleeping computers from all over the internet"
 HOMEPAGE="https://electricsheep.org/"
-MY_COMMIT="37ba0fd692d6581f8fe009ed11c9650cd8174123"
+MY_COMMIT="5fbbb684752be06ccbea41639968aa7f1cc678dd"
 SRC_URI="
 	https://github.com/scottdraves/electricsheep/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz
-	https://github.com/scottdraves/electricsheep/pull/109.patch -> electricsheep-fix-ffmpeg5.patch
-	https://github.com/scottdraves/electricsheep/pull/123.patch -> electricsheep-fix-build-boost-185.patch
+	https://github.com/scottdraves/electricsheep/pull/126.patch -> electricsheep-remove-convenience.patch
 "
 
 S="${WORKDIR}/${PN}-${MY_COMMIT}/client_generic"
@@ -42,7 +41,6 @@ DEPEND="dev-lang/lua:5.1
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/electricsheep-glext-prototypes.patch" # is included in the boost181 patch
 	"${FILESDIR}/electricsheep-disable-vsync.patch"
 )
 
@@ -52,8 +50,7 @@ src_prepare() {
 	eautoreconf
 	rm -f DisplayOutput/OpenGL/{GLee.c,GLee.h}
 	cd ../
-	eapply "${DISTDIR}/electricsheep-fix-ffmpeg5.patch"
-	eapply "${DISTDIR}/electricsheep-fix-build-boost-185.patch"
+	eapply "${DISTDIR}/electricsheep-remove-convenience.patch"
 }
 
 src_configure() {
@@ -70,4 +67,5 @@ src_install() {
 	mv "${ED}/usr/share/doc/electricsheep-2.7b33-svn" "${ED}/usr/share/${PF}" || die
 	sed -i "$ a OnlyShowIn=" "${ED}/usr/share/applications/screensavers/electricsheep.desktop"
 	domenu "${FILESDIR}/ElectricSheep.desktop"
+
 }
