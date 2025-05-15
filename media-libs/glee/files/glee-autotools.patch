@@ -1,8 +1,9 @@
 diff -ruN configure.ac configure.ac
 --- configure.ac	1970-01-01 03:00:00.000000000 +0300
 +++ configure.ac	2007-02-13 23:48:45.000000000 +0300
-@@ -0,0 +1,10 @@
+@@ -0,0 +1,11 @@
 +AC_INIT(configure.ac)
++AC_CONFIG_FILES([glee.pc])
 +
 +AM_CONFIG_HEADER(config.h)
 +AM_INIT_AUTOMAKE(libGLee, 5.4)
@@ -20,3 +21,19 @@ diff -ruN Makefile.am Makefile.am
 +libGLee_la_SOURCES = GLee.c
 +includeGLdir = $(includedir)/GL
 +includeGL_HEADERS = GLee.h
+diff -ruN glee.pc.in.orig glee.pc.in
+--- glee.pc.in.orig	2025-05-15 15:16:23.422989994 -0400
++++ glee.pc.in	2025-05-15 15:16:01.246086074 -0400
+@@ -0,0 +1,12 @@
++prefix=@prefix@
++exec_prefix=@prefix@
++libdir=@libdir@
++includedir=@includedir@/GL
++
++Name: GLee
++Description: GL Easy Extension library
++Version: @PACKAGE_VERSION@
++Requires:
++Conflicts:
++Libs: -L${libdir} -lGLee
++Cflags: -I${includedir}

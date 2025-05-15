@@ -35,5 +35,5 @@ src_install() {
 	find "${ED}" -type f -name '*.la' -delete || die
 	dodoc readme.txt extensionList.txt || die
 	insinto /usr/$(get_libdir)/pkgconfig
-	newins "${FILESDIR}/${P}.pc" glee.pc
+	doins glee.pc
 }
