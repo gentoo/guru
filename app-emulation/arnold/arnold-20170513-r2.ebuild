@@ -3,13 +3,13 @@
 
 EAPI=8
 
-WX_GTK_VER="3.0-gtk3"
+WX_GTK_VER="3.2-gtk3"
 
 inherit cmake desktop wxwidgets
 
 DESCRIPTION="Amstrad CPC emulator"
-HOMEPAGE="https://cpctech.cpc-live.com/"
-SRC_URI="https://cpctech.cpc-live.com/arnsrc.zip -> ${P}.zip"
+HOMEPAGE="https://www.cpcwiki.eu/index.php/Arnold_(Emulator)"
+SRC_URI="https://cpctech.cpcwiki.de/arnsrc.zip -> ${P}.zip"
 
 S=${WORKDIR}/src
 
