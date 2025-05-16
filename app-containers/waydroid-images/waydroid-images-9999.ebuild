@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit python-any-r1
 
@@ -50,6 +50,13 @@ waydroid_arch() {
 	esac
 }
 
+waydroid_version() {
+	echo "18.1"
+	#use android-11 && echo "18.1" || \
+	#use android-13 && echo "20.0" || \
+	#die "Unknown version"
+}
+
 waydroid_ota_info() {
 	local ota_url="${1}"
 	local ota_file="${2}"
@@ -63,20 +70,24 @@ waydroid_ota_info() {
 }
 
 waydroid_ota_info_system() {
+	local arch="${1}"
 	local system_channel="https://ota.waydro.id/system"
 	local rom_type="lineage"
-	local system_type="${1}"
-	local system_ota="${system_channel}/${rom_type}/waydroid_${MY_ARCH}/${system_type}.json"
-	local system_file="${WAYDROID_STORE_DIR}/system_${rom_type}_${system_type}_${MY_ARCH}.json"
+	local version="${2:-18.1}"
+	local system_type="${3}"
+	local system_ota="${system_channel}/${rom_type}/waydroid_${arch}/${system_type}.json"
+	local system_file="${WAYDROID_STORE_DIR}/system_${rom_type}_${version}_${system_type}_${arch}.json"
 
 	waydroid_ota_info "${system_ota}" "${system_file}"
 }
 
 waydroid_ota_info_vendor() {
+	local arch="${1}"
 	local vendor_channel="https://ota.waydro.id/vendor"
-	local vendor_type="${1}"
-	local vendor_ota="${vendor_channel}/waydroid_${MY_ARCH}/${vendor_type}.json"
-	local vendor_file="${WAYDROID_STORE_DIR}/vendor_${vendor_type}_${MY_ARCH}.json"
+	local version="${2:-18.1}"
+	local vendor_type="${3}"
+	local vendor_ota="${vendor_channel}/waydroid_${arch}/${vendor_type}.json"
+	local vendor_file="${WAYDROID_STORE_DIR}/vendor_${version}_${vendor_type}_${arch}.json"
 
 	waydroid_ota_info "${vendor_ota}" "${vendor_file}"
 }
@@ -133,18 +144,18 @@ waydroid_download_vendor() {
 }
 
 waydroid_gen_src_uri() {
-	for arch in amd64 arm arm64 x86; do
-		MY_ARCH="$(waydroid_arch "${arch}")"
-		printf "\n\t%s? (" "${arch}"
+	for gentoo_arch in amd64 arm arm64 x86; do
+		local arch="$(waydroid_arch "${gentoo_arch}")"
+		printf "\n\t%s? (" "${gentoo_arch}"
 
 		declare -a ota_info
-		readarray -d '' ota_info < <(waydroid_ota_info_system VANILLA)
+		readarray -d '' ota_info < <(waydroid_ota_info_system "${arch}" 18.1 VANILLA)
 		printf "\n\t\tsystem-vanilla? ( %s -> %s )" "${ota_info[2]}" "${ota_info[0]}"
-		readarray -d '' ota_info < <(waydroid_ota_info_system GAPPS)
+		readarray -d '' ota_info < <(waydroid_ota_info_system "${arch}" 18.1 GAPPS)
 		printf "\n\t\tsystem-gapps? ( %s -> %s )" "${ota_info[2]}" "${ota_info[0]}"
-		readarray -d '' ota_info < <(waydroid_ota_info_vendor MAINLINE)
+		readarray -d '' ota_info < <(waydroid_ota_info_vendor "${arch}" 18.1 MAINLINE)
 		printf "\n\t\tvendor-mainline? ( %s -> %s )" "${ota_info[2]}" "${ota_info[0]}"
-		readarray -d '' ota_info < <(waydroid_ota_info_vendor HALIUM_11)
+		readarray -d '' ota_info < <(waydroid_ota_info_vendor "${arch}" 18.1 HALIUM_11)
 		printf "\n\t\tvendor-halium? ( %s -> %s )" "${ota_info[2]}" "${ota_info[0]}"
 
 		printf "\n\t)"
@@ -169,12 +180,13 @@ src_unpack() {
 		die
 	fi
 
-	MY_ARCH="$(waydroid_arch)"
+	local arch="$(waydroid_arch)"
+	local version="$(waydroid_version)"
 	MY_A=()
-	use system-vanilla && waydroid_download_system VANILLA
-	use system-gapps && waydroid_download_system GAPPS
-	use vendor-mainline && waydroid_download_vendor MAINLINE
-	use vendor-halium && waydroid_download_vendor HALIUM_11
+	use system-vanilla && waydroid_download_system "${arch}" "${version}" VANILLA
+	use system-gapps && waydroid_download_system "${arch}" "${version}" GAPPS
+	use vendor-mainline && waydroid_download_vendor "${arch}" "${version}" MAINLINE
+	use vendor-halium && waydroid_download_vendor "${arch}" "${version}" HALIUM_11
 	unpack "${MY_A[@]}"
 }
 fi
