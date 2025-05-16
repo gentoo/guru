@@ -115,14 +115,6 @@ dev-python/glicko2
 # Bug #954116.
 dev-ruby/asciidoctor-pdf
 
-# Yuan Liao <liaoyuan@gmail.com> (2025-04-16)
-# No reverse dependencies left.  Was added only for
-# <gnome-extra/extension-manager-0.6.0; not widely used by
-# other applications.
-# Removal on 2025-05-16.
-gui-libs/text-engine
-
-
 # David Roman <davidroman96@gmail.com> (2025-03-12)
 # Uses deprecated EGO_SUM. Last release in 2023.
 # Removal on 2025-05-12
