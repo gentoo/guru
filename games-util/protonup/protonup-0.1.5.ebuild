@@ -18,7 +18,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="$(python_gen_cond_dep 'dev-python/requests[${PYTHON_USEDEP}]')"
+RDEPEND="dev-python/requests[${PYTHON_USEDEP}]"
 
 src_compile() {
 	distutils-r1_src_compile
