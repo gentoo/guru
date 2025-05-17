@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,6 @@ HOMEPAGE="
 LICENSE="CC-BY-SA-3.0 EUPL-1.2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test"
 
 RDEPEND="
 	>=dev-python/aiohttp-3[${PYTHON_USEDEP}]
