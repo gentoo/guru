@@ -66,6 +66,7 @@ src_configure() {
 		-DLLAMA_BUILD_SERVER=ON
 		-DCMAKE_SKIP_BUILD_RPATH=ON
 		-DGGML_NATIVE=0	# don't set march
+		-DGGML_RPC=ON
 		-DLLAMA_CURL=$(usex curl ON OFF)
 		-DBUILD_NUMBER="1"
 	)
@@ -90,4 +91,9 @@ src_configure() {
 	fi
 
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+	dobin "${BUILD_DIR}/bin/rpc-server"
 }
