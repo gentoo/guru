@@ -14,7 +14,7 @@ SRC_URI="
 	arm64? ( https://downloads.1password.com/linux/tar/stable/aarch64/${PN}-${PV}.arm64.tar.gz -> ${P}-arm64.tar.gz )"
 
 LICENSE="all-rights-reserved"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="policykit cli"
 DEPEND="
 x11-misc/xdg-utils
