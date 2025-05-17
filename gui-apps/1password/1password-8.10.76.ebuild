@@ -18,7 +18,7 @@ KEYWORDS="amd64 arm64"
 IUSE="policykit cli"
 DEPEND="
 x11-misc/xdg-utils
-acct-group/onepassword
+acct-group/1password
 policykit? ( sys-auth/polkit )
 cli? ( app-admin/op-cli-bin )
 "
@@ -65,7 +65,7 @@ pkg_postinst() {
   chmod 4755 /opt/1Password/chrome-sandbox
 
   # This gives no extra permissions to the binary. It only hardens it against environmental tampering.
-  chgrp onepassword /opt/1Password/1Password-BrowserSupport
+  chgrp 1password /opt/1Password/1Password-BrowserSupport
   chmod g+s /opt/1Password/1Password-BrowserSupport
 
   xdg_pkg_postinst
