@@ -1,11 +1,11 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit gnome2-utils meson virtualx verify-sig xdg
 
-DESCRIPTION="On-screen keyboard stub"
+DESCRIPTION="Alternative on screen keyboard for Phosh"
 HOMEPAGE="https://gitlab.gnome.org/guidog/phosh-osk-stub"
 SRC_URI="https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz
 	verify-sig? ( https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz.asc )"
@@ -18,27 +18,26 @@ RESTRICT="!test? ( test )"
 
 # TODO: package govarnam
 # TODO: hunspell is automagic
-COMMON_DEPEND="
+RDEPEND="
 	app-shells/fzf
 	app-text/hunspell:=
-	>=dev-libs/glib-2.66:2
+	>=dev-libs/glib-2.80:2
 	dev-libs/feedbackd
 	dev-libs/json-glib
 	>=dev-libs/wayland-1.14
-	>=gnome-base/gnome-desktop-3.26:3
+	>=gnome-base/gnome-desktop-3.26:3=
 	>=gui-libs/libhandy-1.1.90:1
 	x11-libs/cairo
 	>=x11-libs/gtk+-3.22:3[wayland]
-	x11-libs/libxkbcommon[wayland]
 	x11-libs/pango
 	elogind? ( >=sys-auth/elogind-241 )
 	!elogind? ( >=sys-apps/systemd-241:= )
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
+	>=dev-libs/gmobile-0.2.0
 	>=dev-libs/wayland-protocols-1.12
-"
-RDEPEND="${COMMON_DEPEND}
-	gnome-base/gsettings-desktop-schemas
+	>=gnome-base/gsettings-desktop-schemas-47
+	x11-libs/libxkbcommon[wayland]
 "
 BDEPEND="
 	dev-libs/glib:2
@@ -55,7 +54,7 @@ BDEPEND="
 
 VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/phosh.asc"
 
-QA_DESKTOP_FILE="usr/share/applications/sm.puri.Phosh.OskStub.desktop"
+QA_DESKTOP_FILE="usr/share/applications/mobi.phosh.OskStub.desktop"
 
 src_configure() {
 	local emesonargs=(
