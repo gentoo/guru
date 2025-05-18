@@ -6,9 +6,9 @@ EAPI=8
 DESCRIPTION="Cursor set highly inspired on KDE Breeze with HiDPi Support"
 HOMEPAGE="https://github.com/ful1e5/BreezeX_Cursor"
 SRC_URI="
-	https://github.com/ful1e5/BreezeX_Cursor/releases/download/v${PV}/BreezeX-Black.tar.gz -> ${P}-black.tar.gz
-	https://github.com/ful1e5/BreezeX_Cursor/releases/download/v${PV}/BreezeX-Dark.tar.gz -> ${P}-dark.tar.gz
-	https://github.com/ful1e5/BreezeX_Cursor/releases/download/v${PV}/BreezeX-Light.tar.gz -> ${P}-light.tar.gz
+	https://github.com/ful1e5/BreezeX_Cursor/releases/download/v${PV}/BreezeX-Black.tar.xz -> ${P}-black.tar.xz
+	https://github.com/ful1e5/BreezeX_Cursor/releases/download/v${PV}/BreezeX-Dark.tar.xz -> ${P}-dark.tar.xz
+	https://github.com/ful1e5/BreezeX_Cursor/releases/download/v${PV}/BreezeX-Light.tar.xz -> ${P}-light.tar.xz
 	"
 
 S="${WORKDIR}"
