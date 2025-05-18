@@ -11,5 +11,6 @@
 		<flag name="exr">Enable support for EXR image format</flag>
 		<flag name="jpegxl">Enable support for JPEG XL image format</flag>
 		<flag name="sixel">Enable support for Sixel image format</flag>
+		<flag name="sway">Enable Sway WM integration</flag>
 	</use>
 </pkgmetadata>
