@@ -121,6 +121,7 @@ src_configure() {
 		-DWIVRN_BUILD_DASHBOARD=$(usex gui)
 		-DWIVRN_BUILD_DISSECTOR=$(usex wireshark-plugins)
 		-DWIVRN_BUILD_WIVRNCTL=ON
+		-DWIVRN_FEATURE_STEAMVR_LIGHTHOUSE=ON
 		-DWIVRN_USE_PIPEWIRE=$(usex pipewire)
 		-DWIVRN_USE_PULSEAUDIO=$(usex pulseaudio)
 		-DWIVRN_USE_NVENC=$(usex nvenc)
