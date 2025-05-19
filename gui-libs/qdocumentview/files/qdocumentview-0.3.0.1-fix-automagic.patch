@@ -1,0 +1,27 @@
+https://gitlab.com/extraqt/qdocumentview/-/merge_requests/1
+Fix automagic dependencies.
+--- a/meson.build
++++ b/meson.build
+@@ -35,10 +35,10 @@ elif get_option('use_qt_version') == 'qt6'
+ 
+ endif
+ 
+-DjVuLibre  = dependency( 'ddjvuapi', required: false )
+-LibSpectre = dependency( 'libspectre', required: false )
++DjVuLibre  = dependency( 'ddjvuapi', required: get_option('djvu') )
++LibSpectre = dependency( 'libspectre', required: get_option('postscript') )
+ 
+-Cups       = dependency( 'cups', method: 'pkg-config', required: false )
++Cups       = dependency( 'cups', method: 'pkg-config', required: get_option('cups') )
+ add_project_arguments( '-DHAVE_CUPS=@0@'.format( Cups.found() ), language : 'cpp' )
+ 
+ Deps     = [ QtBase, Poppler ]
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -5,3 +5,6 @@ option(
+     value: 'qt6',
+     description: 'Select the Qt version to use'
+ )
++option('postscript', type: 'feature', value: 'auto', description: 'Enable PostScript support')
++option('djvu', type: 'feature', value: 'auto', description: 'Enable DjVu support')
++option('cups', type: 'feature', value: 'auto', description: 'Enable print support')
