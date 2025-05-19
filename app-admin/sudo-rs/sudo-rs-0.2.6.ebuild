@@ -3,7 +3,7 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.74.0"
+RUST_MIN_VER="1.71.1"
 
 CRATES="
 	diff@0.1.13
@@ -16,58 +16,73 @@ CRATES="
 
 inherit cargo pam
 
-DESCRIPTION="A memory safe implementation of sudo"
+DESCRIPTION="A memory safe implementation of sudo and su."
 HOMEPAGE="https://github.com/trifectatechfoundation/sudo-rs"
 SRC_URI="https://github.com/trifectatechfoundation/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 		${CARGO_CRATE_URIS}"
 
-LICENSE="Apache-2.0"
+LICENSE="|| ( Apache-2.0 MIT )"
+# Dependent crate licenses
+LICENSE+=" || ( Apache-2.0 MIT )"
+
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="pam +man"
+IUSE="+pam su"
 
 DEPEND="
-	!app-admin/sudo
 	pam? ( sys-libs/pam )
 "
 RDEPEND="
 	${DEPEND}
 	virtual/editor
+	!app-admin/sudo
+	su? (
+		sys-apps/shadow[-su]
+		sys-apps/util-linux[-su]
+	)
 	pam? ( sys-auth/pambase )
 "
 BDEPEND="
-	man? ( virtual/pandoc )
-"
-
-REQUIRED_USE="
-	?? ( pam )
+	virtual/pandoc
 "
 
 DOCS=( README.md CHANGELOG.md )
 
-src_compile() {
-	cargo_src_compile || die
-}
-
 src_install() {
-	dobin "target/${RUST_TARGET}/release/sudo" || die
-	dobin "target/${RUST_TARGET}/release/visudo" || die
+	dobin "$(cargo_target_dir)/sudo" || die
+	dobin "$(cargo_target_dir)/visudo" || die
 
-	fowners 0:0 /usr/bin/sudo || die
-	fperms 4755 /usr/bin/sudo || die
-	fowners 0:0 /usr/bin/visudo || die
-	fperms 4755 /usr/bin/visudo || die
-
-	if use man ; then
-		pandoc docs/man/sudo.8.md -s -t man -o docs/man/sudo.8
-		pandoc docs/man/visudo.8.md -s -t man -o docs/man/visudo.8
-
-		doman docs/man/sudo.8
-		doman docs/man/visudo.8
+	if use su ; then
+		dobin "$(cargo_target_dir)/su" || die
 	fi
 
-	pamd_mimic system-auth sudo auth account session
-	pamd_mimic system-auth sudo-i auth account session
+	fowners 0:0 /usr/bin/sudo
+	fperms 4755 /usr/bin/sudo
+	fowners 0:0 /usr/bin/visudo
+	fperms 4755 /usr/bin/visudo
+
+	if use su ; then
+		fowners 0:0 /usr/bin/su
+		fperms 4755 /usr/bin/su
+	fi
+
+	pandoc docs/man/sudo.8.md -s -t man -o docs/man/sudo.8
+	pandoc docs/man/visudo.8.md -s -t man -o docs/man/visudo.8
+	pandoc docs/man/sudoers.5.md -s -t man -o docs/man/sudoers.5
+
+	if use su ; then
+		pandoc docs/man/su.1.md -s -t man -o docs/man/su.1
+		doman docs/man/su.1
+	fi
+
+	doman docs/man/sudo.8
+	doman docs/man/visudo.8
+	doman docs/man/sudoers.5
+
+	if use pam ; then
+		pamd_mimic system-auth sudo auth account session
+		pamd_mimic system-auth sudo-i auth account session
+	fi
 }
 
 pkg_postinst() {
