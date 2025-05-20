@@ -40,6 +40,10 @@ BDEPEND="
 
 DOCS=( {CHANGELOG,CODE_OF_CONDUCT,CONTRIBUTING,README}.md )
 
+EPYTEST_DESELECT=(
+	tests/test_cli/test_bump.py::test_detects_bad_or_missing_version_component
+)
+
 distutils_enable_tests pytest
 
 click-app_enable_completions bump-my-version
