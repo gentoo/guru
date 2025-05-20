@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<longdescription>
+		xdg-desktop-portal-phosh provides a GTK and Adwaita based implementation for
+		the desktop-agnostic xdg-desktop-portal service. This allows sandboxed
+		applications to request services from outside the sandbox.
+	</longdescription>
+	<upstream>
+		<remote-id type="gnome-gitlab">guidog/xdg-desktop-portal-phosh</remote-id>
+	</upstream>
+</pkgmetadata>
