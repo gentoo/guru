@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 
 DEPEND="
 	dev-qt/qtmultimedia:6
-	dev-qt/qtwidgets:5
+	dev-qt/qtbase:6[widgets]
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
