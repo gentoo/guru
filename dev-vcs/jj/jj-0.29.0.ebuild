@@ -5,6 +5,8 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.84.0"
+
 inherit cargo
 
 DESCRIPTION="Jujutsu - an experimental version control system"
