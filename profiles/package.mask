@@ -115,11 +115,6 @@ dev-python/glicko2
 # Bug #954116.
 dev-ruby/asciidoctor-pdf
 
-# David Roman <davidroman96@gmail.com> (2025-03-12)
-# Uses deprecated EGO_SUM. Last release in 2023.
-# Removal on 2025-05-12
-www-misc/gorss
-
 # Julien Roy <julien@jroy.ca> (2024-03-21)
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
