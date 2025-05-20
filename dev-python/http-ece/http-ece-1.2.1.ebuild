@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..13} pypy3_11 )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 pypi
 
@@ -23,5 +23,6 @@ RDEPEND="dev-python/cryptography[${PYTHON_USEDEP}]"
 distutils_enable_tests pytest
 
 python_test() {
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	epytest -o addopts=
 }
