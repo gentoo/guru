@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
 PYPI_PN=${PN^}
-PYTHON_COMPAT=(python3_{11..13} )
+PYTHON_COMPAT=(python3_{11..13} pypy3_11 )
 
 inherit distutils-r1 pypi
 
@@ -25,3 +25,8 @@ RDEPEND="
 "
 
 distutils_enable_tests pytest
+
+python_test() {
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	epytest
+}
