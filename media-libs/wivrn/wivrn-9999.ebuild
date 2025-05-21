@@ -84,7 +84,7 @@ if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
 		default_src_unpack
 
-		local MONADO_COMMIT=$(grep "GIT_TAG" "${P}/CMakeLists.txt" | awk '{print $2}' | tail -1)
+		local MONADO_COMMIT=$(cat "${P}/monado-rev")
 		git-r3_fetch "${MONADO_REPO_URI}" "${MONADO_COMMIT}"
 		git-r3_checkout "${MONADO_REPO_URI}" "${WORKDIR}/monado-src"
 	}
