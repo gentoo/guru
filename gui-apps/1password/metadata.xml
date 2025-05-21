@@ -2,7 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>sm+git@skym.fi</email>
+		<email>sm+gentoo@skym.fi</email>
 		<name>Skyler Mäntysaari</name>
 	</maintainer>
 	<longdescription>
