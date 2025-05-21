@@ -9,7 +9,7 @@ DESCRIPTION="A customisable, universally compatible terminal status bar"
 HOMEPAGE="https://github.com/liamg/shox"
 # 2024.01.25
 SHA="6a0506aebcafcd598fbcd824be9c5f0608836ab1"
-SRC_URI="https://github.com/liamg/shox/archive/${SHA}.tar.gz"
+SRC_URI="https://github.com/liamg/shox/archive/${SHA}.tar.gz -> ${P}.tar.gz"
 
 EGO_SUM=(
 	"github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d"
@@ -98,17 +98,17 @@ src_prepare() {
 
 	rm -rf ./vendor
 
-    # shox fails to build when the go version in its go.mod is go 1.15. It needs to be at least 1.17.
+	# shox fails to build when the go version in its go.mod is go 1.15. It needs to be at least 1.17.
 	sed -ie "s/go 1.15/go 1.17/" ./go.mod || die "Fails applying go version patch."
 }
 
 src_compile() {
-    # If the current EGO_SUM is removed, this command will fail complaining about inconsitency.
-    # It will then ask for running "ego mod vendor", which will also fail because it will try downloading dependencies.
+	# If the current EGO_SUM is removed, this command will fail complaining about inconsitency.
+	# It will then ask for running "ego mod vendor", which will also fail because it will try downloading dependencies.
 	ego mod tidy
-    # This command succeeds with EGO_SUM but will fail without it.
+	# This command succeeds with EGO_SUM but will fail without it.
 	ego build ./cmd/shox
-    # If the current EGO_SUM is removed, this command will fail.
+	# If the current EGO_SUM is removed, this command will fail.
 	#ego build -mod=vendor ./cmd/shox
 }
 
