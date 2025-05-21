@@ -12,11 +12,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64"
 
 src_compile() {
- ego build github.com/go-task/task/v3/cmd/task
+	ego build github.com/go-task/task/v3/cmd/task
 }
 
 src_install() {
- dobin task
+	dobin task
 
- default
+	default
 }

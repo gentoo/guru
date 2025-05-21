@@ -14,4 +14,4 @@ SLOT="0"
 
 DEPEND="net-wireless/gnuradio"
 RDEPEND="${DEPEND}"
-# Could maybe use local mycmakeargs=(  -DENABLE_DOXYGEN=$(usex doc)  ); cmake_src_configure "${mycmakeargs[@]}" ; 
+# Could maybe use local mycmakeargs=(  -DENABLE_DOXYGEN=$(usex doc)  ); cmake_src_configure "${mycmakeargs[@]}" ;

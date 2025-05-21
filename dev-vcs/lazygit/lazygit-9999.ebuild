@@ -17,18 +17,18 @@ RDEPEND="dev-vcs/git"
 DOCS=( {CODE-OF-CONDUCT,CONTRIBUTING,README}.md docs )
 
 src_unpack() {
-    git-r3_src_unpack
+	git-r3_src_unpack
 }
 
 src_compile() {
-    ego build -o bin/lazygit -ldflags "-X main.version=${PV}"
+	ego build -o bin/lazygit -ldflags "-X main.version=${PV}"
 }
 
 src_test() {
-    ego test ./... -short
+	ego test ./... -short
 }
 
 src_install() {
-    dobin bin/lazygit
-    einstalldocs
+	dobin bin/lazygit
+	einstalldocs
 }

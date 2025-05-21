@@ -21,8 +21,6 @@ IUSE="test"
 PATCHES="
 	${FILESDIR}/tomli.patch
 "
-#	${FILESDIR}/test_fixes.patch
-
 
 DEPEND="
 	dev-python/rich

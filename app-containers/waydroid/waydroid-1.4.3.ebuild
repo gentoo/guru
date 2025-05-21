@@ -47,7 +47,6 @@ ERROR_MEMFD_CREATE="CONFIG_MEMFD_CREATE: it completely replaced deprecated ISHME
 ERROR_NETFILTER_XT_NAT="CONFIG_NETFILTER_XT_NAT: see bug #937106"
 ERROR_NETFILTER_XT_TARGET_MASQUERADE="CONFIG_NETFILTER_XT_TARGET_MASQUERADE: see bug #937106"
 
-
 pkg_setup() {
 	linux-info_pkg_setup
 	python-single-r1_pkg_setup

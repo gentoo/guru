@@ -13,14 +13,14 @@ LICENSE="MIT"
 SLOT="0"
 
 src_unpack() {
-    git-r3_src_unpack
-    go-module_live_vendor
+	git-r3_src_unpack
+	go-module_live_vendor
 }
 
 src_compile() {
-    ego build -o bin/spf
+	ego build -o bin/spf
 }
 
 src_install() {
-    dobin bin/spf
+	dobin bin/spf
 }
