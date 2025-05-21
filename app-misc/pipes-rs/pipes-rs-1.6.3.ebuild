@@ -67,21 +67,34 @@ inherit cargo
 
 DESCRIPTION="An over-engineered rewrite of pipes.sh in Rust"
 HOMEPAGE="https://github.com/lhvy/pipes-rs"
-SRC_URI="
-	https://github.com/lhvy/pipes-rs/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	${CARGO_CRATE_URIS}
-"
+
+if [[ ${PV} == *9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/lhvy/pipes-rs.git"
+else
+	SRC_URI="https://github.com/lhvy/pipes-rs/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	${CARGO_CRATE_URIS}"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="BlueOak-1.0.0 Apache-2.0 MIT Unicode-DFS-2016"
 SLOT="0"
-KEYWORDS="~amd64"
 
 PATCHES=(
-	"${FILESDIR}/do-not-strip.patch"
+	"${FILESDIR}/${PN}-1.6.3-do-not-strip.patch"
 )
+
+QA_FLAGS_IGNORED="usr/bin/${PN}"
+
+src_unpack() {
+	if [[ ${PV} == *9999* ]]; then
+		git-r3_src_unpack
+		cargo_live_src_unpack
+	else
+		cargo_src_unpack
+	fi
+}
 
 src_install() {
 	cargo_src_install --path ./crates/${PN}
 }
-
-QA_FLAGS_IGNORED="usr/bin/${PN}"
