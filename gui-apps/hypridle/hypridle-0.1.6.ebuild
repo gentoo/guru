@@ -27,6 +27,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
+	>=dev-libs/hyprland-protocols-0.6.0
 	dev-libs/wayland-protocols
 "
 
