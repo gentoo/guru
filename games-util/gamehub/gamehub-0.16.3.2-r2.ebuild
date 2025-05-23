@@ -27,7 +27,7 @@ RDEPEND="
 	>=dev-libs/libmanette-0.2
 	dev-libs/libxml2
 	net-libs/libsoup:2.4
-	net-libs/webkit-gtk:4=
+	net-libs/webkit-gtk:4.1=
 	sys-auth/polkit
 	sys-libs/zlib
 	x11-libs/cairo
