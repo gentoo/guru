@@ -94,13 +94,6 @@ dev-ml/randomconv
 # Removal on 2025-05-21.
 dev-python/pytest-vcr
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-04-21)
-# Unmaintained upstream, not compatible with Mastodon.py v2.
-# Removal on 2025-05-21.
-net-misc/fedigroup
-acct-user/fedigroup
-acct-group/fedigroup
-
 # Vivian Heisz (demize) <demize@unstable.systems> (2025-04-20)
 # Depends on ~dev-ruby/prawn-2.34.0, which was removed in
 # ::gentoo, making this unable to build.
