@@ -87,7 +87,6 @@ dev-ml/cdrom
 dev-ml/domain-name
 dev-ml/gmap
 dev-ml/pecu
-dev-ml/randomconv
 
 # Vivian Heisz (demize) <demize@unstable.systems> (2025-04-20)
 # Depends on ~dev-ruby/prawn-2.34.0, which was removed in
