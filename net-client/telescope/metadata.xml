@@ -10,7 +10,8 @@
 			<name>Omar Polo</name>
 			<email>telescope@omarpolo.com</email>
 		</maintainer>
-		<doc>https://www.telescope-browser.org/telescope.1.html</doc>
+		<doc>https://telescope-browser.org/telescope.1.html</doc>
+		<remote-id type="codeberg">telescope-browser/telescope</remote-id>
 		<remote-id type="github">telescope-browser/telescope</remote-id>
 	</upstream>
 </pkgmetadata>
