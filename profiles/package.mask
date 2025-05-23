@@ -83,7 +83,6 @@ dev-util/reflex
 # Unmaintained in GURU, no revdeps left.
 # Removal on 2025-05-21.
 dev-ml/bheap
-dev-ml/cdrom
 
 # Vivian Heisz (demize) <demize@unstable.systems> (2025-04-20)
 # Depends on ~dev-ruby/prawn-2.34.0, which was removed in
