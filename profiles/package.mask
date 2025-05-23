@@ -79,11 +79,6 @@ dev-python/PyQt5-stubs
 # Removal on 2025-05-22.
 dev-util/reflex
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-04-21)
-# Unmaintained in GURU, no revdeps left.
-# Removal on 2025-05-21.
-dev-ml/bheap
-
 # Vivian Heisz (demize) <demize@unstable.systems> (2025-04-20)
 # Depends on ~dev-ruby/prawn-2.34.0, which was removed in
 # ::gentoo, making this unable to build.
