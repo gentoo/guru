@@ -27,7 +27,6 @@ LICENSE="all-rights-reserved"
 SLOT="4"
 KEYWORDS="-* ~amd64"
 
-IUSE="appindicator"
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
