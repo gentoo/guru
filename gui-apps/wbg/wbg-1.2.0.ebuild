@@ -20,7 +20,7 @@ HOMEPAGE="https://codeberg.org/dnkl/wbg"
 # ZLIB for nanosvg
 LICENSE="MIT ZLIB"
 SLOT="0"
-IUSE="png jpeg webp"
+IUSE="+png jpeg webp"
 
 RDEPEND="
 	dev-libs/wayland
