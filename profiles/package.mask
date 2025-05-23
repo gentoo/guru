@@ -85,7 +85,6 @@ dev-util/reflex
 dev-ml/bheap
 dev-ml/cdrom
 dev-ml/domain-name
-dev-ml/pecu
 
 # Vivian Heisz (demize) <demize@unstable.systems> (2025-04-20)
 # Depends on ~dev-ruby/prawn-2.34.0, which was removed in
