@@ -27,6 +27,8 @@ www-apps/whoogle-search
 # Poor quality ebuild with incorrect deps, including masked dev-qt/linguist.
 # Removal on 2025-06-24.
 media-sound/nulloy
+# RevDeps
+x11-themes/nulloy-theme-night
 
 # Takuya Wakazono <pastalian46@gmail.com> (2025-05-05)
 # Upstream has been archived.
