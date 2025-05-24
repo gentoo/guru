@@ -616,8 +616,9 @@ KEYWORDS="~amd64"
 RDEPEND="
 	app-arch/xz-utils
 	dev-libs/glib:2
-	net-libs/libsoup:2.4
-	net-libs/webkit-gtk:4=
+	net-libs/libsoup:3.0
+	dev-libs/openssl:=
+	net-libs/webkit-gtk:4.1=
 	>=net-vpn/openconnect-8.2.0:=
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
