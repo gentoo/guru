@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs prefix
+inherit prefix
 
 DESCRIPTION="Reverse-engineered Minecraft Classic client"
 HOMEPAGE="https://www.classicube.net/"
@@ -24,8 +24,17 @@ SLOT="0"
 DEPEND="x11-libs/libX11 x11-libs/libXi virtual/opengl"
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	# Makefile provides EXTRA_CFLAGS but no EXTRA_LDFLAGS
+	sed -e 's/$(CC) $(LDFLAGS)/& $(EXTRA_LDFLAGS)/' \
+		-i Makefile || die
+	default
+}
+
 src_compile() {
-	$(tc-getCC) ${CFLAGS} ${LDFLAGS} src/*.c -o ClassiCube -rdynamic -lm -lpthread -lX11 -lXi -lGL -ldl || die
+	emake \
+		EXTRA_CFLAGS="-Wno-error ${CPPFLAGS} ${CFLAGS}" \
+		EXTRA_LDFLAGS="${LDFLAGS}"
 }
 
 src_install() {
