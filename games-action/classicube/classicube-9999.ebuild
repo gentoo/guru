@@ -1,13 +1,22 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit git-r3 toolchain-funcs
+inherit toolchain-funcs
 
 DESCRIPTION="Reverse-engineered Minecraft Classic client"
 HOMEPAGE="https://www.classicube.net/"
-EGIT_REPO_URI="https://github.com/ClassiCube/ClassiCube.git"
+
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/ClassiCube/ClassiCube.git"
+else
+	SRC_URI="https://github.com/ClassiCube/ClassiCube/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/ClassiCube-${PV}"
+
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="BSD MIT FTL"
 SLOT="0"
