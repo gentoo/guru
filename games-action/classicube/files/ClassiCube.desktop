@@ -1,0 +1,21 @@
+# Custom desktop file hybrid of the following files:
+# - misc/linux/install-desktop-entry.sh
+# - misc/linux/flatpak/net.classicube.flatpak.client.desktop
+[Desktop Entry]
+Type=Application
+Comment=Sandbox building-block game
+Name=ClassiCube
+Exec=ClassiCube
+Icon=ClassiCube
+Terminal=false
+Categories=Game;ActionGame;
+MimeType=x-scheme-handler/mc;
+Actions=singleplayer;resume;
+
+[Desktop Action singleplayer]
+Name=Start singleplayer
+Exec=ClassiCube --singleplayer
+
+[Desktop Action resume]
+Name=Resume last server
+Exec=ClassiCube --resume

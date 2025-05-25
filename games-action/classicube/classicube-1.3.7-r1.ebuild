@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit prefix
+inherit prefix desktop xdg
 
 DESCRIPTION="Reverse-engineered Minecraft Classic client"
 HOMEPAGE="https://www.classicube.net/"
@@ -12,8 +12,9 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ClassiCube/ClassiCube.git"
 else
-	SRC_URI="https://github.com/ClassiCube/ClassiCube/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/ClassiCube-${PV}"
+	MY_P="ClassiCube-${PV}"
+	SRC_URI="https://github.com/ClassiCube/ClassiCube/archive/refs/tags/${PV}.tar.gz -> ${MY_P}.tar.gz"
+	S="${WORKDIR}/${MY_P}"
 
 	KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~sparc ~x86"
 fi
@@ -44,6 +45,8 @@ src_install() {
 	exeinto /usr/libexec
 	doexe ClassiCube
 	dobin "${T}/ClassiCube"
+	domenu "${FILESDIR}/ClassiCube.desktop"
+	newicon misc/CCicon.png ClassiCube.png
 	dodoc readme.md
 	dodoc doc/*.md
 }
