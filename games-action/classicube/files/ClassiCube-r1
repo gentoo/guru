@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+EPREFIX="@GENTOO_PORTAGE_EPREFIX@"
+
+# ClassiCube just writes everything to $PWD,
+# so this wrapper changes $PWD to something sane
+DATADIR="${XDG_DATA_HOME:-${HOME}/.local/share}/ClassiCube"
+mkdir -p "${DATADIR}"
+cd "${DATADIR}"
+exec "${EPREFIX}/usr/libexec/ClassiCube" "$@"

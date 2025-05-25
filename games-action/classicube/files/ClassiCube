@@ -1,6 +1,0 @@
-#!/bin/sh
-# ClassiCube just writes everything to $PWD,
-# so this wrapper changes $PWD to something sane
-DATADIR=$HOME/.local/share/ClassiCube
-[ -d "$DATADIR" ] || mkdir -p "$DATADIR" || exit 1
-(cd "$DATADIR" && /usr/libexec/ClassiCube)

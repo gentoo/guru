@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit toolchain-funcs prefix
 
 DESCRIPTION="Reverse-engineered Minecraft Classic client"
 HOMEPAGE="https://www.classicube.net/"
@@ -29,9 +29,12 @@ src_compile() {
 }
 
 src_install() {
-	exeinto "/usr/libexec"
+	cp "${FILESDIR}/ClassiCube-r1" "${T}/ClassiCube" || die
+	eprefixify "${T}/ClassiCube"
+
+	exeinto /usr/libexec
 	doexe ClassiCube
-	dobin "${FILESDIR}/ClassiCube"
+	dobin "${T}/ClassiCube"
 	dodoc readme.md
 	dodoc doc/*.md
 }
