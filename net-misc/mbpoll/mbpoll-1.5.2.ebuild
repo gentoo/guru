@@ -11,7 +11,7 @@ SRC_URI="https://github.com/epsilonrt/${PN}/archive/refs/tags/v${PV}.tar.gz -> $
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 DEPEND="dev-libs/libmodbus"
 RDEPEND="${DEPEND}"
