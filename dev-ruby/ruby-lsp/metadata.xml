@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<maintainer type="person">
 		<email>truffle074@gmail.com</email>
-		<name>Bryce Copeland</name>
+		<name>Bryce Copeland (truffle)</name>
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/Shopify/ruby-lsp/issues</bugs-to>
