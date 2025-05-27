@@ -21,10 +21,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-cpp/abseil-cpp
+	dev-cpp/abseil-cpp:=
 	dev-cpp/yaml-cpp
 	dev-libs/protobuf:=
-	dev-libs/qhotkey[qt6]
+	dev-libs/qhotkey
 	dev-qt/qtbase:6[dbus,network,widgets]
 	media-libs/zxing-cpp
 "
