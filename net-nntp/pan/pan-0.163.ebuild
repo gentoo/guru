@@ -20,14 +20,14 @@ RESTRICT="test"
 DEPEND="
 	>=dev-libs/glib-2.26:2
 	dev-libs/gmime:3.0
-	>=x11-libs/gtk+-3.00:3
+	>=x11-libs/gtk+-3.16:3
 	gnome-keyring? (
 		>=app-crypt/gcr-3.20
 		>=app-crypt/libsecret-0.20
 	)
 	libnotify? ( >=x11-libs/libnotify-0.4.1:0= )
 	spell? ( app-text/gspell )
-	ssl? ( >=net-libs/gnutls-3:0= )
+	ssl? ( >=net-libs/gnutls-3.3.6:0= )
 	>=sys-libs/zlib-1.2.0
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf
