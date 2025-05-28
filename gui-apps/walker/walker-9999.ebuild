@@ -11,7 +11,6 @@ EGIT_REPO_URI="https://github.com/abenz1267/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-libs/glib:2
