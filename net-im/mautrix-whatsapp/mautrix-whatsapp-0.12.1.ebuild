@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,7 +24,7 @@ RDEPEND="
 "
 
 src_compile() {
-	ego build $(use crypt || echo '-tags nocrypto')
+	ego build ./cmd/mautrix-whatsapp $(use crypt || echo '-tags nocrypto')
 }
 
 src_install() {
@@ -33,10 +33,9 @@ src_install() {
 	keepdir /var/log/mautrix/${PN/mautrix-/}
 	fowners -R root:mautrix /var/log/mautrix
 	fperms -R 770 /var/log/mautrix
-	sed -i -e "s_\./logs_/var/log/mautrix/whatsapp_" "example-config.yaml" || die
 
 	insinto "/etc/mautrix"
-	newins "example-config.yaml" "${PN/-/_}.yaml"
+	newins pkg/connector/example-config.yaml "${PN/-/_}.yaml"
 
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
 	systemd_dounit "${FILESDIR}/${PN}.service"
