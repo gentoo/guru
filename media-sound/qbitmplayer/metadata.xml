@@ -5,6 +5,12 @@
     <email>this.brayan@proton.me</email>
     <name>Brayan M. Salazar</name>
   </maintainer>
+  <use>
+    <flag name="video">
+      Make <pkg>media-sound/qbitmplayer</pkg> not just a Music Player,
+      but a Media Player by enabling its ability to play video files as well.
+    </flag>
+  </use>
   <upstream>
     <remote-id type="github">brookiestein/QBitMPlayer</remote-id>
     <bugs-to>https://github.com/brookiestein/QBitMPlayer/issues</bugs-to>
