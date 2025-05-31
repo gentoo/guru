@@ -1,0 +1,11 @@
+--- a/src/duckstation-mini/mini_host.cpp
++++ b/src/duckstation-mini/mini_host.cpp
+@@ -226,7 +226,7 @@ void MiniHost::SetResourcesDirectory()
+ {
+ #ifndef __APPLE__
+   // On Windows/Linux, these are in the binary directory.
+-  EmuFolders::Resources = Path::Combine(EmuFolders::AppRoot, "resources");
++  EmuFolders::Resources = Path::Combine(EmuFolders::AppRoot, "../share/duckstation/resources");
+ #else
+   // On macOS, this is in the bundle resources directory.
+   EmuFolders::Resources = Path::Canonicalize(Path::Combine(EmuFolders::AppRoot, "../Resources"));

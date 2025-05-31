@@ -1,0 +1,143 @@
+--- a/CMakeModules/DuckStationDependencies.cmake
++++ b/CMakeModules/DuckStationDependencies.cmake
+@@ -16,12 +16,29 @@ find_package(ZLIB REQUIRED) # 1.3, but Mac currently doesn't use it.
+ find_package(PNG 1.6.40 REQUIRED)
+ find_package(JPEG REQUIRED)
+ find_package(Freetype 2.13.2 REQUIRED) # 2.13.3, but flatpak is still on 2.13.2.
+-find_package(plutosvg 0.0.6 REQUIRED)
+ find_package(cpuinfo REQUIRED)
+-find_package(DiscordRPC 3.4.0 REQUIRED)
+-find_package(SoundTouch 2.3.3 REQUIRED)
+ find_package(libzip 1.11.1 REQUIRED)
+ 
++
++# plutosvg is provided by SDL3_ttf
++find_package(SDL3_ttf 3.2.2 REQUIRED)
++set(CMAKE_MODULE_PATH "${SDL3_ttf_DIR}" ${CMAKE_MODULE_PATH})
++include(PkgConfigHelper)
++find_package(plutosvg 0.0.6 MODULE REQUIRED)
++
++# for deps that do not provide cmake files, use PkgConfig
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(SoundTouch REQUIRED IMPORTED_TARGET GLOBAL soundtouch)
++pkg_check_modules(XXHash REQUIRED IMPORTED_TARGET GLOBAL libxxhash)
++
++# externalize deps
++find_package(fmt REQUIRED)
++find_package(ryml REQUIRED)
++if(ENABLE_VULKAN)
++  find_package(VulkanHeaders REQUIRED)
++  find_package(VulkanMemoryAllocator REQUIRED)
++endif()
++
+ if(NOT WIN32)
+   find_package(CURL REQUIRED)
+ endif()
+@@ -43,12 +60,12 @@ if(BUILD_QT_FRONTEND)
+   find_package(Qt6 6.8.0 COMPONENTS Core Gui Widgets LinguistTools REQUIRED)
+ endif()
+ 
+-find_package(Shaderc REQUIRED)
++pkg_check_modules(Shaderc REQUIRED IMPORTED_TARGET GLOBAL shaderc)
+ find_package(spirv_cross_c_shared REQUIRED)
+ 
+ if(LINUX AND NOT (ALLOW_INSTALL AND INSTALL_SELF_CONTAINED))
+   # We need to add the rpath for shaderc to the executable.
+-  get_target_property(SHADERC_LIBRARY Shaderc::shaderc_shared IMPORTED_LOCATION)
++  get_target_property(SHADERC_LIBRARY PkgConfig::Shaderc IMPORTED_LOCATION)
+   get_filename_component(SHADERC_LIBRARY_DIRECTORY ${SHADERC_LIBRARY} DIRECTORY)
+   list(APPEND CMAKE_BUILD_RPATH ${SHADERC_LIBRARY_DIRECTORY})
+   get_target_property(SPIRV_CROSS_LIBRARY spirv-cross-c-shared IMPORTED_LOCATION)
+--- a/dep/CMakeLists.txt
++++ b/dep/CMakeLists.txt
+@@ -1,30 +1,22 @@
+ set(_saved_CMAKE_MESSAGE_LOG_LEVEL ${CMAKE_MESSAGE_LOG_LEVEL})
+ set(CMAKE_MESSAGE_LOG_LEVEL NOTICE)
+ 
+-set(FMT_INSTALL OFF CACHE BOOL "")
+-add_subdirectory(fmt EXCLUDE_FROM_ALL)
+-disable_compiler_warnings_for_target(fmt)
+ add_subdirectory(minizip EXCLUDE_FROM_ALL)
+ disable_compiler_warnings_for_target(minizip)
+ add_subdirectory(lzma EXCLUDE_FROM_ALL)
+ disable_compiler_warnings_for_target(lzma)
+ add_subdirectory(libchdr EXCLUDE_FROM_ALL)
+ disable_compiler_warnings_for_target(libchdr)
+-add_subdirectory(xxhash EXCLUDE_FROM_ALL)
+-disable_compiler_warnings_for_target(xxhash)
+ add_subdirectory(imgui EXCLUDE_FROM_ALL)
+ disable_compiler_warnings_for_target(imgui)
+ add_subdirectory(simpleini EXCLUDE_FROM_ALL)
+ disable_compiler_warnings_for_target(simpleini)
+-add_subdirectory(vulkan EXCLUDE_FROM_ALL)
+ add_subdirectory(googletest EXCLUDE_FROM_ALL)
+ add_subdirectory(fast_float EXCLUDE_FROM_ALL)
+ add_subdirectory(reshadefx EXCLUDE_FROM_ALL)
+ disable_compiler_warnings_for_target(reshadefx)
+ add_subdirectory(rcheevos EXCLUDE_FROM_ALL)
+ disable_compiler_warnings_for_target(rcheevos)
+-add_subdirectory(rapidyaml EXCLUDE_FROM_ALL)
+-disable_compiler_warnings_for_target(rapidyaml)
+ add_subdirectory(cubeb EXCLUDE_FROM_ALL)
+ disable_compiler_warnings_for_target(cubeb)
+ disable_compiler_warnings_for_target(speex)
+--- a/src/core/CMakeLists.txt
++++ b/src/core/CMakeLists.txt
+@@ -138,11 +138,14 @@ set(RECOMPILER_SRCS
+   cpu_recompiler.h
+ )
+ 
++# Enable exceptions for fmt usage in game_database.cpp
++set_source_files_properties(game_database.cpp PROPERTIES COMPILE_FLAGS "-fpermissive")
++
+ target_precompile_headers(core PRIVATE "pch.h")
+ target_include_directories(core PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/..")
+ target_include_directories(core PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/..")
+ target_link_libraries(core PUBLIC Threads::Threads common util)
+-target_link_libraries(core PRIVATE xxhash imgui rapidyaml rcheevos cpuinfo::cpuinfo ZLIB::ZLIB Zstd::Zstd libzip::zip)
++target_link_libraries(core PRIVATE xxhash imgui rcheevos cpuinfo::cpuinfo ryml::ryml ZLIB::ZLIB Zstd::Zstd libzip::zip)
+ 
+ if(CPU_ARCH_X64)
+   target_compile_definitions(core PUBLIC "ENABLE_RECOMPILER=1" "ENABLE_MMAP_FASTMEM=1")
+--- a/src/duckstation-qt/CMakeLists.txt
++++ b/src/duckstation-qt/CMakeLists.txt
+@@ -173,7 +173,7 @@ set(TS_FILES
+ add_executable(duckstation-qt ${SRCS} ${QM_FILES})
+ target_precompile_headers(duckstation-qt PRIVATE "pch.h")
+ target_include_directories(duckstation-qt PRIVATE "${Qt6Gui_PRIVATE_INCLUDE_DIRS}" "${CMAKE_CURRENT_SOURCE_DIR}")
+-target_link_libraries(duckstation-qt PRIVATE core common imgui minizip scmversion Qt6::Core Qt6::Gui Qt6::Widgets)
++target_link_libraries(duckstation-qt PRIVATE core common imgui minizip scmversion ryml::ryml Qt6::Core Qt6::Gui Qt6::Widgets)
+ 
+ # Our Qt builds may have exceptions on, so force them off.
+ target_compile_definitions(duckstation-qt PRIVATE QT_NO_EXCEPTIONS)
+--- a/src/util/CMakeLists.txt
++++ b/src/util/CMakeLists.txt
+@@ -73,11 +73,14 @@ add_library(util
+   window_info.h
+ )
+ 
++# Enable exceptions for SoundTouch usage in audio_stream.cpp
++set_source_files_properties(audio_stream.cpp PROPERTIES COMPILE_FLAGS "-fexceptions")
++
+ target_precompile_headers(util PRIVATE "pch.h")
+ target_include_directories(util PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/..")
+ target_include_directories(util PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/..")
+ target_link_libraries(util PUBLIC common simpleini imgui)
+-target_link_libraries(util PRIVATE libchdr lzma JPEG::JPEG PNG::PNG WebP::libwebp plutosvg::plutosvg ZLIB::ZLIB SoundTouch::SoundTouchDLL xxhash Zstd::Zstd reshadefx)
++target_link_libraries(util PRIVATE libchdr lzma JPEG::JPEG PNG::PNG WebP::libwebp plutosvg::plutosvg ZLIB::ZLIB PkgConfig::SoundTouch SoundTouchDll PkgConfig::XXHash Zstd::Zstd reshadefx)
+ 
+ if(ENABLE_X11)
+   target_sources(util PRIVATE
+@@ -175,11 +178,10 @@ if(ENABLE_VULKAN)
+     vulkan_texture.h
+   )
+   target_compile_definitions(util PUBLIC "ENABLE_VULKAN=1")
+-  target_link_libraries(util PUBLIC vulkan-headers)
+ endif()
+ 
+ # shaderc/spirv-cross is loaded dynamically to reduce module loads on startup.
+-get_target_property(SHADERC_INCLUDE_DIR Shaderc::shaderc_shared INTERFACE_INCLUDE_DIRECTORIES)
++get_target_property(SHADERC_INCLUDE_DIR PkgConfig::Shaderc INTERFACE_INCLUDE_DIRECTORIES)
+ get_target_property(SPIRV_CROSS_INCLUDE_DIR spirv-cross-c-shared INTERFACE_INCLUDE_DIRECTORIES)
+ target_include_directories(util PUBLIC ${SHADERC_INCLUDE_DIR} ${SPIRV_CROSS_INCLUDE_DIR})
+ 

@@ -1,0 +1,11 @@
+--- a/dep/rcheevos/src/rapi/rc_api_user.c
++++ b/dep/rcheevos/src/rapi/rc_api_user.c
+@@ -458,7 +458,7 @@
+     entry->game_id = strtol(field.name, &end, 10);
+ 
+     field.name = "";
+-    if (!rc_json_get_required_object(entry_fields, sizeof(entry_fields) / sizeof(entry_fields[0]), response, &field,
++    if (!rc_json_get_required_object(entry_fields, sizeof(entry_fields) / sizeof(entry_fields[0]), (rc_api_response_t *)response, &field,
+                                      ""))
+     {
+       return RC_MISSING_VALUE;
