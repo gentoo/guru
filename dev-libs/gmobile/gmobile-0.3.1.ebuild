@@ -4,7 +4,7 @@
 EAPI=8
 VALA_USE_DEPEND="vapigen"
 
-inherit meson udev verify-sig
+inherit meson udev vala verify-sig
 
 DESCRIPTION="Mobile related helpers for glib based projects"
 HOMEPAGE="https://gitlab.gnome.org/World/Phosh/gmobile/"
@@ -14,7 +14,11 @@ SRC_URI="https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz
 LICENSE="GPL-3+ LGPL-2.1+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-IUSE="gtk-doc +introspection man test udev"
+IUSE="gtk-doc +introspection man test udev vala"
+REQUIRED_USE="
+	gtk-doc? ( introspection )
+	vala? ( introspection )
+"
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -26,11 +30,17 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	gtk-doc? ( >=dev-util/gi-docgen-2021.1 )
 	man? ( dev-python/docutils )
+	vala? ( $(vala_depend) )
 	verify-sig? ( sec-keys/openpgp-keys-phosh )
 "
 IDEPEND="udev? ( virtual/udev )"
 
 VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/phosh.asc"
+
+src_prepare() {
+	default
+	vala_setup
+}
 
 src_configure() {
 	local emesonargs=(
@@ -40,6 +50,7 @@ src_configure() {
 		$(meson_use man)
 		$(meson_use test tests)
 		$(meson_use udev hwdb)
+		$(meson_use vala vapi)
 	)
 	meson_src_configure
 }
