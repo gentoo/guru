@@ -18,11 +18,6 @@
 
 # New entries go on top.
 
-
-# David (stkw0) Roman <davidroman96@gmail.com> (2025-05-29)
-# Depends on removed ffmpeg-chromium slot
-www-client/yandex-browser
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-24)
 # Depends on masked net-libs/stem.
 # Masked until upstream supports running without stem.
