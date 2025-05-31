@@ -31,7 +31,7 @@ RDEPEND="
 	dev-libs/json-glib
 	dev-libs/libxml2
 	gui-libs/gtk:4[introspection]
-	>=gui-libs/libadwaita-1.6.0:1[introspection]
+	>=gui-libs/libadwaita-1.7.0:1[introspection]
 	net-libs/libsoup:3.0
 "
 
