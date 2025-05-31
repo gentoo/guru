@@ -12,7 +12,7 @@ else
 	MY_PN=${PN}
 fi
 
-FFMPEG="133"
+FFMPEG="138"
 
 DESCRIPTION="The web browser from Yandex"
 HOMEPAGE="https://browser.yandex.ru/"
@@ -111,7 +111,7 @@ src_install() {
 	dodir /usr/$(get_libdir)/${MY_PN}/lib
 	mv "${D}"/usr/share/appdata "${D}"/usr/share/metainfo || die
 
-	make_wrapper "${PN}" "./${PN}" "/${YANDEX_HOME}" "/usr/$(get_libdir)/${MY_PN}/lib" || die "Failed to mae wrapper"
+	make_wrapper "${PN}" "./${PN}" "/${YANDEX_HOME}" "/usr/$(get_libdir)/${MY_PN}/lib" || die "Failed to make wrapper"
 
 	dosym "../../../usr/$(get_libdir)/chromium/libffmpeg.so.${FFMPEG}" "${YANDEX_HOME}/libffmpeg.so"
 
