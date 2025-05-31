@@ -1,11 +1,29 @@
+From 04a2240bd8f465bcae6b595d912af3e2965856de Mon Sep 17 00:00:00 2001
+From: millert <millert@openbsd.org>
+Date: Thu, 9 Jul 2020 19:17:19 +0000
+Subject: [PATCH] Fix a warning false positive from clang 10. blf_enc() takes a
+ number of 64-bit blocks to encrypt, but using sizeof(uint64_t) in the
+ calculation triggers a warning from clang 10 because the actual data type is
+ uint32_t.  Pass BCRYPT_WORDS / 2 for the number of blocks like libc bcrypt(3)
+ does.  OK kettenis@
+
+
+---
+Haelwenn (lanodan) Monnier: Substituted BCRYPT_WORDS for 8, removed $OpenBSD$ hunk
+
+ sys/lib/libsa/bcrypt_pbkdf.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/sys/lib/libsa/bcrypt_pbkdf.c b/sys/lib/libsa/bcrypt_pbkdf.c
+index 4020ada74a43..df0e34c4e46d 100644
 --- a/other/other.c
 +++ b/other/other.c
-@@ -659,7 +659,7 @@ bcrypt_hash(u_int8_t *sha2pass, u_int8_t *sha2salt, u_int8_t *out)
+@@ -76,7 +76,7 @@ bcrypt_hash(uint8_t *sha2pass, uint8_t *sha2salt, uint8_t *out)
  		cdata[i] = Blowfish_stream2word(ciphertext, sizeof(ciphertext),
  		    &j);
  	for (i = 0; i < 64; i++)
 -		blf_enc(&state, cdata, sizeof(cdata) / sizeof(uint64_t));
-+		blf_enc(&state, cdata, sizeof(cdata) / sizeof(uint32_t));
++		blf_enc(&state, cdata, 8 / 2);
  
  	/* copy out */
- 	for (i = 0; i < BCRYPT_BLOCKS; i++) {
+ 	for (i = 0; i < BCRYPT_WORDS; i++) {
