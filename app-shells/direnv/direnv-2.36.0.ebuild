@@ -25,5 +25,5 @@ DOCS=( {CHANGELOG,README}.md )
 
 src_install() {
 	einstalldocs
-	emake DESTDIR="${D}" PREFIX="/usr" install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
 }
