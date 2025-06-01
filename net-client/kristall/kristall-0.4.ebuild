@@ -21,7 +21,7 @@ SLOT="0"
 
 RDEPEND="
 	app-text/cmark:=
-	dev-libs/gumbo
+	dev-libs/gumbo:=
 	dev-libs/openssl:=
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
