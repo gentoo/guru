@@ -68,7 +68,9 @@ src_configure() {
 src_compile() {
 	local targets=()
 	use daemon && targets+=(daemon)
-	use tools && targets+=(blockchain_{ancestry,blackball,db,depth,export,import,prune,prune_known_spent_data,stats,usage})
+	use tools && targets+=(
+			blockchain_{ancestry,blackball,db,depth,export,import,prune,prune_known_spent_data,stats,usage}
+	)
 	use wallet-cli && targets+=(simplewallet)
 	use wallet-rpc && targets+=(wallet_rpc_server)
 	cmake_build ${targets[@]}
