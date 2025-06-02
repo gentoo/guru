@@ -15,8 +15,8 @@ retry="SIGTERM/30/SIGKILL/5"
 
 
 depend() {
+    after net
     need localmount
-    use net
 }
 
 start_pre() {
