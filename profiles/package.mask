@@ -49,7 +49,6 @@ x11-misc/pywal
 
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-04-30)
 # Depends on removed dev-qt/qtwebengine:5, they should be moved to qtwebengine:6
-# Removal on 2025-06-30
 dev-vcs/gitqlient-gitserver-plugin
 dev-vcs/gitqlient-jenkins-plugin
 media-video/stremio
