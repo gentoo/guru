@@ -3,6 +3,8 @@
 
 EAPI=8
 
+MY_PV="1.0_beta16.1"
+
 inherit meson xdg-utils
 
 DESCRIPTION="S* Floating Window Bar"
@@ -11,19 +13,19 @@ if [ "${PV}" == 9999 ] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/LBCrion/${PN}"
 else
-	SRC_URI="https://github.com/LBCrion/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/LBCrion/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 LICENSE="GPL-3"
 SLOT="0"
 
-IUSE="X mpd pulseaudio alsa network networkmanager iwd bluetooth man idleinhibit bsdctl"
+IUSE="+menu X mpd pulseaudio alsa network networkmanager iwd bluetooth notification man idleinhibit bsdctl"
 
 COMMON_DEPEND="
 	dev-libs/glib:2
 	dev-libs/json-c:=
 	dev-libs/wayland
-	<=gui-libs/gtk-layer-shell-0.9.1
+	gui-libs/gtk-layer-shell
 	>=x11-libs/gtk+-3.22.0:3[introspection,wayland]
 	X? ( x11-libs/libxkbcommon )
 	mpd? ( media-libs/libmpdclient )
@@ -50,8 +52,11 @@ src_configure() {
 		$(meson_feature network)
 		$(meson_feature networkmanager nm)
 		$(meson_feature iwd)
+		$(meson_feature menu appmenu)
 		$(meson_feature bluetooth bluez)
 		$(meson_feature bsdctl)
+		$(meson_feature notification ncenter)
+		$(meson_feature notification idle)
 		$(meson_feature man build-docs)
 		$(meson_feature idleinhibit)
 	)

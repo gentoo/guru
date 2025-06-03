@@ -23,7 +23,7 @@ COMMON_DEPEND="
 	dev-libs/glib:2
 	dev-libs/json-c:=
 	dev-libs/wayland
-	gui-libs/gtk-layer-shell
+	<=gui-libs/gtk-layer-shell-0.9.1
 	>=x11-libs/gtk+-3.22.0:3[introspection,wayland]
 	X? ( x11-libs/libxkbcommon )
 	mpd? ( media-libs/libmpdclient )
