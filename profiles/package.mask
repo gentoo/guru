@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Lucio Sauer <watermanpaint@posteo.net> (2025-06-03)
+# Superseded by app-misc/anki::gentoo and poses extra maintenance burden with
+# little to no benefit.
+# Removal on 2025-07-03
+app-misc/anki-bin
+
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-06-03)
 # Unmaintained since 2021, fails to compile. Bug #859643
 # Removal on 2025-07-30
