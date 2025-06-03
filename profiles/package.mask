@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-06-03)
+# Unmaintained since 2021, fails to compile. Bug #859643
+# Removal on 2025-07-30
+app-crypt/uacme
+
+# David (stkw0) Roman <davidroman96@gmail.com> (2025-06-03)
 # Unmaintained, fails to compile and the maintainer doesn seems to be active.
 # Bugs #782982 #859979 #887647 #921910 #928264
 # Removal on 2025-07-03
