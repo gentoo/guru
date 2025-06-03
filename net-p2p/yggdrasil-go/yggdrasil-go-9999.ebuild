@@ -64,13 +64,13 @@ src_compile() {
 
 	local go_ldflags="-s -linkmode external -extldflags \"${LDFLAGS}\" ${custom_name_version_flags}"
 
-	for cmd in yggdrasil{,ctl}; do
+	for cmd in yggdrasil{,ctl} genkeys; do
 		ego build ${GOFLAGS} -ldflags="${go_ldflags}" ./cmd/${cmd}
 	done
 }
 
 src_install() {
-	dobin yggdrasil{,ctl}
+	dobin yggdrasil{,ctl} genkeys
 	einstalldocs
 
 	systemd_dounit "contrib/systemd/yggdrasil.service"
