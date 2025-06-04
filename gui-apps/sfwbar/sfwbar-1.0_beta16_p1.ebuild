@@ -4,6 +4,7 @@
 EAPI=8
 
 MY_PV="1.0_beta16.1"
+MY_P="sfwbar-1.0_beta16.1"
 
 inherit meson xdg-utils
 
@@ -13,11 +14,12 @@ if [ "${PV}" == 9999 ] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/LBCrion/${PN}"
 else
-	SRC_URI="https://github.com/LBCrion/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/LBCrion/${PN}/archive/v${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 LICENSE="GPL-3"
 SLOT="0"
+S="${WORKDIR}/${MY_P}"
 
 IUSE="+menu X mpd pulseaudio alsa network networkmanager iwd bluetooth notification man idleinhibit bsdctl"
 
