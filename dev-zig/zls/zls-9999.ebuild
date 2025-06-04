@@ -11,10 +11,6 @@ if [[ ${PV} == 9999 ]]; then
 
 	EGIT_REPO_URI="https://github.com/zigtools/zls"
 	inherit git-r3
-	src_unpack() {
-		git-r3_src_unpack
-		zig_live_fetch -Denable-tracy=false
-	}
 else
 	# Should be the "minimum_build_zig_version" from upstream's "build.zig".
 	ZIG_SLOT="$(ver_cut 1-2)" # works only for releases, but that's okay
@@ -40,6 +36,13 @@ RDEPEND="
 "
 
 DOCS=( README.md )
+
+if [[ ${PV} == 9999 ]]; then
+	src_unpack() {
+		git-r3_src_unpack
+		zig_live_fetch -Denable-tracy=false
+	}
+fi
 
 src_configure() {
 	local my_zbs_args=(
