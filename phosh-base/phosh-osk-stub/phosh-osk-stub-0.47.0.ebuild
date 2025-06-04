@@ -13,7 +13,7 @@ SRC_URI="https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="elogind gtk-doc man test"
+IUSE="gtk-doc man systemd test"
 RESTRICT="!test? ( test )"
 
 # TODO: package govarnam
@@ -30,8 +30,8 @@ RDEPEND="
 	x11-libs/cairo
 	>=x11-libs/gtk+-3.22:3[wayland]
 	x11-libs/pango
-	elogind? ( >=sys-auth/elogind-241 )
-	!elogind? ( >=sys-apps/systemd-241:= )
+	systemd? ( >=sys-apps/systemd-241:= )
+	!systemd? ( >=sys-auth/elogind-241 )
 "
 DEPEND="${RDEPEND}
 	>=dev-libs/gmobile-0.2.0
