@@ -17,9 +17,9 @@ else
 	SRC_URI="https://github.com/LBCrion/${PN}/archive/v${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
+S="${WORKDIR}/${MY_P}"
 LICENSE="GPL-3"
 SLOT="0"
-S="${WORKDIR}/${MY_P}"
 
 IUSE="+menu X mpd pulseaudio alsa network networkmanager iwd bluetooth notification man idleinhibit bsdctl"
 
