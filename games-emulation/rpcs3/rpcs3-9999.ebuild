@@ -20,7 +20,7 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_SUBMODULES=(
 	'asmjit' '3rdparty/glslang' '3rdparty/miniupnp/miniupnp' '3rdparty/rtmidi/rtmidi' '3rdparty/wolfssl'
 	'3rdparty/SoundTouch/soundtouch' '3rdparty/zstd/zstd' '3rdparty/stblib/stb' '3rdparty/OpenAL/openal-soft'
-	'3rdparty/fusion/fusion'
+	'3rdparty/fusion/fusion' '3rdparty/GPUOpen/VulkanMemoryAllocator'
 	)
 	# Delete sources when ensuring yaml-cpp compiled with fexceptions
 	EGIT_SUBMODULES+=( '3rdparty/yaml-cpp' )
