@@ -16,7 +16,7 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="CC0-1.0 CC-BY-SA-4.0 GPL-2+ GPL-3+ LGPL-2+ LGPL-2.1+ MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="elogind gtk-doc introspection +lockscreen-plugins man test test-full"
+IUSE="gtk-doc introspection +lockscreen-plugins man systemd test test-full"
 REQUIRED_USE="
 	gtk-doc? ( introspection )
 	test? ( lockscreen-plugins )
@@ -50,8 +50,8 @@ COMMON_DEPEND="
 	x11-libs/gdk-pixbuf
 	x11-libs/pango
 	>=x11-libs/gtk+-3.22:3[introspection?,wayland]
-	elogind? ( >=sys-auth/elogind-241 )
-	!elogind? ( >=sys-apps/systemd-241:= )
+	systemd? ( >=sys-apps/systemd-241:= )
+	!systemd? ( >=sys-auth/elogind-241 )
 	lockscreen-plugins? (
 		app-text/evince:=
 		>=gui-libs/gtk-4.12:4
@@ -72,7 +72,7 @@ DEPEND="
 RDEPEND="
 	${COMMON_DEPEND:?}
 	${RUNTIME_DEPEND:?}
-	!elogind? ( sys-libs/libcap )
+	systemd? ( sys-libs/libcap )
 "
 BDEPEND="
 	dev-libs/glib:2
