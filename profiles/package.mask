@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Lucio Sauer <watermanpaint@posteo.net> (2025-06-04)
+# Ebuild effectively unmaintained since 2021. I was unable to find the origin
+# of the installed files, so I don't see a reason to keep this.
+# Removal on 2025-07-04
+app-mobilephone/usb-tethering
+
 # Lucio Sauer <watermanpaint@posteo.net> (2025-06-03)
 # Superseded by app-misc/anki::gentoo and poses extra maintenance burden with
 # little to no benefit.
