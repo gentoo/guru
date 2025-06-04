@@ -109,7 +109,7 @@ src_prepare() {
 	sed -i -e '/find_program(CCACHE_FOUND ccache)/d' CMakeLists.txt || die
 
 	# Unbundle hidapi
-	sed -i -e '/hidapi\.h/{s:":<hidapi/:;s/"/>/}' rpcs3/Input/hid_pad_handler.h || die
+	sed -i -e '/hidapi\.h/{s:<:<hidapi/:;s/>/>/}' rpcs3/Input/hid_pad_handler.h || die
 	sed -i -e '/hidapi/d' 3rdparty/CMakeLists.txt || die
 	sed -i -e '1afind_package(PkgConfig REQUIRED)\npkg_check_modules(hidapi-hidraw REQUIRED hidapi-hidraw)' \
 		rpcs3/CMakeLists.txt || die
