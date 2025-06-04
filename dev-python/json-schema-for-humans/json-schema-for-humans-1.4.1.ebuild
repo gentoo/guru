@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,7 +21,6 @@ KEYWORDS="~amd64"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	${PYTHON_DEPS}
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/dataclasses-json[${PYTHON_USEDEP}]
 	dev-python/jinja2[${PYTHON_USEDEP}]
@@ -35,8 +34,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 BDEPEND="
-	${DISTUTILS_DEPS}
-	${PYTHON_DEPS}
 	test? ( dev-python/beautifulsoup4[${PYTHON_USEDEP}]	)
 "
 
