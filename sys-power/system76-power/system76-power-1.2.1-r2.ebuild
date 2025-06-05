@@ -204,9 +204,6 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="sys-apps/systemd"
-RDEPEND="${DEPEND}"
-
 src_prepare() {
 	default
 	# Replace dynamic git dependency of 'sysfs-class' with a static one
@@ -217,4 +214,10 @@ src_prepare() {
 src_install() {
 	default
 	elog "Enable the service: 'systemctl enable --now com.system76.PowerDaemon.service'"
+}
+
+pkg_postinst(){
+	if ! has_version sys-apps/systemd; then
+		ewarn "${PN} is not functional without sys-apps/systemd at this point."
+	fi
 }

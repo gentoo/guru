@@ -13,9 +13,6 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND="sys-apps/systemd"
-RDEPEND="${DEPEND}"
-
 src_unpack(){
 	git-r3_src_unpack
 	cargo_live_src_unpack
@@ -24,4 +21,10 @@ src_unpack(){
 src_install(){
 	default
 	elog "Enable the service: 'systemctl enable --now com.system76.PowerDaemon.service'"
+}
+
+pkg_postinst(){
+	if ! has_version sys-apps/systemd; then
+		ewarn "${PN} is not functional without sys-apps/systemd at this point."
+	fi
 }
