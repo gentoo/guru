@@ -1,5 +1,6 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+
 EAPI=8
 
 CRATES="
@@ -145,7 +146,6 @@ CRATES="
 	strsim@0.11.1
 	syn@1.0.109
 	syn@2.0.100
-	sysfs-class@0.1.3
 	tempfile@3.13.0
 	thiserror-impl@1.0.65
 	thiserror@1.0.65
@@ -199,15 +199,27 @@ CRATES="
 	zvariant_utils@1.0.1
 "
 
+declare -A GIT_CRATES=(
+	[sysfs-class]='https://github.com/pop-os/sysfs-class;ab63e7f638aadfaf896a02e53cf330343d331337;sysfs-class-%commit%'
+)
+
 inherit cargo
 
 DESCRIPTION="System76 Power Management Tool"
 HOMEPAGE="https://github.com/pop-os/system76-power"
 
-SRC_URI="
-	https://github.com/pop-os/system76-power/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-	${CARGO_CRATE_URIS}
-"
+if [[ ${PV} == *9999* ]]; then
+	inherit git-r3
+
+	EGIT_REPO_URI="https://github.com/pop-os/system76-power"
+else
+	SRC_URI="
+		https://github.com/pop-os/system76-power/archive/refs/tags/${PV}.tar.gz
+		-> ${P}.tar.gz
+		${CARGO_CRATE_URIS}
+	"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="GPL-3"
 # Dependent crate licenses
@@ -216,24 +228,42 @@ LICENSE+="
 	|| ( Apache-2.0 Boost-1.0 )
 "
 SLOT="0"
-KEYWORDS="~amd64"
 
-DEPEND="
-	dev-libs/libusb:1
-"
+DEPEND="virtual/libusb:1"
 RDEPEND="
 	${DEPEND}
+	sys-apps/dbus
+	sys-auth/polkit
 "
+BDEPEND="virtual/pkgconfig"
 
-src_prepare() {
-	default
-	# Replace dynamic git dependency of 'sysfs-class' with a static one
-	sed -i 's|sysfs-class = { git = "https://github.com/pop-os/sysfs-class" }|sysfs-class = "0.1.3"|' Cargo.toml
-	cargo_gen_config
+src_unpack(){
+	if [[ ${PV} == *9999* ]]; then
+		git-r3_src_unpack
+		cargo_live_src_unpack
+	else
+		cargo_src_unpack
+	fi
 }
 
-src_install() {
+src_prepare() {
+	# Install the Rust binary using the cargo eclass as the Makefile hardcodes the release path
+	sed -i '/\s*install -D -m 0755/d' Makefile || die
 	default
+}
+
+src_configure() {
+	if [[ ${PV} == *9999* ]]; then
+		# prevent network access during src_install due to git crate sysfs-class
+		cargo_src_configure --frozen
+	else
+		cargo_src_configure
+	fi
+}
+
+src_install(){
+	cargo_src_install
+	emake DESTDIR="${D}" prefix="${EPREFIX}/usr" install
 	elog "Enable the service: 'systemctl enable --now com.system76.PowerDaemon.service'"
 }
 
