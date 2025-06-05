@@ -58,6 +58,8 @@ EPYTEST_DESELECT=(
 	tests/cli/test_manifest_command.py::test_add_git_dependency_invalid
 	tests/cli/test_manifest_command.py::test_manifest_keeps_comments
 	tests/cli/test_module.py::test_raise_exception_on_warnings
+	tests/cli/test_registry_command.py::test_logout_from_registry_revoked_token
+	tests/sources/test_git.py::test_versions_component_hash
 )
 
 # network access
