@@ -13,6 +13,13 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 
+DEPEND="
+	dev-libs/libusb:1
+"
+RDEPEND="
+	${DEPEND}
+"
+
 src_unpack(){
 	git-r3_src_unpack
 	cargo_live_src_unpack

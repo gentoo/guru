@@ -218,6 +218,13 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
+DEPEND="
+	dev-libs/libusb:1
+"
+RDEPEND="
+	${DEPEND}
+"
+
 src_prepare() {
 	default
 	# Replace dynamic git dependency of 'sysfs-class' with a static one
