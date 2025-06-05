@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2025-06-05)
+# app-text/komikku, the only reverse dependency, has migrated to
+# dev-python/modern-colorthief.
+# Removal on 2025-07-05.
+dev-python/colorthief
+
 # Vivian Heisz (vhz) <demize@unstable.systems> (2025-06-05)
 # Unmaintained in GURU. Non-PEP517 build that requires manual
 # setup.py invocation, and which triggers multiple setuptools
