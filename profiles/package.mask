@@ -65,12 +65,6 @@ www-apps/whoogle-search
 media-sound/nulloy
 x11-themes/nulloy-theme-night
 
-# Takuya Wakazono <pastalian46@gmail.com> (2025-05-05)
-# Upstream has been archived.
-# An active fork is packaged as x11-misc/pywal16.
-# Removal on 2025-06-05. Bug #955253.
-x11-misc/pywal
-
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-04-30)
 # Depends on removed dev-qt/qtwebengine:5, they should be moved to qtwebengine:6
 dev-vcs/gitqlient-gitserver-plugin
