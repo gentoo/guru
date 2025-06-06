@@ -9,6 +9,7 @@
 		<remote-id type="github">githubnext/monaspace</remote-id>
 	</upstream>
 	<use>
+		<flag name="frozen">Whether to install fonts with ligatures and texture healing turned on by default</flag>
 		<flag name="variable">Whether to install the variable weight fonts</flag>
 	</use>
 </pkgmetadata>

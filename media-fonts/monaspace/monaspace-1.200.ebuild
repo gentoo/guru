@@ -16,8 +16,8 @@ KEYWORDS="~amd64"
 
 FONT_S="${S}/fonts/total"
 FONT_SUFFIX=""
-IUSE="variable +otf"
-REQUIRED_USE="|| ( otf variable )"
+IUSE="frozen +otf variable"
+REQUIRED_USE="|| ( frozen otf variable )"
 
 BDEPEND="app-arch/unzip"
 
@@ -25,6 +25,11 @@ src_prepare() {
 	default
 
 	mkdir "${S}/fonts/total" || die
+
+	if use frozen ; then
+		mv "${S}/fonts/frozen/"* "${S}/fonts/total" || die
+		FONT_SUFFIX="${FONT_SUFFIX} ttf"
+	fi
 
 	if use otf ; then
 		mv "${S}/fonts/otf/"* "${S}/fonts/total" || die
