@@ -1,0 +1,26 @@
+--- a/Build_iOS/CMakeLists.txt
++++ b/Build_iOS/CMakeLists.txt
+@@ -1,5 +1,5 @@
+ project(casablanca-ios NONE)
+-cmake_minimum_required(VERSION 3.9)
++cmake_minimum_required(VERSION 3.10)
+ 
+ enable_testing()
+ 
+--- a/Release/CMakeLists.txt
++++ b/Release/CMakeLists.txt
+@@ -1,5 +1,5 @@
+ set(CMAKE_LEGACY_CYGWIN_WIN32 0)
+-cmake_minimum_required(VERSION 3.9)
++cmake_minimum_required(VERSION 3.10)
+ if(POLICY CMP0042)
+   cmake_policy(SET CMP0042 NEW) # use MACOSX_RPATH
+ endif()
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.9)
++cmake_minimum_required(VERSION 3.10)
+ project(cpprestsdk-root NONE)
+ enable_testing()
+ add_subdirectory(Release)
