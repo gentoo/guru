@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@jonas-toth.eu</email>
+		<name>Jonas Toth</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">JonasToth/pinentry-fuzzel</remote-id>
+	</upstream>
+</pkgmetadata>
