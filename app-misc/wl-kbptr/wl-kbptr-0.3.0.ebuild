@@ -9,7 +9,7 @@ DESCRIPTION="Control the mouse pointer with the keyboard on Wayland"
 HOMEPAGE="https://github.com/moverest/wl-kbptr"
 SRC_URI="https://github.com/moverest/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3.0"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
