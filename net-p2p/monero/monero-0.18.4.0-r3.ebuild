@@ -45,7 +45,9 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
-BDEPEND="virtual/pkgconfig"
+BDEPEND="virtual/pkgconfig
+	<dev-build/cmake-4
+"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.18.4.0-unbundle-dependencies.patch"
