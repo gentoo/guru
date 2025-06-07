@@ -1,0 +1,144 @@
+--- a/src/util/elf_file.h	2025-04-18 01:48:31.000000000 -0700
++++ b/src/util/elf_file.h	2025-05-18 08:36:23.972910193 -0700
+@@ -7,6 +7,7 @@
+ #include "common/types.h"
+ 
+ #include <functional>
++#include <string_view>
+ 
+ class Error;
+ 
+--- a/src/util/compress_helpers.h
++++ b/src/util/compress_helpers.h
+@@ -3,10 +3,12 @@
+ 
+ #pragma once
+ 
++#include "common/types.h"
+ #include "common/heap_array.h"
+ 
+ #include <optional>
+ #include <span>
++#include <string_view>
+ 
+ class Error;
+ 
+--- a/src/util/media_capture.h	2025-05-19 16:42:33.191801576 -0700
++++ b/src/util/media_capture.h	2025-05-19 16:42:51.286269053 -0700
+@@ -7,6 +7,7 @@
+ 
+ #include <ctime>
+ #include <memory>
++#include <optional>
+ #include <string>
+ #include <string_view>
+ #include <vector>
+
+--- a/src/util/x11_tools.h	2025-05-19 16:46:34.774311763 -0700
++++ b/src/util/x11_tools.h	2025-05-19 16:46:56.661539526 -0700
+@@ -5,6 +5,7 @@
+ 
+ #include "common/types.h"
+ 
++#include <optional>
+ #include <xcb/xcb.h>
+ #include <xcb/xproto.h>
+ 
+--- a/src/util/opengl_context_egl_wayland.h	2025-05-19 16:48:31.221564534 -0700
++++ b/src/util/opengl_context_egl_wayland.h	2025-05-19 16:48:43.516857627 -0700
+@@ -5,6 +5,7 @@
+ 
+ #include "opengl_context_egl.h"
+ 
++#include <unordered_map>
+ #include <wayland-egl.h>
+ 
+ class OpenGLContextEGLWayland final : public OpenGLContextEGL
+--- a/src/util/wav_reader_writer.cpp	2025-05-19 16:52:30.484029160 -0700
++++ b/src/util/wav_reader_writer.cpp	2025-05-19 16:52:42.667368240 -0700
+@@ -8,6 +8,7 @@
+ #include "common/log.h"
+ 
+ #include <limits>
++#include <utility>
+ 
+ namespace {
+ 
+--- a/src/core/cpu_core.h
++++ b/src/core/cpu_core.h
+@@ -11,7 +11,9 @@
+ 
+ #include <array>
+ #include <optional>
++#include <span>
+ #include <string>
++#include <utility>
+ #include <vector>
+ 
+ class StateWrapper;
+--- a/src/core/gdb_server.h	2025-05-19 19:22:57.367122732 -0700
++++ b/src/core/gdb_server.h	2025-05-19 19:23:30.990255429 -0700
+@@ -2,6 +2,9 @@
+ // SPDX-License-Identifier: CC-BY-NC-ND-4.0
+ 
+ #pragma once
++
++#include "common/types.h"
++
+ #include <string_view>
+ 
+ namespace GDBServer {
+--- a/src/core/gpu_hw_texture_cache.cpp
++++ b/src/core/gpu_hw_texture_cache.cpp
+@@ -32,9 +32,6 @@
+ #define XXH_STATIC_LINKING_ONLY
+ #endif
+ #include "xxhash.h"
+-#ifdef CPU_ARCH_SSE
+-#include "xxh_x86dispatch.h"
+-#endif
+ 
+ #include <algorithm>
+ #include <cmath>
+--- a/src/core/system.h	2025-05-19 19:26:44.109597524 -0700
++++ b/src/core/system.h	2025-05-19 19:26:55.517142050 -0700
+@@ -8,6 +8,7 @@
+ 
+ #include "util/image.h"
+ 
++#include <functional>
+ #include <memory>
+ #include <optional>
+ #include <span>
+--- a/src/core/memory_card_image.h	2025-05-19 19:29:55.844549840 -0700
++++ b/src/core/memory_card_image.h	2025-05-19 19:30:34.091718936 -0700
+@@ -3,6 +3,8 @@
+ 
+ #pragma once
+ 
++#include "common/types.h"
++
+ #include <array>
+ #include <span>
+ #include <string>
+--- a/src/core/gpu_thread.h	2025-05-19 19:48:25.437998498 -0700
++++ b/src/core/gpu_thread.h	2025-05-19 19:48:44.493223368 -0700
+@@ -7,6 +7,7 @@
+ 
+ #include <functional>
+ #include <optional>
++#include <string>
+ #include <utility>
+ 
+ class Error;
+--- a/src/core/performance_counters.h	2025-05-19 20:08:07.103114632 -0700
++++ b/src/core/performance_counters.h	2025-05-19 20:08:24.334370548 -0700
+@@ -5,6 +5,8 @@
+ 
+ #include "common/types.h"
+ 
++#include <array>
++
+ class GPUBackend;
+ 
+ namespace PerformanceCounters
