@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+	<maintainer type="person">
+		<email>beatussum@protonmail.com</email>
+		<name>Mattéo Rossillol‑‑Laruelle</name>
+	</maintainer>
+
+	<upstream>
+		<maintainer status="active">
+			<name>boxdot</name>
+			<email>d@zerovolt.org</email>
+		</maintainer>
+
+		<changelog>https://github.com/boxdot/gurk-rs/blob/main/CHANGELOG.md</changelog>
+		<bugs-to>https://github.com/boxdot/gurk-rs/issues</bugs-to>
+		<remote-id type="github">boxdot/gurk-rs</remote-id>
+	</upstream>
+</pkgmetadata>
