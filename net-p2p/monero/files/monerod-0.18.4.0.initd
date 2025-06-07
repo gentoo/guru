@@ -5,10 +5,11 @@
 name="Monero P2P Daemon"
 description="Connects to the Monero P2P network"
 
-pidfile=/var/run/monerod.pid
 command=/usr/bin/monerod
+pidfile=/run/${RC_SVCNAME}/${RC_SVCNAME}.pid
+
 command_args="--non-interactive ${MONEROD_ARGS}"
-command_background=1
+command_args_background="--detach --pidfile $pidfile"
 command_progress=1
 command_user="${MONEROD_USER:=monero}:${MONEROD_GROUP:=monero}"
 retry="SIGTERM/30/SIGKILL/5"
@@ -21,5 +22,11 @@ depend() {
 
 start_pre() {
     checkpath --directory --owner ${command_user} --mode 0755 \
-	      /var/lib/monero /var/log/monero
+	      /var/lib/monero /var/log/monero $(dirname ${pidfile})
+}
+
+status() {
+	if supervise_status; then
+		monerod status
+	fi
 }
