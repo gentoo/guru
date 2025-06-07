@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit optfeature
+
 DESCRIPTION="CLI application that blends beauty of ASCII"
 HOMEPAGE="https://github.com/poetaman/arttime"
 SRC_URI="https://github.com/poetaman/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -10,11 +12,9 @@ SRC_URI="https://github.com/poetaman/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="notify"
 
 DEPEND="
 	app-shells/zsh
-	notify? ( x11-libs/libnotify )
 "
 RDEPEND="
 	${DEPEND}
@@ -25,7 +25,6 @@ src_prepare() {
 	gunzip share/man/man1/arttime.1.gz || die
 	gunzip share/man/man1/artprint.1.gz || die
 }
-
 
 src_install() {
 	dobin bin/arttime
@@ -40,4 +39,8 @@ src_install() {
 	doman share/man/man1/artprint.1
 
 	dodoc README.md
+}
+
+pkg_postinst() {
+	optfeature "Desktop notifications" x11-libs/libnotify
 }
