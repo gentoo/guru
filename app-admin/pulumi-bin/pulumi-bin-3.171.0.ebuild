@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1
+inherit shell-completion
 
 DESCRIPTION="Infrastructure as code in any programming language"
 HOMEPAGE="
@@ -29,6 +29,5 @@ src_install() {
 	newbashcomp pulumi.bash-completion pulumi
 
 	./pulumi gen-completion zsh > pulumi.zsh-completion || die "Cannot generate zsh completions"
-	insinto /usr/share/zsh/site-functions
-	newins pulumi.zsh-completion _pulumi
+	newzshcomp pulumi.zsh-completion _pulumi
 }
