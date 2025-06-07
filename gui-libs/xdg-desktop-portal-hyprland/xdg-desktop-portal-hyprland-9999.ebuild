@@ -5,14 +5,14 @@ EAPI=8
 
 inherit cmake toolchain-funcs
 
-DESCRIPTION="xdg-desktop-portal backend for hyprland"
+DESCRIPTION="xdg-desktop-portal backend for Hyprland"
 HOMEPAGE="https://github.com/hyprwm/xdg-desktop-portal-hyprland"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/hyprwm/${PN}.git"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/hyprwm/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+	SRC_URI="https://github.com/hyprwm/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -28,9 +28,9 @@ DEPEND="
 	dev-libs/wayland
 	dev-qt/qtbase:6[gui,widgets]
 	dev-qt/qtwayland:6
+	gui-libs/hyprutils:=
 	media-libs/mesa
 	>=media-video/pipewire-1.2.0:=
-	sys-apps/util-linux
 	x11-libs/libdrm
 	|| (
 		sys-libs/basu
