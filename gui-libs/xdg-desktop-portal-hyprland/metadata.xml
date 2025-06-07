@@ -10,11 +10,12 @@
 		<name>Mia Neufeld</name>
 	</maintainer>
 	<upstream>
-		<doc lang="en">https://wiki.hyprland.org/hyprland-wiki/pages/Useful-Utilities/Hyprland-desktop-portal/</doc>
-		<remote-id type="github">hyprwm/xdg-desktop-portal-hyprland</remote-id>
 		<bugs-to>https://github.com/hyprwm/xdg-desktop-portal-hyprland/issues</bugs-to>
+		<changelog>https://github.com/hyprwm/xdg-desktop-portal-hyprland/releases</changelog>
+		<doc>https://wiki.hyprland.org/Hypr-Ecosystem/xdg-desktop-portal-hyprland/</doc>
+		<remote-id type="github">hyprwm/xdg-desktop-portal-hyprland</remote-id>
 	</upstream>
-	<longdescription lang="en">
+	<longdescription>
 		An XDG Desktop Portal (later called XDP) is a program that lets
 		other applications communicate swiftly with the compositor through
 		D-Bus. It's used for stuff like e.g. opening file pickers, screen sharing.
