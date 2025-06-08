@@ -26,7 +26,6 @@
 		<flag name="network">Networking features (recommended)</flag>
 		<flag name="openal">OpenAL support</flag>
 		<flag name="opengl">OpenGL 2.0 support</flag>
-		<flag name="osmesa">Off-screen Mesa rendering</flag>
 		<flag name="oss">OSS support</flag>
 		<flag name="ozone">Ozone menu</flag>
 		<flag name="pulseaudio">PulseAudio support</flag>

@@ -14,7 +14,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="7zip alsa cg cpu_flags_arm_neon cpu_flags_arm_vfp cpu_flags_x86_sse2 cheevos debug dispmanx +egl filters ffmpeg gles2 gles3 hid jack kms libass libusb materialui network openal +opengl osmesa oss +ozone pipewire pulseaudio +rgui sdl +truetype +threads udev v4l2 videocore vulkan wayland X xinerama xmb xv zlib"
+IUSE="7zip alsa cg cpu_flags_arm_neon cpu_flags_arm_vfp cpu_flags_x86_sse2 cheevos debug dispmanx +egl filters ffmpeg gles2 gles3 hid jack kms libass libusb materialui network openal +opengl oss +ozone pipewire pulseaudio +rgui sdl +truetype +threads udev v4l2 videocore vulkan wayland X xinerama xmb xv zlib"
 
 REQUIRED_USE="
 	|| ( opengl sdl vulkan dispmanx )
@@ -51,7 +51,6 @@ RDEPEND="
 	libusb? ( virtual/libusb:1= )
 	openal? ( media-libs/openal )
 	opengl? ( media-libs/libglvnd )
-	osmesa? ( media-libs/mesa:0=[osmesa?] )
 	pulseaudio? ( media-libs/libpulse )
 	pipewire? ( media-video/pipewire:= )
 	sdl? ( media-libs/libsdl2[joystick] )
@@ -110,6 +109,7 @@ src_configure() {
 		--disable-qt \
 		--disable-sdl \
 		--disable-vg \
+		--disable-osmesa \
 		$(use_enable 7zip) \
 		$(use_enable alsa) \
 		$(use_enable cheevos) \
@@ -131,7 +131,6 @@ src_configure() {
 		$(use_enable network networking) \
 		$(use_enable openal al) \
 		$(use_enable opengl) \
-		$(use_enable osmesa) \
 		$(use_enable oss) \
 		$(use_enable ozone) \
 		$(use_enable pulseaudio pulse) \

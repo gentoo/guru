@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit flag-o-matic toolchain-funcs xdg
+inherit edo flag-o-matic toolchain-funcs xdg
 
 DESCRIPTION="RetroArch is a frontend for emulators, game engines and media players"
 HOMEPAGE="https://www.retroarch.com"
@@ -14,7 +14,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="7zip alsa cg cpu_flags_arm_neon cpu_flags_arm_vfp cpu_flags_x86_sse2 cheevos debug dispmanx +egl filters ffmpeg gles2 gles3 hid jack kms libass libusb materialui network openal +opengl osmesa oss +ozone pipewire pulseaudio +rgui sdl +truetype +threads udev v4l2 videocore vulkan wayland X xinerama xmb xv zlib"
+IUSE="7zip alsa cg cpu_flags_arm_neon cpu_flags_arm_vfp cpu_flags_x86_sse2 cheevos debug dispmanx +egl filters ffmpeg gles2 gles3 hid jack kms libass libusb materialui network openal +opengl oss +ozone pipewire pulseaudio +rgui sdl +truetype +threads udev v4l2 videocore vulkan wayland X xinerama xmb xv zlib"
 
 REQUIRED_USE="
 	|| ( opengl sdl vulkan dispmanx )
@@ -51,7 +51,6 @@ RDEPEND="
 	libusb? ( virtual/libusb:1= )
 	openal? ( media-libs/openal )
 	opengl? ( media-libs/libglvnd )
-	osmesa? ( media-libs/mesa:0=[osmesa?] )
 	pulseaudio? ( media-libs/libpulse )
 	pipewire? ( media-video/pipewire:= )
 	sdl? ( media-libs/libsdl2[joystick] )
@@ -101,63 +100,67 @@ src_configure() {
 			|| die '"sed" failed.'
 	fi
 
+	tc-export CC CXX
+
 	# Note that OpenVG support is hard-disabled. (See ${RDEPEND} above.)
-	CC="$(tc-getCC)" CXX="$(tc-getCXX)" ./configure \
-		--prefix="${EPREFIX}/usr" \
-		--docdir="${EPREFIX}/usr/share/doc/${PF}" \
-		--enable-dynamic \
-		--disable-builtinzlib \
-		--disable-qt \
-		--disable-sdl \
-		--disable-vg \
-		$(use_enable 7zip) \
-		$(use_enable alsa) \
-		$(use_enable cheevos) \
-		$(use_enable cg) \
-		$(use_enable cpu_flags_arm_neon neon) \
-		$(use_enable cpu_flags_arm_vfp floathard) \
-		$(use_enable cpu_flags_x86_sse2 sse) \
-		$(use_enable dispmanx) \
-		$(use_enable egl) \
-		$(use_enable ffmpeg) \
-		$(use_enable gles2 opengles) \
-		$(use_enable gles3 opengles3) \
-		$(use_enable hid) \
-		$(use_enable jack) \
-		$(use_enable kms) \
-		$(use_enable libass ssa) \
-		$(use_enable libusb) \
-		$(use_enable materialui) \
-		$(use_enable network networking) \
-		$(use_enable openal al) \
-		$(use_enable opengl) \
-		$(use_enable osmesa) \
-		$(use_enable oss) \
-		$(use_enable ozone) \
-		$(use_enable pulseaudio pulse) \
-		$(use_enable pipewire) \
-		$(use_enable rgui) \
-		$(use_enable sdl sdl2) \
-		$(use_enable threads) \
-		$(use_enable truetype freetype) \
-		$(use_enable udev) \
-		$(use_enable v4l2) \
-		$(use_enable videocore) \
-		$(use_enable vulkan) \
-		$(use_enable wayland) \
-		$(use_enable X x11) \
-		$(use_enable xinerama) \
-		$(use_enable xmb) \
-		$(use_enable xv xvideo) \
-		$(use_enable zlib) \
-		|| die
+	local myconf=(
+		--prefix="${EPREFIX}/usr"
+		--docdir="${EPREFIX}/usr/share/doc/${PF}"
+		--enable-dynamic
+		--disable-builtinzlib
+		--disable-qt
+		--disable-sdl
+		--disable-vg
+		--disable-osmesa
+		$(use_enable 7zip)
+		$(use_enable alsa)
+		$(use_enable cheevos)
+		$(use_enable cg)
+		$(use_enable cpu_flags_arm_neon neon)
+		$(use_enable cpu_flags_arm_vfp floathard)
+		$(use_enable cpu_flags_x86_sse2 sse)
+		$(use_enable dispmanx)
+		$(use_enable egl)
+		$(use_enable ffmpeg)
+		$(use_enable gles2 opengles)
+		$(use_enable gles3 opengles3)
+		$(use_enable hid)
+		$(use_enable jack)
+		$(use_enable kms)
+		$(use_enable libass ssa)
+		$(use_enable libusb)
+		$(use_enable materialui)
+		$(use_enable network networking)
+		$(use_enable openal al)
+		$(use_enable opengl)
+		$(use_enable oss)
+		$(use_enable ozone)
+		$(use_enable pulseaudio pulse)
+		$(use_enable pipewire)
+		$(use_enable rgui)
+		$(use_enable sdl sdl2)
+		$(use_enable threads)
+		$(use_enable truetype freetype)
+		$(use_enable udev)
+		$(use_enable v4l2)
+		$(use_enable videocore)
+		$(use_enable vulkan)
+		$(use_enable wayland)
+		$(use_enable X x11)
+		$(use_enable xinerama)
+		$(use_enable xmb)
+		$(use_enable xv xvideo)
+		$(use_enable zlib)
+	)
+
+	edo ./configure "${myconf[@]}"
 }
 
 src_compile() {
 	emake V=1 $(usex debug "DEBUG=1" "")
 	if use filters; then
-		emake CC="$(tc-getCC)" $(usex debug "build=debug" "build=release") -C gfx/video_filters/
-		emake CC="$(tc-getCC)" $(usex debug "build=debug" "build=release") -C libretro-common/audio/dsp_filters/
+		emake $(usex debug "build=debug" "build=release") -C gfx/video_filters/
+		emake $(usex debug "build=debug" "build=release") -C libretro-common/audio/dsp_filters/
 	fi
 }
 
