@@ -94,5 +94,5 @@ src_install() {
 }
 
 pkg_postinst() {
-	optfeature x11-libs/libnotify Desktop notifications support
+	optfeature "Desktop notifications support" x11-libs/libnotify
 }
