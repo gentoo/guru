@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>contact@paveloom.dev</email>
+    <name>Pavel Sobolev</name>
+  </maintainer>
+  <use>
+    <flag name="evdev">Enable evdev input support</flag>
+    <flag name="log">Increase logging output</flag>
+  </use>
+  <upstream>
+    <bugs-to>https://github.com/libretro/dolphin/issues</bugs-to>
+    <remote-id type="github">libretro/dolphin</remote-id>
+  </upstream>
+</pkgmetadata>

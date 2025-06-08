@@ -1,0 +1,18 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Print `IOS::HLE::SeekMode` as an int.
+
+This avoids compilation errors with `>=libfmt-10.0`.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/Source/Core/Core/IOS/FS/FileSystemProxy.cpp
++++ b/Source/Core/Core/IOS/FS/FileSystemProxy.cpp
+@@ -272,7 +272,7 @@ IPCCommandResult FS::Seek(const SeekRequest& request)
+ 
+   const Result<u32> result =
+       m_ios.GetFS()->SeekFile(handle.fs_fd, request.offset, IOS::HLE::FS::SeekMode(request.mode));
+-  LogResult(result, "Seek({}, 0x{:08x}, {})", handle.name.data(), request.offset, request.mode);
++  LogResult(result, "Seek({}, 0x{:08x}, {})", handle.name.data(), request.offset, static_cast<int>(request.mode));
+   if (!result)
+     return GetFSReply(ConvertResult(result.Error()));
+   return GetFSReply(*result);
