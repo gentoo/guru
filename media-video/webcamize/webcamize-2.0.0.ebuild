@@ -3,9 +3,7 @@
 
 EAPI=8
 
-inherit systemd
-
-DESCRIPTION="Use almost any camera as a webcam—DSLRs, mirrorless, camcorders, and even point-and-shoots"
+DESCRIPTION="Use almost any camera as a webcam—DSLRs, mirrorless, camcorders, and more"
 HOMEPAGE="https://github.com/cowtoolz/webcamize"
 SRC_URI="https://github.com/cowtoolz/webcamize/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -13,8 +11,21 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
+DEPEND="
+	media-video/v4l2loopback
+	media-video/ffmpeg
+	media-libs/libgphoto2
+"
+
+src_compile() {
+	emake
+}
+
 src_install() {
-	dobin webcamize
-	elog "Installing webcamize systemd service"
-	systemd_dounit webcamize.service
+	emake \
+	DESTDIR="${D}" \
+	PREFIX="/usr" \
+	BINDIR="bin" \
+	install
+	dodoc readme.md
 }
