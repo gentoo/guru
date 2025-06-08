@@ -19,13 +19,13 @@ fi
 
 LICENSE="BSD MIT"
 SLOT="0"
-IUSE="+daemon hw-wallet readline +tools +wallet-cli +wallet-rpc"
+IUSE="+daemon hw-wallet readline +tools +wallet-cli +wallet-rpc cpu_flags_x86_aes"
 REQUIRED_USE="|| ( daemon tools wallet-cli wallet-rpc )"
 RESTRICT="test"
+# Test requires python's requests, psutil, deepdiff which are packaged
+# but also monotonic & zmq which we do not have
 
 DEPEND="
-	acct-group/monero
-	acct-user/monero
 	app-crypt/libmd
 	dev-libs/boost:=[nls]
 	dev-libs/libsodium:=
@@ -37,7 +37,11 @@ DEPEND="
 	net-dns/unbound:=[threads]
 	net-libs/miniupnpc:=
 	net-libs/zeromq:=
-	readline? ( sys-libs/readline:0= )
+	daemon? (
+		acct-group/monero
+		acct-user/monero
+	)
+	readline? ( sys-libs/readline:= )
 	hw-wallet? (
 		dev-libs/hidapi
 		dev-libs/protobuf:=
@@ -45,11 +49,13 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
-BDEPEND="virtual/pkgconfig"
+BDEPEND="virtual/pkgconfig
+	<dev-build/cmake-4
+"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.18.4.0-unbundle-dependencies.patch"
-	"${FILESDIR}/${PN}-0.18.3.3-miniupnp-api-18.patch"
+	"${FILESDIR}"/${PN}-0.18.3.3-miniupnp-api-18.patch
+	"${FILESDIR}"/${PN}-0.18.4.0-unbundle-dependencies.patch
 )
 
 src_configure() {
@@ -57,7 +63,11 @@ src_configure() {
 		# TODO: Update CMake to install built libraries (help wanted)
 		-DBUILD_SHARED_LIBS=OFF
 		-DMANUAL_SUBMODULES=ON
-		-DUSE_DEVICE_TREZOR=$(usex hw-wallet ON OFF)
+		-DUSE_CCACHE=OFF
+		-DNO_AES=$(usex !cpu_flags_x86_aes)
+		-DBUILD_DOCUMENTATION=OFF # we don't install it either way
+		-DUSE_DEVICE_TREZOR=$(usex hw-wallet)
+		-DUSE_READLINE=$(usex readline)
 	)
 
 	use elibc_musl && mycmakeargs+=( -DSTACK_TRACE=OFF )
@@ -66,11 +76,15 @@ src_configure() {
 }
 
 src_compile() {
-	local targets=()
-	use daemon && targets+=(daemon)
-	use tools && targets+=(blockchain_{ancestry,blackball,db,depth,export,import,prune,prune_known_spent_data,stats,usage})
-	use wallet-cli && targets+=(simplewallet)
-	use wallet-rpc && targets+=(wallet_rpc_server)
+	local targets=(
+		$(usev daemon)
+		$(usev wallet-cli simplewallet)
+		$(usev wallet-rpc wallet_rpc_server)
+	)
+	use tools && targets+=(
+			blockchain_{ancestry,blackball,db,depth,export,import,prune,prune_known_spent_data,stats,usage}
+	)
+
 	cmake_build ${targets[@]}
 }
 
@@ -98,24 +112,20 @@ src_install() {
 
 		# /etc/monero/monerod.conf
 		insinto /etc/monero
-		doins "${FILESDIR}/monerod.conf"
+		doins "${FILESDIR}"/monerod.conf
 
 		# OpenRC
-		newconfd "${FILESDIR}/monerod-0.18.4.0.confd" monerod
-		newinitd "${FILESDIR}/monerod-0.18.4.0.initd" monerod
+		newconfd "${FILESDIR}"/monerod-0.18.4.0.confd monerod
+		newinitd "${FILESDIR}"/monerod-0.18.4.0.initd monerod
 
 		# systemd
-		systemd_dounit "${FILESDIR}/monerod.service"
+		systemd_dounit "${FILESDIR}"/monerod.service
 	fi
 }
 
 pkg_postinst() {
 	if use daemon; then
-		elog "Start the Monero P2P daemon as a system service with"
-		elog "'rc-service monerod start'. Enable it at startup with"
-		elog "'rc-update add monerod default'."
-		elog
-		elog "Run monerod status as any user to get sync status and other stats."
+		elog "Run 'monerod status' as any user to get sync status and other stats."
 		elog
 		elog "The Monero blockchain can take up a lot of space (250 GiB) and is stored"
 		elog "in /var/lib/monero by default. You may want to enable pruning by adding"
