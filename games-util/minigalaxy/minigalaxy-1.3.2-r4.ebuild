@@ -45,24 +45,35 @@ BDEPEND="
 	)
 "
 
+src_prepare() {
+	sed -e "s:os.path.dirname(sys.argv\[0\]):'${EPREFIX}/usr/share/':" \
+		-e "s:minigalaxy/translations:locale:" \
+		-i minigalaxy/paths.py || die
+	default
+}
+
+src_compile() {
+	help2man -N -s 6 -n "a simple GTK-based GOG Linux client" bin/minigalaxy > minigalaxy.6 || die
+	lo_files=( data/po/*.po )
+	local lo
+	for lo in "${lo_files[@]%.po}"; do
+		msgfmt "${lo}.po" -o "${lo}.mo" || die
+	done
+}
+
 src_test() {
 	eunittest tests
 }
 
 src_install() {
-	sed -e "s:os.path.dirname(sys.argv\[0\]):'${EPREFIX}/usr/share/':" \
-		-e "s:minigalaxy/translations:locale:" \
-		-i minigalaxy/paths.py || die
-
 	insinto /usr/share/minigalaxy
 	doins -r data/images data/ui data/style.css
 	insinto /usr/share/metainfo
 	doins data/io.github.sharkwouter.Minigalaxy.metainfo.xml
 
-	help2man -N -s 6 -n "a simple GTK-based GOG Linux client" bin/minigalaxy > minigalaxy.6 || die
 	doman minigalaxy.6
-
-	domo data/po/*.po
+	domo "${lo_files[@]/%.po/.mo}"
+	unset lo_files
 
 	local x
 	for x in 128 192; do
