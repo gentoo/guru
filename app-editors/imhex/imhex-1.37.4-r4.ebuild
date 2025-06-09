@@ -22,6 +22,10 @@ KEYWORDS="~amd64"
 IUSE="+system-llvm test lto +desktop-portal lz4"
 RESTRICT="!test? ( test )"
 
+# Skip cmake version detection, as there are a lot of dependencies
+# (that we do not use) that wants cmake < 3.5, so it prints a warning
+CMAKE_QA_COMPAT_SKIP=yes
+
 PATCHES=(
 	# If virtual/dotnet-sdk is installed on your system, then cmake
 	# will use it at some point and try to access internet.
@@ -33,12 +37,11 @@ PATCHES=(
 	"${FILESDIR}/cmake_boost_regex.patch"
 	# Temporary (until the next update) patch
 	"${FILESDIR}/${P}-update-libfmt.patch"
+	# Temporary patch (until the next update)
+	"${FILESDIR}/${P}-fix-cmake-edlib.patch"
 )
 
 DOCS+=( LICENSE PLUGINS.md )
-
-# libfmt can not be >= 11.2.0
-# See https://github.com/WerWolv/ImHex/issues/2225
 
 DEPEND="
 	app-arch/bzip2
