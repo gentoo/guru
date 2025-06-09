@@ -27,7 +27,7 @@ RDEPEND="
 	>=dev-libs/hyprlang-0.6.0
 	dev-libs/wayland
 	>=dev-util/hyprwayland-scanner-0.4.4
-	>=gui-libs/hyprutils-0.2.6:=
+	>=gui-libs/hyprutils-0.5.0:=
 	media-libs/libglvnd
 	media-libs/libjpeg-turbo:=
 	media-libs/libwebp:=
