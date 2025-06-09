@@ -5,10 +5,24 @@
     <email>this.brayan@proton.me</email>
     <name>Brayan M. Salazar</name>
   </maintainer>
+  <longdescription>
+  Media Player written in C++ and Qt.
+  Network can optionally be enabled to autodetect other running instances,
+  in order to tell that one to show itself instead of opening a new one.
+  Although it's called network, <pkg>media-sound/qbitmplayer</pkg> doesn't
+  actually do any network related stuff, it just opens a local server for
+  subsequent calls to <pkg>media-sound/qbitmplayer</pkg> to connect to it.
+  That's the mechanism it uses to detect running instances.
+  </longdescription>
   <use>
+   <flag name="network">
+    Allow a single instance of itself, thus subsequent calls to
+    <pkg>media-sound/qbitmplayer</pkg> will just open the already
+    opened instance of it.
+    </flag>
     <flag name="video">
-      Make <pkg>media-sound/qbitmplayer</pkg> not just a Music Player,
-      but a Media Player by enabling its ability to play video files as well.
+    Make <pkg>media-sound/qbitmplayer</pkg> not just a Music Player,
+    but a Media Player by enabling its ability to play video files as well.
     </flag>
   </use>
   <upstream>
