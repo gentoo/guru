@@ -97,7 +97,7 @@ liberationmono lilex martianmono meslo monaspace monofur monoid mononoki mplus
 nerdfontssymbolsonly noto opendyslexic overpass profont proggyclean recursive
 robotomono sharetechmono sourcecodepro spacemono terminus tinos ubuntu
 ubuntumono ubuntusans victormono zedmono"
-IUSE="${IUSE_FONTS}"
+IUSE="${IUSE_FONTS} +nerdfontssymbolsonly"
 REQUIRED_USE="|| ( ${IUSE_FONTS} )"
 
 FONT_SUFFIX=""
