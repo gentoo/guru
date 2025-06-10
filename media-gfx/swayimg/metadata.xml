@@ -12,5 +12,6 @@
 		<flag name="jpegxl">Enable support for JPEG XL image format</flag>
 		<flag name="sixel">Enable support for Sixel image format</flag>
 		<flag name="sway">Enable Sway WM integration</flag>
+		<flag name="wayland">Integration with Wayland compositors (Sway and Hyprland only)</flag>
 	</use>
 </pkgmetadata>
