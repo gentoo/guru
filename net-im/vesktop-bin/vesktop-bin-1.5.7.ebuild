@@ -11,21 +11,22 @@ CHROMIUM_LANGS="
 	sw ta te th tr uk ur vi zh-CN zh-TW
 "
 
-inherit chromium-2 desktop linux-info unpacker xdg
+inherit chromium-2 desktop linux-info optfeature unpacker xdg
 
 DESCRIPTION="All-in-one voice and text chat for gamers with Vencord Preinstalled"
 HOMEPAGE="https://github.com/Vencord/Vesktop/"
-SRC_URI="https://github.com/Vencord/Vesktop/releases/download/v${PV}/${MY_PN}-${PV}.tar.gz"
+SRC_URI="
+	amd64? ( https://github.com/Vencord/Vesktop/releases/download/v${PV}/${MY_PN}-${PV}.tar.gz )
+	arm64? ( https://github.com/Vencord/Vesktop/releases/download/v${PV}/${MY_PN}-${PV}-arm64.tar.gz )
+"
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE="libnotify"
+KEYWORDS="~amd64 ~arm64"
 RESTRICT="bindist mirror strip test"
 
 DEPEND="
-	libnotify? ( x11-libs/libnotify )
 	app-accessibility/at-spi2-core
 	dev-libs/expat
 	dev-libs/glib
@@ -59,6 +60,11 @@ QA_PREBUILT="*"
 
 CONFIG_CHECK="~USER_NS"
 
+src_unpack() {
+	default
+	use arm64 && S="${WORKDIR}/${MY_PN}-${PV}-arm64"
+}
+
 src_configure() {
 	default
 	chromium_suid_sandbox_check_kernel_config
@@ -85,4 +91,8 @@ src_install() {
 
 	dosym "${DESTDIR}/vesktop" "/usr/bin/vesktop-bin"
 
+}
+
+pkg_postinst() {
+	optfeature "Desktop notifications support" x11-libs/libnotify
 }
