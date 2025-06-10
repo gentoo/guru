@@ -29,6 +29,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+REQUIRED_USE="
+	network? ( dbus )
+"
+
 src_prepare() {
 	cmake_src_prepare
 }
@@ -36,31 +40,11 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DQT_VERSION_MAJOR=6
+		-DENABLE_IPC="$(usex dbus)"
+		-DENABLE_NOTIFICATIONS="$(usex libnotify)"
+		-DENABLE_VIDEO_PLAYER="$(usex video)"
+		-DSINGLE_INSTANCE="$(usex network)"
 	)
-
-	if use dbus; then
-		mycmakeargs+=(
-			-DENABLE_IPC=1
-		)
-	fi
-
-	if use libnotify; then
-		mycmakeargs+=(
-			-DENABLE_NOTIFICATIONS=1
-		)
-	fi
-
-	if use network; then
-		mycmakeargs+=(
-			-DSINGLE_INSTANCE=1
-		)
-	fi
-
-	if use video; then
-		mycmakeargs+=(
-			-DENABLE_VIDEO_PLAYER=1
-		)
-	fi
 
 	cmake_src_configure
 }
