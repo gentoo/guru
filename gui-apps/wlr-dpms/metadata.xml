@@ -5,4 +5,7 @@
     <email>dev@dyama.net</email>
     <name>Daichi Yamamoto</name>
   </maintainer>
+  <upstream>
+    <remote-id type="sourcehut">~dsemy/wlr-dpms</remote-id>
+  </upstream>
 </pkgmetadata>

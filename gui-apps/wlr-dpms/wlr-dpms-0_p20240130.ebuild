@@ -3,10 +3,12 @@
 
 EAPI=8
 
+inherit flag-o-matic
+
 COMMIT=d0e64122e2b2718da26223e8add3211f5dbeb23a
 
 DESCRIPTION="change output power modes in wlroots compositors"
-HOMEPAGE="https://git.sr.ht/~dsemy/wlr-dpms"
+HOMEPAGE="https://sr.ht/~dsemy/wlr-dpms/"
 SRC_URI="https://git.sr.ht/~dsemy/wlr-dpms/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
@@ -20,8 +22,9 @@ BDEPEND="virtual/pkgconfig"
 
 DOCS=( README )
 
-src_compile() {
-	emake CFLAGS="${CFLAGS} -Wno-unused-parameter -Wno-strict-prototypes -Wno-incompatible-pointer-types"
+src_configure() {
+	# from Makefile
+	append-cflags -Wno-unused-parameter -Wno-strict-prototypes -Wno-incompatible-pointer-types
 }
 
 src_install() {
