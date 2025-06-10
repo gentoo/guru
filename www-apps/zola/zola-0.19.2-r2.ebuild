@@ -553,4 +553,16 @@ LICENSE+=" openssl Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RDEPEND="
+	dev-libs/oniguruma
+"
+DEPEND="${RDEPEND}"
+
 QA_FLAGS_IGNORED="usr/bin/${PN}"
+
+src_configure() {
+	# Use system libraries
+	export RUSTONIG_SYSTEM_LIBONIG=1
+
+	cargo_src_configure
+}
