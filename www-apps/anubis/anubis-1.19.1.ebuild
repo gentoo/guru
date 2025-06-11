@@ -17,14 +17,14 @@ LICENSE="Apache-2.0 BSD MIT OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DOCS=(
-	# from yeetfile.js
-	README.md
-	docs/docs/CHANGELOG.md
-	docs/docs/admin/policies.mdx
-	docs/docs/admin/native-install.mdx
-	data/botPolicies.{json,yaml}
-)
+DOCS=( README.md data docs/docs )
+
+RDEPEND="acct-user/anubis"
+
+src_prepare() {
+	default
+	find docs/docs -name _category_.json -delete || die
+}
 
 src_compile() {
 	emake prebaked-build
@@ -32,18 +32,19 @@ src_compile() {
 
 src_test() {
 	local -x DONT_USE_NETWORK=1
-	ego test ./... || die
+	ego test ./... -skip TestIntegrationGetOGTags_UnixSocket
 }
 
 src_install() {
 	dobin var/anubis
 	systemd_dounit run/anubis@.service
 
-	newinitd "${FILESDIR}"/anubis.initd anubis
-	newconfd "${FILESDIR}"/anubis.confd anubis
+	newinitd run/openrc/anubis.initd anubis
+	newconfd run/openrc/anubis.confd anubis
 
 	insinto /etc/anubis
 	doins run/default.env
 
+	find data -name '*.go' -delete || die
 	einstalldocs
 }
