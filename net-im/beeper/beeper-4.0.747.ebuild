@@ -11,7 +11,7 @@ CHROMIUM_LANGS="
 	sw ta te th tr uk ur vi zh-CN zh-TW
 "
 
-inherit chromium-2 desktop xdg
+inherit chromium-2 optfeature pax-utils xdg
 
 # To check the latest version, run:
 #
@@ -21,41 +21,40 @@ APPIMAGE="Beeper-${PV}.AppImage"
 DESCRIPTION="Beeper: Unified Messenger"
 HOMEPAGE="https://www.beeper.com/"
 SRC_URI="https://beeper-desktop.download.beeper.com/builds/${APPIMAGE}"
-S="${WORKDIR}"
+S="${WORKDIR}/squashfs-root"
 
 LICENSE="all-rights-reserved"
+# node_modules licenses
+LICENSE+=" Apache-2.0 BSD ISC MIT"
 SLOT="4"
 KEYWORDS="-* ~amd64"
 
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
-	app-accessibility/at-spi2-core:2
-	app-crypt/libsecret
+	>=app-accessibility/at-spi2-core-2.46.0:2
+	app-crypt/libsecret[crypt]
 	app-misc/ca-certificates
 	dev-libs/expat
 	dev-libs/glib:2
-	dev-libs/libayatana-appindicator
 	dev-libs/nspr
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/mesa
+	media-libs/vips:0/42
 	net-print/cups
 	sys-apps/dbus
-	sys-libs/glibc
+	>=sys-libs/glibc-2.26
 	virtual/udev
 	x11-libs/cairo
 	x11-libs/gtk+:3
 	x11-libs/libX11
-	x11-libs/libXScrnSaver
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
 	x11-libs/libXext
 	x11-libs/libXfixes
 	x11-libs/libXrandr
-	x11-libs/libXtst
 	x11-libs/libdrm
-	x11-libs/libnotify
 	x11-libs/libxcb
 	x11-libs/libxkbcommon
 	x11-libs/pango
@@ -64,53 +63,71 @@ RDEPEND="
 
 QA_PREBUILT="*"
 
-pkg_pretend() {
-	chromium_suid_sandbox_check_kernel_config
-}
-
 src_unpack() {
-	mkdir -p "${S}" || die
-	cp "${DISTDIR}/${APPIMAGE}" "${S}" || die
+	cd "${WORKDIR}" || die	# "appimage-extract" unpacks to current directory.
 
-	cd "${S}" || die	# "appimage-extract" unpacks to current directory.
-	chmod +x "${S}/${APPIMAGE}" || die
-	"${S}/${APPIMAGE}" --appimage-extract || die
+	cp "${DISTDIR}/${APPIMAGE}" "${WORKDIR}" || die
+	chmod +x "${APPIMAGE}" || die
+	./"${APPIMAGE}" --appimage-extract || die
 }
 
 src_prepare() {
 	default
 
-	# Fix permissions.
+	# Fix permissions
 	find "${S}" -type d -exec chmod a+rx {} + || die
 	find "${S}" -type f -exec chmod a+r {} + || die
 
-	cd squashfs-root/locales || die
+	# Fix desktop menu item
+	sed "/^Exec=/c Exec=beepertexts %U" -i beepertexts.desktop || die
+
+	# Handle Chromium language packs
+	pushd locales || die
 	chromium_remove_language_paks
+	popd || die
+}
+
+src_configure() {
+	default
+	chromium_suid_sandbox_check_kernel_config
 }
 
 src_install() {
-	cd "${S}/squashfs-root" || die
+	# Install icons and the desktop file
+	mkdir -p usr/share/applications || die
+	mv beepertexts.desktop usr/share/applications || die
 
 	insinto /usr/share
-	doins -r ./usr/share/icons
+	doins -r ./usr/share/{applications,icons}
 
-	local apphome="/opt/BeeperTexts"
+	# Cleanup
 	local -a toremove=(
 		.DirIcon
 		AppRun
 		LICENSE.electron.txt
 		LICENSES.chromium.html
-		beepertexts.desktop
 		beepertexts.png
+		resources/app/node_modules/@img/sharp-libvips-linux-x64/lib/libvips-cpp.so.42
 		resources/app/node_modules/classic-level/prebuilds/linux-x64/classic-level.musl.node
 		usr
 	)
-	rm -f -r "${toremove[@]}" || die
+	rm -r "${toremove[@]}" || die
 
-	mkdir -p "${ED}/${apphome}" || die
-	cp -r . "${ED}/${apphome}" || die
+	# Remove code that overwrites the desktop file with a non-functional one
+	rm resources/app/build/main/linux-*.mjs || die
+
+	# Install
+	local apphome="/opt/BeeperTexts"
+
+	pax-mark m beepertexts
+	mkdir -p "${ED}${apphome}" || die
+	cp -r . "${ED}${apphome}" || die
+	fperms 4711 "${apphome}"/chrome-sandbox
 
 	dosym -r "${apphome}"/beepertexts /usr/bin/beepertexts
-	make_desktop_entry "beepertexts" Beeper beepertexts "Network;" \
-		"StartupWMClass=Beeper\nMimeType=x-scheme-handler/beeper;"
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+	optfeature "desktop notifications" x11-libs/libnotify
 }
