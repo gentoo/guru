@@ -1,0 +1,31 @@
+#!/sbin/openrc-run
+# shellcheck shell=sh
+#
+# Copyright 2024-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+: "${BYEDPI_USER:=byedpi}"
+: "${BYEDPI_GROUP:=nobody}"
+
+: "${BYEDPI_BIND_IP:=0.0.0.0}"
+: "${BYEDPI_BIND_PORT:=1080}"
+: "${BYEDPI_OPTS:=--split 1 --disorder 3+s --mod-http=h,d --auto=torst --tlsrec 1+s}"
+
+description="Bypass DPI SOCKS proxy"
+supervisor="supervise-daemon"
+command="/usr/bin/ciadpi"
+pidfile="/run/byedpi/${RC_SVCNAME}.pid"
+command_user="${BYEDPI_USER}:${BYEDPI_GROUP}"
+command_args="--ip ${BYEDPI_BIND_IP} --port ${BYEDPI_BIND_PORT} ${BYEDPI_OPTS}"
+command_args_background="--daemon --pidfile ${pidfile}"
+output_logger="logger -p daemon.info -t byedpi --"
+error_logger="logger -p daemon.err -t byedpi --"
+
+depend() {
+	need net
+	use firewall logger
+}
+
+start_pre() {
+	checkpath -q -do "${BYEDPI_USER}":root "$(dirname "${pidfile}")"
+}
