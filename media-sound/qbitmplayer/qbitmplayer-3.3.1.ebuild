@@ -13,19 +13,24 @@ S="${WORKDIR}/QBitMPlayer-${PV}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="dbus libnotify video"
+IUSE="dbus libnotify network video"
 
 DEPEND="
 	dev-qt/qtmultimedia:6
 	dev-qt/qtbase:6[widgets]
 	dbus? ( dev-qt/qtbase:6[dbus] )
 	libnotify? ( x11-libs/libnotify )
+	network? ( dev-qt/qtbase:6[network] )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
 	>=dev-build/cmake-3.28
 	dev-qt/qttools:6[linguist]
 	virtual/pkgconfig
+"
+
+REQUIRED_USE="
+	network? ( dbus )
 "
 
 src_prepare() {
@@ -35,25 +40,11 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DQT_VERSION_MAJOR=6
+		-DENABLE_IPC="$(usex dbus)"
+		-DENABLE_NOTIFICATIONS="$(usex libnotify)"
+		-DENABLE_VIDEO_PLAYER="$(usex video)"
+		-DSINGLE_INSTANCE="$(usex network)"
 	)
-
-	if use dbus; then
-		mycmakeargs+=(
-			-DENABLE_IPC=1
-		)
-	fi
-
-	if use libnotify; then
-		mycmakeargs+=(
-			-DENABLE_NOTIFICATIONS=1
-		)
-	fi
-
-	if use video; then
-		mycmakeargs+=(
-			-DENABLE_VIDEO_PLAYER=1
-		)
-	fi
 
 	cmake_src_configure
 }
