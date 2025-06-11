@@ -7,6 +7,7 @@
   </maintainer>
   <upstream>
     <remote-id type="github">medusalix/xone</remote-id>
+    <remote-id type="github">dlundqvist/xone</remote-id>
   </upstream>
   <longdescription>
     xone is a Linux kernel driver for Xbox One and Xbox Series X|S
