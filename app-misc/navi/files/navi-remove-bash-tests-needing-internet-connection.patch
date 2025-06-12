@@ -1,0 +1,33 @@
+From 2505c54c030c1acc1bb97bdd3023e58b15ba3c67 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Matt=C3=A9o=20Rossillol=E2=80=91=E2=80=91Laruelle?=
+ <beatussum@protonmail.com>
+Date: Thu, 12 Jun 2025 21:54:12 +0200
+Subject: [PATCH] remove Bash tests needing internet connection
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com>
+---
+ tests/run | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/tests/run b/tests/run
+index 3d57135..e779d19 100755
+--- a/tests/run
++++ b/tests/run
+@@ -161,11 +161,4 @@ test::run "fish" _navi_widget "fish"
+ test::run "elvish" _navi_widget "elvish"
+ test::run "nu" _navi_widget "nushell"
+ 
+-test::set_suite "3rd party"
+-test::run "tldr" _navi_tldr
+-test::run "cheatsh" _navi_cheatsh
+-
+-test::set_suite "integration"
+-test::run "welcome->pwd" _integration
+-
+ test::finish
+-- 
+2.49.0
+

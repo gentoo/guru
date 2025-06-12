@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>beatussum@protonmail.com</email>
+		<name>Mattéo Rossillol‑‑Laruelle</name>
+	</maintainer>
+
+	<use>
+		<flag name="command-execution">Enable support for command execution</flag>
+		<flag name="repo-management">Allow management of cheatsheet repository</flag>
+	</use>
+
+	<use lang="fr">
+		<flag name="command-execution">Permet l'exécution de commande</flag>
+		<flag name="repo-management">Permet la gestion de dépôt antisèche («&#xA0;cheatsheet repository&#xA0;»)</flag>
+	</use>
+
 	<upstream>
+		<maintainer status="active">
+			<name>Denis Isidoro</name>
+		</maintainer>
+
 		<bugs-to>https://github.com/denisidoro/navi/issues</bugs-to>
-		<doc>https://github.com/denisidoro/navi#usage</doc>
 		<remote-id type="github">denisidoro/navi</remote-id>
 	</upstream>
 </pkgmetadata>
