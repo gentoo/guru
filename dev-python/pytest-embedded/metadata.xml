@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>davidroman96@gmail.com</email>
+		<name>David Roman</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">pytest-embedded</remote-id>
+		<remote-id type="github">espressif/pytest-embedded</remote-id>
+	</upstream>
+</pkgmetadata>
