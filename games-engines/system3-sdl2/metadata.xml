@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lookatnadeko@protonmail.com</email>
+		<name>hautist</name>
+	</maintainer>
+	<longdescription lang="en">
+		system3-sdl2 is an SDL2 port of AliceSoft's System3 for Win32 enginge, 
+		originally developed by Takeda Toshiya. This cross-platform implementation 
+		allows running classic AliceSoft games on modern systems including Linux, 
+		Android, and web browsers via Emscripten.
+	</longdescription>
+	<use>
+		<flag name="rtmidi">Enable real-time MIDI support via rtmidi library</flag>
+		<flag name="debug">Enable debug build with debugging symbols and debugger support</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">kichikuou/system3-sdl2</remote-id>
+		<bugs-to>https://github.com/kichikuou/system3-sdl2/issues</bugs-to>
+		<changelog>https://github.com/kichikuou/system3-sdl2/blob/master/CHANGELOG.md</changelog>
+	</upstream>
+</pkgmetadata>
