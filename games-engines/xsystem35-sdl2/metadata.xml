@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>lookatnadeko@protonmail.com</email>
+        <name>hautist</name>
+    </maintainer>
+    <longdescription>
+        xsystem35-sdl2 is a multi-platform port of xsystem35, a free implementation 
+        of AliceSoft's System 3.x game engine. It allows running classic Japanese 
+        adventure games that use the System 3.x engine.
+    </longdescription>
+    <use>
+        <flag name="debug">Enable debug build and built-in debugger</flag>
+        <flag name="portmidi">Enable MIDI support via PortMidi</flag>
+    </use>
+    <upstream>
+        <remote-id type="github">kichikuou/xsystem35-sdl2</remote-id>
+        <changelog>https://github.com/kichikuou/xsystem32-sdl2/blob/master/CHANGELOG.md</changelog>
+    </upstream>
+</pkgmetadata>
