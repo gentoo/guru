@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lookatnadeko@protonmail.com</email>
+		<name>hautist</name>
+	</maintainer>
+	<longdescription lang="en">
+		xsystem4 is a cross-platform, open-source implementation of AliceSoft's 
+		System 4 game engine. It allows running modern AliceSoft visual novels 
+		and games that use the System 4 engine on Linux and other platforms. 
+		The engine supports advanced features including 3D graphics, video playback, 
+		and complex scripting.
+	</longdescription>
+	<use>
+		<flag name="debug">Enable Chibi Scheme debugger support for game development and troubleshooting</flag>
+		<flag name="gles2">Use OpenGL ES 2.0 backend instead of desktop OpenGL for better compatibility on embedded systems</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">nunuhara/xsystem4</remote-id>
+		<bugs-to>https://github.com/nunuhara/xsystem4/issues</bugs-to>
+		<changelog>https://github.com/nunuhara/xsystem4/releases</changelog>
+	</upstream>
+</pkgmetadata>
