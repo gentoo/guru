@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>contact@paveloom.dev</email>
+    <name>Pavel Sobolev</name>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://github.com/google/ios-webkit-debug-proxy/issues</bugs-to>
+    <remote-id type="github">google/ios-webkit-debug-proxy</remote-id>
+  </upstream>
+</pkgmetadata>
