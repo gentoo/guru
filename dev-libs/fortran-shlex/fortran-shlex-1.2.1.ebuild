@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/perazz/fortran-shlex"
 SRC_URI="https://github.com/perazz/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/1"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
