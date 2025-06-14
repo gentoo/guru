@@ -25,3 +25,16 @@ src_prepare() {
 	default
 	./autogen.sh
 }
+
+src_test() {
+	# The fwup tests do not like the portage sandbox. Make them play nice.
+
+	# Modify tests/common.sh to ensure $WRITE_SHIM and $MOUNT_SHIM point to
+	# files that don't exist. This is needed to ensure tests don't try to use
+	# LD_PRELOAD.
+	sed -i 's/^\(WRITE\|MOUNT\)_SHIM=".*"/\1_SHIM=""/' 'tests/common.sh' \
+		|| die 'Could not sed tests/common.sh'
+
+	# set VERIFY_SYSCALLS_DISABLE, to disable tracing
+	VERIFY_SYSCALLS_DISABLE="" emake check
+}
