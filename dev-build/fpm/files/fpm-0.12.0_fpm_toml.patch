@@ -1,0 +1,23 @@
+diff -Naur a/fpm.toml b/fpm.toml
+--- a/fpm.toml
++++ b/fpm.toml
+@@ -10,16 +10,9 @@
+ macros=["FPM_RELEASE_VERSION={version}"]
+ 
+ [dependencies]
+-toml-f.git = "https://github.com/toml-f/toml-f"
+-toml-f.rev = "d7b892b1d074b7cfc5d75c3e0eb36ebc1f7958c1"
+-M_CLI2.git = "https://github.com/urbanjost/M_CLI2.git"
+-M_CLI2.rev = "7264878cdb1baff7323cc48596d829ccfe7751b8"
+-fortran-regex.git  = "https://github.com/perazz/fortran-regex"
+-fortran-regex.tag  = "1.1.2"
+-jonquil.git = "https://github.com/toml-f/jonquil"
+-jonquil.rev = "4fbd4cf34d577c0fd25e32667ee9e41bf231ece8"
+-fortran-shlex.git = "https://github.com/perazz/fortran-shlex"
+-fortran-shlex.tag = "2.0.0"
++[build]
++external-modules = ["tomlf","tomlf_constants","tomlf_de_parser","m_cli2","regex_module","shlex_module","jonquil"]
++link = ["toml-f","M_CLI2","fortran-regex","fortran-shlex","jonquil"]
+ 
+ [[test]]
+ name = "cli-test"
