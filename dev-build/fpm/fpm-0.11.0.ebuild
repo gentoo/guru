@@ -24,7 +24,7 @@ RESTRICT="!test? ( test )"
 
 CDEPEND="
 	dev-libs/fortran-regex
-	dev-libs/fortran-shlex
+	dev-libs/fortran-shlex:0/1
 	dev-libs/jonquil:0/2
 	dev-libs/toml-f:0/4
 	>=dev-libs/M_CLI2-3.2.0
