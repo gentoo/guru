@@ -44,7 +44,7 @@ src_install() {
 	lua_foreach_impl lua_src_install
 	if use doc; then
 		doman docs/_build/man/hump.1
-		local HTML_DOCS=( docs/_build/html/ )
+		local HTML_DOCS=( docs/_build/html/. )
 	fi
 	einstalldocs
 }
