@@ -1,0 +1,36 @@
+From d85d28ef5c70be62732488e12709d006622468ec Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Matt=C3=A9o=20Rossillol=E2=80=91=E2=80=91Laruelle?=
+ <beatussum@protonmail.com>
+Date: Sun, 15 Jun 2025 10:37:05 +0200
+Subject: [PATCH] fix NetworkManager plugin loading
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com>
+---
+ .../backend/linux/networkmanager/core/networkmanager.py    | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/proton/vpn/backend/linux/networkmanager/core/networkmanager.py b/proton/vpn/backend/linux/networkmanager/core/networkmanager.py
+index 8b1d3fb..f625243 100644
+--- a/proton/vpn/backend/linux/networkmanager/core/networkmanager.py
++++ b/proton/vpn/backend/linux/networkmanager/core/networkmanager.py
+@@ -284,10 +284,11 @@ class LinuxNetworkManager(VPNConnection):
+         connection = None
+         with vpnconfig as filename:
+             for plugin in vpn_plugin_list:
+-                plugin_editor = plugin.load_editor_plugin()
+-                # return a NM.SimpleConnection (NM.Connection)
+-                # https://lazka.github.io/pgi-docs/NM-1.0/classes/SimpleConnection.html
+                 try:
++                    plugin_editor = plugin.load_editor_plugin()
++                    # return a NM.SimpleConnection (NM.Connection)
++                    # https://lazka.github.io/pgi-docs/NM-1.0/classes/SimpleConnection.html
++
+                     # plugin_name = plugin.props.name
+                     connection = plugin_editor.import_(filename)
+                     break
+-- 
+2.49.0
+

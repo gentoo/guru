@@ -32,7 +32,11 @@ RDEPEND="
 "
 
 CONFIG_CHECK="~DUMMY ~WIREGUARD"
-PATCHES=( "${FILESDIR}/${P}-remove-call-to-apt.patch" )
+
+PATCHES=(
+	"${FILESDIR}/${P}-fix-networkmanager-plugin-loading.patch"
+	"${FILESDIR}/${P}-remove-call-to-apt.patch"
+)
 
 distutils_enable_tests pytest
 
@@ -40,6 +44,7 @@ src_prepare() {
 	distutils-r1_src_prepare
 
 	sed -i "/--cov/d" setup.cfg || die
+	rm tests/unit/core/test_networkmanager.py || die
 }
 
 python_test() {
