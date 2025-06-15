@@ -42,11 +42,12 @@ distutils_enable_tests pytest
 
 src_prepare() {
 	distutils-r1_src_prepare
-
 	sed -i "/--cov/d" setup.cfg || die
-	rm tests/unit/core/test_networkmanager.py || die
 }
 
 python_test() {
+	# VPN connection cannot be tested within sandbox
+	local EPYTEST_IGNORE=( tests/unit/core/test_networkmanager.py )
+
 	XDG_RUNTIME_DIR="${T}/python_test" epytest
 }
