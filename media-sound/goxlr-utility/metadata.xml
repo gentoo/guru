@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>pieter.kn0101@gmail.com</email>
+		<name>Pieter</name>
+	</maintainer>
+	<use>
+	<flag name="tts">Accessibility feature adding TTS capabilities to report button presses.</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">GoXLR-on-Linux/goxlr-utility</remote-id>
+	</upstream>
+</pkgmetadata>
