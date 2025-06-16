@@ -48,7 +48,7 @@ BDEPEND="
 		dev-python/ujson[${PYTHON_USEDEP}]
 	)
 "
-# brottli and zstd due to starlette based tests expecting it
+# brotli and zstd due to starlette based tests expecting it
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.115.6-httpx-0.28-test-fix.patch"
@@ -60,7 +60,7 @@ distutils_enable_tests pytest
 EPYTEST_DESELECT=(
 	# Depends on coverage
 	"tests/test_fastapi_cli.py::test_fastapi_cli"
-	# Test result affected by unrelated packages such as brottli and zstd
+	# Test result affected by unrelated packages such as brotli and zstd
 	# https://github.com/fastapi/fastapi/blob/7c6f2f8fde68f488163376c9e92a59d46c491298/tests/test_tutorial/test_header_param_models/test_tutorial001.py#L77
 	"tests/test_tutorial/test_header_param_models/test_tutorial001.py::test_header_param_model_invalid"
 	# https://gitweb.gentoo.org/repo/gentoo.git/commit/?id=6afa196ca0cb1604875847b1b84fa64896a06f6e
