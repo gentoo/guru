@@ -2,7 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<upstream>
-		<remote-id type="github">ggerganov/llama.cpp</remote-id>
+		<remote-id type="github">ggml-org/llama.cpp</remote-id>
 	</upstream>
 	<use>
 		<flag name="blis">Build a BLIS backend</flag>

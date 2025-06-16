@@ -5,25 +5,25 @@ EAPI=8
 
 ROCM_VERSION="6.3"
 
-inherit cmake rocm
+inherit cmake cuda rocm
 
 if [[ "${PV}" != "9999" ]]; then
 	KEYWORDS="~amd64"
 	MY_PV="b${PV#0_pre}"
 	S="${WORKDIR}/llama.cpp-${MY_PV}"
-	SRC_URI="https://github.com/ggerganov/llama.cpp/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/ggml-org/llama.cpp/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
 else
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/ggerganov/llama.cpp.git"
+	EGIT_REPO_URI="https://github.com/ggml-org/llama.cpp.git"
 fi
 
 DESCRIPTION="Port of Facebook's LLaMA model in C/C++"
-HOMEPAGE="https://github.com/ggerganov/llama.cpp"
+HOMEPAGE="https://github.com/ggml-org/llama.cpp"
 
 LICENSE="MIT"
 SLOT="0"
 CPU_FLAGS_X86=( avx avx2 f16c )
-IUSE="curl openblas blis hip"
+IUSE="curl openblas blis hip cuda"
 REQUIRED_USE="?? ( openblas blis )"
 
 AMDGPU_TARGETS_COMPAT=(
@@ -54,11 +54,17 @@ DEPEND="
 	openblas? ( sci-libs/openblas:= )
 	blis? ( sci-libs/blis:= )
 	hip? (  >=dev-util/hip-6.3:= )
+	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 "
 RDEPEND="${DEPEND}
 	dev-python/numpy
 "
-PATCHES=( "${FILESDIR}/blas-ld.diff" )
+
+src_prepare() {
+	use cuda && cuda_src_prepare
+
+	cmake_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(
@@ -69,6 +75,8 @@ src_configure() {
 		-DGGML_RPC=ON
 		-DLLAMA_CURL=$(usex curl ON OFF)
 		-DBUILD_NUMBER="1"
+		-DGENTOO_REMOVE_CMAKE_BLAS_HACK=ON
+		-DGGML_CUDA=$(usex cuda ON OFF)
 	)
 
 	if use openblas ; then
