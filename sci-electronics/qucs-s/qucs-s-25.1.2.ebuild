@@ -10,19 +10,26 @@ SRC_URI="https://github.com/ra3xdh/qucs_s/releases/download/${PV}/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="+ngspice"
 
 inherit cmake
 
-DEPEND="sci-electronics/ngspice
-		dev-qt/qtbase:6
-		dev-qt/qttools:6
-		dev-qt/qtsvg:6
-		dev-qt/qtcharts:6"
+DEPEND="
+	dev-qt/qtbase:6
+	dev-qt/qttools:6
+	dev-qt/qtsvg:6
+	dev-qt/qtcharts:6
+	"
 
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	ngspice? ( sci-electronics/ngspice )
+	"
 
-BDEPEND="dev-build/cmake
-		sys-devel/flex
-		sys-devel/bison
-		dev-util/gperf
-		app-text/dos2unix"
+BDEPEND="
+	dev-build/cmake
+	sys-devel/flex
+	sys-devel/bison
+	dev-util/gperf
+	app-text/dos2unix
+	"

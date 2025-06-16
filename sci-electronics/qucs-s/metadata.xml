@@ -9,4 +9,7 @@
 		<bugs-to>https://github.com/ra3xdh/qucs_s/issues</bugs-to>
 		<remote-id type="github">ra3xdh/qucs_s</remote-id>
 	</upstream>
+	<use>
+		<flag name="ngspice">Add support for ngspice backend (recommended simulation backend)</flag>
+	</use>
 </pkgmetadata>
