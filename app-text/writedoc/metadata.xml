@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pkgmetadata>
+  <maintainer type="person">
+    <email>chiron.dev8@gmail.com</email>
+    <name>Chiron Horwood</name>
+  </maintainer> 
+  <longdescription lang="en">
+    writedoc is a simple tool that allows you to quickly create or edit files without defining a filepath or being inside the same directory. It can automatically create directories and file types do not need to be specified. Perfect for making quick notes or jotting down ideas!
+  </longdescription>
+  <upstream>
+    <remote-id type="github">Chiron8/writedoc</remote-id>
+  </upstream>	
+</pkgmetadata>
