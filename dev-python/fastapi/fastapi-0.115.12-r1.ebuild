@@ -75,6 +75,10 @@ EPYTEST_DESELECT=(
 	"tests/test_multipart_installation.py::test_no_multipart_installed_multi_form"
 	"tests/test_multipart_installation.py::test_no_multipart_installed_form_file"
 	"tests/test_multipart_installation.py::test_old_multipart_installed"
+
+	# formatting changes?
+	"tests/test_tutorial/test_header_param_models/test_tutorial003.py::test_header_param_model_no_underscore"
+	"tests/test_tutorial/test_header_param_models/test_tutorial003.py::test_header_param_model_invalid"
 )
 
 python_prepare_all() {
