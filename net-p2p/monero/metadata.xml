@@ -5,30 +5,33 @@
     <email>efe.izbudak@metu.edu.tr</email>
     <name>Efe İzbudak</name>
   </maintainer>
-  <longdescription lang="en">
+  <longdescription>
     Monero is a private, secure, untraceable, decentralised digital
     currency. You are your bank, you control your funds, and nobody
     can trace your transfers unless you allow them to do so.
   </longdescription>
   <use>
     <flag name="daemon">
-      Build the Monero daemon used to connect to the P2P network.
+      Build the Monero daemon used to connect to the P2P network
     </flag>
     <flag name="hw-wallet">
-      Enable Trezor hardware wallet support.
+      Enable Trezor hardware wallet support
     </flag>
     <flag name="tools">
       Build tools used to manipulate the blockchain as it is stored on
-      disk.
+      disk
     </flag>
     <flag name="wallet-cli">
-      Build the command line wallet, monero-wallet-cli.
+      Build the command line wallet, monero-wallet-cli
     </flag>
     <flag name="wallet-rpc">
-      Build the RPC wallet, monero-wallet-rpc.
+      Build the RPC wallet, monero-wallet-rpc
     </flag>
   </use>
   <upstream>
+    <bugs-to>https://github.com/monero-project/monero/issues</bugs-to>
+    <changelog>https://github.com/monero-project/monero/releases</changelog>
+    <doc>https://docs.getmonero.org</doc>
     <remote-id type="github">monero-project/monero</remote-id>
   </upstream>
 </pkgmetadata>
