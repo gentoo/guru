@@ -10,7 +10,12 @@ inherit distutils-r1
 
 DESCRIPTION="Proton AG VPN Core API"
 HOMEPAGE="https://github.com/ProtonVPN/python-proton-vpn-api-core"
-SRC_URI="https://github.com/ProtonVPN/python-proton-vpn-api-core/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+
+SRC_URI="
+	https://github.com/ProtonVPN/python-proton-vpn-api-core/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/beatussum/gentoo-tarballs/releases/download/latest/${P}-remove-anonymous-bug-report.patch
+"
+
 S="${WORKDIR}/python-${P}"
 LICENSE="GPL-3+"
 SLOT="0"
@@ -25,8 +30,9 @@ RDEPEND="
 	dev-python/distro[${PYTHON_USEDEP}]
 	dev-python/proton-core[${PYTHON_USEDEP}]
 	dev-python/pynacl[${PYTHON_USEDEP}]
-	dev-python/sentry-sdk[${PYTHON_USEDEP}]
 "
+
+PATCHES=( "${DISTDIR}/${P}-remove-anonymous-bug-report.patch" )
 
 distutils_enable_sphinx docs
 distutils_enable_tests pytest
@@ -42,7 +48,7 @@ python_test() {
 	local EPYTEST_IGNORE=(
 		tests/connection
 		tests/core/refresher
-		tests/core/test_{connection,settings,usage}.py
+		tests/core/test_{connection,settings}.py
 	)
 
 	XDG_RUNTIME_DIR="${T}/python_test" epytest
