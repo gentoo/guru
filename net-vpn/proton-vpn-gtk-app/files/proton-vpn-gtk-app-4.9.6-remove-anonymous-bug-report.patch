@@ -1,0 +1,149 @@
+From 065d288c8e8f01a18362c27c7f2ff69dfcda9038 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Matt=C3=A9o=20Rossillol=E2=80=91=E2=80=91Laruelle?=
+ <beatussum@protonmail.com>
+Date: Tue, 17 Jun 2025 10:27:24 +0200
+Subject: [PATCH] remove anonymous bug report
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This feature depends on dev-python/sentry-sdk, a package that was removed from
+the main tree due to its difficulty in being packaged correctly.
+
+Signed-off-by: Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com>
+---
+ proton/vpn/app/gtk/controller.py              |  8 ----
+ proton/vpn/app/gtk/utils/exception_handler.py |  4 --
+ .../menu/settings/general_settings.py         | 14 -------
+ tests/unit/utils/test_exception_handler.py    | 37 +------------------
+ 4 files changed, 1 insertion(+), 62 deletions(-)
+
+diff --git a/proton/vpn/app/gtk/controller.py b/proton/vpn/app/gtk/controller.py
+index 50b2b7d..0ccbdf7 100644
+--- a/proton/vpn/app/gtk/controller.py
++++ b/proton/vpn/app/gtk/controller.py
+@@ -370,14 +370,6 @@ class Controller:  # pylint: disable=too-many-public-methods, too-many-instance-
+             key=lambda protocol: protocol.cls.ui_protocol
+         )
+ 
+-    def send_error_to_proton(self,
+-                             error: BaseException |
+-                             tuple[Optional[Type[BaseException]],
+-                                   Optional[BaseException],
+-                                   Optional[TracebackType]]):
+-        """Sends the error to Sentry."""
+-        self._api.usage_reporting.report_error(error)
+-
+     def run_subprocess(self, commands: list, shell: bool = False) -> Future:
+         """Run asynchronously subprocess command so it does not block UI."""
+         return self.executor.submit(
+diff --git a/proton/vpn/app/gtk/utils/exception_handler.py b/proton/vpn/app/gtk/utils/exception_handler.py
+index 55bf536..18ae4c6 100644
+--- a/proton/vpn/app/gtk/utils/exception_handler.py
++++ b/proton/vpn/app/gtk/utils/exception_handler.py
+@@ -260,10 +260,6 @@ class ExceptionHandler:
+             exc_info=(exc_type, exc_value, exc_traceback)
+         )
+ 
+-        if self.controller:
+-            self.controller.send_error_to_proton(
+-                (exc_type, exc_value, exc_traceback))
+-
+     def __enter__(self):
+         self.enable()
+         return self
+diff --git a/proton/vpn/app/gtk/widgets/headerbar/menu/settings/general_settings.py b/proton/vpn/app/gtk/widgets/headerbar/menu/settings/general_settings.py
+index 27723cd..46ec4dc 100644
+--- a/proton/vpn/app/gtk/widgets/headerbar/menu/settings/general_settings.py
++++ b/proton/vpn/app/gtk/widgets/headerbar/menu/settings/general_settings.py
+@@ -88,10 +88,6 @@ class GeneralSettings(BaseCategoryContainer):  # pylint: disable=too-many-instan
+     START_APP_MINIMIZED_LABEL = "Start app minimized"
+     START_APP_MINIMIZED_DESCRIPTION = "When enabled, the app starts minimized "\
+         "to the tray."
+-    ANONYMOUS_CRASH_REPORTS_LABEL = "Share anonymous crash reports"
+-    ANONYMOUS_CRASH_REPORTS_DESCRIPTION = "Crash reports help us fix bugs, detect firewalls, "\
+-        "and avoid VPN blocks.\n\nThese statistics do not contain your IP address, and they "\
+-        "cannot be used to identify you. We'll never share them with third parties."
+ 
+     def __init__(
+         self, controller: Controller,
+@@ -110,7 +106,6 @@ class GeneralSettings(BaseCategoryContainer):  # pylint: disable=too-many-instan
+             self.build_start_app_minimized()
+             self.build_tray_pinned_servers()
+ 
+-        self.build_anonymous_crash_reports()
+         self.build_beta_upgrade()
+ 
+     def build_connect_at_app_startup(self):
+@@ -145,15 +140,6 @@ class GeneralSettings(BaseCategoryContainer):  # pylint: disable=too-many-instan
+             controller=self._controller, tray_indicator=self._tray_indicator
+         ), False, False, 0)
+ 
+-    def build_anonymous_crash_reports(self):
+-        """Builds and adds the `anonymous_crash_reports` setting to the widget."""
+-        self.pack_start(ToggleWidget(
+-            controller=self._controller,
+-            title=self.ANONYMOUS_CRASH_REPORTS_LABEL,
+-            description=self.ANONYMOUS_CRASH_REPORTS_DESCRIPTION,
+-            setting_name="settings.anonymous_crash_reports"
+-        ), False, False, 0)
+-
+     def build_beta_upgrade(self):
+         """Builds and adds the `Early Access` setting to the widget."""
+         early_access = EarlyAccessWidget(self._controller)
+diff --git a/tests/unit/utils/test_exception_handler.py b/tests/unit/utils/test_exception_handler.py
+index d925d86..74d35ec 100644
+--- a/tests/unit/utils/test_exception_handler.py
++++ b/tests/unit/utils/test_exception_handler.py
+@@ -150,41 +150,6 @@ def test_handle_exceptions_that_should_be_raised_again(exception_type):
+             exc_traceback=None
+         )
+ 
+-@pytest.mark.parametrize(
+-    "exception,error_title,error_message", [
+-        (Exception("Unexpected error"), ExceptionHandler.GENERIC_ERROR_TITLE, ExceptionHandler.GENERIC_ERROR_MESSAGE),
+-    ]
+-)
+-def test_handle_exceptions_reporting_remotely(
+-        exception, error_title, error_message
+-):
+-    send_error = SimpleNamespace(invoked=False)
+-
+-    def send_error_to_proton(error):
+-        exc_type, exc_value, exc_traceback = error
+-
+-        # Make sure we're sent the correct information
+-        assert exc_type is Exception
+-        assert isinstance(exc_value, Exception)
+-
+-        # Make sure we were actually invoked
+-        send_error.invoked = True
+-
+-    controller = Mock()
+-    controller.send_error_to_proton = send_error_to_proton
+-
+-    main_widget_mock = Mock()
+-    exception_handler = ExceptionHandler(main_widget=main_widget_mock,
+-                                         controller=controller)
+-
+-    exception_handler.handle_exception(
+-        exc_type=type(exception),
+-        exc_value=exception,
+-        exc_traceback=None
+-    )
+-
+-    assert send_error.invoked, "send_error_to_proton not invoked"
+-
+ def test_handle_exception_logs_user_out_and_shows_missing_scope_dialog_on_proton_api_missing_scope_error():
+     main_widget_mock = Mock(MainWidget)
+     exception_handler = ExceptionHandler(main_widget=main_widget_mock)
+@@ -214,4 +179,4 @@ def test_handle_exception_logs_user_out_and_shows_missing_scope_dialog_on_proton
+     )
+ 
+     main_widget_mock.logout.assert_called_once()
+-    main_widget_mock.notifications.show_error_dialog.assert_called_once()
+\ No newline at end of file
++    main_widget_mock.notifications.show_error_dialog.assert_called_once()
+-- 
+2.49.0
+

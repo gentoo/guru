@@ -34,7 +34,10 @@ RDEPEND="
 	')
 "
 
-PATCHES=( "${FILESDIR}/${P}-remove-call-to-apt.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-remove-anonymous-bug-report.patch"
+	"${FILESDIR}/${P}-remove-call-to-apt.patch"
+)
 
 src_install() {
 	distutils-r1_src_install
