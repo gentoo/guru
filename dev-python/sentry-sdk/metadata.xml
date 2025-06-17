@@ -2,10 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 
 <pkgmetadata>
-	<maintainer type="person">
-		<email>beatussum@protonmail.com</email>
-		<name>Mattéo Rossillol‑‑Laruelle</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 
 	<stabilize-allarches/>
 
