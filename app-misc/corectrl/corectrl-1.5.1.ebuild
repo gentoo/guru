@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit ecm linux-info optfeature toolchain-funcs
+inherit ecm linux-info optfeature toolchain-funcs xdg-utils
 
 DESCRIPTION="Core control application"
 HOMEPAGE="https://gitlab.com/corectrl/corectrl"
@@ -70,6 +70,11 @@ src_configure() {
 }
 
 pkg_postinst() {
+	xdg_icon_cache_update
 	optfeature "vulkaninfo" dev-util/vulkan-tools
 	optfeature "glxinfo" x11-apps/mesa-progs
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 }
