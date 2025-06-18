@@ -12,8 +12,7 @@ SRC_URI="https://github.com/openSUSE/libsolv/archive/refs/tags/${PV}.tar.gz -> $
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="expat test zchunk"
-RESTRICT="!test? ( test )"
+IUSE="expat zchunk"
 
 RDEPEND="
 	app-arch/bzip2
