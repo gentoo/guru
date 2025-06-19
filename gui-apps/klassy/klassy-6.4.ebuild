@@ -43,7 +43,6 @@ DEPEND=">=dev-qt/qtbase-${QTMIN}:6
 		kde-plasma/kdecoration
 		x11-misc/xdg-utils"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_configure() {
 	local mycmakeargs=(
