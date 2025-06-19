@@ -5,7 +5,6 @@ EAPI=8
 
 KF5MIN=5.102.0
 KFMIN=6.10.0
-QT5MIN=5.15.2
 QTMIN=6.6.0
 
 inherit cmake
