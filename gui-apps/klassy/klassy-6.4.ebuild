@@ -53,7 +53,3 @@ src_configure() {
 
 	cmake_src_configure
 }
-
-src_compile() {
-	cmake_src_compile
-}
