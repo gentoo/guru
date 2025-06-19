@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,20 +13,20 @@ S="${WORKDIR}/${PN}-v${PV}"
 LICENSE="LGPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="qt6"
 
 DEPEND="
+	app-arch/bzip2
 	app-arch/libarchive:=
+	app-arch/xz-utils
+	dev-qt/qtbase:6
 	sys-libs/zlib
-	!qt6? ( dev-qt/qtcore:5 )
-	qt6? ( dev-qt/qtbase:6 )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local emesonargs=(
 		-Dinstall_static=false
-		-Duse_qt_version=$(usex qt6 qt6 qt5)
+		-Duse_qt_version=qt6
 	)
 	meson_src_configure
 }
