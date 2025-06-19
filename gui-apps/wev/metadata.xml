@@ -5,4 +5,11 @@
 		<email>myrvogna@electrosphe.re</email>
 		<name>Octiabrina Terrien-Puig</name>
 	</maintainer>
+	<upstream>
+		<bugs-to>mailto:~sircmpwn/public-inbox@lists.sr.ht</bugs-to>
+		<maintainer>
+			<name>Drew DeVault</name>
+			<email>sir@cmpwn.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>
