@@ -39,6 +39,9 @@ src_prepare() {
 src_configure() {
 	local myconf=(
 		--program-prefix=rpi-
+		--datadir=/usr/share/openocd-rpi
+		--infodir=/usr/share/info/rpi-openocd
+		--docdir=/usr/share/doc/rpi-openocd
 		--enable-amtjtagaccel
 		--enable-am335xgpio
 		--enable-arm-jtag-ew
@@ -87,7 +90,11 @@ src_configure() {
 src_install() {
 	default
 	dostrip /usr/bin
-	udev_dorules "${ED}"/usr/share/openocd/contrib/*.rules
+
+	mv "${ED}/usr/share/openocd-rpi/openocd/contrib/60-openocd.rules" \
+		"${ED}/usr/share/openocd-rpi/openocd/contrib/60-openocd-rpi.rules" || die
+
+	udev_dorules "${ED}"/usr/share/openocd-rpi/openocd/contrib/*.rules
 }
 
 pkg_postinst() {
