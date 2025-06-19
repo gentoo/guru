@@ -17,6 +17,7 @@
 	</upstream>
 	<use>
 		<flag name="lockscreen-plugins">Build lockscreen plugins and widgets</flag>
+		<flag name="plugins">Build Phosh plugins and widgets</flag>
 		<flag name="test-full">Run integration tests</flag>
 	</use>
 </pkgmetadata>
