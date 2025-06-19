@@ -44,6 +44,7 @@ src_configure() {
 	export PKG_CONFIG_ALLOW_CROSS=1
 
 	local myfeatures=(
+		"bindmode+all"
 		"cli"
 		$(usev cairo)
 		"clipboard"
