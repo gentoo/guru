@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Lucio Sauer <watermanpaint@posteo.net> (2025-06-21)
+# Depends on masked dev-python/backoff.
+# Masked until upstream supports running without backoff.
+app-backup/b2
+dev-util/mock
+
 # Takuya Wakazono <pastalian46@gmail.com> (2025-06-05)
 # app-text/komikku, the only reverse dependency, has migrated to
 # dev-python/modern-colorthief.
