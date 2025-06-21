@@ -1,0 +1,70 @@
+--- a/src/duckstation-qt/gamecheatsettingswidget.h	2025-05-19 20:26:51.000481604 -0700
++++ b/src/duckstation-qt/gamecheatsettingswidget.h	2025-05-19 20:27:16.399766541 -0700
+@@ -12,6 +12,7 @@
+ #include "common/heterogeneous_containers.h"
+ 
+ #include <QtCore/QStringList>
++#include <QSortFilterProxyModel>
+ #include <QtWidgets/QDialog>
+ #include <QtWidgets/QWidget>
+ 
+--- a/src/duckstation-qt/qthost.h	2025-05-19 20:30:27.999244453 -0700
++++ b/src/duckstation-qt/qthost.h	2025-05-19 20:30:44.310526957 -0700
+@@ -14,6 +14,7 @@
+ #include "util/imgui_manager.h"
+ #include "util/input_manager.h"
+ 
++#include <QAbstractListModel>
+ #include <QtCore/QByteArray>
+ #include <QtCore/QList>
+ #include <QtCore/QMetaType>
+--- a/src/duckstation-qt/gamesummarywidget.cpp	2025-05-19 20:33:53.589913973 -0700
++++ b/src/duckstation-qt/gamesummarywidget.cpp	2025-05-19 20:34:13.909167926 -0700
+@@ -16,6 +16,7 @@
+ 
+ #include "fmt/format.h"
+ 
++#include <QTimeZone>
+ #include <QtCore/QDateTime>
+ #include <QtCore/QFuture>
+ #include <QtCore/QSignalBlocker>
+--- a/src/duckstation-qt/gamelistwidget.cpp	2025-05-19 20:36:52.844958010 -0700
++++ b/src/duckstation-qt/gamelistwidget.cpp	2025-05-19 20:37:32.364141103 -0700
+@@ -26,6 +26,7 @@
+ #include <QtGui/QPainter>
+ #include <QtGui/QPixmap>
+ #include <QtGui/QWheelEvent>
++#include <QTimeZone>
+ #include <QtWidgets/QHeaderView>
+ #include <QtWidgets/QMenu>
+ #include <QtWidgets/QScrollBar>
+--- a/src/duckstation-qt/qthost.cpp	2025-05-19 20:40:27.603615604 -0700
++++ b/src/duckstation-qt/qthost.cpp	2025-05-19 20:40:43.566014370 -0700
+@@ -63,6 +63,7 @@
+ #include <QtCore/QTimer>
+ #include <QtGui/QClipboard>
+ #include <QtGui/QKeyEvent>
++#include <QResource>
+ #include <QtWidgets/QFileDialog>
+ #include <QtWidgets/QMenu>
+ #include <QtWidgets/QMessageBox>
+@@ -575,7 +575,7 @@
+ {
+ #ifndef __APPLE__
+   // On Windows/Linux, these are in the binary directory.
+-  EmuFolders::Resources = Path::Combine(EmuFolders::AppRoot, "resources");
++  EmuFolders::Resources = Path::Combine(EmuFolders::AppRoot, "../share/duckstation/resources");
+ #else
+   // On macOS, this is in the bundle resources directory.
+   EmuFolders::Resources = Path::Canonicalize(Path::Combine(EmuFolders::AppRoot, "../Resources"));
+--- a/src/duckstation-qt/qttranslations.cpp
++++ b/src/duckstation-qt/qttranslations.cpp
+@@ -82,7 +82,7 @@
+ 
+   // install the base qt translation first
+ #ifndef __APPLE__
+-  const QString base_dir = QStringLiteral("%1/translations").arg(qApp->applicationDirPath());
++  const QString base_dir = QStringLiteral("%1/../share/duckstation/translations").arg(qApp->applicationDirPath());
+ #else
+   const QString base_dir = QStringLiteral("%1/../Resources/translations").arg(qApp->applicationDirPath());
+ #endif
