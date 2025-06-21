@@ -20,12 +20,19 @@ LICENSE="AGPL-3+ BSD BSD-2 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+PATCHES=(
+	"${FILESDIR}/${P}-copy-injected-code-from-the-system.patch"
+)
+
 src_compile() {
 	ego build
 }
 
 src_install() {
 	dobin ${PN}
+
+	insinto /usr/share/${PN}
+	doins -r injectedCode views
 
 	default
 }
