@@ -458,6 +458,7 @@ DEPEND="
 	music? ( sys-apps/dbus )
 	volume? ( media-libs/libpulse )
 "
+RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 "

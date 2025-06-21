@@ -465,6 +465,7 @@ DEPEND="
 	tray? ( dev-libs/libdbusmenu[gtk3] )
 	volume? ( media-libs/libpulse )
 "
+RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 "
