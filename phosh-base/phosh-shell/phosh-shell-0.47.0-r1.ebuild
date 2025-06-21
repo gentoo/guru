@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit gnome2-utils meson pam systemd verify-sig virtualx xdg
+inherit gnome2-utils meson pam systemd toolchain-funcs verify-sig virtualx xdg
 
 MY_PN="${PN%-shell}"
 MY_P="${MY_PN}-${PV}"
@@ -43,7 +43,7 @@ COMMON_DEPEND="
 	>=net-libs/libsoup-3.6:3.0
 	net-misc/modemmanager:=
 	>=net-misc/networkmanager-1.14[introspection?]
-	>=net-wireless/gnome-bluetooth-46.0:3=[introspection]
+	>=net-wireless/gnome-bluetooth-46.0:3=[introspection?]
 	sys-apps/dbus
 	>=sys-auth/polkit-0.122
 	sys-libs/pam
@@ -151,7 +151,7 @@ src_install() {
 
 phosh_giomodule_cache_update() {
 	local plugins_dir
-	plugins_dir=$(pkg-config --variable=lockscreen_plugins_dir phosh-plugins) || return 1
+	plugins_dir=$("$(tc-getPKG_CONFIG)" --variable=lockscreen_plugins_dir phosh-plugins) || return 1
 
 	ebegin "Updating GIO modules cache"
 	gio-querymodules "${plugins_dir}"
