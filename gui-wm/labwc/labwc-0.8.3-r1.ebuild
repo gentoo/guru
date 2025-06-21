@@ -26,7 +26,7 @@ RDEPEND="
 	dev-libs/glib:2
 	>=dev-libs/libinput-1.14
 	dev-libs/libxml2:2
-	>=gui-libs/wlroots-0.18.1[X?]
+	>=gui-libs/wlroots-0.18.1:0.18[X?]
 	media-libs/libpng
 	!<=xfce-base/xfce4-panel-4.20.1
 	x11-libs/cairo[X?]

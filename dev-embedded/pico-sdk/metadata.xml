@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ljn0099@hotmail.com</email>
+		<name>Manuel</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">raspberrypi/pico-sdk</remote-id>
+	</upstream>
+</pkgmetadata>

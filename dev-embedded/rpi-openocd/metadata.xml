@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ljn0099@hotmail.com</email>
+		<name>Manuel</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">raspberrypi/openocd</remote-id>
+	</upstream>
+	<use>
+		<flag name="capstone">Support for ARM disassembly via dev-libs/capstone</flag>
+		<flag name="cmsis-dap">Support for CMSIS-DAP adapter driver via dev-libs/hidapi</flag>
+		<flag name="dummy">Build the dummy port driver</flag>
+		<flag name="ftdi">Support for USB FTDI chips via dev-embedded/libftdi</flag>
+		<flag name="gpiod">Support for linuxgpiod driver via dev-libs/libgpiod</flag>
+		<flag name="jlink">Support for J-Link driver via dev-embedded/libjaylink</flag>
+		<flag name="parport">Support for parport JTAG devices</flag>
+		<flag name="verbose-io">Verbose IO and comm JTAG and USB messages</flag>
+		<flag name="usb">Support for the USB-based drivers</flag>
+	</use>
+</pkgmetadata>

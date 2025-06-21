@@ -438,7 +438,7 @@ declare -A GIT_CRATES=(
 	[ruma]='https://github.com/ruma/ruma;38d471de01ce2f37f1d8fb5cb1752769cf97bd2f;ruma-%commit%/crates/ruma'
 )
 
-LLVM_COMPAT=( {15..19} )
+LLVM_COMPAT=( {15..20} )
 RUST_MIN_VER="1.83.0"
 
 inherit cargo llvm-r2 systemd

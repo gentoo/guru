@@ -1,0 +1,63 @@
+From: Sebastian Ramacher <sramacher@debian.org>
+Date: Sat, 16 May 2020 15:38:28 +0200
+Subject: Fix lv2 types
+
+---
+ gui/bassup_ui.cpp  | 2 +-
+ gui/dyn_ui.cpp     | 2 +-
+ gui/eq10q_ui.cpp   | 2 +-
+ gui/midside_ui.cpp | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/gui/bassup_ui.cpp b/gui/bassup_ui.cpp
+index dc7ca6d..da504b9 100644
+--- a/gui/bassup_ui.cpp
++++ b/gui/bassup_ui.cpp
+@@ -38,7 +38,7 @@ using namespace std;
+ #define BASSUP_GUI_URI "http://eq10q.sourceforge.net/bassup/gui"
+ 
+ 
+-static LV2UI_Handle instantiateBassUp_gui(const _LV2UI_Descriptor *descriptor, const char *plugin_uri, const char *bundle_path, LV2UI_Write_Function write_function, LV2UI_Controller controller, LV2UI_Widget *widget, const LV2_Feature *const *features)
++static LV2UI_Handle instantiateBassUp_gui(const LV2UI_Descriptor *descriptor, const char *plugin_uri, const char *bundle_path, LV2UI_Write_Function write_function, LV2UI_Controller controller, LV2UI_Widget *widget, const LV2_Feature *const *features)
+ {
+   #ifdef TESTING_EQ10Q
+   cout<<"instantiateEq10q_gui Entring... ";
+diff --git a/gui/dyn_ui.cpp b/gui/dyn_ui.cpp
+index 661a094..fbf13d2 100644
+--- a/gui/dyn_ui.cpp
++++ b/gui/dyn_ui.cpp
+@@ -37,7 +37,7 @@ This plugin is inside the Sapista Plugins Bundle
+ using namespace std;
+ #endif
+ 
+-static LV2UI_Handle instantiateDyn_gui(const _LV2UI_Descriptor *descriptor, const char *plugin_uri, const char *bundle_path, LV2UI_Write_Function write_function, LV2UI_Controller controller, LV2UI_Widget *widget, const LV2_Feature *const *features)
++static LV2UI_Handle instantiateDyn_gui(const LV2UI_Descriptor *descriptor, const char *plugin_uri, const char *bundle_path, LV2UI_Write_Function write_function, LV2UI_Controller controller, LV2UI_Widget *widget, const LV2_Feature *const *features)
+ {
+   #ifdef TESTING_EQ10Q
+   cout<<"instantiateDyn_gui Entring... ";
+diff --git a/gui/eq10q_ui.cpp b/gui/eq10q_ui.cpp
+index 0ca0217..67f7cef 100644
+--- a/gui/eq10q_ui.cpp
++++ b/gui/eq10q_ui.cpp
+@@ -38,7 +38,7 @@ using namespace std;
+ #endif
+ 
+ 
+-static LV2UI_Handle instantiateEq10q_gui(const _LV2UI_Descriptor *descriptor, const char *plugin_uri, const char *bundle_path, LV2UI_Write_Function write_function, LV2UI_Controller controller, LV2UI_Widget *widget, const LV2_Feature *const *features)
++static LV2UI_Handle instantiateEq10q_gui(const LV2UI_Descriptor *descriptor, const char *plugin_uri, const char *bundle_path, LV2UI_Write_Function write_function, LV2UI_Controller controller, LV2UI_Widget *widget, const LV2_Feature *const *features)
+ {
+   #ifdef TESTING_EQ10Q
+   cout<<"instantiateEq10q_gui Entring... ";
+diff --git a/gui/midside_ui.cpp b/gui/midside_ui.cpp
+index a614c09..1d1818d 100644
+--- a/gui/midside_ui.cpp
++++ b/gui/midside_ui.cpp
+@@ -37,7 +37,7 @@ This plugin is inside the Sapista Plugins Bundle
+ using namespace std;
+ #endif
+ 
+-static LV2UI_Handle instantiateMidSide_gui(const _LV2UI_Descriptor *descriptor, const char *plugin_uri, const char *bundle_path, LV2UI_Write_Function write_function, LV2UI_Controller controller, LV2UI_Widget *widget, const LV2_Feature *const *features)
++static LV2UI_Handle instantiateMidSide_gui(const LV2UI_Descriptor *descriptor, const char *plugin_uri, const char *bundle_path, LV2UI_Write_Function write_function, LV2UI_Controller controller, LV2UI_Widget *widget, const LV2_Feature *const *features)
+ {
+   #ifdef TESTING_EQ10Q
+   cout<<"instantiateEq10q_gui Entring... ";

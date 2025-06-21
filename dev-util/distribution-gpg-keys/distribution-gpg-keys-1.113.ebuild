@@ -17,7 +17,7 @@ IUSE="copr"
 
 src_prepare() {
 	default
-	use copr || rm -rf keys/copr || die
+	use copr || rm -r keys/copr || die
 }
 
 src_install() {

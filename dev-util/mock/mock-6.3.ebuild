@@ -24,7 +24,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
-		app-arch/rpm[python,${PYTHON_SINGLE_USEDEP}]
+		app-arch/rpm[caps,python,${PYTHON_SINGLE_USEDEP}]
 		dev-python/backoff[${PYTHON_USEDEP}]
 		dev-python/distro[${PYTHON_USEDEP}]
 		dev-python/pyroute2[${PYTHON_USEDEP}]
@@ -33,7 +33,7 @@ RDEPEND="
 		dev-python/templated-dictionary[${PYTHON_USEDEP}]
 	')
 	acct-group/mock
-	app-containers/podman
+	|| ( app-containers/podman sys-apps/dnf5 )
 	dev-util/distribution-gpg-keys
 	dev-util/mock-core-configs
 "

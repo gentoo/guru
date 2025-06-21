@@ -39,12 +39,15 @@ PATCHES=( "${FILESDIR}/${PN}-avoid-importlib_resources.patch" )
 
 distutils_enable_tests pytest
 
-python_test() {
-	skip_tests=" \
-		not ReqParseTest and \
-		not EmailTest and \
-		not URLTest and \
-		not LoggingTest"
+EPYTEST_DESELECT=(
+	"tests/test_swagger.py::SwaggerTest::test_specs_endpoint_host_and_subdomain"
+	"tests/test_fields.py::DatetimeFieldTest::test_iso8601_value"
+	"tests/test_fields.py::DatetimeFieldTest::test_rfc822_value"
+	"tests/test_inputs.py::URLTest::test_check"
+	"tests/test_inputs.py::EmailTest::test_valid_value_check"
+)
 
-	epytest tests/test_*.py -k "${skip_tests}"
-}
+EPYTEST_IGNORE=(
+	"tests/benchmarks/bench_marshalling.py"
+	"tests/benchmarks/bench_swagger.py"
+)

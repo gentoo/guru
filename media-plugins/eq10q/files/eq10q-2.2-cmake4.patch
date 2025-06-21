@@ -1,0 +1,9 @@
+--- a/CMakeLists.txt	2025-06-20 14:20:47.019956704 +0300
++++ b/CMakeLists.txt	2025-06-20 14:39:37.597091838 +0300
+@@ -1,5 +1,5 @@
+ ##EQ10Q TopLevel CMake
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.5)
+ PROJECT(eq10q)
+ 
+ ##ADD_DEFINITIONS(-Wall -O3 -fPIC -finline-functions -finline-functions-called-once  -msse -mfpmath=sse -std=c99)
