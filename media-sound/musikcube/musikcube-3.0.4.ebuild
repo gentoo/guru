@@ -30,7 +30,7 @@ DEPEND="
 	media-sound/lame
 	dev-libs/libev
 	media-libs/taglib
-	dev-cpp/asio
+	<dev-cpp/asio-1.33.0
 	libopenmpt? (
 		media-libs/libopenmpt
 		media-sound/mpg123
