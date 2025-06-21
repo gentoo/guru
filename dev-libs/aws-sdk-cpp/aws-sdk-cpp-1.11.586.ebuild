@@ -33,7 +33,7 @@ AWS_GROUP_other="ds;evs"
 
 AWS_GROUP_LIST=( storage compute networking database analytics messaging monitor security ml iot media devops mgmt other )
 
-IUSE="+http pulseaudio +ssl test full ${AWS_GROUP_LIST[*]}"
+IUSE="+http speech +ssl test full ${AWS_GROUP_LIST[*]}"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	full? ( $(printf ' !%s' "${AWS_GROUP_LIST[@]}") )
@@ -42,7 +42,7 @@ RESTRICT="!test? ( test )"
 
 DEPEND="
 	http? ( net-misc/curl:= )
-	pulseaudio? ( media-sound/pulseaudio )
+	speech? ( media-libs/libpulse )
 	ssl? (
 		dev-libs/openssl:=
 	)
