@@ -6,6 +6,7 @@
     <name>Okamura Kazuya</name>
   </maintainer>
   <use>
+    <flag name="http">If ON, prevents the default platform-specific HTTP client from being built into the library. If ON, you will need to provide your own platform-specific HTTP client implementation.</flag>
     <flag name="storage">Adds access to services related to object, block, and file storage.</flag>
     <flag name="compute">Adds access to Compute and Auto Scaling related services.</flag>
     <flag name="networking">Adds access to network and CDN related services.</flag>
@@ -20,6 +21,7 @@
     <flag name="devops">Adds access to CI/CD and developer related services.</flag>
     <flag name="mgmt">Adds access to operational management related services.</flag>
     <flag name="other">Add access to services that do not easily fit into existing groups.</flag>
+    <flag name="full">Adds access to all supported services. Enabling this will significantly increase build times.</flag>
   </use>
   <upstream>
     <remote-id type="github">aws/aws-sdk-cpp</remote-id>
