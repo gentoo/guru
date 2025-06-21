@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>frailedev@proton.me</email>
+		<name>Maxwell Blake</name>
+	</maintainer>
+	<longdescription>
+		Quickshell is a toolkit for building status bars, widgets, lockscreens,
+		and other desktop components using QtQuick. It can be used alongside
+		your wayland compositor or window manager to build a complete desktop environment. 
+	</longdescription>
+	<use>
+		<flag name="breakpad">Enable Google's <pkg>dev-util/breakpad</pkg> crash reporter</flag>
+		<flag name="sockets">Enable Unix Sockets (WARNING: Disabling is unsafe!)</flag>
+		<flag name="layer-shell">Enable wlroots layershell integration through the zwlr-layer-shell-v1 protocol</flag>
+		<flag name="session-lock">Enable session lock support through the ext-session-lock-v1 protocol</flag>
+		<flag name="toplevel-management">Enable management of windows through zwlr-foreign-toplevel-management-v1 protocol</flag>
+		<flag name="screencopy">Enable streaming video from monitors and toplevel windows through various protocols</flag>
+		<flag name="pipewire">Enable viewing and management of <pkg>media-video/pipewire</pkg> nodes</flag>
+		<flag name="tray">Enable system tray support using the status notifier dbus protocol</flag>
+		<flag name="mpris">Enable access to MPRIS compatible media players using its dbus protocol</flag>
+		<flag name="hyprland">Enable <pkg>gui-wm/hyprland</pkg> specific integrations</flag>
+		<flag name="hyprland-global-shortcuts">Enable creation of global shortcuts under <pkg>gui-wm/hyprland</pkg> through the hyprland-global-shortcuts-v1 protocol</flag>
+		<flag name="hyprland-focus-grab">Enables windows to grab focus on <pkg>gui-wm/hyprland</pkg> through the hyprland-focus-grab-v1 protocol</flag>
+		<flag name="i3">Enable <pkg>x11-wm/i3</pkg> and <pkg>gui-wm/sway</pkg> specific features</flag>
+		<flag name="i3-ipc">Enable interfacing with <pkg>x11-wm/i3</pkg> and <pkg>gui-wm/sway</pkg>'s IPC</flag>
+	</use>
+	<upstream>
+		<doc>https://quickshell.outfoxxed.me/docs/types/</doc>
+		<bugs-to>https://github.com/quickshell-mirror/quickshell/issues</bugs-to>
+		<remote-id type="github">quickshell-mirror/quickshell</remote-id>
+	</upstream>
+</pkgmetadata>
