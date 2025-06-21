@@ -25,7 +25,7 @@ src_compile() {
 }
 
 src_install() {
-	dobin ios-safari-remote-debug
+	dobin ${PN}
 
 	default
 }
