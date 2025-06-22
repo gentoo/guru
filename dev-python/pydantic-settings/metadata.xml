@@ -6,6 +6,7 @@
 		<name>Anna</name>
 	</maintainer>
 	<use>
+		<flag name="aws">Enable Amazon AWS Secrets Manager support</flag>
 		<flag name="yaml">Enable YAML support</flag>
 	</use>
 	<stabilize-allarches/>
