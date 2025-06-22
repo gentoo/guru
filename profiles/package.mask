@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Lucio Sauer <watermanpaint@posteo.net> (2025-06-22)
+# Ebuild unmaintained since 2020 and several versions out of date.
+# Depends on Qt5, see bug #948836.
+# Removal on 2025-07-22
+app-misc/mobile-datovka
+
 # Lucio Sauer <watermanpaint@posteo.net> (2025-06-21)
 # Depends on masked dev-python/backoff.
 # Masked until upstream supports running without backoff.
