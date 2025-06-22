@@ -3,10 +3,12 @@
 
 EAPI=8
 
-inherit cmake systemd
+DOCS_BUILDER=doxygen
+
+inherit cmake docs systemd
 
 DESCRIPTION="The secure, private, untraceable cryptocurrency"
-HOMEPAGE="https://github.com/monero-project/monero"
+HOMEPAGE="https://www.getmonero.org"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -49,23 +51,30 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
-BDEPEND="virtual/pkgconfig
-	<dev-build/cmake-4
-"
+BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.18.3.3-miniupnp-api-18.patch
 	"${FILESDIR}"/${PN}-0.18.4.0-unbundle-dependencies.patch
+	"${FILESDIR}"/${PN}-0.18.4.0-cmake-4.patch
 )
+
+src_prepare() {
+	# The build system does not recognize the release tarball (bug?)
+	# so we patch the GitVersion file.
+	# Change the release string from "unknown" to "gentoo-${PR}"
+	sed -i "s/unknown/gentoo-${PR}/g" cmake/GitVersion.cmake || die
+	cmake_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(
 		# TODO: Update CMake to install built libraries (help wanted)
 		-DBUILD_SHARED_LIBS=OFF
+		-DBUILD_DOCUMENTATION=OFF # easier to do it manually
 		-DMANUAL_SUBMODULES=ON
 		-DUSE_CCACHE=OFF
 		-DNO_AES=$(usex !cpu_flags_x86_aes)
-		-DBUILD_DOCUMENTATION=OFF # we don't install it either way
 		-DUSE_DEVICE_TREZOR=$(usex hw-wallet)
 		-DUSE_READLINE=$(usex readline)
 	)
@@ -86,6 +95,8 @@ src_compile() {
 	)
 
 	cmake_build ${targets[@]}
+
+	docs_compile
 }
 
 src_install() {
@@ -125,7 +136,8 @@ src_install() {
 
 pkg_postinst() {
 	if use daemon; then
-		elog "Run 'monerod status' as any user to get sync status and other stats."
+		elog "To get sync status and other stats run"
+		elog "   $ monerod status"
 		elog
 		elog "The Monero blockchain can take up a lot of space (250 GiB) and is stored"
 		elog "in /var/lib/monero by default. You may want to enable pruning by adding"
