@@ -5,6 +5,10 @@
 		<email>contact@hacktivis.me</email>
 		<name>Haelwenn (lanodan) Monnier</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>alexander@tsoy.me</email>
+		<name>Alexander Tsoy</name>
+	</maintainer>
 	<use>
 		<flag name="sdl2">Use <pkg>media-libs/libsdl2</pkg> instead of <pkg>media-libs/libsdl</pkg></flag>
 	</use>
