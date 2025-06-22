@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit systemd
+inherit prefix systemd
 
 DESCRIPTION="A CLAT / SIIT-DC Edge Relay implementation for Linux"
 HOMEPAGE="https://github.com/toreanderson/clatd"
@@ -24,6 +24,11 @@ RDEPEND="
 	net-proxy/tayga
 "
 BEPEND="${COMMON_DEPEND}"
+
+src_prepare() {
+	hprefixify scripts/clatd.systemd clatd
+	default
+}
 
 src_compile() {
 	pod2man --name clatd --center "clatd - a CLAT implementation for Linux" \
