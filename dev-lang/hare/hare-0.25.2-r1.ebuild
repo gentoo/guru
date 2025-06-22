@@ -22,7 +22,7 @@ LICENSE="MPL-2.0 GPL-3"
 
 # release policy: https://git.sr.ht/~sircmpwn/hare/tree/master/item/docs/release.md
 DEPEND="
-	~dev-lang/harec-0.24.2
+	~dev-lang/harec-0.25.2
 	>=sys-devel/qbe-1.2
 "
 BDEPEND="app-text/scdoc"
