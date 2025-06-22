@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>tea+gentoo@cuddleslut.fr</email>
-    <name>tea</name>
-  </maintainer>
-  <upstream>
-    <bugs-to>https://schlomp.space/tastytea/gitea2rss/issues</bugs-to>
-  </upstream>
+	<maintainer type="person">
+		<email>tea+gentoo@cuddleslut.fr</email>
+		<name>tea</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="codeberg">tastytea/gitea2rss</remote-id>
+		<bugs-to>https://codeberg.org/tastytea/gitea2rss/issues</bugs-to>
+	</upstream>
 </pkgmetadata>

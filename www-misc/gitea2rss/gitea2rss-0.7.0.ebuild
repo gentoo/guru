@@ -1,22 +1,14 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
-if [[ "${PV}" == "9999" ]]; then
-	inherit git-r3
-fi
-
 DESCRIPTION="Generates RSS feeds from Gitea releases, tags and commits"
-HOMEPAGE="https://schlomp.space/tastytea/gitea2rss"
-if [[ "${PV}" == "9999" ]]; then
-	EGIT_REPO_URI="https://schlomp.space/tastytea/gitea2rss.git"
-else
-	SRC_URI="https://schlomp.space/tastytea/gitea2rss/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}"
-fi
+HOMEPAGE="https://codeberg.org/tastytea/gitea2rss"
+SRC_URI="https://codeberg.org/tastytea/gitea2rss/archive/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3"
 SLOT="0"
