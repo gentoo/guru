@@ -59,6 +59,14 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-0.18.4.0-cmake-4.patch
 )
 
+src_prepare() {
+	# The build system does not recognize the release tarball (bug?)
+	# so we patch the GitVersion file.
+	# Change the release string from "unknown" to "gentoo-${PR}"
+	sed -i "s/unknown/gentoo-${PR}/g" cmake/GitVersion.cmake || die
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		# TODO: Update CMake to install built libraries (help wanted)
