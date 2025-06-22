@@ -24,5 +24,5 @@ QA_FLAGS_IGNORED="usr/bin/.*"
 src_prepare() {
 	default
 
-	sed -i 's;^PREFIX=.*;PREFIX=/usr;' Makefile
+	sed -i "s;^PREFIX=.*;PREFIX=${EPREFIX}/usr;" Makefile || die
 }
