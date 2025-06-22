@@ -13,8 +13,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="dev-lang/perl"
-RDEPEND="${DEPEND}
+COMMON_DEPEND="dev-lang/perl"
+RDEPEND="
+	${COMMON_DEPEND}
 	dev-perl/Net-IP
 	dev-perl/Net-DNS
 	dev-perl/JSON
@@ -22,9 +23,11 @@ RDEPEND="${DEPEND}
 	net-firewall/iptables
 	net-proxy/tayga
 "
+BEPEND="${COMMON_DEPEND}"
 
 src_compile() {
-	pod2man --name clatd --center "clatd - a CLAT implementation for Linux" --section 8 README.pod > clatd.8
+	pod2man --name clatd --center "clatd - a CLAT implementation for Linux" \
+	--section 8 README.pod > clatd.8 || die
 }
 
 src_install() {
