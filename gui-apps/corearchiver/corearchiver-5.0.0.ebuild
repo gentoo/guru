@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
-	app-arch/libarchive-qt[qt6]
+	app-arch/libarchive-qt[qt6(+)]
 	dev-qt/qtbase:6[gui,widgets]
 	gui-libs/libcprime
 "
