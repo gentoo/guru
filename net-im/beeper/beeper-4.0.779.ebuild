@@ -11,7 +11,7 @@ CHROMIUM_LANGS="
 	sw ta te th tr uk ur vi zh-CN zh-TW
 "
 
-inherit chromium-2 desktop optfeature pax-utils xdg
+inherit chromium-2 optfeature pax-utils xdg
 
 # To check the latest version, run:
 #
@@ -21,7 +21,7 @@ APPIMAGE="Beeper-${PV}.AppImage"
 DESCRIPTION="Beeper: Unified Messenger"
 HOMEPAGE="https://www.beeper.com/"
 SRC_URI="https://beeper-desktop.download.beeper.com/builds/${APPIMAGE}"
-S="${WORKDIR}"
+S="${WORKDIR}/squashfs-root"
 
 LICENSE="all-rights-reserved"
 # node_modules licenses
@@ -64,12 +64,11 @@ RDEPEND="
 QA_PREBUILT="*"
 
 src_unpack() {
-	mkdir -p "${S}" || die
-	cp "${DISTDIR}/${APPIMAGE}" "${S}" || die
+	cd "${WORKDIR}" || die	# "appimage-extract" unpacks to current directory.
 
-	cd "${S}" || die	# "appimage-extract" unpacks to current directory.
-	chmod +x "${S}/${APPIMAGE}" || die
-	"${S}/${APPIMAGE}" --appimage-extract || die
+	cp "${DISTDIR}/${APPIMAGE}" "${WORKDIR}" || die
+	chmod +x "${APPIMAGE}" || die
+	./"${APPIMAGE}" --appimage-extract || die
 }
 
 src_prepare() {
@@ -80,12 +79,10 @@ src_prepare() {
 	find "${S}" -type f -exec chmod a+r {} + || die
 
 	# Fix desktop menu item
-	pushd squashfs-root || die
 	sed "/^Exec=/c Exec=beepertexts %U" -i beepertexts.desktop || die
-	popd || die
 
 	# Handle Chromium language packs
-	pushd squashfs-root/locales || die
+	pushd locales || die
 	chromium_remove_language_paks
 	popd || die
 }
@@ -96,11 +93,12 @@ src_configure() {
 }
 
 src_install() {
-	cd "${S}/squashfs-root" || die
+	# Install icons and the desktop file
+	mkdir -p usr/share/applications || die
+	mv beepertexts.desktop usr/share/applications || die
 
-	# Install icons
 	insinto /usr/share
-	doins -r ./usr/share/icons
+	doins -r ./usr/share/{applications,icons}
 
 	# Cleanup
 	local -a toremove=(
@@ -109,11 +107,11 @@ src_install() {
 		LICENSE.electron.txt
 		LICENSES.chromium.html
 		beepertexts.png
-		resources/app/node_modules/@img/sharp-libvips-linux-x64/lib/libvips-cpp.so.42
+		resources/app/build/main/linux-*.mjs
 		resources/app/node_modules/classic-level/prebuilds/linux-x64/classic-level.musl.node
 		usr
 	)
-	rm -f -r "${toremove[@]}" || die
+	rm -r "${toremove[@]}" || die
 
 	# Install
 	local apphome="/opt/BeeperTexts"
@@ -123,8 +121,14 @@ src_install() {
 	cp -r . "${ED}${apphome}" || die
 	fperms 4711 "${apphome}"/chrome-sandbox
 
+	local libvips_dest=(
+		resources/app/node_modules/@img/sharp-libvips-linux-x64/lib/libvips-cpp.so.*
+	)
+	(( ${#libvips_dest[@]} == 1 )) ||
+		die "multiple or no libvips libraries found"
+	dosym -r /usr/$(get_libdir)/libvips-cpp.so.42 "${apphome}/${libvips_dest[0]}"
+
 	dosym -r "${apphome}"/beepertexts /usr/bin/beepertexts
-	domenu beepertexts.desktop
 }
 
 pkg_postinst() {
