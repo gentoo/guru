@@ -12,6 +12,7 @@ CRATES=" "
 TYPST_HASH="946ea31fb554bcf62e3215f64ddda87d70b026af"
 
 declare -A GIT_CRATES=(
+	[docx-rs]='https://github.com/Myriad-Dreamin/docx-rs;db49a729f68dbdb9e8e91857fbb1c3d414209871;docx-rs-%commit%/docx-core'
 	[typst-eval]="https://github.com/Myriad-Dreamin/typst;${TYPST_HASH};typst-%commit%/crates/typst-eval"
 	[typst-html]="https://github.com/Myriad-Dreamin/typst;${TYPST_HASH};typst-%commit%/crates/typst-html"
 	[typst-layout]="https://github.com/Myriad-Dreamin/typst;${TYPST_HASH};typst-%commit%/crates/typst-layout"
@@ -68,6 +69,7 @@ src_prepare() {
 			"s|^(${crate}[[:space:]]*=[[:space:]]*[{].*)([[:space:]]*git[[:space:]]*=[[:space:]]*['\"][[:graph:]]+['\"][[:space:]]*)(.*[}])|\1path = '${WORKDIR}/${crate_dir//%commit%/${commit}}'\3|;"
 			"s|^(${crate}[[:space:]]*=[[:space:]]*[{].*)([,][[:space:]]*branch[[:space:]]*=[[:space:]]*['\"][[:graph:]]+['\"][[:space:]]*)(.*[}])|\1\3|;"
 			"s|^(${crate}[[:space:]]*=[[:space:]]*[{].*)([,][[:space:]]*tag[[:space:]]*=[[:space:]]*['\"][[:graph:]]+['\"][[:space:]]*)(.*[}])|\1\3|;"
+			"s|^(${crate}[[:space:]]*=[[:space:]]*[{].*)([,][[:space:]]*rev[[:space:]]*=[[:space:]]*['\"][[:graph:]]+['\"][[:space:]]*)(.*[}])|\1\3|;"
 		)
 	done
 	sed -i -E -e "${sed_scripts[*]}" Cargo.toml ||
