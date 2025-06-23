@@ -9,7 +9,7 @@ CHROMIUM_LANGS="
 	sw ta te th tr uk ur vi zh-CN zh-TW
 "
 
-inherit chromium-2 desktop xdg edo
+inherit chromium-2 desktop xdg
 
 APPIMAGE="Logic-${PV}-linux-x64.AppImage"
 DESCRIPTION="Saleae logic analyzer"
@@ -74,7 +74,6 @@ src_prepare() {
 	find "${S}" -type d -exec chmod a+rx {} + || die
 	find "${S}" -type f -exec chmod a+r {} + || die
 
-
 	cd squashfs-root || die
 
 	for f in *.so; do
@@ -107,14 +106,13 @@ src_install() {
 	doins -r ./usr/share/icons
 
 	local -a toremove=(
-        .DirIcon
-        AppRun
+		.DirIcon
+		AppRun
 		Logic.png
-        usr/lib/libnotify.so.4
-        usr/lib/libXss.so.1
-        usr/lib/libXtst.so.6
-
-    )
+		usr/lib/libnotify.so.4
+		usr/lib/libXss.so.1
+		usr/lib/libXtst.so.6
+	)
 	rm -r "${toremove[@]}" || die
 
 	insinto /opt/Logic
@@ -124,7 +122,6 @@ src_install() {
 	for i in Logic chrome_crashpad_handler *.so* usr/lib/*.so*; do
 		fperms +x "/opt/Logic/${i}"
 	done
-
 
 	dosym -r "/opt/Logic/Logic" /usr/bin/Logic
 	domenu Logic.desktop
