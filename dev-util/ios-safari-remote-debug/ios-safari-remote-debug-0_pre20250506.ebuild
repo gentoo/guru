@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module
+inherit go-module prefix
 
 EGIT_COMMIT="d73d1215b38abb82f64513f472fd75ee2b8224f5"
 
@@ -23,6 +23,12 @@ KEYWORDS="~amd64"
 PATCHES=(
 	"${FILESDIR}/${P}-copy-injected-code-from-the-system.patch"
 )
+
+src_prepare() {
+	default
+
+	eprefixify build/build.go
+}
 
 src_compile() {
 	ego build

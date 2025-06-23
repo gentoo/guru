@@ -11,8 +11,8 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
  	additionsDir := fmt.Sprintf("%s/WebKitAdditions/WebInspectorUI", baseDir)
 -	cp.Copy("injectedCode/WebInspectorUIAdditions.css", fmt.Sprintf("%s/WebInspectorUIAdditions.css", additionsDir))
 -	cp.Copy("injectedCode/WebInspectorUIAdditions.js", fmt.Sprintf("%s/WebInspectorUIAdditions.js", additionsDir))
-+	cp.Copy("/usr/share/ios-safari-remote-debug/injectedCode/WebInspectorUIAdditions.css", fmt.Sprintf("%s/WebInspectorUIAdditions.css", additionsDir))
-+	cp.Copy("/usr/share/ios-safari-remote-debug/injectedCode/WebInspectorUIAdditions.js", fmt.Sprintf("%s/WebInspectorUIAdditions.js", additionsDir))
++	cp.Copy("@GENTOO_PORTAGE_EPREFIX@/usr/share/ios-safari-remote-debug/injectedCode/WebInspectorUIAdditions.css", fmt.Sprintf("%s/WebInspectorUIAdditions.css", additionsDir))
++	cp.Copy("@GENTOO_PORTAGE_EPREFIX@/usr/share/ios-safari-remote-debug/injectedCode/WebInspectorUIAdditions.js", fmt.Sprintf("%s/WebInspectorUIAdditions.js", additionsDir))
  
  	log.Debug().TimeDiff("loadFiles", time.Now(), loadFilesTime).Send()
  	getRelevantFilesTime := time.Now()
@@ -21,7 +21,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
  	bundleTime := time.Now()
  
 -	cp.Copy("views", outputDir)
-+	cp.Copy("/usr/share/ios-safari-remote-debug/views", outputDir)
++	cp.Copy("@GENTOO_PORTAGE_EPREFIX@/usr/share/ios-safari-remote-debug/views", outputDir)
  	os.Mkdir(fmt.Sprintf("%s/debug", outputDir), os.ModePerm)
  	os.Mkdir(fmt.Sprintf("%s/debug/Lib", outputDir), os.ModePerm)
  	os.Mkdir(fmt.Sprintf("%s/debug/Protocols", outputDir), os.ModePerm)
