@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<name>François-Xavier Carton</name>
-		<email>fx.carton91@gmail.com</email>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 Frama-C is a suite of tools dedicated to the analysis of the source code
 of software written in C. It gathers several static analysis techniques
