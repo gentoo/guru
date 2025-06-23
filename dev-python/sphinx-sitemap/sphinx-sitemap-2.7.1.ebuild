@@ -17,7 +17,6 @@ SRC_URI="https://github.com/jdillard/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="git"
 
 RDEPEND="
 	dev-python/sphinx[${PYTHON_USEDEP}]
