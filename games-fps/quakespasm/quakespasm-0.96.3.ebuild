@@ -37,6 +37,7 @@ DOCS=( Quakespasm.html Quakespasm.txt Quakespasm-Music.txt )
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.96.3-cflags.patch
+	"${FILESDIR}"/${P}-mkpak-portable-shell.patch # https://github.com/sezero/quakespasm/pull/127
 )
 
 src_compile() {

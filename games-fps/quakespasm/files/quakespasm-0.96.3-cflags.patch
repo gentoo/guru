@@ -1,0 +1,10 @@
+--- a/Quake/Makefile	2022-06-28 03:02:56.000000000 +0300
++++ b/Quake/Makefile	2022-09-30 19:05:39.392041782 +0300
+@@ -61,7 +61,6 @@ CFLAGS += -g
+ do_strip=
+ else
+ DFLAGS += -DNDEBUG
+-CFLAGS += -O2
+ #CFLAGS += -fno-asynchronous-unwind-tables
+ CFLAGS += $(call check_gcc,-fweb,)
+ CFLAGS += $(call check_gcc,-frename-registers,)

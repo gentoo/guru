@@ -1,0 +1,62 @@
+From dd8a42d142a638de08cb6ea7483e33b27fe221b5 Mon Sep 17 00:00:00 2001
+From: Alexander Tsoy <alexander@tsoy.me>
+Date: Thu, 19 Jun 2025 18:10:04 +0300
+Subject: [PATCH] mkpak.sh: use more portable shell
+
+At least it now works in dash
+---
+ Misc/qs_pak/mkpak.sh | 16 ++++++----------
+ 1 file changed, 6 insertions(+), 10 deletions(-)
+
+diff --git a/Misc/qs_pak/mkpak.sh b/Misc/qs_pak/mkpak.sh
+index e6562bf9..dbfd9eb5 100755
+--- a/Misc/qs_pak/mkpak.sh
++++ b/Misc/qs_pak/mkpak.sh
+@@ -39,7 +39,7 @@ assert_valid_file() {
+ 	then
+ 		error "$1: Permission denied"
+ 	fi
+-	if test $(echo -n "$1" | wc -c) -gt 55
++	if test $(printf '%s' "$1" | wc -c) -gt 55
+ 	then
+ 		error "$1: Name too long"
+ 	fi
+@@ -53,15 +53,11 @@ assert_valid_int32() {
+ }
+ 
+ octal() {
+-	if test $1 -gt 7
+-	then
+-		octal $(expr $1 / 8)
+-	fi
+-	echo -n $(expr $1 % 8) 
++	printf '%o' $1
+ }
+ 
+ byte() {
+-	echo -en \\0$(octal $1)
++	printf '%b' "\\0$(octal $1)"
+ }
+ 
+ little_endian_uint32() {
+@@ -90,14 +86,14 @@ zero_padding() {
+ }
+ 
+ header() {
+-	echo -n PACK
++	printf '%s' PACK
+ 	little_endian_int32 $1
+ 	little_endian_int32 $2
+ }
+ 
+ directory_entry() {
+-	echo -n "$1"
+-	zero_padding $(expr 56 - $(echo -n "$1" | wc -c))
++	printf '%s' "$1"
++	zero_padding $(expr 56 - $(printf '%s' "$1" | wc -c))
+ 	little_endian_int32 $2
+ 	little_endian_int32 $3
+ }
+-- 
+2.49.0
+
