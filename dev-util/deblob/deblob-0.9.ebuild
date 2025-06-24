@@ -25,6 +25,7 @@ SLOT="0"
 
 DEPEND="
 	>=dev-lang/hare-0.24.2:=
+	<dev-lang/hare-0.25.2
 	dev-hare/hare-json
 "
 
