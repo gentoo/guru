@@ -1,0 +1,39 @@
+--- a/source/Makefile	2020-04-05 23:36:32.000000000 +0300
++++ b/source/Makefile	2025-06-24 08:11:05.070000000 +0300
+@@ -24,10 +24,10 @@ MANDIR ?= /usr/share/man/man1
+ 
+ VERSION = 0.8.4
+ CPPFLAGS +=  -MMD -MP -DVERSION=\"$(VERSION)\"
+-CXXFLAGS += -O2 -Wall
++CXXFLAGS += -Wall
+ 
+ 
+-all:	zita-a2j zita-j2a zita-ajbridge.1.gz zita-a2j.1.gz zita-j2a.1.gz 
++all:	zita-a2j zita-j2a
+ 
+ 
+ ZITA-A2J_O = zita-a2j.o alsathread.o jackclient.o pxthread.o lfqueue.o
+@@ -63,17 +63,17 @@ install:	all
+ 	install -d $(DESTDIR)$(MANDIR)
+ 	install -m 755 zita-a2j $(DESTDIR)$(BINDIR)
+ 	install -m 755 zita-j2a $(DESTDIR)$(BINDIR)
+-	install -m 644 zita-ajbridge.1.gz $(DESTDIR)$(MANDIR)
+-	install -m 644 zita-a2j.1.gz $(DESTDIR)$(MANDIR)
+-	install -m 644 zita-j2a.1.gz $(DESTDIR)$(MANDIR)
++	install -m 644 zita-ajbridge.1 $(DESTDIR)$(MANDIR)
++	install -m 644 zita-a2j.1 $(DESTDIR)$(MANDIR)
++	install -m 644 zita-j2a.1 $(DESTDIR)$(MANDIR)
+ 
+ 
+ uninstall:
+ 	/bin/rm -f  $(DESTDIR)$(BINDIR)/zita-a2j
+ 	/bin/rm -f  $(DESTDIR)$(BINDIR)/zita-j2a
+-	/bin/rm -f  $(DESTDIR)$(MANDIR)/zita-ajbridge.1.gz
+-	/bin/rm -f  $(DESTDIR)$(MANDIR)/zita-a2j.1.gz
+-	/bin/rm -f  $(DESTDIR)$(MANDIR)/zita-j2a.1.gz
++	/bin/rm -f  $(DESTDIR)$(MANDIR)/zita-ajbridge.1
++	/bin/rm -f  $(DESTDIR)$(MANDIR)/zita-a2j.1
++	/bin/rm -f  $(DESTDIR)$(MANDIR)/zita-j2a.1
+ 
+ 
+ clean:
