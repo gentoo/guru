@@ -14,12 +14,11 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-IUSE="apparmor +clipboard systemd"
+IUSE="apparmor +clipboard"
 
 DEPEND="|| ( virtual/linux-sources virtual/dist-kernel )"
 RDEPEND="
-	systemd? ( sys-apps/systemd )
-	app-containers/lxc[systemd?,apparmor?,seccomp]
+	app-containers/lxc[apparmor?,seccomp]
 	$(python_gen_cond_dep '
 		clipboard? ( >=dev-python/pyclip-0.7.0[wayland,${PYTHON_USEDEP}] )
 		dev-python/pygobject[${PYTHON_USEDEP}]
@@ -30,6 +29,7 @@ RDEPEND="
 	net-dns/dnsmasq
 	>=dev-libs/libglibutil-1.0.79
 	>=dev-libs/gbinder-1.1.41
+	x11-themes/hicolor-icon-theme
 	${PYTHON_DEPS}
 "
 CONFIG_CHECK="
@@ -79,11 +79,9 @@ src_prepare() {
 
 src_install() {
 	python_fix_shebang waydroid.py
-	emake install DESTDIR="${D}" USE_NFTABLES=1 USE_SYSTEMD=$(usex systemd 1 0)
-	if ! use systemd; then
-		elog "Installing waydroid OpenRC daemon"
-		doinitd "${FILESDIR}"/waydroid
-	fi
+	emake install DESTDIR="${D}" USE_NFTABLES=1 USE_SYSTEMD=1
+	elog "Installing waydroid OpenRC daemon"
+	doinitd "${FILESDIR}"/waydroid
 }
 
 pkg_postinst() {
