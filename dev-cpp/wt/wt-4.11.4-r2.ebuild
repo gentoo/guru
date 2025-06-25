@@ -15,12 +15,10 @@ KEYWORDS="~amd64"
 IUSE="doc mysql opengl +pango pdf postgres ssl"
 
 DEPEND="
-	dev-qt/qtbase:6
 	<=dev-libs/boost-1.86.0:=
 	media-libs/libharu
 	media-gfx/graphicsmagick[jpeg,png]
 	sys-libs/zlib
-
 	mysql? ( virtual/mysql )
 	opengl? ( virtual/opengl )
 	pango? ( x11-libs/pango )
@@ -51,9 +49,10 @@ src_configure() {
 		-DENABLE_POSTGRES=$(usex postgres)
 		-DENABLE_MYSQL=$(usex mysql)
 		-DENABLE_FIREBIRD=OFF
+		# QT is only required for examples
 		-DENABLE_QT4=OFF
 		-DENABLE_QT5=OFF
-		-DENABLE_QT6=ON
+		-DENABLE_QT6=OFF
 		-DENABLE_SAML=ON
 		-DENABLE_OPENGL=$(usex opengl)
 	)
