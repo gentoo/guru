@@ -31,6 +31,10 @@ RDEPEND="${DEPEND}"
 # hare and haredoc are built by hare
 QA_FLAGS_IGNORED="usr/bin/hare usr/bin/haredoc"
 
+PATCHES=(
+	"${FILESDIR}/hare-0.25.2-os_exec-fix-clearenv.patch"
+)
+
 src_configure() {
 	local target_arch
 	case ${ARCH} in
