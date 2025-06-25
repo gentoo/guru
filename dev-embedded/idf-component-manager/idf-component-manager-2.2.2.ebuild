@@ -46,6 +46,7 @@ RDEPEND="
 
 # Requires networking or additional files not available in the tarball
 EPYTEST_DESELECT=(
+	tests/core/test_upload_component.py::test_check_only_upload_component
 	tests/test_component_manager.py::test_pack_component_with_examples_errors
 	tests/test_component_manager.py::test_pack_component_with_dest_dir
 	tests/test_profile.py::TestMultiStorageClient::test_registry_storage_url
