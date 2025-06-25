@@ -9,15 +9,13 @@ MY_PN="doublecmd"
 DESCRIPTION="Free cross platform open source file manager with two panels side by side."
 HOMEPAGE="https://doublecmd.sourceforge.io/"
 
-SRC_URI="amd64? (
-		gtk? ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV}.gtk2.x86_64.tar.xz )
-		qt5?  ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV}.qt.x86_64.tar.xz )
+SRC_URI="
+	amd64? (
+		!qt6? ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV}.gtk2.x86_64.tar.xz )
 		qt6?  ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV}.qt6.x86_64.tar.xz )
 	)
-	x86? (
-		gtk? ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV}.gtk2.i386.tar.xz )
-		qt5?  ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV}.qt.i386.tar.xz )
-	)"
+	x86? ( https://downloads.sourceforge.net/${MY_PN}/${MY_PN}-${PV}.gtk2.i386.tar.xz )
+"
 
 S="${WORKDIR}/${MY_PN}"
 
@@ -26,12 +24,10 @@ LICENSE="GPL-2+ LGPL-2-with-linking-exception LGPL-2.1+ LGPL-3 GPL-1 freedist"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
 
-IUSE="gtk qt5 qt6"
-REQUIRED_USE=" ^^ ( gtk qt5 qt6 ) "
+IUSE="qt6"
 
 QA_PREBUILT="
 	*/doublecmd
-	*/libQt5Pas.so.1
 	*/libQt6Pas.so.6
 	*/libunrar.so
 	*/plugins/.*
@@ -39,23 +35,27 @@ QA_PREBUILT="
 
 ## "ldd doublecmd" output show linking to some libraries provided by sys-libs/glibc:2.2
 ## (maybe virtual/libc-1) and no libraries of sys-libs/ncurses (that removed here).
-## x11-libs/X11 is optional dependency of dev-qt/qtgui:5 by [xcb] or [X]
-## therefore it is mentioned here explicitly.
+## Once per-profile USE masking works in overlays, mask the qt6 USE flag for x86 and
+## revert RDEPEND hack.
+GTK_DEPS="
+	app-accessibility/at-spi2-core:2
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
+	x11-libs/gtk+:2
+	x11-libs/pango
+"
 RDEPEND="
 	dev-libs/glib:2
 	sys-apps/dbus
 	x11-libs/libX11
-	virtual/libc
-	gtk? ( x11-libs/gtk+:2 )
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-		dev-qt/qtx11extras:5
+	amd64? (
+		!qt6? ( ${GTK_DEPS} )
+		qt6? (
+			dev-qt/qtbase:6[gui,widgets]
+			media-libs/libglvnd
+		)
 	)
-	qt6? (
-		dev-qt/qtbase:6[gui,widgets]
-	)
+	x86? ( ${GTK_DEPS} )
 "
 
 src_install(){
