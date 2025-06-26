@@ -9,7 +9,7 @@ CRATES=""
 
 RUST_MIN_VER="1.87.0"
 
-inherit cargo desktop xdg-utils
+inherit cargo desktop xdg
 
 DESCRIPTION="Microsoft edit"
 HOMEPAGE="https://github.com/microsoft/edit"
@@ -48,14 +48,4 @@ src_install() {
 
 		doicon -s scalable "assets/${PN}.svg"
 		domenu "assets/com.microsoft.${PN}.desktop"
-}
-
-pkg_postinst() {
-		xdg_desktop_database_update
-		xdg_icon_cache_update
-}
-
-pkg_postrm() {
-		xdg_desktop_database_update
-		xdg_icon_cache_update
 }
