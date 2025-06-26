@@ -1,0 +1,20 @@
+Subject: disable LV2 test
+
+Disable lv2 test, as it runs against an installed drumgizmo lv2
+
+Upstream-Status: Inappropriate [Gentoo-specific]
+
+diff --git a/test/Makefile.am b/test/Makefile.am
+index 4a5a050..f78d563 100644
+--- a/test/Makefile.am
++++ b/test/Makefile.am
+@@ -15,9 +15,6 @@ EXTRA_DIST = \
+ 	lv2_test_host.h \
+ 	scopedfile.h
+ 
+-if ENABLE_LV2
+-TESTS += lv2
+-endif
+ 
+ check_PROGRAMS = $(TESTS)
+ 

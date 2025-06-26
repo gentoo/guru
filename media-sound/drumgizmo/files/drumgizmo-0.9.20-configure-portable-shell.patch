@@ -1,0 +1,24 @@
+From: Alexander Tsoy <alexander@tsoy.me>
+Subject: Use portable shell in configure
+Upstream-Status: Pending
+
+--- a/configure.ac
++++ b/configure.ac
+@@ -146,7 +146,7 @@ AC_ARG_WITH([nls],
+                            [Build with nls support (default nls enabled)]),
+             [],
+             [with_nls=yes])
+-            AS_IF([test "x$with_nls" == "xyes"],
++            AS_IF([test "x$with_nls" = "xyes"],
+                   [AC_MSG_RESULT([*** Building with nls support!])
+                    AC_CHECK_PROGS([XGETTEXT], [xgettext])
+                    AS_IF([test "x$XGETTEXT" = "x"],
+@@ -601,7 +601,7 @@ AS_IF(
+    enable_cli=no]
+ )
+ 
+-AM_CONDITIONAL([ENABLE_CLI], [test "x$enable_cli" == "xyes"])
++AM_CONDITIONAL([ENABLE_CLI], [test "x$enable_cli" = "xyes"])
+ AM_CONDITIONAL([HAVE_INPUT_DUMMY], [test "x$have_input_dummy" = "xyes"])
+ AM_CONDITIONAL([HAVE_INPUT_TEST], [test "x$have_input_test" = "xyes"])
+ AM_CONDITIONAL([HAVE_INPUT_JACKMIDI], [test "x$have_input_jackmidi" = "xyes"])

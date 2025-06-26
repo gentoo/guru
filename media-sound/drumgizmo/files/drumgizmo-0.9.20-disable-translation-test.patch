@@ -1,0 +1,21 @@
+Subject: disable translation test
+
+Disable translation test, as it requires da_DK.UTF-8 locale to be present on the system.
+
+Upstream-Status: Inappropriate [Gentoo-specific]
+
+diff --git a/test/Makefile.am b/test/Makefile.am
+index 8337f4b..a707eed 100644
+--- a/test/Makefile.am
++++ b/test/Makefile.am
+@@ -10,10 +10,6 @@ TESTS = resource enginetest paintertest configfile audiocache \
+ 	dgxmlparsertest domloadertest configparsertest midimapparsertest \
+ 	eventsdstest powermaptest midimappertest
+ 
+-if WITH_NLS
+-TESTS += translationtest
+-endif
+-
+ EXTRA_DIST = \
+ 	drumkit_creator.h \
+ 	lv2_test_host.h \

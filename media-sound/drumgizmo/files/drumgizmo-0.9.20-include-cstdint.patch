@@ -1,0 +1,14 @@
+Upstream patch
+Link: http://git.drumgizmo.org/plugingizmo.git/patch/?id=a88c76afd8fbfe31b76010bac34c1437b1927245
+
+--- a/plugin/plugingizmo/plugin.h
++++ b/plugin/plugingizmo/plugin.h
+@@ -30,7 +30,7 @@
+ #include <string>
+ 
+ #include <cstdlib>
+-
++#include <cstdint>
+ 
+ #if defined(WIN32)
+ #define PG_EXPORT extern "C" __declspec(dllexport)

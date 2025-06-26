@@ -6,7 +6,10 @@
 		<email>samuel.bauer@yahoo.fr</email>
 	</maintainer>
 	<use>
+		<flag name="cli">Build stand-alone CLI application</flag>
+		<flag name="jack">Enable jack output and jackmidi input (CLI only)</flag>
 		<flag name="lv2">Build LV2 plugin</flag>
+		<flag name="midi">Enable midifile input via <pkg>media-libs/libsmf</pkg> (CLI only)</flag>
 		<flag name="vst">Build VST plugin</flag>
 	</use>
 </pkgmetadata>
