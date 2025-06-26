@@ -34,7 +34,7 @@ src_install() {
 	cmake_src_install
 	if use benchmark; then
 		# As "benchmark" is a too generic name, let's make it more specific.
-		mv "${ED}/usr/bin/benchmark" "${D}/usr/bin/poselib-benchmark" \
+		mv "${ED}/usr/bin/benchmark" "${ED}/usr/bin/${PN}-benchmark" \
 			|| die "Failed to rename benchmark binary"
 	fi
 }
