@@ -5,6 +5,10 @@
 		<name>Samuel BAUER</name>
 		<email>samuel.bauer@yahoo.fr</email>
 	</maintainer>
+	<maintainer type="person">
+		<email>alexander@tsoy.me</email>
+		<name>Alexander Tsoy</name>
+	</maintainer>
 	<use>
 		<flag name="cli">Build stand-alone CLI application</flag>
 		<flag name="jack">Enable jack output and jackmidi input (CLI only)</flag>
