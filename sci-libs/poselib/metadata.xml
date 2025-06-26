@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>spamfilter-1@wadenback.se</email>
+    <name>Mårten Wadenbäck</name>
+  </maintainer>
+  <use>
+    <flag name="benchmark">Build the benchmark binary.</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">PoseLib/PoseLib</remote-id>
+  </upstream>
+</pkgmetadata>
