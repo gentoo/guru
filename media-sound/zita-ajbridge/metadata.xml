@@ -10,9 +10,9 @@
 		allow to use an ALSA device as a Jack client, to provide additional
 		capture (a2j) or playback (j2a) channels. Functionally these are
 		equivalent to the alsa_in and alsa_out clients that come with Jack,
-		but they provide much better audio quality. The resampling ratio will
-		typically be stable within 1 PPM and change only very smoothly. Delay
-		will be stable as well even under worse case conditions, e.g. the Jack
-		client running near the end of the cycle.
+		but they provide much better audio quality.
 	</longdescription>
+	<upstream>
+		<bugs-to>mailto:fons@linuxaudio.org</bugs-to>
+	</upstream>
 </pkgmetadata>
