@@ -7,7 +7,7 @@ inherit cmake
 
 MY_PN="PoseLib"
 
-DESCRIPTION="Minimal solvers for calibrated camera pose estimation "
+DESCRIPTION="Minimal solvers for calibrated camera pose estimation"
 HOMEPAGE="https://github.com/PoseLib/PoseLib"
 SRC_URI="https://github.com/PoseLib/PoseLib/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -19,7 +19,6 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="benchmark"
 
-BDEPEND="dev-build/cmake"
 DEPEND="dev-cpp/eigen"
 RDEPEND="${DEPEND}"
 
@@ -35,7 +34,7 @@ src_install() {
 	cmake_src_install
 	if use benchmark; then
 		# As "benchmark" is a too generic name, let's make it more specific.
-		mv "${D}/usr/bin/benchmark" "${D}/usr/bin/poselib-benchmark" \
+		mv "${ED}/usr/bin/benchmark" "${D}/usr/bin/poselib-benchmark" \
 			|| die "Failed to rename benchmark binary"
 	fi
 }
