@@ -6,7 +6,7 @@ PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
-DESCRIPTION="Lib and CLI for archive.org - for search, uploading, downloading, rename..."
+DESCRIPTION="Lib and CLI for archive.org - for search, uploading, downloading, rename etc"
 HOMEPAGE="https://github.com/jjjake/internetarchive"
 SRC_URI="https://github.com/jjjake/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
