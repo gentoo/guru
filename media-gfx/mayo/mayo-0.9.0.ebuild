@@ -3,7 +3,8 @@
 
 EAPI=8
 
-inherit qmake-utils desktop xdg
+inherit cmake desktop xdg
+CMAKE_IN_SOURCE_BUILD="YES"
 
 DESCRIPTION="Opensource 3D CAD viewer and converter"
 HOMEPAGE="https://github.com/fougue/mayo"
@@ -22,19 +23,10 @@ RDEPEND="
 
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-nogit.patch
-	"${FILESDIR}"/${P}-gcc14.patch
-	"${FILESDIR}"/${P}-opencascade7_8.patch
-)
-
-src_configure() {
-	eqmake6 "CASCADE_INC_DIR=/usr/include/opencascade" "CASCADE_LIB_DIR=/usr/$(get_libdir)/opencascade" "ASSIMP_INC_DIR=/usr/include/assimp" "ASSIMP_LIB_DIR=/usr/$(get_libdir)" mayo.pro
-}
 
 src_install() {
-	emake install INSTALL_ROOT="${ED}"
 	dobin mayo
+	dobin mayo-conv
 	newicon -s scalable images/appicon.svg mayo.svg
 	make_desktop_entry "mayo %F" Mayo mayo "Graphics;" "MimeType=model/step;model/iges;model/brep;image/vnd.dxf;model/obj;model/gltf+json;model/gltf+binary;model/vrml;model/stl;model/x.stl-ascii;model/x.stl-binary;application/x-amf;application/x-coff;application/x-coffexec;model/3mf;image/x-3ds;model/vnd.collada+xml;model/x3d+binary;model/x3d+fastinfoset;model/x3d+vrml;model/x3d+xml;model/x3d-vrml;application/directx;"
 	einstalldocs
