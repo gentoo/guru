@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-COMMIT="d3073ef124172a6161e3bef075aaa8112b0115e9"
+COMMIT="a6a5463a9c69ce4db04d8d699dd58e1ba8560a0a"
 
 inherit meson
 

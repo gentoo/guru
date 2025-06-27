@@ -17,6 +17,7 @@ KEYWORDS="~amd64"
 
 DEPEND="
 	dev-libs/wayland-protocols
+	x11-libs/libdrm
 "
 RDEPEND="
 	dev-libs/aml
