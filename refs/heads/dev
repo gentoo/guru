@@ -1,20 +1,13 @@
 certificate version 0.1
-pusher Patrick Nicolas <patricknicolas@laposte.net> 1750966276 +0200
-pushee git.gentoo.org:repo/proj/guru.git
-nonce 1750966276-785e5b3b1dbde7232bab70869f5cdbdcb258ad6b
+pusher listout@listout.xyz 1750987159 +0530
+pushee git+ssh://git.gentoo.org/repo/proj/guru.git
+nonce 1750987159-3bd6713cefac995ebb23a9055dbfc8acaaea9e67
 
-3756c8c50cb973c9070cc19a87c1134508298a12 151b93c157eac0144058e57af129c1c8bff1cc51 refs/heads/dev
+151b93c157eac0144058e57af129c1c8bff1cc51 c9f6b2b438226728931330d1b85b1b6eb26958fd refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQGzBAABCAAdFiEEpneUVNvbFeDSOS81cVUhGAYN0MUFAmhdoAQACgkQcVUhGAYN
-0MWuagwAo/z+LX3yEblTHayIPGJZDy/HYEhcQnjtbdpAJccBIJ/3k+TERMcmtJ1F
-b4j4fkS7sIJofDafDqENWoMzTaw+SyNrDrtX/EzKaHJt7fI/ZVyQy3BE1wroehd4
-Z+S4xH6aSPVHizFI+aGjCK0rqedaLWvX7mJbpehYxIC2p9y9nPpW5WORBPxOCXzs
-kJqOOmrE1sd+Ls/g6n9GGzVnqYcuK+mdCTTJPQNzwc7trdrj4slktJEchtw96+9B
-P2QrzwIrHEXJIruLwdhNct+bVVroGnp0Rda21gDK7CvHXFR+G4pMYQl4FJ/sBIZA
-GVrzUPkylj7KkW7Wf9DRFlhHVg2kctzzTXcPvZLRQwBKNK3ql4dzvxkhePgJx70l
-4gS26C1jSDOACoSHCLE1kLIAb9qQecpTxov2Dyqpd3FcxGzjU+nlOj7NKx/6Sglo
-RCRLM3pjp4jpKyyvyCFeTb2pZ1vbFPkUcJ6q8jmTRPVSKeeD7KFez1Kxj93Wxpvn
-eSVBDXWf
-=FqCa
+iI4EABYKADYWIQTtN06vpdXsLqkcmcaYNrR2E5J3+AUCaF3xlxgcYnJhaG1haml0
+Lnh5ekBnbWFpbC5jb20ACgkQmDa0dhOSd/h0cQEA7QlRIPCQLI8kPmBpVmd8atNq
+kgvqckJsyPXZym2joX8A/AnsdCeGqaZeNKxlsjG7REPksgR1mAkVdd2b20Qpcd4G
+=oZZv
 -----END PGP SIGNATURE-----
