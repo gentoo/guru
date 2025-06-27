@@ -6,7 +6,9 @@
 		<name>David Roman</name>
 	</maintainer>
 	<use>
-		<flag name="pango">Enable <pkg>x11-libs/pango</pkg>, wich is used for improved font support (WPdfImage and WRasterImage)</flag>
+		<flag name="graphicsmagick">Enable <pkg>media-gfx/graphicsmagick</pkg>, which is used for creating raster images (WRasterImage)</flag>
+		<flag name="pango">Enable <pkg>x11-libs/pango</pkg>, which is used for improved font support (WPdfImage and WRasterImage)</flag>
+		<flag name="wttest">Build Wt::Test for automated (integration/unit) tests</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">emweb/wt</remote-id>
