@@ -1,0 +1,27 @@
+From 1fc36694932e90cef216700919c848fcea12792d Mon Sep 17 00:00:00 2001
+From: Peter Lafreniere <peter@n8pjl.ca>
+Date: Tue, 8 Apr 2025 21:17:26 -0400
+Subject: [PATCH] fix: correct typo bockquote -> blockquote in template
+
+---
+ templates/comment.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/templates/comment.html b/templates/comment.html
+index 36c9b60..3c008c7 100644
+--- a/templates/comment.html
++++ b/templates/comment.html
+@@ -39,9 +39,9 @@
+ 		<div class="comment_body_filtered {% if highlighted %}highlighted{% endif %}">(Filtered content)</div>
+ 		{% else %}
+ 		<div class="comment_body {% if highlighted %}highlighted{% endif %}">{{ body|safe }}</div>
+ 		{% endif %}
+ 		<blockquote class="replies">{% for c in replies -%}{{ c.render().unwrap()|safe }}{%- endfor %}
+-		</bockquote>
++		</blockquote>
+ 	</details>
+ </div>
+ {% endif %}
+-- 
+2.49.0
+

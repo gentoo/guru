@@ -1,0 +1,31 @@
+From dbdc4fc2a3c8e0d288ee5b16f21a457a5eaa54bd Mon Sep 17 00:00:00 2001
+From: ryanshanz <92600751+ryanshanz@users.noreply.github.com>
+Date: Mon, 31 Mar 2025 00:33:39 -0400
+Subject: [PATCH] fix: Copy and Import button layouts (#402)
+
+---
+ static/style.css | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/static/style.css b/static/style.css
+index 545567e..608ae17 100644
+--- a/static/style.css
++++ b/static/style.css
+@@ -559,10 +559,14 @@ .import {
+     padding: 10px 20px;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+ 
++.copy,
++.import {
++    margin: 5px;
++}
+ .subscribe,
+ .filter,
+ .copy,
+ .import {
+     color: var(--foreground);
+-- 
+2.49.0
+

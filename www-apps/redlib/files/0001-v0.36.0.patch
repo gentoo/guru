@@ -1,0 +1,47 @@
+From cbc3e49923cbca61243bfc1face6f6a48bb62632 Mon Sep 17 00:00:00 2001
+From: Matthew Esposito <matt@matthew.science>
+Date: Wed, 19 Mar 2025 23:05:28 -0400
+Subject: [PATCH] v0.36.0
+
+---
+ Cargo.lock | 2 +-
+ Cargo.toml | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Cargo.lock b/Cargo.lock
+index d03edad..6722b4d 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1354,11 +1354,11 @@ dependencies = [
+  "getrandom 0.2.15",
+ ]
+ 
+ [[package]]
+ name = "redlib"
+-version = "0.35.1"
++version = "0.36.0"
+ dependencies = [
+  "arc-swap",
+  "async-recursion",
+  "base2048",
+  "base64 0.22.1",
+diff --git a/Cargo.toml b/Cargo.toml
+index c7b6d4a..bb76d0a 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -1,11 +1,11 @@
+ [package]
+ name = "redlib"
+ description = " Alternative private front-end to Reddit"
+ license = "AGPL-3.0-only"
+ repository = "https://github.com/redlib-org/redlib"
+-version = "0.35.1"
++version = "0.36.0"
+ authors = [
+     "Matthew Esposito <matt+cargo@matthew.science>",
+     "spikecodes <19519553+spikecodes@users.noreply.github.com>",
+ ]
+ edition = "2021"
+-- 
+2.49.0
+
