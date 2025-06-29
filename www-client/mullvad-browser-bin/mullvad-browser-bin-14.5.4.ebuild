@@ -57,20 +57,6 @@ src_install() {
 		-e 's|Icon=.*|Icon=mullvad-browser|g' \
 		mullvad-browser/start-mullvad-browser.desktop || die
 
-	# Install shim for X11. Browser doesn't seem to launch without it, see upstream issue:
-	# https://gitlab.torproject.org/tpo/applications/tor-browser-build/-/issues/40565
-	#
-	# The X11 shim below does not affect the browser's fingerprint or functionality.
-	if use X ; then
-		echo "#include <stdlib.h>
-		      void gdk_wayland_display_get_wl_compositor() { abort(); }
-		      void gdk_wayland_device_get_wl_pointer() { abort(); }
-		      void gdk_wayland_window_get_wl_surface() { abort(); }
-		      void gdk_wayland_display_get_wl_display() { abort(); }" > X11shim.c || die
-		$(tc-getCC) -shared -o mullvad-browser/X11shim.so X11shim.c || die
-		sed -i '1a export LD_PRELOAD=/opt/mullvad-browser/X11shim.so' mullvad-browser/Browser/start-mullvad-browser || die
-	fi
-
 	insinto /opt/
 	doins -r mullvad-browser
 
@@ -82,6 +68,8 @@ src_install() {
 	done
 
 	fperms 755 /opt/mullvad-browser/Browser/abicheck
+	fperms +x /opt/mullvad-browser/Browser/glxtest
+	fperms +x /opt/mullvad-browser/Browser/vaapitest
 	fperms +x /opt/mullvad-browser/Browser/start-mullvad-browser
 	fperms +x /opt/mullvad-browser/Browser/mullvadbrowser
 	fperms +x /opt/mullvad-browser/Browser/mullvadbrowser.real
