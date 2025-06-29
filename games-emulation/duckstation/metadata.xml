@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alex@1stleg.com</email>
+		<name>Alex Barker</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">stenzek/duckstation</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		DuckStation is a fast emulator of the Sony PlayStation (PSX),
+		focused on playability, speed, and long-term maintainability.
+	</longdescription>
+	<use>
+		<flag name="clang">
+			Use Clang compiler to build (the only compiler that is
+			currently supported by upstream on Linux, do not report
+			bugs if force-disabled)
+		</flag>
+		<flag name="mini">Build the mini frontend</flag>
+		<flag name="qt6">Build the QT frontend</flag>
+	</use>
+</pkgmetadata>
