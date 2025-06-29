@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alex@1stleg.com</email>
+		<name>Alex Barker</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">ianlancetaylor/libbacktrace</remote-id>
+	</upstream>
+</pkgmetadata>
