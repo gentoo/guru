@@ -88,10 +88,7 @@ CRATES="
 	js-sys@0.3.72
 	kanata-interception@0.3.0
 	kanata-keyberon-macros@0.2.0
-	kanata-keyberon@0.180.1
-	kanata-parser@0.180.1
-	kanata-tcp-protocol@0.180.1
-	karabiner-driverkit@0.1.4
+	karabiner-driverkit@0.1.5
 	lazy_static@1.5.0
 	libc@0.2.161
 	libredox@0.1.3
