@@ -6,6 +6,7 @@
 		<name>David Roman</name>
 	</maintainer>
 	<use>
+		<flag name="python-gdb">Enable python-dependent gdb for Xtensa and riscv32</flag>
 		<flag name="riscv32">Enable support for riscv32</flag>
 	</use>
 	<upstream>
