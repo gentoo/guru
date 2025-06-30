@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DOTNET_PKG_COMPAT="8.0"
+DOTNET_PKG_COMPAT="9.0"
 NUGETS="
 castle.core@4.4.1
 cheaploc@1.1.6
@@ -237,7 +237,7 @@ vortice.mathematics@1.4.25
 
 inherit dotnet-pkg desktop xdg
 
-XIVQL_COMMIT="cdde1fbeb31549dea13bd015e76b0b3964543c12"
+XIVQL_COMMIT="5ea1ee9c87b9542aaf8b1739ddf869960a5c007f"
 
 DESCRIPTION="Custom Launcher for Final Fantasy XIV Online (Crossplatform rewrite)"
 HOMEPAGE="https://github.com/goatcorp/XIVLauncher.Core/"
