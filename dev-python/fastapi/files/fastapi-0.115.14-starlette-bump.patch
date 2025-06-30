@@ -1,3 +1,5 @@
+https://github.com/fastapi/fastapi/pull/13743
+
 From 037aff6a9c4e3ea94d9312f734efd79220ac94d2 Mon Sep 17 00:00:00 2001
 From: "Benjamin A. Beasley" <code@musicinmybrain.net>
 Date: Thu, 29 May 2025 13:25:06 -0400
@@ -7,12 +9,6 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
----
- pyproject.toml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/pyproject.toml b/pyproject.toml
-index 1c540e2f63b66..a0fe805cdb3b3 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -43,7 +43,7 @@ classifiers = [
