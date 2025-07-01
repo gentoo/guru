@@ -25,6 +25,7 @@ DEPEND="
 	media-libs/glm
 	media-libs/libglvnd[${MULTILIB_USEDEP},X]
 	media-libs/openxr-loader[${MULTILIB_USEDEP}]
+	virtual/glu[${MULTILIB_USEDEP}]
 "
 RDEPEND="${DEPEND}"
 
