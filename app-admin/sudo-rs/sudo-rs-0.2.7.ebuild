@@ -8,7 +8,7 @@ RUST_MIN_VER="1.71.1"
 CRATES="
 	diff@0.1.13
 	glob@0.3.2
-	libc@0.2.172
+	libc@0.2.174
 	log@0.4.27
 	pretty_assertions@1.4.1
 	yansi@1.0.1
@@ -42,9 +42,6 @@ RDEPEND="
 	)
 	pam? ( sys-auth/pambase )
 "
-BDEPEND="
-	virtual/pandoc
-"
 
 DOCS=( README.md CHANGELOG.md )
 
@@ -66,18 +63,13 @@ src_install() {
 		fperms 4755 /usr/bin/su
 	fi
 
-	pandoc docs/man/sudo.8.md -s -t man -o docs/man/sudo.8
-	pandoc docs/man/visudo.8.md -s -t man -o docs/man/visudo.8
-	pandoc docs/man/sudoers.5.md -s -t man -o docs/man/sudoers.5
-
 	if use su ; then
-		pandoc docs/man/su.1.md -s -t man -o docs/man/su.1
-		doman docs/man/su.1
+		newman docs/man/su.1.man su.1
 	fi
 
-	doman docs/man/sudo.8
-	doman docs/man/visudo.8
-	doman docs/man/sudoers.5
+	newman docs/man/sudo.8.man sudo.8
+	newman docs/man/visudo.8.man visudo.8
+	newman docs/man/sudoers.5.man sudoers.5
 
 	if use pam ; then
 		pamd_mimic system-auth sudo auth account session
