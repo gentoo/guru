@@ -6,8 +6,8 @@
 		<email>freijon@pm.me</email>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">tursodatabase/limbo</remote-id>
-		<bugs-to>https://github.com/tursodatabase/limbo/issues</bugs-to>
+		<remote-id type="github">tursodatabase/turso</remote-id>
+		<bugs-to>https://github.com/tursodatabase/turso/issues</bugs-to>
 	</upstream>
 	<use>
 		<flag name="uring">Use uring I/O backend</flag>
