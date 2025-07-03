@@ -5,7 +5,7 @@ EAPI=8
 
 # Currently, lax optional argument introduced in Lua 5.4 is not supported,
 # so it is not compatible with Lua 5.4 or later
-LUA_COMPAT=( lua5-3 )
+LUA_COMPAT=( lua5-{1..3} luajit )
 
 inherit lua
 
