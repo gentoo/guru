@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>sav.boyar@gmail.com</email>
+		<name>Saveliy Boyarchuk (Yappaholic)</name>
+	</maintainer>
+	<longdescription lang="en">
+		Maomaowm is a Wayland compositor, forked from dwl.
+
+		maomaowm supports customizable complete animations, flexible window layouts
+		(scroller, dwindle, master, etc.), rich window states, scratchpads,
+		window effects and powerful external configuration with live reloading.
+	</longdescription>
+	<use>
+		<flag name="X">Enable support for X11 applications (XWayland)</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">DreamMaoMao/maomaowm</remote-id>
+		<maintainer status="active">
+			<name>DreamMaoMao</name>
+		</maintainer>
+		<bugs-to>https://github.com/DreamMaoMao/maomaowm/issues</bugs-to>
+		<changelog>https://github.com/DreamMaoMao/maomaowm/releases</changelog>
+	</upstream>
+</pkgmetadata>
