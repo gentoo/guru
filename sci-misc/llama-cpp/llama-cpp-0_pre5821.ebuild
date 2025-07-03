@@ -23,7 +23,7 @@ HOMEPAGE="https://github.com/ggml-org/llama.cpp"
 LICENSE="MIT"
 SLOT="0"
 CPU_FLAGS_X86=( avx avx2 f16c )
-IUSE="curl openblas blis hip cuda"
+IUSE="curl openblas blis hip cuda vulkan"
 REQUIRED_USE="?? ( openblas blis )"
 
 AMDGPU_TARGETS_COMPAT=(
@@ -49,15 +49,19 @@ AMDGPU_TARGETS_COMPAT=(
 
 # curl is needed for pulling models from huggingface
 # numpy is used by convert_hf_to_gguf.py
-DEPEND="
+CDEPEND="
 	curl? ( net-misc/curl:= )
 	openblas? ( sci-libs/openblas:= )
 	blis? ( sci-libs/blis:= )
 	hip? (  >=dev-util/hip-6.3:= )
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 "
-RDEPEND="${DEPEND}
+DEPEND="${CDEPEND}
+	vulkan? ( dev-util/vulkan-headers )
+"
+RDEPEND="${CDEPEND}
 	dev-python/numpy
+	vulkan? ( media-libs/vulkan-loader )
 "
 
 src_prepare() {
@@ -77,6 +81,7 @@ src_configure() {
 		-DBUILD_NUMBER="1"
 		-DGENTOO_REMOVE_CMAKE_BLAS_HACK=ON
 		-DGGML_CUDA=$(usex cuda ON OFF)
+		-DGGML_VULKAN=$(usex vulkan ON OFF)
 
 		# avoid clashing with whisper.cpp
 		-DCMAKE_INSTALL_LIBDIR="${EPREFIX}/usr/$(get_libdir)/llama.cpp"
