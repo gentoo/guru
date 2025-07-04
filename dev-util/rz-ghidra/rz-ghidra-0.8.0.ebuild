@@ -7,7 +7,7 @@ DESCRIPTION="An integration of the Ghidra decompiler and Sleigh Disassembler for
 HOMEPAGE="https://github.com/rizinorg/rz-ghidra"
 SRC_URI="https://github.com/rizinorg/rz-ghidra/releases/download/v${PV}/rz-ghidra-src-v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="LGPL-3.0"
+LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+cutter-plugin"
