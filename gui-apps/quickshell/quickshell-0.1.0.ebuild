@@ -9,7 +9,7 @@ DESCRIPTION="Toolkit for building desktop widgets using QtQuick"
 HOMEPAGE="https://quickshell.outfoxxed.me/"
 SRC_URI="https://github.com/quickshell-mirror/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-S="${WORKDIR}/${PN}"
+#S="${WORKDIR}/${PN}"
 
 LICENSE="LGPL-3"
 SLOT="0"
