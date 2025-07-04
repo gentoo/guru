@@ -1,0 +1,29 @@
+From d813c82384ebd642376e09d73d6254a244f2b40a Mon Sep 17 00:00:00 2001
+From: Nguyen Dinh Dang Duong <dangduong31205@gmail.com>
+Date: Sat, 28 Jun 2025 04:49:46 +0700
+Subject: [PATCH 2/2] Install libvera.so to machine
+
+`
+---
+ CMakeLists.txt | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a7b041c..03cf64d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -16,6 +16,11 @@ set(CMAKE_CXX_EXTENSIONS OFF)
+ # The compiled vera
+ add_subdirectory(deps)
+ 
++install(TARGETS vera
++    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
++    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
++
+ if(MSVC)
+     add_definitions( -DPLATFORM_WINDOWS )
+ endif()
+-- 
+2.50.0
+
