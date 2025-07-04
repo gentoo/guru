@@ -5,9 +5,6 @@
 		<email>vowstar@gmail.com</email>
 		<name>Huang Rui</name>
 	</maintainer>
-	<use>
-		<flag name="qt6">Build with Qt6 support</flag>
-	</use>
 	<upstream>
 		<remote-id type="github">simulton/QSchematic</remote-id>
 		<bugs-to>https://github.com/simulton/QSchematic/issues</bugs-to>
