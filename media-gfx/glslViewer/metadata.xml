@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+<email>dangduong31205@gmail.com</email>
+<name>Nguyen Dinh Dang Duong</name>
+</maintainer>
+<use>
+<flag name="ffmpeg">Enable ffmpeg/libav-based audio/video codec support</flag>
+<flag name="xvfb">Enable support for thumbnail creation via Xvfb</flag>
+</use>
+</pkgmetadata>
