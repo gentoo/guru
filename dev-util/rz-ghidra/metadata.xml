@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>18202203719@163.com</email>
+		<name>Dawn Xu</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github"> rizinorg/rz-ghidra </remote-id>
+	</upstream>
+	<longdescription lang="en">
+		This is an integration of the Ghidra decompiler and Sleigh Disassembler for Rizin. It is solely based on the decompiler part of Ghidra, which is written entirely in C++, so Ghidra itself is not required at all and the plugin can be built self-contained. This project was presented, initially for radare2.
+	</longdescription>
+	<use>
+		<flag name="cutter-plugin"> Build as dev-util/cutter's plugin </flag>
+	</use>
+</pkgmetadata>
