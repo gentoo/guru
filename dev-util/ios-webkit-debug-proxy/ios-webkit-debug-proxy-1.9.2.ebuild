@@ -22,7 +22,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-dont-build-examples.patch
+	"${FILESDIR}"/${PN}-1.9.1-dont-build-examples.patch
 )
 
 src_prepare() {
