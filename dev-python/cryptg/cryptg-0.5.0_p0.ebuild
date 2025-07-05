@@ -75,7 +75,10 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND="dev-python/setuptools-rust[${PYTHON_USEDEP}]"
+BDEPEND="
+	${RUST_DEPEND}
+	dev-python/setuptools-rust[${PYTHON_USEDEP}]
+"
 
 # rust does not use *FLAGS from make.conf, silence portage warning
 QA_FLAGS_IGNORED=".*"
