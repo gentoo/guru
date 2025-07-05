@@ -38,10 +38,11 @@ BDEPEND="
 	test? (
 		dev-python/aiosqlite[${PYTHON_USEDEP}]
 		dev-python/asyncpg[${PYTHON_USEDEP}]
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/ruamel-yaml[${PYTHON_USEDEP}]
 	)
 "
+
+EPYTEST_PLUGINS=( pytest-asyncio )
 
 distutils_enable_tests pytest
 
