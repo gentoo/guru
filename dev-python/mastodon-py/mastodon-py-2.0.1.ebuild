@@ -29,16 +29,18 @@ BDEPEND="
 	test? (
 		>=dev-python/cryptography-1.6.0[${PYTHON_USEDEP}]
 		>=dev-python/http-ece-1.0.5[${PYTHON_USEDEP}]
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
-		dev-python/pytest-recording[${PYTHON_USEDEP}]
 		dev-python/pytz[${PYTHON_USEDEP}]
-		dev-python/requests-mock[${PYTHON_USEDEP}]
 		dev-python/vcrpy[${PYTHON_USEDEP}]
 	)
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-2.0.1-tests.patch )
 
+EPYTEST_PLUGINS=(
+	pytest-mock
+	pytest-recording
+	requests-mock
+)
 EPYTEST_XDIST=1
 EEPYTEST_DESELECT=(
 	# something related to simplejson
