@@ -25,12 +25,11 @@ RDEPEND="
 	>=dev-python/pydantic-core-2[${PYTHON_USEDEP}]
 	<dev-python/pydantic-core-3[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	test? (
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		dev-python/pytest-recording[${PYTHON_USEDEP}]
-	)
-"
+
+EPYTEST_PLUGINS=(
+	pytest-asyncio
+	pytest-recording
+)
 
 distutils_enable_tests pytest
 
