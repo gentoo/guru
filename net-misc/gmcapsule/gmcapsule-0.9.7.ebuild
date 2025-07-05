@@ -22,6 +22,8 @@ RDEPEND="
 	>=dev-python/pyopenssl-21
 "
 
+EPYTEST_PLUGINS=( pytest-import-check )
+
 distutils_enable_tests import-check
 
 python_install() {
