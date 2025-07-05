@@ -20,4 +20,6 @@ KEYWORDS="~amd64"
 
 RDEPEND="dev-python/pygments[${PYTHON_USEDEP}]"
 
+EPYTEST_PLUGINS=( pytest-import-check )
+
 distutils_enable_tests import-check
