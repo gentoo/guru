@@ -21,6 +21,8 @@ KEYWORDS="~amd64"
 
 RDEPEND="dev-python/unidecode[${PYTHON_USEDEP}]"
 
+EPYTEST_PLUGINS=( )
+
 # Does not work with vanilla unittest,
 # test suite is designed for running with nose.
 distutils_enable_tests pytest
