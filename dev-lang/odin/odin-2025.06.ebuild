@@ -3,27 +3,30 @@
 
 EAPI=8
 
-LLVM_COMPAT=(14 17 18)
+LLVM_COMPAT=(14 17 18 19 20)
 inherit llvm-r1
 
 DESCRIPTION="The Data-Oriented Language for Sane Software Development."
 
 HOMEPAGE="https://odin-lang.org/"
 
-MY_PV="${PV/./-}"
-SRC_URI="https://github.com/odin-lang/Odin/archive/refs/tags/dev-${MY_PV}.tar.gz"
-
-# Source directory; the dir where the sources can be found (automatically
-# unpacked) inside ${WORKDIR}.  The default value for S is ${WORKDIR}/${P}
-# If you don't need to change it, leave the S= line out of the ebuild
-# to keep it tidy.
-S="${WORKDIR}/Odin-dev-${MY_PV}"
+if [[ $PV == 9999 ]]; then
+	EGIT_REPO_URI="https://github.com/odin-lang/Odin.git"
+	inherit git-r3
+else
+	MY_PV="${PV/./-}"
+	SRC_URI="https://github.com/odin-lang/Odin/archive/refs/tags/dev-${MY_PV}.tar.gz"
+	# Source directory; the dir where the sources can be found (automatically
+	# unpacked) inside ${WORKDIR}.  The default value for S is ${WORKDIR}/${P}
+	# If you don't need to change it, leave the S= line out of the ebuild
+	# to keep it tidy.
+	S="${WORKDIR}/Odin-dev-${MY_PV}"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="BSD"
 
 SLOT="0"
-
-KEYWORDS="~amd64"
 
 RDEPEND="
 $(llvm_gen_dep '
