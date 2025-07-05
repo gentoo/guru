@@ -29,11 +29,8 @@ RDEPEND="
 	>=dev-util/find-work-1[${PYTHON_USEDEP}]
 	<dev-util/find-work-2[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	test? (
-		dev-python/pytest-import-check[${PYTHON_USEDEP}]
-	)
-"
+
+EPYTEST_PLUGINS=( pytest-import-check )
 
 distutils_enable_tests pytest
 
