@@ -42,7 +42,7 @@ BDEPEND="
 		dev-python/httpbin[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/testtools[${PYTHON_USEDEP}]
-		net-misc/kafka-bin
+		<net-misc/kafka-bin-4.0
 		net-misc/memcached
 		net-misc/rabbitmq-server
 		sys-cluster/ceph
@@ -50,6 +50,7 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=( )
 EPYTEST_DESELECT=(
 	# Drivers need fixes
 	pifpaf/tests/test_drivers.py::TestDrivers::test_influxdb
