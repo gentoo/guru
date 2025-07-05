@@ -34,6 +34,8 @@ BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 "
 
+EPYTEST_PLUGINS=( )
+
 distutils_enable_tests pytest
 
 src_configure() {
