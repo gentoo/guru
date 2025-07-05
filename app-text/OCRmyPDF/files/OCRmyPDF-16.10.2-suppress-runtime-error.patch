@@ -1,0 +1,50 @@
+From 332369f1b0b794577ac0bfcd4928bcc7a169689d Mon Sep 17 00:00:00 2001
+From: "James R. Barlow" <james@purplerock.ca>
+Date: Fri, 13 Jun 2025 01:22:01 -0700
+Subject: [PATCH 1/2] Adjust set_start_method decision, changing fork to
+ forkserver for platforms other than win32, darwin
+
+---
+ src/ocrmypdf/__main__.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/ocrmypdf/__main__.py b/src/ocrmypdf/__main__.py
+index cec02d13..29171fe1 100755
+--- a/src/ocrmypdf/__main__.py
++++ b/src/ocrmypdf/__main__.py
+@@ -78,6 +78,6 @@ def run(args=None):
+ 
+ if __name__ == '__main__':
+     multiprocessing.freeze_support()
+-    if os.name == 'posix':
++    if sys.platform not in ('win32', 'darwin'):
+         multiprocessing.set_start_method('forkserver')
+     sys.exit(run())
+-- 
+2.50.0
+
+
+From 61163c2aa9f7aa584d3148634a9ca277103eccbf Mon Sep 17 00:00:00 2001
+From: "James R. Barlow" <james@purplerock.ca>
+Date: Fri, 13 Jun 2025 01:46:30 -0700
+Subject: [PATCH 2/2] Fix stupid Python runtimeerror
+
+---
+ src/ocrmypdf/__main__.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/ocrmypdf/__main__.py b/src/ocrmypdf/__main__.py
+index 29171fe1..74a035ef 100755
+--- a/src/ocrmypdf/__main__.py
++++ b/src/ocrmypdf/__main__.py
+@@ -79,5 +79,6 @@ def run(args=None):
+ if __name__ == '__main__':
+     multiprocessing.freeze_support()
+     if sys.platform not in ('win32', 'darwin'):
+-        multiprocessing.set_start_method('forkserver')
++        with suppress(RuntimeError):
++            multiprocessing.set_start_method('forkserver')
+     sys.exit(run())
+-- 
+2.50.0
+

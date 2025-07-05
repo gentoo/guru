@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1 optfeature pypi shell-completion
 
@@ -33,7 +33,6 @@ BDEPEND="
 	test? (
 		app-text/tessdata_fast[l10n_de,l10n_en]
 		>=app-text/unpaper-6.1
-		>=dev-python/hypothesis-6.36.0[${PYTHON_USEDEP}]
 		>=dev-python/python-xmp-toolkit-2.0.1[${PYTHON_USEDEP}]
 		>=dev-python/reportlab-3.6.8[${PYTHON_USEDEP}]
 		>=media-gfx/pngquant-2.5
@@ -41,6 +40,12 @@ BDEPEND="
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-16.10.2-suppress-runtime-error.patch
+	"${FILESDIR}"/${PN}-16.10.2-xfail-tests.patch
+)
+
+EPYTEST_PLUGINS=( hypothesis )
 EPYTEST_XDIST="yes"
 EPYTEST_IGNORE=(
 	# Useless test
