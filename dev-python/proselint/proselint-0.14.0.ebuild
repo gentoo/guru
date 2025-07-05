@@ -24,9 +24,6 @@ RDEPEND="
 	>=dev-python/click-8.0.0[${PYTHON_USEDEP}]
 "
 
-distutils_enable_tests pytest
+EPYTEST_PLUGINS=( )
 
-python_test() {
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest
-}
+distutils_enable_tests pytest
