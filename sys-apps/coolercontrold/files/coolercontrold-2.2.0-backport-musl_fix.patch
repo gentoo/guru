@@ -1,0 +1,17 @@
+diff --git a/coolercontrold/src/repositories/hwmon/drivetemp.rs b/coolercontrold/src/repositories/hwmon/drivetemp.rs
+index f49a8251..30d36a61 100644
+--- a/coolercontrold/src/repositories/hwmon/drivetemp.rs
++++ b/coolercontrold/src/repositories/hwmon/drivetemp.rs
+@@ -149,10 +149,10 @@ async fn drive_power_state(dev_path: &Path) -> Result<PowerState> {
+     // low level kernel ioctl
+     unsafe {
+         query[0] = ATA_CHECKPOWERMODE;
+-        if libc::ioctl(fd, IOCTL_DRIVE_CMD, query.as_mut_ptr()) != 0 {
++        if libc::ioctl(fd, IOCTL_DRIVE_CMD.try_into()?, query.as_mut_ptr()) != 0 {
+             // Try the retired command if the current one failed
+             query[0] = ATA_CHECKPOWERMODE_RETIRED;
+-            if libc::ioctl(fd, IOCTL_DRIVE_CMD, query.as_mut_ptr()) != 0 {
++            if libc::ioctl(fd, IOCTL_DRIVE_CMD.try_into()?, query.as_mut_ptr()) != 0 {
+                 return Err(anyhow!("Not a Block Device File"));
+             }
+         }

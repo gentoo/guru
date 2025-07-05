@@ -47,6 +47,7 @@ QA_FLAGS_IGNORED=".*"
 
 PATCHES=(
 	"${FILESDIR}"/coolercontrold-2.1.0-optional-libdrm_amdgpu.patch
+	"${FILESDIR}"/coolercontrold-2.2.0-backport-musl_fix.patch
 )
 
 src_prepare() {
