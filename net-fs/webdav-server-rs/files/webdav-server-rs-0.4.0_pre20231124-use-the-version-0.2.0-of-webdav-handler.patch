@@ -1,0 +1,16 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use the version `0.2.0` of `webdav-handler`.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -71,6 +71,5 @@ tokio = { version = "1.5.0", features = ["full"] }
+ tokio-rustls = "0.23.4"
+ toml = "0.5.8"
+ url = "2.2.2"
+-webdav-handler = { path = "../webdav-handler-rs", version = "=0.2.0" }
+-#webdav-handler = "0.2.0"
++webdav-handler = "0.2.0"
+ pwhash = "1.0.0"
+
