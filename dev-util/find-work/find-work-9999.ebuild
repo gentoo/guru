@@ -45,11 +45,6 @@ RDEPEND="
 		$(python_gen_any_dep 'dev-python/tabulate[${PYTHON_USEDEP}]')
 	)
 "
-BDEPEND="
-	test? (
-		dev-python/pytest-import-check[${PYTHON_USEDEP}]
-	)
-"
 
 PDEPEND="
 	!minimal? (
@@ -58,6 +53,8 @@ PDEPEND="
 		$(python_gen_any_dep 'dev-util/find-work-repology[${PYTHON_USEDEP}]')
 	)
 "
+
+EPYTEST_PLUGINS=( pytest-import-check )
 
 distutils_enable_tests pytest
 

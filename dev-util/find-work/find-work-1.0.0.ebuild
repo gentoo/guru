@@ -45,11 +45,6 @@ RDEPEND="
 		dev-python/tabulate[${PYTHON_USEDEP}]
 	)
 "
-BDEPEND="
-	test? (
-		dev-python/pytest-import-check[${PYTHON_USEDEP}]
-	)
-"
 
 # No ${PYTHON_USEDEP} because plugin deps can lag behind
 PDEPEND="
@@ -59,6 +54,8 @@ PDEPEND="
 		dev-util/find-work-repology
 	)
 "
+
+EPYTEST_PLUGINS=( pytest-import-check )
 
 distutils_enable_tests pytest
 
