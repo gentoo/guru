@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/patriciogonzalezvivo/glslViewer"
 EGIT_REPO_URI="https://github.com/patriciogonzalezvivo/glslViewer.git"
 EGIT_COMMIT="7eb6254cb4cedf03f1c78653f90905fe0c3b48fb"
 
-LICENSE="BSD-3-Clause"
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="ffmpeg xvfb"
