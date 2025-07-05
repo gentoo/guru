@@ -29,6 +29,8 @@ PATCHES=(
 	"${FILESDIR}/heisenbridge-1.14.1-qanotice.patch"
 )
 
+EPYTEST_PLUGINS=( )
+
 distutils_enable_tests pytest
 
 src_prepare() {
