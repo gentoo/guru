@@ -28,11 +28,8 @@ RDEPEND="
 	dev-util/pkgcheck[${PYTHON_USEDEP}]
 	sys-apps/pkgcore[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	test? (
-		dev-python/pytest-import-check[${PYTHON_USEDEP}]
-	)
-"
+
+EPYTEST_PLUGINS=( pytest-import-check )
 
 distutils_enable_tests pytest
 
