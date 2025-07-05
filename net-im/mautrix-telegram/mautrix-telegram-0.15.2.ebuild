@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -45,6 +45,8 @@ RDEPEND="
 	socks5? ( dev-python/python-socks[${PYTHON_USEDEP}] )
 	sqlite? ( dev-python/aiosqlite[${PYTHON_USEDEP}] )
 "
+
+EPYTEST_PLUGINS=( pytest-import-check )
 
 distutils_enable_tests import-check
 
