@@ -1,0 +1,31 @@
+#!/bin/sh
+
+share_dir="${XDG_DATA_HOME:-${HOME}/.local/share}/@PKGNAME@"
+state_dir="${XDG_STATE_HOME:-${HOME}/.local/state}/@PKGNAME@"
+
+workspace_dir="${state_dir}/$(pwd | sha1sum | cut -d' ' -f1)"
+
+mkdir -p "${workspace_dir}"
+
+if [ ! -d "${share_dir}" ]; then
+	cp -R /usr/share/@PKGNAME@/config_linux "${share_dir}"
+fi
+
+cd "/usr/libexec/@PKGNAME@"
+
+exec java \
+	-Declipse.application=org.eclipse.jdt.ls.core.id1 \
+	-Dosgi.bundles.defaultStartLevel=4 \
+	-Declipse.product=org.eclipse.jdt.ls.core.product \
+	-Dlog.protocol=true \
+	-Dlog.level=ALL \
+	-Dfile.encoding=utf-8 \
+	-Xmx1G \
+	--add-modules=ALL-SYSTEM \
+	--add-opens java.base/java.util=ALL-UNNAMED \
+	--add-opens java.base/java.lang=ALL-UNNAMED \
+	-jar ./plugins/org.eclipse.equinox.launcher_*.jar \
+	-configuration ${share_dir} \
+	-data "${workspace_dir}" \
+	"$@"
+
