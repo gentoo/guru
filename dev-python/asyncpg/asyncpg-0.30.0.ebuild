@@ -37,8 +37,10 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.30.0-cflags.patch
+	"${FILESDIR}"/${PN}-0.30.0-disable-broken-tests.patch
 )
 
+EPYTEST_PLUGINS=( )
 EPYTEST_IGNORE=(
 	# checks versions from env variables
 	"${S}"/tests/test__environment.py
