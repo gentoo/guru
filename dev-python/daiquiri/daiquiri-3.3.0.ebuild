@@ -20,6 +20,8 @@ KEYWORDS="~amd64"
 RDEPEND=">=dev-python/python-json-logger-3[${PYTHON_USEDEP}]"
 BDEPEND="dev-python/setuptools-scm[${PYTHON_USEDEP}]"
 
+EPYTEST_PLUGINS=( )
+
 distutils_enable_tests pytest
 
 distutils_enable_sphinx doc/source
