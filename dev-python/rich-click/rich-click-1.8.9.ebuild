@@ -25,6 +25,8 @@ RDEPEND="
 	>=dev-python/typing-extensions-4[${PYTHON_USEDEP}]
 "
 
+EPYTEST_PLUGINS=( )
+
 distutils_enable_tests pytest
 
 click-app_enable_completions rich-click
@@ -33,9 +35,4 @@ src_prepare() {
 	distutils-r1_src_prepare
 
 	touch tests/fixtures/__init__.py || die
-}
-
-python_test() {
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest
 }
