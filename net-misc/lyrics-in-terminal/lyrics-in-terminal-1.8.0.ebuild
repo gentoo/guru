@@ -20,6 +20,8 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 "
 
+EPYTEST_PLUGINS=( pytest-import-check )
+
 distutils_enable_tests import-check
 
 pkg_postinst() {
