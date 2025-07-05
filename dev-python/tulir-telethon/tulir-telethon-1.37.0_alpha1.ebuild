@@ -32,12 +32,14 @@ RDEPEND="
 	dev-python/python-socks[${PYTHON_USEDEP}]
 	dev-python/rsa[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	test? ( dev-python/pytest-asyncio[${PYTHON_USEDEP}] )
-"
 
+EPYTEST_PLUGINS=( pytest-asyncio )
 EPYTEST_DESELECT=(
+	# test fails
 	tests/telethon/test_utils.py::test_private_get_extension
+
+	# incompatible with recent pytest-asyncio changes
+	tests/telethon/test_helpers.py::TestSyncifyAsyncContext
 )
 
 distutils_enable_tests pytest
