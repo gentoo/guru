@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>kurt@kmk-computers.de</email>
+    <name>Kurt Kanzenbach</name>
+  </maintainer>
+  <longdescription lang="en">
+    The RTC Testbench is a real-time and non-real-time traffic validation tool
+    for converged real-time networks. PROFINET as well as OPC/UA PubSub and
+    other configurable protocols are supported.
+  </longdescription>
+  <use>
+    <flag name="mqtt">
+      Enable logging via <pkg>app-misc/mosquitto</pkg>
+    </flag>
+  </use>
+  <upstream>
+    <remote-id type="github">Linutronix/RTC-Testbench</remote-id>
+  </upstream>
+</pkgmetadata>
