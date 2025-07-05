@@ -214,16 +214,22 @@ src_configure() {
 
 	extra_build_flags+=(${SWIFT_EXTRA_BUILD_FLAGS})
 
-	if [[ ${#extra_build_flags[@]} -gt 0 ]]; then
-		SWIFT_BUILD_PRESET='gentoo,custom'
-		{
-			echo "[preset: gentoo,custom]"
-			echo "mixin-preset=gentoo"
-			for flag in "${extra_build_flags[@]}"; do
-				echo "${flag#--}"
-			done
-		} >> "${SWIFT_BUILD_PRESETS_INI_PATH}"
-	fi
+	local orig_preset="${SWIFT_BUILD_PRESET}"
+	local preset="${orig_preset}"
+	local n=1
+
+	{
+		for arg in "${extra_build_flags[@]}"; do
+			local next="${orig_preset},${n}"
+			printf '[preset: %s]\n' "${next}"
+			printf 'mixin-preset=%s\n' "${preset}"
+			echo "${arg#--}"
+			preset="${next}"
+			n="$((n + 1))"
+		done
+	} >> "${SWIFT_BUILD_PRESETS_INI_PATH}"
+
+	SWIFT_BUILD_PRESET="${preset}"
 }
 
 src_compile() {
