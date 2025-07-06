@@ -17,13 +17,9 @@ LICENSE="Apache-2.0 BSD MIT OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DOCS=(
-	# from yeetfile.js
-	README.md
-	data/{apps,bots,clients,common,crawlers}/.
-	data/botPolicies.{json,yaml}
-	docs/docs/.
-)
+DOCS=( README.md data docs/docs )
+
+RDEPEND="acct-user/anubis"
 
 src_prepare() {
 	default
@@ -41,13 +37,15 @@ src_test() {
 
 src_install() {
 	dobin var/anubis
+	newbin var/robots2policy anubis-robots2policy
 	systemd_dounit run/anubis@.service
 
-	newinitd "${FILESDIR}"/anubis.initd anubis
-	newconfd "${FILESDIR}"/anubis.confd anubis
+	newinitd run/openrc/anubis.initd anubis
+	newconfd run/openrc/anubis.confd anubis
 
 	insinto /etc/anubis
 	doins run/default.env
 
+	find data -name '*.go' -delete || die
 	einstalldocs
 }
