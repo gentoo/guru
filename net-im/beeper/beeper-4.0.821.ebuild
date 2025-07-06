@@ -107,14 +107,11 @@ src_install() {
 		LICENSE.electron.txt
 		LICENSES.chromium.html
 		beepertexts.png
-		resources/app/node_modules/@img/sharp-libvips-linux-x64/lib/libvips-cpp.so.42
+		resources/app/build/main/linux-*.mjs
 		resources/app/node_modules/classic-level/prebuilds/linux-x64/classic-level.musl.node
 		usr
 	)
 	rm -r "${toremove[@]}" || die
-
-	# Remove code that overwrites the desktop file with a non-functional one
-	rm resources/app/build/main/linux-*.mjs || die
 
 	# Install
 	local apphome="/opt/BeeperTexts"
@@ -123,6 +120,13 @@ src_install() {
 	mkdir -p "${ED}${apphome}" || die
 	cp -r . "${ED}${apphome}" || die
 	fperms 4711 "${apphome}"/chrome-sandbox
+
+	local libvips_dest=(
+		resources/app/node_modules/@img/sharp-libvips-linux-x64/lib/libvips-cpp.so.*
+	)
+	(( ${#libvips_dest[@]} == 1 )) ||
+		die "multiple or no libvips libraries found"
+	dosym -r /usr/$(get_libdir)/libvips-cpp.so.42 "${apphome}/${libvips_dest[0]}"
 
 	dosym -r "${apphome}"/beepertexts /usr/bin/beepertexts
 }
