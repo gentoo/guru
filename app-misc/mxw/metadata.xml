@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>agooglygooglr@gmail.com</email>
+    <description>Primary maintainer</description>
+  </maintainer>
+  <longdescription>
+    Cross platform CLI tool for Glorious' wireless mice.
+    
+    Originally reverse engineered using USB packet logs sniffed with
+    WireShark and USBPcap, as well as a decompilation of the official
+    Windows program (Glorious Core).
+  </longdescription>
+</pkgmetadata>
