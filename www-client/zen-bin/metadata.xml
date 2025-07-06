@@ -9,6 +9,10 @@
         <email>julien@jroy.ca</email>
         <name>Julien Roy</name>
     </maintainer>
+    <maintainer type="person">
+        <email>dangduong31205@gmail.com</email>
+        <name>Nguyen Dinh Dang Duong</name>
+    </maintainer>
     <upstream>
         <remote-id type="github">zen-browser/desktop</remote-id>
     </upstream>
