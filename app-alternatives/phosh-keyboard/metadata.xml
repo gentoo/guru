@@ -9,5 +9,8 @@
 		<flag name="phosh-osk-stub">
 			Symlink to <pkg>phosh-base/phosh-osk-stub</pkg>
 		</flag>
+		<flag name="stevia">
+			Symlink to <pkg>phosh-base/phosh-osk-stevia</pkg>
+		</flag>
 	</use>
 </pkgmetadata>
