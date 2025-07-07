@@ -37,11 +37,20 @@ DOCS=(
 )
 
 src_unpack() {
+	patch_cargo_file()
+	{
+		pushd "${S}" &>> /dev/null || die
+		eapply "${FILESDIR}/${PN}-bump-traitobject.patch"
+		popd &>> /dev/null || die
+	}
+
 	if [[ "${PV}" = "9999" ]]; then
 		git-r3_src_unpack
+		patch_cargo_file
 		cargo_live_src_unpack
 	else
 		cargo_src_unpack
+		patch_cargo_file
 	fi
 }
 

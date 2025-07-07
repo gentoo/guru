@@ -1,0 +1,30 @@
+From 29eb167d4367929a2546c20b3f2bbf890b63c631 Mon Sep 17 00:00:00 2001
+From: Rui Chen <rui@chenrui.dev>
+Date: Mon, 16 Jun 2025 17:23:14 -0400
+Subject: [PATCH] chore(build): bump traitobject to 0.1.1 to build against rust
+ 1.87.0
+
+Signed-off-by: Rui Chen <rui@chenrui.dev>
+---
+ Cargo.lock | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Cargo.lock b/Cargo.lock
+index fabde0d..8f82361 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -2691,9 +2691,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "traitobject"
+-version = "0.1.0"
++version = "0.1.1"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "efd1f82c56340fdf16f2a953d7bda4f8fdffba13d93b00844c25572110b26079"
++checksum = "04a79e25382e2e852e8da874249358d382ebaf259d0d34e75d8db16a7efabbc7"
+ 
+ [[package]]
+ name = "try-lock"
+-- 
+GitLab
+
