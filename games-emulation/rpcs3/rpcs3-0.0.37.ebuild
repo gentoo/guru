@@ -11,10 +11,7 @@ MINIUPNP_COMMIT="d66872e34d9ff83a07f8b71371b13419b2089953"
 RTMIDI_COMMIT="1e5b49925aa60065db52de44c366d446a902547b"
 WOLFSSL_COMMIT="b077c81eb635392e694ccedbab8b644297ec0285"
 SOUNDTOUCH_COMMIT="3982730833b6daefe77dcfb32b5c282851640c17"
-ZSTD_COMMIT="f8745da6ff1ad1e7bab384bd1f9d742439278e99"
-STB_COMMIT="013ac3beddff3dbffafd5177e7972067cd2b5083"
 YAMLCPP_COMMIT="456c68f452da09d8ca84b375faa2b1397713eaba"
-OPENAL_COMMIT="dc7d7054a5b4f3bec1dc23a42fd616a0847af948"
 FUSION_COMMIT="066d4a63b2c714b20b0a8073a01fda7c5c6763f6"
 VULKANMEMORYALLOCATOR_COMMIT="6ec8481c8a13db586d7b3ba58f4eb9bbf017edf0"
 
@@ -24,8 +21,7 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/RPCS3/rpcs3"
 	EGIT_SUBMODULES=(
 	'asmjit' '3rdparty/glslang' '3rdparty/miniupnp/miniupnp' '3rdparty/rtmidi/rtmidi' '3rdparty/wolfssl'
-	'3rdparty/SoundTouch/soundtouch' '3rdparty/zstd/zstd' '3rdparty/stblib/stb' '3rdparty/OpenAL/openal-soft'
-	'3rdparty/fusion/fusion' '3rdparty/GPUOpen/VulkanMemoryAllocator'
+	'3rdparty/SoundTouch/soundtouch' '3rdparty/fusion/fusion' '3rdparty/GPUOpen/VulkanMemoryAllocator'
 	)
 	# Delete sources when ensuring yaml-cpp compiled with fexceptions
 	EGIT_SUBMODULES+=( '3rdparty/yaml-cpp' )
@@ -40,10 +36,7 @@ else
 		https://github.com/wolfSSL/wolfssl/archive/${WOLFSSL_COMMIT}.tar.gz -> ${PN}-wolfssl-${WOLFSSL_COMMIT}.tar.gz
 		https://github.com/RPCS3/soundtouch/archive/${SOUNDTOUCH_COMMIT}.tar.gz
 			-> ${PN}-soundtouch-${SOUNDTOUCH_COMMIT}.tar.gz
-		https://github.com/facebook/zstd/archive/${ZSTD_COMMIT}.tar.gz -> ${PN}-zstd-${ZSTD_COMMIT}.tar.gz
-		https://github.com/nothings/stb/archive/${STB_COMMIT}.tar.gz -> ${PN}-stb-${STB_COMMIT}.tar.gz
 		https://github.com/RPCS3/yaml-cpp/archive/${YAMLCPP_COMMIT}.tar.gz -> ${PN}-yaml-cpp-${SOUNDTOUCH_COMMIT}-.tar.gz
-		https://github.com/kcat/openal-soft/archive/${OPENAL_COMMIT}.tar.gz -> ${PN}-openal-${OPENAL_COMMIT}.tar.gz
 		https://github.com/xioTechnologies/Fusion/archive/${FUSION_COMMIT}.tar.gz -> ${PN}-fusion-${FUSION_COMMIT}.tar.gz
 		https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator/archive/${VULKANMEMORYALLOCATOR_COMMIT}.tar.gz
 			-> ${PN}-VulkanMemoryAllocator-${VULKANMEMORYALLOCATOR_COMMIT}.tar.gz
@@ -57,10 +50,12 @@ IUSE="discord faudio +llvm opencv vulkan wayland"
 
 DEPEND="
 	app-arch/p7zip
+	app-arch/zstd
 	dev-libs/flatbuffers
 	dev-libs/hidapi
 	dev-libs/libevdev
 	dev-libs/pugixml
+	dev-libs/stb
 	dev-qt/qtbase:6[concurrent,dbus,gui,widgets]
 	dev-qt/qtmultimedia:6
 	dev-qt/qtsvg:6
@@ -86,6 +81,12 @@ RDEPEND="${DEPEND}"
 QA_PREBUILT="usr/share/rpcs3/test/.*"
 QA_WX_LOAD="usr/share/rpcs3/test/*"
 
+PATCHES=(
+	"${FILESDIR}/${P}-system-openal.patch"
+	"${FILESDIR}/${P}-system-stb.patch"
+	"${FILESDIR}/${P}-system-zstd.patch"
+)
+
 src_prepare() {
 	if [[ ${PV} != "9999" ]]; then
 		rmdir "${S}/3rdparty/asmjit/asmjit" || die
@@ -106,20 +107,11 @@ src_prepare() {
 		rmdir "${S}/3rdparty/SoundTouch/soundtouch" || die
 		mv "${WORKDIR}/soundtouch-${SOUNDTOUCH_COMMIT}" "${S}/3rdparty/SoundTouch/soundtouch" || die
 
-		rmdir "${S}/3rdparty/zstd/zstd" || die
-		mv "${WORKDIR}/zstd-${ZSTD_COMMIT}" "${S}/3rdparty/zstd/zstd" || die
-
-		rmdir "${S}/3rdparty/stblib/stb" || die
-		mv "${WORKDIR}/stb-${STB_COMMIT}" "${S}/3rdparty/stblib/stb" || die
-
 		rmdir "${S}/3rdparty/yaml-cpp/yaml-cpp" || die
 		mv "${WORKDIR}/yaml-cpp-${YAMLCPP_COMMIT}" "${S}/3rdparty/yaml-cpp/yaml-cpp" || die
 
 		rmdir "${S}/3rdparty/fusion/fusion" || die
 		mv "${WORKDIR}/Fusion-${FUSION_COMMIT}" "${S}/3rdparty/fusion/fusion" || die
-
-		rmdir "${S}/3rdparty/OpenAL/openal-soft" || die
-		mv "${WORKDIR}/openal-soft-${OPENAL_COMMIT}" "${S}/3rdparty/OpenAL/openal-soft" || die
 
 		rmdir "${S}/3rdparty/GPUOpen/VulkanMemoryAllocator" || die
 		mv "${WORKDIR}/VulkanMemoryAllocator-${VULKANMEMORYALLOCATOR_COMMIT}" \

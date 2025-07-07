@@ -1,0 +1,41 @@
+diff --git a/rpcs3/Emu/Cell/Modules/cellMic.cpp b/rpcs3/Emu/Cell/Modules/cellMic.cpp
+index a5ece1be5..072c73d58 100644
+--- a/rpcs3/Emu/Cell/Modules/cellMic.cpp
++++ b/rpcs3/Emu/Cell/Modules/cellMic.cpp
+@@ -11,7 +11,7 @@
+ #include <cmath>
+ 
+ #ifndef WITHOUT_OPENAL
+-#include "3rdparty/OpenAL/openal-soft/include/AL/alext.h"
++#include <AL/alext.h>
+ #endif
+ 
+ LOG_CHANNEL(cellMic);
+diff --git a/rpcs3/Emu/Cell/Modules/cellMic.h b/rpcs3/Emu/Cell/Modules/cellMic.h
+index e4b416fa6..7f00e2881 100644
+--- a/rpcs3/Emu/Cell/Modules/cellMic.h
++++ b/rpcs3/Emu/Cell/Modules/cellMic.h
+@@ -1,7 +1,7 @@
+ #pragma once
+ 
+ #include "Utilities/Thread.h"
+-#include "3rdparty/OpenAL/openal-soft/include/AL/alc.h"
++#include <AL/alc.h>
+ #include "Utilities/mutex.h"
+ 
+ // Error Codes
+diff --git a/rpcs3/rpcs3qt/microphone_creator.cpp b/rpcs3/rpcs3qt/microphone_creator.cpp
+index 9ea04defd..fc1343fc2 100644
+--- a/rpcs3/rpcs3qt/microphone_creator.cpp
++++ b/rpcs3/rpcs3qt/microphone_creator.cpp
+@@ -3,8 +3,8 @@
+ 
+ #include "Utilities/StrUtil.h"
+ 
+-#include "3rdparty/OpenAL/openal-soft/include/AL/al.h"
+-#include "3rdparty/OpenAL/openal-soft/include/AL/alc.h"
++#include <AL/al.h>
++#include <AL/alc.h>
+ 
+ LOG_CHANNEL(cfg_log, "CFG");
+ 
