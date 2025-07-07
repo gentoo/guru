@@ -5,7 +5,7 @@ EAPI=8
 
 LUA_COMPAT=( lua5-{1..3} luajit )
 
-inherit lua toolchain-funcs
+inherit lua
 
 DESCRIPTION="Lua library for creating a terminal UI "
 HOMEPAGE="https://github.com/daurnimator/lua-tui"
