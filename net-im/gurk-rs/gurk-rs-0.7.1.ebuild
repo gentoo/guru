@@ -94,8 +94,11 @@ src_unpack() {
 	fi
 }
 
-src_install()
-{
+src_configure() {
+	cargo_src_configure --frozen
+}
+
+src_install() {
 	einstalldocs
 	cargo_src_install
 }
