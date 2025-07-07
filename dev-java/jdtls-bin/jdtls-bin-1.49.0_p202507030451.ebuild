@@ -10,17 +10,17 @@ MY_PN=${PN%%-bin}
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="Java language server"
-SRC_URI="https://download.eclipse.org/jdtls/snapshots/jdt-language-server-${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 HOMEPAGE="https://github.com/eclipse/eclipse.jdt.ls"
+SRC_URI="https://download.eclipse.org/jdtls/snapshots/jdt-language-server-${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 
-LICENSE="EPL"
+S="${WORKDIR}"
+
+LICENSE="EPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND=">=virtual/jre-1.8:*"
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}"
 
 JDTLS_LIBEXEC="/usr/libexec/${MY_PN}"
 JDTLS_SHARE="/usr/share/${MY_PN}"
@@ -50,4 +50,3 @@ pkg_postinst() {
 	elog
 	elog "They will be recreated cleanly on the next launch."
 }
-
