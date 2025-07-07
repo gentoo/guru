@@ -20,18 +20,20 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE="examples"
-
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
-DEPEND="${LUA_DEPS}"
-RDEPEND="
-	dev-lua/lua-term[${LUA_USEDEP}]
-	dev-lua/hump[${LUA_USEDEP}]
-	dev-lua/lua-wcwidth[${LUA_USEDEP}]
+DEPEND="
 	dev-lua/compat53[${LUA_USEDEP}]
+	dev-lua/hump[${LUA_USEDEP}]
 	dev-lua/lua-bit32[${LUA_USEDEP}]
+	dev-lua/lua-term[${LUA_USEDEP}]
+	dev-lua/lua-tui[${LUA_USEDEP}]
+	dev-lua/lua-utf8-simple[${LUA_USEDEP}]
+	dev-lua/lua-wcwidth[${LUA_USEDEP}]
 	${LUA_DEPS}
 "
+
+RDEPEND="${DEPEND}"
 
 lua_src_compile() {
 	local compiler=(
