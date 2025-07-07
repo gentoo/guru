@@ -7,6 +7,8 @@ DESCRIPTION="Zen Browser - A fast, privacy-focused Firefox fork"
 HOMEPAGE="https://zen-browser.app/"
 SRC_URI="https://github.com/zen-browser/desktop/releases/download/${PV}/zen.linux-x86_64.tar.xz -> ${P}.tar.xz"
 
+S="${WORKDIR}/zen"
+
 LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -45,9 +47,6 @@ DEPEND="
 	x11-libs/pango
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
-
-S="${WORKDIR}/zen"
 
 inherit desktop xdg-utils
 
@@ -82,4 +81,3 @@ pkg_postrm() {
 	xdg_desktop_database_update
 	xdg_icon_cache_update
 }
-
