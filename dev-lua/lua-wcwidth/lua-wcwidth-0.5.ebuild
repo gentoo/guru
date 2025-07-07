@@ -29,8 +29,8 @@ lua_enable_tests busted
 lua_src_install() {
 	insinto "$(lua_get_lmod_dir)"
 	doins wcwidth.lua
-	insinto "$(lua_get_lmod_dir)/${PN}"
-	doins wcwidth/*.lua
+	insinto "$(lua_get_lmod_dir)"
+	doins -r wcwidth
 }
 
 src_install() {
