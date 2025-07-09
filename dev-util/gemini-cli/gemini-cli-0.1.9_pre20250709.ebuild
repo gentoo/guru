@@ -14,7 +14,6 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-QA_PREBUILT="usr/lib64/node_modules/@google/gemini-cli/dist/*"
 RESTRICT="strip"
 
 RDEPEND="
