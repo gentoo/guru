@@ -20,7 +20,6 @@ CRATES="
 	async-broadcast@0.7.2
 	async-channel@2.3.1
 	async-executor@1.13.1
-	async-fs@2.1.2
 	async-io@2.4.0
 	async-lock@3.4.0
 	async-process@2.3.0
@@ -56,7 +55,7 @@ CRATES="
 	darling_core@0.20.3
 	darling_macro@0.20.3
 	deranged@0.3.6
-	derive-where@1.4.0
+	derive-where@1.5.0
 	derive_more@0.99.18
 	dlib@0.5.2
 	doc-comment@0.3.3
@@ -120,6 +119,7 @@ CRATES="
 	mio@0.8.8
 	nix@0.26.2
 	nix@0.29.0
+	nix@0.30.1
 	num-traits@0.2.16
 	num_cpus@1.16.0
 	object@0.32.2
@@ -155,7 +155,7 @@ CRATES="
 	serde_derive@1.0.219
 	serde_json@1.0.140
 	serde_repr@0.1.20
-	serde_spanned@0.6.8
+	serde_spanned@0.6.9
 	serde_with@3.8.1
 	serde_with_macros@3.8.1
 	serde_yaml@0.9.34+deprecated
@@ -176,10 +176,10 @@ CRATES="
 	time@0.3.24
 	tokio-macros@2.1.0
 	tokio@1.29.1
-	toml@0.8.22
-	toml_datetime@0.6.9
-	toml_edit@0.22.26
-	toml_write@0.1.1
+	toml@0.8.23
+	toml_datetime@0.6.11
+	toml_edit@0.22.27
+	toml_write@0.1.2
 	tracing-attributes@0.1.28
 	tracing-core@0.1.33
 	tracing@0.1.41
@@ -225,16 +225,15 @@ CRATES="
 	windows_x86_64_gnullvm@0.52.6
 	windows_x86_64_msvc@0.48.0
 	windows_x86_64_msvc@0.52.6
-	winnow@0.7.8
+	winnow@0.7.11
 	wyz@0.5.1
 	x11rb-protocol@0.13.1
 	x11rb@0.13.1
-	xdg-home@1.3.0
-	zbus@5.5.0
-	zbus_macros@5.5.0
+	zbus@5.7.1
+	zbus_macros@5.7.1
 	zbus_names@4.2.0
-	zvariant@5.4.0
-	zvariant_derive@5.4.0
+	zvariant@5.5.3
+	zvariant_derive@5.5.3
 	zvariant_utils@3.2.0
 "
 
