@@ -1,0 +1,7 @@
+install_dir=@INSTALL_DIR@
+
+Name: LYGIA Shader Library
+Description: LYGIA is a shader library of reusable functions that will let you prototype, port or ship a project in just few minutes.
+Version: @VERSION@
+Cflags: -I${install_dir}
+
