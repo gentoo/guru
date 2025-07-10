@@ -1,0 +1,41 @@
+From ea07b73401b604adefa99b5d11c391d10cbb29c4 Mon Sep 17 00:00:00 2001
+From: Nguyen Dinh Dang Duong <dangduong31205@gmail.com>
+Date: Wed, 9 Jul 2025 16:56:20 +0700
+Subject: [PATCH] Use nlohmann and stb packages instead of bundled ones
+
+---
+ tiny_gltf.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/tiny_gltf.h b/tiny_gltf.h
+index 7612804..b536faa 100644
+--- a/tiny_gltf.h
++++ b/tiny_gltf.h
+@@ -1712,7 +1712,7 @@ class TinyGLTF {
+ 
+ #ifndef TINYGLTF_NO_INCLUDE_JSON
+ #ifndef TINYGLTF_USE_RAPIDJSON
+-#include "json.hpp"
++#include <nlohmann/json.hpp>
+ #else
+ #ifndef TINYGLTF_NO_INCLUDE_RAPIDJSON
+ #include "document.h"
+@@ -1731,13 +1731,13 @@ class TinyGLTF {
+ 
+ #ifndef TINYGLTF_NO_STB_IMAGE
+ #ifndef TINYGLTF_NO_INCLUDE_STB_IMAGE
+-#include "stb_image.h"
++#include <stb/stb_image.h>
+ #endif
+ #endif
+ 
+ #ifndef TINYGLTF_NO_STB_IMAGE_WRITE
+ #ifndef TINYGLTF_NO_INCLUDE_STB_IMAGE_WRITE
+-#include "stb_image_write.h"
++#include <stb/stb_image_write.h>
+ #endif
+ #endif
+ 
+-- 
+2.50.0
+
