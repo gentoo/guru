@@ -1,0 +1,22 @@
+From 74d6dffc30ebaf4046954901e8605c8600edb488 Mon Sep 17 00:00:00 2001
+From: Nguyen Dinh Dang Duong <dangduong31205@gmail.com>
+Date: Wed, 9 Jul 2025 21:23:51 +0700
+Subject: [PATCH 1/6] Bump cmake min version
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f82abad..c29116c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.2)
++cmake_minimum_required(VERSION 3.5)
+ 
+ project(vera CXX)
+ 
+-- 
+2.50.0
+

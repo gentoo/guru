@@ -1,0 +1,46 @@
+From 7cc9a85c6a656d72abbbe74ee9b70a21a015ca21 Mon Sep 17 00:00:00 2001
+From: Nguyen Dinh Dang Duong <dangduong31205@gmail.com>
+Date: Thu, 10 Jul 2025 00:53:09 +0700
+Subject: [PATCH 4/6] Change include lines
+
+---
+ src/gl/textureStreamAudio.cpp | 2 +-
+ src/xr/holoPlay.cpp           | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/gl/textureStreamAudio.cpp b/src/gl/textureStreamAudio.cpp
+index ae886b5..59c23b6 100644
+--- a/src/gl/textureStreamAudio.cpp
++++ b/src/gl/textureStreamAudio.cpp
+@@ -17,7 +17,7 @@
+ extern "C" {
+ #include <libavcodec/avfft.h>
+ #include <libavutil/mem.h>
+-#include "miniaudio.h"
++#include <miniaudio/miniaudio.h>
+ }
+ 
+ ma_device_config a_deviceConfig;
+diff --git a/src/xr/holoPlay.cpp b/src/xr/holoPlay.cpp
+index 012e1e0..b43d087 100644
+--- a/src/xr/holoPlay.cpp
++++ b/src/xr/holoPlay.cpp
+@@ -5,7 +5,7 @@
+ 
+ #include <fstream> 
+ 
+-#include "json.hpp"
++#include <nlohmann/json.hpp>
+ 
+ namespace vera {
+ 
+@@ -299,4 +299,4 @@ void feedLenticularUniforms(Shader& _shader) {
+     _shader.setUniform("u_lenticularRB", float(lenticular.ri), float(lenticular.bi));
+ }
+ 
+-}
+\ No newline at end of file
++}
+-- 
+2.50.0
+

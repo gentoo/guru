@@ -1,0 +1,76 @@
+From 68dbfb61d2557b11412a579abc7bc032d0202072 Mon Sep 17 00:00:00 2001
+From: Nguyen Dinh Dang Duong <dangduong31205@gmail.com>
+Date: Thu, 10 Jul 2025 00:53:04 +0700
+Subject: [PATCH 3/6] Use dev-libs/stb package
+
+---
+ src/CMakeLists.txt | 1 +
+ src/io/gltf.cpp    | 5 -----
+ src/ops/pixel.cpp  | 5 +----
+ src/stb_impl.cpp   | 5 +++++
+ 4 files changed, 7 insertions(+), 9 deletions(-)
+ create mode 100644 src/stb_impl.cpp
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 8021914..74b00c0 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -36,6 +36,7 @@ set(VERA_SOURCES
+     ${DEPS_FOLDER}/stb/stb_image.cpp
+     ${SOURCE_FOLDER}/app.cpp
+     ${SOURCE_FOLDER}/window.cpp
++    ${SOURCE_FOLDER}/stb_impl.cpp
+     ${SOURCE_FOLDER}/gl/gl.cpp 
+     ${SOURCE_FOLDER}/gl/fbo.cpp
+     ${SOURCE_FOLDER}/gl/vbo.cpp
+diff --git a/src/io/gltf.cpp b/src/io/gltf.cpp
+index fcc25b7..2c08f43 100644
+--- a/src/io/gltf.cpp
++++ b/src/io/gltf.cpp
+@@ -20,11 +20,6 @@
+ #include "glm/gtc/type_ptr.hpp"
+ #include "glm/gtx/quaternion.hpp"
+ 
+-#define TINYGLTF_IMPLEMENTATION
+-#define STB_IMAGE_IMPLEMENTATION
+-#define STB_IMAGE_WRITE_IMPLEMENTATION
+-// #define TINYGLTF_NOEXCEPTION
+-// #define JSON_NOEXCEPTION
+ #include "tiny_gltf.h"
+ 
+ #define BUFFER_OFFSET(i) ((char *)NULL + (i))
+diff --git a/src/ops/pixel.cpp b/src/ops/pixel.cpp
+index e57b84f..58ef78e 100644
+--- a/src/ops/pixel.cpp
++++ b/src/ops/pixel.cpp
+@@ -3,9 +3,6 @@
+ #include "vera/ops/pixel.h"
+ #include "vera/ops/fs.h"
+ 
+-#define STB_IMAGE_WRITE_IMPLEMENTATION
+-#define STB_IMAGE_IMPLEMENTATION
+-
+ #include "stb_image.h"
+ #include "stb_image_write.h"
+ #include "extract_depthmap.h"
+@@ -191,4 +188,4 @@ void freePixels(void *pixels) {
+     stbi_image_free(pixels);
+ }
+ 
+-}
+\ No newline at end of file
++}
+diff --git a/src/stb_impl.cpp b/src/stb_impl.cpp
+new file mode 100644
+index 0000000..82928fa
+--- /dev/null
++++ b/src/stb_impl.cpp
+@@ -0,0 +1,5 @@
++#define STB_IMAGE_IMPLEMENTATION
++#include "stb_image.h"
++
++#define STB_IMAGE_WRITE_IMPLEMENTATION
++#include "stb_image_write.h"
+-- 
+2.50.0
+

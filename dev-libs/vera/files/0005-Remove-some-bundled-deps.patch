@@ -1,0 +1,107 @@
+From 8a275ff1cc0a892113f0d3dcc23c6396deaa8c31 Mon Sep 17 00:00:00 2001
+From: Nguyen Dinh Dang Duong <dangduong31205@gmail.com>
+Date: Thu, 10 Jul 2025 01:24:44 +0700
+Subject: [PATCH 5/6] Remove some bundled deps
+
+---
+ deps/CMakeLists.txt | 18 +-----------------
+ src/CMakeLists.txt  | 22 ++++++++++++++--------
+ 2 files changed, 15 insertions(+), 25 deletions(-)
+
+diff --git a/deps/CMakeLists.txt b/deps/CMakeLists.txt
+index 45d1e48..8ca12fd 100644
+--- a/deps/CMakeLists.txt
++++ b/deps/CMakeLists.txt
+@@ -1,31 +1,15 @@
+ ## GLFW
+ if (NOT NO_X11 AND NOT FORCE_GBM AND NOT EMSCRIPTEN)
+-    # Configure GLFW to build only the library.
+-    set(GLFW_BUILD_DOCS OFF CACHE BOOL "")
+-    set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "")
+-    set(GLFW_BUILD_TESTS OFF CACHE BOOL "")
+-    set(GLFW_INSTALL OFF CACHE BOOL "")
+-    add_subdirectory(glfw)
+-
+-    if(APPLE)
+-    target_compile_options(glfw PRIVATE "-Wno-deprecated-declarations")
+-    endif()
+-    
+     if(NOT DEFINED OpenGL_GL_PREFERENCE)
+         # set(OpenGL_GL_PREFERENCE "LEGACY")
+         set(OPENGL_GL_PREFERENCE "GLVND")
+     endif()
+     set(OpenGL_GL_PREFERENCE ${OPENGL_GL_PREFERENCE})
+     find_package(OpenGL REQUIRED)
+-
+     message(STATUS "OPENGL_LIBRARIES: ${OPENGL_LIBRARIES}")
+     message(STATUS "OPENGL_opengl_LIBRARY: ${OPENGL_opengl_LIBRARY}")
+ endif()
+ 
+-if (WIN32)
+-    add_subdirectory(glew)
+-endif (WIN32)
+-
+ if (EMSCRIPTEN)
+     add_subdirectory(emscripten-webxr)
+-endif (EMSCRIPTEN)
+\ No newline at end of file
++endif (EMSCRIPTEN)
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 74b00c0..0289ee3 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -3,17 +3,12 @@ set(SOURCE_FOLDER "${PROJECT_SOURCE_DIR}/src")
+ set(DEPS_FOLDER "${PROJECT_SOURCE_DIR}/deps")
+ set(INCLUDE_FOLDER "${PROJECT_SOURCE_DIR}/include")
+ set(INCLUDE_DEPS_FOLDERS
+-    "${PROJECT_SOURCE_DIR}/deps/glm"
+-    "${PROJECT_SOURCE_DIR}/deps/stb"
+     "${PROJECT_SOURCE_DIR}/deps/glob"
+     "${PROJECT_SOURCE_DIR}/deps/skymodel"
+     "${PROJECT_SOURCE_DIR}/deps/fontstash"
+-    "${PROJECT_SOURCE_DIR}/deps/miniaudio"
+     "${PROJECT_SOURCE_DIR}/deps/phonedepth"
+-    "${PROJECT_SOURCE_DIR}/deps/tinygltf"
+     "${PROJECT_SOURCE_DIR}/deps/tinyobjloader"
+     "${PROJECT_SOURCE_DIR}/deps/tinyply"
+-    "${PROJECT_SOURCE_DIR}/deps/miniz"
+     "${PROJECT_SOURCE_DIR}/deps/tinyexr"
+ )
+ 
+@@ -28,12 +23,9 @@ file(GLOB XR_HEADER "${INCLUDE_FOLDER}/vera/xr/*.h")
+ 
+ # SOURCE files
+ set(VERA_SOURCES
+-    ${DEPS_FOLDER}/miniz/miniz.cpp
+     ${DEPS_FOLDER}/glob/glob.cpp
+     ${DEPS_FOLDER}/phonedepth/extract_depthmap.cpp
+     ${DEPS_FOLDER}/skymodel/ArHosekSkyModel.cpp
+-    ${DEPS_FOLDER}/stb/stb_image_write.cpp
+-    ${DEPS_FOLDER}/stb/stb_image.cpp
+     ${SOURCE_FOLDER}/app.cpp
+     ${SOURCE_FOLDER}/window.cpp
+     ${SOURCE_FOLDER}/stb_impl.cpp
+@@ -91,6 +83,20 @@ set(VERA_SOURCES
+ #
+ add_library(vera ${VERA_SOURCES})
+ 
++find_package(PkgConfig)
++
++# miniaudio package just install header files to /usr/include, just patch miniaudio.h -> miniaudio/miniaudio.h
++
++pkg_check_modules(STB stb REQUIRED)
++target_include_directories(vera PUBLIC ${STB_INCLUDE_DIRS})
++
++find_library(TINYGLTF_LIB tinygltf REQUIRED)
++target_link_libraries(vera PUBLIC ${TINYGLTF_LIB})
++
++pkg_check_modules(MINIZ_LIB miniz REQUIRED)
++target_include_directories(vera PUBLIC ${MINIZ_LIB_INCLUDE_DIRS})
++target_link_libraries(vera PUBLIC ${MINIZ_LIB_LIBRARIES})
++
+ set_target_properties(vera PROPERTIES
+     CXX_STANDARD 11
+     CXX_STANDARD_REQUIRED ON
+-- 
+2.50.0
+

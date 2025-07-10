@@ -1,0 +1,27 @@
+From 6d4b10f540f951abb42c1a6d62e93ebbb6fca36d Mon Sep 17 00:00:00 2001
+From: Nguyen Dinh Dang Duong <dangduong31205@gmail.com>
+Date: Thu, 10 Jul 2025 01:35:06 +0700
+Subject: [PATCH 2/6] Remove hardcoded installation dir
+
+---
+ src/CMakeLists.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 981ff16..8021914 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -302,7 +302,9 @@ target_include_directories(vera PUBLIC ${INCLUDE_DEPS_FOLDERS} ${INCLUDE_FOLDER}
+                 
+ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+ 
+-    install(TARGETS ${PROJECT_NAME} DESTINATION lib)
++    install(TARGETS ${PROJECT_NAME}
++        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
++        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+     install(FILES ${ROOT_HEADER} DESTINATION include/vera)
+     install(FILES ${GL_HEADER} DESTINATION include/vera/gl)
+     install(FILES ${IO_HEADER} DESTINATION include/vera/io)
+-- 
+2.50.0
+

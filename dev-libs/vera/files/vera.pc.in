@@ -1,0 +1,9 @@
+prefix=/usr
+includedir=${prefix}/include/
+libdir=${prefix}/@LIBDIR@
+
+Name: Vera
+Description: C++/WASM GL Framework
+Version: @VERSION@
+Libs: -L${libdir} -lvera
+Cflags: -I${includedir}

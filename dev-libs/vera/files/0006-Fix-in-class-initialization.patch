@@ -1,0 +1,274 @@
+From df04be674dec037e4dd2442a0fc791589ded2019 Mon Sep 17 00:00:00 2001
+From: Nguyen Dinh Dang Duong <dangduong31205@gmail.com>
+Date: Thu, 10 Jul 2025 22:01:48 +0700
+Subject: [PATCH 6/6] Fix in-class initialization
+
+---
+ include/vera/app.h                   | 4 +++-
+ include/vera/gl/textureStream.h      | 4 +++-
+ include/vera/gl/textureStreamAudio.h | 2 +-
+ include/vera/types/sky.h             | 3 ++-
+ include/vera/window.h                | 5 ++++-
+ include/vera/xr/holoPlay.h           | 3 ++-
+ src/CMakeLists.txt                   | 4 +++-
+ src/app.cpp                          | 4 +++-
+ src/gl/textureStream.cpp             | 6 ++++++
+ src/gl/textureStreamAudio.cpp        | 1 +
+ src/gl/textureStreamMMAL.cpp         | 3 ++-
+ src/types/sky.cpp                    | 5 +++++
+ src/window.cpp                       | 4 ++++
+ src/xr/holoPlay.cpp                  | 2 +-
+ 14 files changed, 40 insertions(+), 10 deletions(-)
+ create mode 100644 src/gl/textureStream.cpp
+ create mode 100644 src/types/sky.cpp
+
+diff --git a/include/vera/app.h b/include/vera/app.h
+index 16d4b80..df909c1 100644
+--- a/include/vera/app.h
++++ b/include/vera/app.h
+@@ -16,6 +16,8 @@ namespace vera {
+ class App {
+ public:
+ 
++    App();
++
+     void run(WindowProperties _properties = WindowProperties());
+ 
+     virtual void setup() {};
+@@ -90,4 +92,4 @@ protected:
+     #endif
+ };
+ 
+-}
+\ No newline at end of file
++}
+diff --git a/include/vera/gl/textureStream.h b/include/vera/gl/textureStream.h
+index 3964089..d2d4cbf 100644
+--- a/include/vera/gl/textureStream.h
++++ b/include/vera/gl/textureStream.h
+@@ -2,6 +2,7 @@
+ 
+ #include "texture.h"
+ 
++#include <GL/glext.h>
+ #include <vector>
+ #include <iostream>
+ 
+@@ -10,6 +11,7 @@ namespace vera {
+ class TextureStream : public Texture {
+ public:
+ 
++    TextureStream();
+     virtual ~TextureStream() {}
+     
+     virtual void            setSpeed( float _speed ) {};
+@@ -86,7 +88,7 @@ protected:
+     }
+     std::vector<GLuint>     m_idPrevs;
+ 
+-    bool                    m_play = true;
++    bool                    m_play;
+ };
+ 
+ }
+diff --git a/include/vera/gl/textureStreamAudio.h b/include/vera/gl/textureStreamAudio.h
+index 3f24205..236b7e6 100644
+--- a/include/vera/gl/textureStreamAudio.h
++++ b/include/vera/gl/textureStreamAudio.h
+@@ -16,7 +16,7 @@ public:
+ private:
+     static const int        m_buf_len = 1024;
+     std::vector<uint8_t>    m_buffer_wr, m_buffer_re, m_texture;
+-    float*                  m_dft_buffer = nullptr;
++    float*                  m_dft_buffer;
+ };
+ 
+ 
+diff --git a/include/vera/types/sky.h b/include/vera/types/sky.h
+index 1e03460..49eabb3 100644
+--- a/include/vera/types/sky.h
++++ b/include/vera/types/sky.h
+@@ -7,6 +7,7 @@ namespace vera {
+ // SKY BOX GENERATOR
+ // -------------------------------------------------------------- 
+ struct SkyData {
++    SkyData();
+     glm::vec3   groundAlbedo    = glm::vec3(0.25f);
+     float       elevation       = 0.3f;
+     float       azimuth         = 0.0f;
+@@ -14,4 +15,4 @@ struct SkyData {
+     bool        change          = false;
+ };
+ 
+-}
+\ No newline at end of file
++}
+diff --git a/include/vera/window.h b/include/vera/window.h
+index 21f754a..deebbd9 100644
+--- a/include/vera/window.h
++++ b/include/vera/window.h
+@@ -20,6 +20,9 @@ enum WindowStyle {
+ };
+ 
+ struct WindowProperties {
++
++    WindowProperties();
++
+     WindowStyle style   = REGULAR;
+     size_t      major   = 2;
+     size_t      minor   = 0;
+@@ -138,4 +141,4 @@ void    setMouseDragCallback(std::function<void(float, float, int)>);
+ void    setScrollCallback(std::function<void(float)>);
+ void    setDropCallback(std::function<void(int, const char**)>);
+ 
+-}
+\ No newline at end of file
++}
+diff --git a/include/vera/xr/holoPlay.h b/include/vera/xr/holoPlay.h
+index 376004e..b258cd3 100644
+--- a/include/vera/xr/holoPlay.h
++++ b/include/vera/xr/holoPlay.h
+@@ -42,6 +42,7 @@ void renderQuilt(std::function<void(const QuiltProperties&, glm::vec4&, int&)> _
+ //  in order to render correctly make sure this values match your calibration file on your device
+ // 
+ struct LenticularProperties {
++    LenticularProperties() = default;
+     float dpi       = 324.0;
+     float pitch     = 52.58737671470091;
+     float slope     = -7.196136200157333;
+@@ -55,4 +56,4 @@ void        setLenticularProperties(const std::string& _path);
+ std::string getLenticularFragShader(size_t _versionNumber = 100);
+ void        feedLenticularUniforms(Shader& _shader);
+ 
+-}
+\ No newline at end of file
++}
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 0289ee3..0db75c0 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -41,6 +41,7 @@ set(VERA_SOURCES
+     ${SOURCE_FOLDER}/gl/textureBump.cpp
+     ${SOURCE_FOLDER}/gl/textureCube.cpp 
+     ${SOURCE_FOLDER}/gl/textureProps.cpp 
++    ${SOURCE_FOLDER}/gl/textureStream.cpp
+     ${SOURCE_FOLDER}/gl/textureStreamAV.cpp
+     ${SOURCE_FOLDER}/gl/textureStreamOMX.cpp
+     ${SOURCE_FOLDER}/gl/textureStreamMMAL.cpp
+@@ -74,6 +75,7 @@ set(VERA_SOURCES
+     ${SOURCE_FOLDER}/types/node.cpp
+     ${SOURCE_FOLDER}/types/scene.cpp
+     ${SOURCE_FOLDER}/types/triangle.cpp
++    ${SOURCE_FOLDER}/types/sky.cpp
+     ${SOURCE_FOLDER}/shaders/defaultShaders.cpp
+     ${SOURCE_FOLDER}/xr/holoPlay.cpp 
+     ${SOURCE_FOLDER}/xr/xr.cpp 
+@@ -81,7 +83,7 @@ set(VERA_SOURCES
+ 
+ # C++ LIBRAY
+ #
+-add_library(vera ${VERA_SOURCES})
++add_library(vera SHARED ${VERA_SOURCES})
+ 
+ find_package(PkgConfig)
+ 
+diff --git a/src/app.cpp b/src/app.cpp
+index 008080b..abe7eff 100644
+--- a/src/app.cpp
++++ b/src/app.cpp
+@@ -13,6 +13,8 @@
+ 
+ namespace vera {
+ 
++App::App() = default;
++
+ #if defined(__EMSCRIPTEN__)
+ EM_BOOL App::loop (double _time, void* _userData) {
+     App* _app = (App*)_userData;
+@@ -299,4 +301,4 @@ void App::orbitControl() {
+         cam->setVirtualOffset(1.5, getQuiltCurrentViewIndex(), getQuiltTotalViews());
+ }
+ 
+-}
+\ No newline at end of file
++}
+diff --git a/src/gl/textureStream.cpp b/src/gl/textureStream.cpp
+new file mode 100644
+index 0000000..d45b5c3
+--- /dev/null
++++ b/src/gl/textureStream.cpp
+@@ -0,0 +1,6 @@
++#include "vera/gl/textureStream.h"
++
++namespace vera {
++    TextureStream::TextureStream() = default;
++}
++
+diff --git a/src/gl/textureStreamAudio.cpp b/src/gl/textureStreamAudio.cpp
+index 59c23b6..8a52cbb 100644
+--- a/src/gl/textureStreamAudio.cpp
++++ b/src/gl/textureStreamAudio.cpp
+@@ -53,6 +53,7 @@ TextureStreamAudio::TextureStreamAudio(): TextureStream() {
+     m_dft_buffer = (float*)av_malloc_array(sizeof(float), m_buf_len);
+     m_buffer_wr.resize(m_buf_len, 0);
+     m_buffer_re.resize(m_buf_len, 0);
++    m_dft_buffer = nullptr;
+ }
+ 
+ TextureStreamAudio::~TextureStreamAudio() {
+diff --git a/src/gl/textureStreamMMAL.cpp b/src/gl/textureStreamMMAL.cpp
+index ff8b184..e515164 100644
+--- a/src/gl/textureStreamMMAL.cpp
++++ b/src/gl/textureStreamMMAL.cpp
+@@ -615,7 +615,8 @@ TextureStreamMMAL::TextureStreamMMAL() :
+     camera_component(NULL),
+     m_fbo_id(0), m_old_fbo_id(0),
+     m_egl_img(0),
+-    m_vbo(nullptr) {
++    m_vbo(nullptr),
++    camera_component(NULL) {
+     #ifndef DRIVER_BROADCOM
+     // bcm_host is initialated on the creation of the window in LEGACY
+     bcm_host_init();
+diff --git a/src/types/sky.cpp b/src/types/sky.cpp
+new file mode 100644
+index 0000000..1bfa0c6
+--- /dev/null
++++ b/src/types/sky.cpp
+@@ -0,0 +1,5 @@
++#include "vera/types/sky.h"
++
++namespace vera {
++    SkyData::SkyData() = default;
++}
+diff --git a/src/window.cpp b/src/window.cpp
+index 35f2249..90d295b 100644
+--- a/src/window.cpp
++++ b/src/window.cpp
+@@ -49,6 +49,10 @@ static float            yScroll = 0.0f;
+ static bool             bShift = false;    
+ static bool             bControl = false;    
+ 
++namespace vera {
++    WindowProperties::WindowProperties() = default;
++}
++
+ #if defined(DRIVER_GLFW)
+ 
+ #if defined(__APPLE__)
+diff --git a/src/xr/holoPlay.cpp b/src/xr/holoPlay.cpp
+index b43d087..b8862eb 100644
+--- a/src/xr/holoPlay.cpp
++++ b/src/xr/holoPlay.cpp
+@@ -15,7 +15,7 @@ static Shader           quilt_shader;
+ static int              currentViewIndex = 0;
+ 
+ //  QUILT 
+-QuiltProperties::QuiltProperties() {};
++QuiltProperties::QuiltProperties() = default;
+ QuiltProperties::QuiltProperties(int _width, int _height, int _cols, int _rows) {
+     width = _width;
+     height = _height;
+-- 
+2.50.0
+
