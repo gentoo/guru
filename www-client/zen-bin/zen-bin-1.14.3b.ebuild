@@ -17,7 +17,7 @@ IUSE="upower opengl"
 
 DEPEND="
 	upower? ( sys-power/upower )
-	opengl? ( media-libs/libglvnd )
+	opengl? ( virtual/opengl )
 	app-accessibility/at-spi2-core:2
 	dev-libs/expat
 	dev-libs/glib:2
