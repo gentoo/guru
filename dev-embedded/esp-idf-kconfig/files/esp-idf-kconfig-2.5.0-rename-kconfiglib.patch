@@ -1,0 +1,162 @@
+esp-idf-kconfig ships a fork of dev-python/kconfiglib creating a conflict when both of them are installed.
+This patch renames the esp-idf fork of kconfiglib as an attempt to avoid those conflicts.
+See https://github.com/espressif/esp-idf-kconfig/issues/13
+---
+diff --git c/esp_idf_kconfig/gen_kconfig_doc.py w/esp_idf_kconfig/gen_kconfig_doc.py
+index 8f9ffd5..bb16022 100644
+--- c/esp_idf_kconfig/gen_kconfig_doc.py
++++ w/esp_idf_kconfig/gen_kconfig_doc.py
+@@ -11,7 +11,7 @@
+ # SPDX-License-Identifier: Apache-2.0
+ import re
+ 
+-import kconfiglib.core as kconfiglib
++import espkconfiglib.core as kconfiglib
+ 
+ # Indentation to be used in the generated file
+ INDENT = "    "
+diff --git c/kconfiglib/__init__.py w/espkconfiglib/__init__.py
+similarity index 100%
+rename from kconfiglib/__init__.py
+rename to espkconfiglib/__init__.py
+diff --git c/kconfiglib/core.py w/espkconfiglib/core.py
+similarity index 99%
+rename from kconfiglib/core.py
+rename to espkconfiglib/core.py
+index 11fb924..e78d41d 100644
+--- c/kconfiglib/core.py
++++ w/espkconfiglib/core.py
+@@ -2,7 +2,7 @@
+ # SPDX-FileCopyrightText: 2024-2025 Espressif Systems (Shanghai) CO LTD
+ # SPDX-FileCopyrightText: 2011-2019, Ulf Magnusson
+ # SPDX-License-Identifier: ISC
+-# This file is copied from kconfiglib project:
++# This file is copied from espkconfiglib project:
+ # https://github.com/ulfalizer/Kconfiglib/commit/061e71f7d78cb057762d88de088055361863deff
+ import errno
+ import importlib
+@@ -2472,7 +2472,7 @@ class Kconfig(object):
+         returns node that was parsed as a last one in this function.
+                 probably will be deprecated as the call logic is different from the original.
+         """
+-        from kconfiglib.kconfig_parser import Parser
++        from espkconfiglib.kconfig_parser import Parser
+ 
+         parser = Parser(kconfig=self)
+ 
+diff --git c/kconfiglib/kconfig_grammar.py w/espkconfiglib/kconfig_grammar.py
+similarity index 99%
+rename from kconfiglib/kconfig_grammar.py
+rename to espkconfiglib/kconfig_grammar.py
+index 95700d1..160963d 100644
+--- c/kconfiglib/kconfig_grammar.py
++++ w/espkconfiglib/kconfig_grammar.py
+@@ -29,7 +29,7 @@ from pyparsing import one_of
+ from pyparsing import opAssoc
+ 
+ if TYPE_CHECKING:
+-    from kconfiglib.kconfig_parser import Parser
++    from espkconfiglib.kconfig_parser import Parser
+ 
+ 
+ class KconfigBlock(Token):
+diff --git c/kconfiglib/kconfig_parser.py w/espkconfiglib/kconfig_parser.py
+similarity index 99%
+rename from kconfiglib/kconfig_parser.py
+rename to espkconfiglib/kconfig_parser.py
+index 3fdc23c..6ef277e 100644
+--- c/kconfiglib/kconfig_parser.py
++++ w/espkconfiglib/kconfig_parser.py
+@@ -37,7 +37,7 @@ from .core import OR
+ from .core import STRING
+ from .core import Symbol
+ from .core import UNEQUAL
+-from kconfiglib.kconfig_grammar import KconfigGrammar
++from espkconfiglib.kconfig_grammar import KconfigGrammar
+ 
+ ParserElement.enablePackrat(cache_size_limit=None)  # Speeds up parsing by caching intermediate results
+ 
+diff --git c/kconfgen/core.py w/kconfgen/core.py
+index fbd8e5a..f32f13e 100755
+--- c/kconfgen/core.py
++++ w/kconfgen/core.py
+@@ -27,7 +27,7 @@ from typing import Set
+ from typing import Tuple
+ 
+ import esp_idf_kconfig.gen_kconfig_doc as gen_kconfig_doc
+-import kconfiglib.core as kconfiglib
++import espkconfiglib.core as kconfiglib
+ from esp_idf_kconfig import __version__
+ 
+ 
+diff --git c/kconfserver/core.py w/kconfserver/core.py
+index a970157..3a8f061 100644
+--- c/kconfserver/core.py
++++ w/kconfserver/core.py
+@@ -13,7 +13,7 @@ import tempfile
+ from json import JSONDecodeError
+ 
+ import kconfgen.core as kconfgen
+-import kconfiglib.core as kconfiglib
++import espkconfiglib.core as kconfiglib
+ from esp_idf_kconfig import __version__
+ 
+ # Min/Max supported protocol versions
+diff --git c/menuconfig/core.py w/menuconfig/core.py
+index cac0032..de915f6 100755
+--- c/menuconfig/core.py
++++ w/menuconfig/core.py
+@@ -2,7 +2,7 @@
+ # SPDX-FileCopyrightText: 2024 Espressif Systems (Shanghai) CO LTD
+ # SPDX-FileCopyrightText: 2018-2019, Nordic Semiconductor ASA and Ulf Magnusson
+ # SPDX-License-Identifier: ISC
+-# This file is copied from kconfiglib project:
++# This file is copied from espkconfiglib project:
+ # https://github.com/ulfalizer/Kconfiglib/commit/061e71f7d78cb057762d88de088055361863deff
+ """
+ Overview
+@@ -192,25 +192,25 @@ import sys
+ import textwrap
+ from typing import Union
+ 
+-from kconfiglib.core import AND
+-from kconfiglib.core import BOOL
+-from kconfiglib.core import BOOL_TO_STR
+-from kconfiglib.core import Choice
+-from kconfiglib.core import COMMENT
+-from kconfiglib.core import expr_str
+-from kconfiglib.core import expr_value
+-from kconfiglib.core import HEX
+-from kconfiglib.core import INT
+-from kconfiglib.core import MENU
+-from kconfiglib.core import MenuNode
+-from kconfiglib.core import OR
+-from kconfiglib.core import split_expr
+-from kconfiglib.core import standard_config_filename
+-from kconfiglib.core import standard_kconfig
+-from kconfiglib.core import standard_sc_expr_str
+-from kconfiglib.core import STRING
+-from kconfiglib.core import Symbol
+-from kconfiglib.core import TYPE_TO_STR
++from espkconfiglib.core import AND
++from espkconfiglib.core import BOOL
++from espkconfiglib.core import BOOL_TO_STR
++from espkconfiglib.core import Choice
++from espkconfiglib.core import COMMENT
++from espkconfiglib.core import expr_str
++from espkconfiglib.core import expr_value
++from espkconfiglib.core import HEX
++from espkconfiglib.core import INT
++from espkconfiglib.core import MENU
++from espkconfiglib.core import MenuNode
++from espkconfiglib.core import OR
++from espkconfiglib.core import split_expr
++from espkconfiglib.core import standard_config_filename
++from espkconfiglib.core import standard_kconfig
++from espkconfiglib.core import standard_sc_expr_str
++from espkconfiglib.core import STRING
++from espkconfiglib.core import Symbol
++from espkconfiglib.core import TYPE_TO_STR
+ 
+ _IS_WINDOWS = os.name == "nt"  # Are we running on Windows?
+ 
