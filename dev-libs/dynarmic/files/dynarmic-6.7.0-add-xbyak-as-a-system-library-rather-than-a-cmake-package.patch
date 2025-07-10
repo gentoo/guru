@@ -1,0 +1,19 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Add `xbyak` as a system library rather than a CMake package.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -149,7 +149,11 @@ if ("arm64" IN_LIST ARCHITECTURE OR DYNARMIC_TESTS)
+ endif()
+ 
+ if ("x86_64" IN_LIST ARCHITECTURE)
+-    find_package(xbyak 7 CONFIG)
++    add_library(xbyak INTERFACE)
++    add_library(xbyak::xbyak ALIAS xbyak)
++    target_compile_options(xbyak INTERFACE "-fno-operator-names")
++    target_compile_definitions(xbyak INTERFACE XBYAK_STRICT_CHECK_MEM_REG_SIZE=0)
++
+     find_package(Zydis 4 CONFIG)
+ endif()

@@ -1,0 +1,16 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Relax the dependency on `mcl`.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -141,7 +141,7 @@ endif()
+ 
+ find_package(Boost 1.57 REQUIRED)
+ find_package(fmt 9 CONFIG)
+-find_package(mcl 0.1.12 EXACT CONFIG)
++find_package(mcl 0.1.12 CONFIG)
+ find_package(tsl-robin-map CONFIG)
+ 
+ if ("arm64" IN_LIST ARCHITECTURE OR DYNARMIC_TESTS)
