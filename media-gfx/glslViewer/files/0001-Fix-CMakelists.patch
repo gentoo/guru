@@ -1,0 +1,319 @@
+From e692a65ee828896d6d08f9b8b6e8cb0cb04ee2eb Mon Sep 17 00:00:00 2001
+From: Nguyen Dinh Dang Duong <dangduong31205@gmail.com>
+Date: Thu, 10 Jul 2025 23:00:42 +0700
+Subject: [PATCH 1/2] Fix CMakelists
+
+---
+ CMakeLists.txt | 226 +++++++++++++++++++++++--------------------------
+ 1 file changed, 104 insertions(+), 122 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0a90b18..672e9b9 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -13,12 +13,8 @@ set(CMAKE_CXX_STANDARD 14)
+ set(CMAKE_CXX_STANDARD_REQUIRED ON)
+ set(CMAKE_CXX_EXTENSIONS OFF)
+ 
+-# The compiled vera 
+-add_subdirectory(deps)
+-
+-if(MSVC)
+-    add_definitions( -DPLATFORM_WINDOWS )
+-endif()
++find_package(PkgConfig REQUIRED)
++include_directories(${PROJECT_SOURCE_DIR}/deps)
+ 
+ if (NO_X11 OR FORCE_GBM)
+     add_compile_options(-std=c++14 -DGLM_FORCE_CXX14 -fpermissive -Wno-psabi -lpthread)
+@@ -38,7 +34,7 @@ set(CORE_HEADERS
+     "${PROJECT_SOURCE_DIR}/src/core/tools/tracker.h"
+ )
+ 
+-set(CORE_SOURCES 
++set(CORE_SOURCES
+     "${PROJECT_SOURCE_DIR}/src/core/sandbox.cpp"
+     "${PROJECT_SOURCE_DIR}/src/core/sceneRender.cpp"
+     "${PROJECT_SOURCE_DIR}/src/core/uniforms.cpp"
+@@ -48,22 +44,24 @@ set(CORE_SOURCES
+     "${PROJECT_SOURCE_DIR}/src/core/tools/tracker.cpp"
+ )
+ 
+-add_executable(glslViewer 
++add_executable(glslViewer
+     "${PROJECT_SOURCE_DIR}/src/main.cpp"
+     ${CORE_SOURCES}
+ )
+ 
+-
+-include_directories(deps/liblo)
+-target_include_directories(glslViewer PRIVATE deps)
++# Vera
++pkg_check_modules(VERA REQUIRED vera)
++include_directories(${VERA_INCLUDE_DIRS})
++link_libraries(${VERA_LIBRARIES})
+ target_link_libraries(glslViewer PRIVATE vera)
++
+ # target_compile_definitions(vera PUBLIC SUPPORT_PLY_BINARY)
+ target_compile_definitions(glslViewer PRIVATE GLSLVIEWER_VERSION_MAJOR=${VERSION_MAJOR})
+ target_compile_definitions(glslViewer PRIVATE GLSLVIEWER_VERSION_MINOR=${VERSION_MINOR})
+ target_compile_definitions(glslViewer PRIVATE GLSLVIEWER_VERSION_PATCH=${VERSION_PATCH})
+ 
+-if (EMSCRIPTEN)    
+-    
++if (EMSCRIPTEN)
++
+     set(LFLAGS "${LFLAGS} -s USE_GLFW=3")
+     # set(LFLAGS "${LFLAGS} -s FULL_ES2=1")
+     # set(LFLAGS "${LFLAGS} -s FULL_ES3=1")
+@@ -78,17 +76,18 @@ if (EMSCRIPTEN)
+     set(LFLAGS "${LFLAGS} -s NO_DYNAMIC_EXECUTION=1")
+     # set(LFLAGS "${LFLAGS} -s NO_DISABLE_EXCEPTION_CATCHING")
+ 
+-    # Copy the default index.html 
++    # Copy the default index.html
+     file(COPY   assets/index.html DESTINATION ${CMAKE_CURRENT_BINARY_DIR} )
+ 
+-    # Add examples folder to the .data file system 
++    # Add examples folder to the .data file system
+     file(COPY   examples DESTINATION ${CMAKE_CURRENT_BINARY_DIR} )
+     set(LFLAGS "${LFLAGS} --preload-file examples")
+ 
+     set_target_properties(glslViewer PROPERTIES LINK_FLAGS "${LFLAGS}")
+     target_link_libraries(glslViewer PRIVATE glfw webxr)
+-    
++
+ else()
++    # Curses
+     find_package(Curses)
+     if (CURSES_FOUND)
+         target_compile_definitions(glslViewer PUBLIC SUPPORT_NCURSES)
+@@ -96,8 +95,28 @@ else()
+         target_link_libraries(glslViewer PRIVATE ${CURSES_LIBRARY})
+     endif()
+ 
+-    target_compile_definitions(glslViewer PUBLIC 
+-        SUPPORT_MULTITHREAD_RECORDING 
++    find_library(TINFO_LIB tinfo)
++    if (TINFO_LIB)
++        target_link_libraries(glslViewer PRIVATE ${TINFO_LIB})
++    endif()
++
++    # OpenGL
++    set(OpenGL_GL_PREFERENCE GLVND)
++    find_package(OpenGL REQUIRED)
++    target_include_directories(glslViewer PRIVATE ${OPENGL_INCLUDE_DIR})
++    target_link_libraries(glslViewer PRIVATE OpenGL::GL)
++
++    # Liblo
++    pkg_check_modules(LIBLO REQUIRED liblo)
++    target_include_directories(glslViewer PRIVATE ${LIBLO_INCLUDE_DIRS})
++    target_link_libraries(glslViewer PRIVATE ${LIBLO_LIBRARIES})
++
++    # Glm
++    find_package(glm REQUIRED)
++    target_include_directories(glslViewer PRIVATE ${GLM_INCLUDE_DIRS})
++
++    target_compile_definitions(glslViewer PUBLIC
++        SUPPORT_MULTITHREAD_RECORDING
+         SUPPORT_OSC
+     )
+ 
+@@ -127,105 +146,73 @@ else()
+     # set a default system name - use CMake setting (Linux|Windows|...)
+     set(SYSTEM_NAME ${CMAKE_SYSTEM_NAME})
+ 
+-    # for msvc the SYSTEM_NAME is set win32/64 instead of "Windows"
+-    if(MSVC)
+-        if(CMAKE_CL_64)
+-            set(SYSTEM_NAME "win64")
+-        else()
+-            set(SYSTEM_NAME "win32")
+-        endif()
+-    endif()
+     set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${VERSION}-${SYSTEM_NAME}-${SYSTEM_ARCH}")
+ 
+-    if (MSVC)
+-	    target_link_libraries(glslViewer PRIVATE 
+-            lo_static 
+-            Ws2_32.lib 
+-            Iphlpapi.lib
++    target_link_libraries(glslViewer PRIVATE pthread dl)
++    install(TARGETS glslViewer DESTINATION ${CMAKE_INSTALL_BINDIR})
++
++    if (NOT APPLE)
++        target_link_libraries(glslViewer PRIVATE atomic)
++
++        # Install glslViewer Icon
++        install(FILES "${PROJECT_SOURCE_DIR}/assets/glslViewer.png" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pixmaps)
++        install(FILES "${PROJECT_SOURCE_DIR}/assets/glslViewer.desktop" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
++
++        # Install supported MIME file types by GlslViewer
++        install(FILES "${PROJECT_SOURCE_DIR}/assets/glslViewer-types.xml" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/mime/packages)
++
++        # Add a thumbnailer for 3D Models
++        install(FILES "${PROJECT_SOURCE_DIR}/assets/glslViewer.thumbnailer" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/thumbnailers)
++        install(FILES "${PROJECT_SOURCE_DIR}/assets/glslThumbnailer.sh"
++                PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
++                DESTINATION ${CMAKE_INSTALL_BINDIR}
++                RENAME "glslThumbnailer")
++
++        # Add ScreenSaver script
++        install(FILES "${PROJECT_SOURCE_DIR}/assets/glslScreenSaver.py"
++                PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
++                DESTINATION ${CMAKE_INSTALL_BINDIR}
++                RENAME "glslScreenSaver")
++        install(FILES "${PROJECT_SOURCE_DIR}/assets/glslScreenSaver.frag" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/glslViewer")
++        install(FILES "${PROJECT_SOURCE_DIR}/assets/glslScreenSaver.yaml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/glslViewer")
++
++        find_program(XDG-DESKTOP-MENU_EXECUTABLE xdg-desktop-menu)
++        execute_process(COMMAND ${XDG-DESKTOP-MENU_EXECUTABLE} install --novendor ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications/glslViewer.desktop)
++
++        # set(CPACK_GENERATOR "DEB")
++        set(DEBSRC_BUILD_DEPENDS debhelper git cmake xorg-dev libgbm-dev libglu1-mesa-dev libavcodec-dev libavfilter-dev  libavdevice-dev libavformat-dev libavutil-dev libswscale-dev libv4l-dev libjpeg-dev libpng-dev libtiff-dev)
++        set(DEBSRC_PACKAGE_DEPENDS ffmpeg libavcodec-extra libavfilter-extra xorg-x11-server-Xvfb )
++
++        set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
++
++        set(CPACK_DEBIAN_PACKAGE_DEPENDS)
++        foreach(DEP ${DEBSRC_PACKAGE_DEPENDS})
++        set(CPACK_DEBIAN_PACKAGE_DEPEND "${CPACK_DEBIAN_PACKAGE_DEPENDS}, ${DEP}")
++        endforeach(DEP ${DEBSRC_PACKAGE_DEPENDS})
++
++        set(CPACK_DEBIAN_BUILD_DEPENDS)
++        foreach(DEP ${DEBSRC_BUILD_DEPENDS})
++        set(CPACK_DEBIAN_BUILD_DEPENDS "${CPACK_DEBIAN_BUILD_DEPENDS}, ${DEP}")
++        endforeach(DEP ${DEBSRC_BUILD_DEPENDS})
++
++        # find out and set DEB_ARCHITECTURE
++        execute_process(
++            COMMAND dpkg --print-architecture
++            OUTPUT_VARIABLE DEB_ARCHITECTURE
++            OUTPUT_STRIP_TRAILING_WHITESPACE
+         )
+-
+-        install(TARGETS glslViewer)
+-        set(CPACK_GENERATOR "ZIP")
+-
+-    else()
+-        target_link_libraries(glslViewer PRIVATE pthread dl lo_static)
+-        install(TARGETS glslViewer DESTINATION ${CMAKE_INSTALL_BINDIR})
+-        
+-        if (NOT APPLE)
+-            target_link_libraries(glslViewer PRIVATE atomic)
+-
+-            # Install glslViewer Icon
+-            install(FILES "${PROJECT_SOURCE_DIR}/assets/glslViewer.png" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pixmaps)
+-            install(FILES "${PROJECT_SOURCE_DIR}/assets/glslViewer.desktop" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
+-            
+-            # Install supported MIME file types by GlslViewer
+-            install(FILES "${PROJECT_SOURCE_DIR}/assets/glslViewer-types.xml" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/mime/packages)
+-            find_program(XDG-MIME_EXECUTABLE xdg-mime)
+-            install(CODE "execute_process(COMMAND ${XDG-MIME_EXECUTABLE} install --novendor ${CMAKE_INSTALL_FULL_DATAROOTDIR}/mime/packages/glslViewer-types.xml)")
+-            install(CODE "execute_process(COMMAND ${XDG-MIME_EXECUTABLE} default ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications/glslViewer.desktop model/lst)")
+-            install(CODE "execute_process(COMMAND ${XDG-MIME_EXECUTABLE} default ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications/glslViewer.desktop model/ply)")
+-            install(CODE "execute_process(COMMAND ${XDG-MIME_EXECUTABLE} default ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications/glslViewer.desktop model/obj)")
+-            install(CODE "execute_process(COMMAND ${XDG-MIME_EXECUTABLE} default ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications/glslViewer.desktop model/gltf-binary)")
+-            install(CODE "execute_process(COMMAND ${XDG-MIME_EXECUTABLE} default ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications/glslViewer.desktop model/gltf+json)")
+-            find_program(UPDATE_MIME_DATABASE update-mime-database)
+-            install(CODE "execute_process(COMMAND ${UPDATE_MIME_DATABASE} ${CMAKE_INSTALL_FULL_DATAROOTDIR}/mime )")
+-            find_program(UPDATE_DESKTOP_DATABASE update-desktop-database)
+-            install(CODE "execute_process(COMMAND ${UPDATE_DESKTOP_DATABASE} ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications)")
+-            
+-            # Add a thumbnailer for 3D Models
+-            install(FILES "${PROJECT_SOURCE_DIR}/assets/glslViewer.thumbnailer" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/thumbnailers)
+-            install(FILES "${PROJECT_SOURCE_DIR}/assets/glslThumbnailer.sh"
+-                    PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+-                    DESTINATION ${CMAKE_INSTALL_BINDIR}
+-                    RENAME "glslThumbnailer")
+-
+-            # Add ScreenSaver script
+-            install(FILES "${PROJECT_SOURCE_DIR}/assets/glslScreenSaver.py"
+-                    PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+-                    DESTINATION ${CMAKE_INSTALL_BINDIR}
+-                    RENAME "glslScreenSaver")
+-            install(FILES "${PROJECT_SOURCE_DIR}/assets/glslScreenSaver.frag" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/glslViewer")
+-            install(FILES "${PROJECT_SOURCE_DIR}/assets/glslScreenSaver.yaml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/glslViewer")
+-
+-            find_program(XDG-DESKTOP-MENU_EXECUTABLE xdg-desktop-menu)
+-            execute_process(COMMAND ${XDG-DESKTOP-MENU_EXECUTABLE} install --novendor ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications/glslViewer.desktop)
+-
+-            # set(CPACK_GENERATOR "DEB")
+-            set(DEBSRC_BUILD_DEPENDS debhelper git cmake xorg-dev libgbm-dev libglu1-mesa-dev libavcodec-dev libavfilter-dev  libavdevice-dev libavformat-dev libavutil-dev libswscale-dev libv4l-dev libjpeg-dev libpng-dev libtiff-dev)
+-            set(DEBSRC_PACKAGE_DEPENDS ffmpeg libavcodec-extra libavfilter-extra xorg-x11-server-Xvfb )
+-
+-            set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+-
+-            set(CPACK_DEBIAN_PACKAGE_DEPENDS)
+-            foreach(DEP ${DEBSRC_PACKAGE_DEPENDS})
+-            set(CPACK_DEBIAN_PACKAGE_DEPEND "${CPACK_DEBIAN_PACKAGE_DEPENDS}, ${DEP}")
+-            endforeach(DEP ${DEBSRC_PACKAGE_DEPENDS})  
+-
+-            set(CPACK_DEBIAN_BUILD_DEPENDS)
+-            foreach(DEP ${DEBSRC_BUILD_DEPENDS})
+-            set(CPACK_DEBIAN_BUILD_DEPENDS "${CPACK_DEBIAN_BUILD_DEPENDS}, ${DEP}")
+-            endforeach(DEP ${DEBSRC_BUILD_DEPENDS})
+-
+-            # find out and set DEB_ARCHITECTURE
+-            execute_process(
+-                COMMAND dpkg --print-architecture
+-                OUTPUT_VARIABLE DEB_ARCHITECTURE
+-                OUTPUT_STRIP_TRAILING_WHITESPACE            
+-            )
+-            message(STATUS "package_details.cmake: your architecture is ${DEB_ARCHITECTURE}")
+-
+-            set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE ${DEB_ARCHITECTURE})
+-            set(CPACK_DEBIAN_PACKAGE_SECTION graphics)
+-            set(CPACK_DEBIAN_PACKAGE_PRIORITY extra )
+-            set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Patricio Gonzalez Vivo <patriciogonzalezvivo@gmail.com>")
+-            set(CPACK_DEBIAN_DISTRIBUTION_NAME ubuntu )
+-            set(CPACK_DEBIAN_DISTRIBUTION_RELEASES bionic focal ) 
+-            set(CPACK_DEBIAN_CHANGELOG "  * Latest development version.")
+-            # set(CPACK_DEBIAN_RESOURCE_FILE_CHANGELOG ${PROJECT_SOURCE_DIR}/changelog)
+-            # set(CPACK_DEBIAN_UPDATE_CHANGELOG ON)
+-            set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${VERSION}-${DEB_ARCHITECTURE}")
+-        endif()
+-        
++        message(STATUS "package_details.cmake: your architecture is ${DEB_ARCHITECTURE}")
++
++        set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE ${DEB_ARCHITECTURE})
++        set(CPACK_DEBIAN_PACKAGE_SECTION graphics)
++        set(CPACK_DEBIAN_PACKAGE_PRIORITY extra )
++        set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Patricio Gonzalez Vivo <patriciogonzalezvivo@gmail.com>")
++        set(CPACK_DEBIAN_DISTRIBUTION_NAME ubuntu )
++        set(CPACK_DEBIAN_DISTRIBUTION_RELEASES bionic focal )
++        set(CPACK_DEBIAN_CHANGELOG "  * Latest development version.")
++        # set(CPACK_DEBIAN_RESOURCE_FILE_CHANGELOG ${PROJECT_SOURCE_DIR}/changelog)
++        # set(CPACK_DEBIAN_UPDATE_CHANGELOG ON)
++        set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${VERSION}-${DEB_ARCHITECTURE}")
+     endif()
+ 
+     include(CPack)
+@@ -233,12 +220,8 @@ else()
+ endif()
+ 
+ if (PYTHON_BINDINGS)
+-    find_package(Python3 3.10 REQUIRED COMPONENTS Interpreter Development)
+-
+-    # pybind11
+-    set(DEPS_FOLDER "${PROJECT_SOURCE_DIR}/deps")
+-    add_subdirectory("${DEPS_FOLDER}/pybind11")
+-    include_directories(${pybind11_INCLUDE_DIRS})
++    find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
++    find_package(pybind11 REQUIRED)
+ 
+     set(PYBIND_INCLUDES
+         "${PROJECT_SOURCE_DIR}/src/python/engine.h"
+@@ -255,7 +238,6 @@ if (PYTHON_BINDINGS)
+     target_compile_definitions(PyGlslViewer PRIVATE GLSLVIEWER_VERSION_MAJOR=${VERSION_MAJOR})
+     target_compile_definitions(PyGlslViewer PRIVATE GLSLVIEWER_VERSION_MINOR=${VERSION_MINOR})
+     target_compile_definitions(PyGlslViewer PRIVATE GLSLVIEWER_VERSION_PATCH=${VERSION_PATCH})
+-    target_include_directories(PyGlslViewer PUBLIC ${DEPS_FOLDER})
+     target_link_libraries(PyGlslViewer PRIVATE vera pybind11::module)
+ 
+-endif()
+\ No newline at end of file
++endif()
+-- 
+2.50.0
+

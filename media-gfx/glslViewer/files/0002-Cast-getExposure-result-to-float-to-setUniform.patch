@@ -1,0 +1,281 @@
+From 9e2959b03e256ec9a3d43e1bcaa4c5ddd595c69c Mon Sep 17 00:00:00 2001
+From: Nguyen Dinh Dang Duong <dangduong31205@gmail.com>
+Date: Thu, 10 Jul 2025 23:25:00 +0700
+Subject: [PATCH 2/2] Cast getExposure() result to float to setUniform
+
+---
+ src/core/uniforms.cpp | 70 +++++++++++++++++++++----------------------
+ 1 file changed, 35 insertions(+), 35 deletions(-)
+
+diff --git a/src/core/uniforms.cpp b/src/core/uniforms.cpp
+index 4182977..3b76f23 100644
+--- a/src/core/uniforms.cpp
++++ b/src/core/uniforms.cpp
+@@ -16,7 +16,7 @@
+ 
+ std::string UniformData::getType() {
+     if (size == 1) return (bInt ? "int" : "float");
+-    else return (bInt ? "ivec" : "vec") + vera::toString(size); 
++    else return (bInt ? "ivec" : "vec") + vera::toString(size);
+ }
+ 
+ void UniformData::set(const UniformValue &_value, size_t _size, bool _int, bool _queue) {
+@@ -27,13 +27,13 @@ void UniformData::set(const UniformValue &_value, size_t _size, bool _int, bool
+         queue.push( _value );
+     else
+         value = _value;
+-    
++
+     change = true;
+ }
+ 
+ void UniformData::parse(const std::vector<std::string>& _command, size_t _start, bool _queue) {;
+     UniformValue candidate;
+-    for (size_t i = _start; i < _command.size() && i < 5; i++) 
++    for (size_t i = _start; i < _command.size() && i < 5; i++)
+         candidate[i-_start] = vera::toFloat(_command[i]);
+ 
+     set(candidate, _command.size() - _start, false, _queue);
+@@ -88,14 +88,14 @@ Uniforms::Uniforms() : m_frame(0), m_play(true), m_change(false) {
+     //
+     functions["u_iblLuminance"] = UniformFunction("float", [this](vera::Shader& _shader) {
+         if (activeCamera)
+-            _shader.setUniform("u_iblLuminance", 30000.0f * activeCamera->getExposure());
++            _shader.setUniform("u_iblLuminance", 30000.0f * static_cast<float>(activeCamera->getExposure()));
+     },
+-    [this]() { 
++    [this]() {
+         if (activeCamera)
+             return vera::toString(30000.0f * activeCamera->getExposure());
+         return std::string("");
+     });
+-    
++
+     // CAMERA UNIFORMS
+     //
+     functions["u_camera"] = UniformFunction("vec3", [this](vera::Shader& _shader) {
+@@ -112,7 +112,7 @@ Uniforms::Uniforms() : m_frame(0), m_play(true), m_change(false) {
+         if (activeCamera)
+             _shader.setUniform("u_cameraDistance", activeCamera->getDistance());
+     },
+-    [this]() { 
++    [this]() {
+         if (activeCamera)
+             return vera::toString(activeCamera->getDistance());
+         return std::string("");
+@@ -122,7 +122,7 @@ Uniforms::Uniforms() : m_frame(0), m_play(true), m_change(false) {
+         if (activeCamera)
+             _shader.setUniform("u_cameraNearClip", activeCamera->getNearClip());
+     },
+-    [this]() { 
++    [this]() {
+         if (activeCamera)
+             return vera::toString(activeCamera->getNearClip());
+         return std::string("");
+@@ -132,9 +132,9 @@ Uniforms::Uniforms() : m_frame(0), m_play(true), m_change(false) {
+         if (activeCamera)
+             _shader.setUniform("u_cameraFarClip", activeCamera->getFarClip());
+     },
+-    [this]() { 
++    [this]() {
+         if (activeCamera)
+-            return vera::toString(activeCamera->getFarClip()); 
++            return vera::toString(activeCamera->getFarClip());
+         return std::string("");
+     });
+ 
+@@ -150,9 +150,9 @@ Uniforms::Uniforms() : m_frame(0), m_play(true), m_change(false) {
+ 
+     functions["u_cameraExposure"] = UniformFunction("float", [this](vera::Shader& _shader) {
+         if (activeCamera)
+-            _shader.setUniform("u_cameraExposure", activeCamera->getExposure());
++            _shader.setUniform("u_cameraExposure", static_cast<float>(activeCamera->getExposure()));
+     },
+-    [this]() { 
++    [this]() {
+         if (activeCamera)
+             return vera::toString(activeCamera->getExposure());
+         return std::string("");
+@@ -162,7 +162,7 @@ Uniforms::Uniforms() : m_frame(0), m_play(true), m_change(false) {
+         if (activeCamera)
+             _shader.setUniform("u_cameraAperture", activeCamera->getAperture());
+     },
+-    [this]() { 
++    [this]() {
+         if (activeCamera)
+             return vera::toString(activeCamera->getAperture());
+         return std::string("");
+@@ -172,7 +172,7 @@ Uniforms::Uniforms() : m_frame(0), m_play(true), m_change(false) {
+         if (activeCamera)
+             _shader.setUniform("u_cameraShutterSpeed", activeCamera->getShutterSpeed());
+     },
+-    [this]() { 
++    [this]() {
+         if (activeCamera)
+             return vera::toString(activeCamera->getShutterSpeed());
+         return std::string("");
+@@ -182,7 +182,7 @@ Uniforms::Uniforms() : m_frame(0), m_play(true), m_change(false) {
+         if (activeCamera)
+             _shader.setUniform("u_cameraSensitivity", activeCamera->getSensitivity());
+     },
+-    [this]() { 
++    [this]() {
+         if (activeCamera)
+             return vera::toString(activeCamera->getSensitivity());
+         return std::string("");
+@@ -192,12 +192,12 @@ Uniforms::Uniforms() : m_frame(0), m_play(true), m_change(false) {
+         if (activeCamera)
+             _shader.setUniform("u_cameraChange", activeCamera->bChange);
+     },
+-    [this]() { 
++    [this]() {
+         if (activeCamera)
+             return vera::toString(activeCamera->bChange);
+         return std::string("");
+     });
+-    
++
+     functions["u_normalMatrix"] = UniformFunction("mat3", [this](vera::Shader& _shader) {
+         if (activeCamera)
+             _shader.setUniform("u_normalMatrix", activeCamera->getNormalMatrix());
+@@ -248,7 +248,7 @@ bool Uniforms::feedTo(vera::Shader *_shader, bool _lights, bool _buffers ) {
+     }
+ 
+     // Pass user defined uniforms (only if the shader code or scene had changed)
+-    // if (m_change) 
++    // if (m_change)
+     {
+         for (UniformDataMap::iterator it = data.begin(); it != data.end(); ++it) {
+             _shader->setUniform(it->first, it->second.value.data(), it->second.size);
+@@ -291,7 +291,7 @@ bool Uniforms::feedTo(vera::Shader *_shader, bool _lights, bool _buffers ) {
+ 
+         for (size_t i = 0; i < doubleBuffers.size(); i++)
+             _shader->setUniformTexture("u_doubleBuffer" + vera::toString(i), doubleBuffers[i]->src, _shader->textureIndex++ );
+-    
++
+         for (size_t i = 0; i < floods.size(); i++)
+             _shader->setUniformTexture("u_flood" + vera::toString(i), floods[i].dst, _shader->textureIndex++ );
+     }
+@@ -300,7 +300,7 @@ bool Uniforms::feedTo(vera::Shader *_shader, bool _lights, bool _buffers ) {
+     for (size_t i = 0; i < pyramids.size(); i++)
+         _shader->setUniformTexture("u_pyramid" + vera::toString(i), pyramids[i].getResult(), _shader->textureIndex++ );
+ 
+-    
++
+     if (_lights) {
+         // Pass Light Uniforms
+         if (lights.size() == 1) {
+@@ -318,7 +318,7 @@ bool Uniforms::feedTo(vera::Shader *_shader, bool _lights, bool _buffers ) {
+         }
+         else {
+             // TODO:
+-            //      - Lights should be pass as structs?? 
++            //      - Lights should be pass as structs??
+ 
+             for (vera::LightsMap::iterator it = lights.begin(); it != lights.end(); ++it) {
+                 std::string name = "u_" + it->first;
+@@ -336,7 +336,7 @@ bool Uniforms::feedTo(vera::Shader *_shader, bool _lights, bool _buffers ) {
+                 _shader->setUniformDepthTexture(name + "ShadowMap", it->second->getShadowMap(), _shader->textureIndex++ );
+             }
+         }
+-        
++
+         if (activeCubemap) {
+             _shader->setUniformTextureCube("u_cubeMap", (vera::TextureCube*)activeCubemap);
+             _shader->setUniform("u_SH", activeCubemap->SH, 9);
+@@ -372,12 +372,12 @@ void Uniforms::unflagChange() {
+         activeCamera->bChange = false;
+ }
+ 
+-bool Uniforms::haveChange() { 
++bool Uniforms::haveChange() {
+     if (activeCamera)
+         if (activeCamera->bChange)
+             return true;
+-            
+-    if (functions["u_time"].present || 
++
++    if (functions["u_time"].present ||
+         functions["u_date"].present ||
+         functions["u_delta"].present ||
+         functions["u_mouse"].present)
+@@ -402,7 +402,7 @@ void Uniforms::checkUniforms( const std::string &_vert_src, const std::string &_
+         if ( it->second.present != present ) {
+             it->second.present = present;
+             m_change = true;
+-        } 
++        }
+     }
+ }
+ 
+@@ -515,16 +515,16 @@ void Uniforms::setStreamsRestart() {
+ void Uniforms::printAvailableUniforms(bool _non_active) {
+     if (_non_active) {
+         // Print all Native Uniforms (they carry functions)
+-        for (UniformFunctionsMap::iterator it= functions.begin(); it != functions.end(); ++it) {                
++        for (UniformFunctionsMap::iterator it= functions.begin(); it != functions.end(); ++it) {
+             std::cout << "uniform " << it->second.type << ' ' << it->first << ";";
+-            if (it->second.print) 
++            if (it->second.print)
+                 std::cout << " // " << it->second.print();
+             std::cout << std::endl;
+         }
+     }
+     else {
+         // Print Native Uniforms (they carry functions) that are present on the shader
+-        for (UniformFunctionsMap::iterator it= functions.begin(); it != functions.end(); ++it) {                
++        for (UniformFunctionsMap::iterator it= functions.begin(); it != functions.end(); ++it) {
+             if (it->second.present) {
+                 std::cout<< "uniform " << it->second.type << ' ' << it->first << ";";
+                 if (it->second.print)
+@@ -567,7 +567,7 @@ void Uniforms::printDefinedUniforms(bool _csv){
+                 std::cout << "uniform " << it->second[frame].getType() << "  " << it->first << "; // " << it->second[frame].print() << std::endl;
+             }
+         }
+-    }    
++    }
+ }
+ 
+ void Uniforms::addDefine(const std::string& _define, const std::string& _value) {
+@@ -597,7 +597,7 @@ void Uniforms::printBuffers() {
+         std::cout << "uniform sampler2D u_doubleBuffer" << i << ";" << std::endl;
+ 
+     for (size_t i = 0; i < pyramids.size(); i++)
+-        std::cout << "uniform sampler2D u_pyramid" << i << ";" << std::endl;  
++        std::cout << "uniform sampler2D u_pyramid" << i << ";" << std::endl;
+ 
+     if (functions["u_scene"].present)
+         std::cout << "uniform sampler2D u_scene;" << std::endl;
+@@ -642,7 +642,7 @@ bool Uniforms::addCameraPath( const std::string& _filename ) {
+         //     );
+ 
+         while (std::getline(is, line)) {
+-            // If line not commented 
++            // If line not commented
+             if (line[0] == '#')
+                 continue;
+ 
+@@ -669,9 +669,9 @@ bool Uniforms::addCameraPath( const std::string& _filename ) {
+             // glm::mat4 projection = glm::ortho(0.0f, w, h, 0.0f, near, far);
+             // glm::mat4 ndc = glm::mat4(
+             //     fL,     0.0f,   0.0f,   0.0f,
+-            //     0.0f,   fL,     0.0f,   0.0f, 
++            //     0.0f,   fL,     0.0f,   0.0f,
+             //     cx,     cy,     1.0f,   0.0f,
+-            //     0.0f,   0.0f,   0.0f,   1.0f  
++            //     0.0f,   0.0f,   0.0f,   1.0f
+             // );
+             // frame.projection = projection * ndc;
+ 
+@@ -681,7 +681,7 @@ bool Uniforms::addCameraPath( const std::string& _filename ) {
+                 (w - 2.0f*cx)/w,    (h-2.0f*cy)/h,      (-far-near)/delta,         -1.0f,
+                 0.0f,               0.0f,               -2.0f*far*near/delta,       0.0f
+             );
+-            
++
+             // frame.projection = glm::mat4(
+             //     fL/cx,      0.0f,   0.0f,                   0.0f,
+             //     0.0f,       fL/cy,  0.0f,                   0.0f,
+-- 
+2.50.0
+
