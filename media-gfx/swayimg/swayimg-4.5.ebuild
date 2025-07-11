@@ -5,7 +5,7 @@ EAPI=8
 
 inherit meson xdg
 
-DESCRIPTION="A lightweight image viewer for Wayland display servers"
+DESCRIPTION="Lightweight image viewer for Wayland display servers"
 HOMEPAGE="https://github.com/artemsen/swayimg"
 SRC_URI="https://github.com/artemsen/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
