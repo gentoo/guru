@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alexander@tsoy.me</email>
+		<name>Alexander Tsoy</name>
+	</maintainer>
+	<longdescription lang="en">
+		Shortwave is an internet radio player that provides access to a station database with over 50,000 stations.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://gitlab.gnome.org/World/Shortwave/-/issues</bugs-to>
+		<remote-id type="gnome-gitlab">World/Shortwave</remote-id>
+	</upstream>
+</pkgmetadata>
