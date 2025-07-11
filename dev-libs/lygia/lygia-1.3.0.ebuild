@@ -12,7 +12,7 @@ SRC_URI="https://codeload.github.com/patriciogonzalezvivo/lygia/tar.gz/refs/tags
 
 LICENSE="Prosperity-3.0.0"
 SLOT="0"
-KEYWORDS="~*"
+KEYWORDS="~amd64"
 
 install_dir=/usr/include
 pc_file=lygia.pc
