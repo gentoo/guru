@@ -3,12 +3,14 @@
 
 EAPI=8
 
-inherit cmake git-r3
+inherit cmake
+
+CHKSUM="cb117806d14ab2c31db86d5b8cab5c58b791dd6c"
 
 DESCRIPTION="C++/WASM GL Framework"
 HOMEPAGE="https://github.com/patriciogonzalezvivo/vera"
-EGIT_REPO_URI="https://github.com/patriciogonzalezvivo/vera/"
-EGIT_COMMIT="cb117806d14ab2c31db86d5b8cab5c58b791dd6c"
+SRC_URI="https://github.com/patriciogonzalezvivo/vera/archive/${CHKSUM}.tar.gz -> ${PN}-${CHKSUM}.tar.gz"
+S="${WORKDIR}/${PN}-${CHKSUM}"
 
 LICENSE="Prosperity-3.0.0"
 SLOT="0"
