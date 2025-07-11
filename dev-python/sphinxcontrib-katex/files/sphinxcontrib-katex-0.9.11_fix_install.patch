@@ -1,0 +1,28 @@
+diff '--color=auto' -Naur a/pyproject.toml b/pyproject.toml
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -7,7 +7,7 @@
+ ]
+ description = 'A Sphinx extension for rendering math in HTML pages'
+ readme = 'README.rst'
+-license = {file = 'LICENSE'}
++license-files = ['LICENSE']
+ keywords = [
+     'sphinx',
+     'latex',
+@@ -19,7 +19,6 @@
+     'Development Status :: 5 - Production/Stable',
+     'Intended Audience :: Science/Research',
+     'Intended Audience :: Developers',
+-    'License :: OSI Approved :: MIT License',
+     'Operating System :: OS Independent',
+     'Programming Language :: Python',
+     'Programming Language :: Python :: 3',
+@@ -179,6 +178,7 @@
+ #
+ # Find all (sub-)modules of the Python package
+ [tool.setuptools.packages.find]
++exclude = ["docs", "tests"]
+ 
+ [tool.setuptools.dynamic]
+ version = {attr = 'sphinxcontrib.katex.__version__'}
