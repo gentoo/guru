@@ -6,6 +6,6 @@
         <email>samuel.bauer@yahoo.fr</email>
 </maintainer>
 <upstream>
-        <remote-id type="github">ReinUsesLisp/sirit</remote-id>
+        <remote-id type="github">PabloMK7/sirit</remote-id>
 </upstream>
 </pkgmetadata>

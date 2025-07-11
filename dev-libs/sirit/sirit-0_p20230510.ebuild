@@ -5,9 +5,11 @@ EAPI=8
 
 inherit cmake vcs-snapshot
 
+EGIT_COMMIT="4ab79a8c023aa63caaa93848b09b9fe8b183b1a9"
+
 DESCRIPTION="A runtime SPIR-V assembler"
-HOMEPAGE="https://github.com/ReinUsesLisp/sirit"
-SRC_URI="https://github.com/ReinUsesLisp/sirit/archive/aa292d56650bc28f2b2d75973fab2e61d0136f9c.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/PabloMK7/sirit"
+SRC_URI="https://github.com/PabloMK7/sirit/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
