@@ -23,10 +23,6 @@
 # Removal on 2025-08-11
 gui-apps/tiramisu
 
-# Rahil Bhimjiani <me@rahil.rocks> (2025-07-07)
-# package renamed to www-apps/vaultwarden-web and moved to ::gentoo
-www-apps/vaultwarden-web-bin
-
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-06-25)
 # Depends on masked dev-libs/libdbusmenu-qt
 gui-apps/paperde
