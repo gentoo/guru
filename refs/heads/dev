@@ -1,13 +1,13 @@
 certificate version 0.1
-pusher 34dc11e9 1752285459 -0400
-pushee git.gentoo.org:repo/proj/guru.git
-nonce 1752285459-0d340f6d3981b28299bfa961dd59d83bc2308a25
+pusher DDC9237C14CF6F4DD847F6B390D93ACCFEFF61AE 1752286221 +0200
+pushee git+ssh://git.gentoo.org/repo/proj/guru.git
+nonce 1752286221-999d1c2fa338ecc34cc0a266088818f6955d86cf
 
-fd0cd655e6be516fd234b7fe6603fbbbb1fc3622 fa3e56c1bac20ff00d81ac66ff84468eb808b1d7 refs/heads/dev
+fa3e56c1bac20ff00d81ac66ff84468eb808b1d7 37c0464053d64e6ae341538f33fd943214dfd6fc refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQQ0AFdlIjX9aj0PPy2uzmloNNwR6QUCaHHBEwAKCRCuzmloNNwR
-6SHCAQCaowCclDiGgSoDNF590uYkNanqd2lKW+KW+puuk1Ul/wEAgvl3IFJPj10p
-pUGcquen6566zlDaGhz9zy5uHbaqUQE=
-=0LzM
+iHUEABYKAB0WIQT4W9xj/ZtK9Ev2uBLVt6jkPJl97gUCaHHEDQAKCRDVt6jkPJl9
+7l50AP9mYz+37q5MkR21WqwV9yoCsUhX74B2ukgbuz2JNoddpAEA96l6u9nW/n/O
+zWMuq5wqe/3obj9iLfLDmPlsfK3HxwA=
+=Ov7z
 -----END PGP SIGNATURE-----
