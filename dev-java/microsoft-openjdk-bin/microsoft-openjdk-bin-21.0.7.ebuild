@@ -14,12 +14,15 @@ SRC_URI="
 	arm64? ( https://aka.ms/download-jdk/microsoft-jdk-${PV}-linux-aarch64.tar.gz )
 "
 
-S="${WORKDIR}/jdk-${MY_PV}+13"
+S="${WORKDIR}/jdk-${MY_PV}+6"
 LICENSE="GPL-2-with-classpath-exception"
 SLOT=$(ver_cut 1)
 KEYWORDS="~amd64"
 IUSE="alsa cups headless-awt selinux source"
 
+DEPEND="
+	app-eselect/eselect-java
+"
 RDEPEND="
 	>=sys-apps/baselayout-java-0.1.0-r1
 	kernel_linux? (
