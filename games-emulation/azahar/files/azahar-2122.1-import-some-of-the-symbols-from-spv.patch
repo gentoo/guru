@@ -1,0 +1,18 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Import some of the symbols from `spv`.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/src/video_core/shader/generator/spv_fs_shader_gen.cpp
++++ b/src/video_core/shader/generator/spv_fs_shader_gen.cpp
+@@ -8,6 +8,10 @@
+ 
+ namespace Pica::Shader::Generator::SPIRV {
+ 
++using spv::Op::OpDot;
++using spv::Op::OpVectorShuffle;
++using spv::Op::OpVectorTimesScalar;
++
+ using Pica::FramebufferRegs;
+ using Pica::LightingRegs;
+ using Pica::RasterizerRegs;

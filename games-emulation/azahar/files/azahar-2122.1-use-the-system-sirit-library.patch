@@ -1,0 +1,16 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use the system `sirit` library.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/externals/CMakeLists.txt
++++ b/externals/CMakeLists.txt
+@@ -401,7 +401,7 @@ if (ENABLE_VULKAN)
+     endif()
+ 
+     # sirit
+-    add_subdirectory(sirit EXCLUDE_FROM_ALL)
++    add_library(sirit SHARED IMPORTED)
+ 
+     # VMA
+     if(USE_SYSTEM_VMA)

@@ -1,0 +1,21 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Don't search for the `zstd` package.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/externals/CMakeLists.txt
++++ b/externals/CMakeLists.txt
+@@ -205,12 +205,7 @@ endif()
+ 
+ # Zstandard
+ if(USE_SYSTEM_ZSTD)
+-    find_package(zstd REQUIRED)
+-    add_library(zstd INTERFACE)
+-    if(TARGET zstd::libzstd_shared)
+-        message(STATUS "Found system Zstandard")
+-    endif()
+-    target_link_libraries(zstd INTERFACE zstd::libzstd_shared)
++    add_library(zstd SHARED IMPORTED)
+ else()
+     set(ZSTD_LEGACY_SUPPORT OFF)
+     set(ZSTD_BUILD_PROGRAMS OFF)

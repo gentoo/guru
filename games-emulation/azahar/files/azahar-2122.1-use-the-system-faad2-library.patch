@@ -1,0 +1,27 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use the system `faad2` library.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/externals/CMakeLists.txt
++++ b/externals/CMakeLists.txt
+@@ -158,7 +158,7 @@ endif()
+ add_subdirectory(open_source_archives)
+ 
+ # faad2
+-add_subdirectory(faad2 EXCLUDE_FROM_ALL)
++add_library(faad2 INTERFACE)
+ 
+ # Dynamic library headers
+ add_library(library-headers INTERFACE)
+--- a/src/audio_core/CMakeLists.txt
++++ b/src/audio_core/CMakeLists.txt
+@@ -44,7 +44,7 @@ add_library(audio_core STATIC
+ create_target_directory_groups(audio_core)
+ 
+ target_link_libraries(audio_core PUBLIC citra_common citra_core)
+-target_link_libraries(audio_core PRIVATE faad2 SoundTouch teakra)
++target_link_libraries(audio_core PRIVATE faad SoundTouch teakra)
+ 
+ if(ENABLE_SDL2)
+     target_link_libraries(audio_core PRIVATE SDL2::SDL2)

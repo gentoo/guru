@@ -1,0 +1,16 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use the system `teakra` library.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/externals/CMakeLists.txt
++++ b/externals/CMakeLists.txt
+@@ -185,7 +185,7 @@ endif()
+ 
+ # Teakra
+ set(BUILD_TESTING OFF CACHE BOOL "")
+-add_subdirectory(teakra EXCLUDE_FROM_ALL)
++add_library(teakra SHARED IMPORTED)
+ 
+ # SDL2
+ if (ENABLE_SDL2 AND NOT USE_SYSTEM_SDL2)

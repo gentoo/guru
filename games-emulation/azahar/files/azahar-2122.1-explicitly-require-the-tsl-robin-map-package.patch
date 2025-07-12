@@ -1,0 +1,16 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Explicitly require the `tsl-robin-map` package.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -327,7 +327,7 @@ if (ENABLE_QT)
+ endif()
+ 
+ # Use system tsl::robin_map if available (otherwise we fallback to version bundled with dynarmic)
+-find_package(tsl-robin-map QUIET)
++find_package(tsl-robin-map REQUIRED)
+ 
+ # Platform-specific library requirements
+ # ======================================
