@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<use>
+		<flag name="hip">Build a HIP (ROCm) backend</flag>
+		<flag name="sdl2">Build and install example applications that use media-libs/libsdl2</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">ggml-org/whisper.cpp</remote-id>
+	</upstream>
+	<maintainer type="person">
+		<email>zl29ah@gmail.com</email>
+		<name>Sergey Alirzaev</name>
+	</maintainer>
+</pkgmetadata>
