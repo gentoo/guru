@@ -45,12 +45,6 @@ app-misc/mobile-datovka
 app-backup/b2
 dev-util/mock
 
-# Takuya Wakazono <pastalian46@gmail.com> (2025-06-05)
-# app-text/komikku, the only reverse dependency, has migrated to
-# dev-python/modern-colorthief.
-# Removal on 2025-07-05.
-dev-python/colorthief
-
 # Lucio Sauer <watermanpaint@posteo.net> (2025-06-04)
 # Ebuild effectively unmaintained since 2021. I was unable to find the origin
 # of the installed files, so I don't see a reason to keep this.
