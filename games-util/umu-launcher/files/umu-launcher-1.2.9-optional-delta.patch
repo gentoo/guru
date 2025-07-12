@@ -1,0 +1,15 @@
+Make umu_delta optional.
+--- a/umu/umu_proton.py
++++ b/umu/umu_proton.py
+@@ -524,7 +524,10 @@ def _get_delta(
+     from cbor2 import CBORDecodeError, dumps, loads  # noqa: PLC0415
+ 
+     # Ignore. umu_delta is relevant for sys packages when using *-Latest tokens
+-    from .umu_delta import valid_key, valid_signature  # noqa: PLC0415
++    try:
++        from .umu_delta import valid_key, valid_signature  # noqa: PLC0415
++    except ImportError:
++        return None
+ 
+     try:
+         cbor = loads(patch)
