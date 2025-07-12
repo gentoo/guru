@@ -2,7 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <name>demize</name>
+    <name>Vivian Heisz (vhz)</name>
     <email>demize@unstable.systems</email>
   </maintainer>
   <upstream>
@@ -13,4 +13,7 @@
     <remote-id type="codeberg">jneen/spct</remote-id>
     <bugs-to>https://codeberg.org/jneen/spct/issues/new</bugs-to>
   </upstream>
+  <use>
+    <flag name="libspct">Build spct as a shared library (libspct) for use in other applications.</flag>
+  </use>
 </pkgmetadata>
