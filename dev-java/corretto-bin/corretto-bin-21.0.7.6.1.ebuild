@@ -19,7 +19,11 @@ SLOT=$(ver_cut 1)
 KEYWORDS="~amd64"
 IUSE="alsa cups headless-awt selinux source"
 
+DEPEND="
+	app-eselect/eselect-java
+"
 RDEPEND="
+	${DEPEND}
 	>=sys-apps/baselayout-java-0.1.0-r1
 	kernel_linux? (
 		media-libs/fontconfig:1.0
