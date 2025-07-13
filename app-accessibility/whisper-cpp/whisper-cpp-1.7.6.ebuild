@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,11 +29,6 @@ RDEPEND="${DEPEND}"
 # Enabling multiple may lead to build failures, whisper-cpp won't use more than one either way
 REQUIRED_USE="?? ( blas cuda hip opencl )"
 
-src_prepare() {
-	eapply_user
-	cmake_src_prepare
-}
-
 src_configure() {
 	# Note: CUDA and HIP are currently untested. Build failures may occur.
 	# Turning off examples causes errors during configure
@@ -47,8 +42,4 @@ src_configure() {
 		-DWHISPER_SDL2=$(usex sdl2)
 	)
 	cmake_src_configure
-}
-
-src_install() {
-	cmake_src_install
 }
