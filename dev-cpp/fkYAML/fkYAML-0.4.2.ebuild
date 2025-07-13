@@ -25,7 +25,7 @@ PATCHES=(
 )
 
 src_prepare() {
-	find thirdparty -mindepth 1 -not -name imapdl -delete
+	find thirdparty -mindepth 1 -not -name imapdl -delete || die
 
 	cmake_src_prepare
 }
