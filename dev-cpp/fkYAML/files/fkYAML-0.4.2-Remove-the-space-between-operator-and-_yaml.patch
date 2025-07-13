@@ -1,0 +1,44 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Remove the space between `operator""` and `_yaml`.
+
+This makes it compile in C++23.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/include/fkYAML/node.hpp
++++ b/include/fkYAML/node.hpp
+@@ -1823,7 +1823,7 @@ inline namespace yaml_literals {
+ /// @param n The size of `s`.
+ /// @return The resulting `node` object deserialized from `s`.
+ /// @sa https://fktn-k.github.io/fkYAML/api/operator_literal_yaml/
+-inline fkyaml::node operator"" _yaml(const char* s, std::size_t n) {
++inline fkyaml::node operator""_yaml(const char* s, std::size_t n) {
+     return fkyaml::node::deserialize(s, s + n);
+ }
+ 
+@@ -1832,7 +1832,7 @@ inline fkyaml::node operator"" _yaml(const char* s, std::size_t n) {
+ /// @param n The size of `s`.
+ /// @return The resulting `node` object deserialized from `s`.
+ /// @sa https://fktn-k.github.io/fkYAML/api/operator_literal_yaml/
+-inline fkyaml::node operator"" _yaml(const char16_t* s, std::size_t n) {
++inline fkyaml::node operator""_yaml(const char16_t* s, std::size_t n) {
+     return fkyaml::node::deserialize(s, s + n);
+ }
+ 
+@@ -1841,7 +1841,7 @@ inline fkyaml::node operator"" _yaml(const char16_t* s, std::size_t n) {
+ /// @param n The size of `s`.
+ /// @return The resulting `node` object deserialized from `s`.
+ /// @sa https://fktn-k.github.io/fkYAML/api/operator_literal_yaml/
+-inline fkyaml::node operator"" _yaml(const char32_t* s, std::size_t n) {
++inline fkyaml::node operator""_yaml(const char32_t* s, std::size_t n) {
+     return fkyaml::node::deserialize(s, s + n);
+ }
+ 
+@@ -1850,7 +1850,7 @@ inline fkyaml::node operator"" _yaml(const char32_t* s, std::size_t n) {
+ /// @param s An input `char8_t` array.
+ /// @param n The size of `s`.
+ /// @return The resulting `node` object deserialized from `s`.
+-inline fkyaml::node operator"" _yaml(const char8_t* s, std::size_t n) {
++inline fkyaml::node operator""_yaml(const char8_t* s, std::size_t n) {
+     return fkyaml::node::deserialize((const char8_t*)s, (const char8_t*)s + n);
+ }
