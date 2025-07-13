@@ -1,0 +1,26 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use system `fkYAML`.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -59,6 +59,8 @@ set(BUILD_SHARED_LIBS OFF)
+ find_package(QHotkey CONFIG REQUIRED)
+ list(APPEND NKR_EXTERNAL_TARGETS qhotkey)
+ 
++find_package(fkYAML CONFIG REQUIRED)
++
+ # Sources
+ set(PROJECT_SOURCES
+         ${PLATFORM_SOURCES}
+--- a/src/configs/sub/GroupUpdater.cpp
++++ b/src/configs/sub/GroupUpdater.cpp
+@@ -7,7 +7,7 @@
+ #include <QInputDialog>
+ #include <QUrlQuery>
+ 
+-#include "3rdparty/fkYAML/node.hpp"
++#include <fkYAML/node.hpp>
+ 
+ namespace NekoGui_sub {

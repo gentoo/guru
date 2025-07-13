@@ -22,19 +22,23 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-cpp/abseil-cpp:=
-	dev-cpp/yaml-cpp
 	dev-libs/protobuf:=
 	dev-libs/qhotkey
 	dev-qt/qtbase:6[dbus,network,widgets]
-	media-libs/zxing-cpp
+	media-libs/quirc:=
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	dev-cpp/fkYAML
+"
 BDEPEND="
 	dev-qt/qttools:6[linguist]
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-4.3.5-use-system-qhotkey.patch
+	"${FILESDIR}/${PN}-4.3.7-Use-system-fkYAML.patch"
+	"${FILESDIR}/${PN}-4.3.7-Use-system-QHotkey.patch"
+	"${FILESDIR}/${PN}-4.3.7-Use-system-quirc.patch"
 )
 
 src_unpack() {
@@ -43,6 +47,12 @@ src_unpack() {
 	mkdir -p "${S}/vendor" || die
 
 	go-module_src_unpack
+}
+
+src_prepare() {
+	rm -r 3rdparty/{fkYAML,QHotkey,quirc} || die
+
+	cmake_src_prepare
 }
 
 src_configure() {

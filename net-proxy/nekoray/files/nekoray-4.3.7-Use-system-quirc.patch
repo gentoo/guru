@@ -1,0 +1,37 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use system `quirc`.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/3rdparty/QrDecoder.cpp
++++ b/3rdparty/QrDecoder.cpp
+@@ -1,6 +1,6 @@
+ #include "QrDecoder.h"
+ 
+-#include "quirc/quirc.h"
++#include <quirc.h>
+ 
+ QrDecoder::QrDecoder()
+     : m_qr(quirc_new())
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -83,11 +83,6 @@ set(PROJECT_SOURCES
+         3rdparty/qv2ray/v2/ui/widgets/speedchart/SpeedWidget.hpp
+         3rdparty/qv2ray/v2/proxy/QvProxyConfigurator.cpp
+ 
+-        3rdparty/quirc/decode.c
+-        3rdparty/quirc/identify.c
+-        3rdparty/quirc/quirc.c
+-        3rdparty/quirc/version_db.c
+-
+         src/api/gRPC.cpp
+ 
+         src/dataStore/Database.cpp
+@@ -263,6 +258,7 @@ target_link_libraries(nekoray PRIVATE
+         Threads::Threads
+         ${NKR_EXTERNAL_TARGETS}
+         ${PLATFORM_LIBRARIES}
++        quirc
+ )
+ 
+ qt_finalize_executable(nekoray)

@@ -1,0 +1,33 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use system `QHotkey`.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -45,7 +45,6 @@ message("[CMAKE_FIND_ROOT_PATH] ${CMAKE_FIND_ROOT_PATH}")
+ 
+ include("cmake/print.cmake")
+ include("cmake/nkr.cmake")
+-include("cmake/QHotkey.cmake")
+ 
+ find_package(Threads)
+ 
+@@ -57,6 +56,7 @@ include("cmake/myproto.cmake")
+ list(APPEND NKR_EXTERNAL_TARGETS myproto)
+ 
+ set(BUILD_SHARED_LIBS OFF)
++find_package(QHotkey CONFIG REQUIRED)
+ list(APPEND NKR_EXTERNAL_TARGETS qhotkey)
+ 
+ # Sources
+--- a/src/ui/mainwindow.cpp
++++ b/src/ui/mainwindow.cpp
+@@ -50,7 +50,7 @@
+ #endif
+ #include <QToolTip>
+ #include <random>
+-#include <3rdparty/QHotkey/qhotkey.h>
++#include <QHotkey>
+ #include <include/api/gRPC.h>
+ #include <include/global/HTTPRequestHelper.hpp>
