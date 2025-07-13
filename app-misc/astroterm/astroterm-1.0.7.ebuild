@@ -21,7 +21,7 @@ DEPEND="
 "
 
 BDEPEND="
-	dev-util/xxd
+	|| ( dev-util/xxd app-editors/vim-core )
 "
 
 src_prepare() {
