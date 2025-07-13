@@ -10,7 +10,7 @@
 		<remote-id type="github">artemsen/swayimg</remote-id>
 	</upstream>
 	<use>
-		<flag name="drm">Enable DRM renderig support (DRM UI)</flag>
+		<flag name="drm">Enable support for Direct Rendering Manager (DRM UI)</flag>
 		<flag name="exr">Enable support for EXR image format</flag>
 		<flag name="sixel">Enable support for Sixel image format</flag>
 		<flag name="wayland">Enable Wayland UI and some compositors (Sway and Hyprland only)</flag>
