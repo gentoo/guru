@@ -49,7 +49,7 @@ SLOT="0"
 IUSE="discord faudio +llvm opencv vulkan wayland"
 
 DEPEND="
-	app-arch/p7zip
+	app-arch/7zip
 	app-arch/zstd
 	dev-libs/flatbuffers
 	dev-libs/hidapi
