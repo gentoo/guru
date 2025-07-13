@@ -1,3 +1,8 @@
+This patch moves the implementations of certain json-methods to the cpp-file-implementations.
+This is needed because llvm needs sizeof(T) to be valid for a lot more methods on containers
+and std::unique_ptr, so these methods can't be header only on llvm. This patch is developed 
+by me and I cannot right now find an upstream bug-report on this just yet. I uploaded a similar 
+patch to FreeBSD ports a while ago. 
 --- a/Release/include/cpprest/json.h
 +++ b/Release/include/cpprest/json.h
 @@ -737,12 +737,10 @@

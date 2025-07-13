@@ -1,3 +1,10 @@
+Also submitted upstream https://github.com/microsoft/cpprestsdk/pull/1829
+Cpprestsdk is using a lot of unsigned types like uint8_t with C++ streams, this
+seems to be fine with msvc/win32 and at least for now with gcc. This patch will
+provide a char_traits type to the streams types other than std::char_traits if
+needed. This is detected via template specialisations. Google & AIs will probably
+suggest adding a std::char_traits<unsingned char> implementation, but I think that
+is very innappropriate in a library for use by applications.
 --- a/Release/include/cpprest/streams.h	(revision 0b1ce318a757bbfb89bdb0fffb61ca4e38dc3b33)
 +++ b/Release/include/cpprest/streams.h	(revision 32b322b564e5e540ff02393ffe3bd3bade8d299c)
 @@ -16,6 +16,7 @@
