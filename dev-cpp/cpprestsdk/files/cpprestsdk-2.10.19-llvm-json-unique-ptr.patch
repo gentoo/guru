@@ -1,0 +1,216 @@
+--- a/Release/include/cpprest/json.h
++++ b/Release/include/cpprest/json.h
+@@ -737,12 +737,10 @@
+     _ASYNCRTIMP void format(std::basic_string<char>& string) const;
+ 
+ #ifdef ENABLE_JSON_VALUE_VISUALIZER
+-    explicit value(std::unique_ptr<details::_Value> v, value_type kind) : m_value(std::move(v)), m_kind(kind)
++    explicit value(std::unique_ptr<details::_Value> v, value_type kind);
+ #else
+-    explicit value(std::unique_ptr<details::_Value> v) : m_value(std::move(v))
++    explicit value(std::unique_ptr<details::_Value> v);
+ #endif
+-    {
+-    }
+ 
+     std::unique_ptr<details::_Value> m_value;
+ #ifdef ENABLE_JSON_VALUE_VISUALIZER
+@@ -831,9 +829,9 @@
+     typedef storage_type::size_type size_type;
+ 
+ private:
+-    array() : m_elements() {}
+-    array(size_type size) : m_elements(size) {}
+-    array(storage_type elements) : m_elements(std::move(elements)) {}
++    array();
++    array(size_type size);
++    array(storage_type elements);
+ 
+ public:
+     /// <summary>
+@@ -915,20 +913,13 @@
+     /// <returns>Iterator to the new location of the element following the erased element.</returns>
+     /// <remarks>GCC doesn't support erase with const_iterator on vector yet. In the future this should be
+     /// changed.</remarks>
+-    iterator erase(iterator position) { return m_elements.erase(position); }
++    iterator erase(iterator position);
+ 
+     /// <summary>
+     /// Deletes the element at an index of the JSON array.
+     /// </summary>
+     /// <param name="index">The index of the element to delete.</param>
+-    void erase(size_type index)
+-    {
+-        if (index >= m_elements.size())
+-        {
+-            throw json_exception("index out of bounds");
+-        }
+-        m_elements.erase(m_elements.begin() + index);
+-    }
++    void erase(size_type index);
+ 
+     /// <summary>
+     /// Accesses an element of a JSON array. Throws when index out of bounds.
+@@ -959,15 +950,7 @@
+     /// </summary>
+     /// <param name="index">The index of an element in the JSON array.</param>
+     /// <returns>A reference to the value kept in the field.</returns>
+-    json::value& operator[](size_type index)
+-    {
+-        msl::safeint3::SafeInt<size_type> nMinSize(index);
+-        nMinSize += 1;
+-        msl::safeint3::SafeInt<size_type> nlastSize(m_elements.size());
+-        if (nlastSize < nMinSize) m_elements.resize((size_type)nMinSize);
+-
+-        return m_elements[index];
+-    }
++    json::value& operator[](size_type index);
+ 
+     /// <summary>
+     /// Gets the number of elements of the array.
+@@ -998,14 +981,8 @@
+     typedef storage_type::size_type size_type;
+ 
+ private:
+-    object(bool keep_order = false) : m_elements(), m_keep_order(keep_order) {}
+-    object(storage_type elements, bool keep_order = false) : m_elements(std::move(elements)), m_keep_order(keep_order)
+-    {
+-        if (!keep_order)
+-        {
+-            sort(m_elements.begin(), m_elements.end(), compare_pairs);
+-        }
+-    }
++    object(bool keep_order = false);
++    object(storage_type elements, bool keep_order = false);
+ 
+ public:
+     /// <summary>
+@@ -1087,22 +1064,13 @@
+     /// <returns>Iterator to the new location of the element following the erased element.</returns>
+     /// <remarks>GCC doesn't support erase with const_iterator on vector yet. In the future this should be
+     /// changed.</remarks>
+-    iterator erase(iterator position) { return m_elements.erase(position); }
++    iterator erase(iterator position);
+ 
+     /// <summary>
+     /// Deletes an element of the JSON object. If the key doesn't exist, this method throws.
+     /// </summary>
+     /// <param name="key">The key of an element in the JSON object.</param>
+-    void erase(const utility::string_t& key)
+-    {
+-        auto iter = find_by_key(key);
+-        if (iter == m_elements.end())
+-        {
+-            throw web::json::json_exception("Key not found");
+-        }
+-
+-        m_elements.erase(iter);
+-    }
++    void erase(const utility::string_t& key);
+ 
+     /// <summary>
+     /// Accesses an element of a JSON object. If the key doesn't exist, this method throws.
+@@ -1142,17 +1110,7 @@
+     /// <param name="key">The key of an element in the JSON object.</param>
+     /// <returns>If the key exists, a reference to the value kept in the field, otherwise a newly created null value
+     /// that will be stored for the given key.</returns>
+-    json::value& operator[](const utility::string_t& key)
+-    {
+-        auto iter = find_insert_location(key);
+-
+-        if (iter == m_elements.end() || key != iter->first)
+-        {
+-            return m_elements.insert(iter, std::pair<utility::string_t, value>(key, value()))->second;
+-        }
+-
+-        return iter->second;
+-    }
++    json::value& operator[](const utility::string_t& key);
+ 
+     /// <summary>
+     /// Gets an iterator to an element of a JSON object.
+--- a/Release/src/json/json.cpp
++++ b/Release/src/json/json.cpp
+@@ -135,6 +135,14 @@
+ {
+ }
+ 
++#ifdef ENABLE_JSON_VALUE_VISUALIZER
++web::json::value::value(std::unique_ptr<details::_Value> v, value_type kind) : m_value(std::move(v)), m_kind(kind)
++#else
++web::json::value::value(std::unique_ptr<details::_Value> v) : m_value(std::move(v))
++#endif
++{
++}
++
+ web::json::value::value(const value& other)
+     : m_value(other.m_value->_copy_value())
+ #ifdef ENABLE_JSON_VALUE_VISUALIZER
+@@ -495,3 +503,67 @@
+ #endif
+     return instance;
+ }
++
++web::json::array::array() : m_elements() {}
++web::json::array::array(size_type size) : m_elements(size) {}
++web::json::array::array(storage_type elements) : m_elements(std::move(elements)) {}
++
++web::json::array::iterator web::json::array::erase(web::json::array::iterator position)
++{
++    return m_elements.erase(position);
++}
++
++void web::json::array::erase(web::json::array::size_type index)
++{
++    if (index >= m_elements.size())
++    {
++        throw json_exception("index out of bounds");
++    }
++    m_elements.erase(m_elements.begin() + index);
++}
++
++json::value& web::json::array::operator[](web::json::array::size_type index)
++{
++    msl::safeint3::SafeInt<size_type> nMinSize(index);
++    nMinSize += 1;
++    msl::safeint3::SafeInt<size_type> nlastSize(m_elements.size());
++    if (nlastSize < nMinSize) m_elements.resize((size_type)nMinSize);
++
++    return m_elements[index];
++}
++
++web::json::object::object(bool keep_order) : m_elements(), m_keep_order(keep_order) {}
++web::json::object::object(storage_type elements, bool keep_order) : m_elements(std::move(elements)), m_keep_order(keep_order)
++{
++    if (!keep_order)
++    {
++        sort(m_elements.begin(), m_elements.end(), compare_pairs);
++    }
++}
++web::json::object::iterator web::json::object::erase(iterator position)
++{
++    return m_elements.erase(position);
++}
++
++void web::json::object::erase(const utility::string_t& key)
++{
++    auto iter = find_by_key(key);
++    if (iter == m_elements.end())
++    {
++        throw web::json::json_exception("Key not found");
++    }
++
++    m_elements.erase(iter);
++}
++
++json::value& web::json::object::operator[](const utility::string_t& key)
++{
++    auto iter = find_insert_location(key);
++
++    if (iter == m_elements.end() || key != iter->first)
++    {
++        return m_elements.insert(iter, std::pair<utility::string_t, value>(key, value()))->second;
++    }
++
++    return iter->second;
++}
