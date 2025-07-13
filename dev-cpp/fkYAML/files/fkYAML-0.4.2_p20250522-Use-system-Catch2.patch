@@ -1,0 +1,13 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use system `Catch2`.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -1,5 +1,4 @@
+-set(CATCH2_ROOT_DIR "${PROJECT_SOURCE_DIR}/thirdparty/Catch2")
+-list(APPEND CMAKE_MODULE_PATH "${CATCH2_ROOT_DIR}/contrib")
++find_package(Catch2 REQUIRED)
+ 
+ add_subdirectory(unit_test)
