@@ -1,0 +1,26 @@
+--- a/miracle-wm-config/CMakeLists.txt
++++ b/miracle-wm-config/CMakeLists.txt
+@@ -3,7 +3,9 @@ pkg_check_modules(MIRCORE mircore REQUIRED)
+ pkg_check_modules(YAML REQUIRED IMPORTED_TARGET yaml-cpp)
+ pkg_check_modules(LIBEVDEV REQUIRED IMPORTED_TARGET libevdev)
+ pkg_check_modules(GLIB REQUIRED IMPORTED_TARGET glib-2.0)
+-find_package(GTest REQUIRED)
++if(WITH_TESTS)
++    find_package(GTest REQUIRED)
++endif()
+ 
+ add_library(miracle-wm-config
+     SHARED
+@@ -55,6 +57,7 @@ install(
+ )
+ 
+ # Tests
++if(WITH_TESTS)
+ add_executable(test_miracle_wm_config_c_api
+     tests/test_miracle_wm_config_c_api.cpp
+ )
+@@ -74,3 +77,4 @@ target_link_libraries(test_miracle_wm_config_c_api
+ )
+ 
+ add_test(NAME test_miracle_wm_config_c_api COMMAND test_miracle_wm_config_c_api)
++endif()
