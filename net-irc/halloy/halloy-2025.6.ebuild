@@ -947,7 +947,7 @@ src_unpack() {
 src_configure() {
 	if [[ ${PV} != *9999* ]] ; then
 		# Fix cargo.eclass handling of patched dependencies
-		# https://github.com/squidowl/halloy/blob/2025.5/Cargo.toml#L96-L98
+		# https://github.com/squidowl/halloy/blob/2025.6/Cargo.toml#L96-L98
 		sed -i "s,'https://github.com/iced-rs/iced',crates-io,g" \
 			"${ECARGO_HOME}/config.toml" || die
 	fi
