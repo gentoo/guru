@@ -28,6 +28,7 @@ else
 fi
 
 BDEPEND="
+	dev-util/spirv-headers
 	dev-util/vulkan-headers
 "
 DEPEND="
