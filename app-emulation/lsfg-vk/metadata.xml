@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+    <maintainer type="person">
+        <email>w.iron.zombie@gmail.com</email>
+        <name>Charlie Quinet</name>
+        <description>Username404-59</description>
+    </maintainer>
+    <upstream>
+        <remote-id type="github">PancakeTAS/lsfg-vk</remote-id>
+    </upstream>
+</pkgmetadata>
