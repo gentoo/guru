@@ -1,0 +1,22 @@
+diff --git i/tools/ldgen/ldgen/sdkconfig.py w/tools/ldgen/ldgen/sdkconfig.py
+index 7899ae5f91..a9994d6b8d 100644
+--- i/tools/ldgen/ldgen/sdkconfig.py
++++ w/tools/ldgen/ldgen/sdkconfig.py
+@@ -3,7 +3,7 @@
+ # SPDX-License-Identifier: Apache-2.0
+ #
+ 
+-import kconfiglib
++import espkconfiglib
+ 
+ 
+ class SDKConfig:
+@@ -11,7 +11,7 @@ class SDKConfig:
+     Evaluates conditional expressions based on the build's sdkconfig and Kconfig files.
+     """
+     def __init__(self, kconfig_file, sdkconfig_file):
+-        self.config = kconfiglib.Kconfig(kconfig_file)
++        self.config = espkconfiglib.Kconfig(kconfig_file)
+         self.config.load_config(sdkconfig_file)
+         self.config.warn = False  # eval_string may contain un-declared symbol
+ 
