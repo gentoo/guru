@@ -16,6 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+	dev-libs/lzo
 	dev-libs/wayland-protocols
 	x11-libs/libdrm
 "
