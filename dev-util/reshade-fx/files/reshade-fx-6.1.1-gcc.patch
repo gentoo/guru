@@ -1,0 +1,60 @@
+--- a/source/effect_expression.hpp
++++ b/source/effect_expression.hpp
+@@ -6,6 +6,7 @@
+ #pragma once
+ 
+ #include "effect_token.hpp"
++#include <climits> // UINT_MAX
+ 
+ namespace reshadefx
+ {
+--- a/source/effect_codegen_glsl.cpp
++++ b/source/effect_codegen_glsl.cpp
+@@ -7,6 +7,7 @@
+ #include "effect_codegen.hpp"
+ #include <cmath> // signbit, isinf, isnan
+ #include <cstdio> // snprintf
++#include <cstring> // memcmp
+ #include <cassert>
+ #include <algorithm> // std::find_if, std::max
+ #include <unordered_set>
+--- a/source/effect_codegen_hlsl.cpp
++++ b/source/effect_codegen_hlsl.cpp
+@@ -991,7 +991,7 @@ private:
+ 				code += '[' + std::to_string(param.type.array_length) + ']';
+ 
+ 			if (!param.semantic.empty())
+-				code += " : " + convert_semantic(param.semantic, std::max(1u, param.type.cols / 4) * std::max(1u, param.type.array_length));
++				code += " : " + convert_semantic(param.semantic, std::max(1u, uint32_t(param.type.cols / 4)) * std::max(1u, param.type.array_length));
+ 
+ 			if (i < num_params - 1)
+ 				code += ',';
+--- a/source/effect_codegen_spirv.cpp
++++ b/source/effect_codegen_spirv.cpp
+@@ -138,7 +138,7 @@ public:
+ private:
+	struct type_lookup
+	{
+-		type type;
++		reshadefx::type type;
+		bool is_ptr;
+		uint32_t array_stride;
+		std::pair<spv::StorageClass, spv::ImageFormat> storage;
+@@ -143,7 +143,7 @@ private:
+		uint32_t array_stride;
+		std::pair<spv::StorageClass, spv::ImageFormat> storage;
+ 
+-		friend static bool operator==(const type_lookup &lhs, const type_lookup &rhs)
++ 		friend bool operator==(const type_lookup &lhs, const type_lookup &rhs)
+		{
+			return lhs.type == rhs.type && lhs.is_ptr == rhs.is_ptr && lhs.array_stride == rhs.array_stride && lhs.storage == rhs.storage;
+		}
+@@ -157,7 +157,7 @@ private:
+		std::vector<type> param_types;
+		bool is_entry_point = false;
+ 
+-		friend static bool operator==(const function_blocks &lhs, const function_blocks &rhs)
++		friend bool operator==(const function_blocks &lhs, const function_blocks &rhs)
+		{
+			if (lhs.param_types.size() != rhs.param_types.size())
+				return false;
