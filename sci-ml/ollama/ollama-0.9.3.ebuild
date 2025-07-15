@@ -293,11 +293,13 @@ src_install() {
 	dobin ollama
 
 	cmake_src_install
+	if use systemd; then
+		systemd_dounit "${FILESDIR}/ollama.service"
+	else
+		newinitd "${FILESDIR}/ollama.init" "${PN}"
+		newconfd "${FILESDIR}/ollama.confd" "${PN}"
+	fi
 
-	newinitd "${FILESDIR}/ollama.init" "${PN}"
-	newconfd "${FILESDIR}/ollama.confd" "${PN}"
-
-	systemd_dounit "${FILESDIR}/ollama.service"
 }
 
 pkg_preinst() {
