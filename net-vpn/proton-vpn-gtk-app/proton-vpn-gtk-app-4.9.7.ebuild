@@ -12,7 +12,7 @@ inherit desktop distutils-r1
 
 DESCRIPTION="Proton VPN GTK app"
 HOMEPAGE="https://github.com/ProtonVPN/proton-vpn-gtk-app"
-SRC_URI="https://github.com/ProtonVPN/proton-vpn-gtk-app/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ProtonVPN/proton-vpn-gtk-app/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -34,10 +34,7 @@ RDEPEND="
 	')
 "
 
-PATCHES=(
-	"${FILESDIR}/${P}-remove-anonymous-bug-report.patch"
-	"${FILESDIR}/${P}-remove-call-to-apt.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-4.9.6-remove-anonymous-bug-report.patch" )
 
 src_install() {
 	distutils-r1_src_install
