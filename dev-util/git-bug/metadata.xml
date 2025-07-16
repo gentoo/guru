@@ -3,6 +3,6 @@
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
-		<remote-id type="github">MichaelMure/git-bug</remote-id>
+		<remote-id type="github">git-bug/git-bug</remote-id>
 	</upstream>
 </pkgmetadata>
