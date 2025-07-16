@@ -34,8 +34,8 @@ RDEPEND="
 CONFIG_CHECK="~DUMMY ~WIREGUARD"
 
 PATCHES=(
-	"${FILESDIR}/${P}-fix-networkmanager-plugin-loading.patch"
-	"${FILESDIR}/${P}-remove-call-to-apt.patch"
+	"${FILESDIR}/${PN}-0.12.13-fix-networkmanager-plugin-loading.patch"
+	"${FILESDIR}/${PN}-0.12.13-remove-call-to-apt.patch"
 )
 
 distutils_enable_tests pytest
