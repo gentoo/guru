@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>ingenarelitems@gmail.com</email>
+    <name>ingenarel</name>
+  </maintainer>
+<longdescription lang="en">
+tinyxxd is a standalone fork of xxd, a slight modernization of the C code, a slight performance increase and a drop-in
+replacement for xxd. It contains the same logic and supports the exact same flags. tinyxxd can be useful in connection
+with building and packaging software, since it's a smaller dependency than ViM, only requires a C11 compiler and is
+slightly faster.
+</longdescription>
+<upstream>
+  <remote-id type="github">xyproto/tinyxxd</remote-id>
+</upstream>
+</pkgmetadata>
