@@ -27,7 +27,7 @@
 		<flag name="i3-ipc">Enable interfacing with <pkg>x11-wm/i3</pkg> and <pkg>gui-wm/sway</pkg>'s IPC</flag>
 	</use>
 	<upstream>
-		<doc>https://quickshell.outfoxxed.me/docs/types/</doc>
+		<doc>https://quickshell.org/docs/</doc>
 		<bugs-to>https://github.com/quickshell-mirror/quickshell/issues</bugs-to>
 		<remote-id type="github">quickshell-mirror/quickshell</remote-id>
 	</upstream>
