@@ -5,7 +5,7 @@ EAPI=8
 
 DESCRIPTION="The Free On-line Dictionary of Computing for dict"
 HOMEPAGE="https://foldoc.org"
-SRC_URI="https://web.archive.org/web/20180405153121/http://foldoc.org/Dictionary -> ${P}.txt"
+SRC_URI="https://web.archive.org/web/${PV}153121/http://foldoc.org/Dictionary -> ${P}.txt"
 S="${WORKDIR}"
 LICENSE="FDL-1.1+"
 SLOT="0"
