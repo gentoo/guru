@@ -6,7 +6,7 @@ PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
-DESCRIPTION="Lib and CLI for archive.org - for search, uploading, downloading, rename..."
+DESCRIPTION="Lib and CLI for archive.org - for search, uploading, downloading, rename etc"
 HOMEPAGE="https://github.com/jjjake/internetarchive"
 SRC_URI="https://github.com/jjjake/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
@@ -24,7 +24,6 @@ BDEPEND="
 EPYTEST_DESELECT=(
 	tests/cli/test_ia.py::test_ia
 	tests/cli/test_ia_download.py::test_no_args
-	tests/cli/test_ia_download.py::test_no_change_timestamp
 	tests/cli/test_ia_download.py::test_https
 	tests/cli/test_ia_download.py::test_dry_run
 	tests/cli/test_ia_download.py::test_glob
@@ -45,7 +44,6 @@ EPYTEST_DESELECT=(
 	tests/test_session.py::test_s3_is_overloaded
 	tests/test_session.py::test_cookies
 )
-
 distutils_enable_tests pytest
 
 RDEPEND="
