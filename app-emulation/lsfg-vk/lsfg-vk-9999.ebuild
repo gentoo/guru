@@ -66,11 +66,6 @@ find_library(raylib_LIBRARY NAMES raylib)
 		-e '/target_link_libraries(lsfg-vk PRIVATE/{N;N;s/toml11 raylib/toml11::toml11 raylib/}'\
 		CMakeLists.txt || die
 
-	# GCC support
-	sed -i\
-		'/^set(CMAKE_C_COMPILER clang)$/d; /^set(CMAKE_CXX_COMPILER clang++)$/d'\
-		CMakeLists.txt thirdparty/dxbc/CMakeLists.txt || die
-
 	# Fixed library path
 	sed -i\
 		's|"library_path": "\.\./\.\./\.\./lib/liblsfg-vk\.so"|"library_path": "liblsfg-vk.so"|'\
