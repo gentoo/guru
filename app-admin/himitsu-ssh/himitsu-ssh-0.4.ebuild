@@ -19,10 +19,12 @@ SLOT="0"
 RDEPEND="
 	>=app-admin/himitsu-0.8:=
 	>=dev-hare/hare-ssh-0.24.2:=
+	<dev-hare/hare-ssh-0.25
 "
 DEPEND="
 	${RDEPEND}
 	>=dev-lang/hare-0.24.2:=
+	<dev-lang/hare-0.25
 "
 BDEPEND="app-text/scdoc"
 
