@@ -14,8 +14,8 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/PancakeTAS/lsfg-vk"
 	EGIT_SUBMODULES=(
-		dxbc
-		pe-parse
+		thirdparty/dxbc
+		thirdparty/pe-parse
 	)
 else
 	HASH_DXBC="04ca5e9ae5fef6c0c65ea72bbaa7375327f11454"
@@ -30,29 +30,48 @@ fi
 BDEPEND="
 	dev-util/spirv-headers
 	dev-util/vulkan-headers
+	>=media-libs/raylib-9999
 "
 DEPEND="
+	dev-cpp/toml11
 	media-libs/vulkan-loader
 "
 RDEPEND="${DEPEND}"
 
 src_prepare() {
 	if [[ ${PV} != 9999 ]]; then
-		mv ../dxbc-${HASH_DXBC} dxbc || die
-		mv ../pe-parse-${PEPARSE_VERSION} pe-parse || die
+		mv ../dxbc-${HASH_DXBC} thirdparty/dxbc || die
+		mv ../pe-parse-${PEPARSE_VERSION} thirdparty/pe-parse || die
 	fi
 
+	# Static linking pe-parse
 	sed -i\
 		's/^option(BUILD_SHARED_LIBS "Build Shared Libraries" ON)$/option(BUILD_SHARED_LIBS "Build Shared Libraries" OFF)/'\
-		pe-parse/CMakeLists.txt || die
+		thirdparty/pe-parse/CMakeLists.txt || die
 
 	sed -i\
 		's|add_library(${PROJECT_NAME} ${PEPARSERLIB_SOURCEFILES})|add_library(${PROJECT_NAME} STATIC ${PEPARSERLIB_SOURCEFILES})|'\
-		pe-parse/pe-parser-library/CMakeLists.txt || die
+		thirdparty/pe-parse/pe-parser-library/CMakeLists.txt || die
 
+	# Using system toml11 and raylib
+	sed -i\
+		-e '/add_subdirectory(thirdparty\/toml11 EXCLUDE_FROM_ALL)/d' \
+		-e '/add_subdirectory(thirdparty\/raylib EXCLUDE_FROM_ALL)/d' \
+		-e '/get_target_property(TOML11_INCLUDE_DIRS toml11 INTERFACE_INCLUDE_DIRECTORIES)/{
+N
+/target_include_directories(lsfg-vk SYSTEM PRIVATE ${TOML11_INCLUDE_DIRS})/c\
+find_package(toml11 REQUIRED)\
+find_library(raylib_LIBRARY NAMES raylib)
+}'\
+		-e '/target_link_libraries(lsfg-vk PRIVATE/{N;N;s/toml11 raylib/toml11::toml11 raylib/}'\
+		CMakeLists.txt || die
+
+	# GCC support
 	sed -i\
 		'/^set(CMAKE_C_COMPILER clang)$/d; /^set(CMAKE_CXX_COMPILER clang++)$/d'\
-		CMakeLists.txt dxbc/CMakeLists.txt || die
+		CMakeLists.txt thirdparty/dxbc/CMakeLists.txt || die
+
+	# Fixed library path
 	sed -i\
 		's|"library_path": "\.\./\.\./\.\./lib/liblsfg-vk\.so"|"library_path": "liblsfg-vk.so"|'\
 		VkLayer_LS_frame_generation.json || die
