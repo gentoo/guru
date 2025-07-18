@@ -42,11 +42,20 @@ src_prepare() {
 		mv ../pe-parse-${PEPARSE_VERSION} pe-parse || die
 	fi
 
-	sed -i 's/^option(BUILD_SHARED_LIBS "Build Shared Libraries" ON)$/option(BUILD_SHARED_LIBS "Build Shared Libraries" OFF)/' pe-parse/CMakeLists.txt || die
-	sed -i 's|add_library(${PROJECT_NAME} ${PEPARSERLIB_SOURCEFILES})|add_library(${PROJECT_NAME} STATIC ${PEPARSERLIB_SOURCEFILES})|' pe-parse/pe-parser-library/CMakeLists.txt || die
+	sed -i\
+		's/^option(BUILD_SHARED_LIBS "Build Shared Libraries" ON)$/option(BUILD_SHARED_LIBS "Build Shared Libraries" OFF)/'\
+		pe-parse/CMakeLists.txt || die
 
-	sed -i '/^set(CMAKE_C_COMPILER clang)$/d; /^set(CMAKE_CXX_COMPILER clang++)$/d' CMakeLists.txt dxbc/CMakeLists.txt || die
-	sed -i 's|"library_path": "\.\./\.\./\.\./lib/liblsfg-vk\.so"|"library_path": "liblsfg-vk.so"|' VkLayer_LS_frame_generation.json || die
+	sed -i\
+		's|add_library(${PROJECT_NAME} ${PEPARSERLIB_SOURCEFILES})|add_library(${PROJECT_NAME} STATIC ${PEPARSERLIB_SOURCEFILES})|'\
+		pe-parse/pe-parser-library/CMakeLists.txt || die
+
+	sed -i\
+		'/^set(CMAKE_C_COMPILER clang)$/d; /^set(CMAKE_CXX_COMPILER clang++)$/d'\
+		CMakeLists.txt dxbc/CMakeLists.txt || die
+	sed -i\
+		's|"library_path": "\.\./\.\./\.\./lib/liblsfg-vk\.so"|"library_path": "liblsfg-vk.so"|'\
+		VkLayer_LS_frame_generation.json || die
 
 	eapply_user
 	cmake_src_prepare
