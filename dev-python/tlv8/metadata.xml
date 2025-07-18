@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+	<maintainer type="person">
+		<email>beatussum@protonmail.com</email>
+		<name>Mattéo Rossillol‑‑Laruelle</name>
+	</maintainer>
+
+	<stabilize-allarches/>
+
+	<upstream>
+		<maintainer status="active">
+			<name>Joachim Lusiardi</name>
+			<email>joachim@lusiardi.de</email>
+		</maintainer>
+
+		<changelog>https://github.com/jlusiardi/tlv8_python/blob/master/CHANGES.md</changelog>
+		<bugs-to>https://github.com/jlusiardi/tlv8_python/issues</bugs-to>
+
+		<remote-id type="github">jlusiardi/tlv8_python</remote-id>
+		<remote-id type="pypi">tlv8</remote-id>
+	</upstream>
+</pkgmetadata>
