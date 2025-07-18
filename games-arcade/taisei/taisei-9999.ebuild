@@ -23,6 +23,7 @@ SLOT="0"
 
 IUSE="doc lto zip"
 
+# see: https://github.com/taisei-project/taisei/issues/399
 RDEPEND="
 	media-libs/freetype:2
 	media-libs/opusfile
@@ -33,7 +34,7 @@ RDEPEND="
 	app-arch/zstd
 	sys-libs/zlib
 	dev-libs/openssl:=
-	zip? ( dev-libs/libzip )
+	zip? ( dev-libs/libzip[zstd] )
 "
 DEPEND="
 	${RDEPEND}

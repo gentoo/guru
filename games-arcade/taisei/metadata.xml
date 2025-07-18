@@ -19,6 +19,7 @@
 	</longdescription>
 	<use>
 		<flag name="lto">Enable link time optimization</flag>
+		<flag name="mimalloc">Use mimalloc allocator via <pkg>dev-libs/mimalloc</pkg></flag>
 		<flag name="zip">Enable loading of game data from ZIP packages via <pkg>dev-libs/libzip</pkg></flag>
 	</use>
 </pkgmetadata>

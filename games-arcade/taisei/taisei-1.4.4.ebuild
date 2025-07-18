@@ -23,6 +23,7 @@ SLOT="0"
 
 IUSE="doc lto +mimalloc zip"
 
+# see: https://github.com/taisei-project/taisei/issues/399
 RDEPEND="
 	dev-util/glslang
 	media-libs/freetype:2
@@ -35,7 +36,7 @@ RDEPEND="
 	sys-libs/zlib
 	dev-libs/openssl:=
 	mimalloc? ( dev-libs/mimalloc:= )
-	zip? ( dev-libs/libzip )
+	zip? ( dev-libs/libzip[zstd] )
 "
 # see: https://github.com/taisei-project/taisei/issues/381
 DEPEND="
