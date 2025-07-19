@@ -1,0 +1,11 @@
+--- a/src/util/audio_stream.cpp	2025-05-18 13:17:46.231586212 -0700
++++ b/src/util/audio_stream.cpp	2025-05-18 13:18:08.590797873 -0700
+@@ -13,7 +13,7 @@
+ #include "common/timer.h"
+ 
+ #include "soundtouch/SoundTouch.h"
+-#include "soundtouch/SoundTouchDLL.h"
++#include "SoundTouchDLL.h"
+ 
+ #include <algorithm>
+ #include <cmath>
