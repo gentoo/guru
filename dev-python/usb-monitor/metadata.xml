@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+	<maintainer type="person">
+		<email>beatussum@protonmail.com</email>
+		<name>Mattéo Rossillol‑‑Laruelle</name>
+	</maintainer>
+
+	<stabilize-allarches/>
+
+	<upstream>
+		<maintainer status="active">
+			<name>Eric Cañas</name>
+			<email>elcorreodeharu@gmail.com</email>
+		</maintainer>
+
+		<bugs-to>https://github.com/Eric-Canas/USBMonitor/issues</bugs-to>
+
+		<remote-id type="github">Eric-Canas/USBMonitor</remote-id>
+		<remote-id type="pypi">usb-monitor</remote-id>
+	</upstream>
+</pkgmetadata>
