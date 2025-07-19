@@ -44,11 +44,12 @@ DEPEND="
 	x11-libs/libxkbcommon
 	x11-libs/pango
 	x11-libs/pixman
-	screencast? (
-		media-video/pipewire:=
-	)
+	screencast? ( media-video/pipewire:= )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	screencast? ( sys-apps/xdg-desktop-portal-gnome )
+"
 # libclang is required for bindgen
 BDEPEND="
 	screencast? ( $(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}') )
@@ -65,6 +66,10 @@ pkg_setup() {
 
 src_prepare() {
 	sed -i 's/git = "[^ ]*"/version = "*"/' Cargo.toml || die
+	# niri-session doesn't work on OpenRC
+	if ! use systemd; then
+		sed -i 's/niri-session/niri --session/' resources/niri.desktop || die
+	fi
 	default
 }
 
@@ -105,4 +110,6 @@ src_test() {
 pkg_postinst() {
 	optfeature "Default application launcher" "gui-apps/fuzzel"
 	optfeature "Default status bar" "gui-apps/waybar"
+	optfeature "Default terminal" "x11-terms/alacritty"
+	optfeature "Xwayland support" "gui-apps/xwayland-satellite"
 }
