@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+	<maintainer type="person">
+		<email>beatussum@protonmail.com</email>
+		<name>Mattéo Rossillol‑‑Laruelle</name>
+	</maintainer>
+
+	<stabilize-allarches/>
+
+	<upstream>
+		<maintainer status="active">
+			<name>Nitrokey</name>
+			<email>pypi@nitrokey.com</email>
+		</maintainer>
+
+		<changelog>https://github.com/Nitrokey/nitrokey-sdk-py/blob/main/CHANGELOG.md</changelog>
+		<bugs-to>https://github.com/Nitrokey/nitrokey-sdk-py/issues</bugs-to>
+
+		<remote-id type="github">Nitrokey/nitrokey-sdk-py</remote-id>
+		<remote-id type="pypi">nitrokey</remote-id>
+	</upstream>
+</pkgmetadata>
