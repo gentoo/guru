@@ -34,6 +34,12 @@ BDEPEND="
 "
 DEPEND="
 	dev-cpp/toml11
+	dev-util/glslang
+	|| (
+		media-libs/glfw
+		media-libs/libsdl2
+		media-libs/libsdl3
+	)
 	media-libs/vulkan-loader
 "
 RDEPEND="${DEPEND}"
