@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>arnauxabia@gmail.com</email>
+        <name>Arnau Camprubí</name>
+    </maintainer>
+    <longdescription lang="en">
+        A modern, beautiful, and configurable terminal hex dump tool that can highlight binary file formats
+    </longdescription>
+    <upstream>
+        <remote-id type="github">Arnau478/hevi</remote-id>
+    </upstream>
+</pkgmetadata>
