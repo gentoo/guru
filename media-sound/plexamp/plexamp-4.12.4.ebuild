@@ -10,7 +10,8 @@ HOMEPAGE="https://www.plex.tv/plexamp/"
 SRC_URI="https://plexamp.plex.tv/plexamp.plex.tv/desktop/Plexamp-${PV}.AppImage -> ${P}.AppImage"
 
 S="${WORKDIR}"
-LICENSE="Plex MIT GPL-2 CC0-1.0"
+# Plex software is licensed under: https://www.plex.tv/about/privacy-legal/plex-terms-of-service/
+LICENSE="all-rights-reserved MIT GPL-2 CC0-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
