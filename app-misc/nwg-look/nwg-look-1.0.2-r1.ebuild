@@ -17,6 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+	app-accessibility/at-spi2-core
 	dev-libs/glib
 	media-libs/fontconfig
 	media-libs/freetype
@@ -45,9 +46,7 @@ src_install() {
 	doins stuff/main.glade
 	doins -r langs
 
-	insinto /usr/share/pixmaps
-	doins stuff/nwg-look.svg
-
+	doicon -s scalable stuff/nwg-look.svg
 	domenu stuff/nwg-look.desktop
 
 	dobin nwg-look
