@@ -6,6 +6,8 @@
 		<name>Octiabrina Terrien-Puig</name>
 	</maintainer>
 	<upstream>
+		<bugs-to>https://github.com/mwh/dragon/issues</bugs-to>
+		<changelog>https://github.com/mwh/dragon/releases</changelog>
 		<remote-id type="github">mwh/dragon</remote-id>
 	</upstream>
 </pkgmetadata>
