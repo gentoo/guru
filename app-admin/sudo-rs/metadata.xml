@@ -9,4 +9,7 @@
     <bugs-to>https://github.com/trifectatechfoundation/sudo-rs/issues</bugs-to>
     <remote-id type="github">trifectatechfoundation/sudo-rs</remote-id>
   </upstream>
+  <use>
+    <flag name="su">Installs su</flag>
+  </use>
 </pkgmetadata>
