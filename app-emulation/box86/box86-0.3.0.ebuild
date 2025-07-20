@@ -21,8 +21,10 @@ pkg_setup() {
 		ewarn "box86 relies on a toolchain capable of emitting 32-bit code, and a 32 bit libc."
 		ewarn "If you're on a non multilib 64-bit profile, you will need to add multilib capabilities to it, see:"
 		ewarn "https://wiki.gentoo.org/wiki/User:Aslantis/Multilib_on_targets_without_official_multilib_profiles"
-		ewarn "Alternatively, box64 may work on your system, and can be used in tandem with wine's WOW64 for windows programs."
-		ewarn "box86 also doesn't support being built for the thumb ABI, if you have a thumb system you'll need -marm in your *FLAGS"
+		ewarn\
+		"Alternatively, box64 may work on your system, and can be used in tandem with wine's WOW64 for windows programs."
+		ewarn "box86 also doesn't support being built for the thumb ABI"
+		ewarn "If you have a thumb system you'll need -marm in your *FLAGS"
 		ewarn ""
 	fi
 
