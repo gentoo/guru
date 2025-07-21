@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1 go-module optfeature
+inherit shell-completion go-module optfeature
 
 DESCRIPTION="cheat allows you to create and view interactive cheatsheets on the command-line"
 HOMEPAGE="https://github.com/cheat/cheat"
@@ -37,12 +37,11 @@ src_install() {
 	use man && doman doc/${PN}.1
 
 	newbashcomp scripts/${PN}.bash ${PN}
-	insinto /usr/share/fish/vendor_completions.d
-	doins scripts/${PN}.fish
+	dofishcomp "scripts/$PN.fish"
 
 	if use zsh-completion; then
-		insinto /usr/share/zsh/site-functions
-		newins scripts/${PN}.zsh _cheat
+		mv "scripts/${PN}.zsh" "scripts/_${PN}"
+		newzshcomp "scripts/${PN}.zsh" "_${PN}"
 	fi
 }
 
