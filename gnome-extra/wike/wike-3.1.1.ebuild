@@ -15,19 +15,19 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
-	${PYTHON_DEPS}
-	dev-python/pygobject
-	dev-python/requests
-	gui-libs/gtk
-	gui-libs/libadwaita
+	$(python_gen_cond_dep '
+	dev-python/pygobject[${PYTHON_USEDEP}]
+	dev-python/requests[${PYTHON_USEDEP}]')
+	gui-libs/gtk:4
+	gui-libs/libadwaita:1
 	net-libs/libsoup:3.0
 	net-libs/webkit-gtk:6
 	x11-libs/pango
 	x11-themes/hicolor-icon-theme
 "
+
 BDEPEND="
 	dev-libs/appstream-glib
 	dev-libs/glib:2
