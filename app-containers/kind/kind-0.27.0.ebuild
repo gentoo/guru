@@ -8,7 +8,7 @@ inherit edo go-module shell-completion
 DESCRIPTION="Kind is a tool for running local Kubernetes clusters using Docker"
 HOMEPAGE="https://kind.sigs.k8s.io/"
 SRC_URI="https://github.com/kubernetes-sigs/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://github.com/dmdutra/gentoo-distfiles/raw/refs/heads/main/${PN}-v${PV}-vendor.tar.xz"
+SRC_URI+=" https://github.com/ingenarel/guru-depfiles/releases/download/${P}-deps.tar.xz/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0 BSD BSD-2 MPL-2.0 MIT"
 SLOT="0"
