@@ -1,0 +1,13 @@
+diff --git a/llvm/include/llvm/ObjectYAML/ELFYAML.h b/llvm/include/llvm/ObjectYAML/ELFYAML.h
+index e883f2f3e144..1089feab39ea 100644
+--- a/llvm/include/llvm/ObjectYAML/ELFYAML.h
++++ b/llvm/include/llvm/ObjectYAML/ELFYAML.h
+@@ -275,7 +275,7 @@ struct Section : public Chunk {
+   std::optional<llvm::yaml::Hex64> Size;
+ 
+   // Holds the original section index.
+-  unsigned OriginalSecNdx;
++  unsigned OriginalSecNdx = 0;
+ 
+   Section(ChunkKind Kind, bool IsImplicit = false) : Chunk(Kind, IsImplicit) {}
+ 

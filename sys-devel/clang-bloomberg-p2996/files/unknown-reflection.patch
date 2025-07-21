@@ -1,0 +1,12 @@
+diff --git a/clang/lib/AST/ExprConstantMeta.cpp b/clang/lib/AST/ExprConstantMeta.cpp
+index 0808f3124833..bc23ad41dbe5 100644
+--- a/clang/lib/AST/ExprConstantMeta.cpp
++++ b/clang/lib/AST/ExprConstantMeta.cpp
+@@ -1664,6 +1664,7 @@ StringRef DescriptionOf(APValue RV, bool Granular = true) {
+     return "an annotation";
+   }
+   }
++  llvm_unreachable("unknown reflection");
+ }
+ 
+ bool DiagnoseReflectionKind(DiagFn Diagnoser, SourceRange Range,

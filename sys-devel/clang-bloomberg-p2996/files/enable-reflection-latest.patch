@@ -1,0 +1,13 @@
+diff --git a/clang/lib/Driver/ToolChains/Clang.cpp b/clang/lib/Driver/ToolChains/Clang.cpp
+index a7af861541b8..d372914dfaaf 100644
+--- a/clang/lib/Driver/ToolChains/Clang.cpp
++++ b/clang/lib/Driver/ToolChains/Clang.cpp
+@@ -7066,7 +7066,7 @@ void Clang::ConstructJob(Compilation &C, const JobAction &JA,
+   Args.AddLastArg(CmdArgs, options::OPT_fapinotes_swift_version);
+ 
+   if (Args.hasFlag(options::OPT_freflection_latest,
+-                   options::OPT_fno_reflection_latest, false)) {
++                   options::OPT_fno_reflection_latest, true)) {
+     CmdArgs.push_back("-freflection");
+     CmdArgs.push_back("-fparameter-reflection");
+     CmdArgs.push_back("-fannotation-attributes");

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>falbrechtskirchinger@gmail.com</email>
+    <name>Florian Albrechtskirchinger</name>
+  </maintainer>
+  <use>
+    <flag name="default-reflection-latest-on">Defaults -freflection-latest to on.</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">bloomberg/clang-p2996</remote-id>
+  </upstream>
+</pkgmetadata>
