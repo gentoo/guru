@@ -69,9 +69,20 @@ N
 find_package(toml11 REQUIRED)\
 find_library(raylib_LIBRARY NAMES raylib)
 }'\
-		-e '/target_link_libraries(lsfg-vk PRIVATE/{N;N;s/toml11 raylib/toml11::toml11 raylib/}'\
+		-e '/target_link_libraries(lsfg-vk PRIVATE/{N;N;s/toml11 raylib/toml11::toml11 raylib/;s/ SPIRV-Headers//}'\
 		-e '/^set(CMAKE_C_COMPILER clang)$/d; /^set(CMAKE_CXX_COMPILER clang++)$/d'\
 		CMakeLists.txt || die
+
+	# Using system spirv headers
+	sed -i \
+		-e '/add_subdirectory(spirv)/d' \
+		-e '/target_link_libraries(dxbc/,/SPIRV-Headers)/d' \
+		-e '/target_include_directories(dxbc SYSTEM/,/include\/dxvk)/c\
+target_include_directories(dxbc\
+	SYSTEM PUBLIC include/dxbc\
+	SYSTEM PUBLIC include/spirv include/util include/dxvk\
+)' \
+		thirdparty/dxbc/CMakeLists.txt || die
 
 	# Fixed library path
 	sed -i\
