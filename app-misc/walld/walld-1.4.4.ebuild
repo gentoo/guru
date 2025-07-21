@@ -7,7 +7,7 @@ inherit optfeature meson
 
 DESCRIPTION="A Wallpaper daemon"
 HOMEPAGE="https://github.com/Dotz0cat/walld"
-SRC_URI="https://github.com/Dotz0cat/walld/archive/refs/tags/1.4.4.tar.gz -> walld-1.4.4.tar.gz"
+SRC_URI="https://github.com/Dotz0cat/walld/archive/refs/tags/$PV.tar.gz -> walld-$PV.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
