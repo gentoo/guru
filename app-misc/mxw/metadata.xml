@@ -12,4 +12,8 @@
     WireShark and USBPcap, as well as a decompilation of the official
     Windows program (Glorious Core).
   </longdescription>
+  <upstream>
+    <remote-id type="github">dkbednarczyk/mxw</remote-id>
+    <bugs-to>https://github.com/dkbednarczyk/mxw/issues</bugs-to>
+  </upstream>
 </pkgmetadata>

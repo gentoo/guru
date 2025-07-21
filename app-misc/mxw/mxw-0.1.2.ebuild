@@ -62,7 +62,7 @@ DESCRIPTION="CLI tool for Glorious wireless mice"
 HOMEPAGE="https://github.com/dkbednarczyk/mxw"
 SRC_URI="
 	${CARGO_CRATE_URIS}
-	https://github.com/dkbednarczyk/mxw/archive/refs/tags/v0.1.2.tar.gz
+	https://github.com/dkbednarczyk/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 "
 
 LICENSE="GPL-3"
