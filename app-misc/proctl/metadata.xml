@@ -7,9 +7,9 @@
     <description>Primary maintainer</description>
   </maintainer>
   <longdescription>
-	proctl is a C program that allows the controlling of other processes.
-	it can execute, kill, and restart processes my passing arguments to
-	the proctl command.
+    proctl is a C program that allows the controlling of other processes.
+    it can execute, kill, and restart processes my passing arguments to
+    the proctl command.
   </longdescription>
   <upstream>
     <remote-id type="github">kernaltrap8/proctl</remote-id>
