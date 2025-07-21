@@ -16,7 +16,7 @@ src_install() {
 	local target="/usr/share/applications/sm.puri.OSK0.desktop"
 
 	case $(get_alternative) in
-		phosh-osk-stub)
+		stevia)
 			dosym mobi.phosh.Stevia.desktop "${target:?}";;
 	esac
 }
