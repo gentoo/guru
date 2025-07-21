@@ -70,7 +70,7 @@ find_package(toml11 REQUIRED)\
 find_library(raylib_LIBRARY NAMES raylib)
 }'\
 		-e '/target_link_libraries(lsfg-vk PRIVATE/{N;N;s/toml11 raylib/toml11::toml11 raylib/;s/ SPIRV-Headers//}'\
-		-e '/^set(CMAKE_C_COMPILER clang)$/d; /^set(CMAKE_CXX_COMPILER clang++)$/d'\
+		-e '/set(CMAKE_CXX_COMPILER clang++) # gcc release build crashes/d;/set(CMAKE_C_COMPILER clang)     # feel free to fix :3/d'\
 		CMakeLists.txt || die
 
 	# Using system spirv headers
