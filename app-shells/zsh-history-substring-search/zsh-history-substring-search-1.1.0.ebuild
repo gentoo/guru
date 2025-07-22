@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit readme.gentoo-r1
+inherit readme.gentoo-r1 shell-completion
 
 DESCRIPTION="ZSH port of Fish history search (up arrow)"
 HOMEPAGE="https://github.com/zsh-users/zsh-history-substring-search"
@@ -21,8 +21,7 @@ DOC_CONTENTS="In order to use ${CATEGORY}/${PN} add
 at the end of your ~/.zshrc"
 
 src_install() {
-	insinto /usr/share/zsh/site-functions
-	doins ${PN}.zsh
+	newzshcomp "${PN}.zsh" "_${PN}"
 
 	readme.gentoo_create_doc
 	einstalldocs
