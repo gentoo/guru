@@ -127,7 +127,6 @@ install_tool() {
 	eshopts_pop
 }
 
-
 src_install() {
 	echo "v${PV}" > version.txt || die
 
