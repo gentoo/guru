@@ -121,12 +121,4 @@ pkg_postinst() {
 	ewarn "${PN} ${PV} will continue to use /var/lib/gitea as the default home,"
 	ewarn "as acct-user/git[gitea] depends on it, and acct-user[forgejo] does not"
 	ewarn "exist yet."
-	ewarn ""
-	ewarn "> The Gitea themes were renamed and the [ui].THEMES setting must be changed as follows:"
-	ewarn "> - gitea is replaced by gitea-light"
-	ewarn "> - arc-green is replaced by gitea-dark"
-	ewarn "> - auto is replaced by gitea-auto"
-	ewarn ""
-	ewarn "See https://codeberg.org/forgejo/forgejo/src/branch/forgejo/RELEASE-NOTES.md#7-0-0"
-	ewarn "for more information"
 }
