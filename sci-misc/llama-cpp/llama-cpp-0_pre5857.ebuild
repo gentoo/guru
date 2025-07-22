@@ -93,6 +93,13 @@ src_configure() {
 		)
 	fi
 
+	if use cuda; then
+		local -x CUDAHOSTCXX="$(cuda_gccdir)"
+		# tries to recreate dev symlinks
+		cuda_add_sandbox
+		addpredict "/dev/char/"
+	fi
+
 	if use hip; then
 		rocm_use_hipcc
 		mycmakeargs+=(
