@@ -17,17 +17,19 @@ S="${WORKDIR}/${MyP}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="blas cuda hip opencl sdl2"
+IUSE="blas cuda hip opencl sdl2 vulkan"
 
-DEPEND="blas? ( virtual/blas )
+CDEPEND="blas? ( sci-libs/openblas )
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 	hip? ( sci-libs/hipBLAS:= )
 	opencl? ( sci-libs/clblast:= )
 	sdl2? ( media-libs/libsdl2:= )"
-RDEPEND="${DEPEND}"
-
-# Enabling multiple may lead to build failures, whisper-cpp won't use more than one either way
-REQUIRED_USE="?? ( blas cuda hip opencl )"
+DEPEND="${CDEPEND}
+	vulkan? ( dev-util/vulkan-headers )
+"
+RDEPEND="${CDEPEND}
+	vulkan? ( media-libs/vulkan-loader )
+"
 
 src_configure() {
 	# Note: CUDA and HIP are currently untested. Build failures may occur.
@@ -35,10 +37,11 @@ src_configure() {
 	# -DWHISPER_BUILD_TESTS=$(usex test)
 	local mycmakeargs=(
 		-DWHISPER_BUILD_EXAMPLES=ON
-		-DWHISPER_BLAS=$(usex blas)
-		-DWHISPER_CLBLAST=$(usex opencl)
-		-DWHISPER_CUBLAS=$(usex cuda)
-		-DWHISPER_HIPBLAS=$(usex hip)
+		-DGGML_BLAS=$(usex blas)
+		-DGGML_CLBLAST=$(usex opencl)
+		-DGGML_CUBLAS=$(usex cuda)
+		-DGGML_HIPBLAS=$(usex hip)
+		-DGGML_VULKAN=$(usex vulkan)
 		-DWHISPER_SDL2=$(usex sdl2)
 	)
 	cmake_src_configure
