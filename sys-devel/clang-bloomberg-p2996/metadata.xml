@@ -6,7 +6,7 @@
     <name>Florian Albrechtskirchinger</name>
   </maintainer>
   <use>
-    <flag name="default-reflection-latest-on">Defaults -freflection-latest to on.</flag>
+    <flag name="default-reflection-latest">Defaults -freflection-latest to on.</flag>
   </use>
   <upstream>
     <remote-id type="github">bloomberg/clang-p2996</remote-id>

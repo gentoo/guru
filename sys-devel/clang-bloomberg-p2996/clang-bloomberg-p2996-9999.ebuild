@@ -16,7 +16,7 @@ EGIT_REPO_URI="https://github.com/bloomberg/clang-p2996.git"
 EGIT_BRANCH="p2996"
 
 ALL_LLVM_TARGETS="AArch64 AMDGPU ARC ARM AVR BPF CSKY DirectX Hexagon Lanai LoongArch M68k MSP430 Mips NVPTX PowerPC RISCV SPIRV Sparc SystemZ VE WebAssembly +X86 XCore Xtensa"
-IUSE="+debug +default-reflection-latest-on +pie"
+IUSE="+debug +default-reflection-latest +pie"
 for target in ${ALL_LLVM_TARGETS}; do
 	IUSE+=" ${target%${target#+}}llvm_targets_${target#+}"
 done
@@ -37,7 +37,7 @@ src_prepare() {
 	mkdir -p x/y || die
 	BUILD_DIR=${WORKDIR}/x/y/clang
 
-	use default-reflection-latest-on && eapply "${FILESDIR}/enable-reflection-latest.patch"
+	use default-reflection-latest && eapply "${FILESDIR}/enable-reflection-latest.patch"
 
 	cmake_src_prepare
 
@@ -73,7 +73,7 @@ src_configure() {
 		-DLLVM_LINK_LLVM_DYLIB=ON
 		-DLLVM_ENABLE_PROJECTS="clang"
 		-DLLVM_ENABLE_RUNTIMES="libcxxabi;libcxx"
-		-DLLVM_TARGETS_TO_BUILD="$(IFS=';' ; echo "${targets[*]}")"
+		-DLLVM_TARGETS_TO_BUILD="$(IFS=';'; echo "${targets[*]}")"
 		-DLLVM_INCLUDE_BENCHMARKS=OFF
 		-DLLVM_INCLUDE_TESTS=OFF
 		-DLLVM_BUILD_TESTS=OFF
@@ -95,7 +95,7 @@ src_configure() {
 		-DLIBCXXABI_USE_LLVM_UNWINDER=OFF
 
 		-DCLANG_CONFIG_FILE_SYSTEM_DIR="${EPREFIX}/etc/clang/bloomberg-p2996"
-		-DCLANG_CONFIG_FILE_USER_DIR="~/.config/clang-bloomberg-p2996"
+		-DCLANG_CONFIG_FILE_USER_DIR="~/.config/clang"
 		# relative to bindir
 		-DCLANG_RESOURCE_DIR="../../../../lib/clang/bloomberg-p2996"
 		-DCLANG_LINK_CLANG_DYLIB=ON
@@ -227,8 +227,8 @@ src_install() {
 
 pkg_postinst() {
 	elog "Binaries are installed with a 'bloomberg-p2996-' prefix,"
-	elog "e.g., bloomberg-p2996-clang++."
-	use default-reflection-latest-on && \
+	elog "e.g.: bloomberg-p2996-clang++"
+	use default-reflection-latest && \
 		elog "Pass -fno-reflection-latest to disable reflection support." || \
 		elog "Pass -freflection-latest to enable reflection support."
 }
