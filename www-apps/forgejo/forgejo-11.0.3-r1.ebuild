@@ -68,9 +68,9 @@ src_compile() {
 		$(usex sqlite 'sqlite sqlite_unlock_notify' '')
 	)
 	local forgejo_settings=(
-		"-X code.gitea.io/gitea/modules/setting.CustomConf=${EPREFIX}/etc/forgejo/app.ini"
-		"-X code.gitea.io/gitea/modules/setting.CustomPath=${EPREFIX}/var/lib/gitea/custom"
-		"-X code.gitea.io/gitea/modules/setting.AppWorkPath=${EPREFIX}/var/lib/gitea"
+		"-X forgejo.org/modules/setting.CustomConf=${EPREFIX}/etc/forgejo/app.ini"
+		"-X forgejo.org/modules/setting.CustomPath=${EPREFIX}/var/lib/gitea/custom"
+		"-X forgejo.org/modules/setting.AppWorkPath=${EPREFIX}/var/lib/gitea"
 	)
 	local makeenv=(
 		DRONE_TAG="${PV}"
