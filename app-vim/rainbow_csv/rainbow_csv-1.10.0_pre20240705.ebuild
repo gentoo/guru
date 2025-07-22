@@ -4,7 +4,7 @@
 EAPI=8
 inherit vim-plugin
 
-DESCRIPTION="🌈Rainbow CSV - Vim plugin: Highlight columns in CSV and TSV files and run queries in SQL-like language"
+DESCRIPTION="A vim plugin for CSV and TSV highlighting and running queries"
 HOMEPAGE="https://github.com/mechatroner/rainbow_csv"
 
 EGIT_COMMIT="3dbbfd7d17536aebfb80f571255548495574c32b"
@@ -15,7 +15,6 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 RDEPEND="
 	app-editors/vim
