@@ -90,7 +90,9 @@ src_unpack() {
 	eprefixify "${T}"/{50-${PN},wrapper.in}
 
 	# 'pyuno' is excluded from unpack list to switch off Python2 scripts support
-	for i in base calc core01 core02 core03 core04 core05 core06 core07 draw graphicfilter images impress math ogltrans ooofonts ooolinguistic ure writer xsltfilter ; do
+	for i in base calc core01 core02 core03 core04 core05 core06 core07 draw graphicfilter images impress math ogltrans\
+		ooofonts ooolinguistic ure writer xsltfilter
+	do
 		rpm_unpack "./${UP}/${NM}-${i}-${BVER}.${XARCH}.rpm"
 	done
 
