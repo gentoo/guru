@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit readme.gentoo-r1
+inherit readme.gentoo-r1 shell-completion
 
 DESCRIPTION="Run multiple asynchronous jobs with callbacks"
 HOMEPAGE="https://github.com/mafredri/zsh-async"
@@ -35,8 +35,7 @@ src_test() {
 }
 
 src_install() {
-	insinto /usr/share/zsh/site-functions
-	doins async.zsh
+	newzshcomp "async.zsh" "_async"
 
 	readme.gentoo_create_doc
 	einstalldocs
