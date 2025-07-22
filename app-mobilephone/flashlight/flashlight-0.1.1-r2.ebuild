@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit meson gnome2-utils udev xdg-utils
+inherit meson gnome2-utils udev
 
 MY_COMMIT="f5feb4b3d17bbf16171d716bbb8e28f3a84542ef"
 
