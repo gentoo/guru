@@ -10,12 +10,15 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/xyproto/tinyxxd.git"
 else
 	SRC_URI="https://github.com/xyproto/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
 fi
+
+RDEPEND="!dev-util/xxd"
 
 LICENSE="GPL-2"
 SLOT="0"
 
 src_install(){
 	default
-	dosym "$(which tinyxxd)" /usr/bin/xxd
+	dosym /usr/bin/tinyxxd /usr/bin/xxd
 }
