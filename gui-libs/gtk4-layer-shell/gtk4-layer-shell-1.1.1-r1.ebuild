@@ -32,23 +32,15 @@ BDEPEND="
 	introspection? ( dev-libs/gobject-introspection )
 	doc? ( dev-util/gtk-doc )
 	test? ( >=dev-lang/python-3.8.19 )
-	vala? ( dev-lang/vala:0.56[vapigen(+)] )
+	vala? ( dev-lang/vala[vapigen(+)] )
 	smoke-tests? (
 		dev-lang/luajit
 		dev-lua/lgi
 	)
 "
 
-src_prepare() {
-	default
-
-	# Meson tries to use the binaries without version suffix.
-	# Use a native-file override to point to the correct binaries.
-	echo """
-[binaries]
-vala = '/usr/bin/valac-0.56'
-vapigen = '/usr/bin/vapigen-0.56'
-""" > vala_override.ini
+pkg_setup() {
+	use vala && vala_setup
 }
 
 src_configure() {
@@ -59,7 +51,6 @@ src_configure() {
 		$(meson_use smoke-tests)
 		$(meson_use introspection)
 		$(meson_use vala vapi)
-		--native-file vala_override.ini
 	)
 	meson_src_configure
 }
