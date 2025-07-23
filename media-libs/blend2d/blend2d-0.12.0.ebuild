@@ -20,7 +20,7 @@ SLOT="0"
 IUSE="+jit test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="jit? ( >=dev-libs/asmjit-2025.06.15 )"
+RDEPEND="jit? ( >=dev-libs/asmjit-2024.10.25 )"
 DEPEND="${RDEPEND}"
 
 DOCS=( README.md CONTRIBUTING.md )
