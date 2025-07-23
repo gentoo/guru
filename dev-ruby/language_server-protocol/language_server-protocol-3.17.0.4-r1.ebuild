@@ -17,6 +17,11 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# TODO: if necessary create ebuilds for testing dependencies
+# most test dependencies can be satisfied aside from m (short for metal)
+# which has proven to be an entire rabbithole of extra packages
+RUBY_FAKEGEM_RECIPE_TEST="none"
+
 all_ruby_unpack() {
 	default
 
@@ -29,8 +34,13 @@ each_fakegem_configure() {
 	# by default these lines contain code that runs unnecessary shell commands or
 	# searches that don't make sense with the ebuild directory structure.
 	# values are set independently by the eclass anyways, so can be removed
-	sed -i '/^spec.files*/d' "${PN}.gemspec" || die
-	sed -i '/^spec.executables*/d' "${PN}.gemspec" || die
+	sed -i '/^\s*spec.files*/d' "${PN}.gemspec" || die
+	sed -i '/^\s*spec.executables*/d' "${PN}.gemspec" || die
 
+	default
+}
+
+each_fakegem_test() {
+	ewarn "Tests disabled due to dependency issues"
 	default
 }
