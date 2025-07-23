@@ -8,7 +8,7 @@ ROCM_VERSION="6.3"
 inherit cmake cuda rocm linux-info
 
 if [[ "${PV}" != "9999" ]]; then
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~ppc64"
 	MY_PV="b${PV#0_pre}"
 	S="${WORKDIR}/llama.cpp-${MY_PV}"
 	SRC_URI="https://github.com/ggml-org/llama.cpp/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
