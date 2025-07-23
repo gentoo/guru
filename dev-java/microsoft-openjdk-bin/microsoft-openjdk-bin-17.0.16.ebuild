@@ -14,7 +14,7 @@ SRC_URI="
 	arm64? ( https://aka.ms/download-jdk/microsoft-jdk-${PV}-linux-aarch64.tar.gz )
 "
 
-S="${WORKDIR}/jdk-${MY_PV}+6"
+S="${WORKDIR}/jdk-${MY_PV}+8"
 LICENSE="GPL-2-with-classpath-exception"
 SLOT=$(ver_cut 1)
 KEYWORDS="~amd64"
