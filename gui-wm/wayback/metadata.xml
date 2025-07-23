@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+	<maintainer type="person">
+		<email>rose@pinkro.se</email>
+		<name>Rose</name>
+	</maintainer>
+	<longdescription lang="en">
+		Wayback is an X11 compatibility layer which allows for running full X11
+		desktop environments using Wayland components.
+		It is intended to eventually replace the classic X.Org server,
+		thus reducing maintenance burden of X11 applications.
+	</longdescription>
+	<upstream>
+		<remote-id type="freedesktop-gitlab">wayback/wayback</remote-id>
+		<bugs-to>https://gitlab.freedesktop.org/wayback/wayback/-/issues</bugs-to>
+		<doc>https://wayback.freedesktop.org/docs/</doc>
+		<changelog>https://wayback.freedesktop.org/news/</changelog>
+	</upstream>
+</pkgmetadata>
