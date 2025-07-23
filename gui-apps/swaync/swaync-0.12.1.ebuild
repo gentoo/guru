@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit meson vala gnome2-utils python-any-r1
 VALA_USE_DEPEND="vapigen"
 
@@ -22,12 +22,11 @@ DEPEND="
 	dev-lang/sassc
 	dev-libs/glib:2
 	dev-libs/gobject-introspection
-	dev-libs/granite:=
+	>=dev-libs/granite-7.0.0:=
 	dev-libs/json-glib
 	dev-libs/libgee:0.8=
-	dev-libs/wayland
 	gui-libs/gtk4-layer-shell[introspection,vala]
-	gui-libs/gtk:4
+	gui-libs/gtk:4[introspection,wayland]
 	gui-libs/libadwaita
 	pulseaudio? ( media-libs/libpulse )
 	sys-apps/dbus
