@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ericanebula@proton.me</email>
+		<name>Erica Nebula</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/sezanzeb/input-remapper/issues</bugs-to>
+		<changelog>https://github.com/sezanzeb/input-remapper/releases</changelog>
+		<remote-id type="github">sezanzeb/input-remapper</remote-id>
+	</upstream>
+</pkgmetadata>

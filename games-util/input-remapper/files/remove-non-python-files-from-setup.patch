@@ -1,0 +1,30 @@
+diff --git a/setup.py b/setup.py
+index a36cdf1..d854fad 100644
+--- a/setup.py
++++ b/setup.py
+@@ -110,24 +110,7 @@ setup(
+     packages=get_packages(),
+     include_package_data=True,
+     data_files=[
+-        # see development.md#files
+-        *lang_data,
+-        ("/usr/share/input-remapper/", glob.glob("data/*")),
+-        ("/usr/share/applications/", ["data/input-remapper-gtk.desktop"]),
+-        (
+-            "/usr/share/metainfo/",
+-            ["data/io.github.sezanzeb.input_remapper.metainfo.xml"],
+-        ),
+-        ("/usr/share/icons/hicolor/scalable/apps/", ["data/input-remapper.svg"]),
+-        ("/usr/share/polkit-1/actions/", ["data/input-remapper.policy"]),
+-        ("/usr/lib/systemd/system", ["data/input-remapper.service"]),
+-        ("/usr/share/dbus-1/system.d/", ["data/inputremapper.Control.conf"]),
+-        ("/etc/xdg/autostart/", ["data/input-remapper-autoload.desktop"]),
+-        ("/usr/lib/udev/rules.d", ["data/99-input-remapper.rules"]),
+-        ("/usr/bin/", ["bin/input-remapper-gtk"]),
+-        ("/usr/bin/", ["bin/input-remapper-service"]),
+-        ("/usr/bin/", ["bin/input-remapper-control"]),
+-        ("/usr/bin/", ["bin/input-remapper-reader-service"]),
++        # Gentoo Ebuild will handle these manually
+     ],
+     install_requires=["setuptools", "evdev", "pydbus", "pygobject", "pydantic"],
+     cmdclass={
