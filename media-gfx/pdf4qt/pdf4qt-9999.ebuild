@@ -18,7 +18,7 @@ else
 	S=${WORKDIR}/${MY_P}
 fi
 
-LICENSE="LGPL-3+"
+LICENSE="MIT"
 SLOT="0"
 IUSE="test"
 RESTRICT="!test? ( test )"
@@ -42,27 +42,16 @@ DEPEND="$RDEPEND
 
 DOCS=( NOTES.txt README.md RELEASES.txt )
 PATCHES=(
-	"${FILESDIR}/pdf4qt-1.4.0.0-minor-fix-remove-extention-from-Icon-endtry-in-a-des.patch"
-	"${FILESDIR}/pdf4qt-1.5.0.0-Minimal-cmake-fixes.patch"
-	"${FILESDIR}/pdf4qt-1.4.0.0-Make-runtime-respect-cmake-s-plugin-dir-settings.patch"
+	"${FILESDIR}/${PN}-1.5.1.0-Make-building-of-tests-optional.patch"
+	"${FILESDIR}/${PN}-1.5.1.0-Make-runtime-respect-cmake-s-plugin-dir-settings.patch"
+	"${FILESDIR}/${PN}-1.5.1.0-Fix-translation-install-path-on-nix.patch"
 )
-
-src_prepare() {
-	cmake_src_prepare
-
-	# Conditionally dissable test build
-	if ! use test; then
-		sed -i -e '/find_package(Qt6/s/Test//' \
-			   -e '/add_subdirectory(UnitTests)/d' \
-			CMakeLists.txt || die
-	fi
-}
 
 src_configure() {
 	local mycmakeargs=(
 		-DPDF4QT_INSTALL_DEPENDENCIES=OFF
 		-DPDF4QT_INSTALL_TO_USR=OFF
-		-DVCPKG_OVERLAY_PORTS="" # suppress a warning
+		-DPDF4QT_BUILD_TESTS="$(usex test)"
 	)
 	cmake_src_configure
 }

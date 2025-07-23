@@ -1,0 +1,103 @@
+From 25c123fdfa0b92841de35963a5663b719f0c8645 Mon Sep 17 00:00:00 2001
+From: Alexander Golubev <fatzer2@gmail.com>
+Date: Mon, 11 Nov 2024 18:15:32 +0300
+Subject: [PATCH 4/5] Make runtime respect cmake's plugin dir settings
+
+This fixes plugin lookup on linux where plugins were installed into
+<prefix>/lib/pdf4qt but were expected at <prefix>/pdfplugins.
+---
+ CMakeLists.txt                        | 12 ++++++++++++
+ Pdf4QtEditorPlugins/CMakeLists.txt    |  6 ------
+ Pdf4QtLibGui/pdfprogramcontroller.cpp | 16 +++-------------
+ config.h.cmake                        |  1 +
+ 4 files changed, 16 insertions(+), 19 deletions(-)
+ create mode 100644 config.h.cmake
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bc16b59..e4821ef 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -132,6 +132,18 @@ else()
+     set(PDF4QT_INSTALL_SHARE_DIR share)
+ endif()
+ 
++if(PDF4QT_LINUX)
++    set(PDF4QT_PLUGINS_DIR ${PDF4QT_INSTALL_LIB_DIR}/pdf4qt)
++else()
++    set(PDF4QT_PLUGINS_DIR ${PDF4QT_INSTALL_LIB_DIR}/pdfplugins)
++endif()
++
++# Relative paths are used by the config
++cmake_path(RELATIVE_PATH PDF4QT_PLUGINS_DIR
++           BASE_DIRECTORY "${PDF4QT_INSTALL_BIN_DIR}"
++           OUTPUT_VARIABLE PDF4QT_PLUGINS_RELATIVE_PATH)
++configure_file(config.h.cmake config.h)
++
+ add_subdirectory(Pdf4QtLibCore)
+ 
+ if(NOT PDF4QT_BUILD_ONLY_CORE_LIBRARY)
+diff --git a/Pdf4QtEditorPlugins/CMakeLists.txt b/Pdf4QtEditorPlugins/CMakeLists.txt
+index 33019ca..26e2615 100644
+--- a/Pdf4QtEditorPlugins/CMakeLists.txt
++++ b/Pdf4QtEditorPlugins/CMakeLists.txt
+@@ -20,12 +20,6 @@
+ # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ # SOFTWARE.
+ 
+-if(PDF4QT_LINUX)
+-    set(PDF4QT_PLUGINS_DIR ${PDF4QT_INSTALL_LIB_DIR}/pdf4qt)
+-else()
+-    set(PDF4QT_PLUGINS_DIR ${PDF4QT_INSTALL_LIB_DIR}/pdfplugins)
+-endif()
+-
+ add_subdirectory(AudioBookPlugin)
+ add_subdirectory(DimensionsPlugin)
+ add_subdirectory(ObjectInspectorPlugin)
+diff --git a/Pdf4QtLibGui/pdfprogramcontroller.cpp b/Pdf4QtLibGui/pdfprogramcontroller.cpp
+index 937b6f1..25ca44c 100644
+--- a/Pdf4QtLibGui/pdfprogramcontroller.cpp
++++ b/Pdf4QtLibGui/pdfprogramcontroller.cpp
+@@ -71,6 +71,8 @@
+ #include <windows.h>
+ #endif
+ 
++#include "config.h"
++
+ #if defined(PDF4QT_USE_PRAGMA_LIB)
+ #pragma comment(lib, "Shell32")
+ #endif
+@@ -2165,23 +2167,11 @@ void PDFProgramController::updatePageLayoutActions()
+ void PDFProgramController::loadPlugins()
+ {
+     QStringList availablePlugins;
+-
++    QDir directory(QApplication::applicationDirPath() + "/" PDF4QT_PLUGINS_RELATIVE_PATH);
+ #if defined(Q_OS_WIN)
+-    QDir directory(QApplication::applicationDirPath() + "/pdfplugins");
+     availablePlugins = directory.entryList(QStringList("*.dll"));
+ #elif defined(Q_OS_UNIX)
+-#ifndef NDEBUG
+-    QDir directory(QApplication::applicationDirPath() + "/../pdfplugins");
+     availablePlugins = directory.entryList(QStringList("*.so"));
+-#else
+-    QDir directory(QApplication::applicationDirPath());
+-    if (directory.cdUp() &&
+-            directory.cd("lib") &&
+-            directory.cd("pdf4qt"))
+-    {
+-        availablePlugins = directory.entryList(QStringList("*.so"));
+-    }
+-#endif
+ #else
+     static_assert(false, "Implement this for another OS!");
+ #endif
+diff --git a/config.h.cmake b/config.h.cmake
+new file mode 100644
+index 0000000..3d68799
+--- /dev/null
++++ b/config.h.cmake
+@@ -0,0 +1 @@
++#define PDF4QT_PLUGINS_RELATIVE_PATH "@PDF4QT_PLUGINS_RELATIVE_PATH@"
+-- 
+2.49.1
+

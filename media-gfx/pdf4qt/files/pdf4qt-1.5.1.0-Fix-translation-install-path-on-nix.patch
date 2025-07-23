@@ -1,0 +1,102 @@
+From a577eebae0aa1b73dd0f6baf7ba6e3836c5a158a Mon Sep 17 00:00:00 2001
+From: Alexander Golubev <fatzer2@gmail.com>
+Date: Wed, 23 Jul 2025 20:38:29 +0300
+Subject: [PATCH 5/5] Fix translation install path on *nix
+
+On *nix translations canonically go into <prefix>/share/<project_name>
+rather than <prefix>/bin.
+
+Signed-off-by: Alexander Golubev <fatzer2@gmail.com>
+---
+ CMakeLists.txt                                    | 15 +++++++++------
+ .../sources/pdfapplicationtranslator.cpp          |  4 +++-
+ config.h.cmake                                    |  1 +
+ 3 files changed, 13 insertions(+), 7 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e4821ef..5061e79 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -134,14 +134,19 @@ endif()
+ 
+ if(PDF4QT_LINUX)
+     set(PDF4QT_PLUGINS_DIR ${PDF4QT_INSTALL_LIB_DIR}/pdf4qt)
++    set(PDF4QT_INSTALL_TRANS_DIR ${PDF4QT_INSTALL_SHARE_DIR}/pdf4qt/translations)
+ else()
+     set(PDF4QT_PLUGINS_DIR ${PDF4QT_INSTALL_LIB_DIR}/pdfplugins)
++    set(PDF4QT_INSTALL_TRANS_DIR ${PDF4QT_INSTALL_BIN_DIR}/translations)
+ endif()
+ 
+ # Relative paths are used by the config
+ cmake_path(RELATIVE_PATH PDF4QT_PLUGINS_DIR
+            BASE_DIRECTORY "${PDF4QT_INSTALL_BIN_DIR}"
+            OUTPUT_VARIABLE PDF4QT_PLUGINS_RELATIVE_PATH)
++cmake_path(RELATIVE_PATH PDF4QT_INSTALL_TRANS_DIR
++           BASE_DIRECTORY "${PDF4QT_INSTALL_BIN_DIR}"
++           OUTPUT_VARIABLE PDF4QT_TRANSLATIONS_RELATIVE_PATH)
+ configure_file(config.h.cmake config.h)
+ 
+ add_subdirectory(Pdf4QtLibCore)
+@@ -171,7 +176,7 @@ qt_collect_translation_source_targets(i18n_targets)
+ message("CMAKE_TRANSLATION_TARGETS = " ${i18n_targets})
+ 
+ set(PDF4QT_TRANSLATION_TS_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/translations)
+-set(PDF4QT_TRANSLATION_QM_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PDF4QT_INSTALL_BIN_DIR}/translations)
++set(PDF4QT_TRANSLATION_QM_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PDF4QT_INSTALL_TRANS_DIR})
+ 
+ message("PDF4QT_TRANSLATION_TS_OUTPUT_DIRECTORY" ${PDF4QT_TRANSLATION_TS_OUTPUT_DIRECTORY})
+ message("PDF4QT_TRANSLATION_QM_OUTPUT_DIRECTORY" ${PDF4QT_TRANSLATION_QM_OUTPUT_DIRECTORY})
+@@ -181,7 +186,7 @@ qt_add_translations(TARGETS Pdf4QtEditor Pdf4QtViewer Pdf4QtPageMaster Pdf4QtDif
+                     MERGE_QT_TRANSLATIONS
+                     TS_OUTPUT_DIRECTORY ${PDF4QT_TRANSLATION_TS_OUTPUT_DIRECTORY}
+                     QM_OUTPUT_DIRECTORY ${PDF4QT_TRANSLATION_QM_OUTPUT_DIRECTORY}
+-                    QM_FILES_OUTPUT_VARIABLE pdf4qt_qm_files)
++                    QM_FILES_OUTPUT_VARIABLE PDF4QT_QM_FILES)
+ 
+ message("CMAKE_PREFIX_PATH = " ${CMAKE_PREFIX_PATH})
+ message("CMAKE_TOOLCHAIN_FILE = " ${CMAKE_TOOLCHAIN_FILE})
+@@ -189,10 +194,8 @@ message("CMAKE_TOOLCHAIN_FILE = " ${CMAKE_TOOLCHAIN_FILE})
+ configure_file(version.txt.in version.txt)
+ 
+ if(NOT PDF4QT_BUILD_ONLY_CORE_LIBRARY)
+-    install(DIRECTORY ${PDF4QT_TRANSLATION_QM_OUTPUT_DIRECTORY}
+-            RUNTIME DESTINATION ${PDF4QT_INSTALL_BIN_DIR}
+-            FILES_MATCHING
+-            PATTERN *.qm)
++    install(FILES ${PDF4QT_QM_FILES}
++            DESTINATION ${PDF4QT_INSTALL_TRANS_DIR})
+ 
+     if(WIN32)
+         install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Desktop/44x44/
+diff --git a/Pdf4QtLibCore/sources/pdfapplicationtranslator.cpp b/Pdf4QtLibCore/sources/pdfapplicationtranslator.cpp
+index 89707f3..5faef08 100644
+--- a/Pdf4QtLibCore/sources/pdfapplicationtranslator.cpp
++++ b/Pdf4QtLibCore/sources/pdfapplicationtranslator.cpp
+@@ -27,6 +27,8 @@
+ #include <QMetaEnum>
+ #include <QCoreApplication>
+ 
++#include "config.h"
++
+ namespace pdf
+ {
+ 
+@@ -48,7 +50,7 @@ PDFApplicationTranslator::ELanguage PDFApplicationTranslator::getLanguage() cons
+ void PDFApplicationTranslator::installTranslator()
+ {
+     QDir applicationDirectory(QCoreApplication::applicationDirPath());
+-    applicationDirectory.cd("translations");
++    applicationDirectory.cd(PDF4QT_TRANSLATIONS_RELATIVE_PATH);
+     QString translationPath = applicationDirectory.absolutePath();
+ 
+     Q_ASSERT(!m_translator);
+diff --git a/config.h.cmake b/config.h.cmake
+index 3d68799..30325bb 100644
+--- a/config.h.cmake
++++ b/config.h.cmake
+@@ -1 +1,2 @@
+ #define PDF4QT_PLUGINS_RELATIVE_PATH "@PDF4QT_PLUGINS_RELATIVE_PATH@"
++#define PDF4QT_TRANSLATIONS_RELATIVE_PATH "@PDF4QT_TRANSLATIONS_RELATIVE_PATH@"
+-- 
+2.49.1
+

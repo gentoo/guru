@@ -1,7 +1,7 @@
-From 4cc5cf70d017030c9e016587e1182060f64429f2 Mon Sep 17 00:00:00 2001
+From 42887fb8136b362637db318907b78128b13c251a Mon Sep 17 00:00:00 2001
 From: Alexander Golubev <fatzer2@gmail.com>
 Date: Fri, 8 Nov 2024 23:07:36 +0300
-Subject: [PATCH 2/2] Minimal cmake fixes
+Subject: [PATCH 1/5] Minimal cmake fixes
 
 ---
  CMakeLists.txt               | 3 +--
@@ -9,18 +9,18 @@ Subject: [PATCH 2/2] Minimal cmake fixes
  2 files changed, 2 insertions(+), 3 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ea5518d..cb8219c 100644
+index b943d3f..fed05c6 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -55,7 +55,6 @@ endif()
- qt_standard_project_setup()
+@@ -62,7 +62,6 @@ endif()
+ qt_standard_project_setup(I18N_TRANSLATED_LANGUAGES en de cs es ko)
  
  find_package(OpenSSL REQUIRED)
 -find_package(lcms2 REQUIRED)
  find_package(ZLIB REQUIRED)
  find_package(Freetype REQUIRED)
  find_package(OpenJPEG CONFIG REQUIRED)
-@@ -92,7 +91,7 @@ endif()
+@@ -99,7 +98,7 @@ endif()
  option(PDF4QT_INSTALL_TO_USR "Install to usr directory" ON)
  
  if(PDF4QT_LINUX)
@@ -30,10 +30,10 @@ index ea5518d..cb8219c 100644
  
      # Check if VCPKG_OVERLAY_PORTS is set as an environment variable or a CMake argument
 diff --git a/Pdf4QtLibCore/CMakeLists.txt b/Pdf4QtLibCore/CMakeLists.txt
-index e930b23..2c46c96 100644
+index f3436e0..7c719ce 100644
 --- a/Pdf4QtLibCore/CMakeLists.txt
 +++ b/Pdf4QtLibCore/CMakeLists.txt
-@@ -162,7 +162,7 @@ GENERATE_EXPORT_HEADER(Pdf4QtLibCore
+@@ -170,7 +170,7 @@ GENERATE_EXPORT_HEADER(Pdf4QtLibCore
                         EXPORT_FILE_NAME "${CMAKE_BINARY_DIR}/${INSTALL_INCLUDEDIR}/pdf4qtlibcore_export.h")
  
  target_link_libraries(Pdf4QtLibCore PRIVATE Qt6::Core Qt6::Gui Qt6::Xml Qt6::Svg)
@@ -43,5 +43,5 @@ index e930b23..2c46c96 100644
  target_link_libraries(Pdf4QtLibCore PRIVATE ZLIB::ZLIB)
  target_link_libraries(Pdf4QtLibCore PRIVATE Freetype::Freetype)
 -- 
-2.45.2
+2.49.1
 
