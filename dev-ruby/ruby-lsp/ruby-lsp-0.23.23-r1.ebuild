@@ -17,9 +17,18 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# TODO: if necessary create extra packages with test dependencies
+# currently tests would require many more gems/ebuilds
+RUBY_FAKEGEM_RECIPE_TEST="none"
+
 DEPEND+="
 	>=dev-ruby/prism-1.2 <dev-ruby/prism-2
 	>=dev-ruby/rbs-3 <dev-ruby/rbs-5
 	=dev-ruby/language_server-protocol-3.17*
 	>=dev-ruby/sorbet-runtime-0.5.10782
 "
+
+each_fakegem_test() {
+	ewarn "Tests disabled due requiring ~10 extra gems to be installed, most of which do not have ebuilds"
+	default
+}
