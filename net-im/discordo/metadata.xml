@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>ingenarelitems@gmail.com</email>
+    <name>ingenarel</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">ayn2op/discordo</remote-id>
+    <bugs-to>https://github.com/ayn2op/discordo/issues</bugs-to>
+  </upstream>
+  <longdescription lang="en">
+  Discordo is a lightweight, secure, and feature-rich Discord terminal client.
+  Heavily work-in-progress, expect breaking changes.
+  Features:
+  - Lightweight
+  - Configurable
+  - Mouse and clipboard support
+  - Attachments
+  - Notifications
+  - 2-Factor authentication
+  - Discord-flavored markdown
+  </longdescription>
+</pkgmetadata>
