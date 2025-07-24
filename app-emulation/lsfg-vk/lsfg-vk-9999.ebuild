@@ -3,7 +3,8 @@
 
 EAPI=8
 
-inherit cmake cargo toolchain-funcs
+CARGO_OPTIONAL=1
+inherit cargo cmake flag-o-matic toolchain-funcs
 
 DESCRIPTION="Lossless Scaling Frame Generation on Linux via DXVK/Vulkan"
 HOMEPAGE="https://github.com/PancakeTAS/lsfg-vk"
@@ -31,6 +32,7 @@ fi
 BDEPEND="
 	dev-util/spirv-headers
 	dev-util/vulkan-headers
+	gui? ( ${RUST_DEPEND} )
 	>=media-libs/raylib-9999
 "
 DEPEND="
@@ -61,23 +63,13 @@ src_unpack() {
 		oldS="${S}"
 		S="${S}/ui"
 		if [[ ${PV} != 9999 ]]; then
+			A=$(printf '%s\n' "${A[@]}" | grep '\.crate$' || true) # Workaroud to avoid unpacking twice
 			cargo_src_unpack
 		else
 			cargo_live_src_unpack
 		fi
 		S="${oldS}"
 	fi
-}
-
-src_configure() {
-	tc-is-gcc && filter-lto # LTO with gcc causes segfaults at runtime
-	cmake_src_configure
-	use gui && cd ui && cargo_src_configure
-}
-
-src_compile() {
-	cmake_src_compile
-	use gui && cd ui && cargo_src_compile
 }
 
 src_prepare() {
@@ -129,9 +121,20 @@ target_include_directories(dxbc\
 	cmake_src_prepare
 }
 
+src_configure() {
+	tc-is-gcc && filter-lto # LTO with gcc causes segfaults at runtime
+	cmake_src_configure
+	use gui && { pushd ui > /dev/null || die; cargo_src_configure; }
+}
+
+src_compile() {
+	cmake_src_compile
+	use gui && { pushd ui > /dev/null || die; cargo_src_compile; }
+}
+
 src_install() {
 	insinto "/usr/share/vulkan/implicit_layer.d/"
 	doins "${S}/VkLayer_LS_frame_generation.json"
 	dolib.so "${WORKDIR}/${P}_build/liblsfg-vk.so"
-	use gui && newbin "${S}/ui/target/release/ui" "lsfg-vk-gui"
+	use gui && newbin "${S}/ui/$(cargo_target_dir)/ui" "lsfg-vk-gui"
 }
