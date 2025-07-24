@@ -174,6 +174,8 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
+RESTRICT="mirror"
+
 src_prepare() {
 	# The version in Cargo.toml is often outdated. The author creates tags in Github
 	# when they create new releases and there doesn't seem to be a good way to keep
