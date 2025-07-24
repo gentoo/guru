@@ -3,12 +3,13 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake cargo
 
 DESCRIPTION="Lossless Scaling Frame Generation on Linux via DXVK/Vulkan"
 HOMEPAGE="https://github.com/PancakeTAS/lsfg-vk"
 LICENSE="MIT"
 SLOT="0"
+IUSE="+gui"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -35,6 +36,11 @@ BDEPEND="
 DEPEND="
 	dev-cpp/toml11
 	dev-util/glslang
+	gui? (
+		dev-libs/glib:2
+		gui-libs/gtk:4
+		gui-libs/libadwaita
+	)
 	|| (
 		media-libs/glfw
 		media-libs/libsdl2
@@ -43,6 +49,35 @@ DEPEND="
 	media-libs/vulkan-loader
 "
 RDEPEND="${DEPEND}"
+
+src_unpack() {
+	if [[ ${PV} != 9999 ]]; then
+		default
+	else
+		git-r3_src_unpack
+	fi
+
+	if use gui; then
+		oldS="${S}"
+		S="${S}/ui"
+		if [[ ${PV} != 9999 ]]; then
+			cargo_src_unpack
+		else
+			cargo_live_src_unpack
+		fi
+		S="${oldS}"
+	fi
+}
+
+src_configure() {
+	cmake_src_configure
+	use gui && cd ui && cargo_src_configure
+}
+
+src_compile() {
+	cmake_src_compile
+	use gui && cd ui && cargo_src_compile
+}
 
 src_prepare() {
 	if [[ ${PV} != 9999 ]]; then
@@ -97,4 +132,5 @@ src_install() {
 	insinto "/usr/share/vulkan/implicit_layer.d/"
 	doins "${S}/VkLayer_LS_frame_generation.json"
 	dolib.so "${WORKDIR}/${P}_build/liblsfg-vk.so"
+	use gui && newbin "${S}/ui/target/release/ui" "lsfg-vk-gui"
 }
