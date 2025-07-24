@@ -18,7 +18,7 @@ if [[ ${PV} == 9999 ]]; then
 		thirdparty/pe-parse
 	)
 else
-	HASH_DXBC="04ca5e9ae5fef6c0c65ea72bbaa7375327f11454"
+	HASH_DXBC="80e316fd13d7e8938d99a08f1f405a0679c3ccfa"
 	PEPARSE_VERSION="2.1.1"
 	SRC_URI="
 		https://github.com/PancakeTAS/lsfg-vk/archive/refs/tags/v${PV}.tar.gz
