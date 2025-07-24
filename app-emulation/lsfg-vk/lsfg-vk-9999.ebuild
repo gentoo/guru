@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake cargo
+inherit cmake cargo toolchain-funcs
 
 DESCRIPTION="Lossless Scaling Frame Generation on Linux via DXVK/Vulkan"
 HOMEPAGE="https://github.com/PancakeTAS/lsfg-vk"
@@ -70,6 +70,7 @@ src_unpack() {
 }
 
 src_configure() {
+	tc-is-gcc && filter-lto # LTO with gcc causes segfaults at runtime
 	cmake_src_configure
 	use gui && cd ui && cargo_src_configure
 }
