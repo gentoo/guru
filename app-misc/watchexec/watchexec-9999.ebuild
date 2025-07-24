@@ -24,8 +24,7 @@ if [[ "$PV" == 9999 ]]; then
 	}
 else
 	SRC_URI="https://github.com/watchexec/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-	SRC_URI+=" https://github.com/ingenarel/guru-depfiles/releases/download/${P}-deps.tar.xz/${P}-deps.tar.xz"
-	ECARGO_VENDOR="${WORKDIR}/vendor"
+	SRC_URI+=" ${CARGO_CRATE_URIS}"
 	KEYWORDS="~amd64"
 fi
 
