@@ -12,7 +12,7 @@ DESCRIPTION="Bambu Studio is a cutting-edge, feature-rich slicing software"
 HOMEPAGE="https://bambulab.com"
 
 SRC_URI="
-	https://github.com/bambulab/${MY_PN}/releases/download/V${PV}/Bambu_Studio_linux_fedora-v${PV}.AppImage \
+	https://github.com/bambulab/${MY_PN}/releases/download/v${PV}/Bambu_Studio_linux_fedora-v${PV}.AppImage \
 	-> ${P}.AppImage
 "
 
@@ -24,7 +24,7 @@ RDEPEND="
 	media-libs/glew:0=
 	>=media-libs/glm-0.9.9.1
 	media-libs/gstreamer
-	media-libs/mesa[X(+),osmesa(-)]
+	media-libs/mesa
 	net-libs/libsoup:3.0=
 	net-libs/webkit-gtk:4.1/0
 	>=sci-libs/opencascade-7.3.0:0=
@@ -32,7 +32,7 @@ RDEPEND="
 	>=x11-libs/cairo-1.8.8:=
 	x11-libs/libxkbcommon
 	>=x11-libs/pixman-0.30
-	x11-libs/wxGTK:${WX_GTK_VER}[X,opengl]
+	x11-libs/wxGTK:${WX_GTK_VER}=[X,opengl]
 	sys-libs/zlib
 "
 DEPEND="${RDEPEND}"
