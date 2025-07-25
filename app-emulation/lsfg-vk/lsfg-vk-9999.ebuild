@@ -54,21 +54,20 @@ RDEPEND="${DEPEND}"
 
 src_unpack() {
 	if [[ ${PV} != 9999 ]]; then
-		default
+		use gui || default
 	else
 		git-r3_src_unpack
 	fi
 
 	if use gui; then
-		oldS="${S}"
-		S="${S}/ui"
 		if [[ ${PV} != 9999 ]]; then
-			A=$(printf '%s\n' "${A[@]}" | grep '\.crate$' || true) # Workaroud to avoid unpacking twice
 			cargo_src_unpack
 		else
+			oldS="${S}"
+			S="${S}/ui"
 			cargo_live_src_unpack
+			S="${oldS}"
 		fi
-		S="${oldS}"
 	fi
 }
 
