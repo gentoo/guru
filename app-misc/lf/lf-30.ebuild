@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit go-module bash-completion-r1 desktop xdg
+inherit go-module shell-completion desktop xdg
 
 DESCRIPTION="Terminal file manager"
 HOMEPAGE="https://github.com/gokcehan/lf"
@@ -25,7 +25,7 @@ src_compile() {
 		ldflags+=' -extldflags "-static"'
 	}
 
-	go build -ldflags="${ldflags}" || die 'go build failed'
+	ego build -ldflags="${ldflags}"
 }
 
 src_install() {
@@ -45,14 +45,11 @@ src_install() {
 	newbashcomp "etc/${PN}.bash" "${PN}"
 
 	# zsh-completion
-	insinto /usr/share/zsh/site-functions
-	newins "etc/${PN}.zsh" "_${PN}"
+	newzshcomp "etc/${PN}.zsh" "_${PN}"
 
 	# fish-completion
-	insinto /usr/share/fish/vendor_completions.d
-	doins "etc/${PN}.fish"
-	insinto /usr/share/fish/vendor_functions.d
-	doins "etc/${PN}cd.fish"
+	dofishcomp "etc/${PN}.fish"
+	dofishcomp "etc/${PN}cd.fish"
 
 	domenu "${PN}.desktop"
 }
