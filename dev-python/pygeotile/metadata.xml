@@ -7,8 +7,7 @@
     </maintainer>
     <upstream>
         <bugs-to>https://github.com/geometalab/pyGeoTile/issues</bugs-to>
-        <changelog>https://pypi.org/project/pyGeoTile/#history</changelog>
-        <remote-id type="pypi">pyGeoTile</remote-id>
+        <changelog>https://github.com/geometalab/pyGeoTile/commits/master/</changelog>
         <remote-id type="github">geometalab/pyGeoTile</remote-id>
     </upstream>
 </pkgmetadata>
