@@ -1,20 +1,18 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 DESCRIPTION="Lib and CLI for archive.org - for search, uploading, downloading, rename..."
 HOMEPAGE="https://github.com/jjjake/internetarchive"
-SRC_URI="https://github.com/jjjake/$PN/archive/refs/tags/v$PV.tar.gz"
+SRC_URI="https://github.com/jjjake/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-
-RESTRICT="test"
 
 RDEPEND="
 	dev-python/charset-normalizer[${PYTHON_USEDEP}]
@@ -26,6 +24,36 @@ RDEPEND="
 	dev-python/urllib3[${PYTHON_USEDEP}]
 "
 
-pkg_postinst() {
-	einfo "See documentation at https://archive.org/developers/internetarchive/"
-}
+BDEPEND="
+	test? (
+		dev-python/responses[${PYTHON_USEDEP}]
+	)
+"
+
+# Because they want internet
+EPYTEST_DESELECT=(
+	tests/cli/test_ia.py::test_ia
+	tests/cli/test_ia_download.py::test_no_args
+	tests/cli/test_ia_download.py::test_no_change_timestamp
+	tests/cli/test_ia_download.py::test_https
+	tests/cli/test_ia_download.py::test_dry_run
+	tests/cli/test_ia_download.py::test_glob
+	tests/cli/test_ia_download.py::test_exclude
+	tests/cli/test_ia_download.py::test_format
+	tests/cli/test_ia_download.py::test_on_the_fly_format
+	tests/cli/test_ia_download.py::test_clobber
+	tests/cli/test_ia_download.py::test_checksum
+	tests/cli/test_ia_download.py::test_checksum_archive
+	tests/cli/test_ia_download.py::test_no_directories
+	tests/cli/test_ia_download.py::test_destdir
+	tests/cli/test_ia_upload.py::test_ia_upload_invalid_identifier
+	tests/test_api.py::test_get_item_with_kwargs
+	tests/test_api.py::test_upload_validate_identifier
+	tests/test_item.py::test_download_ignore_errors
+	tests/test_item.py::test_upload_validate_identifier
+	tests/test_item.py::test_upload_automatic_size_hint
+	tests/test_session.py::test_s3_is_overloaded
+	tests/test_session.py::test_cookies
+)
+
+distutils_enable_tests pytest
