@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{11..12} )
 
 inherit git-r3 python-single-r1
 
-DESCRIPTION="Plugins developed fro Gajim XMPP client"
+DESCRIPTION="Plugins developed for Gajim XMPP client"
 HOMEPAGE="https://dev.gajim.org/gajim/gajim-plugins/"
 EGIT_REPO_URI="https://dev.gajim.org/gajim/gajim-plugins.git"
 
