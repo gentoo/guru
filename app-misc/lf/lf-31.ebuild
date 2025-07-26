@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,7 +25,7 @@ src_compile() {
 		ldflags+=' -extldflags "-static"'
 	}
 
-	go build -ldflags="${ldflags}" || die 'go build failed'
+	ego build -ldflags="${ldflags}"
 }
 
 src_install() {
