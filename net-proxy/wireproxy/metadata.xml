@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <name>Dale Sweeney</name>
+        <email>agooglygooglr@gmail.com</email>
+    </maintainer>
+    <longdescription>
+        wireproxy is a completely userspace application that connects to a wireguard peer,
+        and exposes a socks5/http proxy or tunnels on the machine.
+    </longdescription>
+    <upstream>
+        <remote-id type="github">whyvl/wireproxy</remote-id>
+        <bugs-to>https://github.com/whyvl/wireproxy/issues</bugs-to>
+    </upstream>
+</pkgmetadata>
