@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop optfeature toolchain-funcs xdg
+inherit desktop optfeature xdg
 
 DESCRIPTION="The Mullvad Browser is developed to minimize tracking and fingerprinting."
 HOMEPAGE="https://github.com/mullvad/mullvad-browser/ https://mullvad.net/"
