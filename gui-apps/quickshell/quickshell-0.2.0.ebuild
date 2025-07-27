@@ -19,7 +19,7 @@ fi
 LICENSE="LGPL-3"
 SLOT="0"
 # Upstream recommends leaving all build options enabled by default
-IUSE="+breakpad +jemalloc +sockets +wayland +layer-shell +session-lock +toplevel-management +screencopy +X +pipewire +tray +mpris +pam +hyprland +hyprland-global-shortcuts +hyprland-focus-grab +i3 +i3-ipc"
+IUSE="+breakpad +jemalloc +sockets +wayland +layer-shell +session-lock +toplevel-management +screencopy +X +pipewire +tray +mpris +pam +hyprland +hyprland-global-shortcuts +hyprland-focus-grab +i3 +i3-ipc +bluetooth"
 
 RDEPEND="
 	dev-qt/qtbase:6
@@ -37,6 +37,7 @@ RDEPEND="
 	pipewire? ( media-video/pipewire )
 	mpris? ( dev-qt/qtdbus )
 	pam? ( sys-libs/pam )
+	bluetooth? ( net-wireless/bluez )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -77,6 +78,7 @@ src_configure(){
 			-DHYPRLAND_FOCUS_GRAB=$(usex hyprland-focus-grab)
 			-DI3=$(usex i3 ON OFF)
 			-DI3_IPC=$(usex i3-ipc ON OFF)
+			-DBLUETOOTH=$(usex bluetooth ON OFF)
 		)
 		cmake_src_configure
 }
