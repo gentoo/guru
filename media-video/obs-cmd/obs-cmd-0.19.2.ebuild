@@ -206,5 +206,5 @@ RESTRICT="mirror"
 RUST_MIN_VER=1.88.0
 
 src_install() {
-	dobin target/release/obs-cmd
+	dobin "$(cargo_target_dir)"/obs-cmd
 }

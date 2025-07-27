@@ -185,5 +185,5 @@ src_prepare() {
 }
 
 src_install() {
-	dobin target/release/obs-cmd
+	dobin "$(cargo_target_dir)"/obs-cmd
 }
