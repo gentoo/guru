@@ -5,7 +5,7 @@ EAPI=8
 
 ROCM_VERSION="6.3"
 
-inherit cmake cuda rocm
+inherit cmake cuda rocm linux-info
 
 if [[ "${PV}" != "9999" ]]; then
 	KEYWORDS="~amd64"
@@ -23,29 +23,8 @@ HOMEPAGE="https://github.com/ggml-org/llama.cpp"
 LICENSE="MIT"
 SLOT="0"
 CPU_FLAGS_X86=( avx avx2 f16c )
-IUSE="curl openblas blis hip cuda vulkan"
+IUSE="curl openblas blis hip cuda opencl vulkan"
 REQUIRED_USE="?? ( openblas blis )"
-
-AMDGPU_TARGETS_COMPAT=(
-	gfx900
-	gfx90c
-	gfx902
-	gfx1010
-	gfx1011
-	gfx1012
-	gfx1030
-	gfx1031
-	gfx1032
-	gfx1034
-	gfx1035
-	gfx1036
-	gfx1100
-	gfx1101
-	gfx1102
-	gfx1103
-	gfx1150
-	gfx1151
-)
 
 # curl is needed for pulling models from huggingface
 # numpy is used by convert_hf_to_gguf.py
@@ -53,16 +32,32 @@ CDEPEND="
 	curl? ( net-misc/curl:= )
 	openblas? ( sci-libs/openblas:= )
 	blis? ( sci-libs/blis:= )
-	hip? (  >=dev-util/hip-6.3:= )
+	hip? ( >=dev-util/hip-6.3:=
+		>=sci-libs/hipBLAS-6.3:=
+	)
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 "
 DEPEND="${CDEPEND}
+	opencl? ( dev-util/opencl-headers )
 	vulkan? ( dev-util/vulkan-headers )
 "
 RDEPEND="${CDEPEND}
 	dev-python/numpy
+	opencl? ( dev-libs/opencl-icd-loader )
 	vulkan? ( media-libs/vulkan-loader )
 "
+
+pkg_setup() {
+	if use hip; then
+		linux-info_pkg_setup
+		if linux-info_get_any_version && linux_config_exists; then
+			if ! linux_chkconfig_present HSA_AMD_SVM; then
+				ewarn "To use ROCm/HIP, you need to have HSA_AMD_SVM option enabled in your kernel."
+			fi
+		fi
+
+	fi
+}
 
 src_prepare() {
 	use cuda && cuda_src_prepare
@@ -81,6 +76,7 @@ src_configure() {
 		-DBUILD_NUMBER="1"
 		-DGENTOO_REMOVE_CMAKE_BLAS_HACK=ON
 		-DGGML_CUDA=$(usex cuda ON OFF)
+		-DGGML_OPENCL=$(usex opencl ON OFF)
 		-DGGML_VULKAN=$(usex vulkan ON OFF)
 
 		# avoid clashing with whisper.cpp
@@ -98,6 +94,13 @@ src_configure() {
 		mycmakeargs+=(
 			-DGGML_BLAS=ON -DGGML_BLAS_VENDOR=FLAME
 		)
+	fi
+
+	if use cuda; then
+		local -x CUDAHOSTCXX="$(cuda_gccdir)"
+		# tries to recreate dev symlinks
+		cuda_add_sandbox
+		addpredict "/dev/char/"
 	fi
 
 	if use hip; then
