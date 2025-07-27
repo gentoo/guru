@@ -37,6 +37,7 @@ src_test() {
 
 src_install() {
 	dobin var/anubis
+	newbin var/robots2policy anubis-robots2policy
 	systemd_dounit run/anubis@.service
 
 	newinitd run/openrc/anubis.initd anubis
