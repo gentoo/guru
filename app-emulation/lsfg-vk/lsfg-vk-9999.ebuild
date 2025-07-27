@@ -4,6 +4,7 @@
 EAPI=8
 
 CARGO_OPTIONAL=1
+
 inherit cargo cmake desktop flag-o-matic toolchain-funcs
 
 DESCRIPTION="Lossless Scaling Frame Generation on Linux via DXVK/Vulkan"
@@ -21,19 +22,21 @@ if [[ ${PV} == 9999 ]]; then
 		thirdparty/volk
 	)
 else
-	HASH_DXBC="80e316fd13d7e8938d99a08f1f405a0679c3ccfa"
+	KEYWORDS="~amd64 ~arm64"
+	HASH_DXBC="78ab59a8aaeb43cd1b0a5e91ba86722433a10b78"
 	HASH_VOLK="be3dbd49bf77052665e96b6c7484af855e7e5f67"
 	PEPARSE_VERSION="2.1.1"
 	SRC_URI="
-		https://github.com/PancakeTAS/lsfg-vk/archive/refs/tags/v${PV}.tar.gz
-		https://github.com/PancakeTAS/dxbc/archive/${HASH_DXBC}.tar.gz
+		https://github.com/PancakeTAS/lsfg-vk/archive/refs/tags/v${PV}.tar.gz -> lsfg-vk-${PV}.tar.gz
+		https://github.com/PancakeTAS/dxbc/archive/${HASH_DXBC}.tar.gz -> dxbc-${HASH_DXBC}.tar.gz
 		https://github.com/trailofbits/pe-parse/archive/refs/tags/v${PEPARSE_VERSION}.tar.gz
-		https://github.com/zeux/volk/archive/${HASH_VOLK}.tar.gz
+			-> pe-parse-${PEPARSE_VERSION}.tar.gz
+		https://github.com/zeux/volk/archive/${HASH_VOLK}.tar.gz -> volk-${HASH_VOLK}.tar.gz
+		${CARGO_CRATE_URIS}
 	"
 fi
 
 BDEPEND="
-	dev-util/spirv-headers
 	dev-util/vulkan-headers
 	gui? ( ${RUST_DEPEND} )
 "
@@ -75,6 +78,7 @@ src_unpack() {
 
 src_prepare() {
 	if [[ ${PV} != 9999 ]]; then
+		rmdir thirdparty/* || die
 		mv ../dxbc-${HASH_DXBC} thirdparty/dxbc || die
 		mv ../pe-parse-${PEPARSE_VERSION} thirdparty/pe-parse || die
 		mv ../volk-${HASH_VOLK} thirdparty/volk || die
@@ -97,19 +101,8 @@ N
 /target_include_directories(lsfg-vk SYSTEM PRIVATE ${TOML11_INCLUDE_DIRS})/c\
 find_package(toml11 REQUIRED)
 }'\
-		-e '/target_link_libraries(lsfg-vk PRIVATE/{:a;N;/)/!ba;s/\btoml11\b/toml11::toml11/g;s/\bSPIRV-Headers\b *//g}'\
+		-e '/target_link_libraries(lsfg-vk PRIVATE/{:a;N;/)/!ba;s/\btoml11\b/toml11::toml11/g}'\
 		CMakeLists.txt || die
-
-	# Using system spirv headers
-	sed -i \
-		-e '/add_subdirectory(spirv)/d' \
-		-e '/target_link_libraries(dxbc/,/SPIRV-Headers)/d' \
-		-e '/target_include_directories(dxbc SYSTEM/,/include\/dxvk)/c\
-target_include_directories(dxbc\
-	SYSTEM PUBLIC include/dxbc\
-	SYSTEM PUBLIC include/spirv include/util include/dxvk\
-)' \
-		thirdparty/dxbc/CMakeLists.txt || die
 
 	eapply_user
 	cmake_src_prepare
