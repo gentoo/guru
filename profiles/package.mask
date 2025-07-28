@@ -22,9 +22,12 @@
 # This package is unmaintained, has an ambiguous license and upstream is
 # unresponsive. Its sole revdep is app-forensics/mvt, which has been outdated
 # for two years and depends on masked dev-python/tld.
+# Mask unmaintained dependencies of these two packages as well.
 # Removal on 2025-08-28, bug #952156
 dev-python/iOSbackup
 app-forensics/mvt
+dev-python/biplist
+dev-python/NSKeyedUnArchiver
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-07-27)
 # Vulnerable to a cross-site scripting attack.
