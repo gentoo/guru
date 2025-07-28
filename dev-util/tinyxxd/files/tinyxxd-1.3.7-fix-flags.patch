@@ -1,0 +1,30 @@
+Keep upstream's important CFLAGS and macros and respect LDFLAGS. Omit those
+which the toolchain sets for us:
+https://wiki.gentoo.org/wiki/Hardened/Toolchain#Changes
+
+From: Lucio Sauer <watermanpaint@posteo.net>
+--- a/Makefile
++++ b/Makefile
+@@ -2,13 +2,6 @@
+ 
+ CFLAGS ?= -std=c11 -O2 -pipe -finline-functions -fPIC -Wall -Wextra -Wpedantic -Wfatal-errors
+ UNAME_S := $(shell uname -s)
+-ifeq ($(UNAME_S),Darwin)
+-	CFLAGS += -fstack-protector-strong -D_GNU_SOURCE -fno-plt
+-else ifeq ($(OS),Windows_NT)
+-	CFLAGS += -D_WIN32
+-else
+-	CFLAGS += -fstack-protector-strong -D_GNU_SOURCE -fno-plt -Wl,-z,now
+-endif
+ 
+ PREFIX ?= /usr
+ BINDIR ?= $(PREFIX)/bin
+@@ -20,7 +13,7 @@
+ RELEASE_FILES := main.c Makefile COPYING README.md
+ 
+ tinyxxd: main.c
+-	$(CC) $(CFLAGS) -o $@ $<
++	$(CC) $(CFLAGS) -std=c11 -D_GNU_SOURCE $(LDFLAGS) -o $@ $<
+ 
+ tinyxxd_debug: main.c
+ 	$(CC) $(CFLAGS) -g -o $@ $<
