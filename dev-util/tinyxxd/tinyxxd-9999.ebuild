@@ -13,7 +13,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-LICENSE="GPL-2"
+LICENSE="|| ( GPL-2 MIT )"
 
 SLOT="0"
 
