@@ -13,12 +13,17 @@ else
 	KEYWORDS="~amd64"
 fi
 
-RDEPEND="!dev-util/xxd"
-
 LICENSE="GPL-2"
+
 SLOT="0"
+
+IUSE="xxd"
+
+RDEPEND="xxd? ( !dev-util/xxd !app-editors/vim-core )"
 
 src_install(){
 	default
-	dosym /usr/bin/tinyxxd /usr/bin/xxd
+	if use xxd; then
+		dosym -r /usr/bin/tinyxxd /usr/bin/xxd
+	fi
 }
