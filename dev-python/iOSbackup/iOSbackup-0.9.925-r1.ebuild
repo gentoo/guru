@@ -32,10 +32,7 @@ LICENSE="
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-
 RDEPEND="
-	dev-python/biplist[${PYTHON_USEDEP}]
 	dev-python/pycryptodome[${PYTHON_USEDEP}]
 	dev-python/NSKeyedUnArchiver[${PYTHON_USEDEP}]
 "
