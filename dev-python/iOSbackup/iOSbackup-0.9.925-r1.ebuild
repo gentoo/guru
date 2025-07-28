@@ -15,7 +15,20 @@ HOMEPAGE="
 	https://github.com/avibrazil/iOSbackup
 "
 
-LICENSE="GPL-2"
+# The project only states LGPL in setup.py
+LICENSE="
+	|| (
+		LGPL-2
+		LGPL-2+
+		LGPL-2-with-linking-exception
+		LGPL-2.1
+		LGPL-2.1+
+		LGPL-2.1-with-linking-exception
+		LGPL-3
+		LGPL-3+
+		LGPL-3-with-linking-exception
+	)
+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
