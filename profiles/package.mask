@@ -19,6 +19,12 @@
 # New entries go on top.
 
 # Lucio Sauer <watermanpaint@posteo.net> (2025-07-28)
+# Outdated downstream and archived upstream; no revdeps.
+# Superseded by types-grpcio* on PyPi.
+# Removal on 2025-08-28
+dev-python/grpc-stubs
+
+# Lucio Sauer <watermanpaint@posteo.net> (2025-07-28)
 # This package is unmaintained, has an ambiguous license and upstream is
 # unresponsive. Its sole revdep is app-forensics/mvt, which has been outdated
 # for two years and depends on masked dev-python/tld.
