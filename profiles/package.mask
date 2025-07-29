@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Lucio Sauer <watermanpaint@posteo.net> (2025-07-29)
+# Packaged version depends on treecleaned dev-libs/libdbusmenu-qt. Gentoo
+# maintainer inactive and several versions out of date.
+# Removal on 2025-08-29, Bug #960098
+gui-apps/paperde
+
 # Lucio Sauer <watermanpaint@posteo.net> (2025-07-28)
 # Outdated downstream and archived upstream; no revdeps.
 # Superseded by types-grpcio* on PyPi.
@@ -29,7 +35,7 @@ dev-python/grpc-stubs
 # unresponsive. Its sole revdep is app-forensics/mvt, which has been outdated
 # for two years and depends on masked dev-python/tld.
 # Mask unmaintained dependencies of these two packages as well.
-# Removal on 2025-08-28, bug #952156
+# Removal on 2025-08-28
 dev-python/iOSbackup
 app-forensics/mvt
 dev-python/biplist
@@ -53,10 +59,6 @@ dev-python/safety-schemas
 # Almost not maintained, fails to compile (bug #921934)
 # Removal on 2025-08-11
 gui-apps/tiramisu
-
-# David (stkw0) Roman <davidroman96@gmail.com> (2025-06-25)
-# Depends on masked dev-libs/libdbusmenu-qt
-gui-apps/paperde
 
 # Lucio Sauer <watermanpaint@posteo.net> (2025-06-21)
 # Depends on masked dev-python/backoff.
