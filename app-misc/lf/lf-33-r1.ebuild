@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="+static"
 
 src_compile() {
-	local ldflags="-s -w -X main.gVersion=r${PV}"
+	local ldflags="-w -X main.gVersion=r${PV}"
 	use static && {
 		export CGO_ENABLED=0
 		ldflags+=' -extldflags "-static"'
@@ -42,6 +42,7 @@ src_install() {
 
 	# bash-completion
 	newbashcomp "etc/${PN}.bash" "${PN}"
+	bashcomp_alias lf lfcd
 
 	# zsh-completion
 	newzshcomp "etc/${PN}.zsh" "_${PN}"
