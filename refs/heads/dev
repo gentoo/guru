@@ -1,13 +1,13 @@
 certificate version 0.1
-pusher ECAD322B56177724 1753745951 +0530
-pushee git.gentoo.org:repo/proj/guru.git
-nonce 1753745951-6ba06b8d96b69d12185920a56ebafe6e9be00372
+pusher C8ACBAD28C919F19 1753764588 +0900
+pushee gentoo:repo/proj/guru
+nonce 1753764590-5c30bbfa7d88de936d5dc5be22952fd7c5195f04
 
-a24bd42516f64a4d7def5e7b69d4b500c3d07b30 f6a1220473b596ad7af15fa71b3e573fe7fa8cfa refs/heads/dev
+f6a1220473b596ad7af15fa71b3e573fe7fa8cfa 48879b71078925f21c227b5f867440fc8be9ecde refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQSSsh8OckoKuK5iGWZtOatHE3l+bwUCaIgKHwAKCRBtOatHE3l+
-b/NdAQDTkJsxzt43ryLnS2BCVisrLChfqdmUW90UJ0MoiEp/igEAvayagWS7Drut
-XCwnmr3tc0/0KjzEy0g8uQtp+l3g9g8=
-=InaM
+iHUEABYKAB0WIQT3FEDKUdX+khzTcBTIrLrSjJGfGQUCaIhS7AAKCRDIrLrSjJGf
+GWdtAP4vRMdEH6Epj4O/E8i1WPZFgEYNYJwnDwe4m7mcWs5HaAEAsdEBGIihdqyw
+cLjbHUPulfsZtChP7F4be8n8pj+nMgo=
+=c4iV
 -----END PGP SIGNATURE-----
