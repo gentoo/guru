@@ -14,8 +14,6 @@ SRC_URI="
 	https://github.com/yuru7/moralerspace/releases/download/${MY_PV}/${PN^}HW_${MY_PV}.zip
 	https://github.com/yuru7/moralerspace/releases/download/${MY_PV}/${PN^}JPDOC_${MY_PV}.zip
 	https://github.com/yuru7/moralerspace/releases/download/${MY_PV}/${PN^}HWJPDOC_${MY_PV}.zip
-	https://github.com/yuru7/moralerspace/releases/download/${MY_PV}/${PN^}NF_${MY_PV}.zip
-	https://github.com/yuru7/moralerspace/releases/download/${MY_PV}/${PN^}HWNF_${MY_PV}.zip
 "
 
 S="${WORKDIR}"
