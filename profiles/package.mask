@@ -61,9 +61,9 @@ dev-python/safety-schemas
 gui-apps/tiramisu
 
 # Lucio Sauer <watermanpaint@posteo.net> (2025-06-21)
-# Depends on masked dev-python/backoff.
+# Depends on treecleaned dev-python/backoff.
 # Masked until upstream supports running without backoff.
-app-backup/b2
+<app-backup/b2-4.3.3
 dev-util/mock
 
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-06-03)
