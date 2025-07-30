@@ -6,9 +6,9 @@ EAPI=8
 inherit cmake desktop go-module xdg
 
 DESCRIPTION="Qt based cross-platform GUI proxy configuration manager"
-HOMEPAGE="https://github.com/Mahdi-zarei/nekoray"
+HOMEPAGE="https://github.com/throneproj/Throne"
 SRC_URI="
-	https://github.com/Mahdi-zarei/nekoray/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/throneproj/Throne/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	https://gitlab.com/api/v4/projects/69517529/packages/generic/${PN}/${PV}/${P}-deps.tar.xz
 "
 
@@ -42,11 +42,12 @@ PATCHES=(
 )
 
 src_unpack() {
-	# The vendor tarball is unpacked to `${S}/core/server`, but `go-module_src_unpack`
-	# requires the `vendor` directory to be present at `${S}/vendor`
-	mkdir -p "${S}/vendor" || die
-
-	go-module_src_unpack
+	default_src_unpack
+	mv "${S}/core/server/vendor" "${WORKDIR}/Throne-${PV}/core/server" || die
+	rmdir "${S}/core/server" || die
+	rmdir "${S}/core" || die
+	rmdir "${S}" || die
+	mv "${WORKDIR}/Throne-${PV}" "${S}" || die
 }
 
 src_prepare() {

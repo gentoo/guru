@@ -6,7 +6,7 @@
     <name>Pavel Sobolev</name>
   </maintainer>
   <upstream>
-    <bugs-to>https://github.com/Mahdi-zarei/nekoray/issues</bugs-to>
-    <remote-id type="github">Mahdi-zarei/nekoray</remote-id>
+    <bugs-to>https://github.com/throneproj/Throne/issues</bugs-to>
+    <remote-id type="github">throneproj/Throne</remote-id>
   </upstream>
 </pkgmetadata>
