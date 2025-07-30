@@ -1,0 +1,19 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Install examples for `RelWithDebInfo`, too.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/examples/send-presence/CMakeLists.txt
++++ b/examples/send-presence/CMakeLists.txt
+@@ -14,8 +14,8 @@ install(
+     TARGETS send-presence
+     RUNTIME
+         DESTINATION "bin"
+-        CONFIGURATIONS Release
++        CONFIGURATIONS Release RelWithDebInfo
+     BUNDLE
+         DESTINATION "bin"
+-        CONFIGURATIONS Release
++        CONFIGURATIONS Release RelWithDebInfo
+ )
+\ No newline at end of file
