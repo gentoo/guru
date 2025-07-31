@@ -8,6 +8,7 @@
 		<flag name="blis">Build a BLIS backend</flag>
 		<flag name="hip">Build a HIP (ROCm) backend</flag>
 		<flag name="openblas">Build an OpenBLAS backend</flag>
+		<flag name="opencl">Build an OpenCL backend, so far only works on Adreno and Intel GPUs</flag>
 	</use>
 	<maintainer type="person">
 		<email>zl29ah@gmail.com</email>
