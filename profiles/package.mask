@@ -66,11 +66,6 @@ gui-apps/tiramisu
 <app-backup/b2-4.3.3
 dev-util/mock
 
-# David (stkw0) Roman <davidroman96@gmail.com> (2025-06-03)
-# Unmaintained since 2021, fails to compile. Bug #859643
-# Removal on 2025-07-30
-app-crypt/uacme
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-24)
 # Depends on masked net-libs/stem.
 # Masked until upstream supports running without stem.
