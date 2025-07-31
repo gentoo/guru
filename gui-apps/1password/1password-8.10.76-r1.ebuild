@@ -35,12 +35,12 @@ src_prepare() {
 }
 
 src_install() {
-	mkdir -p "${D}/opt/1Password/"
-	cp -ar "${S}/${PN}-"**"/"* "${D}/opt/1Password/" || die "Install failed!"
+	dodir /opt/1Password
+	cp -ar "${S}/${PN}-"**"/"* "${ED}/opt/1Password/" || die "Install failed!"
 
 	# Fill in policy kit file with a list of (the first 10) human users of
 	# the system.
-	mkdir -p "${D}/usr/share/polkit-1/actions/"
+	dodir /usr/share/polkit-1/actions
 	local policy_owners
 	policy_owners="$(cut -d: -f1,3 /etc/passwd \
 		| grep -E ':[0-9]{4}$' \
@@ -49,29 +49,29 @@ src_install() {
 		| sed 's/^/unix-user:/' \
 		| tr '\n' ' ')"
 	sed -e "s/\${POLICY_OWNERS}/${policy_owners}/" \
-		"${D}/opt/1Password/com.1password.1Password.policy.tpl" \
-		> "${D}/usr/share/polkit-1/actions/com.1password.1Password.policy" ||
+		"${ED}/opt/1Password/com.1password.1Password.policy.tpl" \
+		> "${ED}/usr/share/polkit-1/actions/com.1password.1Password.policy" ||
 		die "Failed to create policy file"
 
-	chmod 644 "${D}/usr/share/polkit-1/actions/com.1password.1Password.policy"
+	fperms 644 /usr/share/polkit-1/actions/com.1password.1Password.policy
 
 	dosym -r /opt/1Password/1password /usr/bin/1password
 	dosym -r /opt/1Password/op-ssh-sign /usr/bin/op-ssh-sign
 
 	dosym -r /opt/1Password/resources/1password.desktop /usr/share/applications/1password.desktop
-	newicon "${D}/opt/1Password/resources/icons/hicolor/512x512/apps/1password.png" "${PN}.png"
+	newicon "${ED}/opt/1Password/resources/icons/hicolor/512x512/apps/1password.png" "${PN}.png"
 
-	dodoc "${D}/opt/1Password/resources/custom_allowed_browsers"
+	dodoc "${ED}/opt/1Password/resources/custom_allowed_browsers"
 }
 
 pkg_postinst() {
 	# chrome-sandbox requires the setuid bit to be specifically set.
 	# See https://github.com/electron/electron/issues/17972
-	chmod 4755 /opt/1Password/chrome-sandbox
+	chmod 4755 "${EROOT}"/opt/1Password/chrome-sandbox
 
 	# This gives no extra permissions to the binary. It only hardens it against environmental tampering.
-	chgrp 1password /opt/1Password/1Password-BrowserSupport
-	chmod g+s /opt/1Password/1Password-BrowserSupport
+	chgrp 1password "${EROOT}"/opt/1Password/1Password-BrowserSupport
+	chmod g+s "${EROOT}"/opt/1Password/1Password-BrowserSupport
 
 	xdg_pkg_postinst
 
