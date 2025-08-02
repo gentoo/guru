@@ -207,6 +207,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/lsfg-vk-1.0.0-fix-visibility.patch"
+)
+
 src_unpack() {
 	if [[ ${PV} != 9999 ]]; then
 		use gui || default
