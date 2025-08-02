@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>zl29ah@gmail.com</email>
+		<name>Sergey Alirzaev</name>
+	</maintainer>
+	<longdescription lang="en">
+	It tries to recover all inodes on an XFS filesystem marked as deleted.
+	It's rather dumb, it just looks for the magic string IN\0\0\3\2\0\0 and
+	considers those as deleted inodes. Then, it tries to make sense of
+	the extents stored in the inode (which XFS does not delete) and collect
+	the data blocks of the file. That file is then stored on another
+	filesystem in a subdirectory, by default xfs_undeleted relative to
+	the current directory.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">ianka/xfs_undelete</remote-id>
+	</upstream>
+</pkgmetadata>
