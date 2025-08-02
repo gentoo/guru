@@ -9,7 +9,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/DreamMaoMao/maomaowm.git"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/DreamMaoMao/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/DreamMaoMao/${PN}/archive/${PV}.tar.gz"
 	KEYWORDS="~amd64 ~arm64"
 fi
 
@@ -70,4 +70,11 @@ src_compile() {
 
 src_install() {
 	meson_src_install
+}
+
+pkg_postinst() {
+	elog "If you have installed maomaowm before, be sure to remove the package,"
+	elog "since maomaowm was renamed to mangowc."
+	elog ""
+	elog "Default config path was changed to \$XDG_CONFIG_DIR/mango"
 }
