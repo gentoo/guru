@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>arnauxabia@gmail.com</email>
+        <name>Arnau Camprubí</name>
+    </maintainer>
+    <longdescription lang="en">
+        A python library for quick generation of visual network graphs with minimal code, designed as a wrapper around the popular Javascript visJS library.
+    </longdescription>
+    <upstream>
+        <remote-id type="github">WestHealth/pyvis</remote-id>
+        <remote-id type="pypi">pyvis</remote-id>
+    </upstream>
+</pkgmetadata>
