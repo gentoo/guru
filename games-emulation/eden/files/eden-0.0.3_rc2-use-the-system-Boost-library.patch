@@ -1,0 +1,16 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use the system `Boost` library.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/externals/CMakeLists.txt
++++ b/externals/CMakeLists.txt
+@@ -161,7 +161,7 @@ if (YUZU_USE_EXTERNAL_VULKAN_SPIRV_TOOLS)
+ endif()
+ 
+ # Boost headers
+-add_subdirectory(boost-headers)
++find_package(Boost COMPONENTS context REQUIRED GLOBAL)
+ 
+ # TZDB (Time Zone Database)
+ add_subdirectory(nx_tzdb)

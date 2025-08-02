@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>contact@paveloom.dev</email>
+    <name>Pavel Sobolev</name>
+  </maintainer>
+  <use>
+    <flag name="camera">Enable camera support</flag>
+    <flag name="cubeb">Enable the cubeb audio backend</flag>
+    <flag name="discord">Enable Discord Rich Presence</flag>
+    <flag name="sdl">Enable the SDL2 frontend</flag>
+    <flag name="ssl">Enable OpenSSL backend for ISslConnection</flag>
+    <flag name="web-applet">Enable web applet support</flag>
+    <flag name="wifi">Enable Wi-Fi scanning</flag>
+  </use>
+  <upstream>
+    <bugs-to>https://git.eden-emu.dev/eden-emu/eden/issues</bugs-to>
+  </upstream>
+</pkgmetadata>
