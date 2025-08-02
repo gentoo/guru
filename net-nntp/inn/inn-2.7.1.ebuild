@@ -13,7 +13,11 @@ HOMEPAGE="
 	https://github.com/InterNetNews/inn
 "
 SRC_URI="https://downloads.isc.org/isc/${PN}/${P}.tar.gz
-	verify-sig? ( https://downloads.isc.org/isc/${PN}/${P}.tar.gz.asc )"
+	https://github.com/InterNetNews/inn/releases/download/${PV}/${P}.tar.gz
+	verify-sig? (
+		https://downloads.isc.org/isc/${PN}/${P}.tar.gz.asc
+		https://github.com/InterNetNews/inn/releases/download/${PV}/${P}.tar.gz.asc
+	)"
 
 LICENSE="BSD BSD-2 BSD-4 GPL-2+ ISC MIT RSA powell public-domain"
 SLOT="0"
