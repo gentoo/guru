@@ -1,4 +1,4 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -82,7 +82,6 @@ QA_PREBUILT="usr/share/rpcs3/test/.*"
 QA_WX_LOAD="usr/share/rpcs3/test/*"
 
 PATCHES=(
-	"${FILESDIR}/${P}-system-openal.patch"
 	"${FILESDIR}/${P}-system-stb.patch"
 	"${FILESDIR}/${P}-system-zstd.patch"
 )
