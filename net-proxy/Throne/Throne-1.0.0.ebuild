@@ -8,8 +8,8 @@ inherit cmake desktop go-module xdg
 DESCRIPTION="Qt based cross-platform GUI proxy configuration manager"
 HOMEPAGE="https://github.com/throneproj/Throne"
 SRC_URI="
-	https://github.com/throneproj/Throne/archive/refs/tags/${PV}.tar.gz -> nekoray-${PV}.tar.gz
-	https://gitlab.com/api/v4/projects/69517529/packages/generic/nekoray/${PV}/nekoray-${PV}-deps.tar.xz
+	https://github.com/throneproj/Throne/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	https://gitlab.com/api/v4/projects/69517529/packages/generic/${PN}/${PV}/${P}-deps.tar.xz
 "
 
 # The first line is for the C++ code, the second line is for the Go module
@@ -32,13 +32,15 @@ DEPEND="
 	dev-cpp/fkYAML
 "
 BDEPEND="
+	dev-go/protobuf-go
+	dev-go/protorpc
 	dev-qt/qttools:6[linguist]
 "
 
 PATCHES=(
+	"${FILESDIR}/${PN}-1.0.0-Use-system-QHotkey.patch"
+	"${FILESDIR}/${PN}-1.0.0-Use-system-quirc.patch"
 	"${FILESDIR}/nekoray-4.3.7-Use-system-fkYAML.patch"
-	"${FILESDIR}/nekoray-4.3.7-Use-system-QHotkey.patch"
-	"${FILESDIR}/nekoray-4.3.7-Use-system-quirc.patch"
 )
 
 src_unpack() {
@@ -47,9 +49,6 @@ src_unpack() {
 	mkdir -p "${S}/vendor" || die
 
 	go-module_src_unpack
-
-	mv "nekoray-${PV}/core/server/vendor" "${S}/core/server" || die
-	rmdir -p "nekoray-${PV}/core/server" || die
 }
 
 src_prepare() {
@@ -71,6 +70,10 @@ src_compile() {
 
 	cd "${S}/core/server" || die
 
+	pushd gen || die
+	protoc -I . --go_out=. --protorpc_out=. libcore.proto
+	popd || die
+
 	VERSION_SINGBOX=$(go list -m -f '{{.Version}}' github.com/sagernet/sing-box)
 	ego build \
 		-trimpath -ldflags "-w -s -X 'github.com/sagernet/sing-box/constant.Version=${VERSION_SINGBOX}'" \
@@ -78,12 +81,12 @@ src_compile() {
 }
 
 src_install() {
-	exeinto /usr/lib/nekoray
-	doexe "${BUILD_DIR}/nekoray"
-	doexe core/server/nekobox_core
+	exeinto /usr/lib/Throne
+	doexe "${BUILD_DIR}/Throne"
+	doexe core/server/Core
 
-	dosym -r /usr/lib/nekoray/nekoray /usr/bin/nekoray
+	dosym -r /usr/lib/Throne/Throne /usr/bin/Throne
 
-	doicon -s 256 res/public/nekobox.png
-	domenu "${FILESDIR}/nekoray.desktop"
+	doicon -s 256 res/public/Throne.png
+	domenu "${FILESDIR}/Throne.desktop"
 }

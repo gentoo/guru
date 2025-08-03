@@ -15,7 +15,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
      : m_qr(quirc_new())
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -83,11 +83,6 @@ set(PROJECT_SOURCES
+@@ -80,11 +80,6 @@ set(PROJECT_SOURCES
          3rdparty/qv2ray/v2/ui/widgets/speedchart/SpeedWidget.hpp
          3rdparty/qv2ray/v2/proxy/QvProxyConfigurator.cpp
  
@@ -24,14 +24,14 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
 -        3rdparty/quirc/quirc.c
 -        3rdparty/quirc/version_db.c
 -
-         src/api/gRPC.cpp
- 
-         src/dataStore/Database.cpp
-@@ -263,6 +258,7 @@ target_link_libraries(nekoray PRIVATE
+         3rdparty/protorpc/rpc_client.cc
+         3rdparty/protorpc/rpc_conn.cc
+         3rdparty/protorpc/rpc_wire.cc
+@@ -267,6 +262,7 @@ target_link_libraries(Throne PRIVATE
          Threads::Threads
          ${NKR_EXTERNAL_TARGETS}
          ${PLATFORM_LIBRARIES}
 +        quirc
  )
  
- qt_finalize_executable(nekoray)
+ qt_finalize_executable(Throne)
