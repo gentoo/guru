@@ -19,7 +19,7 @@ SLOT="0"
 # gui-apps/hiprompt-gtk-py: both are installing to /usr/bin/hiprompt-gtk
 RDEPEND="
 	dev-libs/glib
-	gui-libs/gtk:4
+	>=gui-libs/gtk-4.18:4
 	gui-libs/libadwaita
 	gui-libs/gtk4-layer-shell
 	!gui-apps/hiprompt-gtk-py
