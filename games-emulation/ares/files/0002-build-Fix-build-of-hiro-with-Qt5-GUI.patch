@@ -1,0 +1,43 @@
+From 52abe2f55a899b16ef0ceec068dd34bb82ad5c1e Mon Sep 17 00:00:00 2001
+From: Tobias Jakobi <tjakobi@math.uni-bielefeld.de>
+Date: Tue, 4 Mar 2025 11:16:47 +0100
+Subject: [PATCH 2/3] build: Fix build of hiro with Qt5 GUI
+
+Use default approach to locate moc tooling and remove dependency
+on Xcb. Which I don't see being used anywhere in the codebase.
+
+Signed-off-by: Tobias Jakobi <tjakobi@math.uni-bielefeld.de>
+---
+ hiro/cmake/os-linux.cmake | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/hiro/cmake/os-linux.cmake b/hiro/cmake/os-linux.cmake
+index 4c0db67e9..dc5f88386 100644
+--- a/hiro/cmake/os-linux.cmake
++++ b/hiro/cmake/os-linux.cmake
+@@ -13,17 +13,18 @@ else()
+   # Note that Qt6 is more-or-less a drop-in replacement here, but changing these targets to use Qt6 is deferred until
+   # Qt support is properly addressed.
+ 
+-  find_package(Qt5 COMPONENTS Widgets Xcb REQUIRED)
++  find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
+ 
+-  find_program(qt_moc moc-qt5 moc)
++  get_target_property(moc_qt5 Qt5::moc LOCATION)
+ 
+   execute_process(
+-    COMMAND qt_moc -i -o ${CMAKE_CURRENT_SOURCE_DIR}/qt/qt.moc ${CMAKE_CURRENT_SOURCE_DIR}/qt/qt.hpp
++    COMMAND ${moc_qt5} -i -o ${CMAKE_CURRENT_SOURCE_DIR}/qt/qt.moc ${CMAKE_CURRENT_SOURCE_DIR}/qt/qt.hpp
++    COMMAND_ERROR_IS_FATAL ANY
+   )
+ 
+   target_link_libraries(
+     hiro
+-    PRIVATE X11::X11 Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Xcb
++    PRIVATE X11::X11 Qt5::Core Qt5::Gui Qt5::Widgets
+   )
+ 
+   target_enable_feature(hiro "Qt5 UI backend" HIRO_QT=5)
+-- 
+2.45.3
+
