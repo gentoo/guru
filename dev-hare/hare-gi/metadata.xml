@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>contact@hacktivis.me</email>
+		<name>Haelwenn (lanodan) Monnier</name>
+	</maintainer>
+	<use>
+		<flag name="gtk3">Generate bindings for GTK+3</flag>
+		<flag name="gtk4">Generate bindings for GTK 4</flag>
+	</use>
+</pkgmetadata>
