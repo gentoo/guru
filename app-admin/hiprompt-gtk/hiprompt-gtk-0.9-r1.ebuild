@@ -16,11 +16,13 @@ HOMEPAGE="https://git.sr.ht/~sircmpwn/hiprompt-gtk"
 LICENSE="GPL-3"
 SLOT="0"
 
+# gui-apps/hiprompt-gtk-py: both are installing to /usr/bin/hiprompt-gtk
 RDEPEND="
 	dev-libs/glib
 	gui-libs/gtk:4
 	gui-libs/libadwaita
 	gui-libs/gtk4-layer-shell
+	!gui-apps/hiprompt-gtk-py
 "
 DEPEND="
 	${RDEPEND}
