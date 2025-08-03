@@ -21,7 +21,10 @@ DEPEND="
 	>=dev-lang/hare-0.24.2:=
 "
 RDEPEND="
-	gui-apps/hiprompt-gtk-py
+	|| (
+		app-admin/hiprompt-gtk
+		gui-apps/hiprompt-gtk-py
+	)
 "
 BDEPEND="app-text/scdoc"
 
