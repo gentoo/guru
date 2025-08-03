@@ -8,8 +8,8 @@ inherit cmake desktop go-module xdg
 DESCRIPTION="Qt based cross-platform GUI proxy configuration manager"
 HOMEPAGE="https://github.com/throneproj/Throne"
 SRC_URI="
-	https://github.com/throneproj/Throne/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-	https://gitlab.com/api/v4/projects/69517529/packages/generic/${PN}/${PV}/${P}-deps.tar.xz
+	https://github.com/throneproj/Throne/archive/refs/tags/${PV}.tar.gz -> nekoray-${PV}.tar.gz
+	https://gitlab.com/api/v4/projects/69517529/packages/generic/nekoray/${PV}/nekoray-${PV}-deps.tar.xz
 "
 
 # The first line is for the C++ code, the second line is for the Go module
@@ -36,9 +36,9 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-4.3.7-Use-system-fkYAML.patch"
-	"${FILESDIR}/${PN}-4.3.7-Use-system-QHotkey.patch"
-	"${FILESDIR}/${PN}-4.3.7-Use-system-quirc.patch"
+	"${FILESDIR}/nekoray-4.3.7-Use-system-fkYAML.patch"
+	"${FILESDIR}/nekoray-4.3.7-Use-system-QHotkey.patch"
+	"${FILESDIR}/nekoray-4.3.7-Use-system-quirc.patch"
 )
 
 src_unpack() {
