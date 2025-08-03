@@ -1,0 +1,43 @@
+# Copyright 2022-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+if [[ "${PV}" = "9999" ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://git.sr.ht/~sircmpwn/himitsu-ssh"
+else
+	SRC_URI="https://git.sr.ht/~sircmpwn/himitsu-ssh/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
+
+DESCRIPTION="SSH integration for Himitsu"
+HOMEPAGE="https://git.sr.ht/~sircmpwn/himitsu-ssh"
+LICENSE="GPL-3"
+SLOT="0"
+
+RDEPEND="
+	>=app-admin/himitsu-0.9:=
+	>=dev-hare/hare-ssh-0.25.2:=
+"
+DEPEND="
+	${RDEPEND}
+	>=dev-lang/hare-0.25.2:=
+"
+BDEPEND="app-text/scdoc"
+
+# All binaries are hare-built
+QA_FLAGS_IGNORED=".*"
+
+PATCHES=(
+	"${FILESDIR}/himitsu-ssh-0.9_install_ini5.patch"
+)
+
+src_configure() {
+	sed -i 's;^PREFIX=.*;PREFIX=/usr;' Makefile || die
+}
+
+src_test() {
+	# Don't run tests if there's none (which is the case of 0.3)
+	grep -r '@test fn' . && emake check
+}
