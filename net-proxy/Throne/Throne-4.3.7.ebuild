@@ -42,12 +42,14 @@ PATCHES=(
 )
 
 src_unpack() {
-	default_src_unpack
-	mv "${S}/core/server/vendor" "${WORKDIR}/Throne-${PV}/core/server" || die
-	rmdir "${S}/core/server" || die
-	rmdir "${S}/core" || die
-	rmdir "${S}" || die
-	mv "${WORKDIR}/Throne-${PV}" "${S}" || die
+	# The vendor tarball is unpacked to `${S}/core/server`, but `go-module_src_unpack`
+	# requires the `vendor` directory to be present at `${S}/vendor`
+	mkdir -p "${S}/vendor" || die
+
+	go-module_src_unpack
+
+	mv "nekoray-${PV}/core/server/vendor" "${S}/core/server" || die
+	rmdir -p "nekoray-${PV}/core/server" || die
 }
 
 src_prepare() {
