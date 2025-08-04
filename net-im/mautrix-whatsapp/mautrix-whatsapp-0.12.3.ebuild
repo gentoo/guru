@@ -34,8 +34,15 @@ src_install() {
 	fowners -R root:mautrix /var/log/mautrix
 	fperms -R 770 /var/log/mautrix
 
+	(
+		echo -e '# Network-specific config options\nnetwork:'
+		sed 's/^/    /' pkg/connector/example-config.yaml
+		cat ../go-mod/maunium.net/go/mautrix@v0.24.2/bridgev2/matrix/mxmain/example-config.yaml
+	) |
+	sed "s_\./logs/bridge\.log_/var/log/mautrix/whatsapp/mautrix-whatsapp.log_" > "${PN/-/_}.yaml" || die
+
 	insinto "/etc/mautrix"
-	newins pkg/connector/example-config.yaml "${PN/-/_}.yaml"
+	doins "${PN/-/_}.yaml"
 
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
 	systemd_dounit "${FILESDIR}/${PN}.service"
