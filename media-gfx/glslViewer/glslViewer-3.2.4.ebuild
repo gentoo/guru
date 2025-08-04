@@ -3,8 +3,7 @@
 
 EAPI=8
 
-# pybind11 has not bump python to 3.14 yet
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake flag-o-matic python-r1
 
 DESCRIPTION="Console-based GLSL live-coding viewer"
