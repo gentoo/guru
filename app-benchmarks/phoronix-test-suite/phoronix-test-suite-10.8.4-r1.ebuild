@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # shellcheck disable=SC2034
@@ -13,7 +13,6 @@ HOMEPAGE="https://www.phoronix-test-suite.com"
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
-	EGIT3_STORE_DIR="${T}"
 else
 	SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz -> ${P}.gh.tar.gz"
 	KEYWORDS="~amd64"
@@ -27,7 +26,10 @@ SLOT="0"
 IUSE="sdl"
 
 RDEPEND="${DEPEND}
-		app-arch/p7zip
+		|| (
+			>=app-arch/7zip-24.09[symlink(+)]
+			app-arch/p7zip
+		)
 		media-libs/libpng
 		>=dev-lang/php-5.3[cli,curl,gd,posix,pcntl,simplexml,sockets,ssl,truetype,xml,zip,zlib]
 		www-servers/apache

@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # shellcheck disable=SC2034
@@ -10,7 +10,6 @@ inherit bash-completion-r1 git-r3 xdg-utils
 DESCRIPTION="Phoronix's comprehensive, cross-platform testing and benchmark suite"
 HOMEPAGE="https://www.phoronix-test-suite.com"
 EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
-EGIT3_STORE_DIR="${T}"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -18,7 +17,10 @@ SLOT="0"
 IUSE="sdl"
 
 RDEPEND="${DEPEND}
-		app-arch/p7zip
+		|| (
+			>=app-arch/7zip-24.09[symlink(+)]
+			app-arch/p7zip
+		)
 		media-libs/libpng
 		>=dev-lang/php-5.3[cli,curl,gd,posix,pcntl,simplexml,sockets,ssl,truetype,xml,zip,zlib]
 		www-servers/apache
