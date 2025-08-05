@@ -33,13 +33,15 @@ BDEPEND="
 		dev-vcs/git
 		dev-vcs/mercurial
 		dev-python/freezegun[${PYTHON_USEDEP}]
-		>=dev-python/pytest-localserver-0.9.0_p0[${PYTHON_USEDEP}]
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
 	)
 "
 
 DOCS=( {CHANGELOG,CODE_OF_CONDUCT,CONTRIBUTING,README}.md )
 
+EPYTEST_PLUGINS=(
+	pytest-localserver
+	pytest-mock
+)
 EPYTEST_DESELECT=(
 	tests/test_cli/test_bump.py::test_detects_bad_or_missing_version_component
 )
