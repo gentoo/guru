@@ -8,4 +8,9 @@
 	<upstream>
 		<remote-id type="github">c-blake/cligen</remote-id>
 	</upstream>
+	<use>
+		<flag name="toml">
+			Enable TOML config file support via <pkg>dev-nim/parsetoml</pkg>
+		</flag>
+	</use>
 </pkgmetadata>
