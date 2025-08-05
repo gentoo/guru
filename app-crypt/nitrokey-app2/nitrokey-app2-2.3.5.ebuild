@@ -19,8 +19,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	$(python_gen_cond_dep '
-		>=dev-python/nitrokey-0.2.3[${PYTHON_USEDEP}]
-		<dev-python/nitrokey-0.3.2[${PYTHON_USEDEP}]
+		>=dev-python/nitrokey-0.3.2[${PYTHON_USEDEP}]
 		>=dev-python/pyside-6.6.0:6=[core,gui,svg,tools,uitools,widgets,${PYTHON_USEDEP}]
 		>=dev-python/usb-monitor-1.21[${PYTHON_USEDEP}]
 	')
