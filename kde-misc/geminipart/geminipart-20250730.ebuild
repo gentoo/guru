@@ -1,12 +1,12 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-COMMIT="14448c4d19187273ebc70030672b8c8867709f6d"
+COMMIT="842ed7d533e646ec34652ed7d2e7ff39ec7c3b34"
 ECM_TEST="forceoptional"
-KFMIN=5.98.0
-QTMIN=5.4.0
+KFMIN=6.0.0
+QTMIN=6.0.0
 inherit ecm optfeature
 
 DESCRIPTION="KPart for viewing text/gemini files"
@@ -15,20 +15,24 @@ SRC_URI="https://gitlab.com/tobiasrautenkranz/${PN}/-/archive/${COMMIT}/${PN}-${
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="LGPL-2.1+"
-SLOT="5"
+SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
-DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+RDEPEND="
+	!kde-misc/geminipart:5
+	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? (
+		>=dev-qt/qtbase-${QTMIN}:6[test]
+	)
+"
 
 src_test() {
 	export QT_QPA_PLATFORM=offscreen
@@ -39,6 +43,12 @@ src_prepare() {
 	# Konqueror may not be installed, don't make it default text/gemini handler
 	sed "/MimeType=/d" -i integration/gemini-konqueror.desktop || die
 	ecm_src_prepare
+}
+
+src_install() {
+	ecm_src_install
+
+	mv "${ED}/usr/share/kservices5" "${ED}/usr/share/kf6" || die
 }
 
 pkg_postinst() {
