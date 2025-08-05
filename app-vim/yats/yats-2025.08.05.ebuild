@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit vim-plugin
 
 MY_PN="${PN}.vim"
-COMMIT="9b16b86f7be4603b416ab18a9e57a34e86e7bec2"
+COMMIT="c3d71452154a12ccf9f6e4219ccbd625474602e5"
 DESCRIPTION="vim plugin: Yet Another TypeScript Syntax"
 HOMEPAGE="https://github.com/HerringtonDarkholme/yats.vim"
 SRC_URI="https://github.com/HerringtonDarkholme/${MY_PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
@@ -35,7 +35,7 @@ src_test() {
 	local -x TERM="xterm"
 
 	cd test || die
-	vim -eu "${FILESDIR}"/vimrc -c "Vader! syntax.vader tsx.vader" || die
+	vim -eu "${FILESDIR}"/vimrc -c "Vader! -q indent.vader syntax.vader tsx.vader" || die
 }
 
 src_install() {
