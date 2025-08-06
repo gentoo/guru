@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517=setuptools
 inherit desktop distutils-r1 xdg-utils
 
@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	gui-apps/nwg-shell
-	sci-geosciences/geopy
+	sci-geosciences/geopy[${PYTHON_USEDEP}]
 	x11-libs/gtk+:3
 "
 DEPEND="${RDEPEND}"
