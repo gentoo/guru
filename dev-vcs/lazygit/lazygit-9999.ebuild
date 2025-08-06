@@ -3,25 +3,30 @@
 
 EAPI=8
 
-inherit go-module git-r3
+inherit go-module
 
 DESCRIPTION="Simple terminal UI for git commands"
 HOMEPAGE="https://github.com/jesseduffield/lazygit"
-EGIT_REPO_URI="https://github.com/jesseduffield/lazygit.git"
+if [[ "${PV}" == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/jesseduffield/${PN}.git"
+	src_unpack() {
+		git-r3_src_unpack
+	}
+else
+	KEYWORDS="~amd64"
+	SRC_URI="https://github.com/jesseduffield/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+fi
 
 LICENSE="Apache-2.0 BSD ISC MIT Unlicense"
 SLOT="0"
-
 RDEPEND="dev-vcs/git"
 
 DOCS=( {CODE-OF-CONDUCT,CONTRIBUTING,README}.md docs )
 
-src_unpack() {
-	git-r3_src_unpack
-}
-
 src_compile() {
-	ego build -o bin/lazygit -ldflags "-X main.version=${PV}"
+	ego build -o "bin/${PN}" \
+		-ldflags "-X main.version=${PV}"
 }
 
 src_test() {
@@ -29,6 +34,6 @@ src_test() {
 }
 
 src_install() {
-	dobin bin/lazygit
+	dobin "bin/${PN}"
 	einstalldocs
 }
