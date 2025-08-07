@@ -22,7 +22,7 @@ RDEPEND="
 	dev-qt/qtdeclarative:6[widgets]
 	>=net-libs/libquotient-0.9.0:=
 	<net-libs/libquotient-0.10.0
-	dev-libs/qtkeychain:=[qt6]
+	dev-libs/qtkeychain:=
 "
 DEPEND="
 	${RDEPEND}
