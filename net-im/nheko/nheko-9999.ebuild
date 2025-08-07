@@ -32,7 +32,7 @@ RDEPEND="
 	>=dev-libs/kdsingleapplication-1.1.0
 	dev-libs/olm
 	>=dev-libs/openssl-1.1.0:=
-	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
+	>=dev-libs/qtkeychain-0.14.1-r1:=
 	>=dev-libs/re2-0.2022.04.01:=
 	dev-libs/spdlog:=
 	dev-qt/qtbase:6[concurrent,dbus,gui,widgets]

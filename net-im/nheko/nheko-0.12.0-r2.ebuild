@@ -31,7 +31,7 @@ COMMON_DEPEND="
 	>=dev-libs/kdsingleapplication-1.1.0
 	>=dev-libs/mtxclient-0.10.0:=
 	dev-libs/olm
-	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
+	>=dev-libs/qtkeychain-0.14.1-r1:=
 	dev-libs/spdlog:=
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6=
