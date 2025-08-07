@@ -67,7 +67,7 @@ RDEPEND="
 		x11-libs/gdk-pixbuf:2
 		x11-libs/libnotify
 	)
-	qtkeychain? ( dev-libs/qtkeychain:=[qt6] )
+	qtkeychain? ( dev-libs/qtkeychain:= )
 "
 DEPEND="
 	${RDEPEND}
