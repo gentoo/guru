@@ -29,10 +29,6 @@ BDEPEND="app-text/scdoc"
 # All binaries are hare-built
 QA_FLAGS_IGNORED=".*"
 
-PATCHES=(
-	"${FILESDIR}/himitsu-ssh-0.9_install_ini5.patch"
-)
-
 src_configure() {
 	sed -i 's;^PREFIX=.*;PREFIX=/usr;' Makefile || die
 }
