@@ -6,7 +6,7 @@ EAPI=8
 inherit meson
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/DreamMaoMao/maomaowm.git"
+	EGIT_REPO_URI="https://github.com/DreamMaoMao/mangowc.git"
 	inherit git-r3
 else
 	SRC_URI="https://github.com/DreamMaoMao/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
