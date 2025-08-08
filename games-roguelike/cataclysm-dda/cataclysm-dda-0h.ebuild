@@ -31,7 +31,7 @@ fi
 
 # NOTE: Add BSD license on bump
 LICENSE="CC-BY-SA-3.0 Apache-2.0 soundpack? ( CC-BY-SA-4.0 ) MIT OFL-1.1 Unicode-3.0"
-IUSE="debug doc ncurses nls +sound +soundpack test +tiles"
+IUSE="debug doc ncurses nls +sound +soundpack test +tiles clang"
 REQUIRED_USE="soundpack? ( sound ) sound? ( tiles ) \
 	|| ( tiles ncurses )"
 RESTRICT="!test? ( test )"
@@ -116,12 +116,19 @@ src_prepare() {
 src_compile() {
 	myemakeargs=(
 		BACKTRACE=$(usex debug 1 0)
-		CXX="$(tc-getCXX)"
 		LINTJSON=0
 		PCH=0
 		PREFIX="${EPREFIX}/usr"
 		USE_XDG_DIR=1
 	)
+	if use clang; then
+		# use clang
+		myemakeargs+=(CLANG=1)
+		elog "use clang"
+	else
+		# use g++
+		CXX="$(tc-getCXX)"
+	fi
 
 	use nls && export LANGUAGES="all"
 
