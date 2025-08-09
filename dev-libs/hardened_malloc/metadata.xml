@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+        <maintainer type="person">
+                <name>Torben Kahnert</name>
+                <email>torben@tmak2002.dev</email>
+        </maintainer>
+        <upstream>
+                <bugs-to>https://github.com/GrapheneOS/hardened_malloc/issues/</bugs-to>
+                <changelog>https://github.com/GrapheneOS/hardened_malloc/releases</changelog>
+                <remote-id type="github">GrapheneOS/hardened_malloc</remote-id>
+        </upstream>
+</pkgmetadata>
