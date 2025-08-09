@@ -60,12 +60,6 @@ dev-python/safety-schemas
 # Removal on 2025-08-11
 gui-apps/tiramisu
 
-# Lucio Sauer <watermanpaint@posteo.net> (2025-06-21)
-# Depends on treecleaned dev-python/backoff.
-# Masked until upstream supports running without backoff.
-<app-backup/b2-4.3.3
-dev-util/mock
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-24)
 # Depends on masked net-libs/stem.
 # Masked until upstream supports running without stem.
