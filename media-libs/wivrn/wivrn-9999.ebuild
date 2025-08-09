@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake fcaps flag-o-matic xdg
+inherit cmake-multilib fcaps flag-o-matic xdg
 
 DESCRIPTION="WiVRn OpenXR streaming"
 HOMEPAGE="https://github.com/WiVRn/WiVRn"
@@ -65,12 +65,12 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	dev-cpp/cli11
-	dev-cpp/eigen
-	dev-cpp/nlohmann_json
 	dev-libs/boost
 "
 BDEPEND="
+	dev-cpp/cli11
+	dev-cpp/eigen
+	dev-cpp/nlohmann_json
 	dev-util/glslang
 	dev-util/gdbus-codegen
 	gui? (
@@ -102,7 +102,7 @@ else
 	}
 fi
 
-src_configure() {
+multilib_src_configure() {
 	use debug || append-cflags "-DNDEBUG"
 	use debug || append-cxxflags "-DNDEBUG"
 	if [[ ${PV} == 9999 ]]; then
@@ -116,19 +116,20 @@ src_configure() {
 		-DGIT_DESC=${GIT_DESC}
 		-DGIT_COMMIT=${GIT_COMMIT}
 		-DWIVRN_BUILD_CLIENT=OFF
-		-DWIVRN_BUILD_SERVER=ON
-		-DWIVRN_OPENXR_MANIFEST_TYPE=relative
-		-DWIVRN_BUILD_DASHBOARD=$(usex gui)
-		-DWIVRN_BUILD_DISSECTOR=$(usex wireshark-plugins)
+		-DWIVRN_BUILD_SERVER=$(multilib_is_native_abi && echo ON || echo OFF)
+		-DWIVRN_BUILD_SERVER_LIBRARY=ON
+		-DWIVRN_OPENXR_MANIFEST_TYPE=filename
+		-DWIVRN_BUILD_DASHBOARD=$(multilib_native_usex gui)
+		-DWIVRN_BUILD_DISSECTOR=$(multilib_native_usex wireshark-plugins)
 		-DWIVRN_BUILD_WIVRNCTL=ON
 		-DWIVRN_FEATURE_STEAMVR_LIGHTHOUSE=ON
-		-DWIVRN_USE_PIPEWIRE=$(usex pipewire)
-		-DWIVRN_USE_PULSEAUDIO=$(usex pulseaudio)
-		-DWIVRN_USE_NVENC=$(usex nvenc)
-		-DWIVRN_USE_VAAPI=$(usex vaapi)
+		-DWIVRN_USE_PIPEWIRE=$(multilib_native_usex pipewire)
+		-DWIVRN_USE_PULSEAUDIO=$(multilib_native_usex pulseaudio)
+		-DWIVRN_USE_NVENC=$(multilib_native_usex nvenc)
+		-DWIVRN_USE_VAAPI=$(multilib_native_usex vaapi)
 		-DWIVRN_USE_VULKAN_ENCODE=ON
-		-DWIVRN_USE_X264=$(usex x264)
-		-DWIVRN_USE_SYSTEMD=$(usex systemd)
+		-DWIVRN_USE_X264=$(multilib_native_usex x264)
+		-DWIVRN_USE_SYSTEMD=$(multilib_native_usex systemd)
 		-DWIVRN_USE_SYSTEM_OPENXR=ON
 		-DWIVRN_USE_SYSTEM_BOOST=ON
 		-DFETCHCONTENT_FULLY_DISCONNECTED=ON
@@ -138,6 +139,19 @@ src_configure() {
 
 	cmake_src_configure
 }
+
+multilib_src_install() {
+	cmake_src_install
+
+	local i ldpath=""
+	for i in $(get_all_libdirs) ; do
+		ldpath="${ldpath}:/usr/${i}/wivrn"
+	done
+	newenvd - "50${PN}" <<-_EOF_
+		LDPATH="${ldpath}"
+		PRESSURE_VESSEL_IMPORT_OPENXR_1_RUNTIMES=1
+	_EOF_
+ }
 
 pkg_postinst()
 {
