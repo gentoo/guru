@@ -16,7 +16,7 @@ SRC_URI="https://github.com/Backblaze/B2_Command_Line_Tool/archive/refs/tags/v${
 S="${WORKDIR}/B2_Command_Line_Tool-${PV}"
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 PATCHES=(
 	"${FILESDIR}/b2-4.0.1-nameclash.patch"
