@@ -25,9 +25,12 @@ else
 fi
 
 RDEPEND="
+	app-arch/libarchive
 	dev-libs/glib
 	dev-libs/libbsd
 	dev-libs/openssl
+	gnome-base/librsvg
+	media-libs/libpng
 	media-libs/openxr-loader
 	net-dns/avahi
 	x11-libs/libnotify
@@ -73,9 +76,6 @@ BDEPEND="
 	dev-cpp/nlohmann_json
 	dev-util/glslang
 	dev-util/gdbus-codegen
-	gui? (
-		gnome-base/librsvg
-	)
 	dev-util/vulkan-headers
 "
 
