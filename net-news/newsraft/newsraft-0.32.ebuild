@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit toolchain-funcs xdg-utils
 
 DESCRIPTION="A lightweight feed reader with ncurses user interface inspired by Newsboat."
 HOMEPAGE="https://codeberg.org/newsraft/newsraft"
@@ -24,9 +24,7 @@ DEPEND="
 	dev-db/sqlite:3
 	dev-libs/expat
 	dev-libs/gumbo:=
-	dev-libs/yajl:=
 	net-misc/curl
-	sys-libs/ncurses:=
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -41,4 +39,12 @@ src_compile(){
 src_install() {
 	emake PREFIX="/usr" DESTDIR="${D}" install
 	einstalldocs
+}
+
+pkg_postinst() {
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 }
