@@ -23,7 +23,7 @@ HOMEPAGE="https://github.com/ggml-org/llama.cpp"
 LICENSE="MIT"
 SLOT="0"
 CPU_FLAGS_X86=( avx avx2 f16c )
-IUSE="curl openblas blis hip cuda opencl vulkan"
+IUSE="curl openblas +openmp blis hip cuda opencl vulkan"
 REQUIRED_USE="?? ( openblas blis )"
 
 # curl is needed for pulling models from huggingface
@@ -31,6 +31,7 @@ REQUIRED_USE="?? ( openblas blis )"
 CDEPEND="
 	curl? ( net-misc/curl:= )
 	openblas? ( sci-libs/openblas:= )
+	openmp? ( llvm-runtimes/openmp:= )
 	blis? ( sci-libs/blis:= )
 	hip? ( >=dev-util/hip-6.3:=
 		>=sci-libs/hipBLAS-6.3:=
@@ -77,6 +78,7 @@ src_configure() {
 		-DGENTOO_REMOVE_CMAKE_BLAS_HACK=ON
 		-DGGML_CUDA=$(usex cuda ON OFF)
 		-DGGML_OPENCL=$(usex opencl ON OFF)
+		-DGGML_OPENMP=$(usex openmp ON OFF)
 		-DGGML_VULKAN=$(usex vulkan ON OFF)
 
 		# avoid clashing with whisper.cpp
