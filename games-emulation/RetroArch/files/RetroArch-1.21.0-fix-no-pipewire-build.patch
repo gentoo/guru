@@ -1,0 +1,18 @@
+https://github.com/libretro/RetroArch/commit/3162b6a4386cee72af5539849d24a35cfe7652a2
+https://bugs.gentoo.org/960043
+Fix build with disable-pipewire on systems with pipewire installed
+
+On systems where pipewire is installed but the build is configured with
+--disable-pipewire, HAVE_PIPEWIRE_STABLE is set to 1 while HAVE_PIPEWIRE
+is 0. Checking only HAVE_PIPEWIRE_STABLE leads to a build failure.
+--- a/camera/camera_driver.c
++++ b/camera/camera_driver.c
+@@ -55,7 +55,7 @@ const camera_driver_t *camera_drivers[] = {
+ #ifdef HAVE_V4L2
+    &camera_v4l2,
+ #endif
+-#ifdef HAVE_PIPEWIRE_STABLE
++#if defined(HAVE_PIPEWIRE) && defined(HAVE_PIPEWIRE_STABLE)
+    &camera_pipewire,
+ #endif
+ #ifdef EMSCRIPTEN

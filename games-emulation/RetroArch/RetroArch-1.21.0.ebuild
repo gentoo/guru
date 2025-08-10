@@ -83,6 +83,10 @@ BDEPEND="
 	wayland? ( dev-util/wayland-scanner )
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-fix-no-pipewire-build.patch"
+)
+
 src_configure() {
 	if use cg; then
 		append-ldflags -L"${EPREFIX}/"opt/nvidia-cg-toolkit/$(get_libdir)
