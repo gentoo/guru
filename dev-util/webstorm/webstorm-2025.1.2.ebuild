@@ -52,7 +52,7 @@ src_unpack() {
 			cp "${DISTDIR}"/WebStorm-${PV}.tar.gz "${WORKDIR}"/ || die
 		elif use arm64 ; then
 			cp "${DISTDIR}"/WebStorm-${PV}-aarch64.tar.gz "${WORKDIR}"/ || die
-		fi		
+		fi
 		mkdir -p "${P}" || die
 		tar --strip-components=1 -xzf "WebStorm-${PV}".tar.gz -C "${P}" || die
 }
