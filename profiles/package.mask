@@ -55,11 +55,6 @@ sys-fs/ddrescueview
 # Depends on removed pydantic version. 
 dev-python/safety-schemas
 
-# David (stkw0) Roman <davidroman96@gmail.com> (2025-07-11)
-# Almost not maintained, fails to compile (bug #921934)
-# Removal on 2025-08-11
-gui-apps/tiramisu
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-24)
 # Depends on masked net-libs/stem.
 # Masked until upstream supports running without stem.
