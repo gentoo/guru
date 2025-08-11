@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,7 +24,8 @@ distutils_enable_tests pytest
 
 distutils_enable_sphinx docs \
 	dev-python/sphinx-hoverxref \
-	dev-python/sphinx-notfound-page
+	dev-python/sphinx-notfound-page \
+	dev-python/sphinx-rtd-theme
 
 EPYTEST_DESELECT=(
 	# https://github.com/scrapy/w3lib/issues/164
