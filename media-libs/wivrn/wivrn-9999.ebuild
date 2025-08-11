@@ -121,7 +121,7 @@ multilib_src_configure() {
 		-DWIVRN_OPENXR_MANIFEST_TYPE=filename
 		-DWIVRN_BUILD_DASHBOARD=$(multilib_native_usex gui)
 		-DWIVRN_BUILD_DISSECTOR=$(multilib_native_usex wireshark-plugins)
-		-DWIVRN_BUILD_WIVRNCTL=ON
+		-DWIVRN_BUILD_WIVRNCTL=$(multilib_is_native_abi && echo ON || echo OFF)
 		-DWIVRN_FEATURE_STEAMVR_LIGHTHOUSE=ON
 		-DWIVRN_USE_PIPEWIRE=$(multilib_native_usex pipewire)
 		-DWIVRN_USE_PULSEAUDIO=$(multilib_native_usex pulseaudio)
