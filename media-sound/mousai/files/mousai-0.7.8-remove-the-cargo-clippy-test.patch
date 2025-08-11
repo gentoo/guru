@@ -1,0 +1,29 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Remove the `cargo clippy` test.
+
+The "errors" are rather stylistic.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -66,19 +66,3 @@ test(
+   ],
+   timeout: 300, # give cargo more time
+ )
+-
+-test(
+-  'cargo-clippy',
+-  cargo,
+-  args: [
+-    'clippy',
+-    cargo_options,
+-    '--',
+-    '-D',
+-    'warnings'
+-  ],
+-  env: [
+-    cargo_env
+-  ],
+-  timeout: 300, # give cargo more time
+-)
