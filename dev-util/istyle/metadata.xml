@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">thomasrussellmurphy/istyle-verilog-formatter</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		iStyle is a fast and free automatic formatter for Verilog source code.
+		It was originally created by haimag and is inspired by Astyle. iStyle
+		helps to standardize code formatting in Verilog projects by automatically
+		adjusting indentation, spacing, and bracket placement according to
+		configurable style options.
+	</longdescription>
+	<longdescription lang="zh">
+		iStyle 是一个快速且免费的 Verilog 源代码自动格式化工具。它最初是由
+		haimag 创建的，并受到 Astyle 的启发。iStyle 通过自动调整缩进、空格和括号
+		位置来帮助标准化 Verilog 项目的代码格式，这些调整是根据可配置的样式选项
+		进行的。
+	</longdescription>
+</pkgmetadata>
