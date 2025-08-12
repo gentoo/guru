@@ -1,0 +1,833 @@
+                      Google Enterprise Geo Master License
+
+  Google Earth Pro
+
+   This Google Enterprise Geo Master Agreement for the licensing of Google
+   Enterprise Maps and Earth Products and Services (the "Agreement") is made
+   and entered into by and between Google Inc. ("Google") and the customer
+   identified below and/or on the Ordering Document(s)("Customer"). This
+   Agreement, each accompanying addendum and each accompanying Ordering
+   Document governs Customer's access to and use of the Products and
+   Services.
+
+  1. Product and Services Terms and Conditions.
+
+   1.1 The Agreement is a Master Agreement. The Customer must have the
+   Agreement in effect to obtain Products and Services. Customer may obtain
+   Products and Services by entering into a corresponding Addendum. The
+   parties will execute the Agreement first and are subject to an agreed
+   term. An Addendum is entered separately and is subject to its own terms.
+
+   1.2 Generally Applicable Product and Services Terms. Except as otherwise
+   permitted by the Product or Service in the Documentation, Customer will
+   not, and will not allow others to: (a) copy Software except as explicitly
+   authorized; (b) use the Products and Services for High Risk Activities;
+   (c) use the Product and Services to create a substantially similar
+   products or services; or (d) extract any Google Content for use outside of
+   the Products.
+
+   1.3 Separate Use. Unless otherwise authorized by Google, Customer will
+   not: (a) distribute or sell Google Content; (b) incorporate or embed
+   Google Content or components of the Products and Services into any of
+   Customer's products or services that it makes available to third parties;
+   or (c) offer the Services, or any Customer products and services based
+   upon the Services, on a subscription basis to third-parties.
+
+   1.4 Third-Party Components. Any third party component embedded, included
+   or provided for use with the Software may only be used in conjunction with
+   the Software, and this use is subject to this Agreement and any applicable
+   Addendum and Documentation. However, to the extent Software includes
+   components governed by open source licenses with provisions inconsistent
+   with this Agreement, those components are instead governed solely by the
+   applicable open source licenses. To the extent Software includes
+   components covered by open source licenses requiring the provision of
+   corresponding source code, Google hereby offers such source code
+   consistent with those licenses.
+
+   1.5 Restrictions. Customer, except as expressly permitted in an Addendum,
+   will not (and will not allow any third party to): (a) use or reproduce,
+   modify, create derivative works, decompile, disassemble, or otherwise
+   reverse engineer the Products and Services or attempt to reconstruct or
+   discover any source code, underlying ideas, algorithms, file formats or
+   programming interfaces of the Products and Services by (except and only to
+   the extent that applicable law prohibits or restricts reverse engineering
+   restrictions), or incorporate the Products and Services into or with other
+   technology; (b) distribute, sell, sublicense, rent, lease to third parties
+   or otherwise make the Products and Services functionality available to
+   third parties except as set forth herein; or (c) remove or in any manner
+   alter any Products and Services identification, proprietary, trademark,
+   copyright or other notices.
+
+   1.6 Customer Data.
+
+   a. Services Use. Customer may upload Customer Data into the Systems via
+   the methods described in, and this Customer Data will be stored in
+   accordance with, the Documentation.
+
+   b. Risk of Loss. Customer Data will not be returned to Customer, whether
+   the Customer Data is physically provided to Google, or entered by Customer
+   or Google into the Systems. Customer is solely responsible for backing up
+   its Customer Data. Google will not bear any risk of loss for any data.
+
+   c. Customer Rights in Customer Data. Customer is solely responsible for
+   having, or obtaining, any necessary rights, licenses, or authorizations
+   necessary for Customer to provide the Customer Data to Google, and for
+   Google to use the Customer Data as stated in this Agreement to provide the
+   Services to Customer. Customer is solely responsible for determining the
+   scope of its notification obligations to Customer Data and any other
+   persons whose tracked data and other information is included in Customer
+   Data.
+
+   d. Customer Data Transfer. As part of providing the Service, Google may
+   store, process, and serve Customer Data in the United States or any other
+   country in which Google or its agents maintain facilities. By using the
+   Services, Customer consents to this transfer, processing and storage of
+   Customer Data.
+
+   e. Applicable Products and Services. This section is not applicable to
+   Maps API for Business and Google Earth Enterprise.
+
+  2. Technical Support Services.
+
+   2.1 Technical Support Service (TSS). Subject to Customer's payment of all
+   due and payable Fees and its compliance with this Agreement and its
+   applicable Addendum's terms, Google will provide TSS for Products and
+   Services in accordance with the applicable TSSG for the term agreed in an
+   Ordering Document. Unless otherwise agreed in writing, to receive TSS
+   Customer must provide Google with reasonable access to the Products and
+   Services. Customer's failure to provide access will be at Customer's own
+   risk. If the Ordering Document does not identify a support level, then
+   Google will provide standard or Basic TSS as defined in the TSSG. Google
+   may, from time to time, change the TSS.
+
+   2.2 Updates. TSS includes Updates, to the extent available, to the given
+   Product or Service. Customer will only receive Updates if Customer is
+   receiving TSS. Customer's access to and use of TSS is subject to this
+   Agreement's terms, the applicable Addendum and the Ordering Document.
+   Customer will implement Updates in accordance with the TSSG. Customer may,
+   if possible, make an Update copy to facilitate installation and will
+   destroy the copy after use.
+
+  3. Term and Termination.
+
+   3.1 Agreement Term. Subject to Customer's payment of all due and payable
+   Fees and compliance with this Agreement's terms, the Agreement begins on
+   the Effective Date and will continue until the end of the last Addendum
+   term(s) unless terminated earlier as set forth below ("Initial Term"). An
+   Addendum's term is set forth in the respective Addendum.
+
+   3.2 Auto-Renewal. At the end of the Initial Term, and unless otherwise
+   indicated in an Addendum, the Agreement will automatically renew for
+   consecutive twelve month renewal terms. If a party does not want the
+   Agreement to automatically renew, then it must provide the other party a
+   written termination notice at least 15 days prior to the then current
+   term's expiration date. A party's timely non-renewal notice will be
+   effective upon the then current term's expiration. Google will invoice
+   Customer, and Customer agrees to pay, for the renewal of Products and
+   Services as set forth in the applicable Ordering Document. An Addendum's
+   renewal term, if any, will be set forth in the respective Addendum.
+
+   3.3 Termination for Breach. Either party may terminate this Agreement or
+   an Addendum if: (a) the other party is in material breach of the Agreement
+   or an Addendum and fails to cure that breach within 30 days after receipt
+   of written notice; (b) the other party ceases its business operations or
+   becomes subject to insolvency proceedings and the proceedings are not
+   dismissed within 90 days; or (c) the other party materially breaches this
+   Agreement or an Addendum more than two times notwithstanding any cure of
+   these breaches.
+
+   3.4 Effect of Termination.
+
+   a. Termination for Google's Breach.
+
+   (i) Agreement Termination. If the Agreement is terminated for Google's
+   breach, the rights granted hereunder may, at Customer's option, continue
+   for the remainder of all then effective Addendum(s)'s term(s), subject to
+   Customer's continued compliance with this Agreement and the corresponding
+   Addendum(s). If Customer elects not to continue under the Agreement, then
+   the Agreement and all accompanying then-effective Addendum(s) will
+   terminate. Customer must make its election to proceed or not proceed under
+   the Agreement upon the Customer's declaration of Google's Agreement
+   breach. If Customer elects to continue the Agreement it further commits to
+   continue all Addendum(s).
+
+   (ii) Addendum Termination. If an Addendum is terminated for Google's
+   breach, the rights granted under the Addendum may, at Customer's option,
+   continue for the remainder of the breached Addendum's term, subject to
+   Customer's continued compliance with this Agreement and the continued
+   Addendum. If Customer elects not to continue under the breached Addendum,
+   then the Addendum will terminate. Customer must make its election to
+   proceed or not proceed under the Agreement upon the Customer's declaration
+   of Google's Addendum breach.
+
+   b. Termination for Customer's Breach. If the Agreement or an Addendum is
+   terminated for Customer's breach then: (i) the License Term and all other
+   rights and licenses granted by Google to Customer under the Agreement and
+   its Addendum(s) for the Products and Services will cease immediately and
+   (ii) all payments owed by Customer to Google are immediately due and
+   payable.
+
+   3.5 Effect of Expiration. If the Agreement expires, the Addendum(s) does
+   not expire until the expiration of its respective term(s). If an Addendum
+   survives Agreement termination or expiration, the Agreement will remain in
+   effect with respect to that Addendum until the Addendum expires. If an
+   Addendum expires the Agreement will stay in effect and any other Addendum
+   in Effect with stay in effect unless otherwise provided.
+
+  4. Orders and Payment.
+
+   4.1 Purchase Process. Google will provide Customer an Ordering Document
+   for each transaction to confirm the acquired Products and Services and
+   their respective quantities and Fees. The Ordering Document is
+   incorporated into and governed by this Agreement.
+
+   4.2 Payment. All Fees are due 30 days from the invoice date. Customer's
+   obligation to pay Fees is non-cancellable. All payments due are in U.S.
+   dollars. Payments made via wire transfer must include the following
+   instructions:
+
+   Wells Fargo Bank
+   Palo Alto, California USA
+   ABA# 121000248
+
+   Google Inc.
+   Account # 4375669785
+
+   4.3 Taxes. Customer is responsible for any applicable Taxes without
+   reduction. If Google is obligated to collect or pay Taxes, the Taxes will
+   be invoiced to Customer, unless Customer provides Google with a valid tax
+   exemption certificate. If Customer is required by law to withhold any
+   Taxes from its payments to Google, Customer must provide Google with an
+   official tax receipt or other appropriate documentation to support this
+   withholding.
+
+   4.4 Invoice Disputes. Any invoice disputes must be submitted prior to the
+   invoice due date. If the parties determine that certain billing
+   inaccuracies are attributable to Google, Google will not issue a corrected
+   invoice, but will instead issue a credit memo specifying the incorrect
+   amount in the affected invoice. If the disputed invoice has not yet been
+   paid, Google will apply the credit memo amount to the disputed invoice and
+   Customer will be responsible for paying the resulting net balance due on
+   that invoice.
+
+   4.5 Delinquent Payments. Delinquent payments may bear interest at the rate
+   of one-and-one-half percent per month (or the highest rate permitted by
+   law, if less) from the payment due date until paid in full. Customer will
+   be responsible for all reasonable expenses (including attorneys' fees)
+   incurred by Google in collecting delinquent amounts, except where these
+   delinquent amounts are due to Google's billing inaccuracies.
+
+   4.6 Purchases and Orders.
+
+   a. Orders. Product and Service order requirements will be set forth in
+   this Agreement and each accompanying Addendum.
+
+   b. Purchase Orders. If Customer's Ordering Document is a quote, then a
+   Purchase Order is required. If Customer's Ordering Document is an order
+   form, and Customer wants a Purchase Order number on its invoice, Customer
+   will inform Google and will issue a Purchase Order number to Google. If
+   Customer requires a Purchase Order, and fails to provide the Purchase
+   Order number to Google, then Google will not be obligated to provide the
+   Products and Services until Google receives the Purchase Order. Any terms
+   and conditions on a Purchase Order do not apply to this Agreement or any
+   Addendum and are null and void.
+
+   c. Delivery. The Products and Services will not be made available until
+   Google receives either: (i) a complete and duly executed Purchase Order
+   referencing a quote and this Agreement; or (ii) a complete and duly
+   executed order form.
+
+   4.7 Usage Limits. Customer may not exceed Usage Limits. In order for the
+   Products and Services to continue functioning in excess of the Usage
+   Limits, Customer must enter into a new Ordering Document for the
+   additional Products and Services.
+
+  5. Intellectual Property Rights Ownership and Publicity.
+
+   5.1 Intellectual Property Rights Generally. Except as expressly stated in
+   this Agreement or in an Addendum, this Agreement does not grant either
+   party any rights, implied or otherwise, to the other's content or any of
+   the other's Intellectual Property Rights. Intellectual Property Rights in
+   and to the content accessed through the Products and Services are the
+   property of the applicable content owner and may be protected by
+   applicable laws.
+
+   5.2 Brand Features. If, to the extent possible, Customer wants to display
+   Google Brand Features in connection with its use of the Products and
+   Services, Customer will comply with the Trademark Guidelines. Customer
+   will not alter any images generated by the Products or Services to remove
+   any Brand Feature or proprietary notice of Google or its licensors. Any
+   use of a party's Brand Features will inure to the benefit of the party
+   holding rights in those Brand Features. Each party agrees not to: (a)
+   challenge or assist others to challenge the other party's Brand Features
+   or registration thereof (except to protect that party's rights with
+   respect to its own Brand Features) or (b) attempt to register any Brand
+   Features that are confusingly similar to those of the other party.
+
+   5.3 Publicity. Customer agrees that Google may include Customer's name or
+   Brand Features in a list of Google customers, whether online or in offline
+   promotional materials. Customer also agrees that Google may verbally
+   reference Customer as Google client.
+
+  6. Export Compliance.
+
+   Customer will comply with and will obtain all required authorizations from
+   applicable government authorities under all applicable export and reexport
+   control laws and regulations with respect to its Product and Services use,
+   including the Export Administration Regulations ("EAR") maintained by the
+   U.S. Department of Commerce, trade and economic sanctions maintained by
+   the Treasury Department's Office of Foreign Assets Control, and the
+   International Traffic in Arms Regulations ("ITAR") maintained by the
+   Department of State. This section will survive Agreement termination or
+   expiration.
+
+  7. Confidentiality.
+
+   7.1 Obligations. Each party will: (a) protect the other party's
+   Confidential Information with the same standard of care it uses to protect
+   its own Confidential Information, but in no event less than reasonable
+   care; and (b) not disclose the Confidential Information, except to
+   Affiliates, employees and agents who need to know it and who have agreed
+   in writing to keep it confidential. Each party (and any Affiliates,
+   employees and agents to whom it has disclosed Confidential Information)
+   may use Confidential Information only to exercise rights and fulfill
+   obligations under this Agreement, while using reasonable care to protect
+   it. Each party is responsible for any actions of its Affiliates, employees
+   and agents in violation of this section. Either party may demand the
+   return of Confidential Information at any time upon written notice to the
+   other party.
+
+   7.2 Exceptions. Confidential Information does not include information
+   that: (a) the recipient already knew; (b) becomes public through no fault
+   of the recipient; (c) was independently developed by the recipient; or (d)
+   was rightfully given to the recipient by another party.
+
+   7.3 Required Disclosure. The recipient may disclose Confidential
+   Information when required by law after giving reasonable notice to the
+   discloser if allowed by law.
+
+   7.4 Product and Services Confidentiality. The Products and Services
+   functionality and pricing is Google's Confidential Information.
+
+  8. Warranty Disclaimer.
+
+   EXCEPT AS EXPLICITLY PROVIDED IN THIS AGREEMENT OR IN AN ADDENDUM, AND TO
+   THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, GOOGLE, ITS LICENSORS, AND
+   THEIR SUPPLIERS DO NOT MAKE ANY OTHER WARRANTY OF ANY KIND, WHETHER
+   EXPRESS, IMPLIED, STATUTORY OR OTHERWISE INCLUDING, WITHOUT LIMITATION,
+   WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR USE,
+   NONINFRINGEMENT OR GOOGLE CONTENT ACCURACY. GOOGLE, ITS LICENSORS, AND
+   THEIR SUPPLIERS, DO NOT WARRANT THAT THE OPERATION OF THE PRODUCTS OR
+   SERVICES WILL BE UNINTERRUPTED AND ERROR FREE. THE PRODUCTS AND SERVICES
+   ARE NOT DESIGNED, INTENDED OR MANUFACTURED FOR HIGH RISK ACTIVITIES.
+
+  9. Limitation of Liability.
+
+   9.1 Limitation on Indirect Liability. NEITHER PARTY, NOR ITS LICENSORS OR
+   SUPPLIERS, WILL, TO THE EXTENT PERMITTED BY APPLICABLE LAW, BE LIABLE
+   UNDER THIS AGREEMENT FOR LOST REVENUES, EXPENSES OR LOSSES OR ANY
+   INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE
+   DAMAGES, EVEN IF THE PARTY KNEW OR SHOULD HAVE KNOWN THAT THESE DAMAGES
+   WERE POSSIBLE AND EVEN IF DIRECT DAMAGES DO NOT SATISFY A REMEDY.
+
+   9.2 Limitation on Amount of Liability. NEITHER PARTY, NOR ITS LICENSORS OR
+   SUPPLIERS, MAY, TO THE EXTENT PERMITTED BY APPLICABLE LAW, BE HELD LIABLE
+   UNDER THIS AGREEMENT FOR MORE THAN THE AMOUNT PAID OR PAYABLE BY CUSTOMER
+   TO GOOGLE DURING THE TWELVE MONTHS PRIOR TO THE EVENT GIVING RISE TO
+   LIABILITY.
+
+   9.3 Exceptions to Limitations. These limitations of liability do not apply
+   to breaches of confidentiality obligations or violations of a party's
+   Intellectual Property Rights by the other party.
+
+  10. Indemnification.
+
+   10.1 By Google. Google will indemnify, defend, and hold harmless Customer
+   from and against all liabilities, damages, and costs (including settlement
+   costs and reasonable attorneys' fees) arising out of a third party claim
+   that the Products or the technology used to provide the Services infringes
+   or mis-appropriates any patent, copyright, trade secret or trademark of
+   that third party.
+
+   10.2 Exceptions. The obligations set forth in Section 10.1 do not apply if
+   the third party claim is caused by, or results from: (a) Customer's
+   combination or use of the Products and Services with software, services,
+   or products developed by Customer or third parties, if the claim would
+   have been avoided by the non-combined or independent use of the Products
+   and Services; (b) modification of the Products or Services, by anyone
+   other than Google if the third party claim would have been avoided by use
+   of the unmodified Products or Service; (c) Customer's continued allegedly
+   infringing activity after being notified thereof or after being provided
+   modifications that would have avoided the alleged infringement; (d)
+   Customer's use of the Products or Services in a manner not in accordance
+   with this Agreement, an Addendum or the Documentation; or (e) use of other
+   than Google's most current release of the Products or Services if the
+   third party claim would have been avoided by use of the most current
+   release.
+
+   10.3 By Customer. Unless prohibited by applicable law and without waiving
+   sovereign immunity, Customer will indemnify, defend, and hold harmless
+   Google from and against all liabilities, damages, losses, expenses and
+   costs (including settlement costs and reasonable attorneys' fees) arising
+   out of (a) a third party claim made against Google for infringement of the
+   third party rights listed in Section 10.1 based on conduct by Customer as
+   described in Section 10.2; (b) Customer's breach of Section 6 (Export
+   Compliance); or (c) Customer's use of the Software or Services in
+   violation of an End User's privacy.
+
+   10.4 Infringement Remedies. If Google reasonably believes the Products or
+   Services infringes a third party's Intellectual Property Rights, then
+   Google will: (a) procure for Customer the right to continue to use the
+   Products or Services; (b) replace the infringing Products or Services; or
+   (c) modify the infringing Products or Services to avoid the alleged
+   infringement. If Google determines the options in this Section are not
+   commercially reasonable, Google may terminate the license for the
+   allegedly infringing Products or Services and will provide a pro-rata
+   refund of the paid but unearned Fees applicable to the period following
+   the Products or Services termination.
+
+   10.5 General. The party seeking indemnification must promptly notify the
+   other party of the claim and cooperate with the other party in defending
+   the claim. The indemnification in Sections 10.1 and 10.2 is limited to the
+   payment by the indemnifying party of all damages and costs finally awarded
+   for the claim, or settlement costs approved in writing by the indemnifying
+   party. The indemnifying party has full control and authority over the
+   defense, except that: (a) any settlement requiring the party seeking
+   indemnification to admit liability or to pay any money will require that
+   party's prior written consent, which will not be unreasonably withheld or
+   delayed; and (b) the other party may join in the defense with its own
+   counsel at its own expense. THE INDEMNITIES ABOVE ARE A PARTY'S ONLY
+   REMEDY UNDER THIS AGREEMENT FOR VIOLATION BY THE OTHER PARTY OF A THIRD
+   PARTY'S INTELLECTUAL PROPERTY RIGHTS.
+
+  11. Verification and Audit.
+
+   At Google's written request, not more than once per calendar year,
+   Customer will provide Google with a certification signed by a Customer
+   officer verifying the Products or Services are being used in compliance
+   with this Agreement. Furthermore, Google will have the right, no more than
+   once per calendar year, and upon at least 30 days prior written notice, to
+   appoint a nationally recognized certified public accountant or independent
+   auditor to examine and verify Customer's Agreement compliance. Audits will
+   be conducted during regular business hours at Customer's facilities and
+   will not unreasonably interfere with Customer's business activities.
+   Customer will provide Google with reasonable access to the relevant
+   Customer records and facilities. If an audit reveals that Customer has
+   underpaid fees to Google during the period audited, then Google will
+   invoice Customer, and Customer will promptly pay Google, for the underpaid
+   fees based on the higher of the price specified in this Agreement or
+   Google's price list in effect at the time the audit is completed. If the
+   underpaid fees exceed five percent of the license fees paid by Customer
+   for the Products or Services during the preceding six-month period, then
+   Customer will also pay Google's reasonable audit costs.
+
+  12. Miscellaneous.
+
+   12.1 Notices. All notices of termination or breach must be in writing and
+   addressed to the attention of the other party's legal department and
+   primary point of contact. The email address for notices being sent to
+   Google's Legal Department is legal-notices@google.com. All other notices
+   must be in English, in writing and addressed to the other party's primary
+   contact. Notice will be treated as given on receipt, as verified by
+   written or automated receipt or by electronic log (as applicable).
+
+   12.2 Integration. This Agreement and its accompanying Addendum(s) and
+   Ordering Documents are the parties' entire agreement relating to its
+   subject and supersedes any prior or contemporaneous agreements on that
+   subject. The terms located at a URL and referenced in this Agreement or
+   any Addendum are hereby incorporated by this reference. If there is a
+   conflict between the documents that make up this Agreement, the documents
+   will control in the following order: the Ordering Document, the Agreement,
+   the Addendum(s) and the terms located at any URL.
+
+   12.3 Amendment. Any amendments to this Agreement must be in writing and
+   expressly state that is amending this Agreement.
+
+   12.4 Assignment. Neither party may assign any part of this Agreement or
+   and Addendum without the written consent of the other, except to an
+   Affiliate where: (a) the assignee has agreed in writing to be bound by the
+   terms of this Agreement; (b) the assigning party remains liable for
+   obligations under the Agreement if the assignee defaults on them; and (c)
+   the assigning party has notified the other party of the assignment. Any
+   other attempt to assign is void.
+
+   12.5 Change of Control. Upon a change of Control (for example, through a
+   stock purchase or sale, merger, or other form of corporate transaction)
+   other than in the context of an internal restructuring or reorganization
+   of it Affiliates: (a) that party will provide written notice to the other
+   party within 30 days after the change of Control; and (b) the other party
+   may immediately terminate this Agreement any time between the change of
+   Control and 30 days after it receives the written notice. "Control" means
+   control over greater than fifty percent of the voting rights or equity
+   interests of a party.
+
+   12.6 Force Majeure. Neither party will be liable for failure or delay in
+   performance to the extent caused by circumstances beyond its reasonable
+   control.
+
+   12.7 Governing Law. This Agreement is governed by California law,
+   excluding that state's choice of law rules. FOR ANY DISPUTE ARISING OUT OF
+   OR RELATING TO THIS AGREEMENT, THE PARTIES CONSENT TO PERSONAL
+   JURISDICTION IN, AND THE EXCLUSIVE VENUE OF, THE COURTS IN SANTA CLARA
+   COUNTY, CALIFORNIA.
+
+   12.8 No Agency. This Agreement does not create an agency, partnership or
+   joint venture between the parties.
+
+   12.9 Additional Terms. Neither party will be treated as having waived any
+   rights by not exercising (or delaying the exercise of) any rights under
+   this Agreement. IIf any term (or part of a term) of this Agreement is
+   invalid, illegal or unenforceable, the rest of the Agreement will remain
+   in effect. There are no third-party beneficiaries to this Agreement.
+   Nothing in this Agreement will limit either party's ability to seek
+   equitable relief. Those provisions that by their nature should survive
+   termination of this Agreement, will survive termination of this Agreement.
+   Customer may not subcontract any of its obligations under this Agreement
+   without Google's written consent. If such permission is granted, Customer
+   will remain liable for all subcontracted obligations and all acts or
+   omissions of its subcontractors.
+
+   12.10 Counterparts. The parties may execute this Agreement in
+   counterparts, including facsimile, PDF, and other electronic copies, which
+   taken together will constitute one instrument.
+
+   12.11 Acceptable Use Policy. Customer will use all Products and Services
+   in compliance with their applicable Acceptable Use Policy.
+
+   12.12 Services Modifications. To the extent to which an Addendum includes
+   Services, Google may make commercially reasonable changes to the Services
+   from time to time. If Google makes a material change to the Services,
+   Google will inform Customer either via a TSS portal or using the email
+   address Customer has provided to Google in order to be notified of such
+   changes.
+
+   12.13 URL Modifications. Google may make commercially reasonable changes
+   to the URL Terms from time to time. If Google makes a material change to
+   the Services, Google will inform Customer either via a TSS portal or using
+   the email address Customer has provided to Google in order to be notified
+   of such changes. If Google makes a material change to the URL Terms
+   (except TSS terms) and Customer demonstrates that the change has a
+   material adverse impact on Customer, Customer may notify Google within 30
+   days of the change and remain subject to the noticed URL Terms (except if
+   the URL was changed to reflect applicable law or a court order). If the
+   License Term is subsequently renewed, it will renew under all the updated
+   URL Terms.
+
+   12.14 Other Applicable Terms and Conditions. Customer will only use the
+   Services and Software in compliance with the Agreement and its applicable
+   Addendum(s), the Legal Notices, the applicable Documentation, the
+   Acceptable Use Policy and the Ordering Document. Customer may only use the
+   Services in accordance with the SKUs specified in the applicable Ordering
+   Document.
+
+   12.15 Google Content Terms. If Customer receives Google Content, then
+   Customer must not obscure, alter, or remove any included terms or the
+   applicable Legal Notices. If Google Content includes static maps or HTTP
+   services, Customer must incorporate a link to the Earth Terms and Legal
+   Notices in a license agreement governing End Users' use. Customer must
+   notify Google if Customer becomes aware of any End User's non-compliance
+   with the Earth Terms, Legal Notices, or the AUP. "Earth Terms" mean the
+   terms for Google Maps/Earth set forth at the following URL,
+   [1]http://maps.google.com/help/terms_maps.html or other such URL as Google
+   may provide.
+
+  13. Definitions.
+
+   The Agreement definitions are used in the Agreement and one or more
+   applicable Addendum(s).
+
+   "Acceptable Use Policy" or "AUP" means the means the acceptable use policy
+   for the Products and Services as set forth in the applicable Addendum.
+
+   "Addendum" means a document entered into by both parties to an Agreement
+   that is incorporated into the Agreement and describes the specific terms
+   and conditions applicable to the Addendum's Products and Services.
+
+   "Affiliate" means any entity that directly or indirectly controls, is
+   controlled by, or is under common control with that party.
+
+   "Brand Features" means the trade names, trademarks, service marks, logos,
+   domain names, and other distinctive brand features of each party or its
+   respective Affiliates, respectively, as secured thereby from time to time.
+
+   "Confidential Information" means information that one party (or an
+   Affiliate) discloses to the other party under this Agreement, and which is
+   marked as confidential or would normally under the circumstances be
+   considered confidential information. It does not include information that
+   the recipient already knew, that becomes public through no fault of the
+   recipient, that was independently developed by the recipient, or that was
+   lawfully given to the recipient by a third party.
+
+   "Customer Data" means the data (including data owned by third-parties that
+   is in Customer's possession) Customer loads, or which is loaded on
+   Customer's behalf, into the Systems. Customer Data must be owned or
+   licensed by Customer. The Documentation contains information on the types
+   and formats of Customer Data that may be entered into the Systems.
+
+   "Documentation" means the Google proprietary documentation in the form
+   generally made available by Google to its customers for use with the
+   Products or Services as set forth in the applicable Product's or Service's
+   Addendum.
+
+   "Effective Date" means the date this Agreement or any accompanying
+   Addendum is entered into by Google.
+
+   "End Users" mean the individual human end users who use Products and
+   Services, subject to the requirements of this Agreement, any applicable
+   Addendum and the Documentation.
+
+   "Fees" means the Agreement's applicable Product and Services fees and
+   applicable Taxes as set forth in an Ordering Document.
+
+   "Google Content" means any content provided through the Products and
+   Services (whether created by Google or its third party licensors) as
+   further defined in each applicable Addendum.
+
+   "High Risk Activities" means uses like the operation of emergency
+   services, nuclear facilities, air traffic control or life support systems,
+   where the use or failure of the Services could lead to death, personal
+   injury, or environmental damage.
+
+   "Intellectual Property Rights" means current and future worldwide rights
+   under patent law, copyright law, trade secret law, trademark law, moral
+   rights law, and other similar rights.
+
+   "Legal Notices" mean the legal notices set forth at the following URL:
+   [2]http://www.maps.google.com/help/legalnotices_maps.html (or such other
+   URL as may be provided or updated by Google).
+
+   "License Term" means the period of time during which Customer is
+   authorized to use the Products and Services under the Agreement or an
+   applicable Addendum, and will be further described in the said Addendum
+   and any applicable Ordering Document.
+
+   "Maps" means the maps created by Customer processing Customer Data and, if
+   applicable, Google Content, using the Services. The different types of
+   Maps are described in the Documentation.
+
+   "Ordering Document" means either an order form or quote, issued by Google
+   to provide the Products and Services to Customer, subject to this
+   Agreement and the applicable Addendum. The Ordering Document will
+   incorporate this Agreement and will contain: (i) a SKU (including the
+   License Term, if applicable); (ii) a description of the licensed
+   configuration; (iii) price; and (iv) other information as provided on the
+   form.
+
+   "Overage" means when Customer's use of the Services exceeds a particular
+   Usage Limit.
+
+   "Overage SKU" means a Google SKU that lists the price Customer will pay
+   for its use of the Services in excess of a particular Usage Limit.
+
+   "Products" means the Google products (excluding Google Content) as set
+   forth in this Agreement and any accompanying Addendum. The term "Product"
+   may have an additional more detailed supplementary definition in an
+   Addendum.
+
+   "Prohibited Territory": means the list of countries where Customer may not
+   use or actively target Product, Software or Service received under the
+   Agreement and any applicable addendum. Each Addendum will have a specific
+   definition of Prohibited Territory.
+
+   "Privacy Policy" means the Google privacy policy set forth at the
+   following URL http://www.google.com/policies (or such other URL as may be
+   provided or updated by Google).
+
+   "Purchase Order" means a Customer issued purchase order.
+
+   "Sensor" means the use of any technology to automatically determine an End
+   User's or Asset's location.
+
+   "Services" means the Google services as set forth in this Agreement and
+   any accompanying Addendum. The term "Service" may have an additional more
+   detailed supplementary definition in each respective Addendum and the
+   Documentation accompanying the Service.
+
+   "Service Level Agreement" or "SLA" means the Google Service Level
+   Agreement, if any, for the Products and Services described in this
+   Agreement and any accompanying Addendum.
+
+   "Software" means the Google software, in object code form, or related
+   technologies provided by Google to Customer pursuant to an Ordering
+   Document and as further provided in each applicable Addendum and the
+   Software's accompanying Documentation.
+
+   "Systems" means the Google computer, processing, and network systems used
+   to provide the Services to Customer.
+
+   "Taxes" means any duties, customs fees, or taxes (other than Google's
+   income tax) associated with Product and Services transactions, including
+   any related penalties or interest.
+
+   "Trademark Guidelines" means Google's Guidelines for Third Party Use of
+   Google Brand Features, located at the following URL:
+   [3]http://www.google.com/permissions/guidelines.html (or other URL as may
+   be provided or updated by Google).
+
+   "TSS" means the technical support services provided by Google, in
+   accordance with Google's TSSG, for the applicable Products or Services,
+   and for a mutually agreed (in writing) time period.
+
+   "TSSG" means Google's then current Product or Service specific Technical
+   Support Services Guidelines, which may be may be accessed at the URL set
+   out in each respective Addendum (or other URL as may be provided or
+   updated by Google).
+
+   "Updates" is defined in the TSSG.
+
+   "Usage Limits" means the limits for use of the Products and Services,
+   which will be as listed on the Ordering Document or as provided to
+   Customer with the Documentation.
+
+   "URL Terms" are those uniform resource locator addresses as identified by
+   Google in the Agreement or any Addendum that refer to Google policies,
+   services descriptions of other Product and Services related terms.
+
+   By signing this Agreement, each party represents and warrants that (i) it
+   has read and understands this Agreement and the Ordering Document that is
+   incorporated by reference herein and agrees to be bound by its terms, and
+   (ii) it has full power and authority to accept this Agreement and the
+   Ordering Document.
+
+   IN WITNESS WHEREOF, this Agreement has been executed by persons duly
+   authorized as of the date signed by the last party below ("Effective
+   Date").
+
+  Google Earth Pro Terms of Service Addendum
+
+  1. Integration into Agreement.
+
+   This Addendum provides for the licensing of Google Earth Pro products and
+   related services. This Addendum is incorporated into the Agreement by this
+   reference. Capitalized terms not defined in this Addendum will have the
+   meaning ascribed to them in the Agreement. This Addendum is effective upon
+   the Effective Date.
+
+  2. Services.
+
+   2.1 Generally. Subject to Customer's compliance with the Agreement and
+   this Addendum's terms, and in consideration of Customer's payment of all
+   Fees, Google will provide the Services to Customer during the License
+   Term. Customer's use of the Services is subject to the Usage Limits.
+   Customer agrees not to use Products and Services in the Prohibited
+   Territory.
+
+   2.2 Licenses from Google to Customer.
+
+   a. To use the Software. Subject to Customer's compliance with the
+   Agreement and this Addendum's terms, and in consideration of Customer's
+   payment of all Fees, Google grants to Customer, and Customer agrees to
+   comply with a non-sublicensable, non-transferable, non-exclusive,
+   terminable, limited license to use the Software during the License Term to
+   use the Services.
+
+   b. To use Google Content. Subject to this Agreement and in consideration
+   of Customer's payment of all Fees, Google grants to Customer, and Customer
+   agrees to comply with, a non-sublicensable, non-transferable,
+   non-exclusive, terminable, limited license to access the Google Content
+   via the Services during the License Term for purposes as described in the
+   Documentation.
+
+   2.3 License from Customer to Google. By entering Customer Data into the
+   Systems, or if Google enters Customer Data into the Systems on Customer's
+   behalf, Customer grants to Google a limited, irrevocable, royalty-free,
+   and non-exclusive license during the License Term, to reproduce, adapt,
+   modify, translate, publicly perform, publicly display and distribute the
+   Customer Data solely as required to enable Google to provide the Services
+   to Customer.
+
+  3. Customer Obligations.
+
+   3.1 Access and Use Rights. Customer may specify particular rights
+   regarding the access, viewing, editing, or consuming of its maps to a
+   specific set of End Users.
+
+   3.2 Unauthorized Use. Customer will use all commercially reasonable
+   efforts to prevent unauthorized use of the Service, and to terminate any
+   unauthorized use. Customer will promptly notify Google of any unauthorized
+   use of, or access to, the Services of which it becomes aware.
+
+   3.3 End User Consent. Customer will obtain and maintain all required
+   consents from End Users to allow: (a) Customer's access, monitoring, use
+   and disclosure of this data and Google providing Customer with the ability
+   to do so and (b) Google to provide the Services.
+
+  4. Renewal Terms.
+
+   Upon each auto-renewal pursuant to Section 6.2, Google will invoice
+   Customer, and Customer agrees to pay, for the renewal of the Services as
+   set forth in the applicable Ordering Document.
+
+  5. Restrictions.
+
+   5.1 General. Unless otherwise provided in the Documentation or agreed in
+   advance and in writing by Google, Customer will not, and will not allow
+   others to: (a) display any advertising in connection with its use of the
+   Services; (b) extract any Google Content to be used outside of the
+   Services; (c) use, distribute, or sell any Google Content outside of the
+   Maps; (d) incorporate or embed Google Content or components of the
+   Services into any of Customer's products or services that it sells to
+   third parties; (e) permit the sharing of End User accounts between End
+   Users or (f) offer the Services, or any Customer products, services, or
+   solutions based upon the Services, to End Users directly or embedded in
+   another such product for a fee. Section 5.1(f) does not prohibit Customer
+   from offering professional services to its customers in support of its
+   Software implementation.
+
+   5.2 Development and Evaluation Accounts. Development and Evaluation
+   Accounts may only be used for development, evaluation, educational
+   purposes, or some combination thereof. Services from a Development and
+   Evaluation Account may be evaluated in a production environment but not
+   for commercial purposes. A Development and Evaluation Account is an admin
+   account for the Services with the License Term specified on the applicable
+   Ordering Document or, if a License Term is not specified on the Ordering
+   Document, then for a period of twelve months.
+
+   5.3 Customer Data and Maps. Google will not provide Customer with a copy
+   of the Customer Data or of any Maps upon the conclusion or termination of
+   the Agreement. Maps may only be used within the Services except as
+   specifically allowed in the Documentation. If Customer wants a copy of its
+   Customer Data, Customer must copy the Customer Data prior to entering the
+   Customer Data, or having the Customer Data entered, into the Systems.
+
+  6. Addendum Term and Termination.
+
+   6.1 Addendum Term. Subject to Customer's payment of all due and payable
+   Fees and compliance with the Agreement's terms and this Addendum's terms,
+   this Addendum begins on the Effective Date and will continue for the term
+   as set forth in the Ordering Document unless terminated earlier as set
+   forth below ("Initial Addendum Term").
+
+   6.2 Additional Term and Termination Conditions. All other terms and
+   conditions pertaining to Addendum term and termination are set forth in
+   the Agreement.
+
+  7 Technical Support Services.
+
+   The Agreement terms notwithstanding, technical support services are not
+   offered for this Product.
+
+  8. Definitions.
+
+   "Acceptable Use Policy" or "AUP" means the acceptable use policy for the
+   Product at this
+   [4]http://www.google.com/enterprise/earthmaps/legal/universal_aup.html or
+   other such URL as Google may provide.
+
+   "Prohibited Territory": means the list of countries where Customer may not
+   use or actively target Product, Software or Service received under the
+   Agreement and this Addendum.
+   [5]http://www.google.com/enterprise/earthmaps/legal/us/earth_prohibited_territory.html
+   (or such other URL as may be updated by Google).
+
+   "URL Terms" for the purposes of this Addendum means the following URL
+   terms: AUP, SLA, and the TSSG.
+
+References
+
+   Visible links
+   1. http://maps.google.com/help/terms_maps.html
+   2. http://www.maps.google.com/help/legalnotices_maps.html
+   3. http://www.google.com/permissions/guidelines.html
+   4. http://www.google.com/enterprise/earthmaps/legal/universal_aup.html
+   5. http://www.google.com/enterprise/earthmaps/legal/us/earth_prohibited_territory.html
