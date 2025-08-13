@@ -28,7 +28,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	test? (
-		>=dev-qt/qtbase-${QTMIN}:6[network,test,ssl,widgets]
+		>=dev-qt/qtbase-${QTMIN}:6[network,ssl,widgets]
 	)
 "
 
