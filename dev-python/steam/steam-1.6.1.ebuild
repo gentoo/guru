@@ -34,6 +34,8 @@ RDEPEND="
 	dev-python/wsproto[${PYTHON_USEDEP}]
 "
 
+distutils_enable_tests pytest
+
 pkg_postinst() {
 	if [[ ! ${REPLACING_VERSIONS} ]]; then
 		ewarn "If you intend to use this library for anything else than"
