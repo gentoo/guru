@@ -18,14 +18,6 @@
 
 # New entries go on top.
 
-# Vivian Heisz (vhz) <demize@unstable.systems> (2025-08-13)
-# Package is out-of-date and not compatible with modern SSL ciphers.
-#
-# app-crypt/autofirma-bin has been added to ::gentoo and is up-to-date. Please
-# migrate to that package instead.
-# Removal on 2025-09-12.  Bug #950344.
-app-crypt/autofirma
-
 # Lucio Sauer <watermanpaint@posteo.net> (2025-07-29)
 # Packaged version depends on treecleaned dev-libs/libdbusmenu-qt. Gentoo
 # maintainer inactive and several versions out of date.
