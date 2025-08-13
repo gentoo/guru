@@ -1,0 +1,34 @@
+Tenacity generates RPATH values weirdly, and it doesn't play nice with portage:
+
+1. CMAKE_RUNTIME_OUTPUT_DIRECTORY is used instead of CMAKE_INSTALL_PREFIX, so by
+default the RPATH will be a directory under "/var/tmp/portage/..."
+
+2. the INSTALL_RPATH will retain values from the BUILD_RPATH, leading to the
+final binary always having the build directory appended in it's RPATH (even if
+the above issue is fixed)
+
+this patch both corrects the INSTALL_RPATH to use CMAKE_INSTALL_PREFIX
+(INSTALL_PREFIX is an alias for it), and sets BUILD_WITH_INSTALL_RPATH
+to prevent the BUILD_RPATH for being linked into the final binaries.
+
+it is necessary to set BUILD_RPATH, even though it's not technically being
+used, as there is a strange behaviour that overrides BUILD_WITH_INSTALL_RPATH
+if this is unset or set to "".
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 345b4ca47..883a097bf 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -363,9 +363,9 @@ set( _MODDIR "${_DEST}/modules" )
+ set( _EXEDIR "${_DEST}" )
+ 
+ # Setup RPATH handling
+-set( CMAKE_BUILD_RPATH "${_DEST}/${_PKGLIB}" )
+-set( CMAKE_BUILD_WITH_INSTALL_RPATH FALSE )
+-set( CMAKE_INSTALL_RPATH "$ORIGIN/../${_PKGLIB}" )
++set( CMAKE_BUILD_RPATH "${INSTALL_PREFIX}/${_PKGLIB}" )
++set( CMAKE_BUILD_WITH_INSTALL_RPATH TRUE )
++set( CMAKE_INSTALL_RPATH "${INSTALL_PREFIX}/${_PKGLIB}" )
+ set( CMAKE_INSTALL_RPATH_USE_LINK_PATH FALSE )
+ 
+ # Adjust them for the Mac

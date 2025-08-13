@@ -1,0 +1,17 @@
+The install path for the README and LICENSE files is hardcoded to
+"/usr/share/doc/tenacity", change this to use the INSTALL_DOCDIR
+defined by cmake.eclass
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 61e61f597..4359bccf7 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -1393,7 +1393,7 @@ else()
+       install( FILES "${_INTDIR}/${APP_NAME}.desktop"
+                DESTINATION "${_DATADIR}/applications" )
+       install( FILES "${CMAKE_SOURCE_DIR}/LICENSE.txt" "${CMAKE_SOURCE_DIR}/README.md"
+-               DESTINATION "${_DATADIR}/doc/${APP_NAME}" )
++               DESTINATION "${CMAKE_INSTALL_DOCDIR}" )
+       install( FILES "${_SRCDIR}/tenacity.xml"
+                DESTINATION "${_DATADIR}/mime/packages" )
+       install( FILES "${CMAKE_SOURCE_DIR}/presets/EQDefaultCurves.xml"
