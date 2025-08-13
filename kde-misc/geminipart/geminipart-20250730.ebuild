@@ -28,11 +28,7 @@ RDEPEND="
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
-DEPEND="${RDEPEND}
-	test? (
-		>=dev-qt/qtbase-${QTMIN}:6[test]
-	)
-"
+DEPEND="${RDEPEND}"
 
 src_test() {
 	export QT_QPA_PLATFORM=offscreen
