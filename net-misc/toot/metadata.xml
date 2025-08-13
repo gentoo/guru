@@ -4,5 +4,6 @@
   <!-- maintainer-needed -->
   <upstream>
     <remote-id type="github">ihabunek/toot</remote-id>
+    <remote-id type="pypi">toot</remote-id>
   </upstream>
 </pkgmetadata>
