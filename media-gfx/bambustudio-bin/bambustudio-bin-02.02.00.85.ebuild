@@ -12,7 +12,7 @@ DESCRIPTION="Bambu Studio is a cutting-edge, feature-rich slicing software"
 HOMEPAGE="https://bambulab.com"
 
 SRC_URI="
-	https://github.com/bambulab/${MY_PN}/releases/download/v${PV}/Bambu_Studio_linux_fedora-v${PV}.AppImage \
+	https://github.com/bambulab/${MY_PN}/releases/download/v${PV}/Bambu_Studio_ubuntu-24.04_PR-7829.AppImage \
 	-> ${P}.AppImage
 "
 
@@ -25,6 +25,7 @@ RDEPEND="
 	>=media-libs/glm-0.9.9.1
 	media-libs/gstreamer
 	media-libs/mesa
+	media-libs/libglvnd
 	net-libs/libsoup:3.0=
 	net-libs/webkit-gtk:4.1/0
 	>=sci-libs/opencascade-7.3.0:0=
@@ -54,13 +55,6 @@ src_unpack() {
 }
 
 src_install() {
-	rm -r squashfs-root/{*.{AppImage,desktop},.DirIcon,usr} || die
-	patchelf --replace-needed libwebkit2gtk-4.0.so.37 libwebkit2gtk-4.1.so.0 \
-		"${S}"/squashfs-root/bin/bambu-studio || die
-	patchelf --replace-needed libjavascriptcoregtk-4.0.so.18 libjavascriptcoregtk-4.1.so.0 \
-		"${S}"/squashfs-root/bin/bambu-studio || die
-	patchelf --remove-needed libsoup-2.4.so.1 \
-		"${S}"/squashfs-root/bin/bambu-studio || die
 	patchelf --set-rpath '$ORIGIN' \
 		"${S}"/squashfs-root/bin/bambu-studio || die
 	insinto /opt/"${PN}"
