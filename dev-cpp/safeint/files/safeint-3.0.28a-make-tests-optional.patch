@@ -1,0 +1,25 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Make tests optional.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -22,11 +22,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
+ # - Intel (not regularly tested)
+ # other compilers on a best effort
+ 
+-add_subdirectory(Test/ClangTest)
+-add_subdirectory(Test/GccTest)
+-add_subdirectory(Test/MsvcTest)
++include(CTest)
+ 
+-enable_testing()
++if (BUILD_TESTING)
++    add_subdirectory(Test/ClangTest)
++    add_subdirectory(Test/GccTest)
++    add_subdirectory(Test/MsvcTest)
++endif()
+ 
+ add_library(SafeInt INTERFACE)
+ target_include_directories(SafeInt INTERFACE .)
