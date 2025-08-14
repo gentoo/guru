@@ -40,8 +40,10 @@ RDEPEND="
 "
 
 BDEPEND="
-	dev-python/vcrpy[${PYTHON_USEDEP}]
-	dev-python/mock[${PYTHON_USEDEP}]
+	test? (
+		dev-python/vcrpy[${PYTHON_USEDEP}]
+		dev-python/mock[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests pytest
