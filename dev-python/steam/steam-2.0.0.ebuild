@@ -14,9 +14,14 @@ HOMEPAGE="
 	https://pypi.org/project/steam/
 "
 SRC_URI="
-	https://github.com/solsticegamestudios/steam/archive/refs/tags/v${PV}.tar.gz
+	https://github.com/solsticegamestudios/steam/archive/refs/tags/v${PV}-alpha1.tar.gz
 		-> ${P}.gh.tar.gz
 "
+S="${WORKDIR}/${P}-alpha1"
+
+PATCHES=(
+	"${FILESDIR}/${P}-path-pycryptodome-and-gevent.patch"
+)
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -32,6 +37,11 @@ RDEPEND="
 	dev-python/certifi[${PYTHON_USEDEP}]
 	dev-python/protobuf[${PYTHON_USEDEP}]
 	dev-python/wsproto[${PYTHON_USEDEP}]
+"
+
+BDEPEND="
+	dev-python/vcrpy[${PYTHON_USEDEP}]
+	dev-python/mock[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
