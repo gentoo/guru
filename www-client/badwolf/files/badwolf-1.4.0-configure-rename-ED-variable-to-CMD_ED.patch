@@ -1,0 +1,90 @@
+From 0f62f0deffd9c6720dcfbe2b0478a5c35a954037 Mon Sep 17 00:00:00 2001
+From: "Haelwenn (lanodan) Monnier" <contact@hacktivis.me>
+Date: Thu, 14 Aug 2025 21:14:07 +0200
+Subject: [PATCH] configure: rename ED variable to CMD_ED
+
+Avoids conflicting with gentoo environment which already used the ED variable.
+---
+ configure | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/configure b/configure
+index df5db7a..17b3c67 100755
+--- a/configure
++++ b/configure
+@@ -41,7 +41,7 @@ usage()
+   INKSCAPE=BIN
+   CC=BIN
+   CFLAGS=OPTIONS
+-  ED=BIN
++  CMD_ED=BIN
+   LDFLAGS=OPTIONS
+   EXTRA_CFLAGS=OPTIONS
+   XGETTEXT=BIN
+@@ -91,7 +91,7 @@ pkg_config_check()
+ INKSCAPE="${INKSCAPE:-inkscape}"
+ CC="${CC:-cc}"
+ CFLAGS="${CFLAGS:--g -O2 -D_FORTIFY_SOURCE=2}"
+-ED="${ED:-ed}"
++CMD_ED="${CMD_ED:-ed}"
+ XGETTEXT="${XGETTEXT:-xgettext}"
+ MSGMERGE="${MSGMERGE:-msgmerge}"
+ MANDOC="${MANDOC:-mandoc}"
+@@ -143,13 +143,13 @@ pkg_config_check()
+ printf 'Checking %s command existence ...' "${CC}"
+ command -v "${CC}" >/dev/null ; required
+ 
+-printf 'Checking %s command existence ...' "${ED}"
+-if command -v "${ED}" >/dev/null ; is_ok
++printf 'Checking %s command existence ...' "${CMD_ED}"
++if command -v "${CMD_ED}" >/dev/null ; is_ok
+ then
+ 	:
+ else
+ 	echo 'Warning: Updating of *.pot translation files disabled, you may want to install ed(1)'
+-	ED="false"
++	CMD_ED="false"
+ fi
+ 
+ printf 'Checking %s command existence ...' "${MANDOC}"
+@@ -315,7 +315,7 @@ get_libs()
+ CC = ${CC}
+ CFLAGS = ${CFLAGS}
+ LDFLAGS = ${LDFLAGS}
+-ED = ${ED}
++CMD_ED = ${CMD_ED}
+ MANDOC = ${MANDOC}
+ XGETTEXT = ${XGETTEXT}
+ MSGMERGE = ${MSGMERGE}
+@@ -329,7 +329,7 @@ get_libs()
+ GETTEXT_OPTS = --copyright-holder="Badwolf Authors <https://hacktivis.me/projects/badwolf>" --package-name="Badwolf" --package-version="${VERSION_FULL}" --msgid-bugs-address="contact+badwolf-msgid@hacktivis.me"
+ 
+ rule xgettext
+-  command = \$XGETTEXT --keyword=_ --language=C --from-code=UTF-8 -o \$out --add-comments --sort-output --foreign-user --no-location --no-wrap \$GETTEXT_OPTS \$in && \$ED -s \$out <po/pot_license.ed
++  command = \$XGETTEXT --keyword=_ --language=C --from-code=UTF-8 -o \$out --add-comments --sort-output --foreign-user --no-location --no-wrap \$GETTEXT_OPTS \$in && \$CMD_ED -s \$out <po/pot_license.ed
+ 
+ rule msgmerge
+   # touch: msgmerge doesn't always updates timestamps
+@@ -337,8 +337,8 @@ get_libs()
+ 
+ rule xgettext_man
+   command = if test -e \$out; $
+-then po4a-updatepo --format man -M utf-8 --master \$in \$GETTEXT_OPTS --po \$out && \$ED -s \$out <po/pot_license.ed;$
+-else po4a-gettextize --format man -M utf-8 --master \$in \$GETTEXT_OPTS --po \$out && \$ED -s \$out <po/pot_license.ed;$
++then po4a-updatepo --format man -M utf-8 --master \$in \$GETTEXT_OPTS --po \$out && \$CMD_ED -s \$out <po/pot_license.ed;$
++else po4a-gettextize --format man -M utf-8 --master \$in \$GETTEXT_OPTS --po \$out && \$CMD_ED -s \$out <po/pot_license.ed;$
+ fi
+ 
+ rule cc_exe
+@@ -359,7 +359,7 @@ get_libs()
+ 	echo
+ done >>config.ninja
+ 
+-if [ "$ED" != "false" ]; then
++if [ "$CMD_ED" != "false" ]; then
+ 	echo "build po/messages.pot: xgettext ${SRCS} | po/pot_license.ed"
+ 	echo 'build po/manpage.pot: xgettext_man badwolf.1 | po/pot_license.ed'
+ fi >>config.ninja
+-- 
+2.49.1
+

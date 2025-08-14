@@ -15,8 +15,8 @@ else
 
 	MY_P="${PN}-$(ver_rs 3 - 4 .)"
 	SRC_URI="
-		https://distfiles.hacktivis.me/releases/${MY_P}.tar.gz
-		verify-sig? ( https://distfiles.hacktivis.me/releases/${MY_P}.tar.gz.sign )
+		https://distfiles.hacktivis.me/releases/badwolf/${MY_P}.tar.gz
+		verify-sig? ( https://distfiles.hacktivis.me/releases/badwolf/${MY_P}.tar.gz.sign )
 	"
 	KEYWORDS="~amd64 ~arm64 ~ppc64"
 	S="${WORKDIR}/${MY_P}"
@@ -43,9 +43,9 @@ BDEPEND="test? ( app-text/mandoc )"
 
 if [[ "${PV}" != "9999" ]]
 then
-	BDEPEND="${BDEPEND} verify-sig? ( sec-keys/signify-keys-lanodan:2021-04 )"
+	BDEPEND="${BDEPEND} verify-sig? ( sec-keys/signify-keys-lanodan:2025 )"
 
-	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/signify-keys/signify-keys-lanodan-2021.04.pub"
+	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/signify-keys/signify-keys-lanodan-2025.pub"
 
 	src_unpack() {
 		if use verify-sig; then
@@ -63,7 +63,7 @@ src_configure() {
 	[[ "${PV}" == "9999" ]] || restore_config config.h
 
 	CC="${CC:-cc}" \
-	ED="false" \
+	CMD_ED="false" \
 	CFLAGS="${CFLAGS:--02 -Wall -Wextra}" \
 	LDFLAGS="${LDFLAGS}" \
 	DOCDIR="/usr/share/doc/${PF}" \
