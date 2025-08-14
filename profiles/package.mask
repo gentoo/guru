@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David (stkw0) Roman <davidroman96@gmail.com> (2025-08-14)
+# Fails to compile, tests seems to fail and it has not been maintained since 2022.
+# Removal on 2025-08-14, bug #886631
+sys-kernel/usermode-kernel
+
 # Lucio Sauer <watermanpaint@posteo.net> (2025-07-29)
 # Packaged version depends on treecleaned dev-libs/libdbusmenu-qt. Gentoo
 # maintainer inactive and several versions out of date.
