@@ -426,10 +426,8 @@ DEPEND="
 	dev-libs/glib:2
 	gui-libs/gtk:4
 	gui-libs/libadwaita:1
-	x11-libs/cairo
 	x11-libs/libX11
 	x11-libs/libXtst
-	x11-libs/pango
 	x11-themes/hicolor-icon-theme
 "
 RDEPEND="${DEPEND}"
