@@ -117,6 +117,7 @@ CRATES="
 	memoffset@0.9.1
 	miniz_oxide@0.7.4
 	mio@0.8.8
+	niri-ipc@25.5.1
 	nix@0.26.2
 	nix@0.29.0
 	nix@0.30.1
@@ -253,7 +254,7 @@ LICENSE="MIT"
 LICENSE+=" Apache-2.0 BSD GPL-3+ ISC MIT Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="x11 gnome kde hyprland wlroots udev"
+IUSE="gnome hyprland kde niri udev wlroots x11"
 REQUIRED_USE="?? ( x11 gnome kde hyprland wlroots )"
 
 DEPEND="udev? ( virtual/libudev )"
@@ -263,12 +264,13 @@ QA_FLAGS_IGNORED=".*"
 
 src_configure() {
 	local myfeatures=(
-		$(usev x11)
 		$(usev gnome)
-		$(usev kde)
+		$(usev x11)
 		$(usev hyprland hypr)
+		$(usev kde)
 		$(usev wlroots)
 		$(usev udev)
+		$(usev niri)
 	)
 	cargo_src_configure --no-default-features
 }
