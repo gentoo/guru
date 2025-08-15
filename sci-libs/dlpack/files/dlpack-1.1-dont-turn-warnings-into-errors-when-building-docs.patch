@@ -1,0 +1,16 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Don't turn warnings into errors when building docs.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/docs/CMakeLists.txt
++++ b/docs/CMakeLists.txt
+@@ -29,7 +29,7 @@ set(doxygen_xml_builddir ${doxygen_output_dir}/xml)
+ add_custom_target(Sphinx ALL
+     COMMAND ${SPHINX_EXECUTABLE} -b html
+     -Dbreathe_projects.dlpack=${doxygen_xml_builddir}
+-    ${sphinx_source} ${sphinx_build} -WT --keep-going
++    ${sphinx_source} ${sphinx_build} -T --keep-going
+     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+     COMMENT "Generating documentation with Sphinx"
+     VERBATIM)
