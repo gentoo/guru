@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# David (stkw0) Roman <davidroman96@gmail.com> (2025-08-16)
+# SRC_URI does not exist anymore and can not be fetched. Even if it did, there
+# was open bug due to a compilation failure.
+# Removal on 2025-09-16, bug #927884
+games-util/samrewritten
+
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-08-14)
 # Fails to compile, tests seems to fail and it has not been maintained since 2022.
 # Removal on 2025-08-14, bug #886631
