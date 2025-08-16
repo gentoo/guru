@@ -429,6 +429,13 @@ DEPEND="
 	x11-libs/libX11
 	x11-libs/libXtst
 	x11-themes/hicolor-icon-theme
+	debug? (
+		x11-libs/cairo
+		x11-libs/pango
+		x11-libs/gdk-pixbuf:2
+		media-libs/graphene
+		dev-libs/libgit2:=
+	)
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
