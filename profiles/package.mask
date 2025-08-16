@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-08-16)
+# No maintainer listed. Seems to be abandoned since 2022
+# Removal on 2025-09-16, bug #878807, #875827, #875824
+x11-wm/berry
+
+# David (stkw0) Roman <davidroman96@gmail.com> (2025-08-16)
 # SRC_URI does not exist anymore and can not be fetched. Even if it did, there
 # was open bug due to a compilation failure.
 # Removal on 2025-09-16, bug #927884
