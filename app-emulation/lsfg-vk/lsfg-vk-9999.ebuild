@@ -17,18 +17,15 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/PancakeTAS/lsfg-vk"
 	EGIT_SUBMODULES=(
-		thirdparty/dxbc
 		thirdparty/pe-parse
 		thirdparty/volk
 	)
 else
 	KEYWORDS="~amd64 ~arm64"
-	HASH_DXBC="78ab59a8aaeb43cd1b0a5e91ba86722433a10b78"
 	HASH_VOLK="be3dbd49bf77052665e96b6c7484af855e7e5f67"
 	PEPARSE_VERSION="2.1.1"
 	SRC_URI="
 		https://github.com/PancakeTAS/lsfg-vk/archive/refs/tags/v${PV}.tar.gz -> lsfg-vk-${PV}.tar.gz
-		https://github.com/PancakeTAS/dxbc/archive/${HASH_DXBC}.tar.gz -> dxbc-${HASH_DXBC}.tar.gz
 		https://github.com/trailofbits/pe-parse/archive/refs/tags/v${PEPARSE_VERSION}.tar.gz
 			-> pe-parse-${PEPARSE_VERSION}.tar.gz
 		https://github.com/zeux/volk/archive/${HASH_VOLK}.tar.gz -> volk-${HASH_VOLK}.tar.gz
@@ -79,7 +76,6 @@ src_unpack() {
 src_prepare() {
 	if [[ ${PV} != 9999 ]]; then
 		rmdir thirdparty/* || die
-		mv ../dxbc-${HASH_DXBC} thirdparty/dxbc || die
 		mv ../pe-parse-${PEPARSE_VERSION} thirdparty/pe-parse || die
 		mv ../volk-${HASH_VOLK} thirdparty/volk || die
 	fi
@@ -101,7 +97,7 @@ N
 /target_include_directories(lsfg-vk SYSTEM PRIVATE ${TOML11_INCLUDE_DIRS})/c\
 find_package(toml11 REQUIRED)
 }'\
-		-e '/target_link_libraries(lsfg-vk PRIVATE/{:a;N;/)/!ba;s/\btoml11\b/toml11::toml11/g}'\
+		-e '/target_link_libraries(lsfg-vk PUBLIC/{:a;N;/)/!ba;s/\btoml11\b/toml11::toml11/g}'\
 		CMakeLists.txt || die
 
 	eapply_user
