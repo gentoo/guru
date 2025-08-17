@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>Lt.Infiltrator@gmail.com</email>
+        <name>Tim Sviridov</name>
+    </maintainer>
+    <longdescription>
+        Seven Kingdoms: Ambition is a real-time game of epic strategy and empire
+        building featuring economy management, warfare, and intrigue.  It is an
+        updated and enhanced version of 7kaa (7K: Ancient Adversaries) featuring
+        numerous fixes and improvements.
+    </longdescription>
+    <use>
+      <flag name="multiplayer">Enable multiplayer.</flag>
+    </use>
+    <upstream>
+        <remote-id type="github">Infiltrator/7k-ambition</remote-id>
+        <remote-id type="sourceforge">seven-kingdoms-ambition</remote-id>
+    </upstream>
+</pkgmetadata>
