@@ -88,6 +88,7 @@ src_configure() {
 }
 
 src_test() {
+	mkdir -p "${BUILD_DIR}/tests/data" || die
 	ln -sr "${CMAKE_USE_DIR}/tests/data/audio" "${BUILD_DIR}/tests/data/audio" || die
 
 	cmake_src_test
