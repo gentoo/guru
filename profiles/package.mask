@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2025-08-18)
+# Unwanted and unmaintained. Live ebuild only.
+# Removal on 2025-09-18
+media-video/avisynth+
+
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-08-18)
 # No maintainer nor metadata.xml file. src_test fails. Live ebuild only.
 # Removal on 2025-09-18
