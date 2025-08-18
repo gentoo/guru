@@ -3,17 +3,24 @@
 
 EAPI=8
 
-inherit cmake git-r3 prefix python-utils-r1
+inherit cmake prefix python-utils-r1
 
 DESCRIPTION="Clang fork implementing experimental support for P2996 (Reflection for C++26)"
 HOMEPAGE="https://github.com/bloomberg/clang-p2996"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD MIT public-domain rc"
 SLOT="0"
-KEYWORDS=""
 
-EGIT_REPO_URI="https://github.com/bloomberg/clang-p2996.git"
-EGIT_BRANCH="p2996"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/bloomberg/clang-p2996.git"
+	EGIT_BRANCH="p2996"
+else
+	GIT_COMMIT=""
+	SRC_URI="https://github.com/bloomberg/clang-p2996/archive/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/clang-p2996-${GIT_COMMIT}"
+	KEYWORDS="~amd64"
+fi
 
 ALL_LLVM_TARGETS="AArch64 AMDGPU ARC ARM AVR BPF CSKY DirectX Hexagon Lanai LoongArch M68k MSP430 Mips NVPTX PowerPC RISCV SPIRV Sparc SystemZ VE WebAssembly +X86 XCore Xtensa"
 IUSE="+debug +default-reflection-latest +pie"
