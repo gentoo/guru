@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{11..13} )
 
-EGIT_COMMIT_TESTSUITE="c2a67a575ddc815ff2212f68301d333e5e30a923"
+EGIT_COMMIT_TESTSUITE="cbc54d77065e5202bcb69e0d1c53ceccc29a7984"
 EGIT_COMMIT_WASM_C_API="b6dd1fb658a282c64b029867845bc50ae59e1497"
 
 inherit cmake python-any-r1
@@ -57,14 +57,13 @@ src_prepare() {
 	rm -r third_party/wasm-c-api || die
 	mv "${WORKDIR}/wasm-c-api-${EGIT_COMMIT_WASM_C_API}" third_party/wasm-c-api || die
 
-	rm -v fuzz-in/wasm/stuff.wasm wasm2c/examples/fac/fac.wasm || die
+	rm -v fuzz-in/wasm/stuff.wasm wasm2c/benchmarks/dhrystone/dhrystone.wasm || die
 
-	use test || rm -v third_party/wasm-c-api/example/*.wasm || die
+	if ! use test; then
+		rm -v third_party/wasm-c-api/example/*.wasm || die
+	fi
 
 	sed -i 's;default_compiler =.*;default_compiler = os.getenv("CC", "cc");' test/run-spec-wasm2c.py || die
-
-	# Broken tests
-	rm test/wasm2c/spec/simd_lane.txt test/wasm2c/spec/simd_load.txt
 }
 
 src_configure() {
