@@ -33,8 +33,8 @@ RDEPEND="sys-libs/zlib:0="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/unknown-reflection.patch"
-	"${FILESDIR}/uninitialized.patch"
+	"${FILESDIR}/21.0.0_p20250702-unknown-reflection.patch"
+	"${FILESDIR}/21.0.0_p20250702-uninitialized.patch"
 )
 
 CMAKE_USE_DIR="$S/llvm"
@@ -44,7 +44,7 @@ src_prepare() {
 	mkdir -p x/y || die
 	BUILD_DIR=${WORKDIR}/x/y/clang
 
-	use default-reflection-latest && eapply "${FILESDIR}/enable-reflection-latest.patch"
+	use default-reflection-latest && eapply "${FILESDIR}/21.0.0_p20250702-enable-reflection-latest.patch"
 
 	cmake_src_prepare
 
