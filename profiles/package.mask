@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David (stkw0) Roman <davidroman96@gmail.com> (2025-08-18)
+# No maintainer nor metadata.xml file. src_test fails. Live ebuild only.
+# Removal on 2025-09-18
+games-util/pegasus
+
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-08-16)
 # Upstream have been dead for 7 years.
 # Removal on 2025-09-16, bug #886057, #886055
