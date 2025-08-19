@@ -14,13 +14,12 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_BRANCH="openxr"
 else
 	KEYWORDS="~amd64"
-	COMMIT=cff07db75c4823afe93ed7027b03d5f7bc86f164
 	OPENXR_COMMIT=91a8a8d9d70f4b469bca0726122c3b5a6096010e
 	SRC_URI="
-		https://gitlab.com/znixian/OpenOVR/-/archive/${COMMIT}/OpenOVR-${COMMIT}.tar.bz2 -> ${P}.tar.bz2
+		https://gitlab.com/znixian/OpenOVR/-/archive/${PV}/OpenOVR-${PV}.tar.bz2 -> ${P}.tar.bz2
 		https://github.com/KhronosGroup/OpenXR-SDK/archive/${OPENXR_COMMIT}.tar.gz -> OpenXR-SDK-${OPENXR_COMMIT}.tar.gz
 	"
-	S="${WORKDIR}/OpenOVR-${COMMIT}"
+	S="${WORKDIR}/OpenOVR-${PV}"
 fi
 
 LICENSE="GPL-3 Apache-2.0 MIT"
