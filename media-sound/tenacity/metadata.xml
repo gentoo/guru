@@ -12,6 +12,8 @@
 		<flag name="mp2">Enable MP2 codec support</flag>
 		<flag name="sbsms">Enable SBSMS timestretching support</flag>
 		<flag name="soundtouch">Enable SoundTouch timestretching support</flag>
+		<flag name="vorbis">Enable Vorbis codec support</flag>
+		<flag name="matroska">Enable MKA/MKV container format support</flag>
 		<flag name="vamp">Enable VAMP plugin hosting support</flag>
 		<flag name="vst2">Enable VST2 plugin hosting support</flag>
 	</use>
