@@ -54,4 +54,5 @@ pkg_postinst() {
 pkg_postrm() {
 	xdg_pkg_postrm
 	gnome2_schemas_update
+	udev_reload
 }
