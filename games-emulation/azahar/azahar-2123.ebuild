@@ -18,7 +18,6 @@ IUSE="cpu_flags_x86_sse4_2 test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	app-arch/zstd
 	dev-cpp/nlohmann_json
 	dev-cpp/robin-map
 	dev-libs/boost:=
@@ -45,6 +44,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
+	dev-util/spirv-headers
 	dev-util/vulkan-headers
 	media-libs/VulkanMemoryAllocator
 	amd64? ( dev-libs/xbyak )
@@ -55,15 +55,15 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2122.1-don-t-search-for-the-zstd-package.patch"
 	"${FILESDIR}/${PN}-2122.1-explicitly-require-the-tsl-robin-map-package.patch"
 	"${FILESDIR}/${PN}-2122.1-import-some-of-the-symbols-from-spv.patch"
 	"${FILESDIR}/${PN}-2122.1-link-to-Catch2-only-when-tests-are-enabled.patch"
 	"${FILESDIR}/${PN}-2122.1-rename-AV_OPT_TYPE_CHANNEL_LAYOUT-to-AV_OPT_TYPE_CHL.patch"
-	"${FILESDIR}/${PN}-2122.1-rename-boost-asio-io_service-to-boost-asio-io_contex.patch"
 	"${FILESDIR}/${PN}-2122.1-use-the-system-faad2-library.patch"
 	"${FILESDIR}/${PN}-2122.1-use-the-system-sirit-library.patch"
 	"${FILESDIR}/${PN}-2122.1-use-the-system-teakra-library.patch"
+	"${FILESDIR}/${PN}-2123-don-t-build-spirv-tools.patch"
+	"${FILESDIR}/${PN}-2123-use-the-zstd_seekable.h-header-from-externals.patch"
 )
 
 # [directory]=license
@@ -78,6 +78,7 @@ declare -A KEEP_BUNDLED=(
 	# Reasons to keep are in `src_configure`
 	[httplib]=MIT
 	[lodepng]=ZLIB
+	[zstd]="GPL-2"
 )
 
 add_bundled_licenses() {
@@ -120,6 +121,9 @@ src_configure() {
 
 		# Lodepng is designed to be bundled
 		-DDISABLE_SYSTEM_LODEPNG=yes
+
+		# Upstream depends on `zstd/contrib/seekable_format/zstd_seekable.h`
+		-DDISABLE_SYSTEM_ZSTD=yes
 
 		-Wno-dev
 	)

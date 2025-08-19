@@ -1,0 +1,19 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Don't build `spirv-tools`.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/externals/CMakeLists.txt
++++ b/externals/CMakeLists.txt
+@@ -412,11 +412,6 @@ if (ENABLE_VULKAN)
+         add_subdirectory(spirv-headers EXCLUDE_FROM_ALL)
+     endif()
+ 
+-    # spirv-tools
+-    # TODO: Implement USE_SYSTEM_SPIRV_TOOLS -OS
+-    set(SPIRV_SKIP_EXECUTABLES ON)
+-    add_subdirectory(spirv-tools EXCLUDE_FROM_ALL)
+-
+     # glslang
+     if(USE_SYSTEM_GLSLANG)
+         find_package(glslang REQUIRED)

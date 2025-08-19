@@ -1,0 +1,18 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use the `zstd_seekable.h` header from `externals`.
+
+Upstream-PR: https://github.com/azahar-emu/azahar/pull/1305
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/src/common/zstd_compression.cpp
++++ b/src/common/zstd_compression.cpp
+@@ -13,7 +13,7 @@
+ #include <mutex>
+ #include <sstream>
+ #include <zstd.h>
+-#include <zstd/contrib/seekable_format/zstd_seekable.h>
++#include <zstd_seekable.h>
+ 
+ #include <boost/serialization/base_object.hpp>
+ #include <boost/serialization/unique_ptr.hpp>
