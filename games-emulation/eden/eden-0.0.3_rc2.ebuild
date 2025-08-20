@@ -126,6 +126,9 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DTITLE_BAR_FORMAT_IDLE="Eden | v${PV/_/-}"
+		-DTZDB2NX_VERSION=gentoo
+		-DTZDB2NX_ZONEINFO_DIR=/usr/share/zoneinfo
 		-DYUZU_CHECK_SUBMODULES=no
 		-DYUZU_ENABLE_PORTABLE=no
 		-DYUZU_USE_BUNDLED_FFMPEG=no
@@ -135,8 +138,6 @@ src_configure() {
 		-DYUZU_USE_EXTERNAL_VULKAN_SPIRV_TOOLS=no
 		-DYUZU_USE_EXTERNAL_VULKAN_UTILITY_LIBRARIES=no
 		-DYUZU_USE_PRECOMPILED_HEADERS=no
-		-DTZDB2NX_VERSION=gentoo
-		-DTZDB2NX_ZONEINFO_DIR=/usr/share/zoneinfo
 
 		-DENABLE_CUBEB=$(usex cubeb)
 		-DENABLE_OPENSSL=$(usex ssl)
