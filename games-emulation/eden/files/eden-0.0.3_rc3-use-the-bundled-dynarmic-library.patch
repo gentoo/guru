@@ -1,0 +1,15 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use the bundled `dynarmic` library.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/src/dynarmic/src/dynarmic/CMakeLists.txt
++++ b/src/dynarmic/src/dynarmic/CMakeLists.txt
+@@ -1,6 +1,6 @@
+ include(TargetArchitectureSpecificSources)
+ 
+-add_library(dynarmic
++add_library(dynarmic STATIC
+     backend/block_range_information.cpp
+     backend/block_range_information.h
+     backend/exception_handler.h

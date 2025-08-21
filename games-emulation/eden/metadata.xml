@@ -9,9 +9,11 @@
     <flag name="camera">Enable camera support</flag>
     <flag name="cubeb">Enable the cubeb audio backend</flag>
     <flag name="discord">Enable Discord Rich Presence</flag>
+    <flag name="opengl">Enable the OpenGL frontend</flag>
     <flag name="sdl">Enable the SDL2 frontend</flag>
     <flag name="ssl">Enable OpenSSL backend for ISslConnection</flag>
     <flag name="web-applet">Enable web applet support</flag>
+    <flag name="web-service">Enable web services (telemetry, etc.)</flag>
     <flag name="wifi">Enable Wi-Fi scanning</flag>
   </use>
   <upstream>

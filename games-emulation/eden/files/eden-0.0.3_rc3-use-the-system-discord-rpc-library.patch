@@ -1,0 +1,29 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use the system `discord-rpc` library.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -800,22 +800,7 @@ endif()
+ 
+ # DiscordRPC
+ if (USE_DISCORD_PRESENCE)
+-    AddPackage(
+-        NAME discord-rpc
+-        REPO "discord/discord-rpc"
+-        SHA 963aa9f3e5
+-        HASH 386e1344e9a666d730f2d335ee3aef1fd05b1039febefd51aa751b705009cc764411397f3ca08dffd46205c72f75b235c870c737b2091a4ed0c3b061f5919bde
+-        OPTIONS
+-            "BUILD_EXAMPLES OFF"
+-        PATCHES
+-            ${CMAKE_SOURCE_DIR}/.patch/discord-rpc/0001-cmake-version.patch
+-            ${CMAKE_SOURCE_DIR}/.patch/discord-rpc/0002-no-clang-format.patch
+-            ${CMAKE_SOURCE_DIR}/.patch/discord-rpc/0003-fix-cpp17.patch
+-        EXCLUDE_FROM_ALL ON
+-    )
+-
+-    target_include_directories(discord-rpc INTERFACE ${discord-rpc_SOURCE_DIR}/include)
+-    add_library(DiscordRPC::discord-rpc ALIAS discord-rpc)
++    find_package(DiscordRPC REQUIRED)
+ endif()

@@ -1,0 +1,27 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Make the dependency on `SDL2` optional.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -904,7 +904,7 @@ if (ENABLE_WEB_SERVICE OR ENABLE_QT_UPDATE_CHECKER)
+     find_package(cpp-jwt)
+ endif()
+ 
+-if (NOT YUZU_USE_BUNDLED_SDL2)
++if (ENABLE_SDL2 AND NOT YUZU_USE_BUNDLED_SDL2)
+     find_package(SDL2)
+ endif()
+ 
+--- a/externals/CMakeLists.txt
++++ b/externals/CMakeLists.txt
+@@ -87,7 +87,7 @@ if (ENABLE_LIBUSB AND NOT TARGET libusb::usb)
+ endif()
+ 
+ # SDL2
+-if (NOT YUZU_USE_BUNDLED_SDL2)
++if (ENABLE_SDL2 AND NOT YUZU_USE_BUNDLED_SDL2)
+     if (NOT WIN32)
+         # Yuzu itself needs: Atomic Audio Events Joystick Haptic Sensor Threads Timers
+         # Since 2.0.18 Atomic+Threads required for HIDAPI/libusb (see https://github.com/libsdl-org/SDL/issues/5095)

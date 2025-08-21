@@ -1,0 +1,15 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use the system `zycore-c` library.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/src/dynarmic/externals/CMakeLists.txt
++++ b/src/dynarmic/externals/CMakeLists.txt
+@@ -104,7 +104,6 @@ if ("x86_64" IN_LIST ARCHITECTURE)
+         OPTIONS
+             "CMAKE_DISABLE_FIND_PACKAGE_Doxygen ON"
+         EXCLUDE_FROM_ALL ON
+-        SYSTEM_PACKAGE OFF
+     )
+ 
+     AddPackage(

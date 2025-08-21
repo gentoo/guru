@@ -1,0 +1,55 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Fix compilation errors.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/src/dynarmic/src/dynarmic/common/common_types.h
++++ b/src/dynarmic/src/dynarmic/common/common_types.h
+@@ -21,3 +21,5 @@ using f64 = double; ///< 64-bit floating point
+ 
+ using u128 = std::array<std::uint64_t, 2>;
+ static_assert(sizeof(u128) == 16, "u128 must be 128 bits wide");
++
++using size_t = std::size_t;
+\ No newline at end of file
+--- a/src/dynarmic/src/dynarmic/common/memory_pool.h
++++ b/src/dynarmic/src/dynarmic/common/memory_pool.h
+@@ -5,7 +5,7 @@
+ 
+ #pragma once
+ 
+-#include <cstddef>
++#include <cstdlib>
+ #include <vector>
+ 
+ namespace Dynarmic::Common {
+--- a/src/shader_recompiler/backend/spirv/emit_spirv.cpp
++++ b/src/shader_recompiler/backend/spirv/emit_spirv.cpp
+@@ -491,12 +491,12 @@ void PatchPhiNodes(IR::Program& program, EmitContext& ctx) {
+             // Start "before" first PHI; advance on phi_arg == 0
+             size_t phi_index = static_cast<size_t>(-1);
+ 
+-            ctx.PatchDeferredPhi([&](size_t phi_arg, Id parent) -> std::pair<Id, Id> {
++            ctx.PatchDeferredPhi([&](size_t phi_arg) -> Id {
+                 if (phi_arg == 0) {
+                     ++phi_index;
+                 }
+                 IR::Inst* phi = phi_instructions[phi_index];
+-                return { ctx.Def(phi->Arg(phi_arg)), parent };
++                return ctx.Def(phi->Arg(phi_arg));
+             });
+         }
+ } // Anonymous namespace
+--- a/src/yuzu/main.cpp
++++ b/src/yuzu/main.cpp
+@@ -101,9 +101,10 @@ static FileSys::VirtualFile VfsDirectoryCreateFileWrapper(const FileSys::Virtual
+ #include <QUrl>
+ #include <QtConcurrent/QtConcurrent>
+ 
+-#ifdef HAVE_SDL2
+ #include <QCheckBox>
+ #include <QStringLiteral>
++
++#ifdef HAVE_SDL2
+ #include <SDL.h> // For SDL ScreenSaver functions
+ #endif

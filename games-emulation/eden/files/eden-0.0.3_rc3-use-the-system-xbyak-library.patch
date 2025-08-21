@@ -1,0 +1,15 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use the system `xbyak` library.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/externals/CMakeLists.txt
++++ b/externals/CMakeLists.txt
+@@ -46,7 +46,7 @@ if (ARCHITECTURE_x86 OR ARCHITECTURE_x86_64)
+         REPO "Lizzie841/xbyak"
+         SHA ${XBYAK_HASH}
+         HASH ${XBYAK_SHA512SUM}
+-        BUNDLED_PACKAGE ON
++        FIND_PACKAGE_ARGUMENTS "GLOBAL"
+     )
+ endif()

@@ -1,0 +1,15 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use the system `Boost` library.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -779,6 +779,7 @@ else()
+     endif()
+ endif()
+ 
++find_package(Boost COMPONENTS context REQUIRED)
+ if(NOT TARGET Boost::headers)
+     AddPackage(
+         NAME boost_headers

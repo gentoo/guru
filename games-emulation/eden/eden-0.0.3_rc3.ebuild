@@ -7,26 +7,33 @@ inherit cmake xdg
 
 DESCRIPTION="Nintendo Switch Emulator"
 HOMEPAGE="https://eden-emu.dev"
-SRC_URI="https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
+	https://github.com/crueter/tzdb_to_nx/releases/download/250725/250725.zip -> nx-tzdb-250725.zip
+"
 
 S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="camera cubeb discord gui lto sdl ssl test web-applet wifi"
-REQUIRED_USE="!gui? ( !camera !discord !web-applet )"
+IUSE="camera cubeb discord gui lto opengl sdl ssl test web-applet web-service wifi"
+REQUIRED_USE="
+	!gui? ( !camera !discord !opengl !web-applet )
+	web-service? ( ssl )
+"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	app-arch/lz4
 	app-arch/zstd
-	dev-cpp/cpp-httplib:=[ssl]
 	dev-libs/libfmt:=
 	dev-libs/libusb
+	dev-libs/mcl
 	dev-libs/sirit
 	dev-util/spirv-tools
 	llvm-core/llvm
+	media-gfx/renderdoc
 	media-libs/libva
 	media-libs/opus
 	media-video/ffmpeg
@@ -34,8 +41,10 @@ RDEPEND="
 	net-libs/mbedtls:0[cmac]
 	sys-libs/zlib
 
-	amd64? ( dev-libs/dynarmic )
-	arm64? ( dev-libs/dynarmic )
+	amd64? (
+		dev-libs/zycore-c
+		dev-libs/zydis
+	)
 
 	camera? ( dev-qt/qtmultimedia:6 )
 	cubeb? ( media-libs/cubeb )
@@ -45,46 +54,53 @@ RDEPEND="
 	)
 	gui? (
 		dev-libs/quazip[qt6]
-		dev-qt/qtbase:6[concurrent,dbus,widgets]
+		dev-qt/qtbase:6[concurrent,dbus,gui,widgets]
 	)
-	sdl? ( media-libs/libsdl2 )
+	sdl? ( media-libs/libsdl2[haptic,joystick,sound,video] )
 	ssl? ( dev-libs/openssl:= )
 	web-applet? ( dev-qt/qtwebengine:6[widgets] )
+	web-service? ( dev-cpp/cpp-httplib:=[ssl] )
 	wifi? ( net-wireless/wireless-tools )
 "
 DEPEND="
 	${RDEPEND}
-	dev-cpp/cpp-jwt
 	dev-cpp/nlohmann_json
 	dev-cpp/simpleini
 	dev-libs/boost:=[context]
+	dev-libs/unordered_dense
 	dev-util/vulkan-headers
 	dev-util/vulkan-utility-libraries
 	games-util/gamemode
-	media-gfx/renderdoc
 	media-libs/VulkanMemoryAllocator
-	sys-libs/timezone-data
 
 	amd64? ( dev-libs/xbyak )
 	arm64? ( dev-libs/oaknut )
 	x86? ( dev-libs/xbyak )
+
+	web-service? ( dev-cpp/cpp-jwt )
 "
 BDEPEND="
-	dev-build/make
-	dev-vcs/git
-	sys-apps/coreutils
+	app-arch/unzip
 	virtual/pkgconfig
-	test? ( dev-cpp/catch )
+
+	test? (
+		dev-cpp/catch
+		dev-libs/oaknut
+	)
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.0.3_rc2-add-a-missing-include-for-the-log-header.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc2-move-the-definition-of-create_target_directory_group.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc2-relax-the-dependency-on-httplib.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc2-use-the-system-Boost-library.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc2-use-the-system-mbedtls-library.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc2-use-the-system-QuaZip-library.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc2-use-the-system-sirit-library.patch"
+	"${FILESDIR}/${PN}-0.0.3_rc3-allow-overriding-NX_TZDB_ROMFS_DIR.patch"
+	"${FILESDIR}/${PN}-0.0.3_rc3-fix-compilation-errors.patch"
+	"${FILESDIR}/${PN}-0.0.3_rc3-make-the-dependency-on-mcl-global.patch"
+	"${FILESDIR}/${PN}-0.0.3_rc3-make-the-dependency-on-SDL2-optional.patch"
+	"${FILESDIR}/${PN}-0.0.3_rc3-use-the-bundled-dynarmic-library.patch"
+	"${FILESDIR}/${PN}-0.0.3_rc3-use-the-system-Boost-library.patch"
+	"${FILESDIR}/${PN}-0.0.3_rc3-use-the-system-discord-rpc-library.patch"
+	"${FILESDIR}/${PN}-0.0.3_rc3-use-the-system-mbedtls-library.patch"
+	"${FILESDIR}/${PN}-0.0.3_rc3-use-the-system-sirit-library.patch"
+	"${FILESDIR}/${PN}-0.0.3_rc3-use-the-system-xbyak-library.patch"
+	"${FILESDIR}/${PN}-0.0.3_rc3-use-the-system-zycore-c-library.patch"
 )
 
 # [directory]=license
@@ -94,8 +110,7 @@ declare -A KEEP_BUNDLED=(
 	[cmake-modules]=Boost-1.0
 	[FidelityFX-FSR]=MIT
 	[glad]=GPL-2+
-	[microprofile]=public-domain
-	[nx_tzdb]="GPL-2+ MIT"
+	[nx_tzdb]="GPL-2+"
 	[stb]="MIT public-domain"
 	[tz]=BSD-2
 )
@@ -127,31 +142,34 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DTITLE_BAR_FORMAT_IDLE="Eden | v${PV/_/-}"
-		-DTZDB2NX_VERSION=gentoo
-		-DTZDB2NX_ZONEINFO_DIR=/usr/share/zoneinfo
 		-DYUZU_CHECK_SUBMODULES=no
 		-DYUZU_ENABLE_PORTABLE=no
 		-DYUZU_USE_BUNDLED_FFMPEG=no
 		-DYUZU_USE_BUNDLED_SDL2=no
+		-DYUZU_USE_CPM=no
 		-DYUZU_USE_EXTERNAL_SDL2=no
 		-DYUZU_USE_EXTERNAL_VULKAN_HEADERS=no
 		-DYUZU_USE_EXTERNAL_VULKAN_SPIRV_TOOLS=no
 		-DYUZU_USE_EXTERNAL_VULKAN_UTILITY_LIBRARIES=no
 		-DYUZU_USE_PRECOMPILED_HEADERS=no
 
+		-DDYNARMIC_USE_PRECOMPILED_HEADERS=no
+
+		-DBUILD_TESTING=$(usex test)
 		-DENABLE_CUBEB=$(usex cubeb)
+		-DENABLE_OPENGL=$(usex opengl)
 		-DENABLE_OPENSSL=$(usex ssl)
 		-DENABLE_QT=$(usex gui)
 		-DENABLE_SDL2=$(usex sdl)
+		-DENABLE_WEB_SERVICE=$(usex web-service)
 		-DENABLE_WIFI_SCAN=$(usex wifi)
 		-DUSE_DISCORD_PRESENCE=$(usex discord)
 		-DYUZU_ENABLE_LTO=$(usex lto)
-		-DYUZU_TESTS=$(usex test)
 		-DYUZU_USE_QT_MULTIMEDIA=$(usex camera)
 		-DYUZU_USE_QT_WEB_ENGINE=$(usex web-applet)
 
-		# Support for this flag is broken by upstream
-		-DENABLE_WEB_SERVICE=yes
+		# Contains time zone data in the Nintendo Switch's format
+		-DNX_TZDB_ROMFS_DIR="${WORKDIR}"
 
 		-Wno-dev
 	)
@@ -162,6 +180,8 @@ src_configure() {
 src_test() {
 	cd "${BUILD_DIR}" || die
 
+	./bin/dynarmic_tests || die
+
 	# See https://git.eden-emu.dev/eden-emu/eden/issues/126
-	./bin/tests "~Fibers::InterExchange" "~RingBuffer: Threaded Test"
+	./bin/tests "~Fibers::InterExchange" "~RingBuffer: Threaded Test" || die
 }
