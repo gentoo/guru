@@ -1,0 +1,19 @@
+# vim: ft=systemd
+[Unit]
+Description=A daemon that scans program outputs for repeated patterns, and takes action.
+Documentation=https://reaction.ppom.me
+# Ensure reaction will insert its chain after docker has inserted theirs. Only useful when iptables & docker are used
+# After=docker.service
+
+[Service]
+ExecStart=/usr/bin/reaction start -c /etc/reaction.d
+
+# Ask systemd to create /var/lib/reaction (/var/lib/ is implicit)
+StateDirectory=reaction
+# Ask systemd to create /run/reaction at runtime (/run/ is implicit)
+RuntimeDirectory=reaction
+# Start reaction in its state directory
+WorkingDirectory=/var/lib/reaction
+
+[Install]
+WantedBy=multi-user.target
