@@ -16,28 +16,24 @@ RDEPEND="${PYTHON_DEPS}"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 KEYWORDS="~amd64"
 
-PATCHES=( "${FILESDIR}"/${PN}-6-mx_enter_fix_shebang.patch )
-
 src_prepare() {
 	default
 	export SITE_PKG="$(python_get_sitedir)/${PN}"
 
 	sed -e "s/\${PN}/${PN}/g" "${FILESDIR}/${PN}-$(ver_cut 1)-set-mxhome-to-share.in" > "${T}/${PN}-$(ver_cut 1)-set-mxhome-to-share.patch"
 	eapply "${T}/${PN}-$(ver_cut 1)-set-mxhome-to-share.patch" || die "Failed to apply modified mx_home patch"
-
 }
 
 src_install() {
 	python_moduleinto ${SITE_PKG}
-	python_domodule *.py
+	python_domodule src/
 	python_moduleinto "/usr/share/${PN}"
 	python_domodule mx.mx/
-
 	cat <<- EOF > "${T}/mx-run.py" || die
 		#!/usr/bin/env python
 		import sys, runpy
-		sys.path.insert(0, '${SITE_PKG}')
-		runpy.run_module('mx_enter', run_name='__main__')
+		sys.path.insert(0, '${SITE_PKG}/src')
+		runpy.run_module('mx', run_name='__main__')
 	EOF
 	python_newscript "${T}/mx-run.py" mx
 }
