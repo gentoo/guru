@@ -48,3 +48,9 @@ src_install() {
 	EOF
 	python_newscript "${T}/mx-run.py" mx
 }
+
+pkg_postrm() {
+	# mx itself may have created files inside shared directory outside of portage
+	rm -rf "/usr/share/${PN}/mxbuild"
+	rm -rf "/usr/share/${PN}/java"
+}

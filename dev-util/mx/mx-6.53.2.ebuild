@@ -38,7 +38,7 @@ src_install() {
 	doins -r java/
 	doins -r tests/
 	keepdir "/usr/share/${PN}/mxbuild"
-	fperms 0777 "/usr/share/${PN}/mxbuild"
+	fperms -R 0777 "/usr/share/${PN}/mxbuild"
 	fperms -R 0777 "/usr/share/${PN}/java"
 
 	cat <<- EOF > "${T}/mx-run.py" || die
@@ -48,4 +48,10 @@ src_install() {
 		runpy.run_module('mx_enter', run_name='__main__')
 	EOF
 	python_newscript "${T}/mx-run.py" mx
+}
+
+pkg_postrm() {
+	# mx itself may have created files inside shared directory outside of portage
+	rm -rf "/usr/share/${PN}/mxbuild"
+	rm -rf "/usr/share/${PN}/java"
 }
