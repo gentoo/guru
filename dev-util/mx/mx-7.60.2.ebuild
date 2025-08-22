@@ -27,8 +27,19 @@ src_prepare() {
 src_install() {
 	python_moduleinto ${SITE_PKG}
 	python_domodule src/
+
 	python_moduleinto "/usr/share/${PN}"
 	python_domodule mx.mx/
+
+	insinto "/usr/share/${PN}"
+	doins .mx_vcs_root
+	doins -r ninja-toolchains/
+	doins -r java/
+	doins -r tests/
+	keepdir "/usr/share/${PN}/mxbuild"
+	fperms 0777 "/usr/share/${PN}/mxbuild"
+	fperms -R 0777 "/usr/share/${PN}/java"
+
 	cat <<- EOF > "${T}/mx-run.py" || die
 		#!/usr/bin/env python
 		import sys, runpy
