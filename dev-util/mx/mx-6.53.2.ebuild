@@ -16,8 +16,6 @@ RDEPEND="${PYTHON_DEPS}"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 KEYWORDS="~amd64"
 
-PATCHES=( "${FILESDIR}"/${PN}-6-mx-enter-fix-shebang.patch )
-
 src_prepare() {
 	default
 	export SITE_PKG="$(python_get_sitedir)/${PN}"
