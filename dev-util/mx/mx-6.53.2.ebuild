@@ -16,7 +16,7 @@ RDEPEND="${PYTHON_DEPS}"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 KEYWORDS="~amd64"
 
-PATCHES=( "${FILESDIR}"/${PN}-6-mx_enter_fix_shebang.patch )
+PATCHES=( "${FILESDIR}"/${PN}-6-mx-enter-fix-shebang.patch )
 
 src_prepare() {
 	default
