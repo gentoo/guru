@@ -13,6 +13,9 @@
     </longdescription>
     <use>
       <flag name="multiplayer">Enable multiplayer.</flag>
+      <flag name="music">
+        Download and install the music too.  It's great.  Highly recommended.
+      </flag>
     </use>
     <upstream>
         <remote-id type="github">Infiltrator/7k-ambition</remote-id>
