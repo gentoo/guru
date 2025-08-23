@@ -54,7 +54,7 @@ src_compile() {
 src_install() {
 	default
 
-	doicon "${DISTDIR}/7k-ambition.png"
+	doicon "${DISTDIR}/${PN}.png"
 
-	make_desktop_entry 7k-ambition "Seven Kingdoms: Ambition" /usr/share/pixmaps/7k-ambition.png Game
+	make_desktop_entry ${PN} "Seven Kingdoms: Ambition" /usr/share/pixmaps/${PN}.png Game
 }
