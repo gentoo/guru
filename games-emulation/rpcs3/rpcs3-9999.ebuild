@@ -3,17 +3,18 @@
 
 EAPI=8
 
-inherit cmake flag-o-matic xdg
+inherit cmake flag-o-matic xdg optfeature
 
-ASMJIT_COMMIT="416f7356967c1f66784dc1580fe157f9406d8bff"
-GLSLANG_COMMIT="fc9889c889561c5882e83819dcaffef5ed45529b"
-MINIUPNP_COMMIT="d66872e34d9ff83a07f8b71371b13419b2089953"
-RTMIDI_COMMIT="1e5b49925aa60065db52de44c366d446a902547b"
-WOLFSSL_COMMIT="b077c81eb635392e694ccedbab8b644297ec0285"
-SOUNDTOUCH_COMMIT="3982730833b6daefe77dcfb32b5c282851640c17"
-YAMLCPP_COMMIT="456c68f452da09d8ca84b375faa2b1397713eaba"
-FUSION_COMMIT="066d4a63b2c714b20b0a8073a01fda7c5c6763f6"
-VULKANMEMORYALLOCATOR_COMMIT="6ec8481c8a13db586d7b3ba58f4eb9bbf017edf0"
+ASMJIT_COMMIT="416f7356967c1f66784dc1580fe157f9406d8bff" # remotes/origin/a32_port~71
+GLSLANG_COMMIT="fc9889c889561c5882e83819dcaffef5ed45529b" # tags/15.3.0
+MINIUPNP_COMMIT="d66872e34d9ff83a07f8b71371b13419b2089953" # tags/miniupnpd_2_3_9
+RTMIDI_COMMIT="1e5b49925aa60065db52de44c366d446a902547b" # tags/6.0.0
+WOLFSSL_COMMIT="decea12e223869c8f8f3ab5a53dc90b69f436eb2" # tags/5.8.2-stable
+SOUNDTOUCH_COMMIT="3982730833b6daefe77dcfb32b5c282851640c17" # master
+YAMLCPP_COMMIT="456c68f452da09d8ca84b375faa2b1397713eaba" # master
+FUSION_COMMIT="066d4a63b2c714b20b0a8073a01fda7c5c6763f6" # tags/1.2.8
+VULKANMEMORYALLOCATOR_COMMIT="1d8f600fd424278486eade7ed3e877c99f0846b1" # tags/3.3.0
+GAMEMODE_COMMIT="c54d6d4243b0dd0afcb49f2c9836d432da171a2b" # tags/1.8.2
 
 DESCRIPTION="PS3 emulator/debugger"
 HOMEPAGE="https://rpcs3.net/"
@@ -22,9 +23,8 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_SUBMODULES=(
 	'asmjit' '3rdparty/glslang' '3rdparty/miniupnp/miniupnp' '3rdparty/rtmidi/rtmidi' '3rdparty/wolfssl'
 	'3rdparty/SoundTouch/soundtouch' '3rdparty/fusion/fusion' '3rdparty/GPUOpen/VulkanMemoryAllocator'
+	'3rdparty/feralinteractive/feralinteractive' '3rdparty/yaml-cpp'
 	)
-	# Delete sources when ensuring yaml-cpp compiled with fexceptions
-	EGIT_SUBMODULES+=( '3rdparty/yaml-cpp' )
 	inherit git-r3
 else
 	SRC_URI="
@@ -40,6 +40,7 @@ else
 		https://github.com/xioTechnologies/Fusion/archive/${FUSION_COMMIT}.tar.gz -> ${PN}-fusion-${FUSION_COMMIT}.tar.gz
 		https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator/archive/${VULKANMEMORYALLOCATOR_COMMIT}.tar.gz
 			-> ${PN}-VulkanMemoryAllocator-${VULKANMEMORYALLOCATOR_COMMIT}.tar.gz
+		https://github.com/FeralInteractive/gamemode/archive/${GAMEMODE_COMMIT}.tar.gz -> ${PN}-GameMode.tar.gz
 	"
 	KEYWORDS="~amd64"
 fi
@@ -116,6 +117,10 @@ src_prepare() {
 		mv "${WORKDIR}/VulkanMemoryAllocator-${VULKANMEMORYALLOCATOR_COMMIT}" \
 			"${S}/3rdparty/GPUOpen/VulkanMemoryAllocator" || die
 
+		rmdir "${S}/3rdparty/feralinteractive/feralinteractive" || die
+		mv "${WORKDIR}/gamemode-${GAMEMODE_COMMIT}" \
+			"${S}/3rdparty/feralinteractive/feralinteractive" || die
+
 		#Define RPCS3 Version
 		{ echo "#define RPCS3_GIT_VERSION \"${PV}\""
 		echo '#define RPCS3_GIT_BRANCH "master"'
@@ -188,4 +193,8 @@ src_install() {
 
 	# remove unneccessary files to save some space
 	rm -rf "${ED}/usr/share/rpcs3/"{git,test} || die
+}
+
+pkg_postinst() {
+	optfeature "FeralInteractive GameMode support" games-util/gamemode
 }
