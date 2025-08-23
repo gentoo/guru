@@ -16,12 +16,16 @@ fi
 
 DESCRIPTION="Seven Kingdoms: Ambition"
 HOMEPAGE="https://seven-kingdoms-ambition.sourceforge.io/"
-SRC_URI+=" https://sourceforge.net/projects/seven-kingdoms-ambition/files/${PN}.png/download -> ${PN}.png"
+SRC_URI+=" https://sourceforge.net/projects/seven-kingdoms-ambition/files/${PN}.png/download -> ${PN}.png
+	music? ( https://www.7kfans.com/downloads/7kaa-music-2.15.tar.bz2 )
+"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2
+		music? ( 7k-music )"
 SLOT="0"
+IUSE="+nls +multiplayer +music"
+RESTRICT="music? ( bindist ) mirror"
 
-IUSE="+nls +multiplayer"
 DEPEND="
 	dev-libs/boost:=
 	nls? ( <=sys-devel/gettext-0.22.5-r2 )
@@ -33,6 +37,14 @@ DEPEND="
 	media-libs/openal:=
 "
 RDEPEND="${DEPEND}"
+
+src_unpack() {
+	if [[ ${PV} == *9999* ]]; then
+		git-r3_src_unpack
+	fi
+
+	default
+}
 
 src_prepare() {
 	default
@@ -53,6 +65,13 @@ src_compile() {
 
 src_install() {
 	default
+
+	if use music ; then
+		insinto "usr/share/${PN}/"
+		doins -r "${WORKDIR}/7kaa-music/MUSIC"
+
+		dodoc "${WORKDIR}/7kaa-music/README-Music.txt" "${WORKDIR}/7kaa-music/COPYING-Music.txt"
+	fi
 
 	doicon "${DISTDIR}/${PN}.png"
 
