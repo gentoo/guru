@@ -77,12 +77,11 @@
    namespace wallet {
 --- a/src/device/CMakeLists.txt
 +++ b/src/device/CMakeLists.txt
-@@ -73,7 +73,7 @@
+@@ -73,7 +73,6 @@
      cncrypto
      cryptonote_format_utils_basic
      ringct_basic
 -    wallet-crypto
-+    monero-crypto
      ${OPENSSL_CRYPTO_LIBRARIES}
      ${Boost_SERIALIZATION_LIBRARY}
    PRIVATE
