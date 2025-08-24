@@ -1,0 +1,29 @@
+From d100f2f9f2aac2cba7aa18e5e9fcdb9a9674c6ce Mon Sep 17 00:00:00 2001
+From: "Anna (cybertailor) Vyalkova" <cyber@sysrq.in>
+Date: Sun, 24 Aug 2025 18:06:58 +0500
+Subject: [PATCH] tests: Don't assume build directory is inside source
+ directory
+
+Signed-off-by: Anna (cybertailor) Vyalkova <cyber@sysrq.in>
+---
+ tests/services/meson.build | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tests/services/meson.build b/tests/services/meson.build
+index 080c7c57..b1044a94 100644
+--- a/tests/services/meson.build
++++ b/tests/services/meson.build
+@@ -2,8 +2,8 @@ service_data = configuration_data()
+ service_data.set('ABS_BUILDDIR', meson.project_build_root())
+ 
+ dbus_interface = join_paths(
+-  meson.project_build_root(),
+-  '../src/dbus/org.gnome.Shell.SearchProvider2.xml',
++  meson.project_source_root(),
++  'src/dbus/org.gnome.Shell.SearchProvider2.xml',
+ )
+ service = 'org.gnome.Phosh.MockSearchProvider.service'
+ 
+-- 
+2.51.0
+
