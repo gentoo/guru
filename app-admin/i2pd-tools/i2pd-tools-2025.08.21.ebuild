@@ -1,12 +1,12 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit toolchain-funcs
 
-COMMIT="e872010153d9a01a7d1ac2eb8d89dfb583b0f895"
-I2PD_COMMIT="9668ea9338fe8524781d6966f576227775129769" # keep in sync with bundled version
+COMMIT="c7dea1f3ff1aefa62d30dba0e5c57e1322026ee3"
+I2PD_COMMIT="2716869af40616a5585adf8894ce59bd92f128d1" # keep in sync with bundled version
 DESCRIPTION="Some useful tools for I2P"
 HOMEPAGE="https://github.com/PurpleI2P/i2pd-tools"
 SRC_URI="
@@ -63,7 +63,7 @@ src_install() {
 	)
 
 	for bin in "${binaries[@]}"; do
-		newbin "${bin}" "ip2d-${bin}"
+		newbin "${bin}" "i2pd-${bin}"
 	done
 
 	einstalldocs
