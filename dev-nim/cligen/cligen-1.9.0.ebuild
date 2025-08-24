@@ -15,7 +15,13 @@ SRC_URI="https://github.com/c-blake/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}
 LICENSE="ISC MIT"
 SLOT="${PV}"
 KEYWORDS="~amd64"
-IUSE="examples"
+IUSE="test toml"
+RESTRICT="!test? ( test )"
+
+RDEPEND="toml? ( dev-nim/parsetoml )"
+DEPEND="${RDEPEND}
+	test? ( dev-nim/parsetoml )
+"
 
 DOCS=( configs {MOTIVATION,README,RELEASE-NOTES,TODO}.md )
 
@@ -26,10 +32,8 @@ src_test() {
 }
 
 src_install() {
-	if use examples; then
-		docompress -x /usr/share/doc/${PF}/examples
-		dodoc -r examples
-	fi
+	docompress -x /usr/share/doc/${PF}/examples
+	dodoc -r examples
 
 	nimble_src_install
 }
