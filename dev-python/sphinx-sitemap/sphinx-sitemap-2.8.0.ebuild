@@ -28,6 +28,8 @@ BDEPEND="
 
 DOCS=( {CHANGELOG,README}.rst )
 
+EPYTEST_PLUGINS=( )
+
 distutils_enable_tests pytest
 
 src_prepare() {
