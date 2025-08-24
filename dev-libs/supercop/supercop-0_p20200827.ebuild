@@ -15,7 +15,7 @@ S="${WORKDIR}"/${PN}-${MY_REV}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="~amd64"
 
 DEPEND="dev-lang/nasm"
 
