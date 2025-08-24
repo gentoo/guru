@@ -2,11 +2,19 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<maintainer type="person">
 		<email>gjdijkman@gjdwebserver.nl</email>
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>https://source.puri.sm/Librem5/phoc/-/issues</bugs-to>
+		<bugs-to>https://gitlab.gnome.org/World/Phosh/phoc/-/issues</bugs-to>
 		<remote-id type="gnome-gitlab">World/Phosh/phoc</remote-id>
 	</upstream>
+	<use>
+		<flag name="dtrace">Enable profiling data capture support using <pkg>dev-debug/systemtap</pkg></flag>
+		<flag name="sysprof">Enable profiling data capture support using <pkg>dev-util/sysprof-capture</pkg></flag>
+	</use>
 </pkgmetadata>
