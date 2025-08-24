@@ -16,7 +16,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_SUBMODULES=()
 else
 	SRC_URI="https://github.com/monero-project/monero/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="BSD MIT"
