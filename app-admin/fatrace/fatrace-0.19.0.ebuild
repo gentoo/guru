@@ -18,5 +18,4 @@ src_install() {
 	dosbin fatrace
 	doman fatrace.8
 	use powertop && dosbin power-usage-report
-	dodoc NEWS
 }
