@@ -78,11 +78,6 @@ dev-python/NSKeyedUnArchiver
 <www-apps/anubis-1.21.3
 
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-07-25)
-# No revdeps. Fails to compile: see bug #913025 and #888027
-# Removal on 2025-08-25
-sys-fs/ddrescueview
-
-# David (stkw0) Roman <davidroman96@gmail.com> (2025-07-25)
 # Depends on removed pydantic version.
 dev-python/safety-schemas
 
