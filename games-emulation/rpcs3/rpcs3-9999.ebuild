@@ -84,7 +84,6 @@ QA_WX_LOAD="usr/share/rpcs3/test/*"
 
 PATCHES=(
 	"${FILESDIR}/${P}-system-stb.patch"
-	"${FILESDIR}/${P}-system-zstd.patch"
 )
 
 src_prepare() {
@@ -129,31 +128,13 @@ src_prepare() {
 	fi
 
 	# Disable automagic ccache
-	sed -i -e '/find_program(CCACHE_FOUND ccache)/d' CMakeLists.txt || die
-
-	# Unbundle hidapi
-	sed -i -e '/hidapi\.h/{s:<:<hidapi/:;s/>/>/}' rpcs3/Input/hid_pad_handler.h || die
-	sed -i -e '/hidapi/d' 3rdparty/CMakeLists.txt || die
-	sed -i -e '1afind_package(PkgConfig REQUIRED)\npkg_check_modules(hidapi-hidraw REQUIRED hidapi-hidraw)' \
-		rpcs3/CMakeLists.txt || die
-	sed -i -e 's/3rdparty::hidapi/hidapi-hidraw/' rpcs3/CMakeLists.txt rpcs3/rpcs3qt/CMakeLists.txt || die
-	sed -i -e 's/hid_write_control/hid_write/' \
-		rpcs3/Input/dualsense_pad_handler.cpp rpcs3/Input/ds4_pad_handler.cpp || die
-
-	# Unbundle cubeb
-	sed -i -e '/cubeb/d' 3rdparty/CMakeLists.txt || die
-	sed -i -e '$afind_package(cubeb)\n' CMakeLists.txt || die
-	sed -i -e 's/3rdparty::cubeb/cubeb/' rpcs3/Emu/CMakeLists.txt || die
+	sed -i -e '/find_program(CCACHE_PATH ccache .*)/d' CMakeLists.txt || die
 
 	# Unbundle yaml-cpp: system yaml-cpp should be compiled with -fexceptions
 	# sed -i -e '/yaml-cpp/d' 3rdparty/CMakeLists.txt || die
 	# sed -i -e '$afind_package(yaml-cpp)\n' CMakeLists.txt || die
 	# sed -i -e 's/3rdparty::yaml-cpp/yaml-cpp/' rpcs3/Emu/CMakeLists.txt \
 	#	rpcs3/rpcs3qt/CMakeLists.txt || die
-
-	# Fix build with GCC 15
-	# https://github.com/KhronosGroup/glslang/commit/e40c14a3e007fac0e4f2e4164fdf14d1712355bd
-	sed -i '/<algorithm>/a#include <cstdint>' 3rdparty/glslang/glslang/SPIRV/SpvBuilder.h || die
 
 	cmake_src_prepare
 }
@@ -164,13 +145,16 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=OFF # to remove after unbundling
 		-DUSE_PRECOMPILED_HEADERS=ON
+		-DUSE_SYSTEM_CUBEB=ON
 		-DUSE_SYSTEM_CURL=ON
 		-DUSE_SYSTEM_FFMPEG=ON
 		-DUSE_SYSTEM_FLATBUFFERS=ON
+		-DUSE_SYSTEM_HIDAPI=ON
 		-DUSE_SYSTEM_LIBPNG=ON
 		-DUSE_SYSTEM_LIBUSB=ON
 		-DUSE_SYSTEM_PUGIXML=ON
 		-DUSE_SYSTEM_ZLIB=ON
+		-DUSE_SYSTEM_ZSTD=ON
 		-DUSE_DISCORD_RPC=$(usex discord)
 		-DUSE_FAUDIO=$(usex faudio)
 		-DUSE_SYSTEM_OPENCV=$(usex opencv)

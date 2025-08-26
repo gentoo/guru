@@ -1,4 +1,4 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -136,11 +136,6 @@ src_prepare() {
 	sed -i -e 's/hid_write_control/hid_write/' \
 		rpcs3/Input/dualsense_pad_handler.cpp rpcs3/Input/ds4_pad_handler.cpp || die
 
-	# Unbundle cubeb
-	sed -i -e '/cubeb/d' 3rdparty/CMakeLists.txt || die
-	sed -i -e '$afind_package(cubeb)\n' CMakeLists.txt || die
-	sed -i -e 's/3rdparty::cubeb/cubeb/' rpcs3/Emu/CMakeLists.txt || die
-
 	# Unbundle yaml-cpp: system yaml-cpp should be compiled with -fexceptions
 	# sed -i -e '/yaml-cpp/d' 3rdparty/CMakeLists.txt || die
 	# sed -i -e '$afind_package(yaml-cpp)\n' CMakeLists.txt || die
@@ -160,6 +155,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=OFF # to remove after unbundling
 		-DUSE_PRECOMPILED_HEADERS=ON
+		-DUSE_SYSTEM_CUBEB=ON
 		-DUSE_SYSTEM_CURL=ON
 		-DUSE_SYSTEM_FFMPEG=ON
 		-DUSE_SYSTEM_FLATBUFFERS=ON
