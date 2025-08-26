@@ -33,6 +33,7 @@ DEPEND="sys-libs/ncurses-compat:5"
 RDEPEND="${DEPEND}"
 
 BDEPEND="
+	app-alternatives/cpio
 	app-alternatives/gzip[reference]
 	sys-devel/binutils[multitarget]
 	sys-libs/ncurses[abi_x86_32(-)]
