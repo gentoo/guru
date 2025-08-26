@@ -7,8 +7,6 @@ inherit cmake flag-o-matic xdg optfeature
 
 ASMJIT_COMMIT="416f7356967c1f66784dc1580fe157f9406d8bff" # remotes/origin/a32_port~71
 GLSLANG_COMMIT="fc9889c889561c5882e83819dcaffef5ed45529b" # tags/15.3.0
-MINIUPNP_COMMIT="d66872e34d9ff83a07f8b71371b13419b2089953" # tags/miniupnpd_2_3_9
-RTMIDI_COMMIT="1e5b49925aa60065db52de44c366d446a902547b" # tags/6.0.0
 WOLFSSL_COMMIT="decea12e223869c8f8f3ab5a53dc90b69f436eb2" # tags/5.8.2-stable
 SOUNDTOUCH_COMMIT="3982730833b6daefe77dcfb32b5c282851640c17" # master
 YAMLCPP_COMMIT="456c68f452da09d8ca84b375faa2b1397713eaba" # master
@@ -21,7 +19,7 @@ HOMEPAGE="https://rpcs3.net/"
 if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/RPCS3/rpcs3"
 	EGIT_SUBMODULES=(
-	'asmjit' '3rdparty/glslang' '3rdparty/miniupnp/miniupnp' '3rdparty/rtmidi/rtmidi' '3rdparty/wolfssl'
+	'asmjit' '3rdparty/glslang' '3rdparty/wolfssl'
 	'3rdparty/SoundTouch/soundtouch' '3rdparty/fusion/fusion' '3rdparty/GPUOpen/VulkanMemoryAllocator'
 	'3rdparty/feralinteractive/feralinteractive' '3rdparty/yaml-cpp'
 	)
@@ -31,8 +29,6 @@ else
 		https://github.com/RPCS3/rpcs3/archive/v${PV}.tar.gz -> ${P}.tar.gz
 		https://github.com/asmjit/asmjit/archive/${ASMJIT_COMMIT}.tar.gz -> ${PN}-asmjit-${ASMJIT_COMMIT}.tar.gz
 		https://github.com/KhronosGroup/glslang/archive/${GLSLANG_COMMIT}.tar.gz -> ${PN}-glslang-${GLSLANG_COMMIT}.tar.gz
-		https://github.com/miniupnp/miniupnp/archive/${MINIUPNP_COMMIT}.tar.gz -> ${PN}-miniupnp-${MINIUPNP_COMMIT}.tar.gz
-		https://github.com/thestk/rtmidi/archive/${RTMIDI_COMMIT}.tar.gz -> ${PN}-rtmidi-${RTMIDI_COMMIT}.tar.gz
 		https://github.com/wolfSSL/wolfssl/archive/${WOLFSSL_COMMIT}.tar.gz -> ${PN}-wolfssl-${WOLFSSL_COMMIT}.tar.gz
 		https://github.com/RPCS3/soundtouch/archive/${SOUNDTOUCH_COMMIT}.tar.gz
 			-> ${PN}-soundtouch-${SOUNDTOUCH_COMMIT}.tar.gz
@@ -66,7 +62,9 @@ DEPEND="
 	media-libs/libglvnd
 	media-libs/libpng:=
 	media-libs/openal
+	media-libs/rtmidi
 	media-video/ffmpeg:=
+	net-libs/miniupnpc:=
 	net-misc/curl
 	llvm-core/llvm:=
 	sys-libs/zlib
@@ -93,12 +91,6 @@ src_prepare() {
 
 		rmdir "${S}/3rdparty/glslang/glslang" || die
 		mv "${WORKDIR}/glslang-${GLSLANG_COMMIT}" "${S}/3rdparty/glslang/glslang" || die
-
-		rmdir "${S}/3rdparty/miniupnp/miniupnp" || die
-		mv "${WORKDIR}/miniupnp-${MINIUPNP_COMMIT}" "${S}/3rdparty/miniupnp/miniupnp" || die
-
-		rmdir "${S}/3rdparty/rtmidi/rtmidi" || die
-		mv "${WORKDIR}/rtmidi-${RTMIDI_COMMIT}" "${S}/3rdparty/rtmidi/rtmidi" || die
 
 		rmdir "${S}/3rdparty/wolfssl/wolfssl" || die
 		mv "${WORKDIR}/wolfssl-${WOLFSSL_COMMIT}" "${S}/3rdparty/wolfssl/wolfssl" || die
@@ -152,7 +144,9 @@ src_configure() {
 		-DUSE_SYSTEM_HIDAPI=ON
 		-DUSE_SYSTEM_LIBPNG=ON
 		-DUSE_SYSTEM_LIBUSB=ON
+		-DUSE_SYSTEM_MINIUPNPC=ON
 		-DUSE_SYSTEM_PUGIXML=ON
+		-DUSE_SYSTEM_RTMIDI=ON
 		-DUSE_SYSTEM_ZLIB=ON
 		-DUSE_SYSTEM_ZSTD=ON
 		-DUSE_DISCORD_RPC=$(usex discord)
