@@ -90,4 +90,8 @@ Tip: you can use LosslessCut in multiple passes in order to achieve separate tri
 		<remote-id type="github">mifi/lossless-cut</remote-id>
 		<bugs-to>https://github.com/mifi/lossless-cut/issues</bugs-to>
 	</upstream>
+	<use>
+		<flag name="disable-networking">Disable automatic fetching of remote content</flag>
+		<flag name="system-ffmpeg">Use system-provided ffmpeg instead of bundled one</flag>
+	</use>
 </pkgmetadata>
