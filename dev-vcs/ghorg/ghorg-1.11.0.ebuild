@@ -14,11 +14,6 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
-DEPEND="
-	dev-lang/go:=
-"
-RDEPEND="${DEPEND}"
-
 src_compile() {
 	ego build
 }
