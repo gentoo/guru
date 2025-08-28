@@ -69,7 +69,6 @@ dev-python/grpc-stubs
 # Removal on 2025-08-28
 dev-python/iOSbackup
 app-forensics/mvt
-dev-python/biplist
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-07-27)
 # Vulnerable to a cross-site scripting attack.
