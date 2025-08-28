@@ -16,19 +16,10 @@ IUSE="+gui"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/PancakeTAS/lsfg-vk"
-	EGIT_SUBMODULES=(
-		thirdparty/pe-parse
-		thirdparty/volk
-	)
 else
 	KEYWORDS="~amd64 ~arm64"
-	HASH_VOLK="be3dbd49bf77052665e96b6c7484af855e7e5f67"
-	PEPARSE_VERSION="2.1.1"
 	SRC_URI="
 		https://github.com/PancakeTAS/lsfg-vk/archive/refs/tags/v${PV}.tar.gz -> lsfg-vk-${PV}.tar.gz
-		https://github.com/trailofbits/pe-parse/archive/refs/tags/v${PEPARSE_VERSION}.tar.gz
-			-> pe-parse-${PEPARSE_VERSION}.tar.gz
-		https://github.com/zeux/volk/archive/${HASH_VOLK}.tar.gz -> volk-${HASH_VOLK}.tar.gz
 		${CARGO_CRATE_URIS}
 	"
 fi
@@ -38,7 +29,6 @@ BDEPEND="
 	gui? ( ${RUST_DEPEND} )
 "
 DEPEND="
-	dev-cpp/toml11
 	dev-util/glslang
 	gui? (
 		dev-libs/glib:2
@@ -74,32 +64,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	if [[ ${PV} != 9999 ]]; then
-		rmdir thirdparty/* || die
-		mv ../pe-parse-${PEPARSE_VERSION} thirdparty/pe-parse || die
-		mv ../volk-${HASH_VOLK} thirdparty/volk || die
-	fi
-
-	# Static linking pe-parse
-	sed -i\
-		's/^option(BUILD_SHARED_LIBS "Build Shared Libraries" ON)$/option(BUILD_SHARED_LIBS "Build Shared Libraries" OFF)/'\
-		thirdparty/pe-parse/CMakeLists.txt || die
-
-	sed -i\
-		's|add_library(${PROJECT_NAME} ${PEPARSERLIB_SOURCEFILES})|add_library(${PROJECT_NAME} STATIC ${PEPARSERLIB_SOURCEFILES})|'\
-		thirdparty/pe-parse/pe-parser-library/CMakeLists.txt || die
-
-	# Using system toml11
-	sed -i\
-		-e '/add_subdirectory(thirdparty\/toml11 EXCLUDE_FROM_ALL)/d' \
-		-e '/get_target_property(TOML11_INCLUDE_DIRS toml11 INTERFACE_INCLUDE_DIRECTORIES)/{
-N
-/target_include_directories(lsfg-vk SYSTEM PRIVATE ${TOML11_INCLUDE_DIRS})/c\
-find_package(toml11 REQUIRED)
-}'\
-		-e '/target_link_libraries(lsfg-vk PUBLIC/{:a;N;/)/!ba;s/\btoml11\b/toml11::toml11/g}'\
-		CMakeLists.txt || die
-
 	eapply_user
 	cmake_src_prepare
 }
