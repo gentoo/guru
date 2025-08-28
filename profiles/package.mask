@@ -55,12 +55,6 @@ sys-kernel/usermode-kernel
 # Removal on 2025-08-29, Bug #960098
 gui-apps/paperde
 
-# Lucio Sauer <watermanpaint@posteo.net> (2025-07-28)
-# Outdated downstream and archived upstream; no revdeps.
-# Superseded by types-grpcio* on PyPi.
-# Removal on 2025-08-28
-dev-python/grpc-stubs
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-07-27)
 # Vulnerable to a cross-site scripting attack.
 # https://github.com/TecharoHQ/anubis/security/advisories/GHSA-jhjj-2g64-px7c
