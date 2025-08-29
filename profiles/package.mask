@@ -49,12 +49,6 @@ games-util/samrewritten
 # Removal on 2025-09-14, bug #886631
 sys-kernel/usermode-kernel
 
-# Lucio Sauer <watermanpaint@posteo.net> (2025-07-29)
-# Packaged version depends on treecleaned dev-libs/libdbusmenu-qt. Gentoo
-# maintainer inactive and several versions out of date.
-# Removal on 2025-08-29, Bug #960098
-gui-apps/paperde
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-07-27)
 # Vulnerable to a cross-site scripting attack.
 # https://github.com/TecharoHQ/anubis/security/advisories/GHSA-jhjj-2g64-px7c
