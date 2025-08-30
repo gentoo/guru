@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<maintainer type="person">
+		<email>zl29ah@gmail.com</email>
+		<name>Sergey Alirzaev</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="pypi">bleak</remote-id>
 		<remote-id type="github">hbldh/bleak</remote-id>
