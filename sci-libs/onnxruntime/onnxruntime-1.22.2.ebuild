@@ -32,7 +32,7 @@ RDEPEND="
 	dev-libs/cpuinfo
 	dev-libs/protobuf:=
 	dev-libs/re2:=
-	sci-ml/onnx[disableStaticReg]
+	<sci-ml/onnx-1.18[disableStaticReg]
 
 	python? (
 		${PYTHON_DEPS}
