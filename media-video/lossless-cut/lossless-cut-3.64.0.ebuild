@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -58,10 +58,12 @@ src_install() {
 
 	local desktop_file="${WORKDIR}"/no.mifi.losslesscut.desktop
 	cp "${FILESDIR}"/no.mifi.losslesscut.desktop "${desktop_file}" || die
-	use disable-networking && \
+	if use disable-networking; then
 		sed -i "/^Exec=/ s%$% --disable-networking%" "${desktop_file}" || die
-	use system-ffmpeg && \
+	fi
+	if use system-ffmpeg; then
 		sed -i "/^Exec=/ s%$% --settings-json '{\"customFfPath\": \"/usr/bin\"}'%" "${desktop_file}" || die
+	fi
 	domenu "${desktop_file}"
 	doicon "${FILESDIR}"/no.mifi.losslesscut.svg
 
