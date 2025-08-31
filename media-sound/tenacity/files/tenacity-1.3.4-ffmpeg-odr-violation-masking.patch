@@ -1,0 +1,24 @@
+masks the ODR violations in the lib-ffmpeg-support module, by forcing -Wno-error=odr
+this is a *temporary solution only*, while waiting on the upstream fix currently
+being worked on: https://codeberg.org/tenacityteam/tenacity/pulls/418
+
+an ideal solution would fix the violations or introduce namespaces, however
+this is not feasible for a patch as the offending files are multiple 5000+ line
+headers that declare *all* ffmpeg functions across multiple versions. it's a
+truly enormous number of ODR violations, but it shouldn't cause actual runtime
+issues, only compiler complaints. once ffmpeg-linking is functional that should
+the preferred solution.
+
+diff --git a/libraries/lib-ffmpeg-support/CMakeLists.txt b/libraries/lib-ffmpeg-support/CMakeLists.txt
+index 7e76ab997..b2eb6ab6e 100644
+--- a/libraries/lib-ffmpeg-support/CMakeLists.txt
++++ b/libraries/lib-ffmpeg-support/CMakeLists.txt
+@@ -117,6 +117,8 @@ if (USE_FFMPEG)
+       list(APPEND DEFINITIONS PRIVATE _DARWIN_C_SOURCE )
+    endif()
+ 
++   add_compile_options(-Wno-error=odr)
++   add_link_options(-Wno-error=odr)
+    tenacity_library( lib-ffmpeg-support "${SOURCES}" "${LIBRARIES}"
+       "${DEFINITIONS}" ""
+    )
