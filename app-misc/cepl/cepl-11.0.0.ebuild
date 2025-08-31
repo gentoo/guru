@@ -30,6 +30,4 @@ src_compile() {
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
-	# uncompress manpage to silence QA warning
-	bzip2 -d "${D}${EPREFIX}/usr/share/man/man1/cepl.1.bz2"
 }
