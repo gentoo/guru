@@ -5,7 +5,7 @@ EAPI=8
 
 WX_GTK_VER="3.2-gtk3"
 
-inherit cmake wxwidgets xdg virtualx
+inherit cmake wxwidgets xdg virtualx toolchain-funcs flag-o-matic
 
 # libnyquist doesn't have tags, instead use the specific submodule commit tenacity does
 LIBNYQUIST_COMMIT="d4fe08b079538a2fd79277ef1a83434663562f04"
@@ -72,7 +72,6 @@ RDEPEND="${DEPEND}"
 PATCHES=(
 	"${FILESDIR}/${PN}-1.3.4-fix-rpath-handling.patch"
 	"${FILESDIR}/${PN}-1.3.4-fix-hardcoded-docdir.patch"
-	"${FILESDIR}/${PN}-1.3.4-ffmpeg-odr-violation-masking.patch"
 	"${FILESDIR}/${PN}-1.3.4-odr-and-aliasing-fixes.patch"
 )
 
@@ -85,6 +84,12 @@ src_unpack() {
 }
 
 src_configure() {
+	# the lib-ffmpeg-support module violates -Wodr when using GCC,
+	# so LTO builds will fail when it's enabled (bug #961756)
+	if use ffmpeg && tc-is-gcc; then
+		filter-lto
+	fi
+
 	setup-wxwidgets
 
 	local mycmakeargs=(
