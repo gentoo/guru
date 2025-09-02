@@ -1,0 +1,37 @@
+diff --git a/lib/pynput/_util/uinput.py b/lib/pynput/_util/uinput.py
+index b0a6a78..c891b83 100644
+--- a/lib/pynput/_util/uinput.py
++++ b/lib/pynput/_util/uinput.py
+@@ -72,6 +72,14 @@ def _device(self, paths):
+             except OSError:
+                 continue
+ 
++            # Some programmable mouse devices report each programmable input as
++            # a separate capability, so it is possible for a mouse to exceed
++            # keyboards in capability count; for this reason we will prefer a
++            # device with "keyboard" in its name
++            if 'keyboard' in next_dev.name.lower():
++                dev = next_dev
++                break
++
+             # Does this device provide more handled event codes?
+             capabilities = next_dev.capabilities()
+             next_count = sum(
+diff --git a/lib/pynput/keyboard/_uinput.py b/lib/pynput/keyboard/_uinput.py
+index 2f63dd3..747d19d 100644
+--- a/lib/pynput/keyboard/_uinput.py
++++ b/lib/pynput/keyboard/_uinput.py
+@@ -204,10 +204,10 @@ def as_char(k):
+             as_char(key): (
+                 vk,
+                 set()
+-                    | {Key.shift} if i & 1 else set()
+-                    | {Key.alt_gr} if i & 2 else set())
++                    | ({Key.shift} if i & 1 else set())
++                    | ({Key.alt_gr} if i & 2 else set()))
+             for vk, keys in self._vk_table.items()
+-            for i, key in enumerate(keys)
++            for i, key in reversed(list(enumerate(keys)))
+             if key is not None and as_char(key) is not None}
+ 
+     def for_vk(self, vk, modifiers):
