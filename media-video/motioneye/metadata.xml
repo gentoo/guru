@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <name>Dale Showers</name>
+        <email>gentoo@fictx.com</email>
+    </maintainer>
+    <upstream>
+        <changelog>https://github.com/motioneye-project/motioneye/releases</changelog>
+        <doc>https://github.com/motioneye-project/motioneye/wiki</doc>
+        <bugs-to>https://github.com/motioneye-project/motioneye/issues</bugs-to>
+        <remote-id type="github">motioneye-project/motioneye</remote-id>
+    </upstream>
+</pkgmetadata>
