@@ -12,6 +12,7 @@ S="${WORKDIR}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="debug"
 RDEPEND="
 	sys-libs/readline:=
 	virtual/libelf:=
@@ -19,13 +20,18 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_prepare() {
+	default
 	eapply_user
 }
 
 src_compile() {
+	local myemakeargs=()
+
 	tc-export CC
 	export {C,LD}FLAGS
-	emake cepl
+
+	use debug && myemakeargs+="debug"
+	emake "${myemakeargs[@]}"
 }
 
 src_install() {
