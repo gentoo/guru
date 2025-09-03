@@ -12,4 +12,7 @@
 	<upstream>
 		<remote-id type="github">th-ch/youtube-music</remote-id>
 	</upstream>
+	<use>
+		<flag name="wayland">Run in Wayland mode</flag>
+	</use>
 </pkgmetadata>
