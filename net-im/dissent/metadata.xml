@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<longdescription>
+		Dissent (previously gtkcord4) is a third-party Discord
+		client designed for a smooth, native experience on Linux desktops.
+
+		Built with the GTK4 and libadwaita for a modern look and feel, 
+		it delivers your favorite Discord app in a lightweight and visually 
+		appealing package.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">diamondburned/dissent</remote-id>
+	</upstream>
+</pkgmetadata>
