@@ -23,6 +23,7 @@
 # Package is just a small component of Sorbet, installed via rubygems
 # A proper package should build do a full build of Sorbet from source.
 # Additionally, upstream adds new tags too often (multiple times per day)
+# Removal on 2025-10-03
 dev-ruby/sorbet-runtime
 
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-08-29)
