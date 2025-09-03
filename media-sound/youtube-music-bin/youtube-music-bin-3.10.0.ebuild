@@ -16,6 +16,7 @@ S="${WORKDIR}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="-* ~amd64"
+IUSE="wayland"
 
 RDEPEND="
 	app-accessibility/at-spi2-core:2
@@ -64,6 +65,10 @@ src_prepare() {
 	default
 
 	sed -i 's/\/opt\/YouTube Music/\/opt\/'${MY_PN}'/' usr/share/applications/"${MY_PN}".desktop || die
+
+	if use wayland; then
+		sed -i '/^Exec=/ s|^\(Exec="[^"]*"\)\(.*\)$|\1 --ozone-platform=wayland\2|' usr/share/applications/"${MY_PN}".desktop
+	fi
 }
 
 src_install() {
