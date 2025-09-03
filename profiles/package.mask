@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Bryce Copeland (truffle) <truffle074@gmail.com> (2025-09-03)
+# Only created to satisfy a no-longer-required dependency for dev-ruby/ruby-lsp
+# Package is just a small component of Sorbet, installed via rubygems
+# A proper package should build do a full build of Sorbet from source.
+# Additionally, upstream adds new tags too often (multiple times per day)
+dev-ruby/sorbet-runtime
+
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-08-29)
 # EAPI 7. Depends on masked media-sound/pulseaudio. Archived upstream
 # Removal on 2025-09-29
