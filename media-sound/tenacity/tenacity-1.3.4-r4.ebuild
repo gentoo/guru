@@ -22,56 +22,60 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="alsa ffmpeg +midi +lame +id3tag +mp3 +mp2 +flac +ogg +vorbis +sbsms +soundtouch +ladspa +lv2 vamp +vst2"
+IUSE="ffmpeg +midi +lame +id3tag +mp3 mp2 +flac matroska +ogg +vorbis +sbsms +soundtouch +ladspa +lv2 vamp +vst2"
 REQUIRED_USE="
 	id3tag? ( mp3 )
 	lame? ( mp3 )
-	vorbis? ( ogg )
 "
 
 DEPEND="
+	sys-libs/zlib
+	dev-libs/expat
+	media-sound/lame
+	media-libs/libsndfile
+	media-libs/soxr
+	dev-db/sqlite:3
+	media-libs/portaudio
 	dev-libs/glib:2
 	x11-libs/gtk+:3
 	x11-libs/wxGTK:${WX_GTK_VER}=[X]
-	media-libs/alsa-lib
-	dev-libs/expat
-	flac? ( media-libs/flac )
-	sys-devel/gettext
-	media-sound/lame
+
+	midi? (
+		media-libs/portmidi
+		media-libs/portsmf
+	)
 	id3tag? ( media-libs/libid3tag )
 	mp3? ( media-libs/libmad )
+	mp2? ( media-sound/twolame )
+	matroska? ( media-libs/libmatroska )
 	ogg? ( media-libs/libogg )
-	media-libs/libsndfile
 	vorbis? ( media-libs/libvorbis )
+	flac? ( media-libs/flac )
+	sbsms? ( media-libs/libsbsms )
+	soundtouch? ( media-libs/libsoundtouch )
+	ffmpeg? ( media-video/ffmpeg )
+	vamp? ( media-libs/vamp-plugin-sdk )
 	lv2? (
-		media-libs/lilv
 		media-libs/lv2
+		media-libs/lilv
+		media-libs/suil
 	)
-	midi? (
-		media-libs/portaudio
-		media-libs/portmidi
-	)
+
+	sys-devel/gettext
 	dev-libs/serd
 	dev-libs/sord
-	soundtouch? ( media-libs/libsoundtouch )
-	media-libs/soxr
-	dev-db/sqlite
 	media-libs/sratom
-	media-libs/suil
 	media-libs/taglib
-	mp2? ( media-sound/twolame )
-	media-libs/vamp-plugin-sdk
-	x11-libs/wxGTK
-	sys-libs/zlib
-	ffmpeg? ( media-video/ffmpeg )
-	sbsms? ( media-libs/libsbsms )
-	vamp? ( media-libs/vamp-plugin-sdk )
 "
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/tenacity-1.3.4-fix-rpath-handling.patch"
-	"${FILESDIR}/tenacity-1.3.4-fix-hardcoded-docdir.patch"
+	"${FILESDIR}/${PN}-1.3.4-fix-rpath-handling.patch"
+	"${FILESDIR}/${PN}-1.3.4-fix-hardcoded-docdir.patch"
+
+	# bug #961756
+	"${FILESDIR}/${PN}-1.3.4-odr-and-aliasing-fixes.patch"
+	"${FILESDIR}/${PN}-1.3.4-ffmpeg-disable-lto.patch"
 )
 
 src_unpack() {
@@ -101,6 +105,7 @@ src_configure() {
 		-DID3TAG=$(usex id3tag ON OFF)
 		-DMP3_DECODING=$(usex mp3 ON OFF)
 		-DMP2=$(usex mp2 ON OFF)
+		-DMATROSKA=$(usex matroska ON OFF)
 		-DOGG=$(usex ogg ON OFF)
 		-DVORBIS=$(usex vorbis ON OFF)
 		-DFLAC=$(usex flac ON OFF)

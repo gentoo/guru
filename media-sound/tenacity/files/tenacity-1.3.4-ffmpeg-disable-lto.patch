@@ -1,0 +1,26 @@
+disables lto for only the lib-ffmpeg-support, without affecting the rest of the
+build. lib-ffmpeg-support has a large number of -Wodr violations due to it
+overloading dynmically imported function/struct names for different ffmpeg
+versions, with different declarations. the actual types get resolved at runtime
+but cause violations at building with LTO.
+
+there is a fix in progress upstream, which should resolve the issue in future
+versions: https://codeberg.org/tenacityteam/tenacity/pulls/418
+
+was reported in bug #961756, other revisions (r2 & r3) will still compile but
+this fix is cleaner, has less impact, and stops the problematic code from
+compiling with LTO at all.
+
+diff --git a/libraries/lib-ffmpeg-support/CMakeLists.txt b/libraries/lib-ffmpeg-support/CMakeLists.txt
+index 7e76ab997..7c1037a60 100644
+--- a/libraries/lib-ffmpeg-support/CMakeLists.txt
++++ b/libraries/lib-ffmpeg-support/CMakeLists.txt
+@@ -117,6 +117,8 @@ if (USE_FFMPEG)
+       list(APPEND DEFINITIONS PRIVATE _DARWIN_C_SOURCE )
+    endif()
+ 
++   add_compile_options(-fno-lto)
++   add_link_options(-fno-lto)
+    tenacity_library( lib-ffmpeg-support "${SOURCES}" "${LIBRARIES}"
+       "${DEFINITIONS}" ""
+    )
