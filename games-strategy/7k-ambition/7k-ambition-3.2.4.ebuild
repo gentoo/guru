@@ -26,6 +26,7 @@ SLOT="0"
 IUSE="+nls +multiplayer +music"
 RESTRICT="music? ( bindist ) mirror"
 
+BDEPEND="multiplayer? ( sys-devel/gcc:12 )"
 DEPEND="
 	dev-libs/boost:=
 	nls? ( <=sys-devel/gettext-0.22.5-r2 )
@@ -47,6 +48,15 @@ src_unpack() {
 }
 
 src_prepare() {
+	if use multiplayer ; then
+		if tc-is-gcc && ver_test $(gcc-version) -ne 12 ; then
+			eerror "Seven Kingdoms multiplayer is known to work only with" \
+			" gcc-12.  Please"
+			eerror " use gcc-12 to build Seven Kingdoms."
+			die
+		fi
+	fi
+
 	default
 	eautoreconf
 }
