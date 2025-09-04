@@ -46,7 +46,7 @@ src_prepare() {
 	default
 
 	# everything is readonly
-	chmod -R u+w "${S}/vendor" || die
+	chmod -R u+w "${S}" || die
 
 	# file missing from upstream, causes build failure
 	cp "${FILESDIR}"/modules.txt "${S}"/vendor || die
