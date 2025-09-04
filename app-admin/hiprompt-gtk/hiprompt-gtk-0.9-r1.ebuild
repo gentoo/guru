@@ -42,9 +42,3 @@ QA_FLAGS_IGNORED=".*"
 src_configure() {
 	export PREFIX=/usr
 }
-
-pkg_postinst() {
-	elog "Add the following to himitsu's config.ini:"
-	elog "[himitsud]"
-	elog "prompter=hiprompt-gtk"
-}
