@@ -20,7 +20,7 @@ LICENSE="GPL-3"
 DEPEND="
 	>=dev-lang/hare-0.25.2:=
 "
-RDEPEND="
+PDEPEND="
 	|| (
 		app-admin/hiprompt-gtk
 		gui-apps/hiprompt-gtk-py
