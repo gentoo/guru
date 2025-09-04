@@ -16,20 +16,24 @@ HOMEPAGE="https://git.sr.ht/~sircmpwn/hiprompt-gtk"
 LICENSE="GPL-3"
 SLOT="0"
 
-# gui-apps/hiprompt-gtk-py: both are installing to /usr/bin/hiprompt-gtk
-RDEPEND="
+COMMON_DEPEND="
 	dev-libs/glib
 	>=gui-libs/gtk-4.18:4
 	gui-libs/libadwaita
 	gui-libs/gtk4-layer-shell
-	!gui-apps/hiprompt-gtk-py
 "
 DEPEND="
-	${RDEPEND}
+	${COMMON_DEPEND}
 	>=dev-lang/hare-0.25.2:=
+	app-admin/himitsu
 	dev-hare/hare-gi
 	dev-hare/hare-adwaita
 	dev-hare/hare-gtk4-layer-shell
+"
+# gui-apps/hiprompt-gtk-py: both are installing to /usr/bin/hiprompt-gtk
+RDEPEND="
+	${COMMON_DEPEND}
+	!gui-apps/hiprompt-gtk-py
 "
 
 # All binaries are hare-built
