@@ -42,7 +42,7 @@ github.com/danieljoos/wincred
 # github.com/diamondburned/adaptive v0.0.2-0.20221227093656-fa139be203a8
 ## explicit; go 1.17
 github.com/diamondburned/adaptive
-# github.com/diamondburned/arikawa/v3 v3.5.1-0.20250703053218-19d9c3f2e011
+# github.com/diamondburned/arikawa/v3 v3.6.0
 ## explicit; go 1.23
 github.com/diamondburned/arikawa/v3/api
 github.com/diamondburned/arikawa/v3/api/rate

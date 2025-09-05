@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop go-module unpacker xdg
 
-DESCRIPTION="Tiny native Discord client for Linux"
+DESCRIPTION="Tiny native Discord app"
 HOMEPAGE="https://github.com/diamondburned/dissent"
 SRC_URI="https://github.com/diamondburned/${PN}/releases/download/v${PV}/${PN}-source.tar.zst -> ${P}.tar.zst"
 
