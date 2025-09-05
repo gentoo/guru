@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_USE_PEP517=hatchling
 PYPI_NONORMALIZE=1
 
@@ -14,7 +14,7 @@ HOMEPAGE="https://pypi.org/project/py-himitsu/ https://git.sr.ht/~apreiml/py-him
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
 	>=app-admin/himitsu-0.9:=
