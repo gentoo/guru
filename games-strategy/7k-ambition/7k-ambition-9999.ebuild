@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools desktop flag-o-matic toolchain-funcs xdg
+inherit autotools desktop toolchain-funcs xdg
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
@@ -56,8 +56,6 @@ src_configure() {
 		$(use_enable nls)
 		$(use_enable multiplayer)
 	)
-
-	append-cxxflags -fexcess-precision=fast
 	econf "${myeconfargs[@]}"
 }
 
