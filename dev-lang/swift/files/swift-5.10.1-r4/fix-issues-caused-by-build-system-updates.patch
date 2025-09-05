@@ -1,0 +1,138 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Fix issues caused by build system updates.
+
+This includes fixes for issues caused by the following updates:
+
+- GCC 15 (specifically, changes in libstdc++)
+- GNU libc C library 2.42
+- CMake 4
+
+Specifically, the following is changed:
+
+- Added missing includes of the `<cstdint>` header [1]
+- Removed deprecated `struct termio` [2]
+- Removed unnecessary `CMP0037` policy change [3]
+
+[1] See https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=3a817a4a5a6d94da9127af3be9f84a74e3076ee2
+[2] See https://github.com/swiftlang/llvm-project/commit/59978b21ad9c65276ee8e14f26759691b8a65763
+[3] See https://github.com/swiftlang/swift-llbuild/commit/1fbcca53fe5fde6e2afb3998f19bb5ff4a7df5d8
+
+Bug: https://bugs.gentoo.org/945025
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/llbuild/tests/CMakeLists.txt
++++ b/llbuild/tests/CMakeLists.txt
+@@ -46,9 +46,6 @@ if(Python_Interpreter_FOUND AND LIT_FOUND AND FILECHECK_FOUND)
+   add_dependencies(test-llbuild ${test_target_dependencies})
+ 
+   # Add a target for running all tests.
+-  if(POLICY CMP0037)
+-    cmake_policy(SET CMP0037 OLD)
+-  endif(POLICY CMP0037)
+   add_custom_target(test)
+   add_dependencies(test test-llbuild)
+   set_target_properties(test PROPERTIES FOLDER "Tests")
+--- a/llbuild/utils/unittest/googletest/include/gtest/gtest.h
++++ b/llbuild/utils/unittest/googletest/include/gtest/gtest.h
+@@ -52,6 +52,7 @@
+ #define GTEST_INCLUDE_GTEST_GTEST_H_
+ 
+ #include <cstddef>
++#include <cstdint>
+ #include <limits>
+ #include <memory>
+ #include <ostream>
+--- a/llvm-project/compiler-rt/lib/sanitizer_common/sanitizer_common_interceptors_ioctl.inc
++++ b/llvm-project/compiler-rt/lib/sanitizer_common/sanitizer_common_interceptors_ioctl.inc
+@@ -338,17 +338,9 @@ static void ioctl_table_fill() {
+   _(SOUND_PCM_WRITE_CHANNELS, WRITE, sizeof(int));
+   _(SOUND_PCM_WRITE_FILTER, WRITE, sizeof(int));
+   _(TCFLSH, NONE, 0);
+-#if SANITIZER_GLIBC
+-  _(TCGETA, WRITE, struct_termio_sz);
+-#endif
+   _(TCGETS, WRITE, struct_termios_sz);
+   _(TCSBRK, NONE, 0);
+   _(TCSBRKP, NONE, 0);
+-#if SANITIZER_GLIBC
+-  _(TCSETA, READ, struct_termio_sz);
+-  _(TCSETAF, READ, struct_termio_sz);
+-  _(TCSETAW, READ, struct_termio_sz);
+-#endif
+   _(TCSETS, READ, struct_termios_sz);
+   _(TCSETSF, READ, struct_termios_sz);
+   _(TCSETSW, READ, struct_termios_sz);
+--- a/llvm-project/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cpp
++++ b/llvm-project/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cpp
+@@ -467,9 +467,6 @@ unsigned struct_ElfW_Phdr_sz = sizeof(Elf_Phdr);
+   unsigned struct_input_id_sz = sizeof(struct input_id);
+   unsigned struct_mtpos_sz = sizeof(struct mtpos);
+   unsigned struct_rtentry_sz = sizeof(struct rtentry);
+-#if SANITIZER_GLIBC || SANITIZER_ANDROID
+-  unsigned struct_termio_sz = sizeof(struct termio);
+-#endif
+   unsigned struct_vt_consize_sz = sizeof(struct vt_consize);
+   unsigned struct_vt_sizes_sz = sizeof(struct vt_sizes);
+   unsigned struct_vt_stat_sz = sizeof(struct vt_stat);
+--- a/llvm-project/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.h
++++ b/llvm-project/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.h
+@@ -998,7 +998,6 @@ extern unsigned struct_hd_geometry_sz;
+ extern unsigned struct_input_absinfo_sz;
+ extern unsigned struct_input_id_sz;
+ extern unsigned struct_mtpos_sz;
+-extern unsigned struct_termio_sz;
+ extern unsigned struct_vt_consize_sz;
+ extern unsigned struct_vt_sizes_sz;
+ extern unsigned struct_vt_stat_sz;
+--- a/llvm-project/lldb/include/lldb/Utility/AddressableBits.h
++++ b/llvm-project/lldb/include/lldb/Utility/AddressableBits.h
+@@ -11,6 +11,8 @@
+ 
+ #include "lldb/lldb-forward.h"
+ 
++#include <cstdint>
++
+ namespace lldb_private {
+ 
+ /// \class AddressableBits AddressableBits.h "lldb/Core/AddressableBits.h"
+--- a/llvm-project/llvm/include/llvm/ADT/SmallVector.h
++++ b/llvm-project/llvm/include/llvm/ADT/SmallVector.h
+@@ -20,6 +20,7 @@
+ #include <cassert>
+ #include <cstddef>
+ #include <cstdlib>
++#include <cstdint>
+ #include <cstring>
+ #include <functional>
+ #include <initializer_list>
+--- a/llvm-project/llvm/lib/Target/X86/MCTargetDesc/X86MCTargetDesc.h
++++ b/llvm-project/llvm/lib/Target/X86/MCTargetDesc/X86MCTargetDesc.h
+@@ -13,6 +13,7 @@
+ #ifndef LLVM_LIB_TARGET_X86_MCTARGETDESC_X86MCTARGETDESC_H
+ #define LLVM_LIB_TARGET_X86_MCTARGETDESC_X86MCTARGETDESC_H
+ 
++#include <cstdint>
+ #include <memory>
+ #include <string>
+ 
+--- a/llvm-project/llvm/utils/unittest/googletest/include/gtest/gtest.h
++++ b/llvm-project/llvm/utils/unittest/googletest/include/gtest/gtest.h
+@@ -52,6 +52,7 @@
+ #define GTEST_INCLUDE_GTEST_GTEST_H_
+ 
+ #include <cstddef>
++#include <cstdint>
+ #include <limits>
+ #include <memory>
+ #include <ostream>
+--- a/swift/stdlib/include/llvm/ADT/SmallVector.h
++++ b/swift/stdlib/include/llvm/ADT/SmallVector.h
+@@ -22,6 +22,7 @@
+ #include <cassert>
+ #include <cstddef>
+ #include <cstdlib>
++#include <cstdint>
+ #include <cstring>
+ #include <functional>
+ #include <initializer_list>
