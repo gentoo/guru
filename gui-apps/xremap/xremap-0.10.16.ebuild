@@ -16,7 +16,7 @@ CRATES="
 	anstyle-query@1.0.0
 	anstyle-wincon@1.0.1
 	anstyle@1.0.1
-	anyhow@1.0.98
+	anyhow@1.0.99
 	async-broadcast@0.7.2
 	async-channel@2.3.1
 	async-executor@1.13.1
@@ -55,7 +55,7 @@ CRATES="
 	darling_core@0.20.3
 	darling_macro@0.20.3
 	deranged@0.3.6
-	derive-where@1.5.0
+	derive-where@1.6.0
 	derive_more@0.99.18
 	dlib@0.5.2
 	doc-comment@0.3.3
@@ -83,7 +83,7 @@ CRATES="
 	futures-task@0.3.31
 	futures-util@0.3.31
 	futures@0.3.31
-	gethostname@0.4.3
+	gethostname@1.0.2
 	gimli@0.28.1
 	hashbrown@0.12.3
 	hashbrown@0.15.2
@@ -110,6 +110,7 @@ CRATES="
 	libloading@0.8.0
 	libudev-sys@0.1.4
 	linux-raw-sys@0.4.15
+	linux-raw-sys@0.9.4
 	lock_api@0.4.12
 	log@0.4.27
 	memchr@2.6.4
@@ -117,7 +118,7 @@ CRATES="
 	memoffset@0.9.1
 	miniz_oxide@0.7.4
 	mio@0.8.8
-	niri-ipc@25.5.1
+	niri-ipc@25.8.0
 	nix@0.26.2
 	nix@0.29.0
 	nix@0.30.1
@@ -143,10 +144,11 @@ CRATES="
 	redox_syscall@0.4.1
 	regex-automata@0.4.8
 	regex-syntax@0.8.5
-	regex@1.11.1
+	regex@1.11.2
 	rustc-demangle@0.1.24
 	rustc_version@0.4.1
 	rustix@0.38.44
+	rustix@1.0.8
 	rustversion@1.0.18
 	ryu@1.0.15
 	scoped-tls@1.0.1
@@ -154,9 +156,9 @@ CRATES="
 	semver@1.0.23
 	serde@1.0.219
 	serde_derive@1.0.219
-	serde_json@1.0.140
+	serde_json@1.0.143
 	serde_repr@0.1.20
-	serde_spanned@0.6.9
+	serde_spanned@1.0.0
 	serde_with@3.8.1
 	serde_with_macros@3.8.1
 	serde_yaml@0.9.34+deprecated
@@ -177,10 +179,12 @@ CRATES="
 	time@0.3.24
 	tokio-macros@2.1.0
 	tokio@1.29.1
-	toml@0.8.23
+	toml@0.9.5
 	toml_datetime@0.6.11
+	toml_datetime@0.7.0
 	toml_edit@0.22.27
-	toml_write@0.1.2
+	toml_parser@1.0.2
+	toml_writer@1.0.2
 	tracing-attributes@0.1.28
 	tracing-core@0.1.33
 	tracing@0.1.41
@@ -205,33 +209,44 @@ CRATES="
 	winapi-util@0.1.5
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
+	windows-link@0.1.3
 	windows-sys@0.48.0
 	windows-sys@0.52.0
 	windows-sys@0.59.0
+	windows-sys@0.60.2
 	windows-targets@0.48.1
 	windows-targets@0.52.6
+	windows-targets@0.53.3
 	windows@0.48.0
 	windows_aarch64_gnullvm@0.48.0
 	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_gnullvm@0.53.0
 	windows_aarch64_msvc@0.48.0
 	windows_aarch64_msvc@0.52.6
+	windows_aarch64_msvc@0.53.0
 	windows_i686_gnu@0.48.0
 	windows_i686_gnu@0.52.6
+	windows_i686_gnu@0.53.0
 	windows_i686_gnullvm@0.52.6
+	windows_i686_gnullvm@0.53.0
 	windows_i686_msvc@0.48.0
 	windows_i686_msvc@0.52.6
+	windows_i686_msvc@0.53.0
 	windows_x86_64_gnu@0.48.0
 	windows_x86_64_gnu@0.52.6
+	windows_x86_64_gnu@0.53.0
 	windows_x86_64_gnullvm@0.48.0
 	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_gnullvm@0.53.0
 	windows_x86_64_msvc@0.48.0
 	windows_x86_64_msvc@0.52.6
+	windows_x86_64_msvc@0.53.0
 	winnow@0.7.11
 	wyz@0.5.1
-	x11rb-protocol@0.13.1
-	x11rb@0.13.1
-	zbus@5.7.1
-	zbus_macros@5.7.1
+	x11rb-protocol@0.13.2
+	x11rb@0.13.2
+	zbus@5.10.0
+	zbus_macros@5.10.0
 	zbus_names@4.2.0
 	zvariant@5.5.3
 	zvariant_derive@5.5.3
