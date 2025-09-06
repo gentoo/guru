@@ -1,0 +1,25 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -14,7 +14,6 @@ if(CMAKE_GENERATOR STREQUAL "")
+ endif()
+ 
+ # Enable ccache if available
+-find_program(CCACHE_PROGRAM ccache)
+ if(CCACHE_PROGRAM)
+     message(STATUS "Using ccache: ${CCACHE_PROGRAM}")
+     set(CMAKE_CXX_COMPILER_LAUNCHER ${CCACHE_PROGRAM})
+@@ -22,14 +21,12 @@ if(CCACHE_PROGRAM)
+ endif()
+ 
+ # Enable mold if available
+-find_program(MOLD_LINKER mold)
+ if(MOLD_LINKER)
+     message(STATUS "Using mold linker: ${MOLD_LINKER}")
+     add_link_options(-fuse-ld=mold)
+ endif()
+ 
+ # Optional LTO
+-option(ENABLE_LTO "Enable link-time optimization (slower builds, faster binaries)" OFF)
+ if(ENABLE_LTO)
+     set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
+ endif()
