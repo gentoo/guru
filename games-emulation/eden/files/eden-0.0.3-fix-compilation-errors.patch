@@ -11,14 +11,12 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
  static_assert(sizeof(u128) == 16, "u128 must be 128 bits wide");
 +
 +using size_t = std::size_t;
-\ No newline at end of file
 --- a/src/dynarmic/src/dynarmic/common/memory_pool.h
 +++ b/src/dynarmic/src/dynarmic/common/memory_pool.h
-@@ -5,7 +5,7 @@
- 
+@@ -6,6 +6,7 @@
  #pragma once
  
--#include <cstddef>
+ #include <cstddef>
 +#include <cstdlib>
  #include <vector>
  

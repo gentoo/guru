@@ -9,7 +9,7 @@ DESCRIPTION="Nintendo Switch Emulator"
 HOMEPAGE="https://eden-emu.dev"
 SRC_URI="
 	https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
-	https://github.com/crueter/tzdb_to_nx/releases/download/250725/250725.zip -> nx-tzdb-250725.zip
+	https://github.com/crueter-archive/tzdb_to_nx/releases/download/250725/250725.zip -> nx-tzdb-250725.zip
 "
 
 S="${WORKDIR}/${PN}"
@@ -68,6 +68,7 @@ DEPEND="
 	dev-cpp/simpleini
 	dev-libs/boost:=[context]
 	dev-libs/unordered_dense
+	dev-util/spirv-headers
 	dev-util/vulkan-headers
 	dev-util/vulkan-utility-libraries
 	games-util/gamemode
@@ -81,6 +82,7 @@ DEPEND="
 "
 BDEPEND="
 	app-arch/unzip
+	dev-util/glslang
 	virtual/pkgconfig
 
 	test? (
@@ -90,17 +92,13 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.0.3_rc3-allow-overriding-NX_TZDB_ROMFS_DIR.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc3-fix-compilation-errors.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc3-make-the-dependency-on-mcl-global.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc3-make-the-dependency-on-SDL2-optional.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc3-use-the-bundled-dynarmic-library.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc3-use-the-system-Boost-library.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc3-use-the-system-discord-rpc-library.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc3-use-the-system-mbedtls-library.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc3-use-the-system-sirit-library.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc3-use-the-system-xbyak-library.patch"
-	"${FILESDIR}/${PN}-0.0.3_rc3-use-the-system-zycore-c-library.patch"
+	"${FILESDIR}/${PN}-0.0.3-fix-compilation-errors.patch"
+	"${FILESDIR}/${PN}-0.0.3-make-the-dependency-on-mcl-global.patch"
+	"${FILESDIR}/${PN}-0.0.3-make-the-dependency-on-xbyak-global.patch"
+	"${FILESDIR}/${PN}-0.0.3-use-the-bundled-dynarmic-library.patch"
+	"${FILESDIR}/${PN}-0.0.3-use-the-system-discord-rpc-library.patch"
+	"${FILESDIR}/${PN}-0.0.3-use-the-system-mbedtls-library.patch"
+	"${FILESDIR}/${PN}-0.0.3-use-the-system-sirit-library.patch"
 )
 
 # [directory]=license
@@ -136,6 +134,9 @@ src_prepare() {
 	einfo "removing sources: ${remove[*]}"
 	rm -r "${remove[@]}" || die
 
+	mkdir -p "${S}/.cache/cpm/nx_tzdb" || die
+	mv "${WORKDIR}/zoneinfo" "$_/250725" || die
+
 	cmake_src_prepare
 }
 
@@ -145,7 +146,6 @@ src_configure() {
 		-DYUZU_CHECK_SUBMODULES=no
 		-DYUZU_ENABLE_PORTABLE=no
 		-DYUZU_USE_BUNDLED_FFMPEG=no
-		-DYUZU_USE_BUNDLED_SDL2=no
 		-DYUZU_USE_CPM=no
 		-DYUZU_USE_EXTERNAL_SDL2=no
 		-DYUZU_USE_EXTERNAL_VULKAN_HEADERS=no
@@ -169,8 +169,8 @@ src_configure() {
 		-DYUZU_USE_QT_MULTIMEDIA=$(usex camera)
 		-DYUZU_USE_QT_WEB_ENGINE=$(usex web-applet)
 
-		# Contains time zone data in the Nintendo Switch's format
-		-DNX_TZDB_ROMFS_DIR="${WORKDIR}"
+		-DCPMUTIL_FORCE_SYSTEM=yes
+		-Dnx_tzdb_FORCE_BUNDLED=yes
 
 		-Wno-dev
 	)

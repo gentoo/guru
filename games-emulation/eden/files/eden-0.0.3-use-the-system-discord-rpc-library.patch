@@ -1,0 +1,19 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use the system `discord-rpc` library.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -499,10 +499,7 @@ endif()
+ 
+ # DiscordRPC
+ if (USE_DISCORD_PRESENCE)
+-    AddJsonPackage(discord-rpc)
+-
+-    target_include_directories(discord-rpc INTERFACE ${discord-rpc_SOURCE_DIR}/include)
+-    add_library(DiscordRPC::discord-rpc ALIAS discord-rpc)
++    find_package(DiscordRPC REQUIRED)
+ endif()
+ 
+ # SimpleIni
