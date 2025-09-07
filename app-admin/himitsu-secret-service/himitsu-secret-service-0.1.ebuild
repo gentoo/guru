@@ -4,9 +4,9 @@
 EAPI=8
 
 SRC_URI="https://git.sr.ht/~apreiml/himitsu-secret-service/archive/${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 
-DISTUTILS_USE_PEP517=standalone
+DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1
@@ -19,10 +19,10 @@ IUSE="+man"
 
 RDEPEND="
 	>=app-admin/himitsu-0.9
-	>=dev-python/py-himitsu-0.0.9
-	>=dev-python/cryptography-45.0.5
-	>=dev-python/dbus-python-1.4.0
-	>=dev-python/pygobject-3.50.1
+	>=dev-python/py-himitsu-0.0.9[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-45.0.5[${PYTHON_USEDEP}]
+	>=dev-python/dbus-python-1.4.0[${PYTHON_USEDEP}]
+	>=dev-python/pygobject-3.50.1[${PYTHON_USEDEP}]
 "
 
 DEPEND="
@@ -30,11 +30,6 @@ DEPEND="
 "
 
 BDEPEND="
-	dev-python/setuptools[${PYTHON_USEDEP}]
-	dev-python/build[${PYTHON_USEDEP}]
-	>=dev-util/ruff-0.12.4
-	>=dev-python/build-1.2.2_p1-r2
-	>=dev-python/hatchling-1.27.0
 	man? ( >=app-text/scdoc-1.11.3 )
 "
 
