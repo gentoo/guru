@@ -9,10 +9,20 @@
 		<name>Thomas Clarke</name>
 		<email>colonia_duck@posteo.net</email>
 	</maintainer>
-	<upstream>
-		<remote-id type="github">th-ch/youtube-music</remote-id>
-	</upstream>
+	<maintainer type="person">
+		<name>dsaf</name>
+		<email>ghostyn678+git@gmail.com</email>
+	</maintainer>
+	<longdescription>
+		Electron wrapper around YouTube Music featuring:
+		-	Native look and feel, aims at keeping the original interface
+		-	Framework for custom plugins: change YouTube Music to your needs 
+			(style, content, features), enable/disable plugins in one click
+	</longdescription>
 	<use>
 		<flag name="wayland">Run in Wayland mode</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">th-ch/youtube-music</remote-id>
+	</upstream>
 </pkgmetadata>
