@@ -8,6 +8,7 @@ inherit cmake desktop git-r3
 DESCRIPTION="Qt version of the ZDL ZDoom launcher"
 HOMEPAGE="https://zdl.vectec.net/wiki/Main_Page"
 EGIT_REPO_URI="https://github.com/qbasicer/qzdl.git"
+PROPERTIES="live"
 
 LICENSE="GPL-3"
 SLOT="0"
