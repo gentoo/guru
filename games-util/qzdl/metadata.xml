@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<longdescription>
+		Qt version of ZDL, a simple but user friendly and
+		feature rich launcher for GZDoom and derivates.
+	</longdescription>
+	<upstream>
+		<doc>https://zdl.vectec.net/wiki/Main_Page</doc>
+		<remote-id type="github">qbasicer/qzdl</remote-id>
+	</upstream>
+</pkgmetadata>
