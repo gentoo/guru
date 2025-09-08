@@ -11,23 +11,14 @@ EGIT_REPO_URI="https://github.com/qbasicer/qzdl.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+qt6 qt5"
-REQUIRED_USE="|| ( qt5 qt6 )"
 
 DEPEND="
 	dev-libs/inih
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtwidgets:5
-	)
-	qt6? (
-		dev-qt/qtbase:6[widgets]
-	)
+	dev-qt/qtbase:6[widgets]
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	qt5? ( dev-qt/qtcore:5 )
-	qt6? ( dev-qt/qtbase:6 )
+	dev-qt/qtbase:6
 "
 
 PATCHES=(
@@ -38,6 +29,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_BUILD_TYPE=Release
 	)
+
 	cmake_src_configure
 }
 
