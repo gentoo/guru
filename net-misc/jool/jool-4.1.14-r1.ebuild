@@ -19,6 +19,7 @@ DEPEND="
 	iptables? ( net-firewall/iptables )
 "
 RDEPEND="${DEPEND}
+	elibc_musl? ( sys-libs/argp-standalone )
 	!iptables? ( net-firewall/nftables )
 "
 
