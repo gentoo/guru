@@ -12,6 +12,7 @@
 	<use>
 		<flag name="cairo">Enables the cairo module</flag>
 		<flag name="http">Enables HTTP features</flag>
+		<flag name="keyboard">Enables the keyboard module</flag>
 		<flag name="music">Enables the music module</flag>
 		<flag name="notifications">Enables the notifications module</flag>
 		<flag name="tray">Enables the tray module</flag>
