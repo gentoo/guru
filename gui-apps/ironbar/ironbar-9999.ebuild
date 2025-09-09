@@ -15,13 +15,14 @@ LICENSE+="
 	Apache-2.0 BSD CC0-1.0 GPL-3+ ISC MIT MPL-2.0 Unicode-DFS-2016
 "
 SLOT="0"
-IUSE="cairo +http +music notifications +tray +volume"
+IUSE="cairo +http +keyboard +music notifications +tray +volume"
 
 DEPEND="
 	x11-libs/gtk+:3=[wayland]
 	gui-libs/gtk-layer-shell[introspection]
 	cairo? ( dev-lua/lgi[lua_targets_luajit] )
 	http? ( dev-libs/openssl:0= )
+	keyboard? ( dev-libs/libinput )
 	music? ( sys-apps/dbus )
 	notifications? ( gui-apps/swaync )
 	tray? ( dev-libs/libdbusmenu[gtk3] )
@@ -45,7 +46,9 @@ src_configure() {
 	export PKG_CONFIG_ALLOW_CROSS=1
 
 	local myfeatures=(
+		"battery"
 		"bindmode+all"
+		"bluetooth"
 		"cli"
 		$(usev cairo)
 		"clipboard"
@@ -55,7 +58,7 @@ src_configure() {
 		"focused"
 		$(usev http)
 		"ipc"
-		"keyboard+all"
+		$(usex "keyboard" "keyboard+all" "")
 		"label"
 		"launcher"
 		"menu"
@@ -65,7 +68,6 @@ src_configure() {
 		"script"
 		"sys_info"
 		$(usev tray)
-		"upower"
 		$(usev volume)
 		"workspaces+all"
 	)
