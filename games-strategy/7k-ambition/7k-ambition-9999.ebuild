@@ -28,7 +28,7 @@ RESTRICT="music? ( bindist ) mirror"
 
 DEPEND="
 	dev-libs/boost:=
-	nls? ( >=sys-devel/gettext-0.23 )
+	nls? ( <=sys-devel/gettext-0.22.5-r2 )
 	multiplayer? (
 		net-libs/enet:1.3=
 		net-misc/curl:=
