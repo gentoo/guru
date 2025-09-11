@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit desktop meson vala xdg
+inherit desktop flag-o-matic meson vala xdg
 
 Engine_sha="e495846970a1b38d00c81a3f74568030f976ed31"
 MY_PN="OpenRiichi"
@@ -40,6 +40,8 @@ src_prepare() {
 	#switch vsync ON by default
 	sed -i -e "s/v_sync = OnOffEnum.OFF/v_sync = OnOffEnum.ON/" "${S}/source/Game/Options.vala" || die
 
+	# bugs 887645, 945214 (fix clang, gcc-{14.3.0,15.2.0} 'integer to pointer conversion' build error)
+	append-cflags -Wno-int-conversion
 	vala_setup
 }
 
