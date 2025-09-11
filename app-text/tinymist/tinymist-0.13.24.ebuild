@@ -5,7 +5,7 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.85.0"
+RUST_MIN_VER="1.88.0"
 
 CRATES=" "
 
@@ -85,7 +85,7 @@ src_compile() {
 }
 
 src_install() {
-	cargo_src_install --path ./crates/tinymist
+	cargo_src_install --path ./crates/tinymist-cli
 
 	dobashcomp tinymist
 	dofishcomp tinymist.fish
