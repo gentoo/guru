@@ -47,6 +47,7 @@ RDEPEND="${CDEPEND}
 	opencl? ( dev-libs/opencl-icd-loader )
 	vulkan? ( media-libs/vulkan-loader )
 "
+BDEPEND="media-libs/shaderc"
 
 pkg_setup() {
 	if use hip; then
