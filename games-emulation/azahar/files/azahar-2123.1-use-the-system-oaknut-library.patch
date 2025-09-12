@@ -1,0 +1,13 @@
+Use the system's installation of oaknut.
+
+--- a/externals/CMakeLists.txt
++++ b/externals/CMakeLists.txt
+@@ -109,7 +109,7 @@ endif()
+ 
+ # Oaknut
+ if ("arm64" IN_LIST ARCHITECTURE)
+-    add_subdirectory(oaknut EXCLUDE_FROM_ALL)
++    add_library(oaknut INTERFACE)
+ endif()
+ 
+ # Dynarmic

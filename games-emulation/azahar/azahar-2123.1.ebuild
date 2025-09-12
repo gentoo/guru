@@ -64,6 +64,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2122.1-use-the-system-teakra-library.patch"
 	"${FILESDIR}/${PN}-2123-don-t-build-spirv-tools.patch"
 	"${FILESDIR}/${PN}-2123-use-the-zstd_seekable.h-header-from-externals.patch"
+	"${FILESDIR}/${PN}-2123.1-use-the-system-oaknut-library.patch"
 )
 
 # [directory]=license
