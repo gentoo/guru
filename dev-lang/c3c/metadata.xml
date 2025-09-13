@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pkgmetadata>
+  <maintainer type="person">
+    <email>ch@brendlinonline.de</email>
+    <name>Christian Brendlin</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">c3lang/c3c</remote-id>
+  </upstream>
+</pkgmetadata>
