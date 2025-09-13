@@ -5,6 +5,7 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.77"
 CRATES="
 	addr2line@0.21.0
 	adler@1.0.2
