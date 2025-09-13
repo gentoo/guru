@@ -205,7 +205,7 @@ LICENSE+="
 	ZLIB
 "
 SLOT="0"
-RUST_MIN_VER="1.87.0"
+RUST_MIN_VER="1.89.0"
 
 DEPEND="
 	app-arch/lz4:=

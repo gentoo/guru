@@ -22,7 +22,7 @@ LICENSE="GPL-3"
 # Dependent crate licenses
 LICENSE+=" BSD MIT Unicode-3.0"
 SLOT="0"
-RUST_MIN_VER="1.87.0"
+RUST_MIN_VER="1.89.0"
 
 DEPEND="
 	app-arch/lz4:=
