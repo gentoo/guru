@@ -1,0 +1,26 @@
+#!/sbin/openrc-run
+# shellcheck shell=sh
+#
+# Copyright 2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+description="Translate TCP to SOCKS5 or HTTP proxy"
+supervisor="supervise-daemon"
+command="/usr/bin/graftcp-local"
+command_args="\
+	-config ${GRAFTCP_CONFIG:-/etc/graftcp-local/graftcp-local.conf} \
+	-syslog \
+	-pipepath /run/graftcp/${RC_SVCNAME}.fifo \
+	${GRAFTCP_OPTS}
+"
+: "${command_user=graftcp:graftcp}"
+pidfile="/run/graftcp/${RC_SVCNAME}.pid"
+
+depend() {
+	need net
+	use logger
+}
+
+start_pre() {
+	checkpath -d -o "${command_user}" /run/graftcp
+}

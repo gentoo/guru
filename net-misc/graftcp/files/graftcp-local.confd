@@ -1,0 +1,5 @@
+# graftcp-local configuration file.
+#GRAFTCP_CONFIG="/etc/graftcp-local/graftcp-local.conf"
+
+# Additional command-line options for graftcp-local.
+#GRAFTCP_OPTS=""
