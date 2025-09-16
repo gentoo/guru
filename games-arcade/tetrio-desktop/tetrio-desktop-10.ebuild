@@ -68,6 +68,10 @@ src_prepare() {
 
 	default
 
+	if use tetrio-plus; then
+		ewarn "TETR.IO PLUS is not supported yet for v10"
+	fi
+
 	#if use tetrio-plus;	then
 	#	mv "${S}/app.asar" "${S}/opt/TETR.IO/resources/app.asar" || die
 	#fi
