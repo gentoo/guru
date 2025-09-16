@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David (stkw0) Roman <davidroman96@gmail.com> (2025-09-16)
+# Depends on sys-fs/encfs which is masked in ::gentoo.
+# Removal on 2025-10-16
+app-crypt/gnome-encfs-manager
+
 # Bryce Copeland (truffle) <truffle074@gmail.com> (2025-09-03)
 # Only created to satisfy a no-longer-required dependency for dev-ruby/ruby-lsp
 # Package is just a small component of Sorbet, installed via rubygems
