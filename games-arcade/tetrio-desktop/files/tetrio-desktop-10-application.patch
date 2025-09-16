@@ -1,0 +1,16 @@
+diff --git a/usr/share/applications/tetrio-desktop.desktop b/usr/share/applications/tetrio-desktop.desktop
+index 802f685..898b247 100644
+--- a/usr/share/applications/tetrio-desktop.desktop
++++ b/usr/share/applications/tetrio-desktop.desktop
+@@ -1,7 +1,7 @@
+ [Desktop Entry]
+ Name=TETR.IO
+-Exec=/opt/TETR.IO/TETR.IO %U
++Exec="/usr/bin/tetrio-desktop" %U
+ Terminal=false
+ Type=Application
+ Icon=TETR.IO
+ StartupWMClass=TETR.IO
+ Comment=Puzzle together in this modern yet familiar online stacker!
+ MimeType=x-scheme-handler/tetrio;
+ Categories=Game;BlocksGame;
