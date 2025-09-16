@@ -5,6 +5,10 @@
 		<name>Julien Roy</name>
 		<email>julien@jroy.ca</email>
 	</maintainer>
+	<maintainer type="person">
+		<name>Anna</name>
+		<email>cyber+gentoo@sysrq.in</email>
+	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/signalapp/libsignal/issues</bugs-to>
 		<changelog>https://github.com/signalapp/libsignal/releases</changelog>
