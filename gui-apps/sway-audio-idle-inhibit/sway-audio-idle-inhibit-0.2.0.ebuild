@@ -3,14 +3,18 @@
 
 EAPI=8
 
-inherit git-r3 meson
+inherit meson
 
 DESCRIPTION="Prevents swayidle from idle when an application is outputting or receiving audio"
 HOMEPAGE="https://github.com/ErikReider/SwayAudioIdleInhibit"
-EGIT_REPO_URI="https://github.com/ErikReider/SwayAudioIdleInhibit.git"
 
+SRC_URI="https://github.com/ErikReider/SwayAudioIdleInhibit/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/SwayAudioIdleInhibit-${PV}"
 LICENSE="GPL-3"
-SLOT="0/9999"
+
+SLOT="0"
+KEYWORDS="~amd64"
+
 IUSE="systemd"
 
 DEPEND="
