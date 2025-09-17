@@ -1,18 +1,14 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-# get the current value from the yosys makefile...look for ABCREV
-ABC_GIT_COMMIT=0cd90d0d2c5338277d832a1d890bed286486bcf5
-
 DESCRIPTION="framework for Verilog RTL synthesis"
 HOMEPAGE="http://www.clifford.at/yosys/"
 SRC_URI="
-	https://github.com/YosysHQ/${PN}/archive/${P}.tar.gz
-	https://github.com/YosysHQ/abc/archive/${ABC_GIT_COMMIT}.tar.gz -> abc-${ABC_GIT_COMMIT}.tar.gz
+	https://github.com/YosysHQ/${PN}/releases/download/v${PV}/yosys.tar.gz -> ${P}.tar.gz
 "
-S="${WORKDIR}/${PN}-${PN}-${PV}"
+S="${WORKDIR}"
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -25,11 +21,6 @@ RDEPEND="
 
 DEPEND="${RDEPEND}"
 BDEPEND="dev-vcs/git"
-
-src_prepare() {
-	mv "${WORKDIR}/abc-${ABC_GIT_COMMIT}" "${S}"/abc || die
-	default
-}
 
 src_configure() {
 	cat <<-__EOF__ >> Makefile.conf || die
