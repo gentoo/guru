@@ -56,6 +56,7 @@ SRC_URI="
 PATCHES=(
 	"${FILESDIR}/${PF}/backtracing-noexecstack.patch"
 	"${FILESDIR}/${PF}/disable-libdispatch-werror.patch"
+	"${FILESDIR}/${PF}/fix-issues-caused-by-build-system-updates.patch"
 	"${FILESDIR}/${PF}/link-ncurses-tinfo.patch"
 	"${FILESDIR}/${PF}/link-with-lld.patch"
 	"${FILESDIR}/${PF}/respect-c-cxx-flags.patch"
@@ -215,16 +216,22 @@ src_configure() {
 
 	extra_build_flags+=(${SWIFT_EXTRA_BUILD_FLAGS})
 
-	if [[ ${#extra_build_flags[@]} -gt 0 ]]; then
-		SWIFT_BUILD_PRESET='gentoo,custom'
-		{
-			echo "[preset: gentoo,custom]"
-			echo "mixin-preset=gentoo"
-			for flag in "${extra_build_flags[@]}"; do
-				echo "${flag#--}"
-			done
-		} >> "${SWIFT_BUILD_PRESETS_INI_PATH}"
-	fi
+	local orig_preset="${SWIFT_BUILD_PRESET}"
+	local preset="${orig_preset}"
+	local n=1
+
+	{
+		for arg in "${extra_build_flags[@]}"; do
+			local next="${orig_preset},${n}"
+			printf '[preset: %s]\n' "${next}"
+			printf 'mixin-preset=%s\n' "${preset}"
+			echo "${arg#--}"
+			preset="${next}"
+			n="$((n + 1))"
+		done
+	} >> "${SWIFT_BUILD_PRESETS_INI_PATH}"
+
+	SWIFT_BUILD_PRESET="${preset}"
 }
 
 src_compile() {
@@ -259,12 +266,25 @@ src_install() {
 
 	# The Swift build output is intended to be self-contained, and is
 	# _significantly_ easier to leave as-is than attempt to splat onto the
-	# filesystem; we'll install the output versioned into `/usr/lib64` and
-	# expose the relevant binaries via linking.
-	local dest_dir="/usr/lib64/${P}"
+	# filesystem; we'll install the output versioned into `/usr/$(get_libdir)`
+	# and expose the relevant binaries via linking.
+	local dest_dir="/usr/$(get_libdir)/${P}"
 	mkdir -p "${ED}/${dest_dir}" \
 		&& cp -pPR "${S}/${P}/." "${ED}/${dest_dir}" \
 		|| die
+
+	# We also want to provide a stable directory which matches our SLOT to avoid
+	# revdep breakages, as patch updates use the same SLOT but otherwise move
+	# the install location on disk.
+	#
+	# See https://bugs.gentoo.org/957730
+	#
+	# `dosym` dies if the source and destination are the same, so we only want
+	# to do this for patch versions.
+	local major_ver="$(ver_cut 1-2)"
+	if [[ "${PV}" != "${major_ver}" ]]; then
+		dosym -r "${dest_dir}" "/usr/$(get_libdir)/${PN}-${major_ver}"
+	fi
 
 	# Swift ships with its own `clang`, `lldb`, etc.; we don't want these to be
 	# exposed externally, so we'll just symlink Swift-specific binaries into
