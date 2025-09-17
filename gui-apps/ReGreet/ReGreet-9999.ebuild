@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,7 +22,6 @@ LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="
-	|| ( gui-wm/sway gui-wm/cage )
 	systemd? ( sys-apps/systemd[sysv-utils] )
 	openrc? ( sys-apps/openrc[sysv-utils] )
 	gui-libs/gtk
@@ -69,7 +68,7 @@ src_compile() {
 	# Export default configuration
 	export RUSTUP_TOOLCHAIN=stable
 	export GREETD_CONFIG_DIR="/etc/greetd"
-	export CACHE_DIR="/var/cache/regreet"
+	export STATE_DIR="/var/lib/regreet"
 	export LOG_DIR="/var/log/regreet"
 	export SESSION_DIRS="/usr/share/xsessions:/usr/share/wayland-sessions"
 	# Require sysv-utils useflag enable on the init system
@@ -89,9 +88,9 @@ src_install() {
 		fowners greetd:greetd /var/log/regreet
 		fperms 0755 /var/log/regreet
 
-		keepdir /var/cache/regreet
-		fowners greetd:greetd /var/cache/regreet
-		fperms 0755 /var/cache/regreet
+		keepdir /var/lib/regreet
+		fowners greetd:greetd /var/lib/regreet
+		fperms 0755 /var/lib/regreet
 	fi
 	# Install ReGreet template config file as a doc
 	dodoc "${WORKDIR}/${P}/regreet.sample.toml"

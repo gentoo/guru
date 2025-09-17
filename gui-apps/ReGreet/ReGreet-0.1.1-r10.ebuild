@@ -220,7 +220,6 @@ LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="
-	|| ( gui-wm/sway gui-wm/cage )
 	systemd? ( sys-apps/systemd[sysv-utils] )
 	openrc? ( sys-apps/openrc[sysv-utils] )
 	gui-libs/gtk
@@ -233,7 +232,7 @@ RDEPEND="
 "
 IUSE="systemd openrc"
 
-PATCHES="${FILESDIR}/ReGreet-0.1.1-cargo-lock-fix.diff"
+PATCHES="${FILESDIR}/${PN}-${PV}-cargo-lock-fix.diff"
 
 QA_FLAGS_IGNORED="/usr/bin/regreet"
 
