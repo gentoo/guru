@@ -22,7 +22,7 @@ SLOT="0"
 DEPEND="
 	app-shells/fzf
 	media-video/mpv
-	net-misc/aria2
+	net-misc/aria2[adns]
 	net-misc/curl
 	net-misc/yt-dlp
 "
