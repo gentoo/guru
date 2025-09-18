@@ -25,6 +25,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.1.13-build-tests-only-when-requested.patch
+	"${FILESDIR}"/${PN}-0.1.13-musl-lift_sequence-fix.patch
 )
 
 src_configure() {
