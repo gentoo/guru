@@ -41,11 +41,6 @@ media-sound/pulseaudio-virtualmic
 # Removal on 2025-09-29
 app-text/klogg
 
-# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2025-08-18)
-# Unwanted and unmaintained. Live ebuild only.
-# Removal on 2025-09-18
-media-video/avisynth+
-
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-07-25)
 # Depends on removed pydantic version.
 dev-python/safety-schemas
