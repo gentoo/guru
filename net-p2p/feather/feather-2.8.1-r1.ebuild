@@ -1,5 +1,6 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+# RavFX (2025) Bump version and remove deprecated plugins
 
 EAPI=8
 
@@ -17,7 +18,7 @@ SRC_URI="
 LICENSE="BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bounties calc crowdfunding home qrcode revuo tickers xmrig"
+IUSE="bounties calc crowdfunding home qrcode revuo tickers xmrig wayland"
 DEPEND="
 	dev-libs/libsodium:=
 	media-gfx/qrencode:=
@@ -25,10 +26,10 @@ DEPEND="
 	~dev-libs/polyseed-1.0.0
 	dev-libs/libzip:=
 	dev-libs/boost:=[nls]
-	>=dev-qt/qtbase-6.7.3:6
-	>=dev-qt/qtsvg-6.7.3:6
-	>=dev-qt/qtmultimedia-6.7.3:6
-	>=dev-qt/qtwebsockets-6.7.3:6
+	>=dev-qt/qtbase-6.9.1:6[wayland=]
+	>=dev-qt/qtsvg-6.9.1:6
+	>=dev-qt/qtmultimedia-6.9.1:6
+	>=dev-qt/qtwebsockets-6.9.1:6
 	dev-libs/libgcrypt:=
 	sys-libs/zlib
 	dev-libs/openssl:=
@@ -52,6 +53,9 @@ src_prepare() {
 	default
 	echo "#define FEATHER_VERSION \"${PV}\"" > "${WORKDIR}"/${P}/src/config-feather.h || die
 	echo "#define TOR_VERSION \"NOT_EMBEDDED\"" >> "${WORKDIR}"/${P}/src/config-feather.h || die
+	if ! use wayland; then
+		eapply "${FILESDIR}/feather-no-wayland.patch"
+	fi
 	cmake_src_prepare
 }
 

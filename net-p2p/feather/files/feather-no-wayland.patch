@@ -1,0 +1,43 @@
+diff '--color=auto' -Naur a/src/CMakeLists.txt b/src/CMakeLists.txt
+--- a/src/CMakeLists.txt	2025-04-12 18:06:53.000000000 -0600
++++ b/src/CMakeLists.txt	2025-09-17 13:30:45.000000000 -0600
+@@ -18,10 +18,6 @@
+             MultimediaWidgets)
+ endif()
+ 
+-IF (UNIX AND NOT APPLE)
+-    list(APPEND QT_COMPONENTS WaylandClient)
+-endif()
+-
+ find_package(Qt6 REQUIRED COMPONENTS ${QT_COMPONENTS})
+ 
+ if (CHECK_UPDATES)
+@@ -309,17 +305,12 @@
+     )
+ endif()
+ 
+-if(UNIX AND NOT APPLE)
+-    target_link_libraries(feather PRIVATE Qt::WaylandClient)
+-endif()
+-
+ if(STATIC AND APPLE)
+     target_link_libraries(feather PRIVATE Qt6::QDarwinCameraPermissionPlugin)
+ endif()
+ 
+ if(STATIC AND UNIX AND NOT APPLE)
+     target_link_libraries(feather PRIVATE Qt6::QComposePlatformInputContextPlugin)
+-    target_link_libraries(feather PRIVATE Qt6::QWaylandIntegrationPlugin)
+ endif()
+ 
+ if(DEPENDS AND UNIX AND NOT APPLE)
+@@ -328,10 +319,8 @@
+     message(STATUS "libXau: libraries at ${LIBXAU_LIBRARY}")
+     target_link_libraries(XCB::XCB INTERFACE ${LIBXAU_LIBRARY})
+ 
+-    # make sure Wayland::Client links to libffi
+     find_library(LIBFFI_LIBRARY ffi REQUIRED)
+     message(STATUS "libffi: libraries at ${LIBFFI_LIBRARY}")
+-    target_link_libraries(Wayland::Client INTERFACE ${LIBFFI_LIBRARY})
+ endif()
+ 
+ if(STACK_TRACE AND CMAKE_C_COMPILER_ID STREQUAL "GNU")
