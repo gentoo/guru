@@ -49,6 +49,10 @@ RDEPEND="${DEPEND}"
 
 DOCS=( "README.md" )
 
+PATCHES=(
+	"${FILESDIR}/${P}-fix-scdoc-path.patch"
+)
+
 src_configure() {
 	local my_zbs_args=(
 		-Dstrip=false # Let Portage control this
