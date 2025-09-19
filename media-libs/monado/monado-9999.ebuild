@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://gitlab.freedesktop.org/monado/monado.git"
 LICENSE="Boost-1.0"
 SLOT="0"
 
-IUSE="dbus ffmpeg gles gstreamer opencv opengl psvr sdl systemd uvc vive vulkan wayland X"
+IUSE="dbus ffmpeg gles gstreamer onnxruntime opencv opengl psvr sdl systemd uvc vive vulkan wayland X"
 
 # TODO: OpenHMD, percetto?, libsurvive?
 DEPEND="
@@ -50,6 +50,7 @@ DEPEND="
 	gstreamer? ( media-libs/gstreamer )
 	psvr? ( dev-libs/hidapi )
 	vive? ( sys-libs/zlib:= )
+	onnxruntime? ( sci-libs/onnxruntime )
 "
 RDEPEND="${DEPEND}"
 
@@ -82,7 +83,7 @@ src_configure() {
 		-DXRT_BUILD_DRIVER_RS=OFF
 		-DXRT_BUILD_DRIVER_VIVE=$(usex vive)
 		-DXRT_BUILD_DRIVER_OHMD=OFF
-		-DXRT_BUILD_DRIVER_HANDTRACKING=ON
+		-DXRT_BUILD_DRIVER_HANDTRACKING=$(usex onnxruntime)
 		-DXRT_BUILD_DRIVER_DAYDREAM=$(usex dbus)
 		-DXRT_BUILD_DRIVER_ARDUINO=$(usex dbus)
 		-DXRT_BUILD_DRIVER_ILLIXR=OFF
