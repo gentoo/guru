@@ -1,0 +1,10 @@
+#!/sbin/openrc-run
+# Copyright 1999-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+supervisor="supervise-daemon"
+command="/usr/bin/technitium-dns"
+command_args="/etc/dns"
+
+# The server responds to SIGINT instead of SIGTERM.
+retry="SIGINT/5"

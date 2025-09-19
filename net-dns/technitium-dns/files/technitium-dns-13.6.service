@@ -1,0 +1,12 @@
+[Unit]
+Description=Technitium DNS Server
+
+[Service]
+ExecStart=/usr/bin/technitium-dns /etc/dns
+KillSignal=SIGINT
+Restart=always
+RestartSec=10
+SyslogIdentifier=technitium-dns
+
+[Install]
+WantedBy=multi-user.target
