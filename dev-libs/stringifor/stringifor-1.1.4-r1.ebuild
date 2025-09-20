@@ -1,13 +1,14 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-MY_PN="StringiFor"
 FORTRAN_STANDARD=2003
 PYTHON_COMPAT=( python3_{11..13} )
 
 inherit  fortran-2 python-any-r1 toolchain-funcs
+
+MY_PN="StringiFor"
 
 DESCRIPTION="StringiFor, Strings Fortran Manipulator, yet another strings Fortran module"
 HOMEPAGE="https://github.com/szaghi/StringiFor"
@@ -32,8 +33,8 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/stringifor-1.1.1_fobos_soname.patch"
-	"${FILESDIR}/stringifor-1.1.3_fix_tests.patch"
+	"${FILESDIR}/${PN}-1.1.1_fobos_soname.patch"
+	"${FILESDIR}/${PN}-1.1.3_fix_tests.patch"
 )
 
 set_build_mode() {
@@ -82,12 +83,12 @@ src_test() {
 }
 
 src_install() {
-	mv lib/mod lib/stringifor || die
-	doheader -r lib/stringifor/
+	mv lib/mod lib/${PN} || die
+	doheader -r lib/${PN}/
 
-	mv lib/libstringifor.so{,.1} || die
-	dosym libstringifor.so.1 /usr/$(get_libdir)/libstringifor.so
-	dolib.so lib/libstringifor.so.1
+	mv lib/lib${PN}.so{,.1} || die
+	dosym lib${PN}.so.1 /usr/$(get_libdir)/lib${PN}.so
+	dolib.so lib/lib${PN}.so.1
 
-	use static-libs && dolib.a lib/libstringifor.a
+	use static-libs && dolib.a lib/lib${PN}.a
 }
