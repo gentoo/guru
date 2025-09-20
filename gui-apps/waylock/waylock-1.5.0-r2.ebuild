@@ -24,7 +24,6 @@ SRC_URI="
 LICENSE="ISC MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="man"
 
 BDEPEND="
 	dev-libs/wayland-protocols
@@ -43,18 +42,11 @@ src_configure() {
 		-Dman-pages=false
 	)
 
-	if use man; then
-		mkdir --parents ${WORKDIR}/${P}-build/share/man/man1
-		cp ${FILESDIR}/manpage-${PV} ${WORKDIR}/${P}-build/share/man/man1/waylock.1
-	fi
-
 	zig_src_configure
 }
 
 src_install() {
-	if use man; then
-		doman ${WORKDIR}/${P}-build/share/man/man1/waylock.1
-	fi
+	doman "${FILESDIR}/${PN}.1"
 
 	zig_src_install
 }
