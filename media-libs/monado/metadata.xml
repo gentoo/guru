@@ -10,6 +10,7 @@
 		<flag name="ffmpeg">Enable ffmpeg testing video driver</flag>
 		<flag name="gles">Enable OpenGL-ES Graphics API support</flag>
 		<flag name="gstreamer">Enable gstreamer</flag>
+		<flag name="onnxruntime">Enable handtracking support via <pkg>sci-libs/onnxruntime</pkg></flag>
 		<flag name="opencv">Enable OpenCV backend</flag>
 		<flag name="opengl">Enable OpenGL Graphics API support</flag>
 		<flag name="psvr">Enable PSVR HMD driver</flag>
