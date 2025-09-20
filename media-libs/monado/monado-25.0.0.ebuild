@@ -20,7 +20,7 @@ fi
 LICENSE="Boost-1.0"
 SLOT="0"
 
-IUSE="dbus gles gstreamer onnxruntime opencv opengl psvr sdl systemd uvc vive vulkan wayland X"
+IUSE="dbus gstreamer onnxruntime opencv opengl psvr sdl systemd uvc vive vulkan wayland X"
 
 # TODO: OpenHMD, percetto?, libsurvive?
 DEPEND="
@@ -49,7 +49,6 @@ DEPEND="
 	)
 	opengl? ( virtual/opengl )
 	opencv? ( media-libs/opencv:= )
-	gles? ( media-libs/mesa[gles1,gles2] )
 	dbus? ( sys-apps/dbus )
 	systemd? ( sys-apps/systemd:= )
 	uvc? ( media-libs/libuvc )
@@ -70,7 +69,7 @@ src_configure() {
 
 		-DXRT_HAVE_VULKAN=$(usex vulkan)
 		-DXRT_HAVE_OPENGL=$(usex opengl)
-		-DXRT_HAVE_OPENGLES=$(usex gles)
+		-DXRT_HAVE_OPENGLES=$(usex opengl)
 		-DXRT_HAVE_EGL=ON
 		-DXRT_HAVE_LIBBSD=ON
 		-DXRT_HAVE_SYSTEMD=$(usex systemd)
