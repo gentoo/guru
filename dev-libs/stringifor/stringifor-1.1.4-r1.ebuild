@@ -3,6 +3,7 @@
 
 EAPI=8
 
+MY_PN="StringiFor"
 FORTRAN_STANDARD=2003
 PYTHON_COMPAT=( python3_{11..13} )
 
@@ -10,9 +11,9 @@ inherit  fortran-2 python-any-r1 toolchain-funcs
 
 DESCRIPTION="StringiFor, Strings Fortran Manipulator, yet another strings Fortran module"
 HOMEPAGE="https://github.com/szaghi/StringiFor"
-SRC_URI="https://github.com/szaghi/StringiFor/releases/download/v${PV}/StringiFor.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/szaghi/${MY_PN}/releases/download/v${PV}/${MY_PN}.tar.gz -> ${MY_PN}-${PV}.tar.gz"
 
-S="${WORKDIR}/${PN}"
+S="${WORKDIR}/${MY_PN}"
 
 # For FOSS projects: GPL-3
 # For closed source/commercial projects: BSD 2-Clause, BSD 3-Clause, MIT
