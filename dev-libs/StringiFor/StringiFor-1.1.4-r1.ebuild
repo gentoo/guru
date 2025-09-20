@@ -4,7 +4,7 @@
 EAPI=8
 
 FORTRAN_STANDARD=2003
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit  fortran-2 python-any-r1 toolchain-funcs
 
@@ -64,7 +64,8 @@ src_prepare() {
 
 src_compile() {
 	${EPYTHON} FoBiS.py build -verbose -compiler custom -fc $(tc-getFC) ${BUILD_MODE_SHARED} || die
-	use static-libs && { ${EPYTHON} FoBiS.py build -verbose -compiler custom -fc $(tc-getFC) ${BUILD_MODE_STATIC} || die; }
+	use static-libs && { ${EPYTHON} FoBiS.py \
+		build -verbose -compiler custom -fc $(tc-getFC) ${BUILD_MODE_STATIC} || die; }
 }
 
 src_test() {
