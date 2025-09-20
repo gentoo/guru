@@ -26,7 +26,7 @@ RESTRICT="mirror !test? ( test )"
 BDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_any_dep '
-		dev-build/FoBiS[${PYTHON_USEDEP}]
+		dev-build/fobis[${PYTHON_USEDEP}]
 	')
 "
 
