@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..13} )
-PYPI_PN="${PN}.py"
+PYPI_PN="FoBiS.py"
 PYPI_NO_NORMALIZE=1
 
 inherit distutils-r1 pypi
