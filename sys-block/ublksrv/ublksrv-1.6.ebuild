@@ -12,7 +12,7 @@ SRC_URI="https://github.com/ublk-org/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="gnutls"
+IUSE="gnutls debug"
 
 DEPEND="
 	gnutls? ( net-libs/gnutls )
@@ -29,9 +29,10 @@ src_prepare() {
 src_configure() {
 	local myeconfargs=(
 		$(use_with gnutls)
+		$(use_enable debug)
 	)
 
-	econf "${myeconfargs}"
+	econf "${myeconfargs[@]}"
 }
 
 src_install() {
