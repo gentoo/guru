@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mechakotik@gmail.com</email>
+		<name>Andrei Sabalenka</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/mechakotik/rog-daemon/issues</bugs-to>
+		<remote-id type="github">mechakotik/rog-daemon</remote-id>
+	</upstream>
+	<use>
+		<flag name="profile">Enable support for controlling profile</flag>
+		<flag name="fan-curve">Enable support for custom fan curves</flag>
+		<flag name="mux">Enable support for MUX switch</flag>
+		<flag name="panel-od">Enable support for Panel Overdrive</flag>
+	</use>
+</pkgmetadata>
+
