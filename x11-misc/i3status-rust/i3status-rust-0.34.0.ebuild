@@ -5,7 +5,7 @@ EAPI=8
 
 RUST_MIN_VER="1.85.0"
 LLVM_OPTIONAL=1
-LLVM_COMPAT=( {18..20} )
+LLVM_COMPAT=( {18..21} )
 
 inherit cargo llvm-r2 optfeature
 
