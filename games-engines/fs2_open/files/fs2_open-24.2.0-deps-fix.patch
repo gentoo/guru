@@ -1,0 +1,388 @@
+--- a/code/cfile/cfile.h
++++ b/code/cfile/cfile.h
+@@ -15,6 +15,7 @@
+ 
+ #include "globalincs/pstypes.h"
+ 
++#include <array>
+ #include <ctime>
+ #include <stdexcept>
+ #include <memory>
+--- a/code/cmdline/cmdline.h
++++ b/code/cmdline/cmdline.h
+@@ -13,6 +13,8 @@
+ #define FS_CMDLINE_HEADER_FILE
+ 
+ #include <tl/optional.hpp>
++#include <cstdint>
++#include "globalincs/vmallocator.h"
+ 
+ int parse_cmdline(int argc, char *argv[]);
+ 
+--- a/code/cutscene/ffmpeg/FFMPEGDecoder.h
++++ b/code/cutscene/ffmpeg/FFMPEGDecoder.h
+@@ -2,6 +2,8 @@
+ 
+ #include "cutscene/Decoder.h"
+ 
++#include <thread>
++
+ namespace cutscene {
+ namespace ffmpeg {
+ struct InputStream;
+--- a/code/gamehelp/gameplayhelp.h
++++ b/code/gamehelp/gameplayhelp.h
+@@ -7,7 +7,7 @@
+  *
+ */ 
+ 
+-
++#include <globalincs/vmallocator.h>
+ 
+ #ifndef __GAMEPLAY_HELP_H__
+ #define __GAMEPLAY_HELP_H__
+--- a/code/globalincs/utility.h
++++ b/code/globalincs/utility.h
+@@ -6,6 +6,7 @@
+ 
+ #include "globalincs/globals.h"
+ #include "globalincs/toolchain.h"
++#include "globalincs/vmallocator.h"
+ 
+ 
+ // Goober5000
+--- a/code/graphics/opengl/gropenglopenxr.h
++++ b/code/graphics/opengl/gropenglopenxr.h
+@@ -1,8 +1,11 @@
+ #pragma once
+ 
++#include <cstdint>
++#include <globalincs/vmallocator.h>
++
+ SCP_vector<const char*> gr_opengl_openxr_get_extensions();
+ bool gr_opengl_openxr_test_capabilities();
+ bool gr_opengl_openxr_create_session();
+ int64_t gr_opengl_openxr_get_swapchain_format(const SCP_vector<int64_t>& allowed);
+ bool gr_opengl_openxr_acquire_swapchain_buffers();
+-bool gr_opengl_openxr_flip();
+\ No newline at end of file
++bool gr_opengl_openxr_flip();
+--- a/code/io/spacemouse.h
++++ b/code/io/spacemouse.h
+@@ -4,6 +4,8 @@
+ #include "math/vecmat.h"
+ #include "io/timer.h"
+ 
++#include <array>
++
+ struct hid_device_;
+ typedef hid_device_ hid_device;
+ 
+@@ -59,4 +61,4 @@ namespace io
+ 			static std::unique_ptr<SpaceMouse> searchSpaceMice(int pollingFrequency = 10);
+ 		};
+ 	}
+-}
+\ No newline at end of file
++}
+--- a/code/libs/discord/discord.h
++++ b/code/libs/discord/discord.h
+@@ -1,5 +1,7 @@
+ #pragma once
+ 
++#include <globalincs/vmallocator.h>
++
+ namespace libs {
+ namespace discord {
+ 
+--- a/code/math/floating.h
++++ b/code/math/floating.h
+@@ -12,6 +12,7 @@
+ #ifndef _FLOATING_H
+ #define _FLOATING_H
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <cfloat>
+ #include <limits>
+--- a/code/menuui/playermenu.cpp
++++ b/code/menuui/playermenu.cpp
+@@ -79,45 +79,45 @@ const char *Player_select_background_mask_bitmap[GR_NUM_RESOLUTIONS] = {
+ #define PLAYER_SELECT_MAIN_HALL_OVERLAY		NOX("MainHall1")			// main hall help overlay
+ 
+ // convenient struct for handling all button controls
+-struct barracks_buttons {
++struct barracks_buttons_alt {
+ 	const char *filename;
+ 	int x, y, xt, yt;
+ 	int hotspot;
+ 	UI_BUTTON button;  // because we have a class inside this struct, we need the constructor below..
+ 
+-	barracks_buttons(const char *name, int x1, int y1, int xt1, int yt1, int h) : filename(name), x(x1), y(y1), xt(xt1), yt(yt1), hotspot(h) {}
++	barracks_buttons_alt(const char *name, int x1, int y1, int xt1, int yt1, int h) : filename(name), x(x1), y(y1), xt(xt1), yt(yt1), hotspot(h) {}
+ };
+ 
+-static barracks_buttons Player_select_buttons[GR_NUM_RESOLUTIONS][NUM_PLAYER_SELECT_BUTTONS] = {
++static barracks_buttons_alt Player_select_buttons[GR_NUM_RESOLUTIONS][NUM_PLAYER_SELECT_BUTTONS] = {
+ 	{ // GR_640
+ 		// create, clone and delete (respectively)
+-		barracks_buttons("CPB_00",		114,	205,	117,	240,	0),
+-		barracks_buttons("CPB_01",		172,	205,	175,	240,	1),
+-		barracks_buttons("CPB_02",		226,	205,	229,	240,	2),
++		barracks_buttons_alt("CPB_00",		114,	205,	117,	240,	0),
++		barracks_buttons_alt("CPB_01",		172,	205,	175,	240,	1),
++		barracks_buttons_alt("CPB_02",		226,	205,	229,	240,	2),
+ 
+ 		// scroll up, scroll down, and accept (respectively)
+-		barracks_buttons("CPB_03",		429,	213,	 -1,	 -1,	3),
+-		barracks_buttons("CPB_04",		456,	213,	 -1,	 -1,	4),
+-		barracks_buttons("CPB_05",		481,	207,	484,	246,	5),
++		barracks_buttons_alt("CPB_03",		429,	213,	 -1,	 -1,	3),
++		barracks_buttons_alt("CPB_04",		456,	213,	 -1,	 -1,	4),
++		barracks_buttons_alt("CPB_05",		481,	207,	484,	246,	5),
+ 		
+ 		// single player select and multiplayer select, respectively
+-		barracks_buttons("CPB_06",		428,	 82,	430,	108,	6),
+-		barracks_buttons("CPB_07",		477,	 82,	481,	108,	7)
++		barracks_buttons_alt("CPB_06",		428,	 82,	430,	108,	6),
++		barracks_buttons_alt("CPB_07",		477,	 82,	481,	108,	7)
+ 	}, 
+ 	{ // GR_1024
+ 		// create, clone and delete (respectively)
+-		barracks_buttons("2_CPB_00",	182,	328,	199,	384,	0),
+-		barracks_buttons("2_CPB_01",	275,	328,	292,	384,	1),
+-		barracks_buttons("2_CPB_02",	361,	328,	379,	384,	2),
++		barracks_buttons_alt("2_CPB_00",	182,	328,	199,	384,	0),
++		barracks_buttons_alt("2_CPB_01",	275,	328,	292,	384,	1),
++		barracks_buttons_alt("2_CPB_02",	361,	328,	379,	384,	2),
+ 
+ 		// scroll up, scroll down, and accept (respectively)
+-		barracks_buttons("2_CPB_03",	686,	341,	 -1,	 -1,	3),
+-		barracks_buttons("2_CPB_04",	729,	341,	 -1,	 -1,	4),
+-		barracks_buttons("2_CPB_05",	770,	332,	787,	394,	5),
++		barracks_buttons_alt("2_CPB_03",	686,	341,	 -1,	 -1,	3),
++		barracks_buttons_alt("2_CPB_04",	729,	341,	 -1,	 -1,	4),
++		barracks_buttons_alt("2_CPB_05",	770,	332,	787,	394,	5),
+ 		
+ 		// single player select and multiplayer select, respectively
+-		barracks_buttons("2_CPB_06",	685,	132,	700,	173,	6),
+-		barracks_buttons("2_CPB_07",	764,	132,	782,	173,	7)
++		barracks_buttons_alt("2_CPB_06",	685,	132,	700,	173,	6),
++		barracks_buttons_alt("2_CPB_07",	764,	132,	782,	173,	7)
+ 	}
+ };
+ 
+@@ -294,7 +294,7 @@ void player_select_set_controls(int gray)
+ void player_select_init()
+ {
+ 	int i;
+-	barracks_buttons *b;
++	barracks_buttons_alt *b;
+ 	UI_WINDOW *w;
+ 
+ 	// start a looping ambient sound
+--- a/code/mission/missionhotkey.h
++++ b/code/mission/missionhotkey.h
+@@ -14,6 +14,8 @@
+ 
+ #include "globalincs/globals.h"
+ 
++#include <globalincs/vmallocator.h>
++
+ #define MAX_LINES MAX_SHIPS // retail was 200, bump it to match MAX_SHIPS
+ 
+ // Types of items that can be in the hotkey list
+--- a/code/missionui/chatbox.h
++++ b/code/missionui/chatbox.h
+@@ -12,7 +12,9 @@
+ #ifndef __FREESPACE_CHATBOX_H__
+ #define __FREESPACE_CHATBOX_H__
+ 
++#include "globalincs/pstypes.h"
+ #include "globalincs/globals.h"
++#include "globalincs/vmallocator.h"
+ 
+ // prototype
+ struct net_player;
+--- a/code/network/multi_mdns.h
++++ b/code/network/multi_mdns.h
+@@ -1,6 +1,8 @@
+ #ifndef MULTI_MDNS_H
+ #define MULTI_MDNS_H
+ 
++#include <array>
++
+ bool multi_mdns_query();
+ void multi_mdns_query_do();
+ void multi_mdns_query_close();
+--- a/code/network/multi_pxo.h
++++ b/code/network/multi_pxo.h
+@@ -7,7 +7,7 @@
+  *
+ */
+ 
+-
++#include <globalincs/vmallocator.h>
+ 
+ #ifndef _PARALLAX_ONLINE_HEADER_FILE
+ #define _PARALLAX_ONLINE_HEADER_FILE
+--- a/code/network/psnet2.h
++++ b/code/network/psnet2.h
+@@ -20,6 +20,7 @@
+ #include <netinet/in.h>
+ #include <cerrno>
+ #endif
++#include <iomanip>
+ 
+ #include "globalincs/pstypes.h"
+ 
+--- a/code/options/Ingame_Options.h
++++ b/code/options/Ingame_Options.h
+@@ -1,7 +1,9 @@
+ #pragma once
+ 
++#include <globalincs/vmallocator.h>
++
+ extern SCP_vector<std::pair<SCP_string, bool>> Option_categories;
+ 
+ void ingame_options_init();
+ void ingame_options_close();
+-void ingame_options_do_frame();
+\ No newline at end of file
++void ingame_options_do_frame();
+--- a/code/osapi/osapi.h
++++ b/code/osapi/osapi.h
+@@ -25,6 +25,7 @@
+ #include "globalincs/flagset.h"
+ 
+ #include <functional>
++#include <fstream>
+ #include <memory>
+ 
+ #include <SDL_events.h>
+--- a/code/osapi/osregistry.cpp
++++ b/code/osapi/osregistry.cpp
+@@ -478,17 +478,17 @@ typedef struct KeyValue
+ 	struct KeyValue *next;
+ } KeyValue;
+ 
+-typedef struct Section
++typedef struct IniSection
+ {
+ 	char *name;
+ 
+ 	struct KeyValue *pairs;
+-	struct Section *next;
+-} Section;
++	struct IniSection *next;
++} IniSection;
+ 
+ typedef struct Profile
+ {
+-	struct Section *sections;
++	struct IniSection *sections;
+ } Profile;
+ 
+ // For string config functions
+@@ -605,8 +605,8 @@ static Profile *profile_read(const char *file)
+ 	Profile *profile = (Profile *)vm_malloc(sizeof(Profile));
+ 	profile->sections = NULL;
+ 
+-	Section **sp_ptr = &(profile->sections);
+-	Section *sp = NULL;
++	IniSection **sp_ptr = &(profile->sections);
++	IniSection *sp = NULL;
+ 
+ 	KeyValue **kvp_ptr = NULL;
+ 
+@@ -623,7 +623,7 @@ static Profile *profile_read(const char *file)
+ 				*pend = 0;
+ 
+ 				if (*ptr) {
+-					sp = (Section *)vm_malloc(sizeof(Section));
++					sp = (IniSection *)vm_malloc(sizeof(IniSection));
+ 					sp->next = NULL;
+ 
+ 					sp->name = vm_strdup(ptr);
+@@ -678,9 +678,9 @@ static void profile_free(Profile *profile)
+ 	if (profile == NULL)
+ 		return;
+ 
+-	Section *sp = profile->sections;
++	IniSection *sp = profile->sections;
+ 	while (sp != NULL) {
+-		Section *st = sp;
++		IniSection *st = sp;
+ 		KeyValue *kvp = sp->pairs;
+ 
+ 		while (kvp != NULL) {
+@@ -712,8 +712,8 @@ static Profile *profile_update(Profile *profile, const char *section, const char
+ 
+ 	KeyValue *kvp;
+ 
+-	Section **sp_ptr = &(profile->sections);
+-	Section *sp = profile->sections;
++	IniSection **sp_ptr = &(profile->sections);
++	IniSection *sp = profile->sections;
+ 
+ 	while (sp != NULL) {
+ 		if (strcmp(section, sp->name) == 0) {
+@@ -761,7 +761,7 @@ static Profile *profile_update(Profile *profile, const char *section, const char
+ 	}
+ 
+ 	/* section not found */
+-	sp = (Section *)vm_malloc(sizeof(Section));
++	sp = (IniSection *)vm_malloc(sizeof(IniSection));
+ 	sp->next = NULL;
+ 	sp->name = vm_strdup(section);
+ 
+@@ -782,7 +782,7 @@ static char *profile_get_value(Profile *profile, const char *section, const char
+ 	if (profile == NULL)
+ 		return NULL;
+ 
+-	Section *sp = profile->sections;
++	IniSection *sp = profile->sections;
+ 
+ 	while (sp != NULL) {
+ 		if (stricmp(section, sp->name) == 0) {
+@@ -817,7 +817,7 @@ static void profile_save(Profile *profile, const char *file)
+ 	if (fp == NULL)
+ 		return;
+ 
+-	Section *sp = profile->sections;
++	IniSection *sp = profile->sections;
+ 
+ 	while (sp != NULL) {
+ 		sprintf(tmp, NOX("[%s]\n"), sp->name);
+--- a/code/scripting/api/LuaPromise.h
++++ b/code/scripting/api/LuaPromise.h
+@@ -2,6 +2,9 @@
+ 
+ #include "scripting/lua/LuaTypes.h"
+ 
++#include <functional>
++#include <memory>
++
+ namespace scripting {
+ namespace api {
+ 
+--- a/code/scripting/hook_conditions.h
++++ b/code/scripting/hook_conditions.h
+@@ -1,5 +1,6 @@
+ #pragma once
+ 
++#include <globalincs/vmallocator.h>
+ #include <linb/any.hpp>
+ 
+ class object;
+--- a/code/scripting/lua/LuaTypes.h
++++ b/code/scripting/lua/LuaTypes.h
+@@ -1,5 +1,8 @@
+ #pragma once
+ 
++#include <iostream>
++#include <vector>
++
+ namespace luacpp {
+ class LuaValue;
+ 
