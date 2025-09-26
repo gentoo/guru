@@ -14,8 +14,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="systemd +profile +fan-curve +mux +panel-od"
 
-BDEPEND="dev-build/meson"
-
 src_configure() {
 	local emesonargs=(
 		$(usex "systemd" "-Dinit=systemd" "-Dinit=openrc")
