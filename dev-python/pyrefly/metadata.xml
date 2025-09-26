@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<longdescription>
+		Pyrefly is a type checker and language server for Python, 
+		which provides lightning-fast type checking along with IDE 
+		features such as code navigation, semantic highlighting, 
+		and code completion.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">facebook/pyrefly</remote-id>
+		<remote-id type="pypi">pyrefly</remote-id>
+		<bugs-to>https://github.com/facebook/pyrefly/issues</bugs-to>
+		<doc>https://pyrefly.org/en/docs/</doc>
+	</upstream>
+</pkgmetadata>
