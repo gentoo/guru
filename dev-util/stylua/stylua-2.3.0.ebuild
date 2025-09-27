@@ -18,6 +18,7 @@ CRATES="
 	bitflags@1.3.2
 	bitflags@2.4.2
 	borsh@1.5.1
+	bstr@0.2.17
 	bstr@1.9.0
 	bumpalo@3.14.0
 	bytecount@0.6.7
