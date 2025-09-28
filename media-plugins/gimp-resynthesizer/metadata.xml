@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<use>
+		<flag name="glib">Use GLib library for platform independence instead of direct system calls</flag>
+		<flag name="animate">Enable animation of the synthesis process for debugging. You may see a 'brushfire front' of pixels being synthesized. Note: may not work with threading enabled</flag>
+		<flag name="debug">Enable debug logging, call tree tracing, and algorithm statistics. Currently depends on GLib</flag>
+		<flag name="deep-progress">Enable detailed progress reporting (percent processed) instead of shallow progress (per pass). Useful for slow motion animation</flag>
+		<flag name="libheal">Build the simple API library that only provides healing functionality. Not needed for GIMP, only for external test harnesses</flag>
+		<flag name="threads">Enable threading support for approximately 2x performance speedup. Thread limit is hardcoded to 12</flag>
+		<flag name="translations">Install translation files.</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">bootchk/resynthesizer</remote-id>
+	</upstream>
+</pkgmetadata>
