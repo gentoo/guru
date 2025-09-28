@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit meson python-single-r1
 
@@ -18,11 +18,11 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="${PYTHON_DEPS}"
 RDEPEND="${DEPEND}
-    || (
-        app-admin/doas
-        kde-plasma/kdesu-gui
-        app-admin/sudo
-    )
+	|| (
+		app-admin/doas
+		kde-plasma/kdesu-gui
+		app-admin/sudo
+	)
 	dev-util/flatpak-builder
 	sys-apps/flatpak
 	sys-apps/portage"
