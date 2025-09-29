@@ -36,11 +36,6 @@ dev-ruby/sorbet-runtime
 # Removal on 2025-09-29
 media-sound/pulseaudio-virtualmic
 
-# David (stkw0) Roman <davidroman96@gmail.com> (2025-08-29)
-# The dependency robin-hood-hashing::gentoo was masked for removal.
-# Removal on 2025-09-29
-app-text/klogg
-
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-07-25)
 # Depends on removed pydantic version.
 dev-python/safety-schemas
