@@ -31,11 +31,6 @@ app-crypt/gnome-encfs-manager
 # Removal on 2025-10-03
 dev-ruby/sorbet-runtime
 
-# David (stkw0) Roman <davidroman96@gmail.com> (2025-08-29)
-# EAPI 7. Depends on masked media-sound/pulseaudio. Archived upstream
-# Removal on 2025-09-29
-media-sound/pulseaudio-virtualmic
-
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-07-25)
 # Depends on removed pydantic version.
 dev-python/safety-schemas
