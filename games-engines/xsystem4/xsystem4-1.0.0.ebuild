@@ -53,6 +53,11 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+# Patch to correct version number for each release, patch must be edited for each new version
+PATCHES=(
+	"${FILESDIR}"/version_"{PV}".patch
+)
+
 src_unpack() {
 	default
 
