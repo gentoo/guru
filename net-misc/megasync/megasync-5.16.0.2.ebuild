@@ -138,7 +138,7 @@ src_configure() {
 		-DENABLE_LINUX_EXT=$(usex nautilus)
 		-DUSE_FFMPEG=$(usex thumbnail)
 		-DUSE_FREEIMAGE=$(usex thumbnail)
-		-DUSE_MEDIAINFO=$(usex mediainfo)
+		-DENABLE_MEDIA_FILE_METADATA=$(usex mediainfo)
 		-DUSE_PDFIUM=OFF
 		-DUSE_READLINE=OFF
 	)
