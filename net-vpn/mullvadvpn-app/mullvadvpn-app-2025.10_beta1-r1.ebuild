@@ -86,18 +86,10 @@ src_install() {
 	done
 }
 
-MULLVAD_IS_BEING_UPDATED=false
-
-pkg_preinst() {
-	xdg_pkg_preinst
-
-	[[ -n "$(best_version "${CATEGORY}/${PN}")" ]] && MULLVAD_IS_BEING_UPDATED=true
-}
-
 pkg_postrm() {
 	xdg_pkg_postrm
 
-	if [[ ${MULLVAD_IS_BEING_UPDATED} = "false" ]]; then
+	if [[ -z ${REPLACED_BY_VERSION} ]]; then
 		if ! command -v pgrep &>/dev/null || pgrep -f "mullvad-(daemon|gui)"; then
 			elog "Mullvad has been uninstalled. To stop the service,"
 			elog "1. Quit the Mullvad app"
@@ -117,7 +109,7 @@ pkg_postrm() {
 pkg_postinst() {
 	xdg_pkg_postinst
 
-	if [[ ${MULLVAD_IS_BEING_UPDATED} = "true" ]]; then
+	if [[ -n ${REPLACING_VERSIONS} ]]; then
 		if command -v pgrep &>/dev/null && pgrep -f "mullvad-(daemon|gui)" &>/dev/null; then
 			elog "Mullvad has been updated. To restart the service,"
 			elog "1. Restart the daemon"
