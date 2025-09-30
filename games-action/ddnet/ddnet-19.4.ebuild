@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=(python3_{11..12})
+PYTHON_COMPAT=(python3_{11..14})
 
 CRATES="
 cc@1.0.73
