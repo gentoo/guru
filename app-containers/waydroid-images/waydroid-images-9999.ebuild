@@ -232,9 +232,8 @@ src_unpack() {
 	use system-vanilla && waydroid_download_system "${arch}" "${version}" VANILLA
 	use system-gapps && waydroid_download_system "${arch}" "${version}" GAPPS
 	use vendor-mainline && waydroid_download_vendor "${arch}" "${version}" MAINLINE
-	if use vendor-halium && [[ ! ${halium} ]]; then
-		die "USE=vendor-halium is unavailable for the selected version"
-	else
+	if use vendor-halium; then
+		[[ ${halium} ]] || die "USE=vendor-halium is unavailable for the selected version"
 		waydroid_download_vendor "${arch}" "${version}" "${halium}"
 	fi
 	unpack "${MY_A[@]}"
