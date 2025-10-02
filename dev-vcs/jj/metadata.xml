@@ -8,7 +8,4 @@
   <upstream>
     <remote-id type="github">jj-vcs/jj</remote-id>
   </upstream>
-  <use>
-    <flag name="git2">Enables transitory support for <pkg>dev-libs/libgit2</pkg>.</flag>
-  </use>
 </pkgmetadata>
