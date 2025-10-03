@@ -9,7 +9,7 @@ RUST_MIN_VER="1.80.1"
 # used for version string
 export NIRI_BUILD_COMMIT="01be0e6"
 
-inherit cargo llvm-r2 optfeature systemd
+inherit cargo llvm-r2 optfeature shell-completion systemd
 
 DESCRIPTION="Scrollable-tiling Wayland compositor"
 HOMEPAGE="https://github.com/YaLTeR/niri"
@@ -82,6 +82,14 @@ src_configure() {
 	cargo_src_configure --no-default-features
 }
 
+src_compile() {
+	cargo_src_compile
+
+	"$(cargo_target_dir)"/niri completions bash > niri  || die
+	"$(cargo_target_dir)"/niri completions fish > niri.fish || die
+	"$(cargo_target_dir)"/niri completions zsh > _niri || die
+}
+
 src_install() {
 	cargo_src_install
 
@@ -93,6 +101,10 @@ src_install() {
 
 	insinto /usr/share/xdg-desktop-portal
 	doins resources/niri-portals.conf
+
+	dobashcomp niri
+	dofishcomp niri.fish
+	dozshcomp _niri
 }
 
 src_test() {
@@ -102,7 +114,7 @@ src_test() {
 	chmod 0700 "${XDG_RUNTIME_DIR}" || die
 
 	# bug 950626
-	# https://github.com/YaLTeR/niri/blob/main/wiki/Packaging-niri.md#running-tests
+	# https://yalter.github.io/niri/Packaging-niri.html#running-tests
 	local -x RAYON_NUM_THREADS=2
 	local skip=(
 		# requires surfacesless EGL to be available
