@@ -47,6 +47,7 @@ python_test() {
 		"tests/test_protonsso.py::TestProtonSSO::test_broken_index"
 		"tests/test_protonsso.py::TestProtonSSO::test_sessions"
 		"tests/test_session.py::TestSession::test_ping"
+		"tests/test_session.py::TestSession::test_raw_ping"
 		"tests/test_tlsverification.py::TestTLSValidation::test_bad_pinning_fingerprint_changed"
 		"tests/test_tlsverification.py::TestTLSValidation::test_bad_pinning_url_changed"
 		"tests/test_tlsverification.py::TestTLSValidation::test_successful"
