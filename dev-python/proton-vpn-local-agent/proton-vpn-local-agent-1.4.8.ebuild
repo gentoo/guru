@@ -14,6 +14,9 @@ CRATES="
 	anstyle-query@1.1.1
 	anstyle-wincon@3.0.4
 	anstyle@1.0.8
+	asn1-rs-derive@0.5.1
+	asn1-rs-impl@0.2.0
+	asn1-rs@0.6.2
 	async-trait@0.1.81
 	autocfg@1.3.0
 	aws-lc-rs@1.8.1
@@ -30,6 +33,10 @@ CRATES="
 	clang-sys@1.8.1
 	cmake@0.1.50
 	colorchoice@1.0.2
+	data-encoding@2.9.0
+	der-parser@9.0.0
+	deranged@0.5.3
+	displaydoc@0.2.5
 	dunce@1.0.5
 	either@1.13.0
 	env_filter@0.1.2
@@ -73,7 +80,12 @@ CRATES="
 	mirai-annotations@1.12.0
 	nom@7.1.3
 	nu-ansi-term@0.46.0
+	num-bigint@0.4.6
+	num-conv@0.1.0
+	num-integer@0.1.46
+	num-traits@0.2.19
 	object@0.36.3
+	oid-registry@0.7.1
 	once_cell@1.19.0
 	overload@0.1.1
 	parking_lot@0.12.3
@@ -82,6 +94,7 @@ CRATES="
 	pin-project-lite@0.2.14
 	pin-utils@0.1.0
 	portable-atomic@1.7.0
+	powerfmt@0.2.0
 	prettyplease@0.2.20
 	proc-macro2@1.0.94
 	pyo3-async-runtimes-macros@0.24.0
@@ -101,6 +114,7 @@ CRATES="
 	ring@0.17.8
 	rustc-demangle@0.1.24
 	rustc-hash@1.1.0
+	rusticata-macros@4.1.0
 	rustix@0.38.34
 	rustls-pemfile@2.1.3
 	rustls-pki-types@1.8.0
@@ -121,12 +135,16 @@ CRATES="
 	static_assertions@1.1.0
 	subtle@2.6.1
 	syn@2.0.100
+	synstructure@0.13.2
 	target-lexicon@0.13.2
 	test-log-macros@0.2.16
 	test-log@0.2.16
 	thiserror-impl@1.0.63
 	thiserror@1.0.63
 	thread_local@1.1.8
+	time-core@0.1.6
+	time-macros@0.2.24
+	time@0.3.43
 	tokio-macros@2.4.0
 	tokio-rustls@0.26.0
 	tokio@1.39.2
@@ -156,10 +174,12 @@ CRATES="
 	windows_x86_64_gnu@0.52.6
 	windows_x86_64_gnullvm@0.52.6
 	windows_x86_64_msvc@0.52.6
+	x509-parser@0.16.0
 	zeroize@1.8.1
 	zeroize_derive@1.4.2
 "
 
+RUST_MIN_VER="1.81.0"
 PYTHON_COMPAT=( python3_{11..13}  )
 
 inherit cargo python-r1
@@ -177,14 +197,8 @@ LICENSE="GPL-3+"
 
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0
-	Apache-2.0-with-LLVM-exceptions
-	BSD
-	ISC
-	MIT
-	MPL-2.0
-	openssl
-	Unicode-DFS-2016
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD ISC MIT MPL-2.0
+	openssl Unicode-DFS-2016
 "
 
 SLOT="0"
