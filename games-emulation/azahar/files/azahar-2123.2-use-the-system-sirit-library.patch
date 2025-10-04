@@ -5,12 +5,12 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
 
 --- a/externals/CMakeLists.txt
 +++ b/externals/CMakeLists.txt
-@@ -401,7 +401,7 @@ if (ENABLE_VULKAN)
+@@ -452,7 +452,7 @@ if (ENABLE_VULKAN)
      endif()
  
      # sirit
 -    add_subdirectory(sirit EXCLUDE_FROM_ALL)
-+    add_library(sirit SHARED IMPORTED)
++    find_package(sirit REQUIRED)
  
      # VMA
      if(USE_SYSTEM_VMA)

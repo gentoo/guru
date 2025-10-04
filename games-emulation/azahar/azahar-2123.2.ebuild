@@ -60,11 +60,11 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2122.1-link-to-Catch2-only-when-tests-are-enabled.patch"
 	"${FILESDIR}/${PN}-2122.1-rename-AV_OPT_TYPE_CHANNEL_LAYOUT-to-AV_OPT_TYPE_CHL.patch"
 	"${FILESDIR}/${PN}-2122.1-use-the-system-faad2-library.patch"
-	"${FILESDIR}/${PN}-2122.1-use-the-system-sirit-library.patch"
 	"${FILESDIR}/${PN}-2122.1-use-the-system-teakra-library.patch"
 	"${FILESDIR}/${PN}-2123-don-t-build-spirv-tools.patch"
 	"${FILESDIR}/${PN}-2123-use-the-zstd_seekable.h-header-from-externals.patch"
 	"${FILESDIR}/${PN}-2123.1-use-the-system-oaknut-library.patch"
+	"${FILESDIR}/${PN}-2123.2-use-the-system-sirit-library.patch"
 )
 
 # [directory]=license
