@@ -10,7 +10,7 @@ HOMEPAGE="https://skarnet.org/software/mdevd/"
 SRC_URI="https://skarnet.org/software/mdevd/${P}.tar.gz"
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND=">=dev-libs/skalibs-2.14.4.0:="
 DEPEND="${RDEPEND}"
