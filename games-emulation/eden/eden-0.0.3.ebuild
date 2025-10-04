@@ -9,7 +9,7 @@ DESCRIPTION="Nintendo Switch Emulator"
 HOMEPAGE="https://eden-emu.dev"
 SRC_URI="
 	https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
-	https://github.com/crueter-archive/tzdb_to_nx/releases/download/250725/250725.zip -> nx-tzdb-250725.zip
+	https://git.crueter.xyz/misc/tzdb_to_nx/releases/download/250725/250725.zip -> nx-tzdb-250725.zip
 "
 
 S="${WORKDIR}/${PN}"
