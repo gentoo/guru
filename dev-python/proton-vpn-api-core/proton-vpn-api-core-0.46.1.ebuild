@@ -28,7 +28,7 @@ BDEPEND="test? ( dev-python/pytest-asyncio[${PYTHON_USEDEP}] )"
 RDEPEND="
 	dev-python/cryptography[${PYTHON_USEDEP}]
 	dev-python/distro[${PYTHON_USEDEP}]
-	dev-python/proton-core[${PYTHON_USEDEP}]
+	>=dev-python/proton-core-0.5.0[${PYTHON_USEDEP}]
 	dev-python/pynacl[${PYTHON_USEDEP}]
 "
 
