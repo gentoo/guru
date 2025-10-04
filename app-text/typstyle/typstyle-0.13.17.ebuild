@@ -504,7 +504,7 @@ inherit edo cargo
 DESCRIPTION="A beautiful and reliable code formatter for Typst"
 HOMEPAGE="https://typstyle-rs.github.io/typstyle/"
 SRC_URI="
-	https://github.com/Enter-tainer/${PN}/archive/v${PV}/${P}.tar.gz
+	https://github.com/typstyle-rs/${PN}/archive/v${PV}/${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
 

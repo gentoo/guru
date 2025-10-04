@@ -6,10 +6,10 @@
 		<name>Huang Rui</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>https://github.com/Enter-tainer/typstyle/issues</bugs-to>
-		<changelog>https://github.com/Enter-tainer/typstyle/releases</changelog>
-		<doc>https://enter-tainer.github.io/typstyle</doc>
-		<remote-id type="github">Enter-tainer/typstyle</remote-id>
+		<bugs-to>https://github.com/typstyle-rs/typstyle/issues</bugs-to>
+		<changelog>https://github.com/typstyle-rs/typstyle/releases</changelog>
+		<doc>https://typstyle-rs.github.io/typstyle</doc>
+		<remote-id type="github">typstyle-rs/typstyle</remote-id>
 	</upstream>
 	<longdescription lang="en">
 		Typstyle is a code formatter designed for Typst, aiming to produce
