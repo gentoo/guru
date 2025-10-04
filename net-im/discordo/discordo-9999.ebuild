@@ -25,6 +25,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
+BDEPEND=">=dev-lang/go-1.25"
 
 src_compile() {
 	ego build -o "bin/$PN"
