@@ -25,7 +25,7 @@ RDEPEND="
 		dev-python/packaging[${PYTHON_USEDEP}]
 		dev-python/proton-core[${PYTHON_USEDEP}]
 		dev-python/proton-keyring-linux[${PYTHON_USEDEP}]
-		dev-python/proton-vpn-api-core[${PYTHON_USEDEP}]
+		>=dev-python/proton-vpn-api-core-0.46.0[${PYTHON_USEDEP}]
 		dev-python/proton-vpn-local-agent[${PYTHON_USEDEP}]
 		dev-python/proton-vpn-network-manager[${PYTHON_USEDEP}]
 		dev-python/pycairo[${PYTHON_USEDEP}]
@@ -34,11 +34,11 @@ RDEPEND="
 	')
 "
 
-PATCHES=( "${FILESDIR}/${PN}-4.9.6-remove-anonymous-bug-report.patch" )
+PATCHES=( "${FILESDIR}/${P}-remove-anonymous-bug-report.patch" )
 
 src_install() {
 	distutils-r1_src_install
 
 	doicon rpmbuild/SOURCES/proton-vpn-logo.svg
-	domenu rpmbuild/SOURCES/protonvpn-app.desktop
+	domenu rpmbuild/SOURCES/proton.vpn.app.gtk.desktop
 }

@@ -1,7 +1,7 @@
-From 065d288c8e8f01a18362c27c7f2ff69dfcda9038 Mon Sep 17 00:00:00 2001
+From 67ee6693075f1d65ecaf0a9d76493fbbc84f8022 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Matt=C3=A9o=20Rossillol=E2=80=91=E2=80=91Laruelle?=
  <beatussum@protonmail.com>
-Date: Tue, 17 Jun 2025 10:27:24 +0200
+Date: Sat, 4 Oct 2025 17:01:29 +0200
 Subject: [PATCH] remove anonymous bug report
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -12,25 +12,30 @@ the main tree due to its difficulty in being packaged correctly.
 
 Signed-off-by: Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com>
 ---
- proton/vpn/app/gtk/controller.py              |  8 ----
+ proton/vpn/app/gtk/controller.py              | 13 -------
  proton/vpn/app/gtk/utils/exception_handler.py |  4 --
  .../menu/settings/general_settings.py         | 14 -------
  tests/unit/utils/test_exception_handler.py    | 37 +------------------
- 4 files changed, 1 insertion(+), 62 deletions(-)
+ 4 files changed, 1 insertion(+), 67 deletions(-)
 
 diff --git a/proton/vpn/app/gtk/controller.py b/proton/vpn/app/gtk/controller.py
-index 50b2b7d..0ccbdf7 100644
+index 450db35..2a51c6a 100644
 --- a/proton/vpn/app/gtk/controller.py
 +++ b/proton/vpn/app/gtk/controller.py
-@@ -370,14 +370,6 @@ class Controller:  # pylint: disable=too-many-public-methods, too-many-instance-
+@@ -499,19 +499,6 @@ class Controller:  # pylint: disable=too-many-public-methods, too-many-instance-
              key=lambda protocol: protocol.cls.ui_protocol
          )
  
--    def send_error_to_proton(self,
--                             error: BaseException |
--                             tuple[Optional[Type[BaseException]],
--                                   Optional[BaseException],
--                                   Optional[TracebackType]]):
+-    def send_error_to_proton(
+-        self,
+-        error: Union[
+-            BaseException,
+-            tuple[
+-                Optional[Type[BaseException]],
+-                Optional[BaseException],
+-                Optional[TracebackType]]
+-            ]
+-    ):
 -        """Sends the error to Sentry."""
 -        self._api.usage_reporting.report_error(error)
 -
@@ -53,10 +58,10 @@ index 55bf536..18ae4c6 100644
          self.enable()
          return self
 diff --git a/proton/vpn/app/gtk/widgets/headerbar/menu/settings/general_settings.py b/proton/vpn/app/gtk/widgets/headerbar/menu/settings/general_settings.py
-index 27723cd..46ec4dc 100644
+index f690767..39ee722 100644
 --- a/proton/vpn/app/gtk/widgets/headerbar/menu/settings/general_settings.py
 +++ b/proton/vpn/app/gtk/widgets/headerbar/menu/settings/general_settings.py
-@@ -88,10 +88,6 @@ class GeneralSettings(BaseCategoryContainer):  # pylint: disable=too-many-instan
+@@ -87,10 +87,6 @@ class GeneralSettings(BaseCategoryContainer):  # pylint: disable=too-many-instan
      START_APP_MINIMIZED_LABEL = "Start app minimized"
      START_APP_MINIMIZED_DESCRIPTION = "When enabled, the app starts minimized "\
          "to the tray."
@@ -67,7 +72,7 @@ index 27723cd..46ec4dc 100644
  
      def __init__(
          self, controller: Controller,
-@@ -110,7 +106,6 @@ class GeneralSettings(BaseCategoryContainer):  # pylint: disable=too-many-instan
+@@ -109,7 +105,6 @@ class GeneralSettings(BaseCategoryContainer):  # pylint: disable=too-many-instan
              self.build_start_app_minimized()
              self.build_tray_pinned_servers()
  
@@ -75,7 +80,7 @@ index 27723cd..46ec4dc 100644
          self.build_beta_upgrade()
  
      def build_connect_at_app_startup(self):
-@@ -145,15 +140,6 @@ class GeneralSettings(BaseCategoryContainer):  # pylint: disable=too-many-instan
+@@ -144,15 +139,6 @@ class GeneralSettings(BaseCategoryContainer):  # pylint: disable=too-many-instan
              controller=self._controller, tray_indicator=self._tray_indicator
          ), False, False, 0)
  
@@ -145,5 +150,5 @@ index d925d86..74d35ec 100644
 \ No newline at end of file
 +    main_widget_mock.notifications.show_error_dialog.assert_called_once()
 -- 
-2.49.0
+2.49.1
 
