@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@lapawa.de</email>
+		<name>Tim Lapawa</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">aardappel/treesheets</remote-id>
+	</upstream>
+</pkgmetadata>
