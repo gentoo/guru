@@ -24,8 +24,8 @@ RDEPEND="
 	dev-python/jinja2[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/proton-core[${PYTHON_USEDEP}]
-	dev-python/proton-vpn-api-core[${PYTHON_USEDEP}]
-	dev-python/proton-vpn-local-agent[${PYTHON_USEDEP}]
+	>=dev-python/proton-vpn-api-core-0.45.1[${PYTHON_USEDEP}]
+	>=dev-python/proton-vpn-local-agent-1.4.4[${PYTHON_USEDEP}]
 	dev-python/pygobject[${PYTHON_USEDEP}]
 	net-misc/networkmanager[introspection]
 	net-vpn/networkmanager-openvpn
@@ -47,7 +47,10 @@ src_prepare() {
 
 python_test() {
 	# VPN connection cannot be tested within sandbox
-	local EPYTEST_IGNORE=( tests/unit/core/test_networkmanager.py )
+	local EPYTEST_IGNORE=(
+		tests/unit/core/test_networkmanager.py
+		tests/unit/wireguard/test_wireguard.py
+	)
 
 	XDG_RUNTIME_DIR="${T}/python_test" epytest
 }
