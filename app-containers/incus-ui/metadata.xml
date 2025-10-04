@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>adel.ks@zegrapher.com</email>
+		<name>Adel KARA SLIMANE</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">zabbly/incus-ui-canonical</remote-id>
+		<bugs-to>https://github.com/zabbly/incus-ui-canonical/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
