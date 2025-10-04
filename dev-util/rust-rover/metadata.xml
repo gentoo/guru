@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <maintainer type="person">
-	<email>egger.m@protonmail.com</email>
-	<name>Michael Egger</name>
+	<email>kubastarzyk6554@gmail.com</email>
+	<name>Aniela Starzyk</name>
 </maintainer>
 <use>
 	<flag name="bundled-jdk">Use bundled jdk</flag>
