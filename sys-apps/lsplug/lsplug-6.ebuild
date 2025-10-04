@@ -15,7 +15,7 @@ HOMEPAGE="https://git.sr.ht/~martijnbraam/lsplug"
 SRC_URI="https://git.sr.ht/~martijnbraam/lsplug/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 # For /usr/share/hwdata/usb.ids
 RDEPEND="sys-apps/hwdata"
