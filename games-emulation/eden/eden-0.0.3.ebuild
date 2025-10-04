@@ -98,7 +98,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-0.0.3-use-the-bundled-dynarmic-library.patch"
 	"${FILESDIR}/${PN}-0.0.3-use-the-system-discord-rpc-library.patch"
 	"${FILESDIR}/${PN}-0.0.3-use-the-system-mbedtls-library.patch"
-	"${FILESDIR}/${PN}-0.0.3-use-the-system-sirit-library.patch"
 )
 
 # [directory]=license

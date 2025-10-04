@@ -21,23 +21,6 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
  #include <vector>
  
  namespace Dynarmic::Common {
---- a/src/shader_recompiler/backend/spirv/emit_spirv.cpp
-+++ b/src/shader_recompiler/backend/spirv/emit_spirv.cpp
-@@ -491,12 +491,12 @@ void PatchPhiNodes(IR::Program& program, EmitContext& ctx) {
-             // Start "before" first PHI; advance on phi_arg == 0
-             size_t phi_index = static_cast<size_t>(-1);
- 
--            ctx.PatchDeferredPhi([&](size_t phi_arg, Id parent) -> std::pair<Id, Id> {
-+            ctx.PatchDeferredPhi([&](size_t phi_arg) -> Id {
-                 if (phi_arg == 0) {
-                     ++phi_index;
-                 }
-                 IR::Inst* phi = phi_instructions[phi_index];
--                return { ctx.Def(phi->Arg(phi_arg)), parent };
-+                return ctx.Def(phi->Arg(phi_arg));
-             });
-         }
- } // Anonymous namespace
 --- a/src/yuzu/main.cpp
 +++ b/src/yuzu/main.cpp
 @@ -101,9 +101,10 @@ static FileSys::VirtualFile VfsDirectoryCreateFileWrapper(const FileSys::Virtual
