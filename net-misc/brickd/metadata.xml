@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>gentoo@lapawa.de</email>
+		<name>Tim Lapawa</name>
+	</maintainer>
 	<upstream>
+		<maintainer status="active">
+			<name>Tinkerforge GmbH</name>
+		</maintainer>
 		<remote-id type="github">Tinkerforge/brickd</remote-id>
-		<doc>https://www.tinkerforge.com/en/doc/Software/Brickd.html</doc>
+		<doc lang="en">https://www.tinkerforge.com/en/doc/Software/Brickd.html</doc>
+		<doc lang="de">https://www.tinkerforge.com/de/doc/Software/Brickd.html</doc>
+		<bugs-to>https://github.com/Tinkerforge/brickd/issues</bugs-to>
 	</upstream>
+	<longdescription lang="en">
+		The Brick Daemon is a daemon (or service on Windows) that acts as a bridge between the Bricks/Bricklets and the API bindings for the different programming languages.
+The daemon routes data between the USB connections and TCP/IP sockets. When using the API bindings a TCP/IP connection to the daemon is established. This concepts allows the creation of bindings for almost every language without any dependencies. Therefore it is possible to program Bricks and Bricklets from embedded devices that only support specific languages, such as smart phones.
+Additionally it is possible to separate the machine running the Brick Daemon from the machine running the user code. This allows e.g. a Brick connected to a PC to be controlled from a smart phone or over the Internet from another PC.
+	</longdescription>
+	<longdescription lang="de">
+Der Brick Daemon ist ein Daemon (bzw. Service für Windows) der als eine Brücke zwischen Bricks/Bricklets und den API Bindings für die verschiedenen Programmiersprachen fungiert.
+Der Daemon leitet Daten zwischen der USB Verbindung und den TCP/IP Sockets hin und her. Bei der Benutzung der API Bindings wird eine TCP/IP Verbindung zum Brick Daemon hergestellt. Dieses Konzept erlaubt es Bindings für nahezu jede Programmiersprache ohne Abhängigkeiten zu erstellen. Dadurch ist es möglich Bricks und Bricklets über eingebettete Geräte wie Smartphones zu programmieren, die nur spezifische Programmiersprachen unterstützten.
+Zusätzlich ist es möglich den PC auf dem der Brick Daemon läuft von dem PC auf dem der Benutzercode läuft zu trennen. Dadurch ist das Steuern über ein Smartphone oder auch über das Internet möglich.
+	</longdescription>
 </pkgmetadata>
