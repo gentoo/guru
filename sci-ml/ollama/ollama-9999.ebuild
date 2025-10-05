@@ -95,7 +95,7 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	if use hip; then
+	if use rocm; then
 		linux-info_pkg_setup
 		if linux-info_get_any_version && linux_config_exists; then
 			if ! linux_chkconfig_present HSA_AMD_SVM; then
