@@ -47,7 +47,7 @@ src_prepare() {
 	default
 
 	vala_setup
-	sed -i 's/-G feedbackd/-G video/g' data/90-feedbackd.rules || die
+	sed -i 's/-G feedbackd/-G video/g' data/72-feedbackd.rules || die
 }
 
 src_configure() {
