@@ -33,10 +33,10 @@ BDEPEND="
 		dev-python/annotated-types[${PYTHON_USEDEP}]
 		dev-python/boto3[${PYTHON_USEDEP}]
 		dev-python/moto[${PYTHON_USEDEP}]
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-mock )
 EPYTEST_IGNORE=(
 	# Dependencies not packaged: pytest-examples
 	tests/test_docs.py
