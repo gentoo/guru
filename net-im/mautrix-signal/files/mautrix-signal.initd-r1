@@ -1,0 +1,21 @@
+#!/sbin/openrc-run
+# shellcheck shell=sh
+#
+# Copyright 1999-2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+description="Matrix-Signal puppeting bridge"
+supervisor="supervise-daemon"
+command="/usr/bin/mautrix-signal"
+command_args="-c ${MAUTRIX_SIGNAL_CONFIG} ${MAUTRIX_SIGNAL_OPTS}"
+command_user="mautrix-signal:mautrix"
+pidfile="/run/mautrix-signal/${RC_SVCNAME}.pid"
+
+depend() {
+	need net
+	use dns postgresql
+}
+
+start_pre() {
+	checkpath -d -o "${command_user}" /run/mautrix-signal
+}

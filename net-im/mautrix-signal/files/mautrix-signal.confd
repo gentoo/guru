@@ -1,0 +1,5 @@
+# Configuration file
+#MAUTRIX_SIGNAL_CONFIG="/etc/mautrix/mautrix_signal.yaml"
+
+# Extra command-line options
+#MAUTRIX_SIGNAL_OPTS=""
