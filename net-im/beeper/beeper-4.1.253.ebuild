@@ -1,7 +1,11 @@
 # Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# NOTICE: This is a Electron app (oh my) and the upstream only provides AppImages.
+# NOTICE: This is a Electron app (oh my…) and the upstream only provides AppImages.
+#
+# To check the latest version, run:
+#
+#	curl -s "https://api.beeper.com/desktop/update-feed.json?bundleID=com.automattic.beeper.desktop&platform=linux&arch=x64&channel=stable" | jq .version
 
 EAPI=8
 
@@ -12,10 +16,6 @@ CHROMIUM_LANGS="
 "
 
 inherit chromium-2 optfeature pax-utils xdg
-
-# To check the latest version, run:
-#
-# 	curl -s "https://api.beeper.com/desktop/update-feed.json?bundleID=com.automattic.beeper.desktop&platform=linux&arch=x64&channel=stable" | jq .version
 
 APPIMAGE="Beeper-${PV}.AppImage"
 DESCRIPTION="Beeper: Unified Messenger"
