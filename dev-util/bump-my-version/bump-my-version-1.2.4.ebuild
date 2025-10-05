@@ -18,7 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-python/click[${PYTHON_USEDEP}]
+	<dev-python/click-8.2.2[${PYTHON_USEDEP}]
 	>=dev-python/httpx-0.28.1[${PYTHON_USEDEP}]
 	>=dev-python/pydantic-2.0[${PYTHON_USEDEP}]
 	dev-python/pydantic-settings[${PYTHON_USEDEP}]
