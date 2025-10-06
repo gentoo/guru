@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit shell-completion
+
 DESCRIPTION="Real-time logging dashboard for Kubernetes"
 HOMEPAGE="https://www.kubetail.com"
 
@@ -21,7 +23,6 @@ KEYWORDS="~amd64 ~arm64"
 RESTRICT="strip"
 
 QA_PREBUILT="usr/bin/kubetail"
-inherit shell-completion
 
 src_install() {
 	cp "${DISTDIR}/${P}-linux-${ARCH}" "${T}/kubetail" || die
@@ -29,7 +30,6 @@ src_install() {
 
 	dobin "${T}/kubetail" || die
 
-	# If the binary can generate completions at build time, do it:
 	if "${T}/kubetail" completion bash >/dev/null 2>&1 ; then
 		"${T}/kubetail" completion bash > "${T}/kubetail.bash" || die
 		"${T}/kubetail" completion zsh > "${T}/kubetail.zsh" || die
