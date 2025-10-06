@@ -1,0 +1,12 @@
+Title: coolercontrol-liqctld no longer a separate package
+Author: Alfred Wingate <parona@protonmail.com>
+Posted: 2025-10-07
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-apps/coolercontrol-liqctld
+
+sys-apps/coolercontrol-liqctld is no longer a separate package in 3.0.0[1].
+It has been integrated into sys-apps/coolercontrold and you can enable
+support for it with the liqctld use flag.
+
+[1] https://gitlab.com/coolercontrol/coolercontrol/-/releases/3.0.0#removed
