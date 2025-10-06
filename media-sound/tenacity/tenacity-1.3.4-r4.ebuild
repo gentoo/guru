@@ -72,10 +72,9 @@ RDEPEND="${DEPEND}"
 PATCHES=(
 	"${FILESDIR}/${PN}-1.3.4-fix-rpath-handling.patch"
 	"${FILESDIR}/${PN}-1.3.4-fix-hardcoded-docdir.patch"
-
-	# bug #961756
-	"${FILESDIR}/${PN}-1.3.4-odr-and-aliasing-fixes.patch"
+	"${FILESDIR}/${PN}-1.3.4-odr-and-aliasing-fixes.patch" # bug #961756
 	"${FILESDIR}/${PN}-1.3.4-ffmpeg-disable-lto.patch"
+	"${FILESDIR}/${PN}-1.3.4-fix-gcc15.patch"
 )
 
 src_unpack() {
