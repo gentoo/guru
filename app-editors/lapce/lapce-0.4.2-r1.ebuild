@@ -5,7 +5,7 @@ EAPI=8
 inherit cargo desktop xdg-utils
 
 DESCRIPTION="Lightning-fast and Powerful Code Editor written in Rust "
-HOMEPAGE="https://lapce.dev/"
+HOMEPAGE="https://lap.dev/lapce/"
 SRC_URI="
 	https://github.com/lapce/lapce/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/lapce/lapce/releases/download/v${PV}/vendor.tar.gz -> ${P}-vendor.tar.gz
