@@ -58,7 +58,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-0.18.4.0-unbundle-dependencies.patch
 )
 
-
 src_prepare() {
 	# The build system does not recognize the release tarball (bug?)
 	# so we patch the GitVersion file.
