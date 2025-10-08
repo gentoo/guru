@@ -30,6 +30,7 @@ RDEPEND="
 BDEPEND="
 	doc? (
 		${RDEPEND}
+		dev-python/accessible-pygments[${PYTHON_USEDEP}]
 	)
 "
 
