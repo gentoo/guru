@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1
 
@@ -24,9 +24,3 @@ RDEPEND="
 "
 
 distutils_enable_tests unittest
-
-python_prepare_all() {
-	# Install tests package otherwise
-	sed -i 's/find_packages()/find_packages(exclude=["tests", "tests.*"])/' "${S}"/setup.py || die
-	distutils-r1_python_prepare_all
-}
