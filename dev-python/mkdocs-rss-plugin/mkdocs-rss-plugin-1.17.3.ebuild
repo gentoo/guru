@@ -1,10 +1,10 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="
@@ -76,6 +76,7 @@ python_test() {
 		tests/test_build.py::TestBuildRss
 		tests/test_rss_util.py::TestRssUtil::test_remote_image_ok
 		tests/test_integrations_material_social_cards.py::TestRssPluginIntegrationsMaterialSocialCards::test_simple_build
+		tests/test_integrations_material_social_cards.py::TestRssPluginIntegrationsMaterialSocialCards::test_plugin_config_social_cards_enabled_with_directory_urls_disabled
 	)
 	epytest "${S}"/tests || die "Tests failed with ${EPYTHON}"
 }
