@@ -1,10 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
 PYTHON_COMPAT=( python3_{11..13} )
+
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="
 	dev-python/mkdocstrings
@@ -16,7 +17,7 @@ DOCS_DEPEND="
 "
 DOCS_INITIALIZE_GIT=1
 
-inherit distutils-r1 optfeature #docs
+inherit distutils-r1 optfeature docs
 
 DESCRIPTION="Modern Text User Interface framework"
 HOMEPAGE="https://github.com/Textualize/textual https://pypi.org/project/textual/"
@@ -36,18 +37,13 @@ BDEPEND="
 	test? (
 		dev-python/griffe[${PYTHON_USEDEP}]
 		dev-python/httpx[${PYTHON_USEDEP}]
-		dev-python/platformdirs[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		=dev-python/textual-dev-1.7*[${PYTHON_USEDEP}]
 	)
 "
-# currently masked
-#BDEPEND+="doc? ( dev-python/tree-sitter-languages[${PYTHON_USEDEP}] )
 DEPEND="${RDEPEND}"
 
-# PATCHES=(
-# 	"${FILESDIR}/fix-mkdocstrings.patch"
-# )
+DOCS+=( CHANGELOG.md LICENSE README.md )
 
 EPYTEST_XDIST=1
 EPYTEST_DESELECT=(
@@ -57,28 +53,48 @@ EPYTEST_DESELECT=(
 
 	# Need a package that should be optional
 	tests/text_area/test_languages.py
+
+	# Xdist fails thoses
+	tests/test_focus.py::test_focus_next_and_previous
+	tests/test_focus.py::test_focus_next_wrap_around
+	tests/test_focus.py::test_focus_previous_wrap_around
+	tests/test_focus.py::test_wrap_around_selector
+	tests/test_focus.py::test_no_focus_empty_selector
+	tests/test_focus.py::test_focus_next_and_previous_with_type_selector
+	tests/test_focus.py::test_focus_next_and_previous_with_str_selector
+	tests/test_focus.py::test_focus_next_and_previous_with_str_selector_without_self
+	tests/test_focus.py::test_focus_chain
+	tests/test_focus.py::test_allow_focus
+	tests/test_focus.py::test_focus_next_and_previous_with_type_selector_without_self
+
+	# Needs a fixture that does not exist
+	tests/test_progress_bar.py::test_progress_bar_width_1fr
 )
 distutils_enable_tests pytest
-python_test() {
-	if [[ ${EPYTHON} == python3.13 ]]; then
-		EPYTEST_DESELECT+=(
-			# See https://github.com/Textualize/textual/issues/5327
-			"tests/text_area"
-		)
-		epytest -m 'not syntax' tests
-	else
-		epytest tests
-	fi
-}
+# python_test() {
+# 	if [[ ${EPYTHON} == python3.13 ]]; then
+# 		EPYTEST_DESELECT+=(
+# 			# See https://github.com/Textualize/textual/issues/5327
+# 			"tests/text_area"
+# 			# Some tests just do not work under python3.13 (more than half of those in this file)
+# 			tests/test_focus.py
+# 		)
+# 		epytest -m 'not syntax' tests
+# 	else
+# 		epytest tests
+# 	fi
+# }
 
 python_compile_all() {
 	echo "INHERIT: mkdocs-offline.yml" > "${S}/mkdocs.yml"
 	grep -v "\- \"*[Bb]log" "${S}/mkdocs-nav.yml" >> "${S}/mkdocs.yml"
-	#docs_compile
+	if use doc; then
+		DOCS+=( questions )
+	fi
+	docs_compile
 	rm "${S}/mkdocs.yml"
 }
 
 pkg_postinst() {
 	optfeature "bindings for python" dev-python/tree-sitter
-	#optfeature "support for all languages" dev-python/tree-sitter-languages
 }

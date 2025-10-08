@@ -66,6 +66,9 @@ EPYTEST_DESELECT=(
 	tests/test_focus.py::test_focus_chain
 	tests/test_focus.py::test_allow_focus
 	tests/test_focus.py::test_focus_next_and_previous_with_type_selector_without_self
+
+	# Needs a fixture that does not exist
+	tests/test_progress_bar.py::test_progress_bar_width_1fr
 )
 distutils_enable_tests pytest
 # python_test() {
