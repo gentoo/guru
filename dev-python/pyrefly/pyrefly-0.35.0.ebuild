@@ -440,7 +440,7 @@ KEYWORDS="~amd64"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
-PATCHES=(	"${FILESDIR}"/${P}-cargo-toml-paths.patch	)
+PATCHES=(	"${FILESDIR}"/${PN}-cargo-toml-paths.patch	)
 
 src_configure() {
 	# Requires nightly

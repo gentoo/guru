@@ -38,7 +38,7 @@ bumpalo@3.16.0
 byteorder@1.5.0
 bytes@1.10.1
 castaway@0.2.3
-cc@1.2.10
+cc@1.2.40
 cfg-if@1.0.1
 chrono@0.4.41
 clap@4.5.42
@@ -62,9 +62,6 @@ crossbeam-epoch@0.9.18
 crossbeam-utils@0.8.21
 crypto-common@0.1.6
 ctor@0.1.26
-cxxbridge-cmd@1.0.160
-cxxbridge-flags@1.0.160
-cxxbridge-macro@1.0.160
 darling@0.20.10
 darling_core@0.20.10
 darling_macro@0.20.10
@@ -85,11 +82,12 @@ equivalent@1.0.0
 errno@0.3.10
 fastrand@2.3.0
 filetime@0.2.25
+find-msvc-tools@0.1.3
 fnv@1.0.7
 foldhash@0.1.5
 form_urlencoded@1.2.1
 fs-err@2.11.0
-fsevent-sys@4.0.0
+fsevent-sys@4.1.0
 futures@0.1.31
 futures@0.3.31
 futures-channel@0.3.31
@@ -136,7 +134,7 @@ idna@1.0.3
 idna_adapter@1.2.0
 ignore@0.4.23
 indexmap@1.9.2
-indexmap@2.10.0
+indexmap@2.11.4
 indicatif@0.17.9
 Inflector@0.11.4
 inotify@0.9.2
@@ -153,8 +151,8 @@ itoa@0.4.8
 itoa@1.0.14
 jobserver@0.1.33
 js-sys@0.3.77
-kqueue@1.0.4
-kqueue-sys@1.0.3
+kqueue@1.1.1
+kqueue-sys@1.0.4
 lazy_static@1.5.0
 libc@0.2.174
 libmimalloc-sys@0.1.42
@@ -245,6 +243,7 @@ ryu@1.0.17
 same-file@1.0.6
 scopeguard@1.2.0
 scratch@1.0.6
+seahash@4.1.0
 serde@1.0.225
 serde_bser@0.4.0
 serde_bytes@0.11.17
@@ -253,7 +252,7 @@ serde_derive@1.0.225
 serde_json@1.0.145
 serde_jsonrc@0.1.0
 serde_repr@0.1.19
-serde_spanned@1.0.0
+serde_spanned@1.0.2
 serde-wasm-bindgen@0.6.5
 serde_with@3.12.0
 serde_with_macros@3.12.0
@@ -274,7 +273,7 @@ structmeta@0.2.0
 structmeta-derive@0.2.0
 subtle@2.6.1
 syn@1.0.109
-syn@2.0.101
+syn@2.0.106
 synstructure@0.13.2
 tar@0.4.44
 tempfile@3.22.0
@@ -297,10 +296,10 @@ tokio@1.47.1
 tokio-macros@2.5.0
 tokio-util@0.6.10
 toml@0.9.2
-toml_datetime@0.7.0
-toml_edit@0.23.1
-toml_parser@1.0.1
-toml_writer@1.0.2
+toml_datetime@0.7.2
+toml_edit@0.23.6
+toml_parser@1.0.3
+toml_writer@1.0.3
 tracing@0.1.41
 tracing-attributes@0.1.28
 tracing-core@0.1.33
@@ -379,7 +378,7 @@ windows_x86_64_msvc@0.42.1
 windows_x86_64_msvc@0.48.5
 windows_x86_64_msvc@0.52.6
 windows_x86_64_msvc@0.53.0
-winnow@0.7.10
+winnow@0.7.13
 wit-bindgen-rt@0.39.0
 write16@1.0.0
 writeable@0.5.5
@@ -402,11 +401,15 @@ zstd-sys@2.0.12+zstd.1.5.6
 "
 
 declare -A GIT_CRATES=(
-	[cxx]="https://github.com/facebookexperimental/cxx;43f8f85eb1b9d99f10f7228ab679997c484ade69;cxx-%commit%"
-	[cxx-build]="https://github.com/facebookexperimental/cxx;43f8f85eb1b9d99f10f7228ab679997c484ade69;cxx-%commit%/gen/build"
+	[cxx]="https://github.com/facebookexperimental/cxx;870ebbecad0f6be394d4f9fb9bd62b551662651a;cxx-%commit%"
+	[cxx-build]="https://github.com/facebookexperimental/cxx;870ebbecad0f6be394d4f9fb9bd62b551662651a;cxx-%commit%/gen/build"
+	[cxxbridge-cmd]="https://github.com/facebookexperimental/cxx;870ebbecad0f6be394d4f9fb9bd62b551662651a;cxx-%commit%/gen/cmd"
+	[cxxbridge-flags]="https://github.com/facebookexperimental/cxx;870ebbecad0f6be394d4f9fb9bd62b551662651a;cxx-%commit%/flags/"
+	[cxxbridge-macro]="https://github.com/facebookexperimental/cxx;870ebbecad0f6be394d4f9fb9bd62b551662651a;cxx-%commit%/macro/"
 	[displaydoc]="https://github.com/yaahc/displaydoc;7dc6e324b1788a6b7fb9f3a1953c512923a3e9f0;displaydoc-%commit%"
 	[quickcheck]="https://github.com/jakoschiko/quickcheck;6ecdf5bb4b0132ce66670b4d46453aa022ea892c;quickcheck-%commit%"
 	[ruff_annotate_snippets]="https://github.com/astral-sh/ruff;9bee8376a17401f9736b45fdefffb62edc2f1668;ruff-%commit%/crates/ruff_annotate_snippets"
+	[ruff_cache]="https://github.com/astral-sh/ruff;9bee8376a17401f9736b45fdefffb62edc2f1668;ruff-%commit%/crates/ruff_cache"
 	[ruff_python_ast]="https://github.com/astral-sh/ruff;9bee8376a17401f9736b45fdefffb62edc2f1668;ruff-%commit%/crates/ruff_python_ast"
 	[ruff_python_parser]="https://github.com/astral-sh/ruff;9bee8376a17401f9736b45fdefffb62edc2f1668;ruff-%commit%/crates/ruff_python_parser"
 	[ruff_python_trivia]="https://github.com/astral-sh/ruff;9bee8376a17401f9736b45fdefffb62edc2f1668;ruff-%commit%/crates/ruff_python_trivia"
@@ -438,7 +441,7 @@ KEYWORDS="~amd64"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
-PATCHES=(	"${FILESDIR}"/${P}-cargo-toml-paths.patch	)
+PATCHES=(	"${FILESDIR}"/${PN}-cargo-toml-paths.patch	)
 
 src_configure() {
 	# Requires nightly
