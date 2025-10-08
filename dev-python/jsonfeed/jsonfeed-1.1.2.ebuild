@@ -1,10 +1,10 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 HTML_DOCS=( docs )
 
@@ -18,9 +18,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+PATCHES=("${FILESDIR}/${P}-exclude_tests.patch")
+
 RDEPEND="dev-python/feedparser[${PYTHON_USEDEP}]"
 
-python_prepare_all() {
-	distutils-r1_python_prepare_all
-	rm -rf "${S}/tests"
-}
+distutils_enable_tests pytest

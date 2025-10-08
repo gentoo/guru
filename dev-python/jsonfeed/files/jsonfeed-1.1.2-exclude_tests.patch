@@ -1,0 +1,11 @@
+--- a/setup.py
++++ b/setup.py
+@@ -8,7 +8,7 @@ with open("README.md") as fh:
+ setup(
+     name="jsonfeed-util",
+     version=version,
+-    packages=find_packages(),
++    packages=find_packages(exclude=["tests", "tests.*"]),
+     # metadata for upload to PyPI
+     author="Lukas Schwab",
+     author_email="lukas.schwab@gmail.com",
