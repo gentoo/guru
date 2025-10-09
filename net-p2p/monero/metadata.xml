@@ -27,6 +27,9 @@
     <flag name="wallet-rpc">
       Build the RPC wallet, monero-wallet-rpc
     </flag>
+    <flag name="monero-supercop">
+      Assembly optimizations for ed25519
+    </flag>
   </use>
   <upstream>
     <bugs-to>https://github.com/monero-project/monero/issues</bugs-to>
