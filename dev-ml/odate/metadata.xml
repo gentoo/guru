@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>t@laumann.xyz</email>
+    <name>Thomas Bracht Laumann Jespersen</name>
+  </maintainer>
+  <upstream>
+    <doc>https://github.com/hhugo/odate</doc>
+    <bugs-to>https://github.com/hhugo/odate/issues</bugs-to>
+    <remote-id type="github">hhugo/odate</remote-id>
+    <maintainer>
+      <name>Hugo Heuzard</name>
+      <email>hugo.heuzard@gmail.com</email>
+    </maintainer>
+  </upstream>
+</pkgmetadata>
