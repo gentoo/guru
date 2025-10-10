@@ -6,39 +6,40 @@ EAPI=8
 inherit shell-completion
 
 DESCRIPTION="Real-time logging dashboard for Kubernetes"
-HOMEPAGE="https://www.kubetail.com"
+
+HOMEPAGE="https://github.com/kubetail-org/kubetail"
 
 SRC_URI="
-amd64? ( https://github.com/kubetail-org/kubetail/releases/download/cli%2Fv${PV}/kubetail-linux-amd64
--> ${P}-linux-amd64 )
-arm64? ( https://github.com/kubetail-org/kubetail/releases/download/cli%2Fv${PV}/kubetail-linux-arm64
--> ${P}-linux-arm64 )
+amd64? ( https://github.com/kubetail-org/kubetail/releases/download/cli%2Fv${PV}/kubetail-linux-amd64.tar.gz
+-> ${P}-linux-amd64.tar.gz )
+arm64? ( https://github.com/kubetail-org/kubetail/releases/download/cli%2Fv${PV}/kubetail-linux-arm64.tar.gz
+-> ${P}-linux-arm64.tar.gz )
 "
 
-S=${WORKDIR}
-
 LICENSE="Apache-2.0"
+
 SLOT="0"
+
 KEYWORDS="~amd64 ~arm64"
-RESTRICT="strip"
+
+RDEPEND="sys-cluster/kubectl"
 
 QA_PREBUILT="usr/bin/kubetail"
 
+S="${WORKDIR}"
+
+src_compile() {
+	chmod +x kubetail
+
+	./kubetail completion bash > "kubetail.bash" || die
+	./kubetail completion zsh > "kubetail.zsh" || die
+	./kubetail completion fish > "kubetail.fish" || die
+}
+
 src_install() {
-	cp "${DISTDIR}/${P}-linux-${ARCH}" "${T}/kubetail" || die
-	chmod +x "${T}/kubetail" || die
+	dobin kubetail || die
 
-	dobin "${T}/kubetail" || die
-
-	if "${T}/kubetail" completion bash >/dev/null 2>&1 ; then
-		"${T}/kubetail" completion bash > "${T}/kubetail.bash" || die
-		"${T}/kubetail" completion zsh > "${T}/kubetail.zsh" || die
-		"${T}/kubetail" completion fish > "${T}/kubetail.fish" || die
-
-		newbashcomp "${T}/kubetail.bash" kubetail
-		newzshcomp "${T}/kubetail.zsh" "_kubetail"
-		dofishcomp "${T}/kubetail.fish"
-	else
-		ewarn "Shell completions not generated at build-time. Users can run '${PN} completion --help'."
-	fi
+	newbashcomp "kubetail.bash" kubetail
+	newzshcomp "kubetail.zsh" "_kubetail"
+	dofishcomp "kubetail.fish"
 }
