@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <longdescription lang="en">
-    Cmarkit parses the CommonMark specification.
-  </longdescription>
   <maintainer type="person">
     <email>t@laumann.xyz</email>
     <name>Thomas Bracht Laumann Jespersen</name>
@@ -11,6 +8,6 @@
   <upstream>
     <doc>https://erratique.ch/software/cmarkit/doc</doc>
     <bugs-to>https://github.com/dbuenzli/cmarkit/issues</bugs-to>
-	<remote-id type="github">dbuenzli/cmarkit</remote-id>
+    <remote-id type="github">dbuenzli/cmarkit</remote-id>
   </upstream>
 </pkgmetadata>
