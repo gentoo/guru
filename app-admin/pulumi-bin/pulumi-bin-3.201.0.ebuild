@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit shell-completion
+
 DESCRIPTION="Infrastructure as code in any programming language"
 HOMEPAGE="
 	https://www.pulumi.com/
@@ -22,4 +24,10 @@ QA_PREBUILT="*"
 
 src_install() {
 	dobin pulumi*
+
+	./pulumi gen-completion bash > pulumi.bash-completion || die "Cannot generate bash completions"
+	newbashcomp pulumi.bash-completion pulumi
+
+	./pulumi gen-completion zsh > pulumi.zsh-completion || die "Cannot generate zsh completions"
+	newzshcomp pulumi.zsh-completion _pulumi
 }
