@@ -44,6 +44,7 @@ REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	|| ( X wayland )
 	xnvctrl? ( video_cards_nvidia )
+	mangoapp? ( X )
 "
 
 BDEPEND="
