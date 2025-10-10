@@ -16,6 +16,8 @@ arm64? ( https://github.com/kubetail-org/kubetail/releases/download/cli%2Fv${PV}
 -> ${P}-linux-arm64.tar.gz )
 "
 
+S="${WORKDIR}"
+
 LICENSE="Apache-2.0"
 
 SLOT="0"
@@ -25,8 +27,6 @@ KEYWORDS="~amd64 ~arm64"
 RDEPEND="sys-cluster/kubectl"
 
 QA_PREBUILT="usr/bin/kubetail"
-
-S="${WORKDIR}"
 
 src_compile() {
 	chmod +x kubetail
