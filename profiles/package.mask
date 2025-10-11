@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2025-10-12)
+# Depends on dev-qt/qtcharts:5, which has been dropped from ::gentoo.
+# No maintainer.
+# Upstream issue: https://github.com/molke-productions/qloud/issues/25
+# Removal on 2025-11-12
+media-sound/qloud
+
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-09-16)
 # Depends on sys-fs/encfs which is masked in ::gentoo.
 # Removal on 2025-10-16
