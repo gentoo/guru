@@ -379,6 +379,7 @@ BDEPEND="media-libs/harfbuzz"
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 PATCHES=(
+	"${FILESDIR}/${PN}-0.15.0-fix-the-implicit-autoref-error.patch"
 	"${FILESDIR}/${P}-fix-internal-consistency-problem-bbl.patch"
 	"${FILESDIR}/${P}-fix-xetex_layout-build.patch"
 	"${FILESDIR}/${P}-rust-1.80.patch"
