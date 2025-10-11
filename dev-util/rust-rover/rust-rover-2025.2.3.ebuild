@@ -109,7 +109,7 @@ src_install() {
 
 	# bin files
 	for _f in format.sh fsnotifier inspect.sh jetbrains_client.sh ltedit.sh \
-	rustrover rustrover.sh restarter; do
+	rustrover rustrover.sh restarter native-helper/intellij-rust-native-helper; do
 		fperms 755 "${DIR}/bin/$_f"
 	done
 
