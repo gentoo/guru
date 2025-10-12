@@ -10,8 +10,7 @@ MyP="${MyPN}-${PV}"
 
 DESCRIPTION="Port of OpenAI's Whisper model in C/C++ "
 HOMEPAGE="https://github.com/ggml-org/whisper.cpp"
-SRC_URI="https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v${PV}.tar.gz -> ${MyP}.tar.gz
-	https://github.com/ggml-org/whisper.cpp/commit/350bce5df7dec9c0b3def74d96947811e8e4c429.patch"
+SRC_URI="https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v${PV}.tar.gz -> ${MyP}.tar.gz"
 
 S="${WORKDIR}/${MyP}"
 
@@ -32,8 +31,6 @@ RDEPEND="${CDEPEND}
 	vulkan? ( media-libs/vulkan-loader )
 "
 BDEPEND="media-libs/shaderc"
-
-PATCHES=( "${DISTDIR}/350bce5df7dec9c0b3def74d96947811e8e4c429.patch" )
 
 src_configure() {
 	# Note: CUDA and HIP are currently untested. Build failures may occur.
