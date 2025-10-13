@@ -26,22 +26,36 @@ export PDM_BUILD_SCM_VERSION=${PV}
 
 RDEPEND="
 	$(python_gen_cond_dep '
-		>=dev-python/argcomplete-3.6.2[${PYTHON_USEDEP}]
-		>=dev-python/arrow-1.3.0[${PYTHON_USEDEP}]
-		>=dev-python/b2sdk-2.8.1[${PYTHON_USEDEP}]
-		>=dev-python/docutils-0.19[${PYTHON_USEDEP}]
-		>=dev-python/phx-class-registry-4.0.6[${PYTHON_USEDEP}]
-		>=dev-python/rst2ansi-0.1.5[${PYTHON_USEDEP}]
-		>=dev-python/tabulate-0.9.0[${PYTHON_USEDEP}]
+		>=dev-python/argcomplete-3.5.2[${PYTHON_USEDEP}]
+		<dev-python/argcomplete-4[${PYTHON_USEDEP}]
+		>=dev-python/arrow-1.0.2[${PYTHON_USEDEP}]
+		<dev-python/arrow-2[${PYTHON_USEDEP}]
+		>=dev-python/b2sdk-2.9.4[${PYTHON_USEDEP}]
+		<dev-python/b2sdk-3[${PYTHON_USEDEP}]
+		>=dev-python/docutils-0.18.1[${PYTHON_USEDEP}]
+		<dev-python/docutils-0.22[${PYTHON_USEDEP}]
+		>=dev-python/phx-class-registry-4.0[${PYTHON_USEDEP}]
+		<dev-python/phx-class-registry-5[${PYTHON_USEDEP}]
+		~dev-python/rst2ansi-0.1.5[${PYTHON_USEDEP}]
+		~dev-python/tabulate-0.9.0[${PYTHON_USEDEP}]
 		>=dev-python/tqdm-4.65.0[${PYTHON_USEDEP}]
+		<dev-python/tqdm-5[${PYTHON_USEDEP}]
+		>=dev-python/platformdirs-3.11.0[${PYTHON_USEDEP}]
+		<dev-python/platformdirs-5[${PYTHON_USEDEP}]
 	')
 "
 
 DEPEND="
 	test? (
 		$(python_gen_cond_dep '
-			>=dev-python/backoff-2.2.1[${PYTHON_USEDEP}]
+			>=dev-python/coverage-7.2.7[${PYTHON_USEDEP}]
 			>=dev-python/pexpect-4.9.0[${PYTHON_USEDEP}]
+			>=dev-python/pytest-8.3.3[${PYTHON_USEDEP}]
+			>=dev-python/pytest-cov-3.0.0[${PYTHON_USEDEP}]
+			>=dev-python/pytest-forked-1.6.0[${PYTHON_USEDEP}]
+			>=dev-python/pytest-xdist-2.5.0[${PYTHON_USEDEP}]
+			>=dev-python/tenacity-8.2.3[${PYTHON_USEDEP}]
+			>=dev-python/more-itertools-8.13.0[${PYTHON_USEDEP}]
 		')
 	)
 "
