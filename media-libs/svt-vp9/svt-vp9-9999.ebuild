@@ -1,7 +1,7 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic cmake
 
@@ -19,7 +19,7 @@ fi
 LICENSE="BSD-2-with-patent"
 SLOT="0/1"
 
-DEPEND="dev-lang/nasm"
+BDEPEND="dev-lang/nasm"
 
 src_prepare() {
 	append-ldflags -Wl,-z,noexecstack
