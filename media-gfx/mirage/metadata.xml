@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<longdescription>
+		Mirage is a fast and simple GTK+ image viewer. Because 
+		it depends only on PyGTK, Mirage is ideal for users who 
+		wish to keep their computers lean while still having a 
+		clean image viewer.
+	</longdescription>
+	<upstream>
+		<remote-id type="gitlab">thomasross/mirage</remote-id>
+	</upstream>
+</pkgmetadata>
