@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,11 +17,17 @@ KEYWORDS="~amd64"
 
 RESTRICT="strip mirror"
 
-DEPEND="
+RDEPEND="
+	app-accessibility/at-spi2-core:2
+	dev-libs/glib:2
 	sys-fs/dosfstools
-	sys-fs/exfat-utils
+	|| ( sys-fs/exfatprogs sys-fs/exfat-utils )
 	sys-fs/fuse-exfat
 	sys-block/parted
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
+	x11-libs/gtk+:3
+	x11-libs/pango
 "
 # sys-fs/fuse-exfat is needed for mount, without it:
 # mount: /mnt: unknown filesystem type 'exfat'
