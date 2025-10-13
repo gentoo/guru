@@ -12,7 +12,7 @@ S="${WORKDIR}/zen"
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 RESTRICT="strip"
 
 DEPEND="
