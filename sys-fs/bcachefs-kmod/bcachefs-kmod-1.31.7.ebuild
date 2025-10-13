@@ -6,6 +6,7 @@ EAPI=8
 MODULES_KERNEL_MIN=6.16
 MODULES_INITRAMFS_IUSE=+initramfs
 MY_PN="bcachefs-tools"
+MY_PV_MAJOR_MINOR=${PV%.*}
 MODULE_S="module/src/${PN%-*}-${PV}"
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kentoverstreet.asc
 
@@ -32,7 +33,7 @@ SLOT="0"
 
 IUSE="debug verify-sig"
 
-DEPEND="~sys-fs/bcachefs-tools-${PV}"
+DEPEND=">=sys-fs/bcachefs-tools-${MY_PV_MAJOR_MINOR}"
 
 RDEPEND="${DEPEND}
 "
@@ -110,11 +111,10 @@ src_prepare() {
 	emake DESTDIR="${WORKDIR}" PREFIX="/module" install_dkms
 	sed -i "s|^#define TRACE_INCLUDE_PATH .*|#define TRACE_INCLUDE_PATH ${WORKDIR}/${MODULE_S}/src/fs/bcachefs|" \
 		../${MODULE_S}/src/fs/bcachefs/trace.h || die
-	sed -i '/mean_and_variance_test.o/Id' ../${MODULE_S}/src/fs/bcachefs/Makefile|| die
 }
 
 src_compile() {
-	local modlist=( "bcachefs=kernel/fs/bcachefs:../${MODULE_S}:../${MODULE_S}/src/fs/bcachefs" )
+	local modlist=( "bcachefs=:../${MODULE_S}:../${MODULE_S}/src/fs/bcachefs" )
 	local modargs=(
 		KDIR=${KV_OUT_DIR}
 	)
