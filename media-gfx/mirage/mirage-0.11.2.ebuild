@@ -3,8 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..14} )
+DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{10..14} )
 
 inherit distutils-r1 xdg
 
@@ -23,7 +24,14 @@ RDEPEND="
 	>=media-gfx/exiv2-0.27
 	>=x11-libs/gtk+-3.24.0:3[introspection]
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	x11-libs/libX11
+"
+BDEPEND="
+	dev-util/glib-utils
+	sys-devel/gettext
+"
 
 pkg_postinst() {
 	xdg_pkg_postinst
