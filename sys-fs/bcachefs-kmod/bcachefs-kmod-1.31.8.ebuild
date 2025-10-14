@@ -109,8 +109,6 @@ src_prepare() {
 	append-lfs-flags
 
 	emake DESTDIR="${WORKDIR}" PREFIX="/module" install_dkms
-	sed -i "s|^#define TRACE_INCLUDE_PATH .*|#define TRACE_INCLUDE_PATH ${WORKDIR}/${MODULE_S}/src/fs/bcachefs|" \
-		../${MODULE_S}/src/fs/bcachefs/trace.h || die
 }
 
 src_compile() {
