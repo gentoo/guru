@@ -32,7 +32,7 @@ HOMEPAGE="https://www.tinkerforge.com/en/doc/Software/Brickd.html https://github
 #SRC_URI="ftp://foo.example.org/${P}.tar.gz"
 SRC_URI="
 	https://github.com/Tinkerforge/brickd/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/Tinkerforge/daemonlib/archive/refs/tags/brickd-2.4.7.tar.gz -> daemonlib-2.4.7.tar.gz"
+	https://github.com/Tinkerforge/daemonlib/archive/refs/tags/brickd-$(ver_cut 1-2).7.tar.gz -> daemonlib-$(ver_cut 1-2).7.tar.gz"
 
 # https://github.com/Tinkerforge/brickd/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 # Source directory; the dir where the sources can be found (automatically
@@ -116,7 +116,7 @@ src_configure() {
 
 	# source code of daemonlib package must be linked into brickd sources
 	# reference: https://github.com/Tinkerforge/brickd
-	ln -s "${WORKDIR}/daemonlib-brickd-2.4.7" "${WORKDIR}/${P}/src/daemonlib" || die
+	ln -s "${WORKDIR}/daemonlib-brickd-$(ver_cut 1-2).7" "${WORKDIR}/${P}/src/daemonlib" || die
 	# Most open-source packages use GNU autoconf for configuration.
 	# The default, quickest (and preferred) way of running configure is:
 	#econf
