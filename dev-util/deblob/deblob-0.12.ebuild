@@ -3,6 +3,8 @@
 
 EAPI=8
 
+MY_TEST_V="0.12"
+
 if [[ "$PV" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://anongit.hacktivis.me/git/deblob.git"
@@ -12,10 +14,10 @@ else
 
 	SRC_URI="
 		https://distfiles.hacktivis.me/releases/deblob/${P}.tar.gz
-		test? ( https://distfiles.hacktivis.me/releases/deblob-test/deblob-test-${PV}.tar.gz )
+		test? ( https://distfiles.hacktivis.me/releases/deblob-test/deblob-test-${MY_TEST_V}.tar.gz )
 		verify-sig? (
 			https://distfiles.hacktivis.me/releases/deblob/${P}.tar.gz.sign
-			test? ( https://distfiles.hacktivis.me/releases/deblob-test/deblob-test-${PV}.tar.gz.sign )
+			test? ( https://distfiles.hacktivis.me/releases/deblob-test/deblob-test-${MY_TEST_V}.tar.gz.sign )
 		)
 	"
 	KEYWORDS="~amd64 ~arm64 ~riscv"
@@ -32,9 +34,8 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	>=dev-lang/hare-0.24.2:=
-	<dev-lang/hare-0.25.2
-	dev-hare/hare-json
+	>=dev-lang/hare-0.25.2:=
+	>=dev-hare/hare-json-0.25.2.0
 "
 
 # built by hare
@@ -54,14 +55,14 @@ then
 			cd "${WORKDIR}" || die
 
 			verify-sig_verify_detached "${P}.tar.gz" "${P}.tar.gz.sign"
-			use test && verify-sig_verify_detached "deblob-test-${PV}.tar.gz" "deblob-test-${PV}.tar.gz.sign"
+			use test && verify-sig_verify_detached "deblob-test-${MY_TEST_V}.tar.gz" "deblob-test-${MY_TEST_V}.tar.gz.sign"
 		fi
 
 		default
 
 		if use test; then
 			rm -r "${WORKDIR}/${P}/test" || die
-			mv "${WORKDIR}/deblob-test-${PV}" "${WORKDIR}/${P}/test" || die
+			mv "${WORKDIR}/deblob-test-${MY_TEST_V}" "${WORKDIR}/${P}/test" || die
 		fi
 	}
 fi
