@@ -5,7 +5,7 @@ EAPI=8
 
 inherit git-r3 cmake
 
-DESCRIPTION="command line utility to communicate with ModBus slave (RTU or TCP) "
+DESCRIPTION="command line utility to communicate with ModBus slave (RTU or TCP)"
 HOMEPAGE="https://github.com/epsilonrt/mbpoll"
 EGIT_REPO_URI="https://github.com/epsilonrt/${PN}"
 
