@@ -29,5 +29,5 @@ src_compile() {
 
 src_install() {
 	emake prefix="${EPREFIX}/usr" DESTDIR="${D}" install
-	dodoc {README,LICENSE}
+	dodoc {README.md,LICENSE}
 }
