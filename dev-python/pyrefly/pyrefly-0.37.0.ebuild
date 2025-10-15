@@ -30,7 +30,7 @@ autocfg@1.1.0
 backtrace@0.3.75
 base64@0.22.1
 bitflags@1.3.2
-bitflags@2.9.0
+bitflags@2.9.4
 blake3@1.8.2
 block-buffer@0.10.2
 bstr@1.12.0
@@ -38,7 +38,7 @@ bumpalo@3.16.0
 byteorder@1.5.0
 bytes@1.10.1
 castaway@0.2.3
-cc@1.2.10
+cc@1.2.40
 cfg-if@1.0.1
 chrono@0.4.41
 clap@4.5.42
@@ -82,6 +82,7 @@ equivalent@1.0.0
 errno@0.3.10
 fastrand@2.3.0
 filetime@0.2.25
+find-msvc-tools@0.1.3
 fnv@1.0.7
 foldhash@0.1.5
 form_urlencoded@1.2.1
@@ -133,7 +134,7 @@ idna@1.0.3
 idna_adapter@1.2.0
 ignore@0.4.23
 indexmap@1.9.2
-indexmap@2.10.0
+indexmap@2.11.4
 indicatif@0.17.9
 Inflector@0.11.4
 inotify@0.9.2
@@ -251,7 +252,7 @@ serde_derive@1.0.225
 serde_json@1.0.145
 serde_jsonrc@0.1.0
 serde_repr@0.1.19
-serde_spanned@1.0.0
+serde_spanned@1.0.2
 serde-wasm-bindgen@0.6.5
 serde_with@3.12.0
 serde_with_macros@3.12.0
@@ -272,7 +273,7 @@ structmeta@0.2.0
 structmeta-derive@0.2.0
 subtle@2.6.1
 syn@1.0.109
-syn@2.0.101
+syn@2.0.106
 synstructure@0.13.2
 tar@0.4.44
 tempfile@3.22.0
@@ -295,10 +296,10 @@ tokio@1.47.1
 tokio-macros@2.5.0
 tokio-util@0.6.10
 toml@0.9.2
-toml_datetime@0.7.0
-toml_edit@0.23.1
-toml_parser@1.0.1
-toml_writer@1.0.2
+toml_datetime@0.7.2
+toml_edit@0.23.6
+toml_parser@1.0.3
+toml_writer@1.0.3
 tracing@0.1.41
 tracing-attributes@0.1.28
 tracing-core@0.1.33
@@ -377,7 +378,7 @@ windows_x86_64_msvc@0.42.1
 windows_x86_64_msvc@0.48.5
 windows_x86_64_msvc@0.52.6
 windows_x86_64_msvc@0.53.0
-winnow@0.7.10
+winnow@0.7.13
 wit-bindgen-rt@0.39.0
 write16@1.0.0
 writeable@0.5.5
