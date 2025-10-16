@@ -8,10 +8,10 @@ EAPI=8
 CRATES="
 	aho-corasick@1.1.3
 	autocfg@1.4.0
-	bitflags@2.6.0
+	bitflags@2.9.4
 	block@0.1.6
-	cairo-rs@0.20.5
-	cairo-sys-rs@0.20.0
+	cairo-rs@0.21.1
+	cairo-sys-rs@0.21.1
 	cc@1.2.1
 	cfg-expr@0.17.1
 	equivalent@1.0.1
@@ -23,46 +23,46 @@ CRATES="
 	futures-macro@0.3.31
 	futures-task@0.3.31
 	futures-util@0.3.31
-	gdk-pixbuf-sys@0.20.4
-	gdk-pixbuf@0.20.4
-	gdk4-sys@0.9.4
-	gdk4@0.9.4
+	gdk-pixbuf-sys@0.21.1
+	gdk-pixbuf@0.21.1
+	gdk4-sys@0.10.0
+	gdk4@0.10.0
 	gettext-rs@0.7.2
 	gettext-sys@0.22.5
-	gio-sys@0.20.6
-	gio@0.20.6
-	glib-macros@0.20.5
-	glib-sys@0.20.6
-	glib@0.20.6
-	gobject-sys@0.20.4
-	graphene-rs@0.20.4
-	graphene-sys@0.20.4
-	gsk4-sys@0.9.4
-	gsk4@0.9.4
-	gtk4-macros@0.9.3
-	gtk4-sys@0.9.4
-	gtk4@0.9.4
+	gio-sys@0.21.1
+	gio@0.21.1
+	glib-macros@0.21.0
+	glib-sys@0.21.1
+	glib@0.21.1
+	gobject-sys@0.21.1
+	graphene-rs@0.21.1
+	graphene-sys@0.21.1
+	gsk4-sys@0.10.0
+	gsk4@0.10.0
+	gtk4-macros@0.10.0
+	gtk4-sys@0.10.0
+	gtk4@0.10.0
 	hashbrown@0.15.1
 	heck@0.5.0
 	indexmap@2.6.0
 	lazy_static@1.5.0
-	libadwaita-sys@0.7.1
-	libadwaita@0.7.1
+	libadwaita-sys@0.8.0
+	libadwaita@0.8.0
 	libc@0.2.162
 	locale_config@0.3.0
 	malloc_buf@0.0.6
-	memchr@2.7.4
+	memchr@2.7.5
 	memoffset@0.9.1
 	objc-foundation@0.1.1
 	objc@0.2.7
 	objc_id@0.1.1
-	pango-sys@0.20.4
-	pango@0.20.6
+	pango-sys@0.21.1
+	pango@0.21.1
 	pin-project-lite@0.2.15
 	pin-utils@0.1.0
-	pkg-config@0.3.31
-	proc-macro-crate@3.2.0
-	proc-macro2@1.0.89
+	pkg-config@0.3.32
+	proc-macro-crate@3.3.0
+	proc-macro2@1.0.101
 	quote@1.0.37
 	regex-automata@0.4.9
 	regex-syntax@0.8.5
@@ -71,17 +71,17 @@ CRATES="
 	semver@1.0.23
 	serde@1.0.215
 	serde_derive@1.0.215
-	serde_spanned@0.6.8
+	serde_spanned@0.6.9
 	shlex@1.3.0
 	slab@0.4.9
-	smallvec@1.13.2
-	syn@2.0.87
+	smallvec@1.15.1
+	syn@2.0.106
 	system-deps@7.0.3
 	target-lexicon@0.12.16
 	temp-dir@0.1.14
 	toml@0.8.19
-	toml_datetime@0.6.8
-	toml_edit@0.22.22
+	toml_datetime@0.6.11
+	toml_edit@0.22.27
 	unicode-ident@1.0.13
 	version-compare@0.2.0
 	winapi-i686-pc-windows-gnu@0.4.0
@@ -97,7 +97,7 @@ CRATES="
 	windows_x86_64_gnu@0.52.6
 	windows_x86_64_gnullvm@0.52.6
 	windows_x86_64_msvc@0.52.6
-	winnow@0.6.20
+	winnow@0.7.13
 "
 
 inherit cargo gnome2-utils meson xdg
