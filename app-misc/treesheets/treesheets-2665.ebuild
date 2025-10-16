@@ -12,7 +12,7 @@ HOMEPAGE="https://strlen.com/treesheets/"
 SRC_URI="
 	https://github.com/aardappel/treesheets/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/aardappel/lobster/archive/refs/tags/v2025.3.tar.gz -> lobster-v2025.3.tar.gz"
-PATCHES=("${FILESDIR}/2567--cmake-wxwidgets.patch")
+PATCHES=("${FILESDIR}/2567-cmake-wxwidgets.patch")
 LICENSE="ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
