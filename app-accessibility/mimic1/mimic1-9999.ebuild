@@ -14,7 +14,7 @@ else
 fi
 
 DESCRIPTION="Mycroft's TTS engine, based on CMU's Flite (Festival Lite)"
-HOMEPAGE="https://community.openconversational.ai/"
+HOMEPAGE="https://github.com/MycroftAI/mimic1/"
 
 LICENSE="BSD MIT public-domain freetts BSD-2 Apache-2.0"
 SLOT="0"
