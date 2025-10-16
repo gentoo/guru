@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: crystal-utils.eclass
@@ -26,16 +26,34 @@ _CRYSTAL_UTILS_ECLASS=1
 
 inherit edo flag-o-matic multiprocessing
 
+# @ECLASS_VARIABLE: CRYSTAL_MAX_VER
+# @DEFAULT_UNSET
+# @PRE_INHERIT
+# @DESCRIPTION:
+# Highest Crystal version supported by the package. If unset, no upper bound
+# is assumed.
+
+# @ECLASS_VARIABLE: CRYSTAL_MIN_VER
+# @PRE_INHERIT
+# @DESCRIPTION:
+# Lowest Crystal version supported by the package.
+: "${CRYSTAL_MIN_VER:=1.16.3}"
+
 # @ECLASS_VARIABLE: CRYSTAL_DEPS
 # @OUTPUT_VARIABLE
 # @DESCRIPTION:
 # This is an eclass-generated Crystal dependency string.
 CRYSTAL_DEPS="
 	|| (
-		dev-lang/crystal
-		dev-lang/crystal-bin
+		>=dev-lang/crystal-${CRYSTAL_MIN_VER}
+		>=dev-lang/crystal-bin-${CRYSTAL_MIN_VER}
 	)
-"
+${CRYSTAL_MAX_VER:+\
+	|| (
+		<=dev-lang/crystal-${CRYSTAL_MAX_VER}
+		<=dev-lang/crystal-bin-${CRYSTAL_MAX_VER}
+	)
+}"
 
 # @ECLASS_VARIABLE: SHARDS_DEPS
 # @OUTPUT_VARIABLE
