@@ -6,7 +6,7 @@ CHROMIUM_LANGS="af am ar bg bn ca cs da de el en-GB en-US es-419 es et fa fi fil
 lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv sw ta te th tr uk ur vi zh-CN zh-TW"
 inherit chromium-2 pax-utils wrapper unpacker xdg
 
-MY_PN="Yandex_Music"
+MY_PN="${PN/-/}"
 
 DESCRIPTION="Yandex Music streaming service"
 HOMEPAGE="https://music.yandex.ru/"
@@ -90,27 +90,27 @@ pkg_setup() {
 
 src_unpack() {
 	unpack_deb ${A}
-	mv -T "${S}/opt/Яндекс Музыка" "${S}/opt/${PN}" || die
-	mv -T "${S}/usr/share/doc/yandexmusic" "${S}/usr/share/doc/${PF}" || die
+	mv -T "${S}/opt/Яндекс Музыка" "${S}/${YANDEX_HOME}" || die
+	mv -T "${S}/usr/share/doc/${MY_PN}" "${S}/usr/share/doc/${PF}" || die
 }
 
 src_prepare() {
 	default
-	sed -i -e "s|/opt/Яндекс Музыка/yandexmusic|/opt/bin/${PN}|" -i -e "s/Audio;/AudioVideo;/" \
-		"${S}"/usr/share/applications/yandexmusic.desktop || die
+	sed -i -e "s|/opt/Яндекс Музыка/${MY_PN}|/opt/bin/${PN}|" -i -e "s/Audio;/AudioVideo;/" \
+		"${S}/usr/share/applications/${MY_PN}.desktop" || die
 
-	sed -i -e "s|/opt/Яндекс Музыка|/opt/${PN}|" "${S}/opt/${PN}"/resources/apparmor-profile || die
+	sed -i -e "s|/opt/Яндекс Музыка|/${YANDEX_HOME}|" "${S}/${YANDEX_HOME}"/resources/apparmor-profile || die
 
 	gunzip "usr/share/doc/${PF}/changelog.gz" || die "Failed to decompress docs"
 
-	rm "${S}/opt/${PN}"/resources/app-update.yml || die
+	rm "${S}/${YANDEX_HOME}"/resources/app-update.yml || die
 
 	pushd "${YANDEX_HOME}/locales" > /dev/null || die
 	chromium_remove_language_paks
 	popd > /dev/null || die
 
 	patchelf --remove-rpath "${S}/${YANDEX_HOME}/chrome-sandbox" || die "Failed to fix library rpath (chrome-sandbox)"
-	patchelf --remove-rpath "${S}/${YANDEX_HOME}/yandexmusic" || die "Failed to fix library rpath (yandexmusic)"
+	patchelf --remove-rpath "${S}/${YANDEX_HOME}/${MY_PN}" || die "Failed to fix library rpath (yandexmusic)"
 }
 
 src_install() {
@@ -120,10 +120,10 @@ src_install() {
 	insinto /usr
 	doins -r usr/*
 
-	make_wrapper ${PN} "/opt/${PN}/${PN/-/}" "" "/opt/${PN}" "/opt/bin/"
+	make_wrapper ${PN} "/${YANDEX_HOME}/${MY_PN}" "" "/${YANDEX_HOME}" "/opt/bin/"
 
-	fowners root:root "/${YANDEX_HOME}/yandexmusic"
+	fowners root:root "/${YANDEX_HOME}/${MY_PN}"
 	fperms 4711 "/${YANDEX_HOME}/chrome-sandbox"
 	pax-mark m "${ED}${YANDEX_HOME}/chrome-sandbox"
-	fperms 755 /opt/"${PN}"/yandexmusic
+	fperms 755 "/${YANDEX_HOME}/${MY_PN}"
 }
