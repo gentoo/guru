@@ -48,10 +48,7 @@ src_configure() {
 }
 
 src_install() {
-	# allow writing to GIMP plugin directory
-	addwrite /usr/lib64/gimp/3.0/plug-ins
-	addwrite /usr/lib32/gimp/3.0/plug-ins
-	addwrite /usr/lib/gimp/3.0/plug-ins
+	addwrite "/usr/$(get_libdir)/gimp/3.0/plug-ins"
 
 	meson_src_install
 }
