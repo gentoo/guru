@@ -1,0 +1,1 @@
+message = "To update mise from GURU overlay, run:\n\n\tsudo emerge --sync && sudo emerge -au dev-util/mise\n"
