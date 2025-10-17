@@ -3,18 +3,21 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 DOTNET_PKG_COMPAT="8.0"
 NUGETS="
 coverlet.collector@3.2.0
 DiffPlex@1.5.0
 envdte@17.8.37221
-GodotSharp@4.4.1
-Godot.SourceGenerators@4.4.1
+GodotSharp@4.5.0
+Godot.SourceGenerators@4.5.0
+GodotTools.IdeMessaging@1.1.2
 Humanizer.Core@2.14.1
 Humanizer.Core@2.2.0
 JetBrains.Annotations@2019.1.3
-JetBrains.Rider.PathLocator@1.0.9
+JetBrains.Lifetimes@2024.3.0
+JetBrains.RdFramework@2024.3.0
+JetBrains.Rider.PathLocator@1.0.12
 Microsoft.Bcl.AsyncInterfaces@5.0.0
 Microsoft.Bcl.AsyncInterfaces@7.0.0
 Microsoft.Build@15.1.548
@@ -253,18 +256,22 @@ xunit.runner.visualstudio@2.4.5
 
 inherit desktop dotnet-pkg python-any-r1 flag-o-matic scons-utils
 inherit shell-completion toolchain-funcs xdg
+
+MY_PN=godot
+MY_P=${MY_PN}-${PV}
+
 DESCRIPTION="Multi-platform 2D and 3D game engine with a feature-rich editor"
 HOMEPAGE="https://godotengine.org/"
 SRC_URI="
-	https://github.com/godotengine/godot/releases/download/${PV}-stable/godot-${PV}-stable.tar.xz
+	https://github.com/godotengine/godot/releases/download/${PV}-stable/${MY_P}-stable.tar.xz
 "
 
 SRC_URI+=" ${NUGET_URIS} "
 
-S=${WORKDIR}/godot-${PV}-stable
+S=${WORKDIR}/${MY_P}-stable
 LICENSE="
 	MIT
-	Apache-2.0 BSD Boost-1.0 CC0-1.0 Unlicense ZLIB
+	Apache-2.0 BSD Boost-1.0 CC0-1.0 IJG Unlicense ZLIB
 	gui? ( CC-BY-4.0 ) tools? ( OFL-1.1 )
 "
 SLOT="0"
@@ -272,9 +279,9 @@ KEYWORDS="~amd64"
 # Enable roughly same as upstream by default so it works as expected,
 # except raycast (tools-only heavy dependency), and deprecated.
 IUSE="
-	alsa +dbus debug deprecated double-precision +fontconfig +gui
-	pulseaudio raycast speech test +theora +tools +udev +upnp +vulkan
-	wayland +webp
+	accessibility alsa +dbus debug deprecated double-precision +fontconfig
+	+gui pulseaudio raycast speech test +sdl +theora +tools +udev +upnp
+	+vulkan wayland +webp
 "
 REQUIRED_USE="wayland? ( gui )"
 # TODO: tests still need more figuring out
@@ -313,8 +320,12 @@ RDEPEND="
 		vulkan? ( media-libs/vulkan-loader[X,wayland?] )
 	)
 	pulseaudio? ( media-libs/libpulse )
+	sdl? ( media-libs/libsdl3 )
 	speech? ( app-accessibility/speech-dispatcher )
-	theora? ( media-libs/libtheora:= )
+	theora? (
+		media-libs/libtheora:=
+		tools? ( media-libs/libtheora[encode] )
+	)
 	tools? ( app-misc/ca-certificates )
 	udev? ( virtual/udev )
 	upnp? ( net-libs/miniupnpc:= )
@@ -336,7 +347,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-4.4-scons.patch
+	"${FILESDIR}"/${MY_PN}-4.5-scons.patch
 )
 
 src_unpack() {
@@ -358,7 +369,7 @@ src_prepare() {
 	local unbundle=(
 		brotli doctest embree freetype graphite harfbuzz icu4c libogg
 		libpng libtheora libvorbis libwebp linuxbsd_headers mbedtls
-		miniupnpc pcre2 recastnavigation volk wslay zlib zstd
+		miniupnpc pcre2 recastnavigation sdl volk wslay zlib zstd
 		# certs: unused by generated header, but scons panics if not found
 	)
 	rm -r "${unbundle[@]/#/thirdparty/}" || die
@@ -381,6 +392,7 @@ src_compile() {
 		dev_build=$(usex debug)
 		tests=$(usex tools $(usex test)) # bakes in --test in final binary
 
+		accesskit=$(usex accessibility)
 		alsa=$(usex alsa)
 		dbus=$(usex dbus)
 		deprecated=$(usex deprecated)
@@ -389,6 +401,7 @@ src_compile() {
 		fontconfig=$(usex fontconfig)
 		opengl3=$(usex gui)
 		pulseaudio=$(usex pulseaudio)
+		sdl=$(usex sdl)
 		speechd=$(usex speech)
 		udev=$(usex udev)
 		use_sowrap=no
@@ -404,6 +417,7 @@ src_compile() {
 		# platform/*/detect.py uses builtin_* switches to check if need
 		# to link with system libraries, but many ignore whether the dep
 		# is actually used, so "enable" deleted builtins on disabled deps
+		builtin_accesskit=yes # not packaged
 		builtin_brotli=no
 		builtin_certs=no
 		builtin_clipper2=yes # not packaged
@@ -414,6 +428,9 @@ src_compile() {
 		builtin_graphite=no
 		builtin_harfbuzz=no
 		builtin_icu4c=no
+		# TODO: keep an eye on https://github.com/godotengine/godot/pull/110540
+		# (reminder: drop IJG and add libjpeg-turbo to unbundle array)
+		builtin_libjpeg_turbo=yes
 		builtin_libogg=no
 		builtin_libpng=no
 		builtin_libtheora=$(usex !theora)
@@ -426,6 +443,7 @@ src_compile() {
 		builtin_pcre2=no
 		builtin_recastnavigation=no
 		builtin_rvo2=yes # bundled copy has godot-specific changes
+		builtin_sdl=$(usex !sdl)
 		builtin_wslay=no
 		builtin_xatlas=yes # not wired for unbundling nor packaged
 		builtin_zlib=no
@@ -452,22 +470,15 @@ src_compile() {
 	)
 
 	escons "${esconsargs[@]}"
-}
-
-src_test() {
-	xdg_environment_reset
-
-	bin/godot* --headless --test || die
-}
-
-src_install() {
-	dotnet-pkg_src_prepare # called in this phase due to conflicting
 
 	# godot requires access to input devices?
 	addwrite /dev/input
+	addwrite /dev/bus/usb
 
 	# generate mono glue
 	bin/godot* --headless --generate-mono-glue modules/mono/glue || die "Failed to generate mono glue"
+
+	dotnet-pkg_src_prepare # called here, conflicts with python eclass
 
 	local MSBUILDTERMINALLOGER=off # required for msbuild to succeed?
 
@@ -479,14 +490,24 @@ src_install() {
 		$(usex deprecated "" --no-deprecated) \
 		--push-nupkgs-local="${T}/.nuget/packages" \
 		|| die "Failed to build mono assemblies"
+}
 
-	# install...
-	insinto /opt/godot
+src_test() {
+	xdg_environment_reset
+
+	bin/godot* --headless --test || die
+}
+
+src_install() {
+	insinto "/usr/$(get_libdir)/godot"
 	doins -r bin/.
 
-	fperms +x "/opt/godot/$(basename bin/godot*)"
+	# find once
+	gd_bin="${ESYSROOT}/usr/$(get_libdir)/godot/$(basename bin/godot*)"
 
-	dosym "../../opt/godot/$(basename bin/godot*)" /usr/bin/godot
+	fperms +x "${gd_bin}"
+
+	dosym "${gd_bin}" /usr/bin/godot
 
 	doman misc/dist/linux/godot.6
 	dodoc AUTHORS.md CHANGELOG.md DONORS.md README.md
