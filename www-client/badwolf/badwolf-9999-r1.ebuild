@@ -34,7 +34,7 @@ RESTRICT="!test? ( test )"
 
 DEPEND="
 	dev-libs/glib
-	dev-libs/libxml2
+	dev-libs/libxml2:=
 	x11-libs/gtk+:3
 	net-libs/webkit-gtk:4.1=
 "
