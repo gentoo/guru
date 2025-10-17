@@ -1,7 +1,11 @@
 # Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# NOTICE: This is a Electron app (oh my) and the upstream only provides AppImages.
+# NOTICE: This is a Electron app (oh my…) and the upstream only provides AppImages.
+#
+# To check the latest version, run:
+#
+#	curl -s "https://api.beeper.com/desktop/update-feed.json?bundleID=com.automattic.beeper.desktop&platform=linux&arch=x64&channel=stable" | jq .version
 
 EAPI=8
 
@@ -13,21 +17,19 @@ CHROMIUM_LANGS="
 
 inherit chromium-2 optfeature pax-utils xdg
 
-# To check the latest version, run:
-#
-# 	curl -s "https://api.beeper.com/desktop/update-feed.json?bundleID=com.automattic.beeper.desktop&platform=linux&arch=x64&channel=stable" | jq .version
-
-APPIMAGE="Beeper-${PV}.AppImage"
 DESCRIPTION="Beeper: Unified Messenger"
 HOMEPAGE="https://www.beeper.com/"
-SRC_URI="https://beeper-desktop.download.beeper.com/builds/${APPIMAGE}"
+SRC_URI="
+	amd64? ( https://beeper-desktop.download.beeper.com/builds/Beeper-${PV}-x86_64.AppImage )
+	arm64? ( https://beeper-desktop.download.beeper.com/builds/Beeper-${PV}-arm64.AppImage )
+"
 S="${WORKDIR}/squashfs-root"
 
 LICENSE="all-rights-reserved"
 # node_modules licenses
 LICENSE+=" Apache-2.0 BSD ISC MIT"
 SLOT="4"
-KEYWORDS="-* ~amd64"
+KEYWORDS="-* ~amd64 ~arm64"
 
 RESTRICT="bindist mirror strip"
 
@@ -45,6 +47,7 @@ RDEPEND="
 	net-print/cups
 	sys-apps/dbus
 	>=sys-libs/glibc-2.26
+	sys-libs/zlib
 	virtual/udev
 	x11-libs/cairo
 	x11-libs/gtk+:3
@@ -64,11 +67,14 @@ RDEPEND="
 QA_PREBUILT="*"
 
 src_unpack() {
-	cd "${WORKDIR}" || die	# "appimage-extract" unpacks to current directory.
+	local appimage
+	use amd64 && appimage="Beeper-${PV}-x86_64.AppImage"
+	use arm64 && appimage="Beeper-${PV}-arm64.AppImage"
 
-	cp "${DISTDIR}/${APPIMAGE}" "${WORKDIR}" || die
-	chmod +x "${APPIMAGE}" || die
-	./"${APPIMAGE}" --appimage-extract || die
+	cd "${WORKDIR}" || die	# "appimage-extract" unpacks to current directory.
+	cp "${DISTDIR}/${appimage}" Beeper.AppImage || die
+	chmod +x Beeper.AppImage || die
+	./Beeper.AppImage --appimage-extract || die
 }
 
 src_prepare() {
