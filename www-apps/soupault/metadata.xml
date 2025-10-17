@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <longdescription lang="en">
+    Soupault (soup-oh) is a static website generator/framework that works with HTML element trees and can automatically manipulate them.
+  </longdescription>
+  <maintainer type="person">
+    <email>t@laumann.xyz</email>
+    <name>Thomas Bracht Laumann Jespersen</name>
+  </maintainer>
+  <upstream>
+    <doc>https://soupault.app/reference-manual/</doc>
+    <bugs-to>https://codeberg.org/PataphysicalSociety/soupault/issues</bugs-to>
+    <remote-id type="codeberg">PataphysicalSociety/soupault</remote-id>
+  </upstream>
+</pkgmetadata>
