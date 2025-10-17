@@ -10,12 +10,12 @@ HOMEPAGE="https://erratique.ch/software/cmarkit"
 SRC_URI="https://github.com/dbuenzli/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="ISC"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="+ocamlopt"
 
 RDEPEND="
-	>=dev-lang/ocaml-4.14.0
+	>=dev-lang/ocaml-4.14.0:=
 "
 DEPEND="${RDEPEND}
 	dev-ml/findlib
@@ -34,7 +34,8 @@ src_install() {
 	findlib_src_preinst
 
 	local nativelibs=""
-	use ocamlopt && nativelibs="$(echo _build/src/${PN}.cm{x,xa,xs,ti} _build/src/${PN}.a)"
-	ocamlfind install ${PN} _build/pkg/META _build/src/${PN}.mli _build/src/${PN}.cm{a,i} ${nativelibs} || die
+	use ocamlopt && nativelibs="$(echo _build/src/${PN}*.cm{x,xa,xs,ti} _build/src/${PN}*.a)"
+
+	ocamlfind install ${PN} _build/pkg/META _build/src/${PN}*.mli _build/src/${PN}*.cm{a,i} ${nativelibs} || die
 
 }
