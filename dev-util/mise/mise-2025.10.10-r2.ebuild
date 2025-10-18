@@ -890,7 +890,7 @@ src_install() {
 	doins "${FILESDIR}"/mise.sh
 
 	# Auto-enable mise for Fish
-	insinto /etc/fish/vendor_conf.d/
+	insinto /usr/share/fish/vendor_conf.d
 	doins "${FILESDIR}"/mise.fish
 
 	# completions/mise.bash
