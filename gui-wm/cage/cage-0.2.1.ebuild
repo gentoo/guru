@@ -18,12 +18,19 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="X"
+IUSE="X man"
 
 RDEPEND="
 	dev-libs/wayland
-	gui-libs/wlroots:0.18[X?]
+	gui-libs/wlroots:0.19
 	x11-libs/libxkbcommon[X?]
-	X? ( gui-libs/wlroots:0.18[x11-backend] )
+	X? ( gui-libs/wlroots:0.19[X,x11-backend] )
 "
 DEPEND="${RDEPEND}"
+
+src_configure() {
+	local emesonargs=(
+		$(meson_feature man man-pages)
+	)
+	meson_src_configure
+}
