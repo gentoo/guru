@@ -5,7 +5,7 @@ EAPI=8
 
 inherit flag-o-matic
 
-COMMIT=d0e64122e2b2718da26223e8add3211f5dbeb23a
+COMMIT=b6a4aa82d7760d09a3323c93b02e10eb9eb89a3d
 
 DESCRIPTION="change output power modes in wlroots compositors"
 HOMEPAGE="https://sr.ht/~dsemy/wlr-dpms/"
@@ -24,7 +24,7 @@ DOCS=( README )
 
 src_configure() {
 	# from Makefile
-	append-cflags -Wno-unused-parameter -Wno-strict-prototypes -Wno-incompatible-pointer-types
+	append-cflags -std=c99 -Wall -Wextra -Wno-unused-parameter -Wno-strict-prototypes
 }
 
 src_install() {
