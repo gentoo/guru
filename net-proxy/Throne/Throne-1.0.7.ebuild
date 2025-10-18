@@ -39,7 +39,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.0.0-Use-system-QHotkey.patch"
-	"${FILESDIR}/${PN}-1.0.0-Use-system-quirc.patch"
+	"${FILESDIR}/${PN}-1.0.7-Use-system-quirc.patch"
 	"${FILESDIR}/nekoray-4.3.7-Use-system-fkYAML.patch"
 )
 

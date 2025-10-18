@@ -5,17 +5,21 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
 
 --- a/3rdparty/QrDecoder.cpp
 +++ b/3rdparty/QrDecoder.cpp
-@@ -1,6 +1,6 @@
+@@ -1,10 +1,8 @@
  #include "QrDecoder.h"
  
 -#include "quirc/quirc.h"
 +#include <quirc.h>
+ #include <qdebug.h>
  
+-#include "quirc/quirc_internal.h"
+-
  QrDecoder::QrDecoder()
      : m_qr(quirc_new())
+ {
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -80,11 +80,6 @@ set(PROJECT_SOURCES
+@@ -82,11 +82,6 @@ set(PROJECT_SOURCES
          3rdparty/qv2ray/v2/ui/widgets/speedchart/SpeedWidget.hpp
          3rdparty/qv2ray/v2/proxy/QvProxyConfigurator.cpp
  
@@ -27,7 +31,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
          3rdparty/protorpc/rpc_client.cc
          3rdparty/protorpc/rpc_conn.cc
          3rdparty/protorpc/rpc_wire.cc
-@@ -267,6 +262,7 @@ target_link_libraries(Throne PRIVATE
+@@ -283,6 +278,7 @@ target_link_libraries(Throne PRIVATE
          Threads::Threads
          ${NKR_EXTERNAL_TARGETS}
          ${PLATFORM_LIBRARIES}
