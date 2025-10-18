@@ -5,4 +5,7 @@
 		<email>zdanevich.vitaly@ya.ru</email>
 		<name>Vitaly Zdanevich</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">organicmaps/organicmaps</remote-id>
+	</upstream>
 </pkgmetadata>
