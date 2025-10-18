@@ -292,6 +292,9 @@ src_configure() {
 src_install() {
 	cargo_src_install
 	udev_newrules "${FILESDIR}"/xremap-input.rules 99-xremap-input.rules
+
+	insinto /usr/lib/modules-load.d
+	doins "${FILESDIR}"/xremap-uinput.conf
 }
 
 pkg_postinst() {
