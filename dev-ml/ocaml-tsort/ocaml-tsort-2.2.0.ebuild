@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/dmbaturin/ocaml-tsort"
 SRC_URI="https://github.com/dmbaturin/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="+ocamlopt test"
 
