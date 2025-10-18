@@ -9,10 +9,12 @@ PYTHON_COMPAT=( python3_{11..13} )
 inherit  fortran-2 python-any-r1 toolchain-funcs
 
 MY_PN="StringiFor"
+# version tag.1.1.4 point to commit 82727d6 on 2025 Oct 7
+TAG_DATE="20251007"
 
 DESCRIPTION="StringiFor, Strings Fortran Manipulator, yet another strings Fortran module"
 HOMEPAGE="https://github.com/szaghi/StringiFor"
-SRC_URI="https://github.com/szaghi/${MY_PN}/releases/download/v${PV}/${MY_PN}.tar.gz -> ${MY_PN}-${PV}.tar.gz"
+SRC_URI="https://github.com/szaghi/${MY_PN}/releases/download/v${PV}/${MY_PN}.tar.gz -> ${MY_PN}-${PV}_${TAG_DATE}.tar.gz"
 
 S="${WORKDIR}/${MY_PN}"
 
