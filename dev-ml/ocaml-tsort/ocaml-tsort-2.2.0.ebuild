@@ -13,7 +13,9 @@ SRC_URI="https://github.com/dmbaturin/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+ocamlopt"
+IUSE="+ocamlopt test"
+
+RESTRICT="!test? ( test )"
 
 DOCS=( README.md CHANGES.md )
 
@@ -21,4 +23,8 @@ RDEPEND="
 	>=dev-ml/dune-1.9
 	>=dev-lang/ocaml-4.3:=[ocamlopt?]
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	test? (
+		  dev-ml/alcotest:=[ocamlopt?]
+	)
+"
