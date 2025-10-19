@@ -39,6 +39,8 @@ PATCHES=(
 	"${FILESDIR}/${P}-update-libfmt.patch"
 	# Temporary patch (until the next update)
 	"${FILESDIR}/${P}-fix-cmake-edlib.patch"
+	# Remove the -Werror flag
+	"${FILESDIR}/${P}-remove-Werror.patch"
 )
 
 DOCS+=( LICENSE PLUGINS.md )
@@ -51,6 +53,7 @@ DEPEND="
 	>=dev-cpp/nlohmann_json-3.10.2
 	dev-libs/boost
 	>=dev-libs/capstone-5.0.3:=
+	<dev-libs/capstone-6
 	>=dev-libs/nativefiledialog-extended-1.2.1[desktop-portal?]
 	>=dev-libs/libfmt-11.0.2:=
 	media-libs/fontconfig
