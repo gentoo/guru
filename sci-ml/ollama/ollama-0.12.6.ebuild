@@ -39,8 +39,8 @@ X86_CPU_FLAGS=(
 	avx_vnni
 )
 CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
-IUSE="blas ${CPU_FLAGS[*]} cuda mkl rocm"
-# IUSE+=" opencl vulkan"
+IUSE="blas ${CPU_FLAGS[*]} cuda mkl rocm vulkan"
+# IUSE+=" opencl"
 
 RESTRICT="test"
 
@@ -57,13 +57,21 @@ COMMON_DEPEND="
 		dev-util/nvidia-cuda-toolkit:=
 	)
 	rocm? (
-		>=sci-libs/hipBLAS-5.5:=
+		>=dev-util/hip-${ROCM_VERSION}:=
+		>=sci-libs/hipBLAS-${ROCM_VERSION}:=
+		>=sci-libs/rocBLAS-${ROCM_VERSION}:=
 	)
 "
 
 DEPEND="
 	${COMMON_DEPEND}
 	>=dev-lang/go-1.23.4
+"
+BDEPEND="
+	vulkan? (
+		dev-util/vulkan-headers
+		media-libs/shaderc
+	)
 "
 
 RDEPEND="
@@ -108,7 +116,7 @@ pkg_setup() {
 src_unpack() {
 	# Already filter lto flags for ROCM
 	# 963401
-	if use rocm && tc-is-lto; then
+	if use rocm; then
 		# copied from _rocm_strip_unsupported_flags
 		strip-unsupported-flags
 		export CXXFLAGS="$(test-flags-HIPCXX "${CXXFLAGS}")"
@@ -135,11 +143,6 @@ src_prepare() {
 	sed \
 		-e "s/ -O3//g" \
 		-i ml/backend/ggml/ggml/src/ggml-cpu/cpu.go || die sed
-
-	# fix library location
-	sed \
-		-e "s#lib/ollama#$(get_libdir)/ollama#g" \
-		-i CMakeLists.txt || die sed
 
 	sed \
 		-e "s/\"..\", \"lib\"/\"..\", \"$(get_libdir)\"/" \
@@ -241,6 +244,7 @@ src_configure() {
 		# -DGGML_KOMPUTE="$(usex kompute)"
 		# -DGGML_OPENCL="$(usex opencl)"
 		# -DGGML_VULKAN="$(usex vulkan)"
+		"$(cmake_use_find_package vulkan Vulkan)"
 	)
 
 	if use blas; then
@@ -269,9 +273,6 @@ src_configure() {
 	fi
 
 	if use rocm; then
-		# 962445
-		rocm_use_hipcc
-
 		mycmakeargs+=(
 			-DCMAKE_HIP_ARCHITECTURES="$(get_amdgpu_flags)"
 			-DCMAKE_HIP_PLATFORM="amd"
@@ -280,8 +281,6 @@ src_configure() {
 		)
 
 		local -x HIP_PATH="${ESYSROOT}/usr"
-
-		check_amdgpu
 	else
 		mycmakeargs+=(
 			-DCMAKE_HIP_COMPILER="NOTFOUND"
@@ -305,10 +304,10 @@ src_compile() {
 		VERSION="${PVR}"
 	fi
 	local EXTRA_GOFLAGS_LD=(
-		"-w"
-		"-s"
-		"\"-X=github.com/ollama/ollama/version.Version=${VERSION}\""
-		"\"-X=github.com/ollama/ollama/server.mode=release\""
+		# "-w" # disable DWARF generation
+		# "-s" # disable symbol table
+		"-X=github.com/ollama/ollama/version.Version=${VERSION}"
+		"-X=github.com/ollama/ollama/server.mode=release"
 	)
 	GOFLAGS+=" '-ldflags=${EXTRA_GOFLAGS_LD[*]}'"
 
