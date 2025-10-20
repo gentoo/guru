@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>marco@sirabella.org</email>
-		<name>Marco Sirabella</name>
+		<email>m@sirabella.org</email>
+		<name>m</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="github">leahneukirchen/nq</remote-id>
