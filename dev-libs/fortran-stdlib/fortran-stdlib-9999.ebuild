@@ -4,7 +4,7 @@
 EAPI=8
 
 FORTRAN_STANDARD="2003"
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit cmake fortran-2 git-r3 python-any-r1
 
@@ -27,7 +27,7 @@ DEPEND="
 			app-text/ford[${PYTHON_USEDEP}]
 		')
 	)
-	test? ( dev-util/fortran-test-drive )
+	test? ( ~dev-util/fortran-test-drive-0.4.0 )
 "
 
 pkg_setup() {
@@ -56,7 +56,7 @@ src_compile() {
 
 	if use doc ; then
 		einfo "Build API documentation:"
-		${EPYTHON} ford API-doc-FORD-file.md || die
+		ford API-doc-FORD-file.md || die
 	fi
 }
 
