@@ -3,7 +3,7 @@
 
 EAPI=7
 
-POSTGRES_COMPAT=( 9.6 10 11 12 13 14 15 )
+POSTGRES_COMPAT=( 9.6 {10..17} )
 POSTGRES_USEDEP="server"
 
 inherit postgres-multi
