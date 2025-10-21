@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/lindig/lua-ml"
 SRC_URI="https://github.com/lindig/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="+ocamlopt"
 
