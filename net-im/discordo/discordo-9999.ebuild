@@ -25,7 +25,10 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-BDEPEND=">=dev-lang/go-1.25"
+BDEPEND="
+	>=dev-lang/go-1.25
+	x11-libs/libnotify
+"
 
 src_compile() {
 	ego build -o "bin/$PN"
