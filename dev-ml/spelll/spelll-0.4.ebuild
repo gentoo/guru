@@ -10,9 +10,11 @@ HOMEPAGE="https://github.com/c-cube/spelll"
 SRC_URI="https://github.com/c-cube/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="BSD"
-SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="+ocamlopt"
+SLOT="0/${PV}"
+KEYWORDS="~amd64"
+IUSE="+ocamlopt test"
+
+RESTRICT="!test? ( test )"
 
 DOCS=( README.md )
 
@@ -21,4 +23,10 @@ RDEPEND="
 	dev-ml/stdlib-shims:=[ocamlopt?]
 	>=dev-lang/ocaml-4.03.0:=[ocamlopt?]
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-ml/qcheck:=[ocamlopt?]
+		dev-ml/mdx:=[ocamlopt?]
+	)
+"
