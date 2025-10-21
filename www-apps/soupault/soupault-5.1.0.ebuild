@@ -7,7 +7,8 @@ inherit dune
 
 DESCRIPTION="Static website generator based on HTML rewriting"
 HOMEPAGE="https://soupault.app"
-SRC_URI="https://codeberg.com/PataphysicalSociety/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://codeberg.org/PataphysicalSociety/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
