@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>eetu@muffinpower.fi</email>
+    <name>Eetu Eloranta</name>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://codeberg.org/dnkl/fyi/issues</bugs-to>
+    <remote-id type="codeberg">dnkl/fyi</remote-id>
+  </upstream>
+</pkgmetadata>

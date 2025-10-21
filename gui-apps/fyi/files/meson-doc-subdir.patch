@@ -1,0 +1,38 @@
+From 755ffdfb6c286535c14544e8564bd6169d7f1c7b Mon Sep 17 00:00:00 2001
+From: Eetu Eloranta <eetu@muffinpower.fi>
+Date: Tue, 21 Oct 2025 10:58:49 +0300
+Subject: [PATCH] meson: add option for documentation subdirectory under
+ datadir
+
+Signed-off-by: Eetu Eloranta <eetu@muffinpower.fi>
+---
+ meson.build       | 2 +-
+ meson_options.txt | 3 +++
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index f026b4e..18531bb 100644
+--- a/meson.build
++++ b/meson.build
+@@ -22,7 +22,7 @@ if scdoc.found()
+     'LICENSE',
+     'README.md',
+     'CHANGELOG.md',
+-    install_dir: join_paths(get_option('datadir'), 'doc', 'fyi'))
++    install_dir: join_paths(get_option('datadir'), get_option('docsdir')))
+   subdir('doc')
+ endif
+ 
+diff --git a/meson_options.txt b/meson_options.txt
+index 286ac5d..d2ca83a 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -1,2 +1,5 @@
+ option('docs', type: 'feature',
+        description: 'Build and install documentation (man pages, example foot.ini, readme, changelog, license etc).')
++option('docsdir', type: 'string',
++       value: 'doc/fyi',
++       description: 'Documentation subdird under datadir')
+-- 
+2.51.0
+
