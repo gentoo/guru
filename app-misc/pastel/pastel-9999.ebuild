@@ -14,9 +14,9 @@ LICENSE+=" Apache-2.0 MIT Unicode-DFS-2016"
 SLOT="0"
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
-    EGIT_REPO_URI="https://github.com/sharkdp/${PN}.git"
+	EGIT_REPO_URI="https://github.com/sharkdp/${PN}.git"
 else
-    SRC_URI="
+	SRC_URI="
 	https://github.com/sharkdp/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 	"
