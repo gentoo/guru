@@ -19,7 +19,7 @@ else
 
 	# use this only for 0pre_YYYYMMDD builds, otherwise, keep it empty.
 	# needs to be changed if you're making a new 0pre_YYYYMMDD build
-	GIT_COMMIT=""
+	GIT_COMMIT="81e4924c22f0f9359ffa4cb482c9069998b70f1b"
 
 	# If another person updates it, be sure to change this line to your own depfile link
 	SRC_URI="https://github.com/ingenarel/guru-depfiles/releases/download/${P}-deps.tar.xz/${P}-deps.tar.xz "
