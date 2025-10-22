@@ -854,7 +854,7 @@ CRATES="
 	zstd@0.13.3
 "
 
-inherit cargo
+inherit cargo shell-completion
 
 DESCRIPTION="The front-end to your dev env"
 HOMEPAGE="https://mise.jdx.dev"
@@ -871,6 +871,8 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
+
+QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_install() {
 	cargo_src_install
@@ -893,7 +895,9 @@ src_install() {
 	insinto /usr/share/fish/vendor_conf.d
 	doins "${FILESDIR}"/mise.fish
 
-	# completions/mise.bash
-	# completions/_mise
-	# completions/mise.fish
+	newbashcomp completions/mise.bash mise
+
+	dozshcomp completions/_mise
+
+	dofishcomp completions/mise.fish
 }
