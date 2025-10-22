@@ -30,7 +30,7 @@ autocfg@1.1.0
 backtrace@0.3.75
 base64@0.22.1
 bitflags@1.3.2
-bitflags@2.9.0
+bitflags@2.9.4
 blake3@1.8.2
 block-buffer@0.10.2
 bstr@1.12.0
