@@ -21,7 +21,7 @@ DEPEND="
 "
 
 BDEPEND="
-	|| ( dev-util/xxd app-editors/vim-core )
+	|| ( dev-util/xxd app-editors/vim-core dev-util/tinyxxd[xxd] )
 "
 
 src_prepare() {
