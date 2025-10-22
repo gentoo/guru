@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,14 +14,15 @@ inherit chromium-2 desktop rpm xdg
 DESCRIPTION="Unofficial Microsoft Teams client for Linux. Binary precompiled version."
 HOMEPAGE="https://github.com/IsmaelMartinez/teams-for-linux"
 SRC_URI="
-	amd64? ( https://github.com/IsmaelMartinez/${PN}/releases/download/v${PV}/${PN}-${PV}.x86_64.rpm )
-	arm? ( https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v${PV}/${P}.armv7l.rpm )
-	arm64? ( https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v${PV}/${P}.aarch64.rpm )
+	amd64? ( https://github.com/IsmaelMartinez/${PN}/releases/download/v${PV}/${P}.x86_64.rpm )
+	arm? ( https://github.com/IsmaelMartinez/${PN}/releases/download/v${PV}/${P}.armv7l.rpm )
+	arm64? ( https://github.com/IsmaelMartinez/${PN}/releases/download/v${PV}/${P}.aarch64.rpm )
 "
 S="${WORKDIR}"
 
+LICENSE="GPL-3"
 # Electron bundles a bunch of things
-LICENSE="
+LICENSE+="
 	MIT BSD BSD-2 BSD-4 AFL-2.1 Apache-2.0 Ms-PL GPL-2 LGPL-2.1 APSL-2
 	unRAR OFL-1.1 CC-BY-SA-3.0 MPL-2.0 android public-domain all-rights-reserved
 "
@@ -39,9 +40,9 @@ RDEPEND="
 	media-libs/mesa
 	net-print/cups
 	sys-apps/dbus
+	virtual/libudev
 	x11-libs/cairo
 	x11-libs/gtk+:3
-	x11-libs/libdrm
 	x11-libs/libX11
 	x11-libs/libxcb
 	x11-libs/libXcomposite
@@ -75,27 +76,23 @@ src_configure() {
 
 src_install() {
 	for size in {16,24,32,48,64,96,128,256,512,1024}; do
-		doicon -s ${size} "usr/share/icons/hicolor/${size}x${size}/apps/teams-for-linux.png"
+		doicon -s "${size}" "usr/share/icons/hicolor/${size}x${size}/apps/${PN}.png"
 	done
 
-	domenu usr/share/applications/teams-for-linux.desktop
+	domenu "usr/share/applications/${PN}.desktop"
 
-	local DESTDIR="/opt/teams-for-linux"
+	local DESTDIR="/opt/${PN}"
 
-	pushd "opt/teams-for-linux" || die
+	pushd "opt/${PN}" || die
 
 	exeinto "${DESTDIR}"
-	doexe chrome-sandbox chrome_crashpad_handler teams-for-linux *.so*
+	doexe chrome-sandbox chrome_crashpad_handler "${PN}" ./*.so*
 
 	insinto "${DESTDIR}"
-	doins *.pak *.bin *.json *.dat
+	doins ./*.pak ./*.bin ./*.json ./*.dat
 	insopts -m0755
 	doins -r locales resources
 
-	# Chrome-sandbox requires the setuid bit to be specifically set.
-	# see https://github.com/electron/electron/issues/17972
-	fperms 4755 "${DESTDIR}"/chrome-sandbox
-
-	dosym "${DESTDIR}"/teams-for-linux /opt/bin/teams-for-linux
+	dosym "${DESTDIR}/${PN}" "/opt/bin/${PN}"
 	popd || die
 }
