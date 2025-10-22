@@ -852,7 +852,7 @@ CRATES="
 	zstd@0.13.3
 "
 
-inherit cargo shell-completion
+inherit cargo
 
 DESCRIPTION="The front-end to your dev env"
 HOMEPAGE="https://mise.jdx.dev"
@@ -892,10 +892,4 @@ src_install() {
 	# Auto-enable mise for Fish
 	insinto /usr/share/fish/vendor_conf.d
 	doins "${FILESDIR}"/mise.fish
-
-	newbashcomp completions/mise.bash mise
-
-	dozshcomp completions/_mise
-
-	dofishcomp completions/mise.fish
 }
