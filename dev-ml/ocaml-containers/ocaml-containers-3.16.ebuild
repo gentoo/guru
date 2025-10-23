@@ -11,13 +11,25 @@ HOMEPAGE="https://github.com/c-cube/ocaml-containers"
 SRC_URI="https://github.com/c-cube/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="+ocamlopt"
+IUSE="+ocamlopt test"
+
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-ml/seq:=[ocamlopt?]
 	dev-ml/either:=[ocamlopt?]
 	dev-ml/dune-configurator:=[ocamlopt?]
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? (
+		>=dev-ml/qcheck-0.18:=[ocamlopt?]
+		dev-ml/yojson:=[ocamlopt?]
+		dev-ml/iter:=[ocamlopt?]
+		dev-ml/gen:=[ocamlopt?]
+		dev-ml/csexp:=[ocamlopt?]
+		dev-ml/uutf:=[ocamlopt?]
+	)
+"
