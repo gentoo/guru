@@ -5,55 +5,70 @@ EAPI=8
 
 CRATES="
 	adler2@2.0.1
+	aead@0.5.2
+	aes@0.8.4
+	aes-gcm@0.10.3
 	beef@0.5.2
 	bitflags@2.9.1
+	block-buffer@0.10.4
 	block-padding@0.3.3
 	blowfish@0.9.1
 	byteorder@1.5.0
-	cc@1.2.29
+	cbc@0.1.2
+	cfb-mode@0.8.2
 	cfg-if@1.0.1
 	cipher@0.4.4
+	cpufeatures@0.2.17
 	crc32fast@1.5.0
 	crypto-common@0.1.6
+	ctr@0.9.2
 	deranged@0.4.0
+	digest@0.10.7
 	dns-lookup@2.0.4
 	ecb@0.1.2
 	errno@0.3.13
 	flate2@1.1.2
 	fnv@1.0.7
-	foreign-types@0.3.2
-	foreign-types-shared@0.1.1
 	generic-array@0.14.7
 	getopts@0.2.23
+	getrandom@0.2.16
+	getrandom@0.3.3
+	ghash@0.5.1
 	inout@0.1.4
 	itoa@1.0.15
 	lazy_static@1.5.0
 	libc@0.2.174
+	log@0.4.28
 	logos@0.15.0
 	logos-codegen@0.15.0
 	logos-derive@0.15.0
 	md5@0.8.0
 	miniz_oxide@0.8.9
 	num-conv@0.1.0
-	once_cell@1.21.3
-	openssl@0.10.73
-	openssl-macros@0.1.1
-	openssl-sys@0.9.109
-	pkg-config@0.3.32
+	ofb@0.6.1
+	opaque-debug@0.3.1
+	polyval@0.6.2
 	powerfmt@0.2.0
+	ppv-lite86@0.2.21
 	proc-macro2@1.0.95
 	proctitle@0.1.1
 	quote@1.0.40
+	r-efi@5.3.0
+	rand@0.9.2
+	rand_chacha@0.9.0
+	rand_core@0.6.4
+	rand_core@0.9.3
 	regex-syntax@0.8.5
 	rust-lzo@0.6.2
 	rustc_version@0.4.1
 	semver@1.0.26
 	serde@1.0.219
 	serde_derive@1.0.219
-	shlex@1.3.0
+	sha2@0.10.9
 	signal-hook@0.3.18
 	signal-hook-registry@1.4.5
 	socket2@0.5.10
+	subtle@2.6.1
 	syn@2.0.104
 	time@0.3.41
 	time-core@0.1.4
@@ -61,8 +76,11 @@ CRATES="
 	typenum@1.18.0
 	unicode-ident@1.0.18
 	unicode-width@0.2.1
-	vcpkg@0.2.15
+	universal-hash@0.5.1
+	uzers@0.12.1
 	version_check@0.9.5
+	wasi@0.11.1+wasi-snapshot-preview1
+	wasi@0.14.2+wasi-0.2.4
 	winapi@0.3.9
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-x86_64-pc-windows-gnu@0.4.0
@@ -95,9 +113,12 @@ CRATES="
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.6
 	windows_x86_64_msvc@0.53.0
+	wit-bindgen-rt@0.39.0
+	zerocopy@0.8.26
+	zerocopy-derive@0.8.26
 "
 
-inherit cargo
+inherit cargo systemd
 
 DESCRIPTION="Create tunnels over TCP/IP networks with shaping, encryption, and compression"
 HOMEPAGE="https://github.com/leakingmemory/vtun-ng"
@@ -108,10 +129,7 @@ SRC_URI="${CARGO_CRATE_URIS}
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc"
-
-RDEPEND="
-	dev-libs/openssl:0="
-DEPEND="${RDEPEND}"
+IUSE="systemd +lzo +zlib"
 
 DOCS=( ChangeLog Credits FAQ README README.Setup README.Shaper TODO )
 CONFIG_CHECK="~TUN"
@@ -122,6 +140,14 @@ src_unpack() {
 	pushd "${S}" >/dev/null || die
 	cargo_gen_config
 	popd >/dev/null || die
+}
+
+src_configure() {
+	local myfeatures=(
+		$(usev lzo)
+		$(usev zlib)
+	)
+	cargo_src_configure
 }
 
 src_compile() {
@@ -140,6 +166,12 @@ src_install() {
 	newinitd "${FILESDIR}"/vtunng.rc vtunng
 	insinto /etc
 	doins "${FILESDIR}"/vtunngd-start.conf
+	if use systemd; then
+		insinto /etc/vtunngd
+		newins "${S}"/scripts/sample-client.env.systemd sample-client.env
+	fi
+	systemd_newunit "${S}"/scripts/vtunngd.service.systemd vtunngd.service
+	systemd_newunit "${S}"/scripts/vtunngd-client.service.systemd vtunngd@.service
 }
 
 src_test() { :; }
