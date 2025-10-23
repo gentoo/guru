@@ -10,9 +10,11 @@ HOMEPAGE="https://github.com/dmbaturin/otoml"
 SRC_URI="https://github.com/dmbaturin/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="+ocamlopt"
+IUSE="+ocamlopt test"
+
+RESTRICT="!test? ( test )"
 
 DOCS=( README.md CHANGELOG.md )
 
@@ -22,4 +24,9 @@ RDEPEND="
 	>=dev-lang/ocaml-4.08:=[ocamlopt?]
 	>=dev-ml/dune-2.0.0
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-ml/ounit2:=[ocamlopt?]
+	)
+"
