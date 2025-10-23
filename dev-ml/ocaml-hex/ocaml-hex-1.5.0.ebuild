@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/mirage/ocaml-hex"
 SRC_URI="https://github.com/mirage/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="ISC"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="+ocamlopt"
 
