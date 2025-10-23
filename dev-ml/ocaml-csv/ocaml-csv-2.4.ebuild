@@ -12,7 +12,7 @@ SRC_URI="https://github.com/Chris00/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.gz
 
 # license: "LGPL-2.1 with OCaml linking exception"
 LICENSE="LGPL-2.1"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="+ocamlopt"
 
