@@ -37,7 +37,7 @@ BDEPEND="
 
 src_prepare() {
 	cmake_src_prepare
-	cp -r "${FILESDIR}/cmake" "${S}"
+	cp -r "${FILESDIR}/cmake" "${S}" || die "cp failed"
 }
 
 src_configure() {
