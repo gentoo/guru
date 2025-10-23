@@ -28,7 +28,7 @@ ${EGO_SUM_SRC_URI}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 DEPEND="
 	x11-libs/gtk+:3
