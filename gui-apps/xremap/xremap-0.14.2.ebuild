@@ -67,7 +67,7 @@ CRATES="
 	env_logger@0.10.2
 	equivalent@1.0.1
 	errno@0.3.11
-	evdev@0.13.1
+	evdev@0.13.2
 	event-listener-strategy@0.5.4
 	event-listener@5.4.0
 	fastrand@2.3.0
@@ -113,7 +113,7 @@ CRATES="
 	linux-raw-sys@0.4.15
 	linux-raw-sys@0.9.4
 	lock_api@0.4.12
-	log@0.4.27
+	log@0.4.28
 	memchr@2.6.4
 	memoffset@0.7.1
 	memoffset@0.9.1
@@ -143,9 +143,9 @@ CRATES="
 	quote@1.0.40
 	radium@0.7.0
 	redox_syscall@0.4.1
-	regex-automata@0.4.8
+	regex-automata@0.4.11
 	regex-syntax@0.8.5
-	regex@1.11.2
+	regex@1.11.3
 	rustc-demangle@0.1.24
 	rustc_version@0.4.1
 	rustix@0.38.44
@@ -155,8 +155,9 @@ CRATES="
 	scoped-tls@1.0.1
 	scopeguard@1.2.0
 	semver@1.0.23
-	serde@1.0.219
-	serde_derive@1.0.219
+	serde@1.0.228
+	serde_core@1.0.228
+	serde_derive@1.0.228
 	serde_json@1.0.143
 	serde_repr@0.1.20
 	serde_spanned@1.0.0
@@ -246,8 +247,8 @@ CRATES="
 	wyz@0.5.1
 	x11rb-protocol@0.13.2
 	x11rb@0.13.2
-	zbus@5.10.0
-	zbus_macros@5.10.0
+	zbus@5.11.0
+	zbus_macros@5.11.0
 	zbus_names@4.2.0
 	zvariant@5.5.3
 	zvariant_derive@5.5.3
