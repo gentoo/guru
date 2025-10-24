@@ -10,7 +10,7 @@ HOMEPAGE="https://aantron.github.io/lambdasoup"
 SRC_URI="https://github.com/aantron/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="+ocamlopt test"
 RESTRICT="!test? ( test )"
@@ -20,6 +20,10 @@ RDEPEND="
 	dev-ml/camlp-streams:=[ocamlopt?]
 	>=dev-ml/dune-2.7.0
 	>=dev-lang/ocaml-4.03.0:=[ocamlopt?]
-	test? ( dev-ml/ounit2:=[ocamlopt?] )
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-ml/ounit2:=[ocamlopt?]
+	)
+"
