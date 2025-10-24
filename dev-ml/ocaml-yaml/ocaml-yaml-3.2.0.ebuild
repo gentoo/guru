@@ -11,10 +11,12 @@ HOMEPAGE="https://github.com/avsm/ocaml-yaml"
 SRC_URI="https://github.com/avsm/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="ISC"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="+ocamlopt test"
-RESTRICT="!test? ( test )"
+IUSE="+ocamlopt"
+
+# some test deps not (yet) packaged, junit_alcotest
+RESTRICT="test"
 
 RDEPEND="
 	>=dev-ml/ocaml-ctypes-0.14.0:=[ocamlopt?]
