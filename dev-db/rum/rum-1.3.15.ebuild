@@ -1,9 +1,9 @@
-# Copyright 2020-2022 Gentoo Authors
+# Copyright 2020-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-POSTGRES_COMPAT=( 9.6 10 11 12 13 14 15 16 )
+POSTGRES_COMPAT=( 9.6 {10..18} )
 POSTGRES_USEDEP="server"
 
 inherit postgres-multi
@@ -28,6 +28,7 @@ src_prepare() {
 }
 
 src_compile() {
+	# rum-1.3.15 added meson but doesn't works with PGXS yet
 	postgres-multi_foreach emake USE_PGXS=1
 }
 
