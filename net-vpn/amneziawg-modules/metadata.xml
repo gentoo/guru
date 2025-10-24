@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <name>Pavel Sobolev</name>
+    <email>contact@paveloom.dev</email>
+  </maintainer>
+  <use>
+    <flag name="debug">Enable verbose debug reporting in dmesg of various AmneziaWG peer and device information.</flag>
+  </use>
+  <upstream>
+    <bugs-to>https://github.com/amnezia-vpn/amneziawg-linux-kernel-module/issues</bugs-to>
+    <remote-id type="github">amnezia-vpn/amneziawg-linux-kernel-module</remote-id>
+  </upstream>
+</pkgmetadata>
+
