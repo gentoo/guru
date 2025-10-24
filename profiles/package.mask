@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David (stkw0) Roman <davidroman96@gmail.com> (2025-10-25)
+# Depends on removed libgit2 slot. No maintainer listed
+# Removal on 2025-11-24
+app-editors/amp
+
 # Alexey Zapparov <alexey@zapparov.com> (2025-10-18)
 # Upstream seems to be unmaintained.
 # Removal on 2025-11-18
