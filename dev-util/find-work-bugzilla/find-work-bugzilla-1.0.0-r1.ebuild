@@ -23,8 +23,6 @@ RDEPEND="
 	dev-python/click-aliases[${PYTHON_USEDEP}]
 	>=dev-python/pydantic-2[${PYTHON_USEDEP}]
 	<dev-python/pydantic-3[${PYTHON_USEDEP}]
-	>=dev-python/pydantic-core-2[${PYTHON_USEDEP}]
-	<dev-python/pydantic-core-3[${PYTHON_USEDEP}]
 	dev-python/python-bugzilla[${PYTHON_USEDEP}]
 	>=dev-util/find-work-1[${PYTHON_USEDEP}]
 	<dev-util/find-work-2[${PYTHON_USEDEP}]
