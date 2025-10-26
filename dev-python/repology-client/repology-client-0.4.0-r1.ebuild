@@ -22,8 +22,6 @@ RDEPEND="
 	<dev-python/aiohttp-4[${PYTHON_USEDEP}]
 	>=dev-python/pydantic-2[${PYTHON_USEDEP}]
 	<dev-python/pydantic-3[${PYTHON_USEDEP}]
-	>=dev-python/pydantic-core-2[${PYTHON_USEDEP}]
-	<dev-python/pydantic-core-3[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=(
