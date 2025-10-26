@@ -28,7 +28,7 @@ RDEPEND="
 	media-libs/freetype:2
 	media-libs/opusfile
 	>=media-libs/libpng-1.5
-	media-libs/libsdl2
+	media-libs/libsdl2[opengl]
 	media-libs/libwebp
 	media-libs/opusfile
 	app-arch/zstd
