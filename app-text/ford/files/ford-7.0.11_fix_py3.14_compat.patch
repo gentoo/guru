@@ -1,0 +1,50 @@
+Upstream issue: https://github.com/Fortran-FOSS-Programmers/ford/issues/713
+
+From 9b7e2d0e730ddbe4a0e12be17ba1ea1f5576b6d8 Mon Sep 17 00:00:00 2001
+From: Peter Hill <peter.hill@york.ac.uk>
+Date: Mon, 20 Oct 2025 13:47:32 +0100
+Subject: [PATCH] Fix use of `get_type_hints`
+
+Should pass class object, rather than class instance. For some reason,
+this has only become a problem with Python 3.14, so make sure we're
+running CI on newer versions.
+---
+ .github/workflows/test.yml | 2 +-
+ ford/settings.py           | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/.github/workflows/test.yml b/.github/workflows/test.yml
+index 5697aa1dd..0a92a9dbf 100644
+--- a/.github/workflows/test.yml
++++ b/.github/workflows/test.yml
+@@ -8,7 +8,7 @@ jobs:
+     strategy:
+       fail-fast: false
+       matrix:
+-        python-version: ["3.8", "3.9", "3.10", "3.11"]
++        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
+ 
+     steps:
+     - uses: actions/checkout@v3
+diff --git a/ford/settings.py b/ford/settings.py
+index fbfbce1d6..e3f955503 100644
+--- a/ford/settings.py
++++ b/ford/settings.py
+@@ -213,7 +213,7 @@ class ProjectSettings:
+     def __post_init__(self):
+         self.relative = self.project_url == ""
+ 
+-        field_types = get_type_hints(self)
++        field_types = get_type_hints(ProjectSettings)
+ 
+         for key, value in asdict(self).items():
+             default_type = field_types[key]
+@@ -270,7 +270,7 @@ def normalise_paths(self, directory=None):
+         if directory is None:
+             directory = Path.cwd()
+         self.directory = Path(directory).absolute()
+-        field_types = get_type_hints(self)
++        field_types = get_type_hints(ProjectSettings)
+ 
+         if self.favicon == FAVICON_PATH:
+             self.favicon = Path(__file__).parent / FAVICON_PATH
