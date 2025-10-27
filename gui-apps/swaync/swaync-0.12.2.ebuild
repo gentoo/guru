@@ -27,6 +27,7 @@ DEPEND="
 	dev-libs/libgee:0.8=
 	gui-libs/gtk4-layer-shell[introspection,vala]
 	gui-libs/gtk:4[introspection,wayland]
+	gui-libs/libadwaita
 	gui-libs/libhandy:1
 	pulseaudio? ( media-libs/libpulse )
 	sys-apps/dbus
