@@ -71,6 +71,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/${PN}-1.22.2-add-a-missing-include-of-cstdint.patch"
 	"${FILESDIR}/${PN}-1.22.2-relax-the-dependency-on-flatbuffers.patch"
+	"${FILESDIR}/${PN}-1.22.2-remove-the-absl-low_level_hash-target.patch"
 	"${FILESDIR}/${PN}-1.22.2-use-system-libraries.patch"
 )
 

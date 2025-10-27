@@ -1,0 +1,18 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Remove the `absl::low_level_hash` target.
+
+Bug: https://github.com/microsoft/onnxruntime/issues/25815
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/cmake/external/abseil-cpp.cmake
++++ b/cmake/external/abseil-cpp.cmake
+@@ -114,7 +114,6 @@ absl::absl_check
+ absl::hash_function_defaults
+ absl::function_ref
+ absl::city
+-absl::low_level_hash
+ absl::fixed_array
+ absl::variant
+ absl::meta
+
