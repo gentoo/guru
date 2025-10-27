@@ -19,6 +19,10 @@
 # New entries go on top.
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-10-27)
+# Depends on masked dev-python/rst2ansi.
+app-backup/b2
+
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-10-27)
 # Unmaintained upstream, broken with docutils 0.22.
 # Removal on 2025-10-27
 dev-python/rst2ansi
