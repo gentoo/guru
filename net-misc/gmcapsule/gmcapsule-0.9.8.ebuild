@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} pypy3_11 )
+PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 DISTUTILS_USE_PEP517=hatchling
 inherit distutils-r1 pypi systemd
 
@@ -21,8 +21,6 @@ RDEPEND="
 	acct-user/gemini
 	>=dev-python/pyopenssl-21
 "
-
-EPYTEST_PLUGINS=( pytest-import-check )
 
 distutils_enable_tests import-check
 
