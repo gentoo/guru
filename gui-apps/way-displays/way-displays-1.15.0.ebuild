@@ -5,7 +5,7 @@ EAPI=8
 
 inherit toolchain-funcs
 
-DESCRIPTION="Auto configure display outputs for Wayland"
+DESCRIPTION="Auto Manage Your Wayland Displays"
 HOMEPAGE="https://github.com/alex-courtis/way-displays"
 SRC_URI="https://github.com/alex-courtis/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
