@@ -1,12 +1,12 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit cmake
 
-COMMIT="33fce4b087d92ee90653460bbe7a07cdc0c7b121"
-I2PD_COMMIT="dcd15cc2449d6320de6351054e61ef2ee7ebee40" # keep in sync with bundled version
+COMMIT="b483a59093460861f9a124eb8639268ace69d9cc"
+I2PD_COMMIT="80080fd8f5df5c8c07df044458eedbf8fbbbe86c" # keep in sync with bundled version
 DESCRIPTION="Some useful tools for I2P"
 HOMEPAGE="https://github.com/PurpleI2P/i2pd-tools"
 SRC_URI="
@@ -27,10 +27,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.2023.03.12-nodebug.patch
-)
-
 src_unpack() {
 	default
 
@@ -39,23 +35,19 @@ src_unpack() {
 }
 
 src_configure() {
-	tc-export AR CXX
-}
-
-src_compile() {
-	mymakeflags=(
-		CXXFLAGS="${CXXFLAGS}"
-		LDFLAGS="${LDFLAGS}"
-		USE_AESNI="$(usex cpu_flags_x86_aes)"
+	local mycmakeargs=(
+		-DWITH_LIBRARY=OFF
+		-DWITH_BINARY=OFF
+		-DCMAKE_SKIP_RPATH=ON
 	)
-
-	emake "${mymakeflags[@]}"
+	cmake_src_configure
 }
 
 src_install() {
 	local -a binaries
 
 	# extracted from Makefile
+	mv "${BUILD_DIR}"/{autoconf_i2pd,autoconf} || die
 	binaries=(
 		vain keygen keyinfo famtool routerinfo regaddr regaddr_3ld
 		i2pbase64 offlinekeys b33address regaddralias x25519 verifyhost
@@ -63,7 +55,7 @@ src_install() {
 	)
 
 	for bin in "${binaries[@]}"; do
-		newbin "${bin}" "i2pd-${bin}"
+		newbin "${BUILD_DIR}/${bin}" "i2pd-${bin}"
 	done
 
 	einstalldocs
