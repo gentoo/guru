@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="ncurses"
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature pypi
@@ -19,8 +19,6 @@ RDEPEND="
 	dev-python/dbus-python[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 "
-
-EPYTEST_PLUGINS=( pytest-import-check )
 
 distutils_enable_tests import-check
 
