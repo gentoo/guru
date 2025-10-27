@@ -8,7 +8,7 @@ EAPI=8
 CARGO_OPTIONAL=1
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_EXT=1
-PYTHON_COMPAT=( python3_{11..13} )  # needs pyo3 crate bump for pypy3_11
+PYTHON_COMPAT=( python3_{11..14} )  # needs pyo3 crate bump for pypy3_11 and py3.14
 
 CRATES="
 	aes@0.8.4
