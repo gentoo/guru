@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email>contact@paveloom.dev</email>
     <name>Pavel Sobolev</name>
+    <email>contact@paveloom.dev</email>
   </maintainer>
   <upstream>
     <bugs-to>https://github.com/openlawlibrary/pygls/issues</bugs-to>
