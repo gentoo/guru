@@ -222,8 +222,8 @@ quote-use-macros@0.8.4
 rand@0.8.5
 rand_chacha@0.3.1
 rand_core@0.6.4
-rayon@1.10.0
-rayon-core@1.12.1
+rayon@1.11.0
+rayon-core@1.13.0
 redox_syscall@0.2.10
 redox_syscall@0.4.1
 redox_syscall@0.5.6
@@ -252,7 +252,7 @@ serde_derive@1.0.225
 serde_json@1.0.145
 serde_jsonrc@0.1.0
 serde_repr@0.1.19
-serde_spanned@1.0.2
+serde_spanned@1.0.3
 serde-wasm-bindgen@0.6.5
 serde_with@3.12.0
 serde_with_macros@3.12.0
@@ -295,11 +295,11 @@ tinyvec_macros@0.1.0
 tokio@1.47.1
 tokio-macros@2.5.0
 tokio-util@0.6.10
-toml@0.9.2
-toml_datetime@0.7.2
+toml@0.9.8
+toml_datetime@0.7.3
 toml_edit@0.23.6
-toml_parser@1.0.3
-toml_writer@1.0.3
+toml_parser@1.0.4
+toml_writer@1.0.4
 tracing@0.1.41
 tracing-attributes@0.1.28
 tracing-core@0.1.33
