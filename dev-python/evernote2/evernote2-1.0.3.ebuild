@@ -1,10 +1,10 @@
-# Copyright Gentoo Authors 2024
+# Copyright Gentoo Authors 2025
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1
 
@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://github.com/JackonYang/evernote2
 	https://pypi.org/project/evernote2/
 "
-SRC_URI="https://github.com/JackonYang/$PN/archive/refs/tags/v$PV.tar.gz -> $P.gh.tar.gz"
+SRC_URI="https://github.com/JackonYang/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="Apache-2.0"
 
