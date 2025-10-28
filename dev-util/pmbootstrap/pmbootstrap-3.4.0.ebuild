@@ -4,7 +4,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 linux-info
 
@@ -50,7 +50,7 @@ python_test() {
 	# test_pkgrepo.py is disabled because it requires the pmaports repository (containing
 	# postmarketOS APKBUILDs) to be cloned at runtime.
 	EPYTEST_DESELECT+=(
-		"pmb/core/test_pkgrepo.py"
+		"test/core/test_pkgrepo.py"
 	)
 
 	distutils-r1_python_test
