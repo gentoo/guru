@@ -13,7 +13,7 @@ S="${WORKDIR}/amneziawg-linux-kernel-module-${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64"
 IUSE="debug"
 
 CONFIG_CHECK="NET INET NET_UDP_TUNNEL CRYPTO_ALGAPI"
