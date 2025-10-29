@@ -3,6 +3,7 @@
 
 EAPI=8
 
+CRYSTAL_MIN_VER="1.17"
 inherit shards
 
 MY_PN="${PN#athena-}"
@@ -17,3 +18,10 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+
+src_test() {
+	# Error: Invalid option: --link-flags=<...>
+	local -x CRYSTAL_OPTS=
+
+	shards_src_test
+}
