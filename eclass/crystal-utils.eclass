@@ -50,8 +50,8 @@ CRYSTAL_DEPS="
 	)
 ${CRYSTAL_MAX_VER:+\
 	|| (
-		<=dev-lang/crystal-${CRYSTAL_MAX_VER}
-		<=dev-lang/crystal-bin-${CRYSTAL_MAX_VER}
+		<=dev-lang/crystal-${CRYSTAL_MAX_VER}-r9999
+		<=dev-lang/crystal-bin-${CRYSTAL_MAX_VER}-r9999
 	)
 }"
 
