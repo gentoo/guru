@@ -1,7 +1,7 @@
 # Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# NOTICE: This is a Electron app (oh my…) and the upstream only provides AppImages.
+# NOTICE: This is an Electron app (uh-oh) and the upstream only provides AppImages.
 #
 # To check the latest version, run:
 #
@@ -17,10 +17,12 @@ CHROMIUM_LANGS="
 
 inherit chromium-2 optfeature pax-utils xdg
 
-APPIMAGE="Beeper-${PV}.AppImage"
 DESCRIPTION="Beeper: Unified Messenger"
 HOMEPAGE="https://www.beeper.com/"
-SRC_URI="https://beeper-desktop.download.beeper.com/builds/${APPIMAGE}"
+SRC_URI="
+	amd64? ( https://beeper-desktop.download.beeper.com/builds/Beeper-${PV}-x86_64.AppImage )
+	arm64? ( https://beeper-desktop.download.beeper.com/builds/Beeper-${PV}-arm64.AppImage )
+"
 S="${WORKDIR}/squashfs-root"
 
 LICENSE="all-rights-reserved"
@@ -45,6 +47,7 @@ RDEPEND="
 	net-print/cups
 	sys-apps/dbus
 	>=sys-libs/glibc-2.26
+	sys-libs/zlib
 	virtual/udev
 	x11-libs/cairo
 	x11-libs/gtk+:3
@@ -54,7 +57,6 @@ RDEPEND="
 	x11-libs/libXext
 	x11-libs/libXfixes
 	x11-libs/libXrandr
-	x11-libs/libdrm
 	x11-libs/libxcb
 	x11-libs/libxkbcommon
 	x11-libs/pango
@@ -64,11 +66,14 @@ RDEPEND="
 QA_PREBUILT="*"
 
 src_unpack() {
-	cd "${WORKDIR}" || die	# "appimage-extract" unpacks to current directory.
+	local appimage
+	use amd64 && appimage="Beeper-${PV}-x86_64.AppImage"
+	use arm64 && appimage="Beeper-${PV}-arm64.AppImage"
 
-	cp "${DISTDIR}/${APPIMAGE}" "${WORKDIR}" || die
-	chmod +x "${APPIMAGE}" || die
-	./"${APPIMAGE}" --appimage-extract || die
+	cd "${WORKDIR}" || die	# "appimage-extract" unpacks to current directory.
+	cp "${DISTDIR}/${appimage}" Beeper.AppImage || die
+	chmod +x Beeper.AppImage || die
+	./Beeper.AppImage --appimage-extract || die
 }
 
 src_prepare() {
@@ -108,6 +113,8 @@ src_install() {
 		LICENSES.chromium.html
 		beepertexts.png
 		resources/app/build/main/linux-*.mjs
+		resources/app/node_modules/@cbor-extract/cbor-extract-linux-x64/node.abi115.musl.node
+		resources/app/node_modules/@cbor-extract/cbor-extract-linux-x64/node.napi.musl.node
 		resources/app/node_modules/classic-level/prebuilds/linux-x64/classic-level.musl.node
 		usr
 	)
