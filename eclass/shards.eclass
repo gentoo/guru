@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: shards.eclass
@@ -31,6 +31,12 @@ BDEPEND="
 	>=dev-util/gshards-0.2
 "
 IUSE="debug doc"
+
+if [[ ${CATEGORY} == dev-crystal ]]; then
+	# To build a correct dependency graph, add Crystal version
+	# restrictions to runtime dependencies of Crystal libraries.
+	RDEPEND="${CRYSTAL_DEPS}"
+fi
 
 # Crystal packages do not use CFLAGS
 QA_FLAGS_IGNORED='.*'
