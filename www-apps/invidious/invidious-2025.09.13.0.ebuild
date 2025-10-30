@@ -1,7 +1,9 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+CRYSTAL_MAX_VER=1.16.3
 
 inherit check-reqs shards systemd
 
@@ -41,9 +43,8 @@ RESTRICT="!test? ( test )"
 COMMON_DEPEND="
 	dev-db/sqlite:3
 	dev-libs/boehm-gc
-	dev-libs/libevent:=
 	dev-libs/libpcre2:=
-	dev-libs/libxml2:2
+	dev-libs/libxml2:2=
 	dev-libs/libyaml
 	dev-libs/openssl:=
 	sys-libs/zlib:=
@@ -51,14 +52,11 @@ COMMON_DEPEND="
 RDEPEND="${COMMON_DEPEND}
 	acct-user/invidious
 	gnome-base/librsvg
-	net-misc/inv_sig_helper
 "
 DEPEND="${COMMON_DEPEND}
 	dev-crystal/athena-negotiation
 	dev-crystal/http_proxy
-	>=dev-crystal/kemal-1.1.2-r1
-	<dev-crystal/kemal-1.2.0
-	dev-crystal/kilt
+	>=dev-crystal/kemal-1.6.0
 	>=dev-crystal/protodec-0.1.5
 	virtual/crystal-db[postgres,sqlite]
 	test? (
@@ -161,4 +159,9 @@ src_install() {
 	systemd_dounit "${FILESDIR}"/invidious.service
 	newinitd "${FILESDIR}"/invidious.initd ${PN}
 	newconfd "${FILESDIR}"/invidious.confd ${PN}
+}
+
+pkg_postinst() {
+	elog "Follow the official instructions to set up Invidious Companion:"
+	elog "https://docs.invidious.io/installation/#set-up-invidious-companion"
 }
