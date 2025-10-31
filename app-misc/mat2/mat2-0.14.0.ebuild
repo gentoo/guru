@@ -49,6 +49,11 @@ src_prepare() {
 	distutils-r1_src_prepare
 }
 
+src_test() {
+	local -x COLUMNS=80
+	distutils-r1_src_test
+}
+
 src_install() {
 	distutils-r1_src_install
 	doman doc/mat2.1
