@@ -6,8 +6,8 @@ EAPI=8
 inherit cmake
 
 DESCRIPTION="Library for interfacing a game with a locally running Discord desktop client"
-HOMEPAGE="https://github.com/discord/discord-rpc"
-SRC_URI="https://github.com/discord/discord-rpc/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/eden-emulator/discord-rpc"
+SRC_URI="https://github.com/eden-emulator/discord-rpc/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -21,6 +21,12 @@ DEPEND="
 PATCHES=(
 	"${FILESDIR}/${PN}-3.4.0-install-examples-for-RelWithDebInfo-too.patch"
 )
+
+src_prepare() {
+	rm -rf thirdparty || die
+
+	cmake_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(
