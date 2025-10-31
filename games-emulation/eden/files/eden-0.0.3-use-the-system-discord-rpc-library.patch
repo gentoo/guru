@@ -5,7 +5,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
 
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -499,10 +499,7 @@ endif()
+@@ -499,10 +499,8 @@ endif()
  
  # DiscordRPC
  if (USE_DISCORD_PRESENCE)
@@ -14,6 +14,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
 -    target_include_directories(discord-rpc INTERFACE ${discord-rpc_SOURCE_DIR}/include)
 -    add_library(DiscordRPC::discord-rpc ALIAS discord-rpc)
 +    find_package(DiscordRPC REQUIRED)
++    find_package(httplib)
  endif()
  
  # SimpleIni

@@ -49,6 +49,7 @@ RDEPEND="
 	camera? ( dev-qt/qtmultimedia:6 )
 	cubeb? ( media-libs/cubeb )
 	discord? (
+		dev-cpp/cpp-httplib:=[ssl]
 		dev-libs/discord-rpc
 		dev-qt/qtbase:6[network]
 	)
