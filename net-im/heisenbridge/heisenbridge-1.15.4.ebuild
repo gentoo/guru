@@ -7,8 +7,8 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..13} )
 inherit distutils-r1 systemd
 
-DESCRIPTION="A bouncer-style Matrix IRC bridge"
-HOMEPAGE="https://github.com/hifi/heisenbridge/"
+DESCRIPTION="Bouncer-style Matrix IRC bridge"
+HOMEPAGE="https://github.com/hifi/heisenbridge"
 SRC_URI="https://github.com/hifi/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
@@ -29,6 +29,8 @@ PATCHES=(
 	"${FILESDIR}/heisenbridge-1.14.1-qanotice.patch"
 )
 
+EPYTEST_PLUGINS=( )
+
 distutils_enable_tests pytest
 
 src_prepare() {
@@ -39,8 +41,8 @@ src_prepare() {
 src_install() {
 	distutils-r1_src_install
 
-	newinitd "${FILESDIR}"/heisenbridge.initd ${PN}
-	newconfd "${FILESDIR}"/heisenbridge.confd ${PN}
+	newinitd "${FILESDIR}"/heisenbridge.initd-r1 ${PN}
+	newconfd "${FILESDIR}"/heisenbridge.confd-r1 ${PN}
 	systemd_dounit "${FILESDIR}"/${PN}.service
 }
 
