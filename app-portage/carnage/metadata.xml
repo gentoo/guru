@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<longdescription>
+		carnage is a text-based user interface (TUI) front-end for Portage and eix.
+		Its goal is to centralize common Gentoo package management tasks in a 
+		unified, efficient, and user-friendly interface.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">dsafxP/carnage</remote-id>
+	</upstream>
+</pkgmetadata>
