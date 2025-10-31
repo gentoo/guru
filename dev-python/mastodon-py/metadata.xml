@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="pypi">Mastodon.py</remote-id>
 		<remote-id type="github">halcy/Mastodon.py</remote-id>
 	</upstream>
+	<use>
+		<flag name="blurhash">Install dependencies required for decoding blurhash strings to images</flag>
+		<flag name="grapheme">Install dependencies required for grapheme-aware string handling</flag>
+	</use>
 </pkgmetadata>
