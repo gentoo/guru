@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>esteve.varela@gmail.com</email>
+    <name>Esteve Varela Colominas</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">Martchus/syncthingtray</remote-id>
+  </upstream>
+  <use>
+    <flag name="kio">Enable file item action plugin in <pkg>kde-apps/dolphin</pkg></flag>
+    <flag name="plasmoid">Enable plasmoid for KDE Plasma</flag>
+  </use>
+</pkgmetadata>
