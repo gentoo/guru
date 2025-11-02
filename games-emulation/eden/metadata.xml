@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email>contact@paveloom.dev</email>
     <name>Pavel Sobolev</name>
+    <email>contact@paveloom.dev</email>
   </maintainer>
   <use>
     <flag name="camera">Enable camera support</flag>
@@ -12,6 +12,7 @@
     <flag name="opengl">Enable the OpenGL frontend</flag>
     <flag name="sdl">Enable the SDL2 frontend</flag>
     <flag name="ssl">Enable OpenSSL backend for ISslConnection</flag>
+    <flag name="usb">Enable the use of LibUSB</flag>
     <flag name="web-applet">Enable web applet support</flag>
     <flag name="web-service">Enable web services (telemetry, etc.)</flag>
     <flag name="wifi">Enable Wi-Fi scanning</flag>

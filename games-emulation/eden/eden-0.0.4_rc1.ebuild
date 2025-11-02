@@ -10,6 +10,8 @@ HOMEPAGE="https://eden-emu.dev"
 SRC_URI="
 	https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
 	https://git.crueter.xyz/misc/tzdb_to_nx/releases/download/250725/250725.zip -> nx-tzdb-250725.zip
+	https://git.eden-emu.dev/eden-emu/eden/commit/6b01c13975439784cd40cf1810b67350111a41d3.patch ->
+		${PN}-0.0.4_rc1-revert-the-latest-Dynarmic-changes.patch
 "
 
 S="${WORKDIR}/${PN}"
@@ -17,7 +19,7 @@ S="${WORKDIR}/${PN}"
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="camera cubeb discord gui lto opengl sdl ssl test web-applet web-service wifi"
+IUSE="camera cubeb discord gui lto opengl sdl ssl test usb web-applet web-service wifi"
 REQUIRED_USE="
 	!gui? ( !camera !discord !opengl !web-applet )
 	web-service? ( ssl )
@@ -28,7 +30,6 @@ RDEPEND="
 	app-arch/lz4
 	app-arch/zstd
 	dev-libs/libfmt:=
-	dev-libs/libusb
 	dev-libs/mcl
 	dev-libs/sirit
 	dev-util/spirv-tools
@@ -38,7 +39,7 @@ RDEPEND="
 	media-libs/opus
 	media-video/ffmpeg
 	net-libs/enet
-	net-libs/mbedtls:0[cmac]
+	net-libs/mbedtls:3
 	sys-libs/zlib
 
 	amd64? (
@@ -51,7 +52,6 @@ RDEPEND="
 	discord? (
 		dev-cpp/cpp-httplib:=[ssl]
 		dev-libs/discord-rpc
-		dev-qt/qtbase:6[network]
 	)
 	gui? (
 		dev-libs/quazip[qt6]
@@ -59,6 +59,7 @@ RDEPEND="
 	)
 	sdl? ( media-libs/libsdl2[haptic,joystick,sound,video] )
 	ssl? ( dev-libs/openssl:= )
+	usb? ( dev-libs/libusb )
 	web-applet? ( dev-qt/qtwebengine:6[widgets] )
 	web-service? ( dev-cpp/cpp-httplib:=[ssl] )
 	wifi? ( net-wireless/wireless-tools )
@@ -68,6 +69,7 @@ DEPEND="
 	dev-cpp/nlohmann_json
 	dev-cpp/simpleini
 	dev-libs/boost:=[context]
+	dev-libs/frozen
 	dev-libs/unordered_dense
 	dev-util/spirv-headers
 	dev-util/vulkan-headers
@@ -80,25 +82,20 @@ DEPEND="
 	x86? ( dev-libs/xbyak )
 
 	web-service? ( dev-cpp/cpp-jwt )
+
+	test? ( dev-libs/oaknut )
 "
 BDEPEND="
 	app-arch/unzip
 	dev-util/glslang
 	virtual/pkgconfig
 
-	test? (
-		dev-cpp/catch
-		dev-libs/oaknut
-	)
+	test? ( dev-cpp/catch )
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.0.3-fix-compilation-errors.patch"
-	"${FILESDIR}/${PN}-0.0.3-make-the-dependency-on-mcl-global.patch"
-	"${FILESDIR}/${PN}-0.0.3-make-the-dependency-on-xbyak-global.patch"
-	"${FILESDIR}/${PN}-0.0.3-use-the-bundled-dynarmic-library.patch"
-	"${FILESDIR}/${PN}-0.0.3-use-the-system-discord-rpc-library.patch"
-	"${FILESDIR}/${PN}-0.0.3-use-the-system-mbedtls-library.patch"
+	"${DISTDIR}/${PN}-0.0.4_rc1-revert-the-latest-Dynarmic-changes.patch"
+	"${FILESDIR}/${PN}-0.0.4_rc1-add-a-formatter-for-Dynarmic-IR-Opcode.patch"
 )
 
 # [directory]=license
@@ -111,6 +108,9 @@ declare -A KEEP_BUNDLED=(
 	[nx_tzdb]="GPL-2+"
 	[stb]="MIT public-domain"
 	[tz]=BSD-2
+
+	# Configuration for the system library
+	[libusb]=GPL-3+
 )
 
 add_bundled_licenses() {
@@ -134,30 +134,21 @@ src_prepare() {
 	einfo "removing sources: ${remove[*]}"
 	rm -r "${remove[@]}" || die
 
-	mkdir -p "${S}/.cache/cpm/nx_tzdb" || die
-	mv "${WORKDIR}/zoneinfo" "$_/250725" || die
-
 	cmake_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
+		-DCPMUTIL_FORCE_SYSTEM=yes
 		-DTITLE_BAR_FORMAT_IDLE="Eden | v${PV/_/-}"
-		-DYUZU_CHECK_SUBMODULES=no
-		-DYUZU_ENABLE_PORTABLE=no
-		-DYUZU_USE_BUNDLED_FFMPEG=no
-		-DYUZU_USE_CPM=no
-		-DYUZU_USE_EXTERNAL_SDL2=no
-		-DYUZU_USE_EXTERNAL_VULKAN_HEADERS=no
-		-DYUZU_USE_EXTERNAL_VULKAN_SPIRV_TOOLS=no
-		-DYUZU_USE_EXTERNAL_VULKAN_UTILITY_LIBRARIES=no
+		-DYUZU_TZDB_PATH="${WORKDIR}"
 		-DYUZU_USE_FASTER_LD=no
-		-DYUZU_USE_PRECOMPILED_HEADERS=no
 
-		-DDYNARMIC_USE_PRECOMPILED_HEADERS=no
+		-DDYNARMIC_ENABLE_LTO=$(usex lto)
 
 		-DBUILD_TESTING=$(usex test)
 		-DENABLE_CUBEB=$(usex cubeb)
+		-DENABLE_LIBUSB=$(usex usb)
 		-DENABLE_OPENGL=$(usex opengl)
 		-DENABLE_OPENSSL=$(usex ssl)
 		-DENABLE_QT=$(usex gui)
@@ -168,9 +159,6 @@ src_configure() {
 		-DYUZU_ENABLE_LTO=$(usex lto)
 		-DYUZU_USE_QT_MULTIMEDIA=$(usex camera)
 		-DYUZU_USE_QT_WEB_ENGINE=$(usex web-applet)
-
-		-DCPMUTIL_FORCE_SYSTEM=yes
-		-Dnx_tzdb_FORCE_BUNDLED=yes
 
 		-Wno-dev
 	)

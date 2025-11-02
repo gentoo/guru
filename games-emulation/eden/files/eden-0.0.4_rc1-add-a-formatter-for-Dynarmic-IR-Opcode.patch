@@ -1,0 +1,20 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Add a formatter for `Dynarmic::IR::Opcode`.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/src/dynarmic/src/dynarmic/ir/opcodes.h
++++ b/src/dynarmic/src/dynarmic/ir/opcodes.h
+@@ -654,3 +654,11 @@ constexpr bool MayGetNZCVFromOp(const Opcode op) noexcept {
+ }
+ 
+ }  // namespace Dynarmic::IR
++
++template<>
++struct fmt::formatter<Dynarmic::IR::Opcode> : fmt::formatter<std::string_view> {
++    template<typename FormatContext>
++    auto format(Dynarmic::IR::Opcode op, FormatContext& ctx) const {
++        return formatter<std::string_view>::format(GetNameOf(op), ctx);
++    }
++};
+
