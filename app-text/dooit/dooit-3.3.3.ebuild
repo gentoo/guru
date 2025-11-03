@@ -25,7 +25,7 @@ BDEPEND="
 "
 
 RDEPEND="
-	=dev-python/pyperclip-1.9*[${PYTHON_USEDEP}]
+	<=dev-python/pyperclip-2.0.0-r0[${PYTHON_USEDEP}]
 	=dev-python/python-dateutil-2.9*[${PYTHON_USEDEP}]
 	=dev-python/pyyaml-6*[${PYTHON_USEDEP}]
 	=dev-python/textual-5.3*[${PYTHON_USEDEP}]
