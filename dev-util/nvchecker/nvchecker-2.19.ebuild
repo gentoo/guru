@@ -92,8 +92,8 @@ pkg_postinst() {
 		! has_version "dev-python/tornado[${PYTHON_USEDEP}]"; then
 		ewarn "This program is using dev-python/aiohttp as networking backend"
 		ewarn "However, for the best results, upstream recommends installing the following:"
-		ewarn " - dev-python/tornado"
-		ewarn " - dev-python/pycurl"
+		ewarn "  dev-python/tornado"
+		ewarn "  dev-python/pycurl"
 		ewarn
 	fi
 
