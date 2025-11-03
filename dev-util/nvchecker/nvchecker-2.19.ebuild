@@ -4,7 +4,7 @@
 EAPI=8
 PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1
+inherit distutils-r1 optfeature
 
 DESCRIPTION="New version checker for software releases"
 HOMEPAGE="https://github.com/lilydjwg/nvchecker/"
@@ -14,118 +14,34 @@ SRC_URI="https://github.com/lilydjwg/nvchecker/archive/refs/tags/v${PV}.tar.gz -
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="aiohttp"
+PROPERTIES="test_network"
+RESTRICT="test"
 
 RDEPEND="
 	dev-python/structlog[${PYTHON_USEDEP}]
-	!aiohttp? (
-		dev-python/pycurl[${PYTHON_USEDEP}]
-		dev-python/tornado[${PYTHON_USEDEP}]
-	)
-	aiohttp? (
+	|| (
+		(
+			dev-python/pycurl[${PYTHON_USEDEP}]
+			dev-python/tornado[${PYTHON_USEDEP}]
+		)
 		dev-python/aiohttp[${PYTHON_USEDEP}]
 	)
 "
 BDEPEND="
 	test? (
+		dev-python/jq[${PYTHON_USEDEP}]
+		dev-python/lxml[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/pytest-httpbin[${PYTHON_USEDEP}]
+		$(python_gen_cond_dep \
+			'dev-python/zstandard[${PYTHON_USEDEP}]' python3_{11..13})
 	)
 "
 
-EPYTEST_DESELECT=(
-	# Needs network
-	tests/test_android_sdk.py::test_android_addon
-	tests/test_android_sdk.py::test_android_list
-	tests/test_android_sdk.py::test_android_package
-	tests/test_android_sdk.py::test_android_package_channel
-	tests/test_android_sdk.py::test_android_package_os
-	tests/test_android_sdk.py::test_android_package_os_missing
-	tests/test_anitya.py::test_anitya
-	tests/test_anitya.py::test_anitya_by_id
-	tests/test_apt.py::test_apt
-	tests/test_apt.py::test_apt_srcpkg
-	tests/test_apt.py::test_apt_strip_release
-	tests/test_archpkg.py::test_archpkg
-	tests/test_archpkg.py::test_archpkg_provided
-	tests/test_archpkg.py::test_archpkg_provided_strip
-	tests/test_archpkg.py::test_archpkg_strip_release
-	tests/test_aur.py::test_aur
-	tests/test_aur.py::test_aur_strip_release
-	tests/test_aur.py::test_aur_use_last_modified
-	tests/test_bitbucket.py::test_bitbucket
-	tests/test_bitbucket.py::test_bitbucket_max_tag
-	tests/test_bitbucket.py::test_bitbucket_max_tag_with_ignored
-	tests/test_bitbucket.py::test_bitbucket_sorted_tags
-	tests/test_container.py::test_container
-	tests/test_container.py::test_container_paging
-	tests/test_container.py::test_container_with_tag
-	tests/test_container.py::test_container_with_tag_and_multi_arch
-	tests/test_container.py::test_container_with_tag_and_registry
-	tests/test_cpan.py::test_cpan
-	tests/test_cran.py::test_cran
-	tests/test_cratesio.py::test_cratesio
-	tests/test_cratesio.py::test_cratesio_list
-	tests/test_cratesio.py::test_cratesio_skip_prerelease
-	tests/test_cratesio.py::test_cratesio_use_prerelease
-	tests/test_debianpkg.py::test_debianpkg
-	tests/test_debianpkg.py::test_debianpkg_strip_release
-	tests/test_debianpkg.py::test_debianpkg_suite
-	tests/test_gems.py::test_gems
-	tests/test_git.py::test_git
-	tests/test_git.py::test_git_commit
-	tests/test_git.py::test_git_commit_branch
-	tests/test_gitea.py::test_gitea
-	tests/test_gitea.py::test_gitea_latest_release
-	tests/test_gitea.py::test_gitea_max_tag_with_include
-	tests/test_gitlab.py::test_gitlab
-	tests/test_gitlab.py::test_gitlab_blm
-	tests/test_gitlab.py::test_gitlab_max_tag
-	tests/test_gitlab.py::test_gitlab_max_tag_with_ignored
-	tests/test_gitlab.py::test_gitlab_max_tag_with_include
-	tests/test_go.py::test_go
-	tests/test_hackage.py::test_hackage
-	tests/test_htmlparser.py::test_rss_feed
-	tests/test_htmlparser.py::test_xpath_element
-	tests/test_htmlparser.py::test_xpath_ok
-	tests/test_httpheader.py::test_redirection
-	tests/test_jq.py::test_jq
-	tests/test_jq.py::test_jq_filter
-	tests/test_launchpad.py::test_launchpad
-	tests/test_maven.py::test_maven
-	tests/test_maven.py::test_maven_cannot_find_release
-	tests/test_maven.py::test_maven_custom_repo
-	tests/test_maven.py::test_maven_non_existing_group
-	tests/test_npm.py::test_npm
-	tests/test_opam.py::test_opam_coq
-	tests/test_opam.py::test_opam_coq_trailing_slash
-	tests/test_opam.py::test_opam_official
-	tests/test_openvsx.py::test_openvsx
-	tests/test_packagist.py::test_packagist
-	tests/test_pagure.py::test_pagure
-	tests/test_pagure.py::test_pagure_with_alternative_host
-	tests/test_pagure.py::test_pagure_with_ignored
-	tests/test_pypi.py::test_pypi
-	tests/test_pypi.py::test_pypi_invalid_version
-	tests/test_pypi.py::test_pypi_list
-	tests/test_pypi.py::test_pypi_pre_release
-	tests/test_pypi.py::test_pypi_release
-	tests/test_pypi.py::test_pypi_yanked_version
-	tests/test_repology.py::test_repology
-	tests/test_repology.py::test_repology_bad_subrepo
-	tests/test_repology.py::test_repology_subrepo
-	tests/test_rpmrepo.py::test_rpmrepo_alma
-	tests/test_rpmrepo.py::test_rpmrepo_fedora
-	tests/test_snapcraft.py::test_snapcraft
-	tests/test_snapcraft.py::test_snapcraft_non_existent_channel
-	tests/test_snapcraft.py::test_snapcraft_non_existent_snap
-	tests/test_sparkle.py::test_sparkle
-	tests/test_ubuntupkg.py::test_ubuntupkg
-	tests/test_ubuntupkg.py::test_ubuntupkg_strip_release
-	tests/test_ubuntupkg.py::test_ubuntupkg_suite
-	tests/test_ubuntupkg.py::test_ubuntupkg_suite_with_paging
-	tests/test_vsmarketplace.py::test_vsmarketplace
+# NOTE: The network-reliant tests are really flaky, as the various websites
+#       don't always respond consistently, or may have changed their response.
 
+EPYTEST_DESELECT=(
 	# Need missing python libraries
 	tests/test_sortversion.py::test_awesomeversion  # awesomeversion
 	tests/test_sortversion.py::test_vercmp  # pyalpm
@@ -161,8 +77,32 @@ EPYTEST_DESELECT=(
 	tests/test_github.py::test_github_with_path_and_branch
 
 	# "unconditional skip"
+	tests/test_apt.py::test_apt_deepin
 	tests/test_mercurial.py::test_mercurial
+
+	# Currently failing due to upstream change. (nvchecker-2.19)
+	# Remove in the future
+	tests/test_rpmrepo.py::test_rpmrepo_fedora
 )
-# NOTE: With all these skips, only 29 tests actually get ran...
 
 distutils_enable_tests pytest
+
+pkg_postinst() {
+	if ! has_version "dev-python/pycurl[${PYTHON_USEDEP}]" || \
+		! has_version "dev-python/tornado[${PYTHON_USEDEP}]"; then
+		ewarn "This program is using dev-python/aiohttp as networking backend"
+		ewarn "However, for the best results, upstream recommends installing the following:"
+		ewarn " - dev-python/tornado"
+		ewarn " - dev-python/pycurl"
+		ewarn
+	fi
+
+	optfeature "jq source" "dev-python/jq[${PYTHON_USEDEP}]"
+	optfeature "httpheader source" "dev-python/lxml[${PYTHON_USEDEP}]"
+	optfeature "pypi source" "dev-python/packaging[${PYTHON_USEDEP}]"
+	if use python_targets_python3_11 || \
+		use python_targets_python3_12 || \
+		use python_targets_python3_13; then
+		optfeature "rpmrepo source" "dev-python/zstandard[${PYTHON_USEDEP}]"
+	fi
+}

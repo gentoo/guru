@@ -8,7 +8,4 @@
   <upstream>
     <remote-id type="github">lilydjwg/nvchecker</remote-id>
   </upstream>
-  <use>
-    <flag name="aiohttp">use dev-python/aiohttp instead of dev-python/tornado for the fetching backend (not recommended)</flag>
-  </use>
 </pkgmetadata>
