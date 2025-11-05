@@ -23,7 +23,7 @@ RDEPEND="
 	net-vpn/networkmanager-openvpn
 	net-vpn/wireguard-tools
 	$(python_gen_cond_dep '
-		>=dev-python/textual-6.4.0[${PYTHON_USEDEP}]
+		>=dev-python/textual-0.47.0[${PYTHON_USEDEP}]
 	')
 "
 DEPEND="${RDEPEND}"
