@@ -5,17 +5,25 @@
     <name>Pavel Sobolev</name>
     <email>contact@paveloom.dev</email>
   </maintainer>
+  <maintainer type="person">
+    <name>crueter</name>
+    <email>crueter@crueter.xyz</email>
+  </maintainer>
   <use>
-    <flag name="camera">Enable camera support</flag>
+    <flag name="camera">Enable camera support through dev-qt/qtmultimedia</flag>
     <flag name="cubeb">Enable the cubeb audio backend</flag>
     <flag name="discord">Enable Discord Rich Presence</flag>
-    <flag name="opengl">Enable the OpenGL frontend</flag>
-    <flag name="sdl">Enable the SDL2 frontend</flag>
-    <flag name="ssl">Enable OpenSSL backend for ISslConnection</flag>
-    <flag name="usb">Enable the use of LibUSB</flag>
-    <flag name="web-applet">Enable web applet support</flag>
-    <flag name="web-service">Enable web services (telemetry, etc.)</flag>
+    <flag name="opengl">Enable the OpenGL graphics backend</flag>
+    <flag name="sdl">Enable the SDL2 frontend (eden-cli, controller backend...)</flag>
+    <flag name="ssl">Enable the OpenSSL backend for ISslConnection</flag>
+    <flag name="usb">Enable the LibUSB controller backend</flag>
+    <flag name="web-applet">Enable the custom web applet frontend through dev-qt/qtwebengine</flag>
+    <flag name="web-service">Enable multiplayer support</flag>
     <flag name="wifi">Enable Wi-Fi scanning</flag>
+    <flag name="room">Compile the dedicated room executable</flag>
+    <flag name="llvm">Enable the LLVM backend for disassembly and symbol demangling</flag>
+    <flag name="renderdoc">Enable the RenderDoc API for graphics debugging</flag>
+    <flag name="gamemode">Enable the Feral Gamemode client for better performance</flag>
   </use>
   <upstream>
     <bugs-to>https://git.eden-emu.dev/eden-emu/eden/issues</bugs-to>
