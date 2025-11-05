@@ -39,8 +39,8 @@ BDEPEND="dev-util/debugedit
 RDEPEND="
 		dev-libs/wayland
 		sys-libs/pam
-		sys-libs/zlib
 		sys-process/audit
+		virtual/zlib:=
 "
 
 src_unpack() {
