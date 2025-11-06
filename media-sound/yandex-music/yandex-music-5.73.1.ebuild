@@ -55,7 +55,7 @@ RDEPEND="
 	sys-devel/gcc
 	sys-libs/glibc
 	sys-libs/libcap
-	sys-libs/zlib
+	virtual/zlib
 	x11-libs/cairo[X,glib]
 	x11-libs/gdk-pixbuf
 	x11-libs/gtk+
