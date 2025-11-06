@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 DEPEND="
 	dev-libs/boehm-gc
 	dev-libs/libevent:=
-	dev-libs/libpcre
+	dev-libs/libpcre2:=
 "
 RDEPEND="${DEPEND}"
 
