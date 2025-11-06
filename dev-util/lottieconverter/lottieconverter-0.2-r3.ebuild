@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,9 +18,11 @@ DEPEND="
 	media-libs/giflib:=
 	media-libs/libpng:=
 	media-libs/rlottie:=
-	sys-libs/zlib:=
+	virtual/zlib:=
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}"/${PN}-0.2-buildtype.patch )
 
 src_configure() {
 	local mycmakeargs=(
