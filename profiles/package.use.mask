@@ -3,6 +3,10 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2025-11-06)
+# Depends on treecleaned media-libs/raspberrypi-userland
+games-emulation/RetroArch dispmanx
+
 # Quincy Fleming <quincyf467@protonmail.com> (2025-05-09)
 # Clipboard is still broken with wayland
 # https://github.com/Slackadays/Clipboard/issues/171
