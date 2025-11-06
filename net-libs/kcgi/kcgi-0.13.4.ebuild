@@ -1,4 +1,4 @@
-# Copyright 2019-2024 Gentoo Authors
+# Copyright 2019-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,7 +29,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? (
 		net-misc/curl
-		sys-libs/zlib
+		virtual/zlib
 	)
 "
 BDEPEND="
