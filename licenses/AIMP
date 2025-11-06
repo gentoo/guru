@@ -1,0 +1,174 @@
+﻿END-USER LICENSE AGREEMENT ("EULA") for AIMP
+Last revised 06.05.2025
+© 2006-2025, Artem Izmaylov, https://www.aimp.ru
+--------------------------------------------------
+
+Please read the conditions of this EULA carefully before start to use the Software Product which it's applied to.
+
+Installation, as well as usage the Software Product "AIMP" confirmed that you agree with this EULA.
+
+If you do not agree to the terms of this EULA, You mustn't install or use this Software Product.
+
+AIMP (Software Product) is Freeware software and provided "AS IS".
+
+--------------------------------------------------
+
+1. Installation and Use
+
+	1.1.  You may to install and use AIMP both your home PC and organizations of any form of ownership, including government and municipal offices..
+	1.2.  You may to distribute this software in the form of the original installation distribution file(s) and only for free.
+	1.3.  You may develop and distribute your own Add-on(s) for this Software Product with you own license. 
+
+2. Limitations
+
+	2.1.  You mustn't distribute this Software Product for material remuneration (without Right holder’s permission).
+	2.2.  You mustn't distribute non-original installation distribution file(s) (without Right holder’s permission)
+	2.3.  It's prohibited to delete copyright or any other information about authors or right holders of the Software Product.
+	2.4.  It's prohibited to let on lease or to rent this Software Product to someone.
+	2.5.  For infringement of the intellectual rights to the Software Product the Infringer bears civil, administrative or criminal liability according to the laws. 
+
+3. Privacy Policy
+
+	3.1. Data Collected and Transmitted
+	On installation, the application creates a unique identifier in the form of an alphanumeric code (UID) based on information about your Windows operating system. The UID is built in such a way that the information used to create it cannot be re-established in any way. The UID is sent to our server when requesting software updates and is used to determine the number of active users (application popularity). In addition, the name of used localization is send to the server. This information is necessary in order to determine the language in which the server should return the list of updates. You can refuse to transmit this information by disabling the update checker plugin, but you will stop receiving updates in semi-automatic mode. 
+
+	3.2. Authorization of Third Party Services
+	Authorization of third party services is optional and is not required for the software to work. Third party services can be authorized using a username and password (Basic Authorization) or using OAuth, that allowing us to avoid working directly with usernames and passwords, replacing them with a user_id (unique user identifier) ​​and access_token (used to confirm authorization when sending requests to the service). In Basic Authorization mode, the application is forced to store credentials to re-use these to access the service in the future. To ensure data security, these credentials are stored in app in encrypted form. You can revoke authorization to third-party services at any time. This can be done both via the service itself or through the app:
+	• For cloud storages (OneDrive, Dropbox, Yandex.Disk, etc.), simply remove cloud storage from the list using the remove command from the context menu.
+	• For scrobblers, refer to the App Settings menu in "Settings \ Plugins \ Scrobbler" and click "Log off" for each service profile.
+
+	3.3. User Data and Storage
+	All information received from third party services which the user has authorized through this software is only presented directly to the user and is NOT transmitted to our servers or servers of our partners, except of the servers of the third party services themselves. This software can store a local copy of the data received in order to reduce the number of requests to service. Data is only stored in the app settings folder in binary form (unreadable without special tools). Local copies of the data are deleted automatically upon revocation of authorization (see Section 3.5) or on deletion of this software completely using our uninstall tool.
+
+	3.4. Required Permissions to Work with Third Party Services
+	For this software to function correctly with third party services, the user must accept the following permissions when authorizing the service:
+	• OneDrive: offline_access - increases the lifetime of the access_token (see Section 3.2), thereby reducing the number of user re-authorization requests. Files.Read - this permission is required in order to obtain a list of files (audio files) located in the user's cloud storage for further playback.
+	• WebDAV: despite the fact that when using the WebDAV protocol services do not request specific permissions, the application actually gets full access to the cloud storage and this software works only with audio files and only in "read-only" mode.
+
+
+4. Limitation of Liability
+
+	4.1. You accept that this Software Product may contain bugs,  and so, that you must make backup for your files by yourself.
+	4.2. Right holder doesn't give any guarantees of Software Product's operability on your computer.
+	4.3. Right holder doesn't give any guarantees of Software Product's operability if You do not update it to actual version.
+	4.4. As this software is distributed like "AS IS" software, you must consider that you use it on yours own hook. Right holder doesn't bear responsibility for any losses or damages (including     losses related to commercial gain, interruption of commercial activity, information loss or another one), emergent in connection with usage or impossibility to use this Software Product. 
+
+5. Copyrights
+
+	5.1. All title and intellectual property rights in and to the "AIMP" are owned by its author, Artem Izmaylov.
+	5.2. All title and intellectual property rights in and to the third-party software products or components in this installation distribution file(s) are owned by their right holders.
+	5.3. Third-party software products or components in this installation distribution file(s) are introduced by approbation of their right holders (or by observance of their license agreements)
+	5.4. This Software Product is protected by laws of Russian Federation and international copyright treaties. 
+
+6. Contacts & Technical Support
+
+	• E-Mail: support@aimp.ru
+	• Official website: https://www.aimp.ru
+	• Official forum: https://www.aimp.ru/forum/ 
+	• Feedback form: https://www.aimp.ru/index.php?do=feedback 
+	• Telegram: https://t.me/aimp_ru
+	• VK: https://vk.com/aimp_ru
+
+	The support is lent only if you have an actual and original build of the Software Product.
+
+7. Third Party Libraries
+
+	BASS Audio Library
+	© 1999-2025 Un4seen Developments Ltd. All rights reserved. (https://www.un4seen.com)
+
+	BASSCD (Addon for BASS Library),
+	© 2003-2018 Un4seen Developments Ltd. All rights reserved. (https://www.un4seen.com)
+
+	BASS_HLS (Addon for BASS Library),
+	© 2015-2018 Un4seen Developments Ltd. All rights reserved. (https://www.un4seen.com)
+
+	BASSFLAC (Addon for BASS Library),
+	© 2004-2023 Un4seen Developments Ltd. All rights reserved. (https://www.un4seen.com)
+	Portions FLAC © 2001-2023 Josh Coalson (https://flac.sourceforge.net/)
+
+	BASSMIDI (Addon for BASS Library),
+	© 2006-2013 Un4seen Developments Ltd. All rights reserved. (https://www.un4seen.com)
+
+	BASSOPUS (Addon for BASS Library),
+	© 2012-2023 Un4seen Developments Ltd. All rights reserved. (https://www.un4seen.com)
+	Opus decoding is based on libOpus, Copyright 2001-2023 Xiph.Org, Skype Limited, Octasic, Jean-Marc Valin, Timothy B. Terriberry, CSIRO, Gregory Maxwell, Mark Borgerding, Erik de Castro Lopo
+
+	BASSWMA (Addon for BASS Library),
+	© 2002-2013 Un4seen Developments Ltd. All rights reserved. (https://www.un4seen.com)
+
+	BASS_AAC (Addon for BASS Library), 
+	© 2002-2013, Sebastian Andersson. All rights reserved. 
+	Portions © 2006, M. Bakker, Nero AG. 
+
+	BASS_AC3 (Addon for BASS Library), 
+	© 2002-2013, Sebastian Andersson. All rights reserved. 
+	Portions © 2006 Dolby Laboratories, Inc. 
+
+	BASS_ALAC (Addon for BASS Library), 
+	© 2002-2013, Sebastian Andersson. All rights reserved. 
+	Portions © 2006, David Hammerton. (https://en.wikipedia.org/wiki/Apple_Lossless)
+
+	BASS_APE (Addon for BASS Library),
+	© 2002-2022, Sebastian Andersson. All rights reserved. 
+	Portions © 2000-2023, Matthew T. Ashland. (https://www.monkeysaudio.com)
+
+	BASS_MPC (Addon for BASS Library),
+	© 2002-2013, Sebastian Andersson. All rights reserved. 
+	Portions © 2006, The Musepack Development Team (https://www.musepack.net)
+
+	BASS_SPX (Addon for BASS Library),
+	© 2002-2013, Sebastian Andersson. All rights reserved. 
+	Portions © 2002-2006, Jean-Marc Valin, Xiph.Org Foundation (https://www.speex.org)
+
+	BASS_TTA (Addon for BASS Library),
+	© 2002-2013, Sebastian Andersson. All rights reserved. 
+	Portions © 1999-2006 Alexander Djourik. (https://www.trueaudio.com)
+
+	BASS_WV (Addon for BASS Library),
+	© 2002-2023, Sebastian Andersson. All rights reserved. 
+	Portions © 1998-2023, Conifer Software. (https://wavpack.com/)
+
+	OptimFROG (Decoding Library)
+	© 1996-2010, Florin Ghido (http://www.losslessaudio.org)
+
+	TAK_Deco_Lib (Decoding Library)
+	© 2006-2022, Thomas Becker (https://thbeck.de/Tak/Tak.html)
+
+	Monkey's Audio (Encoding Library)
+	© 2000-2023, Matthew T. Ashland. (https://www.monkeysaudio.com)
+
+	FLAC  - Free Lossless Audio Codec (Encoding Library)
+	© 2001-2023 Josh Coalson (https://flac.sourceforge.net)
+
+	WavPack - Hybrid Lossless Wavefile Compressor (Encoding Library)
+	© 1998-2023 Conifer Software  (https://wavpack.com/)
+
+	OGG Vorbis (Encoding Library)
+	© 2002-2004, Xiph.Org Foundation (https://vorbis.com/)
+
+	OPUS (Encoding Library) 
+	© 2001-2023 Xiph.Org, Skype Limited, Octasic, Jean-Marc Valin, Timothy B. Terriberry, CSIRO, Gregory Maxwell, Mark Borgerding, Erik de Castro Lopo (https://opus-codec.org)
+
+	FastMM5
+	© Pierre le Riche (https://github.com/pleriche/FastMM5)
+	Under commercial license term
+
+	BPM calculation features based on BPM detection algorithm from SoundTouch library.
+	© Olli Parviainen (https://www.surina.net/soundtouch/)
+	Source code of BPM detection algorithm ported to Delphi language is available here:       
+	https://www.aimp.ru/?do=download&os=windows
+
+	DSD/DST Decoding features were based on source code of SACD Decoder plugin 
+	© 2011-2013 Maxim V.Anisiutkin
+	Home page: https://sourceforge.net/projects/sacddecoder/
+
+	The SoX Resampler library 
+	© 2007-2013 Rob Sykes
+	Under LGPL terms
+	https://soxr.sourceforge.net/
+
+	SQLite3 DataBase Engine
+	D. Richard Hipp,  (www.sqlite.org)
+
+	FFmpeg
+	This software uses libraries from the FFmpeg (https://FFmpeg.org) project under the LGPLv2.1 and its source is available on our download page - https://www.aimp.ru/?do=download&os=windows
