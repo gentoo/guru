@@ -8,7 +8,6 @@ HOMEPAGE="https://github.com/T-Dynamos/materialyoucolor-python"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
 
 RESTRICT="network-sandbox"
 DISTUTILS_USE_PEP517=setuptools
@@ -25,6 +24,7 @@ if [[ "${PV}" = *9999 ]]; then
 else
 	SRC_URI="https://github.com/T-Dynamos/materialyoucolor-python/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-python-${PV}"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 distutils_enable_tests import-check
