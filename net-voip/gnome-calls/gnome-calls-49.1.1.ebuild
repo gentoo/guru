@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,6 @@ inherit vala meson gnome.org gnome2-utils optfeature systemd virtualx xdg
 
 DESCRIPTION="Phone dialer and call handler"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/calls"
-GITLAB="https://gitlab.gnome.org"
 
 LICENSE="CC0-1.0 CC-BY-SA-4.0 GPL-3+ LGPL-2+ LGPL-2.1+"
 SLOT="0"

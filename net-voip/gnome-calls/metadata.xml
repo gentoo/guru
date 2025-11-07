@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -8,8 +8,16 @@
 	<maintainer type="person">
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
-	</maintainer>	
+	</maintainer>
 	<upstream>
 		<remote-id type="gnome-gitlab">GNOME/calls</remote-id>
+		<maintainer>
+			<name>Evangelos Ribeiro Tzaras</name>
+			<email>devrtz@fortysixandtwo.eu</email>
+		</maintainer>
+		<maintainer>
+			<name>Guido Günther</name>
+			<email>agx@sigxcpu.org</email>
+		</maintainer>
 	</upstream>
 </pkgmetadata>
