@@ -57,6 +57,10 @@ src_configure() {
 	meson_src_configure
 }
 
+src_compile() {
+	cargo_env meson_src_compile
+}
+
 src_test() {
 	# No meaningful tests
 	:
