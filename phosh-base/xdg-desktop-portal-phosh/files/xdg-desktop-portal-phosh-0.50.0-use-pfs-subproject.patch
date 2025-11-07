@@ -1,0 +1,63 @@
+From dbec4bc40e7de2439d771f1806038e5293c2dad5 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Guido=20G=C3=BCnther?= <agx@sigxcpu.org>
+Date: Sat, 4 Oct 2025 15:51:47 +0200
+Subject: [PATCH] pfs: Use local subproject
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+We can use the subproject until we drop those bits from
+the C portal.
+
+Closes: https://gitlab.gnome.org/guidog/xdg-desktop-portal-phosh/-/issues/15
+Signed-off-by: Guido Günther <agx@sigxcpu.org>
+---
+ Cargo.toml | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 6b61a80..b9deb50 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -13,8 +13,7 @@ features = ["backend", "gtk4_wayland", "gtk4_x11"]
+ version = "0.12"
+ 
+ [dependencies.PhoshFileSelector]
+-git = "https://gitlab.gnome.org/guidog/pfs.git"
+-rev = "e0152cd1e695f54fd6751b1d018ce5384956f6a2"
++path = "subprojects/pfs"
+ 
+ [dependencies.futures_util]
+ package = "futures-util"
+-- 
+2.51.2
+
+From abf298c8b105294057965ee3f136735e35f55e83 Mon Sep 17 00:00:00 2001
+From: Arun Mani J <j.arunmani@proton.me>
+Date: Mon, 13 Oct 2025 15:24:24 +0530
+Subject: [PATCH] xdp-phrosh: Add updated lock file
+
+Fixes: dbec4bc ("pfs: Use local subproject")
+Signed-off-by: Arun Mani J <j.arunmani@proton.me>
+Part-of: <https://gitlab.gnome.org/World/Phosh/xdg-desktop-portal-phosh/-/merge_requests/44>
+---
+ Cargo.lock | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/Cargo.lock b/Cargo.lock
+index 7eb41c0..9d63bb4 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -4,8 +4,7 @@ version = 4
+ 
+ [[package]]
+ name = "PhoshFileSelector"
+-version = "0.0.3"
+-source = "git+https://gitlab.gnome.org/guidog/pfs.git?rev=e0152cd1e695f54fd6751b1d018ce5384956f6a2#e0152cd1e695f54fd6751b1d018ce5384956f6a2"
++version = "0.0.5"
+ dependencies = [
+  "gettext-rs",
+  "glib-macros",
+-- 
+2.51.2
+

@@ -11,6 +11,9 @@
 		applications to request services from outside the sandbox.
 	</longdescription>
 	<upstream>
-		<remote-id type="gnome-gitlab">guidog/xdg-desktop-portal-phosh</remote-id>
+		<remote-id type="gnome-gitlab">World/Phosh/xdg-desktop-portal-phosh</remote-id>
 	</upstream>
+	<use>
+		<flag name="rust">Build the Rust based portal</flag>
+	</use>
 </pkgmetadata>
