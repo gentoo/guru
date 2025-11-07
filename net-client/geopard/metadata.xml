@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>ranfdev</name>
+			<email>ranfdev@gmail.com</email>
+		</maintainer>
+		<remote-id type="github">ranfdev/Geopard</remote-id>
+	</upstream>
+</pkgmetadata>
