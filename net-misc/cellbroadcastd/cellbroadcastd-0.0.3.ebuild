@@ -32,10 +32,10 @@ BDEPEND="
 	dev-util/gdbus-codegen
 	dev-util/glib-utils
 	sys-devel/gettext
-	verify-sig? ( sec-keys/openpgp-keys-devrtz )
+	verify-sig? ( >=sec-keys/openpgp-keys-phosh-2025 )
 "
 
-VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/devrtz.asc"
+VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/phosh.asc"
 
 src_prepare() {
 	use vala && vala_setup
