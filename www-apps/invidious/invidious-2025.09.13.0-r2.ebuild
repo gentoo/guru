@@ -47,7 +47,7 @@ COMMON_DEPEND="
 	dev-libs/libxml2:2=
 	dev-libs/libyaml
 	dev-libs/openssl:=
-	sys-libs/zlib:=
+	virtual/zlib:=
 "
 RDEPEND="${COMMON_DEPEND}
 	acct-user/invidious
@@ -57,6 +57,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-crystal/athena-negotiation
 	dev-crystal/http_proxy
 	>=dev-crystal/kemal-1.6.0
+	<dev-crystal/kemal-1.8.0
 	>=dev-crystal/protodec-0.1.5
 	virtual/crystal-db[postgres,sqlite]
 	test? (
