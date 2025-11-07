@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit gnome2-utils meson pam systemd toolchain-funcs verify-sig virtualx xdg
+inherit gnome2-utils meson pam systemd toolchain-funcs vala verify-sig virtualx xdg
 
 MY_PN="${PN%-shell}"
 MY_P="${MY_PN}-${PV}"
@@ -16,15 +16,16 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="CC0-1.0 CC-BY-SA-4.0 GPL-2+ GPL-3+ LGPL-2+ LGPL-2.1+ MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="gtk-doc introspection +lockscreen-plugins man +plugins systemd test test-full"
+IUSE="gtk-doc introspection +lockscreen-plugins man +plugins systemd test test-full vala"
 REQUIRED_USE="
 	gtk-doc? ( introspection )
 	lockscreen-plugins? ( plugins )
-	test? ( plugins lockscreen-plugins )
+	test? ( plugins lockscreen-plugins test-full )
+	vala? ( introspection )
 "
 
 COMMON_DEPEND="
-	>=app-crypt/gcr-3.7.5:0[introspection?]
+	>=app-crypt/gcr-3.7.5:0=[introspection?]
 	app-crypt/libsecret
 	>=dev-libs/appstream-1.0.0:=
 	>=dev-libs/feedbackd-0.7.0
@@ -41,15 +42,15 @@ COMMON_DEPEND="
 	media-libs/libpulse[glib]
 	media-sound/callaudiod
 	>=net-libs/libsoup-3.6:3.0
-	net-misc/modemmanager:=
+	>=net-misc/modemmanager-1.24.0:=
 	>=net-misc/networkmanager-1.14[introspection?]
 	>=net-wireless/gnome-bluetooth-46.0:3=[introspection?]
 	sys-apps/dbus
 	>=sys-auth/polkit-0.122
 	sys-libs/pam
-	>=sys-power/upower-0.99.1:=
+	>=sys-power/upower-1.90:=
 	x11-libs/cairo
-	x11-libs/gdk-pixbuf
+	x11-libs/gdk-pixbuf:2
 	x11-libs/pango
 	>=x11-libs/gtk+-3.22:3[introspection?,wayland]
 	systemd? ( >=sys-apps/systemd-241:= )
@@ -72,6 +73,10 @@ DEPEND="
 	${COMMON_DEPEND:?}
 	>=dev-libs/wayland-protocols-1.12
 	test-full? ( ${RUNTIME_DEPEND:?} )
+	vala? (
+		$(vala_depend)
+		>=net-misc/networkmanager-1.14[vala]
+	)
 "
 RDEPEND="
 	${COMMON_DEPEND:?}
@@ -90,19 +95,21 @@ BDEPEND="
 	introspection? ( dev-libs/gobject-introspection )
 	man? ( dev-python/docutils )
 	test-full? ( >=gui-wm/phoc-0.45.0 )
-	verify-sig? ( sec-keys/openpgp-keys-phosh )
+	verify-sig? ( >=sec-keys/openpgp-keys-phosh-2025 )
 "
 
 VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/phosh.asc"
 
-# https://gitlab.gnome.org/World/Phosh/phosh/-/issues/1240
-# https://gitlab.gnome.org/World/Phosh/phosh/-/merge_requests/1733
-RESTRICT="test"
+src_prepare() {
+	use vala && vala_setup
+	default
+}
 
 src_configure() {
 	local emesonargs=(
 		-Dcompositor="${EPREFIX}"/usr/bin/phoc
 		-Dtools=true
+		-Dsearchd=true
 		$(meson_use gtk-doc gtk_doc)
 		$(meson_use introspection)
 		$(meson_use introspection bindings-lib)
@@ -111,6 +118,7 @@ src_configure() {
 		$(meson_use man)
 		$(meson_use test tests)
 		$(meson_feature test-full phoc_tests)
+		$(meson_use vala vapi)
 	)
 	meson_src_configure
 }
@@ -121,7 +129,11 @@ src_test() {
 		local -x WLR_RENDERER="pixman"
 		local -x PHOSH_TEST_PHOC_INI="${T}/phoc.ini"
 
-		meson_src_test --suite unit || return 1
+		# XXX: app-grid-button tests segfaults
+		# https://gitlab.gnome.org/World/Phosh/phosh/-/issues/1240
+		# https://github.com/ximion/appstream/issues/720
+		#meson_src_test --suite unit || return 1
+
 		if use test-full; then
 			meson_src_test --suite integration --timeout-multiplier 2 || return 1
 		fi
