@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
 DESCRIPTION="The open source OpenXR runtime."
 HOMEPAGE="https://monado.dev"
@@ -96,6 +96,10 @@ src_configure() {
 		-DXRT_BUILD_DRIVER_SURVIVE=OFF
 		-DXRT_BUILD_DRIVER_QWERTY=$(usex sdl)
 	)
+
+	# Causes Werror-incompatible-pointer-types-discards-qualifiers
+	# with some string literals used in struct initialization
+	filter-flags -Wwrite-strings
 
 	cmake_src_configure
 }
