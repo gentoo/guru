@@ -60,24 +60,26 @@ RDEPEND="
 		media-video/ffmpeg[libdrm(-),vaapi]
 		media-video/ffmpeg[drm(-),vaapi]
 	) )
-	wireshark-plugins? (
-		net-analyzer/wireshark
-	)
 	x264? (
 		media-libs/x264
+	)
+	wireshark-plugins? (
+		!=net-analyzer/wireshark-4.6.0
+		net-analyzer/wireshark
 	)
 "
 DEPEND="
 	${RDEPEND}
+
 	dev-libs/boost
-"
-BDEPEND="
 	dev-cpp/cli11
 	dev-cpp/eigen
 	dev-cpp/nlohmann_json
+	dev-util/vulkan-headers
+"
+BDEPEND="
 	dev-util/glslang
 	dev-util/gdbus-codegen
-	dev-util/vulkan-headers
 "
 
 if [[ ${PV} == 9999 ]]; then
