@@ -47,8 +47,8 @@ RDEPEND="
 	net-print/cups
 	sys-apps/dbus
 	>=sys-libs/glibc-2.26
-	sys-libs/zlib
 	virtual/udev
+	virtual/zlib
 	x11-libs/cairo
 	x11-libs/gtk+:3
 	x11-libs/libX11
