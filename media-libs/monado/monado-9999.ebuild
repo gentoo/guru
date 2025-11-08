@@ -55,7 +55,7 @@ DEPEND="
 	sdl? ( media-libs/libsdl2 )
 	gstreamer? ( media-libs/gstreamer )
 	psvr? ( dev-libs/hidapi )
-	vive? ( sys-libs/zlib:= )
+	vive? ( virtual/zlib:= )
 	onnxruntime? ( sci-libs/onnxruntime )
 "
 RDEPEND="${DEPEND}"
