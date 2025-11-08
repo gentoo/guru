@@ -137,20 +137,23 @@ src_prepare() {
 		-e "/set(GGML_CCACHE/s/ON/OFF/g" \
 		-e "/PRE_INCLUDE_REGEXES.*cu/d" \
 		-e "/PRE_INCLUDE_REGEXES.*hip/d" \
-		-i CMakeLists.txt || die sed
+		-i CMakeLists.txt || die "bundle headers sed failed"
 
 	# TODO see src_unpack?
 	sed \
 		-e "s/ -O3//g" \
-		-i ml/backend/ggml/ggml/src/ggml-cpu/cpu.go || die sed
+		-i \
+			ml/backend/ggml/ggml/src/ggml-cpu/cpu.go \
+		|| die "-O3 sed failed"
 
+	# grep -Rl -e 'lib/ollama' -e '"..", "lib"'  --include '*.go'
 	sed \
 		-e "s/\"..\", \"lib\"/\"..\", \"$(get_libdir)\"/" \
 		-e "s#\"lib/ollama\"#\"$(get_libdir)/ollama\"#" \
 		-i \
 			ml/backend/ggml/ggml/src/ggml.go \
-			discover/path.go \
-		|| die
+			ml/path.go \
+		|| die "libdir sed failed"
 
 	if use amd64; then
 		if
