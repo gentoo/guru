@@ -93,6 +93,9 @@ if [[ ${CATEGORY} == dev-crystal ]]; then
 	# To build a correct dependency graph, add Crystal version
 	# restrictions to runtime dependencies of Crystal libraries.
 	RDEPEND="${CRYSTAL_DEPS}"
+else
+	# Add a buildtime dependency on the Crystal standard library.
+	DEPEND="${CRYSTAL_DEPS}"
 fi
 
 # Crystal packages do not use CFLAGS
