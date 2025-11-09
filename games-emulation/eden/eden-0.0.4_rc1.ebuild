@@ -105,7 +105,7 @@ declare -A KEEP_BUNDLED=(
 	# Generated or copied files for internal usage
 	[bc_decoder]=MPL-2.0
 	[cmake-modules]=Boost-1.0
-	[demangle]="Apache-2.0 WITH LLVM-exception"
+	[demangle]=Apache-2.0-with-LLVM-exceptions
 	[FidelityFX-FSR]=MIT
 	[glad]=GPL-2+
 	[nx_tzdb]="GPL-2+"
