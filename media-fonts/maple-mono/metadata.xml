@@ -8,4 +8,10 @@
   <upstream>
     <remote-id type="github">subframe7536/maple-font</remote-id>
   </upstream>
+  <use>
+    <flag name='cn'>Install CN font for Simplified Chinese, Traditional Chinese and Japanese support</flag>
+    <flag name='ligature'>Install the font with ligature support</flag>
+    <flag name='nerd'>Install the nerd font</flag>
+    <flag name='normal'>Install the less opinionated version of the font, similar to JetBrains mono</flag>
+  </use>
 </pkgmetadata>
