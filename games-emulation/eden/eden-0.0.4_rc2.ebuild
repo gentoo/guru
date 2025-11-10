@@ -11,9 +11,8 @@ DESCRIPTION="Nintendo Switch Emulator"
 HOMEPAGE="https://eden-emu.dev"
 SRC_URI="
 	https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
-	https://git.crueter.xyz/misc/tzdb_to_nx/releases/download/${_TZDB_VER}/${_TZDB_VER}.tar.gz -> nx-tzdb-${_TZDB_VER}.tar.gz
-	https://git.eden-emu.dev/eden-emu/eden/commit/6b01c13975439784cd40cf1810b67350111a41d3.patch ->
-		${PN}-0.0.4_rc1-revert-the-latest-Dynarmic-changes.patch
+	https://git.crueter.xyz/misc/tzdb_to_nx/releases/download/${_TZDB_VER}/${_TZDB_VER}.tar.gz ->
+		nx-tzdb-${_TZDB_VER}.tar.gz
 "
 
 S="${WORKDIR}/${PN}"
@@ -21,7 +20,7 @@ S="${WORKDIR}/${PN}"
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="camera +cubeb discord +qt6 lto +opengl +sdl ssl test +usb web-applet web-service wifi room llvm renderdoc +gamemode"
+IUSE="camera +cubeb discord llvm lto +opengl +qt6 room sdl ssl test +usb web-applet web-service wifi"
 REQUIRED_USE="
 	!qt6? ( !camera !discord !web-applet )
 	web-service? ( ssl || ( qt6 room ) )
@@ -35,17 +34,14 @@ RDEPEND="
 	dev-libs/mcl
 	>=dev-libs/sirit-1.0.1
 	dev-util/spirv-tools
+	games-util/gamemode
+	media-gfx/renderdoc
 	media-libs/libva
 	media-libs/opus
 	media-video/ffmpeg
 	net-libs/enet
 	net-libs/mbedtls:3
 	sys-libs/zlib
-
-	amd64? (
-		dev-libs/zycore-c
-		dev-libs/zydis
-	)
 
 	camera? ( dev-qt/qtmultimedia:6 )
 	cubeb? ( media-libs/cubeb )
@@ -64,8 +60,6 @@ RDEPEND="
 	web-service? ( dev-cpp/cpp-httplib:=[ssl] )
 	wifi? ( net-wireless/wireless-tools )
 	llvm? ( llvm-core/llvm )
-	renderdoc? ( media-gfx/renderdoc )
-	gamemode? ( games-util/gamemode )
 "
 DEPEND="
 	${RDEPEND}
@@ -96,8 +90,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${DISTDIR}/${PN}-0.0.4_rc1-revert-the-latest-Dynarmic-changes.patch"
-	"${FILESDIR}/${PN}-0.0.4_rc1-add-a-formatter-for-Dynarmic-IR-Opcode.patch"
+	"${FILESDIR}/${PN}-0.0.4_rc2-always-include-common-detached_tasks-in-src-yuzu-main-cpp.patch"
 )
 
 # [directory]=license
