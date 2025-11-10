@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,7 +7,7 @@ inherit meson gnome2-utils udev
 
 MY_COMMIT="f5feb4b3d17bbf16171d716bbb8e28f3a84542ef"
 
-DESCRIPTION="It's a flashlight, what do you expect?"
+DESCRIPTION="Simple flashlight application for the PinePhone"
 HOMEPAGE="https://gitlab.com/a-wai/flashlight.git"
 SRC_URI="https://gitlab.com/a-wai/flashlight/-/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
 
