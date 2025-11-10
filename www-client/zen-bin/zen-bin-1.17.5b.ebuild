@@ -14,6 +14,7 @@ LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 RESTRICT="strip"
+QA_PREBUILT="*"
 
 DEPEND="
 	app-accessibility/at-spi2-core:2
