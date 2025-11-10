@@ -3,6 +3,7 @@
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
+		<doc>https://malpenzibo.github.io/ashell/docs/intro</doc>
 		<bugs-to>https://github.com/MalpenZibo/ashell/issues</bugs-to>
 		<changelog>https://github.com/MalpenZibo/ashell/releases</changelog>
 		<remote-id type="github">MalpenZibo/ashell</remote-id>

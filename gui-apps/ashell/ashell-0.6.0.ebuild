@@ -704,7 +704,7 @@ declare -A GIT_CRATES=(
 LLVM_COMPAT=( 18 19 20 )
 RUST_NEEDS_LLVM=1
 
-inherit cargo llvm-r1
+inherit cargo llvm-r1 systemd
 
 DESCRIPTION="A ready to go Wayland status bar for Hyprland"
 HOMEPAGE="https://github.com/MalpenZibo/ashell"
@@ -738,4 +738,16 @@ BDEPEND="
 pkg_setup() {
 	llvm-r1_pkg_setup
 	rust_pkg_setup
+}
+
+src_install() {
+	# default invokes `make install` which invokes `sudo cp`
+	# therefore explicitly invoke cargo_src_install
+	cargo_src_install
+	einstalldocs
+	systemd_douserunit "${FILESDIR}/ashell.service"
+}
+
+pkg_postinst() {
+	systemd_is_booted && elog "This port provides the systemd user service unit ashell.service."
 }
