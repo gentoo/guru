@@ -10,16 +10,10 @@ HOMEPAGE="https://github.com/KhronosGroup/KTX-Software"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE=""
 
 SRC_URI="https://github.com/KhronosGroup/KTX-Software/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64"
 
-RDEPEND="
-"
-DEPEND="
-	${RDEPEND}
-"
 BDEPEND="
 	app-shells/bash
 "
