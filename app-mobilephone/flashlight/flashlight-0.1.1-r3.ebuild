@@ -17,7 +17,10 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
-RDEPEND="x11-libs/gtk+"
+RDEPEND="
+	dev-libs/glib
+	x11-libs/gtk+
+"
 BDEPEND="dev-lang/python-exec[native-symlinks]"
 
 src_install() {
