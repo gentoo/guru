@@ -27,7 +27,7 @@ IUSE="man"
 RDEPEND="
 	>=dev-python/lxml-6.0.2[${PYTHON_USEDEP}]
 	>=dev-python/msgpack-1.1.2[${PYTHON_USEDEP}]
-	>=dev-python/textual-6.4.0[${PYTHON_USEDEP}]
+	>=dev-python/textual-6.5.0[${PYTHON_USEDEP}]
 	>=dev-python/tomlkit-0.13.3[${PYTHON_USEDEP}]
 "
 
