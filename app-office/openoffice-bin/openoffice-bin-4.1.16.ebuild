@@ -14,7 +14,7 @@ NM="openoffice"
 NM1="${NM}-brand"
 NM2="${NM}4"
 NM3="${NM2}.$(ver_cut 2-3)"
-FILEPATH="https://dist.apache.org/repos/dist/dev/openoffice/4.1.16-RC3/binaries"
+FILEPATH="https://downloads.sourceforge.net/openofficeorg.mirror"
 if [ "${ARCH}" = "amd64" ] ; then
 	XARCH="x86_64"
 else
@@ -25,8 +25,8 @@ UP="en-US/RPMS"
 DESCRIPTION="Apache OpenOffice productivity suite"
 HOMEPAGE="https://www.openoffice.org/"
 SRC_URI="
-	amd64? ( "${FILEPATH}"/en-US/Apache_OpenOffice_${PV/_rc*/}_Linux_x86-64_install-rpm_en-US.tar.gz )
-	x86? ( "${FILEPATH}"/en-US/Apache_OpenOffice_${PV/_rc*/}_Linux_x86_install-rpm_en-US.tar.gz )
+	amd64? ( "${FILEPATH}"/Apache_OpenOffice_${PV}_Linux_x86-64_install-rpm_en-US.tar.gz )
+	x86? ( "${FILEPATH}"/Apache_OpenOffice_${PV}_Linux_x86_install-rpm_en-US.tar.gz )
 "
 
 S="${WORKDIR}"
@@ -43,8 +43,8 @@ LANGS="ast eu bg ca ca-valencia zh-CN zh-TW cs da nl en-GB fi fr gd gl de el he 
 for X in ${LANGS} ; do
 	IUSE="${IUSE} l10n_${X}"
 	SRC_URI+=" l10n_${X}? (
-		amd64? ( "${FILEPATH}/${X/ca-valencia/ca-XV}"/Apache_OpenOffice_${PV/_rc*/}_Linux_x86-64_langpack-rpm_${X/ca-valencia/ca-XV}.tar.gz )
-		x86? ( "${FILEPATH}/${X/ca-valencia/ca-XV}"/Apache_OpenOffice_${PV/_rc*/}_Linux_x86_langpack-rpm_${X/ca-valencia/ca-XV}.tar.gz ) )"
+		amd64? ( "${FILEPATH}"/Apache_OpenOffice_${PV}_Linux_x86-64_langpack-rpm_${X/ca-valencia/ca-XV}.tar.gz )
+		x86? ( "${FILEPATH}"/Apache_OpenOffice_${PV}_Linux_x86_langpack-rpm_${X/ca-valencia/ca-XV}.tar.gz ) )"
 done
 
 RDEPEND="
