@@ -3,6 +3,8 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.85.0"
+
 CRATES="
 	addr2line@0.24.2
 	adler2@2.0.0
@@ -20,15 +22,16 @@ CRATES="
 	backtrace-ext@0.2.1
 	backtrace@0.3.74
 	bitflags@1.3.2
-	bitflags@2.6.0
+	bitflags@2.9.1
 	bitvec@1.0.1
 	block2@0.5.1
-	bumpalo@3.16.0
+	bumpalo@3.19.0
 	bytemuck@1.19.0
 	byteorder-lite@0.1.0
 	byteorder@1.5.0
 	cc@1.1.31
 	cfg-if@1.0.0
+	cfg_aliases@0.2.1
 	clap@4.5.20
 	clap_builder@4.5.20
 	clap_derive@4.5.18
@@ -54,7 +57,7 @@ CRATES="
 	equivalent@1.0.1
 	errno@0.3.10
 	error-code@3.3.1
-	evdev@0.12.2
+	evdev@0.13.1
 	fdeflate@0.3.7
 	flate2@1.0.35
 	foreign-types-macros@0.2.3
@@ -74,7 +77,6 @@ CRATES="
 	indoc@2.0.5
 	inotify-sys@0.1.5
 	inotify@0.10.2
-	instant@0.1.13
 	interception-sys@0.1.3
 	is-docker@0.2.0
 	is-terminal@0.4.13
@@ -85,10 +87,10 @@ CRATES="
 	itoa@1.0.11
 	jobserver@0.1.32
 	jpeg-decoder@0.3.1
-	js-sys@0.3.72
+	js-sys@0.3.77
 	kanata-interception@0.3.0
 	kanata-keyberon-macros@0.2.0
-	karabiner-driverkit@0.1.5
+	karabiner-driverkit@0.2.0
 	lazy_static@1.5.0
 	libc@0.2.161
 	libredox@0.1.3
@@ -97,7 +99,6 @@ CRATES="
 	log@0.4.22
 	malloc_buf@0.0.6
 	memchr@2.7.4
-	memoffset@0.6.5
 	memoffset@0.7.1
 	miette-derive@5.10.0
 	miette@5.10.0
@@ -107,8 +108,8 @@ CRATES="
 	muldiv@1.0.1
 	native-windows-gui@1.0.13
 	nibble_vec@0.1.0
-	nix@0.23.2
 	nix@0.26.4
+	nix@0.29.0
 	num-conv@0.1.0
 	num-traits@0.2.19
 	num_enum@0.6.1
@@ -128,6 +129,7 @@ CRATES="
 	once_cell@1.20.2
 	open@5.3.0
 	option-ext@0.2.0
+	ordered-float@5.1.0
 	os_info@3.8.2
 	os_pipe@1.2.1
 	owo-colors@3.5.0
@@ -198,12 +200,12 @@ CRATES="
 	vte@0.11.1
 	vte_generate_state_changes@0.1.2
 	wasi@0.11.0+wasi-snapshot-preview1
-	wasm-bindgen-backend@0.2.95
-	wasm-bindgen-macro-support@0.2.95
-	wasm-bindgen-macro@0.2.95
-	wasm-bindgen-shared@0.2.95
-	wasm-bindgen@0.2.95
-	web-sys@0.3.72
+	wasm-bindgen-backend@0.2.100
+	wasm-bindgen-macro-support@0.2.100
+	wasm-bindgen-macro@0.2.100
+	wasm-bindgen-shared@0.2.100
+	wasm-bindgen@0.2.100
+	web-time@1.1.0
 	weezl@0.1.8
 	widestring@1.1.0
 	win_dbg_logger@0.1.0
@@ -252,7 +254,7 @@ SRC_URI="
 LICENSE="LGPL-3"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 BSD Boost-1.0 ISC LGPL-3 MIT MPL-2.0 Unicode-DFS-2016
+	Apache-2.0 Boost-1.0 ISC LGPL-3 MIT MPL-2.0 Unicode-DFS-2016
 "
 SLOT="0"
 KEYWORDS="~amd64"
