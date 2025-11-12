@@ -35,7 +35,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="gnome java"
+IUSE="gnome java kde"
 
 # TODO: supports ca_XR (Valencian RACV) locale too
 LANGS="ast eu bg ca ca-valencia zh-CN zh-TW cs da nl en-GB fi fr gd gl de el he hi hu it ja km ko lt nb pl pt-BR pt ru sr sk sl es sv ta th tr vi"
@@ -48,6 +48,7 @@ for X in ${LANGS} ; do
 done
 
 RDEPEND="
+	kde? ( kde-plasma/breeze-gtk )
 	!prefix? ( sys-libs/glibc )
 	>=app-accessibility/at-spi2-core-2.50.1:2
 	app-arch/unzip
