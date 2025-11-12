@@ -8,7 +8,7 @@ CRATES="
 
 RUST_MIN_VER=1.86
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit cargo eapi9-ver optfeature python-single-r1 systemd
 
