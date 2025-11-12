@@ -5,15 +5,20 @@ EAPI=8
 
 inherit meson
 
+if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="https://github.com/wlrfx/scenefx"
+	inherit git-r3
+else
+	SRC_URI="https://github.com/wlrfx/scenefx/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${PV}"
+	KEYWORDS="~amd64 ~arm64"
+fi
+
 DESCRIPTION="A replacement for the wlroots scene API with eye-candy effects."
 HOMEPAGE="https://github.com/wlrfx/scenefx"
 
-SRC_URI="https://github.com/wlrfx/scenefx/archive/${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${PV}"
-
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
 IUSE="examples X"
 
 DEPEND="
