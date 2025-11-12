@@ -29,8 +29,6 @@ RDEPEND="
 	>=dev-python/tomlkit-0.13.3[${PYTHON_USEDEP}]
 "
 
-distutils_enable_tests pytest
-
 src_install() {
 	distutils-r1_src_install
 

@@ -40,8 +40,6 @@ BDEPEND="
 	)
 "
 
-distutils_enable_tests pytest
-
 python_compile() {
 	distutils-r1_python_compile
 
