@@ -21,7 +21,12 @@ SLOT="0"
 
 IUSE="xxd"
 
-RDEPEND="xxd? ( !dev-util/xxd !app-editors/vim-core )"
+RDEPEND="
+	xxd? (
+		!<app-editors/vim-core-9.1.1652-r1
+		!dev-util/xxd
+	)
+"
 
 PATCHES=( "${FILESDIR}"/${PN}-1.3.7-fix-flags.patch )
 
