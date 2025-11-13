@@ -17,6 +17,8 @@ LICENSE="Google-Enterprise-Geo-Master"
 SLOT="0"
 KEYWORDS="amd64"
 
+RDEPEND="dev-libs/libxml2-compat"
+
 src_install() {
     doins -r ${S}/usr/bin
     doins -r ${S}/opt
