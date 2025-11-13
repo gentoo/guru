@@ -6,24 +6,37 @@ inherit cmake desktop xdg fortran-2
 
 DESCRIPTION="Open-source Modelica-based modeling and simulation environment"
 HOMEPAGE="https://openmodelica.org/"
+
+declare -A commit
+commit[OpenModelica]="38bef66da59e57597a6a5f482695e6c37ca09940"
+commit[OMCompiler-3rdParty]="05b2332389883ff2a6021ecdf2e13d5a00ebf286"
+# See line 10 in OMCompiler/Compiler/boot/CMakeLists.txt
+commit[OMBootstrapping]="04d16f7461e5401321f0f72613daf466ae2f76be"
+commit[OMSens]="093ad1134cf572ea73a9c7f834614e53ba5ea878"
+commit[OMSens_Qt]="bab329ae897ce28621dc45a34cc9cc7dad1aa002"
+commit[OMSimulator]="86e9635bda23ffc87a33c90bfbbc6ee7192cbb7a"
+commit[OMSimulator-3rdParty]="4ee9733a8fa6de86ce6fc18d775de4efbd7aae9f"
+commit[OMOptim]="f1036f43db18c5015da259771004cfb80e08a110"
+commit[OpenModelica-common]="6e6d4fd78c74da79ef079ee412d5325eb3b60166"
+
 SRC_URI="
-	https://github.com/OpenModelica/OpenModelica/archive/904c4c783a5fa6eb9e99e4a98bdb0cca1d619303.tar.gz
+	https://github.com/OpenModelica/OpenModelica/archive/${commit[OpenModelica]}.tar.gz
 		-> ${P}.tar.gz
-	https://github.com/OpenModelica/OMCompiler-3rdParty/archive/82e892ece107787e9ff17780bf5ac8c3f6bc39ba.tar.gz
+	https://github.com/OpenModelica/OMCompiler-3rdParty/archive/${commit[OMCompiler-3rdParty]}.tar.gz
 		-> OMCompiler-3rdParty_${P}.tar.gz
-	https://github.com/OpenModelica/OMBootstrapping/archive/c289e97c41d00939a4a69fe504961b47283a6d8e.tar.gz
+	https://github.com/OpenModelica/OMBootstrapping/archive/${commit[OMBootstrapping]}.tar.gz
 		-> OMBootstrapping_${P}.tar.gz
-	https://github.com/OpenModelica/OMSens/archive/0d804d597bc385686856d453cc830fad4923fa3e.tar.gz
+	https://github.com/OpenModelica/OMSens/archive/${commit[OMSens]}.tar.gz
 		-> OMSens_${P}.tar.gz
-	https://github.com/OpenModelica/OMSens_Qt/archive/92090770426271b4193e78b04f13e6a3abcd6f1a.tar.gz
+	https://github.com/OpenModelica/OMSens_Qt/archive/${commit[OMSens_Qt]}.tar.gz
 		-> OMSens_Qt_${P}.tar.gz
-	https://github.com/OpenModelica/OMSimulator/archive/ce342b60b3675185b7daf8197f4b7fd3227f694f.tar.gz
+	https://github.com/OpenModelica/OMSimulator/archive/${commit[OMSimulator]}.tar.gz
 		-> OMSimulator_${P}.tar.gz
-	https://github.com/OpenModelica/OMSimulator-3rdParty/archive/5c10de1648d1134a577d9284b58580a72383d89f.tar.gz
+	https://github.com/OpenModelica/OMSimulator-3rdParty/archive/${commit[OMSimulator-3rdParty]}.tar.gz
 		-> OMSimulator-3rdParty_${P}.tar.gz
-	https://github.com/OpenModelica/OMOptim/archive/f1036f43db18c5015da259771004cfb80e08a110.tar.gz
+	https://github.com/OpenModelica/OMOptim/archive/${commit[OMOptim]}.tar.gz
 		-> OMOptim_${P}.tar.gz
-	https://github.com/OpenModelica/OpenModelica-common/archive/08a01802db5ba5edb540383c46718b89ff229ef2.tar.gz
+	https://github.com/OpenModelica/OpenModelica-common/archive/${commit[OpenModelica-common]}.tar.gz
 		-> OpenModelica-common_${P}.tar.gz
 
 "
@@ -33,52 +46,43 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=app-text/asciidoc-10.2.0
-	>=app-text/doxygen-1.9.8
-	>=dev-libs/boost-1.85.0
-	>=dev-games/openscenegraph-3.6.5-r114
+	>=app-text/asciidoc-10.2.1
+	>=app-text/doxygen-1.13.2
+	>=dev-libs/boost-1.88.0-r1
+	>=dev-games/openscenegraph-3.6.5-r118
 	dev-lang/python:3.12
-	>=dev-libs/expat-2.5.0
-	>=dev-libs/icu-74.1
-	>=dev-libs/libxml2-2.12.7
-	>=dev-python/kiwisolver-1.3.2
-	>=dev-python/matplotlib-3.3
-	>=dev-python/numpy-1.26.4
-	>=dev-python/pandas-1.1.3
-	>=dev-python/pillow-9.0.1
-	>=dev-python/pytest-8.2.2
-	>=dev-python/six-1.16.0-r1
-	>=dev-python/sphinx-7.3.7-r2
-	dev-qt/qtconcurrent:5
-	dev-qt/qtcore:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtopengl:5
-	dev-qt/qtpositioning:5[qml]
-	dev-qt/qtprintsupport:5
-	dev-qt/qtquickcontrols:5
-	dev-qt/qtquickcontrols2:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwebengine:5[widgets]
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
-	dev-qt/qtxmlpatterns:5
-	dev-qt/qtwebchannel:5[qml]
-	>=net-misc/curl-8.7.1-r4
+	>=dev-libs/expat-2.7.3
+	>=dev-libs/icu-77.1
+	>=dev-libs/libxml2-2.14.6
+	>=dev-python/kiwisolver-1.4.9
+	>=dev-python/matplotlib-3.10.3
+	>=dev-python/numpy-2.3.1
+	>=dev-python/pandas-2.3.0
+	>=dev-python/pillow-11.3.0
+	>=dev-python/pytest-8.4.2
+	>=dev-python/six-1.17.0
+	>=dev-python/sphinx-8.2.3-r2
+	dev-qt/qt5compat:6
+	dev-qt/qtbase:6
+	dev-qt/qtdeclarative:6
+	dev-qt/qtpositioning:6
+	dev-qt/qtsvg:6
+	dev-qt/qtwebchannel:6
+	dev-qt/qtwebengine:6
+	>=net-misc/curl-8.16.0-r1
 	>=net-misc/omniORB-4.3.0
-	>=sci-libs/hdf5-1.14.3-r1
-	>=sys-apps/hwloc-2.9.2
+	>=sci-libs/hdf5-1.14.6-r2
+	>=sys-apps/hwloc-2.11.2-r1
 	>=sys-devel/flex-2.6.4-r6
 	>=sys-libs/ncurses-6.4_p20240414
-	>=sys-libs/readline-8.2_p10
+	>=sys-libs/readline-8.3_p1
 	>=virtual/blas-3.8
 	>=virtual/jdk-17
 	>=virtual/lapack-3.10
 	>=virtual/libiconv-0-r2
 	>=virtual/libintl-0-r2
-	>=virtual/opencl-3-r3
-	>=virtual/opengl-7.0-r2
+	>=virtual/opencl-3-r5
+	>=virtual/opengl-8
 	>=virtual/pkgconfig-3
 "
 
@@ -89,45 +93,36 @@ BDEPEND="
 
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/"${P}"-raw_strings.patch
-)
-
 src_unpack() {
 	default
 
-	mv "${WORKDIR}/OpenModelica-904c4c783a5fa6eb9e99e4a98bdb0cca1d619303" "${S}" || die
+	mv "${WORKDIR}/OpenModelica-${commit[OpenModelica]}" "${S}" || die
 	rmdir "${S}/OMCompiler/3rdParty" || die
-	mv "${WORKDIR}/OMCompiler-3rdParty-82e892ece107787e9ff17780bf5ac8c3f6bc39ba" "${S}/OMCompiler/3rdParty" || die
+	mv "${WORKDIR}/OMCompiler-3rdParty-${commit[OMCompiler-3rdParty]}" "${S}/OMCompiler/3rdParty" || die
 	rmdir "${S}/OMSens" || die
 
 	# OMOptim depends on a working CORBA interface (which fails to compile) supplied by OmniORB.
 	# For compilation trials remember setting -DOM_OMC_USE_CORBA=ON.
 	#rmdir "${S}/OMOptim" || die
-	#mv "${WORKDIR}/OMOptim-f1036f43db18c5015da259771004cfb80e08a110" "${S}/OMOptim" || die
+	#mv "${WORKDIR}/OMOptim-${commit[OMOptim]}" "${S}/OMOptim" || die
 	#rmdir "${S}/OMOptim/common" || die
-	#cp -a "${WORKDIR}/OpenModelica-common-08a01802db5ba5edb540383c46718b89ff229ef2" "${S}/OMOptim/common" || die
+	#cp -a "${WORKDIR}/OpenModelica-common-${commit[OpenModelica-common]}" "${S}/OMOptim/common" || die
 
-	mv "${WORKDIR}/OMSens-0d804d597bc385686856d453cc830fad4923fa3e" "${S}/OMSens" || die
+	mv "${WORKDIR}/OMSens-${commit[OMSens]}" "${S}/OMSens" || die
 	rmdir "${S}/OMSens_Qt" || die
-	mv "${WORKDIR}/OMSens_Qt-92090770426271b4193e78b04f13e6a3abcd6f1a" "${S}/OMSens_Qt" || die
+	mv "${WORKDIR}/OMSens_Qt-${commit[OMSens_Qt]}" "${S}/OMSens_Qt" || die
 	rmdir "${S}/OMSens_Qt/common" || die
-	mv "${WORKDIR}/OpenModelica-common-08a01802db5ba5edb540383c46718b89ff229ef2" "${S}/OMSens_Qt/common" || die
+	mv "${WORKDIR}/OpenModelica-common-${commit[OpenModelica-common]}" "${S}/OMSens_Qt/common" || die
 	rmdir "${S}/OMSimulator" || die
-	mv "${WORKDIR}/OMSimulator-ce342b60b3675185b7daf8197f4b7fd3227f694f" "${S}/OMSimulator" || die
+	mv "${WORKDIR}/OMSimulator-${commit[OMSimulator]}" "${S}/OMSimulator" || die
 	rmdir "${S}/OMSimulator/3rdParty" || die
-	mv "${WORKDIR}/OMSimulator-3rdParty-5c10de1648d1134a577d9284b58580a72383d89f" "${S}/OMSimulator/3rdParty" || die
-	mv "OMBootstrapping-c289e97c41d00939a4a69fe504961b47283a6d8e" "${S}/OMCompiler/Compiler/boot/bomc" || die
+	mv "${WORKDIR}/OMSimulator-3rdParty-${commit[OMSimulator-3rdParty]}" "${S}/OMSimulator/3rdParty" || die
+	mv "OMBootstrapping-${commit[OMBootstrapping]}" "${S}/OMCompiler/Compiler/boot/bomc" || die
 	touch "${S}/OMCompiler/Compiler/boot/bomc/sources.tar.gz" || die
 
-	# Solve https://bugs.gentoo.org/937038
-	rm -fr "${S}/OMCompiler/3rdParty/FMIL/ThirdParty/Minizip/minizip" || die
-	cp -a "${S}/OMSimulator/3rdParty/fmi4c/3rdparty/minizip" \
-		"${S}/OMCompiler/3rdParty/FMIL/ThirdParty/Minizip/minizip" || die
 }
 
 src_configure() {
-	# [2024-10-24] Only OMEdit adapted to Qt6 (not, for example, optimization plugins)
 	local mycmakeargs=(
 		-DOM_OMEDIT_ENABLE_QTWEBENGINE=ON
 		-DBUILD_SHARED_LIBS=OFF
@@ -143,7 +138,7 @@ src_configure() {
 		-DOM_OMEDIT_ENABLE_TESTS=OFF
 		-DOM_OMEDIT_ENABLE_QTWEBENGINE=ON
 		-DOM_OMEDIT_ENABLE_LIBXML2=ON
-		-DOM_QT_MAJOR_VERSION=5
+		-DOM_QT_MAJOR_VERSION=6
 	)
 	cmake_src_configure
 }
@@ -195,7 +190,7 @@ src_install() {
 
 	# Documentation housekeeping & QA
 	mv "${ED}"/usr/share/doc/omc "${ED}"/usr/share/doc/"${PF}" || die
-	rm -fr "${ED}"/usr/doc  "${ED}"/usr/share/{zmq,cmake} || die
+	rm -fr "${ED}"/usr/doc  "${ED}"/usr/share/{zmq,cmake,cminpack} || die
 
 	ewarn "Upstream has deprecated OMTLMSimulator and, therefore, it has not been installed. Use OMSimulator/SSP instead."
 }
