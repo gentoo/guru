@@ -11,7 +11,7 @@ if [[ ${PV} == 9999 ]]; then
 else
 	SRC_URI="https://dec05eba.com/snapshot/${PN}.git.${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 DESCRIPTION="A screen recorder that has minimal impact on system performance"
