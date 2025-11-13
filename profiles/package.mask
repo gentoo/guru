@@ -63,11 +63,6 @@ dev-util/fnm
 # Removal on 2025-11-17
 dev-cpp/rang
 
-# Takuya Wakazono <pastalian46@gmail.com> (2025-10-14)
-# Fails to build. No maintainer.
-# Removal on 2025-11-14
-dev-libs/weechat-relay
-
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-07-25)
 # Depends on removed pydantic version.
 dev-python/safety-schemas
