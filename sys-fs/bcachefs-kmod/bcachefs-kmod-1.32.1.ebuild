@@ -33,8 +33,6 @@ SLOT="0"
 
 IUSE="debug verify-sig"
 
-DEPEND=">=sys-fs/bcachefs-tools-${MY_PV_MAJOR_MINOR}"
-
 RDEPEND="${DEPEND}
 "
 
