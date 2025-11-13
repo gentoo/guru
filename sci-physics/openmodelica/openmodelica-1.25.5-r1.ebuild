@@ -44,6 +44,8 @@ SRC_URI="
 LICENSE="OSMC-PL GPL-3 AGPL-3 BSD EPL-1.0 public-domain BSD-with-attribution LGPL-2.1+ LGPL-2 Apache-2.0 Boost-1.0 Modelica-1.1 Modelica-2 MIT WTFPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="static-libs"
+REQUIRED_USE="|| ( static-libs )"
 
 RDEPEND="
 	>=app-text/asciidoc-10.2.1
@@ -190,7 +192,7 @@ src_install() {
 
 	# Documentation housekeeping & QA
 	mv "${ED}"/usr/share/doc/omc "${ED}"/usr/share/doc/"${PF}" || die
-	rm -fr "${ED}"/usr/doc  "${ED}"/usr/share/{zmq,cmake,cminpack} || die
+	rm -fr "${ED}"/usr/doc  "${ED}"/usr/share/{zmq,cmake,cminpack} "${ED}"/tmp || die
 
 	ewarn "Upstream has deprecated OMTLMSimulator and, therefore, it has not been installed. Use OMSimulator/SSP instead."
 }
