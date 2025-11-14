@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Joe (joecool) Kappus <joe@wt.gd> (2025-11-13)
+# No maintainer, repos archived, dead homepage.
+# Removal on 2025-12-13
+net-im/axolotl-bin
+
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-11-06)
 # Obsoleted by Invidious Companion:
 # https://docs.invidious.io/installation/#set-up-invidious-companion
