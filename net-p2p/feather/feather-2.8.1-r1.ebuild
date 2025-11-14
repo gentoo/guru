@@ -23,7 +23,7 @@ DEPEND="
 	dev-libs/libsodium:=
 	media-gfx/qrencode:=
 	media-gfx/zbar:=[v4l]
-	~dev-libs/polyseed-1.0.0
+	~dev-libs/polyseed-2.0.0
 	dev-libs/libzip:=
 	dev-libs/boost:=[nls]
 	>=dev-qt/qtbase-6.9.1:6[wayland=]
@@ -35,7 +35,7 @@ DEPEND="
 	dev-libs/openssl:=
 	net-dns/unbound:=[threads]
 	net-libs/czmq:=
-	qrcode? ( media-libs/zxing-cpp )
+	qrcode? ( media-libs/zxing-cpp dev-util/bc-ur )
 "
 RDEPEND="
 	${DEPEND}
@@ -53,6 +53,7 @@ src_prepare() {
 	default
 	echo "#define FEATHER_VERSION \"${PV}\"" > "${WORKDIR}"/${P}/src/config-feather.h || die
 	echo "#define TOR_VERSION \"NOT_EMBEDDED\"" >> "${WORKDIR}"/${P}/src/config-feather.h || die
+	rm -r "${WORKDIR}"/${P}/src/third-party || die
 	if ! use wayland; then
 		eapply "${FILESDIR}/feather-no-wayland.patch"
 	fi

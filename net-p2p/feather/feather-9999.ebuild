@@ -18,7 +18,7 @@ DEPEND="
 	dev-libs/libsodium:=
 	media-gfx/qrencode:=
 	media-gfx/zbar:=[v4l]
-	~dev-libs/polyseed-1.0.0
+	~dev-libs/polyseed-2.0.0
 	dev-libs/libzip:=
 	dev-libs/boost:=[nls]
 	>=dev-qt/qtbase-6.7.3:6
@@ -30,7 +30,7 @@ DEPEND="
 	dev-libs/openssl:=
 	net-dns/unbound:=[threads]
 	net-libs/czmq:=
-	qrcode? ( media-libs/zxing-cpp )
+	qrcode? ( media-libs/zxing-cpp dev-util/bc-ur )
 "
 RDEPEND="
 	${DEPEND}
@@ -40,6 +40,11 @@ RDEPEND="
 BDEPEND="
 	virtual/pkgconfig
 "
+
+src_prepare() {
+	rm -r "${WORKDIR}"/${P}/src/third-party || die
+	cmake_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(
