@@ -76,27 +76,23 @@ src_configure() {
 
 src_install() {
 	for size in {16,24,32,48,64,96,128,256,512,1024}; do
-		doicon -s ${size} "usr/share/icons/hicolor/${size}x${size}/apps/teams-for-linux.png"
+		doicon -s "${size}" "usr/share/icons/hicolor/${size}x${size}/apps/${PN}.png"
 	done
 
-	domenu usr/share/applications/teams-for-linux.desktop
+	domenu "usr/share/applications/${PN}.desktop"
 
-	local DESTDIR="/opt/teams-for-linux"
+	local DESTDIR="/opt/${PN}"
 
-	pushd "opt/teams-for-linux" || die
+	pushd "opt/${PN}" || die
 
 	exeinto "${DESTDIR}"
-	doexe chrome-sandbox chrome_crashpad_handler teams-for-linux *.so*
+	doexe chrome-sandbox chrome_crashpad_handler "${PN}" ./*.so*
 
 	insinto "${DESTDIR}"
-	doins *.pak *.bin *.json *.dat
+	doins ./*.pak ./*.bin ./*.json ./*.dat
 	insopts -m0755
 	doins -r locales resources
 
-	# Chrome-sandbox requires the setuid bit to be specifically set.
-	# see https://github.com/electron/electron/issues/17972
-	fperms 4755 "${DESTDIR}"/chrome-sandbox
-
-	dosym "${DESTDIR}"/teams-for-linux /opt/bin/teams-for-linux
+	dosym "${DESTDIR}/${PN}" "/opt/bin/${PN}"
 	popd || die
 }
