@@ -1,0 +1,17 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Build the `pgs` library statically.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/src/pgs/CMakeLists.txt
++++ b/src/pgs/CMakeLists.txt
+@@ -2,6 +2,6 @@ find_package(TIFF REQUIRED COMPONENTS CXX)
+ include_directories( ${TIFF_INCLUDE_DIRS} )
+ link_directories( ${TIFF_LIBRARY_DIRS} )
+ 
+-add_library(pgs compositionObject.cpp displaySegment.cpp objectDefinitionSegment.cpp paletteDefinitionSegment.cpp paletteSegment.cpp pgsParser.cpp pgsSegment.cpp pgsSegmentHeader.cpp pgsUtil.cpp presentationCompositionSegment.cpp windowDefinitionSegment.cpp windowSegment.cpp)
++add_library(pgs STATIC compositionObject.cpp displaySegment.cpp objectDefinitionSegment.cpp paletteDefinitionSegment.cpp paletteSegment.cpp pgsParser.cpp pgsSegment.cpp pgsSegmentHeader.cpp pgsUtil.cpp presentationCompositionSegment.cpp windowDefinitionSegment.cpp windowSegment.cpp)
+ 
+ target_link_libraries(pgs "${TIFF_LIBRARIES}")
+\ No newline at end of file
+
