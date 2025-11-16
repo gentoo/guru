@@ -30,5 +30,5 @@ RDEPEND="
 distutils_enable_tests unittest
 
 pkg_postinst() {
-	optfeature "Stress options in program menu" app-benchmarks/stress
+	optfeature "Stress options in program menu" app-benchmarks/stress app-benchmarks/stress-ng
 }
