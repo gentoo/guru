@@ -3,19 +3,26 @@
 
 # This ebuild mirrors the setup done in `games-emulation/dolphin::gentoo`
 
-EAPI=7
+EAPI=8
 
 LIBRETRO_COMMIT_SHA="a09f78f735f0d2184f64ba5b134abe98ee99c65f"
 LIBRETRO_REPO_NAME="libretro/dolphin"
 
-inherit cmake libretro-core
+inherit cmake
+# TODO no EAPI-8 #966155, copy in relevant code
+# inherit libretro-core
 
 DESCRIPTION="Dolphin libretro port"
+HOMEPAGE="https://github.com/libretro/dolphin"
+
+SRC_URI="https://github.com/libretro/dolphin/archive/${LIBRETRO_COMMIT_SHA}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/dolphin-${LIBRETRO_COMMIT_SHA}"
 
 LICENSE="GPL-2+ BSD BSD-2 LGPL-2.1+ MIT ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="bluetooth egl +evdev log profile systemd test"
+IUSE+=" debug"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -32,7 +39,7 @@ RDEPEND="
 	<media-libs/libsfml-3.0:=
 	net-libs/enet
 	net-libs/mbedtls:0=
-	sys-libs/zlib
+	virtual/zlib:=
 	x11-libs/libX11
 	x11-libs/libXi
 	x11-libs/libXrandr
@@ -143,6 +150,32 @@ src_test() {
 }
 
 src_install() {
-	LIBRETRO_CORE_LIB_FILE="${BUILD_DIR}/${LIBRETRO_CORE_NAME}_libretro.so"
-	libretro-core_src_install
+	# TODO libretro-core.eclass does not support EAPI-8 #966155
+
+	# LIBRETRO_CORE_LIB_FILE="${BUILD_DIR}/${LIBRETRO_CORE_NAME}_libretro.so"
+	# libretro-core_src_install
+
+	# libretro-core_src_install from libretro-core.eclass
+	local LIBRETRO_CORE_NAME=${PN#libretro-}
+	LIBRETRO_CORE_NAME=${LIBRETRO_CORE_NAME//-/_}
+
+	local LIBRETRO_CORE_LIB_FILE="${BUILD_DIR}/${LIBRETRO_CORE_NAME}_libretro.so"
+
+	# Absolute path of the directory containing Libretro shared libraries.
+	local libretro_lib_dir="/usr/$(get_libdir)/libretro"
+	# If this core's shared library exists, install that.
+	if [[ -f "${LIBRETRO_CORE_LIB_FILE}" ]]; then
+		exeinto "${libretro_lib_dir}"
+		doexe "${LIBRETRO_CORE_LIB_FILE}"
+	else
+		# Basename of this library.
+		local lib_basename="${LIBRETRO_CORE_LIB_FILE##*/}"
+
+		# Absolute path to which this library was installed.
+		local lib_file_target="${ED}${libretro_lib_dir}/${lib_basename}"
+
+		# If this library was *NOT* installed, fail.
+		[[ -f "${lib_file_target}" ]] ||
+			die "Libretro core shared library \"${lib_file_target}\" not installed."
+	fi
 }
