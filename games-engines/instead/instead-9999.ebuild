@@ -40,7 +40,7 @@ COMMON_DEPEND="
 	media-libs/sdl2-image
 	media-libs/sdl2-mixer
 	media-libs/sdl2-ttf
-	sys-libs/zlib
+	virtual/zlib:=
 	x11-libs/gtk+:3
 	iconv? ( >=virtual/libiconv-0-r1 )
 	harfbuzz? (
