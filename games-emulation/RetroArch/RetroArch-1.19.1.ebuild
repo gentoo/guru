@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -74,7 +74,7 @@ RDEPEND="
 	)
 	xinerama? ( x11-libs/libXinerama:0= )
 	xv? ( x11-libs/libXv )
-	zlib? ( sys-libs/zlib:0= )
+	zlib? ( virtual/zlib:0= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="

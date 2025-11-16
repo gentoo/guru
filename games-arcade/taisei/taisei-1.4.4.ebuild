@@ -33,7 +33,7 @@ RDEPEND="
 	media-libs/libwebp
 	media-libs/opusfile
 	app-arch/zstd
-	sys-libs/zlib
+	virtual/zlib
 	dev-libs/openssl:=
 	mimalloc? ( dev-libs/mimalloc:= )
 	zip? ( dev-libs/libzip[zstd] )

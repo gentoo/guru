@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	dev-libs/libzip:=
-	sys-libs/zlib:=
+	virtual/zlib:=
 "
 DEPEND="${RDEPEND}"
 

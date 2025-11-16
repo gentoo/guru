@@ -42,7 +42,7 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	net-misc/curl[ssl]
-	sys-libs/zlib
+	virtual/zlib
 	x11-libs/libxcb:=
 	dolphin? (
 		dev-qt/qtbase:6[network,widgets]

@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,7 +28,7 @@ RDEPEND="
 	net-libs/libpcap
 	sys-libs/ncurses:0=
 	geoip? ( dev-libs/geoip )
-	zlib? ( sys-libs/zlib:= )
+	zlib? ( virtual/zlib:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="

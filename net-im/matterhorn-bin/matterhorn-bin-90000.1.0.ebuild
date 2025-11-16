@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ RDEPEND="
 	${DEPEND}
 	dev-libs/gmp:0
 	sys-libs/ncurses:0/6
-	sys-libs/zlib:0/1
+	virtual/zlib:0/1
 "
 
 QA_PREBUILT="*"

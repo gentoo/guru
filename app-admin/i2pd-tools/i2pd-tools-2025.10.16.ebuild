@@ -23,7 +23,7 @@ IUSE="cpu_flags_x86_aes"
 DEPEND="
 	dev-libs/boost:=
 	dev-libs/openssl:=
-	sys-libs/zlib:=
+	virtual/zlib:=
 "
 RDEPEND="${DEPEND}"
 

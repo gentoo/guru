@@ -17,7 +17,7 @@ IUSE="static-libs"
 
 DEPEND="
 	dev-libs/openssl:0=
-	sys-libs/zlib
+	virtual/zlib
 	"
 
 RDEPEND="${DEPEND}"

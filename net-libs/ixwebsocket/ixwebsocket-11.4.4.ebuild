@@ -1,4 +1,4 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,7 +27,7 @@ DEPEND="
 		>=dev-libs/spdlog-1.8.0:=
 	)
 	zlib? (
-		sys-libs/zlib:=
+		virtual/zlib:=
 	)
 	test? (
 		>=dev-libs/spdlog-1.8.0:=
@@ -38,7 +38,7 @@ RDEPEND="
 		dev-libs/openssl:=
 	)
 	zlib? (
-		sys-libs/zlib:=
+		virtual/zlib:=
 	)
 "
 

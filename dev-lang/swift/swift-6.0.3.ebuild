@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -78,7 +78,7 @@ RDEPEND="
 	>=dev-libs/libxml2-2.11.5
 	>=net-misc/curl-8.4
 	>=sys-libs/ncurses-6
-	>=sys-libs/zlib-1.3
+	>=virtual/zlib-1.3
 	app-eselect/eselect-swift
 	dev-lang/python
 	$(llvm_gen_dep 'llvm-core/lld:${LLVM_SLOT}=')
@@ -97,7 +97,7 @@ BDEPEND="
 	>=sys-apps/coreutils-9
 	>=sys-devel/gcc-11
 	>=sys-libs/ncurses-6
-	>=sys-libs/zlib-1.3
+	>=virtual/zlib-1.3
 	|| (
 		dev-lang/swift
 		dev-lang/swift-bootstrap

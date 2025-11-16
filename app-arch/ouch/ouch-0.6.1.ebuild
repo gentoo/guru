@@ -26,7 +26,7 @@ DEPEND="
 	app-arch/bzip2
 	app-arch/bzip3
 	app-arch/xz-utils
-	sys-libs/zlib
+	virtual/zlib
 "
 RDEPEND="${DEPEND}"
 BDEPEND="

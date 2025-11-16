@@ -22,7 +22,7 @@ RE_PVF="$(ver_cut 1-2)*"
 DEPEND="
 	dev-libs/openssl:0=
 	=net-voip/re-${RE_PVF}
-	sys-libs/zlib
+	virtual/zlib
 	aac? ( media-libs/fdk-aac )
 	alsa? ( media-libs/alsa-lib )
 	amr? ( media-libs/opencore-amr )

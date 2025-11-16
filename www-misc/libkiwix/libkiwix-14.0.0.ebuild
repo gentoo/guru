@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,7 +24,7 @@ COMMON_DEPEND="
 	dev-libs/xapian:=
 	net-libs/libmicrohttpd:=
 	net-misc/curl
-	sys-libs/zlib
+	virtual/zlib
 "
 RDEPEND="
 	${COMMON_DEPEND}

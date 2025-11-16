@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -71,7 +71,7 @@ RDEPEND="
 	>=net-misc/curl-8.4
 	>=llvm-core/lld-15
 	>=sys-libs/ncurses-6
-	>=sys-libs/zlib-1.3
+	>=virtual/zlib-1.3
 	dev-lang/python
 "
 
@@ -89,7 +89,7 @@ BDEPEND="
 	>=llvm-core/clang-15
 	>=llvm-core/lld-15
 	>=sys-libs/ncurses-6
-	>=sys-libs/zlib-1.3
+	>=virtual/zlib-1.3
 	dev-lang/python
 	$(python_gen_cond_dep '
 		dev-python/setuptools[${PYTHON_USEDEP}]

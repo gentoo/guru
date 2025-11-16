@@ -22,7 +22,7 @@ RESTRICT="test"
 
 DEPEND="
 	dev-libs/boost:=
-	sys-libs/zlib
+	virtual/zlib
 	graphicsmagick? ( media-gfx/graphicsmagick:=[jpeg,png] )
 	mysql? (
 		virtual/mysql

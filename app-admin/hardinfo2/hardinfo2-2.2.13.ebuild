@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ REQUIRED_USE="wayland? ( vulkan ) X? ( vulkan )"
 DEPEND="
 	x11-libs/gtk+:3[wayland?]
 	>=dev-libs/glib-2.24
-	sys-libs/zlib
+	virtual/zlib
 	dev-libs/json-glib
 	net-libs/libsoup:3.0
 	x11-libs/cairo

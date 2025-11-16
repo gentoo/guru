@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 EAPI=8
 
@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 DEPEND="
 	x11-libs/gtk+:3
 	media-libs/fontconfig
-	sys-libs/zlib
+	virtual/zlib
 	x11-libs/libxcb:=
 	dev-libs/libgit2:=
 "

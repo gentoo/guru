@@ -41,7 +41,7 @@ RDEPEND="
 	media-video/ffmpeg
 	net-libs/enet
 	net-libs/mbedtls:3
-	sys-libs/zlib
+	virtual/zlib
 
 	camera? ( dev-qt/qtmultimedia:6 )
 	cubeb? ( media-libs/cubeb )

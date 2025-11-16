@@ -1,4 +1,4 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,7 +22,7 @@ IUSE="cpu_flags_x86_sse4_1 curl debug ssl"
 DEPEND="
 	dev-libs/libpcre2:=
 	dev-libs/libunistring:=
-	sys-libs/zlib:=
+	virtual/zlib:=
 	curl? ( net-misc/curl )
 	ssl? ( dev-libs/openssl:= )
 "

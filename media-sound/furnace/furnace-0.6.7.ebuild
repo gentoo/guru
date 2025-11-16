@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,7 +29,7 @@ RDEPEND="
 	media-libs/portaudio
 	media-libs/rtmidi
 	sci-libs/fftw
-	sys-libs/zlib
+	virtual/zlib
 	x11-themes/hicolor-icon-theme
 	jack? ( virtual/jack )
 "

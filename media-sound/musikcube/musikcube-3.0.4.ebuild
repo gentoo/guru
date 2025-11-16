@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,7 +23,7 @@ DEPEND="
 	sys-libs/ncurses:=
 	media-libs/libogg
 	media-video/ffmpeg:=
-	sys-libs/zlib:=
+	virtual/zlib:=
 	media-libs/libvorbis
 	net-misc/curl
 	dev-libs/openssl:=

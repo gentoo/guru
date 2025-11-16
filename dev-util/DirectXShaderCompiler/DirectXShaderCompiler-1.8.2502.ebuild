@@ -27,7 +27,7 @@ DEPEND="${PYTHON_DEPS}"
 #	dev-util/spirv-headers
 #	dev-util/spirv-tools
 RDEPEND="
-	sys-libs/zlib:0=
+	virtual/zlib:0=
 	>=dev-libs/libffi-3.4.2-r1:0=
 "
 BDEPEND="sys-devel/gnuconfig"

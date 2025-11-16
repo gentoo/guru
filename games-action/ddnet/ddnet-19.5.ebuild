@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -47,7 +47,7 @@ DEPEND="
 		videorecorder? ( media-video/ffmpeg )
 	)
 	dev-libs/glib
-	sys-libs/zlib
+	virtual/zlib
 	dev-libs/openssl
 	dev-db/sqlite
 	download-gtest? (

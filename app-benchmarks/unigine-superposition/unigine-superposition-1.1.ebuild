@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,7 +26,7 @@ RDEPEND="
 	media-libs/freetype
 	media-libs/libglvnd
 	sys-apps/dbus
-	sys-libs/zlib
+	virtual/zlib
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11

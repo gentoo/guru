@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -52,7 +52,7 @@ COMMON_DEPEND="
 	media-libs/libsdl2[X,alsa,opengl?,sound,threads(+),video]
 	media-libs/sdl2-net
 	net-libs/libpcap
-	sys-libs/zlib
+	virtual/zlib
 	X? (
 		x11-libs/libX11
 		x11-libs/libXrandr

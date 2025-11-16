@@ -51,7 +51,7 @@ RDEPEND="
 	x11-libs/libxkbcommon
 	x11-libs/libXrandr
 	x11-libs/pango
-	sys-libs/zlib
+	virtual/zlib
 "
 
 QA_PREBUILT="opt/Zulip/*"

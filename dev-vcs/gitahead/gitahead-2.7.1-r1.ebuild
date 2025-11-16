@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -33,7 +33,7 @@ RDEPEND="
 	dev-qt/qtbase:6[concurrent,gui,network,widgets]
 	net-libs/http-parser:=
 	net-libs/libssh2
-	sys-libs/zlib
+	virtual/zlib
 	gnome-keyring? (
 		app-crypt/libsecret
 	)

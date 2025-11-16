@@ -15,7 +15,7 @@ DEPEND="
 	media-libs/libsdl2
 	media-libs/sdl2-mixer
 	media-libs/sdl2-ttf
-	sys-libs/zlib
+	virtual/zlib
 	webp? ( media-libs/libwebp )
 	debug? ( dev-libs/cJSON )
 	portmidi? ( media-libs/portmidi )

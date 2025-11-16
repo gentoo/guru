@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,7 +27,7 @@ SLOT="0"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-# depend on sys-libs/zlib[minizip] when it is not pulled in as subproject anymore
+# depend on virtual/zlib[minizip] when it is not pulled in as subproject anymore
 RDEPEND="
 	dev-cpp/gflags
 	dev-db/sqlite
@@ -40,7 +40,7 @@ RDEPEND="
 	dev-qt/qtsvg:6
 	dev-util/vulkan-headers
 	media-libs/freetype
-	sys-libs/zlib
+	virtual/zlib
 	${PYTHON_DEPS}
 "
 DEPEND="${RDEPEND}"

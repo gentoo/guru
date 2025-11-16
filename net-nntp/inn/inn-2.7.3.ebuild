@@ -41,7 +41,7 @@ DEPEND="
 	sasl? ( dev-libs/cyrus-sasl:2 )
 	sqlite? ( dev-db/sqlite:3 )
 	ssl? ( dev-libs/openssl:= )
-	zlib? ( sys-libs/zlib:= )
+	zlib? ( virtual/zlib:= )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="

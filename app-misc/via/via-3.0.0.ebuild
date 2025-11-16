@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 # filesystem.
 RESTRICT="strip"
 
-# Except for sys-libs/zlib, these dependencies were extracted from the shared
+# Except for virtual/zlib, these dependencies were extracted from the shared
 # libraries required by the via-nativia executable; it's not clear whether
 # these are all _actually_ required, or whether the list is extensive because
 # the executable is an Electron app.
@@ -33,7 +33,7 @@ RDEPEND="
 	net-print/cups
 	sys-apps/dbus
 	sys-fs/fuse:0
-	sys-libs/zlib
+	virtual/zlib
 	x11-libs/cairo
 	x11-libs/gtk+:3
 	x11-libs/libX11

@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -37,7 +37,7 @@ RDEPEND="
 	net-print/cups
 	sys-apps/dbus
 	sys-libs/libxcrypt
-	sys-libs/zlib
+	virtual/zlib
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:2

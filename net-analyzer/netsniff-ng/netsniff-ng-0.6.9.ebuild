@@ -29,7 +29,7 @@ RDEPEND="
 	dev-libs/libsodium:=
 	sys-libs/ncurses:0=
 	geoip? ( dev-libs/geoip )
-	zlib? ( sys-libs/zlib:= )
+	zlib? ( virtual/zlib:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="

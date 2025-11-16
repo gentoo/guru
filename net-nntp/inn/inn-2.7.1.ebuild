@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -41,7 +41,7 @@ DEPEND="
 	sasl? ( dev-libs/cyrus-sasl:2 )
 	sqlite? ( dev-db/sqlite:3 )
 	ssl? ( dev-libs/openssl:= )
-	zlib? ( sys-libs/zlib:= )
+	zlib? ( virtual/zlib:= )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="

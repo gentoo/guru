@@ -21,7 +21,7 @@ RDEPEND="
 	dev-libs/glib
 	sys-apps/dbus
 	sys-libs/glibc
-	sys-libs/zlib
+	virtual/zlib
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3

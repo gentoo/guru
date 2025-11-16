@@ -29,7 +29,7 @@ REQUIRED_USE="
 "
 
 DEPEND="
-	sys-libs/zlib
+	virtual/zlib
 	dev-libs/expat
 	media-sound/lame
 	media-libs/libsndfile

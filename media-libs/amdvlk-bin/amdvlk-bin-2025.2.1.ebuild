@@ -24,7 +24,7 @@ REQUIRED_USE="abi_x86_64"
 RESTRICT="test"
 
 RDEPEND="
-	sys-libs/zlib[${MULTILIB_USEDEP}]
+	virtual/zlib[${MULTILIB_USEDEP}]
 	app-arch/zstd[${MULTILIB_USEDEP}]
 	x11-libs/libdrm[${MULTILIB_USEDEP}]
 	x11-libs/libXrandr[${MULTILIB_USEDEP}]

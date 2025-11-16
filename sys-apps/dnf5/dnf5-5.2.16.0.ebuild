@@ -30,7 +30,7 @@ RDEPEND="
 	dev-libs/libxml2
 	sys-apps/util-linux
 	>=sys-libs/libmodulemd-2.11.2
-	sys-libs/zlib
+	virtual/zlib
 	appstream? ( >=dev-libs/appstream-0.16:= )
 	python? ( ${PYTHON_DEPS} )
 	systemd? ( sys-apps/systemd:= )

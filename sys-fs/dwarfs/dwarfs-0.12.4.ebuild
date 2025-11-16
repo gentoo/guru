@@ -34,7 +34,7 @@ RDEPEND="
 	fuse? ( sys-fs/fuse:3 )
 	sys-libs/binutils-libs
 	stacktrace? ( >=dev-cpp/cpptrace-0.8.0 )
-	sys-libs/zlib
+	virtual/zlib
 	jemalloc? ( >=dev-libs/jemalloc-5.3.0 )
 	test? ( >=dev-cpp/gtest-1.15.2 )
 	>=dev-cpp/range-v3-0.12.0

@@ -37,7 +37,7 @@ RDEPEND="
 	media-libs/opus
 	>=net-libs/ixwebsocket-11.0.8:=
 	net-misc/curl
-	sys-libs/zlib:=
+	virtual/zlib:=
 	x11-libs/gtk+:3
 	libhandy? ( gui-libs/libhandy:1 )
 	qrcodegen? ( dev-libs/qr-code-generator )

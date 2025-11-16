@@ -15,7 +15,7 @@ DEPEND="
 	>=llvm-core/clang-17:=
 	>=llvm-core/lld-17:=
 	dev-libs/libffi
-	sys-libs/zlib
+	virtual/zlib
 	net-misc/curl
 "
 RDEPEND="${DEPEND}"

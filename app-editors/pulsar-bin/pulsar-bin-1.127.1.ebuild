@@ -36,7 +36,7 @@ RDEPEND="
 	net-misc/curl
 	net-print/cups
 	sys-apps/dbus
-	sys-libs/zlib
+	virtual/zlib
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:3[X]
