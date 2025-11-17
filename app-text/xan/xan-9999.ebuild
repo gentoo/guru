@@ -21,9 +21,9 @@ if [[ "${PV}" == *9999* ]]; then
 	}
 else
 	SRC_URI="https://github.com/medialab/xan/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	SRC_URI+=" https://github.com/ingenarel/guru-depfiles/releases/download/${P}-deps.tar.xz/${P}-deps.tar.xz"
+	SRC_URI+=" ${CARGO_CRATE_URIS}"
 	KEYWORDS="~amd64"
-	ECARGO_VENDOR="${WORKDIR}/vendor"
+	RESTRICT="mirror"
 fi
 
 LICENSE="|| ( MIT Unlicense )"
