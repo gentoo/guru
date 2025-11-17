@@ -16,7 +16,6 @@ IUSE="examples static-libs test"
 RESTRICT="!test? ( test )"
 
 src_prepare() {
-	default
 	cmake_src_prepare
 
 	sed -i 's;${LEXBOR_OPTIMIZATION_LEVEL};;' CMakeLists.txt || die
