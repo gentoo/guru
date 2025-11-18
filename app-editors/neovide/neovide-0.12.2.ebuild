@@ -445,7 +445,7 @@ RDEPEND="
 	media-libs/harfbuzz:=
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:=
-	virtual/zlib
+	virtual/zlib:=
 "
 DEPEND="${RDEPEND}"
 BDEPEND="

@@ -71,7 +71,7 @@ RDEPEND="
 	>=net-misc/curl-8.4
 	>=llvm-core/lld-15
 	>=sys-libs/ncurses-6
-	>=virtual/zlib-1.3
+	>=virtual/zlib-1.3:=
 	dev-lang/python
 "
 
@@ -89,7 +89,7 @@ BDEPEND="
 	>=llvm-core/clang-15
 	>=llvm-core/lld-15
 	>=sys-libs/ncurses-6
-	>=virtual/zlib-1.3
+	>=virtual/zlib-1.3:=
 	dev-lang/python
 	$(python_gen_cond_dep '
 		dev-python/setuptools[${PYTHON_USEDEP}]

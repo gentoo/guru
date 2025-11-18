@@ -18,7 +18,7 @@ DEPEND="
 	dev-libs/boehm-gc
 	dev-libs/libffi
 	dev-libs/openssl
-	virtual/zlib
+	virtual/zlib:=
 "
 RDEPEND="${DEPEND}"
 

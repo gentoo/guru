@@ -432,7 +432,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	dev-libs/openssl:=
 	net-libs/libssh2
-	virtual/zlib
+	virtual/zlib:=
 "
 DEPEND="${RDEPEND}"
 

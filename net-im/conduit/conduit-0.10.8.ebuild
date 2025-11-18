@@ -474,7 +474,7 @@ IUSE="jemalloc rocksdb sqlite system-rocksdb"
 # Libraries that can't be unbundled right now:
 #	- app-arch/bzip2 ("rust-librocksdb-sys" pulls "bzip-sys[static]")
 #	- app-arch/lz4 ("lz4-sys" crate doesn't look for system library... ironic)
-#	- virtual/zlib ("rust-librocksdb-sys" pulls "libz-sys[static]")
+#	- virtual/zlib:= ("rust-librocksdb-sys" pulls "libz-sys[static]")
 COMMON_DEPEND="
 	jemalloc? ( dev-libs/jemalloc:= )
 	rocksdb? (

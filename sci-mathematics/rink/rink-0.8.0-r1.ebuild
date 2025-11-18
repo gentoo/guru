@@ -250,7 +250,7 @@ IUSE="doc"
 DEPEND+="
 	net-misc/curl
 	dev-libs/openssl
-	virtual/zlib
+	virtual/zlib:=
 "
 RDEPEND+="net-misc/curl"
 

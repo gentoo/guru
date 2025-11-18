@@ -64,7 +64,7 @@ DEPEND="
 	net-libs/mbedtls:=
 	net-misc/curl
 	sys-apps/file
-	virtual/zlib
+	virtual/zlib:=
 	virtual/libiconv
 	virtual/libintl
 "

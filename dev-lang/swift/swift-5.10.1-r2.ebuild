@@ -74,7 +74,7 @@ RDEPEND="
 	>=dev-libs/libxml2-2.11.5
 	>=net-misc/curl-8.4
 	>=sys-libs/ncurses-6
-	>=virtual/zlib-1.3
+	>=virtual/zlib-1.3:=
 	dev-lang/python
 	$(llvm_gen_dep 'llvm-core/lld:${LLVM_SLOT}=')
 "
@@ -90,7 +90,7 @@ BDEPEND="
 	>=dev-vcs/git-2.39
 	>=sys-apps/coreutils-9
 	>=sys-libs/ncurses-6
-	>=virtual/zlib-1.3
+	>=virtual/zlib-1.3:=
 	$(llvm_gen_dep '
 		llvm-core/clang:${LLVM_SLOT}=
 		llvm-core/lld:${LLVM_SLOT}=

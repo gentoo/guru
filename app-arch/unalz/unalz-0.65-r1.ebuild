@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	app-arch/bzip2
-	virtual/zlib
+	virtual/zlib:=
 	virtual/libiconv
 "
 RDEPEND="${DEPEND}"

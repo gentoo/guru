@@ -24,7 +24,7 @@ IUSE="doc"
 DEPEND+="
 	net-misc/curl
 	dev-libs/openssl
-	virtual/zlib
+	virtual/zlib:=
 "
 BDEPEND+="dev-ruby/asciidoctor"
 RDEPEND+="net-misc/curl"

@@ -35,7 +35,7 @@ CMAKE_USE_DIR="${S}/llvm"
 RDEPEND="
 	dev-libs/libxml2
 	sys-libs/ncurses:=
-	virtual/zlib
+	virtual/zlib:=
 "
 
 src_prepare() {

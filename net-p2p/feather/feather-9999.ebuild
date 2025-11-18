@@ -26,7 +26,7 @@ DEPEND="
 	>=dev-qt/qtmultimedia-6.7.3:6
 	>=dev-qt/qtwebsockets-6.7.3:6
 	dev-libs/libgcrypt:=
-	virtual/zlib
+	virtual/zlib:=
 	dev-libs/openssl:=
 	net-dns/unbound:=[threads]
 	net-libs/czmq:=

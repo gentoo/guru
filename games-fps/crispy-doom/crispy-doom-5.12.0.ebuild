@@ -24,7 +24,7 @@ DEPEND="
 	media-libs/sdl2-net
 	libsamplerate? ( media-libs/libsamplerate )
 	png? ( media-libs/libpng:= )
-	zlib? ( virtual/zlib )"
+	zlib? ( virtual/zlib:= )"
 RDEPEND="${DEPEND}"
 # ${PYTHON_DEPS} for bash-completion
 BDEPEND="

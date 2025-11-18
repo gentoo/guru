@@ -23,7 +23,7 @@ RDEPEND="
 	media-libs/libpng
 	media-libs/libvorbis
 	media-libs/smpeg2
-	virtual/zlib
+	virtual/zlib:=
 "
 DEPEND="${RDEPEND}"
 

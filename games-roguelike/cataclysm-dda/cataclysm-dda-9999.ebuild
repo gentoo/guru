@@ -36,7 +36,7 @@ REQUIRED_USE="soundpack? ( sound ) sound? ( tiles ) \
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	virtual/zlib
+	virtual/zlib:=
 	ncurses? ( sys-libs/ncurses )
 	tiles? (
 		media-libs/libsdl2[video]

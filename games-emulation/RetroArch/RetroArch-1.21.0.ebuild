@@ -75,7 +75,7 @@ RDEPEND="
 	)
 	xinerama? ( x11-libs/libXinerama:0= )
 	xv? ( x11-libs/libXv )
-	zlib? ( virtual/zlib:0= )
+	zlib? ( virtual/zlib:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="

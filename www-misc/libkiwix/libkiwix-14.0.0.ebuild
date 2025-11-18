@@ -24,7 +24,7 @@ COMMON_DEPEND="
 	dev-libs/xapian:=
 	net-libs/libmicrohttpd:=
 	net-misc/curl
-	virtual/zlib
+	virtual/zlib:=
 "
 RDEPEND="
 	${COMMON_DEPEND}

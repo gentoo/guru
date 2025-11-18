@@ -29,7 +29,7 @@ for target in ${ALL_LLVM_TARGETS}; do
 done
 
 # TODO
-RDEPEND="virtual/zlib:0="
+RDEPEND="virtual/zlib:="
 DEPEND="${RDEPEND}"
 
 PATCHES=(

@@ -332,7 +332,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
-	virtual/zlib
+	virtual/zlib:=
 "
 RDEPEND="${DEPEND}"
 

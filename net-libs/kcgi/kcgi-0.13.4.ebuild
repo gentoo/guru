@@ -29,7 +29,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? (
 		net-misc/curl
-		virtual/zlib
+		virtual/zlib:=
 	)
 "
 BDEPEND="

@@ -28,7 +28,7 @@ DEPEND="
 	libnotify? ( >=x11-libs/libnotify-0.4.1:0= )
 	spell? ( app-text/gspell )
 	ssl? ( >=net-libs/gnutls-3.3.6:0= )
-	>=virtual/zlib-1.2.0
+	>=virtual/zlib-1.2.0:=
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf
 	x11-libs/pango

@@ -21,7 +21,7 @@ SLOT="0"
 IUSE="+zlib +lzo +zstd"
 
 DEPEND="dev-libs/libfmt
-	zlib? ( virtual/zlib )
+	zlib? ( virtual/zlib:= )
 	lzo? ( dev-libs/lzo )
 	zstd? ( app-arch/zstd )"
 RDEPEND="${DEPEND}"

@@ -21,7 +21,7 @@ BDEPEND="dev-build/automake
 		dev-build/libtool
 		dev-build/make
 "
-RDEPEND="virtual/zlib
+RDEPEND="virtual/zlib:=
 		app-arch/bzip2
 		sys-libs/ncurses
 		sys-apps/util-linux

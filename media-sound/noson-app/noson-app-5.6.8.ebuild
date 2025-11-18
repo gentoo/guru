@@ -26,6 +26,6 @@ DEPEND="
 	dev-qt/qtxml:5
 	media-libs/flac:=
 	media-libs/libpulse
-	virtual/zlib
+	virtual/zlib:=
 "
 RDEPEND="${DEPEND}"

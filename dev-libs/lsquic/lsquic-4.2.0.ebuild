@@ -28,7 +28,7 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	virtual/zlib
+	virtual/zlib:=
 "
 
 PATCHES=(

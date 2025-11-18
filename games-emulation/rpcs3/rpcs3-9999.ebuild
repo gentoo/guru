@@ -67,7 +67,7 @@ DEPEND="
 	net-libs/miniupnpc:=
 	net-misc/curl
 	llvm-core/llvm:=
-	virtual/zlib
+	virtual/zlib:=
 	virtual/libusb:1
 	x11-libs/libX11
 	faudio? ( app-emulation/faudio )

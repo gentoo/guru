@@ -82,7 +82,7 @@ RDEPEND="
 	>=dev-libs/libxml2-2.11.5
 	>=net-misc/curl-8.9.1
 	>=sys-libs/ncurses-6
-	>=virtual/zlib-1.3.1
+	>=virtual/zlib-1.3.1:=
 	dev-lang/python
 	$(llvm_gen_dep 'llvm-core/lld:${LLVM_SLOT}=')
 "
@@ -100,7 +100,7 @@ BDEPEND="
 	>=sys-apps/coreutils-9
 	>=sys-devel/gcc-11
 	>=sys-libs/ncurses-6
-	>=virtual/zlib-1.3.1
+	>=virtual/zlib-1.3.1:=
 	|| (
 		dev-lang/swift
 		dev-lang/swift-bootstrap

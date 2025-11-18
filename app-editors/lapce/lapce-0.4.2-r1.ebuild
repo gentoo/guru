@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 DEPEND="
 	x11-libs/gtk+:3
 	media-libs/fontconfig
-	virtual/zlib
+	virtual/zlib:=
 	x11-libs/libxcb:=
 	dev-libs/libgit2:=
 "

@@ -19,7 +19,7 @@ RDEPEND="
 	app-arch/rpm
 	app-arch/xz-utils
 	app-arch/zstd:=
-	virtual/zlib
+	virtual/zlib:=
 	expat? ( dev-libs/expat )
 	!expat? ( dev-libs/libxml2 )
 	zchunk? ( app-arch/zchunk )

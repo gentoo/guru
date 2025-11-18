@@ -33,7 +33,7 @@ RDEPEND="
 	dev-qt/qtbase:6[concurrent,gui,network,widgets]
 	net-libs/http-parser:=
 	net-libs/libssh2
-	virtual/zlib
+	virtual/zlib:=
 	gnome-keyring? (
 		app-crypt/libsecret
 	)

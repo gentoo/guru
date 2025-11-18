@@ -20,7 +20,7 @@ REQUIRED_USE="wayland? ( vulkan ) X? ( vulkan )"
 DEPEND="
 	x11-libs/gtk+:3[wayland?]
 	>=dev-libs/glib-2.24
-	virtual/zlib
+	virtual/zlib:=
 	dev-libs/json-glib
 	net-libs/libsoup:3.0
 	x11-libs/cairo

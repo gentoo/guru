@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 IUSE="debug"
 
 RDEPEND="
-	virtual/zlib
+	virtual/zlib:=
 	media-libs/libsdl2[opengl]
 	media-libs/sdl2-image[jpeg,png]
 	x11-libs/libX11

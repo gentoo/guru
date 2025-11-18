@@ -19,5 +19,5 @@ fi
 LICENSE="GPL-3+"
 SLOT="0"
 
-DEPEND="virtual/zlib"
+DEPEND="virtual/zlib:="
 RDEPEND="${DEPEND}"

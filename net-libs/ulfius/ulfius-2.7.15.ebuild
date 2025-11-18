@@ -29,7 +29,7 @@ DEPEND="
 	net-libs/libmicrohttpd:=
 	net-libs/orcania
 	net-libs/yder
-	virtual/zlib
+	virtual/zlib:=
 "
 RDEPEND="
 	${DEPEND}

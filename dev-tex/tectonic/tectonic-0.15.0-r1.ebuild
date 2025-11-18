@@ -369,7 +369,7 @@ DEPEND="
 	media-libs/freetype
 	media-libs/harfbuzz:=
 	media-libs/libpng:=
-	virtual/zlib
+	virtual/zlib:=
 "
 RDEPEND="${DEPEND}"
 BDEPEND="media-libs/harfbuzz"

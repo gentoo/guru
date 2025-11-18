@@ -47,7 +47,7 @@ DEPEND="
 		videorecorder? ( media-video/ffmpeg )
 	)
 	dev-libs/glib
-	virtual/zlib
+	virtual/zlib:=
 	dev-libs/openssl
 	dev-db/sqlite
 	download-gtest? (

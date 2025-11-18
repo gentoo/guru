@@ -396,7 +396,7 @@ DEPEND="
 		>=gui-libs/libadwaita-1.3.3:1
 		>=media-libs/alsa-lib-1.2.9
 		>=media-libs/libpulse-15.0[glib]
-		virtual/zlib
+		virtual/zlib:=
 		x11-libs/cairo
 		x11-libs/gdk-pixbuf:2
 		x11-libs/pango

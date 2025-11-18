@@ -40,7 +40,7 @@ RDEPEND="
 	acct-user/hinsightd
 	acct-group/hinsightd
 	sys-libs/liburing
-	virtual/zlib
+	virtual/zlib:=
 	virtual/libcrypt
 	ssl? ( dev-libs/openssl )
 	ffcall? ( dev-libs/ffcall )

@@ -15,7 +15,7 @@ SLOT="0"
 DEPEND="
 	app-arch/bzip2
 	dev-libs/openssl
-	virtual/zlib
+	virtual/zlib:=
 "
 RDEPEND="${DEPEND}"
 BDEPEND="${DEPEND}"

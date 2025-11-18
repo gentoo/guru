@@ -46,7 +46,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="wayland +raytracing"
 REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )"
 
-BUNDLED_LLVM_DEPEND="virtual/zlib:0=[${MULTILIB_USEDEP}]"
+BUNDLED_LLVM_DEPEND="virtual/zlib:=[${MULTILIB_USEDEP}]"
 DEPEND="wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
 	${BUNDLED_LLVM_DEPEND}
 	app-arch/zstd:=[${MULTILIB_USEDEP}]

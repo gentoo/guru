@@ -24,7 +24,7 @@ DEPEND="
 	dev-libs/xxhash
 	media-libs/libsdl2
 	net-libs/miniupnpc
-	virtual/zlib
+	virtual/zlib:=
 	alsa? ( media-libs/alsa-lib )
 	ao? ( media-libs/libao )
 	lua? ( ${LUA_DEPS} )

@@ -46,7 +46,7 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	media-video/mpv:=[libmpv]
 	net-misc/aria2
-	virtual/zlib
+	virtual/zlib:=
 "
 
 DEPEND="

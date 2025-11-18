@@ -24,7 +24,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	>=dev-cpp/trantor-${MY_TRANTOR_V}:=
 	dev-libs/jsoncpp:=
-	virtual/zlib
+	virtual/zlib:=
 	brotli? ( app-arch/brotli:= )
 	mariadb? ( dev-db/mariadb:= )
 	postgres? ( dev-db/postgresql:= )

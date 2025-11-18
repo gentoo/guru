@@ -29,7 +29,7 @@ RDEPEND="
 	media-libs/portaudio
 	media-libs/rtmidi
 	sci-libs/fftw
-	virtual/zlib
+	virtual/zlib:=
 	x11-themes/hicolor-icon-theme
 	jack? ( virtual/jack )
 "

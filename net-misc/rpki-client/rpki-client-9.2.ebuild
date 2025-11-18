@@ -23,7 +23,7 @@ DEPEND="
 	dev-libs/expat
 	dev-libs/libretls
 	dev-libs/openssl[rfc3779]
-	virtual/zlib
+	virtual/zlib:=
 "
 RDEPEND="${DEPEND}"
 BDEPEND="

@@ -52,7 +52,7 @@ COMMON_DEPEND="
 	media-libs/libsdl2[X,alsa,opengl?,sound,threads(+),video]
 	media-libs/sdl2-net
 	net-libs/libpcap
-	virtual/zlib
+	virtual/zlib:=
 	X? (
 		x11-libs/libX11
 		x11-libs/libXrandr

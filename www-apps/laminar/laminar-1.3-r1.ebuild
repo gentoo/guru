@@ -31,7 +31,7 @@ RESTRICT="!test? ( test )"
 COMMON_DEPS="
 	dev-db/sqlite:3
 	dev-libs/capnproto
-	virtual/zlib
+	virtual/zlib:=
 "
 
 DEPEND="

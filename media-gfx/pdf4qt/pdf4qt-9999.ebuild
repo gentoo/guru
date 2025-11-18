@@ -34,7 +34,7 @@ RDEPEND="
 	media-libs/lcms
 	media-libs/libjpeg-turbo
 	media-libs/openjpeg
-	virtual/zlib
+	virtual/zlib:=
 "
 DEPEND="$RDEPEND
 	test? ( dev-qt/qtbase:6[test] )

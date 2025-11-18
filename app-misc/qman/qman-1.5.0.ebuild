@@ -18,7 +18,7 @@ RESTRICT="!test? ( test )"
 DEPEND="
 	sys-libs/ncurses:=
 	dev-libs/inih
-	virtual/zlib
+	virtual/zlib:=
 "
 BDEPEND="
 	dev-python/cogapp

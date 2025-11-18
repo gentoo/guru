@@ -32,7 +32,7 @@ RDEPEND="
 	media-libs/libwebp
 	media-libs/opusfile
 	app-arch/zstd
-	virtual/zlib
+	virtual/zlib:=
 	dev-libs/openssl:=
 	zip? ( dev-libs/libzip[zstd] )
 "
