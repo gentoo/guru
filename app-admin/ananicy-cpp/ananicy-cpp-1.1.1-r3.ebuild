@@ -23,7 +23,7 @@ REQUIRED_USE="
 RDEPEND="
 	!app-admin/ananicy
 	>=dev-cpp/nlohmann_json-3.9
-	>=dev-libs/libfmt-8
+	>=dev-libs/libfmt-8:=
 	>=dev-libs/spdlog-1.9
 	bpf? (
 		 dev-libs/elfutils

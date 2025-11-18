@@ -27,7 +27,7 @@ RDEPEND="
 	dev-libs/boost[context]
 	dev-libs/double-conversion
 	dev-libs/libevent
-	>=dev-libs/libfmt-11.0.2
+	>=dev-libs/libfmt-11.0.2:=
 	dev-libs/utfcpp
 	>=dev-libs/xxhash-0.8.3
 	flac? ( >=media-libs/flac-1.5.0 )
