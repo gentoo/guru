@@ -1,0 +1,15 @@
+Picked 3.31 just because it is the oldest dev-build/cmake in ::gentoo as of 2025-11-19.
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9487ab98a594..a9219cd2cf39 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -3,7 +3,7 @@
+ # Modifications Copyright (C) 2019 Matthias C. Hormann <mhormann@gmx.de>
+ # This file is released under the 2 clause BSD license, see COPYING
+ 
+-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
++CMAKE_MINIMUM_REQUIRED(VERSION 3.31)
+ PROJECT(loudgain C CXX)
+ 
+ SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/" ${CMAKE_MODULE_PATH})

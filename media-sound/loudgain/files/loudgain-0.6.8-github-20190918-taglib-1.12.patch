@@ -1,0 +1,239 @@
+https://github.com/Moonbase59/loudgain/compare/d6ae9c08ca0e88cc3caebd499185c26f9c1420da...afc54b388232b88935ee725b1a0b677773c128e5
+(but stripped docs/loudgain.1.html diff since they won't be installed to the system.)
+From 0e03353e6d90198204c2edd9ccf9ecaad6a8e7c8 Mon Sep 17 00:00:00 2001
+From: Moonbase59 <moonbase@quantentunnel.de>
+Date: Wed, 18 Sep 2019 16:19:22 +0200
+Subject: [PATCH 1/3] Prepare for TagLib 1.12
+
+---
+ src/tag.cc | 53 +++++++++++++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 45 insertions(+), 8 deletions(-)
+
+diff --git a/src/tag.cc b/src/tag.cc
+index c8d3528..16a3716 100644
+--- a/src/tag.cc
++++ b/src/tag.cc
+@@ -56,6 +56,10 @@
+ 
+ #include <taglib.h>
+ 
++#define TAGLIB_VERSION (TAGLIB_MAJOR_VERSION * 10000 \
++                        + TAGLIB_MINOR_VERSION * 100 \
++                        + TAGLIB_PATCH_VERSION)
++
+ #include <textidentificationframe.h>
+ 
+ #include <mpegfile.h>
+@@ -204,7 +208,13 @@ bool tag_write_mp3(scan_result *scan, bool do_album, char mode, char *unit,
+   if (strip)
+     f.strip(TagLib::MPEG::File::APE);
+ 
++#if TAGLIB_VERSION >= 11200
++  return f.save(TagLib::MPEG::File::ID3v2,
++    strip ? TagLib::MPEG::File::StripOthers : TagLib::MPEG::File::StripNone,
++    id3v2version == 3 ? TagLib::ID3v2::v3 : TagLib::ID3v2::v4);
++#else
+   return f.save(TagLib::MPEG::File::ID3v2, strip, id3v2version);
++#endif
+ }
+ 
+ bool tag_clear_mp3(scan_result *scan, bool strip, int id3v2version) {
+@@ -217,7 +227,13 @@ bool tag_clear_mp3(scan_result *scan, bool strip, int id3v2version) {
+   if (strip)
+     f.strip(TagLib::MPEG::File::APE);
+ 
++#if TAGLIB_VERSION >= 11200
++  return f.save(TagLib::MPEG::File::ID3v2,
++    strip ? TagLib::MPEG::File::StripOthers : TagLib::MPEG::File::StripNone,
++    id3v2version == 3 ? TagLib::ID3v2::v3 : TagLib::ID3v2::v4);
++#else
+   return f.save(TagLib::MPEG::File::ID3v2, strip, id3v2version);
++#endif
+ }
+ 
+ 
+@@ -490,10 +506,17 @@ TagLib::String tagname(TagLib::String key) {
+ 
+ void tag_remove_mp4(TagLib::MP4::Tag *tag) {
+   TagLib::String desc;
+-  TagLib::MP4::ItemListMap &items = tag->itemListMap();
++#if TAGLIB_VERSION >= 11200
++  TagLib::MP4::ItemMap items = tag->itemMap();
+ 
+-  for(TagLib::MP4::ItemListMap::Iterator item = items.begin();
++  for(TagLib::MP4::ItemMap::Iterator item = items.begin();
+       item != items.end(); ++item)
++#else
++TagLib::MP4::ItemListMap &items = tag->itemListMap();
++
++for(TagLib::MP4::ItemListMap::Iterator item = items.begin();
++    item != items.end(); ++item)
++#endif
+   {
+     desc = item->first.upper();
+     if ((desc == tagname(RG_STRING_UPPER[RG_TRACK_GAIN]).upper()) ||
+@@ -715,7 +738,13 @@ bool tag_write_wav(scan_result *scan, bool do_album, char mode, char *unit,
+   }
+ 
+   // no stripping
++#if TAGLIB_VERSION >= 11200
++  return f.save(TagLib::RIFF::WAV::File::AllTags,
++    TagLib::RIFF::WAV::File::StripNone,
++    id3v2version == 3 ? TagLib::ID3v2::v3 : TagLib::ID3v2::v4);
++#else
+   return f.save(TagLib::RIFF::WAV::File::AllTags, false, id3v2version);
++#endif
+ }
+ 
+ bool tag_clear_wav(scan_result *scan, bool strip, int id3v2version) {
+@@ -725,7 +754,13 @@ bool tag_clear_wav(scan_result *scan, bool strip, int id3v2version) {
+   tag_remove_wav(tag);
+ 
+   // no stripping
++#if TAGLIB_VERSION >= 11200
++  return f.save(TagLib::RIFF::WAV::File::AllTags,
++    TagLib::RIFF::WAV::File::StripNone,
++    id3v2version == 3 ? TagLib::ID3v2::v3 : TagLib::ID3v2::v4);
++#else
+   return f.save(TagLib::RIFF::WAV::File::AllTags, false, id3v2version);
++#endif
+ }
+ 
+ 
+@@ -804,10 +839,11 @@ bool tag_write_aiff(scan_result *scan, bool do_album, char mode, char *unit,
+   }
+ 
+   // no stripping
+-  // unfortunately, TagLib::RIFF::AIFF::File::save() doesn’t provide
+-  // the "Tags, strip, id3v2version" parameters,
+-  // so all files will get the default ID3v2.4 tags. :-(
++#if TAGLIB_VERSION >= 11200
++  return f.save(id3v2version == 3 ? TagLib::ID3v2::v3 : TagLib::ID3v2::v4);
++#else
+   return f.save();
++#endif
+ }
+ 
+ bool tag_clear_aiff(scan_result *scan, bool strip, int id3v2version) {
+@@ -817,10 +853,11 @@ bool tag_clear_aiff(scan_result *scan, bool strip, int id3v2version) {
+   tag_remove_aiff(tag);
+ 
+   // no stripping
+-  // unfortunately, TagLib::RIFF::AIFF::File::save() doesn’t provide
+-  // the "Tags, strip, id3v2version" parameters,
+-  // so all files will get the default ID3v2.4 tags.
++#if TAGLIB_VERSION >= 11200
++  return f.save(id3v2version == 3 ? TagLib::ID3v2::v3 : TagLib::ID3v2::v4);
++#else
+   return f.save();
++#endif
+ }
+ 
+ 
+
+From efd0aae91c5c72c85dc63d67613c066a45cc7fdb Mon Sep 17 00:00:00 2001
+From: Moonbase59 <moonbase@quantentunnel.de>
+Date: Wed, 18 Sep 2019 18:25:02 +0200
+Subject: [PATCH 2/3] README.md: Explain AIFF ID3v2 options (taglib 1.12)
+
+---
+ README.md | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/README.md b/README.md
+index 1f82fa2..3d0d05c 100644
+--- a/README.md
++++ b/README.md
+@@ -912,14 +912,15 @@ so we can finalize loudgain's Opus support. Thanks!
+    into the "ID3 " chunk. This is a format compatible with _foobar2000_, _Mp3tag_,
+    _VLC_ and some others.
+ 
+-   **Note:** Due to a deficiency in _TagLib_, only _ID3v2.4_ tags can currently
+-   be written, albeit iTunes and dBPowerAmp can only handle ID3v2.2 or ID3v2.3.
+-   Please vote for [TagLib issue #922](https://github.com/taglib/taglib/issues/922).
++   **Note:** _TagLib_ versions before _1.12_ could only write _ID3v2.4_ tags, albeit
++   iTunes and dBPowerAmp may only handle ID3v2.2 or ID3v2.3 correctly.
++   Starting with _TagLib 1.12_, loudgain supports selecting between _ID3v2.3_ and
++   _ID3v2.4_ (default). Use the `-I 3` (`--id3v2version=3`) and `-I 4` (`--id3v2version=4`)
++   commandline options for that.
+ 
+ 2. Since ID3v2 tags are written, the `-L` (`--lowercase`) option functions normally.
+ 
+-3. The `-S` (`--striptags`), `-I 3` (`--id3v2version=3`) and `-I 4` (`--id3v2version=4`)
+-   options are ignored, even when specified.
++3. The `-S` (`--striptags`) option will be ignored, even when specified.
+ 
+ 4. **[Uppercase vs. lowercase tags](#uppercase-or-lowercase-replaygain_-tags)**
+    is still a problem:
+
+From afc54b388232b88935ee725b1a0b677773c128e5 Mon Sep 17 00:00:00 2001
+From: Moonbase59 <moonbase@quantentunnel.de>
+Date: Wed, 18 Sep 2019 18:48:51 +0200
+Subject: [PATCH 3/3] Update help, man page for upcoming TagLib 1.12
+
+---
+ docs/loudgain.1      |  4 ++--
+ docs/loudgain.1.html | 12 ++++++------
+ docs/loudgain.1.md   |  4 ++--
+ src/loudgain.c       |  6 +++---
+ 4 files changed, 13 insertions(+), 13 deletions(-)
+
+diff --git a/docs/loudgain.1 b/docs/loudgain.1
+index 93124b9..0aaeac2 100644
+--- a/docs/loudgain.1
++++ b/docs/loudgain.1
+@@ -91,11 +91,11 @@ Strip tag types other than ID3v2 from MP2/MP3 files (i\.e\. ID3v1, APEv2)\. Stri
+ .
+ .TP
+ \fB\-I 3, \-\-id3v2version=3\fR
+-Write ID3v2\.3 tags to MP2/MP3/WAV files\.
++Write ID3v2\.3 tags to MP2/MP3/WAV/AIFF files\.
+ .
+ .TP
+ \fB\-I 4, \-\-id3v2version=4\fR
+-Write ID3v2\.4 tags to MP2/MP3/WAV files (default)\.
++Write ID3v2\.4 tags to MP2/MP3/WAV/AIFF files (default)\.
+ .
+ .TP
+ \fB\-o, \-\-output\fR
+diff --git a/docs/loudgain.1.md b/docs/loudgain.1.md
+index 42082e5..5624d7f 100644
+--- a/docs/loudgain.1.md
++++ b/docs/loudgain.1.md
+@@ -77,10 +77,10 @@ Experimental, use with care: WAV (.wav), AIFF (.aiff, .aif, .snd).
+   Strip tag types other than APEv2 from WavPack/APE files (i.e. ID3v1).
+ 
+ * `-I 3, --id3v2version=3`:
+-  Write ID3v2.3 tags to MP2/MP3/WAV files.
++  Write ID3v2.3 tags to MP2/MP3/WAV/AIFF files.
+ 
+ * `-I 4, --id3v2version=4`:
+-  Write ID3v2.4 tags to MP2/MP3/WAV files (default).
++  Write ID3v2.4 tags to MP2/MP3/WAV/AIFF files (default).
+ 
+ * `-o, --output`:
+   Database-friendly tab-delimited list output (mp3gain-compatible).
+diff --git a/src/loudgain.c b/src/loudgain.c
+index 8d752af..04f40e3 100644
+--- a/src/loudgain.c
++++ b/src/loudgain.c
+@@ -667,7 +667,7 @@ static inline void help(void) {
+ 	printf("%s %s supports writing tags to the following file types:\n", PROJECT_NAME, PROJECT_VER);
+ 	puts("  FLAC (.flac), Ogg (.ogg, .oga, .spx, .opus), MP2 (.mp2), MP3 (.mp3),");
+ 	puts("  MP4 (.mp4, .m4a), ASF/WMA (.asf, .wma), WavPack (.wv), APE (.ape).");
+-	puts("  Experimental: WAV (.wav), AIFF (.aiff, .aif).\n");
++	puts("  Experimental: WAV (.wav), AIFF (.aiff, .aif, .snd).\n");
+ 
+ 	if (warn_ebu) {
+ 		printf("%sWarning:%s Your EBU R128 library (libebur128) is version %s.\n", COLOR_RED, COLOR_OFF, ebur128_version);
+@@ -707,8 +707,8 @@ static inline void help(void) {
+ 	CMD_CONT("This is non-standard but sometimes needed");
+ 	CMD_HELP("--striptags", "-S", "Strip tag types other than ID3v2 from MP2/MP3");
+ 	CMD_CONT("Strip tag types other than APEv2 from WavPack/APE");
+-	CMD_HELP("--id3v2version=3", "-I 3", "Write ID3v2.3 tags to MP2/MP3/WAV files");
+-	CMD_HELP("--id3v2version=4", "-I 4", "Write ID3v2.4 tags to MP2/MP3/WAV files (default)");
++	CMD_HELP("--id3v2version=3", "-I 3", "Write ID3v2.3 tags to MP2/MP3/WAV/AIFF");
++	CMD_HELP("--id3v2version=4", "-I 4", "Write ID3v2.4 tags to MP2/MP3/WAV/AIFF (default)");
+ 
+ 	puts("");
+ 
