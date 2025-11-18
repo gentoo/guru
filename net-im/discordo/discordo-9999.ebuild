@@ -34,12 +34,14 @@ else
 	fi
 fi
 
-LICENSE="MIT"
+LICENSE="GPL-3"
 SLOT="0"
 BDEPEND="
 	>=dev-lang/go-1.25
 	x11-libs/libnotify
 "
+
+DOCS=( README.md internal/config/config.toml )
 
 src_compile() {
 	ego build -o "bin/$PN"
@@ -47,4 +49,5 @@ src_compile() {
 
 src_install() {
 	dobin "bin/$PN"
+	einstalldocs
 }
