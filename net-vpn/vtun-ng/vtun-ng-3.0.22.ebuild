@@ -5,20 +5,28 @@ EAPI=8
 
 CRATES="
 	adler2@2.0.1
+	aead@0.5.2
 	aes@0.8.4
+	aes-gcm@0.10.3
+	aes-gcm-siv@0.11.1
 	beef@0.5.2
 	bitflags@2.9.1
+	block-buffer@0.10.4
 	block-padding@0.3.3
 	blowfish@0.9.1
 	byteorder@1.5.0
 	cbc@0.1.2
 	cfb-mode@0.8.2
 	cfg-if@1.0.1
+	chacha20@0.9.1
+	chacha20poly1305@0.10.1
 	cipher@0.4.4
 	cpufeatures@0.2.17
 	crc32fast@1.5.0
 	crypto-common@0.1.6
+	ctr@0.9.2
 	deranged@0.4.0
+	digest@0.10.7
 	dns-lookup@2.0.4
 	ecb@0.1.2
 	errno@0.3.13
@@ -26,11 +34,14 @@ CRATES="
 	fnv@1.0.7
 	generic-array@0.14.7
 	getopts@0.2.23
+	getrandom@0.2.16
 	getrandom@0.3.3
+	ghash@0.5.1
 	inout@0.1.4
 	itoa@1.0.15
 	lazy_static@1.5.0
 	libc@0.2.174
+	log@0.4.28
 	logos@0.15.0
 	logos-codegen@0.15.0
 	logos-derive@0.15.0
@@ -38,6 +49,9 @@ CRATES="
 	miniz_oxide@0.8.9
 	num-conv@0.1.0
 	ofb@0.6.1
+	opaque-debug@0.3.1
+	poly1305@0.8.0
+	polyval@0.6.2
 	powerfmt@0.2.0
 	ppv-lite86@0.2.21
 	proc-macro2@1.0.95
@@ -46,6 +60,7 @@ CRATES="
 	r-efi@5.3.0
 	rand@0.9.2
 	rand_chacha@0.9.0
+	rand_core@0.6.4
 	rand_core@0.9.3
 	regex-syntax@0.8.5
 	rust-lzo@0.6.2
@@ -53,9 +68,11 @@ CRATES="
 	semver@1.0.26
 	serde@1.0.219
 	serde_derive@1.0.219
+	sha2@0.10.9
 	signal-hook@0.3.18
 	signal-hook-registry@1.4.5
 	socket2@0.5.10
+	subtle@2.6.1
 	syn@2.0.104
 	time@0.3.41
 	time-core@0.1.4
@@ -63,7 +80,10 @@ CRATES="
 	typenum@1.18.0
 	unicode-ident@1.0.18
 	unicode-width@0.2.1
+	universal-hash@0.5.1
+	uzers@0.12.1
 	version_check@0.9.5
+	wasi@0.11.1+wasi-snapshot-preview1
 	wasi@0.14.2+wasi-0.2.4
 	winapi@0.3.9
 	winapi-i686-pc-windows-gnu@0.4.0
@@ -100,6 +120,7 @@ CRATES="
 	wit-bindgen-rt@0.39.0
 	zerocopy@0.8.26
 	zerocopy-derive@0.8.26
+	zeroize@1.8.2
 "
 
 inherit cargo systemd
@@ -113,7 +134,7 @@ SRC_URI="${CARGO_CRATE_URIS}
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc"
-IUSE="systemd"
+IUSE="systemd +lzo +zlib"
 
 DOCS=( ChangeLog Credits FAQ README README.Setup README.Shaper TODO )
 CONFIG_CHECK="~TUN"
@@ -124,6 +145,14 @@ src_unpack() {
 	pushd "${S}" >/dev/null || die
 	cargo_gen_config
 	popd >/dev/null || die
+}
+
+src_configure() {
+	local myfeatures=(
+		$(usev lzo)
+		$(usev zlib)
+	)
+	cargo_src_configure
 }
 
 src_compile() {
