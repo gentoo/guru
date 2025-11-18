@@ -7,12 +7,14 @@ inherit desktop xdg
 
 DESCRIPTION="GUI configurator for supported QMK-based keyboards"
 HOMEPAGE="https://www.caniusevia.com/"
-SRC_URI="https://github.com/the-via/releases/releases/download/v${PV}/${P}-linux.AppImage -> ${P}.AppImage"
+SRC_URI="
+	amd64? ( https://github.com/the-via/releases/releases/download/v${PV}/${P}-linux.AppImage -> ${P}.AppImage )
+"
 
 S="${WORKDIR}"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="-* ~amd64"
 
 # Stripping AppImage binaries causes them to no longer recognize their internal
 # filesystem.

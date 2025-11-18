@@ -8,7 +8,9 @@ inherit unpacker xdg
 
 DESCRIPTION="CAD/CAM software for 3D design and processing"
 HOMEPAGE="https://www.zwsoft.cn/product/zw3d/linux"
-SRC_URI="signed_com.zwsoft.zw3d2025_2025.0.3.0_amd64.deb"
+SRC_URI="
+	amd64? ( signed_com.zwsoft.zw3d2025_2025.0.3.0_amd64.deb )
+"
 
 S="${WORKDIR}"
 

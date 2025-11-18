@@ -7,7 +7,9 @@ inherit desktop xdg
 
 DESCRIPTION="P2P file sharing system"
 HOMEPAGE="https://www.fopnu.com"
-SRC_URI="https://download2.fopnu.com/download/${P}-1.x86_64.manualinstall.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	amd64? ( https://download2.fopnu.com/download/${P}-1.x86_64.manualinstall.tar.gz -> ${P}.tar.gz )
+"
 
 S="${WORKDIR}/${P}-1.x86_64.manualinstall"
 
