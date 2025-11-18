@@ -1,4 +1,4 @@
-# Copyright 2020-2024 Gentoo Authors
+# Copyright 2020-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,7 +19,7 @@ IUSE="man +pci"
 
 DEPEND="
 	dev-libs/json-c:=
-	x11-libs/libdrm
+	>=x11-libs/libdrm-2.4.125
 	pci? ( sys-apps/pciutils )
 "
 RDEPEND="${DEPEND}"
