@@ -60,7 +60,7 @@ RDEPEND="
 	x11-libs/libXScrnSaver
 	x11-libs/pango
 	sys-apps/dbus
-	virtual/zlib[minizip]
+	virtual/minizip
 "
 
 QA_PREBUILT="

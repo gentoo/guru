@@ -44,7 +44,7 @@ UIDEPEND="
 	media-libs/libogg
 	media-libs/libjpeg-turbo:0
 	virtual/opengl
-	virtual/zlib:=[minizip]
+	virtual/minizip
 	curl? ( net-misc/curl )
 	freetype? ( media-libs/freetype )
 	gettext? ( sys-devel/gettext )
