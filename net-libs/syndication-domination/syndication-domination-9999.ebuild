@@ -29,7 +29,7 @@ REQUIRED_USE="
 "
 DEPEND="
 	app-text/htmltidy
-	dev-libs/libfmt
+	dev-libs/libfmt:=
 	dev-libs/pugixml
 	python? (
 		$(python_gen_cond_dep '

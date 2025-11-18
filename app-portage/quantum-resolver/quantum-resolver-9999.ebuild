@@ -14,5 +14,5 @@ SLOT="0"
 
 DEPEND="
 	>=dev-build/meson-0.63
-	dev-libs/libfmt
+	dev-libs/libfmt:=
 "

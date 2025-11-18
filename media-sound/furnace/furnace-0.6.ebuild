@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~arm64"
 IUSE="jack"
 
 RDEPEND="
-	dev-libs/libfmt
+	dev-libs/libfmt:=
 	media-libs/alsa-lib
 	media-libs/libglvnd
 	media-libs/libsdl2

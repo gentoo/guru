@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	dev-libs/inih
-	dev-libs/libfmt
+	dev-libs/libfmt:=
 	media-libs/libebur128
 	media-libs/libogg
 	media-libs/libvorbis
