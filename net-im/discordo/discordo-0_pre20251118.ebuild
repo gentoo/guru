@@ -19,7 +19,7 @@ else
 
 	# use this only for 0pre_YYYYMMDD builds, otherwise, keep it empty.
 	# needs to be changed if you're making a new 0pre_YYYYMMDD build
-	GIT_COMMIT="81e4924c22f0f9359ffa4cb482c9069998b70f1b"
+	GIT_COMMIT="9aa853fa6cf29653815fadae7be4c876b5c1cfdb"
 
 	# If another person updates it, be sure to change this line to your own depfile link
 	SRC_URI="https://github.com/ingenarel/guru-depfiles/releases/download/${P}-deps.tar.xz/${P}-deps.tar.xz "
@@ -34,12 +34,14 @@ else
 	fi
 fi
 
-LICENSE="MIT"
+LICENSE="GPL-3"
 SLOT="0"
 BDEPEND="
 	>=dev-lang/go-1.25
 	x11-libs/libnotify
 "
+
+DOCS=( README.md internal/config/config.toml )
 
 src_compile() {
 	ego build -o "bin/$PN"
@@ -47,4 +49,5 @@ src_compile() {
 
 src_install() {
 	dobin "bin/$PN"
+	einstalldocs
 }
