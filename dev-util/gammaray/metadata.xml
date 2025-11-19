@@ -20,11 +20,13 @@ level, with the same concepts as the frameworks you use. This is especially usef
 the more complex Qt frameworks such as model/view, state machines or scene graphs.
 	</longdescription>
 	<use>
-		<flag name="3d">Build support for Qt5 3D modules</flag>
+		<flag name="3d">Build support for Qt 3D modules</flag>
 		<flag name="designer">Widget .ui file export</flag>
-		<flag name="geolocation">Physical position determination support from Qt5 framework</flag>
-		<flag name="qml">Build with Qt5 Quick support</flag>
-		<flag name="scxml">Build support for Qt5 State Chart XML (SCXML)</flag>
+		<flag name="geolocation">Physical position determination support from Qt framework</flag>
+		<flag name="highlight">Syntax highlighting for code editor</flag>
+		<flag name="kjob">KJob tracker plug-in</flag>
+		<flag name="qml">Build with Qt Quick support</flag>
+		<flag name="scxml">Build support for Qt State Chart XML (SCXML)</flag>
 		<flag name="webengine">Enable support for dev-qt/qtwebengine</flag>
 	</use>
 	<upstream>
