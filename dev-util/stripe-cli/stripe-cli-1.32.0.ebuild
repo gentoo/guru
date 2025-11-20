@@ -20,7 +20,7 @@ else
 	KEYWORDS="~amd64"
 	SRC_URI="https://github.com/stripe/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	# possible depfiles link if used
-	# SRC_URI+=""
+	SRC_URI+=" https://github.com/ingenarel/guru-depfiles/releases/download/${P}-deps.tar.xz/${P}-deps.tar.xz"
 fi
 
 LICENSE="Apache-2.0"
