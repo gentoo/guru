@@ -23,29 +23,29 @@ KEYWORDS="~amd64 ~arm64"
 IUSE="static-libs"
 
 BDEPEND="
->=dev-lang/go-1.20:=
-app-arch/unzip
-virtual/pkgconfig
+	>=dev-lang/go-1.20:=
+	app-arch/unzip
+	virtual/pkgconfig
 "
 
 src_compile() {
-emake build
+	emake build
 }
+
 src_install() {
-# Shared libs
-dolib.so .build/libuplink.so || die "failed to install libuplink.so"
+	# Shared libs
+	dolib.so .build/libuplink.so || die "failed to install libuplink.so"
 
-# Optional static libs
-if use static-libs ; then
-dolib.a  .build/libuplink.a  || die "failed to install libuplink.a"
-fi
+	# Optional static libs
+	if use static-libs ; then
+	dolib.a  .build/libuplink.a  || die "failed to install libuplink.a"
+	fi
 
-# Headers (upstream copies them into .build/uplink)
-insinto /usr/include/uplink
-doins .build/uplink/*.h || die "failed to install headers"
+	# Headers (upstream copies them into .build/uplink)
+	insinto /usr/include/uplink
+	doins .build/uplink/*.h || die "failed to install headers"
 
-# pkg-config file
-insinto /usr/$(get_libdir)/pkgconfig
-doins .build/libuplink.pc || die "failed to install libuplink.pc"
-
+	# pkg-config file
+	insinto /usr/$(get_libdir)/pkgconfig
+	doins .build/libuplink.pc || die "failed to install libuplink.pc"
 }
