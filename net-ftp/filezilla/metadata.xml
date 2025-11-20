@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>voyageur@gentoo.org</email>
+    <name>Bernard Cafarelli</name>
+  </maintainer>
+  <maintainer type="person">
+    <email>dlan@gentoo.org</email>
+    <name>Yixun Lan</name>
+  </maintainer>
+  <maintainer type="person">
+    <email>david-gentoo@reedfam.email</email>
+    <name>David Reed</name>
+  </maintainer>
+  <use>
+    <flag name="storj">
+      Enable Storj decentralized cloud storage integration using libuplink.
+    </flag>
+  </use>
+  <upstream>
+    <remote-id type="sourceforge">filezilla</remote-id>
+  </upstream>
+</pkgmetadata>
