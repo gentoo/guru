@@ -5,10 +5,9 @@ EAPI=8
 
 inherit meson
 
-DESCRIPTION="Write your notes in instantly-formatted Markdown and
-add hand-drawn notes by mouse, touchscreen or digitiser."
+DESCRIPTION="Write your notes in instantly-formatted Markdown"
 HOMEPAGE="https://github.com/blackhole89/notekit/"
-SRC_URI="https://github.com/blackhole89/notekit/archive/refs/tags/v${PV}.tar.gz"
+SRC_URI="https://github.com/blackhole89/notekit/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -17,7 +16,7 @@ KEYWORDS="~amd64"
 DEPEND="
 	dev-cpp/gtkmm:3.0
 	dev-cpp/gtksourceviewmm:3.0
-	sys-libs/zlib
+	virtual/zlib
 	media-libs/fontconfig
 	dev-libs/jsoncpp
 	dev-libs/tinyxml2
@@ -34,4 +33,3 @@ src_configure() {
 	)
 	meson_src_configure
 }
-
