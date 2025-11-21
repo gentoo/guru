@@ -21,10 +21,18 @@ else
 fi
 
 LICENSE="MIT"
+
+# echo "# dependency licenses:"; printf 'LICENSES+=" '
+# go-licenses report ./... 2>/dev/null | awk -F ',' '{ print $NF }' | sort --unique | tr '\n' ' '; echo '"'
+
+# dependency licenses:
+LICENSES+=" Apache-2.0 BSD-2-Clause BSD-3-Clause GPL-3.0 ISC MIT MPL-2.0 "
+
 SLOT="0"
+BDEPEND=">=dev-lang/go-1.25.0"
 
 src_compile() {
-	ego build -o bin/spf
+	CGO_ENABLED=0 ego build -o bin/spf
 }
 
 src_install() {
