@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>filip@kszczot.pl</email>
+		<name>Filip Kszczot</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/element-hq/element-web/issues</bugs-to>
+		<remote-id type="github">element-hq/element-web</remote-id>
+	</upstream>
+	<use>
+		<flag name="emoji">Use <pkg>media-fonts/noto-emoji</pkg> for displaying emoji</flag>
+	</use>
+</pkgmetadata>
