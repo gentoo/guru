@@ -1,0 +1,13 @@
+diff --git a/src/mx/_impl/mx.py b/src/mx/_impl/mx.py
+index 6b6c29e..e8b8ac3 100644
+--- a/src/mx/_impl/mx.py
++++ b/src/mx/_impl/mx.py
+@@ -3736,7 +3736,7 @@ def get_mx_path():
+ 
+ 
+ # Location of mx repo
+-_mx_home = realpath(dirname(__file__) + '/../../..')
++_mx_home = "/usr/share/${PN}" if exists("/usr/share/${PN}") else realpath(dirname(__file__) + '/../../..')
+ # Location of the source folder
+ _src_path = join(_mx_home, "src")
+ # Location of the mx package
