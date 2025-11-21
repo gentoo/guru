@@ -35,16 +35,23 @@ else
 fi
 
 LICENSE="GPL-3"
+
+# echo "# dependency licenses:"; printf 'LICENSES+=" '
+# go-licenses report ./... 2>/dev/null | awk -F ',' '{ print $NF }' | sort --unique | tr '\n' ' '; echo '"'
+
+# dependency licenses:
+LICENSES+=" Apache-2.0 BSD-2-Clause BSD-3-Clause GPL-3.0 ISC MIT "
+
 SLOT="0"
 BDEPEND="
-	>=dev-lang/go-1.25
+	>=dev-lang/go-1.25.3
 	x11-libs/libnotify
 "
 
 DOCS=( README.md internal/config/config.toml )
 
 src_compile() {
-	ego build -o "bin/$PN"
+	CGO_ENABLED=0 ego build -o "bin/$PN"
 }
 
 src_install() {
