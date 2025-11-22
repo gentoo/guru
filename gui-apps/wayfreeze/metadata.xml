@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>willemgrant@mailfence.com</email>
+		<name>Willem Grant</name>
+	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/Jappie3/wayfreeze/issues</bugs-to>
 		<remote-id type="github">Jappie3/wayfreeze</remote-id>
