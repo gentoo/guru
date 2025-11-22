@@ -16,7 +16,7 @@ KEYWORDS=""
 
 DEPEND="x11-libs/libxkbcommon"
 RDEPEND="${DEPEND}"
-BDEPEND="virtual/rust"
+BDEPEND="dev-lang/rust"
 
 src_unpack() {
     git-r3_src_unpack
