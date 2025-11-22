@@ -8,4 +8,7 @@
 	<upstream>
 		<remote-id type="github">gokcehan/lf</remote-id>
 	</upstream>
+	<use>
+		<flag name="fish-completion">Enable fish completion support</flag>
+	</use>
 </pkgmetadata>
