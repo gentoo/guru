@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake xdg
 
-_TZDB_VER=091025
+_TZDB_VER=121125
 
 DESCRIPTION="Nintendo Switch Emulator"
 HOMEPAGE="https://eden-emu.dev"
@@ -89,10 +89,6 @@ BDEPEND="
 	test? ( dev-cpp/catch )
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-0.0.4_rc2-always-include-common-detached_tasks-in-src-yuzu-main-cpp.patch"
-)
-
 # [directory]=license
 declare -A KEEP_BUNDLED=(
 	# Generated or copied files for internal usage
@@ -137,7 +133,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DCPMUTIL_FORCE_SYSTEM=yes
 		-DTITLE_BAR_FORMAT_IDLE="Eden | v${PV/_/-}"
-		-DYUZU_TZDB_PATH="${WORKDIR}/${_TZDB_VER}"
+		-DYUZU_TZDB_PATH="${WORKDIR}/nx-tzdb-${_TZDB_VER}"
 		-DYUZU_USE_FASTER_LD=no
 
 		-DDYNARMIC_ENABLE_LTO=$(usex lto)
