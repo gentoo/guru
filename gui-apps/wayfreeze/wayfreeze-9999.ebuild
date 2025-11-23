@@ -19,15 +19,15 @@ RDEPEND="${DEPEND}"
 BDEPEND="dev-lang/rust"
 
 src_unpack() {
-    git-r3_src_unpack
-    cargo_live_src_unpack
+	git-r3_src_unpack
+	cargo_live_src_unpack
 }
 
 src_compile() {
-    cargo_src_compile
+	cargo_src_compile
 }
 
 src_install() {
-    dobin target/release/wayfreeze
-    einstalldocs
+	dobin target/release/wayfreeze
+	einstalldocs
 }
