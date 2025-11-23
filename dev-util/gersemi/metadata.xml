@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <name>Pavel Sobolev</name>
+    <email>contact@paveloom.dev</email>
+  </maintainer>
+  <use>
+    <flag name="color">Enable support for colorized diffs</flag>
+  </use>
+  <upstream>
+    <bugs-to>https://github.com/BlankSpruce/gersemi/issues</bugs-to>
+    <remote-id type="github">BlankSpruce/gersemi</remote-id>
+  </upstream>
+</pkgmetadata>
