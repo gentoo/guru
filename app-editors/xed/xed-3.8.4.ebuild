@@ -15,16 +15,16 @@ KEYWORDS="~amd64"
 IUSE="gtk-doc spell"
 
 RDEPEND="
-        >=dev-libs/libxml2-2.5.0:=
-        >=dev-libs/glib-2.40.0
-        >=x11-libs/gtk+-3.19.3:=
-        >=x11-libs/gtksourceview-4.0.3
-        >=dev-libs/libpeas-1.12.0
-        x11-libs/pango
-        x11-libs/libxklavier
-        >=x11-libs/xapp-1.9.0
-        spell? ( >=app-text/gspell-0.2.5 )
-        gtk-doc? ( dev-util/gtk-doc )
+	>=dev-libs/libxml2-2.5.0:=
+	>=dev-libs/glib-2.40.0
+	>=x11-libs/gtk+-3.19.3:=
+	>=x11-libs/gtksourceview-4.0.3
+	>=dev-libs/libpeas-1.12.0
+	x11-libs/pango
+	x11-libs/libxklavier
+	>=x11-libs/xapp-1.9.0
+	spell? ( >=app-text/gspell-0.2.5 )
+	gtk-doc? ( dev-util/gtk-doc )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
