@@ -2,7 +2,7 @@ move sys-devel/just dev-build/just
 move net-misc/tooth net-misc/tuba
 move app-doc/ford app-text/ford
 move dev-util/fpm dev-build/fpm
-move dev-util/FoBiS dev-build/FoBiS
+move dev-util/FoBiS dev-build/fobis
 move dev-util/fypp dev-build/fypp
 move dev-python/pifpaf dev-util/pifpaf
 move x11-wm/phoc gui-wm/phoc
