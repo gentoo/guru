@@ -1,0 +1,26 @@
+From 2d8744283f0a8055ccd3c8d26be04bbce22a0870 Mon Sep 17 00:00:00 2001
+From: Theppitak Karoonboonyanan <theppitak@gmail.com>
+Date: Thu, 15 May 2025 17:13:36 +0700
+Subject: [PATCH] Fix "make --shuffle=reverse" failure.
+
+See Debian #1105545 for the report.
+
+* tools/Makefile.am:
+  - Make sure $(bindir) exists before installing old program
+    symlink.
+---
+ tools/Makefile.am |  1 +
+ 1 files changed, 1 insertions(+)
+
+diff --git a/tools/Makefile.am b/tools/Makefile.am
+index 992530bc..6bdb8274 100644
+--- a/tools/Makefile.am
++++ b/tools/Makefile.am
+@@ -10,6 +10,7 @@ trietool_LDADD = \
+ OLD_PROG_NAME=trietool-0.2
+ 
+ install-data-hook:
++	$(MKDIR_P) $(DESTDIR)$(bindir)
+ 	rm -f $(DESTDIR)$(bindir)/$(OLD_PROG_NAME)
+ 	$(LN_S) trietool $(DESTDIR)$(bindir)/$(OLD_PROG_NAME)
+ 

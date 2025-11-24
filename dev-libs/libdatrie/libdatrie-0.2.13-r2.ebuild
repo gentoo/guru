@@ -22,6 +22,8 @@ IUSE="doc"
 
 BDEPEND="doc? ( app-text/doxygen )"
 
+PATCHES=( "${FILESDIR}/${P}-fix-bindir-exists.patch" )
+
 src_prepare() {
 	default
 	# Fixed version if in non git project
