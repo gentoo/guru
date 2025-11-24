@@ -12,7 +12,7 @@ S="${WORKDIR}/node-v${PV}-linux-x64" #only works for amd64 now
 
 LICENSE="Apache-1.1 Apache-2.0 BSD BSD-2 MIT Artistic-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="-* ~amd64"
 
 IUSE="corepack +npm"
 
