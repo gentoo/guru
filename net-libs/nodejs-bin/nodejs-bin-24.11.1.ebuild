@@ -6,7 +6,7 @@ EAPI=8
 DESCRIPTION="A JavaScript runtime built on Chrome's V8 JavaScript engine"
 HOMEPAGE="https://nodejs.org/"
 SRC_URI="
-amd64? ( https://nodejs.org/dist/v${PV}/node-v${PV}-linux-x64.tar.xz )
+	amd64? ( https://nodejs.org/dist/v${PV}/node-v${PV}-linux-x64.tar.xz )
 "
 S="${WORKDIR}/node-v${PV}-linux-x64" #only works for amd64 now
 
@@ -17,6 +17,7 @@ KEYWORDS="-* ~amd64"
 IUSE="corepack +npm"
 
 COMMON_DEPEND="
+	!net-libs/nodejs
 	>=app-arch/brotli-1.1.0:=
 	dev-db/sqlite:3
 	>=dev-libs/libuv-1.51.0:=
