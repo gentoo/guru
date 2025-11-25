@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Paul Zander <negril.nx+gentoo@gmail.com> (2025-11-25)
+# Added due to nodejs compile times unaware of binpkg option
+# Removal after 2025-12-02
+net-libs/nodejs-bin
+
 # Joe (joecool) Kappus <joe@wt.gd> (2025-11-13)
 # No maintainer, repos archived, dead homepage.
 # Removal on 2025-12-13
