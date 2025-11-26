@@ -15,7 +15,7 @@ S="${WORKDIR}"
 # https://earth.google.com/intl/es-419/licensepro.html
 LICENSE="Google-Enterprise-Geo-Master"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 RDEPEND="dev-libs/libxml2-compat"
 
