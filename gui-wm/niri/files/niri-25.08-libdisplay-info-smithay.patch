@@ -1,0 +1,13 @@
+libdisplay-info 0.3.0 compat.
+https://github.com/Smithay/smithay/commit/9ccbd35f51842934f22b5a85ca0e3be1b99b27f
+--- a/smithay-drm-extras/Cargo.toml	2025-11-26 10:35:04.444836611 +0000
++++ b/smithay-drm-extras/Cargo.toml	2025-11-26 10:35:21.151685214 +0000
+@@ -6,7 +6,7 @@
+ authors = ["Bartłomiej Maryńczak <marynczakbartlomiej@gmail.com>"]
+ 
+ [dependencies]
+-libdisplay-info = { version = "0.2.1", optional = true }
++libdisplay-info = { version = "0.3.0", optional = true }
+ drm = { version = "0.14.0" }
+ 
+ [features]
