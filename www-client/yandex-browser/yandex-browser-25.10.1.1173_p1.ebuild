@@ -12,7 +12,7 @@ else
 	MY_PN=${PN}
 fi
 
-FFMPEG="139"
+FFMPEG="140"
 
 DESCRIPTION="The web browser from Yandex"
 HOMEPAGE="https://browser.yandex.ru/"
@@ -24,7 +24,7 @@ S="${WORKDIR}"
 
 LICENSE="Yandex-EULA"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="-* ~amd64"
 
 IUSE="+ffmpeg-codecs qt6"
 RESTRICT="bindist mirror strip"
