@@ -1,0 +1,57 @@
+Use modern way of linking to protobuf, otherwise it fails on abseil.
+Old way requires to propagate abseil micro-libraries via INTERFACE dependencies.
+--- a/src/runtime_src/core/tools/xbtracer/CMakeLists.txt
++++ b/src/runtime_src/core/tools/xbtracer/CMakeLists.txt
+@@ -10,7 +10,7 @@ else (POLICY CMP0144)
+   return()
+ endif ()
+ 
+-find_package(Protobuf)
++find_package(Protobuf CONFIG)
+ if (NOT Protobuf_FOUND)
+   message("Protobuf is not found, skipping xbtracer")
+   return()
+@@ -31,12 +31,10 @@ file(GLOB PROTO_SRC_FILES
+   "${CMAKE_CURRENT_SOURCE_DIR}/src/*.proto"
+ )
+ 
+-PROTOBUF_GENERATE_CPP(ProtoSources ProtoHeaders ${PROTO_SRC_FILES})
+-
+-add_custom_target(xbtracer_generated_code DEPENDS ${ProtoSources} ${ProtoHeaders})
+-
+-add_library(xbtracer_protobuf STATIC ${ProtoSources} ${ProtoHeaders})
+-add_dependencies(xbtracer_protobuf xbtracer_generated_code)
++add_library(xbtracer_protobuf STATIC ${PROTO_SRC_FILES})
++protobuf_generate(TARGET xbtracer_protobuf)
++target_link_libraries(xbtracer_protobuf PRIVATE protobuf::libprotobuf)
++target_include_directories(xbtracer_protobuf PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/src)
+ if (MSVC)
+   target_compile_options(xbtracer_protobuf PRIVATE /wd4244 /wd4267)
+ endif(MSVC)
+@@ -63,7 +61,7 @@ add_library(xrt_trace SHARED ${XBTRACER_WRAPPER_SRC_FILES} ${ProtoHeaders})
+ set_target_properties(xrt_trace PROPERTIES VERSION ${XRT_VERSION_STRING} SOVERSION ${XRT_SOVERSION})
+ target_compile_definitions(xrt_trace PRIVATE XRT_ABI_VERSION=${XRT_VERSION_MAJOR})
+ 
+-target_link_libraries(xrt_trace PRIVATE xbtracer_common xbtracer_protobuf ${Protobuf_LIBRARIES} xrt_coreutil)
++target_link_libraries(xrt_trace PRIVATE xbtracer_common xbtracer_protobuf xrt_coreutil)
+ add_dependencies(xrt_trace xbtracer_common xbtracer_protobuf xrt_coreutil)
+ 
+ file(GLOB XBTRACER_CAPTURE_SRC_FILES
+@@ -78,7 +76,7 @@ file(GLOB XBREPLAY_SRC_FILES
+   "${CMAKE_CURRENT_SOURCE_DIR}/src/replay/*.cpp"
+ )
+ add_executable(xrt-replay ${XBREPLAY_SRC_FILES})
+-target_link_libraries(xrt-replay PRIVATE xbtracer_common xbtracer_protobuf ${Protobuf_LIBRARIES} xrt_coreutil)
++target_link_libraries(xrt-replay PRIVATE xbtracer_common xbtracer_protobuf xrt_coreutil)
+ if (NOT WIN32)
+   target_link_libraries(xrt-replay PRIVATE pthread)
+ endif (NOT WIN32)
+@@ -94,7 +92,7 @@ if (XRT_XBTRACER_ENABLE_JSON)
+   add_executable(xbtracer_dump
+     src/misc/xbtracer_dump.cpp
+   )
+-  target_link_libraries(xbtracer_dump PRIVATE xbtracer_common xbtracer_protobuf ${Protobuf_LIBRARIES})
++  target_link_libraries(xbtracer_dump PRIVATE xbtracer_common xbtracer_protobuf)
+   add_dependencies(xbtracer_dump xbtracer_common xbtracer_protobuf xrt_coreutil)
+ endif (XRT_XBTRACER_ENABLE_JSON)
+ 
