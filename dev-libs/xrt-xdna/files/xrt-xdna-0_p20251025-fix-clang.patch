@@ -1,0 +1,35 @@
+Fix clang errors:
+* variable-sized object may not be initialized
+* cannot pass object of non-trivial type 'std::basic_string<char>' through variadic function; call will abort at runtime
+--- a/src/shim/virtio/platform_virtio.cpp
++++ b/src/shim/virtio/platform_virtio.cpp
+@@ -619,7 +619,8 @@ submit_cmd(submit_cmd_arg& arg) const
+   req_sz += nargs * sizeof(uint32_t); // For args handle
+   // Get a 64 bit aligned buffer for req
+   auto req_sz_in_u64 = req_sz / sizeof(uint64_t) + 1;
+-  uint64_t req_buf[req_sz_in_u64] = {};
++  uint64_t req_buf[req_sz_in_u64];
++  std::memset(req_buf, 0, req_sz_in_u64 * sizeof(uint64_t));
+   auto req = reinterpret_cast<amdxdna_ccmd_exec_cmd_req*>(req_buf);
+   amdxdna_ccmd_exec_cmd_rsp rsp = {};
+ 
+--- a/src/shim/hwq.cpp
++++ b/src/shim/hwq.cpp
+@@ -23,7 +23,7 @@ dump_buf_to_file(void *buf, size_t size, const std::string& dumpfile)
+ {
+   std::ofstream ofs(dumpfile, std::ios::out | std::ios::binary);
+   if (!ofs.is_open())
+-    shim_err(errno, "Failed to open dump file: %s", dumpfile);
++    shim_err(errno, "Failed to open dump file: %s", dumpfile.c_str());
+ 
+   for (int i = 0; i < size; i++)
+     ofs.write(reinterpret_cast<char *>(buf) + i, 1);
+@@ -42,7 +42,7 @@ dump_arg_bos(const shim_xdna::cmd_buffer *cmd_bo)
+   std::error_code ec;
+   std::filesystem::create_directories(dir_path, ec);
+   if (ec)
+-    shim_err(ec.value(), "Failed to create BO dump dir: %s: %s", dir_path, ec.message());
++    shim_err(ec.value(), "Failed to create BO dump dir: %s: %s", dir_path.c_str(), ec.message().c_str());
+ 
+   std::string filename = "exec_buf.";
+   filename += std::to_string(cmd_bo->id().handle);
