@@ -5,8 +5,10 @@ EAPI=8
 
 DESCRIPTION="Zen Browser - A fast, privacy-focused Firefox fork"
 HOMEPAGE="https://zen-browser.app/"
-SRC_URI="amd64? ( https://github.com/zen-browser/desktop/releases/download/${PV}/zen.linux-x86_64.tar.xz -> ${P}-amd64.tar.xz )
-		 arm64? ( https://github.com/zen-browser/desktop/releases/download/${PV}/zen.linux-aarch64.tar.xz -> ${P}-arm64.tar.xz )"
+SRC_URI="
+amd64? ( https://github.com/zen-browser/desktop/releases/download/${PV}/zen.linux-x86_64.tar.xz -> ${P}-amd64.tar.xz )
+arm64? ( https://github.com/zen-browser/desktop/releases/download/${PV}/zen.linux-aarch64.tar.xz -> ${P}-arm64.tar.xz )
+"
 
 S="${WORKDIR}/zen"
 
