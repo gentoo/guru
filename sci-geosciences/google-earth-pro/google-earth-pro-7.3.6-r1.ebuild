@@ -20,13 +20,12 @@ KEYWORDS="~amd64"
 RDEPEND="dev-libs/libxml2-compat"
 
 src_install() {
-    doins -r ${S}/usr/bin
-    doins -r ${S}/opt
+	doins -r "${S}/usr/bin"
+	doins -r "${S}/opt"
 
-    fperms 0755 /opt/google/earth/pro/googleearth
-    fperms 0755 /opt/google/earth/pro/googleearth-bin
+	fperms 0755 /opt/google/earth/pro/googleearth
+	fperms 0755 /opt/google/earth/pro/googleearth-bin
 
-    newicon -s 32 opt/google/earth/pro/product_logo_32.png Google_Earth.png
-    make_desktop_entry google-earth-pro "Google Earth Pro" Google_Earth
+	newicon -s 32 opt/google/earth/pro/product_logo_32.png Google_Earth.png
+	make_desktop_entry google-earth-pro "Google Earth Pro" Google_Earth
 }
-
