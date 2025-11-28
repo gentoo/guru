@@ -9,10 +9,10 @@ DESCRIPTION="Ly - a TUI display manager"
 HOMEPAGE="https://codeberg.org/fairyglade/ly"
 
 declare -g -r -A ZBS_DEPENDENCIES=(
-    [clap-0.11.0-oBajB-HnAQDPCKYzwF7rO3qDFwRcD39Q0DALlTSz5H7e.tar.gz]='https://github.com/Hejsil/zig-clap/archive/refs/tags/0.11.0.tar.gz'
-    [ini-0.1.0-YCQ9YkUnAAA7SjpLwvomwrngMn3TConSAlNgo7Q8ibMZ.tar.gz]='https://github.com/AnErrupTion/ini/archive/ac6e656157b2ac6c98392283a139b47c44a85d54.tar.gz'
-    [zigini-0.3.2-BSkB7WJJAADybd5DGd9MLCp6ikGGUq9wicxsjv0HF1Qc.tar.gz]='https://github.com/AnErrupTion/zigini/archive/96ca1d9f1a7ec741f07ceb104dae2b3a7bdfd48a.tar.gz'
-    [N-V-__8AAGcUBQAa5vov1Yi_9AXEffFQ1e2KsXaK4dgygRKq.tar.gz]='https://github.com/AnErrupTion/termbox2/archive/290ac6b8225aacfd16851224682b851b65fcb918.tar.gz'
+[clap-0.11.0-oBajB-HnAQDPCKYzwF7rO3qDFwRcD39Q0DALlTSz5H7e.tar.gz]='https://github.com/Hejsil/zig-clap/archive/refs/tags/0.11.0.tar.gz'
+[ini-0.1.0-YCQ9YkUnAAA7SjpLwvomwrngMn3TConSAlNgo7Q8ibMZ.tar.gz]='https://github.com/AnErrupTion/ini/archive/ac6e656157b2ac6c98392283a139b47c44a85d54.tar.gz'
+[zigini-0.3.2-BSkB7WJJAADybd5DGd9MLCp6ikGGUq9wicxsjv0HF1Qc.tar.gz]='https://github.com/AnErrupTion/zigini/archive/96ca1d9f1a7ec741f07ceb104dae2b3a7bdfd48a.tar.gz'
+[N-V-__8AAGcUBQAa5vov1Yi_9AXEffFQ1e2KsXaK4dgygRKq.tar.gz]='https://github.com/AnErrupTion/termbox2/archive/290ac6b8225aacfd16851224682b851b65fcb918.tar.gz'
 )
 
 ZIG_SLOT="0.15"
