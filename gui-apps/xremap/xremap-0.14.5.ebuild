@@ -17,7 +17,7 @@ CRATES="
 	anstyle-query@1.0.0
 	anstyle-wincon@1.0.1
 	anstyle@1.0.1
-	anyhow@1.0.99
+	anyhow@1.0.100
 	async-broadcast@0.7.2
 	async-channel@2.3.1
 	async-executor@1.13.1
@@ -72,7 +72,7 @@ CRATES="
 	event-listener@5.4.0
 	fastrand@2.3.0
 	fnv@1.0.7
-	fork@0.2.0
+	fork@0.3.1
 	funty@2.0.0
 	futures-channel@0.3.31
 	futures-core@0.3.31
@@ -105,7 +105,7 @@ CRATES="
 	io-lifetimes@1.0.11
 	is-terminal@0.4.9
 	itoa@1.0.9
-	js-sys@0.3.64
+	js-sys@0.3.82
 	lazy_static@1.5.0
 	libc@0.2.172
 	libloading@0.8.0
@@ -143,9 +143,9 @@ CRATES="
 	quote@1.0.40
 	radium@0.7.0
 	redox_syscall@0.4.1
-	regex-automata@0.4.11
+	regex-automata@0.4.13
 	regex-syntax@0.8.5
-	regex@1.11.3
+	regex@1.12.2
 	rustc-demangle@0.1.24
 	rustc_version@0.4.1
 	rustix@0.38.44
@@ -158,7 +158,7 @@ CRATES="
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
-	serde_json@1.0.143
+	serde_json@1.0.145
 	serde_repr@0.1.20
 	serde_spanned@1.0.0
 	serde_with@3.8.1
@@ -195,12 +195,12 @@ CRATES="
 	unicode-ident@1.0.11
 	unsafe-libyaml@0.2.11
 	utf8parse@0.2.1
+	uuid@1.18.1
 	wasi@0.11.0+wasi-snapshot-preview1
-	wasm-bindgen-backend@0.2.87
-	wasm-bindgen-macro-support@0.2.87
-	wasm-bindgen-macro@0.2.87
-	wasm-bindgen-shared@0.2.87
-	wasm-bindgen@0.2.87
+	wasm-bindgen-macro-support@0.2.105
+	wasm-bindgen-macro@0.2.105
+	wasm-bindgen-shared@0.2.105
+	wasm-bindgen@0.2.105
 	wayland-backend@0.1.2
 	wayland-client@0.30.2
 	wayland-protocols-wlr@0.1.0
@@ -212,10 +212,12 @@ CRATES="
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
 	windows-link@0.1.3
+	windows-link@0.2.1
 	windows-sys@0.48.0
 	windows-sys@0.52.0
 	windows-sys@0.59.0
 	windows-sys@0.60.2
+	windows-sys@0.61.2
 	windows-targets@0.48.1
 	windows-targets@0.52.6
 	windows-targets@0.53.3
@@ -247,8 +249,8 @@ CRATES="
 	wyz@0.5.1
 	x11rb-protocol@0.13.2
 	x11rb@0.13.2
-	zbus@5.11.0
-	zbus_macros@5.11.0
+	zbus@5.12.0
+	zbus_macros@5.12.0
 	zbus_names@4.2.0
 	zvariant@5.5.3
 	zvariant_derive@5.5.3
