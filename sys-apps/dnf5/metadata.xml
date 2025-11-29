@@ -9,6 +9,7 @@
     <remote-id type="github">rpm-software-management/dnf5</remote-id>
   </upstream>
   <use>
-    <flag name="appstream">Build an appstream metadata plugin</flag>
+    <flag name="appstream">Build appstream metadata plugin</flag>
+    <flag name="manifest">Build manifest plugin</flag>
   </use>
 </pkgmetadata>
