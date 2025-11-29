@@ -31,7 +31,6 @@ LICENSE="Apache-2.0"
 # dependency licenses:
 LICENSES+=" Apache-2.0 BSD-2-Clause BSD-3-Clause ISC MIT MPL-2.0 Unlicense "
 SLOT="0"
-IUSE="bash-completion zsh-completion"
 
 BDEPEND=">=dev-lang/go-1.24.1"
 
@@ -45,12 +44,8 @@ src_install() {
 	# disables telemetry
 	doenvd "$FILESDIR/99$PN"
 
-	if use bash-completion ; then
-		"bin/${MY_PN}" completion --shell bash
-		newbashcomp "${MY_PN}-completion.bash" "$MY_PN"
-	fi
-	if use zsh-completion ; then
-		"bin/${MY_PN}" completion --shell zsh
-		newzshcomp "${MY_PN}-completion.zsh" "_$MY_PN"
-	fi
+	"bin/${MY_PN}" completion --shell bash
+	newbashcomp "${MY_PN}-completion.bash" "$MY_PN"
+	"bin/${MY_PN}" completion --shell zsh
+	newzshcomp "${MY_PN}-completion.zsh" "_$MY_PN"
 }
