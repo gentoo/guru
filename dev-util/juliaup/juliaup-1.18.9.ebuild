@@ -33,17 +33,18 @@ CRATES="
 	cfg-if@1.0.3
 	cfg_aliases@0.2.1
 	chrono@0.4.41
-	clap@4.5.46
-	clap_builder@4.5.46
+	clap@4.5.50
+	clap_builder@4.5.50
 	clap_complete@4.5.57
 	clap_complete_nushell@4.5.8
-	clap_derive@4.5.45
+	clap_derive@4.5.49
 	clap_lex@0.7.5
 	cli-table-derive@0.5.0
 	cli-table@0.5.0
 	cluFlock@1.2.7
 	colorchoice@1.0.4
 	console@0.15.11
+	console@0.16.1
 	core-foundation-sys@0.8.7
 	core-foundation@0.10.1
 	core-foundation@0.9.4
@@ -114,12 +115,12 @@ CRATES="
 	idna_adapter@1.2.1
 	ignore@0.4.23
 	indexmap@2.11.0
-	indicatif@0.17.11
-	indoc@2.0.6
+	indicatif@0.18.2
+	indoc@2.0.7
 	io-uring@0.7.10
 	ipnet@2.11.0
 	iri-string@0.7.8
-	is-terminal@0.4.16
+	is-terminal@0.4.17
 	is_terminal_polyfill@1.70.1
 	itertools@0.14.0
 	itoa@1.0.15
@@ -142,7 +143,6 @@ CRATES="
 	normpath@1.3.0
 	num-conv@0.1.0
 	num-traits@0.2.19
-	number_prefix@0.4.0
 	numeric-sort@0.1.5
 	object@0.36.7
 	once_cell@1.21.3
@@ -200,9 +200,10 @@ CRATES="
 	security-framework@2.11.1
 	security-framework@3.3.0
 	semver@1.0.26
-	serde@1.0.219
-	serde_derive@1.0.219
-	serde_json@1.0.143
+	serde@1.0.228
+	serde_core@1.0.228
+	serde_derive@1.0.228
+	serde_json@1.0.145
 	serde_spanned@1.0.0
 	serde_urlencoded@0.7.1
 	shell-words@1.1.0
@@ -249,6 +250,7 @@ CRATES="
 	try-lock@0.2.5
 	unicode-ident@1.0.18
 	unicode-width@0.2.1
+	unit-prefix@0.5.1
 	untrusted@0.9.0
 	url@2.5.7
 	utf8_iter@1.0.4
@@ -278,12 +280,14 @@ CRATES="
 	windows-implement@0.60.0
 	windows-interface@0.59.1
 	windows-link@0.1.3
+	windows-link@0.2.1
 	windows-numerics@0.2.0
 	windows-result@0.3.4
 	windows-strings@0.4.2
 	windows-sys@0.52.0
 	windows-sys@0.59.0
 	windows-sys@0.60.2
+	windows-sys@0.61.2
 	windows-targets@0.52.6
 	windows-targets@0.53.3
 	windows-threading@0.1.0
