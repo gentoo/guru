@@ -2,11 +2,10 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..13} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="GUI wallpaper setter for Wayland and Xorg window managers"
 HOMEPAGE="https://github.com/anufrievroman/waypaper"
-SRC_URI="https://files.pythonhosted.org/packages/b5/c6/c3d160ff61773bf7df1d33dfa74cd2950197f566178f052ad58ba64cf8ac/${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
