@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -32,8 +32,15 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+src_prepare() {
+	default
+
+	sed -i -e '/CC *=/s;=;?=;' makefile || die
+}
+
 src_compile(){
-	emake CC="$(tc-getCC)" LDFLAGS="${LDFLAGS}" CFLAGS="${CFLAGS}"
+	tc-export CC
+	emake LDFLAGS="${LDFLAGS}" CFLAGS="${CFLAGS}"
 }
 
 src_install() {
