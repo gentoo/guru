@@ -5,6 +5,8 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.83.0"
+
 CRATES=" "
 
 inherit cargo
@@ -29,8 +31,8 @@ fi
 LICENSE="|| ( MIT Unlicense )"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 BSD-2 BSD Boost-1.0 CC0-1.0 GPL-2+ ISC MIT MPL-2.0
-	Unicode-3.0 Unlicense ZLIB
+	Apache-2.0 BSD-2 BSD CC0-1.0 GPL-2+ ISC MIT MPL-2.0 Unicode-3.0
+	Unlicense ZLIB
 "
 SLOT="0"
 
