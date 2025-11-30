@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-libs/glib-2.66:2
-	dev-libs/libxml2
+	dev-libs/libxml2:=
 	dev-libs/openssl:=
 	>=net-misc/curl-7.52.0
 	gpgme? ( app-crypt/gpgme:1= )

@@ -17,7 +17,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-libs/glib-2.66:2
-	dev-libs/libxml2
+	dev-libs/libxml2:=
 	dev-libs/openssl:=
 	>=net-misc/curl-7.52.0
 	gpgme? ( app-crypt/gpgme:1= )
