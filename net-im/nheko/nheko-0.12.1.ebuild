@@ -95,6 +95,8 @@ BDEPEND="
 	)
 "
 
+PATCHES=( "${FILESDIR}/${P}-qt610.patch" )
+
 src_configure() {
 	local -a mycmakeargs=(
 		-DUSE_BUNDLED_CPPHTTPLIB=no
