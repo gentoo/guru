@@ -7,7 +7,11 @@ inherit cmake xdg
 
 DESCRIPTION="An open-source 3DS emulator project based on Citra"
 HOMEPAGE="https://azahar-emu.org"
-SRC_URI="https://github.com/azahar-emu/azahar/releases/download/${PV}/azahar-unified-source-${PV}.tar.xz -> ${P}.tar.xz"
+SRC_URI="
+	https://github.com/azahar-emu/azahar/releases/download/${PV}/azahar-unified-source-${PV}.tar.xz -> ${P}.tar.xz
+	https://github.com/azahar-emu/azahar/commit/1f483e1d335374482845d0325ac8b13af3162c53.patch ->
+		${PN}-2123.3-fix-build-with-qt-6.10.patch
+"
 
 S="${WORKDIR}/azahar-unified-source-${PV}"
 
@@ -55,6 +59,7 @@ BDEPEND="
 "
 
 PATCHES=(
+	"${DISTDIR}/${PN}-2123.3-fix-build-with-qt-6.10.patch"
 	"${FILESDIR}/${PN}-2122.1-explicitly-require-the-tsl-robin-map-package.patch"
 	"${FILESDIR}/${PN}-2122.1-import-some-of-the-symbols-from-spv.patch"
 	"${FILESDIR}/${PN}-2122.1-link-to-Catch2-only-when-tests-are-enabled.patch"
