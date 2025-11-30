@@ -33,7 +33,7 @@ bstr@1.12.1
 bumpalo@3.16.0
 byteorder@1.5.0
 bytes@1.10.1
-castaway@0.2.3
+castaway@0.2.4
 cc@1.2.40
 cfg-if@1.0.1
 chrono@0.4.42
@@ -52,23 +52,25 @@ constant_time_eq@0.3.1
 const-str@0.4.3
 convert_case@0.6.0
 core-foundation-sys@0.8.7
+cpufeatures@0.2.17
 crossbeam-channel@0.5.15
 crossbeam-deque@0.8.6
 crossbeam-epoch@0.9.18
 crossbeam-utils@0.8.21
 crypto-common@0.1.6
 ctor@0.1.26
-darling@0.20.11
-darling_core@0.20.11
-darling_macro@0.20.11
+darling@0.21.0
+darling_core@0.21.0
+darling_macro@0.21.0
 dashmap@5.5.3
-deranged@0.4.1
+deranged@0.5.5
 derivative@2.2.0
 derive-where@1.5.0
 diff@0.1.12
 digest@0.10.7
 dupe@0.9.1
 dupe_derive@0.9.1
+dyn-clone@1.0.17
 either@1.15.0
 encode_unicode@1.0.0
 enum-iterator@2.1.0
@@ -76,6 +78,7 @@ enum-iterator-derive@1.4.0
 env_logger@0.8.4
 equivalent@1.0.0
 errno@0.3.10
+faster-hex@0.6.1
 fastrand@2.3.0
 filetime@0.2.25
 find-msvc-tools@0.1.3
@@ -112,7 +115,7 @@ heck@0.5.0
 hex@0.4.3
 home@0.5.11
 human_bytes@0.4.3
-iana-time-zone@0.1.53
+iana-time-zone@0.1.64
 iana-time-zone-haiku@0.1.1
 icu_collections@1.5.0
 icu_locid@1.5.0
@@ -144,7 +147,7 @@ itertools@0.14.0
 itoa@0.4.8
 itoa@1.0.15
 jobserver@0.1.33
-js-sys@0.3.77
+js-sys@0.3.82
 kqueue@1.1.1
 kqueue-sys@1.0.4
 lazy_static@1.5.0
@@ -159,7 +162,6 @@ lock_api@0.4.14
 lock_free_hashtable@0.1.1
 log@0.4.28
 lsp-server@0.7.2
-lsp-types@0.94.1
 manyhow@0.11.4
 manyhow-macros@0.11.4
 maplit@1.0.2
@@ -221,6 +223,8 @@ rayon@1.11.0
 rayon-core@1.13.0
 redox_syscall@0.2.10
 redox_syscall@0.5.6
+ref-cast@1.0.25
+ref-cast-impl@1.0.25
 r-efi@5.2.0
 regex@1.12.2
 regex-automata@0.4.13
@@ -234,6 +238,8 @@ rustversion@1.0.22
 ryu@0.2.8
 ryu@1.0.17
 same-file@1.0.6
+schemars@0.9.0
+schemars@1.1.0
 scopeguard@1.2.0
 scratch@1.0.6
 seahash@4.1.0
@@ -247,8 +253,9 @@ serde_jsonrc@0.1.0
 serde_repr@0.1.20
 serde_spanned@1.0.3
 serde-wasm-bindgen@0.6.5
-serde_with@3.12.0
-serde_with_macros@3.12.0
+serde_with@3.16.0
+serde_with_macros@3.16.0
+sha2@0.10.9
 sharded-slab@0.1.4
 shlex@1.3.0
 signal-hook-registry@1.4.5
@@ -279,9 +286,9 @@ thiserror-impl@2.0.17
 thread_local@1.1.4
 tikv-jemallocator@0.6.0
 tikv-jemalloc-sys@0.6.0+5.3.0-1-ge13ca993e8ccb9ba9847cc330696e02839f328f7
-time@0.3.41
-time-core@0.1.4
-time-macros@0.2.22
+time@0.3.44
+time-core@0.1.6
+time-macros@0.2.24
 tinystr@0.7.6
 tinyvec@1.8.0
 tinyvec_macros@0.1.0
@@ -302,7 +309,7 @@ tracing-subscriber@0.3.20
 triomphe@0.1.11
 typenum@1.19.0
 unicase@2.8.1
-unicode-ident@1.0.16
+unicode-ident@1.0.22
 unicode_names2@1.2.2
 unicode_names2_generator@1.2.2
 unicode-normalization@0.1.24
@@ -322,12 +329,12 @@ vec1@1.10.1
 version_check@0.9.5
 walkdir@2.5.0
 wasi@0.11.0+wasi-snapshot-preview1
-wasi@0.14.2+wasi-0.2.4
-wasm-bindgen@0.2.100
-wasm-bindgen-backend@0.2.100
-wasm-bindgen-macro@0.2.100
-wasm-bindgen-macro-support@0.2.100
-wasm-bindgen-shared@0.2.100
+wasi@0.14.7+wasi-0.2.4
+wasip2@1.0.1+wasi-0.2.4
+wasm-bindgen@0.2.105
+wasm-bindgen-macro@0.2.105
+wasm-bindgen-macro-support@0.2.105
+wasm-bindgen-shared@0.2.105
 watchman_client@0.9.0
 web-time@1.1.0
 which@4.4.2
@@ -339,12 +346,18 @@ windows_aarch64_gnullvm@0.48.5
 windows_aarch64_gnullvm@0.52.6
 windows_aarch64_msvc@0.48.5
 windows_aarch64_msvc@0.52.6
+windows-core@0.61.2
 windows_i686_gnu@0.48.5
 windows_i686_gnu@0.52.6
 windows_i686_gnullvm@0.52.6
 windows_i686_msvc@0.48.5
 windows_i686_msvc@0.52.6
+windows-implement@0.60.0
+windows-interface@0.59.1
+windows-link@0.1.1
 windows-link@0.2.1
+windows-result@0.3.4
+windows-strings@0.4.2
 windows-sys@0.48.0
 windows-sys@0.52.0
 windows-sys@0.59.0
@@ -358,7 +371,7 @@ windows_x86_64_gnullvm@0.52.6
 windows_x86_64_msvc@0.48.5
 windows_x86_64_msvc@0.52.6
 winnow@0.7.13
-wit-bindgen-rt@0.39.0
+wit-bindgen@0.46.0
 write16@1.0.0
 writeable@0.5.5
 xattr@1.5.0
@@ -395,6 +408,7 @@ declare -A GIT_CRATES=(
 	[ruff_source_file]="https://github.com/astral-sh/ruff;9bee8376a17401f9736b45fdefffb62edc2f1668;ruff-%commit%/crates/ruff_source_file"
 	[ruff_text_size]="https://github.com/astral-sh/ruff;9bee8376a17401f9736b45fdefffb62edc2f1668;ruff-%commit%/crates/ruff_text_size"
 	[ruff_notebook]="https://github.com/astral-sh/ruff;9bee8376a17401f9736b45fdefffb62edc2f1668;ruff-%commit%/crates/ruff_notebook"
+	[lsp-types]="https://github.com/astral-sh/lsp-types;3512a9f33eadc5402cfab1b8f7340824c8ca1439;lsp-types-%commit%"
 )
 
 inherit cargo
