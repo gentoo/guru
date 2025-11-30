@@ -21,7 +21,7 @@ RDEPEND="
 	app-arch/zstd:=
 	virtual/zlib:=
 	expat? ( dev-libs/expat )
-	!expat? ( dev-libs/libxml2 )
+	!expat? ( dev-libs/libxml2:= )
 	zchunk? ( app-arch/zchunk )
 "
 DEPEND="${RDEPEND}"
