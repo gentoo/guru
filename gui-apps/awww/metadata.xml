@@ -6,7 +6,7 @@
         <name>Pieter</name>
     </maintainer>
     <upstream>
-        <remote-id type="github">LGFae/swww</remote-id>
-        <bugs-to>https://github.com/LGFae/swww/issues</bugs-to>
+        <remote-id type="codeberg">LGFae/awww</remote-id>
+        <bugs-to>https://codeberg.org/LGFae/awww/issues</bugs-to>
     </upstream>
 </pkgmetadata>

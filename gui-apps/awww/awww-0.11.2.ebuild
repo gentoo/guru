@@ -186,17 +186,19 @@ CRATES="
 inherit cargo shell-completion
 
 DESCRIPTION="Efficient animated wallpaper daemon for wayland, controlled at runtime"
-HOMEPAGE="https://github.com/LGFae/swww"
+HOMEPAGE="https://codeberg.org/LGFae/awww"
 if [[ ${PV} == *9999* ]]; then
     inherit git-r3
-    EGIT_REPO_URI="https://github.com/LGFae/${PN}.git"
+    EGIT_REPO_URI="https://codeberg.org/LGFae/${PN}.git"
 else
     SRC_URI="
-    https://github.com/LGFae/swww/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-    ${CARGO_CRATE_URIS}
-    "
+	https://codeberg.org/LGFae/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	${CARGO_CRATE_URIS}
+	"
     KEYWORDS="~amd64"
 fi
+
+S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3"
 # Dependent crate licenses
@@ -217,17 +219,17 @@ BDEPEND="
 "
 
 QA_FLAGS_IGNORED="
-	usr/bin/${PN}
-	usr/bin/${PN}-daemon
+	usr/bin/swww
+	usr/bin/swww-daemon
 "
 
 src_unpack() {
-    if [[ "${PV}" == *9999* ]]; then
-        git-r3_src_unpack
-        cargo_live_src_unpack
-    else
-        cargo_src_unpack
-    fi
+	if [[ "${PV}" == *9999* ]]; then
+		git-r3_src_unpack
+		cargo_live_src_unpack
+	else
+		cargo_src_unpack
+	fi
 }
 
 src_compile() {
@@ -237,10 +239,18 @@ src_compile() {
 
 src_install() {
 	dobin "$(cargo_target_dir)"/swww{,-daemon}
+	dosym swww /usr/bin/${PN}
+	dosym swww-daemon /usr/bin/${PN}-daemon
+
 	doman doc/generated/*.1
 
 	dodoc README.md CHANGELOG.md
 	newbashcomp completions/swww.bash swww
 	dofishcomp completions/swww.fish
 	dozshcomp completions/_swww
+}
+
+pkg_postinst() {
+	ewarn "The project has been renamed from swww to awww"
+	ewarn "This ebuild installs symlinks to ease the transition"
 }

@@ -1,2 +1,3 @@
 move dev-libs/aws-crt-cpp dev-cpp/aws-crt-cpp
 move dev-libs/aws-sdk-cpp dev-cpp/aws-sdk-cpp
+move gui-apps/swww gui-apps/awww
