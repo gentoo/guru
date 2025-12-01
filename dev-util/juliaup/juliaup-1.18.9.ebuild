@@ -324,7 +324,7 @@ CRATES="
 	zerovec@0.11.4
 "
 
-inherit cargo
+inherit cargo shell-completion toolchain-funcs
 
 DESCRIPTION="Julia installer and version multiplexer"
 HOMEPAGE="https://github.com/JuliaLang/juliaup"
@@ -357,4 +357,24 @@ src_test() {
 		--skip command_update
 	)
 	cargo_src_test -- "${mytestargs[@]}"
+}
+
+src_install() {
+	cargo_src_install
+	einstalldocs
+
+	if ! tc-is-cross-compiler; then
+		einfo "generating shell completion files"
+
+		"${ED}"/usr/bin/juliaup completions bash > "${T}/${PN}" || die
+		dobashcomp "${T}/${PN}"
+
+		"${ED}"/usr/bin/juliaup completions zsh > "${T}/_${PN}" || die
+		dozshcomp "${T}/_${PN}"
+
+		"${ED}"/usr/bin/juliaup completions fish > "${T}/${PN}.fish" || die
+		dofishcomp "${T}/${PN}.fish"
+	else
+		ewarn "Shell completion files not installed! Install them manually with '${PN} completions --help'"
+	fi
 }
