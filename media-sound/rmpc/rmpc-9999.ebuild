@@ -13,7 +13,7 @@ inherit cargo shell-completion
 
 DESCRIPTION="A beautiful and configurable TUI client for MPD"
 HOMEPAGE="https://mierak.github.io/rmpc/"
-LICENSE="BSD-3-Clause"
+LICENSE="BSD"
 
 # Dependent crate licenses
 LICENSE+="

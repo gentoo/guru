@@ -40,7 +40,7 @@ LICENSE="GPL-3"
 # go-licenses report ./... 2>/dev/null | awk -F ',' '{ print $NF }' | sort --unique | tr '\n' ' '; echo '"'
 
 # dependency licenses:
-LICENSES+=" Apache-2.0 BSD-2-Clause BSD-3-Clause GPL-3.0 ISC MIT "
+LICENSES+=" Apache-2.0 BSD-2-Clause BSD GPL-3.0 ISC MIT "
 
 SLOT="0"
 BDEPEND="

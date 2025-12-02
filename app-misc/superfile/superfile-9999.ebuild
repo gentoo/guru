@@ -26,7 +26,7 @@ LICENSE="MIT"
 # go-licenses report ./... 2>/dev/null | awk -F ',' '{ print $NF }' | sort --unique | tr '\n' ' '; echo '"'
 
 # dependency licenses:
-LICENSES+=" Apache-2.0 BSD-2-Clause BSD-3-Clause GPL-3.0 ISC MIT MPL-2.0 "
+LICENSES+=" Apache-2.0 BSD-2-Clause BSD GPL-3.0 ISC MIT MPL-2.0 "
 
 SLOT="0"
 BDEPEND=">=dev-lang/go-1.25.0"

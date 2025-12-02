@@ -29,7 +29,7 @@ LICENSE="Apache-2.0"
 # go-licenses report ./... 2>/dev/null | awk -F ',' '{ print $NF }' | sort --unique | tr '\n' ' '; echo '"'
 
 # dependency licenses:
-LICENSES+=" Apache-2.0 BSD-2-Clause BSD-3-Clause ISC MIT MPL-2.0 Unlicense "
+LICENSES+=" Apache-2.0 BSD-2-Clause BSD ISC MIT MPL-2.0 Unlicense "
 SLOT="0"
 IUSE="bash-completion zsh-completion"
 
