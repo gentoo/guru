@@ -38,6 +38,7 @@ RDEPEND="
 	>=dev-ml/fmt-0.8.9:=[ocamlopt?]
 	>=dev-ml/odate-0.6:=[ocamlopt?]
 	>=dev-ml/cmarkit-0.3.0:=[ocamlopt?]
+	!www-apps/soupault-bin
 "
 
 DEPEND="${RDEPEND}"
