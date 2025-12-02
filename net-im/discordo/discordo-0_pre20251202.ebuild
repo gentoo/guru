@@ -11,20 +11,14 @@ HOMEPAGE="https://github.com/ayn2op/discordo"
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ayn2op/$PN.git"
-	src_unpack() {
-		git-r3_src_unpack
-		go-module_live_vendor
-	}
 else
 
 	# use this only for 0pre_YYYYMMDD builds, otherwise, keep it empty.
 	# needs to be changed if you're making a new 0pre_YYYYMMDD build
-	GIT_COMMIT="9aa853fa6cf29653815fadae7be4c876b5c1cfdb"
+	GIT_COMMIT="32bb94f457685780251e5e0127f55411267b0b1a"
 
 	# If another person updates it, be sure to change this line to your own depfile link
 	SRC_URI="https://github.com/ingenarel/guru-depfiles/releases/download/${P}-deps.tar.xz/${P}-deps.tar.xz "
-
-	KEYWORDS="~amd64"
 
 	if [[ -n "$GIT_COMMIT" ]]; then
 		SRC_URI+="https://github.com/ayn2op/$PN/archive/$GIT_COMMIT.tar.gz -> ${P}.tar.gz"
@@ -32,19 +26,37 @@ else
 	else
 		SRC_URI+="https://github.com/ayn2op/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	fi
+
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="GPL-3"
+
+# echo "# dependency licenses:"; printf 'LICENSES+=" '; go-licenses report ./... 2>/dev/null |
+# awk -F ',' '{ print $NF }' | sort --unique | sed -E 's/BSD-3-Clause/BSD/' | tr '[:space:]' ' '; echo '"'
+
+# dependency licenses:
+LICENSES+=" Apache-2.0 BSD-2-Clause BSD GPL-3.0 ISC MIT "
+
 SLOT="0"
 BDEPEND="
-	>=dev-lang/go-1.25
+	>=dev-lang/go-1.25.3
 	x11-libs/libnotify
 "
 
 DOCS=( README.md internal/config/config.toml )
 
+src_unpack() {
+	if [[ "$PV" == *9999* ]];then
+		git-r3_src_unpack
+		go-module_live_vendor
+	else
+		default
+	fi
+}
+
 src_compile() {
-	ego build -o "bin/$PN"
+	CGO_ENABLED=0 ego build -o "bin/$PN"
 }
 
 src_install() {
