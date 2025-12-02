@@ -1,0 +1,11 @@
+--- a/extras/gtomb/gtomb
++++ b/extras/gtomb/gtomb
+@@ -20,7 +20,7 @@
+ 
+ # {{{ SETTINGS
+ ver="0.9.1"
+-KDFPATH="/usr/libexec/tomb" # Path of your KDF binaries (if you're using them).
++KDFPATH="/usr/bin" # Path of your KDF binaries (if you're using them).
+ SWAPOFF="false" # Set to "true" to swapoff, or "false" to use -f (force) flag.
+ # The ones below should not need changing
+ TOMBPATH="$(which tomb)" # Tomb executable's path
