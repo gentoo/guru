@@ -9,7 +9,7 @@ DESCRIPTION="Kopia - Fast And Secure Open-Source Backup"
 HOMEPAGE="https://github.com/kopia/kopia"
 SRC_URI="
 	https://github.com/kopia/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/itaiferber/gentoo-distfiles/releases/download/${P}/${P}-deps.tar.xz
+	https://github.com/itaiferber/gentoo-distfiles/releases/download/${CATEGORY}/${P}/${P}-deps.tar.xz
 "
 
 LICENSE="Apache-2.0 BSD BSD-2 CC0-1.0 MIT"
