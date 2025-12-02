@@ -1,4 +1,4 @@
-# Copyright 2024 Brayan M. Salazar <this.brayan@proton.me>
+# Copyright 2024-2025 Brayan M. Salazar <this.brayan@proton.me>
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,9 +13,9 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="
-dev-qt/qtbase:6
-dev-qt/linguist-tools:5
+DEPEND="dev-qt/qtbase:6"
+RDEPEND="
+	${DEPEND}
+	sys-apps/portage
 "
-RDEPEND="${DEPEND}"
-BDEPEND=">=dev-build/cmake-3.28"
+BDEPEND="dev-qt/qttools:6[linguist]"
