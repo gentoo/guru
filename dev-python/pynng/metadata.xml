@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">codypiersall/pynng</remote-id>
+		<remote-id type="pypi">pynng</remote-id>
+		<bugs-to>https://github.com/codypiersall/pynng/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		pynng provides ergonomic Python bindings for nanomsg next generation (nng),
+		a lightweight messaging library. It enables inter-process communication
+		across single computers or networks using various messaging patterns
+		including Pair, Pub/Sub, Surveyor/Respondent, Req/Rep, and Push/Pull.
+		The library supports async frameworks like trio, curio, and asyncio.
+	</longdescription>
+	<longdescription lang="zh">
+		pynng为nanomsg下一代（nng）轻量级消息库提供符合人体工程学的Python绑定。
+		它支持在单台计算机或网络上进行进程间通信，使用多种消息模式，包括Pair（配对）、
+		Pub/Sub（发布/订阅）、Surveyor/Respondent（调查者/响应者）、Req/Rep（请求/回复）
+		和Push/Pull（推/拉）。该库支持trio、curio和asyncio等异步框架。
+	</longdescription>
+</pkgmetadata>
