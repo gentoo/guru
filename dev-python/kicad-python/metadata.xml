@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="gitlab">kicad/code/kicad-python</remote-id>
+		<remote-id type="pypi">kicad-python</remote-id>
+		<doc>https://docs.kicad.org/kicad-python-main/</doc>
+		<bugs-to>https://gitlab.com/kicad/code/kicad-python/-/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		kicad-python is the official Python library for interacting with running
+		KiCad sessions through the IPC API. It enables development of scripts
+		and tools for electronic design automation workflows. The library requires
+		KiCad 9.0 or higher with the API server enabled in Preferences. Note that
+		the IPC API requires communication with a running instance of KiCad; it
+		is not possible to use kicad-python to manipulate KiCad design files
+		without KiCad running.
+	</longdescription>
+	<longdescription lang="zh">
+		kicad-python是用于通过IPC API与运行中的KiCad会话进行交互的官方Python库。
+		它支持开发用于电子设计自动化工作流程的脚本和工具。该库需要KiCad 9.0或更高版本，
+		并在首选项中启用API服务器。请注意，IPC API需要与正在运行的KiCad实例通信；
+		如果没有运行KiCad，则无法使用kicad-python操作KiCad设计文件。
+	</longdescription>
+</pkgmetadata>
