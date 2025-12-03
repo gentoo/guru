@@ -10,9 +10,6 @@ HOMEPAGE="https://github.com/jesseduffield/lazygit"
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/jesseduffield/${PN}.git"
-	src_unpack() {
-		git-r3_src_unpack
-	}
 else
 	KEYWORDS="~amd64"
 	SRC_URI="https://github.com/jesseduffield/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -23,6 +20,14 @@ SLOT="0"
 RDEPEND="dev-vcs/git"
 
 DOCS=( {CODE-OF-CONDUCT,CONTRIBUTING,README}.md docs )
+
+src_unpack() {
+	if [[ "$PV" == *9999* ]];then
+		git-r3_src_unpack
+	else
+		default
+	fi
+}
 
 src_compile() {
 	ego build -o "bin/${PN}" \
