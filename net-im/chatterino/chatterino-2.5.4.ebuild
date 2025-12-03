@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake optfeature xdg
+inherit cmake flag-o-matic optfeature xdg
 
 CERTIFY_COMMIT="a448a3915ddac716ce76e4b8cbf0e7f4153ed1e2"
 EXPECTED_COMMIT="e45e8d5f295d54efe9cace331b9e9f5efa8a84c3"
@@ -54,7 +54,7 @@ LICENSE="MIT"
 LICENSE+=" Boost-1.0 BSD MIT Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="libnotify +plugins qtkeychain"
+IUSE="debug libnotify +plugins qtkeychain"
 
 RDEPEND="
 	dev-libs/openssl:=
@@ -108,6 +108,8 @@ src_prepare() {
 }
 
 src_configure() {
+	local CMAKE_BUILD_TYPE=$(usex debug Debug Release)
+
 	local mycmakeargs=(
 		-DUSE_SYSTEM_QTKEYCHAIN=ON
 		-DBUILD_WITH_QTKEYCHAIN=$(usex qtkeychain)
@@ -116,6 +118,9 @@ src_configure() {
 		-DCHATTERINO_PLUGINS=$(usex plugins)
 		-DCHATTERINO_UPDATER=OFF
 	)
+
+	use debug || append-cxxflags -DNDEBUG
+
 	cmake_src_configure
 }
 
