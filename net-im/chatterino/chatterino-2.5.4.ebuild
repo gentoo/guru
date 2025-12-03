@@ -24,7 +24,7 @@ SRC_URI="
 	https://github.com/Chatterino/chatterino2/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/Chatterino/certify/archive/${CERTIFY_COMMIT}.tar.gz
 		-> ${PN}-certify-${CERTIFY_COMMIT}.tar.gz
-	https://github.com/martinmoene/expected-lite/archive/${EXPECTED_COMMIT}.tar.gz
+	https://github.com/nonstd-lite/expected-lite/archive/${EXPECTED_COMMIT}.tar.gz
 		-> ${PN}-expected-${EXPECTED_COMMIT}.tar.gz
 	https://github.com/Chatterino/libcommuni/archive/${LIBCOMMUNI_COMMIT}.tar.gz
 		-> ${PN}-libcommuni-${LIBCOMMUNI_COMMIT}.tar.gz
