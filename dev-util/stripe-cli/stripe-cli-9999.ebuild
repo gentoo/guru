@@ -12,10 +12,6 @@ HOMEPAGE="https://docs.stripe.com/stripe-cli"
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/stripe/stripe-cli"
-	src_unpack() {
-		git-r3_src_unpack
-		go-module_live_vendor
-	}
 else
 	KEYWORDS="~amd64"
 	SRC_URI="https://github.com/stripe/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -33,6 +29,15 @@ LICENSES+=" Apache-2.0 BSD-2-Clause BSD ISC MIT MPL-2.0 Unlicense "
 SLOT="0"
 
 BDEPEND=">=dev-lang/go-1.24.1"
+
+src_unpack() {
+	if [[ "$PV" == *9999* ]];then
+		git-r3_src_unpack
+		go-module_live_vendor
+	else
+		default
+	fi
+}
 
 src_compile() {
 	CGO_ENABLED=0 ego build -o "bin/${MY_PN}" "cmd/stripe/main.go"
