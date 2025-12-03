@@ -1,0 +1,27 @@
+Adds option to disable logging to allow use without syslog
+--- a/src/config.rs
++++ b/src/config.rs
+@@ -234,6 +234,10 @@ pub struct CliConfig {
+     #[arg(long)]
+     pub no_daemon: bool,
+ 
++    /// If set, starts spotifyd without logging/output
++    #[arg(long)]
++    pub nolog: bool,
++
+     /// Path to PID file.
+     #[cfg(unix)]
+     #[arg(long, value_name = "PATH")]
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -149,7 +149,9 @@ fn run_daemon(mut cli_config: CliConfig) -> eyre::Result<()> {
+         }
+     };
+ 
+-    setup_logger(log_target, cli_config.verbose)?;
++    if !cli_config.nolog {
++        setup_logger(log_target, cli_config.verbose)?;
++    }
+ 
+     cli_config
+         .load_config_file_values()
