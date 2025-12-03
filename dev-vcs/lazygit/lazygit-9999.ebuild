@@ -7,22 +7,35 @@ inherit go-module
 
 DESCRIPTION="Simple terminal UI for git commands"
 HOMEPAGE="https://github.com/jesseduffield/lazygit"
+
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/jesseduffield/${PN}.git"
-	src_unpack() {
-		git-r3_src_unpack
-	}
 else
 	KEYWORDS="~amd64"
 	SRC_URI="https://github.com/jesseduffield/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
-LICENSE="Apache-2.0 BSD ISC MIT Unlicense"
+LICENSE="MIT"
+
+# echo "# dependency licenses:"; printf 'LICENSES+=" '; go-licenses report ./... 2>/dev/null |
+# awk -F ',' '{ print $NF }' | sort --unique | sed -E 's/BSD-3-Clause/BSD/' | tr '[:space:]' ' '; echo '"'
+
+# dependency licenses:
+LICENSES+=" Apache-2.0 BSD-2-Clause BSD ISC MIT Unlicense "
+
 SLOT="0"
 RDEPEND="dev-vcs/git"
 
 DOCS=( {CODE-OF-CONDUCT,CONTRIBUTING,README}.md docs )
+
+src_unpack() {
+	if [[ "$PV" == *9999* ]];then
+		git-r3_src_unpack
+	else
+		default
+	fi
+}
 
 src_compile() {
 	ego build -o "bin/${PN}" \
