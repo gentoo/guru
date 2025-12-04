@@ -42,7 +42,7 @@ CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
 IUSE="blas ${CPU_FLAGS[*]} cuda mkl rocm vulkan"
 # IUSE+=" opencl"
 
-RESTRICT="test"
+RESTRICT="mirror test"
 
 COMMON_DEPEND="
 	blas? (
