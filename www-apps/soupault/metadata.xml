@@ -9,7 +9,7 @@
     <name>Thomas Bracht Laumann Jespersen</name>
   </maintainer>
   <upstream>
-    <doc>https://soupault.app/reference-manual/</doc>
+    <doc>https://soupault.net/reference-manual/</doc>
     <bugs-to>https://codeberg.org/PataphysicalSociety/soupault/issues</bugs-to>
     <remote-id type="codeberg">PataphysicalSociety/soupault</remote-id>
   </upstream>
