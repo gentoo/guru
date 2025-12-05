@@ -15,6 +15,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="iptables"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-fix_618.patch
+)
+
 src_configure() {
 	true
 }
