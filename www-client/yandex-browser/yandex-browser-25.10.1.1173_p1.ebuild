@@ -121,7 +121,7 @@ src_install() {
 		size="${icon##*/product_logo_}"
 		size=${size%.png}
 		dodir "/usr/share/icons/hicolor/${size}x${size}/apps"
-		newicon -s "${size}" "$icon" "${MY_PN}.png"
+		newicon -s "${size}" "$icon" "${PN}.png"
 	done
 
 	rm "${ED}/${YANDEX_HOME}/libqt5_shim.so" || die
