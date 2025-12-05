@@ -17,7 +17,7 @@ submodules["xrt/src/runtime_src/core/common/elf"]=https://github.com/serge1/ELFI
 DESCRIPTION="Runtime for AIE and FPGA based platforms"
 HOMEPAGE="https://github.com/amd/xdna-driver"
 
-VTD_HASH=5f7fec23620be7a3984c8970bc514f0faa2b2ee3
+VTD_HASH=c79b5d21568a4ffa5b0612a8279b352fc4e1109a
 
 if [[ ${PV} == 999999 ]] ; then
 	EGIT_REPO_URI="https://github.com/amd/xdna-driver.git"
@@ -46,6 +46,7 @@ fi
 SRC_URI+="
 	https://github.com/Xilinx/VTD/raw/${VTD_HASH}/archive/strx/xrt_smi_strx.a -> xrt_smi_strx-${VTD_HASH:0:8}.a
 	https://github.com/Xilinx/VTD/raw/${VTD_HASH}/archive/phx/xrt_smi_phx.a -> xrt_smi_phx-${VTD_HASH:0:8}.a
+	https://github.com/Xilinx/VTD/raw/${VTD_HASH}/archive/npu3/xrt_smi_npu3.a -> xrt_smi_npu3-${VTD_HASH:0:8}.a
 "
 
 LICENSE="AMD-Binary-Only"
@@ -98,14 +99,17 @@ src_prepare() {
 	fi
 
 	# Check for new versions and live ebuild
-	local actual_vtd_hash=$(grep -oP 'VTD/raw/\K[0-9a-f]+' CMake/pkg.cmake | head -n1)
+	local actual_vtd_hash=$(grep -oP 'VTD/raw/\K[0-9a-f]+' tools/info.json | head -n1)
 	[[ "${actual_vtd_hash}" == "" ]] && die "Failed to extract VTD hash"
 	[[ "${actual_vtd_hash}" != "${VTD_HASH}" ]] && \
 		die "VTD hash mismatch, ebuild requested ${VTD_HASH} while package wants ${actual_vtd_hash}"
 
-	mkdir deps || die
-	cp "${DISTDIR}/xrt_smi_strx-${VTD_HASH:0:8}.a" deps/xrt_smi_strx.a || die
-	cp "${DISTDIR}/xrt_smi_phx-${VTD_HASH:0:8}.a" deps/xrt_smi_phx.a || die
+	mkdir -p "${WORKDIR}"/amdxdna_bins/vtd_archives || die
+	pushd "${WORKDIR}"/amdxdna_bins/vtd_archives || die
+	cp "${DISTDIR}/xrt_smi_strx-${VTD_HASH:0:8}.a" xrt_smi_strx.a || die
+	cp "${DISTDIR}/xrt_smi_phx-${VTD_HASH:0:8}.a" xrt_smi_phx.a || die
+	cp "${DISTDIR}/xrt_smi_npu3-${VTD_HASH:0:8}.a" xrt_smi_npu3.a || die
+	popd || die
 
 	sed -e "/Unknown Linux package flavor/d" -i "CMake/pkg.cmake" || die
 
@@ -121,9 +125,6 @@ src_configure() {
 		-DSKIP_KMOD=1
 		-DUMQ_HELLO_TEST=n
 
-		-DFETCHCONTENT_FULLY_DISCONNECTED=ON
-		-DFETCHCONTENT_SOURCE_DIR_VTD_STRX_ARCHIVE="${S}/deps"
-		-DFETCHCONTENT_SOURCE_DIR_VTD_PHX_ARCHIVE="${S}/deps"
 		-DPython3_EXECUTABLE="${PYTHON}"
 		-Wno-dev
 	)
