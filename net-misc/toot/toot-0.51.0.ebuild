@@ -19,7 +19,6 @@ KEYWORDS="~amd64"
 DEPEND="
 		<dev-python/urwid-3.0.4[${PYTHON_USEDEP}]
 		>=dev-python/wcwidth-0.2.6[${PYTHON_USEDEP}]
-		media-fonts/ttf-ancient-fonts
 		>=dev-python/beautifulsoup4-4.12.2[${PYTHON_USEDEP}]
 		>=dev-python/tomlkit-0.11.8[${PYTHON_USEDEP}]
 		test? ( dev-python/psycopg:2[${PYTHON_USEDEP}]
