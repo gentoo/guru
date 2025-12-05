@@ -220,7 +220,7 @@ LICENSE="Apache-2.0"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0 ISC MIT Unicode-3.0 ZLIB"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64"
 
 # restrict mirror for faster downloads, since guru isn't mirrored
 RESTRICT="mirror"
