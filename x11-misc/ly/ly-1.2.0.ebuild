@@ -74,7 +74,7 @@ src_install() {
 	systemd_dounit "${RES}/${PN}.service"
 	insinto /etc/${PN}
 	doins "${RES}/config.ini" "${RES}/setup.sh"
-	insinto "{RES}/lang"
+	insinto "/etc/${PN}/lang"
 	doins ${RES}/lang/*.ini
 	newpamd "${RES}/pam.d/ly-linux" ly
 	fperms +x /etc/${PN}/setup.sh
