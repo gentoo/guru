@@ -1,0 +1,28 @@
+diff --git a/configure.ac b/configure.ac
+index c29f1e6..36f1874 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -504,8 +504,8 @@ fi
+ AC_CHECK_HEADERS([byteswap.h])
+ 
+ ## libtinfo ##
+-AC_CHECK_LIB([tinfo], [setupterm], tinfo=1,
+-    AC_MSG_WARN([*** tinfo library (libtinfo) not found]))
++AC_CHECK_LIB([tinfow], [setupterm], tinfo=1,
++    AC_MSG_WARN([*** tinfow library (libtinfo) not found]))
+ AM_CONDITIONAL(ENABLE_TINFO, test "$tinfo" = 1)
+ 
+ ##memory tracing##
+diff --git a/src/Makefile.am b/src/Makefile.am
+index b678dbd..05f7018 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -33,7 +33,7 @@ LDADD_static=-ldl
+ endif
+ 
+ if ENABLE_TINFO
+-LIBS+=-ltinfo
++LIBS+=-ltinfow
+ endif
+ 
+ AM_CFLAGS=-D_FILE_OFFSET_BITS=64
