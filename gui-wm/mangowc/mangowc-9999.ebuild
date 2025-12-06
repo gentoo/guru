@@ -10,6 +10,8 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/DreamMaoMao/${PN}/archive/${PV}.tar.gz"
+	S="${WORKDIR}/${PN}-${PV}"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="wayland compositor based on wlroots and scenefx(dwl but no suckless)"
@@ -24,11 +26,10 @@ COMMON_DEPEND="
 	<gui-libs/wlroots-0.20:=[X?]
 "
 
-# tracking git scenefx branch is required
 COMMON_DEPEND+="
 	dev-libs/libinput:=
 	dev-libs/wayland
-	~gui-libs/scenefx-9999
+	>=gui-libs/scenefx-0.4.1
 	dev-libs/libpcre2
 	x11-libs/libxkbcommon
 	X? (
