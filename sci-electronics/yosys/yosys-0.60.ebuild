@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="framework for Verilog RTL synthesis"
-HOMEPAGE="http://www.clifford.at/yosys/"
+HOMEPAGE="https://yosyshq.net/yosys/"
 SRC_URI="
 	https://github.com/YosysHQ/${PN}/releases/download/v${PV}/yosys.tar.gz -> ${P}.tar.gz
 "
