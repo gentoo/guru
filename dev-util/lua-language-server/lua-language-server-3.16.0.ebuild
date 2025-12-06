@@ -23,6 +23,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	app-alternatives/ninja
 	app-arch/unzip
+	sys-libs/libunwind
 "
 RESTRICT="!test? ( test )"
 
