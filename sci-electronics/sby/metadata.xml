@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<longdescription lang="en">
+		SymbiYosys (sby) is a front-end driver program for Yosys-based formal
+		hardware verification flows. It supports bounded model checking (BMC),
+		unbounded model checking, and cover property checking for hardware
+		designs written in Verilog, SystemVerilog, or VHDL. SymbiYosys
+		integrates with various SMT solvers and model checkers including
+		Yices, Z3, Boolector, and ABC.
+	</longdescription>
+	<longdescription lang="zh">
+		SymbiYosys (sby) 是基于 Yosys 的形式化硬件验证流程的前端驱动程序。
+		它支持有界模型检查 (BMC)、无界模型检查和覆盖属性检查，适用于使用
+		Verilog、SystemVerilog 或 VHDL 编写的硬件设计。SymbiYosys 集成了
+		多种 SMT 求解器和模型检查器，包括 Yices、Z3、Boolector 和 ABC。
+	</longdescription>
+	<use>
+		<flag name="yices2">Enable Yices2 SMT solver support</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">YosysHQ/sby</remote-id>
+		<bugs-to>https://github.com/YosysHQ/sby/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
