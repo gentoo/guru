@@ -7,7 +7,7 @@ inherit linux-mod-r1
 
 # FWAPI=https://gitlab.com/api/v4/projects/kernel-firmware%2Fdrm-firmware/repository/branches/amd-ipu-staging
 # curl -s "$FWAPI" | jq -r '.commit.id'
-FW_HASH=886e8948d60c354b488ad8d10c56763b81597093
+FW_COMMIT=886e8948d60c354b488ad8d10c56763b81597093
 
 DESCRIPTION="AMD XDNA Driver"
 HOMEPAGE="https://github.com/amd/xdna-driver"
@@ -22,23 +22,22 @@ else
 fi
 
 # INFO_FILE=https://raw.githubusercontent.com/amd/xdna-driver/main/tools/info.json
-# curl -s "$INFO_FILE" | jq -r '.firmwares[] | "\(.url) -> \(.pci_device_id)_\(.pci_revision_id)__\(.fw_name)"'
-FW_URI_PREFIX=https://gitlab.com/kernel-firmware/drm-firmware/-/raw/${FW_HASH}/amdnpu
-SRC_URI+=" firmware? (
-	${FW_URI_PREFIX}/1502_00/npu.sbin.1.5.5.391 -> ${FW_HASH:0:6}-1502_00__npu.dev.sbin
-	${FW_URI_PREFIX}/17f0_00/npu.sbin.0.7.22.185 -> ${FW_HASH:0:6}-17f0_00__npu.dev.sbin
-	${FW_URI_PREFIX}/17f0_10/npu.sbin.255.0.5.35 -> ${FW_HASH:0:6}-17f0_10__npu.dev.sbin
-	${FW_URI_PREFIX}/17f0_11/npu.sbin.255.0.5.35 -> ${FW_HASH:0:6}-17f0_11__npu.dev.sbin
-)"
+# COMMON_PREFIX=https://gitlab.com/kernel-firmware/drm-firmware/-/raw/amd-ipu-staging/amdnpu/
+# curl -s "$INFO_FILE" | jq -r ".firmwares[] | .url | sub(\"${COMMON_PREFIX}\"; \"\")"
+FIRMWARES=(
+	1502_00/npu.sbin.1.5.5.391
+	17f0_00/npu.sbin.0.7.22.185
+	17f0_10/npu.sbin.255.0.5.35
+	17f0_11/npu.sbin.255.0.5.35
+)
 
-declare -A firmwares
+FW_URI_PREFIX=https://gitlab.com/kernel-firmware/drm-firmware/-/raw/${FW_COMMIT}/amdnpu
 
-# curl -s https://raw.githubusercontent.com/amd/xdna-driver/main/tools/info.json \
-# | jq -r '.firmwares[] | "firmwares[\"\(.pci_device_id)_\(.pci_revision_id)__\(.fw_name)\"]=\(.pci_device_id)_\(.pci_revision_id)/\(.fw_name)"'
-firmwares["1502_00__npu.dev.sbin"]=1502_00/npu.dev.sbin
-firmwares["17f0_00__npu.dev.sbin"]=17f0_00/npu.dev.sbin
-firmwares["17f0_10__npu.dev.sbin"]=17f0_10/npu.dev.sbin
-firmwares["17f0_11__npu.dev.sbin"]=17f0_11/npu.dev.sbin
+SRC_URI+=" firmware? ( "
+for fw in "${FIRMWARES[@]}"; do
+	SRC_URI+="${FW_URI_PREFIX}/${fw} -> ${FW_COMMIT:0:6}-${fw%%/*}__npu.dev.sbin "
+done
+SRC_URI+=")"
 
 S="${WORKDIR}/${P}/src/driver/amdxdna"
 LICENSE="GPL-2 firmware? ( linux-fw-redistributable )"
@@ -58,10 +57,11 @@ src_compile() {
 }
 
 src_install() {
-	for k in "${!firmwares[@]}"; do
-		value="${firmwares[$k]}"
-		mkdir -p "${D}/lib/firmware/amdnpu/$(dirname "${value}")" || die
-		cp "${DISTDIR}/${FW_HASH:0:6}-$k" "${D}/lib/firmware/amdnpu/${value}" || die
+	for fw in "${FIRMWARES[@]}"; do
+		local dir="${fw%%/*}"
+		local src_filename="${FW_COMMIT:0:6}-${dir}__npu.dev.sbin"
+		insinto "/lib/firmware/amdnpu/${dir}"
+		newins "${DISTDIR}/${src_filename}" npu.dev.sbin
 	done
 
 	insinto /usr/lib/modules-load.d
