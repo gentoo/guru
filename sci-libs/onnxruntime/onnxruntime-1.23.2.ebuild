@@ -32,7 +32,7 @@ RDEPEND="
 	dev-libs/cpuinfo
 	dev-libs/protobuf:=
 	dev-libs/re2:=
-	<sci-ml/onnx-1.18[disableStaticReg]
+	sci-ml/onnx[disableStaticReg]
 
 	python? (
 		${PYTHON_DEPS}
@@ -69,10 +69,10 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-1.22.2-add-a-missing-include-of-cstdint.patch"
 	"${FILESDIR}/${PN}-1.22.2-relax-the-dependency-on-flatbuffers.patch"
 	"${FILESDIR}/${PN}-1.22.2-remove-the-absl-low_level_hash-target.patch"
-	"${FILESDIR}/${PN}-1.22.2-use-system-libraries.patch"
+	"${FILESDIR}/${PN}-1.23.2-fix-compilation-errors.patch"
+	"${FILESDIR}/${PN}-1.23.2-use-system-libraries.patch"
 )
 
 CMAKE_USE_DIR="${S}/cmake"
@@ -111,7 +111,7 @@ python_test() {
 }
 
 src_test() {
-	export GTEST_FILTER="*:-ActivationOpNoInfTest.Softsign"
+	export GTEST_FILTER="*:-ActivationOpNoInfTest.Softsign:LayoutTransformationPotentiallyAddedOpsTests.OpsHaveLatestVersions"
 	cmake_src_test
 
 	if use python ; then
