@@ -7,7 +7,7 @@ inherit xdg ninja-utils
 
 if [[ "${PV}" == "9999" ]]
 then
-	EGIT_REPO_URI="https://hacktivis.me/git/badwolf.git"
+	EGIT_REPO_URI="https://anongit.hacktivis.me/git/badwolf.git"
 	inherit git-r3
 else
 	VERIFY_SIG_METHOD=signify
