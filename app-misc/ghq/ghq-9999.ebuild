@@ -20,6 +20,10 @@ else
 fi
 
 LICENSE="MIT"
+
+# dependency licenses:
+LICENSE+=" BSD-2 BSD MIT "
+
 SLOT="0"
 
 src_unpack() {
