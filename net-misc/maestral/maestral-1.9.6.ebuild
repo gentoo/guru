@@ -20,6 +20,7 @@ if [[ ${PV} != *_rc* ]]; then
 fi
 
 RDEPEND="
+	dev-python/bidict[${PYTHON_USEDEP}]
 	>=dev-python/click-8.0.2[${PYTHON_USEDEP}]
 	>=dev-python/desktop-notifier-5.0.0[${PYTHON_USEDEP}]
 	dev-python/dropbox[${PYTHON_USEDEP}]
@@ -56,5 +57,5 @@ EPYTEST_DESELECT=(
 	tests/offline/utils/test_path.py::test_move_preserves_xattrs
 )
 
-EPYTEST_PLUGINS=( bidict )
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
