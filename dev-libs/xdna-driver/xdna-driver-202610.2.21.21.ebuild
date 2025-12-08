@@ -18,7 +18,7 @@ if [[ ${PV} == 999999 ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/amd/xdna-driver/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 # INFO_FILE=https://raw.githubusercontent.com/amd/xdna-driver/202610.2.21.21/tools/info.json
