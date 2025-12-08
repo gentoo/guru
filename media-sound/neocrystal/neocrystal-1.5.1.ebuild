@@ -170,6 +170,8 @@ CRATES="
 	zerocopy@0.8.27
 "
 
+RUST_MIN_VER="1.88"
+
 inherit cargo
 
 DESCRIPTION="A terminal user interface music player in Rust"
@@ -188,7 +190,7 @@ else
 	KEYWORDS="~amd64"
 fi
 #package license
-LICENSE="MIT"
+LICENSE="GPL-3+"
 #crate licenses
 LICENSE+=" Apache-2.0 BSD MPL-2.0 Unicode-3.0"
 SLOT="0"
@@ -203,6 +205,13 @@ BDEPEND="
 
 DEPEND=${RDEPEND}
 
+src_prepare() {
+	default
+	eapply "${FILESDIR}"/remove-win32.patch
+}
+
 pkg_postinst() {
-	elog "neocrystal won't work without a ~/Music"
+	elog "neocrystal won't work without a ~/Music/"
+	elog "and you need to have alsa support to have a working playback"
+	elog "because cpal crate uses alsa for linux."
 }
