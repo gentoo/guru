@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<longdescription lang="en">
+		If you are familiar with the pfetch system information
+		tool by dylanaraps, this does the exact same thing, but 
+		with an about 10x faster runtime. 
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/Gobidev/pfetch-rs/issues</bugs-to>
+		<remote-id type="github">Gobidev/pfetch-rs</remote-id>
+	</upstream>
+</pkgmetadata>
+
