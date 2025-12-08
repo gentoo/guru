@@ -6,6 +6,10 @@
 EAPI=8
 
 RUST_MIN_VER="1.81"
+
+MY_PN=${PN%%-*}
+MY_P="${MY_PN}-${PV}"
+
 CRATES="
 	aho-corasick@1.1.3
 	android-tzdata@0.1.1
@@ -94,6 +98,8 @@ CRATES="
 	parking_lot@0.12.3
 	parking_lot_core@0.9.10
 	pciid-parser@0.6.3
+	pfetch-extractor@0.2.3
+	pfetch-logo-parser@0.1.1
 	pin-project-lite@0.2.16
 	pin-utils@0.1.0
 	pkg-config@0.3.31
@@ -179,16 +185,19 @@ CRATES="
 	wmi@0.12.2
 	x11rb-protocol@0.12.0
 	x11rb@0.12.0
+	${MY_PN}@${PV}
 "
 
 inherit cargo
 
 DESCRIPTION="A rewrite of the pfetch system information tool"
-HOMEPAGE="https://github.com/Gobidev/pfetch-rs/"
-SRC_URI="
-	https://github.com/Gobidev/pfetch-rs/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	${CARGO_CRATE_URIS}
+HOMEPAGE="
+	https://crates.io/crates/pfetch
+	https://github.com/Gobidev/pfetch-rs/
 "
+SRC_URI="${CARGO_CRATE_URIS}"
+
+S="${ECARGO_VENDOR}/${MY_P}"
 
 LICENSE="MIT"
 # Dependent crate licenses
