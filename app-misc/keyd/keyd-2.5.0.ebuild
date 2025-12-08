@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit linux-info
+
 DESCRIPTION="A key remapping daemon for linux"
 HOMEPAGE="https://github.com/rvaiya/keyd"
 SRC_URI="https://github.com/rvaiya/keyd/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -16,6 +18,19 @@ DEPEND="${RDEPEND}"
 PATCHES=(
 	"${FILESDIR}"/${P}-makefile.patch
 )
+
+pkg_pretend() {
+	if ! linux_config_exists; then
+		eerror "Unable to check your kernel for user level driver support."
+	else
+		CONFIG_CHECK="~INPUT_UINPUT"
+		ERROR_INPUT_UINPUT="You will need user level driver support"
+		ERROR_INPUT_UINPUT+=" (INPUT_UINPUT) compiled into your kernel"
+		ERROR_INPUT_UINPUT+=" or loaded as a module to use this package."
+
+		check_extra_config
+	fi
+}
 
 src_install() {
 	default
