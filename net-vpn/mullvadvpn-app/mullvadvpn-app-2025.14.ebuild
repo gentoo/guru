@@ -16,7 +16,12 @@ SRC_URI="
 S="${WORKDIR}"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~arm64"
+
+# Betas are kept unkeyworded; users can opt in to testing by accepting '**' instead of '~amd64'/
+# '~arm64' keywords.
+if [[ "${PV}" != *_beta* ]]; then
+	KEYWORDS="-* ~amd64 ~arm64"
+fi
 
 RESTRICT="bindist mirror strip"
 
