@@ -19,6 +19,8 @@ SLOT="0"
 
 # Betas are kept unkeyworded; users can opt in to testing by accepting '**' instead of '~amd64'/
 # '~arm64' keywords.
+#
+# See https://bugs.gentoo.org/966989
 if [[ "${PV}" != *_beta* ]]; then
 	KEYWORDS="-* ~amd64 ~arm64"
 fi
