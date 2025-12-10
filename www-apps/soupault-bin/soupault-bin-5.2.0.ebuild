@@ -6,7 +6,7 @@ EAPI=8
 BASE_SRC_URI="https://github.com/PataphysicalSociety/soupault/releases/download/${PV}/soupault-${PV}-linux-@arch@.tar.gz"
 
 DESCRIPTION="Static website generator based on HTML rewriting"
-HOMEPAGE="https://soupault.app"
+HOMEPAGE="https://soupault.net"
 SRC_URI="
 	amd64? ( ${BASE_SRC_URI//@arch@/x86_64} )
 	arm64? ( ${BASE_SRC_URI//@arch@/aarch64} )
