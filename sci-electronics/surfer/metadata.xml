@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<longdescription lang="en">
+		Surfer is a waveform viewer with a focus on a snappy usable interface,
+		and support for many waveform formats. It can be used to view waveforms
+		from digital design simulations (VCD, FST, GHW) and supports features
+		like signal search, markers, and annotations. Surfer also includes a
+		server component (surver) for remote waveform viewing.
+	</longdescription>
+	<longdescription lang="zh">
+		Surfer 是一款注重快速易用界面的波形查看器，支持多种波形格式。它可用于
+		查看数字设计仿真的波形（VCD、FST、GHW），并支持信号搜索、标记和注释等
+		功能。Surfer 还包含一个服务器组件（surver）用于远程波形查看。
+	</longdescription>
+	<use>
+		<flag name="accesskit">Enable accessibility support via accesskit</flag>
+		<flag name="performance-plot">Enable performance plotting with egui_plot</flag>
+		<flag name="python">Enable Python bindings for waveform translation</flag>
+		<flag name="wasm-plugins">Enable WASM plugin support via extism</flag>
+	</use>
+	<upstream>
+		<remote-id type="gitlab">surfer-project/surfer</remote-id>
+		<remote-id type="github">jkarns275/f128</remote-id>
+		<bugs-to>https://gitlab.com/surfer-project/surfer/-/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
