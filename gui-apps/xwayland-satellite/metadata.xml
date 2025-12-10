@@ -5,6 +5,10 @@
 		<name>Jonas Frei</name>
 		<email>freijon@pm.me</email>
 	</maintainer>
+	<maintainer type="person">
+		<name>Mikhail Zavertkin</name>
+		<email>misha.zavertkin@mail.ru</email>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">Supreeeme/xwayland-satellite</remote-id>
 		<bugs-to>https://github.com/Supreeeme/xwayland-satellite/issues</bugs-to>
