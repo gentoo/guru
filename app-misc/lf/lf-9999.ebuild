@@ -11,10 +11,6 @@ HOMEPAGE="https://github.com/gokcehan/lf"
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/gokcehan/lf.git"
-	src_unpack() {
-		git-r3_src_unpack
-		go-module_live_vendor
-	}
 else
 	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 	SRC_URI="https://github.com/gokcehan/${PN}/archive/refs/tags/r${PV}.tar.gz -> ${P}.tar.gz"
@@ -28,6 +24,15 @@ LICENSE="MIT"
 LICENSE+=" Apache-2.0 BSD MIT "
 SLOT="0"
 IUSE="+static"
+
+src_unpack() {
+	if [[ "${PV}" == 9999 ]];then
+		git-r3_src_unpack
+		go-module_live_vendor
+	else
+		default
+	fi
+}
 
 src_compile() {
 	local ldflags="-w -X main.gVersion=r${PV}"
