@@ -87,7 +87,9 @@ src_prepare() {
 	sed -i 's/git = "[^ ]*"/version = "*"/' Cargo.toml || die
 	# niri-session doesn't work on OpenRC
 	if ! use systemd; then
-		sed -i 's/niri-session/niri --session/' resources/niri.desktop || die
+		local cmd="niri --session"
+		use dbus && cmd="dbus-run-session $cmd"
+		sed -i "s/niri-session/$cmd/" resources/niri.desktop || die
 	fi
 	default
 }
