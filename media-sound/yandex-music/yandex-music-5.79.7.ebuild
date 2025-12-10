@@ -103,7 +103,7 @@ src_prepare() {
 
 	gunzip "usr/share/doc/${PF}/changelog.gz" || die "Failed to decompress docs"
 
-#	rm "${S}/${YANDEX_HOME}"/resources/app-update.yml || die
+	rm "${S}/${YANDEX_HOME}"/resources/app-update.yml || die
 
 	pushd "${YANDEX_HOME}/locales" > /dev/null || die
 	chromium_remove_language_paks
