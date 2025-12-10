@@ -1,0 +1,13 @@
+diff --git a/s_tui/s_tui.py b/s_tui/s_tui.py
+index e39e6d9..c104e8f 100755
+--- a/s_tui/s_tui.py
++++ b/s_tui/s_tui.py
+@@ -36,7 +36,7 @@ import sys
+ 
+ import psutil
+ import urwid
+-import urwid.curses_display
++#import urwid.curses_display
+ 
+ try:
+     import configparser
