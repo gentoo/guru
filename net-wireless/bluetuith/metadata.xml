@@ -6,9 +6,9 @@
     <name>Rahil Bhimjiani</name>
   </maintainer>
   <upstream>
-    <remote-id type="github">darkhz/bluetuith</remote-id>
-    <bugs-to>https://github.com/darkhz/bluetuith/issues</bugs-to>
-    <doc>https://darkhz.github.io/bluetuith</doc>
+    <remote-id type="github">bluetuith-org/bluetuith</remote-id>
+    <bugs-to>https://github.com/bluetuith-org/bluetuith/issues</bugs-to>
+    <doc>https://bluetuith-org.github.io/bluetuith</doc>
   </upstream>
   <use>
     <flag name="doc">Install html docs</flag>
