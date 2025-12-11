@@ -9,7 +9,28 @@
 		<remote-id type="github">madmaxms/theme-obsidian-2</remote-id>
 	</upstream>
 	<longdescription lang="en">
-	Modern and intuitive Obsidian Gnome theme, based upon Adwaita-Maia dark
-	skin. Compatible with Gtk 3.22.
+	Obsidian 2 is a modern and intuitive dark GTK theme designed specifically
+	for GNOME desktop environments. Built upon the foundation of the
+	Adwaita-Maia dark skin, this theme provides a sleek, professional
+	appearance with carefully crafted visual elements that enhance the user
+	interface experience. It is fully compatible with GTK 3.22 and later
+	versions, including GNOME 49, with continuous improvements for both GTK3
+	and GTK4 applications. The theme features polished widgets, refined color
+	schemes, and smooth transitions that create a cohesive desktop environment.
+	For users running older systems with GTK 3.18 or Cinnamon 3.2 and below,
+	the predecessor Obsidian 1 theme is available as an alternative. This
+	actively maintained project ensures ongoing compatibility with the latest
+	GNOME releases while preserving the distinctive dark aesthetic that makes
+	Obsidian 2 popular among Linux desktop enthusiasts.
+	</longdescription>
+	<longdescription lang="zh">
+	Obsidian 2 是一款专为 GNOME 桌面环境设计的现代化、直观的深色 GTK 主题。
+	基于 Adwaita-Maia 深色皮肤打造，该主题提供了简洁专业的外观，并精心设计了
+	视觉元素以增强用户界面体验。它完全兼容 GTK 3.22 及更高版本，包括 GNOME 49，
+	并持续改进对 GTK3 和 GTK4 应用程序的支持。该主题具有精致的部件、优化的配色
+	方案和流畅的过渡效果，营造出协调一致的桌面环境。对于运行 GTK 3.18 或
+	Cinnamon 3.2 及更早版本系统的用户，可以选择使用前代主题 Obsidian 1。
+	作为一个积极维护的项目，它确保与最新的 GNOME 版本保持兼容，同时保留了
+	使 Obsidian 2 在 Linux 桌面爱好者中广受欢迎的独特深色美学风格。
 	</longdescription>
 </pkgmetadata>
