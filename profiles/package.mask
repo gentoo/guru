@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Viorel Munteanu <ceamac@gentoo.org> (2025-12-11)
+# Unmaintained, causes a name collision with a pkgmove in ::gentoo.
+# See the associated bug for more details.
+# Removal on 2026-01-10.  Bug #967328.
+www-apps/jackett
+
 # Paul Zander <negril.nx+gentoo@gmail.com> (2025-11-25)
 # Added due to nodejs compile times unaware of binpkg option
 # Removal after 2025-12-02
