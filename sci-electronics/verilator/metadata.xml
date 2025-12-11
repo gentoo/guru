@@ -9,10 +9,13 @@
 		<remote-id type="github">verilator/verilator</remote-id>
 	</upstream>
 	<longdescription lang="en">
-	Verilator, the fastest free Verilog HDL simulator.
-	Accepts synthesizable Verilog or SystemVerilog
-	Performs lint code-quality checks
-	Compiles into multithreaded C++, SystemC, or (soon) C++-under-Python
-	Creates XML to front-end your own tools
+		Verilator, the fastest Verilog/SystemVerilog simulator. Accepts Verilog
+		or SystemVerilog. Performs lint code-quality checks. Compiles into
+		multithreaded C++, or SystemC. Creates XML to front-end your own tools.
+	</longdescription>
+	<longdescription lang="zh">
+		Verilator，最快的 Verilog/SystemVerilog 模拟器。支持 Verilog 和
+		SystemVerilog。执行 lint 代码质量检查。可编译为多线程 C++ 或
+		SystemC。生成 XML 以对接您自己的工具。
 	</longdescription>
 </pkgmetadata>
