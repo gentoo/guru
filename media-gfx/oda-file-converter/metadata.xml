@@ -18,4 +18,12 @@
 	If the recursive flag is enabled, subdirectories within the source
 	directory will be processed recursively.
 	</longdescription>
+	<longdescription lang="zh">
+	ODA File Converter 用于在不同版本的 .dwg 和 .dxf 文件之间进行转换。
+	该应用程序提供图形界面和命令行界面。
+	执行时，应用程序会识别指定源目录中所有匹配指定过滤器的文件，
+	然后将每个文件加载并保存到指定的输出目录，转换为指定的输出版本/类型。
+	如果启用审核标志，将在加载每个文件时执行审核/修复操作。
+	如果启用递归标志，将递归处理源目录中的子目录。
+	</longdescription>
 </pkgmetadata>
