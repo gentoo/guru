@@ -1,0 +1,101 @@
+# Copyright 1999-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+DISTUTILS_USE_PEP517=poetry
+PYTHON_COMPAT=( python3_{10..14} )
+inherit distutils-r1 pypi
+
+DESCRIPTION="KiCad API Python Bindings for interacting with running KiCad sessions"
+HOMEPAGE="https://gitlab.com/kicad/code/kicad-python https://pypi.org/project/kicad-python"
+
+# Proto files version should match kicad release
+KICAD_TAG="9.0.6"
+KICAD_PROTO_BASE="https://gitlab.com/kicad/code/kicad/-/raw/${KICAD_TAG}/api/proto"
+
+# List of proto files needed
+PROTO_FILES=(
+	"board/board.proto"
+	"board/board_commands.proto"
+	"board/board_types.proto"
+	"common/commands/base_commands.proto"
+	"common/commands/editor_commands.proto"
+	"common/commands/project_commands.proto"
+	"common/envelope.proto"
+	"common/types/base_types.proto"
+	"common/types/enums.proto"
+	"common/types/project_settings.proto"
+	"schematic/schematic_commands.proto"
+	"schematic/schematic_types.proto"
+)
+
+SRC_URI="$(pypi_sdist_url)"
+for _p in "${PROTO_FILES[@]}"; do
+	SRC_URI+=" ${KICAD_PROTO_BASE}/${_p} -> kicad-${KICAD_TAG}-${_p//\//-}"
+done
+unset _p
+
+LICENSE="MIT"
+SLOT=0
+KEYWORDS="~amd64"
+
+# Tests not included in PyPI sdist
+RESTRICT="test"
+
+# Regenerate protobuf files at build time to match system protobuf version
+RDEPEND="
+	>=dev-python/protobuf-5.29[${PYTHON_USEDEP}]
+	>=dev-python/pynng-0.8.0[${PYTHON_USEDEP}]
+	<dev-python/pynng-0.9.0[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		>=dev-python/typing-extensions-4.13.2[${PYTHON_USEDEP}]
+	' python3_{10..12})
+"
+BDEPEND="
+	${RDEPEND}
+	dev-libs/protobuf[protoc(+)]
+"
+
+src_prepare() {
+	# Remove build script config from pyproject.toml
+	sed -i '/\[tool.poetry.build\]/,/^$/d' pyproject.toml || die
+	rm -f setup.py build.py || die
+
+	# Setup proto source directory
+	local proto_src="${WORKDIR}/proto"
+	mkdir -p "${proto_src}"/{board,common/commands,common/types,schematic} || die
+
+	# Copy downloaded proto files to proper structure
+	local _p _f
+	for _p in "${PROTO_FILES[@]}"; do
+		_f="kicad-${KICAD_TAG}-${_p//\//-}"
+		cp "${DISTDIR}/${_f}" "${proto_src}/${_p}" || die
+	done
+
+	einfo "Regenerating protobuf files with system protoc..."
+
+	# Remove pre-generated files
+	rm -rf "${S}"/kipy/proto || die
+	rm -rf "${S}"/build/lib/kipy/proto || die
+
+	# Create output directory
+	mkdir -p "${S}"/kipy/proto || die
+
+	# Compile all proto files
+	protoc \
+		--proto_path="${proto_src}" \
+		--python_out="${S}/kipy/proto" \
+		--pyi_out="${S}/kipy/proto" \
+		"${proto_src}"/board/*.proto \
+		"${proto_src}"/common/*.proto \
+		"${proto_src}"/common/commands/*.proto \
+		"${proto_src}"/common/types/*.proto \
+		"${proto_src}"/schematic/*.proto \
+		|| die "protoc failed"
+
+	# Create __init__.py files
+	find "${S}/kipy/proto" -type d -exec touch {}/__init__.py \; || die
+
+	distutils-r1_src_prepare
+}
