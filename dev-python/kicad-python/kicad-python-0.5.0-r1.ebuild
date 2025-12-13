@@ -76,18 +76,19 @@ src_prepare() {
 
 	einfo "Regenerating protobuf files with system protoc..."
 
-	# Remove pre-generated files
-	rm -rf "${S}"/kipy/proto || die
+	# Remove only pre-generated _pb2.py and _pb2.pyi files, keep __init__.py
+	find "${S}"/kipy/proto -name '*_pb2.py' -delete || die
+	find "${S}"/kipy/proto -name '*_pb2.pyi' -delete || die
 	rm -rf "${S}"/build/lib/kipy/proto || die
 
-	# Create output directory
-	mkdir -p "${S}"/kipy/proto || die
+	# Compile all proto files (output to temp dir first)
+	local proto_out="${WORKDIR}/proto_out"
+	mkdir -p "${proto_out}" || die
 
-	# Compile all proto files
 	protoc \
 		--proto_path="${proto_src}" \
-		--python_out="${S}/kipy/proto" \
-		--pyi_out="${S}/kipy/proto" \
+		--python_out="${proto_out}" \
+		--pyi_out="${proto_out}" \
 		"${proto_src}"/board/*.proto \
 		"${proto_src}"/common/*.proto \
 		"${proto_src}"/common/commands/*.proto \
@@ -95,8 +96,18 @@ src_prepare() {
 		"${proto_src}"/schematic/*.proto \
 		|| die "protoc failed"
 
-	# Create __init__.py files
-	find "${S}/kipy/proto" -type d -exec touch {}/__init__.py \; || die
+	# Copy only _pb2.py and _pb2.pyi files to kipy/proto, preserving original __init__.py
+	find "${proto_out}" \( -name '*_pb2.py' -o -name '*_pb2.pyi' \) | while read -r f; do
+		local rel="${f#${proto_out}/}"
+		cp "${f}" "${S}/kipy/proto/${rel}" || die
+	done
+
+	# Fix imports: protoc generates absolute imports (e.g., "from common.types import ...")
+	# but kipy expects them relative to kipy.proto (e.g., "from kipy.proto.common.types import ...")
+	find "${S}/kipy/proto" \( -name '*_pb2.py' -o -name '*_pb2.pyi' \) -exec \
+		sed -i -E \
+			-e 's/^(from|import) (common|board|schematic)([ .])/\1 kipy.proto.\2\3/g' \
+			{} + || die "failed to fix protobuf imports"
 
 	distutils-r1_src_prepare
 }
