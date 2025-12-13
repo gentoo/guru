@@ -27,4 +27,12 @@
 	are read-only), and experimental CBUS support on selected devices with
 	4 pins per port.
 	</longdescription>
+	<longdescription lang="zh">
+	PyFtdi 旨在为流行的 FTDI 设备提供用户空间驱动程序，完全使用纯 Python 语言实现。
+	PyFtdi 支持多种功能，包括 UART/串口 USB 转换，速度可达 12Mbps（取决于 FTDI 设备）。
+	它还提供 GPIO/Bitbang 功能，支持 8 位异步、8 位同步和 8/16 位 MPSSE 模式。
+	对于 SPI 和 I2C，PyFtdi 提供主机功能并同时支持 GPIO，SPI 每端口最多管理 12 个引脚，
+	I2C 最多 14 个引脚。此外，它还包括基本的 JTAG 主机功能、EEPROM 访问（部分参数为只读）
+	以及在特定设备上每端口 4 个引脚的实验性 CBUS 支持。
+	</longdescription>
 </pkgmetadata>
