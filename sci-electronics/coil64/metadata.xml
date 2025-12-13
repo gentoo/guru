@@ -14,4 +14,9 @@
 		inductors or chokes, flat square coils on PCB etc.
 		You can help to translate application by the Crowdin Coil64 project.
 	</longdescription>
+	<longdescription lang="zh">
+		Coil64 是一款电感线圈计算器，可用于计算单层和多层空心电感、
+		铁氧体环形电感或扼流圈、PCB 上的扁平方形线圈等。
+		您可以通过 Crowdin Coil64 项目帮助翻译此应用程序。
+	</longdescription>
 </pkgmetadata>
