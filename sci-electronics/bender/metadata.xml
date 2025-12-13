@@ -15,4 +15,9 @@
 		and verify that the source files are valid input for various simulation
 		and synthesis tools.
 	</longdescription>
+	<longdescription lang="zh">
+		Bender 是一款用于硬件设计项目的依赖管理工具。
+		它提供了一种定义 IP 之间依赖关系、执行单元测试以及验证源文件
+		是否为各种仿真和综合工具的有效输入的方法。
+	</longdescription>
 </pkgmetadata>
