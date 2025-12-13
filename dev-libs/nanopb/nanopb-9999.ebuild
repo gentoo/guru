@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} python3_13t )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit cmake flag-o-matic python-single-r1
 
@@ -23,9 +23,20 @@ IUSE="+pb-malloc static-libs test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
+# nanopb generator requires matching protobuf versions at runtime
+# dev-libs/protobuf-29.x requires dev-python/protobuf-5.29.x
+# dev-libs/protobuf-3X.Y requires dev-python/protobuf-6.3X.Y
 RDEPEND="
-	dev-libs/protobuf
 	${PYTHON_DEPS}
+	$(python_gen_cond_dep '
+		|| (
+			( =dev-libs/protobuf-29* =dev-python/protobuf-5*[${PYTHON_USEDEP}] )
+			( =dev-libs/protobuf-30* =dev-python/protobuf-6.30*[${PYTHON_USEDEP}] )
+			( =dev-libs/protobuf-31* =dev-python/protobuf-6.31*[${PYTHON_USEDEP}] )
+			( =dev-libs/protobuf-32* =dev-python/protobuf-6.32*[${PYTHON_USEDEP}] )
+			( =dev-libs/protobuf-33* =dev-python/protobuf-6.33*[${PYTHON_USEDEP}] )
+		)
+	')
 "
 
 DEPEND="
