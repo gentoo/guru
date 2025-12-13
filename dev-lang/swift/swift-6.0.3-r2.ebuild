@@ -318,4 +318,3 @@ pkg_postrm() {
 		eselect swift update
 	fi
 }
-
