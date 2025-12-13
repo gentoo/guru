@@ -16,4 +16,10 @@
 		from AsciiDoc to PDF with Asciidoctor. The aim of this library is to
 		take the pain out of creating PDF documents from AsciiDoc.
 	</longdescription>
+	<longdescription lang="zh">
+		Asciidoctor PDF 是一个原生的 AsciiDoc 到 PDF 转换器，作为 pdf 后端使用。
+		它绕过了生成中间格式（如 DocBook、Apache FO 或 LaTeX）的步骤来生成 PDF。
+		您可以使用 Asciidoctor PDF 通过 Asciidoctor 将文档直接从 AsciiDoc 转换为 PDF。
+		此库的目标是简化从 AsciiDoc 创建 PDF 文档的过程。
+	</longdescription>
 </pkgmetadata>
