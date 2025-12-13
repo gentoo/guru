@@ -3,9 +3,9 @@
 
 EAPI=8
 
-VER_MUNIT="439de4a9b136bc3b5163e73d4caf37c590bef875"
+VER_MUNIT="439de4a9b136bc3b5163e73d4caf37c590bef875" # Assuming unchanged, will verify if build fails
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{10..14} )
 inherit cmake python-single-r1 xdg
 
 DESCRIPTION="Client for PlayStation 4 and PlayStation 5 Remote Play"
@@ -40,6 +40,7 @@ RDEPEND="
 	media-libs/opus
 	net-dns/libidn2
 	net-misc/curl
+	media-video/pipewire
 	sdl? ( media-libs/libsdl2[joystick,haptic] )
 	gui? (
 		dev-qt/qtbase:6[concurrent,dbus,gui,network,opengl,widgets]
@@ -63,6 +64,12 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	# Use shared nanopb library instead of static
+	# https://bugs.gentoo.org/965824
+	"${FILESDIR}/${PN}-1.9.9-use-shared-nanopb.patch"
+)
+
 src_prepare() {
 	cmake_src_prepare
 
@@ -79,7 +86,6 @@ src_configure() {
 		-DCHIAKI_USE_SYSTEM_NANOPB=ON
 		-DCHIAKI_USE_SYSTEM_CURL=ON
 		-DCHIAKI_ENABLE_STEAM_SHORTCUT=OFF # BUG: require cpp-steam-tools, used by steamdeck
-		-DCHIAKI_ENABLE_SWITCH_CURL=ON # BUG: Gentoo use CURL::libcurl instead of CURL::libcurl_shared
 		-DCHIAKI_ENABLE_STEAMDECK_NATIVE=OFF # Used by steamdeck
 		-DCHIAKI_ENABLE_TESTS=$(usex test)
 		-DCHIAKI_ENABLE_CLI=$(usex cli)

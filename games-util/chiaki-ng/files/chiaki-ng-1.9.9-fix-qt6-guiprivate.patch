@@ -1,0 +1,34 @@
+From fe5bfd87998c7ca67ade76436e31ab9924000c8b Mon Sep 17 00:00:00 2001
+From: Morgan Helton <mhelton@gmail.com>
+Date: Fri, 24 Oct 2025 20:03:09 -0500
+Subject: [PATCH] Add Qt6::GuiPrivate link conditional on Qt version
+
+Fix build failure with Qt 6.10+
+Upstream fix: https://github.com/streetpea/chiaki-ng/pull/670
+Related issue: https://github.com/streetpea/chiaki-ng/issues/669
+---
+ gui/CMakeLists.txt | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/gui/CMakeLists.txt b/gui/CMakeLists.txt
+index 201dfaf4..7e777e1f 100755
+--- a/gui/CMakeLists.txt
++++ b/gui/CMakeLists.txt
+@@ -8,6 +8,10 @@ if(APPLE)
+ endif()
+
+ find_package(Qt6 REQUIRED COMPONENTS Core Gui Concurrent Svg Qml Quick Widgets)
++if(Qt6_VERSION VERSION_GREATER_EQUAL "6.10.0")
++    find_package(Qt6 REQUIRED COMPONENTS GuiPrivate)
++endif()
++
+ find_package(Qt6 COMPONENTS WebEngineQuick)
+ find_package(Qt6 COMPONENTS DBus)
+
+@@ -154,4 +158,4 @@ install(TARGETS chiaki
+         BUNDLE DESTINATION bin)
+ install(FILES chiaking.desktop DESTINATION share/applications)
+ install(FILES chiaking.png DESTINATION share/icons/hicolor/512x512/apps)
+-install(FILES io.github.streetpea.Chiaki4deck.appdata.xml DESTINATION share/metainfo)
+\ No newline at end of file
++install(FILES io.github.streetpea.Chiaki4deck.appdata.xml DESTINATION share/metainfo)
