@@ -1,12 +1,12 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
 
 MY_PV="${PV//./\/}"
-MY_LLVM_PV="6595e7fa1b5588f860aa057aac47c43623169584"
+MY_LLVM_PV="c2ddaaa4255cd4ab82eb9be6b1ac1842ec1e4edd"
 CMAKE_BUILD_TYPE="Release"
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake python-r1
 
 DESCRIPTION="The fast free Verilog/SystemVerilog simulator"
@@ -101,6 +101,7 @@ src_install() {
 	exeinto /usr/bin
 	doexe "${BUILD_DIR}"/bin/arcilator
 	doexe "${BUILD_DIR}"/bin/circt-as
+	doexe "${BUILD_DIR}"/bin/circt-bmc
 	doexe "${BUILD_DIR}"/bin/circt-cocotb-driver.py
 	doexe "${BUILD_DIR}"/bin/circt-dis
 	doexe "${BUILD_DIR}"/bin/circt-lec
@@ -108,14 +109,13 @@ src_install() {
 	doexe "${BUILD_DIR}"/bin/circt-opt
 	doexe "${BUILD_DIR}"/bin/circt-reduce
 	doexe "${BUILD_DIR}"/bin/circt-rtl-sim.py
+	doexe "${BUILD_DIR}"/bin/circt-synth
 	doexe "${BUILD_DIR}"/bin/circt-translate
 	doexe "${BUILD_DIR}"/bin/firtool
 	doexe "${BUILD_DIR}"/bin/handshake-runner
 	doexe "${BUILD_DIR}"/bin/hlstool
-	doexe "${BUILD_DIR}"/bin/ibistool
-	doexe "${BUILD_DIR}"/bin/llhd-sim
+	doexe "${BUILD_DIR}"/bin/kanagawatool
 	doexe "${BUILD_DIR}"/bin/om-linker
 	doexe "${BUILD_DIR}"/bin/py-split-input-file.py
-	# llhd-sim not static linked
-	dolib.so "${BUILD_DIR}"/lib/libcirct-llhd-signals-runtime-wrappers.so
+	# llhd-sim doesn't exist anymore
 }
