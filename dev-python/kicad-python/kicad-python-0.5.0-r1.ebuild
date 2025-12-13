@@ -44,8 +44,9 @@ KEYWORDS="~amd64"
 RESTRICT="test"
 
 # Regenerate protobuf files at build time to match system protobuf version
+# Use := slot operator to trigger rebuild when protobuf is upgraded
 RDEPEND="
-	>=dev-python/protobuf-5.29[${PYTHON_USEDEP}]
+	>=dev-python/protobuf-5.29:=[${PYTHON_USEDEP}]
 	>=dev-python/pynng-0.8.0[${PYTHON_USEDEP}]
 	<dev-python/pynng-0.9.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
