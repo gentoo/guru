@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson
+inherit meson systemd xdg
 
 DESCRIPTION="Keyboard driven and lightweight Wayland notification daemon."
 HOMEPAGE="https://codeberg.org/dnkl/fnott"
@@ -42,6 +42,8 @@ BDEPEND="
 
 src_configure() {
 	local emesonargs=(
+		# always install unit
+		-Dsystemd-units-dir="$(systemd_get_userunitdir)"
 		-Dsystem-nanosvg=enabled
 	)
 	meson_src_configure
