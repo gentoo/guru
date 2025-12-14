@@ -10,7 +10,7 @@ inherit cargo shell-completion
 DESCRIPTION="A markup-based typesetting system for the sciences"
 HOMEPAGE="https://typst.app"
 
-if [ ${PV} == 9999 ]; then
+if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/typst/typst.git"
 else
@@ -41,12 +41,12 @@ QA_FLAGS_IGNORED="usr/bin/typst"
 
 DOCS=( README.md )
 
-if [ ${PV} != 9999 ]; then
+if [[ ${PV} != 9999 ]]; then
 	ECARGO_VENDOR="${WORKDIR}/vendor"
 fi
 
 src_unpack() {
-	if [ ${PV} == 9999 ]; then
+	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
 		cargo_live_src_unpack
 	else
@@ -55,7 +55,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	if [ ${PV} != 9999 ]; then
+	if [[ ${PV} != 9999 ]]; then
 		# ignore git repo for typst-dev-assets when using a vendor tarball
 		sed -i 's/^typst-dev-assets.*$/typst-dev-assets = "*"/' Cargo.toml || die
 	fi
@@ -64,7 +64,7 @@ src_prepare() {
 }
 
 src_compile() {
-	if [ ${PV} != 9999 ]; then
+	if [[ ${PV} != 9999 ]]; then
 		local GIT_HASH=$(gunzip < "${DISTDIR}/${P}.tar.gz" | git get-tar-commit-id)
 		export TYPST_VERSION="${PV} (${GIT_HASH::8})"
 	fi
