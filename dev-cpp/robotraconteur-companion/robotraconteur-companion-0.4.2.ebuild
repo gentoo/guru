@@ -17,28 +17,28 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE=""
 
 DEPEND="dev-libs/boost
-    dev-libs/openssl
-    dev-build/cmake
-    dev-cpp/yaml-cpp
-    dev-cpp/eigen
-    dev-cpp/robotraconteur
+	dev-libs/openssl
+	dev-build/cmake
+	dev-cpp/yaml-cpp
+	dev-cpp/eigen
+	dev-cpp/robotraconteur
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 local mycmakeargs=(
-        -DCMAKE_SKIP_RPATH=ON
-        -DBUILD_TESTING=OFF
-        -DBUILD_DOCUMENTATION=OFF
-        -DROBOTRACONTEUR_COMPANION_SOVERSION_MAJOR_ONLY=ON
-    )
-    cmake_src_configure
+	    -DCMAKE_SKIP_RPATH=ON
+	    -DBUILD_TESTING=OFF
+	    -DBUILD_DOCUMENTATION=OFF
+	    -DROBOTRACONTEUR_COMPANION_SOVERSION_MAJOR_ONLY=ON
+	)
+	cmake_src_configure
 }
 
 src_compile() {
-    cmake_src_compile
+	cmake_src_compile
 }
 
 src_install() {
-    cmake_src_install
+	cmake_src_install
 }

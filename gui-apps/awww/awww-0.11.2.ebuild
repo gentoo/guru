@@ -188,14 +188,14 @@ inherit cargo shell-completion
 DESCRIPTION="Efficient animated wallpaper daemon for wayland, controlled at runtime"
 HOMEPAGE="https://codeberg.org/LGFae/awww"
 if [[ ${PV} == *9999* ]]; then
-    inherit git-r3
-    EGIT_REPO_URI="https://codeberg.org/LGFae/${PN}.git"
+	inherit git-r3
+	EGIT_REPO_URI="https://codeberg.org/LGFae/${PN}.git"
 else
-    SRC_URI="
+	SRC_URI="
 	https://codeberg.org/LGFae/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 	"
-    KEYWORDS="~amd64"
+	KEYWORDS="~amd64"
 fi
 
 S="${WORKDIR}/${PN}"
