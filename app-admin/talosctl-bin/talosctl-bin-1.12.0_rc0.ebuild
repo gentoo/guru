@@ -20,7 +20,7 @@ S="${WORKDIR}"
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64"
+KEYWORDS="-* ~amd64 ~arm ~arm64"
 
 QA_PREBUILT="usr/bin/talosctl"
 
