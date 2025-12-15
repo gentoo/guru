@@ -304,7 +304,7 @@ fi
 
 RUST_MULTILIB=1
 RUST_MIN_VER="1.83.0"
-inherit cargo multilib-minimal
+inherit cargo multilib-minimal rust-toolchain
 
 DESCRIPTION="OpenVR over OpenXR compatibility layer"
 HOMEPAGE="https://github.com/Supreeeme/xrizer/"
@@ -355,17 +355,17 @@ src_prepare() {
 }
 
 multilib_src_compile() {
-	cargo_src_compile
+	cargo_src_compile --target=$(rust_abi)
 }
 
 multilib_src_install() {
 	# OpenVR expects this particular directory structure.
 	if [[ ${ABI} == amd64 ]] ; then
 		exeinto "/opt/${PN}/bin/linux64"
-		newexe $(cargo_target_dir)/libxrizer.so vrclient.so || die
+		newexe "${CARGO_TARGET_DIR:-target}/$(rust_abi)/$(usex debug debug release)"/libxrizer.so vrclient.so || die
 	elif [[ ${ABI} == x86 ]] ; then
 		exeinto "/opt/${PN}/bin"
-		newexe $(cargo_target_dir)/libxrizer.so vrclient.so || die
+		newexe "${CARGO_TARGET_DIR:-target}/$(rust_abi)/$(usex debug debug release)"/libxrizer.so vrclient.so || die
 	fi
 	touch "${D}/opt/${PN}/version.txt"
 }
