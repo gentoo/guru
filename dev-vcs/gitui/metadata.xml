@@ -6,8 +6,8 @@
 		<name>Takuya Wakazono</name>
 	</maintainer>
 	<upstream>
-		<changelog>https://github.com/extrawurst/gitui/raw/master/CHANGELOG.md</changelog>
-		<bugs-to>https://github.com/extrawurst/gitui/issues</bugs-to>
-		<remote-id type="github">extrawurst/gitui</remote-id>
+		<changelog>https://github.com/gitui-org/gitui/raw/master/CHANGELOG.md</changelog>
+		<bugs-to>https://github.com/gitui-org/gitui/issues</bugs-to>
+		<remote-id type="github">gitui-org/gitui</remote-id>
 	</upstream>
 </pkgmetadata>
