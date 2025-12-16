@@ -124,7 +124,8 @@ multilib_src_configure() {
 		-DWIVRN_BUILD_CLIENT=OFF
 		-DWIVRN_BUILD_SERVER=$(multilib_is_native_abi && echo ON || echo OFF)
 		-DWIVRN_BUILD_SERVER_LIBRARY=ON
-		-DWIVRN_OPENXR_MANIFEST_TYPE=filename
+		-DWIVRN_OPENXR_MANIFEST_TYPE=relative
+		-DWIVRN_OPENXR_MANIFEST_ABI=$(multilib_is_native_abi && echo OFF || echo ON)
 		-DWIVRN_BUILD_DASHBOARD=$(multilib_native_usex gui)
 		-DWIVRN_BUILD_DISSECTOR=$(multilib_native_usex wireshark-plugins)
 		-DWIVRN_BUILD_WIVRNCTL=$(multilib_is_native_abi && echo ON || echo OFF)
@@ -145,19 +146,6 @@ multilib_src_configure() {
 
 	cmake_src_configure
 }
-
-multilib_src_install() {
-	cmake_src_install
-
-	local i ldpath=""
-	for i in $(get_all_libdirs) ; do
-		ldpath="${ldpath}:/usr/${i}/wivrn"
-	done
-	newenvd - "50${PN}" <<-_EOF_
-		LDPATH="${ldpath}"
-		PRESSURE_VESSEL_IMPORT_OPENXR_1_RUNTIMES=1
-	_EOF_
- }
 
 pkg_postinst()
 {
