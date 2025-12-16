@@ -16,6 +16,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+RDEPEND="sys-apps/systemd"
+
 src_compile() {
 	distutils-r1_src_compile
 }
