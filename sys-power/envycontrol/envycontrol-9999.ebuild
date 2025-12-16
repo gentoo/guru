@@ -15,12 +15,11 @@ HOMEPAGE="https://github.com/bayasdev/envycontrol"
 LICENSE="MIT"
 SLOT="0"
 
-RDEPEND="sys-apps/systemd"
+IUSE="+systemd"
 
-src_compile() {
-	distutils-r1_src_compile
-}
+REQUIRED_USE="systemd"
 
-src_install() {
-	distutils-r1_src_install
-}
+RDEPEND="
+	x11-drivers/nvidia-drivers[persistenced]
+	systemd? ( sys-apps/systemd )
+"
