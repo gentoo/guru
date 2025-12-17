@@ -253,9 +253,7 @@ SRC_URI="
 
 LICENSE="LGPL-3"
 # Dependent crate licenses
-LICENSE+="
-	Apache-2.0 Boost-1.0 ISC LGPL-3 MIT MPL-2.0 Unicode-DFS-2016
-"
+LICENSE+=" Apache-2.0 Boost-1.0 ISC LGPL-3 MIT MPL-2.0 Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
 
