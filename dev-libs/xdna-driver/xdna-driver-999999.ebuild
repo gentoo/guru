@@ -3,11 +3,11 @@
 
 EAPI=8
 
-inherit linux-mod-r1
+inherit linux-mod-r1 toolchain-funcs
 
 # FWAPI=https://gitlab.com/api/v4/projects/kernel-firmware%2Fdrm-firmware/repository/branches/amd-ipu-staging
 # curl -s "$FWAPI" | jq -r '.commit.id'
-FW_COMMIT=886e8948d60c354b488ad8d10c56763b81597093
+FW_COMMIT=82da0aea7f8f20e4c058195cc695e01aaa4b99f8
 
 DESCRIPTION="AMD XDNA Driver"
 HOMEPAGE="https://github.com/amd/xdna-driver"
@@ -27,8 +27,8 @@ fi
 FIRMWARES=(
 	1502_00/npu.sbin.1.5.5.391
 	17f0_00/npu.sbin.0.7.22.185
-	17f0_10/npu.sbin.255.0.5.35
-	17f0_11/npu.sbin.255.0.5.35
+	17f0_10/1.7_npu.sbin.1.1.0.59
+	17f0_11/1.7_npu.sbin.1.1.0.60
 )
 
 FW_URI_PREFIX=https://gitlab.com/kernel-firmware/drm-firmware/-/raw/${FW_COMMIT}/amdnpu
@@ -46,7 +46,19 @@ IUSE="+firmware"
 
 src_prepare() {
 	sed -e "s/-Werror//" -i Kbuild || die
+
+	# Forward clang compiler, otherwise fails when kernel is compiled with clang cflags
+	# shellcheck disable=SC2016
+	sed -e 's/make -s /make -s CC="${CC}" /' \
+		-i "${WORKDIR}/${P}"/src/driver/tools/configure_kernel.sh || die
+
 	default
+}
+
+src_configure() {
+	cd "${WORKDIR}/${P}/src" || die
+	KERNEL_SRC="${KERNEL_DIR}" ARCH=$(tc-arch-kernel) \
+	./driver/tools/configure_kernel.sh || die
 }
 
 src_compile() {
