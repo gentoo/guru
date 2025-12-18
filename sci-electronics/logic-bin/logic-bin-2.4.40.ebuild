@@ -15,9 +15,11 @@ APPIMAGE="Logic-${PV}-linux-x64.AppImage"
 DESCRIPTION="Saleae logic analyzer"
 HOMEPAGE="https://www.saleae.com"
 
-SRC_URI="https://downloads2.saleae.com/logic2/${APPIMAGE}"
-
+SRC_URI="
+	amd64? ( https://downloads2.saleae.com/logic2/${APPIMAGE} )
+"
 S="${WORKDIR}"
+
 LICENSE="Saleae"
 SLOT="0"
 KEYWORDS="-* ~amd64"
@@ -85,11 +87,11 @@ src_prepare() {
 	for f in *.so; do
 		patchelf --set-rpath '$ORIGIN' $f || die
 	done
-	popd
+	popd || die
 
 	pushd locales || die
 	chromium_remove_language_paks
-	popd
+	popd || die
 
 	default
 }
@@ -116,7 +118,7 @@ src_install() {
 	rm -r "${toremove[@]}" || die
 
 	insinto /opt/Logic
-	doins -r *
+	doins -r ./*
 
 	fperms 4755 /opt/Logic/chrome-sandbox
 	for i in Logic chrome_crashpad_handler *.so* usr/lib/*.so*; do
