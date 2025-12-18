@@ -11,7 +11,7 @@ SRC_URI="https://github.com/arun11299/cpp-jwt/archive/e12ef06218596b52d9b5d6e163
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 
 DEPEND="test? ( dev-cpp/gtest )
 	dev-libs/openssl
