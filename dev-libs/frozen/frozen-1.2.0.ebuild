@@ -11,7 +11,7 @@ SRC_URI="https://github.com/serge-sans-paille/frozen/archive/refs/tags/${PV}.tar
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
