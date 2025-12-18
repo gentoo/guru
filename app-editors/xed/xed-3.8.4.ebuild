@@ -20,6 +20,7 @@ RDEPEND="
 	>=x11-libs/gtk+-3.19.3:=
 	>=x11-libs/gtksourceview-4.0.3
 	>=dev-libs/libpeas-1.12.0
+	<dev-libs/libpeas-2.0.0
 	x11-libs/pango
 	x11-libs/libxklavier
 	>=x11-libs/xapp-1.9.0
@@ -27,7 +28,10 @@ RDEPEND="
 	gtk-doc? ( dev-util/gtk-doc )
 "
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	virtual/pkgconfig
+	dev-util/itstool
+"
 
 src_configure() {
 	local emesonargs=(
