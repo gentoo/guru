@@ -11,7 +11,7 @@ SRC_URI="https://github.com/eden-emulator/sirit/archive/refs/tags/v${PV}.tar.gz 
 
 LICENSE="AGPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
