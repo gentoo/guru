@@ -13,13 +13,11 @@ S="${WORKDIR}/RobotRaconteurCompanion-${PV}-Source"
 
 LICENSE="Apache-2.0"
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-IUSE=""
+KEYWORDS="~amd64 ~arm64"
 
-DEPEND="dev-libs/boost
+DEPEND="dev-libs/boost:=
 	dev-libs/openssl
-	dev-build/cmake
-	dev-cpp/yaml-cpp
+	dev-cpp/yaml-cpp:=
 	dev-cpp/eigen
 	dev-cpp/robotraconteur
 "
@@ -33,12 +31,4 @@ local mycmakeargs=(
 	    -DROBOTRACONTEUR_COMPANION_SOVERSION_MAJOR_ONLY=ON
 	)
 	cmake_src_configure
-}
-
-src_compile() {
-	cmake_src_compile
-}
-
-src_install() {
-	cmake_src_install
 }
