@@ -16,7 +16,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 
 distutils_enable_sphinx docs
 distutils_enable_tests pytest

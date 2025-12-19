@@ -10,7 +10,7 @@ S="${FILESDIR}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86 ~x86-linux ~x64-macos"
+KEYWORDS="~amd64 ~arm ~x86 ~x64-macos"
 
 RDEPEND="
 	app-shells/bash
