@@ -4,10 +4,6 @@
     <name>John Wason</name>
     <email>wason@wasontech.com</email>
   </maintainer>
-  <maintainer type="project">
-    <email>proxy-maint@gentoo.org</email>
-    <name>Proxy Maintainers</name>
-  </maintainer>
   <upstream>
     <remote-id type="github">robotraconteur/robotraconteur</remote-id>
     <bugs-to>https://github.com/robotraconteur/robotraconteur/issues</bugs-to>

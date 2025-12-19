@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..14} )
 
 inherit cmake python-r1
 
@@ -15,15 +15,14 @@ S="${WORKDIR}/RobotRaconteur-${PV}-Source"
 
 LICENSE="Apache-2.0"
 SLOT="1/${PV}"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64"
 IUSE="python"
 
-DEPEND="dev-libs/boost
+DEPEND="dev-libs/boost:=
 	dev-libs/openssl
 	dev-libs/libusb
 	sys-apps/dbus
 	net-wireless/bluez
-	dev-build/cmake
 	python? ( dev-python/numpy[${PYTHON_USEDEP}]
 	          dev-python/setuptools[${PYTHON_USEDEP}]
 	          dev-python/pip[${PYTHON_USEDEP}] )
