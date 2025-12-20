@@ -72,7 +72,7 @@ CRATES="
 	event-listener@5.4.0
 	fastrand@2.3.0
 	fnv@1.0.7
-	fork@0.3.1
+	fork@0.4.0
 	funty@2.0.0
 	futures-channel@0.3.31
 	futures-core@0.3.31
@@ -87,7 +87,7 @@ CRATES="
 	gethostname@1.0.2
 	gimli@0.28.1
 	hashbrown@0.12.3
-	hashbrown@0.15.2
+	hashbrown@0.16.1
 	heck@0.4.1
 	heck@0.5.0
 	hermit-abi@0.3.2
@@ -100,8 +100,8 @@ CRATES="
 	iana-time-zone@0.1.57
 	ident_case@1.0.1
 	indexmap@1.9.3
-	indexmap@2.7.1
-	indoc@2.0.6
+	indexmap@2.12.1
+	indoc@2.0.7
 	io-lifetimes@1.0.11
 	is-terminal@0.4.9
 	itoa@1.0.9
@@ -114,12 +114,12 @@ CRATES="
 	linux-raw-sys@0.9.4
 	lock_api@0.4.12
 	log@0.4.28
-	memchr@2.6.4
+	memchr@2.7.6
 	memoffset@0.7.1
 	memoffset@0.9.1
 	miniz_oxide@0.7.4
 	mio@0.8.8
-	niri-ipc@25.8.0
+	niri-ipc@25.11.0
 	nix@0.26.2
 	nix@0.29.0
 	nix@0.30.1
@@ -160,7 +160,7 @@ CRATES="
 	serde_derive@1.0.228
 	serde_json@1.0.145
 	serde_repr@0.1.20
-	serde_spanned@1.0.0
+	serde_spanned@1.0.3
 	serde_with@3.8.1
 	serde_with_macros@3.8.1
 	serde_yaml@0.9.34+deprecated
@@ -181,12 +181,12 @@ CRATES="
 	time@0.3.24
 	tokio-macros@2.1.0
 	tokio@1.29.1
-	toml@0.9.5
+	toml@0.9.8
 	toml_datetime@0.6.11
-	toml_datetime@0.7.0
+	toml_datetime@0.7.3
 	toml_edit@0.22.27
-	toml_parser@1.0.2
-	toml_writer@1.0.2
+	toml_parser@1.0.4
+	toml_writer@1.0.4
 	tracing-attributes@0.1.28
 	tracing-core@0.1.33
 	tracing@0.1.41
@@ -245,7 +245,7 @@ CRATES="
 	windows_x86_64_msvc@0.48.0
 	windows_x86_64_msvc@0.52.6
 	windows_x86_64_msvc@0.53.0
-	winnow@0.7.11
+	winnow@0.7.14
 	wyz@0.5.1
 	x11rb-protocol@0.13.2
 	x11rb@0.13.2
@@ -271,7 +271,7 @@ LICENSE="MIT"
 LICENSE+=" Apache-2.0 BSD GPL-3+ ISC MIT Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="gnome hyprland kde niri udev wlroots x11"
+IUSE="cosmic gnome hyprland kde niri udev wlroots x11"
 REQUIRED_USE="?? ( x11 gnome kde hyprland wlroots )"
 
 DEPEND="udev? ( virtual/libudev )"
@@ -281,6 +281,7 @@ QA_FLAGS_IGNORED=".*"
 
 src_configure() {
 	local myfeatures=(
+		$(usev cosmic)
 		$(usev gnome)
 		$(usev x11)
 		$(usev hyprland hypr)

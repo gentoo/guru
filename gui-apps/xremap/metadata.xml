@@ -12,6 +12,7 @@
     <flag name="wlroots">build client for Sway, Wayfire, etc.</flag>
     <flag name="hyprland">build client for Hyprland</flag>
     <flag name="niri">build client for Niri</flag>
+    <flag name="cosmic">build client for COSMIC</flag>
   </use>
   <upstream>
     <remote-id type="github">xremap/xremap</remote-id>
