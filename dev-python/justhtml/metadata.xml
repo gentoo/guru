@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ivan.lloro.boada@gmail.com</email>
+		<name>Ivan Lloro</name>
+	</maintainer>
+	<stabilize-allarches/>
+	<upstream>
+		<maintainer>
+			<email>emil@emilstenstrom.se</email>
+			<name>Emil Stenström</name>
+		</maintainer>
+		<remote-id type="github">EmilStenstrom/justhtml</remote-id>
+		<remote-id type="pypi">justhtml</remote-id>
+	</upstream>
+</pkgmetadata>
