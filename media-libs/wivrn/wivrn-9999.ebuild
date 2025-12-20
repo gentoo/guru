@@ -147,6 +147,14 @@ multilib_src_configure() {
 	cmake_src_configure
 }
 
+multilib_src_install() {
+	cmake_src_install
+
+	newenvd - "50${PN}" <<-_EOF_
+PRESSURE_VESSEL_IMPORT_OPENXR_1_RUNTIMES=1
+	_EOF_
+}
+
 pkg_postinst()
 {
 	fcaps cap_sys_nice usr/bin/wivrn-server
