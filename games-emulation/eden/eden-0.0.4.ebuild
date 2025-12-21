@@ -19,7 +19,7 @@ S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="camera +cubeb discord llvm lto +opengl +qt6 room sdl ssl test +usb web-applet web-service wifi"
 REQUIRED_USE="
 	!qt6? ( !camera !discord !web-applet )
