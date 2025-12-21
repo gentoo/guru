@@ -1,0 +1,7 @@
+#!/sbin/openrc-run
+
+description="DeepCool Digital"
+command="/usr/bin/deepcool-digital-linux"
+command_args=""
+command_background=1
+pidfile="/run/deepcool-digital-linux.pid"
