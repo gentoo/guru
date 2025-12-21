@@ -85,7 +85,7 @@ src_install() {
 		PREFIX="${EPREFIX}/usr"
 		SYSTEMD_UNIT_DIR="$(systemd_get_systemunitdir)"
 	)
-	emake "${mymakeargs[@]}" install install_systemd
+	emake -j1 "${mymakeargs[@]}" install install_systemd
 
 	fowners -R root:graftcp /etc/graftcp-local
 	fperms 0640 /etc/graftcp-local/graftcp-local.conf
