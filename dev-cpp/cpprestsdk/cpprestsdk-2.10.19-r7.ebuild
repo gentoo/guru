@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND=">=dev-libs/openssl-1.1.1q
-		>=dev-libs/boost-1.80.0-r1
+		>=dev-libs/boost-1.80.0-r1:=
 		>=virtual/zlib-1.2.13-r1:="
 
 DEPEND="${RDEPEND}"
@@ -31,6 +31,9 @@ PATCHES=(
 	"${FILESDIR}"/cpprestsdk-${PV}-disable-werror-default.patch
 	"${FILESDIR}"/cpprestsdk-${PV}-boost-1.87-compat.patch
 	"${FILESDIR}"/cpprestsdk-${PV}-cmake-4.patch
+	"${FILESDIR}"/cpprestsdk-${PV}-llvm-char-traits-patch.patch
+	"${FILESDIR}"/cpprestsdk-${PV}-llvm-json-unique-ptr.patch
+	"${FILESDIR}"/cpprestsdk-${PV}-boost-1.89-system-removal.patch
 )
 
 src_configure() {
