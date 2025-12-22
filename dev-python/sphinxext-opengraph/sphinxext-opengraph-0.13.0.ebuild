@@ -10,7 +10,7 @@ DOCS_DIR="docs"
 # PYPI_NO_NORMALIZE=1
 
 DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..13} )
 
 inherit distutils-r1 docs pypi
 
