@@ -1,0 +1,15 @@
+<pkgmetadata>
+	<upstream>
+		<remote-id type="github">noctalia-dev/noctalia-shell</remote-id>
+	</upstream>
+	<use>
+		<flag name="cava">Audio visualizer component</flag>
+		<flag name="cliphist">Clipboard history support</flag>
+		<flag name="evolution-data-server">Calendar events</flag>
+		<flag name="matugen">Material You color scheme generation</flag>
+		<flag name="polkit-kde-agent">Authenticate Battery Manager installation for laptop charge limits</flag>
+		<flag name="wlsunset">Night light functionality</flag>
+		<flag name="xdg-desktop-portal">Enables “Portal” option in screen recorder</flag>
+		<flag name="xwayland">Install xwayland-satellite for xwayland support</flag>
+	</use>
+</pkgmetadata>
