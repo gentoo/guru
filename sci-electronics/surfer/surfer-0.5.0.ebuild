@@ -13,7 +13,7 @@ CRATES="
 	accesskit_unix@0.17.2
 	accesskit_windows@0.29.2
 	accesskit_winit@0.29.2
-	addr2line@0.24.2
+	addr2line@0.25.1
 	adler2@2.0.1
 	ahash@0.8.12
 	aho-corasick@1.1.4
@@ -28,7 +28,6 @@ CRATES="
 	anstyle-wincon@3.0.10
 	anstyle@1.0.13
 	anyhow@1.0.100
-	ar_archive_writer@0.2.0
 	arbitrary@1.4.2
 	arboard@3.6.1
 	arrayvec@0.7.6
@@ -50,7 +49,6 @@ CRATES="
 	atspi-proxies@0.9.0
 	atspi@0.25.0
 	autocfg@1.5.0
-	base64@0.21.7
 	base64@0.22.1
 	bincode@1.3.3
 	bindgen@0.72.1
@@ -67,8 +65,8 @@ CRATES="
 	bytemuck_derive@1.10.2
 	byteorder-lite@0.1.0
 	byteorder@1.5.0
-	bytes@1.10.1
-	bytesize@2.1.0
+	bytes@1.11.0
+	bytesize@2.3.1
 	calloop-wayland-source@0.3.0
 	calloop@0.13.0
 	camino@1.2.1
@@ -86,8 +84,8 @@ CRATES="
 	cgl@0.3.2
 	chrono@0.4.42
 	clang-sys@1.8.1
-	clap@4.5.51
-	clap_builder@4.5.51
+	clap@4.5.53
+	clap_builder@4.5.53
 	clap_derive@4.5.49
 	clap_lex@0.7.6
 	clipboard-win@5.4.1
@@ -104,18 +102,19 @@ CRATES="
 	core-graphics@0.23.2
 	cpp_demangle@0.4.5
 	cpufeatures@0.2.17
-	cranelift-assembler-x64-meta@0.117.2
-	cranelift-assembler-x64@0.117.2
-	cranelift-bforest@0.117.2
-	cranelift-bitset@0.117.2
-	cranelift-codegen-meta@0.117.2
-	cranelift-codegen-shared@0.117.2
-	cranelift-codegen@0.117.2
-	cranelift-control@0.117.2
-	cranelift-entity@0.117.2
-	cranelift-frontend@0.117.2
-	cranelift-isle@0.117.2
-	cranelift-native@0.117.2
+	cranelift-assembler-x64-meta@0.124.3
+	cranelift-assembler-x64@0.124.3
+	cranelift-bforest@0.124.3
+	cranelift-bitset@0.124.3
+	cranelift-codegen-meta@0.124.3
+	cranelift-codegen-shared@0.124.3
+	cranelift-codegen@0.124.3
+	cranelift-control@0.124.3
+	cranelift-entity@0.124.3
+	cranelift-frontend@0.124.3
+	cranelift-isle@0.124.3
+	cranelift-native@0.124.3
+	cranelift-srcgen@0.124.3
 	crc32fast@1.5.0
 	crossbeam-deque@0.8.6
 	crossbeam-epoch@0.9.18
@@ -136,9 +135,7 @@ CRATES="
 	directories-next@2.0.0
 	directories@6.0.0
 	dirs-sys-next@0.1.2
-	dirs-sys@0.3.7
 	dirs-sys@0.5.0
-	dirs@4.0.0
 	dispatch2@0.3.0
 	dispatch@0.2.0
 	displaydoc@0.2.5
@@ -146,17 +143,17 @@ CRATES="
 	document-features@0.2.12
 	downcast-rs@1.2.1
 	dpi@0.1.2
-	ecolor@0.33.0
+	ecolor@0.33.2
 	eframe@0.33.0
 	egui-remixicon@0.29.1
-	egui-wgpu@0.33.0
-	egui-winit@0.33.0
-	egui@0.33.0
-	egui_extras@0.33.0
-	egui_glow@0.33.0
+	egui-wgpu@0.33.2
+	egui-winit@0.33.2
+	egui@0.33.2
+	egui_extras@0.33.2
+	egui_glow@0.33.2
 	egui_plot@0.34.0
 	either@1.15.0
-	emath@0.33.0
+	emath@0.33.2
 	embedded-io@0.4.0
 	embedded-io@0.6.1
 	encoding_rs@0.8.35
@@ -170,19 +167,19 @@ CRATES="
 	enumn@0.1.14
 	env_filter@0.1.4
 	env_logger@0.11.8
-	epaint@0.33.0
-	epaint_default_fonts@0.33.0
+	epaint@0.33.2
+	epaint_default_fonts@0.33.2
 	equivalent@1.0.2
 	errno@0.3.14
 	error-code@3.3.2
 	event-listener-strategy@0.5.4
 	event-listener@5.4.1
-	extism-convert-macros@1.12.0
-	extism-convert@1.12.0
-	extism-manifest@1.12.0
+	extism-convert-macros@1.13.0
+	extism-convert@1.13.0
+	extism-manifest@1.13.0
 	extism-pdk-derive@1.4.1
 	extism-pdk@1.4.1
-	extism@1.12.0
+	extism@1.13.0
 	eyre@0.6.12
 	fallible-iterator@0.3.0
 	fastrand@2.3.0
@@ -204,7 +201,7 @@ CRATES="
 	form_urlencoded@1.2.2
 	fs-set-times@0.20.3
 	fsevent-sys@4.1.0
-	fst-reader@0.14.1
+	fst-reader@0.14.2
 	ftr_parser@0.2.0
 	futures-channel@0.3.31
 	futures-core@0.3.31
@@ -221,7 +218,7 @@ CRATES="
 	gethostname@1.1.0
 	getrandom@0.2.16
 	getrandom@0.3.4
-	gimli@0.31.1
+	gimli@0.32.3
 	gl_generator@0.14.0
 	glob@0.3.3
 	glow@0.16.0
@@ -246,7 +243,7 @@ CRATES="
 	hyper-rustls@0.27.7
 	hyper-tls@0.6.0
 	hyper-util@0.1.17
-	hyper@1.7.0
+	hyper@1.8.1
 	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.64
 	icu_collections@2.1.1
@@ -260,6 +257,7 @@ CRATES="
 	ident_case@1.0.1
 	idna@1.1.0
 	idna_adapter@1.2.1
+	image-compare@0.5.0
 	image@0.25.8
 	indenter@0.3.4
 	indexmap@2.12.0
@@ -271,14 +269,13 @@ CRATES="
 	ipnet@2.11.0
 	iri-string@0.7.8
 	is_terminal_polyfill@1.70.2
-	itertools@0.12.1
 	itertools@0.13.0
 	itertools@0.14.0
 	itoa@1.0.15
 	jni-sys@0.3.0
 	jni@0.21.1
 	jobserver@0.1.34
-	js-sys@0.3.77
+	js-sys@0.3.83
 	khronos_api@3.1.0
 	kqueue-sys@1.0.4
 	kqueue@1.1.1
@@ -297,6 +294,7 @@ CRATES="
 	lock_api@0.4.14
 	log@0.4.28
 	lz4_flex@0.11.5
+	lz4_flex@0.12.0
 	mach2@0.4.3
 	manyhow-macros@0.11.4
 	manyhow@0.11.4
@@ -357,8 +355,7 @@ CRATES="
 	objc2-user-notifications@0.2.2
 	objc2@0.5.2
 	objc2@0.6.3
-	object@0.32.2
-	object@0.36.7
+	object@0.37.3
 	once_cell@1.21.3
 	once_cell_polyfill@1.70.2
 	openssl-macros@0.1.1
@@ -384,6 +381,7 @@ CRATES="
 	png@0.18.0
 	polling@3.11.0
 	pollster@0.4.0
+	port_check@0.3.0
 	portable-atomic-util@0.2.4
 	portable-atomic@1.11.1
 	postcard@1.1.3
@@ -395,17 +393,18 @@ CRATES="
 	proc-macro-utils@0.10.0
 	proc-macro2@1.0.103
 	profiling@1.0.17
+	project-root@0.2.2
 	prost-derive@0.14.1
 	prost@0.14.1
-	psm@0.1.28
-	pulley-interpreter@30.0.2
+	pulley-interpreter@37.0.3
+	pulley-macros@37.0.3
 	pure-rust-locales@0.8.2
 	pxfm@0.1.25
-	pyo3-build-config@0.27.1
-	pyo3-ffi@0.27.1
-	pyo3-macros-backend@0.27.1
-	pyo3-macros@0.27.1
-	pyo3@0.27.1
+	pyo3-build-config@0.27.2
+	pyo3-ffi@0.27.2
+	pyo3-macros-backend@0.27.2
+	pyo3-macros@0.27.2
+	pyo3@0.27.2
 	quick-error@2.0.1
 	quick-xml@0.36.2
 	quick-xml@0.37.5
@@ -424,17 +423,17 @@ CRATES="
 	redox_syscall@0.5.18
 	redox_users@0.4.6
 	redox_users@0.5.2
-	regalloc2@0.11.2
+	regalloc2@0.13.3
 	regex-automata@0.4.13
 	regex-syntax@0.8.8
 	regex@1.12.2
 	renderdoc-sys@1.1.0
 	reqwest@0.12.24
-	rfd@0.15.4
+	rfd@0.16.0
 	ring@0.17.14
 	rmp-serde@1.3.0
 	rmp@0.8.14
-	ron@0.10.1
+	ron@0.12.0
 	rustc-demangle@0.1.26
 	rustc-hash@1.1.0
 	rustc-hash@2.1.1
@@ -463,11 +462,12 @@ CRATES="
 	serde_urlencoded@0.7.1
 	sha2@0.10.9
 	sharded-slab@0.1.7
-	shellexpand@2.1.2
 	shlex@1.3.0
 	signal-hook-registry@1.4.6
 	simd-adler32@0.3.7
 	simple-eyre@0.3.1
+	skia-bindings@0.90.0
+	skia-safe@0.90.0
 	slab@0.4.11
 	slotmap@1.0.7
 	smallvec@1.15.1
@@ -476,7 +476,6 @@ CRATES="
 	smol_str@0.2.2
 	socket2@0.6.1
 	softposit@0.4.0
-	sptr@0.3.2
 	stable_deref_trait@1.2.1
 	static_assertions@1.1.0
 	strsim@0.11.1
@@ -492,6 +491,8 @@ CRATES="
 	target-lexicon@0.13.3
 	tempfile@3.23.0
 	termcolor@1.4.1
+	test-log-macros@0.2.18
+	test-log@0.2.18
 	thiserror-impl@1.0.69
 	thiserror-impl@2.0.17
 	thiserror@1.0.69
@@ -521,17 +522,17 @@ CRATES="
 	tower-layer@0.3.3
 	tower-service@0.3.3
 	tower@0.5.2
-	tracing-attributes@0.1.30
-	tracing-core@0.1.34
+	tracing-attributes@0.1.31
+	tracing-core@0.1.35
 	tracing-log@0.2.0
-	tracing-subscriber@0.3.20
+	tracing-subscriber@0.3.22
 	tracing-wasm@0.2.1
-	tracing@0.1.41
-	trait-variant@0.1.2
+	tracing@0.1.43
 	try-lock@0.2.5
 	ttf-parser@0.25.1
 	twox-hash@2.1.2
 	type-map@0.5.1
+	typeid@1.0.3
 	typenum@1.19.0
 	uds_windows@1.1.0
 	unicode-ident@1.0.22
@@ -553,36 +554,37 @@ CRATES="
 	version_check@0.9.5
 	walkdir@2.5.0
 	want@0.3.1
-	wasi-common@30.0.2
+	wasi-common@37.0.3
 	wasi@0.11.1+wasi-snapshot-preview1
 	wasip2@1.0.1+wasi-0.2.4
 	wasite@0.1.0
-	wasm-bindgen-backend@0.2.100
-	wasm-bindgen-futures@0.4.50
-	wasm-bindgen-macro-support@0.2.100
-	wasm-bindgen-macro@0.2.100
-	wasm-bindgen-shared@0.2.100
-	wasm-bindgen@0.2.100
-	wasm-encoder@0.224.1
+	wasm-bindgen-futures@0.4.56
+	wasm-bindgen-macro-support@0.2.106
+	wasm-bindgen-macro@0.2.106
+	wasm-bindgen-shared@0.2.106
+	wasm-bindgen@0.2.106
+	wasm-encoder@0.239.0
 	wasm-encoder@0.240.0
 	wasm-streams@0.4.2
-	wasmparser@0.224.1
+	wasmparser@0.239.0
 	wasmparser@0.240.0
-	wasmprinter@0.224.1
-	wasmtime-asm-macros@30.0.2
-	wasmtime-cache@30.0.2
-	wasmtime-component-macro@30.0.2
-	wasmtime-component-util@30.0.2
-	wasmtime-cranelift@30.0.2
-	wasmtime-environ@30.0.2
-	wasmtime-fiber@30.0.2
-	wasmtime-jit-icache-coherence@30.0.2
-	wasmtime-math@30.0.2
-	wasmtime-slab@30.0.2
-	wasmtime-versioned-export-macros@30.0.2
-	wasmtime-winch@30.0.2
-	wasmtime-wit-bindgen@30.0.2
-	wasmtime@30.0.2
+	wasmprinter@0.239.0
+	wasmtime-environ@37.0.3
+	wasmtime-internal-asm-macros@37.0.3
+	wasmtime-internal-cache@37.0.3
+	wasmtime-internal-component-macro@37.0.3
+	wasmtime-internal-component-util@37.0.3
+	wasmtime-internal-cranelift@37.0.3
+	wasmtime-internal-fiber@37.0.3
+	wasmtime-internal-jit-debug@37.0.3
+	wasmtime-internal-jit-icache-coherence@37.0.3
+	wasmtime-internal-math@37.0.3
+	wasmtime-internal-slab@37.0.3
+	wasmtime-internal-unwinder@37.0.3
+	wasmtime-internal-versioned-export-macros@37.0.3
+	wasmtime-internal-winch@37.0.3
+	wasmtime-internal-wit-bindgen@37.0.3
+	wasmtime@37.0.3
 	wast@240.0.0
 	wast@35.0.2
 	wat@1.240.0
@@ -595,28 +597,27 @@ CRATES="
 	wayland-protocols@0.32.9
 	wayland-scanner@0.31.7
 	wayland-sys@0.31.7
-	web-sys@0.3.77
+	web-sys@0.3.83
 	web-time@1.1.0
 	webbrowser@1.0.6
 	weezl@0.1.10
-	wellen@0.19.0
+	wellen@0.19.2
 	wgpu-core-deps-windows-linux-android@27.0.0
 	wgpu-core@27.0.3
 	wgpu-hal@27.0.4
 	wgpu-types@27.0.1
 	wgpu@27.0.1
 	whoami@1.6.1
-	wiggle-generate@30.0.2
-	wiggle-macro@30.0.2
-	wiggle@30.0.2
+	wiggle-generate@37.0.3
+	wiggle-macro@37.0.3
+	wiggle@37.0.3
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.11
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
-	winch-codegen@30.0.2
+	winch-codegen@37.0.3
 	windows-collections@0.2.0
 	windows-core@0.61.2
-	windows-core@0.62.2
 	windows-future@0.2.1
 	windows-implement@0.60.2
 	windows-interface@0.59.3
@@ -625,9 +626,7 @@ CRATES="
 	windows-numerics@0.2.0
 	windows-registry@0.5.3
 	windows-result@0.3.4
-	windows-result@0.4.1
 	windows-strings@0.4.2
-	windows-strings@0.5.1
 	windows-sys@0.45.0
 	windows-sys@0.52.0
 	windows-sys@0.59.0
@@ -665,7 +664,7 @@ CRATES="
 	winnow@0.7.13
 	winx@0.36.4
 	wit-bindgen@0.46.0
-	wit-parser@0.224.1
+	wit-parser@0.239.0
 	witx@0.9.1
 	writeable@0.6.2
 	x11-dl@2.21.0
@@ -744,7 +743,7 @@ BDEPEND="
 	python? ( ${PYTHON_DEPS} )
 "
 
-RUST_MIN_VER="1.85"
+RUST_MIN_VER="1.90"
 
 # rust does not use *FLAGS from make.conf, silence portage warning
 QA_FLAGS_IGNORED="
