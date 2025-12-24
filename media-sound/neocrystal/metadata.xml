@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>myisha.gentoo@proton.me</email>
-		<name>Myisha Betty</name>
-	</maintainer>
-	<upstream>
-		<remote-id type="github">evilja/neocrystal</remote-id>
-	</upstream>
+		<maintainer type="person">
+				<email>myisha.gentoo@proton.me</email>
+				<name>Myisha Betty</name>
+		</maintainer>
+		<upstream>
+				<remote-id type="github">evilja/neocrystal</remote-id>
+		</upstream>
+		<use>
+				<flag name="rpc">Includes Discord Rich Presence support</flag>
+				<flag name="mouse">Includes toggleable mouse click support.</flag>
+		</use>
 </pkgmetadata>
