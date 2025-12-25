@@ -28,4 +28,3 @@ src_install() {
 	cmake_src_install
 	einstalldocs
 }
-
