@@ -1,24 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
 		<email>robergem2008@gmail.com</email>
-		<name>Mathieu Roberge</name>
+		<name>Mathieu Roberge (Techoraye)</name>
 	</maintainer>
 	<maintainer type="project">
 		<email>proxy-maint@gentoo.org</email>
 		<name>Proxy Maintainers</name>
 	</maintainer>
+	
 	<upstream>
 		<remote-id type="github">Techoraye/gentoo-update</remote-id>
 	</upstream>
+	
 	<use>
-		<flag name="gui">Enable GUI features including desktop notifications and system tray applet</flag>
+		<flag name="notification">Enable desktop notifications support via libnotify</flag>
+		<flag name="python">Enable system tray applet support with PyQt6</flag>
 	</use>
+	
 	<longdescription>
-		gentoo-update is an update notifier and applier for Gentoo Linux that
-		assists with pre and post-update tasks. It provides automatic repository
-		synchronization, news display, service management, preserved rebuild
-		detection, and kernel update checking. Supports both systemd and OpenRC.
+		Gentoo-Update is a fast, efficient update notifier and applier for Gentoo Linux 
+		written in C++. It assists users with important pre and post-update tasks.
+		
+		Features:
+		- Fast and efficient C++ implementation
+		- Automatic repository synchronization (optional)
+		- Display Gentoo news items
+		- Service status checking and management
+		- Highly configurable via configuration file
+		- Color-coded output with optional color disable
+		- Desktop notifications support
+		- Preserved rebuild detection
+		- Kernel update checking
+		- Configuration file change detection
+		- Package retention settings
+		- Manual pages and shell completions
+		- Support for both systemd and OpenRC
+		- System tray applet (optional with Python support)
 	</longdescription>
 </pkgmetadata>
