@@ -6,38 +6,21 @@ EAPI=8
 inherit cmake
 
 DESCRIPTION="Fast system information display utility with modular customizable features"
-HOMEPAGE="https://github.com/techoraye/metetch"
-SRC_URI="https://github.com/techoraye/metetch/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/Techoraye/metetch"
+SRC_URI="https://github.com/Techoraye/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
-RDEPEND="
-	sys-libs/ncurses:=
+DEPEND="
 	net-misc/curl
+	sys-libs/ncurses:=
 "
-DEPEND="${RDEPEND}
-	sys-libs/glibc
-"
-BDEPEND="
-	virtual/pkgconfig
-"
-
-S="${WORKDIR}/${PN}-${PV}"
-
-src_configure() {
-	local mycmakeargs=(
-		-DCMAKE_BUILD_TYPE=Release
-	)
-	cmake_src_configure
-}
+RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 src_install() {
 	cmake_src_install
-	
-	# Install license
 	einstalldocs
-	newdoc LICENSE LICENSE.MIT
 }
