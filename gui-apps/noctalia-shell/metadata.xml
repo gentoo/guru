@@ -1,5 +1,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<maintainer type = "person">
+		<email>luke.gompz@gmail.com</email>
+		<name>Luke Gompertz</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">noctalia-dev/noctalia-shell</remote-id>
 	</upstream>
