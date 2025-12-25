@@ -9,7 +9,7 @@ DESCRIPTION="Update notifier and applier for Gentoo Linux"
 HOMEPAGE="https://github.com/Techoraye/gentoo-update"
 SRC_URI="https://github.com/Techoraye/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3-or-later"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="gui"
@@ -18,7 +18,7 @@ RDEPEND="
 	app-portage/gentoolkit
 	sys-apps/portage
 	gui? (
-		dev-python/PyQt6
+		dev-python/pyqt6
 		x11-libs/libnotify
 	)
 "
