@@ -51,6 +51,22 @@ DOC_CONTENTS="\
   hardcodes a lot of things that I'm not sure will work on gentoo, and would
   need matching openrc/systemd services as well.
 
+# Note about TLS and certificates
+
+This program implements TLS natively, in order to be able to access the
+WebCrypto API in browsers[1].
+
+If you intend to expose it to the internet, it's advised to run it through a
+reverse proxy[2], like nginx, in order to have a proper TLS implementation, and
+more modern transport features.
+
+If that's not an option, by default, the https:// URL will use a builtin,
+insecure certificate. Install app-crypt/cfssl in order to have it generate a
+custom certificate.
+
+[1]: https://github.com/9001/copyparty/blob/2c26aecd878c185ce358f661d57612f91c21d4b1/copyparty/cert.py#L37-L43
+[2]: https://github.com/9001/copyparty#reverse-proxy
+
 # Bundled dependency notice
 
 A few 'web dependencies' are supplied in the copyparty/web/deps directory.
@@ -130,4 +146,7 @@ good-but-slow image thumbnails, read audio/media tags" media-video/ffmpeg
 	optfeature "read .heif images with pillow (rarely useful)" dev-python/pillow-heif
 	optfeature "read .avif images with pillow (rarely useful)" dev-python/pillow[avif]
 	#optfeature "read RAW images" rawpy  # rawpy not packaged (yet)
+
+	# Additional programs not detected above
+	optfeature "automatically generate SSL certificate at startup" app-crypt/cfssl
 }
