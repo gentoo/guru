@@ -149,4 +149,5 @@ good-but-slow image thumbnails, read audio/media tags" media-video/ffmpeg
 
 	# Additional programs not detected above
 	optfeature "automatically generate SSL certificate at startup" app-crypt/cfssl
+	optfeature "scrypt password hashing" dev-lang/python[ssl]  # hashlib.scrypt()
 }
