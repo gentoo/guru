@@ -1,3 +1,4 @@
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<upstream>
 		<remote-id type="github">noctalia-dev/noctalia-shell</remote-id>
