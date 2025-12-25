@@ -17,4 +17,7 @@
 		<flag name="xdg-desktop-portal">Enables “Portal” option in screen recorder</flag>
 		<flag name="xwayland">Install xwayland-satellite for xwayland support</flag>
 	</use>
+	<longdescription>
+		Noctalia is a beautiful, minimal desktop shell for Wayland that actually gets out of your way. Built on Quickshell with a warm lavender aesthetic that you can easily customize to match your vibe.
+	</longdescription>
 </pkgmetadata>
