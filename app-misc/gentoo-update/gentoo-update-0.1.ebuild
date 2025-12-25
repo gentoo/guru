@@ -18,17 +18,15 @@ RDEPEND="
 	app-portage/gentoolkit
 	sys-apps/portage
 	gui? (
-		dev-python/PyQt6[gui,network]
+		dev-python/PyQt6[gui]
 		x11-libs/libnotify
 	)
 "
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig"
 
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_LOCALSTATEDIR="${EPREFIX}/var"
-		-DENABLE_GUI=$(usex gui)
 	)
 	cmake_src_configure
 }
@@ -60,17 +58,11 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "Configuration: /etc/${PN}/${PN}.conf"
+	elog "Configuration file: /etc/${PN}/${PN}.conf"
+	elog "See 'man ${PN}' or ${PN} --help for usage information"
 
 	if use gui; then
-		elog "Run '${PN} --tray' for the system tray applet"
-	fi
-
-	if systemd_is_booted; then
-		elog "Enable automatic updates:"
-		elog "  systemctl enable --now ${PN}.timer"
-	else
-		elog "Enable automatic updates:"
-		elog "  rc-update add ${PN} default"
+		elog ""
+		elog "GUI support is enabled. Run '${PN} --tray' for the system tray applet."
 	fi
 }
