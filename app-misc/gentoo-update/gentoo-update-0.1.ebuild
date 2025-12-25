@@ -38,10 +38,10 @@ src_install() {
 	newins res/config/${PN}.conf.example ${PN}.conf
 
 	newbashcomp res/completions/${PN}.bash ${PN}
-	
+
 	insinto /usr/share/zsh/site-functions
 	newins res/completions/${PN}.zsh _${PN}
-	
+
 	insinto /usr/share/fish/vendor_completions.d
 	doins res/completions/${PN}.fish
 
@@ -60,7 +60,7 @@ src_install() {
 pkg_postinst() {
 	elog "Configuration file: /etc/${PN}/${PN}.conf"
 	elog "See 'man ${PN}' or ${PN} --help for usage information"
-	
+
 	if use gui; then
 		elog ""
 		elog "GUI support is enabled. Run '${PN} --tray' for the system tray applet."
