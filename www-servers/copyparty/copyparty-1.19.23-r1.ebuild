@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1 optfeature edo
+inherit distutils-r1 optfeature edo readme.gentoo-r1
 
 DESCRIPTION="Easy-to-use, feature-packed, protable file server"
 HOMEPAGE="https://github.com/9001/copyparty"
@@ -18,42 +18,50 @@ KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
+RDEPEND="
+	dev-python/jinja2[${PYTHON_USEDEP}]
+"
 DEPEND="
 	test? ( dev-python/strip-hints )
 "
 
-# TODO: This package is unfinished and lacks some features:
-# - Service scripts:
-# 	- contrib/openrc/copyparty: Hardcodes /usr/local/bin, runs as root, exposes /mnt as RW (!?)
-# 	- contrib/systemd/copyparty.service: Hardcodes /usr/local/bin, runs as root, in /var/lib/copyparty
-# 	- contrib/systemd/copyparty@.service: Runs as an arbitrary user, in /var/lib/copyparty-jail, at boot
-# 	- contrib/systemd/copyparty-user.service: User service, runs in /var/lib/copyparty-jail
-# 	Ideally, both systemd and openrc scripts would have the same behavior.
-# 	I also think it'd be sane to default to a new user/group named copyparty,
-# 	and create /var/lib/copyparty with the correct permissions.
-#
-# - Default configuration: There's a bunch of examples, find them using:
-# 	`find docs contrib -name '*.conf'`.
-# 	Ideally one of these would be installed as /etc/copyparty.conf, and an
-# 	/etc/copyparty.d directory would be created. I'm not sure what would be
-# 	acceptable defaults.
-#
-# - Jailing the service with prisonparty/bubbleparty: This program is very
-#   feature-packed, and has a decent security track record, but just has a
-#   massive attack surface with serious repercussions. Some packages provide a
-#   "prisonparty" service, which runs the program in a chroot. This script
-#   hardcodes a lot of things that I'm not sure will work on gentoo, and would
-#   need matching openrc/systemd services as well.
+DISABLE_AUTOFORMATTING=y
+DOC_CONTENTS="\
+# TODO: This package is unfinished and lacks some features
 
-# Bundled dependency notice:
-# A few "web dependencies" are supplied in the copyparty/web/deps directory.
-# These are mostly things that run in the web browser, such as javascript
-# libraries, markdown editors, some assets such as fonts, and a sha512 function
-# implemented in webassembly.
-# An attempt at rebuilding these was made, but the scripts required too much
-# patching and should be adapted upstream to be more easily buildable without
-# docker. Additionally, it's difficult to package npm dependencies in gentoo.
-# https://gist.github.com/mid-kid/cc7c0c2e1c188c8b135663d547e3dd35
+- Service scripts:
+  - contrib/openrc/copyparty: Hardcodes /usr/local/bin, runs as root, exposes /mnt as RW (!?)
+  - contrib/systemd/copyparty.service: Hardcodes /usr/local/bin, runs as root, in /var/lib/copyparty
+  - contrib/systemd/copyparty@.service: Runs as an arbitrary user, in /var/lib/copyparty-jail, at boot
+  - contrib/systemd/copyparty-user.service: User service, runs in /var/lib/copyparty-jail
+  Ideally, both systemd and openrc scripts would have the same behavior.
+  I also think it'd be sane to default to a new user/group named copyparty,
+  and create /var/lib/copyparty with the correct permissions.
+
+- Default configuration: There's a bunch of examples, find them using:
+  \`find docs contrib -name '*.conf'\`.
+  Ideally one of these would be installed as /etc/copyparty.conf, and an
+  /etc/copyparty.d directory would be created. I'm not sure what would be
+  acceptable defaults.
+
+- Jailing the service with prisonparty/bubbleparty: This program is very
+  feature-packed, and has a decent security track record, but just has a
+  massive attack surface with serious repercussions. Some packages provide a
+  'prisonparty' service, which runs the program in a chroot. This script
+  hardcodes a lot of things that I'm not sure will work on gentoo, and would
+  need matching openrc/systemd services as well.
+
+# Bundled dependency notice
+
+A few 'web dependencies' are supplied in the copyparty/web/deps directory.
+These are mostly things that run in the web browser, such as javascript
+libraries, markdown editors, some assets such as fonts, and a sha512 function
+implemented in webassembly.
+
+An attempt at rebuilding these was made, but the scripts required too much
+patching and should be adapted upstream to be more easily buildable without
+docker. Additionally, it's difficult to package npm dependencies in gentoo.
+https://gist.github.com/mid-kid/cc7c0c2e1c188c8b135663d547e3dd35"
 
 src_prepare() {
 	# Reuse the bundled copy of fusepy for partyfuse
@@ -75,12 +83,12 @@ python_install() {
 	# These need to be executed inside the server's data directory
 	# Installed into /usr/libexec as not a single other package installs them
 	python_scriptinto /usr/libexec/copyparty
-	python_newscript bin/partyjournal.py partyjournal
-	python_newscript bin/dbtool.py dbtool
+	python_doscript bin/partyjournal.py bin/dbtool.py
 }
 
 src_install() {
 	distutils-r1_src_install
+	readme.gentoo_create_doc
 
 	# Not all of the documentation is useful, but it's hard to filter,
 	# and plenty of it is quite useful.
