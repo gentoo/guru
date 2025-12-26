@@ -27,7 +27,10 @@ COMMON_DEPEND="
 	dev-libs/botan:=
 	dev-libs/pugixml
 	dev-libs/spdlog:=
-	>=dev-libs/quazip-1.3:=[qt6]
+    || (
+        =dev-libs/quazip-1.4[qt6]
+        >=dev-libs/quazip-1.5
+    )
 	dev-qt/qtbase:6[dbus,gui,network,widgets]
 	dev-qt/qtcharts:6[qml]
 	dev-qt/qtdeclarative:6
