@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake flag-o-matic toolchain-funcs
+inherit cmake
 
 DESCRIPTION="Lossless Scaling Frame Generation on Linux via DXVK/Vulkan"
 HOMEPAGE="https://github.com/PancakeTAS/lsfg-vk"
@@ -47,7 +47,6 @@ src_prepare() {
 }
 
 src_configure() {
-	tc-is-gcc && filter-lto # LTO with gcc causes segfaults at runtime
 	local mycmakeargs=(
 		-DLSFGVK_BUILD_CLI=$(usex cli)
 		-DLSFGVK_BUILD_UI=$(usex gui)
