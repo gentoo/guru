@@ -1,0 +1,176 @@
+From a3bb3fab92e63796e198f1dca8d0c6b63c3bb52d Mon Sep 17 00:00:00 2001
+From: Huang Rui <vowstar@gmail.com>
+Date: Thu, 25 Dec 2025 23:20:26 +0800
+Subject: [PATCH] feat(git): add --sign/-S flag for GPG commit signing
+
+- Added --sign/-S CLI flag to enable GPG signing on commits.
+- Added gpg_sign config option for default signing behavior.
+- Updated git_commit() to conditionally pass -S to git.
+- Updated README with usage examples and config docs.
+
+Signed-off-by: Huang Rui <vowstar@gmail.com>
+---
+ README.md                     |  4 ++++
+ examples/configs/litellm.toml |  4 ++++
+ src/compose.rs                |  3 ++-
+ src/config.rs                 |  9 +++++++++
+ src/git.rs                    | 17 ++++++++++++++---
+ src/main.rs                   |  3 ++-
+ src/types.rs                  |  5 +++++
+ 7 files changed, 40 insertions(+), 5 deletions(-)
+
+diff --git a/README.md b/README.md
+index 1f26474..478bc04 100644
+--- a/README.md
++++ b/README.md
+@@ -101,6 +101,7 @@ llm-git --mode=commit --target=HEAD~1      # Analyze specific commit
+ llm-git --copy                             # Copy message to clipboard
+ llm-git -m opus                            # Use Opus model (more powerful)
+ llm-git -m sonnet                          # Use Sonnet model (default)
++llm-git -S                                 # GPG sign the commit
+ llm-git Fixed regression from PR #123      # Add context (trailing text)
+ ```
+ 
+@@ -276,6 +277,9 @@ compose_max_rounds = 5                           # Max rounds for multi-commit g
+ # Model Temperature
+ temperature = 0.2                                # Low for consistency (0.0-1.0)
+ 
++# GPG Signing
++gpg_sign = false                                 # Sign commits by default (or use --sign/-S)
++
+ # File Exclusions
+ excluded_files = [                               # Files to exclude from diff
+     "Cargo.lock",
+diff --git a/examples/configs/litellm.toml b/examples/configs/litellm.toml
+index f629721..ff3911d 100644
+--- a/examples/configs/litellm.toml
++++ b/examples/configs/litellm.toml
+@@ -32,3 +32,7 @@ compose_max_rounds = 5
+ 
+ # Model Temperature (lower = more deterministic)
+ temperature = 0.2
++
++# GPG Signing (set to true to always sign commits)
++# Can also use --sign/-S CLI flag
++gpg_sign = false
+diff --git a/src/compose.rs b/src/compose.rs
+index c9f40b1..4a7d74e 100644
+--- a/src/compose.rs
++++ b/src/compose.rs
+@@ -785,7 +785,8 @@ pub fn execute_compose(
+ 
+       // Create commit (unless preview mode)
+       if !args.compose_preview {
+-         git_commit(&formatted_message, false, dir)?;
++         let sign = args.sign || config.gpg_sign;
++         git_commit(&formatted_message, false, dir, sign)?;
+          let hash = get_head_hash(dir)?;
+          commit_hashes.push(hash);
+ 
+diff --git a/src/config.rs b/src/config.rs
+index 68f8f60..1f2f74c 100644
+--- a/src/config.rs
++++ b/src/config.rs
+@@ -57,6 +57,10 @@ pub struct CommitConfig {
+    #[serde(default = "default_exclude_old_message")]
+    pub exclude_old_message: bool,
+ 
++   /// GPG sign commits by default (can be overridden by --sign CLI flag)
++   #[serde(default = "default_gpg_sign")]
++   pub gpg_sign: bool,
++
+    /// Loaded analysis prompt (not in config file)
+    #[serde(skip)]
+    pub analysis_prompt: String,
+@@ -82,6 +86,10 @@ const fn default_exclude_old_message() -> bool {
+    true
+ }
+ 
++const fn default_gpg_sign() -> bool {
++   false
++}
++
+ impl Default for CommitConfig {
+    fn default() -> Self {
+       Self {
+@@ -130,6 +138,7 @@ impl Default for CommitConfig {
+          summary_prompt_variant:  default_summary_prompt_variant(),
+          wide_change_abstract:    default_wide_change_abstract(),
+          exclude_old_message:     default_exclude_old_message(),
++         gpg_sign:                default_gpg_sign(),
+          analysis_prompt:         String::new(),
+          summary_prompt:          String::new(),
+       }
+diff --git a/src/git.rs b/src/git.rs
+index dc72ad3..c250e15 100644
+--- a/src/git.rs
++++ b/src/git.rs
+@@ -228,17 +228,28 @@ pub fn get_git_stat(
+ }
+ 
+ /// Execute git commit with the given message
+-pub fn git_commit(message: &str, dry_run: bool, dir: &str) -> Result<()> {
++pub fn git_commit(message: &str, dry_run: bool, dir: &str, sign: bool) -> Result<()> {
+    if dry_run {
+       println!("\n{}", "=".repeat(60));
+       println!("DRY RUN - Would execute:");
+-      println!("git commit -m \"{}\"", message.replace('\n', "\\n"));
++      if sign {
++         println!("git commit -S -m \"{}\"", message.replace('\n', "\\n"));
++      } else {
++         println!("git commit -m \"{}\"", message.replace('\n', "\\n"));
++      }
+       println!("{}", "=".repeat(60));
+       return Ok(());
+    }
+ 
++   let mut args = vec!["commit"];
++   if sign {
++      args.push("-S");
++   }
++   args.push("-m");
++   args.push(message);
++
+    let output = Command::new("git")
+-      .args(["commit", "-m", message])
++      .args(&args)
+       .current_dir(dir)
+       .output()
+       .map_err(|e| CommitGenError::GitError(format!("Failed to run git commit: {e}")))?;
+diff --git a/src/main.rs b/src/main.rs
+index bc1dcfa..e0cbf76 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -413,7 +413,8 @@ fn main() -> Result<()> {
+       }
+ 
+       println!("\nPreparing to commit...");
+-      git_commit(&formatted_message, args.dry_run, &args.dir)?;
++      let sign = args.sign || config.gpg_sign;
++      git_commit(&formatted_message, args.dry_run, &args.dir, sign)?;
+ 
+       // Auto-push if requested (only if not dry-run)
+       if args.push && !args.dry_run {
+diff --git a/src/types.rs b/src/types.rs
+index 4832de0..05a1c3b 100644
+--- a/src/types.rs
++++ b/src/types.rs
+@@ -587,6 +587,10 @@ pub struct Args {
+    #[arg(long)]
+    pub breaking: bool,
+ 
++   /// GPG sign the commit (equivalent to git commit -S)
++   #[arg(long, short = 'S')]
++   pub sign: bool,
++
+    /// Path to config file (default: ~/.config/llm-git/config.toml)
+    #[arg(long)]
+    pub config: Option<PathBuf>,
+@@ -661,6 +665,7 @@ impl Default for Args {
+          resolves:                vec![],
+          refs:                    vec![],
+          breaking:                false,
++         sign:                    false,
+          config:                  None,
+          context:                 vec![],
+          rewrite:                 false,

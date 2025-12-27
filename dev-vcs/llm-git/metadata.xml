@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/can1357/llm-git/issues</bugs-to>
+		<changelog>https://github.com/can1357/llm-git/releases</changelog>
+		<remote-id type="github">can1357/llm-git</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		llm-git is an AI-powered command-line tool that generates git commit
+		messages using Claude and other LLMs via OpenAI-compatible APIs. It
+		analyzes staged changes and creates conventional commit messages
+		automatically. The tool supports multiple AI providers including
+		Anthropic Claude, OpenAI, and other OpenAI-compatible endpoints.
+		Features include automatic diff analysis, conventional commit format,
+		clipboard support, and customizable prompts via Tera templates.
+	</longdescription>
+	<longdescription lang="zh">
+		llm-git 是一款 AI 驱动的命令行工具，通过 Claude 和其他兼容 OpenAI API
+		的大语言模型自动生成 git 提交信息。它分析暂存的更改并自动创建符合规范的
+		提交信息。该工具支持多种 AI 服务提供商，包括 Anthropic Claude、OpenAI
+		以及其他兼容 OpenAI 的端点。功能包括自动差异分析、规范提交格式、剪贴板
+		支持以及通过 Tera 模板自定义提示词。
+	</longdescription>
+</pkgmetadata>
