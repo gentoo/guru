@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>ghostyn678+git@gmail.com</email>
-		<name>dsaf</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 		RiverQL exposes River window manager state over GraphQL. 
 		It ships a server that bridges River's Wayland status 
