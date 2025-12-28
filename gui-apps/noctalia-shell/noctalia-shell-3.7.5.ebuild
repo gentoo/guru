@@ -12,7 +12,7 @@ S="${WORKDIR}/noctalia-release"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="cliphist cava wlsunset xdg-desktop-portal evolution-data-server polkit-kde-agent matugen xwayland systemd"
+IUSE="cliphist cava wlsunset xdg-desktop-portal evolution-data-server polkit-kde-agent matugen xwayland"
 
 inherit systemd
 
@@ -44,9 +44,7 @@ src_install() {
 	doins -r .
 
 	# Install systemd unit
-	if use systemd; then
-		systemd_dounit Assets/Services/systemd/noctalia.service
-	fi
+	systemd_dounit Assets/Services/systemd/noctalia.service
 }
 
 pkg_postinst() {
