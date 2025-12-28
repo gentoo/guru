@@ -33,15 +33,13 @@ RDEPEND="${RDEPEND}
 "
 
 src_unpack() {
-default_src_unpack
+	default_src_unpack
 }
 
 src_install() {
-	# Create the configuration directory
-	dodir "/etc/xdg/quickshell/noctalia-shell"
-
-	# Install the configuration files
-	cp -r "${S}"/* "${ED}/etc/xdg/quickshell/noctalia-shell/" || die
+	# Install configuration files
+	insinto /etc/xdg/quickshell/noctalia-shell
+	doins -r .
 }
 
 pkg_postinst() {
