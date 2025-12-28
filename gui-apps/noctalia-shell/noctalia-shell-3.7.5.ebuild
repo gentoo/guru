@@ -3,6 +3,9 @@
 
 EAPI=8
 
+inherit systemd
+inherit optfeature
+
 DESCRIPTION="Noctalia Configuration for Quickshell"
 HOMEPAGE="https://github.com/noctalia-dev/noctalia-shell"
 SRC_URI="https://github.com/noctalia-dev/noctalia-shell/releases/download/v${PV}/noctalia-v${PV}.tar.gz"
@@ -12,26 +15,11 @@ S="${WORKDIR}/noctalia-release"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="cliphist cava wlsunset xdg-desktop-portal evolution-data-server polkit-kde-agent matugen xwayland"
-
-inherit systemd
 
 RDEPEND="
 	gui-apps/quickshell
 	media-video/gpu-screen-recorder
 	app-misc/brightnessctl
-"
-
-# Optional dependencies
-RDEPEND="${RDEPEND}
-	cliphist? ( app-misc/cliphist )
-	cava? ( media-sound/cava )
-	wlsunset? ( gui-apps/wlsunset )
-	xdg-desktop-portal? ( sys-apps/xdg-desktop-portal )
-	evolution-data-server? ( gnome-extra/evolution-data-server )
-	polkit-kde-agent? ( kde-plasma/polkit-kde-agent )
-	matugen? ( x11-misc/matugen )
-	xwayland? ( gui-apps/xwayland-satellite )
 "
 
 src_install() {
@@ -46,4 +34,13 @@ src_install() {
 pkg_postinst() {
 	elog "Noctalia Quickshell configuration has been installed to /etc/xdg/quickshell/noctalia-shell."
 	elog "Note: uninstalling this package will not remove this configuration, so if you intend to keep using Quickshell you may want to remove it manually."
+
+	optfeature "Clipboard history support" app-misc/cliphist
+	optfeature "Audio visualizer component" media-sound/cava
+	optfeature "Night light functionality" gui-apps/wlsunset
+	optfeature "Enable 'Portal' option in screen recorder" sys-apps/xdg-desktop-portal
+	optfeature "Calendar events support" gnome-extra/evolution-data-server
+	optfeature "Authenticate Battery Manager installation for laptop charge limits" kde-plasma/polkit-kde-agent
+	optfeature "Material You color scheme generation" x11-misc/matugen
+	optfeature "Xwayland-satellite for xwayland support on niri" gui-apps/xwayland-satellite
 }
