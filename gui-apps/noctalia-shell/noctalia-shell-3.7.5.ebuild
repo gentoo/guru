@@ -12,7 +12,9 @@ S="${WORKDIR}/noctalia-release"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="cliphist cava wlsunset xdg-desktop-portal evolution-data-server polkit-kde-agent matugen xwayland"
+IUSE="cliphist cava wlsunset xdg-desktop-portal evolution-data-server polkit-kde-agent matugen xwayland systemd"
+
+inherit systemd
 
 RDEPEND="
 	gui-apps/quickshell
@@ -40,6 +42,11 @@ src_install() {
 	# Install configuration files
 	insinto /etc/xdg/quickshell/noctalia-shell
 	doins -r .
+
+	# Install systemd unit
+	if use systemd; then
+		systemd_dounit Assets/Services/systemd/noctalia.service
+	fi
 }
 
 pkg_postinst() {
