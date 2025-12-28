@@ -44,7 +44,7 @@ src_install() {
 	doins -r .
 
 	# Install systemd unit
-	systemd_dounit Assets/Services/systemd/noctalia.service
+	systemd_douserunit Assets/Services/systemd/noctalia.service
 }
 
 pkg_postinst() {
