@@ -34,10 +34,6 @@ RDEPEND="${RDEPEND}
 	xwayland? ( gui-apps/xwayland-satellite )
 "
 
-src_unpack() {
-	default_src_unpack
-}
-
 src_install() {
 	# Install configuration files
 	insinto /etc/xdg/quickshell/noctalia-shell
