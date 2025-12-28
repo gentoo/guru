@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>henrik@gassmann.onl</email>
+		<name>Henrik Steffen Gaßmann</name>
+	</maintainer>
 	<upstream>
 		<doc>https://malpenzibo.github.io/ashell/docs/intro</doc>
 		<bugs-to>https://github.com/MalpenZibo/ashell/issues</bugs-to>
