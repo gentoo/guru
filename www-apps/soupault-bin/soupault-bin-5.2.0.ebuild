@@ -24,7 +24,7 @@ src_unpack() {
 	# The extracted top-level dir is named the same as the archive itself
 	# (suffixed with "x86_64"/"aarch64"); dropping it lets us keep the default
 	# `${S}`.
-	mv "$(basename "${A}" '.tar.gz')" "${P}"
+	mv "$(basename "${A}" '.tar.gz')" "${P}" || die
 }
 
 src_install() {
