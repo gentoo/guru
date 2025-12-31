@@ -7,7 +7,12 @@ inherit unpacker desktop xdg
 
 DESCRIPTION="Legcord is a custom client designed to enhance your Discord experience."
 HOMEPAGE="https://legcord.app/"
-SRC_URI="https://github.com/Legcord/Legcord/releases/download/v${PV}/Legcord-${PV}-linux-amd64.deb -> ${P}.deb"
+
+SRC_URI="
+amd64? ( https://github.com/Legcord/Legcord/releases/download/v${PV}/Legcord-${PV}-linux-amd64.deb -> ${P}-amd64.deb )
+arm64? ( https://github.com/Legcord/Legcord/releases/download/v${PV}/Legcord-${PV}-linux-arm64.deb -> ${P}-arm64.deb )
+"
+
 S="${WORKDIR}"
 
 LICENSE="MIT BSD OSL-3.0"
@@ -46,7 +51,13 @@ PATCHES=(
 )
 
 src_unpack() {
-	unpack_deb "${P}.deb"
+    if use amd64; then
+        unpack_deb "${P}-amd64.deb"
+    elif use arm64; then
+        unpack_deb "${P}-arm64.deb"
+    else
+        die
+    fi
 }
 
 src_prepare() {
