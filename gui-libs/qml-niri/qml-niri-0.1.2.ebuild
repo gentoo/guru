@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="A QML plugin for niri"
 HOMEPAGE="https://github.com/imiric/qml-niri"
-SRC_URI="https://github.com/imiric/qml-niri/archive/refs/tags/v0.1.2.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/imiric/qml-niri/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
