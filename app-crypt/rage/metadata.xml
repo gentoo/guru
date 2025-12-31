@@ -5,4 +5,7 @@
     <email>ceres@ceressees.dev</email>
     <name>Ceres Milner</name>
   </maintainer>
+  <upstream>
+    <remote-id type="github">str4d/rage</remote-id>
+  </upstream>
 </pkgmetadata>
