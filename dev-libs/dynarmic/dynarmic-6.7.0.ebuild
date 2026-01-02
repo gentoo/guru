@@ -54,6 +54,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DDYNARMIC_USE_PRECOMPILED_HEADERS=no
 		-DDYNARMIC_TESTS=$(usex test)
+		# disable -Werror
+		-DDYNARMIC_WARNINGS_AS_ERRORS=no
 		-Wno-dev
 	)
 
