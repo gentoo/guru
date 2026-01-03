@@ -77,12 +77,6 @@ app-editors/amp
 # Removal on 2025-11-18
 dev-util/fnm
 
-# Lucio Sauer <watermanpaint@posteo.net> (2025-10-17)
-# Header-only library with no revdeps and dead upstream for 3 years.
-# Fails to build w/ dev-build/cmake-4.
-# Removal on 2025-11-17
-dev-cpp/rang
-
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-07-25)
 # Depends on removed pydantic version.
 dev-python/safety-schemas
