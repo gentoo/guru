@@ -6,6 +6,6 @@
 		<name>Anna</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="gnome-gitlab">guidog/pfs</remote-id>
+		<remote-id type="gnome-gitlab">World/Phosh/pfs</remote-id>
 	</upstream>
 </pkgmetadata>
