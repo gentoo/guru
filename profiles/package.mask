@@ -67,11 +67,6 @@ app-backup/b2
 # Removal on 2025-11-27
 dev-python/rst2ansi
 
-# David (stkw0) Roman <davidroman96@gmail.com> (2025-10-25)
-# Depends on removed libgit2 slot. No maintainer listed
-# Removal on 2025-11-24
-app-editors/amp
-
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-07-25)
 # Depends on removed pydantic version.
 dev-python/safety-schemas
