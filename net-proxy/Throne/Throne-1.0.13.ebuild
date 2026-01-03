@@ -10,8 +10,6 @@ HOMEPAGE="https://github.com/throneproj/Throne"
 SRC_URI="
 	https://github.com/throneproj/Throne/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	https://gitlab.com/api/v4/projects/69517529/packages/generic/${PN}/${PV}/${P}-deps.tar.xz
-	https://github.com/throneproj/Throne/commit/f03ad7d16555324fc7308dbadde1ade1f0011d6d.patch ->
-		${PN}-1.0.12-fix-quic-go-issues.patch
 "
 
 # The first line is for the C++ code, the second line is for the Go module
@@ -36,7 +34,6 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${DISTDIR}/${PN}-1.0.12-fix-quic-go-issues.patch"
 	"${FILESDIR}/${PN}-1.0.0-Use-system-QHotkey.patch"
 	"${FILESDIR}/${PN}-1.0.7-Use-system-quirc.patch"
 )
