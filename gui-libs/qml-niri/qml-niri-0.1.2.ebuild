@@ -19,7 +19,7 @@ BUILD_DIR="${WORKDIR}/${P}/build"
 
 src_install() {
 	mkdir -p "${D}/usr/lib64/qt6/qml"
-	cp -r build/Niri "${D}/usr/lib64/qt6/qml/"
+	cp -r build/Niri "${D}/usr/lib64/qt6/qml/" || die
 }
 
 scr_postinst() {
