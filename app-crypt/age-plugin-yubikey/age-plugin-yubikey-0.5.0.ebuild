@@ -337,3 +337,4 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 DEPEND="sys-apps/pcsc-lite"
+RDEPEND="${DEPEND}"
