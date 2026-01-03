@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -433,17 +433,17 @@ CRATES="
 "
 
 declare -A GIT_CRATES=(
-	[ruma-appservice-api]='https://github.com/ruma/ruma;547efbf24831066ae3199dc51b93f6b3a30ea8e7;ruma-%commit%/crates/ruma-appservice-api'
-	[ruma-client-api]='https://github.com/ruma/ruma;547efbf24831066ae3199dc51b93f6b3a30ea8e7;ruma-%commit%/crates/ruma-client-api'
-	[ruma-common]='https://github.com/ruma/ruma;547efbf24831066ae3199dc51b93f6b3a30ea8e7;ruma-%commit%/crates/ruma-common'
-	[ruma-events]='https://github.com/ruma/ruma;547efbf24831066ae3199dc51b93f6b3a30ea8e7;ruma-%commit%/crates/ruma-events'
-	[ruma-federation-api]='https://github.com/ruma/ruma;547efbf24831066ae3199dc51b93f6b3a30ea8e7;ruma-%commit%/crates/ruma-federation-api'
-	[ruma-identifiers-validation]='https://github.com/ruma/ruma;547efbf24831066ae3199dc51b93f6b3a30ea8e7;ruma-%commit%/crates/ruma-identifiers-validation'
-	[ruma-macros]='https://github.com/ruma/ruma;547efbf24831066ae3199dc51b93f6b3a30ea8e7;ruma-%commit%/crates/ruma-macros'
-	[ruma-push-gateway-api]='https://github.com/ruma/ruma;547efbf24831066ae3199dc51b93f6b3a30ea8e7;ruma-%commit%/crates/ruma-push-gateway-api'
-	[ruma-signatures]='https://github.com/ruma/ruma;547efbf24831066ae3199dc51b93f6b3a30ea8e7;ruma-%commit%/crates/ruma-signatures'
-	[ruma-state-res]='https://github.com/ruma/ruma;547efbf24831066ae3199dc51b93f6b3a30ea8e7;ruma-%commit%/crates/ruma-state-res'
-	[ruma]='https://github.com/ruma/ruma;547efbf24831066ae3199dc51b93f6b3a30ea8e7;ruma-%commit%/crates/ruma'
+	[ruma-appservice-api]='https://github.com/ruma/ruma;d879f7df16ba9928a73649f8149dabeee939691e;ruma-%commit%/crates/ruma-appservice-api'
+	[ruma-client-api]='https://github.com/ruma/ruma;d879f7df16ba9928a73649f8149dabeee939691e;ruma-%commit%/crates/ruma-client-api'
+	[ruma-common]='https://github.com/ruma/ruma;d879f7df16ba9928a73649f8149dabeee939691e;ruma-%commit%/crates/ruma-common'
+	[ruma-events]='https://github.com/ruma/ruma;d879f7df16ba9928a73649f8149dabeee939691e;ruma-%commit%/crates/ruma-events'
+	[ruma-federation-api]='https://github.com/ruma/ruma;d879f7df16ba9928a73649f8149dabeee939691e;ruma-%commit%/crates/ruma-federation-api'
+	[ruma-identifiers-validation]='https://github.com/ruma/ruma;d879f7df16ba9928a73649f8149dabeee939691e;ruma-%commit%/crates/ruma-identifiers-validation'
+	[ruma-macros]='https://github.com/ruma/ruma;d879f7df16ba9928a73649f8149dabeee939691e;ruma-%commit%/crates/ruma-macros'
+	[ruma-push-gateway-api]='https://github.com/ruma/ruma;d879f7df16ba9928a73649f8149dabeee939691e;ruma-%commit%/crates/ruma-push-gateway-api'
+	[ruma-signatures]='https://github.com/ruma/ruma;d879f7df16ba9928a73649f8149dabeee939691e;ruma-%commit%/crates/ruma-signatures'
+	[ruma-state-res]='https://github.com/ruma/ruma;d879f7df16ba9928a73649f8149dabeee939691e;ruma-%commit%/crates/ruma-state-res'
+	[ruma]='https://github.com/ruma/ruma;d879f7df16ba9928a73649f8149dabeee939691e;ruma-%commit%/crates/ruma'
 )
 
 LLVM_COMPAT=( {15..20} )
