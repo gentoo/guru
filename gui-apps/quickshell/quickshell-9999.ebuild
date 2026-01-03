@@ -19,15 +19,16 @@ fi
 LICENSE="LGPL-3"
 SLOT="0"
 # Upstream recommends leaving all build options enabled by default
-IUSE="+breakpad +jemalloc +sockets +wayland +layer-shell +session-lock +toplevel-management +screencopy +X +pipewire +tray +mpris +pam +hyprland +hyprland-global-shortcuts +hyprland-focus-grab +i3 +i3-ipc +bluetooth"
+IUSE="+breakpad +jemalloc +sockets +wayland +layer-shell +session-lock +toplevel-management +screencopy +X +pipewire +tray +mpris +pam +polkit +hyprland +hyprland-global-shortcuts +hyprland-focus-grab +i3 +i3-ipc +bluetooth"
 
 RDEPEND="
-	dev-qt/qtbase:6
-	dev-qt/qtsvg:6
+	dev-qt/qtbase:6=[dbus]
+	dev-qt/qtsvg:6=
+	dev-qt/qtdeclarative:6=
 	jemalloc? ( dev-libs/jemalloc )
 	wayland? (
 		dev-libs/wayland
-		dev-qt/qtwayland:6
+		dev-qt/qtwayland:6=
 	)
 	screencopy? (
 		x11-libs/libdrm
@@ -35,8 +36,11 @@ RDEPEND="
 	)
 	X? ( x11-libs/libxcb )
 	pipewire? ( media-video/pipewire )
-	mpris? ( dev-qt/qtdbus )
 	pam? ( sys-libs/pam )
+	polkit? (
+		sys-auth/polkit
+		dev-libs/glib
+	)
 	bluetooth? ( net-wireless/bluez )
 "
 DEPEND="${RDEPEND}"
@@ -73,6 +77,7 @@ src_configure(){
 			-DSERVICE_STATUS_NOTIFIER=$(usex tray ON OFF)
 			-DSERVICE_MPRIS=$(usex mpris ON OFF)
 			-DSERVICE_PAM=$(usex pam ON OFF)
+			-DSERVICE_POLKIT=$(usex polkit ON OFF)
 			-DHYPRLAND=$(usex hyprland ON OFF)
 			-DHYPRLAND_GLOBAL_SHORTCUTS=$(usex hyprland-global-shortcuts)
 			-DHYPRLAND_FOCUS_GRAB=$(usex hyprland-focus-grab)
