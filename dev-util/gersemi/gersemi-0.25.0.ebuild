@@ -19,6 +19,7 @@ IUSE="+color"
 
 RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]
+	dev-python/ignore-python[${PYTHON_USEDEP}]
 	dev-python/lark[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 
@@ -27,6 +28,7 @@ RDEPEND="
 BDEPEND="
 	test? (
 		dev-python/pydantic[${PYTHON_USEDEP}]
+		dev-vcs/git
 	)
 "
 
