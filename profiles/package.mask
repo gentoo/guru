@@ -39,7 +39,6 @@ www-apps/whoogle-search
 
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-04-30)
 # Depends on removed dev-qt/qtwebengine:5, they should be moved to qtwebengine:6
-media-video/stremio
 sci-physics/openmodelica
 
 # Vivian Heisz (demize) <demize@unstable.systems> (2025-04-20)
