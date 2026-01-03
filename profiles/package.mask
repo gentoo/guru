@@ -58,10 +58,6 @@ dev-crystal/slang
 dev-crystal/temel
 dev-crystal/water
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-10-27)
-# Depends on masked dev-python/rst2ansi.
-app-backup/b2
-
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-07-25)
 # Depends on removed pydantic version.
 dev-python/safety-schemas
