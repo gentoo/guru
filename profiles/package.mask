@@ -44,20 +44,6 @@ net-im/axolotl-bin
 # Removal on 2025-12-06.
 net-misc/inv_sig_helper
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-11-06)
-# Unmaintained Crystal library with no revdeps left.
-# Removal on 2025-12-06.
-dev-crystal/kilt
-dev-crystal/crikey
-dev-crystal/crustache
-dev-crystal/inflector
-dev-crystal/jbuilder
-dev-crystal/json_mapping
-dev-crystal/liquid
-dev-crystal/slang
-dev-crystal/temel
-dev-crystal/water
-
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-07-25)
 # Depends on removed pydantic version.
 dev-python/safety-schemas
