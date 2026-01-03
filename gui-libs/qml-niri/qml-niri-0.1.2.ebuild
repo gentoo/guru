@@ -15,13 +15,11 @@ KEYWORDS="~amd64 ~arm64"
 
 BDEPEND="dev-build/just"
 
-BUILD_DIR="${WORKDIR}/${P}/build"
-
 src_install() {
 	mkdir -p "${D}/usr/lib64/qt6/qml"
-	cp -r build/Niri "${D}/usr/lib64/qt6/qml/" || die
+	cp -r "${WORKDIR}/${P}_build" "${D}/usr/lib64/qt6/qml/" || die
 }
 
-scr_postinst() {
+src_postinst() {
 	elog "Make sure QML_IMPORT_PATH contains /usr/lib64/qt6/qml"
 }
