@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,10 +14,3 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="dev-crystal/crystal-xpath2"
-
-src_prepare() {
-	default
-
-	# failing test
-	rm spec/token_spec.cr || die
-}
