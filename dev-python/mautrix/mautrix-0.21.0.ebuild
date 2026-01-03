@@ -1,10 +1,10 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit daemons distutils-r1 optfeature
 
 DESCRIPTION="A Python 3 asyncio Matrix framework"
@@ -28,6 +28,7 @@ RDEPEND="
 	dev-python/attrs[${PYTHON_USEDEP}]
 	dev-python/yarl[${PYTHON_USEDEP}]
 	crypt? (
+		dev-python/base58[${PYTHON_USEDEP}]
 		dev-python/python-olm[${PYTHON_USEDEP}]
 		dev-python/pycryptodome[${PYTHON_USEDEP}]
 		dev-python/unpaddedbase64[${PYTHON_USEDEP}]
@@ -38,10 +39,11 @@ BDEPEND="
 	test? (
 		dev-python/aiosqlite[${PYTHON_USEDEP}]
 		dev-python/asyncpg[${PYTHON_USEDEP}]
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/ruamel-yaml[${PYTHON_USEDEP}]
 	)
 "
+
+EPYTEST_PLUGINS=( pytest-asyncio )
 
 distutils_enable_tests pytest
 
