@@ -33,11 +33,6 @@ www-apps/jackett
 # Removal after 2025-12-02
 net-libs/nodejs-bin
 
-# Joe (joecool) Kappus <joe@wt.gd> (2025-11-13)
-# No maintainer, repos archived, dead homepage.
-# Removal on 2025-12-13
-net-im/axolotl-bin
-
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-07-25)
 # Depends on removed pydantic version.
 dev-python/safety-schemas
