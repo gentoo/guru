@@ -72,11 +72,6 @@ dev-python/rst2ansi
 # Removal on 2025-11-24
 app-editors/amp
 
-# Alexey Zapparov <alexey@zapparov.com> (2025-10-18)
-# Upstream seems to be unmaintained.
-# Removal on 2025-11-18
-dev-util/fnm
-
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-07-25)
 # Depends on removed pydantic version.
 dev-python/safety-schemas

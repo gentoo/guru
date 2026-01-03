@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
-<pkgmetadata>
-	<upstream>
-		<bugs-to>https://github.com/Schniz/fnm/issues</bugs-to>
-		<changelog>https://github.com/Schniz/fnm/blob/master/CHANGELOG.md</changelog>
-		<remote-id type="github">Schniz/fnm</remote-id>
-	</upstream>
-</pkgmetadata>
