@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Nowa Ammerlaan <nowa@gentoo.org> (2021-03-29)
@@ -17,6 +17,13 @@
 # the PKGREMOVED resolution.
 
 # New entries go on top.
+
+# Lucio Sauer <watermanpaint@posteo.net> (2026-01-04)
+# Header-only libraries without consumers
+# Removal on 2026-02-04
+media-libs/dr_flac
+media-libs/dr_mp3
+media-libs/dr_wav
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2026-01-04)
 # Replaced by phosh-base/phosh-osk-stevia.
