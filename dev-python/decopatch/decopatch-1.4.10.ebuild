@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_USE_PEP517=setuptools
 
 DOCS_BUILDER="mkdocs"
@@ -14,20 +14,21 @@ DOCS_DEPEND=(
 inherit distutils-r1 docs pypi
 
 DESCRIPTION="Create decorators easily in python"
-HOMEPAGE="https://pypi.org/project/decopatch/ https://github.com/smarie/python-decopatch"
+HOMEPAGE="
+	https://pypi.org/project/decopatch/
+	https://github.com/smarie/python-decopatch
+"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="dev-python/makefun[${PYTHON_USEDEP}]"
-BDEPEND="
-	dev-python/setuptools-scm[${PYTHON_USEDEP}]
-	test? ( dev-python/pytest-cases[${PYTHON_USEDEP}] )
-"
+BDEPEND="dev-python/setuptools-scm[${PYTHON_USEDEP}]"
 
 PATCHES=( "${FILESDIR}/${P}-python12.patch" )
 
+EPYTEST_PLUGINS=( pytest-cases )
 EPYTEST_DESELECT=(
 	# fails with whitespace differences in python 3.13
 	tests/test_doc.py::test_doc_add_tag_function
@@ -35,9 +36,9 @@ EPYTEST_DESELECT=(
 
 distutils_enable_tests pytest
 
-python_prepare_all() {
+src_prepare() {
 	sed "/pytest-runner/d" -i setup.cfg || die
-	distutils-r1_python_prepare_all
+	distutils-r1_src_prepare
 }
 
 python_compile_all() {
