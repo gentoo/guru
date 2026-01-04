@@ -1,9 +1,9 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
 
@@ -13,7 +13,10 @@ DOCS_DEPEND="dev-python/mkdocs-material"
 inherit distutils-r1 docs pypi
 
 DESCRIPTION="Create step-wise / incremental tests in pytest"
-HOMEPAGE="https://pypi.org/project/pytest-steps/ https://github.com/smarie/python-pytest-steps"
+HOMEPAGE="
+	https://pypi.org/project/pytest-steps/
+	https://github.com/smarie/python-pytest-steps
+"
 
 LICENSE="BSD"
 SLOT="0"
@@ -28,14 +31,14 @@ BDEPEND="
 	test? (
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/pandas[${PYTHON_USEDEP}]
-		dev-python/pytest-cases[${PYTHON_USEDEP}]
-		dev-python/pytest-harvest[${PYTHON_USEDEP}]
 		dev-python/tabulate[${PYTHON_USEDEP}]
 	)
 "
 
 PATCHES=( "${FILESDIR}/${P}-strict-mkdocs.patch" )
 
+EPYTEST_PLUGIN_LOAD_VIA_ENV=1
+EPYTEST_PLUGINS=( ${PN} pytest-cases pytest-harvest pytest-xdist )
 EPYTEST_DESELECT=(
 	# tests fail with recent Pandas
 	pytest_steps/tests/test_docs_example_with_harvest.py::test_synthesis_df
@@ -44,9 +47,9 @@ EPYTEST_DESELECT=(
 
 distutils_enable_tests pytest
 
-python_prepare_all() {
+src_prepare() {
 	sed "/pytest-runner/d" -i setup.cfg || die
-	distutils-r1_python_prepare_all
+	distutils-r1_src_prepare
 }
 
 python_compile_all() {
