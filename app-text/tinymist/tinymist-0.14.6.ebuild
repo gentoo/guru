@@ -5,14 +5,19 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.88.0"
+RUST_MIN_VER="1.89.0"
 
 CRATES=" "
 
-TYPST_HASH="4a3335c4a1ec26aa0cb3c747ae01ebc061c7832f"
+TYPST_HASH="28af048d65cbb7a5fc78f3ca1a20c9e885384a62"
+TYPST_TS_HASH="c078ddf869d9438b36e1cacb65100e4514780dc1"
 
 declare -A GIT_CRATES=(
-	[docx-rs]='https://github.com/Myriad-Dreamin/docx-rs;db49a729f68dbdb9e8e91857fbb1c3d414209871;docx-rs-%commit%/docx-core'
+	[docx-rs]="https://github.com/Myriad-Dreamin/docx-rs;db49a729f68dbdb9e8e91857fbb1c3d414209871;docx-rs-%commit%/docx-core"
+	[reflexo-typst2vec]="https://github.com/Myriad-Dreamin/typst.ts;${TYPST_TS_HASH};typst.ts-%commit%/crates/conversion/typst2vec"
+	[reflexo-typst]="https://github.com/Myriad-Dreamin/typst.ts;${TYPST_TS_HASH};typst.ts-%commit%/crates/reflexo-typst"
+	[reflexo-vec2svg]="https://github.com/Myriad-Dreamin/typst.ts;${TYPST_TS_HASH};typst.ts-%commit%/crates/conversion/vec2svg"
+	[reflexo]="https://github.com/Myriad-Dreamin/typst.ts;${TYPST_TS_HASH};typst.ts-%commit%/crates/reflexo"
 	[typst-eval]="https://github.com/Myriad-Dreamin/typst;${TYPST_HASH};typst-%commit%/crates/typst-eval"
 	[typst-html]="https://github.com/Myriad-Dreamin/typst;${TYPST_HASH};typst-%commit%/crates/typst-html"
 	[typst-layout]="https://github.com/Myriad-Dreamin/typst;${TYPST_HASH};typst-%commit%/crates/typst-layout"
@@ -42,8 +47,9 @@ SRC_URI="
 LICENSE="Apache-2.0"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 BSD-2 BSD CC0-1.0 CDLA-Permissive-2.0 EUPL-1.2 ISC
-	LGPL-3+ MIT MPL-2.0 Unicode-3.0 ZLIB
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0
+	CDLA-Permissive-2.0 EUPL-1.2 ISC LGPL-3+ MIT MPL-2.0 Unicode-3.0
+	ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64"

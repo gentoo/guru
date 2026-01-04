@@ -3,7 +3,7 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.88.0"
+RUST_MIN_VER="1.89.0"
 
 inherit cargo git-r3 shell-completion
 
@@ -14,8 +14,9 @@ EGIT_REPO_URI="https://github.com/Myriad-Dreamin/tinymist"
 LICENSE="Apache-2.0"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 BSD-2 BSD CC0-1.0 CDLA-Permissive-2.0 EUPL-1.2 ISC
-	LGPL-3+ MIT MPL-2.0 Unicode-3.0 ZLIB
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0
+	CDLA-Permissive-2.0 EUPL-1.2 ISC LGPL-3+ MIT MPL-2.0 Unicode-3.0
+	ZLIB
 "
 SLOT="0"
 
