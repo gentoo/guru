@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
 
@@ -13,7 +13,10 @@ DOCS_DEPEND="dev-python/mkdocs-material"
 inherit distutils-r1 docs pypi
 
 DESCRIPTION="Store and retrieve data created during your pytest tests execution"
-HOMEPAGE="https://pypi.org/project/pytest-harvest/ https://github.com/smarie/python-pytest-harvest"
+HOMEPAGE="
+	https://pypi.org/project/pytest-harvest/
+	https://github.com/smarie/python-pytest-harvest
+"
 
 LICENSE="BSD"
 SLOT="0"
@@ -29,11 +32,12 @@ BDEPEND="
 	test? (
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/pandas[${PYTHON_USEDEP}]
-		dev-python/pytest-cases[${PYTHON_USEDEP}]
 		dev-python/tabulate[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGIN_LOAD_VIA_ENV=1
+EPYTEST_PLUGINS=( ${PN} pytest-cases pytest-xdist )
 EPYTEST_DESELECT=(
 	"pytest_harvest/tests/test_all_raw_with_meta_check.py::test_run_all_tests[test_get_session_results.py]"
 	"pytest_harvest/tests/test_all_raw_with_meta_check.py::test_run_all_tests[test_get_session_results_indirect_and_noparam.py]"
