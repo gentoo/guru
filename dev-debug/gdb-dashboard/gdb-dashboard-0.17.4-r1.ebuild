@@ -1,9 +1,9 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit python-single-r1 optfeature wrapper
 
@@ -26,6 +26,8 @@ RDEPEND="
 	${PYTHON_DEPS}
 "
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+PATCHES=( "${FILESDIR}"/${PN}-0.17.4-fix-buffer-overflow.patch )
 
 pkg_setup() {
 	python-single-r1_pkg_setup
