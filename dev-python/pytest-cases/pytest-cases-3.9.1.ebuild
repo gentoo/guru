@@ -1,9 +1,9 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_USE_PEP517=setuptools
 
 DOCS_BUILDER="mkdocs"
@@ -30,14 +30,10 @@ RDEPEND="
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	dev-python/setuptools-scm[${PYTHON_USEDEP}]
-	test? (
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		dev-python/pytest-harvest[${PYTHON_USEDEP}]
-		dev-python/pytest-steps[${PYTHON_USEDEP}]
-	)
-"
+BDEPEND="dev-python/setuptools-scm[${PYTHON_USEDEP}]"
+
+EPYTEST_PLUGIN_LOAD_VIA_ENV=1
+EPYTEST_PLUGINS=( ${PN} pytest-asyncio pytest-harvest pytest-steps pytest-xdist )
 
 distutils_enable_tests pytest
 
