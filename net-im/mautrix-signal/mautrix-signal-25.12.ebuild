@@ -40,7 +40,7 @@ src_compile() {
 	local MAUTRIX_VERSION=$(awk '/maunium\.net\/go\/mautrix / { print $2 }' go.mod)
 	local BUILD_TIME=$(date -Iseconds)
 	local go_ldflags=(
-		-X "main.Tag=v${PV}"
+		-X "main.Tag=v${MY_PV}"
 		-X "main.BuildTime=${BUILD_TIME}"
 		-X "maunium.net/go/mautrix.GoModVersion=${MAUTRIX_VERSION}"
 	)
