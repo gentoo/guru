@@ -445,7 +445,6 @@ RDEPEND="
 BDEPEND="
 	${PYTHON_DEPS}
 	>=dev-build/cmake-3.15
-	sys-devel/patch
 	dev-util/blueprint-compiler
 "
 
