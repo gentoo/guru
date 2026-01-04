@@ -8,7 +8,7 @@ inherit go-module
 DESCRIPTION="Load testing tool"
 HOMEPAGE="https://github.com/grafana/k6"
 SRC_URI="https://github.com/grafana/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://github.com/gabrielmdutra/gentoo-depfiles/releases/download/${PN}-${PV}-vendor.tar.xz/${PN}-${PV}-vendor.tar.xz"
+SRC_URI+=" https://distfiles.dutra.sh/distfiles/${P}-vendor.tar.xz"
 
 LICENSE="AGPL-3"
 SLOT="0"
