@@ -9,7 +9,7 @@ MY_P="${PN}-v${PV}"
 JOB_ID="898266" # Keep this in sync with the link with "other" in releases
 DESCRIPTION="Pluggable Transport using WebRTC, inspired by Flashproxy"
 HOMEPAGE="
-	https://snowflake.torproject.org/
+	https://snowflake.torproject.org
 	https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake
 "
 SRC_URI="https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/${PN}/-/jobs/${JOB_ID}/artifacts/raw/${MY_P}.tar.gz"
