@@ -15,7 +15,7 @@ HOMEPAGE="
 SRC_URI="https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/${PN}/-/jobs/${JOB_ID}/artifacts/raw/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
-LICENSE="Apache-2.0 BSD BSD-2 CC0-1.0 MIT"
+LICENSE="BSD Apache-2.0 BSD-2 CC0-1.0 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
