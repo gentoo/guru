@@ -1,9 +1,11 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit gnome2-utils meson pam systemd toolchain-funcs vala verify-sig virtualx xdg
+PYTHON_COMPAT=( python3_{12..14} )
+
+inherit gnome2-utils meson pam python-any-r1 systemd toolchain-funcs vala verify-sig virtualx xdg
 
 MY_PN="${PN%-shell}"
 MY_P="${MY_PN}-${PV}"
@@ -20,7 +22,7 @@ IUSE="gtk-doc introspection +lockscreen-plugins man +plugins systemd test test-f
 REQUIRED_USE="
 	gtk-doc? ( introspection )
 	lockscreen-plugins? ( plugins )
-	test? ( plugins lockscreen-plugins )
+	test? ( plugins lockscreen-plugins test-full )
 	vala? ( introspection )
 "
 
@@ -42,13 +44,13 @@ COMMON_DEPEND="
 	media-libs/libpulse[glib]
 	media-sound/callaudiod
 	>=net-libs/libsoup-3.6:3.0
-	net-misc/modemmanager:=
+	>=net-misc/modemmanager-1.24.0:=
 	>=net-misc/networkmanager-1.14[introspection?]
 	>=net-wireless/gnome-bluetooth-46.0:3=[introspection?]
 	sys-apps/dbus
 	>=sys-auth/polkit-0.122
 	sys-libs/pam
-	>=sys-power/upower-0.99.1:=
+	>=sys-power/upower-1.90:=
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	x11-libs/pango
@@ -94,25 +96,48 @@ BDEPEND="
 	gtk-doc? ( dev-util/gi-docgen )
 	introspection? ( dev-libs/gobject-introspection )
 	man? ( dev-python/docutils )
-	test-full? ( >=gui-wm/phoc-0.45.0 )
-	verify-sig? ( sec-keys/openpgp-keys-phosh )
+	test-full? (
+		dev-util/umockdev
+		gui-apps/wlr-randr
+		>=gui-wm/phoc-0.45.0
+		net-misc/networkmanager[tools]
+		$(python_gen_any_dep '
+			dev-python/dbus-python[${PYTHON_USEDEP}]
+			dev-python/pygobject[${PYTHON_USEDEP}]
+			dev-python/pytest[${PYTHON_USEDEP}]
+			dev-python/python-dbusmock[${PYTHON_USEDEP}]
+		')
+	)
+	verify-sig? ( >=sec-keys/openpgp-keys-phosh-2025 )
 "
+
+EPYTEST_PLUGINS=()
 
 VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/phosh.asc"
 
-# https://gitlab.gnome.org/World/Phosh/phosh/-/issues/1240
-# https://gitlab.gnome.org/World/Phosh/phosh/-/merge_requests/1733
-RESTRICT="test"
+python_check_deps() {
+	python_has_version -b "dev-python/dbus-python[${PYTHON_USEDEP}]" &&
+	python_has_version -b "dev-python/pygobject[${PYTHON_USEDEP}]" &&
+	python_has_version -b "dev-python/pytest[${PYTHON_USEDEP}]" &&
+	python_has_version -b "dev-python/python-dbusmock[${PYTHON_USEDEP}]"
+}
+
+pkg_setup() {
+	use test-full && python-any-r1_pkg_setup
+}
 
 src_prepare() {
 	use vala && vala_setup
 	default
+
+	sed "/^set -e/d; /^pytest/d" -i tests/integration/run-pytest.in || die
 }
 
 src_configure() {
 	local emesonargs=(
 		-Dcompositor="${EPREFIX}"/usr/bin/phoc
 		-Dtools=true
+		-Dsearchd=true
 		$(meson_use gtk-doc gtk_doc)
 		$(meson_use introspection)
 		$(meson_use introspection bindings-lib)
@@ -132,10 +157,19 @@ src_test() {
 		local -x WLR_RENDERER="pixman"
 		local -x PHOSH_TEST_PHOC_INI="${T}/phoc.ini"
 
-		meson_src_test --suite unit || return 1
+		# XXX: app-grid-button tests segfaults
+		# https://gitlab.gnome.org/World/Phosh/phosh/-/issues/1240
+		# https://github.com/ximion/appstream/issues/720
+		#meson_src_test --suite unit || return 1
+
 		if use test-full; then
 			meson_src_test --suite integration --timeout-multiplier 2 || return 1
 		fi
+
+		source "${BUILD_DIR}"/tests/integration/run-pytest || return 1
+		ewarn "Some tests might fail if umockdev is broken on your system"
+		ewarn "See https://bugs.gentoo.org/868204"
+		epytest tests/integration || return 1
 	}
 
 	# Xwayland breaks "phosh:integration / shell", pollutes /tmp
