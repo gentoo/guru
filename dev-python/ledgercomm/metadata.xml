@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>watermanpaint@posteo.net</email>
+		<name>Lucio Sauer</name>
+	</maintainer>
+	<stabilize-allarches/>
+	<upstream>
+		<bugs-to>https://github.com/LedgerHQ/ledgercomm/issues</bugs-to>
+		<changelog>https://github.com/LedgerHQ/ledgercomm/blob/master/CHANGELOG.md</changelog>
+		<remote-id type="github">LedgerHQ/ledgercomm</remote-id>
+		<remote-id type="pypi">ledgercomm</remote-id>
+	</upstream>
+</pkgmetadata>
