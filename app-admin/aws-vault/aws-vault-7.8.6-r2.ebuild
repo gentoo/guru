@@ -16,8 +16,6 @@ LICENSE="Apache-2.0 BSD BSD-2 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="${DEPEND}"
-
 src_compile() {
 	ego build -ldflags "-s -w -X \"main.Version=${PV}\"" -o "${PN}" || die
 }
