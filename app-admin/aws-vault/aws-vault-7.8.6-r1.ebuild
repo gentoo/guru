@@ -19,7 +19,7 @@ KEYWORDS="~amd64"
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	go build -ldflags "-s -w -X \"main.Version=${PV}\"" -o "${PN}" || die "go build failed"
+	ego build -ldflags "-s -w -X \"main.Version=${PV}\"" -o "${PN}" || die
 }
 
 src_install() {
