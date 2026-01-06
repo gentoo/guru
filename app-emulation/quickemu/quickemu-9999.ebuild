@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit python-single-r1
 
 DESCRIPTION="Create and run optimised Windows, macOS and Linux desktop virtual machines"
