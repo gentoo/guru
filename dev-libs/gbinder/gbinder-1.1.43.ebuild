@@ -31,7 +31,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/gbinder-1.1.36-respect-env.patch"
-	"${FILESDIR}/gbinder-1.1.42-C23-compat.patch"
 )
 
 src_prepare() {
