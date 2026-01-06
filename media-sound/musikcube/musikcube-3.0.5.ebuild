@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,15 +22,15 @@ DEPEND="
 	net-libs/libmicrohttpd:=
 	sys-libs/ncurses:=
 	media-libs/libogg
-	<media-video/ffmpeg-7.0:=
+	media-video/ffmpeg:=
 	virtual/zlib:=
 	media-libs/libvorbis
 	net-misc/curl
 	dev-libs/openssl:=
 	media-sound/lame
 	dev-libs/libev
-	<media-libs/taglib-2.0
-	<dev-cpp/asio-1.33.0
+	media-libs/taglib
+	dev-cpp/asio
 	libopenmpt? (
 		media-libs/libopenmpt
 		media-sound/mpg123
