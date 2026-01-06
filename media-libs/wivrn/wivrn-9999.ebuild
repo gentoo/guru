@@ -40,6 +40,7 @@ RDEPEND="
 		sys-auth/elogind
 	)
 	gui? (
+		dev-libs/kirigami-addons
 		dev-libs/qcoro[qml]
 		kde-frameworks/kcoreaddons:6
 		kde-frameworks/ki18n:6
