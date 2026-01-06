@@ -62,10 +62,6 @@ sci-physics/openmodelica
 # Bug #954116.
 dev-ruby/asciidoctor-pdf
 
-# Julien Roy <julien@jroy.ca> (2024-03-21)
-# sys-libs/libucontext is masked in ::gentoo
-sys-libs/gcompat
-
 # Julien Roy <julien@jroy.ca> (2024-03-09)
 # Dracut fails to boot with Clevis 20
 # https://github.com/latchset/clevis/issues/456
