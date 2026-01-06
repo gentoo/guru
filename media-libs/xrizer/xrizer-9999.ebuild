@@ -355,17 +355,12 @@ src_prepare() {
 }
 
 multilib_src_compile() {
-	cargo_src_compile --target=$(rust_abi)
+	cargo_src_compile
 }
 
 multilib_src_install() {
 	# OpenVR expects this particular directory structure.
-	if [[ ${ABI} == amd64 ]] ; then
-		exeinto "/opt/${PN}/bin/linux64"
-		newexe "${CARGO_TARGET_DIR:-target}/$(rust_abi)/$(usex debug debug release)"/libxrizer.so vrclient.so || die
-	elif [[ ${ABI} == x86 ]] ; then
-		exeinto "/opt/${PN}/bin"
-		newexe "${CARGO_TARGET_DIR:-target}/$(rust_abi)/$(usex debug debug release)"/libxrizer.so vrclient.so || die
-	fi
-	touch "${D}/opt/${PN}/version.txt"
+	exeinto "/opt/${PN}/bin$(multilib_is_native_abi && echo /linux64)"
+	newexe "$(cargo_target_dir)"/libxrizer.so vrclient.so
+	touch "${ED}/opt/${PN}/version.txt"
 }
