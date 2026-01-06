@@ -38,6 +38,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}/netsniff-ng-0.6.9-gcc-15.patch"
+)
+
 src_prepare() {
 	default
 
