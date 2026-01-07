@@ -52,8 +52,8 @@ RDEPEND="acct-user/graftcp"
 BDEPEND=">=dev-lang/go-1.21"
 
 PATCHES=(
-	"${FILESDIR}"/0002-build-no-longer-strip-symbols.patch
-	"${FILESDIR}"/0005-let-graftcp-respect-LDFLAGS.patch
+	"${FILESDIR}/0002-build-no-longer-strip-symbols.patch"
+	"${FILESDIR}/0005-let-graftcp-respect-LDFLAGS.patch"
 )
 
 DOCS=(
