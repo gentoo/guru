@@ -20,6 +20,7 @@ DEPEND="
     gui-apps/rofi
     x11-libs/cairo
     dev-libs/glib:2
+    test? ( dev-libs/check )
 "
 RDEPEND="${DEPEND}
     gui-apps/wtype
@@ -27,7 +28,6 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="
     virtual/pkgconfig
-    test? ( dev-libs/check )
 "
 
 src_prepare() {
