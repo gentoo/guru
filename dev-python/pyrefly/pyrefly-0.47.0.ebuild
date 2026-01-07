@@ -453,13 +453,14 @@ QA_FLAGS_IGNORED="usr/bin/.*"
 src_prepare() {
 	default
 
-	# required for network-sandbox?
-	sed -i \
-		-e 's|^cxx = { git = "https://github.com/facebookexperimental/cxx.git", rev = "870ebbecad0f6be394d4f9fb9bd62b551662651a" }$|cxx = { path = "../cxx-870ebbecad0f6be394d4f9fb9bd62b551662651a" }|' \
-		-e 's|^cxx-build = { git = "https://github.com/facebookexperimental/cxx.git", rev = "870ebbecad0f6be394d4f9fb9bd62b551662651a" }$|cxx-build = { path = "../cxx-870ebbecad0f6be394d4f9fb9bd62b551662651a/gen/build" }|' \
-		-e 's|^displaydoc = { git = "https://github.com/yaahc/displaydoc", rev = "7dc6e324b1788a6b7fb9f3a1953c512923a3e9f0" }$|displaydoc = { path = "../displaydoc-7dc6e324b1788a6b7fb9f3a1953c512923a3e9f0" }|' \
-		-e 's|^quickcheck = { git = "https://github.com/jakoschiko/quickcheck", rev = "6ecdf5bb4b0132ce66670b4d46453aa022ea892c" }$|quickcheck = { path = "../quickcheck-6ecdf5bb4b0132ce66670b4d46453aa022ea892c" }|' \
-		../Cargo.toml
+	local crate crate_patches crate_uri commit crate_dir host
+	for crate in "${!GIT_CRATES[@]}"; do
+		IFS=';' read -r crate_uri commit crate_dir host <<< "${GIT_CRATES[${crate}]}"
+		: "${crate_dir:=${crate}-%commit%}"
+		crate_patches+="${crate} = { path = \"${WORKDIR}/${crate_dir//%commit%/${commit}}\" };;"
+	done
+	printf -- "[patch.crates-io]\\n%s" "${crate_patches//;;/$'\n'}" \
+		>> "${CARGO_HOME}/config.toml"
 }
 
 src_configure() {
