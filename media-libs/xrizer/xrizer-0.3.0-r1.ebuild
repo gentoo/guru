@@ -304,7 +304,7 @@ fi
 
 RUST_MULTILIB=1
 RUST_MIN_VER="1.83.0"
-inherit cargo multilib-minimal rust-toolchain
+inherit cargo multilib-minimal
 
 DESCRIPTION="OpenVR over OpenXR compatibility layer"
 HOMEPAGE="https://github.com/Supreeeme/xrizer/"
