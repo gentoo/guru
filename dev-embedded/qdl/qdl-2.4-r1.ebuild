@@ -3,14 +3,15 @@
 
 EAPI=8
 
-inherit git-r3 toolchain-funcs
+inherit toolchain-funcs
 
 DESCRIPTION="Tool to communicate with Qualcomm System On a Chip bootroms"
 HOMEPAGE="https://github.com/linux-msm/qdl"
-EGIT_REPO_URI="https://github.com/andersson/qdl.git"
+SRC_URI="https://github.com/linux-msm/qdl/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
+KEYWORDS="~amd64"
 
 DEPEND="
 	dev-libs/libusb:1
