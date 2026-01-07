@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,9 +6,9 @@ EAPI=8
 inherit cmake edo
 
 DESCRIPTION="R6RS/R7RS Scheme system."
-HOMEPAGE="https://bitbucket.org/ktakashi/sagittarius-scheme"
-SRC_URI="https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/${P}.tar.gz"
-PATCHES=( "${FILESDIR}/${PN}-compiler-flags.patch" )
+HOMEPAGE="https://github.com/ktakashi/sagittarius-scheme"
+SRC_URI="https://github.com/ktakashi/sagittarius-scheme/releases/download/v${PV}/${P}.tar.gz"
+PATCHES=( "${FILESDIR}/${PN}-0.9.14-compiler-flags.patch" )
 
 LICENSE="BSD-2"
 SLOT="0"

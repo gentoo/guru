@@ -6,6 +6,6 @@
     <name>Daichi Yamamoto</name>
   </maintainer>
   <upstream>
-    <remote-id type="bitbucket">ktakashi/sagittarius-scheme</remote-id>
+    <remote-id type="github">ktakashi/sagittarius-scheme</remote-id>
   </upstream>
 </pkgmetadata>
