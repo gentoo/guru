@@ -5,6 +5,10 @@
       <email>mathijs@mathsaey.be</email>
       <name>Mathijs Saey</name>
     </maintainer>
+    <maintainer type="person">
+      <email>minyaylo51@gmail.com</email>
+      <name>Neatink</name>
+    </maintainer>
     <upstream>
         <remote-id type="github">Mange/rofi-emoji</remote-id>
     </upstream>
