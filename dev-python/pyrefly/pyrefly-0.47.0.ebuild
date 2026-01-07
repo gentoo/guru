@@ -437,6 +437,8 @@ SRC_URI="
 	${CARGO_CRATE_URIS}
 "
 
+S="${WORKDIR}/${P}/${PN}"
+
 LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
@@ -446,19 +448,23 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
-QA_FLAGS_IGNORED="usr/bin/${PN}"
+QA_FLAGS_IGNORED="usr/bin/.*"
 
-PATCHES=(	"${FILESDIR}"/${PN}-cargo-toml-paths.patch	)
+src_prepare() {
+	default
+
+	# required for network-sandbox?
+	sed -i \
+		-e 's|^cxx = { git = "https://github.com/facebookexperimental/cxx.git", rev = "870ebbecad0f6be394d4f9fb9bd62b551662651a" }$|cxx = { path = "../cxx-870ebbecad0f6be394d4f9fb9bd62b551662651a" }|' \
+		-e 's|^cxx-build = { git = "https://github.com/facebookexperimental/cxx.git", rev = "870ebbecad0f6be394d4f9fb9bd62b551662651a" }$|cxx-build = { path = "../cxx-870ebbecad0f6be394d4f9fb9bd62b551662651a/gen/build" }|' \
+		-e 's|^displaydoc = { git = "https://github.com/yaahc/displaydoc", rev = "7dc6e324b1788a6b7fb9f3a1953c512923a3e9f0" }$|displaydoc = { path = "../displaydoc-7dc6e324b1788a6b7fb9f3a1953c512923a3e9f0" }|' \
+		-e 's|^quickcheck = { git = "https://github.com/jakoschiko/quickcheck", rev = "6ecdf5bb4b0132ce66670b4d46453aa022ea892c" }$|quickcheck = { path = "../quickcheck-6ecdf5bb4b0132ce66670b4d46453aa022ea892c" }|' \
+		../Cargo.toml
+}
 
 src_configure() {
 	# Requires nightly
 	export RUSTC_BOOTSTRAP=1
 
 	cargo_src_configure
-}
-
-src_install () {
-	cargo_src_install --path "${S}/${PN}"
-
-	einstalldocs
 }
