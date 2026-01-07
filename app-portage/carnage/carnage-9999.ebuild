@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,7 +27,7 @@ IUSE="man"
 RDEPEND="
 	>=dev-python/lxml-6.0.2[${PYTHON_USEDEP}]
 	>=dev-python/msgpack-1.1.2[${PYTHON_USEDEP}]
-	>=dev-python/textual-6.7.0[${PYTHON_USEDEP}]
+	>=dev-python/textual-7.0.0[${PYTHON_USEDEP}]
 	>=dev-python/tomlkit-0.13.3[${PYTHON_USEDEP}]
 "
 
