@@ -58,6 +58,8 @@ pkg_setup() {
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_MQTT=$(usex mqtt)
+		-DRX_TIMESTAMP=TRUE
+		-DTX_TIMESTAMP=TRUE
 	)
 
 	cmake_src_configure
