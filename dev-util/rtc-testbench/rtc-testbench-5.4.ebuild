@@ -67,7 +67,7 @@ src_configure() {
 
 src_compile() {
 	cmake_src_compile
-	use doc && make -C "${S}/Documentation" html
+	use doc && emake -C "${S}/Documentation" html
 }
 
 src_install() {
