@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,11 @@ DOCS_INITIALIZE_GIT=1
 inherit distutils-r1 optfeature docs
 
 DESCRIPTION="Modern Text User Interface framework"
-HOMEPAGE="https://github.com/Textualize/textual https://pypi.org/project/textual/"
+HOMEPAGE="
+	https://textual.textualize.io/
+	https://github.com/Textualize/textual
+	https://pypi.org/project/textual/
+"
 SRC_URI="https://github.com/Textualize/textual/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
@@ -31,8 +35,11 @@ RDEPEND="
 	>=dev-python/markdown-it-py-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-3.6.0[${PYTHON_USEDEP}]
 	<dev-python/platformdirs-5[${PYTHON_USEDEP}]
-	>=dev-python/rich-13.3.3[${PYTHON_USEDEP}]
+	>=dev-python/rich-14.2.0[${PYTHON_USEDEP}]
+	>=dev-python/typing-extensions-4.4.0[${PYTHON_USEDEP}]
+	<dev-python/typing-extensions-5[${PYTHON_USEDEP}]
 "
+
 BDEPEND="
 	test? (
 		dev-python/griffe[${PYTHON_USEDEP}]
@@ -41,9 +48,8 @@ BDEPEND="
 		=dev-python/textual-dev-1.7*[${PYTHON_USEDEP}]
 	)
 "
-DEPEND="${RDEPEND}"
 
-DOCS+=( CHANGELOG.md LICENSE README.md )
+DOCS+=( {CHANGELOG,README}.md )
 
 EPYTEST_XDIST=1
 EPYTEST_DESELECT=(
@@ -70,7 +76,9 @@ EPYTEST_DESELECT=(
 	# Needs a fixture that does not exist
 	tests/test_progress_bar.py::test_progress_bar_width_1fr
 )
+
 distutils_enable_tests pytest
+
 # python_test() {
 # 	if [[ ${EPYTHON} == python3.13 ]]; then
 # 		EPYTEST_DESELECT+=(
