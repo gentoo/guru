@@ -1,5 +1,5 @@
-diff --git c/esp_idf_kconfig/gen_kconfig_doc.py w/esp_idf_kconfig/gen_kconfig_doc.py
-index 87d0c1a..cb83260 100644
+# Needed to avoid conflicts with dev-python/kconfiglib
+# See https://github.com/espressif/esp-idf-kconfig/issues/13 for context
 --- c/esp_idf_kconfig/gen_kconfig_doc.py
 +++ w/esp_idf_kconfig/gen_kconfig_doc.py
 @@ -11,7 +11,7 @@
@@ -11,15 +11,12 @@ index 87d0c1a..cb83260 100644
  
  # Indentation to be used in the generated file
  INDENT = "    "
-diff --git c/kconfiglib/__init__.py w/espkconfiglib/__init__.py
 similarity index 100%
 rename from kconfiglib/__init__.py
 rename to espkconfiglib/__init__.py
-diff --git c/kconfiglib/core.py w/espkconfiglib/core.py
 similarity index 99%
 rename from kconfiglib/core.py
 rename to espkconfiglib/core.py
-index 971b53e..cf2a5ec 100644
 --- c/kconfiglib/core.py
 +++ w/espkconfiglib/core.py
 @@ -2,7 +2,7 @@
@@ -40,11 +37,9 @@ index 971b53e..cf2a5ec 100644
  
          parser = Parser(kconfig=self)
  
-diff --git c/kconfiglib/kconfig_grammar.py w/espkconfiglib/kconfig_grammar.py
 similarity index 99%
 rename from kconfiglib/kconfig_grammar.py
 rename to espkconfiglib/kconfig_grammar.py
-index d4c8fee..5f00c1f 100644
 --- c/kconfiglib/kconfig_grammar.py
 +++ w/espkconfiglib/kconfig_grammar.py
 @@ -29,7 +29,7 @@ from pyparsing import one_of
@@ -56,11 +51,9 @@ index d4c8fee..5f00c1f 100644
  
  
  class KconfigBlock(Token):
-diff --git c/kconfiglib/kconfig_parser.py w/espkconfiglib/kconfig_parser.py
 similarity index 99%
 rename from kconfiglib/kconfig_parser.py
 rename to espkconfiglib/kconfig_parser.py
-index 86e6f7f..4bab061 100644
 --- c/kconfiglib/kconfig_parser.py
 +++ w/espkconfiglib/kconfig_parser.py
 @@ -17,7 +17,7 @@ from pyparsing import ParseResults
@@ -72,8 +65,6 @@ index 86e6f7f..4bab061 100644
  
  from .core import AND
  from .core import BOOL
-diff --git c/kconfgen/core.py w/kconfgen/core.py
-index dbcf8c3..37f3205 100755
 --- c/kconfgen/core.py
 +++ w/kconfgen/core.py
 @@ -27,7 +27,7 @@ from typing import Set
@@ -85,8 +76,6 @@ index dbcf8c3..37f3205 100755
  from esp_idf_kconfig import __version__
  
  
-diff --git c/kconfserver/core.py w/kconfserver/core.py
-index fead552..8693663 100644
 --- c/kconfserver/core.py
 +++ w/kconfserver/core.py
 @@ -13,7 +13,7 @@ import tempfile
@@ -98,8 +87,6 @@ index fead552..8693663 100644
  from esp_idf_kconfig import __version__
  
  # Min/Max supported protocol versions
-diff --git c/menuconfig/core.py w/menuconfig/core.py
-index 1d71292..2fa6cdd 100755
 --- c/menuconfig/core.py
 +++ w/menuconfig/core.py
 @@ -2,7 +2,7 @@
