@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,37 +22,12 @@ fi
 LICENSE="MIT"
 SLOT="0"
 
-IUSE="man"
-
 RDEPEND="
 	>=dev-python/lxml-6.0.2[${PYTHON_USEDEP}]
 	>=dev-python/msgpack-1.1.2[${PYTHON_USEDEP}]
-	>=dev-python/textual-6.7.0[${PYTHON_USEDEP}]
+	>=dev-python/textual-7.0.1[${PYTHON_USEDEP}]
 	>=dev-python/tomlkit-0.13.3[${PYTHON_USEDEP}]
 "
-
-BDEPEND="
-	man? (
-		|| (
-			app-text/lowdown
-			virtual/pandoc
-		)
-	)
-"
-
-python_compile() {
-	distutils-r1_python_compile
-
-	if use man; then
-		local docgen=lowdown
-
-		# prefer pandoc if it's installed
-		has_version virtual/pandoc && docgen=pandoc
-
-		"${docgen}" docs/man.carnage.md -s -t man -o docs/carnage.1 \
-			|| die "Failed to generate man page with ${docgen}"
-	fi
-}
 
 src_install() {
 	distutils-r1_src_install
@@ -61,7 +36,7 @@ src_install() {
 
 	doicon -s scalable assets/carnage.svg
 
-	use man && doman docs/carnage.1
+	doman man/carnage.1
 }
 
 pkg_postinst() {
