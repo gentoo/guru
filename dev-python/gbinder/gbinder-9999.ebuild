@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 DISTUTILS_USE_PEP517="setuptools"
 DISTUTILS_EXT=1
@@ -21,7 +21,7 @@ else
 	EGIT_REPO_URI="https://github.com/erfanoabdi/gbinder-python.git"
 fi
 
-DESCRIPTION="Python bindings for libgbinder"
+DESCRIPTION="Python bindings for dev-libs/gbinder"
 HOMEPAGE="https://github.com/erfanoabdi/gbinder-python"
 LICENSE="GPL-3"
 SLOT="0"
@@ -35,11 +35,3 @@ BDEPEND="
 	virtual/pkgconfig
 	dev-python/cython[${PYTHON_USEDEP}]
 "
-
-PATCHES=(
-	"${FILESDIR}"/gbinder-1.1.1-setuptools.patch
-)
-
-python_configure_all() {
-	DISTUTILS_ARGS=( --cython )
-}
