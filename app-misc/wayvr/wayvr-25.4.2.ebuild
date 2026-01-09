@@ -8,6 +8,9 @@ EAPI=8
 CRATES="
 "
 
+# Name before the move
+MY_PN="wlx-overlay-s"
+
 declare -A GIT_CRATES=(
 	[libmonado]='https://github.com/technobaboo/libmonado-rs;256895b18c8f9368174fad8a6232ff07764eeacb;libmonado-rs-%commit%'
 	[libspa-sys]='https://gitlab.freedesktop.org/galister/pipewire-rs;ba32202c3c391004c3bb533b58fa75a50e47ff57;pipewire-rs-%commit%/libspa-sys;gitlab'
@@ -27,12 +30,14 @@ LLVM_COMPAT=({15..19})
 inherit cargo llvm-r2 desktop
 
 DESCRIPTION="A lightweight OpenXR/OpenVR overlay for Wayland and X11 desktops"
-HOMEPAGE="https://github.com/galister/wlx-overlay-s"
+HOMEPAGE="https://github.com/wlx-team/wayvr"
 SRC_URI="
 	${CARGO_CRATE_URIS}
-	https://github.com/galister/wlx-overlay-s/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/galister/wlx-overlay-s/releases/download/v${PV}/WlxOverlay-S-v${PV}-crates.tar.xz
+	https://github.com/wlx-team/wayvr/archive/refs/tags/v${PV}.tar.gz -> ${MY_PN}-${PV}.tar.gz
+	https://github.com/wlx-team/wayvr/releases/download/v${PV}/WlxOverlay-S-v${PV}-crates.tar.xz
 "
+
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="GPL-3"
 # Dependent crate licenses
