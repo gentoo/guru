@@ -24,13 +24,13 @@ RDEPEND="
 	!app-admin/ananicy
 	>=dev-cpp/nlohmann_json-3.9
 	>=dev-libs/libfmt-8:=
-	>=dev-libs/spdlog-1.9
+	>=dev-libs/spdlog-1.9:=
 	bpf? (
 		 dev-libs/elfutils
 		 dev-libs/libbpf
 		 dev-util/bpftool
 	)
-	systemd? ( sys-apps/systemd )
+	systemd? ( sys-apps/systemd:= )
 "
 
 DEPEND="
@@ -41,6 +41,8 @@ DEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${P}-remove-debug-flags.patch"
+	"${FILESDIR}/${P}-clang-19.patch"
+	"${FILESDIR}/${P}-glibc-2.41.patch"
 )
 
 pkg_setup() {

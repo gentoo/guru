@@ -1,0 +1,45 @@
+https://gitlab.com/ananicy-cpp/ananicy-cpp/-/commit/b2589a9b1faa2ecf54aeede40ea781c33bfb09a8
+From: John Titor <50095635+JohnRTitor@users.noreply.github.com>
+Date: Fri, 27 Dec 2024 11:37:04 +0530
+Subject: [PATCH] atomic-queue: fix build with clang 19
+
+> error: a template argument list is expected after a name prefixed by the template keyword [-Wmissing-template-arg-list-after-template-kw]
+
+Co-authored-by: Reno Dakota <paparodeo@proton.me>
+--- a/include/utility/atomic_queue/atomic_queue.h
++++ b/include/utility/atomic_queue/atomic_queue.h
+@@ -393,13 +393,13 @@ class AtomicQueue2 : public AtomicQueueCommon<AtomicQueue2<T, SIZE, MINIMIZE_CON
+ 
+     T do_pop(unsigned tail) noexcept {
+         unsigned index = details::remap_index<SHUFFLE_BITS>(tail % size_);
+-        return Base::template do_pop_any(states_[index], elements_[index]);
++        return Base::template do_pop_any<T>(states_[index], elements_[index]);
+     }
+ 
+     template<class U>
+     void do_push(U&& element, unsigned head) noexcept {
+         unsigned index = details::remap_index<SHUFFLE_BITS>(head % size_);
+-        Base::template do_push_any(std::forward<U>(element), states_[index], elements_[index]);
++        Base::template do_push_any<U>(std::forward<U>(element), states_[index], elements_[index]);
+     }
+ 
+ public:
+@@ -521,13 +521,13 @@ class AtomicQueueB2 : public AtomicQueueCommon<AtomicQueueB2<T, A, MAXIMIZE_THRO
+ 
+     T do_pop(unsigned tail) noexcept {
+         unsigned index = details::remap_index<SHUFFLE_BITS>(tail & (size_ - 1));
+-        return Base::template do_pop_any(states_[index], elements_[index]);
++        return Base::template do_pop_any<T>(states_[index], elements_[index]);
+     }
+ 
+     template<class U>
+     void do_push(U&& element, unsigned head) noexcept {
+         unsigned index = details::remap_index<SHUFFLE_BITS>(head & (size_ - 1));
+-        Base::template do_push_any(std::forward<U>(element), states_[index], elements_[index]);
++        Base::template do_push_any<U>(std::forward<U>(element), states_[index], elements_[index]);
+     }
+ 
+ public:
+-- 
+GitLab
+
