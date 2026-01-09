@@ -18,7 +18,10 @@ KEYWORDS="~amd64 ~x86"
 IUSE="llvm-libunwind test"
 REQUIRE_USE="${LUA_REQUIRED_USE}"
 
-DEPEND="${LUA_DEPS}"
+DEPEND="
+	${LUA_DEPS}
+	sys-libs/binutils-libs
+"
 RDEPEND="${DEPEND}"
 BDEPEND="
 	app-alternatives/ninja
