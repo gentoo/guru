@@ -19,7 +19,7 @@ else
 fi
 
 DESCRIPTION="Collection of extra tools for Unixes"
-HOMEPAGE="https://hacktivis.me/git/utils-extra"
+HOMEPAGE="https://hacktivis.me/git/utils-extra/"
 LICENSE="MPL-2.0"
 SLOT="0"
 IUSE="test static"
@@ -57,6 +57,8 @@ src_configure() {
 	export NO_BWRAP=1
 
 	use static && export LDSTATIC="-static-pie"
+
+	rm cmd/xcd.c || die
 
 	./configure PREFIX='/usr'
 }
