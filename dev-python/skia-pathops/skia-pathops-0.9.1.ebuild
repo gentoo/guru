@@ -1,22 +1,22 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 pypi
 
-HASH="4c6ce1f1f3e8d3888165f2830adcf340922416c155647b12ebac2dcc423e"
+HASH="2df8c918ffcb4ad847d2571f32a92447ffebe2e9c94d4ea05d9a86f20beb"
 DESCRIPTION="Python bindings for the Skia Path Ops"
 HOMEPAGE="
 	https://skia.org/dev/present/pathops
 	https://pypi.org/project/skia-pathops/
 	https://github.com/fonttools/skia-pathops
 "
-SRC_URI="https://files.pythonhosted.org/packages/e5/85/${HASH}/skia_pathops-${PV}.post2.zip"
-S="${WORKDIR}/skia_pathops-${PV}.post2"
+SRC_URI="https://files.pythonhosted.org/packages/45/e5/${HASH}/skia_pathops-${PV}.tar.gz"
+S="${WORKDIR}/skia_pathops-${PV}"
 
 LICENSE="BSD"
 SLOT="0"
@@ -29,7 +29,7 @@ BDEPEND="
 	dev-build/gn
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-0.8.0-no-net.patch )
+PATCHES=( "${FILESDIR}"/${P}-no-net.patch )
 
 REPYTEST_DESELECT=(
 	tests/pathops_test.py::PathTest::test_transform
