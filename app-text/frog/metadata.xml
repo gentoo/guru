@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <name>Pavel Sobolev</name>
+    <email>contact@paveloom.dev</email>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://github.com/TenderOwl/Frog/issues</bugs-to>
+    <remote-id type="github">TenderOwl/Frog</remote-id>
+  </upstream>
+</pkgmetadata>

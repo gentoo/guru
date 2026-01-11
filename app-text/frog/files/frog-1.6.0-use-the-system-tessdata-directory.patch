@@ -1,0 +1,59 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use the system `tessdata` directory.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/data/meson.build
++++ b/data/meson.build
+@@ -32,11 +32,6 @@ install_data('com.github.tenderowl.frog.gschema.xml',
+   install_dir: join_paths(get_option('datadir'), 'glib-2.0/schemas')
+ )
+ 
+-# Default tesseract trained model
+-install_data('tessdata/eng.traineddata',
+-  install_dir: join_paths(get_option('datadir'), 'appdata')
+-)
+-
+ compile_schemas = find_program('glib-compile-schemas', required: false)
+ if compile_schemas.found()
+   test('Validate schema file', compile_schemas,
+--- a/frog/config.py
++++ b/frog/config.py
+@@ -35,10 +35,7 @@ RESOURCE_PREFIX = "/com/github/tenderowl/frog"
+ if not os.getenv('XDG_DATA_HOME'):
+     os.environ['XDG_DATA_HOME'] = os.path.expanduser('~/.local/share')
+ 
+-if not os.path.exists(os.path.join(os.environ['XDG_DATA_HOME'], 'tessdata')):
+-    os.mkdir(os.path.join(os.environ['XDG_DATA_HOME'], 'tessdata'))
+-
+ tessdata_url = "https://github.com/tesseract-ocr/tessdata/raw/main/"
+ tessdata_best_url = "https://github.com/tesseract-ocr/tessdata_best/raw/main/"
+-tessdata_dir = os.path.join(os.environ['XDG_DATA_HOME'], 'tessdata')
++tessdata_dir = "/usr/share/tessdata"
+ tessdata_config = f'--tessdata-dir {tessdata_dir} –psm 0 --oem 1'
+--- a/frog/language_manager.py
++++ b/frog/language_manager.py
+@@ -192,13 +192,6 @@ class LanguageManager(GObject.GObject):
+         if not os.path.exists(tessdata_dir):
+             os.mkdir(tessdata_dir)
+ 
+-        dest_path = os.path.join(tessdata_dir, 'eng.traineddata')
+-        source_path = pathlib.Path('/app/share/appdata/eng.traineddata')
+-        if os.path.exists(dest_path):
+-            return
+-
+-        copyfile(source_path, dest_path)
+-
+     @GObject.Property(type=GObject.TYPE_PYOBJECT)
+     def active_language(self) -> LanguageItem:
+         return self._active_language
+@@ -229,7 +222,8 @@ class LanguageManager(GObject.GObject):
+     def get_downloaded_codes(self, force: bool = False) -> List[str]:
+         if self._need_update_cache or force:
+             self._downloaded_codes = [os.path.splitext(lang_file)[0]
+-                                      for lang_file in os.listdir(tessdata_dir)]
++                                      for lang_file in os.listdir(tessdata_dir)
++                                      if lang_file.endswith('.traineddata')]
+             self._need_update_cache = False
+             logger.debug(f"Cache downloaded codes: {self._downloaded_codes}")
+         return sorted(self._downloaded_codes, key=lambda x: self.get_language(x))
