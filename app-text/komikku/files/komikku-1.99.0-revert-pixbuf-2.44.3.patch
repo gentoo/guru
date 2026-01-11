@@ -1,0 +1,84 @@
+https://codeberg.org/valos/Komikku/commit/64d61284f12606df42248755ffc6f628c7bab178
+Revert "Set minimal version of gdk-pixbuf to 2.44.3"
+
+x11-libs/gdk-pixbuf-2.44.3 is not packaged yet.
+This reverts commit 64d61284f12606df42248755ffc6f628c7bab178.
+--- a/data/meson.build
++++ b/data/meson.build
+@@ -45,9 +45,8 @@ endif
+ #
+ # Dependencies
+ #
+-dependency('gobject-introspection-1.0')
+ dependency('glib-2.0')
+-dependency('gdk-pixbuf-2.0', version: '>=2.44.3')
++dependency('gobject-introspection-1.0')
+ dependency('gtk4', version: '>=4.18')
+ dependency('libadwaita-1', version: '>=1.8')
+ 
+--- a/komikku/consts.py
++++ b/komikku/consts.py
+@@ -6,6 +6,7 @@ COVER_WIDTH = 180
+ COVER_HEIGHT = 256
+ LOGO_SIZE = 32
+ MISSING_IMG_RESOURCE_PATH = '/info/febvre/Komikku/images/missing_file.png'
++PIXBUF_ANIMATION = False
+ 
+ DOWNLOAD_MAX_DELAY = 1  # in seconds
+ REQUESTS_TIMEOUT = 5
+--- a/komikku/reader/pager/image.py
++++ b/komikku/reader/pager/image.py
+@@ -27,6 +27,7 @@ from gi.repository.GdkPixbuf import Pixbuf
+ from gi.repository.GdkPixbuf import PixbufAnimation
+ 
+ from komikku.consts import MISSING_IMG_RESOURCE_PATH
++from komikku.consts import PIXBUF_ANIMATION
+ from komikku.utils import get_image_info
+ 
+ logger = logging.getLogger('komikku')
+@@ -542,7 +543,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
+             elif data:
+                 stream = Gio.MemoryInputStream.new_from_data(data, None)
+ 
+-            if not info['is_animated']:
++            if not info['is_animated'] or not PIXBUF_ANIMATION:
+                 Pixbuf.new_from_stream_async(stream, None, self.load_ready, callback, info)
+             else:
+                 PixbufAnimation.new_from_stream_async(stream, None, self.load_ready, callback, info)
+@@ -580,7 +581,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
+         stream.close()
+ 
+         try:
+-            if not info['is_animated']:
++            if not info['is_animated'] or not PIXBUF_ANIMATION:
+                 pixbuf = Pixbuf.new_from_stream_finish(result)
+ 
+                 self.textures = []
+--- a/komikku/utils.py
++++ b/komikku/utils.py
+@@ -36,6 +36,7 @@ from gi.repository import Gtk
+ from gi.repository.GdkPixbuf import Pixbuf
+ from gi.repository.GdkPixbuf import PixbufAnimation
+ 
++from komikku.consts import PIXBUF_ANIMATION
+ from komikku.consts import REQUESTS_TIMEOUT
+ 
+ logger = logging.getLogger('komikku')
+@@ -615,7 +616,7 @@ class CoverLoader(GObject.GObject):
+ 
+         try:
+             stream = Gio.MemoryInputStream.new_from_data(data, None)
+-            if info['is_animated'] and not static_animation:
++            if info['is_animated'] and not static_animation and PIXBUF_ANIMATION:
+                 pixbuf = PixbufAnimation.new_from_stream(stream)
+             else:
+                 pixbuf = Pixbuf.new_from_stream(stream)
+@@ -634,7 +635,7 @@ class CoverLoader(GObject.GObject):
+             return None
+ 
+         try:
+-            if info['is_animated'] and not static_animation:
++            if info['is_animated'] and not static_animation and PIXBUF_ANIMATION:
+                 pixbuf = PixbufAnimation.new_from_file(path)
+             else:
+                 pixbuf = Pixbuf.new_from_file(path)
