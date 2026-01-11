@@ -47,8 +47,9 @@ src_prepare() {
 		-e "s/CXXFLAGS/${CXXFLAGS}/" \
 		-e "s/LDFLAGS/${LDFLAGS}/" \
 		3rd/luamake/compile/ninja/linux.ninja || die
-	[[ "$(tc-get-cxx-stdlib)" = "libc++" ]] &&
+	if [[ $(tc-get-cxx-stdlib) == libc++ ]]; then
 		sed -i "s/-lstdc++fs//" 3rd/luamake/compile/ninja/linux.ninja || die
+	fi
 
 	prefixify_ro "${FILESDIR}/wrapper.sh"
 }
@@ -71,8 +72,9 @@ src_compile() {
 		-e "s/CXXFLAGS/${CXXFLAGS}/" \
 		-e "s/LDFLAGS/${LDFLAGS}/" \
 		build/build.ninja || die
-	[[ "$(tc-get-cxx-stdlib)" = "libc++" ]] &&
+	if [[ $(tc-get-cxx-stdlib) == libc++ ]]; then
 		sed -i "s/-lstdc++fs//" build/build.ninja || die
+	fi
 
 	use test && eninja -f build/build.ninja || eninja -f build/build.ninja all
 	rm -rf meta/198256b1
