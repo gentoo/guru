@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-    <!-- maintainer-needed -->
-    <upstream>
-        <remote-id type="github">coastalwhite/lemurs</remote-id>
-        <bugs-to>https://github.com/coastalwhite/lemurs/issues</bugs-to>
-        <doc>https://github.com/coastalwhite/lemurs/blob/main/README.md</doc>
-    </upstream>
+	<maintainer type="person">
+		<email>willemgrant@mailfence.com</email>
+		<name>Willem Grant</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">coastalwhite/lemurs</remote-id>
+		<bugs-to>https://github.com/coastalwhite/lemurs/issues</bugs-to>
+		<doc>https://github.com/coastalwhite/lemurs/blob/main/README.md</doc>
+	</upstream>
 </pkgmetadata>
