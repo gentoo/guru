@@ -46,6 +46,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}"
+BDEPEND="dev-libs/protobuf[protoc(+)]"
 
 QA_FLAGS_IGNORED=".*"
 
