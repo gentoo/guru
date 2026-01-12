@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
+	<maintainer>
 		<email>author@lch361.net</email>
 		<name>Lich</name>
-		<description>Primary maintainer</description>
 	</maintainer>
 	<longdescription>
 		A minimalistic, composable, no-system-dependency command line editing
@@ -20,10 +19,9 @@
 	</use>
 	<upstream>
 		<remote-id type="codeberg">lch361/spiral</remote-id>
-		<maintainer type="person">
+		<maintainer>
 			<email>author@lch361.net</email>
 			<name>Lich</name>
-			<description>Primary developer</description>
 		</maintainer>
 		<bugs-to>https://codeberg.org/lch361/spiral/issues</bugs-to>
 	</upstream>
