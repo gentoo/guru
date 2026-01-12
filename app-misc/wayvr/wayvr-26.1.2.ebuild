@@ -7,7 +7,7 @@ LLVM_COMPAT=({15..21})
 
 inherit cargo desktop
 
-DESCRIPTION="Your way to enjoy VR on Linux! Access your Wayland/X11 desktop from Monado/WiVRn/SteamVR."
+DESCRIPTION="Access your Wayland/X11 desktop from Monado/WiVRn/SteamVR."
 HOMEPAGE="https://github.com/wlx-team/wayvr"
 SRC_URI="
 	https://github.com/wlx-team/wayvr/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
@@ -86,7 +86,6 @@ src_configure() {
 	)
 	cargo_src_configure --no-default-features
 }
-
 
 src_install()
 {
