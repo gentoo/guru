@@ -56,10 +56,6 @@ dev-python/safety-schemas
 # Masked until upstream supports running without stem.
 www-apps/whoogle-search
 
-# David (stkw0) Roman <davidroman96@gmail.com> (2025-04-30)
-# Depends on removed dev-qt/qtwebengine:5, they should be moved to qtwebengine:6
-sci-physics/openmodelica
-
 # Vivian Heisz (demize) <demize@unstable.systems> (2025-04-20)
 # Depends on ~dev-ruby/prawn-2.34.0, which was removed in
 # ::gentoo, making this unable to build.
