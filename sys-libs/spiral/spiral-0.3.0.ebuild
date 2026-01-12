@@ -20,12 +20,13 @@ SRC_URI="
 	${ZBS_DEPENDENCIES_SRC_URI}
 "
 S="${WORKDIR}/${PN}"
-IUSE="+term +editor +screen static-libs"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 DOCS=("README.md" "LICENSE.txt")
+
+IUSE="+term +editor +screen static-libs"
 
 src_configure() {
 	local my_zbs_args=(
