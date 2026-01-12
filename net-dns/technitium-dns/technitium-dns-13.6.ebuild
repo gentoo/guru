@@ -4,7 +4,7 @@
 EAPI=8
 
 DOTNET_PKG_COMPAT=8.0
-NUGETS="BouncyCastle.Cryptography@2.5.1"
+NUGETS="bouncycastle.cryptography@2.5.1"
 inherit dotnet-pkg systemd
 
 MYPV="${PV}.0"
