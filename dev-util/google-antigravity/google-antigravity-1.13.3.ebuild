@@ -28,7 +28,7 @@ S="${WORKDIR}"
 # It's complicated...
 LICENSE="all-rights-reserved"
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="kerberos"
 RESTRICT="bindist mirror strip"
 
