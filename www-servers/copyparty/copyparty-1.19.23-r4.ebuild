@@ -21,7 +21,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	dev-python/jinja2[${PYTHON_USEDEP}]
 "
-DEPEND="
+BDEPEND="
 	test? ( dev-python/strip-hints )
 "
 
