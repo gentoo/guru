@@ -3,8 +3,13 @@
 
 EAPI=8
 
-DOTNET_PKG_COMPAT=8.0
-NUGETS="bouncycastle.cryptography@2.5.1"
+DOTNET_PKG_COMPAT=9.0
+NUGETS="
+bouncycastle.cryptography@2.6.2
+microsoft.win32.systemevents@6.0.0
+qrcoder@1.7.0
+system.drawing.common@6.0.0
+"
 inherit dotnet-pkg systemd
 
 MYPV="${PV}.0"
@@ -26,6 +31,7 @@ RDEPEND=">=dev-libs/icu-70"
 DOTNET_PKG_PROJECTS=(
 	"${S}/TechnitiumLibrary-dns-server-v${MYPV}/TechnitiumLibrary.ByteTree/TechnitiumLibrary.ByteTree.csproj"
 	"${S}/TechnitiumLibrary-dns-server-v${MYPV}/TechnitiumLibrary.Net/TechnitiumLibrary.Net.csproj"
+	"${S}/TechnitiumLibrary-dns-server-v${MYPV}/TechnitiumLibrary.Security.OTP/TechnitiumLibrary.Security.OTP.csproj"
 	"${S}/DnsServer-${MYPV}/DnsServerApp/DnsServerApp.csproj"
 )
 
