@@ -69,6 +69,10 @@ src_configure() {
 	local emesonargs=(
 		$(meson_feature debug debugger)
 		$(meson_feature gles2 opengles)
+
+		# Workaround for unaligned memory access with cglm+AVX
+		# See: https://github.com/nunuhara/xsystem4/issues/XXX
+		-Dc_args="-DCGLM_ALL_UNALIGNED"
 	)
 
 	meson_src_configure
