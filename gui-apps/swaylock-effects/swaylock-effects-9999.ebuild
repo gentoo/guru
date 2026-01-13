@@ -28,7 +28,10 @@ DEPEND="
 	dev-libs/wayland
 	x11-libs/cairo
 	x11-libs/libxkbcommon
-	gdk-pixbuf? ( x11-libs/gdk-pixbuf:2 )
+	gdk-pixbuf? (
+		dev-libs/glib:2
+		x11-libs/gdk-pixbuf:2
+	)
 	pam? ( sys-libs/pam )
 "
 RDEPEND="${DEPEND}"
