@@ -53,16 +53,16 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-# Patch to correct version number for each release, patch must be edited for each new version
-PATCHES=(
-	"${FILESDIR}"/version_"${PV}".patch
-)
-
 src_unpack() {
 	default
 
 	rmdir "${S}"/subprojects/libsys4 || die
 	mv "${WORKDIR}"/libsys4-${LIBSYS4_COMMIT}/ "${S}"/subprojects/libsys4 || die
+}
+
+src_prepare() {
+	sed -i "s/'git', 'describe', 'HEAD'/'echo', '${PV}'/" src/meson.build || die
+	default
 }
 
 src_configure() {
@@ -71,7 +71,7 @@ src_configure() {
 		$(meson_feature gles2 opengles)
 
 		# Workaround for unaligned memory access with cglm+AVX
-		# See: https://github.com/nunuhara/xsystem4/issues/XXX
+		# See: https://github.com/nunuhara/xsystem4/issues/294
 		-Dc_args="-DCGLM_ALL_UNALIGNED"
 	)
 

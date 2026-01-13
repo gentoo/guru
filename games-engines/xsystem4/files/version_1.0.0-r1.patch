@@ -1,9 +1,0 @@
-diff -ur a/src/meson.build b/src/meson.build
---- a/src/meson.build	2025-09-29 02:52:05.000000000 +0100
-+++ b/src/meson.build	2025-09-30 14:58:30.420678438 +0100
-@@ -1,5 +1,5 @@
- version_h = vcs_tag(command) : ['git', 'descrive', 'HEAD'],
--                    fallback : 'unknown version',
-+                    fallback : '1.0.0',
-                     input : 'version.h.in',
-                     output : 'version.h')
