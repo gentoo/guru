@@ -10,7 +10,7 @@ DESCRIPTION="Modular, clean and powerful extension of the OCaml standard library
 HOMEPAGE="https://github.com/c-cube/ocaml-containers"
 SRC_URI="https://github.com/c-cube/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
-LICENSE="BSD"
+LICENSE="BSD-2"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="+ocamlopt test"
