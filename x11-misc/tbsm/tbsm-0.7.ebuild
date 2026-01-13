@@ -19,3 +19,11 @@ SLOT="0"
 
 DEPEND="app-shells/bash:0"
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	default
+
+	# follow Gentoo policy paths - /usr/share/doc/${PF} - bug #801082
+	sed -i -e "s|doc/\${MyName}|doc/${PF}|g" Makefile || die "makefile fix broke!"
+	sed -i -e "s|doc/tbsm|doc/${PF}|g" src/tbsm || die "tbsm fix broke!"
+}
