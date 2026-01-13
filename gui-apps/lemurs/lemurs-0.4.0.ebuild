@@ -156,5 +156,6 @@ pkg_postinst() {
 		elog "  rc-service lemurs start"
 		elog "To boot it with the system:"
 		elog "  rc-update add lemurs"
+		ewarn "The config file at /etc/lemurs/config.toml assumes a Systemd system. This is on lines 136 and 150, where it uses the systemctl command to reboot or power off. To ensure the function keys properly shut down or reboot the system, change those lines to use OpenRC appropriate commands."
 	fi
 }
