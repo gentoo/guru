@@ -52,7 +52,8 @@ src_configure() {
 	export LIBGIT2_NO_VENDOR=1
 
 	local myfeatures=(
-		$(use uring && usex "uring" "io_uring")
+		"mimalloc"
+		$(usev uring io_uring)
 	)
 	cargo_src_configure --no-default-features
 }
