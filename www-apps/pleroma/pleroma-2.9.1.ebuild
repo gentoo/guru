@@ -35,7 +35,7 @@ BDEPEND="
 "
 DEPEND="
 	dev-libs/glib
-	media-libs/vips:=
+	<media-libs/vips-8.18.0:=
 	sys-apps/file
 	sys-libs/ncurses:=
 	system-lexbor? ( dev-libs/lexbor )
