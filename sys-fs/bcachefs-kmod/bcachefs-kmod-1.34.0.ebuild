@@ -35,11 +35,10 @@ BDEPEND="
 "
 
 pkg_setup() {
+	# See https://github.com/koverstreet/bcachefs-tools/blob/master/libbcachefs/Kconfig
 	local CONFIG_CHECK="
 		BLOCK
-		CRC_OPTIMIZATIONS
 		EXPORTFS
-		CLOSURES
 		CRC32
 		CRC64
 		FS_POSIX_ACL
@@ -58,8 +57,6 @@ pkg_setup() {
 		XOR_BLOCKS
 		XXHASH
 		SYMBOLIC_ERRNAME
-		MIN_HEAP
-		XARRAY_MULTI
 	"
 	use debug && CONFIG_CHECK+="
 		DEBUG_INFO
