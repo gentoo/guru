@@ -1,0 +1,30 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Origin: antigravity-debian
+Label: antigravity-debian
+Suite: antigravity-debian
+Codename: antigravity-debian
+Date: Wed, 14 Jan 2026 00:25:43 UTC
+Architectures: all amd64 arm64
+Components: main
+Description: Official Debian packages for Antigravity components.
+MD5Sum:
+ d41d8cd98f00b204e9800998ecf8427e 0 main/binary-all/Packages
+ ba5de970a246a7ec612fa060bdab7fe4 14571 main/binary-amd64/Packages
+ 0b6d03c05f8488a639a74374b9e2f5b7 14221 main/binary-arm64/Packages
+SHA256:
+ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/binary-all/Packages
+ 5e27b23cb5487e8f75a9cd9a6c38ee096037a6c93f1c60f02444b53db99bca2f 14571 main/binary-amd64/Packages
+ deb6b033e671a280037e822b9db3dc4f4ff5b94f2b8949c30ce8fa0cd45939a0 14221 main/binary-arm64/Packages
+-----BEGIN PGP SIGNATURE-----
+
+wsBzBAEBCAAnBQJpZuKHCZDAulzm3GMVoxYhBDW6oLM+nrOW9ZyoOMC6XObcYxWj
+AACigAgA1vL5PN/oyko0kgMFj4h0y7bDgLl2SZ7Wl4/il6UPqp8fhKuSWpwH3/uu
+oMUiVH6I3Dkm8XX0DzbrxtN4PHWVm3ITJsihJ4v4vimgXkvqV5uhvI5LIB6qqqg0
+gjnY2IRlNmAEupNcHkYEvsrYkF7HFAgdFCkUMMep0S0Gm/01CybbRG84qXz234Qo
+dJw5KFmQ5zVZNT0cHqRf7fdMmnpxva8GJadNJSOyJLVE1nU1ielSEUILavaoS5J1
+S+FL1pGjw6c4V3q/KFqw/sWYBn1eDeYvEQQFZh8iSpLawNfewDx9X4l6KQwawgxz
+qSbwKAPM5yUgjhM5zOh1XfmBQ+oI0Q==
+=xHDG
+-----END PGP SIGNATURE-----

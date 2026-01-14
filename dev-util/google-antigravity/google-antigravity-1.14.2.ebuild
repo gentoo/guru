@@ -7,7 +7,9 @@ CHROMIUM_LANGS="af am ar bg bn ca cs da de el en-GB en-US es-419 es et fa fi
 		fil fr gu he hi hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR
 		pt-PT ro ru sk sl sr sv sw ta te th tr uk ur vi zh-CN zh-TW"
 
-inherit chromium-2 optfeature pax-utils unpacker xdg
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/google-artifact-registry.asc
+
+inherit chromium-2 optfeature pax-utils unpacker verify-sig xdg
 
 BASE_SRC_URI="https://us-central1-apt.pkg.dev/projects/antigravity-auto-updater-dev/pool/antigravity-debian"
 
@@ -29,7 +31,7 @@ S="${WORKDIR}"
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="kerberos"
+IUSE="kerberos verify-sig"
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
@@ -67,6 +69,7 @@ RDEPEND="
 	x11-libs/pango
 	x11-misc/xdg-utils
 	kerberos? ( app-crypt/mit-krb5 )
+	verify-sig? ( >=sec-keys/openpgp-keys-google-artifact-registry-20210504 )
 "
 
 QA_PREBUILT="*"
@@ -83,6 +86,36 @@ pkg_pretend() {
 
 pkg_setup() {
 	chromium_suid_sandbox_check_kernel_config
+}
+
+src_unpack() {
+	if use verify-sig; then
+		# Verify APT chain of trust:
+		# InRelease (signed) -> Packages (checksum) -> .deb (checksum)
+		# ${BASE_SRC_URI}/InRelease
+		# ${BASE_SRC_URI}/main/binary-${ARCH}/Packages
+		verify-sig_verify_message "${FILESDIR}/InRelease" Release || \
+			die "InRelease signature verification failed"
+
+		sed -n '/^SHA256:/,/^[^ ]/p' Release                 \
+			| grep "binary-${ARCH}/Packages"                              \
+			| awk -v f="${FILESDIR}/Packages.${ARCH}" '{print $1 "  " f}' \
+			| sha256sum --check --strict - || die "Packages hash mismatch"
+
+		local version="${PV}-"
+		use amd64 && version+="${BUILD_ID_AMD64}"
+		use arm64 && version+="${BUILD_ID_ARM64}"
+		awk -v v="${version}" -v f="${DISTDIR}/${P}_${ARCH}.deb" \
+			'BEGIN {RS=""} index($0, "Version: " v) {
+				for (i=1; i<=NF; ++i) {
+					if ($i == "SHA256:") {
+						print $(i+1) "  " f
+						exit
+					}
+				}
+			}' "${FILESDIR}/Packages.${ARCH}" \
+			| sha256sum --check --strict - || die ".deb archive hash mismatch"
+	fi
 }
 
 src_install() {
