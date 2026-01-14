@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-01-14)
+# Unmaintained upstream and increasingly outdated.
+# Removal on 2026-02-14
+dev-util/cmakelang
+
 # Kostadin Shishmanov <kostadinshishmanov@protonmail.com> (2026-01-12)
 # No longer have a Tidal subscription, and I don't want
 # to leave the package in an unmaintained and possibly
