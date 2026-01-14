@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,24 +25,20 @@ else
 fi
 
 LICENSE="GPL-2"
-# Dependent crate licenses
-LICENSE+=" Apache-2.0 BSD ISC MIT Unicode-DFS-2016"
 SLOT="0"
 
 IUSE="debug verify-sig"
 
-RDEPEND="${DEPEND}
-"
-
-BDEPEND=">=sys-kernel/linux-headers-6.16
+BDEPEND="
+	>=sys-kernel/linux-headers-6.16
 	verify-sig? ( >=sec-keys/openpgp-keys-kentoverstreet-20241012 )
 "
+
 pkg_setup() {
+	# See https://github.com/koverstreet/bcachefs-tools/blob/master/libbcachefs/Kconfig
 	local CONFIG_CHECK="
 		BLOCK
-		CRC_OPTIMIZATIONS
 		EXPORTFS
-		CLOSURES
 		CRC32
 		CRC64
 		FS_POSIX_ACL
@@ -61,8 +57,6 @@ pkg_setup() {
 		XOR_BLOCKS
 		XXHASH
 		SYMBOLIC_ERRNAME
-		MIN_HEAP
-		XARRAY_MULTI
 	"
 	use debug && CONFIG_CHECK+="
 		DEBUG_INFO
@@ -110,12 +104,4 @@ src_compile() {
 	)
 
 	linux-mod-r1_src_compile
-}
-
-src_install() {
-	linux-mod-r1_src_install
-}
-
-pkg_postinst() {
-	linux-mod-r1_pkg_postinst
 }
