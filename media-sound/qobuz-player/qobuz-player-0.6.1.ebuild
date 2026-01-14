@@ -15,7 +15,7 @@ inherit cargo
 DESCRIPTION="Tui, web and rfid player for Qobuz"
 HOMEPAGE="https://github.com/SofusA/qobuz-player"
 SRC_URI="https://github.com/SofusA/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://github.com/gentoo-crate-dist/${PN}/releases/download/v${PV}/${P}-crates.tar.xz"
+SRC_URI+=" https://github.com/freijon/${PN}/releases/download/v${PV}/${P}-crates.tar.xz"
 SRC_URI+=" ${CARGO_CRATE_URIS}"
 
 LICENSE="GPL-3"
