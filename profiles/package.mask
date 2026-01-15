@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Nicolas PARLANT <nicolas.parlant@parhuet.fr> (2026-01-15)
+# Used to generate docs for knot-resolver, it's no longer required now.
+# No revdep
+# Removal on 2026-02-15
+dev-python/json-schema-for-humans
+
 # Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-01-14)
 # Unmaintained upstream and increasingly outdated.
 # Removal on 2026-02-14
