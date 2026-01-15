@@ -97,24 +97,24 @@ src_unpack() {
 		verify-sig_verify_message "${FILESDIR}/InRelease" Release || \
 			die "InRelease signature verification failed"
 
-		sed -n '/^SHA256:/,/^[^ ]/p' Release                 \
-			| grep "binary-${ARCH}/Packages"                              \
-			| awk -v f="${FILESDIR}/Packages.${ARCH}" '{print $1 "  " f}' \
-			| sha256sum --check --strict - || die "Packages hash mismatch"
+		sed -n '/^SHA256:/,/^[^ ]/p' Release                       \
+			| awk -v f="${FILESDIR}/Packages.${ARCH}"              \
+				'/binary-'"${ARCH}"'\/Packages/ {print $1 "  " f}' \
+			| sha256sum -c --strict - || die "Packages hash mismatch"
 
 		local version="${PV}-"
 		use amd64 && version+="${BUILD_ID_AMD64}"
 		use arm64 && version+="${BUILD_ID_ARM64}"
 		awk -v v="${version}" -v f="${DISTDIR}/${P}_${ARCH}.deb" \
-			'BEGIN {RS=""} index($0, "Version: " v) {
-				for (i=1; i<=NF; ++i) {
-					if ($i == "SHA256:") {
-						print $(i+1) "  " f
-						exit
-					}
+			'BEGIN {RS=""} {
+				m=0; h=""
+				for(i=1; i<NF; ++i) {
+					if ($i == "Version:" && $(i+1) == v) m=1
+					if ($i == "SHA256:") { h=$(i+1); break }
 				}
+				if (m && h) { print h "  " f; exit }
 			}' "${FILESDIR}/Packages.${ARCH}" \
-			| sha256sum --check --strict - || die ".deb archive hash mismatch"
+			| sha256sum -c --strict - || die ".deb archive hash mismatch"
 	fi
 }
 
