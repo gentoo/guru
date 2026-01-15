@@ -9,7 +9,7 @@ CHROMIUM_LANGS="af am ar bg bn ca cs da de el en-GB en-US es-419 es et fa fi
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/google-artifact-registry.asc
 
-inherit eapi9-pipestatus chromium-2 optfeature pax-utils unpacker verify-sig xdg
+inherit chromium-2 eapi9-pipestatus optfeature pax-utils unpacker verify-sig xdg
 
 BASE_SRC_URI="https://us-central1-apt.pkg.dev/projects/antigravity-auto-updater-dev/pool/antigravity-debian"
 
