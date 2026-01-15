@@ -79,6 +79,8 @@ CRATES="
 	zmij@1.0.12
 "
 
+RUST_MIN_VER="1.85.0"
+
 inherit cargo
 
 DESCRIPTION="Simple and efficient DPI circumvention tool in Rust."
