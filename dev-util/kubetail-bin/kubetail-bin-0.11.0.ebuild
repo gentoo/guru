@@ -3,6 +3,8 @@
 
 EAPI=8
 
+MY_PN="${PN%-bin}"
+
 inherit shell-completion
 
 DESCRIPTION="Real-time logging dashboard for Kubernetes"
@@ -24,20 +26,20 @@ SLOT="0"
 
 KEYWORDS="~amd64 ~arm64"
 
-QA_PREBUILT="usr/bin/kubetail"
+QA_PREBUILT="usr/bin/${MY_PN}"
 
 src_compile() {
-	chmod +x kubetail
+	chmod +x "${MY_PN}"
 
-	./kubetail completion bash > "kubetail.bash" || die
-	./kubetail completion zsh > "kubetail.zsh" || die
-	./kubetail completion fish > "kubetail.fish" || die
+	"./${MY_PN}" completion bash > "${MY_PN}.bash" || die
+	"./${MY_PN}" completion zsh > "${MY_PN}.zsh" || die
+	"./${MY_PN}" completion fish > "${MY_PN}.fish" || die
 }
 
 src_install() {
-	dobin kubetail || die
+	dobin "${MY_PN}"
 
-	newbashcomp "kubetail.bash" kubetail
-	newzshcomp "kubetail.zsh" "_kubetail"
-	dofishcomp "kubetail.fish"
+	newbashcomp "${MY_PN}.bash" "${MY_PN}"
+	newzshcomp "${MY_PN}.zsh" "_${MY_PN}"
+	dofishcomp "${MY_PN}.fish"
 }
