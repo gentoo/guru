@@ -96,6 +96,15 @@ LICENSE+=" LGPL-3+ MIT Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RDEPEND="
+	|| ( net-firewall/nftables net-firewall/iptables )
+"
+
+DEPEND="
+	net-libs/libnetfilter_queue
+	net-libs/libnfnetlink
+"
+
 src_install() {
 	cargo_src_install
 	doman dpibreak.1
