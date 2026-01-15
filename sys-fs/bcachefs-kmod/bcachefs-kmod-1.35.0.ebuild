@@ -27,7 +27,7 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 
-IUSE="debug erasure-coding quota verify-sig"
+IUSE="debug verify-sig"
 
 BDEPEND="
 	>=sys-kernel/linux-headers-6.16
@@ -63,7 +63,6 @@ pkg_setup() {
 		FRAME_POINTER
 		!DEBUG_INFO_REDUCED
 	"
-	use quota && CONFIG_CHECK+=" QUOTACTL"
 	linux-mod-r1_pkg_setup
 }
 
@@ -87,23 +86,15 @@ src_unpack() {
 src_prepare() {
 	default
 
-	# Upstream PR: https://github.com/koverstreet/bcachefs/pull/1038
-	cat <<-EOF >> libbcachefs/Makefile || die
-	ifdef BCACHEFS_DKMS
-		subdir-ccflags-\$(CONFIG_BCACHEFS_QUOTA) += -DCONFIG_BCACHEFS_QUOTA=1
-		subdir-ccflags-\$(CONFIG_BCACHEFS_ERASURE_CODING) += -DCONFIG_BCACHEFS_ERASURE_CODING=1
-	endif
-	EOF
-
 	sed -i s/^VERSION=.*$/VERSION=${PV}/ Makefile || die
 	emake DESTDIR="${WORKDIR}" PREFIX="/module" install_dkms
 }
 
 src_compile() {
 	local modlist=( "bcachefs=:../${MODULE_S}:../${MODULE_S}/src/fs/bcachefs" )
-	local modargs=( KDIR=${KV_OUT_DIR} )
-	use erasure-coding && modargs+=( CONFIG_BCACHEFS_ERASURE_CODING=y )
-	use quota && modargs+=( CONFIG_BCACHEFS_QUOTA=y )
+	local modargs=(
+		KDIR=${KV_OUT_DIR}
+	)
 
 	linux-mod-r1_src_compile
 }

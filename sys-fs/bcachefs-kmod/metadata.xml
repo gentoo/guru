@@ -12,8 +12,4 @@
 	<upstream>
 		<remote-id type="github">koverstreet/bcachefs-tools</remote-id>
 	</upstream>
-	<use>
-		<flag name="erasure-coding">Enable bcachefs erasure coding (RAID5/6) support (EXPERIMENTAL)</flag>
-		<flag name="quota">Enable bcachefs quota support</flag>
-	</use>
 </pkgmetadata>
