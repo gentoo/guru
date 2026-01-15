@@ -3,6 +3,10 @@
 
 # New entries go on top.
 
+# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-01-15)
+# Experimental; enable for testing only
+sys-fs/bcachefs-kmod erasure-coding
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2025-11-06)
 # Depends on treecleaned media-libs/raspberrypi-userland
 games-emulation/RetroArch dispmanx
