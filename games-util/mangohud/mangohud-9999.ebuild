@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit flag-o-matic python-single-r1 meson-multilib toolchain-funcs
 
@@ -13,13 +13,14 @@ MY_PV=$(ver_cut 1-3)
 DESCRIPTION="Vulkan and OpenGL overlay for monitoring FPS, sensors, system load and more"
 HOMEPAGE="https://github.com/flightlessmango/MangoHud"
 
-VK_HEADERS_VER="1.2.158"
-VK_HEADERS_MESON_WRAP_VER="2"
+# Check subprojects/vulkan-headers.wrap for both of these values
+VK_HEADERS_VER="1.3.283"
+VK_HEADERS_MESON_WRAP_VER="1"
 
 SRC_URI="
 	https://github.com/KhronosGroup/Vulkan-Headers/archive/v${VK_HEADERS_VER}.tar.gz
 		-> vulkan-headers-${VK_HEADERS_VER}.tar.gz
-	https://wrapdb.mesonbuild.com/v2/vulkan-headers_${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}/get_patch
+	https://github.com/mesonbuild/wrapdb/releases/download/vulkan-headers_${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}/vulkan-headers_${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}_patch.zip
 		-> vulkan-headers-${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}-meson-wrap.zip
 "
 
@@ -56,7 +57,7 @@ BDEPEND="
 
 DEPEND="
 	${PYTHON_DEPS}
-	=media-libs/imgui-1.89.9*:=[opengl,vulkan,${MULTILIB_USEDEP}]
+	=media-libs/imgui-1.91.6*:=[opengl,vulkan,${MULTILIB_USEDEP}]
 	=media-libs/implot-0.16*:=[${MULTILIB_USEDEP}]
 	dev-libs/spdlog:=[${MULTILIB_USEDEP}]
 	dev-libs/libfmt:=[${MULTILIB_USEDEP}]
@@ -70,7 +71,7 @@ DEPEND="
 	)
 	wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
 	mangoapp? (
-		=media-libs/imgui-1.89.9*[glfw]
+		=media-libs/imgui-1.91.6*[glfw]
 		media-libs/glfw[X(+)?,wayland(+)?]
 		media-libs/glew
 	)
@@ -93,6 +94,10 @@ RDEPEND="
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-system-imgui.patch"
+)
+
 src_unpack() {
 	default
 
@@ -105,17 +110,6 @@ src_unpack() {
 	unpack vulkan-headers-${VK_HEADERS_VER}.tar.gz
 	unpack vulkan-headers-${VK_HEADERS_VER}-${VK_HEADERS_MESON_WRAP_VER}-meson-wrap.zip
 	mv "${WORKDIR}/Vulkan-Headers-${VK_HEADERS_VER}" "${S}/subprojects/" || die
-}
-
-src_prepare() {
-	default
-	# replace all occurences of "#include <imgui.h>" to "#include <imgui/imgui.h>"
-	find . -type f -exec sed -i 's|<imgui.h>|<imgui/imgui.h>|g' {} \; || die
-	find . -type f -exec sed -i 's|"imgui.h"|<imgui/imgui.h>|g' {} \; || die
-	find . -type f -exec sed -i 's|<imgui_internal.h>|<imgui/imgui_internal.h>|g' {} \; || die
-	find . -type f -exec sed -i 's|"imgui_internal.h"|<imgui/imgui_internal.h>|g' {} \; || die
-	find . -type f -exec sed -i 's|"imgui_impl_glfw.h"|<imgui/imgui_impl_glfw.h>|g' {} \; || die
-	find . -type f -exec sed -i 's|"imgui_impl_opengl3.h"|<imgui/imgui_impl_opengl3.h>|g' {} \; || die
 }
 
 multilib_src_configure() {
