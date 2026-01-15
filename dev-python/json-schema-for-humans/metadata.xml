@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>nicolas.parlant@parhuet.fr</email>
-		<name>Nicolas PARLANT</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="github">coveooss/json-schema-for-humans</remote-id>
 		<remote-id type="pypi">json-schema-for-humans</remote-id>
