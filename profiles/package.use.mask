@@ -34,8 +34,3 @@ net-im/conduit system-rocksdb
 # Per the commiter (Benoît Dufour)
 # "Disable qrcodegen by default. Only the ones who really want it should enable it."
 net-im/abaddon qrcodegen
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-06-17)
-# Broken docs build.
-dev-crystal/crikey doc
-dev-crystal/slang doc
