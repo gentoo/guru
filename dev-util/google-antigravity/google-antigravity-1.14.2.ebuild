@@ -9,7 +9,7 @@ CHROMIUM_LANGS="af am ar bg bn ca cs da de el en-GB en-US es-419 es et fa fi
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/google-artifact-registry.asc
 
-inherit chromium-2 optfeature pax-utils unpacker verify-sig xdg
+inherit eapi9-pipestatus chromium-2 optfeature pax-utils unpacker verify-sig xdg
 
 BASE_SRC_URI="https://us-central1-apt.pkg.dev/projects/antigravity-auto-updater-dev/pool/antigravity-debian"
 
@@ -94,27 +94,19 @@ src_unpack() {
 		# InRelease (signed) -> Packages (checksum) -> .deb (checksum)
 		# ${BASE_SRC_URI}/InRelease
 		# ${BASE_SRC_URI}/main/binary-${ARCH}/Packages
-		verify-sig_verify_message "${FILESDIR}/InRelease" Release || \
-			die "InRelease signature verification failed"
+		cd "${FILESDIR}" > /dev/null || die
+		verify-sig_verify_message InRelease - \
+			| sed "s,[0-9]\+ main/binary-${ARCH}.*,Packages.${ARCH}," \
+			| verify-sig_verify_unsigned_checksums - sha256 Packages.${ARCH}
+		pipestatus || die
 
-		sed -n '/^SHA256:/,/^[^ ]/p' Release                       \
-			| awk -v f="${FILESDIR}/Packages.${ARCH}"              \
-				'/binary-'"${ARCH}"'\/Packages/ {print $1 "  " f}' \
-			| sha256sum -c --strict - || die "Packages hash mismatch"
-
-		local version="${PV}-"
-		use amd64 && version+="${BUILD_ID_AMD64}"
-		use arm64 && version+="${BUILD_ID_ARM64}"
-		awk -v v="${version}" -v f="${DISTDIR}/${P}_${ARCH}.deb" \
-			'BEGIN {RS=""} {
-				m=0; h=""
-				for(i=1; i<NF; ++i) {
-					if ($i == "Version:" && $(i+1) == v) m=1
-					if ($i == "SHA256:") { h=$(i+1); break }
-				}
-				if (m && h) { print h "  " f; exit }
-			}' "${FILESDIR}/Packages.${ARCH}" \
-			| sha256sum -c --strict - || die ".deb archive hash mismatch"
+		cd "${DISTDIR}" > /dev/null || die
+		local BUILD_ID_ARCH=BUILD_ID_${ARCH^^}
+		sed -n "/^Version: ${PV}-${!BUILD_ID_ARCH}/,/^SHA256:/p" \
+			"${FILESDIR}/Packages.${ARCH}" \
+			| sed "s,^SHA256: \(.*\),\1 ${P}_${ARCH}.deb," \
+			| verify-sig_verify_unsigned_checksums - sha256 ${P}_${ARCH}.deb
+		pipestatus || die
 	fi
 }
 
