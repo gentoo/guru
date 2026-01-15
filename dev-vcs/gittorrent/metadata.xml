@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>glcbofs@proton.me</email>
+		<name>gabizinho</name>
+		<description>Maintainer</description>
+	</maintainer>
+	<longdescription>
+		A CLI version control system with CI/CD remote code execution.
+		It uses a faster hashing algorithm, a more efficient content storing method and a less spacious indexing format.
+		It executes code remotely via SSH or via HTTPS with the low-energy background process.
+		Repository cloning is optimized with its custom Peer-To-Peer network and encrypted password and target IP address.
+	</longdescription>
+</pkgmetadata>
