@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>hskimse1@gmail.com</email>
+        <name>Hee-Suk Kim (dilluti0n)</name>
+    </maintainer>
+    <upstream>
+        <remote-id type="github">dilluti0n/dpibreak</remote-id>
+    </upstream>
+</pkgmetadata>
