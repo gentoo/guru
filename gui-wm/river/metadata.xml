@@ -10,5 +10,6 @@
 	</use>
 	<upstream>
 		<remote-id type="codeberg">river/river</remote-id>
+		<remote-id type="codeberg">river/river-classic</remote-id>
 	</upstream>
 </pkgmetadata>
