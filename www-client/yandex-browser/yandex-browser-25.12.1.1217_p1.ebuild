@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ else
 	MY_PN=${PN}
 fi
 
-FFMPEG="140"
+FFMPEG="143"
 
 DESCRIPTION="The web browser from Yandex"
 HOMEPAGE="https://browser.yandex.ru/"
