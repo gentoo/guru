@@ -24,6 +24,7 @@ HOMEPAGE="https://antigravity.google/"
 SRC_URI="
 	amd64? ( ${BASE_SRC_URI}/antigravity_${PV}-${BUILD_ID_AMD64}_amd64_${DEB_HASH_AMD64}.deb -> ${P}_amd64.deb )
 	arm64? ( ${BASE_SRC_URI}/antigravity_${PV}-${BUILD_ID_ARM64}_arm64_${DEB_HASH_ARM64}.deb -> ${P}_arm64.deb )
+	verify-sig? ( https://home.cit.tum.de/~salu/distfiles/${P}-verify-sig.tar.xz )
 "
 S="${WORKDIR}"
 
@@ -90,11 +91,12 @@ pkg_setup() {
 
 src_unpack() {
 	if use verify-sig; then
+		unpack ${P}-verify-sig.tar.xz
+
 		# Verify APT chain of trust:
 		# InRelease (signed) -> Packages (checksum) -> .deb (checksum)
 		# ${BASE_SRC_URI}/InRelease
 		# ${BASE_SRC_URI}/main/binary-${ARCH}/Packages
-		cd "${FILESDIR}" > /dev/null || die
 		verify-sig_verify_message InRelease - \
 			| sed "s,[0-9]\+ main/binary-${ARCH}.*,Packages.${ARCH}," \
 			| verify-sig_verify_unsigned_checksums - sha256 Packages.${ARCH}
@@ -103,7 +105,7 @@ src_unpack() {
 		cd "${DISTDIR}" > /dev/null || die
 		local BUILD_ID_ARCH=BUILD_ID_${ARCH^^}
 		sed -n "/^Version: ${PV}-${!BUILD_ID_ARCH}/,/^SHA256:/p" \
-			"${FILESDIR}/Packages.${ARCH}" \
+			"${WORKDIR}/Packages.${ARCH}" \
 			| sed "s,^SHA256: \(.*\),\1 ${P}_${ARCH}.deb," \
 			| verify-sig_verify_unsigned_checksums - sha256 ${P}_${ARCH}.deb
 		pipestatus || die
@@ -113,7 +115,7 @@ src_unpack() {
 src_install() {
 	dodir /
 	cd "${ED}" || die
-	unpacker
+	unpacker ${P}_${ARCH}.deb
 
 	mkdir -p "${AG_HOME_BASE}" || die
 	mv "usr/share/antigravity" "${AG_HOME_BASE}/" || die
