@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	media-video/gpu-screen-recorder
+	gui-apps/quickshell
 	app-misc/brightnessctl
 "
 
