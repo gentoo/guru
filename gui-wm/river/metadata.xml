@@ -5,6 +5,10 @@
 		<email>dev@dyama.net</email>
 		<name>Daichi Yamamoto</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>vimproved@inventati.org</email>
+		<name>Violet Purcell</name>
+	</maintainer>
 	<use>
 		<flag name="llvm">Use LLVM Zig backend</flag>
 	</use>
