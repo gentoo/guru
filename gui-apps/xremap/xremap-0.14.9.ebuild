@@ -5,18 +5,16 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.77"
+RUST_MIN_VER="1.85.0"
 CRATES="
-	addr2line@0.21.0
-	adler@1.0.2
 	aho-corasick@1.0.2
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
-	anstream@0.3.2
+	anstream@0.6.21
 	anstyle-parse@0.2.1
 	anstyle-query@1.0.0
-	anstyle-wincon@1.0.1
-	anstyle@1.0.1
+	anstyle-wincon@3.0.11
+	anstyle@1.0.13
 	anyhow@1.0.100
 	async-broadcast@0.7.2
 	async-channel@2.3.1
@@ -30,7 +28,6 @@ CRATES="
 	async-trait@0.1.83
 	atomic-waker@1.1.2
 	autocfg@1.1.0
-	backtrace@0.3.69
 	base64@0.22.1
 	bitflags@1.3.2
 	bitflags@2.9.0
@@ -42,11 +39,11 @@ CRATES="
 	cfg-if@1.0.0
 	cfg_aliases@0.2.1
 	chrono@0.4.26
-	clap@4.3.19
-	clap_builder@4.3.19
+	clap@4.5.53
+	clap_builder@4.5.53
 	clap_complete@4.3.2
-	clap_derive@4.3.12
-	clap_lex@0.5.0
+	clap_derive@4.5.49
+	clap_lex@0.7.6
 	colorchoice@1.0.0
 	concurrent-queue@2.5.0
 	convert_case@0.4.0
@@ -72,7 +69,7 @@ CRATES="
 	event-listener@5.4.0
 	fastrand@2.3.0
 	fnv@1.0.7
-	fork@0.4.0
+	fork@0.6.0
 	funty@2.0.0
 	futures-channel@0.3.31
 	futures-core@0.3.31
@@ -85,10 +82,8 @@ CRATES="
 	futures-util@0.3.31
 	futures@0.3.31
 	gethostname@1.0.2
-	gimli@0.28.1
 	hashbrown@0.12.3
 	hashbrown@0.16.1
-	heck@0.4.1
 	heck@0.5.0
 	hermit-abi@0.3.2
 	hermit-abi@0.4.0
@@ -104,6 +99,7 @@ CRATES="
 	indoc@2.0.7
 	io-lifetimes@1.0.11
 	is-terminal@0.4.9
+	is_terminal_polyfill@1.70.2
 	itoa@1.0.9
 	js-sys@0.3.82
 	lazy_static@1.5.0
@@ -117,16 +113,14 @@ CRATES="
 	memchr@2.7.6
 	memoffset@0.7.1
 	memoffset@0.9.1
-	miniz_oxide@0.7.4
-	mio@0.8.8
+	mio@1.1.0
 	niri-ipc@25.11.0
 	nix@0.26.2
 	nix@0.29.0
 	nix@0.30.1
 	num-traits@0.2.16
-	num_cpus@1.16.0
-	object@0.32.2
 	once_cell@1.18.0
+	once_cell_polyfill@1.70.2
 	ordered-stream@0.2.0
 	parking@2.2.1
 	parking_lot@0.12.3
@@ -146,7 +140,6 @@ CRATES="
 	regex-automata@0.4.13
 	regex-syntax@0.8.5
 	regex@1.12.2
-	rustc-demangle@0.1.24
 	rustc_version@0.4.1
 	rustix@0.38.44
 	rustix@1.0.8
@@ -158,18 +151,19 @@ CRATES="
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
-	serde_json@1.0.145
+	serde_json@1.0.148
 	serde_repr@0.1.20
-	serde_spanned@1.0.3
+	serde_spanned@1.0.4
 	serde_with@3.8.1
 	serde_with_macros@3.8.1
 	serde_yaml@0.9.34+deprecated
 	signal-hook-registry@1.4.2
 	slab@0.4.8
 	smallvec@1.11.0
-	socket2@0.4.9
+	socket2@0.6.1
 	static_assertions@1.1.0
 	strsim@0.10.0
+	strsim@0.11.1
 	strum@0.26.3
 	strum_macros@0.26.4
 	syn@2.0.86
@@ -179,14 +173,14 @@ CRATES="
 	time-core@0.1.1
 	time-macros@0.2.11
 	time@0.3.24
-	tokio-macros@2.1.0
-	tokio@1.29.1
-	toml@0.9.8
+	tokio-macros@2.6.0
+	tokio@1.48.0
+	toml@0.9.10+spec-1.1.0
 	toml_datetime@0.6.11
-	toml_datetime@0.7.3
+	toml_datetime@0.7.5+spec-1.1.0
 	toml_edit@0.22.27
-	toml_parser@1.0.4
-	toml_writer@1.0.4
+	toml_parser@1.0.6+spec-1.1.0
+	toml_writer@1.0.6+spec-1.1.0
 	tracing-attributes@0.1.28
 	tracing-core@0.1.33
 	tracing@0.1.41
@@ -194,7 +188,7 @@ CRATES="
 	uds_windows@1.1.0
 	unicode-ident@1.0.11
 	unsafe-libyaml@0.2.11
-	utf8parse@0.2.1
+	utf8parse@0.2.2
 	uuid@1.18.1
 	wasi@0.11.0+wasi-snapshot-preview1
 	wasm-bindgen-macro-support@0.2.105
@@ -252,6 +246,7 @@ CRATES="
 	zbus@5.12.0
 	zbus_macros@5.12.0
 	zbus_names@4.2.0
+	zmij@1.0.6
 	zvariant@5.5.3
 	zvariant_derive@5.5.3
 	zvariant_utils@3.2.0
