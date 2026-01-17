@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,6 +19,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	gui-apps/quickshell
 	app-misc/brightnessctl
+	dev-vcs/git
 "
 
 src_install() {
@@ -40,7 +41,6 @@ pkg_postinst() {
 	optfeature "Night light functionality" gui-apps/wlsunset
 	optfeature "Enable 'Portal' option in screen recorder" sys-apps/xdg-desktop-portal
 	optfeature "Calendar events support" gnome-extra/evolution-data-server
-	optfeature "Authenticate Battery Manager installation for laptop charge limits" kde-plasma/polkit-kde-agent
 	optfeature "Material You color scheme generation" x11-misc/matugen
 	optfeature "Xwayland-satellite for xwayland support on niri" gui-apps/xwayland-satellite
 }
