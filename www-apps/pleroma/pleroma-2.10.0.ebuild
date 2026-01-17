@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
+# Copyright 2022-2026 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -35,7 +35,7 @@ BDEPEND="
 "
 DEPEND="
 	dev-libs/glib
-	<media-libs/vips-8.18.0:=
+	media-libs/vips:=
 	sys-apps/file
 	sys-libs/ncurses:=
 	system-lexbor? ( dev-libs/lexbor )
@@ -53,6 +53,7 @@ src_unpack() {
 	[[ "${PV}" == *9999 ]] && git-r3_src_unpack
 
 	cd "${S}" || die
+	eapply "${FILESDIR}/pleroma-2.10.0-vix_bump.patch"
 	emix deps.get --only prod
 }
 
