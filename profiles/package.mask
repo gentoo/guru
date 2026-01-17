@@ -52,12 +52,6 @@ phosh-base/phosh-osk-stub
 # Critical security vulnerabilities.
 <net-im/conduit-0.10.11
 
-# Viorel Munteanu <ceamac@gentoo.org> (2025-12-11)
-# Unmaintained, causes a name collision with a pkgmove in ::gentoo.
-# See the associated bug for more details.
-# Removal on 2026-01-10.  Bug #967328.
-www-apps/jackett
-
 # David (stkw0) Roman <davidroman96@gmail.com> (2025-07-25)
 # Depends on removed pydantic version. Github homepage has been removed
 # Removal on 2026-02-12.
