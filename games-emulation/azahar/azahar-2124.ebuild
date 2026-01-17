@@ -9,8 +9,6 @@ DESCRIPTION="An open-source 3DS emulator project based on Citra"
 HOMEPAGE="https://azahar-emu.org"
 SRC_URI="
 	https://github.com/azahar-emu/azahar/releases/download/${PV}/azahar-unified-source-${PV}.tar.xz -> ${P}.tar.xz
-	https://github.com/azahar-emu/azahar/commit/1f483e1d335374482845d0325ac8b13af3162c53.patch ->
-		${PN}-2123.3-fix-build-with-qt-6.10.patch
 "
 
 S="${WORKDIR}/azahar-unified-source-${PV}"
@@ -34,6 +32,7 @@ RDEPEND="
 	dev-libs/openssl:=
 	dev-libs/sirit
 	dev-libs/teakra
+	dev-libs/xxhash
 	dev-qt/qtbase:6[concurrent,dbus,widgets]
 	dev-qt/qtmultimedia:6
 	dev-util/glslang
@@ -59,7 +58,6 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${DISTDIR}/${PN}-2123.3-fix-build-with-qt-6.10.patch"
 	"${FILESDIR}/${PN}-2122.1-explicitly-require-the-tsl-robin-map-package.patch"
 	"${FILESDIR}/${PN}-2122.1-import-some-of-the-symbols-from-spv.patch"
 	"${FILESDIR}/${PN}-2122.1-link-to-Catch2-only-when-tests-are-enabled.patch"
@@ -67,9 +65,9 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2122.1-use-the-system-faad2-library.patch"
 	"${FILESDIR}/${PN}-2122.1-use-the-system-teakra-library.patch"
 	"${FILESDIR}/${PN}-2123-don-t-build-spirv-tools.patch"
-	"${FILESDIR}/${PN}-2123-use-the-zstd_seekable.h-header-from-externals.patch"
 	"${FILESDIR}/${PN}-2123.1-use-the-system-oaknut-library.patch"
 	"${FILESDIR}/${PN}-2123.2-use-the-system-sirit-library.patch"
+	"${FILESDIR}/${PN}-2124-use-the-system-xxhash-library.patch"
 )
 
 # [directory]=license
