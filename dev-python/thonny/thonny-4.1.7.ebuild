@@ -4,10 +4,10 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..14} )
+PYTHON_COMPAT=( python3_{8..13} )
 PYTHON_REQ_USE="tk"
 
-inherit desktop distutils-r1 xdg-utils
+inherit desktop distutils-r1 xdg
 
 DESCRIPTION="Thonny is a Python IDE meant for learning programming."
 HOMEPAGE="
@@ -50,7 +50,7 @@ src_prepare() {
 src_install() {
 	distutils-r1_src_install
 	newicon packaging/icons/thonny-32x32.png thonny.png
-	domenu ${S}/packaging/linux/org.thonny.Thonny.desktop
+	domenu "${S}/packaging/linux/org.thonny.Thonny.desktop"
 }
 
 pkg_postinst() {
