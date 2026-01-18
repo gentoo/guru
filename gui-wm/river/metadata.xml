@@ -5,10 +5,15 @@
 		<email>dev@dyama.net</email>
 		<name>Daichi Yamamoto</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>vimproved@inventati.org</email>
+		<name>Violet Purcell</name>
+	</maintainer>
 	<use>
 		<flag name="llvm">Use LLVM Zig backend</flag>
 	</use>
 	<upstream>
 		<remote-id type="codeberg">river/river</remote-id>
+		<remote-id type="codeberg">river/river-classic</remote-id>
 	</upstream>
 </pkgmetadata>
