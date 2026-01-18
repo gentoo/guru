@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>thysupremematrix@tuta.io</email>
+    <name>Abishek Jakkala</name>
+  </maintainer>
+
+  <upstream>
+    <remote-id type="github">thonny/thonny</remote-id>
+    <bugs-to>https://github.com/thonny/thonny/issues</bugs-to>
+    <changelog>https://github.com/thonny/thonny/releases</changelog>
+  </upstream>
+
+  <longdescription>
+    Thonny is a Python IDE designed for beginners. It comes with a simple
+    debugger, expression evaluation, step-by-step execution, and easy
+    access to Python interpreters, including support for MicroPython
+    and CircuitPython.
+  </longdescription>
+</pkgmetadata>
