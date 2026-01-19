@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>berkkapla82@gmail.com</email>
+		<name>compiledkernel-idk</name>
+	</maintainer>
+	<longdescription>
+		flux is a blazing-fast, async command-line downloader for Linux and Windows.
+		It uses segmented range requests, adaptive scheduling, and mirror-aware balancing
+		to squeeze as much bandwidth as possible out of every host.
+		
+		Features:
+		- Async Rust core built on Tokio and Reqwest with rustls
+		- Segmented multi-connection downloads with dynamic concurrency tuning
+		- Robust resume support via .kdl.partmap sidecar files
+		- Mirror awareness to balance segments across multiple URLs
+		- Bandwidth shaping with a leaky-bucket limiter
+		- Automatic preallocation to reduce fragmentation
+		- Optional SHA256 verification
+		- Rich progress reporting with adaptive TTY output or JSON streaming
+	</longdescription>
+	<upstream>
+		<remote-id type="github">compiledkernel-idk/flux</remote-id>
+		<bugs-to>https://github.com/compiledkernel-idk/flux/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
