@@ -23,7 +23,7 @@ HOMEPAGE="https://github.com/ggml-org/llama.cpp"
 LICENSE="MIT"
 SLOT="0"
 CPU_FLAGS_X86=( avx avx2 f16c )
-IUSE="curl openblas +openmp blis hip cuda opencl vulkan flexiblas"
+IUSE="curl openblas +openmp blis rocm cuda opencl vulkan flexiblas"
 REQUIRED_USE="?? ( openblas blis flexiblas )"
 
 # curl is needed for pulling models from huggingface
@@ -34,8 +34,9 @@ CDEPEND="
 	openmp? ( llvm-runtimes/openmp:= )
 	blis? ( sci-libs/blis:= )
 	flexiblas? ( sci-libs/flexiblas:= )
-	hip? ( >=dev-util/hip-6.3:=
-		>=sci-libs/hipBLAS-6.3:=
+	rocm? (
+		>=dev-util/hip-${ROCM_VERSION}:=
+		>=sci-libs/hipBLAS-${ROCM_VERSION}:=
 	)
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 "
@@ -51,7 +52,7 @@ RDEPEND="${CDEPEND}
 BDEPEND="media-libs/shaderc"
 
 pkg_setup() {
-	if use hip; then
+	if use rocm; then
 		linux-info_pkg_setup
 		if linux-info_get_any_version && linux_config_exists; then
 			if ! linux_chkconfig_present HSA_AMD_SVM; then
@@ -113,7 +114,7 @@ src_configure() {
 		addpredict "/dev/char/"
 	fi
 
-	if use hip; then
+	if use rocm; then
 		rocm_use_hipcc
 		mycmakeargs+=(
 			-DGGML_HIP=ON -DAMDGPU_TARGETS=$(get_amdgpu_flags)
