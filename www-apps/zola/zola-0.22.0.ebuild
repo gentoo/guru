@@ -632,6 +632,13 @@ DEPEND="${RDEPEND}"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
+src_prepare() {
+	default
+	# Disable stripping and LTO
+	sed -i 's/profile.release/profile.dummy/' "${S}"/Cargo.toml
+	sed -i '/\profile.dummy/a inherits = \"release\"' "${S}"/Cargo.toml
+}
+
 src_configure() {
 	# Use system libraries
 	export RUSTONIG_SYSTEM_LIBONIG=1
