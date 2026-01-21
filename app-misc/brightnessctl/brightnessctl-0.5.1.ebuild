@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit toolchain-funcs udev
 
 DESCRIPTION="A program to read and control device brightness"
 HOMEPAGE="https://github.com/Hummer12007/brightnessctl"
@@ -22,6 +22,10 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	systemd? ( virtual/pkgconfig )
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.5.1-Makefile.patch
+)
 
 src_compile() {
 	tc-export CC
@@ -44,4 +48,12 @@ src_install() {
 
 	emake ${myconf} DESTDIR="${D}" install
 	dodoc README.md
+}
+
+pkg_postinst() {
+	! use systemd && use udev && udev_reload
+}
+
+pkg_postrm() {
+	! use systemd && use udev && udev_reload
 }
