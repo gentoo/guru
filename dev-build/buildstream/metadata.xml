@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>zyx@envs.net</email>
+    <name>zyxhere💭</name>
+  </maintainer>
+  <longdescription>
+    BuildStream is a powerful software integration tool that allows developers
+    to automate the integration of software components including operating
+    systems, and to streamline the software development and production process.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">apache/buildstream</remote-id>
+  </upstream>
+</pkgmetadata>
