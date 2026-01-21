@@ -6,6 +6,7 @@
 		<name>tea</name>
 	</maintainer>
 	<upstream>
+		<doc>https://pywebview.flowrl.com/guide/</doc>
 		<remote-id type="github">r0x0r/pywebview</remote-id>
 		<remote-id type="pypi">pywebview</remote-id>
 	</upstream>
