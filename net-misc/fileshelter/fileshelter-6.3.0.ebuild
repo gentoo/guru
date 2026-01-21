@@ -26,6 +26,7 @@ DOCS=( INSTALL.md README.md )
 
 PATCHES="
 	${FILESDIR}/${PN}-6.2.0-hierarchy.patch
+	${FILESDIR}/${PN}-6.3.0-boost_1.89.patch
 "
 
 src_install() {
