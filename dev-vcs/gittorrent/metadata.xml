@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>glcbofs@proton.me</email>
+		<name>gabizinho</name>
+		<description>Maintainer</description>
+	</maintainer>
+	<upstream>
+		<maintainer status="active">
+			<email>glcbofs@proton.me</email>
+			<name>gabizinho</name>
+		</maintainer>
+		<bugs-to>https://gitlab.archlinux.org/gabizinho/gittorrent/-/issues</bugs-to>
+		<doc>https://projectgrid.net/portfolio/gittorrent</doc>
+	</upstream>
+	<longdescription>
+		A CLI version control system with CI/CD remote code execution.
+		It uses a faster hashing algorithm, stores blobs more efficiently and indexes more concisely.
+		Cloning is safeguarded with a Peer-To-Peer network and encrypted password and target IP address.
+	</longdescription>
+</pkgmetadata>
