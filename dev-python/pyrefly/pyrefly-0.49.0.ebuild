@@ -6,6 +6,7 @@
 EAPI=8
 
 RUST_MIN_VER="1.89"
+PYPI_VERIFY_REPO=https://github.com/facebook/pyrefly/
 
 CRATES="
 	Inflector@0.11.4
@@ -42,8 +43,8 @@ CRATES="
 	cc@1.2.47
 	cfg-if@1.0.1
 	chrono@0.4.42
-	clap@4.5.53
-	clap_builder@4.5.53
+	clap@4.5.54
+	clap_builder@4.5.54
 	clap_derive@4.5.49
 	clap_lex@0.7.4
 	codespan-reporting@0.12.0
@@ -56,7 +57,7 @@ CRATES="
 	console_error_panic_hook@0.1.7
 	const-str@0.4.3
 	constant_time_eq@0.3.1
-	convert_case@0.6.0
+	convert_case@0.10.0
 	core-foundation-sys@0.8.7
 	cpufeatures@0.2.17
 	crossbeam-channel@0.5.15
@@ -149,15 +150,15 @@ CRATES="
 	itertools@0.11.0
 	itertools@0.14.0
 	itoa@0.4.8
-	itoa@1.0.15
+	itoa@1.0.17
 	jobserver@0.1.33
 	js-sys@0.3.82
 	kqueue-sys@1.0.4
 	kqueue@1.1.1
 	lazy_static@1.5.0
-	libc@0.2.177
+	libc@0.2.180
 	libmimalloc-sys@0.1.42
-	libredox@0.1.3
+	libredox@0.1.12
 	link-cplusplus@1.0.9
 	linux-raw-sys@0.11.0
 	linux-raw-sys@0.4.15
@@ -208,7 +209,7 @@ CRATES="
 	ppv-lite86@0.2.21
 	pretty_assertions@1.4.0
 	proc-macro-utils@0.10.0
-	proc-macro2@1.0.103
+	proc-macro2@1.0.105
 	prost-derive@0.11.9
 	prost-types@0.11.9
 	prost@0.11.9
@@ -227,6 +228,7 @@ CRATES="
 	rayon@1.11.0
 	redox_syscall@0.2.10
 	redox_syscall@0.5.6
+	redox_syscall@0.7.0
 	ref-cast-impl@1.0.25
 	ref-cast@1.0.25
 	regex-automata@0.4.13
@@ -236,7 +238,7 @@ CRATES="
 	relative-path@1.9.3
 	rustc-hash@2.1.1
 	rustix@0.38.44
-	rustix@1.1.2
+	rustix@1.1.3
 	rustversion@1.0.22
 	ryu@0.2.8
 	ryu@1.0.17
@@ -252,10 +254,10 @@ CRATES="
 	serde_bytes@0.11.19
 	serde_core@1.0.228
 	serde_derive@1.0.228
-	serde_json@1.0.145
+	serde_json@1.0.149
 	serde_jsonrc@0.1.0
 	serde_repr@0.1.20
-	serde_spanned@1.0.3
+	serde_spanned@1.0.4
 	serde_with@3.16.0
 	serde_with_macros@3.16.0
 	sha2@0.10.9
@@ -280,7 +282,7 @@ CRATES="
 	syn@2.0.111
 	synstructure@0.13.2
 	tar@0.4.44
-	tempfile@3.23.0
+	tempfile@3.24.0
 	termcolor@1.4.1
 	terminal_size@0.4.2
 	thiserror-impl@1.0.69
@@ -298,18 +300,18 @@ CRATES="
 	tinyvec_macros@0.1.0
 	tokio-macros@2.6.0
 	tokio-util@0.6.10
-	tokio@1.48.0
+	tokio@1.49.0
 	toml@0.9.8
-	toml_datetime@0.7.3
-	toml_edit@0.23.7
-	toml_parser@1.0.4
-	toml_writer@1.0.4
+	toml_datetime@0.7.5+spec-1.1.0
+	toml_edit@0.23.10+spec-1.0.0
+	toml_parser@1.0.6+spec-1.1.0
+	toml_writer@1.0.6+spec-1.1.0
 	tracing-attributes@0.1.31
-	tracing-core@0.1.35
+	tracing-core@0.1.36
 	tracing-log@0.2.0
 	tracing-serde@0.2.0
 	tracing-subscriber@0.3.22
-	tracing@0.1.43
+	tracing@0.1.44
 	triomphe@0.1.11
 	typenum@1.19.0
 	unicase@2.8.1
@@ -384,7 +386,7 @@ CRATES="
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.6
 	windows_x86_64_msvc@0.53.0
-	winnow@0.7.13
+	winnow@0.7.14
 	wit-bindgen@0.46.0
 	write16@1.0.0
 	writeable@0.5.5
@@ -399,6 +401,7 @@ CRATES="
 	zerofrom@0.1.4
 	zerovec-derive@0.10.3
 	zerovec@0.10.4
+	zmij@1.0.12
 	zstd-safe@7.2.1
 	zstd-sys@2.0.12+zstd.1.5.6
 	zstd@0.13.2
@@ -424,7 +427,7 @@ declare -A GIT_CRATES=(
 	[ruff_text_size]='https://github.com/astral-sh/ruff;474b00568ad78f02ad8e19b8166cbeb6d69f8511;ruff-%commit%/crates/ruff_text_size'
 )
 
-inherit cargo
+inherit cargo pypi
 
 DESCRIPTION="A fast type checker and language server for Python with powerful IDE features"
 HOMEPAGE="
@@ -432,8 +435,7 @@ HOMEPAGE="
 	https://github.com/facebook/pyrefly
 	https://pypi.org/project/pyrefly/
 "
-SRC_URI="
-	https://github.com/facebook/pyrefly/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz
+SRC_URI+="
 	${CARGO_CRATE_URIS}
 "
 
@@ -449,6 +451,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 QA_FLAGS_IGNORED="usr/bin/.*"
+
+src_unpack() {
+	pypi_src_unpack
+	cargo_src_unpack
+}
 
 src_prepare() {
 	default
