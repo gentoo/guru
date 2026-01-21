@@ -12,6 +12,7 @@
 	</longdescription>
 	<upstream>
 		<remote-id type="github">derrod/legendary</remote-id>
+		<remote-id type="pypi">legendary-gl</remote-id>
 	</upstream>
 	<use>
 		<flag name="webview">Use dev-python/pywebview for the sign-in process</flag>
