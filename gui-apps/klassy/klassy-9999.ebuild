@@ -1,11 +1,11 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 KF5MIN=5.102.0
-KFMIN=6.10.0
-QTMIN=6.6.0
+KFMIN=6.18.0
+QTMIN=6.9.0
 
 inherit git-r3 cmake
 
