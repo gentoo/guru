@@ -41,12 +41,12 @@ src_install() {
 	insinto /usr/share/icons/hicolor/symbolic/apps
 	doins package/icon-symbolic.svg
 	mv "${ED}/usr/share/icons/hicolor/symbolic/apps/icon-symbolic.svg" \
-		"${ED}/usr/share/icons/hicolor/symbolic/apps/${PACKAGE_ID}-symbolic.svg"
+		"${ED}/usr/share/icons/hicolor/symbolic/apps/${PACKAGE_ID}-symbolic.svg" || die
 
 	insinto /usr/share/icons/hicolor/scalable/apps
 	doins src/vorta/assets/icons/icon.svg
 	mv "${ED}/usr/share/icons/hicolor/scalable/apps/icon.svg" \
-		"${ED}/usr/share/icons/hicolor/scalable/apps/${PACKAGE_ID}.svg"
+		"${ED}/usr/share/icons/hicolor/scalable/apps/${PACKAGE_ID}.svg" || die
 
 	insinto /usr/share/metainfo
 	doins src/vorta/assets/metadata/${PACKAGE_ID}.appdata.xml
