@@ -20,6 +20,7 @@ RDEPEND="
 	gui-apps/quickshell
 	app-misc/brightnessctl
 	dev-vcs/git
+	media-gfx/imagemagick
 "
 
 src_install() {
