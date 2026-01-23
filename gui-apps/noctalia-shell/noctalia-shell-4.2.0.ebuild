@@ -41,6 +41,5 @@ pkg_postinst() {
 	optfeature "Night light functionality" gui-apps/wlsunset
 	optfeature "Enable 'Portal' option in screen recorder" sys-apps/xdg-desktop-portal
 	optfeature "Calendar events support" gnome-extra/evolution-data-server
-	optfeature "Material You color scheme generation" x11-misc/matugen
 	optfeature "Xwayland-satellite for xwayland support on niri" gui-apps/xwayland-satellite
 }
