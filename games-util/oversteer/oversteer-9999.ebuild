@@ -3,9 +3,10 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..14} )
 
-inherit meson udev git-r3
+inherit distutils-r1 meson udev git-r3
 
 DESCRIPTION="Steering Wheel Manager for Linux"
 HOMEPAGE="https://github.com/berarma/oversteer"
@@ -15,17 +16,17 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 
-BDEPEND="
-	dev-python/pygobject
-	dev-python/pyudev
-	dev-python/pyxdg
-	dev-python/evdev
+RDEPEND="
+	dev-python/pygobject[${PYTHON_USEDEP}]
+	dev-python/pyudev[${PYTHON_USEDEP}]
+	dev-python/pyxdg[${PYTHON_USEDEP}]
+	dev-python/evdev[${PYTHON_USEDEP}]
 	sys-devel/gettext
 	dev-libs/appstream-glib
-	dev-python/matplotlib[gtk3]
-	dev-python/scipy
+	dev-python/matplotlib[gtk3,${PYTHON_USEDEP}]
+	dev-python/scipy[${PYTHON_USEDEP}]
 "
-DEPEND="${BDEPEND}"
+DEPEND="${RDEPEND}"
 
 src_configure() {
 	local emesonargs=(
