@@ -24,11 +24,10 @@ RDEPEND="
 "
 
 src_install() {
-	# Install configuration files
 	insinto /etc/xdg/quickshell/noctalia-shell
 	doins -r .
+	fperms 0755 "/etc/xdg/quickshell/noctalia-shell/Scripts/bash/template-apply.sh"
 
-	# Install systemd unit
 	systemd_douserunit Assets/Services/systemd/noctalia.service
 }
 
