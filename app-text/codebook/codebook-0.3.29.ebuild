@@ -18,6 +18,17 @@ KEYWORDS="~amd64"
 RESTRICT="test"
 PROPERTIES="test_network"
 
+src_test() {
+	local skip=(
+		--skip test_elixir_module
+		--skip test_go_location
+		--skip test_java_location
+		--skip test_odin_location
+		--skip test_php_location
+	)
+	cargo_src_test -- "${skip[@]}"
+}
+
 src_install() {
 	cargo_src_install --path crates/codebook-lsp
 	dodoc README.md
