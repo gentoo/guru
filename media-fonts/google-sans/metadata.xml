@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>thysupremematrix@tuta.io</email>
+    <name>Abishek Jakkala</name>
+  </maintainer>
+
+  <longdescription>
+     Google Sans is the current generation of Google’s brand
+     typeface, with wide language support. Google Sans is available
+     as a variable font with axes for weight, grade and optical
+     size, across Roman and Italic styles.
+  </longdescription>
+</pkgmetadata>
