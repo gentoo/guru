@@ -6,4 +6,4 @@ export LD_LIBRARY_PATH="/opt/helium${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 # Example: EXTRA_FLAGS="--force-dark-mode --enable-features=VaapiVideoDecoder"
 EXTRA_FLAGS=""
 
-exec /opt/helium/chrome $EXTRA_FLAGS "$@"
+exec /opt/helium/helium $EXTRA_FLAGS "$@"
