@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~arm64"
 
 src_install() {
 	dobin "${S}/src/main/sh/mommy"
-	dodoc "${S}/src/main/man/man1/mommy.1"
+	doman "${S}/src/main/man/man1/mommy.1"
 	dofishcomp "${S}/src/main/completions/fish/mommy.fish"
 	dozshcomp "${S}/src/main/completions/zsh/_mommy"
 }
