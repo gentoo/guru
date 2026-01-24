@@ -109,5 +109,5 @@ src_install() {
 	domenu "${FILESDIR}/${MY_PN}.desktop"
 	dobin "${FILESDIR}/${MY_PN}"
 
-	pax-mark m "chrome"
+	pax-mark m "${MY_PN}"
 }
