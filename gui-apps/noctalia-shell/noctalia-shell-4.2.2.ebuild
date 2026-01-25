@@ -35,10 +35,11 @@ pkg_postinst() {
 	elog "Note: uninstalling this package will not remove this configuration, so if you intend to keep using Quickshell you may want to remove it manually."
 	elog "For integration with systemd a user service unit has been installed to /usr/lib/systemd/user/noctalia.service."
 
-	optfeature "Clipboard history support" app-misc/cliphist
-	optfeature "Audio visualizer component" media-sound/cava
-	optfeature "Night light functionality" gui-apps/wlsunset
-	optfeature "Enable 'Portal' option in screen recorder" sys-apps/xdg-desktop-portal
-	optfeature "Calendar events support" gnome-extra/evolution-data-server
-	optfeature "Xwayland-satellite for xwayland support on niri" gui-apps/xwayland-satellite
+	optfeature "clipboard history support" app-misc/cliphist
+	optfeature "audio visualizer component" media-sound/cava
+	optfeature "night light functionality" gui-apps/wlsunset
+	optfeature "enable 'Portal' option in screen recorder" sys-apps/xdg-desktop-portal
+	optfeature "calendar events support" gnome-extra/evolution-data-server
+	optfeature "power profile management" sys-power/power-profiles-daemon
+	optfeature "external display brightness control" app-misc/ddcutil
 }
