@@ -1,10 +1,9 @@
-# Copyright 2026 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit systemd
-inherit optfeature
+inherit optfeature systemd
 
 DESCRIPTION="Noctalia Configuration for Quickshell"
 HOMEPAGE="https://github.com/noctalia-dev/noctalia-shell"
@@ -25,8 +24,8 @@ RDEPEND="
 
 src_install() {
 	insinto /etc/xdg/quickshell/noctalia-shell
+	insopts -m0755
 	doins -r .
-	fperms 0755 "/etc/xdg/quickshell/noctalia-shell/Scripts/bash/template-apply.sh"
 
 	systemd_douserunit Assets/Services/systemd/noctalia.service
 }
