@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit optfeature systemd
+PYTHON_COMPAT=( python3_{12..14} )
+
+inherit optfeature python-single-r1 systemd
 
 DESCRIPTION="Noctalia Configuration for Quickshell"
 HOMEPAGE="https://github.com/noctalia-dev/noctalia-shell"
@@ -14,8 +16,10 @@ S="${WORKDIR}/noctalia-release"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
+	${PYTHON_DEPS}
 	gui-apps/quickshell
 	app-misc/brightnessctl
 	dev-vcs/git
@@ -26,6 +30,9 @@ src_install() {
 	insinto /etc/xdg/quickshell/noctalia-shell
 	insopts -m0755
 	doins -r .
+
+	python_optimize "${ED}/etc/xdg/quickshell/${PN}/Scripts/python/src"
+	python_fix_shebang "${ED}/etc/xdg/quickshell/${PN}/Scripts/python/src"
 
 	systemd_douserunit Assets/Services/systemd/noctalia.service
 }
