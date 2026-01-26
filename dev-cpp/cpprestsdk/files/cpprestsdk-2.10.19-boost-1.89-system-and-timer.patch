@@ -1,0 +1,74 @@
+https://github.com/microsoft/cpprestsdk/pull/1838
+--- a/Release/cmake/cpprestsdk-config.in.cmake.orig
++++ b/Release/cmake/cpprestsdk-config.in.cmake
+@@ -17,7 +17,7 @@ if(@CPPREST_USES_BOOST@)
+ 
+ if(@CPPREST_USES_BOOST@)
+   if(UNIX)
+-    find_dependency(Boost COMPONENTS random system thread filesystem chrono atomic date_time regex)
++    find_dependency(Boost COMPONENTS random thread filesystem chrono atomic date_time regex)
+   else()
+     find_dependency(Boost COMPONENTS system date_time regex)
+   endif()
+
+--- a/Release/cmake/cpprest_find_boost.cmake
++++ b/Release/cmake/cpprest_find_boost.cmake
+@@ -44,11 +44,11 @@ function(cpprest_find_boost)
+       set(BOOST_LIBRARYDIR "${CMAKE_BINARY_DIR}/../Boost-for-Android/build/out/x86/lib" CACHE INTERNAL "")
+       set(Boost_ARCHITECTURE "-x32" CACHE INTERNAL "")
+     endif()
+-    cpprestsdk_find_boost_android_package(Boost ${BOOST_VERSION} EXACT REQUIRED COMPONENTS random system thread filesystem chrono atomic)
++    cpprestsdk_find_boost_android_package(Boost ${BOOST_VERSION} EXACT REQUIRED COMPONENTS random thread filesystem chrono atomic)
+   elseif(UNIX)
+-    find_package(Boost REQUIRED COMPONENTS random system thread filesystem chrono atomic date_time regex)
++    find_package(Boost REQUIRED COMPONENTS random thread filesystem chrono atomic date_time regex)
+   else()
+-    find_package(Boost REQUIRED COMPONENTS system date_time regex)
++    find_package(Boost REQUIRED COMPONENTS date_time regex)
+   endif()
+ 
+   add_library(cpprestsdk_boost_internal INTERFACE)
+@@ -78,7 +78,6 @@ function(cpprest_find_boost)
+       target_link_libraries(cpprestsdk_boost_internal INTERFACE
+         Boost::boost
+         Boost::random
+-        Boost::system
+         Boost::thread
+         Boost::filesystem
+         Boost::chrono
+@@ -88,7 +87,6 @@ function(cpprest_find_boost)
+       target_link_libraries(cpprestsdk_boost_internal INTERFACE
+         Boost::boost
+         Boost::random
+-        Boost::system
+         Boost::thread
+         Boost::filesystem
+         Boost::chrono
+@@ -99,7 +97,6 @@ function(cpprest_find_boost)
+     else()
+       target_link_libraries(cpprestsdk_boost_internal INTERFACE
+         Boost::boost
+-        Boost::system
+         Boost::date_time
+         Boost::regex
+       )
+--- a/Release/src/http/client/http_client_asio.cpp
++++ b/Release/src/http/client/http_client_asio.cpp
+@@ -429,7 +429,7 @@ private:
+         auto& self = *pool;
+         std::weak_ptr<asio_connection_pool> weak_pool = pool;
+ 
+-        self.m_pool_epoch_timer.expires_from_now(boost::posix_time::seconds(30));
++        self.m_pool_epoch_timer.expires_after(std::chrono::seconds(30));
+         self.m_pool_epoch_timer.async_wait([weak_pool](const boost::system::error_code& ec) {
+             if (ec)
+             {
+@@ -467,7 +467,7 @@ private:
+     std::mutex m_lock;
+     std::map<std::string, connection_pool_stack<asio_connection>> m_connections;
+     bool m_is_timer_running;
+-    boost::asio::deadline_timer m_pool_epoch_timer;
++    boost::asio::steady_timer m_pool_epoch_timer;
+ };
+ 
+ class asio_client final : public _http_client_communicator

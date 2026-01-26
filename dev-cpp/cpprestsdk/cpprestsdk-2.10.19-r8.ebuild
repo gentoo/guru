@@ -33,7 +33,7 @@ PATCHES=(
 	"${FILESDIR}"/cpprestsdk-${PV}-cmake-4.patch
 	"${FILESDIR}"/cpprestsdk-${PV}-llvm-char-traits-patch.patch
 	"${FILESDIR}"/cpprestsdk-${PV}-llvm-json-unique-ptr.patch
-	"${FILESDIR}"/cpprestsdk-${PV}-boost-1.89-system-removal.patch
+	"${FILESDIR}"/cpprestsdk-${PV}-boost-1.89-system-and-timer.patch
 )
 
 src_configure() {
