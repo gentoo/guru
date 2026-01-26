@@ -31,6 +31,7 @@ RDEPEND="
 	x11-libs/libxcb
 	x11-libs/libxkbcommon
 	x11-libs/pango
+	net-libs/webkit-gtk:4.1
 "
 
 BDEPEND="dev-util/patchelf"
