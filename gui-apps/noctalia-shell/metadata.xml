@@ -4,6 +4,10 @@
 		<email>luke.gompz@gmail.com</email>
 		<name>Luke Gompertz</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">noctalia-dev/noctalia-shell</remote-id>
 	</upstream>
