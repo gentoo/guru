@@ -13,6 +13,8 @@ SRC_URI="
 	https://github.com/tutao/tutanota/raw/tutanota-desktop-release-${PV}/tutao-pub.pem -> ${P}-tutao-pub.pem
 "
 
+S="${WORKDIR}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -44,8 +46,6 @@ RDEPEND="
 "
 
 BDEPEND="dev-libs/openssl"
-
-S="${WORKDIR}"
 
 QA_PREBUILT="opt/tutanota-desktop/*"
 
@@ -97,12 +97,4 @@ src_install() {
 				tutanota-desktop.png
 		fi
 	done
-}
-
-pkg_postinst() {
-	xdg_pkg_postinst
-}
-
-pkg_postrm() {
-	xdg_pkg_postrm
 }
