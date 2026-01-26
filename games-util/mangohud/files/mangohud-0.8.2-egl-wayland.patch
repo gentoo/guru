@@ -1,0 +1,27 @@
+From 197e4093e4f7ba3deeb12a5e4fc90bf39aea0fc9 Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty
+ <45927311+Etaash-mathamsetty@users.noreply.github.com>
+Date: Fri, 28 Nov 2025 11:46:10 -0600
+Subject: [PATCH] egl: Fix missing check for HAVE_WAYLAND.
+
+---
+ src/gl/inject_egl.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/gl/inject_egl.cpp b/src/gl/inject_egl.cpp
+index a39241c5ec..6de08e779c 100644
+--- a/src/gl/inject_egl.cpp
++++ b/src/gl/inject_egl.cpp
+@@ -239,10 +239,12 @@ EXPORT_C_(int) eglTerminate(void *display)
+ 
+     ret = pfn_eglTerminate(display);
+ 
++#ifdef HAVE_WAYLAND
+     if (ret)
+     {
+         wayland_data_unref(NULL, display);
+     }
++#endif
+ 
+     return ret;
+ }
