@@ -1,23 +1,25 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit unpacker desktop xdg
 
+MY_PN="Legcord"
+
 DESCRIPTION="Legcord is a custom client designed to enhance your Discord experience."
 HOMEPAGE="https://legcord.app/"
 
 SRC_URI="
-amd64? ( https://github.com/Legcord/Legcord/releases/download/v${PV}/Legcord-${PV}-linux-amd64.deb -> ${P}-amd64.deb )
-arm64? ( https://github.com/Legcord/Legcord/releases/download/v${PV}/Legcord-${PV}-linux-arm64.deb -> ${P}-arm64.deb )
+	amd64? ( https://github.com/Legcord/Legcord/releases/download/v${PV}/Legcord-${PV}-linux-amd64.deb -> ${P}-amd64.deb )
+	arm64? ( https://github.com/Legcord/Legcord/releases/download/v${PV}/Legcord-${PV}-linux-arm64.deb -> ${P}-arm64.deb )
 "
 
 S="${WORKDIR}"
 
 LICENSE="MIT BSD OSL-3.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="-* ~amd64 ~arm64"
 
 RESTRICT="bindist mirror test strip"
 
@@ -44,67 +46,56 @@ RDEPEND="
 	x11-libs/libXrandr
 	x11-libs/pango
 "
-QA_PREBUILT=".*"
 
-PATCHES=(
-	"${FILESDIR}/${P}-desktop.patch"
-)
+QA_PREBUILT="*"
 
 src_unpack() {
-    if use amd64; then
-        unpack_deb "${P}-amd64.deb"
-    elif use arm64; then
-        unpack_deb "${P}-arm64.deb"
-    else
-        die
-    fi
+	unpack_deb ${A}
 }
 
 src_prepare() {
 	default
 
-	mv "${WORKDIR}/opt/Legcord" "${WORKDIR}/opt/${PN}" || die
-	mv "${WORKDIR}/usr/share/applications/Legcord.desktop" "${WORKDIR}/${PN}.desktop" || die
-	mv "${WORKDIR}"/usr/share/icons/hicolor/* "${WORKDIR}/" || die
-	rm -rf "${WORKDIR}/usr/share/doc" || die
+	# match with syslink
+	sed -i "s|^Exec=.*|Exec=/usr/bin/legcord-bin %U|" \
+		"usr/share/applications/${MY_PN}.desktop" || die
 }
 
 src_install() {
 	DESTDIR="/opt/${PN}"
 
-	doicon -s 16 "16x16/apps/Legcord.png"
-	doicon -s 32 "32x32/apps/Legcord.png"
-	doicon -s 48 "48x48/apps/Legcord.png"
-	doicon -s 64 "64x64/apps/Legcord.png"
-	doicon -s 128 "128x128/apps/Legcord.png"
-	doicon -s 256 "256x256/apps/Legcord.png"
-	doicon -s 512 "512x512/apps/Legcord.png"
-	doicon -s 1024 "1024x1024/apps/Legcord.png"
+	local x
+	for x in 16 32 64 128 256 512; do
+		doicon -s ${x} usr/share/icons/hicolor/${x}*/*
+	done
 
-	domenu "${PN}.desktop"
+	domenu "usr/share/applications/${MY_PN}.desktop"
 
 	exeinto "${DESTDIR}"
-	doexe "opt/${PN}/Legcord" "opt/${PN}/chrome-sandbox" "opt/${PN}/libEGL.so" \
-	"opt/${PN}/libffmpeg.so" "opt/${PN}/libGLESv2.so" "opt/${PN}/libvk_swiftshader.so"
+	doexe "opt/${MY_PN}/${MY_PN}"
+	doexe "opt/${MY_PN}/chrome-sandbox"
+	doexe "opt/${MY_PN}/chrome_crashpad_handler"
 
 	insinto "${DESTDIR}"
-	doins "opt/${PN}/chrome_100_percent.pak" "opt/${PN}/chrome_200_percent.pak" "opt/${PN}/icudtl.dat" \
-	"opt/${PN}/resources.pak" "opt/${PN}/snapshot_blob.bin" "opt/${PN}/v8_context_snapshot.bin"
-	insopts -m0766
-	doins -r "opt/${PN}/locales" "opt/${PN}/resources"
+	doins opt/"${MY_PN}"/*.bin
+	doins opt/"${MY_PN}"/*.pak
+	doins opt/"${MY_PN}"/*.so
 
-	fperms -R 644 "${DESTDIR}/locales"
-	fperms -R 644 "${DESTDIR}/resources"
+	doins "opt/${MY_PN}/icudtl.dat"
+
+	#insopts -m0766
+	doins -r "opt/${MY_PN}/locales"
+	doins -r "opt/${MY_PN}/resources"
+
+	#fperms -R 644 "${DESTDIR}/locales"
+	#fperms -R 644 "${DESTDIR}/resources"
 
 	# Fix bug 930639
-	fperms -R a+r "${DESTDIR}"/resources/
-	fperms a+x "${DESTDIR}"/resources/
+	#fperms -R a+r "${DESTDIR}"/resources/
+	#fperms a+x "${DESTDIR}"/resources/
 
-	fowners root "${DESTDIR}/chrome-sandbox"
-	fperms 4711 "${DESTDIR}/chrome-sandbox"
+	#fowners root "${DESTDIR}/chrome-sandbox"
+	#fperms 4711 "${DESTDIR}/chrome-sandbox"
 
-	doins "opt/${PN}/chrome_crashpad_handler"
-	fperms 755 "${DESTDIR}/chrome_crashpad_handler"
-
-	dosym -r /opt/${PN}/Legcord /usr/bin/${PN}
+	dosym ../../opt/"${PN}"/"${MY_PN}" /usr/bin/"${PN}"
 }
