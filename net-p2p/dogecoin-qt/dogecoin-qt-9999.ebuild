@@ -27,13 +27,14 @@ DEPEND="
 	dev-libs/openssl
 	dev-build/libtool
 	dev-build/automake:=
-	gui? ( dev-qt/qtcore
-	dev-qt/qtgui
-	dev-qt/qtwidgets
-	dev-qt/qtdbus
-	dev-qt/qtnetwork
-	dev-qt/qtprintsupport
-	dev-qt/linguist-tools:=
+	gui? (
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtwidgets:5
+		dev-qt/qtdbus:5
+		dev-qt/qtnetwork:5
+		dev-qt/qtprintsupport:5
+		dev-qt/linguist-tools:5=
 	)
 	>=dev-libs/boost-1.84.0
 	wallet? ( sys-libs/db:"${DB_VER}"=[cxx]
