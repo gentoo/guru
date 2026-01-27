@@ -1,4 +1,4 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,14 +7,17 @@ inherit desktop unpacker xdg
 
 DESCRIPTION="A private YouTube desktop client"
 HOMEPAGE="https://freetubeapp.io/ https://github.com/FreeTubeApp/FreeTube"
-SRC_URI="https://github.com/FreeTubeApp/FreeTube/releases/download/v${PV/_/-}/freetube_${PV%_*}_beta_amd64.deb
-	-> ${P}.deb
+SRC_URI="
+	amd64? (
+		https://github.com/FreeTubeApp/FreeTube/releases/download/v${PV/_/-}/freetube_${PV%_*}_beta_amd64.deb
+		-> ${P}.deb
+	)
 "
 S="${WORKDIR}"
 
 LICENSE="AGPL-3+"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="-* ~amd64"
 
 QA_PREBUILT="
 	/opt/FreeTube/freetube
