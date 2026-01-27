@@ -9,10 +9,6 @@
 		complex spectral alterations onto a set of only a few parameters. Emphasis has also been
 		put on modulations, both in the filter as well as the spectral design sections
 	</longdescription>
-	<use>
-		<flag name="presets">Install presets. Recommended</flag>
-	</use>
-
 	<upstream>
 		<remote-id type="sourceforge">add64</remote-id>
 	</upstream>
