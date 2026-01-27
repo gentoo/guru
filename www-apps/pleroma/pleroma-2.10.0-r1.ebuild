@@ -18,7 +18,7 @@ fi
 LICENSE="AGPL-3 CC-BY-SA-4.0 CC-BY-4.0"
 SLOT="otp"
 
-IUSE="+system-lexbor"
+IUSE="+system-lexbor +system-vips"
 
 # Requires network access (https) as long as elixir dependencies aren't packaged
 # said dependencies have their checksum verified via `mix.lock`
@@ -35,10 +35,10 @@ BDEPEND="
 "
 DEPEND="
 	dev-libs/glib
-	media-libs/vips:=
 	sys-apps/file
 	sys-libs/ncurses:=
 	system-lexbor? ( dev-libs/lexbor )
+	system-vips? ( media-libs/vips:= )
 "
 RDEPEND="
 	${DEPEND}
@@ -87,7 +87,7 @@ src_prepare() {
 src_compile() {
 	mkdir -p pleroma || die
 
-	export VIX_COMPILATION_MODE="PLATFORM_PROVIDED_LIBVIPS"
+	use system-vips && export VIX_COMPILATION_MODE="PLATFORM_PROVIDED_LIBVIPS"
 
 	use system-lexbor && export WITH_SYSTEM_LEXBOR=1
 
