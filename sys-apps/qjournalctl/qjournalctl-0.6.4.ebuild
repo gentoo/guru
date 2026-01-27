@@ -1,7 +1,7 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit qmake-utils
 
@@ -15,9 +15,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 DOCS=( "CHANGELOG.md" "README.md" )
 
-DEPEND="dev-qt/qtcore
-		dev-qt/qtgui
-		dev-qt/qtwidgets
+DEPEND="dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtwidgets:5
 		net-libs/libssh"
 RDEPEND="${DEPEND}"
 
