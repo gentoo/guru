@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,8 +14,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	dev-qt/qtcore
-	dev-qt/qtgui
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
 	>=media-libs/libheif-1.13.0:0=
 "
 DEPEND="${RDEPEND}"
