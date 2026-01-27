@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Paul Zander <negril.nx+gentoo@gmail.com> (2026-01-27)
+# Stuck on Qt5, no upstream action.
+# Removal after 2026-02-27
+media-sound/6pm
+media-sound/add64
+sys-apps/qjournalctl
+
 # Nicolas PARLANT <nicolas.parlant@parhuet.fr> (2026-01-15)
 # Used to generate docs for knot-resolver, it's no longer required now.
 # No revdep
