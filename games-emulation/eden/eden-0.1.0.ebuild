@@ -13,6 +13,7 @@ SRC_URI="
 	https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
 	https://git.crueter.xyz/misc/tzdb_to_nx/releases/download/${_TZDB_VER}/${_TZDB_VER}.tar.gz ->
 		nx-tzdb-${_TZDB_VER}.tar.gz
+	https://git.eden-emu.dev/eden-emu/eden/pulls/3395.patch -> ${PN}-0.1.0-fix-httplib-package.patch
 "
 
 S="${WORKDIR}/${PN}"
@@ -26,6 +27,10 @@ REQUIRED_USE="
 	web-service? ( ssl || ( qt6 room ) )
 "
 RESTRICT="!test? ( test )"
+
+PATCHES=(
+	"${DISTDIR}/${PN}-0.1.0-fix-httplib-package.patch"
+)
 
 RDEPEND="
 	app-arch/lz4
@@ -54,7 +59,10 @@ RDEPEND="
 		dev-qt/qtbase:6[concurrent,dbus,gui,widgets]
 	)
 	sdl? ( media-libs/libsdl2[haptic,joystick,sound,video] )
-	ssl? ( dev-libs/openssl:= )
+	ssl? (
+		dev-libs/openssl:=
+		dev-cpp/cpp-httplib:=[ssl]
+	)
 	usb? ( dev-libs/libusb )
 	web-applet? ( dev-qt/qtwebengine:6[widgets] )
 	web-service? ( dev-cpp/cpp-httplib:=[ssl] )
@@ -134,10 +142,10 @@ src_configure() {
 		-DCPMUTIL_FORCE_SYSTEM=yes
 		-DTITLE_BAR_FORMAT_IDLE="Eden | v${PV/_/-}"
 		-DYUZU_TZDB_PATH="${WORKDIR}/nx-tzdb-${_TZDB_VER}"
-		-DYUZU_USE_FASTER_LD=no
+		-DUSE_FASTER_LINKER=no
 
 		-DDYNARMIC_ENABLE_LTO=$(usex lto)
-		-DYUZU_ENABLE_LTO=$(usex lto)
+		-DENABLE_LTO=$(usex lto)
 
 		-DDYNARMIC_USE_LLVM=$(usex llvm)
 		-DYUZU_DISABLE_LLVM=$(usex !llvm)
