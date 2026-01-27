@@ -18,10 +18,6 @@ app-misc/clipboard wayland
 # Bug 954116.
 sci-electronics/bluespec doc
 
-# John-Henry Lim <johnhenrylim12@gmail.com> (2024-02-19)
-# warp-dex relies on libpcap.so.0.8 which is not in tree.
-net-vpn/cloudflare-warp dex
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-11-21)
 # Bindings are written for those RocksDB versions which are not in the tree.
 net-im/conduit system-rocksdb
