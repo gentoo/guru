@@ -24,6 +24,7 @@
 dev-util/catppuccin-whiskers
 dev-util/catppuccin-catwalk
 x11-themes/catppuccin-neovim
+media-libs/alvr
 
 # Paul Zander <negril.nx+gentoo@gmail.com> (2026-01-27)
 # Stuck on Qt5, no upstream action.
