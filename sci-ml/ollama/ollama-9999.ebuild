@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -273,9 +273,9 @@ src_configure() {
 		CUDAHOSTCXX="$(cuda_gccdir)"
 		CUDAHOSTLD="$(tc-getCXX)"
 
-		# default to all for now until cuda.eclass is updated
+		# default to all-major for now until cuda.eclass is updated
 		if [[ ! -v CUDAARCHS ]]; then
-			local CUDAARCHS="all"
+			local CUDAARCHS="all-major"
 		fi
 
 		mycmakeargs+=(
