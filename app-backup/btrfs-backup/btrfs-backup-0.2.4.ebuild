@@ -87,9 +87,9 @@ CRATES="
 	wit-bindgen@0.51.0
 "
 
-inherit bash-completion-r1 cargo
+inherit cargo shell-completion
 
-DESCRIPTION="A program for backup & restoration of btrfs subvolumes."
+DESCRIPTION="A program for backup & restoration of btrfs subvolumes"
 HOMEPAGE="https://github.com/d-e-s-o/btrfs-backup"
 SRC_URI="
 	${CARGO_CRATE_URIS}
@@ -104,28 +104,25 @@ KEYWORDS="~amd64"
 RESTRICT="test"
 
 RDEPEND="
-	${DEPEND}
 	sys-fs/btrfs-progs
 "
 DEPEND="${RDEPEND}"
 
 src_compile() {
 	cargo_src_compile --bin="${PN}"
-	# Install shell-complete binary into source directory to be able to
+	# Install shell-complete binary into target directory to be able to
 	# use it later on.
-	cargo install --bin=shell-complete --features=clap_complete --path . --root "${S}" || die
+	cargo install --bin=shell-complete --features=clap_complete --path . --root "$(cargo_target_dir)" || die
 }
 
 src_install() {
-	cargo_src_install --bin=${PN}
+	cargo_src_install --bin="${PN}"
 
-	"${S}"/bin/shell-complete bash > ${PN}.bash || die
-	newbashcomp ${PN}.bash ${PN}
+	"$(cargo_target_dir)"/bin/shell-complete bash > "${PN}.bash" || die
+	dobashcomp "${PN}.bash"
 
-	"${S}"/bin/shell-complete fish >> ${PN}.fish || die
-	insinto /usr/share/fish/vendor_conf.d/
-	insopts -m0755
-	newins ${PN}.fish ${PN}.fish
+	"$(cargo_target_dir)"/bin/shell-complete fish >> "${PN}.fish" || die
+	dofishcomp "${PN}.fish"
 
 	einstalldocs
 }
