@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,22 +16,25 @@ else
 	KEYWORDS="~amd64"
 	SRC_URI="https://github.com/stripe/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	# possible depfiles link if used
-	# SRC_URI+=""
+	SRC_URI+="
+	https://github.com/ingenarel/guru-depfiles/releases/download/${P}-deps.tar.xz/${P}-go-mod-deps.tar.xz ->
+	${P}-deps.tar.xz
+	"
+	# you can either use -go-mod-deps or -vendor-deps for the file
+	# vendor-deps are small, but may not work for some packages/version
+	# go-mod-deps are LARGE, but will most likely always work
 fi
 
 LICENSE="Apache-2.0"
+#gentoo-go-license stripe-cli-9999.ebuild
+LICENSE+=" Apache-2.0 BSD-2 BSD ISC MIT MPL-2.0 Unlicense "
 
-# echo "# dependency licenses:"; printf 'LICENSES+=" '
-# go-licenses report ./... 2>/dev/null | awk -F ',' '{ print $NF }' | sort --unique | tr '\n' ' '; echo '"'
-
-# dependency licenses:
-LICENSES+=" Apache-2.0 BSD-2-Clause BSD ISC MIT MPL-2.0 Unlicense "
 SLOT="0"
 
 BDEPEND=">=dev-lang/go-1.24.1"
 
 src_unpack() {
-	if [[ "$PV" == *9999* ]];then
+	if [[ "${PV}" == 9999 ]];then
 		git-r3_src_unpack
 		go-module_live_vendor
 	else
@@ -47,10 +50,10 @@ src_install() {
 	dobin "bin/${MY_PN}"
 
 	# disables telemetry
-	doenvd "$FILESDIR/99$PN"
+	doenvd "${FILESDIR}/99${PN}"
 
 	"bin/${MY_PN}" completion --shell bash
-	newbashcomp "${MY_PN}-completion.bash" "$MY_PN"
+	newbashcomp "${MY_PN}-completion.bash" "${MY_PN}"
 	"bin/${MY_PN}" completion --shell zsh
-	newzshcomp "${MY_PN}-completion.zsh" "_$MY_PN"
+	newzshcomp "${MY_PN}-completion.zsh" "_${MY_PN}"
 }
