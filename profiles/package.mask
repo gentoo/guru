@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# David (stkw0) Roman <davidroman96@gmail.com> (2026-01-28)
+# Unmaintaned. Maintainer is not reachable
+# Removal after 2026-02-27
+dev-util/catppuccin-whiskers
+dev-util/catppuccin-catwalk
+x11-themes/catppuccin-neovim
+
 # Paul Zander <negril.nx+gentoo@gmail.com> (2026-01-27)
 # Stuck on Qt5, no upstream action.
 # Removal after 2026-02-27
