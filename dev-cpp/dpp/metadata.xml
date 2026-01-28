@@ -2,9 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>samuel@seals-are-bouncy.tech</email>
-	</maintainer>
-	<maintainer type="person">
 		<name>Filip Hoffmann</name>
 		<email>folosp2@gmail.com</email>
 	</maintainer>
