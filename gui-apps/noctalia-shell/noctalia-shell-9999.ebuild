@@ -44,7 +44,6 @@ src_install() {
 
 pkg_postinst() {
 	elog "Noctalia Quickshell configuration has been installed to /etc/xdg/quickshell/noctalia-shell."
-	elog "Note: uninstalling this package will not remove this configuration, so if you intend to keep using Quickshell you may want to remove it manually."
 	elog "For integration with systemd a user service unit has been installed to /usr/lib/systemd/user/noctalia.service."
 
 	optfeature "clipboard history support" app-misc/cliphist
