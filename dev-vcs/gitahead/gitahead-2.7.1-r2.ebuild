@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -31,9 +31,11 @@ RDEPEND="
 	dev-libs/openssl:=
 	dev-qt/qt5compat:6
 	dev-qt/qtbase:6[concurrent,gui,network,widgets]
+	media-libs/libjpeg-turbo:=
 	net-libs/http-parser:=
 	net-libs/libssh2
 	virtual/zlib:=
+	x11-libs/libxkbcommon
 	gnome-keyring? (
 		app-crypt/libsecret
 	)
@@ -89,10 +91,8 @@ src_install() {
 	cd "${BUILD_DIR}" || die
 
 	eninja package
-	cd ./_CPack_Packages/Linux/STGZ || die
-	mkdir -p "${D}"/usr/share || die
 	bash ./GitAhead-2.7.1.sh --prefix="${D}"/usr/share --include-subdir || die
-	rm -fr "${D}"/usr/share/GitAhead/*.so.* || die
+	rm "${D}"/usr/share/GitAhead/*.so.* || die
 
 	cd "${D}"/usr/share/GitAhead/Resources/GitAhead.iconset || die
 	local res
