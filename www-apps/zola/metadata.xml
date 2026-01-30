@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
-	<upstream>
-		<bugs-to>
-			https://github.com/getzola/zola/issues
-		</bugs-to>
-		<changelog>
-			https://github.com/getzola/zola/blob/master/CHANGELOG.md
-		</changelog>
-		<doc>
-			https://www.getzola.org/documentation/getting-started/overview/
-		</doc>
-		<remote-id type="github">getzola/zola</remote-id>
-	</upstream>
+    <maintainer type="person">
+      <email>zyx@envs.net</email>
+      <name>zyxhere💭</name>
+    </maintainer>
+    <upstream>
+      <bugs-to>
+        https://github.com/getzola/zola/issues
+      </bugs-to>
+      <changelog>
+        https://github.com/getzola/zola/blob/master/CHANGELOG.md
+      </changelog>
+      <doc>
+        https://www.getzola.org/documentation/getting-started/overview/
+      </doc>
+      <remote-id type="github">getzola/zola</remote-id>
+    </upstream>
 </pkgmetadata>
