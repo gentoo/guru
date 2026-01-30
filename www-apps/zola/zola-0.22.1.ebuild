@@ -60,13 +60,13 @@ CRATES="
 	byteorder@1.5.0
 	bytes@1.11.0
 	castaway@0.2.4
-	cc@1.2.52
+	cc@1.2.53
 	cedarwood@0.4.6
 	cfg-if@1.0.4
 	cfg_aliases@0.2.1
 	chrono-tz-build@0.3.0
 	chrono-tz@0.9.0
-	chrono@0.4.42
+	chrono@0.4.43
 	clap@3.2.25
 	clap@4.5.54
 	clap_builder@4.5.54
@@ -74,13 +74,13 @@ CRATES="
 	clap_derive@3.2.25
 	clap_derive@4.5.49
 	clap_lex@0.2.4
-	clap_lex@0.7.6
+	clap_lex@0.7.7
 	clap_mangen@0.2.31
 	cobs@0.3.0
 	codemap@0.1.3
 	color_quant@1.1.0
 	colorchoice@1.0.4
-	colored@3.0.0
+	colored@3.1.1
 	compact_str@0.9.0
 	console@0.15.11
 	const-str-proc-macro@0.3.2
@@ -106,7 +106,7 @@ CRATES="
 	csv@1.4.0
 	ctrlc@3.5.1
 	dashmap@5.5.3
-	data-encoding@2.9.0
+	data-encoding@2.10.0
 	data-url@0.1.1
 	deranged@0.5.5
 	deunicode@1.6.2
@@ -145,9 +145,9 @@ CRATES="
 	fax_derive@0.2.0
 	fdeflate@0.3.7
 	file-id@0.2.3
-	filetime@0.2.26
-	find-msvc-tools@0.1.7
-	flate2@1.1.5
+	filetime@0.2.27
+	find-msvc-tools@0.1.8
+	flate2@1.1.8
 	fnv@1.0.7
 	foreign-types-shared@0.1.1
 	foreign-types@0.3.2
@@ -163,10 +163,10 @@ CRATES="
 	futures-util@0.3.31
 	fxhash@0.2.1
 	generic-array@0.14.7
-	getrandom@0.2.16
+	getrandom@0.2.17
 	getrandom@0.3.4
 	gh-emoji@1.0.8
-	giallo@0.2.1
+	giallo@0.2.2
 	gif@0.14.1
 	glob@0.3.3
 	globset@0.4.18
@@ -212,7 +212,7 @@ CRATES="
 	indexmap@2.13.0
 	inotify-sys@0.1.5
 	inotify@0.11.0
-	insta@1.46.0
+	insta@1.46.1
 	interpolate_name@0.2.4
 	ipnet@2.11.0
 	iri-string@0.7.10
@@ -224,7 +224,7 @@ CRATES="
 	itoa@1.0.17
 	jieba-rs@0.6.8
 	jobserver@0.1.34
-	js-sys@0.3.83
+	js-sys@0.3.85
 	json-escape-simd@3.0.1
 	kamadak-exif@0.6.1
 	kqueue-sys@1.0.4
@@ -240,7 +240,7 @@ CRATES="
 	libredox@0.1.12
 	libwebp-sys@0.9.6
 	lightningcss-derive@1.0.0-alpha.43
-	lightningcss@1.0.0-alpha.68
+	lightningcss@1.0.0-alpha.70
 	lindera-cc-cedict-builder@0.13.5
 	lindera-core@0.13.5
 	lindera-decompress@0.13.5
@@ -303,7 +303,7 @@ CRATES="
 	objc2@0.6.3
 	once_cell@1.21.3
 	once_cell_polyfill@1.70.2
-	onig-regset@6.6.0
+	onig-regset@6.7.0
 	onig_sys@69.9.1
 	open@5.3.3
 	openssl-macros@0.1.1
@@ -337,6 +337,7 @@ CRATES="
 	oxc_span@0.95.0
 	oxc_syntax@0.95.0
 	oxc_traverse@0.95.0
+	papaya@0.2.3
 	parcel_selectors@0.28.2
 	parcel_sourcemap@2.1.1
 	parking_lot@0.12.5
@@ -371,7 +372,7 @@ CRATES="
 	precomputed-hash@0.1.1
 	proc-macro-error-attr@1.0.4
 	proc-macro-error@1.0.4
-	proc-macro2@1.0.105
+	proc-macro2@1.0.106
 	profiling-procmacros@1.0.17
 	profiling@1.0.17
 	ptr_meta@0.1.4
@@ -393,7 +394,7 @@ CRATES="
 	rand_chacha@0.3.1
 	rand_chacha@0.9.0
 	rand_core@0.6.4
-	rand_core@0.9.3
+	rand_core@0.9.5
 	rav1e@0.8.1
 	ravif@0.12.0
 	rayon-core@1.13.0
@@ -419,8 +420,8 @@ CRATES="
 	rustc-hash@2.1.1
 	rustc_version@0.4.1
 	rustix@1.1.3
-	rustls-pki-types@1.13.2
-	rustls-webpki@0.103.8
+	rustls-pki-types@1.14.0
+	rustls-webpki@0.103.9
 	rustls@0.23.36
 	rustversion@1.0.22
 	ryu@1.0.22
@@ -430,6 +431,7 @@ CRATES="
 	seahash@4.1.0
 	security-framework-sys@2.15.0
 	security-framework@2.11.1
+	seize@0.5.1
 	self_cell@1.2.2
 	semver@1.0.27
 	seq-macro@0.3.6
@@ -479,13 +481,13 @@ CRATES="
 	test-case@3.3.1
 	textwrap@0.16.2
 	thiserror-impl@1.0.69
-	thiserror-impl@2.0.17
+	thiserror-impl@2.0.18
 	thiserror@1.0.69
-	thiserror@2.0.17
+	thiserror@2.0.18
 	tiff@0.10.3
-	time-core@0.1.6
-	time-macros@0.2.24
-	time@0.3.44
+	time-core@0.1.7
+	time-macros@0.2.25
+	time@0.3.45
 	tinystr@0.8.2
 	tinyvec@1.10.0
 	tinyvec_macros@0.1.1
@@ -502,7 +504,7 @@ CRATES="
 	tower-http@0.6.8
 	tower-layer@0.3.3
 	tower-service@0.3.3
-	tower@0.5.2
+	tower@0.5.3
 	tracing-core@0.1.36
 	tracing@0.1.44
 	try-lock@0.2.5
@@ -534,13 +536,13 @@ CRATES="
 	walkdir@2.5.0
 	want@0.3.1
 	wasi@0.11.1+wasi-snapshot-preview1
-	wasip2@1.0.1+wasi-0.2.4
-	wasm-bindgen-futures@0.4.56
-	wasm-bindgen-macro-support@0.2.106
-	wasm-bindgen-macro@0.2.106
-	wasm-bindgen-shared@0.2.106
-	wasm-bindgen@0.2.106
-	web-sys@0.3.83
+	wasip2@1.0.2+wasi-0.2.9
+	wasm-bindgen-futures@0.4.58
+	wasm-bindgen-macro-support@0.2.108
+	wasm-bindgen-macro@0.2.108
+	wasm-bindgen-shared@0.2.108
+	wasm-bindgen@0.2.108
+	web-sys@0.3.85
 	web-time@1.1.0
 	web_atoms@0.1.3
 	webp@0.3.1
@@ -580,7 +582,7 @@ CRATES="
 	windows_x86_64_msvc@0.53.1
 	winnow@0.7.14
 	winreg@0.55.0
-	wit-bindgen@0.46.0
+	wit-bindgen@0.51.0
 	writeable@0.6.2
 	wyz@0.5.1
 	xattr@1.6.1
@@ -596,12 +598,12 @@ CRATES="
 	zerotrie@0.2.3
 	zerovec-derive@0.11.2
 	zerovec@0.11.5
-	zmij@1.0.12
+	zmij@1.0.16
 	zune-core@0.4.12
-	zune-core@0.5.0
+	zune-core@0.5.1
 	zune-inflate@0.2.54
 	zune-jpeg@0.4.21
-	zune-jpeg@0.5.8
+	zune-jpeg@0.5.11
 "
 
 RUST_MIN_VER="1.88.0"
@@ -610,9 +612,9 @@ inherit cargo
 
 DESCRIPTION="A fast static site generator with everything built-in"
 HOMEPAGE="https://www.getzola.org"
-SRC_URI="
+SRC_URI="https://github.com/getzola/zola/archive/refs/tags/v${PV}.tar.gz
+		-> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
-	https://github.com/getzola/zola/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 "
 
 LICENSE="EUPL-1.2"
@@ -622,6 +624,7 @@ LICENSE+="
 	MPL-2.0 UoI-NCSA Unicode-3.0
 	|| ( Apache-2.0-with-LLVM-exceptions Boost-1.0 )
 "
+
 SLOT="0"
 KEYWORDS="~amd64"
 
