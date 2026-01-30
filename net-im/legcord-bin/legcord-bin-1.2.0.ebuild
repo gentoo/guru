@@ -14,6 +14,8 @@ SRC_URI="
 	amd64? ( https://github.com/Legcord/Legcord/releases/download/v${PV}/Legcord-${PV}-linux-amd64.deb -> ${P}-amd64.deb )
 	arm64? ( https://github.com/Legcord/Legcord/releases/download/v${PV}/Legcord-${PV}-linux-arm64.deb -> ${P}-arm64.deb )
 "
+# metainfo
+SRC_URI+="https://github.com/Legcord/Legcord/releases/download/v${PV}/app.legcord.Legcord.metainfo.xml"
 
 S="${WORKDIR}"
 
@@ -50,7 +52,8 @@ RDEPEND="
 QA_PREBUILT="*"
 
 src_unpack() {
-	unpack_deb ${A}
+	use amd64 && unpack_deb "${P}-amd64.deb"
+	use arm64 && unpack_deb "${P}-arm64.deb"
 }
 
 src_prepare() {
@@ -71,6 +74,9 @@ src_install() {
 
 	domenu "usr/share/applications/${MY_PN}.desktop"
 
+	insinto /usr/share/metainfo
+	doins "${DISTDIR}/app.legcord.${MY_PN}.metainfo.xml"
+
 	exeinto "${DESTDIR}"
 	doexe "opt/${MY_PN}/${MY_PN}"
 	doexe "opt/${MY_PN}/chrome-sandbox"
@@ -83,19 +89,8 @@ src_install() {
 
 	doins "opt/${MY_PN}/icudtl.dat"
 
-	#insopts -m0766
 	doins -r "opt/${MY_PN}/locales"
 	doins -r "opt/${MY_PN}/resources"
-
-	#fperms -R 644 "${DESTDIR}/locales"
-	#fperms -R 644 "${DESTDIR}/resources"
-
-	# Fix bug 930639
-	#fperms -R a+r "${DESTDIR}"/resources/
-	#fperms a+x "${DESTDIR}"/resources/
-
-	#fowners root "${DESTDIR}/chrome-sandbox"
-	#fperms 4711 "${DESTDIR}/chrome-sandbox"
 
 	dosym ../../opt/"${PN}"/"${MY_PN}" /usr/bin/"${PN}"
 }
