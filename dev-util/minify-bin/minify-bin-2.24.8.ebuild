@@ -8,8 +8,8 @@ BASE_SRC_URI="https://github.com/tdewolff/minify/releases/download/v${PV}/minify
 DESCRIPTION="Minifier package that provides HTML5, CSS3, JS, JSON, SVG, and XML minifiers."
 HOMEPAGE="https://go.tacodewolff.nl/minify"
 SRC_URI="
-	amd64? ( ${BASE_SRC_URI//@arch@/amd64} )
-	arm64? ( ${BASE_SRC_URI//@arch@/arm64} )
+	amd64? ( ${BASE_SRC_URI//@arch@/amd64} -> minify_linux_amd64-${PV}.tar.gz )
+	arm64? ( ${BASE_SRC_URI//@arch@/arm64} -> minify_linux_arm64-${PV}.tar.gz )
 "
 S="${WORKDIR}"
 
