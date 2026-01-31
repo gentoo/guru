@@ -8,7 +8,7 @@ inherit cmake
 DESCRIPTION="Scalable Video Technology for VP9 (SVT-VP9 Encoder)"
 HOMEPAGE="https://github.com/OpenVisualCloud/SVT-VP9"
 
-if [ ${PV} = "9999" ]; then
+if [[ ${PV} = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/OpenVisualCloud/SVT-VP9.git"
 else
