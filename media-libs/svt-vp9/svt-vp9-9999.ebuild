@@ -17,7 +17,7 @@ else
 			-> ${P}.tar.gz
 	"
 
-	KEYWORDS="~amd64 ~arm64"
+	KEYWORDS="~amd64"
 	S="${WORKDIR}/SVT-VP9-${PV}"
 fi
 
