@@ -7,49 +7,87 @@ EAPI=8
 
 CRATES="
 	aho-corasick@1.1.4
+	alloca@0.4.0
+	anes@0.1.6
+	anstyle@1.0.13
 	anyhow@1.0.100
 	arrayvec@0.7.6
 	autocfg@1.5.0
-	bitflags@1.2.1
 	bitflags@2.10.0
 	block2@0.6.2
+	bumpalo@3.19.1
 	bytes@1.11.0
-	cc@1.2.52
+	cast@0.3.0
+	cc@1.2.55
 	cfg-if@1.0.4
 	cfg_aliases@0.2.1
+	ciborium-io@0.2.2
+	ciborium-ll@0.2.2
+	ciborium@0.2.2
+	clap@4.5.56
+	clap_builder@4.5.56
+	clap_lex@0.7.7
+	criterion-plot@0.8.1
+	criterion@0.8.1
+	crossbeam-deque@0.8.6
+	crossbeam-epoch@0.9.18
+	crossbeam-utils@0.8.21
+	crunchy@0.2.4
 	ctrlc@3.5.1
 	dispatch2@0.3.0
+	either@1.15.0
 	etherparse@0.13.0
 	etherparse@0.18.2
-	find-msvc-tools@0.1.7
-	iptables@0.4.3
+	find-msvc-tools@0.1.9
+	half@2.7.1
+	itertools@0.13.0
 	itoa@1.0.17
-	lazy_static@1.5.0
+	js-sys@0.3.85
 	libc@0.2.180
 	memchr@2.7.6
-	memoffset@0.6.5
 	nfq-updated@0.2.6
-	nix@0.20.2
 	nix@0.27.1
 	nix@0.30.1
+	num-traits@0.2.19
 	objc2-encode@4.1.0
 	objc2@0.6.3
-	proc-macro2@1.0.105
-	quote@1.0.43
+	once_cell@1.21.3
+	oorandom@11.1.5
+	page_size@0.6.0
+	plotters-backend@0.3.7
+	plotters-svg@0.3.7
+	plotters@0.3.7
+	proc-macro2@1.0.106
+	quote@1.0.44
+	rayon-core@1.13.0
+	rayon@1.11.0
 	regex-automata@0.4.13
 	regex-syntax@0.8.8
 	regex@1.12.2
+	rustversion@1.0.22
+	same-file@1.0.6
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
 	serde_json@1.0.149
 	shlex@1.3.0
-	socket2@0.6.1
+	socket2@0.6.2
 	syn@2.0.114
 	thiserror-impl@1.0.69
 	thiserror@1.0.69
+	tinytemplate@1.2.1
 	toml@0.5.11
 	unicode-ident@1.0.22
+	walkdir@2.5.0
+	wasm-bindgen-macro-support@0.2.108
+	wasm-bindgen-macro@0.2.108
+	wasm-bindgen-shared@0.2.108
+	wasm-bindgen@0.2.108
+	web-sys@0.3.85
+	winapi-i686-pc-windows-gnu@0.4.0
+	winapi-util@0.1.11
+	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9
 	windivert-sys@0.10.0
 	windivert@0.6.0
 	windows-link@0.2.1
@@ -74,9 +112,9 @@ CRATES="
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.53.1
 	winres@0.1.12
-	zerocopy-derive@0.8.33
-	zerocopy@0.8.33
-	zmij@1.0.12
+	zerocopy-derive@0.8.37
+	zerocopy@0.8.37
+	zmij@1.0.18
 "
 
 RUST_MIN_VER="1.85.0"
@@ -105,7 +143,13 @@ DEPEND="
 	net-libs/libnfnetlink
 "
 
+IUSE="doc"
+
 src_install() {
 	cargo_src_install
 	doman dpibreak.1
+
+	if use doc; then
+		dodoc README.md CHANGELOG
+	fi
 }
