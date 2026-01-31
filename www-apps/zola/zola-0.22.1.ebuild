@@ -612,7 +612,8 @@ inherit cargo
 
 DESCRIPTION="A fast static site generator with everything built-in"
 HOMEPAGE="https://www.getzola.org"
-SRC_URI="https://github.com/getzola/zola/archive/refs/tags/v${PV}.tar.gz
+SRC_URI="
+	https://github.com/getzola/zola/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
@@ -628,9 +629,7 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="
-	dev-libs/oniguruma
-"
+RDEPEND="dev-libs/oniguruma"
 DEPEND="${RDEPEND}"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
@@ -638,7 +637,7 @@ QA_FLAGS_IGNORED="usr/bin/${PN}"
 src_prepare() {
 	default
 	# Upstream enables stripping on rel and disables debuginfo on dev
-	sed -i -e 's:profile:ignore:' Cargo.toml
+	sed -i 's:profile:ignore:' Cargo.toml
 }
 
 src_configure() {
