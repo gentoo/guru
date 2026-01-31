@@ -13,7 +13,6 @@ SRC_URI="
 	https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
 	https://git.crueter.xyz/misc/tzdb_to_nx/releases/download/${_TZDB_VER}/${_TZDB_VER}.tar.gz ->
 		nx-tzdb-${_TZDB_VER}.tar.gz
-	https://git.eden-emu.dev/eden-emu/eden/pulls/3395.patch -> ${PN}-0.1.0-fix-httplib-package.patch
 "
 
 S="${WORKDIR}/${PN}"
@@ -27,10 +26,6 @@ REQUIRED_USE="
 	web-service? ( ssl || ( qt6 room ) )
 "
 RESTRICT="!test? ( test )"
-
-PATCHES=(
-	"${DISTDIR}/${PN}-0.1.0-fix-httplib-package.patch"
-)
 
 RDEPEND="
 	app-arch/lz4
@@ -144,7 +139,6 @@ src_configure() {
 		-DYUZU_TZDB_PATH="${WORKDIR}/nx-tzdb-${_TZDB_VER}"
 		-DUSE_FASTER_LINKER=no
 
-		-DDYNARMIC_ENABLE_LTO=$(usex lto)
 		-DENABLE_LTO=$(usex lto)
 
 		-DDYNARMIC_USE_LLVM=$(usex llvm)
