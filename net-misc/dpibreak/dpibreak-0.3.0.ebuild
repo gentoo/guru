@@ -117,7 +117,7 @@ CRATES="
 	zmij@1.0.18
 "
 
-RUST_MIN_VER="1.85.0"
+RUST_MIN_VER="1.86"
 
 inherit cargo
 
