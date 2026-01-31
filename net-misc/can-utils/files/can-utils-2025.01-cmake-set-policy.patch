@@ -1,0 +1,28 @@
+https://github.com/linux-can/can-utils/commit/2da0c7e95eb15f8b8f84e7911c7bda96f3490409
+From: Takuya Wakazono <pastalian46@gmail.com>
+Date: Mon, 19 Jan 2026 15:37:11 +0900
+Subject: [PATCH] cmake: set policy version to 3.10
+
+This project does not rely on any behavior from CMake <3.10, and
+compatibility with CMake <3.10 is expected to be removed in future
+releases.
+
+https://cmake.org/cmake/help/v4.0/manual/cmake-policies.7.html#policies-introduced-by-cmake-3-10
+
+```
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+```
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.5...3.10)
+ 
+ project(can-utils LANGUAGES C)
+ 

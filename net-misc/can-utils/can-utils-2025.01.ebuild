@@ -19,6 +19,10 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 
+PATCHES=(
+	"${FILESDIR}/${P}-cmake-set-policy.patch"
+)
+
 src_install() {
 	cmake_src_install
 
