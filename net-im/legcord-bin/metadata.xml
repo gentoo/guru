@@ -5,6 +5,10 @@
         <email>aquaonelove@proton.me</email>
         <name>AquaOneLove</name>
     </maintainer>
+    <maintainer type="person">
+        <email>ghostyn678+git@gmail.com</email>
+        <name>dsaf</name>
+    </maintainer>
     <upstream>
         <remote-id type="github">Legcord/Legcord</remote-id>
     </upstream>
