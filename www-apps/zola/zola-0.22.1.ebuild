@@ -637,7 +637,7 @@ QA_FLAGS_IGNORED="usr/bin/${PN}"
 src_prepare() {
 	default
 	# Upstream enables stripping on rel and disables debuginfo on dev
-	sed -i 's:profile:ignore:' Cargo.toml
+	sed -i 's:profile:ignore:' Cargo.toml || die
 }
 
 src_configure() {
