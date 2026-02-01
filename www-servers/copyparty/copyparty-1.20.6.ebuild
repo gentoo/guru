@@ -29,27 +29,29 @@ DISABLE_AUTOFORMATTING=y
 DOC_CONTENTS="\
 # TODO: This package is unfinished and lacks some features
 
-- Service scripts:
-  - contrib/openrc/copyparty: Hardcodes /usr/local/bin, runs as root, exposes /mnt as RW (!?)
-  - contrib/systemd/copyparty.service: Hardcodes /usr/local/bin, runs as root, in /var/lib/copyparty
-  - contrib/systemd/copyparty@.service: Runs as an arbitrary user, in /var/lib/copyparty-jail, at boot
-  - contrib/systemd/copyparty-user.service: User service, runs in /var/lib/copyparty-jail
-  Ideally, both systemd and openrc scripts would have the same behavior.
-  I also think it'd be sane to default to a new user/group named copyparty,
-  and create /var/lib/copyparty with the correct permissions.
+- Missing service scripts:
+-- OpenRC system service running as different user/group (default to copyparty)
+-- Systemd system service running as different user/group (default to copyparty)
+-- Systemd user service
+
+- Existing upstream service scripts:
+-- contrib/openrc/copyparty: Hardcodes /usr/local/bin, runs as root, exposes /mnt as RW (!?)
+-- contrib/systemd/copyparty.service: Hardcodes /usr/local/bin, runs as root, in /var/lib/copyparty
+-- contrib/systemd/copyparty@.service: Runs as an arbitrary user, in /var/lib/copyparty-jail, at boot
+-- contrib/systemd/copyparty-user.service: User service, runs in /var/lib/copyparty-jail
 
 - Default configuration: There's a bunch of examples, find them using:
-  \`find docs contrib -name '*.conf'\`.
-  Ideally one of these would be installed as /etc/copyparty.conf, and an
-  /etc/copyparty.d directory would be created. I'm not sure what would be
-  acceptable defaults.
+\`find docs contrib -name '*.conf'\`.
+Ideally one of these would be installed as /etc/copyparty.conf, and an
+/etc/copyparty.d directory would be created. I'm not sure what would be
+acceptable defaults.
 
 - Jailing the service with prisonparty/bubbleparty: This program is very
-  feature-packed, and has a decent security track record, but just has a
-  massive attack surface with serious repercussions. Some packages provide a
-  'prisonparty' service, which runs the program in a chroot. This script
-  hardcodes a lot of things that I'm not sure will work on gentoo, and would
-  need matching openrc/systemd services as well.
+feature-packed, and has a decent security track record, but just has a
+massive attack surface with serious repercussions. Some packages provide a
+'prisonparty' service, which runs the program in a chroot. This script
+hardcodes a lot of things that I'm not sure will work on gentoo, and would
+need matching openrc/systemd services as well.
 
 # Note about TLS and certificates
 
@@ -80,10 +82,9 @@ docker. Additionally, it's difficult to package npm dependencies in gentoo.
 https://gist.github.com/mid-kid/cc7c0c2e1c188c8b135663d547e3dd35"
 
 src_prepare() {
-	# Reuse the bundled copy of fusepy for partyfuse
-	# patched in scripts/deps-docker/Dockerfile (under "build fusepy")
-	sed -e '/from fuse import/s/fuse/copyparty.web.deps.&/' \
-		-i bin/partyfuse.py || die
+	# Use a $TMPDIR for testing, not /dev/shm
+	sed -e 's/\["\/dev\/shm"[^]]*\]/[]/' \
+		-i tests/util.py || die
 
 	distutils-r1_src_prepare
 }
@@ -95,6 +96,13 @@ python_test() {
 python_install() {
 	distutils-r1_python_install
 
+	# Reuse the bundled copy of fusepy for partyfuse
+	# patched in scripts/deps-docker/Dockerfile (under "build fusepy")
+	sed -e "1a$(printf '%s\\n' \
+			'import copyparty.web.deps.fuse as fuse,sys,os' \
+			'sys.path.append(os.path.dirname(fuse.__file__))' \
+		)" -i "${D}$(python_get_scriptdir)/partyfuse" || die
+
 	# Useful utilities listed in bin/README.md
 	# These need to be executed inside the server's data directory
 	# Installed into /usr/libexec as not a single other package installs them
@@ -105,6 +113,9 @@ python_install() {
 src_install() {
 	distutils-r1_src_install
 	readme.gentoo_create_doc
+
+	exeinto /etc/user/init.d
+	newexe "${FILESDIR}/copyparty-user.initd" copyparty
 
 	# Not all of the documentation is useful, but it's hard to filter,
 	# and plenty of it is quite useful.

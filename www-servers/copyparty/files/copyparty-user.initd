@@ -1,0 +1,22 @@
+#!/sbin/openrc-run
+RUNTIME="${XDG_RUNTIME_DIR}/${RC_SVCNAME}"
+CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/copyparty"
+
+command="/usr/bin/copyparty"
+command_args="-c ${CONFIG}/copyparty.conf -lo ${RUNTIME}/${RC_SVCNAME}.log"
+command_background=true
+pidfile="${RUNTIME}/${RC_SVCNAME}.pid"
+extra_commands="checkconfig"
+
+checkconfig() {
+    "${command}" ${command_args} --exit cfg
+}
+
+start_pre() {
+    # TODO: copy a system-wide default configuration to .config/copyparty/copyparty.conf
+    if ! checkconfig > /dev/null 2>&1; then
+        eerror "Invalid configuration. Use the checkconfig command for details."
+        return 1
+    fi
+    checkpath -d "${RUNTIME}"
+}
