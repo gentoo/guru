@@ -28,7 +28,7 @@ SLOT="0"
 IUSE="debug qt5 +qt6 lto"
 REQUIRED_USE="|| ( qt5 qt6 )"
 
-DEPEND=">dev-libs/quazip-1.3[qt5?,qt6]
+DEPEND="dev-libs/quazip[qt5?,qt6]
 	qt5? (
 		dev-qt/qtconcurrent:5
 		dev-qt/qtcore:5
@@ -49,7 +49,12 @@ DEPEND=">dev-libs/quazip-1.3[qt5?,qt6]
 		dev-qt/qttools:6
 	)
 	media-video/ffmpeg
-	media-video/mediainfo"
+	media-video/mediainfo
+	x11-libs/libxkbcommon"
+
+RDEPEND="$DEPEND"
+
+PATCHES="${FILESDIR}/2.12.0-1878.patch"
 
 src_configure() {
 	local mycmakeargs=(

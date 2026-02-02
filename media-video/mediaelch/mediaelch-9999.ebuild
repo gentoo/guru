@@ -28,7 +28,7 @@ SLOT="0"
 IUSE="debug qt5 +qt6 lto"
 REQUIRED_USE="|| ( qt5 qt6 )"
 
-DEPEND=">dev-libs/quazip-1.3[qt5?,qt6]
+DEPEND="dev-libs/quazip[qt5?,qt6]
 	qt5? (
 		dev-qt/qtconcurrent:5
 		dev-qt/qtcore:5
