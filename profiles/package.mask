@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2026-02-02)
+# Qt5-only, no signs of porting to Qt 6 upstream.
+# Removal on 2026-03-02.
+net-client/kristall
+
 # Daichi Yamamoto <dev@dyama.net> (2026-02-02)
 # It will only be used in COSMIC DE, Should use the package in ::cosmic-overlay.
 # Removal on 2026-03-04.
