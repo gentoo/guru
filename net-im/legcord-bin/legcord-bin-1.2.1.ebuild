@@ -62,27 +62,54 @@ src_prepare() {
 	# match with syslink
 	sed -i "s|^Exec=.*|Exec=/usr/bin/legcord-bin %U|" \
 		"usr/share/applications/${MY_PN}.desktop" || die
+
+	# rm binary libraries for unsupported architectures
+	local libdir="opt/${MY_PN}/resources/app.asar.unpacked/node_modules"
+
+	local targets=(
+		darwin_arm64
+		darwin_x64
+		freebsd_arm64
+		freebsd_ia32
+		freebsd_x64
+		linux_armhf
+		linux_ia32
+		linux_loong64
+		linux_riscv64d
+		musl_arm64
+		musl_x64
+		openbsd_ia32
+		openbsd_x64
+		win32_arm64
+		win32_ia32
+		win32_x64
+	)
+
+	if use amd64; then
+		rm "${libdir}/@vencord/venmic/prebuilds/venmic-addon-linux-arm64/node-napi-v7.node" || die
+		targets+=( linux_arm64 )
+	fi
+
+	if use arm64; then
+		rm "${libdir}/@vencord/venmic/prebuilds/venmic-addon-linux-x64/node-napi-v7.node" || die
+		targets+=( linux_x64 )
+	fi
+
+	local t
+	for t in "${targets[@]}"; do
+		rm -r "${libdir}/koffi/build/koffi/${t}" || die
+	done
 }
 
 src_install() {
-	DESTDIR="/opt/${PN}"
+	local destdir="/opt/${PN}"
 
-	local x
-	for x in 16 32 64 128 256 512; do
-		doicon -s ${x} usr/share/icons/hicolor/${x}*/*
-	done
-
-	domenu "usr/share/applications/${MY_PN}.desktop"
-
-	insinto /usr/share/metainfo
-	doins "${DISTDIR}/app.legcord.${MY_PN}.metainfo.xml"
-
-	exeinto "${DESTDIR}"
+	exeinto "${destdir}"
 	doexe "opt/${MY_PN}/${MY_PN}"
 	doexe "opt/${MY_PN}/chrome-sandbox"
 	doexe "opt/${MY_PN}/chrome_crashpad_handler"
 
-	insinto "${DESTDIR}"
+	insinto "${destdir}"
 	doins opt/"${MY_PN}"/*.bin
 	doins opt/"${MY_PN}"/*.pak
 	doins opt/"${MY_PN}"/*.so
@@ -93,4 +120,14 @@ src_install() {
 	doins -r "opt/${MY_PN}/resources"
 
 	dosym ../../opt/"${PN}"/"${MY_PN}" /usr/bin/"${PN}"
+
+	local x
+	for x in 16 32 64 128 256 512; do
+		doicon -s ${x} usr/share/icons/hicolor/${x}*/*
+	done
+
+	domenu "usr/share/applications/${MY_PN}.desktop"
+
+	insinto /usr/share/metainfo
+	doins "${DISTDIR}/app.legcord.${MY_PN}.metainfo.xml"
 }
