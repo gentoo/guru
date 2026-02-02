@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Daichi Yamamoto <dev@dyama.net> (2026-02-02)
+# It will only be used in COSMIC DE, Should use the package in ::cosmic-overlay.
+# Removal on 2026-03-04.
+gui-apps/pop-launcher
+
 # David (stkw0) Roman <davidroman96@gmail.com> (2026-01-28)
 # Unmaintaned. Maintainer is not reachable
 # Removal after 2026-02-27
