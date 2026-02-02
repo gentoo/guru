@@ -18,6 +18,10 @@
 
 # New entries go on top.
 
+# dsaf <ghostyn678+git@gmail.com> (2026-02-02)
+# Requires systemd. Cannot be masked per profile (see top comment)
+app-admin/run0edit
+
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2026-02-02)
 # Qt5-only, no signs of porting to Qt 6 upstream.
 # Removal on 2026-03-02.
