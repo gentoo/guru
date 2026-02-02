@@ -174,7 +174,7 @@ CRATES="
 	time-macros@0.2.11
 	time@0.3.24
 	tokio-macros@2.6.0
-	tokio@1.48.0
+	tokio@1.49.0
 	toml@0.9.10+spec-1.1.0
 	toml_datetime@0.6.11
 	toml_datetime@0.7.5+spec-1.1.0
@@ -266,17 +266,18 @@ LICENSE="MIT"
 LICENSE+=" Apache-2.0 BSD GPL-3+ ISC MIT Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="cosmic gnome hyprland kde niri udev wlroots x11"
-REQUIRED_USE="?? ( x11 gnome kde hyprland wlroots )"
+IUSE="cosmic gnome hyprland kde niri socket udev wlroots x11"
+REQUIRED_USE="?? ( cosmic gnome hyprland kde niri socket wlroots x11 )"
 
 DEPEND="udev? ( virtual/libudev )"
 RDEPEND="${DEPEND}"
+
+DOCS=( CHANGELOG.md README.md )
 
 QA_FLAGS_IGNORED=".*"
 
 src_configure() {
 	local myfeatures=(
-		$(usev cosmic)
 		$(usev gnome)
 		$(usev x11)
 		$(usev hyprland hypr)
@@ -284,6 +285,8 @@ src_configure() {
 		$(usev wlroots)
 		$(usev udev)
 		$(usev niri)
+		$(usev cosmic)
+		$(usev socket)
 	)
 	cargo_src_configure --no-default-features
 }
@@ -294,6 +297,8 @@ src_install() {
 
 	insinto /usr/lib/modules-load.d
 	doins "${FILESDIR}"/xremap-uinput.conf
+
+	einstalldocs
 }
 
 pkg_postinst() {
