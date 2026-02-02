@@ -10,6 +10,8 @@ PYPI_VERIFY_REPO=https://github.com/facebook/pyrefly/
 
 CRATES="
 	Inflector@0.11.4
+	addr2line@0.25.1
+	adler2@2.0.0
 	ahash@0.8.12
 	aho-corasick@1.1.4
 	allocative@0.3.4
@@ -22,14 +24,16 @@ CRATES="
 	anstyle-wincon@3.0.7
 	anstyle@1.0.11
 	anyhow@1.0.100
-	append-only-vec@0.1.2
+	append-only-vec@0.1.8
 	argfile@0.2.1
-	arrayref@0.3.6
+	arrayref@0.3.9
 	arrayvec@0.7.6
 	atomic@0.5.1
 	attribute-derive-macro@0.10.3
 	attribute-derive@0.10.3
 	autocfg@1.1.0
+	backtrace-on-stack-overflow@0.3.0
+	backtrace@0.3.76
 	base64@0.22.1
 	bitflags@1.3.2
 	bitflags@2.10.0
@@ -112,6 +116,7 @@ CRATES="
 	getopts@0.2.21
 	getrandom@0.2.16
 	getrandom@0.3.3
+	gimli@0.32.3
 	glob@0.3.3
 	globset@0.4.18
 	hashbrown@0.12.3
@@ -137,11 +142,12 @@ CRATES="
 	idna@1.1.0
 	idna_adapter@1.2.0
 	ignore@0.4.25
+	index_vec@0.1.4
 	indexmap@1.9.2
 	indexmap@2.12.1
 	indicatif@0.18.3
 	inotify-sys@0.1.3
-	inotify@0.9.2
+	inotify@0.11.0
 	instant@0.1.12
 	interpolator@0.5.0
 	is-macro@0.3.6
@@ -173,17 +179,21 @@ CRATES="
 	matchers@0.2.0
 	memchr@2.7.6
 	memmap2@0.9.9
+	memoffset@0.6.5
 	memory-stats@1.2.0
 	mimalloc@0.1.46
-	mio@0.8.11
+	miniz_oxide@0.8.8
 	mio@1.1.0
-	notify@6.1.1
+	nix@0.23.1
+	notify-types@2.0.0
+	notify@8.2.0
 	nu-ansi-term@0.50.1
 	num-bigint@0.4.6
 	num-conv@0.1.0
 	num-integer@0.1.46
 	num-traits@0.2.19
 	num_threads@0.1.3
+	object@0.37.3
 	once_cell@1.21.3
 	os_str_bytes@7.1.1
 	parking_lot@0.11.2
@@ -236,6 +246,7 @@ CRATES="
 	regex-syntax@0.8.8
 	regex@1.12.2
 	relative-path@1.9.3
+	rustc-demangle@0.1.25
 	rustc-hash@2.1.1
 	rustix@0.38.44
 	rustix@1.1.3
@@ -301,7 +312,7 @@ CRATES="
 	tokio-macros@2.6.0
 	tokio-util@0.6.10
 	tokio@1.49.0
-	toml@0.9.8
+	toml@0.9.11+spec-1.1.0
 	toml_datetime@0.7.5+spec-1.1.0
 	toml_edit@0.23.10+spec-1.0.0
 	toml_parser@1.0.6+spec-1.1.0
@@ -312,7 +323,7 @@ CRATES="
 	tracing-serde@0.2.0
 	tracing-subscriber@0.3.22
 	tracing@0.1.44
-	triomphe@0.1.11
+	triomphe@0.1.15
 	typenum@1.19.0
 	unicase@2.8.1
 	unicode-ident@1.0.22
@@ -401,7 +412,7 @@ CRATES="
 	zerofrom@0.1.4
 	zerovec-derive@0.10.3
 	zerovec@0.10.4
-	zmij@1.0.12
+	zmij@1.0.16
 	zstd-safe@7.2.1
 	zstd-sys@2.0.12+zstd.1.5.6
 	zstd@0.13.2
