@@ -1,0 +1,52 @@
+From 8c2025c054bf71e2dc24d57a9097299310a12ccc Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jakub=20Klinkovsk=C3=BD?=
+ <1289205+lahwaacz@users.noreply.github.com>
+Date: Sun, 21 Dec 2025 08:42:37 +0100
+Subject: [PATCH] Fix compatibility with urwid 3.0.4
+
+Fixes https://github.com/ihabunek/toot/issues/558
+---
+ toot/tui/images.py   | 2 +-
+ toot/tui/timeline.py | 2 +-
+ toot/tui/utils.py    | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/toot/tui/images.py b/toot/tui/images.py
+index 9dfebec4..7a101f55 100644
+--- a/toot/tui/images.py
++++ b/toot/tui/images.py
+@@ -94,7 +94,7 @@ def graphics_widget(img, image_format="block", corner_radius=0, colors=16777216)
+         # "<" means left-justify the image
+ 
+ except ImportError:
+-    from urwid.raw_display import Screen
++    from urwid.display.raw import Screen
+     TuiScreen = Screen
+ 
+     def image_support_enabled():
+diff --git a/toot/tui/timeline.py b/toot/tui/timeline.py
+index 060fdd81..ccdb5513 100644
+--- a/toot/tui/timeline.py
++++ b/toot/tui/timeline.py
+@@ -20,7 +20,7 @@
+ 
+ 
+ logger = logging.getLogger("toot")
+-screen = urwid.raw_display.Screen()
++screen = urwid.display.raw.Screen()
+ 
+ 
+ class Timeline(urwid.Columns):
+diff --git a/toot/tui/utils.py b/toot/tui/utils.py
+index c7df968a..b221a17f 100644
+--- a/toot/tui/utils.py
++++ b/toot/tui/utils.py
+@@ -72,7 +72,7 @@ def parse_content_links(content):
+     return parser.links[:]
+ 
+ 
+-def copy_to_clipboard(screen: urwid.raw_display.Screen, text: str):
++def copy_to_clipboard(screen: urwid.display.raw.Screen, text: str):
+     """ copy text to clipboard using OSC 52
+     This escape sequence is documented
+     here https://iterm2.com/documentation-escape-codes.html
