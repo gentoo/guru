@@ -5,6 +5,10 @@
 		<email>kostadinshishmanov@protonmail.com</email>
 		<name>Kostadin Shishmanov</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>willemgrant@mailfence.com</email>
+		<name>Willem Grant</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">Mastermindzh/tidal-hifi</remote-id>
 	</upstream>
