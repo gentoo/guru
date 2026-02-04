@@ -9,7 +9,7 @@ QTMIN=6.9.0
 
 inherit git-r3 cmake
 
-DESCRIPTION="Klassy QT6 window decoration theme for KDE Plasma 6.3+"
+DESCRIPTION="Klassy QT6 window decoration theme for KDE Plasma 6.5+"
 HOMEPAGE="https://github.com/paulmcauley/klassy"
 EGIT_REPO_URI="https://github.com/paulmcauley/klassy"
 EGIT_BRANCH="master"
