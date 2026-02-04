@@ -63,13 +63,14 @@ src_configure() {
 	[[ "${PV}" == "9999" ]] || restore_config config.h
 
 	CC="${CC:-cc}" \
+	PKGCONFIG="${PKG_CONFIG:-pkg-config}" \
 	CMD_ED="false" \
 	CFLAGS="${CFLAGS:--02 -Wall -Wextra}" \
 	LDFLAGS="${LDFLAGS}" \
 	DOCDIR="/usr/share/doc/${PF}" \
 	WITH_WEBKITGTK="4.1" \
 	PREFIX="/usr" \
-	./configure
+	./configure || die
 }
 
 src_compile() {
