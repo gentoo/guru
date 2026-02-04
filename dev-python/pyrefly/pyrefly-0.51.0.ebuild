@@ -33,7 +33,6 @@ CRATES="
 	attribute-derive@0.10.3
 	autocfg@1.1.0
 	backtrace-on-stack-overflow@0.3.0
-	backtrace@0.3.76
 	base64@0.22.1
 	bitflags@1.3.2
 	bitflags@2.10.0
@@ -45,7 +44,7 @@ CRATES="
 	bytes@1.11.0
 	castaway@0.2.4
 	cc@1.2.47
-	cfg-if@1.0.1
+	cfg-if@1.0.4
 	chrono@0.4.42
 	clap@4.5.54
 	clap_builder@4.5.54
@@ -290,7 +289,7 @@ CRATES="
 	structmeta@0.2.0
 	subtle@2.6.1
 	syn@1.0.109
-	syn@2.0.111
+	syn@2.0.114
 	synstructure@0.13.2
 	tar@0.4.44
 	tempfile@3.24.0
@@ -300,7 +299,7 @@ CRATES="
 	thiserror-impl@2.0.17
 	thiserror@1.0.69
 	thiserror@2.0.17
-	thread_local@1.1.4
+	thread_local@1.1.9
 	tikv-jemalloc-sys@0.6.0+5.3.0-1-ge13ca993e8ccb9ba9847cc330696e02839f328f7
 	tikv-jemallocator@0.6.0
 	time-core@0.1.6
@@ -419,6 +418,7 @@ CRATES="
 "
 
 declare -A GIT_CRATES=(
+	[backtrace]='https://github.com/rust-lang/backtrace-rs;df979dcf80027eb047d7bb9e0874710c15009f31;backtrace-rs-%commit%'
 	[cxx-build]='https://github.com/facebookexperimental/cxx;870ebbecad0f6be394d4f9fb9bd62b551662651a;cxx-%commit%/gen/build'
 	[cxx]='https://github.com/facebookexperimental/cxx;870ebbecad0f6be394d4f9fb9bd62b551662651a;cxx-%commit%'
 	[cxxbridge-cmd]='https://github.com/facebookexperimental/cxx;870ebbecad0f6be394d4f9fb9bd62b551662651a;cxx-%commit%/gen/cmd'
