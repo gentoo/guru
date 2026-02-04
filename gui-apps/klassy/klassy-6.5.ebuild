@@ -1,18 +1,18 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 KF5MIN=5.102.0
-KFMIN=6.10.0
-QTMIN=6.6.0
+KFMIN=6.18.0
+QTMIN=6.9.0
 
 inherit cmake
 
 DESCRIPTION="Klassy QT6 window decoration theme for KDE Plasma 6.3+"
 HOMEPAGE="https://github.com/paulmcauley/klassy"
-SRC_URI="https://github.com/paulmcauley/klassy/archive/refs/tags/${PV}.breeze6.4.0.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${P}.breeze6.4.0"
+SRC_URI="https://github.com/paulmcauley/klassy/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${P}"
 
 LICENSE="GPL-2 GPL-2+ GPL-3 GPL-3+ LGPL-2.1+ MIT"
 SLOT="0"
@@ -51,4 +51,12 @@ src_configure() {
 	)
 
 	cmake_src_configure
+}
+
+pkg_postinst () {
+	xdg_icon_cache_update
+}
+
+pkg_postrm () {
+	xdg_icon_cache_update
 }
