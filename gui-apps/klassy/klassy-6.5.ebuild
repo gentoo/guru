@@ -9,7 +9,7 @@ QTMIN=6.9.0
 
 inherit cmake
 
-DESCRIPTION="Klassy QT6 window decoration theme for KDE Plasma 6.3+"
+DESCRIPTION="Klassy QT6 window decoration theme for KDE Plasma 6.5+"
 HOMEPAGE="https://github.com/paulmcauley/klassy"
 SRC_URI="https://github.com/paulmcauley/klassy/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${P}"
