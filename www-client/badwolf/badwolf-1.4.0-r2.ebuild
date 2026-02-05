@@ -67,15 +67,15 @@ fi
 src_configure() {
 	[[ "${PV}" == "9999" ]] || restore_config config.h
 
-	CC="$(tc-getCC)" \
-	PKGCONFIG="$(tc-getPKG_CONFIG)" \
-	CMD_ED="false" \
-	CFLAGS="${CFLAGS:--O2 -Wall -Wextra}" \
-	LDFLAGS="${LDFLAGS}" \
-	DOCDIR="/usr/share/doc/${PF}" \
-	WITH_WEBKITGTK="4.1" \
-	PREFIX="/usr" \
-	edo ./configure
+	edo ./configure \
+		CC="$(tc-getCC)" \
+		PKGCONFIG="$(tc-getPKG_CONFIG)" \
+		CMD_ED="false" \
+		CFLAGS="${CFLAGS:--O2 -Wall -Wextra}" \
+		LDFLAGS="${LDFLAGS}" \
+		DOCDIR="/usr/share/doc/${PF}" \
+		WITH_WEBKITGTK="4.1" \
+		PREFIX="/usr"
 }
 
 src_compile() {

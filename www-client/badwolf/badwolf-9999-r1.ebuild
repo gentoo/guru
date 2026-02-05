@@ -63,18 +63,18 @@ fi
 src_configure() {
 	[[ "${PV}" == "9999" ]] || restore_config config.h
 
-	# https://hacktivis.me/git/badwolf/file/configure.html:L444
+	# https://hacktivis.me/git/badwolf/file/configure.html#l444
 	# ./locale dir doesn't exist with ENABLE_NLS=0, leading to install failure
-	ENABLE_NLS=1 \
-	CC="$(tc-getCC)" \
-	PKG_CONFIG="$(tc-getPKG_CONFIG)" \
-	CMD_ED="false" \
-	CFLAGS="${CFLAGS:--O2 -Wall -Wextra}" \
-	LDFLAGS="${LDFLAGS}" \
-	DOCDIR="/usr/share/doc/${PF}" \
-	WITH_WEBKITGTK="4.1" \
-	PREFIX="/usr" \
-	edo ./configure
+	edo ./configure \
+		ENABLE_NLS=1 \
+		CC="$(tc-getCC)" \
+		PKG_CONFIG="$(tc-getPKG_CONFIG)" \
+		CMD_ED="false" \
+		CFLAGS="${CFLAGS:--O2 -Wall -Wextra}" \
+		LDFLAGS="${LDFLAGS}" \
+		DOCDIR="/usr/share/doc/${PF}" \
+		PREFIX="/usr" \
+		WITH_WEBKITGTK="4.1" \
 }
 
 src_compile() {
