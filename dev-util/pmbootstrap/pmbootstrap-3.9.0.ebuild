@@ -1,5 +1,6 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
@@ -27,6 +28,8 @@ RDEPEND="
 	sys-fs/multipath-tools
 "
 
+# test_pkgrepo.py is disabled because it requires the pmaports repository (containing
+# postmarketOS APKBUILDs) to be cloned at runtime.
 EPYTEST_DESELECT=(
 	"test/core/test_pkgrepo.py"
 )
