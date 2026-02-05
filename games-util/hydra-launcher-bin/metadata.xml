@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gurov@disroot.org</email>
+		<name>Gurov</name>
+	</maintainer>
+	<longdescription>
+		Hydra is a game launcher that allows you to download, play, track your
+		stats and manage your games all in one place.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">hydralauncher/hydra</remote-id>
+		<bugs-to>https://github.com/hydralauncher/hydra/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
