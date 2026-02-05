@@ -16,7 +16,7 @@ else
 		https://github.com/XTLS/Xray-core/archive/v${PV}.tar.gz -> ${P}.tar.gz
 		https://github.com/puleglot/Xray-core/releases/download/v${PV}/Xray-core-${PV}-vendor.tar.xz
 "
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64"
 	S="${WORKDIR}/Xray-core-${PV}"
 fi
 
