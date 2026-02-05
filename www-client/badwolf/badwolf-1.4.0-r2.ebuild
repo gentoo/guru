@@ -1,9 +1,9 @@
-# Copyright 2019-2025 Gentoo Authors
+# Copyright 2019-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit xdg ninja-utils
+inherit edo ninja-utils toolchain-funcs xdg
 
 if [[ "${PV}" == "9999" ]]
 then
@@ -29,17 +29,18 @@ SLOT="0"
 
 DOCS=("README.md" "KnowledgeBase.md")
 
-IUSE="test"
-RESTRICT="!test? ( test )"
-
 DEPEND="
-	dev-libs/glib
+	dev-libs/glib:2
 	dev-libs/libxml2:=
 	x11-libs/gtk+:3
 	net-libs/webkit-gtk:4.1=
 "
 RDEPEND="${DEPEND}"
-BDEPEND="test? ( app-text/mandoc )"
+BDEPEND="
+	app-alternatives/ninja
+	sys-devel/gettext
+	virtual/pkgconfig
+"
 
 PATCHES=(
 	"${FILESDIR}/badwolf-1.4.0-configure-rename-ED-variable-to-CMD_ED.patch"
@@ -66,15 +67,15 @@ fi
 src_configure() {
 	[[ "${PV}" == "9999" ]] || restore_config config.h
 
-	CC="${CC:-cc}" \
-	PKGCONFIG="${PKG_CONFIG:-pkg-config}" \
+	CC="$(tc-getCC)" \
+	PKGCONFIG="$(tc-getPKG_CONFIG)" \
 	CMD_ED="false" \
-	CFLAGS="${CFLAGS:--02 -Wall -Wextra}" \
+	CFLAGS="${CFLAGS:--O2 -Wall -Wextra}" \
 	LDFLAGS="${LDFLAGS}" \
 	DOCDIR="/usr/share/doc/${PF}" \
 	WITH_WEBKITGTK="4.1" \
 	PREFIX="/usr" \
-	./configure || die
+	edo ./configure
 }
 
 src_compile() {
