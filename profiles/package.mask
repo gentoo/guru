@@ -51,6 +51,7 @@ sys-apps/qjournalctl
 # Used to generate docs for knot-resolver, it's no longer required now.
 # No revdep
 # Removal on 2026-02-15
+dev-python/dataclasses-json
 dev-python/json-schema-for-humans
 
 # Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-01-14)
