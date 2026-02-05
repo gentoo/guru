@@ -59,13 +59,6 @@ dev-python/json-schema-for-humans
 # Removal on 2026-02-14
 dev-util/cmakelang
 
-# Kostadin Shishmanov <kostadinshishmanov@protonmail.com> (2026-01-12)
-# No longer have a Tidal subscription, and I don't want
-# to leave the package in an unmaintained and possibly
-# unsecure state.
-# Removal on 2026-02-12
-media-sound/tidal-hifi-bin
-
 # Lucio Sauer <watermanpaint@posteo.net> (2026-01-04)
 # Header-only libraries without consumers
 # Removal on 2026-02-04
