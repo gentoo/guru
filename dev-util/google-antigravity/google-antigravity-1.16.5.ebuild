@@ -14,17 +14,19 @@ inherit chromium-2 eapi9-pipestatus optfeature pax-utils unpacker verify-sig xdg
 BASE_SRC_URI="https://us-central1-apt.pkg.dev/projects/antigravity-auto-updater-dev/pool/antigravity-debian"
 
 # See ${BASE_SRC_URI}/main/binary-${ARCH}/Packages
-BUILD_ID_AMD64="1768287740"
-BUILD_ID_ARM64="1768287742"
-DEB_HASH_AMD64="5527204873323b09e7e6bc003cf22f91"
-DEB_HASH_ARM64="fa871f81c5b4e1b343589341d279a64c"
+BUILD_ID_AMD64="1770081357"
+BUILD_ID_ARM64="1770081396"
+DEB_HASH_AMD64="1e91c55b802c42d27f931c53e68fc2ab"
+DEB_HASH_ARM64="c50fd2a09a9c4bc5a4ef2c96ff8b8d0b"
 
 DESCRIPTION="Google's AI-first IDE and agentic development platform"
 HOMEPAGE="https://antigravity.google/"
 SRC_URI="
 	amd64? ( ${BASE_SRC_URI}/antigravity_${PV}-${BUILD_ID_AMD64}_amd64_${DEB_HASH_AMD64}.deb -> ${P}_amd64.deb )
 	arm64? ( ${BASE_SRC_URI}/antigravity_${PV}-${BUILD_ID_ARM64}_arm64_${DEB_HASH_ARM64}.deb -> ${P}_arm64.deb )
-	verify-sig? ( https://home.cit.tum.de/~salu/distfiles/${P}-verify-sig.tar.xz )
+	verify-sig? (
+		https://raw.githubusercontent.com/falbrechtskirchinger/overlay-assets/main/distfiles/${P}-verify-sig.tar.xz
+	)
 "
 S="${WORKDIR}"
 
