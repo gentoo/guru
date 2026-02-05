@@ -27,6 +27,8 @@ HOMEPAGE="https://hacktivis.me/projects/badwolf"
 LICENSE="BSD"
 SLOT="0"
 
+IUSE="nls"
+
 DOCS=("README.md" "KnowledgeBase.md")
 
 DEPEND="
@@ -38,7 +40,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	app-alternatives/ninja
-	sys-devel/gettext
+	nls? ( sys-devel/gettext )
 	virtual/pkgconfig
 "
 
@@ -63,10 +65,7 @@ fi
 src_configure() {
 	[[ "${PV}" == "9999" ]] || restore_config config.h
 
-	# https://hacktivis.me/git/badwolf/file/configure.html#l444
-	# ./locale dir doesn't exist with ENABLE_NLS=0, leading to install failure
 	edo ./configure \
-		ENABLE_NLS=1 \
 		CC="$(tc-getCC)" \
 		PKG_CONFIG="$(tc-getPKG_CONFIG)" \
 		CMD_ED="false" \
@@ -75,6 +74,7 @@ src_configure() {
 		DOCDIR="/usr/share/doc/${PF}" \
 		PREFIX="/usr" \
 		WITH_WEBKITGTK="4.1" \
+		ENABLE_NLS="$(usex nls 1 0)"
 }
 
 src_compile() {
