@@ -48,3 +48,10 @@ src_configure() {
 
 	cargo_src_configure --no-default-features
 }
+
+src_install() {
+	cargo_src_install
+
+	insinto /usr/share/blahajdots
+	doins -r builtins/*
+}
