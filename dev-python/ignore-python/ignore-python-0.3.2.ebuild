@@ -23,6 +23,7 @@ LICENSE="MIT Unicode-3.0 Apache-2.0-with-LLVM-exceptions"
 SLOT="0"
 KEYWORDS="~amd64"
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 python_test() {
