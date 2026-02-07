@@ -7,7 +7,7 @@ DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..13} )
 
-inherit distutils-r1
+inherit cmake distutils-r1
 
 ESPEAK_NG_COMMIT="212928b394a96e8fd2096616bfd54e17845c48f6"
 
@@ -44,6 +44,7 @@ DEPEND+="
 	!!net-proxy/piper
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 src_prepare() {
