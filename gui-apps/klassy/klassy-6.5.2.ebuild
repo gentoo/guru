@@ -4,12 +4,12 @@
 EAPI=8
 
 KF5MIN=5.102.0
-KFMIN=6.18.0
-QTMIN=6.9.0
+KFMIN=6.10.0
+QTMIN=6.6.0
 
 inherit cmake xdg-utils
 
-DESCRIPTION="Klassy QT6 window decoration theme for KDE Plasma 6.5+"
+DESCRIPTION="Klassy QT6 window decoration theme for KDE Plasma 6.3+"
 HOMEPAGE="https://github.com/paulmcauley/klassy"
 SRC_URI="https://github.com/paulmcauley/klassy/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${P}"
