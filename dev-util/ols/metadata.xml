@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>sav.boyar@gmail.com</email>
+        <name>Saveliy Boyarchuk (Yappaholic)</name>
+    </maintainer>
+    <longdescription lang="en">
+      OLS is a LSP(Language Server Protocol) implementation for
+      Odin Programming Language.
+    </longdescription>
+    <use>
+        <flag name="odinfmt">Install formatter</flag>
+    </use>
+    <upstream>
+        <remote-id type="github">DanielGavin/ols</remote-id>
+        <maintainer status="active">
+            <name>DanielGavin</name>
+        </maintainer>
+        <bugs-to>https://github.com/DanielGavin/ols/issues</bugs-to>
+        <changelog>https://github.com/DanielGavin/ols/releases</changelog>
+    </upstream>
+</pkgmetadata>
