@@ -62,6 +62,5 @@ src_prepare() {
 src_install() {
 	distutils-r1_src_install
 
-	dodoc "${ED}/usr/COPYING"
-	rm "$_"
+	rm "${ED}/usr/COPYING" || die
 }
