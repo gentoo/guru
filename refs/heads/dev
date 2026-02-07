@@ -1,20 +1,14 @@
 certificate version 0.1
-pusher Luke Gompertz <luke.gompz@gmail.com> 1770468831 +0000
+pusher Saveliy Boyarchuk <sav.boyar@gmail.com> 1770472280 +0300
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1770468831-9b7e9cee78ce3258b5c34f5a61317879de7202ab
+nonce 1770472282-e0cdf49ce7dac633bd4616b785e1728e99415c83
 
-60fa560c150544729e1d3dd95f7fdc06d2565bf8 8936b45837ced6dacd83ad9a18f4ac1dbebd0ea5 refs/heads/dev
+8936b45837ced6dacd83ad9a18f4ac1dbebd0ea5 6fd81f8f46819f6fef88ffac50a9c517c92a173c refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQHFBAABCgCvFiEEgddZNxalcenXOpfbQvZMGmSENQAFAmmHNd8bFIAAAAAABAAO
-bWFudTIsMi41KzEuMTEsMiwyXxSAAAAAAC4AKGlzc3Vlci1mcHJAbm90YXRpb25z
-Lm9wZW5wZ3AuZmlmdGhob3JzZW1hbi5uZXQ4MUQ3NTkzNzE2QTU3MUU5RDczQTk3
-REI0MkY2NEMxQTY0ODQzNTAwFRxsdWtlLmdvbXB6QGdtYWlsLmNvbQAKCRBC9kwa
-ZIQ1AAHwB/9/Y4yUAhHCCrS4oPuQaz/w+CjomSc9K9v00E1YysS/hErIcCSp8+12
-LKndKbHRI/EMQqMAvcFOHhJTQOxWaFbnphhIYjgh2dz8gKi9zbOBg71RcBBlprIE
-eeW54VlJDPsIw9KRPKgvleXIWIdv+nrAGZmuCtB9bUkgGCB1WoIqiPRV+R/OFpiU
-LChQLynvcvZX0OIFo5ExJb6laoVDV9JIBVYioB5w+iR0Bwj8MG8jzwP8u7Hl7+9A
-XHhZfgwfX61Pi5PYmw70g4x5VP7tlMlwuox6GjGSIqZ/MNU9i5titGumCeyESp3p
-aRYnr+Bwx9j+SA6/E6LFdbwYvj82FuSi
-=EaCe
+iKYEABYKAE4WIQQmCo5rQUQ3a+xC7LVw2+jSf0NgugUCaYdDWBsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMSwyLDIUHHNhdi5ib3lhckBnbWFpbC5jb20ACgkQcNvo0n9D
+YLr+IAD+MkKNaWDz7cn13uGlc8IQ+rKDKg6htMnJY9hNOMpaT/AA/1mNQExyz/H5
+GezpCE11dGak3ywH45wmYQpFCxet7vIP
+=NjzG
 -----END PGP SIGNATURE-----
