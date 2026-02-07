@@ -15,7 +15,7 @@ if [[ $PV == 9999 ]]; then
 	inherit git-r3
 else
 	MY_PV="${PV/./-}"
-	SRC_URI="https://github.com/odin-lang/Odin/archive/refs/tags/dev-${MY_PV}.tar.gz"
+	SRC_URI="https://github.com/odin-lang/Odin/archive/refs/tags/dev-${MY_PV}.tar.gz -> ${PN}-${MY_PV}.tar.gz"
 	# Source directory; the dir where the sources can be found (automatically
 	# unpacked) inside ${WORKDIR}.  The default value for S is ${WORKDIR}/${P}
 	# If you don't need to change it, leave the S= line out of the ebuild

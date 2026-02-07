@@ -24,7 +24,6 @@ else
 	KEYWORDS="~amd64"
 fi
 
-
 LICENSE="BSD"
 
 SLOT="0"
