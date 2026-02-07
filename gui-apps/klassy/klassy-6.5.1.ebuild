@@ -4,8 +4,8 @@
 EAPI=8
 
 KF5MIN=5.102.0
-KFMIN=6.10.0
-QTMIN=6.6.0
+KFMIN=6.18.0
+QTMIN=6.9.0
 
 inherit cmake xdg-utils
 
