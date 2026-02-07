@@ -70,9 +70,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.22.2-relax-the-dependency-on-flatbuffers.patch"
-	"${FILESDIR}/${PN}-1.22.2-remove-the-absl-low_level_hash-target.patch"
-	"${FILESDIR}/${PN}-1.23.2-fix-compilation-errors.patch"
-	"${FILESDIR}/${PN}-1.23.2-use-system-libraries.patch"
+	"${FILESDIR}/${PN}-1.24.1-use-system-libraries.patch"
 )
 
 CMAKE_USE_DIR="${S}/cmake"
@@ -122,7 +120,7 @@ src_test() {
 # There is some custom logic in `setup.py`
 python_install() {
 	cd "${S}/cmake_build" || die
-	edo ${EPYTHON} ../setup.py install \
+	edo "${EPYTHON}" ../setup.py install \
 		--prefix="${EPREFIX}/usr" \
 		--root="${D}"
 

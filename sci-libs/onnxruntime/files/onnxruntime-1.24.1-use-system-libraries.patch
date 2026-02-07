@@ -11,7 +11,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
      URL_HASH SHA1=${DEP_SHA1_abseil_cpp}
      EXCLUDE_FROM_ALL
      PATCH_COMMAND ${ABSL_PATCH_COMMAND}
--    FIND_PACKAGE_ARGS 20250512 NAMES absl
+-    FIND_PACKAGE_ARGS 20250814 NAMES absl
 +    FIND_PACKAGE_ARGS NAMES absl REQUIRED
  )
  
@@ -54,7 +54,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
    )
    FetchContent_MakeAvailable(mimalloc)
  endif()
-@@ -198,7 +198,7 @@ onnxruntime_fetchcontent_declare(
+@@ -199,7 +199,7 @@ onnxruntime_fetchcontent_declare(
    URL_HASH SHA1=${DEP_SHA1_protobuf}
    PATCH_COMMAND ${ONNXRUNTIME_PROTOBUF_PATCH_COMMAND}
    EXCLUDE_FROM_ALL
@@ -63,7 +63,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
  )
  
  set(protobuf_BUILD_TESTS OFF CACHE BOOL "Build protobuf tests" FORCE)
-@@ -278,7 +278,7 @@ onnxruntime_fetchcontent_declare(
+@@ -274,7 +274,7 @@ onnxruntime_fetchcontent_declare(
    URL ${DEP_URL_date}
    URL_HASH SHA1=${DEP_SHA1_date}
    EXCLUDE_FROM_ALL
@@ -72,7 +72,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
  )
  onnxruntime_fetchcontent_makeavailable(date)
  
-@@ -292,12 +292,11 @@ if(NOT TARGET Boost::mp11)
+@@ -288,12 +288,11 @@ if(NOT TARGET Boost::mp11)
       mp11
       URL ${DEP_URL_mp11}
       EXCLUDE_FROM_ALL
@@ -88,7 +88,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
      endif()
    endif()
  endif()
-@@ -310,7 +310,7 @@ onnxruntime_fetchcontent_declare(
+@@ -306,7 +305,7 @@ onnxruntime_fetchcontent_declare(
      URL ${DEP_URL_json}
      URL_HASH SHA1=${DEP_SHA1_json}
      EXCLUDE_FROM_ALL
@@ -97,25 +97,25 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
  )
  onnxruntime_fetchcontent_makeavailable(nlohmann_json)
  
-@@ -380,7 +380,7 @@ if (CPUINFO_SUPPORTED)
-         URL_HASH SHA1=${DEP_SHA1_pytorch_cpuinfo}
-         EXCLUDE_FROM_ALL
-         PATCH_COMMAND ${Patch_EXECUTABLE} -p1 < ${PROJECT_SOURCE_DIR}/patches/cpuinfo/9bb12d342fd9479679d505d93a478a6f9cd50a47.patch
--        FIND_PACKAGE_ARGS NAMES cpuinfo
-+        FIND_PACKAGE_ARGS NAMES cpuinfo REQUIRED
-       )
+@@ -372,7 +371,7 @@ if (CPUINFO_SUPPORTED)
+         ${Patch_EXECUTABLE} -p1 < ${PROJECT_SOURCE_DIR}/patches/cpuinfo/patch_vcpkg_arm64ec_support.patch &&
+         # https://github.com/pytorch/cpuinfo/pull/348
+         ${Patch_EXECUTABLE} -p1 < ${PROJECT_SOURCE_DIR}/patches/cpuinfo/win_arm_fp16_detection_fallback.patch
+-      FIND_PACKAGE_ARGS NAMES cpuinfo
++      FIND_PACKAGE_ARGS NAMES cpuinfo REQUIRED
+     )
    else()
-       onnxruntime_fetchcontent_declare(
-@@ -388,7 +388,7 @@ if (CPUINFO_SUPPORTED)
-         URL ${DEP_URL_pytorch_cpuinfo}
-         URL_HASH SHA1=${DEP_SHA1_pytorch_cpuinfo}
-         EXCLUDE_FROM_ALL
--        FIND_PACKAGE_ARGS NAMES cpuinfo
-+        FIND_PACKAGE_ARGS NAMES cpuinfo REQUIRED
-       )
+     onnxruntime_fetchcontent_declare(
+@@ -380,7 +379,7 @@ if (CPUINFO_SUPPORTED)
+       URL ${DEP_URL_pytorch_cpuinfo}
+       URL_HASH SHA1=${DEP_SHA1_pytorch_cpuinfo}
+       EXCLUDE_FROM_ALL
+-      FIND_PACKAGE_ARGS NAMES cpuinfo
++      FIND_PACKAGE_ARGS NAMES cpuinfo REQUIRED
+     )
    endif()
    set(ONNXRUNTIME_CPUINFO_PROJ pytorch_cpuinfo)
-@@ -406,7 +406,7 @@ if(onnxruntime_USE_CUDA)
+@@ -398,7 +397,7 @@ if(onnxruntime_USE_CUDA)
      URL_HASH SHA1=${DEP_SHA1_microsoft_gsl}
      PATCH_COMMAND ${Patch_EXECUTABLE} --binary --ignore-whitespace -p1 < ${PROJECT_SOURCE_DIR}/patches/gsl/1064.patch
      EXCLUDE_FROM_ALL
@@ -124,7 +124,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
    )
  else()
    onnxruntime_fetchcontent_declare(
-@@ -414,7 +414,7 @@ else()
+@@ -406,7 +405,7 @@ else()
      URL ${DEP_URL_microsoft_gsl}
      URL_HASH SHA1=${DEP_SHA1_microsoft_gsl}
      EXCLUDE_FROM_ALL
@@ -133,7 +133,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
    )
  endif()
  set(GSL_TARGET "Microsoft.GSL::GSL")
-@@ -428,7 +428,7 @@ if (NOT GSL_FOUND AND NOT onnxruntime_BUILD_SHARED_LIB)
+@@ -420,7 +419,7 @@ if (NOT GSL_FOUND AND NOT onnxruntime_BUILD_SHARED_LIB)
    RUNTIME  DESTINATION ${CMAKE_INSTALL_BINDIR})
  endif()
  
@@ -142,7 +142,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
  if(NOT safeint_SOURCE_DIR)
    unset(safeint_SOURCE_DIR)
    onnxruntime_fetchcontent_declare(
-@@ -470,10 +470,14 @@ onnxruntime_fetchcontent_declare(
+@@ -462,10 +461,14 @@ onnxruntime_fetchcontent_declare(
      URL_HASH SHA1=${DEP_SHA1_flatbuffers}
      PATCH_COMMAND ${ONNXRUNTIME_FLATBUFFERS_PATCH_COMMAND}
      EXCLUDE_FROM_ALL
@@ -158,7 +158,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
  if(NOT flatbuffers_FOUND)
    if(NOT TARGET flatbuffers::flatbuffers)
      add_library(flatbuffers::flatbuffers ALIAS flatbuffers)
-@@ -535,7 +539,7 @@ onnxruntime_fetchcontent_declare(
+@@ -527,7 +530,7 @@ onnxruntime_fetchcontent_declare(
    URL_HASH SHA1=${DEP_SHA1_onnx}
    PATCH_COMMAND ${ONNXRUNTIME_ONNX_PATCH_COMMAND}
    EXCLUDE_FROM_ALL
@@ -167,7 +167,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
  )
  
  onnxruntime_fetchcontent_makeavailable(onnx)
-@@ -611,7 +615,7 @@ if(onnxruntime_ENABLE_DLPACK)
+@@ -602,7 +605,7 @@ if(onnxruntime_ENABLE_DLPACK)
      URL ${DEP_URL_dlpack}
      URL_HASH SHA1=${DEP_SHA1_dlpack}
      EXCLUDE_FROM_ALL
@@ -176,7 +176,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
    )
    onnxruntime_fetchcontent_makeavailable(dlpack)
  endif()
-@@ -624,7 +628,7 @@ if(onnxruntime_ENABLE_TRAINING OR (onnxruntime_ENABLE_TRAINING_APIS AND onnxrunt
+@@ -615,7 +618,7 @@ if(onnxruntime_ENABLE_TRAINING OR (onnxruntime_ENABLE_TRAINING_APIS AND onnxrunt
      URL ${DEP_URL_cxxopts}
      URL_HASH SHA1=${DEP_SHA1_cxxopts}
      EXCLUDE_FROM_ALL
