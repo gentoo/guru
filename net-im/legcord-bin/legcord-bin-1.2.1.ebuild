@@ -7,7 +7,7 @@ inherit unpacker desktop xdg
 
 MY_PN="Legcord"
 
-DESCRIPTION="Legcord is a custom client designed to enhance your Discord experience."
+DESCRIPTION="Legcord is a custom client designed to enhance your Discord experience"
 HOMEPAGE="https://legcord.app/"
 
 SRC_URI="
@@ -15,7 +15,7 @@ SRC_URI="
 	arm64? ( https://github.com/Legcord/Legcord/releases/download/v${PV}/Legcord-${PV}-linux-arm64.deb -> ${P}-arm64.deb )
 "
 # metainfo
-SRC_URI+="https://github.com/Legcord/Legcord/releases/download/v${PV}/app.legcord.Legcord.metainfo.xml"
+SRC_URI+=" https://github.com/Legcord/Legcord/releases/download/v${PV}/app.legcord.Legcord.metainfo.xml -> ${P}.metainfo.xml"
 
 S="${WORKDIR}"
 
@@ -129,5 +129,5 @@ src_install() {
 	domenu "usr/share/applications/${MY_PN}.desktop"
 
 	insinto /usr/share/metainfo
-	doins "${DISTDIR}/app.legcord.${MY_PN}.metainfo.xml"
+	newins "${DISTDIR}/${P}.metainfo.xml" app.legcord.${MY_PN}.metainfo.xml
 }
