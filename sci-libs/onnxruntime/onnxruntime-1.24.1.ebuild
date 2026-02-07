@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -109,7 +109,7 @@ python_test() {
 }
 
 src_test() {
-	export GTEST_FILTER="*:-ActivationOpNoInfTest.Softsign:LayoutTransformationPotentiallyAddedOpsTests.OpsHaveLatestVersions"
+	local -x GTEST_FILTER="*:-ActivationOpNoInfTest.Softsign:LayoutTransformationPotentiallyAddedOpsTests.OpsHaveLatestVersions"
 	cmake_src_test
 
 	if use python ; then
@@ -124,15 +124,15 @@ python_install() {
 		--prefix="${EPREFIX}/usr" \
 		--root="${D}"
 
-	libs=(
+	local libs=(
 		"libonnxruntime.so.${PV}"
 		"libonnxruntime_providers_shared.so"
 	)
 	for lib in "${libs[@]}"; do
-		ln -fsr "${ED}/usr/$(get_libdir)/${lib}" "${D}/$(python_get_sitedir)/onnxruntime/capi/${lib}"
+		ln -fsr "${ED}/usr/$(get_libdir)/${lib}" "${D}/$(python_get_sitedir)/onnxruntime/capi/${lib}" || die
 	done
 
-	rm -rf "${D}/$(python_get_sitedir)"/*.egg-info
+	rm -rf "${D}/$(python_get_sitedir)"/*.egg-info || die
 	python_optimize
 }
 
