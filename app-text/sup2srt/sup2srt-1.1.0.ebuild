@@ -5,13 +5,9 @@ EAPI=8
 
 inherit cmake
 
-EGIT_COMMIT="b40c5aa8022772d977006417ac60bd067ce5504e"
-
 DESCRIPTION="Convert SUP graphic subtitles to text-based SRT format"
 HOMEPAGE="https://github.com/retrontology/sup2srt"
-SRC_URI="https://github.com/retrontology/sup2srt/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-
-S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
+SRC_URI="https://github.com/retrontology/sup2srt/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
