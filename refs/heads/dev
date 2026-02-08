@@ -1,14 +1,18 @@
 certificate version 0.1
-pusher Saveliy Boyarchuk <sav.boyar@gmail.com> 1770571082 +0300
+pusher Patrick Nicolas <patricknicolas@laposte.net> 1770576289 +0100
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1770571085-223b66cf60b1c67fee8f04d13f891892b9e6f35e
+nonce 1770576289-a1312fc1a59ba4302cfd969a5ceb592f2a7ab75a
 
-3f95891cbd3c20ff53ef92b20c6b2f6a99441740 229db207ce157bb5c1c639b3223e34d9d9605a1a refs/heads/dev
+229db207ce157bb5c1c639b3223e34d9d9605a1a b7df3831b40f4a2e485da4d263c95b18ca4e3219 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iKYEABYKAE4WIQQmCo5rQUQ3a+xC7LVw2+jSf0NgugUCaYjFShsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMSwyLDIUHHNhdi5ib3lhckBnbWFpbC5jb20ACgkQcNvo0n9D
-YLohqwD9FvNncJ7ff40umja3A3OpukDlR2OKBGAUQxYMzWexOJoBANBBIbETnbLm
-iSskBzjJc3y/0iF9guBsUjkpzGzz1bUJ
-=pT1R
+iQFrBAABCABVFiEEtlDT7QTOnujTI8BaTTI8o2F85ZMFAmmI2aEbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyGxxwYXRyaWNrbmljb2xhc0BsYXBvc3RlLm5ldAAK
+CRBNMjyjYXzlkyEqB/9m3bFCj1FfxPPu/VZGBZ7hMYHfLCrm/1PJJ6bSVjx8hjd6
+CRu9S7dhatRmlMVfCf12VLCDU3gxWTUK+mmdYvYctaki0FXqVp2rA5J81UNeAhsb
+85GJWRUbT35UKG7tqhebtfC2vbQbkQTV7JZyKjFoQCPBVzmVlKQ6dnr4yPZmRjvp
+xrsPH5LaJMZnIU9TuqAlkGWOnCiD7XOdjcDvU3YOVKT3mHmoL2ZFbg1vUAJXldzk
+6MP4Nt/36WBQ//cs4YfjWBrMpMnlD6Nloh5SOfoRiPiSx4khhFlzX/tEYE5tfMaI
+R9CvVruZMC1Xugqx8cuv3aa4wLzU201/jk+1VPhB
+=VFK4
 -----END PGP SIGNATURE-----
