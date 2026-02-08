@@ -57,10 +57,9 @@ RDEPEND="
 	systemd? (
 		sys-apps/systemd
 	)
-	vaapi? ( || (
-		media-video/ffmpeg[libdrm(-),vaapi]
+	vaapi? (
 		media-video/ffmpeg[drm(-),vaapi]
-	) )
+	)
 	x264? (
 		media-libs/x264
 	)
