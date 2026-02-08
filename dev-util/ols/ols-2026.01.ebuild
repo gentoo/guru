@@ -23,8 +23,13 @@ RDEPEND="
 	~dev-lang/odin-${PV}
 "
 
-DEPEND="${RDEPEND}"
+BDEPEND="${RDEPEND}"
 
+# Replace version string for static ebuild
+src_prepare() {
+	default_src_prepare
+	sed -i "s/\(VERSION=\).*/\1dev-${MY_PV}/" "${S}/build.sh"
+}
 # No need to configure
 src_configure() {
 	default

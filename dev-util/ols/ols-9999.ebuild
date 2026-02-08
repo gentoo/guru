@@ -25,7 +25,7 @@ RDEPEND="
 	~dev-lang/odin-9999
 "
 
-DEPEND="${RDEPEND}"
+BDEPEND="${RDEPEND}"
 
 # No need to configure
 src_configure() {
