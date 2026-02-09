@@ -66,11 +66,6 @@ dev-python/json-schema-for-humans
 # Removal on 2026-02-14
 dev-util/cmakelang
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2026-01-04)
-# Replaced by phosh-base/phosh-osk-stevia.
-# Removal on 2026-02-04.
-phosh-base/phosh-osk-stub
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2026-01-03)
 # Critical security vulnerabilities.
 <net-im/conduit-0.10.11
