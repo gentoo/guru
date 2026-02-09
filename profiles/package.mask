@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Florian Schmaus <flow@gentoo.org) (2026-02-09)
+# bcachefs 1.33 through 1.35 has a serious bug in the early reconcile
+# data update path on multi-device setups. Upgrade to 1.36 as soon as
+# possible.
+# See https://www.reddit.com/r/bcachefs/comments/1qyryzn/psa_if_youre_on_133135_upgrade_asap/
+<sys-fs/bcachefs-kmod-1.36.0
+
 # dsaf <ghostyn678+git@gmail.com> (2026-02-02)
 # Requires systemd. Cannot be masked per profile (see top comment)
 app-admin/run0edit
