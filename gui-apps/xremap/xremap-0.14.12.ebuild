@@ -24,6 +24,8 @@ CRATES="
 	async-process@2.3.0
 	async-recursion@1.1.1
 	async-signal@0.2.10
+	async-stream-impl@0.3.6
+	async-stream@0.3.6
 	async-task@4.7.1
 	async-trait@0.1.83
 	atomic-waker@1.1.2
@@ -46,7 +48,7 @@ CRATES="
 	clap_lex@0.7.6
 	colorchoice@1.0.0
 	concurrent-queue@2.5.0
-	convert_case@0.4.0
+	convert_case@0.10.0
 	core-foundation-sys@0.8.4
 	crossbeam-utils@0.8.16
 	darling@0.20.3
@@ -54,14 +56,16 @@ CRATES="
 	darling_macro@0.20.3
 	deranged@0.3.6
 	derive-where@1.6.0
-	derive_more@0.99.18
+	derive_more-impl@2.1.1
+	derive_more@2.1.1
 	dlib@0.5.2
-	doc-comment@0.3.3
 	downcast-rs@1.2.0
+	either@1.15.0
 	endi@1.1.0
 	enumflags2@0.7.11
 	enumflags2_derive@0.7.11
-	env_logger@0.10.2
+	env_filter@0.1.4
+	env_logger@0.11.6
 	equivalent@1.0.1
 	errno@0.3.11
 	evdev@0.13.2
@@ -89,8 +93,8 @@ CRATES="
 	hermit-abi@0.4.0
 	hex@0.4.3
 	humantime@2.1.0
-	hyprland-macros@0.3.4
-	hyprland@0.3.13
+	hyprland-macros@0.4.0-beta.3
+	hyprland@0.4.0-beta.3
 	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.57
 	ident_case@1.0.1
@@ -98,7 +102,6 @@ CRATES="
 	indexmap@2.12.1
 	indoc@2.0.7
 	io-lifetimes@1.0.11
-	is-terminal@0.4.9
 	is_terminal_polyfill@1.70.2
 	itoa@1.0.9
 	js-sys@0.3.82
@@ -109,7 +112,7 @@ CRATES="
 	linux-raw-sys@0.4.15
 	linux-raw-sys@0.9.4
 	lock_api@0.4.12
-	log@0.4.28
+	log@0.4.29
 	memchr@2.7.6
 	memoffset@0.7.1
 	memoffset@0.9.1
@@ -125,7 +128,7 @@ CRATES="
 	parking@2.2.1
 	parking_lot@0.12.3
 	parking_lot_core@0.9.9
-	paste@1.0.15
+	pastey@0.1.1
 	pin-project-lite@0.2.16
 	pin-utils@0.1.0
 	piper@0.2.4
@@ -134,6 +137,7 @@ CRATES="
 	proc-macro-crate@3.3.0
 	proc-macro2@1.0.89
 	quick-xml@0.28.2
+	quick-xml@0.38.4
 	quote@1.0.40
 	radium@0.7.0
 	redox_syscall@0.4.1
@@ -164,12 +168,9 @@ CRATES="
 	static_assertions@1.1.0
 	strsim@0.10.0
 	strsim@0.11.1
-	strum@0.26.3
-	strum_macros@0.26.4
 	syn@2.0.86
 	tap@1.0.1
 	tempfile@3.10.1
-	termcolor@1.2.0
 	time-core@0.1.1
 	time-macros@0.2.11
 	time@0.3.24
@@ -187,6 +188,8 @@ CRATES="
 	udev@0.9.3
 	uds_windows@1.1.0
 	unicode-ident@1.0.11
+	unicode-segmentation@1.12.0
+	unicode-xid@0.2.6
 	unsafe-libyaml@0.2.11
 	utf8parse@0.2.2
 	uuid@1.18.1
@@ -196,13 +199,17 @@ CRATES="
 	wasm-bindgen-shared@0.2.105
 	wasm-bindgen@0.2.105
 	wayland-backend@0.1.2
+	wayland-backend@0.3.12
 	wayland-client@0.30.2
+	wayland-client@0.31.12
 	wayland-protocols-wlr@0.1.0
 	wayland-protocols@0.30.1
+	wayland-protocols@0.32.10
 	wayland-scanner@0.30.1
+	wayland-scanner@0.31.8
 	wayland-sys@0.30.1
+	wayland-sys@0.31.8
 	winapi-i686-pc-windows-gnu@0.4.0
-	winapi-util@0.1.5
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
 	windows-link@0.1.3
