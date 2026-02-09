@@ -66,11 +66,6 @@ dev-python/json-schema-for-humans
 # Removal on 2026-02-14
 dev-util/cmakelang
 
-# Lucio Sauer <watermanpaint@posteo.net> (2026-01-04)
-# Header-only libraries without consumers
-# Removal on 2026-02-04
-media-libs/dr_flac
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2026-01-04)
 # Replaced by phosh-base/phosh-osk-stevia.
 # Removal on 2026-02-04.
