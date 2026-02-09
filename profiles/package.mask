@@ -71,7 +71,6 @@ dev-util/cmakelang
 # Removal on 2026-02-04
 media-libs/dr_flac
 media-libs/dr_mp3
-media-libs/dr_wav
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2026-01-04)
 # Replaced by phosh-base/phosh-osk-stevia.
