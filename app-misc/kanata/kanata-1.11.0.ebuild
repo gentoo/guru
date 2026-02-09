@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -38,6 +38,7 @@ CRATES="
 	clap_lex@0.7.2
 	clipboard-win@5.4.0
 	colorchoice@1.0.3
+	console_error_panic_hook@0.1.7
 	core-foundation-sys@0.8.7
 	core-foundation@0.10.0
 	core-foundation@0.9.4
@@ -47,7 +48,7 @@ CRATES="
 	core-graphics@0.24.0
 	crc32fast@1.4.2
 	critical-section@1.2.0
-	deranged@0.3.11
+	deranged@0.5.5
 	dirs-sys@0.4.1
 	dirs@5.0.1
 	either@1.13.0
@@ -110,7 +111,7 @@ CRATES="
 	nibble_vec@0.1.0
 	nix@0.26.4
 	nix@0.29.0
-	num-conv@0.1.0
+	num-conv@0.2.0
 	num-traits@0.2.19
 	num_enum@0.6.1
 	num_enum_derive@0.6.1
@@ -154,12 +155,14 @@ CRATES="
 	rustc-hash@1.1.0
 	rustc_version@0.4.1
 	rustix@0.38.44
+	rustversion@1.0.22
 	ryu@1.0.18
 	scopeguard@1.2.0
 	sd-notify@0.4.3
 	semver@1.0.23
-	serde@1.0.213
-	serde_derive@1.0.213
+	serde@1.0.228
+	serde_core@1.0.228
+	serde_derive@1.0.228
 	serde_json@1.0.132
 	serde_spanned@0.6.8
 	shlex@1.3.0
@@ -184,9 +187,9 @@ CRATES="
 	thiserror-impl@1.0.65
 	thiserror@1.0.65
 	tiff@0.9.1
-	time-core@0.1.2
-	time-macros@0.2.18
-	time@0.3.36
+	time-core@0.1.8
+	time-macros@0.2.27
+	time@0.3.47
 	toml@0.8.19
 	toml_datetime@0.6.8
 	toml_edit@0.19.15
