@@ -238,14 +238,14 @@ CRATES="
 inherit cargo desktop xdg
 
 DESCRIPTION="A screenshot annotation tool inspired by Swappy and Flameshot."
-HOMEPAGE="https://github.com/gabm/satty"
+HOMEPAGE="https://github.com/Satty-org/Satty"
 
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/gabm/Satty.git"
+	EGIT_REPO_URI="https://github.com/Satty-org/Satty.git"
 else
 	SRC_URI="
-		https://github.com/gabm/Satty/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/Satty-org/Satty/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 		${CARGO_CRATE_URIS}
 	"
 	M_PN=Satty
