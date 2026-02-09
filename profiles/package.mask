@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Lucio Sauer <watermanpaint@posteo.net> (2026-02-09)
+# Depends on masked KF5 packages, no porting to KF6 in sight.
+# Removal on 2026-03-09
+kde-apps/kwalletcli
+
 # Florian Schmaus <flow@gentoo.org) (2026-02-09)
 # bcachefs 1.33 through 1.35 has a serious bug in the early reconcile
 # data update path on multi-device setups. Upgrade to 1.36 as soon as
