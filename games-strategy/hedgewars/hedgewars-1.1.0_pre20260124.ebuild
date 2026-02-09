@@ -100,7 +100,7 @@ src_configure() {
 		-DNOVIDEOREC=$(usex ffmpeg OFF ON)
 	)
 
-	CMAKE_BUILD_TYPE=$(usex debug Debug)
+	CMAKE_BUILD_TYPE=$(usex debug Debug ${CMAKE_BUILD_TYPE})
 
 	cmake_src_configure
 }
