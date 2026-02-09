@@ -5,6 +5,10 @@
 		<email>gonegrier.duarte@gmail.com</email>
 		<name>Gonçalo Negrier Duarte</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>minyaylo51@gmail.com</email>
+		<name>Neatink</name>
+	</maintainer>
 	<upstream>
 		<doc>https://github.com/gabm/satty</doc>
 		<bugs-to>https://github.com/gabm/satty/issues</bugs-to>
