@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,15 +11,13 @@ S="${WORKDIR}"
 LICENSE="metapackage"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="hyprland"
 
 RDEPEND="
 	app-misc/nwg-look
 	app-misc/nwg-shell-wallpapers
 	gui-apps/nwg-displays
 	gui-apps/nwg-dock
-	!hyprland? ( gui-apps/nwg-dock )
-	hyprland? ( gui-apps/nwg-dock-hyprland )
+	gui-apps/nwg-dock
 	gui-apps/nwg-drawer
 	gui-apps/nwg-icon-picker
 	gui-apps/nwg-menu

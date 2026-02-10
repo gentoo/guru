@@ -8,7 +8,4 @@
 	<upstream>
 		<remote-id type="github">nwg-piotr/nwg-shell</remote-id>
 	</upstream>
-	<use>
-		<flag name="hyprland">Pull in nwg-dock-hyprland instead of nwg-dock for sway</flag>
-	</use>
 </pkgmetadata>
