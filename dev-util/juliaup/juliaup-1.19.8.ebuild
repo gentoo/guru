@@ -16,7 +16,7 @@ CRATES="
 	anstyle-query@1.1.5
 	anstyle-wincon@3.0.11
 	anstyle@1.0.13
-	anyhow@1.0.100
+	anyhow@1.0.101
 	assert_cmd@2.1.2
 	assert_fs@1.1.3
 	atomic-waker@1.1.2
@@ -30,17 +30,17 @@ CRATES="
 	bstr@1.12.1
 	built@0.8.0
 	bumpalo@3.19.1
-	bytes@1.11.0
+	bytes@1.11.1
 	cc@1.2.53
 	cesu8@1.1.0
 	cfg-if@1.0.4
 	cfg_aliases@0.2.1
 	chrono@0.4.43
-	clap@4.5.54
-	clap_builder@4.5.54
+	clap@4.5.57
+	clap_builder@4.5.57
 	clap_complete@4.5.65
 	clap_complete_nushell@4.5.10
-	clap_derive@4.5.49
+	clap_derive@4.5.55
 	clap_lex@0.7.7
 	cli-table-derive@0.5.0
 	cli-table@0.5.0
@@ -77,7 +77,7 @@ CRATES="
 	fastrand@2.3.0
 	filetime@0.2.26
 	find-msvc-tools@0.1.8
-	flate2@1.1.8
+	flate2@1.1.9
 	float-cmp@0.10.0
 	fnv@1.0.7
 	foreign-types-shared@0.1.1
@@ -146,6 +146,7 @@ CRATES="
 	mio@1.1.1
 	native-tls@0.2.14
 	nix@0.30.1
+	nix@0.31.1
 	normalize-line-endings@0.3.0
 	normpath@1.5.0
 	ntapi@0.4.2
@@ -190,9 +191,9 @@ CRATES="
 	redox_users@0.5.2
 	regex-automata@0.4.13
 	regex-syntax@0.8.8
-	regex@1.12.2
+	regex@1.12.3
 	reqwest@0.13.1
-	retry@2.1.0
+	retry@2.2.0
 	ring@0.17.14
 	rustc-demangle@0.1.27
 	rustc-hash@2.1.1
