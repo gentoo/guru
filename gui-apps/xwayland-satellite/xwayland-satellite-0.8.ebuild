@@ -1,11 +1,11 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 CRATES=""
 
-LLVM_COMPAT=( {17..20} )
+LLVM_COMPAT=( {17..21} )
 # RUST_MIN_VER="1.83.0"
 RUST_NEEDS_LLVM=1
 
