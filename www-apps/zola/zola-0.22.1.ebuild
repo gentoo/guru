@@ -632,8 +632,6 @@ KEYWORDS="~amd64"
 RDEPEND="dev-libs/oniguruma"
 DEPEND="${RDEPEND}"
 
-QA_FLAGS_IGNORED="usr/bin/${PN}"
-
 src_prepare() {
 	default
 	# Upstream enables stripping on rel and disables debuginfo on dev
