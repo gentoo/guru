@@ -627,7 +627,7 @@ LICENSE+="
 "
 
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="dev-libs/oniguruma:="
 DEPEND="${RDEPEND}"
