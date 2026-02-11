@@ -22,7 +22,7 @@ CRATES="
 	anstyle-parse@0.2.0
 	anstyle-query@1.0.0
 	anstyle-wincon@3.0.7
-	anstyle@1.0.11
+	anstyle@1.0.13
 	anyhow@1.0.100
 	append-only-vec@0.1.8
 	argfile@0.2.1
@@ -41,11 +41,11 @@ CRATES="
 	bstr@1.12.1
 	bumpalo@3.16.0
 	byteorder@1.5.0
-	bytes@1.11.0
+	bytes@1.11.1
 	castaway@0.2.4
 	cc@1.2.47
 	cfg-if@1.0.4
-	chrono@0.4.42
+	chrono@0.4.43
 	clap@4.5.54
 	clap_builder@4.5.54
 	clap_derive@4.5.49
@@ -76,11 +76,11 @@ CRATES="
 	deranged@0.5.5
 	derivative@2.2.0
 	derive-where@1.5.0
-	diff@0.1.12
+	diff@0.1.13
 	digest@0.10.7
 	dupe@0.9.1
 	dupe_derive@0.9.1
-	dyn-clone@1.0.17
+	dyn-clone@1.0.20
 	either@1.15.0
 	encode_unicode@1.0.0
 	enum-iterator-derive@1.4.0
@@ -143,7 +143,7 @@ CRATES="
 	ignore@0.4.25
 	index_vec@0.1.4
 	indexmap@1.9.2
-	indexmap@2.12.1
+	indexmap@2.13.0
 	indicatif@0.18.3
 	inotify-sys@0.1.3
 	inotify@0.11.0
@@ -171,7 +171,7 @@ CRATES="
 	lock_api@0.4.14
 	lock_free_hashtable@0.1.1
 	log@0.4.28
-	lsp-server@0.7.2
+	lsp-server@0.7.9
 	manyhow-macros@0.11.4
 	manyhow@0.11.4
 	maplit@1.0.2
@@ -188,7 +188,7 @@ CRATES="
 	notify@8.2.0
 	nu-ansi-term@0.50.1
 	num-bigint@0.4.6
-	num-conv@0.1.0
+	num-conv@0.2.0
 	num-integer@0.1.46
 	num-traits@0.2.19
 	num_threads@0.1.3
@@ -218,14 +218,14 @@ CRATES="
 	ppv-lite86@0.2.21
 	pretty_assertions@1.4.0
 	proc-macro-utils@0.10.0
-	proc-macro2@1.0.105
+	proc-macro2@1.0.106
 	prost-derive@0.11.9
 	prost-types@0.11.9
 	prost@0.11.9
-	pulldown-cmark@0.9.1
+	pulldown-cmark@0.9.6
 	quote-use-macros@0.8.4
 	quote-use@0.8.4
-	quote@1.0.42
+	quote@1.0.44
 	r-efi@5.2.0
 	rand@0.8.5
 	rand@0.9.2
@@ -296,15 +296,15 @@ CRATES="
 	termcolor@1.4.1
 	terminal_size@0.4.2
 	thiserror-impl@1.0.69
-	thiserror-impl@2.0.17
+	thiserror-impl@2.0.18
 	thiserror@1.0.69
-	thiserror@2.0.17
+	thiserror@2.0.18
 	thread_local@1.1.9
-	tikv-jemalloc-sys@0.6.0+5.3.0-1-ge13ca993e8ccb9ba9847cc330696e02839f328f7
-	tikv-jemallocator@0.6.0
-	time-core@0.1.6
-	time-macros@0.2.24
-	time@0.3.44
+	tikv-jemalloc-sys@0.6.1+5.3.0-1-ge13ca993e8ccb9ba9847cc330696e02839f328f7
+	tikv-jemallocator@0.6.1
+	time-core@0.1.8
+	time-macros@0.2.27
+	time@0.3.47
 	tinystr@0.7.6
 	tinyvec@1.8.0
 	tinyvec_macros@0.1.0
@@ -340,7 +340,7 @@ CRATES="
 	uuid-macro-internal@1.19.0
 	uuid-rng-internal@1.19.0
 	uuid@1.19.0
-	valuable@0.1.0
+	valuable@0.1.1
 	vec1@1.10.1
 	version_check@0.9.5
 	walkdir@2.5.0
