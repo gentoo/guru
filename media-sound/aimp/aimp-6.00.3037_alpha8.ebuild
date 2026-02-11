@@ -10,7 +10,7 @@ YADISK_URL="https://disk.yandex.ru/d/yCpF1MnZyM6sLQ"
 MY_PN="AIMP"
 
 DESCRIPTION="AIMP - Free Audio Player"
-HOMEPAGE="https://www.aimp.ru/"
+HOMEPAGE="https://aimp.ru/"
 SRC_URI="
 	amd64? ( aimp-$(ver_cut 1-2)-$(ver_cut 3)a.x86_64.rpm )
 "
