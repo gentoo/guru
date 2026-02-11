@@ -15,8 +15,8 @@ if [[ "${PV}" == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.pleroma.social/pleroma/pleroma"
 else
-	SRC_URI="https://git.pleroma.social/pleroma/pleroma/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
-	S="${WORKDIR}/${PN}-v${PV}"
+	SRC_URI="https://git.pleroma.social/pleroma/pleroma/archive/v${PV}.tar.gz -> pleroma-${PV}.tar.gz"
+	S="${WORKDIR}/${PN}"
 	KEYWORDS="~amd64"
 fi
 LICENSE="AGPL-3 CC-BY-SA-4.0 CC-BY-4.0"
