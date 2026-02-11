@@ -6,27 +6,19 @@ EAPI=8
 PYTHON_COMPAT=( python3_{12..14} )
 inherit python-single-r1
 
-MY_COMMIT="6c5827576ac9241d976cf8bd953ea244793f2506"
-
 DESCRIPTION="Script to edit a single file as root using run0"
 HOMEPAGE="https://github.com/HastD/run0edit"
 
-if [[ ${PV} == *9999* ]]; then
+if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/HastD/run0edit.git"
-elif [[ ${PV} == *_p* ]] ; then
-	SRC_URI="https://github.com/HastD/run0edit/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}-${MY_COMMIT}"
 else
 	SRC_URI="https://github.com/HastD/run0edit/releases/download/v${PV}/run0edit-${PV}.tar.gz"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="|| ( Apache-2.0 MIT )"
 SLOT="0"
-
-if [[ ${PV} != *9999* ]] ; then
-	KEYWORDS="~amd64"
-fi
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RDEPEND="
