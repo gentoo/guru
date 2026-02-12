@@ -72,7 +72,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	gui-libs/gtk-layer-shell
 	gui-wm/hyprland
-	x11-libs/gtk+:3
+	x11-libs/gtk+:3[X]
 	app-accessibility/at-spi2-core:2
 	>=dev-libs/glib-2.82.2:2
 	media-libs/fontconfig
