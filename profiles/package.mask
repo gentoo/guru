@@ -95,11 +95,6 @@ dev-util/cmakelang
 # Critical security vulnerabilities.
 <net-im/conduit-0.10.11
 
-# David (stkw0) Roman <davidroman96@gmail.com> (2025-07-25)
-# Depends on removed pydantic version. Github homepage has been removed
-# Removal on 2026-02-12.
-dev-python/safety-schemas
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-24)
 # Depends on masked net-libs/stem.
 # Masked until upstream supports running without stem.
