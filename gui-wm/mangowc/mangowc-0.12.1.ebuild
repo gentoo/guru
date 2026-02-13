@@ -15,7 +15,7 @@ else
 fi
 
 DESCRIPTION="wayland compositor based on wlroots and scenefx(dwl but no suckless)"
-HOMEPAGE="https://github.com/DreamMaoMao/maomaowm.git"
+HOMEPAGE="https://github.com/DreamMaoMao/mangowc.git"
 
 LICENSE="CC0-1.0 GPL-3+ MIT"
 SLOT="0"
