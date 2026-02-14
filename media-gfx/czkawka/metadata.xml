@@ -5,6 +5,9 @@
         <email>sighunter@gmx.de</email>
         <name>Sebastian Engel</name>
     </maintainer>
+        <use>
+        <flag name="krokiet">Krokiet is the new Czkawka frontend written in Slint</flag>
+        </use>
     <upstream>
         <remote-id type="github">qarmin/czkawka</remote-id>
     </upstream>
