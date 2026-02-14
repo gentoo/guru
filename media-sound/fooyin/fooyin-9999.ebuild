@@ -31,6 +31,7 @@ REQUIRED_USE="
 RDEPEND="
 	dev-libs/icu:=
 	dev-libs/kdsingleapplication
+	dev-libs/qcoro[network]
 	dev-qt/qtbase:6[concurrent,dbus,gui,network,sql,widgets]
 	dev-qt/qtimageformats:6
 	dev-qt/qtsvg:6
@@ -56,24 +57,16 @@ src_prepare() {
 		-e '/option(BUILD_TESTING/aenable_testing()' \
 		|| die
 
-	sed \
-		-e "s#:/audio#data/audio#g" \
-		-i \
-			tests/tagwritertest.cpp \
-			tests/tagreadertest.cpp \
-		|| die
-
 	cmake_src_prepare
 }
 
-# libvgm and libgme dependencies can currently not be satisfied,
-# so building their input plugins is unconditionally disabled for now.
+# libgme dependency can currently not be satisfied,
+# so building the input plugin is unconditionally disabled for now
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_ALSA=$(usex alsa)
 		-DBUILD_TESTING=$(usex test)
 		-DBUILD_CCACHE=OFF
-		-DBUILD_LIBVGM=OFF
 		-DCMAKE_DISABLE_FIND_PACKAGE_LIBGME=ON
 		-DINSTALL_HEADERS=ON
 		$(cmake_use_find_package archive LibArchive)
@@ -85,11 +78,4 @@ src_configure() {
 	)
 
 	cmake_src_configure
-}
-
-src_test() {
-	mkdir -p "${BUILD_DIR}/tests/data" || die
-	ln -sr "${CMAKE_USE_DIR}/tests/data/audio" "${BUILD_DIR}/tests/data/audio" || die
-
-	cmake_src_test
 }
