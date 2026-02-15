@@ -73,7 +73,7 @@ CRATES="
 	serde_json@1.0.149
 	shlex@1.3.0
 	socket2@0.6.2
-	syn@2.0.115
+	syn@2.0.116
 	thiserror-impl@1.0.69
 	thiserror@1.0.69
 	tinytemplate@1.2.1
