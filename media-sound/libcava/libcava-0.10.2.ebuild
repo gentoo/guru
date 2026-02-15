@@ -44,7 +44,16 @@ src_prepare() {
 }
 
 src_configure() {
-		meson_src_configure
+	meson_src_configure
+}
+
+src_compile() {
+	mkdir -p "${BUILD_DIR}"/example_files || die
+	cp "${S}"/example_files/config "${BUILD_DIR}"/example_files/ || die
+	mkdir -p "${BUILD_DIR}"/src/output/shaders || die
+	cp "${S}"/src/output/shaders/* "${BUILD_DIR}"/src/output/shaders/ || die
+
+	meson_src_compile
 }
 
 pkg_postinst() {
