@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit edo toolchain-funcs
+inherit toolchain-funcs
 
 DESCRIPTION="Drop-in replacement and standalone version of xxd"
 HOMEPAGE="https://github.com/xyproto/tinyxxd"
@@ -19,26 +19,24 @@ LICENSE="|| ( GPL-2 MIT )"
 
 SLOT="0"
 
-IUSE="xxd"
+IUSE="xxd test"
+REQUIRED_USE="test? ( !xxd )"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	xxd? (
 		!<app-editors/vim-core-9.1.1652-r1
 		!dev-util/xxd
 	)
+	test? ( dev-util/xxd )
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-1.3.7-fix-flags.patch )
+PATCHES=( "${FILESDIR}/${PN}-1.3.11-fixes.patch" )
 
 src_compile() {
 	export CFLAGS LDFLAGS
 	tc-export CC
 	emake
-}
-
-src_test() {
-	edo ./testfiles/test13.sh
-	edo ./testfiles/test14.sh
 }
 
 src_install(){
