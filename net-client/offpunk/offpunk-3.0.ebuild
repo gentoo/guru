@@ -22,6 +22,8 @@ KEYWORDS="~amd64"
 
 DOCS=( CHANGELOG CONTRIBUTORS README.md )
 
+BDEPEND="sys-devel/gettext"
+
 EPYTEST_PLUGINS=( pytest-mock )
 
 distutils_enable_tests pytest
