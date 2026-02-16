@@ -78,7 +78,7 @@ CRATES="
 	thiserror@1.0.69
 	tinytemplate@1.2.1
 	toml@0.5.11
-	unicode-ident@1.0.23
+	unicode-ident@1.0.24
 	walkdir@2.5.0
 	wasm-bindgen-macro-support@0.2.108
 	wasm-bindgen-macro@0.2.108
