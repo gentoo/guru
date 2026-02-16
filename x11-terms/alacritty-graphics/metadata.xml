@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>jason@gantner.pw</email>
+		<name>Jason André Charles Gantner</name>
+	</maintainer>
+	<upstream>
+		<doc>https://github.com/alacritty/alacritty/wiki</doc>
+		<remote-id type="github">ayosec/alacritty</remote-id>
+	</upstream>
+</pkgmetadata>
