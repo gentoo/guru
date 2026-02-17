@@ -48,7 +48,7 @@ IUSE="discord faudio +llvm opencv vulkan wayland"
 DEPEND="
 	app-arch/7zip
 	app-arch/zstd
-	dev-libs/flatbuffers
+	>=dev-libs/protobuf-33.0.0
 	dev-libs/hidapi
 	dev-libs/libevdev
 	dev-libs/pugixml
@@ -140,7 +140,7 @@ src_configure() {
 		-DUSE_SYSTEM_CUBEB=ON
 		-DUSE_SYSTEM_CURL=ON
 		-DUSE_SYSTEM_FFMPEG=ON
-		-DUSE_SYSTEM_FLATBUFFERS=ON
+		-DUSE_SYSTEM_PROTOBUF=ON
 		-DUSE_SYSTEM_HIDAPI=ON
 		-DUSE_SYSTEM_LIBPNG=ON
 		-DUSE_SYSTEM_LIBUSB=ON
