@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,6 +21,7 @@ KEYWORDS="~amd64"
 
 PATCHES=(
 	"${FILESDIR}/remove-non-python-files-from-setup.patch"
+	"${FILESDIR}/fix-translations.patch"
 )
 
 RDEPEND="x11-libs/gtk+:3
@@ -35,6 +36,8 @@ $(python_gen_cond_dep '
 	dev-python/setuptools[${PYTHON_USEDEP}]
 ')
 virtual/udev"
+
+EPYTEST_PLUGINS=()
 
 distutils_enable_tests pytest
 
