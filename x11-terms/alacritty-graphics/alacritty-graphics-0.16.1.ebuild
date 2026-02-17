@@ -1,6 +1,4 @@
-# SPDX-License-Identifier: GPL-2.0
-# Copyright 2017-2025 Gentoo Authors
-# Copyright 2024-2025 Jason André Charles Gantner
+# Copyright 2017-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -297,7 +295,7 @@ CRATES="
 
 RUST_MIN_VERSION="1.85.0"
 
-inherit cargo desktop shell-completion
+inherit cargo desktop shell-completion eapi9-ver
 
 DESCRIPTION="GPU-accelerated terminal emulator with sixel support"
 HOMEPAGE="https://alacritty.org"
@@ -307,7 +305,7 @@ if [ ${PV} == "9999" ] ; then
 else
 	SRC_URI="https://github.com/ayosec/alacritty/archive/refs/tags/v${PV}-graphics.tar.gz -> ${P}.tar.gz
 		${CARGO_CRATE_URIS}"
-	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
+	KEYWORDS="~amd64"
 fi
 
 S="${WORKDIR}/alacritty-${PV}-graphics"
@@ -321,7 +319,7 @@ LICENSE+="
 
 SLOT="0"
 
-IUSE="+wayland X doc"
+IUSE="+wayland X"
 REQUIRED_USE="|| ( wayland X )"
 
 RESTRICT="mirror"
@@ -349,7 +347,6 @@ RDEPEND="${DEPEND}
 BDEPEND="
 	dev-build/cmake
 	app-text/scdoc
-	${RUST_DEPEND}
 "
 
 src_unpack() {
@@ -365,7 +362,7 @@ src_unpack() {
 
 src_configure() {
 	local myfeatures=(
-		$(usex X x11 '')
+		$(usev X x11)
 		$(usev wayland)
 	)
 	cargo_src_configure --no-default-features
@@ -379,6 +376,11 @@ src_compile() {
 
 	cd alacritty || die
 	cargo_src_compile
+}
+
+src_test() {
+	cd alacritty || die
+	cargo_src_test
 }
 
 src_install() {
@@ -403,22 +405,15 @@ src_install() {
 	insinto /usr/share/alacritty
 	doins -r scripts
 
-	if use doc; then
-		local DOCS=(
-			CHANGELOG.md
-			README.md
-		)
-		einstalldocs
-	fi
-}
-
-src_test() {
-	cd alacritty || die
-	cargo_src_test
+	local DOCS=(
+		CHANGELOG.md
+		README.md
+	)
+	einstalldocs
 }
 
 pkg_postinst() {
-	if [[ -z ${REPLACING_VERSIONS} ]]; then
+	if ver_replacing -ne "${PV}" ; then
 		einfo "Configuration files for ${CATEGORY}/${PN}"
 		einfo "in \$HOME often need to be updated after a version change"
 		einfo ""
