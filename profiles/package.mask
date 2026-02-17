@@ -86,11 +86,6 @@ sys-apps/qjournalctl
 dev-python/dataclasses-json
 dev-python/json-schema-for-humans
 
-# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-01-14)
-# Unmaintained upstream and increasingly outdated.
-# Removal on 2026-02-14
-dev-util/cmakelang
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2026-01-03)
 # Critical security vulnerabilities.
 <net-im/conduit-0.10.11
