@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,32 +19,44 @@ SLOT="0"
 KEYWORDS=""
 
 PATCHES=(
-	"${FILESDIR}/remove-non-python-files-from-setup.patch"
+	"${FILESDIR}/build-backend.patch"
+	"${FILESDIR}/mo-files.patch"
 )
 
 RDEPEND="x11-libs/gtk+:3
+sys-devel/gettext
 x11-libs/gtksourceview
 x11-apps/xmodmap
 $(python_gen_cond_dep '
 	dev-python/pygobject[${PYTHON_USEDEP}]
-	dev-python/pydbus[${PYTHON_USEDEP}]
+	dev-python/dasbus[${PYTHON_USEDEP}]
 	dev-python/pydantic[${PYTHON_USEDEP}]
 	dev-python/psutil[${PYTHON_USEDEP}]
 	>=dev-python/evdev-1.3.0[${PYTHON_USEDEP}]
-	dev-python/setuptools[${PYTHON_USEDEP}]
 ')
 virtual/udev"
 
+EPYTEST_PLUGINS=()
+
 distutils_enable_tests pytest
+
+src_compile() {
+	distutils-r1_src_compile
+
+	# With setup.py gone this needs to be manually executed.
+	# "mo-files.patch" makes language.py executable standalone
+	# and updates the output path to "${S}"/mo
+	python "${S}/install/language.py"
+}
 
 src_install() {
 	# Install data files
-	insinto /usr/share/input-remapper/
+	insinto /usr/share/inputremapper/
 	doins -r "${S}"/data/*
 
 	# Install lang files
-	insinto /usr/share/input-remapper/lang
-	doins -r "${S}"/mo/*
+	insinto /usr/share/inputremapper/lang
+	doins -r "${S}"/mo/lang/*
 
 	# Install udev rules
 	udev_dorules data/99-input-remapper.rules

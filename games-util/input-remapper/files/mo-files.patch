@@ -1,0 +1,21 @@
+diff --git a/install/language.py b/install/language.py
+index 93dbac8..9bc7cad 100644
+--- a/install/language.py
++++ b/install/language.py
+@@ -32,10 +32,7 @@ def make_lang(root: str) -> None:
+     for po_file in glob.glob("po/*.po"):
+         lang = splitext(basename(po_file))[0]
+         target = join(
+-            root,
+-            "usr",
+-            "share",
+-            "input-remapper",
++            "mo",
+             "lang",
+             lang,
+             "LC_MESSAGES",
+@@ -52,3 +49,4 @@ def make_lang(root: str) -> None:
+             ],
+             check=True,
+         )
++make_lang("");
