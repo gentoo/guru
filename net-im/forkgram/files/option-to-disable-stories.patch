@@ -1,0 +1,81 @@
+diff --git a/Telegram/SourceFiles/data/data_stories.cpp b/Telegram/SourceFiles/data/data_stories.cpp
+index d3baee3..04ee5a4 100644
+--- a/Telegram/SourceFiles/data/data_stories.cpp
++++ b/Telegram/SourceFiles/data/data_stories.cpp
+@@ -8,6 +8,7 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
+ #include "data/data_stories.h"
+
+ #include "base/unixtime.h"
++#include "base/options.h"
+ #include "apiwrap.h"
+ #include "core/application.h"
+ #include "data/data_changes.h"
+@@ -48,6 +49,14 @@ constexpr auto kPollingViewsPerPage = Story::kRecentViewersMax;
+
+ using UpdateFlag = StoryUpdate::Flag;
+
++base::options::toggle DisableStories({
++	.id = kOptionDisableStories,
++	.name = "Disable stories",
++	.description = "",
++	.defaultValue = false,
++});
++
++
+ [[nodiscard]] std::optional<StoryMedia> ParseMedia(
+ 		not_null<Session*> owner,
+ 		const MTPMessageMedia &media) {
+@@ -95,6 +104,8 @@ using UpdateFlag = StoryUpdate::Flag;
+
+ } // namespace
+
++const char kOptionDisableStories[] = "disable-stories";
++
+ StoriesSourceInfo StoriesSource::info() const {
+ 	return {
+ 		.id = peer->id,
+@@ -534,6 +534,11 @@ Story *Stories::parseAndApply(
+ 		not_null<PeerData*> peer,
+ 		const MTPDstoryItem &data,
+ 		TimeId now) {
++
++  if (DisableStories.value()) {
++    return nullptr;
++  }
++
+ 	const auto id = data.vid().v;
+ 	const auto fullId = FullStoryId{ peer->id, id };
+ 	auto &stories = _stories[peer->id];
+diff --git a/Telegram/SourceFiles/data/data_stories.h b/Telegram/SourceFiles/data/data_stories.h
+index 1cc3bb3..b42ef79 100644
+--- a/Telegram/SourceFiles/data/data_stories.h
++++ b/Telegram/SourceFiles/data/data_stories.h
+@@ -30,6 +30,8 @@ struct StoryIdDates;
+ class Story;
+ class StoryPreload;
+
++extern const char kOptionDisableStories[];
++
+ struct StoriesIds {
+ 	base::flat_set<StoryId, std::greater<>> list;
+
+diff --git a/Telegram/SourceFiles/settings/settings_experimental.cpp b/Telegram/SourceFiles/settings/settings_experimental.cpp
+index 3b9a5a0..2f9ad4d 100644
+--- a/Telegram/SourceFiles/settings/settings_experimental.cpp
++++ b/Telegram/SourceFiles/settings/settings_experimental.cpp
+@@ -19,6 +19,7 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
+ #include "core/sandbox.h"
+ #include "core/launcher.h"
+ #include "chat_helpers/tabbed_panel.h"
++#include "data/data_stories.h";
+ #include "dialogs/dialogs_widget.h"
+ #include "info/profile/info_profile_actions.h"
+ #include "lang/lang_keys.h"
+@@ -142,5 +143,6 @@ void SetupExperimental(
+ 				: rpl::producer<>()));
+ 	};
+
++	addToggle(Data::kOptionDisableStories);
+ 	addToggle(ChatHelpers::kOptionTabbedPanelShowOnClick);
+ 	addToggle(Dialogs::kOptionForumHideChatsList);
+ 	addToggle(Core::kOptionFractionalScalingEnabled);

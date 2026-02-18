@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>bip125@yandex.com</email>
+		<name>bip125</name>
+	</maintainer>
+	<longdescription>
+		Forkgram is a fork of the official Telegram Desktop application.
+		It does not fundamentally change the official client but adds
+		small useful features such as optional stories, pin management
+		improvements, and restrictions on invite peeking and saving.
+	</longdescription>
+	<use>
+		<flag name="dbus">Enable D-Bus support for desktop integration</flag>
+		<flag name="enchant">Use app-text/enchant spell-checking backend instead of app-text/hunspell</flag>
+		<flag name="fonts">Use built-in patched copy of open-sans fonts (overrides fontconfig)</flag>
+		<flag name="libdispatch">Use dev-libs/libdispatch for better thread pool performance</flag>
+		<flag name="screencast">Enable screencasting support via media-libs/tg_owt</flag>
+		<flag name="webkit">Enable WebKit-based in-app browser (requires USE=wayland)</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">forkgram/tdesktop</remote-id>
+		<bugs-to>https://github.com/forkgram/tdesktop/issues</bugs-to>
+		<changelog>https://github.com/forkgram/tdesktop/releases</changelog>
+	</upstream>
+</pkgmetadata>

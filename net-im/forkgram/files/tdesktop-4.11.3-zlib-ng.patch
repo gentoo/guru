@@ -1,0 +1,53 @@
+diff -up tdesktop-4.15.6-full/Telegram/SourceFiles/core/crash_report_window.cpp tdesktop-4.15.6-full/Telegram/SourceFiles/core/crash_report_window.cpp
+diff -up tdesktop-4.15.6-full/Telegram/SourceFiles/payments/ui/payments_panel.cpp tdesktop-4.15.6-full/Telegram/SourceFiles/payments/ui/payments_panel.cpp
+--- a/Telegram/SourceFiles/payments/ui/payments_panel.cpp	2024-03-25 14:47:53.000000000 +0100
++++ b/Telegram/SourceFiles/payments/ui/payments_panel.cpp	2024-03-31 00:43:45.915381497 +0100
+@@ -25,6 +25,7 @@ https://github.com/telegramdesktop/tdesk
+ #include "webview/webview_interface.h"
+ #include "styles/style_payments.h"
+ #include "styles/style_layers.h"
++#include <QJsonDocument>
+ 
+ namespace Payments::Ui {
+ namespace {
+diff -up tdesktop-4.15.6-full/Telegram/SourceFiles/window/themes/window_theme_editor_box.cpp tdesktop-4.15.6-full/Telegram/SourceFiles/window/themes/window_theme_editor_box.cpp
+--- a/Telegram/SourceFiles/window/themes/window_theme_editor_box.cpp	2024-03-25 14:47:53.000000000 +0100
++++ b/Telegram/SourceFiles/window/themes/window_theme_editor_box.cpp	2024-03-31 00:43:45.915381497 +0100
+@@ -49,6 +49,10 @@ https://github.com/telegramdesktop/tdesk
+ 
+ #include <QtCore/QBuffer>
+ 
++#ifndef Z_DEFAULT_COMPRESSION
++#define Z_DEFAULT_COMPRESSION (-1)
++#endif
++
+ namespace Window {
+ namespace Theme {
+ namespace {
+diff -up tdesktop-4.15.6-full/Telegram/lib_base/base/zlib_help.h tdesktop-4.15.6-full/Telegram/lib_base/base/zlib_help.h
+--- a/Telegram/lib_base/base/zlib_help.h	2024-03-24 14:05:37.000000000 +0100
++++ b/Telegram/lib_base/base/zlib_help.h	2024-03-31 00:43:45.915381497 +0100
+@@ -14,6 +14,11 @@
+ #undef small
+ #endif // small
+ 
++typedef void* voidp;
++typedef void* voidpf;
++typedef unsigned int uInt;
++typedef unsigned long uLong;
++
+ namespace zlib {
+ namespace internal {
+ 
+diff -up tdesktop-4.15.6-full/Telegram/SourceFiles/core/crash_report_window.cpp.omv~ tdesktop-4.15.6-full/Telegram/SourceFiles/core/crash_report_window.cpp
+--- a/Telegram/SourceFiles/core/crash_report_window.cpp.omv~	2024-03-31 01:26:39.209532819 +0100
++++ b/Telegram/SourceFiles/core/crash_report_window.cpp	2024-03-31 01:26:48.785630918 +0100
+@@ -23,6 +23,8 @@ https://github.com/telegramdesktop/tdesk
+ #include <QtCore/QStandardPaths>
+ #include <QtCore/QTimer>
+ 
++#define Z_DEFAULT_COMPRESSION (-1)
++
+ namespace {
+ 
+ constexpr auto kDefaultProxyPort = 80;

@@ -1,0 +1,24 @@
+diff -up tdesktop-4.11.3-full/Telegram/ThirdParty/tgcalls/tgcalls/desktop_capturer/DesktopCaptureSourceHelper.cpp.omv~ tdesktop-4.11.3-full/Telegram/ThirdParty/tgcalls/tgcalls/desktop_capturer/DesktopCaptureSourceHelper.cpp
+--- tdesktop-4.11.3-full/Telegram/ThirdParty/tgcalls/tgcalls/desktop_capturer/DesktopCaptureSourceHelper.cpp.omv~	2023-11-03 00:20:24.015400091 +0100
++++ tdesktop-4.11.3-full/Telegram/ThirdParty/tgcalls/tgcalls/desktop_capturer/DesktopCaptureSourceHelper.cpp	2023-11-03 00:20:31.887272290 +0100
+@@ -24,7 +24,7 @@
+ #include "modules/desktop_capture/desktop_capturer.h"
+ #include "system_wrappers/include/clock.h"
+ #include "api/video/i420_buffer.h"
+-#include "third_party/libyuv/include/libyuv.h"
++#include <libyuv.h>
+ 
+ #ifdef WEBRTC_MAC
+ #import <QuartzCore/QuartzCore.h>
+diff -up tdesktop-4.11.3-full/Telegram/ThirdParty/tgcalls/tgcalls/desktop_capturer/DesktopCaptureSourceManager.cpp.omv~ tdesktop-4.11.3-full/Telegram/ThirdParty/tgcalls/tgcalls/desktop_capturer/DesktopCaptureSourceManager.cpp
+--- tdesktop-4.11.3-full/Telegram/ThirdParty/tgcalls/tgcalls/desktop_capturer/DesktopCaptureSourceManager.cpp.omv~	2023-11-03 00:21:18.732578616 +0100
++++ tdesktop-4.11.3-full/Telegram/ThirdParty/tgcalls/tgcalls/desktop_capturer/DesktopCaptureSourceManager.cpp	2023-11-03 00:21:26.263477359 +0100
+@@ -10,7 +10,7 @@
+ 
+ #include "modules/desktop_capture/desktop_and_cursor_composer.h"
+ #include "modules/desktop_capture/desktop_capturer_differ_wrapper.h"
+-#include "third_party/libyuv/include/libyuv.h"
++#include <libyuv.h>
+ #include "api/video/i420_buffer.h"
+ #include "tgcalls/desktop_capturer/DesktopCaptureSourceHelper.h"
+ 
