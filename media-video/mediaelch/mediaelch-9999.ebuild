@@ -1,4 +1,4 @@
-# Copyright 2021-223 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,29 +25,15 @@ fi
 
 LICENSE="LGPL-3"
 SLOT="0"
-IUSE="debug qt5 +qt6 lto"
-REQUIRED_USE="|| ( qt5 qt6 )"
+IUSE="debug lto"
 
-DEPEND="dev-libs/quazip[qt5?,qt6]
-	qt5? (
-		dev-qt/qtconcurrent:5
-		dev-qt/qtcore:5
-		dev-qt/qtdeclarative:5
-		dev-qt/qtgui:5
-		dev-qt/qtmultimedia:5[widgets]
-		dev-qt/qtopengl:5
-		dev-qt/qtsql:5
-		dev-qt/qtsvg:5
-		dev-qt/qtxmlpatterns:5
-	)
-	qt6? (
-		dev-qt/qt5compat:6
-		dev-qt/qtbase:6[concurrent,gui,opengl,sql,widgets,xml]
-		dev-qt/qtdeclarative:6
-		dev-qt/qtmultimedia:6
-		dev-qt/qtsvg:6
-		dev-qt/qttools:6
-	)
+DEPEND="dev-libs/quazip
+	dev-qt/qt5compat:6
+	dev-qt/qtbase:6[concurrent,gui,opengl,sql,widgets,xml]
+	dev-qt/qtdeclarative:6
+	dev-qt/qtmultimedia:6
+	dev-qt/qtsvg:6
+	dev-qt/qttools:6
 	media-video/ffmpeg
 	media-video/mediainfo
 	x11-libs/libxkbcommon"
@@ -68,9 +54,7 @@ src_configure() {
 
 	mycmakeargs+=("-DCMAKE_C_FLAGS=${CFLAGS}")
 	mycmakeargs+=("-DCMAKE_CXX_FLAGS=${CXXFLAGS}")
-
-	use qt5 && mycmakeargs+=("-DMEDIAELCH_FORCE_QT5=ON")
-	use qt6 && mycmakeargs+=("-DMEDIAELCH_FORCE_QT6=ON")
+	mycmakeargs+=("-DMEDIAELCH_FORCE_QT6=ON")
 
 	use lto && mycmakeargs+=("-DENABLE_LTO=ON")
 
