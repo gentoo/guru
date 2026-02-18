@@ -29,8 +29,10 @@ SRC_URI="
 	https://fonts.gstatic.com/s/googlesans/v67/4Ua9rENHsxJlGDuGo1OIlL3L2JB874GPhFI9_IqmuRqGpjeaLi42kO8QvnQOs5beU3yksanMY3MhpyzAFyo5T4o.ttf -> GoogleSans-MediumItalic-${PV}.ttf
 	https://fonts.gstatic.com/s/googlesans/v67/4Ua9rENHsxJlGDuGo1OIlL3L2JB874GPhFI9_IqmuRqGpjeaLi42kO8QvnQOs5beU3yksanMY58mpyzAFyo5T4o.ttf -> GoogleSans-SemiBoldItalic-${PV}.ttf
 	https://fonts.gstatic.com/s/googlesans/v67/4Ua9rENHsxJlGDuGo1OIlL3L2JB874GPhFI9_IqmuRqGpjeaLi42kO8QvnQOs5beU3yksanMY6YmpyzAFyo5T4o.ttf -> GoogleSans-BoldItalic-${PV}.ttf
-	https://fonts.gstatic.com/s/googlesans/v67/4UaGrENHsxJlGDuGo1OIlI3JyJ98KhtH.ttf -> GoogleSans-VariableFont_GRAD,opsz,wght-${PV}.ttf
-	https://fonts.gstatic.com/s/googlesans/v67/4UaErENHsxJlGDuGo1OIlL3LwpteLwtHJlc.ttf -> GoogleSans-Italic-VariableFont_GRAD,opsz,wght-${PV}.ttf
+	https://fonts.gstatic.com/s/googlesans/v67/4UaGrENHsxJlGDuGo1OIlI3JyJ98KhtH.ttf
+		-> GoogleSans-VariableFont_GRAD,opsz,wght-${PV}.ttf
+	https://fonts.gstatic.com/s/googlesans/v67/4UaErENHsxJlGDuGo1OIlL3LwpteLwtHJlc.ttf
+		-> GoogleSans-Italic-VariableFont_GRAD,opsz,wght-${PV}.ttf
 "
 
 S="${DISTDIR}"
