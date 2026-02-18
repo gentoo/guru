@@ -1,0 +1,112 @@
+EAPI=8
+
+CRATES="
+	anstream@0.6.21
+	anstyle-parse@0.2.7
+	anstyle-query@1.1.5
+	anstyle-wincon@3.0.11
+	anstyle@1.0.13
+	anyhow@1.0.101
+	bitflags@2.10.0
+	cfg-if@1.0.4
+	clap@4.5.57
+	clap_builder@4.5.57
+	clap_derive@4.5.55
+	clap_lex@0.7.7
+	colorchoice@1.0.4
+	dirs-sys@0.4.1
+	dirs@5.0.1
+	equivalent@1.0.2
+	errno@0.3.14
+	fastrand@2.3.0
+	foldhash@0.1.5
+	fslock@0.2.1
+	getrandom@0.2.17
+	getrandom@0.4.1
+	hashbrown@0.15.5
+	hashbrown@0.16.1
+	heck@0.5.0
+	id-arena@2.3.0
+	indexmap@2.13.0
+	is_terminal_polyfill@1.70.2
+	itoa@1.0.17
+	leb128fmt@0.1.0
+	libc@0.2.180
+	libredox@0.1.12
+	linux-raw-sys@0.11.0
+	log@0.4.29
+	memchr@2.8.0
+	niri-ipc@25.11.0
+	once_cell@1.21.3
+	once_cell_polyfill@1.70.2
+	option-ext@0.2.0
+	prettyplease@0.2.37
+	proc-macro2@1.0.106
+	quote@1.0.44
+	r-efi@5.3.0
+	redox_users@0.4.6
+	rustix@1.1.3
+	semver@1.0.27
+	serde@1.0.228
+	serde_core@1.0.228
+	serde_derive@1.0.228
+	serde_json@1.0.149
+	serde_spanned@1.0.4
+	strsim@0.11.1
+	syn@2.0.114
+	tempfile@3.25.0
+	thiserror-impl@1.0.69
+	thiserror@1.0.69
+	toml@0.9.11+spec-1.1.0
+	toml_datetime@0.7.5+spec-1.1.0
+	toml_parser@1.0.6+spec-1.1.0
+	toml_writer@1.0.6+spec-1.1.0
+	unicode-ident@1.0.22
+	unicode-xid@0.2.6
+	utf8parse@0.2.2
+	wasi@0.11.1+wasi-snapshot-preview1
+	wasip2@1.0.2+wasi-0.2.9
+	wasip3@0.4.0+wasi-0.3.0-rc-2026-01-06
+	wasm-encoder@0.244.0
+	wasm-metadata@0.244.0
+	wasmparser@0.244.0
+	winapi-i686-pc-windows-gnu@0.4.0
+	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9
+	windows-link@0.2.1
+	windows-sys@0.48.0
+	windows-sys@0.61.2
+	windows-targets@0.48.5
+	windows_aarch64_gnullvm@0.48.5
+	windows_aarch64_msvc@0.48.5
+	windows_i686_gnu@0.48.5
+	windows_i686_msvc@0.48.5
+	windows_x86_64_gnu@0.48.5
+	windows_x86_64_gnullvm@0.48.5
+	windows_x86_64_msvc@0.48.5
+	winnow@0.7.14
+	wit-bindgen-core@0.51.0
+	wit-bindgen-rust-macro@0.51.0
+	wit-bindgen-rust@0.51.0
+	wit-bindgen@0.51.0
+	wit-component@0.244.0
+	wit-parser@0.244.0
+	zmij@1.0.19
+"
+
+inherit cargo
+
+DESCRIPTION="A lightweight, external sidebar manager for the Niri window manager. "
+HOMEPAGE="https://github.com/Vigintillionn/niri-sidebar"
+SRC_URI="
+	${CARGO_CRATE_URIS}
+	https://github.com/Vigintillionn/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.xz
+"
+
+RUST_MIN_VER="1.87.0"
+
+LICENSE="MIT"
+# Dependent crate licenses
+LICENSE+=" GPL-3+ MIT MPL-2.0 Unicode-3.0 ZLIB"
+SLOT="0"
+KEYWORDS="~amd64"
