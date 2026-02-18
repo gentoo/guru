@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -50,8 +50,9 @@ src_configure() {
 src_compile() {
 	mkdir -p "${BUILD_DIR}"/example_files || die
 	cp "${S}"/example_files/config "${BUILD_DIR}"/example_files/ || die
-	mkdir -p "${BUILD_DIR}"/src/output/shaders || die
+	mkdir -p "${BUILD_DIR}"/src/output/{shaders,themes} || die
 	cp "${S}"/src/output/shaders/* "${BUILD_DIR}"/src/output/shaders/ || die
+	cp "${S}"/src/output/themes/* "${BUILD_DIR}"/src/output/themes/ || die
 
 	meson_src_compile
 }
