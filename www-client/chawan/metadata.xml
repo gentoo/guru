@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>ingenarel_neojesus@disroot.org</email>
+    <name>ingenarel</name>
+  </maintainer>
+  <longdescription>
+    Chawan is a text-mode web browser and pager for Unix-like systems, with a focus on implementing modern web standards
+    while remaining self-contained, easy to understand and extensible. It includes functionality like CSS, inline images
+    inside the terminal, and JavaScript through a small, independent browser engine. Most of Chawan has been developed
+    from scratch in the memory-safe Nim programming language. Supports HTTP(S), SFTP (using libssh2), FTP, Gopher,
+    Gemini, Finger, Spartan, and user defined protocols
+  </longdescription>
+<upstream>
+  <remote-id type="sourcehut">~bptato/chawan</remote-id>
+</upstream>
+</pkgmetadata>

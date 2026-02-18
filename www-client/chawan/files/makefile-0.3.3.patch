@@ -1,0 +1,31 @@
+diff --git a/Makefile b/Makefile
+index d64c406a..874b7d4e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -4,7 +4,7 @@ NIMC ?= $(NIM) c
+ OBJDIR ?= .obj
+ OUTDIR ?= target
+ # These paths are quoted in recipes.
+-PREFIX ?= /usr/local
++PREFIX ?= /usr
+ MANPREFIX ?= $(PREFIX)/share/man
+ MANPREFIX1 ?= $(MANPREFIX)/man1
+ MANPREFIX5 ?= $(MANPREFIX)/man5
+@@ -50,16 +50,7 @@ OUTDIR_MAN = $(OUTDIR_TARGET)/share/man
+ # platform-specific adjustments.
+ FORCE_POLL_MODE ?= 0
+ 
+-# Nim compiler flags
+-ifeq ($(TARGET),debug)
+-FLAGS += -d:debug --debugger:native
+-else ifeq ($(TARGET),release)
+-FLAGS += -d:release -d:strip -d:lto
+-else ifeq ($(TARGET),release0)
+-FLAGS += -d:release --stacktrace:on
+-else ifeq ($(TARGET),release1)
+-FLAGS += -d:release --debugger:native
+-endif
++FLAGS += -d:release
+ 
+ ssl_link = http gemini sftp
+ tohtml_link = gopher2html md2html ansi2html gmi2html dirlist2html img2html
