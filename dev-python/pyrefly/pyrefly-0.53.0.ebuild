@@ -28,7 +28,7 @@ CRATES="
 	argfile@0.2.1
 	arrayref@0.3.9
 	arrayvec@0.7.6
-	atomic@0.5.1
+	atomic@0.5.3
 	attribute-derive-macro@0.10.3
 	attribute-derive@0.10.3
 	autocfg@1.1.0
@@ -39,7 +39,7 @@ CRATES="
 	blake3@1.8.2
 	block-buffer@0.10.2
 	bstr@1.12.1
-	bumpalo@3.16.0
+	bumpalo@3.19.1
 	byteorder@1.5.0
 	bytes@1.11.1
 	castaway@0.2.4
@@ -60,7 +60,7 @@ CRATES="
 	console_error_panic_hook@0.1.7
 	const-str@0.4.3
 	constant_time_eq@0.3.1
-	convert_case@0.10.0
+	convert_case@0.11.0
 	core-foundation-sys@0.8.7
 	cpufeatures@0.2.17
 	crossbeam-channel@0.5.15
@@ -83,14 +83,14 @@ CRATES="
 	dyn-clone@1.0.20
 	either@1.15.0
 	encode_unicode@1.0.0
-	enum-iterator-derive@1.4.0
-	enum-iterator@2.1.0
+	enum-iterator-derive@1.5.0
+	enum-iterator@2.3.0
 	env_logger@0.8.4
-	equivalent@1.0.0
+	equivalent@1.0.2
 	errno@0.3.10
 	faster-hex@0.6.1
 	fastrand@2.3.0
-	filetime@0.2.25
+	filetime@0.2.27
 	find-msvc-tools@0.1.5
 	fnv@1.0.7
 	foldhash@0.1.5
@@ -207,7 +207,7 @@ CRATES="
 	pathdiff@0.2.3
 	percent-encoding@2.3.2
 	phf@0.11.3
-	phf_codegen@0.11.2
+	phf_codegen@0.11.3
 	phf_generator@0.11.1
 	phf_shared@0.11.3
 	pin-project-lite@0.2.16
@@ -222,7 +222,8 @@ CRATES="
 	prost-derive@0.11.9
 	prost-types@0.11.9
 	prost@0.11.9
-	pulldown-cmark@0.9.6
+	pulldown-cmark-escape@0.11.0
+	pulldown-cmark@0.13.0
 	quote-use-macros@0.8.4
 	quote-use@0.8.4
 	quote@1.0.44
@@ -341,7 +342,7 @@ CRATES="
 	uuid-rng-internal@1.19.0
 	uuid@1.19.0
 	valuable@0.1.1
-	vec1@1.10.1
+	vec1@1.12.1
 	version_check@0.9.5
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
@@ -358,13 +359,12 @@ CRATES="
 	winapi-util@0.1.11
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
-	windows-core@0.61.2
-	windows-implement@0.60.0
-	windows-interface@0.59.1
-	windows-link@0.1.1
+	windows-core@0.62.2
+	windows-implement@0.60.2
+	windows-interface@0.59.3
 	windows-link@0.2.1
-	windows-result@0.3.4
-	windows-strings@0.4.2
+	windows-result@0.4.1
+	windows-strings@0.5.1
 	windows-sys@0.48.0
 	windows-sys@0.52.0
 	windows-sys@0.59.0
