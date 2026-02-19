@@ -1,9 +1,9 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-LLVM_COMPAT=( {15..20} )
+LLVM_COMPAT=( {16..21} )
 RUST_MIN_VER="1.85.0"
 
 inherit cargo git-r3 llvm-r2 systemd

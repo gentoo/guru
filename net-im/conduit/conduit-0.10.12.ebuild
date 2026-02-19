@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -446,7 +446,7 @@ declare -A GIT_CRATES=(
 	[ruma]='https://github.com/ruma/ruma;d879f7df16ba9928a73649f8149dabeee939691e;ruma-%commit%/crates/ruma'
 )
 
-LLVM_COMPAT=( {15..20} )
+LLVM_COMPAT=( {16..21} )
 RUST_MIN_VER="1.85.0"
 
 inherit cargo llvm-r2 systemd
