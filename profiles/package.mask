@@ -79,13 +79,6 @@ media-sound/6pm
 media-sound/add64
 sys-apps/qjournalctl
 
-# Nicolas PARLANT <nicolas.parlant@parhuet.fr> (2026-01-15)
-# Used to generate docs for knot-resolver, it's no longer required now.
-# No revdep
-# Removal on 2026-02-15
-dev-python/dataclasses-json
-dev-python/json-schema-for-humans
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2026-01-03)
 # Critical security vulnerabilities.
 <net-im/conduit-0.10.11
