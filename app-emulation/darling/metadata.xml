@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>thysupremematrix@tuta.io</email>
+    <name>Abishek Jakkala</name>
+  </maintainer>
+
+  <upstream>
+    <remote-id type="github">thonny/thonny</remote-id>
+    <bugs-to>https://github.com/darlinghq/darling/issues</bugs-to>
+    <changelog>https://github.com/darlinghq/darling/releases</changelog>
+  </upstream>
+
+  <longdescription>
+    Darling is a runtime environment for macOS applications that
+    supports most command line tools and some GUI applications
+    for macOS.
+  </longdescription>
+</pkgmetadata>
