@@ -13,7 +13,7 @@ inherit chromium-2 eapi9-pipestatus optfeature pax-utils unpacker verify-sig xdg
 
 BASE_SRC_URI="https://us-central1-apt.pkg.dev/projects/antigravity-auto-updater-dev/pool/antigravity-debian"
 
-# See ${BASE_SRC_URI}/main/binary-${ARCH}/Packages
+# See ${BASE_SRC_URI/pool/dists}/main/binary-${ARCH}/Packages
 BUILD_ID_AMD64="1771473975"
 BUILD_ID_ARM64="1771473972"
 DEB_HASH_AMD64="bec6f978ba7532ab369d8234b1e87c15"
@@ -97,8 +97,8 @@ src_unpack() {
 
 		# Verify APT chain of trust:
 		# InRelease (signed) -> Packages (checksum) -> .deb (checksum)
-		# ${BASE_SRC_URI}/InRelease
-		# ${BASE_SRC_URI}/main/binary-${ARCH}/Packages
+		# ${BASE_SRC_URI/pool/dists}/InRelease
+		# ${BASE_SRC_URI/pool/dists}/main/binary-${ARCH}/Packages
 		verify-sig_verify_message InRelease - \
 			| sed "s,[0-9]\+ main/binary-${ARCH}.*,Packages.${ARCH}," \
 			| verify-sig_verify_unsigned_checksums - sha256 Packages.${ARCH}
