@@ -393,13 +393,24 @@ pkg_pretend(){
 	CHECKREQS_DISK_BUILD="16G"
 	CHECKREQS_MEMORY="4G"
 
-	check-reqs_pkg_setup
+	check-reqs_pkg_pretend
 }
 
 pkg_setup(){
-	pkg_pretend
+	# https://unix.stackexchange.com/questions/131954/check-sse3-support-from-bash
+	if ! grep -qE '^flags.* (sse3|pni)' /proc/cpuinfo; then
+		eerror "darling requires a cpu with support of the sse3 instruction set"
+		die "cpu doesn't support sse3 instruction set"
+	fi
+
+	if kernel_is -lt 5 0; then
+		eerror "darling requires Linux kernel 5.0 or newer to be installed"
+		die "darling requires Linux kernel 5.0 or newer"
+	fi
+
 	CHECKREQS_DISK_BUILD="16G"
 	CHECKREQS_MEMORY="4G"
+
 	check-reqs_pkg_setup
 	python-any-r1_pkg_setup
 }
