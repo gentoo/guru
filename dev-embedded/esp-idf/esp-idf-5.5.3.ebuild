@@ -47,6 +47,7 @@ BDEPEND="app-arch/unzip"
 RDEPEND="
 	${PYTHON_DEPS}
 
+	dev-build/cmake
 	dev-libs/libusb:1
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/pyserial[${PYTHON_USEDEP}]
@@ -55,6 +56,7 @@ RDEPEND="
 	dev-python/pyelftools[${PYTHON_USEDEP}]
 	dev-embedded/esp-coredump[${PYTHON_USEDEP}]
 	dev-embedded/esptool
+	dev-embedded/esp-idf-diag[${PYTHON_USEDEP}]
 	dev-embedded/esp-idf-kconfig[${PYTHON_USEDEP}]
 	dev-embedded/esp-idf-monitor[${PYTHON_USEDEP}]
 	dev-embedded/esp-idf-nvs-partition-gen[${PYTHON_USEDEP}]
