@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>glcbofs@proton.me</email>
+		<name>gabizinho</name>
+		<description>Maintainer</description>
+	</maintainer>
+	<upstream>
+		<maintainer status="active">
+			<email>glcbofs@proton.me</email>
+			<name>gabizinho</name>
+		</maintainer>
+		<bugs-to>https://gitlab.archlinux.org/gabizinho/blindpaste/-/issues</bugs-to>
+		<doc>https://projectgrid.net/portfolio/blindpaste</doc>
+	</upstream>
+	<longdescription>
+		A TUI blackboard for quick note taking, text stream editing and expressions matching.
+		It can be used as a stand-alone command, in pipes, as a file editor and as stream editor.
+	</longdescription>
+</pkgmetadata>
