@@ -3,7 +3,11 @@
 <pkgmetadata>
 	<maintainer type="person">
 		<email>julien@jroy.ca</email>
-		<description>Julien Roy</description>
+		<name>Julien Roy</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
 	</maintainer>
 	<upstream>
 		<maintainer>
