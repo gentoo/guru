@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>ingenarel_neojesus@disroot.org</email>
+    <name>ingenarel</name>
+  </maintainer>
+  <longdescription>
+    This small application allows Tridactyl to communicate with your system, allowing Tridactyl to read files on your
+    computer, including "RC" configuration files; write files to your computer launch applications, including opening
+    about:* tabs in Firefox and generally do arbitrary stuff in userspace. It therefore greatly increases the amount of
+    damage bugs in Tridactyl can do to your machine, although, arguably, not to your life, since almost all of that is
+    on the internet anyway.
+  </longdescription>
+<upstream>
+  <remote-id type="github">tridactyl/native_messenger</remote-id>
+</upstream>
+</pkgmetadata>
