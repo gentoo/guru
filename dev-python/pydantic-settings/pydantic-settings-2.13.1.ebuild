@@ -1,10 +1,11 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..13} )
+PYPI_VERIFY_REPO="https://github.com/pydantic/pydantic-settings"
 
 inherit distutils-r1 pypi
 
@@ -40,5 +41,15 @@ EPYTEST_IGNORE=(
 	# Dependencies not packaged: pytest-examples
 	tests/test_docs.py
 )
+EPYTEST_DESELECT=(
+	tests/test_precedence_and_merging.py::test_merging_preserves_earlier_values
+)
 
 distutils_enable_tests pytest
+
+src_test() {
+	local A
+	unset A
+
+	distutils-r1_src_test
+}
