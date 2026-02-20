@@ -9,7 +9,7 @@
 EAPI=8
 PYTHON_COMPAT=( python3_{10..14} )
 
-inherit cmake flag-o-matic python-any-r1 check-reqs linux-info
+inherit cmake python-any-r1 check-reqs linux-info
 
 DESCRIPTION="Translation layer for running macOS software on Linux"
 HOMEPAGE="https://www.darlinghq.org"
