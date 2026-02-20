@@ -24,18 +24,20 @@ PATCHES=(
 	"${FILESDIR}/fix-translations.patch"
 )
 
-RDEPEND="x11-libs/gtk+:3
-x11-libs/gtksourceview
-x11-apps/xmodmap
-$(python_gen_cond_dep '
-	dev-python/pygobject[${PYTHON_USEDEP}]
-	dev-python/pydbus[${PYTHON_USEDEP}]
-	dev-python/pydantic[${PYTHON_USEDEP}]
-	dev-python/psutil[${PYTHON_USEDEP}]
-	>=dev-python/evdev-1.3.0[${PYTHON_USEDEP}]
-	dev-python/setuptools[${PYTHON_USEDEP}]
-')
-virtual/udev"
+RDEPEND="
+	x11-libs/gtk+:3
+	x11-libs/gtksourceview
+	x11-apps/xmodmap
+	$(python_gen_cond_dep '
+		dev-python/pygobject[${PYTHON_USEDEP}]
+		dev-python/pydbus[${PYTHON_USEDEP}]
+		dev-python/pydantic[${PYTHON_USEDEP}]
+		dev-python/psutil[${PYTHON_USEDEP}]
+		>=dev-python/evdev-1.3.0[${PYTHON_USEDEP}]
+		dev-python/setuptools[${PYTHON_USEDEP}]
+	')
+	virtual/udev
+"
 
 EPYTEST_PLUGINS=()
 

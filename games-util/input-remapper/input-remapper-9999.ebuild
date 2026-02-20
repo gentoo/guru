@@ -23,18 +23,20 @@ PATCHES=(
 	"${FILESDIR}/mo-files.patch"
 )
 
-RDEPEND="x11-libs/gtk+:3
-sys-devel/gettext
-x11-libs/gtksourceview
-x11-apps/xmodmap
-$(python_gen_cond_dep '
-	dev-python/pygobject[${PYTHON_USEDEP}]
-	dev-python/dasbus[${PYTHON_USEDEP}]
-	dev-python/pydantic[${PYTHON_USEDEP}]
-	dev-python/psutil[${PYTHON_USEDEP}]
-	>=dev-python/evdev-1.3.0[${PYTHON_USEDEP}]
-')
-virtual/udev"
+RDEPEND="
+	x11-libs/gtk+:3
+	sys-devel/gettext
+	x11-libs/gtksourceview
+	x11-apps/xmodmap
+	$(python_gen_cond_dep '
+		dev-python/pygobject[${PYTHON_USEDEP}]
+		dev-python/dasbus[${PYTHON_USEDEP}]
+		dev-python/pydantic[${PYTHON_USEDEP}]
+		dev-python/psutil[${PYTHON_USEDEP}]
+		>=dev-python/evdev-1.3.0[${PYTHON_USEDEP}]
+	')
+	virtual/udev
+"
 
 EPYTEST_PLUGINS=()
 
