@@ -5,6 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{12..13} )
+PYPI_VERIFY_REPO="https://github.com/callowayproject/bump-my-version"
 inherit click-app distutils-r1 pypi
 
 DESCRIPTION="Version bump your Python project"
