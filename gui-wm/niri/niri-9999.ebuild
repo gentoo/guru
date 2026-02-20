@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -145,8 +145,9 @@ src_test() {
 }
 
 pkg_postinst() {
-	optfeature "Default application launcher" "gui-apps/fuzzel"
-	optfeature "Default status bar" "gui-apps/waybar"
-	optfeature "Default terminal" "x11-terms/alacritty"
 	optfeature "Xwayland support" "gui-apps/xwayland-satellite"
+	optfeature_header "Default applications"
+	optfeature "Application launcher" "gui-apps/fuzzel"
+	optfeature "Status bar" "gui-apps/waybar"
+	optfeature "Terminal" "x11-terms/alacritty"
 }
