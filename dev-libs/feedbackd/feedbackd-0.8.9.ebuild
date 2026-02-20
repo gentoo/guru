@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ VALA_USE_DEPEND="vapigen"
 inherit meson systemd udev vala verify-sig
 
 DESCRIPTION="DBus service for haptic/visual/audio feedback"
-HOMEPAGE="https://gitlab.freedesktop.org/agx/feedbackd"
+HOMEPAGE="https://gitlab.freedesktop.org/feedbackd/feedbackd"
 SRC_URI="https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz
 	verify-sig? ( https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz.asc )"
 
