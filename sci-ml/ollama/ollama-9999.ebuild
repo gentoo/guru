@@ -26,21 +26,28 @@ fi
 LICENSE="MIT"
 SLOT="0"
 
-X86_CPU_FLAGS=(
-	sse4_2
-	avx
-	f16c
-	avx2
-	bmi2
-	fma3
-	avx512f
-	avx512vbmi
-	avx512_vnni
-	avx_vnni
-)
-CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
-IUSE="blas ${CPU_FLAGS[*]} cuda mkl rocm vulkan"
+IUSE="blas cuda rocm mkl vulkan"
 # IUSE+=" opencl"
+
+declare -rgA CPU_FEATURES=(
+	[AVX2]="x86"
+	[AVX512F]="x86"
+	[AVX512_VBMI]="x86;avx512vbmi"
+	[AVX512_VNNI]="x86"
+	[AVX]="x86"
+	[AVX_VNNI]="x86"
+	[BMI2]="x86"
+	[F16C]="x86"
+	[FMA]="x86;fma3"
+	[SSE42]="x86;sse4_2"
+)
+add_cpu_features_use() {
+	for flag in "${!CPU_FEATURES[@]}"; do
+		IFS=$';' read -r arch use <<< "${CPU_FEATURES[${flag}]}"
+		IUSE+=" cpu_flags_${arch}_${use:-${flag,,}}"
+	done
+}
+add_cpu_features_use
 
 RESTRICT="mirror test"
 
