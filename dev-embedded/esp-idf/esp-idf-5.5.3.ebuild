@@ -3,12 +3,12 @@
 
 # TODO: add esp-doc package in order to build documentation
 # TODO: add examples USE
-# TODO: unbundle mbedtls?
+# TODO: fix to python-single which should help to fix python-gdb dep
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
-PYTHON_GDB_USE=( python_targets_python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_GDB_USE=( python_targets_python3_{12..13} )
 VER="14.2.0_20251107"
 GDB_VER="16.3_20250913"
 OPENOCD_VER="0.12.0-esp32-20251215"

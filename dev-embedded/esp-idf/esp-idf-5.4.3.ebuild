@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
-PYTHON_GDB_USE=( python_targets_python3_{11,12} )
+PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_GDB_USE=( python_targets_python3_12 )
 VER="14.2.0_20250730"
 GDB_VER="16.3_20250913"
 OPENOCD_VER="0.12.0-esp32-20250707"
