@@ -7,7 +7,7 @@ inherit desktop
 
 DESCRIPTION="A space flight and rocketry simulation"
 HOMEPAGE="https://ksa.ahwoo.com"
-SRC_URI="https://ksa-linux.ahwoo.com/download?file=setup_ksa_v${PV}.${PR#r}.tar -> ${P}-${PR}.tar"
+SRC_URI="https://ksa-linux.ahwoo.com/download?file=setup_ksa_v${PV}.${PR#r}.tar.gz -> ${P}-${PR}.tar.gz"
 S="${WORKDIR}/linux-x64"
 LICENSE="all-rights-reserved"
 
@@ -17,7 +17,10 @@ IUSE=""
 
 RESTRICT="mirror strip"
 
-RDEPEND="media-libs/vulkan-loader"
+RDEPEND="media-libs/vulkan-loader
+	|| ( >=dev-dotnet/dotnet-sdk-10
+	     >=dev-dotnet/dotnet-sdk-bin-10
+	   )"
 
 pkg_pretend() {
 	ewarn "Kitten Space Agency has myriad bugs with AMD GPUs, but seems to work fine on nVidia"
