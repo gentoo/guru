@@ -279,6 +279,12 @@ src_configure() {
 		"$(cmake_use_find_package vulkan Vulkan)"
 	)
 
+	if tc-is-lto ; then
+		mycmakeargs+=(
+			-DGGML_LTO="yes"
+		)
+	fi
+
 	if use blas; then
 		if use flexiblas ; then
 			mycmakeargs+=(
