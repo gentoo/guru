@@ -1,0 +1,134 @@
+From 7367444df7e44434569708b13ddf26b159e3ba50 Mon Sep 17 00:00:00 2001
+From: Paul Zander <negril.nx+gentoo@gmail.com>
+Date: Tue, 17 Feb 2026 12:52:29 +0100
+Subject: [PATCH] make installing runtime deps optional
+
+Signed-off-by: Paul Zander <negril.nx+gentoo@gmail.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7d53531b..ce7376d8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -78,6 +78,8 @@ set(GGML_VERSION_MINOR 0)
+ set(GGML_VERSION_PATCH 0)
+ set(GGML_VERSION "${GGML_VERSION_MAJOR}.${GGML_VERSION_MINOR}.${GGML_VERSION_PATCH}")
+ 
++option(OLLAMA_INSTALL_RUNTIME_DEPS "Install the dependencies of library as well" ON)
++
+ set(GGML_CPU ON)
+ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ml/backend/ggml/ggml/src)
+ set_property(TARGET ggml PROPERTY EXCLUDE_FROM_ALL TRUE)
+@@ -88,12 +90,17 @@ if(NOT CPU_VARIANTS)
+ endif()
+ 
+ install(TARGETS ggml-base ${CPU_VARIANTS}
+-    RUNTIME_DEPENDENCIES
+-        PRE_EXCLUDE_REGEXES ".*"
+-    RUNTIME DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT CPU
++    RUNTIME_DEPENDENCY_SET base
+     LIBRARY DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT CPU
+     FRAMEWORK DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT CPU
+ )
++if(OLLAMA_INSTALL_RUNTIME_DEPS)
++install(RUNTIME_DEPENDENCY_SET base
++    PRE_EXCLUDE_REGEXES ".*"
++    RUNTIME DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT CPU
++    LIBRARY DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT CPU
++)
++endif()
+ 
+ check_language(CUDA)
+ if(CMAKE_CUDA_COMPILER)
+@@ -104,13 +111,18 @@ if(CMAKE_CUDA_COMPILER)
+     find_package(CUDAToolkit)
+     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ml/backend/ggml/ggml/src/ggml-cuda)
+     install(TARGETS ggml-cuda
+-        RUNTIME_DEPENDENCIES
+-            DIRECTORIES ${CUDAToolkit_BIN_DIR} ${CUDAToolkit_BIN_DIR}/x64 ${CUDAToolkit_LIBRARY_DIR}
+-            PRE_INCLUDE_REGEXES cublas cublasLt cudart
+-            PRE_EXCLUDE_REGEXES ".*"
++        RUNTIME_DEPENDENCY_SET cuda
++        LIBRARY DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT CUDA
++    )
++    if(OLLAMA_INSTALL_RUNTIME_DEPS)
++    install(RUNTIME_DEPENDENCY_SET cuda
++        DIRECTORIES ${CUDAToolkit_BIN_DIR} ${CUDAToolkit_BIN_DIR}/x64 ${CUDAToolkit_LIBRARY_DIR}
++        PRE_INCLUDE_REGEXES cublas cublasLt cudart
++        PRE_EXCLUDE_REGEXES ".*"
+         RUNTIME DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT CUDA
+         LIBRARY DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT CUDA
+     )
++    endif()
+ endif()
+ 
+ set(WINDOWS_AMDGPU_TARGETS_EXCLUDE_REGEX "^gfx(908|90a|1200|1201):xnack[+-]$"
+@@ -143,9 +155,9 @@ if(CMAKE_HIP_COMPILER)
+ 
+         install(TARGETS ggml-hip
+             RUNTIME_DEPENDENCY_SET rocm
+-            RUNTIME DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT HIP
+             LIBRARY DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT HIP
+         )
++        if(OLLAMA_INSTALL_RUNTIME_DEPS)
+         install(RUNTIME_DEPENDENCY_SET rocm
+                 DIRECTORIES ${HIP_BIN_INSTALL_DIR} ${HIP_LIB_INSTALL_DIR}
+                 PRE_INCLUDE_REGEXES hipblas rocblas amdhip64 rocsolver amd_comgr hsa-runtime64 rocsparse tinfo rocprofiler-register drm drm_amdgpu numa elf
+@@ -161,6 +173,7 @@ if(CMAKE_HIP_COMPILER)
+                 break()
+             endif()
+         endforeach()
++        endif()
+     endif()
+ endif()
+ 
+@@ -169,12 +182,17 @@ if(NOT APPLE)
+     if(Vulkan_FOUND)
+         add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ml/backend/ggml/ggml/src/ggml-vulkan)
+         install(TARGETS ggml-vulkan
+-            RUNTIME_DEPENDENCIES
+-                PRE_INCLUDE_REGEXES vulkan
+-                PRE_EXCLUDE_REGEXES ".*"
++            RUNTIME_DEPENDENCY_SET vulkan
++            LIBRARY DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT Vulkan
++        )
++        if(OLLAMA_INSTALL_RUNTIME_DEPS)
++        install(RUNTIME_DEPENDENCY_SET vulkan
++            PRE_INCLUDE_REGEXES vulkan
++            PRE_EXCLUDE_REGEXES ".*"
+             RUNTIME DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT Vulkan
+             LIBRARY DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT Vulkan
+         )
++        endif()
+     endif()
+ endif()
+ 
+@@ -188,15 +206,21 @@ if(MLX_ENGINE)
+     find_package(CUDAToolkit)
+ 
+     install(TARGETS mlx mlxc
+-        RUNTIME_DEPENDENCIES
+-            DIRECTORIES ${CUDAToolkit_BIN_DIR} ${CUDAToolkit_BIN_DIR}/x64 ${CUDAToolkit_LIBRARY_DIR}
+-            PRE_INCLUDE_REGEXES cublas cublasLt cudart nvrtc nvrtc-builtins cudnn nccl openblas gfortran
+-            PRE_EXCLUDE_REGEXES ".*"
+-        RUNTIME DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT MLX
++        RUNTIME_DEPENDENCY_SET mlx
+         LIBRARY DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT MLX
+         FRAMEWORK DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT MLX
+     )
+ 
++    if(OLLAMA_INSTALL_RUNTIME_DEPS)
++    install(RUNTIME_DEPENDENCY_SET mlx
++        DIRECTORIES ${CUDAToolkit_BIN_DIR} ${CUDAToolkit_BIN_DIR}/x64 ${CUDAToolkit_LIBRARY_DIR}
++        PRE_INCLUDE_REGEXES cublas cublasLt cudart nvrtc nvrtc-builtins cudnn nccl openblas gfortran
++        PRE_EXCLUDE_REGEXES ".*"
++        RUNTIME DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT MLX
++        LIBRARY DESTINATION ${OLLAMA_INSTALL_DIR} COMPONENT MLX
++    )
++    endif()
++
+     # Install the Metal library for macOS arm64 (must be colocated with the binary)
+     # Metal backend is only built for arm64, not x86_64
+     if(APPLE AND CMAKE_SYSTEM_PROCESSOR STREQUAL "arm64")
+-- 
+2.53.0
+

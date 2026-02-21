@@ -105,6 +105,7 @@ RDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-9999-use-GNUInstallDirs.patch"
+	"${FILESDIR}/${PN}-9999-make-installing-runtime-deps-optional.patch"
 )
 
 pkg_pretend() {
@@ -158,9 +159,7 @@ src_prepare() {
 
 	sed \
 		-e "/set(GGML_CCACHE/s/ON/OFF/g" \
-		-e "/PRE_INCLUDE_REGEXES.*cu/d" \
-		-e "/PRE_INCLUDE_REGEXES.*hip/d" \
-		-i CMakeLists.txt || die "bundle headers sed failed"
+		-i CMakeLists.txt || die "Disable CCACHE sed failed"
 
 	# TODO see src_unpack?
 	sed \
@@ -254,6 +253,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DOLLAMA_INSTALL_RUNTIME_DEPS="no"
 		-DGGML_CCACHE="no"
 
 		# backends end up in /usr/bin otherwise
