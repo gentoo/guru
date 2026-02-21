@@ -6,11 +6,12 @@ EAPI=8
 PYTHON_COMPAT=( python3_{11..14} )
 inherit python-single-r1
 
-COMMIT="d4fa7e8afcc5a86e00263d4d71e2279cf295ec02"
+COMMIT="08064858578d9b262a2ed6cc3309b0cc1b13b999"
 
 DESCRIPTION="XSane wrapper for GIMP 3.0 via CLI"
 HOMEPAGE="https://yingtongli.me/git/gimp-xsanecli/"
-SRC_URI="https://bugs.gentoo.org/attachment.cgi?id=955693 -> ${P}.tar.gz"
+SRC_URI="https://bugs.gentoo.org/attachment.cgi?id=955778 -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3+"
 SLOT="0"
