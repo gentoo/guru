@@ -72,7 +72,7 @@ src_configure() {
 
 src_install() {
 
-	doicon -s 256 "${FILESDIR}/vesktop-bin.png"
+	doicon -s 256 "${FILESDIR}/vesktop-bin.svg"
 	domenu "${FILESDIR}/vesktop.desktop"
 
 	exeinto "${DESTDIR}"
