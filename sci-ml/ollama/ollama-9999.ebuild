@@ -26,8 +26,14 @@ fi
 LICENSE="MIT"
 SLOT="0"
 
-IUSE="blas cuda rocm mkl vulkan"
+IUSE="cuda rocm vulkan"
 # IUSE+=" opencl"
+
+BLAS_BACKENDS="blis mkl openblas"
+BLAS_REQUIRED_USE="blas? ( ?? ( ${BLAS_BACKENDS} ) )"
+
+IUSE+=" blas flexiblas ${BLAS_BACKENDS}"
+REQUIRED_USE+=" ${BLAS_REQUIRED_USE}"
 
 declare -rgA CPU_FEATURES=(
 	[AVX2]="x86"
@@ -51,14 +57,24 @@ add_cpu_features_use
 
 RESTRICT="mirror test"
 
+# FindBLAS.cmake
+# If Fortran is an enabled compiler it sets BLAS_mkl_THREADING to gnu. -> sci-libs/mkl[gnu-openmp]
+# If Fortran is not an enabled compiler it sets BLAS_mkl_THREADING to intel. -> sci-libs/mkl[llvm-openmp]
 COMMON_DEPEND="
 	blas? (
-		!mkl? (
-			virtual/blas
+		blis? (
+			sci-libs/blis:=
+		)
+		flexiblas? (
+			sci-libs/flexiblas[blis?,mkl?,openblas?]
 		)
 		mkl? (
 			sci-libs/mkl[llvm-openmp]
 		)
+		openblas? (
+			sci-libs/openblas
+		)
+		virtual/blas[flexiblas=]
 	)
 	cuda? (
 		dev-util/nvidia-cuda-toolkit:=
@@ -264,9 +280,25 @@ src_configure() {
 	)
 
 	if use blas; then
-		if use mkl; then
+		if use flexiblas ; then
+			mycmakeargs+=(
+				-DGGML_BLAS_VENDOR="FlexiBLAS"
+			)
+		elif use blis ; then
+			mycmakeargs+=(
+				-DGGML_BLAS_VENDOR="FLAME"
+			)
+		elif use mkl ; then
 			mycmakeargs+=(
 				-DGGML_BLAS_VENDOR="Intel10_64lp"
+			)
+		# elif use nvhpc ; then
+		# 	mycmakeargs+=(
+		# 		-DGGML_BLAS_VENDOR="NVHPC"
+		# 	)
+		elif use openblas ; then
+			mycmakeargs+=(
+				-DGGML_BLAS_VENDOR="OpenBLAS"
 			)
 		else
 			mycmakeargs+=(
