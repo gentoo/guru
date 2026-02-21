@@ -54,6 +54,7 @@ CDEPEND="
 	)
 "
 RDEPEND="${CDEPEND}
+	!!net-im/forkgram-bin
 	!!net-im/telegram-desktop
 	!!net-im/telegram-desktop-bin
 	webkit? ( || ( net-libs/webkit-gtk:4.1 net-libs/webkit-gtk:6 ) )
@@ -242,14 +243,15 @@ src_configure() {
 }
 
 src_compile() {
-	# The cppgir program causes the gen/gio/_types.hpp file to be updated.
-	# Since this program can usually be invoked anywhere in the build process,
-	# running it *after* some files depending on the header have been compiled
-	# causes Telegram to be linked again during src_install(). This is a slow
-	# process, so we try to avoid it by running all cppgir targets upfront.
 	cmake_build $("${CMAKE_BINARY}" --build "${BUILD_DIR}" -t help | sed -n '/^[^/]*_cppgir:/s/:.*//p')
 	cmake_build
-	cmake_build  # Just in case, should say "no work to do"
+	cmake_build
+}
+
+src_install() {
+	cmake_src_install
+	newbin "${BUILD_DIR}/Telegram" forkgram
+	rm "${ED}/usr/bin/Telegram" || die
 }
 
 pkg_postinst() {
