@@ -16,11 +16,15 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ollama/ollama.git"
 else
+	MY_PV="${PV/_rc/-rc}"
+	MY_P="${PN}-${MY_PV}"
 	SRC_URI="
-		https://github.com/ollama/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
-		https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/${P}-deps.tar.xz
+		https://github.com/ollama/${PN}/archive/refs/tags/v${MY_PV}.tar.gz -> ${MY_P}.gh.tar.gz
+		https://github.com/gentoo-golang-dist/${PN}/releases/download/v${MY_PV}/${MY_P}-deps.tar.xz
 	"
-	KEYWORDS="~amd64"
+	if [[ ${PV} != *_rc* ]]; then
+		KEYWORDS="~amd64"
+	fi
 fi
 
 LICENSE="MIT"
