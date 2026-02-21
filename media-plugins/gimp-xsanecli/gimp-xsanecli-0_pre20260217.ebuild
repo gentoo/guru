@@ -8,6 +8,10 @@ inherit python-single-r1
 
 COMMIT="d4fa7e8afcc5a86e00263d4d71e2279cf295ec02"
 
+PATCHES=(
+	"${FILESDIR}/${P}-wayland.patch"
+)
+
 DESCRIPTION="XSane wrapper for GIMP 3.0 via CLI"
 HOMEPAGE="https://yingtongli.me/git/gimp-xsanecli/"
 SRC_URI="https://bugs.gentoo.org/attachment.cgi?id=955693 -> ${P}.tar.gz"

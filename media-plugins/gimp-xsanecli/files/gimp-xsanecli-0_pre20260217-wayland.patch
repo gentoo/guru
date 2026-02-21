@@ -1,0 +1,52 @@
+From 5d62858cfe2314dc83d4ad254af281ba41b04836 Mon Sep 17 00:00:00 2001
+From: Leif Burrow <6607023+kc8rwr@users.noreply.github.com>
+Date: Fri, 20 Feb 2026 21:32:57 -0500
+Subject: [PATCH] Fix Wayland on Linux compatibility for XSane dialog
+
+---
+ xsanecli.py | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/xsanecli.py b/xsanecli.py
+index 4b6b1c0..c8207a0 100755
+--- a/xsanecli.py
++++ b/xsanecli.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python3.13
+ 
+ #   GIMP 3.0 plug-in for scanning via XSane
+ #   Copyright (C) 2024-2025  Lee Yingtong Li (RunasSudo) and CONTRIBUTORS
+@@ -23,6 +23,7 @@ from gi.repository import GObject
+ from gi.repository import Gio
+ 
+ import os
++import platform
+ import subprocess
+ import sys
+ import tempfile
+@@ -31,7 +32,11 @@ DEVICE_NAME = None  # e.g. DEVICE_NAME = 'escl:http://10.0.0.1:80'
+ SCAN_MULTIPLE = True
+ 
+ def xsanecli_run(procedure, config, run_data, *args):
+-	# Get temporary directory
++	# need --sync for Wayland on Linux or preview window breaks. Other environments --sync can slow things down
++	is_wayland = os.environ.get("XDG_SESSION_TYPE") == "wayland" or os.environ.get("WAYLAND_DISPLAY") is not None
++	is_linux = platform.system() == "Linux"
++
++        # Get temporary directory
+ 	tempdir = tempfile.mkdtemp('gimp-plugin-xsanecli')
+ 	png_out = os.path.join(tempdir, 'out.png')
+ 	
+@@ -49,7 +54,7 @@ def xsanecli_run(procedure, config, run_data, *args):
+ 			xsane_env[b'DISPLAY'] = orig_env[b'DISPLAY']
+ 	
+ 	# Open XSane
+-	args = ['xsane', '--save', '--no-mode-selection', '--force-filename', png_out, '--print-filenames'] + ([DEVICE_NAME] if DEVICE_NAME else [])
++	args = ['xsane'] + (['--sync'] if is_wayland and is_linux else []) + ['--save', '--no-mode-selection', '--force-filename', png_out, '--print-filenames'] + ([DEVICE_NAME] if DEVICE_NAME else [])
+ 	proc = subprocess.Popen(args, stdout=subprocess.PIPE, encoding='utf-8', env=xsane_env)
+ 	
+ 	while proc.poll() is None:
+-- 
+2.52.0
+
