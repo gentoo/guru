@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit rpm xdg-utils
+inherit desktop rpm xdg-utils
 
 MY_PN="${PN%-bin}"
 
@@ -53,6 +53,18 @@ src_install() {
 	doins -r "${S}/usr/share/pixmaps"
 	doins -r "${S}/usr/share/applications"
 
+	local desktopentryargs=(
+		--eapi9 "${MY_PN}"
+		--args "--ozone-platform-hint=auto %U"
+		--name "Proton Mail"
+		--comment "Proton official desktop application for Proton Mail and Proton Calendar"
+		--icon "${MY_PN}"
+		--entry "GenericName=Proton Mail"
+		--entry "StartupNotify=true"
+		--entry "MimeType=x-scheme-handler/mailto;"
+		--force
+	)
+	make_desktop_entry "${desktopentryargs[@]}"
 }
 
 pkg_postinst() {
