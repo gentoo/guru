@@ -1,0 +1,9 @@
+diff --git a/libs/timezone/timezone_tests/conversion_tests.cpp b/libs/timezone/timezone_tests/conversion_tests.cpp
+index 9969f53db1..xxxxxxxxxx 100644
+--- a/libs/timezone/timezone_tests/conversion_tests.cpp
++++ b/libs/timezone/timezone_tests/conversion_tests.cpp
+@@ -1,4 +1,5 @@
+ #include <gtest/gtest.h>
++#include <iomanip>
+
+ #include "timezone/serdes.hpp"

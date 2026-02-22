@@ -1,0 +1,34 @@
+diff --git i/CMakeLists.txt w/CMakeLists.txt
+index 0050140b9f..1e73f635da 100644
+--- i/CMakeLists.txt
++++ w/CMakeLists.txt
+@@ -168,20 +168,29 @@ include_directories("${CMAKE_HOME_DIRECTORY}" "${CMAKE_HOME_DIRECTORY}/libs" "${
+ if (USE_PCH)
+   message(STATUS "Precompiled headers are ON")
+   set(OMIM_PCH_TARGET_NAME "omim_pch")
+   add_precompiled_headers(
+     ${OMIM_ROOT}/precompiled_headers.hpp
+     ${OMIM_PCH_TARGET_NAME}
+   )
+ endif()
+ 
+ if (WITH_SYSTEM_PROVIDED_3PARTY)
++  find_package(Boost REQUIRED)
++  if (NOT TARGET Boost::headers)
++    if (TARGET Boost::boost)
++      add_library(Boost::headers ALIAS Boost::boost)
++    else()
++      message(FATAL_ERROR "Could not find Boost::headers or Boost::boost target")
++    endif()
++  endif()
++
+   # Should be on the root level, not in 3party, so tests can get these dependencies.
+   find_package(ICU COMPONENTS uc i18n data REQUIRED)
+   find_package(Freetype REQUIRED)
+   find_package(harfbuzz REQUIRED)
+ 
+   set(GFLAGS_USE_TARGET_NAMESPACE ON)
+   find_package(gflags REQUIRED)
+ 
+   find_package(expat CONFIG REQUIRED)
+   find_package(jansson CONFIG REQUIRED)

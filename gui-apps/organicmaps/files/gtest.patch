@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1e73f635da..xxxxxxxxxx 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -193,6 +193,10 @@ if (WITH_SYSTEM_PROVIDED_3PARTY)
+   find_package(jansson CONFIG REQUIRED)
+   find_package(pugixml REQUIRED)
+   find_package(utf8cpp REQUIRED)
++
++  if (NOT SKIP_TESTS)
++    find_package(GTest REQUIRED)
++  endif()
+ endif()
