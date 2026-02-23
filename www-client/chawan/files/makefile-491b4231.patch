@@ -1,5 +1,5 @@
 diff --git a/Makefile b/Makefile
-index 78d5fe8a..1a86c257 100644
+index 1643a24b..809400fb 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -4,7 +4,7 @@ NIMC ?= $(NIM) c
@@ -11,13 +11,13 @@ index 78d5fe8a..1a86c257 100644
  MANPREFIX ?= $(PREFIX)/share/man
  MANPREFIX1 ?= $(MANPREFIX)/man1
  MANPREFIX5 ?= $(MANPREFIX)/man5
-@@ -52,17 +52,7 @@ FORCE_POLL_MODE ?= 0
- 
+@@ -53,17 +53,7 @@ FORCE_POLL_MODE ?= 0
  chac_flags =
  
--# Nim compiler flags
+ # Nim compiler flags
 -ifeq ($(TARGET),debug)
 -FLAGS += -d:debug --debugger:native
+-CFLAGS += -DDUMP_LEAKS=1
 -else ifeq ($(TARGET),release)
 -chac_flags = -s
 -FLAGS += -d:release -d:strip -d:lto
