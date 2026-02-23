@@ -39,6 +39,7 @@ RDEPEND="
 	media-libs/libplacebo
 	media-libs/opus
 	net-dns/libidn2
+	net-libs/miniupnpc:=
 	net-misc/curl
 	media-video/pipewire
 	sdl? ( media-libs/libsdl2[joystick,haptic] )
