@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,12 +9,11 @@ PYTHON_COMPAT=( python3_{11..14} )
 inherit  fortran-2 python-any-r1 toolchain-funcs
 
 MY_PN="StringiFor"
-# version tag.1.1.4 point to commit 82727d6 on 2025 Oct 7
-TAG_DATE="20251007"
+# version tag.1.1.4 point to commit e5df2b9 on 2026 Feb 18
 
 DESCRIPTION="StringiFor, Strings Fortran Manipulator, yet another strings Fortran module"
 HOMEPAGE="https://github.com/szaghi/StringiFor"
-SRC_URI="https://github.com/szaghi/${MY_PN}/releases/download/v${PV}/${MY_PN}.tar.gz -> ${MY_PN}-${PV}_${TAG_DATE}.tar.gz"
+SRC_URI="https://github.com/szaghi/${MY_PN}/releases/download/v${PV}/${MY_PN}.tar.gz -> ${MY_PN}-${PV}-${PR}.tar.gz"
 
 S="${WORKDIR}/${MY_PN}"
 
