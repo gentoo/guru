@@ -62,7 +62,7 @@ LICENSE="MIT"
 # bundled dependencies
 LICENSE+=" Boost-1.0 MIT Unlicense"
 SLOT="0"
-IUSE="debug libnotify +plugins spell qtkeychain"
+IUSE="debug libnotify +plugins qtkeychain spell"
 
 RESTRICT="mirror"
 
@@ -72,13 +72,13 @@ RDEPEND="
 	dev-qt/qtbase:6[concurrent,gui,network,widgets]
 	dev-qt/qtsvg:6
 	dev-qt/qtimageformats:6
-	spell? ( app-text/hunspell )
 	libnotify? (
 		dev-libs/glib:2
 		x11-libs/gdk-pixbuf:2
 		x11-libs/libnotify
 	)
 	qtkeychain? ( dev-libs/qtkeychain:= )
+	spell? ( app-text/hunspell )
 "
 DEPEND="
 	${RDEPEND}
