@@ -1,7 +1,9 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+inherit toolchain-funcs
 
 DESCRIPTION="Fork of the Ponscripter visual novel engine to take advantage of SDL2"
 HOMEPAGE="https://github.com/07th-mod/ponscripter-fork"
@@ -43,12 +45,17 @@ src_prepare() {
 }
 
 src_configure() {
+	tc-export CC CXX AR RANLIB
+
+	export STRIPPROG=true
+
+	# not autoconf
 	./configure \
 		--no-werror \
 		--unsupported-compiler \
 		--prefix="${EPREFIX}/usr" \
 		--disable-internal-libs \
-		--disable-steam
+		--disable-steam || die
 }
 
 src_install() {
