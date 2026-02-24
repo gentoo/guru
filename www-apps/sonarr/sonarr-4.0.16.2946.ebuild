@@ -1,0 +1,457 @@
+# Copyright 1999-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+DOTNET_PKG_COMPAT="6.0"
+NUGET_APIS=(
+	"https://api.nuget.org/v3-flatcontainer"
+	"https://pkgs.dev.azure.com/Servarr/coverlet/_packaging/coverlet-nightly/nuget/v3/flat2"
+	"https://pkgs.dev.azure.com/Servarr/Servarr/_packaging/dotnet-bsd-crossbuild/nuget/v3/flat2"
+	"https://pkgs.dev.azure.com/Servarr/Servarr/_packaging/FFMpegCore/nuget/v3/flat2"
+	"https://pkgs.dev.azure.com/Servarr/Servarr/_packaging/FluentMigrator/nuget/v3/flat2"
+	"https://pkgs.dev.azure.com/Servarr/Servarr/_packaging/Mono.Posix.NETStandard/nuget/v3/flat2"
+	"https://pkgs.dev.azure.com/Servarr/Servarr/_packaging/SQLite/nuget/v3/flat2"
+)
+NUGETS="
+bouncycastle.cryptography@2.4.0
+castle.core@5.1.1
+coverlet.collector@3.0.4-preview.27.ge7cb7c3b40
+coverlet.core@3.0.4-preview.27.ge7cb7c3b40
+dapper@2.0.123
+diacritical.net@1.0.4
+dryioc.dll@5.4.3
+dryioc.microsoft.dependencyinjection@6.2.0
+dynamitey@2.0.9.136
+equ@2.3.0
+fluentassertions@6.10.0
+fluentvalidation@9.5.4
+githubactionstestlogger@2.3.3
+ical.net@4.3.1
+impromptuinterface@7.0.1
+instances@1.6.1
+ipaddressrange@6.1.0
+lib.harmony@2.3.3
+mailkit@4.8.0
+microsoft.aspnetcore.cryptography.internal@6.0.21
+microsoft.aspnetcore.cryptography.keyderivation@6.0.21
+microsoft.aspnetcore.owin@6.0.21
+microsoft.bcl.asyncinterfaces@6.0.0
+microsoft.bcl.timeprovider@8.0.0
+microsoft.build.tasks.git@1.1.1
+microsoft.codecoverage@17.5.0
+microsoft.csharp@4.0.1
+microsoft.csharp@4.4.1
+microsoft.csharp@4.5.0
+microsoft.data.sqlclient.sni.runtime@2.1.1
+microsoft.data.sqlclient@2.1.7
+microsoft.dotnet.internalabstractions@1.0.0
+microsoft.dotnet.platformabstractions@2.1.0
+microsoft.extensions.configuration.abstractions@2.0.1
+microsoft.extensions.configuration.abstractions@6.0.0
+microsoft.extensions.configuration.binder@6.0.0
+microsoft.extensions.configuration.commandline@6.0.0
+microsoft.extensions.configuration.environmentvariables@6.0.1
+microsoft.extensions.configuration.fileextensions@6.0.0
+microsoft.extensions.configuration.json@6.0.0
+microsoft.extensions.configuration.usersecrets@6.0.1
+microsoft.extensions.configuration@6.0.0
+microsoft.extensions.configuration@6.0.1
+microsoft.extensions.dependencyinjection.abstractions@2.0.0
+microsoft.extensions.dependencyinjection.abstractions@2.2.0
+microsoft.extensions.dependencyinjection.abstractions@6.0.0
+microsoft.extensions.dependencyinjection.abstractions@7.0.0
+microsoft.extensions.dependencyinjection@2.2.0
+microsoft.extensions.dependencyinjection@6.0.0
+microsoft.extensions.dependencyinjection@6.0.1
+microsoft.extensions.dependencymodel@2.1.0
+microsoft.extensions.fileproviders.abstractions@6.0.0
+microsoft.extensions.fileproviders.physical@6.0.0
+microsoft.extensions.filesystemglobbing@2.0.1
+microsoft.extensions.filesystemglobbing@6.0.0
+microsoft.extensions.hosting.abstractions@6.0.0
+microsoft.extensions.hosting.windowsservices@6.0.2
+microsoft.extensions.hosting@6.0.1
+microsoft.extensions.logging.abstractions@2.0.1
+microsoft.extensions.logging.abstractions@6.0.0
+microsoft.extensions.logging.configuration@6.0.0
+microsoft.extensions.logging.console@6.0.0
+microsoft.extensions.logging.debug@6.0.0
+microsoft.extensions.logging.eventlog@6.0.0
+microsoft.extensions.logging.eventsource@6.0.0
+microsoft.extensions.logging@6.0.0
+microsoft.extensions.options.configurationextensions@6.0.0
+microsoft.extensions.options@2.0.1
+microsoft.extensions.options@6.0.0
+microsoft.extensions.primitives@2.0.0
+microsoft.extensions.primitives@6.0.0
+microsoft.identity.client@4.21.1
+microsoft.identitymodel.jsonwebtokens@6.8.0
+microsoft.identitymodel.logging@6.8.0
+microsoft.identitymodel.protocols.openidconnect@6.8.0
+microsoft.identitymodel.protocols@6.8.0
+microsoft.identitymodel.tokens@6.8.0
+microsoft.net.test.sdk@17.5.0
+microsoft.netcore.platforms@1.0.1
+microsoft.netcore.platforms@1.1.0
+microsoft.netcore.platforms@3.1.0
+microsoft.netcore.platforms@5.0.0
+microsoft.netcore.targets@1.0.1
+microsoft.netcore.targets@1.1.0
+microsoft.openapi@1.6.14
+microsoft.sourcelink.common@1.1.1
+microsoft.sourcelink.github@1.1.1
+microsoft.testplatform.objectmodel@16.9.1
+microsoft.testplatform.objectmodel@17.5.0
+microsoft.testplatform.objectmodel@17.7.1
+microsoft.testplatform.testhost@17.5.0
+microsoft.win32.primitives@4.3.0
+microsoft.win32.registry@4.3.0
+microsoft.win32.registry@4.7.0
+microsoft.win32.systemevents@4.7.0
+microsoft.win32.systemevents@5.0.0
+microsoft.win32.systemevents@6.0.0
+mimekit@4.8.0
+mono.cecil@0.11.1
+mono.nat@3.0.1
+mono.posix.netstandard@5.20.1.34-servarr24
+monotorrent@2.0.7
+moq@4.18.4
+nbuilder@6.1.0
+netstandard.library@1.6.1
+netstandard.library@2.0.0
+newtonsoft.json@13.0.1
+newtonsoft.json@13.0.3
+newtonsoft.json@9.0.1
+nlog.extensions.logging@5.3.15
+nlog.layouts.clefjsonlayout@1.0.2
+nlog.targets.syslog@7.0.0
+nlog@5.3.4
+nodatime@3.2.0
+npgsql@7.0.9
+nuget.frameworks@5.0.0
+nuget.frameworks@5.11.0
+nuget.frameworks@6.5.0
+nunit3testadapter@3.17.0
+nunit@3.13.3
+nunitxml.testlogger@3.0.131
+polly.contrib.waitandretry@1.1.1
+polly.core@8.5.0
+polly@8.5.0
+restsharp@106.15.0
+reusabletasks@2.0.0
+runtime.any.system.collections@4.3.0
+runtime.any.system.diagnostics.tools@4.3.0
+runtime.any.system.diagnostics.tracing@4.3.0
+runtime.any.system.globalization.calendars@4.3.0
+runtime.any.system.globalization@4.3.0
+runtime.any.system.io@4.3.0
+runtime.any.system.reflection.extensions@4.3.0
+runtime.any.system.reflection.primitives@4.3.0
+runtime.any.system.reflection@4.3.0
+runtime.any.system.resources.resourcemanager@4.3.0
+runtime.any.system.runtime.handles@4.3.0
+runtime.any.system.runtime.interopservices@4.3.0
+runtime.any.system.runtime@4.3.0
+runtime.any.system.text.encoding.extensions@4.3.0
+runtime.any.system.text.encoding@4.3.0
+runtime.any.system.threading.tasks@4.3.0
+runtime.any.system.threading.timer@4.3.0
+runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl@4.3.0
+runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl@4.3.0
+runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl@4.3.0
+runtime.native.system.io.compression@4.3.0
+runtime.native.system.net.http@4.3.0
+runtime.native.system.security.cryptography.apple@4.3.0
+runtime.native.system.security.cryptography.openssl@4.3.0
+runtime.native.system@4.0.0
+runtime.native.system@4.3.0
+runtime.opensuse.13.2-x64.runtime.native.system.security.cryptography.openssl@4.3.0
+runtime.opensuse.42.1-x64.runtime.native.system.security.cryptography.openssl@4.3.0
+runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple@4.3.0
+runtime.osx.10.10-x64.runtime.native.system.security.cryptography.openssl@4.3.0
+runtime.rhel.7-x64.runtime.native.system.security.cryptography.openssl@4.3.0
+runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl@4.3.0
+runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl@4.3.0
+runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl@4.3.0
+runtime.unix.microsoft.win32.primitives@4.3.0
+runtime.unix.system.console@4.3.0
+runtime.unix.system.diagnostics.debug@4.3.0
+runtime.unix.system.io.filesystem@4.3.0
+runtime.unix.system.net.primitives@4.3.0
+runtime.unix.system.net.sockets@4.3.0
+runtime.unix.system.private.uri@4.3.0
+runtime.unix.system.runtime.extensions@4.3.0
+sentry@4.0.2
+servarr.ffmpegcore@4.7.0-26
+servarr.ffprobe@5.1.4.112
+servarr.fluentmigrator.abstractions@3.3.2.9
+servarr.fluentmigrator.extensions.oracle@3.3.2.9
+servarr.fluentmigrator.extensions.postgres@3.3.2.9
+servarr.fluentmigrator.extensions.sqlanywhere@3.3.2.9
+servarr.fluentmigrator.extensions.sqlserver@3.3.2.9
+servarr.fluentmigrator.runner.core@3.3.2.9
+servarr.fluentmigrator.runner.db2@3.3.2.9
+servarr.fluentmigrator.runner.firebird@3.3.2.9
+servarr.fluentmigrator.runner.hana@3.3.2.9
+servarr.fluentmigrator.runner.mysql@3.3.2.9
+servarr.fluentmigrator.runner.oracle@3.3.2.9
+servarr.fluentmigrator.runner.postgres@3.3.2.9
+servarr.fluentmigrator.runner.redshift@3.3.2.9
+servarr.fluentmigrator.runner.sqlanywhere@3.3.2.9
+servarr.fluentmigrator.runner.sqlite@3.3.2.9
+servarr.fluentmigrator.runner.sqlserver@3.3.2.9
+servarr.fluentmigrator.runner.sqlserverce@3.3.2.9
+servarr.fluentmigrator.runner@3.3.2.9
+servarr.fluentmigrator@3.3.2.9
+sharpziplib@1.4.2
+sixlabors.imagesharp@3.1.7
+stylecop.analyzers@1.1.118
+swashbuckle.aspnetcore.annotations@6.6.2
+swashbuckle.aspnetcore.swagger@6.6.2
+swashbuckle.aspnetcore.swaggergen@6.6.2
+system.appcontext@4.1.0
+system.appcontext@4.3.0
+system.buffers@4.3.0
+system.collections.concurrent@4.3.0
+system.collections.nongeneric@4.3.0
+system.collections.specialized@4.3.0
+system.collections@4.0.11
+system.collections@4.3.0
+system.componentmodel.annotations@4.4.1
+system.componentmodel.eventbasedasync@4.3.0
+system.componentmodel.primitives@4.3.0
+system.componentmodel.typeconverter@4.3.0
+system.componentmodel@4.3.0
+system.configuration.configurationmanager@4.4.0
+system.configuration.configurationmanager@4.7.0
+system.configuration.configurationmanager@6.0.1
+system.console@4.3.0
+system.data.sqlite.core.servarr@1.0.115.5-18
+system.diagnostics.debug@4.0.11
+system.diagnostics.debug@4.3.0
+system.diagnostics.diagnosticsource@4.3.0
+system.diagnostics.diagnosticsource@4.7.0
+system.diagnostics.diagnosticsource@6.0.0
+system.diagnostics.eventlog@6.0.0
+system.diagnostics.process@4.3.0
+system.diagnostics.tools@4.0.1
+system.diagnostics.tools@4.3.0
+system.diagnostics.tracing@4.3.0
+system.drawing.common@4.7.0
+system.drawing.common@5.0.2
+system.drawing.common@6.0.0
+system.dynamic.runtime@4.0.11
+system.formats.asn1@8.0.1
+system.globalization.calendars@4.3.0
+system.globalization.extensions@4.3.0
+system.globalization@4.0.11
+system.globalization@4.3.0
+system.identitymodel.tokens.jwt@6.8.0
+system.io.compression.zipfile@4.3.0
+system.io.compression@4.3.0
+system.io.filesystem.accesscontrol@6.0.0-preview.5.21301.5
+system.io.filesystem.primitives@4.0.1
+system.io.filesystem.primitives@4.3.0
+system.io.filesystem@4.0.1
+system.io.filesystem@4.3.0
+system.io@4.1.0
+system.io@4.3.0
+system.linq.expressions@4.1.0
+system.linq.expressions@4.3.0
+system.linq@4.1.0
+system.linq@4.3.0
+system.memory@4.6.0
+system.net.http@4.3.0
+system.net.nameresolution@4.3.0
+system.net.primitives@4.3.0
+system.net.sockets@4.3.0
+system.objectmodel@4.0.12
+system.objectmodel@4.3.0
+system.private.uri@4.3.0
+system.reflection.emit.ilgeneration@4.0.1
+system.reflection.emit.ilgeneration@4.3.0
+system.reflection.emit.lightweight@4.0.1
+system.reflection.emit.lightweight@4.3.0
+system.reflection.emit@4.0.1
+system.reflection.emit@4.3.0
+system.reflection.extensions@4.0.1
+system.reflection.extensions@4.3.0
+system.reflection.metadata@1.5.0
+system.reflection.metadata@1.6.0
+system.reflection.primitives@4.0.1
+system.reflection.primitives@4.3.0
+system.reflection.typeextensions@4.1.0
+system.reflection.typeextensions@4.3.0
+system.reflection@4.1.0
+system.reflection@4.3.0
+system.resources.resourcemanager@4.0.1
+system.resources.resourcemanager@4.3.0
+system.runtime.caching@4.7.0
+system.runtime.compilerservices.unsafe@4.4.0
+system.runtime.compilerservices.unsafe@6.0.0
+system.runtime.extensions@4.1.0
+system.runtime.extensions@4.3.0
+system.runtime.handles@4.0.1
+system.runtime.handles@4.3.0
+system.runtime.interopservices.runtimeinformation@4.0.0
+system.runtime.interopservices.runtimeinformation@4.3.0
+system.runtime.interopservices@4.1.0
+system.runtime.interopservices@4.3.0
+system.runtime.loader@4.3.0
+system.runtime.numerics@4.3.0
+system.runtime.serialization.primitives@4.1.1
+system.runtime@4.1.0
+system.runtime@4.3.0
+system.security.accesscontrol@4.7.0
+system.security.accesscontrol@6.0.0
+system.security.accesscontrol@6.0.0-preview.5.21301.5
+system.security.claims@4.3.0
+system.security.cryptography.algorithms@4.3.0
+system.security.cryptography.cng@4.3.0
+system.security.cryptography.cng@4.5.0
+system.security.cryptography.csp@4.3.0
+system.security.cryptography.encoding@4.3.0
+system.security.cryptography.openssl@4.3.0
+system.security.cryptography.pkcs@8.0.0
+system.security.cryptography.primitives@4.3.0
+system.security.cryptography.protecteddata@4.4.0
+system.security.cryptography.protecteddata@4.7.0
+system.security.cryptography.protecteddata@6.0.0
+system.security.cryptography.x509certificates@4.3.0
+system.security.permissions@4.7.0
+system.security.permissions@6.0.0
+system.security.principal.windows@4.3.0
+system.security.principal.windows@4.7.0
+system.security.principal.windows@6.0.0-preview.5.21301.5
+system.security.principal@4.3.0
+system.serviceprocess.servicecontroller@6.0.1
+system.text.encoding.codepages@4.7.0
+system.text.encoding.codepages@6.0.0
+system.text.encoding.extensions@4.0.11
+system.text.encoding.extensions@4.3.0
+system.text.encoding@4.0.11
+system.text.encoding@4.3.0
+system.text.encodings.web@6.0.0
+system.text.json@6.0.0
+system.text.json@6.0.10
+system.text.json@6.0.9
+system.text.regularexpressions@4.1.0
+system.text.regularexpressions@4.3.0
+system.threading.tasks.extensions@4.0.0
+system.threading.tasks.extensions@4.3.0
+system.threading.tasks@4.0.11
+system.threading.tasks@4.3.0
+system.threading.thread@4.3.0
+system.threading.threadpool@4.3.0
+system.threading.timer@4.3.0
+system.threading@4.0.11
+system.threading@4.3.0
+system.valuetuple@4.4.0
+system.valuetuple@4.5.0
+system.windows.extensions@4.7.0
+system.windows.extensions@6.0.0
+system.xml.readerwriter@4.0.11
+system.xml.readerwriter@4.3.0
+system.xml.xdocument@4.0.11
+system.xml.xdocument@4.3.0
+system.xml.xmldocument@4.3.0
+system.xml.xpath.xmldocument@4.3.0
+system.xml.xpath@4.3.0
+"
+
+inherit dotnet-pkg systemd
+
+DESCRIPTION="Sonarr is a Smart PVR for newsgroup and bittorrent users"
+HOMEPAGE="https://sonarr.tv"
+SRC_URI="
+	https://github.com/Sonarr/Sonarr/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://gitlab.com/api/v4/projects/69517529/packages/generic/${PN}/${PV}/${P}-deps.tar.xz
+	${NUGET_URIS}
+"
+
+S="${WORKDIR}/Sonarr-${PV}"
+
+LICENSE="GPL-3+"
+SLOT="0"
+KEYWORDS="~amd64"
+RESTRICT="test"
+PROPERTIES="test_network"
+
+DOTNET_PKG_PROJECTS=( "src/Sonarr.sln" )
+DOTNET_PKG_BAD_PROJECTS=(
+	"src/NzbDrone.Automation.Test/Sonarr.Automation.Test.csproj"
+	"src/NzbDrone.Host.Test/Sonarr.Host.Test.csproj"
+	"src/NzbDrone.Integration.Test/Sonarr.Integration.Test.csproj"
+	"src/NzbDrone.Windows.Test/Sonarr.Windows.Test.csproj"
+	"src/NzbDrone.Windows/Sonarr.Windows.csproj"
+	"src/ServiceHelpers/ServiceInstall/ServiceInstall.csproj"
+	"src/ServiceHelpers/ServiceUninstall/ServiceUninstall.csproj"
+)
+
+RDEPEND="
+	acct-group/sonarr
+	acct-user/sonarr
+	dev-db/sqlite
+	media-video/mediainfo
+"
+DEPEND="
+	!!www-apps/sonarr-bin
+"
+BDEPEND="
+	sys-apps/yarn
+"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-4.0.16.2946-look-up-package_info-in-the-startup-folder.patch"
+)
+
+pkg_setup() {
+	dotnet-pkg_pkg_setup
+
+	export DOTNET_PKG_BUILD_EXTRA_ARGS=(
+		-p:"AssemblyConfiguration=develop"
+		-p:"AssemblyVersion=${PV}"
+		-p:"RuntimeIdentifiers=${DOTNET_PKG_RUNTIME}"
+		-p:"SentryUploadSymbols=false"
+		-t:"PublishAllRids"
+	)
+}
+
+src_prepare() {
+	dotnet-pkg_src_prepare
+	dotnet-pkg_remove-bad "${DOTNET_PKG_PROJECTS[0]}"
+}
+
+src_compile() {
+	dotnet-pkg_src_compile
+	chmod 755 "${DOTNET_PKG_OUTPUT}/ffprobe" || die
+
+	yarn run build --env production --no-stats || die
+	cp -r "${S}/_output/UI" "${DOTNET_PKG_OUTPUT}" || die
+}
+
+src_test() {
+	filters=(
+		'FullyQualifiedName!=NzbDrone.Mono.Test.DiskProviderTests.FreeSpaceFixture.should_return_free_disk_space'
+		'FullyQualifiedName!~NzbDrone.Common.Test.Http.HttpClientFixture<ManagedHttpDispatcher>.should_parse_malformed_cloudflare_cookie'
+		'FullyQualifiedName!~NzbDrone.Common.Test.Http.HttpClientFixture<ManagedHttpDispatcher>.should_reject_malformed_domain_cookie'
+		'FullyQualifiedName!~NzbDrone.Common.Test.Http.HttpClientFixture<ManagedHttpDispatcher>.should_send_headers'
+	)
+
+	dotnet-pkg-base_test "${DOTNET_PKG_PROJECTS[0]}" \
+		--filter "$(IFS='&'; echo "${filters[*]}")"
+}
+
+src_install() {
+	dotnet-pkg_src_install
+
+	dodoc LICENSE.md
+
+	# This disables the update feature
+	insinto "/usr/share/${P}"
+	echo "PackageVersion=${PV}" | cat "${FILESDIR}/package_info" - > package_info
+	doins "package_info"
+
+	systemd_newunit "${FILESDIR}/sonarr.service" "sonarr.service"
+}
