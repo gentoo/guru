@@ -4,7 +4,7 @@
 EAPI=8
 PLOCALES="cs de es fr_FR hu id it ja_JP nb_NO pl pt pt_BR pt_PT ru sv tr zh_CN"
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..13} )
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 
