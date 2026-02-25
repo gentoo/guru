@@ -7,8 +7,8 @@ EAPI=8
 
 CRATES=" "
 
-# MSRV as of watchexec-2.2.1 is 1.61.
-#RUST_MIN_VER="1.71.1"
+# Some of deps requires Rust 1.88 as of watchexec-2.4.1.
+RUST_MIN_VER="1.88.0"
 
 inherit cargo shell-completion
 
