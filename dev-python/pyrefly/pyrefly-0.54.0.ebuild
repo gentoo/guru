@@ -23,8 +23,9 @@ CRATES="
 	anstyle-query@1.0.0
 	anstyle-wincon@3.0.7
 	anstyle@1.0.13
-	anyhow@1.0.100
+	anyhow@1.0.101
 	append-only-vec@0.1.8
+	arc-swap@1.8.1
 	argfile@0.2.1
 	arrayref@0.3.9
 	arrayvec@0.7.6
@@ -69,9 +70,9 @@ CRATES="
 	crossbeam-utils@0.8.21
 	crypto-common@0.1.6
 	ctor@0.1.26
-	darling@0.21.0
-	darling_core@0.21.0
-	darling_macro@0.21.0
+	darling@0.21.3
+	darling_core@0.21.3
+	darling_macro@0.21.3
 	dashmap@5.5.3
 	deranged@0.5.5
 	derivative@2.2.0
@@ -87,7 +88,7 @@ CRATES="
 	enum-iterator@2.3.0
 	env_logger@0.8.4
 	equivalent@1.0.2
-	errno@0.3.10
+	errno@0.3.14
 	faster-hex@0.6.1
 	fastrand@2.3.0
 	filetime@0.2.27
@@ -157,7 +158,7 @@ CRATES="
 	itoa@0.4.8
 	itoa@1.0.17
 	jobserver@0.1.33
-	js-sys@0.3.82
+	js-sys@0.3.85
 	kqueue-sys@1.0.4
 	kqueue@1.1.1
 	lazy_static@1.5.0
@@ -170,7 +171,7 @@ CRATES="
 	litemap@0.7.3
 	lock_api@0.4.14
 	lock_free_hashtable@0.1.1
-	log@0.4.28
+	log@0.4.29
 	lsp-server@0.7.9
 	manyhow-macros@0.11.4
 	manyhow@0.11.4
@@ -213,10 +214,10 @@ CRATES="
 	pin-project-lite@0.2.16
 	pin-utils@0.1.0
 	pkg-config@0.3.32
-	portable-atomic@1.11.0
+	portable-atomic@1.13.1
 	powerfmt@0.2.0
 	ppv-lite86@0.2.21
-	pretty_assertions@1.4.0
+	pretty_assertions@1.4.1
 	proc-macro-utils@0.10.0
 	proc-macro2@1.0.106
 	prost-derive@0.11.9
@@ -244,9 +245,9 @@ CRATES="
 	regex-automata@0.4.13
 	regex-syntax@0.7.5
 	regex-syntax@0.8.8
-	regex@1.12.2
+	regex@1.12.3
 	relative-path@1.9.3
-	rustc-demangle@0.1.25
+	rustc-demangle@0.1.27
 	rustc-hash@2.1.1
 	rustix@0.38.44
 	rustix@1.1.3
@@ -325,7 +326,7 @@ CRATES="
 	tracing@0.1.44
 	triomphe@0.1.15
 	typenum@1.19.0
-	unicase@2.8.1
+	unicase@2.9.0
 	unicode-ident@1.0.22
 	unicode-normalization@0.1.24
 	unicode-segmentation@1.12.0
@@ -348,10 +349,10 @@ CRATES="
 	wasi@0.11.0+wasi-snapshot-preview1
 	wasi@0.14.7+wasi-0.2.4
 	wasip2@1.0.1+wasi-0.2.4
-	wasm-bindgen-macro-support@0.2.105
-	wasm-bindgen-macro@0.2.105
-	wasm-bindgen-shared@0.2.105
-	wasm-bindgen@0.2.105
+	wasm-bindgen-macro-support@0.2.108
+	wasm-bindgen-macro@0.2.108
+	wasm-bindgen-shared@0.2.108
+	wasm-bindgen@0.2.108
 	watchman_client@0.9.0
 	web-time@1.1.0
 	which@4.4.2
@@ -401,7 +402,6 @@ CRATES="
 	write16@1.0.0
 	writeable@0.5.5
 	xattr@1.5.0
-	yansi@0.5.1
 	yansi@1.0.1
 	yoke-derive@0.7.4
 	yoke@0.7.4
@@ -412,8 +412,8 @@ CRATES="
 	zerovec-derive@0.10.3
 	zerovec@0.10.4
 	zmij@1.0.16
-	zstd-safe@7.2.1
-	zstd-sys@2.0.12+zstd.1.5.6
+	zstd-safe@7.2.4
+	zstd-sys@2.0.16+zstd.1.5.7
 	zstd@0.13.2
 "
 
