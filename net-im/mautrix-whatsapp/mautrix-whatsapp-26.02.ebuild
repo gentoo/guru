@@ -1,15 +1,17 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit go-module optfeature systemd
 
+MY_PV=0.${PV/./}.0
+
 DESCRIPTION="A Matrix-WhatsApp puppeting bridge "
 HOMEPAGE="https://github.com/mautrix/whatsapp/"
-SRC_URI="https://github.com/mautrix/whatsapp/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz
+SRC_URI="https://github.com/mautrix/whatsapp/archive/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz
 	https://distfiles.chuso.net/distfiles/${P}-deps.tar.xz"
-S="${WORKDIR}/whatsapp-${PV}"
+S="${WORKDIR}/whatsapp-${MY_PV}"
 
 LICENSE="AGPL-3 GPL-3"
 SLOT="0"
@@ -22,6 +24,8 @@ RDEPEND="
 	${DEPEND}
 	acct-user/${PN}
 "
+
+BDEPEND=">=dev-lang/go-1.25"
 
 src_compile() {
 	ego build ./cmd/mautrix-whatsapp $(use crypt || echo '-tags nocrypto')
@@ -37,7 +41,7 @@ src_install() {
 	(
 		echo -e '# Network-specific config options\nnetwork:'
 		sed 's/^/    /' pkg/connector/example-config.yaml || die
-		cat ../go-mod/maunium.net/go/mautrix@v0.25.1/bridgev2/matrix/mxmain/example-config.yaml || die
+		cat ../go-mod/maunium.net/go/mautrix@v0.26.3/bridgev2/matrix/mxmain/example-config.yaml || die
 	) |
 	sed "s_\./logs/bridge\.log_/var/log/mautrix/whatsapp/mautrix-whatsapp.log_" > "${PN/-/_}.yaml" || die
 
