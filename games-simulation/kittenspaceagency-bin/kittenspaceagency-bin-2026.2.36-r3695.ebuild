@@ -22,10 +22,6 @@ RDEPEND="media-libs/vulkan-loader
 	     >=dev-dotnet/dotnet-sdk-bin-10
 	   )"
 
-pkg_pretend() {
-	ewarn "Kitten Space Agency has myriad bugs with AMD GPUs, but seems to work fine on nVidia"
-}
-
 src_install() {
 	insinto "/opt/kittenspaceagency"
 	doins -r .
