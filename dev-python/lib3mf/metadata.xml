@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">3MFConsortium/lib3mf</remote-id>
+		<remote-id type="pypi">lib3mf</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		lib3mf provides Python bindings for the lib3mf library, which implements
+		the 3D Manufacturing Format (3MF). 3MF is an open-source file format for
+		3D printing that contains complete model information including meshes,
+		materials, colors, and print settings. This package enables reading,
+		writing, and manipulating 3MF files from Python.
+	</longdescription>
+	<longdescription lang="zh">
+		lib3mf提供了lib3mf库的Python绑定，该库实现了3D制造格式（3MF）。3MF是一种
+		用于3D打印的开源文件格式，包含完整的模型信息，包括网格、材料、颜色和打印
+		设置。此包允许从Python读取、写入和操作3MF文件。
+	</longdescription>
+</pkgmetadata>
