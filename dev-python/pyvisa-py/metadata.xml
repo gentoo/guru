@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<longdescription lang="en">
+		PyVISA-py is a pure Python implementation of the VISA (Virtual Instrument
+		Software Architecture) library. It allows message-based communication with
+		laboratory instruments over Serial, USB, GPIB, and Ethernet (TCP/IP)
+		interfaces without requiring proprietary vendor VISA libraries.
+	</longdescription>
+	<longdescription lang="zh">
+		PyVISA-py 是 VISA（虚拟仪器软件架构）库的纯 Python 实现。它允许通过串口、
+		USB、GPIB 和以太网（TCP/IP）接口与实验室仪器进行基于消息的通信，无需依赖
+		专有的厂商 VISA 库。
+	</longdescription>
+	<upstream>
+		<remote-id type="pypi">pyvisa-py</remote-id>
+		<remote-id type="github">pyvisa/pyvisa-py</remote-id>
+	</upstream>
+	<use>
+		<flag name="serial">Enable serial port communication via <pkg>dev-python/pyserial</pkg></flag>
+		<flag name="usb">Enable USB communication via <pkg>dev-python/pyusb</pkg></flag>
+	</use>
+</pkgmetadata>
