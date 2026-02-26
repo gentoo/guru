@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">gumyr/build123d</remote-id>
+		<remote-id type="pypi">build123d</remote-id>
+		<doc>https://build123d.readthedocs.io/</doc>
+		<bugs-to>https://github.com/gumyr/build123d/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		build123d is a Python-based parametric CAD modeling framework built on top
+		of the Open CASCADE geometry kernel. It provides an intuitive API for
+		creating 3D models using builder patterns, algebraic operations, and
+		selectors. The framework supports 1D (curves/edges), 2D (sketches/faces),
+		and 3D (parts/solids) modeling with features like extrusion, lofting,
+		sweeping, filleting, and boolean operations. Models can be exported to
+		STEP, STL, 3MF, SVG, DXF, and other formats.
+	</longdescription>
+	<longdescription lang="zh">
+		build123d是一个基于Open CASCADE几何内核构建的Python参数化CAD建模框架。
+		它提供了直观的API，使用构建器模式、代数运算和选择器来创建3D模型。该框架
+		支持1D（曲线/边）、2D（草图/面）和3D（零件/实体）建模，具有拉伸、放样、
+		扫描、倒角和布尔运算等功能。模型可以导出为STEP、STL、3MF、SVG、DXF等格式。
+	</longdescription>
+</pkgmetadata>
