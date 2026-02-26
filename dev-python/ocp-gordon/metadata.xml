@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">snoyer/ocp-gordon</remote-id>
+		<remote-id type="pypi">ocp-gordon</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		ocp-gordon provides Gordon surface fitting functionality for OCP (Open
+		CASCADE Python bindings). Gordon surfaces are constructed by interpolating
+		a network of curves, useful for creating smooth surfaces in parametric CAD
+		modeling with build123d and CadQuery.
+	</longdescription>
+	<longdescription lang="zh">
+		ocp-gordon为OCP（Open CASCADE Python绑定）提供Gordon曲面拟合功能。Gordon
+		曲面通过插值曲线网络构建，适用于在build123d和CadQuery的参数化CAD建模中创建
+		平滑曲面。
+	</longdescription>
+</pkgmetadata>
