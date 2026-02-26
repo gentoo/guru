@@ -25,3 +25,8 @@ RDEPEND="
 "
 
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	eapply_user
+	sed -i 's/1.7-dev/1.17/;s/c++11/c++17/' meson.build || die "Sed failed!"
+}
