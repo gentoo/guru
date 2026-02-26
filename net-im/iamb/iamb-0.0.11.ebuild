@@ -723,7 +723,7 @@ CRATES="
 	zvariant_utils@1.0.1
 "
 
-inherit cargo desktop xdg-utils
+inherit cargo desktop xdg
 
 DESCRIPTION="A Matrix chat client that uses Vim keybindings"
 HOMEPAGE="https://iamb.chat/"
@@ -768,14 +768,4 @@ src_install() {
 	doins docs/iamb.metainfo.xml
 
 	cargo_src_install
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }
