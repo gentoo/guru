@@ -12,15 +12,15 @@ RUST_MIN_VER="1.82.0"
 inherit cargo llvm-r2 optfeature shell-completion systemd
 
 DESCRIPTION="Scrollable-tiling Wayland compositor"
-HOMEPAGE="https://github.com/YaLTeR/niri"
+HOMEPAGE="https://github.com/niri-wm/niri"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/YaLTeR/niri.git"
+	EGIT_REPO_URI="https://github.com/niri-wm/niri.git"
 else
 	SRC_URI="
-		https://github.com/YaLTeR/niri/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-		https://github.com/YaLTeR/niri/releases/download/v${PV}/${P}-vendored-dependencies.tar.xz
+		https://github.com/niri-wm/niri/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/niri-wm/niri/releases/download/v${PV}/${P}-vendored-dependencies.tar.xz
 		${CARGO_CRATE_URIS}
 	"
 	KEYWORDS="~amd64"

@@ -6,6 +6,6 @@
 		<name>Takuya Wakazono</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">YaLTeR/niri</remote-id>
+		<remote-id type="github">niri-wm/niri</remote-id>
 	</upstream>
 </pkgmetadata>
