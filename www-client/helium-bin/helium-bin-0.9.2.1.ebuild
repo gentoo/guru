@@ -21,9 +21,10 @@ elif [[ ${ARCH} == arm64 ]] ; then
 	ARCH_TXT="${ARCH}"
 fi
 
+BASE_SRC_URI="https://github.com/imputnet/${MY_PN}-linux/releases/download/${PV}"
 SRC_URI="
-	amd64? ( https://github.com/imputnet/${MY_PN}-linux/releases/download/${PV}/${MY_P}-x86_64_linux.tar.xz -> ${P}-amd64.tar.xz )
-	arm64? ( https://github.com/imputnet/${MY_PN}-linux/releases/download/${PV}/${MY_P}-arm64_linux.tar.xz -> ${P}-arm64.tar.xz )
+	amd64? ( ${BASE_SRC_URI}/${MY_P}-x86_64_linux.tar.xz -> ${P}-amd64.tar.xz )
+	arm64? ( ${BASE_SRC_URI}/${MY_P}-arm64_linux.tar.xz -> ${P}-arm64.tar.xz )
 "
 
 S=${WORKDIR}
