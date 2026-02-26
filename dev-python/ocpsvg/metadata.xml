@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">snoyer/ocpsvg</remote-id>
+		<remote-id type="pypi">ocpsvg</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		ocpsvg provides SVG import and export functionality for OCP (Open CASCADE
+		Python bindings). It allows converting between SVG paths and OCP wire/edge
+		geometry, enabling integration of 2D SVG designs into 3D CAD workflows
+		with build123d and CadQuery.
+	</longdescription>
+	<longdescription lang="zh">
+		ocpsvg为OCP（Open CASCADE Python绑定）提供SVG导入和导出功能。它允许在SVG
+		路径和OCP线框/边缘几何体之间进行转换，使2D SVG设计能够集成到build123d和
+		CadQuery的3D CAD工作流程中。
+	</longdescription>
+</pkgmetadata>
