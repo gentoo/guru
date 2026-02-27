@@ -13,14 +13,22 @@ LICENSE="all-rights-reserved"
 
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 RESTRICT="mirror strip"
 
-RDEPEND="media-libs/vulkan-loader
-	|| ( >=dev-dotnet/dotnet-sdk-10
-	     >=dev-dotnet/dotnet-sdk-bin-10
-	   )"
+BDEPEND="dev-util/patchelf"
+RDEPEND="
+	media-libs/vulkan-loader
+	virtual/dotnet-sdk:10.0
+"
+
+src_prepare() {
+	default
+
+	# scanelf: rpath_security_checks(): Security problem NULL DT_RUNPATH in
+	# /var/tmp/portage/.../libRakNetDLL.so
+	patchelf --remove-rpath libRakNetDLL.so || die
+}
 
 src_install() {
 	insinto "/opt/kittenspaceagency"
@@ -30,12 +38,12 @@ src_install() {
 	doexe "KSA"
 	doexe "Brutal.Monitor.Subprocess"
 
-	cat > kittenspaceagency << 'ENDWRAPPER'
-#!/usr/bin/env bash
+	cat > kittenspaceagency <<- 'ENDWRAPPER' || die
+		#!/usr/bin/env bash
 
-cd /opt/kittenspaceagency
-XDG_SESSION_TYPE=x11 exec ./KSA "$@"
-ENDWRAPPER
+		cd /opt/kittenspaceagency
+		XDG_SESSION_TYPE=x11 exec ./KSA "$@"
+	ENDWRAPPER
 
 	dobin kittenspaceagency
 
