@@ -1,0 +1,46 @@
+Modify the BoringSSL library to be included internally during OpenLiteSpeed construction, so that the BoringSSL library does not need to be installed by itself on the system.
+BoringSSL must always be built as static, so we intentionally removed the code that builds it as shared.
+diff --git a/src/boringssl/CMakeLists.txt b/src/boringssl/CMakeLists.txt
+index aac5f0d..37cbfa3 100644
+--- a/src/boringssl/CMakeLists.txt
++++ b/src/boringssl/CMakeLists.txt
+@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.10)
+ # Defer enabling C and CXX languages.
+ project(BoringSSL NONE)
+ 
++set(BUILD_SHARED_LIBS OFF)
++
+ # Don't install BoringSSL to system directories by default; it has no stable
+ # ABI. Instead, default to an "install" directory under the source.
+ if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+@@ -36,7 +38,7 @@ if(CMAKE_VERSION VERSION_LESS "3.14")
+ endif()
+ 
+ # Wrap the CMake install function so we can disable it.
+-set(INSTALL_ENABLED 1)
++set(INSTALL_ENABLED 0)
+ function(install_if_enabled)
+   if(INSTALL_ENABLED)
+     install(${ARGV})
+@@ -139,7 +141,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
+   # Note clang-cl is odd and sets both CLANG and MSVC. We base our configuration
+   # primarily on our normal Clang one.
+   # TODO(bbe) took out -Wmissing-field-initializers for pki - fix and put back or disable only for pki
+-  set(C_CXX_FLAGS "-Werror -Wformat=2 -Wsign-compare -Wwrite-strings -Wvla -Wshadow -Wtype-limits")
++  set(C_CXX_FLAGS "-Wformat=2 -Wsign-compare -Wwrite-strings -Wvla -Wshadow -Wtype-limits -fPIC")
+   if(MSVC)
+     # clang-cl sets different default warnings than clang. It also treats -Wall
+     # as -Weverything, to match MSVC. Instead -W3 is the alias for -Wall.
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 52f933f3..6df38490 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -174,7 +174,7 @@ SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMakeModules)
+ #If you want to use BoringSSL, just un-comment out the following commands
+ #AND YOU NEED TO HAVE THE files ready in openlitespeed/ssl
+ #You can run the dlbssl.sh to make them ready
+-set(BSSL_ADD_LIB  libdecrepit.a)
++set(BSSL_ADD_LIB  decrepit)
+ ##########################################################################################
+ #If you want to use Brotli Compression, just un-comment out the following commands
+ set(BROTLI_ADD_LIB  libbrotlidec-static.a libbrotlienc-static.a libbrotlicommon-static.a)

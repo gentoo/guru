@@ -1,0 +1,153 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 52f933f3..49dcb853 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -16,30 +16,15 @@ set(CMAKE_SKIP_BUILD_RPATH TRUE)
+ 
+ SET(LSQUIC_SERVER_MODE 1)
+ 
+-if (CMAKE_HOST_SYSTEM_NAME MATCHES "Linux" AND 
+-    CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64")
+-    if (${ALPINE})
+-        message("Alpine X64")
+-    else()
+-        message("Set LINUX_X64")
+-        set (LINUX_X64 ON)
+-    endif()
+-endif()
+-if (CMAKE_HOST_SYSTEM_NAME MATCHES "Darwin")
+-    set (NOT_MACOS OFF)
+-else()
+-    set (NOT_MACOS ON)
+-endif()
+-OPTION(MOD_PAGESPEED "Whether pagespeed should be built" ${LINUX_X64})
+-OPTION(MOD_SECURITY "Whether mod_security should be built" ${NOT_MACOS})
+-OPTION(MOD_LUA "Whether Lua should be built" ${LINUX_X64})
++OPTION(MOD_PAGESPEED "Whether pagespeed should be built" OFF)
++OPTION(MOD_SECURITY "Whether mod_security should be built" OFF)
++OPTION(MOD_LUA "Whether Lua should be built" OFF)
+ OPTION(MOD_REQPARSER "Whether modreqparser should be built" OFF)
+ OPTION(MOD_INSPECTOR "Whether modinspector should be built" OFF)
+ OPTION(MOD_UPLOADPROGRESS "Whether uploadprogress should be built" OFF)
+ OPTION(MOD_LSPHP "Whether mod_lsphp should be built" OFF)
+ 
+-include_directories( BEFORE  include src/lshpack src/liblsquic/ls-qpack ${PROJECT_SOURCE_DIR}/../third-party/include/)
+-link_directories( ${PROJECT_SOURCE_DIR}/../third-party/lib/)
++include_directories( BEFORE  include /usr/include/lsquic src/boringssl/include)
+ 
+ #SET (CMAKE_C_COMPILER         "/usr/bin/clang")
+ #SET (CMAKE_CXX_COMPILER       "/usr/bin/clang++")
+@@ -174,11 +159,11 @@ SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMakeModules)
+ set(BSSL_ADD_LIB decrepit)
+ ##########################################################################################
+ #If you want to use Brotli Compression, just un-comment out the following commands
+-set(BROTLI_ADD_LIB  libbrotlidec-static.a libbrotlienc-static.a libbrotlicommon-static.a)
++set(BROTLI_ADD_LIB  brotlidec brotlienc brotlicommon)
+ add_definitions(-DUSE_BROTLI)
+ ##########################################################################################
+ #If you want to use IP2Location, just un-comment out the following commands
+-set(IP2LOC_ADD_LIB  libIP2Location.a)
++set(IP2LOC_ADD_LIB  IP2Location)
+ add_definitions(-DUSE_IP2LOCATION)
+ ##########################################################################################
+ #If you want to use IPTOGEO2, just un-comment out the following commands
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 34df52ff..60e65b72 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -2,12 +2,10 @@ cmake_minimum_required(VERSION 3.0)
+ 
+ link_directories("/usr/lib64")
+ 
+-
+ add_subdirectory(adns)
+ add_subdirectory(edio)
+ add_subdirectory(extensions)
+ add_subdirectory(http)
+-add_subdirectory(liblsquic)
+ add_subdirectory(log4cxx)
+ add_subdirectory(lsiapi)
+ add_subdirectory(lsr)
+@@ -22,6 +20,7 @@ add_subdirectory(ssi)
+ add_subdirectory(thread)
+ add_subdirectory(util)
+ add_subdirectory(h2)
++add_subdirectory(boringssl)
+ 
+ ########### next target ###############
+ 
+@@ -158,8 +157,8 @@ SET( litespeedlib
+     registry cgi fcgi jk extensions lsapi proxy
+     socket sslpp lsshm thread log4cxx adns 
+     quic h2 lsquic -Wl,--whole-archive util lsr -Wl,--no-whole-archive ${MMDB_LIB}
+-    edio libssl.a libcrypto.a ${BSSL_ADD_LIB} ${libUnitTest}
+-    libz.a libpcre.a libexpat.a libxml2.a
++    edio ssl crypto ls-qpack ls-hpack ${BSSL_ADD_LIB} ${libUnitTest}
++    z pcre expat xml2
+     ${IP2LOC_ADD_LIB} ${BROTLI_ADD_LIB} udns ${LINUX_AIO_LIB} 
+     -nodefaultlibs pthread rt ${LIBSAN} ${LIBATOMIC} 
+     ${CMAKE_DL_LIBS} ${STDCXX} crypt bcrypt m gcc_eh c c_nonshared gcc
+diff --git a/src/h2/CMakeLists.txt b/src/h2/CMakeLists.txt
+index 43372886..c73c835e 100644
+--- a/src/h2/CMakeLists.txt
++++ b/src/h2/CMakeLists.txt
+@@ -10,7 +10,6 @@ h2streampool.cpp
+ unpackedheaders.cpp
+ h2connbase.cpp
+ h2streambase.cpp
+-../lshpack/lshpack.c
+ )
+ 
+ add_library(h2 STATIC ${h2_STAT_SRCS})
+diff --git a/src/h2/unpackedheaders.cpp b/src/h2/unpackedheaders.cpp
+index 1b803c07..a58e2c18 100644
+--- a/src/h2/unpackedheaders.cpp
++++ b/src/h2/unpackedheaders.cpp
+@@ -4,7 +4,7 @@
+ #include <log4cxx/logger.h>
+ #include <lsr/ls_pool.h>
+ #include <util/stringtool.h>
+-#include <lshpack/lshpack.h>
++#include <lshpack.h>
+ #include <lsqpack.h>
+ 
+ 
+diff --git a/src/http/httprespheaders.cpp b/src/http/httprespheaders.cpp
+index e18762ee..6e2be6af 100644
+--- a/src/http/httprespheaders.cpp
++++ b/src/http/httprespheaders.cpp
+@@ -20,7 +20,7 @@
+ #include <http/httpserverversion.h>
+ #include <http/httpver.h>
+ #include <log4cxx/logger.h>
+-#include <lshpack/lshpack.h>
++#include <lshpack.h>
+ #include <socket/gsockaddr.h>
+ #include <util/datetime.h>
+ #include <util/stringtool.h>
+diff --git a/src/http/userdir.cpp b/src/http/userdir.cpp
+index 99ab0a35..65d14e87 100644
+--- a/src/http/userdir.cpp
++++ b/src/http/userdir.cpp
+@@ -33,7 +33,7 @@
+ #include <openssl/md5.h>
+ #include <openssl/sha.h>
+ #include <string.h>
+-#include <bcrypt.h>
++#include <libbcrypt.h>
+ 
+ 
+ UserDir::~UserDir()
+diff --git a/src/modules/modsecurity-ls/CMakeLists.txt b/src/modules/modsecurity-ls/CMakeLists.txt
+index c091ad9a..6effd30f 100644
+--- a/src/modules/modsecurity-ls/CMakeLists.txt
++++ b/src/modules/modsecurity-ls/CMakeLists.txt
+@@ -28,7 +28,7 @@ add_library(mod_security SHARED
+ )
+ 
+ 
+-target_link_libraries(mod_security libmodsecurity.a
++target_link_libraries(mod_security modsecurity
+     -nodefaultlibs libstdc++.a
+     pthread rt -llmdb -lxml2 -lcurl -lssl -lcrypto -lz -lpcre -lyajl
+     ${LIBSAN} crypt m gcc_eh c c_nonshared gcc)
