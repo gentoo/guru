@@ -23,7 +23,7 @@ else
 fi
 
 LICENSE="MIT"
-#gentoo-go-license ghq-9999.ebuild
+#gentoo-go-license ghq-1.9.4.ebuild
 LICENSE+=" BSD-2 BSD MIT "
 
 SLOT="0"
