@@ -1,0 +1,19 @@
+--- a/tools/fx2conf.cpp
++++ b/tools/fx2conf.cpp
+@@ -97,6 +97,16 @@
+           s.replace(cur_pos, 1, "\n# ");
+           cur_pos += 3;
+         }
++        // handle \0
++        cur_pos = 0;
++        while ((cur_pos = s.find('\0', cur_pos)) != std::string::npos) {
++          s.replace(cur_pos, 1, "\n#        ");
++        }
++        // handle \n0
++        cur_pos = 0;
++        while ((cur_pos = s.find("# 0 ", cur_pos)) != std::string::npos) {
++          s.replace(cur_pos, 4, "# * ");
++        }
+     }
+     return s;
+   };
