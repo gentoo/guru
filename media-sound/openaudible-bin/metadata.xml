@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo-bugzilla@vimja.email</email>
+		<name>Niklaus 'vimja' Hofer</name>
+	</maintainer>
+	<longdescription>
+		OpenAudible is a cross-platform audiobook manager designed for Audible users. Manage/Download all your audiobooks with this easy-to-use desktop application. 
+	</longdescription>
+	<use>
+		<flag name="system-ffmpeg">Use the system-wide <pkg>media-video/ffmpeg</pkg>
+			instead of bundled</flag>
+		<flag name="system-jre">Use the system-wide <pkg>virtual/jre</pkg>
+			instead of bundled</flag>
+		<flag name="webapp">Include the OpenAudible webapp</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">openaudible/openaudible</remote-id>
+	</upstream>
+</pkgmetadata>
