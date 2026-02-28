@@ -25,8 +25,10 @@ SLOT="0"
 RDEPEND="
 	>=dev-python/lxml-6.0.2[${PYTHON_USEDEP}]
 	>=dev-python/msgpack-1.1.2[${PYTHON_USEDEP}]
-	>=dev-python/textual-7.3.0[${PYTHON_USEDEP}]
+	>=sys-apps/portage-3.0.77[${PYTHON_USEDEP}]
+	>=dev-python/textual-8.0.0[${PYTHON_USEDEP}]
 	>=dev-python/tomlkit-0.14.0[${PYTHON_USEDEP}]
+	>=app-portage/gentoolkit-0.7.1[${PYTHON_USEDEP}]
 "
 
 src_install() {
