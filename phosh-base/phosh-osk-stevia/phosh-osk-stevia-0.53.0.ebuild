@@ -1,12 +1,12 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit gnome2-utils meson virtualx verify-sig xdg
+inherit gnome2-utils meson systemd virtualx verify-sig xdg
 
 DESCRIPTION="Alternative on screen keyboard for Phosh"
-HOMEPAGE="https://gitlab.gnome.org/guidog/stevia"
+HOMEPAGE="https://gitlab.gnome.org/World/Phosh/stevia"
 SRC_URI="https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz
 	verify-sig? ( https://sources.phosh.mobi/releases/${PN}/${P}.tar.xz.asc )"
 
@@ -39,6 +39,7 @@ DEPEND="${RDEPEND}
 	>=dev-libs/wayland-protocols-1.12
 	>=gnome-base/gsettings-desktop-schemas-47
 	x11-libs/libxkbcommon[wayland]
+	kernel_linux? ( sys-kernel/linux-headers )
 "
 BDEPEND="
 	dev-libs/glib:2
@@ -60,6 +61,7 @@ QA_DESKTOP_FILE="usr/share/applications/mobi.phosh.Stevia.desktop"
 src_configure() {
 	local emesonargs=(
 		-Ddefault_osk=false
+		-Dsystemd_user_unit_dir="$(systemd_get_userunitdir)"
 		$(meson_use gtk-doc gtk_doc)
 		$(meson_use man)
 		$(meson_use test tests)
