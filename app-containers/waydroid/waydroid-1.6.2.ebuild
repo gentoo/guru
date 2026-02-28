@@ -1,13 +1,13 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
-inherit linux-info xdg python-single-r1
+PYTHON_COMPAT=( python3_{12..14} )
+inherit linux-info python-single-r1 xdg
 
 DESCRIPTION="Container-based approach to boot a full Android system on Linux systems"
-HOMEPAGE="https://waydro.id"
+HOMEPAGE="https://waydro.id https://github.com/waydroid/waydroid"
 SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
@@ -22,13 +22,13 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		clipboard? ( >=dev-python/pyclip-0.7.0[wayland,${PYTHON_USEDEP}] )
 		dev-python/pygobject[${PYTHON_USEDEP}]
-		>=dev-python/gbinder-1.1.1[${PYTHON_USEDEP}]
+		>=dev-python/gbinder-1.3.0[${PYTHON_USEDEP}]
 		dev-python/dbus-python[${PYTHON_USEDEP}]
 	')
 	net-firewall/nftables
 	net-dns/dnsmasq
-	>=dev-libs/libglibutil-1.0.79
-	>=dev-libs/gbinder-1.1.41
+	>=dev-libs/libglibutil-1.0.80
+	>=dev-libs/gbinder-1.1.43
 	x11-themes/hicolor-icon-theme
 	${PYTHON_DEPS}
 "
