@@ -6,6 +6,11 @@
 		<description>Primary maintainer</description>
 		<name>Artemis Everfree</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>freetolga@protonmail.com</email>
+		<description>Backup maintainer</description>
+		<name>Tolga Uçar</name>
+	</maintainer>
 	<upstream>
 		<changelog>https://codeberg.org/forgejo/forgejo/releases</changelog>
 		<bugs-to>https://codeberg.org/forgejo/forgejo/issues</bugs-to>
