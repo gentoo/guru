@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_COMPAT=( {15..19} )
+LLVM_COMPAT=( {17..21} )
 PYTHON_COMPAT=( python3_{11..14} )
 inherit llvm-r1 python-single-r1 unpacker
 
