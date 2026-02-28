@@ -41,7 +41,7 @@ src_install() {
 	fowners goatcounter:goatcounter /var/db/goatcounter
 	fperms 750 /var/db/goatcounter
 
-	newinitd "${FILESDIR}"/goatcounter.initd goatcounter
+	newinitd "${FILESDIR}"/goatcounter.initd-r1 goatcounter
 	newconfd "${FILESDIR}"/goatcounter.confd goatcounter
 
 	systemd_dounit "${FILESDIR}"/goatcounter.service
