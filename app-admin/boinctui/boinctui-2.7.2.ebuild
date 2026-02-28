@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -32,7 +32,9 @@ src_prepare() {
 src_configure() {
 	local myeconfargs=(
 		--with-boinc-dir="${EPREFIX}/var/lib/boinc"
-		$(use_with gnutls)
+
+		# $(use_with ...) is broken here
+		$(usex !gnutls "--without-gnutls" "")
 	)
 	econf "${myeconfargs[@]}"
 
