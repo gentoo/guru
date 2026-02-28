@@ -1,4 +1,4 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ inherit cmake flag-o-matic
 MY_PN="RHVoice"
 MY_P="${MY_PN}-${PV}"
 SANITIZERS_COMMIT="99e159ec9bc8dd362b08d18436bd40ff0648417b"
-DESCRIPTION="TTS engine with extended languages support"
+DESCRIPTION="Multilingual text-to-speech engine"
 HOMEPAGE="
 	https://rhvoice.org
 	https://github.com/RHVoice/RHVoice
@@ -25,7 +25,6 @@ IUSE="ao dbus portaudio +pulseaudio +speech-dispatcher"
 REQUIRED_USE="|| ( ao portaudio pulseaudio )"
 
 COMMON_DEPEND="
-	dev-libs/boost:=
 	ao? ( media-libs/libao )
 	dbus? (
 		dev-libs/glib:2[dbus]
@@ -41,8 +40,14 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/cli11
-	dev-libs/utfcpp
+	dev-libs/boost
+	<dev-libs/utfcpp-4.0
 "
+
+PATCHES=(
+	# https://bugs.gentoo.org/923911
+	"${FILESDIR}"/${PN}-1.16.4-flags.patch
+)
 
 DOCS=( README.md doc/. config/dicts )
 
