@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,7 +18,7 @@ IUSE="dtrace gtk-doc man sysprof test"
 RESTRICT="!test? ( test )"
 
 WLROOTS_RDEPEND="
-	>=dev-libs/libinput-1.19.0:=
+	>=dev-libs/libinput-1.27.0:=
 	>=dev-libs/libliftoff-0.4
 	>=dev-libs/wayland-1.23.1
 	media-libs/libdisplay-info:=
@@ -31,6 +31,7 @@ WLROOTS_RDEPEND="
 	x11-libs/cairo
 	>=x11-libs/libdrm-2.4.122
 	x11-libs/libxcb:=
+	x11-libs/pango
 	>=x11-libs/pixman-0.43.0
 	x11-libs/xcb-util-errors
 	x11-libs/xcb-util-renderutil
@@ -47,7 +48,7 @@ WLROOTS_BDEPEND="
 
 RDEPEND="${WLROOTS_RDEPEND}
 	>=dev-libs/glib-2.80:2
-	dev-libs/gmobile
+	>=dev-libs/gmobile-0.6.0
 	dev-libs/libinput:=
 	>=dev-libs/wayland-1.23.1
 	>=gnome-base/gnome-desktop-3.26:3=
