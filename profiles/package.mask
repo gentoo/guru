@@ -70,7 +70,6 @@ gui-apps/pop-launcher
 dev-util/catppuccin-whiskers
 dev-util/catppuccin-catwalk
 x11-themes/catppuccin-neovim
-media-libs/alvr
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-24)
 # Depends on masked net-libs/stem.
