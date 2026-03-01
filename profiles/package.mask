@@ -77,7 +77,6 @@ media-libs/alvr
 # Removal after 2026-02-27
 media-sound/6pm
 media-sound/add64
-sys-apps/qjournalctl
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-24)
 # Depends on masked net-libs/stem.
