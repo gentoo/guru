@@ -20,8 +20,14 @@ CONFIG_CHECK="NET INET NET_UDP_TUNNEL CRYPTO_ALGAPI"
 
 pkg_setup() {
 	linux-mod-r1_pkg_setup
+
 	if kernel_is -lt 3 10 0; then
 		die "This version of ${PN} requires Linux >= 3.10."
+	fi
+
+	# https://github.com/amnezia-vpn/amneziawg-linux-kernel-module/issues/138
+	if kernel_is -ge 6 19 0; then
+		die "This version of ${PN} requires Linux < 6.19."
 	fi
 }
 
