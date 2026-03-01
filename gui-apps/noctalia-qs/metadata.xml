@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<longdescription>
+		noctalia-qs is a custom fork of Quickshell 
+		- a flexible QtQuick-based desktop shell toolkit for Wayland. 
+		It serves as the shell framework powering Noctalia Shell. 
+	</longdescription>
+	<use>
+		<flag name="breakpad">Enable Google's <pkg>dev-util/breakpad</pkg> crash reporter</flag>
+		<flag name="sockets">Enable Unix Sockets (WARNING: Disabling is unsafe!)</flag>
+		<flag name="layer-shell">Enable wlroots layershell integration through the zwlr-layer-shell-v1 protocol</flag>
+		<flag name="session-lock">Enable session lock support through the ext-session-lock-v1 protocol</flag>
+		<flag name="toplevel-management">Enable management of windows through zwlr-foreign-toplevel-management-v1 protocol</flag>
+		<flag name="screencopy">Enable streaming video from monitors and toplevel windows through various protocols</flag>
+		<flag name="pipewire">Enable viewing and management of <pkg>media-video/pipewire</pkg> nodes</flag>
+		<flag name="tray">Enable system tray support using the status notifier dbus protocol</flag>
+		<flag name="mpris">Enable access to MPRIS compatible media players using its dbus protocol</flag>
+		<flag name="pam">Enable <pkg>sys-libs/pam</pkg> integration for user authentication</flag>
+		<flag name="polkit">Enable creating <pkg>sys-auth/polkit</pkg> agents that can prompt user for authentication</flag>
+		<flag name="hyprland">Enable <pkg>gui-wm/hyprland</pkg> specific integrations</flag>
+		<flag name="hyprland-global-shortcuts">Enable creation of global shortcuts under <pkg>gui-wm/hyprland</pkg> through the hyprland-global-shortcuts-v1 protocol</flag>
+		<flag name="hyprland-focus-grab">Enables windows to grab focus on <pkg>gui-wm/hyprland</pkg> through the hyprland-focus-grab-v1 protocol</flag>
+		<flag name="i3">Enable <pkg>x11-wm/i3</pkg> and <pkg>gui-wm/sway</pkg> specific features</flag>
+		<flag name="i3-ipc">Enable interfacing with <pkg>x11-wm/i3</pkg> and <pkg>gui-wm/sway</pkg>'s IPC</flag>
+		<flag name="bluetooth">Enable Bluetooth integration using <pkg>net-wireless/bluez</pkg></flag>
+	</use>
+	<upstream>
+		<remote-id type="github">noctalia-dev/noctalia-qs</remote-id>
+	</upstream>
+</pkgmetadata>
