@@ -22,9 +22,9 @@ CRATES="
 	android-properties@0.2.2
 	android_system_properties@0.1.5
 	anstyle@1.0.13
-	anyhow@1.0.101
+	anyhow@1.0.102
 	arboard@3.6.1
-	arc-swap@1.8.1
+	arc-swap@1.8.2
 	arrayref@0.3.9
 	arrayvec@0.7.6
 	as-raw-xcb-connection@1.0.1
@@ -32,6 +32,8 @@ CRATES="
 	ash@0.38.0+1.3.281
 	async-lock@3.4.2
 	async-trait@0.1.89
+	atk-sys@0.18.2
+	atk@0.18.2
 	atomic-waker@1.1.2
 	atomic@0.6.1
 	autocfg@1.5.0
@@ -45,37 +47,40 @@ CRATES="
 	bit-vec@0.6.3
 	bit-vec@0.8.0
 	bitflags@1.3.2
-	bitflags@2.10.0
+	bitflags@2.11.0
 	bitvec@1.0.1
 	block-buffer@0.10.4
 	block2@0.5.1
 	block@0.1.6
 	bstr@1.12.1
-	bumpalo@3.19.1
+	bumpalo@3.20.2
 	bytemuck@1.25.0
 	bytemuck_derive@1.10.2
 	bytes@1.11.1
 	cached@0.56.0
 	cached_proc_macro@0.25.0
 	cached_proc_macro_types@0.1.1
+	cairo-rs@0.18.5
+	cairo-sys-rs@0.18.2
 	calloop-wayland-source@0.3.0
 	calloop@0.13.0
 	castaway@0.2.4
-	cc@1.2.55
+	cc@1.2.56
 	cesu8@1.1.0
 	cexpr@0.6.0
+	cfg-expr@0.15.8
 	cfg-if@1.0.4
 	cfg_aliases@0.1.1
 	cfg_aliases@0.2.1
 	chardetng@0.1.17
 	charset-normalizer-rs@1.1.0
-	chrono@0.4.43
+	chrono@0.4.44
 	chunked_transfer@1.5.0
 	clang-sys@1.8.1
-	clap@4.5.57
-	clap_builder@4.5.57
+	clap@4.5.60
+	clap_builder@4.5.60
 	clap_derive@4.5.55
-	clap_lex@0.7.7
+	clap_lex@1.0.0
 	clipboard-win@5.4.1
 	cobs@0.3.0
 	codespan-reporting@0.12.0
@@ -97,6 +102,7 @@ CRATES="
 	cow-utils@0.1.3
 	cpufeatures@0.2.17
 	crc32fast@1.5.0
+	crossbeam-channel@0.5.15
 	crossbeam-deque@0.8.6
 	crossbeam-epoch@0.9.18
 	crossbeam-utils@0.8.21
@@ -115,7 +121,7 @@ CRATES="
 	darling_macro@0.20.11
 	darling_macro@0.23.0
 	deltae@0.3.2
-	deranged@0.5.5
+	deranged@0.5.8
 	derive_more-impl@2.1.1
 	derive_more@2.1.1
 	digest@0.10.7
@@ -129,7 +135,7 @@ CRATES="
 	document-features@0.2.12
 	downcast-rs@1.2.1
 	dpi@0.1.2
-	dragonbox_ecma@0.1.0
+	dragonbox_ecma@0.1.12
 	dtor-proc-macro@0.0.6
 	dtor@0.1.1
 	dyn-clone@1.0.20
@@ -156,6 +162,7 @@ CRATES="
 	fancy-regex@0.16.2
 	fastrand@2.3.0
 	fdeflate@0.3.7
+	field-offset@0.3.6
 	filedescriptor@0.8.3
 	find-msvc-tools@0.1.9
 	finl_unicode@1.4.0
@@ -171,27 +178,44 @@ CRATES="
 	foreign-types@0.5.0
 	form_urlencoded@1.2.2
 	funty@2.0.0
-	futures-core@0.3.31
-	futures-io@0.3.31
+	futures-channel@0.3.32
+	futures-core@0.3.32
+	futures-executor@0.3.32
+	futures-io@0.3.32
+	futures-macro@0.3.32
 	futures-task@0.3.32
-	futures-util@0.3.31
+	futures-util@0.3.32
+	gdk-pixbuf-sys@0.18.0
+	gdk-pixbuf@0.18.5
+	gdk-sys@0.18.2
+	gdk@0.18.2
 	generic-array@0.14.7
 	gethostname@1.1.0
 	getrandom@0.2.17
 	getrandom@0.3.4
 	getrandom@0.4.1
+	gio-sys@0.18.1
+	gio@0.18.4
 	gl_generator@0.14.0
+	glib-macros@0.18.5
+	glib-sys@0.18.1
+	glib@0.18.5
 	glob@0.3.3
 	globset@0.4.18
 	globwalk@0.8.1
 	glow@0.16.0
 	glutin_wgl_sys@0.6.1
+	gobject-sys@0.18.0
 	gpu-allocator@0.28.0
 	gpu-descriptor-types@0.2.0
 	gpu-descriptor@0.3.2
+	gtk-sys@0.18.2
+	gtk3-macros@0.18.2
+	gtk@0.18.2
 	half@2.7.1
 	hashbrown@0.15.5
 	hashbrown@0.16.1
+	heck@0.4.1
 	heck@0.5.0
 	hermit-abi@0.5.2
 	hex@0.4.3
@@ -230,7 +254,7 @@ CRATES="
 	indoc@2.0.7
 	insta@1.46.3
 	instability@0.3.11
-	interprocess@2.3.1
+	interprocess@2.4.0
 	is-docker@0.2.0
 	is-wsl@0.4.0
 	itertools@0.11.0
@@ -240,9 +264,10 @@ CRATES="
 	jni-sys@0.3.0
 	jni@0.21.1
 	jobserver@0.1.34
-	js-sys@0.3.85
+	js-sys@0.3.90
 	json-escape-simd@3.0.1
 	kasuari@0.4.11
+	keyboard-types@0.7.0
 	khronos-egl@6.0.0
 	khronos_api@3.1.0
 	lab@0.11.0
@@ -253,6 +278,8 @@ CRATES="
 	libloading@0.9.0
 	libm@0.2.16
 	libredox@0.1.12
+	libxdo-sys@0.11.0
+	libxdo@0.6.0
 	line-clipping@0.3.5
 	linked-hash-map@0.5.6
 	linux-raw-sys@0.11.0
@@ -277,6 +304,7 @@ CRATES="
 	miniz_oxide@0.8.9
 	mio@1.1.1
 	miow@0.6.1
+	muda@0.15.3
 	naga@28.0.0
 	ndk-context@0.1.1
 	ndk-sys@0.6.0+11769913
@@ -329,11 +357,12 @@ CRATES="
 	orbclient@0.3.50
 	ordered-float@3.9.2
 	ordered-float@4.6.0
+	ordered-float@5.1.0
 	os_pipe@1.2.3
 	outref@0.5.2
 	owned_ttf_parser@0.25.1
-	owo-colors@4.2.3
-	oxc-browserslist@2.3.0
+	owo-colors@4.3.0
+	oxc-browserslist@2.3.1
 	oxc-miette-derive@2.7.0
 	oxc-miette@2.7.0
 	oxc_allocator@0.112.0
@@ -356,6 +385,8 @@ CRATES="
 	oxc_syntax@0.112.0
 	oxc_transformer@0.112.0
 	oxc_traverse@0.112.0
+	pango-sys@0.18.0
+	pango@0.18.3
 	parking_lot@0.12.5
 	parking_lot_core@0.9.12
 	paste@1.0.15
@@ -378,10 +409,10 @@ CRATES="
 	pin-project-internal@1.1.10
 	pin-project-lite@0.2.16
 	pin-project@1.1.10
-	pin-utils@0.1.0
 	piper@0.2.4
 	pkg-config@0.3.32
 	plist@1.8.0
+	png@0.17.16
 	png@0.18.1
 	polling@3.11.0
 	portable-atomic-util@0.2.5
@@ -393,11 +424,15 @@ CRATES="
 	ppv-lite86@0.2.21
 	presser@0.3.1
 	prettyplease@0.2.37
+	proc-macro-crate@1.3.1
+	proc-macro-crate@2.0.0
 	proc-macro-crate@3.4.0
+	proc-macro-error-attr@1.0.4
+	proc-macro-error@1.0.4
 	proc-macro2@1.0.106
 	profiling@1.0.17
 	proptest@1.10.0
-	pulldown-cmark@0.13.0
+	pulldown-cmark@0.13.1
 	quick-error@1.2.3
 	quick-xml@0.38.4
 	quote@1.0.44
@@ -421,12 +456,12 @@ CRATES="
 	recvmsg@1.0.0
 	redox_syscall@0.4.1
 	redox_syscall@0.5.18
-	redox_syscall@0.7.1
+	redox_syscall@0.7.2
 	redox_users@0.5.2
 	ref-cast-impl@1.0.25
 	ref-cast@1.0.25
 	regex-automata@0.4.14
-	regex-syntax@0.8.9
+	regex-syntax@0.8.10
 	regex@1.12.3
 	relative-path@2.0.1
 	renderdoc-sys@1.1.0
@@ -448,7 +483,7 @@ CRATES="
 	rustix@1.1.3
 	rustls-pki-types@1.14.0
 	rustls-webpki@0.103.9
-	rustls@0.23.36
+	rustls@0.23.37
 	rustversion@1.0.22
 	rusty-fork@0.3.1
 	rustybuzz@0.20.1
@@ -469,8 +504,9 @@ CRATES="
 	serde_json@1.0.149
 	serde_repr@0.1.20
 	serde_spanned@0.6.9
+	serde_spanned@1.0.4
 	serde_yaml@0.9.34+deprecated
-	serial2@0.2.33
+	serial2@0.2.34
 	sha1@0.10.6
 	sha2@0.10.9
 	sharded-slab@0.1.7
@@ -502,10 +538,12 @@ CRATES="
 	subtle@2.6.1
 	sw-composite@0.7.16
 	syn@1.0.109
-	syn@2.0.114
+	syn@2.0.117
 	synstructure@0.13.2
 	syntect@5.3.0
+	system-deps@6.2.2
 	tap@1.0.1
+	target-lexicon@0.12.16
 	tempfile@3.25.0
 	termcolor@1.4.1
 	terminfo@0.9.0
@@ -529,12 +567,16 @@ CRATES="
 	tokio-macros@2.6.0
 	tokio@1.49.0
 	toml@0.8.23
+	toml@0.9.12+spec-1.1.0
 	toml_datetime@0.6.11
 	toml_datetime@0.7.5+spec-1.1.0
+	toml_edit@0.19.15
+	toml_edit@0.20.7
 	toml_edit@0.22.27
 	toml_edit@0.23.10+spec-1.0.0
-	toml_parser@1.0.6+spec-1.1.0
+	toml_parser@1.0.9+spec-1.1.0
 	toml_write@0.1.2
+	toml_writer@1.0.6+spec-1.1.0
 	tracing-attributes@0.1.31
 	tracing-core@0.1.36
 	tracing-log@0.2.0
@@ -576,7 +618,7 @@ CRATES="
 	unicode-bidi@0.3.18
 	unicode-ccc@0.4.0
 	unicode-id-start@1.4.0
-	unicode-ident@1.0.23
+	unicode-ident@1.0.24
 	unicode-linebreak@0.1.5
 	unicode-properties@0.1.4
 	unicode-script@0.5.8
@@ -596,8 +638,9 @@ CRATES="
 	utf16_iter@1.0.5
 	utf8_iter@1.0.4
 	utf8parse@0.2.2
-	uuid@1.20.0
+	uuid@1.21.0
 	valuable@0.1.1
+	version-compare@0.2.1
 	version_check@0.9.5
 	vsimd@0.8.0
 	vt100@0.16.2
@@ -608,11 +651,11 @@ CRATES="
 	wasi@0.11.1+wasi-snapshot-preview1
 	wasip2@1.0.2+wasi-0.2.9
 	wasip3@0.4.0+wasi-0.3.0-rc-2026-01-06
-	wasm-bindgen-futures@0.4.58
-	wasm-bindgen-macro-support@0.2.108
-	wasm-bindgen-macro@0.2.108
-	wasm-bindgen-shared@0.2.108
-	wasm-bindgen@0.2.108
+	wasm-bindgen-futures@0.4.63
+	wasm-bindgen-macro-support@0.2.113
+	wasm-bindgen-macro@0.2.113
+	wasm-bindgen-shared@0.2.113
+	wasm-bindgen@0.2.113
 	wasm-encoder@0.244.0
 	wasm-metadata@0.244.0
 	wasmparser@0.244.0
@@ -625,7 +668,7 @@ CRATES="
 	wayland-protocols@0.32.10
 	wayland-scanner@0.31.8
 	wayland-sys@0.31.8
-	web-sys@0.3.85
+	web-sys@0.3.90
 	web-time@1.1.0
 	webpki-roots@1.0.6
 	wezterm-bidi@0.2.3
@@ -694,8 +737,10 @@ CRATES="
 	windows_x86_64_msvc@0.52.6
 	windows_x86_64_msvc@0.53.1
 	winit@0.30.12
+	winnow@0.5.40
 	winnow@0.7.14
 	winreg@0.10.1
+	winresource@0.1.30
 	wit-bindgen-core@0.51.0
 	wit-bindgen-rust-macro@0.51.0
 	wit-bindgen-rust@0.51.0
@@ -708,6 +753,7 @@ CRATES="
 	writeable@0.6.2
 	wyz@0.5.1
 	x11-dl@2.21.0
+	x11@2.21.0
 	x11rb-protocol@0.13.2
 	x11rb@0.13.2
 	xcursor@0.3.10
@@ -729,7 +775,7 @@ CRATES="
 	zerovec-derive@0.11.2
 	zerovec@0.10.4
 	zerovec@0.11.5
-	zmij@1.0.20
+	zmij@1.0.21
 "
 
 declare -A GIT_CRATES=(
@@ -754,14 +800,23 @@ S="${WORKDIR}/${P}/crates/${MY_PN}"
 LICENSE="GPL-2"
 # Dependent crate licenses
 LICENSE+="
-	0BSD Apache-2.0 BSD-2 BSD Boost-1.0 CC0-1.0 CDLA-Permissive-2.0 ISC
-	MIT MPL-2.0 Unicode-3.0 Unicode-DFS-2016 WTFPL-2 ZLIB
+	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD Boost-1.0
+	CC0-1.0 CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0
+	Unicode-DFS-2016 WTFPL-2 ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE="dev-bins +embed-plugins +plugins gui"
 REQUIRED_USE="embed-plugins? ( plugins )"
+
+src_prepare() {
+	default
+
+	rm ../../docs/fresh.txt || die
+
+	cp -P docs/fresh.txt ../../docs || die
+}
 
 src_configure() {
 	local myfeatures=(
