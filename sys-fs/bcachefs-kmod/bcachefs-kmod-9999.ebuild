@@ -3,14 +3,11 @@
 
 EAPI=8
 
-MODULES_KERNEL_MIN=6.16
 MODULES_INITRAMFS_IUSE=+initramfs
-MY_PN="bcachefs-tools"
-MY_PV_MAJOR_MINOR=${PV%.*}
-MODULE_S="module/src/${PN%-*}-${PV}"
-VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kentoverstreet.asc
 
 inherit linux-mod-r1 unpacker verify-sig
+
+MY_PN="bcachefs-tools"
 
 DESCRIPTION="Linux bcachefs kernel module for sys-fs/bcachefs-tools"
 HOMEPAGE="https://bcachefs.org/"
@@ -28,6 +25,10 @@ LICENSE="GPL-2"
 SLOT="0"
 
 IUSE="debug verify-sig"
+
+MODULES_KERNEL_MIN=6.16
+
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kentoverstreet.asc
 
 BDEPEND="
 	>=sys-kernel/linux-headers-6.16
@@ -86,12 +87,18 @@ src_unpack() {
 src_prepare() {
 	default
 
-	sed -i s/^VERSION=.*$/VERSION=${PV}/ Makefile || die
+	# Live builds will overwrite .version with git-describe output
+	echo "${PV}" > .version || die
 	emake DESTDIR="${WORKDIR}" PREFIX="/module" install_dkms
 }
 
 src_compile() {
-	local modlist=( "bcachefs=:../${MODULE_S}:../${MODULE_S}/src/fs/bcachefs" )
+	local dirs=( "${WORKDIR}/module/src/${PN%-*}-"* )
+	local module_src="${dirs[0]}"
+
+	[[ -d "${module_src}" ]] || die
+
+	local modlist=( "bcachefs=:${module_src}:${module_src}/src/fs/bcachefs" )
 	local modargs=(
 		KDIR=${KV_OUT_DIR}
 	)
