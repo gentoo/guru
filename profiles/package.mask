@@ -68,7 +68,6 @@ gui-apps/pop-launcher
 # Unmaintaned. Maintainer is not reachable
 # Removal after 2026-02-27
 dev-util/catppuccin-whiskers
-dev-util/catppuccin-catwalk
 
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-24)
 # Depends on masked net-libs/stem.
