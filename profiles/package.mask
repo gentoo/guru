@@ -72,11 +72,6 @@ dev-util/catppuccin-catwalk
 x11-themes/catppuccin-neovim
 media-libs/alvr
 
-# Paul Zander <negril.nx+gentoo@gmail.com> (2026-01-27)
-# Stuck on Qt5, no upstream action.
-# Removal after 2026-02-27
-media-sound/6pm
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-24)
 # Depends on masked net-libs/stem.
 # Masked until upstream supports running without stem.
