@@ -132,7 +132,7 @@ declare -A GIT_CRATES=(
 )
 
 RUST_MIN_VER="1.85.0"
-LLVM_COMPAT=( {19..20} )
+LLVM_COMPAT=( {19..21} )
 RUST_NEEDS_LLVM=1
 
 inherit cargo shell-completion llvm-r1
