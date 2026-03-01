@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -46,12 +46,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	|| ( >=sys-devel/gcc-14:* >=llvm-core/clang-17:* )
-	dev-build/cmake
-	dev-build/ninja
 	virtual/pkgconfig
 	dev-cpp/cli11
-	dev-util/spirv-tools
 	dev-qt/qtshadertools:6
 	breakpad? ( dev-util/breakpad )
 	wayland? (
