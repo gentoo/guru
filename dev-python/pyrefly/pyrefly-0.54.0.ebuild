@@ -461,7 +461,8 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
-QA_FLAGS_IGNORED="usr/bin/.*"
+DEPEND="app-arch/zstd:="
+RDEPEND="${DEPEND}"
 
 src_unpack() {
 	pypi_src_unpack
@@ -484,6 +485,9 @@ src_prepare() {
 src_configure() {
 	# Requires nightly
 	export RUSTC_BOOTSTRAP=1
+
+	# zstd-sys https://wiki.gentoo.org/wiki/Project:Rust/sys_crates#zstd-sys
+	export ZSTD_SYS_USE_PKG_CONFIG=1
 
 	cargo_src_configure
 }
