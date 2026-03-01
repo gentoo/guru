@@ -87,13 +87,18 @@ src_unpack() {
 src_prepare() {
 	default
 
-	sed -i s/^VERSION=.*$/VERSION=${PV}/ Makefile || die
+	# Live builds will overwrite .version with git-describe output
+	echo "${PV}" > .version || die
 	emake DESTDIR="${WORKDIR}" PREFIX="/module" install_dkms
 }
 
 src_compile() {
-	local module_src="module/src/${PN%-*}-${PV}"
-	local modlist=( "bcachefs=:../${module_src}:../${module_src}/src/fs/bcachefs" )
+	local dirs=( "${WORKDIR}/module/src/${PN%-*}-"* )
+	local module_src="${dirs[0]}"
+
+	[[ -d "${module_src}" ]] || die
+
+	local modlist=( "bcachefs=:${module_src}:${module_src}/src/fs/bcachefs" )
 	local modargs=(
 		KDIR=${KV_OUT_DIR}
 	)
