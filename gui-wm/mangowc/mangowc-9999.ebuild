@@ -6,16 +6,16 @@ EAPI=8
 inherit meson
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/DreamMaoMao/mangowc.git"
+	EGIT_REPO_URI="https://github.com/mangowm/mango.git"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/DreamMaoMao/${PN}/archive/${PV}.tar.gz"
-	S="${WORKDIR}/${PN}-${PV}"
+	SRC_URI="https://github.com/mangowm/mango/archive/${PV}.tar.gz"
+	S="${WORKDIR}/mango-${PV}"
 	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="wayland compositor based on wlroots and scenefx(dwl but no suckless)"
-HOMEPAGE="https://github.com/DreamMaoMao/mangowc.git"
+HOMEPAGE="https://github.com/mangowm/mango https://mangowm.github.io"
 
 LICENSE="CC0-1.0 GPL-3+ MIT"
 SLOT="0"
@@ -74,8 +74,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "If you have installed maomaowm before, be sure to remove the package,"
-	elog "since maomaowm was renamed to mangowc."
-	elog ""
 	elog "Default config path was changed to \$XDG_CONFIG_DIR/mango"
+	elog "For example configuration you can check /etc/mango directory"
 }

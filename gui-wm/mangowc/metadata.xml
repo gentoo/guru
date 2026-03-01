@@ -16,11 +16,11 @@
 		<flag name="X">Enable support for X11 applications (XWayland)</flag>
 	</use>
 	<upstream>
-		<remote-id type="github">DreamMaoMao/mangowc</remote-id>
+		<remote-id type="github">mangowm/mango</remote-id>
 		<maintainer status="active">
 			<name>DreamMaoMao</name>
 		</maintainer>
-		<bugs-to>https://github.com/DreamMaoMao/mangowc/issues</bugs-to>
-		<changelog>https://github.com/DreamMaoMao/mangowc/releases</changelog>
+		<bugs-to>https://github.com/mangowm/mango/issues</bugs-to>
+		<changelog>https://github.com/mangowm/mango/releases</changelog>
 	</upstream>
 </pkgmetadata>
