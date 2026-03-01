@@ -25,7 +25,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	gui-apps/noctalia-qs
+	~gui-apps/noctalia-qs-9999
 	app-misc/brightnessctl
 	dev-vcs/git
 	media-gfx/imagemagick
