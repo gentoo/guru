@@ -27,6 +27,11 @@ KEYWORDS="~amd64"
 
 QA_FLAGS_IGNORED="usr/bin/riff"
 
+src_prepare() {
+	default
+	sed -i -e '/^lto =/d' Cargo.toml || die
+}
+
 src_install() {
 	cargo_src_install
 	dodoc README.md
