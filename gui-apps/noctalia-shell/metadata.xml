@@ -9,6 +9,7 @@
 		<name>dsaf</name>
 	</maintainer>
 	<upstream>
+		<doc>https://docs.noctalia.dev/</doc>
 		<remote-id type="github">noctalia-dev/noctalia-shell</remote-id>
 	</upstream>
 	<longdescription>

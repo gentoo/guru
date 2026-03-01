@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 inherit optfeature python-single-r1
 
 DESCRIPTION="A sleek and minimal desktop shell thoughtfully crafted for Wayland"
-HOMEPAGE="https://github.com/noctalia-dev/noctalia-shell"
+HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia-shell"
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
