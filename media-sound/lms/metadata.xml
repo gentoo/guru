@@ -10,5 +10,6 @@
 	</upstream>
 	<use>
 		<flag name="stb">Use <pkg>dev-libs/stb</pkg> graphic library instead of <pkg>media-gfx/graphicsmagick</pkg></flag>
+		<flag name="jukebox">Support playback in server's hardware</flag>
 	</use>
 </pkgmetadata>

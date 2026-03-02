@@ -12,7 +12,7 @@ SRC_URI="https://github.com/epoupon/lms/archive/refs/tags/v${PV}.tar.gz -> ${P}.
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test +stb"
+IUSE="test jukebox +stb"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -26,6 +26,7 @@ RDEPEND="
 	media-video/ffmpeg[lame,opus]
 	sys-libs/pam
 
+	jukebox? ( media-libs/libpulse )
 	!stb? ( media-gfx/graphicsmagick )
 
 "
