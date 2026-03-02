@@ -38,8 +38,11 @@ src_prepare() {
 
 src_install() {
 	insinto /opt/${MY_PN}
+	exeinto /opt/${MY_PN}
 
 	doins -r *
+	doins -r .install4j
+	doexe OpenAudible
 
 	make_wrapper ${MY_PN} /opt/openaudible/OpenAudible /opt/${MY_PN}
 	newicon -s 512 share/icons/hicolor/512x512/apps/org.openaudible.OpenAudible.png ${MY_PN}.png
