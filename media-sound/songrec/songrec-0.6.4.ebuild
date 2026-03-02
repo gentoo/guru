@@ -36,7 +36,9 @@ DEPEND="
 	media-video/ffmpeg
 	dev-libs/openssl
 	media-libs/libpulse
+	net-libs/libsoup
 "
+RDEPEND="${DEPEND}"
 
 src_install() {
 	cargo_src_install
