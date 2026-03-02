@@ -64,6 +64,7 @@ BDEPEND="
 
 src_configure() {
 	# -Werror=strict-aliasing
+	# https://github.com/quickshell-mirror/quickshell/issues/599
 	append-flags -fno-strict-aliasing
 	filter-lto
 
