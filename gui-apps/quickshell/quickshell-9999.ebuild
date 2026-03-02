@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
 DESCRIPTION="Toolkit for building desktop widgets using QtQuick"
 HOMEPAGE="https://quickshell.org/"
@@ -19,7 +19,13 @@ fi
 LICENSE="LGPL-3"
 SLOT="0"
 # Upstream recommends leaving all build options enabled by default
-IUSE="+breakpad +jemalloc +sockets +wayland +layer-shell +session-lock +toplevel-management +screencopy +X +pipewire +tray +mpris +pam +polkit +hyprland +hyprland-global-shortcuts +hyprland-focus-grab +i3 +i3-ipc +bluetooth"
+IUSE="
+	+breakpad +jemalloc +sockets +wayland +layer-shell
+	+session-lock +toplevel-management +screencopy +X
+	+pipewire +tray +mpris +pam +polkit +hyprland
+	+hyprland-global-shortcuts +hyprland-focus-grab
+	+i3 +i3-ipc +bluetooth
+"
 REQUIRED_USE="screencopy? ( toplevel-management )"
 
 RDEPEND="
@@ -46,12 +52,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	|| ( >=sys-devel/gcc-14:* >=llvm-core/clang-17:* )
-	dev-build/cmake
-	dev-build/ninja
 	virtual/pkgconfig
 	dev-cpp/cli11
-	dev-util/spirv-tools
 	dev-qt/qtshadertools:6
 	breakpad? ( dev-util/breakpad )
 	wayland? (
@@ -60,7 +62,11 @@ BDEPEND="
 	)
 "
 
-src_configure(){
+src_configure() {
+	# -Werror=strict-aliasing
+	append-flags -fno-strict-aliasing
+	filter-lto
+
 	mycmakeargs=(
 			-DCMAKE_BUILD_TYPE=RelWithDebInfo
 			-DDISTRIBUTOR="Gentoo GURU"
