@@ -30,3 +30,13 @@ BDEPEND="
 
 EPYTEST_PLUGINS=( )
 distutils_enable_tests pytest
+
+pkg_postinst() {
+	elog "PyVISA requires a VISA backend to communicate with instruments."
+	elog "Available backends:"
+	elog "  - dev-python/pyvisa-py (pure Python, no proprietary drivers needed)"
+	elog "  - NI-VISA (proprietary, from National Instruments)"
+	elog ""
+	elog "Install at least one backend, e.g.:"
+	elog "  emerge dev-python/pyvisa-py"
+}
