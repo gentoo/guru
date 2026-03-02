@@ -1,0 +1,36 @@
+From e17072a255443b7f0568483dfc8de3742f9d8d63 Mon Sep 17 00:00:00 2001
+From: "Haelwenn (lanodan) Monnier" <contact@hacktivis.me>
+Date: Mon, 2 Mar 2026 21:06:55 +0100
+Subject: [PATCH] Makefile: Default to CFLAGS/LDFLAGS from environment
+X-Archived-At: https://github.com/aearil/dustr/pull/3
+
+Requires to always pass -std=c99, and order $LDFLAGS and $LIBS
+correctly to prevent linking issues with LDFLAGS=-Wl,--as-needed
+---
+ Makefile | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 2385b2e..1aaab81 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,15 +1,15 @@
+ PREFIX = /usr/local
+ MANPREFIX = $(PREFIX)/share/man
+-CFLAGS   = -std=c99 -pedantic -Wall -Wextra -Os
+-LDFLAGS  = -s
++CFLAGS   ?= -pedantic -Wall -Wextra -Os
++LDFLAGS  ?= -s
+ LIBS = -lSDL2 -lpng -ljpeg
+ CC ?= cc
+ 
+ dustr: dustr.o util.o img.o
+-	$(CC) $(LDFLAGS) $(LIBS) $^ -o $@
++	$(CC) -std=c99 -o $@ $^ $(LDFLAGS) $(LIBS)
+ 
+ %.o: %.c util.h img.h
+-	$(CC) $(CFLAGS) -c $< -o $@
++	$(CC) -std=c99 $(CFLAGS) -c $< -o $@
+ 
+ install: dustr
+ 	mkdir -p "$(DESTDIR)$(PREFIX)/bin"

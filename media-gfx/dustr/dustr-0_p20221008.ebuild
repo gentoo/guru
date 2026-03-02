@@ -27,6 +27,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/dustr-0_p20221008-make-cflags-ldflags.patch"
+)
+
 src_compile() {
 	tc-export CC
 
