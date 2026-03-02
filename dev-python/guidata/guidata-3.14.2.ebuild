@@ -1,0 +1,37 @@
+# Copyright 1999-2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{12..14} )
+
+inherit distutils-r1 pypi
+
+DESCRIPTION="Library for user interfaces for easy dataset editing and display"
+HOMEPAGE="https://pypi.org/project/guidata/"
+LICENSE="BSD"
+
+SLOT="0"
+KEYWORDS="~amd64"
+IUSE="test"
+
+RDEPEND="
+	dev-python/h5py[${PYTHON_USEDEP}]
+	dev-python/numpy[${PYTHON_USEDEP}]
+	dev-python/pyqt6[${PYTHON_USEDEP}]
+	dev-python/qtpy[${PYTHON_USEDEP}]
+	dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/tomli[${PYTHON_USEDEP}]
+"
+
+EPYTEST_PLUGINS=(pytest-xvfb pytest-qt)
+distutils_enable_tests pytest
+
+EPYTEST_DESELECT=(
+	"guidata/tests/dataset/test_all_features.py::test_all_features"
+)
+
+python_test() {
+	epytest -p xvfb
+}
