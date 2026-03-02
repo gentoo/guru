@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake flag-o-matic
+inherit cmake
 
 DESCRIPTION="Toolkit for building desktop widgets using QtQuick"
 HOMEPAGE="https://quickshell.org/"
@@ -11,16 +11,29 @@ HOMEPAGE="https://quickshell.org/"
 if [[ "${PV}" = *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/noctalia-dev/noctalia-qs.git"
+elif [[ ${PV} == *_p* ]]; then
+	MY_COMMIT="46e60df2d6ebb4d52d5bde8a63a9a6255e556097"
+	SRC_URI="https://github.com/noctalia-dev/noctalia-qs/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${MY_COMMIT}"
 else
-	SRC_URI="https://github.com/noctalia-dev/noctalia-qs/archive/refs/tags/v${PV}.tar.gz
-	-> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	SRC_URI="https://github.com/noctalia-dev/noctalia-qs/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
 LICENSE="LGPL-3"
 SLOT="0"
+
+if [[ ${PV} != *9999 ]] ; then
+	KEYWORDS="~amd64"
+fi
+
 # Upstream recommends leaving all build options enabled by default
-IUSE="+breakpad +jemalloc +sockets +wayland +layer-shell +session-lock +toplevel-management +screencopy +X +pipewire +tray +mpris +pam +polkit +hyprland +hyprland-global-shortcuts +hyprland-focus-grab +i3 +i3-ipc +bluetooth"
+IUSE="
+	+breakpad +jemalloc +sockets +wayland +layer-shell
+	+session-lock +toplevel-management +screencopy +X
+	+pipewire +tray +mpris +pam +polkit +hyprland
+	+hyprland-global-shortcuts +hyprland-focus-grab
+	+i3 +i3-ipc +bluetooth
+"
 REQUIRED_USE="screencopy? ( toplevel-management )"
 
 RDEPEND="
@@ -59,11 +72,6 @@ BDEPEND="
 "
 
 src_configure(){
-	# -Werror=strict-aliasing
-	# https://github.com/noctalia-dev/noctalia-qs/issues/2
-	append-flags -fno-strict-aliasing
-	filter-lto
-
 	mycmakeargs=(
 			-DCMAKE_BUILD_TYPE=RelWithDebInfo
 			-DDISTRIBUTOR="Gentoo GURU"
