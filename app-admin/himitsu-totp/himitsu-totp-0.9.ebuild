@@ -1,7 +1,9 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+inherit toolchain-funcs
 
 if [[ "${PV}" = "9999" ]]; then
 	inherit git-r3
@@ -28,4 +30,5 @@ QA_FLAGS_IGNORED="usr/bin/hitotp"
 
 src_configure() {
 	sed -i 's;^PREFIX=.*;PREFIX=/usr;' Makefile || die
+	tc-export AS CC LD
 }
