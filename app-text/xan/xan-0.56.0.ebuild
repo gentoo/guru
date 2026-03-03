@@ -5,6 +5,8 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.83.0"
+
 CRATES="
 	adler2@2.0.1
 	ahash@0.8.12
@@ -136,10 +138,10 @@ CRATES="
 	itoa@1.0.15
 	jemalloc-sys@0.5.4+5.3.0-patched
 	jemallocator@0.5.4
-	jiff-static@0.2.15
+	jiff-static@0.2.18
 	jiff-tzdb-platform@0.1.3
 	jiff-tzdb@0.1.4
-	jiff@0.2.15
+	jiff@0.2.18
 	jobserver@0.1.34
 	js-sys@0.3.81
 	lazy_static@1.5.0
@@ -178,7 +180,7 @@ CRATES="
 	ordered-float@5.1.0
 	pad@0.1.6
 	pager@0.16.1
-	paltoquet@0.11.0
+	paltoquet@0.12.0
 	pariter@0.5.1
 	parking_lot@0.12.5
 	parking_lot_core@0.9.12
@@ -237,7 +239,7 @@ CRATES="
 	sha2@0.10.9
 	shlex@1.3.0
 	simd-adler32@0.3.7
-	simd-csv@0.9.0
+	simd-csv@0.11.1
 	simd-json@0.14.3
 	simdutf8@0.1.5
 	siphasher@1.0.1
