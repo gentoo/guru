@@ -42,7 +42,6 @@ BDEPEND="
 "
 
 src_prepare() {
-	eapply "${FILESDIR}/fix-epee-missing-include.patch"
 	rm -r "${WORKDIR}"/${P}/src/third-party || die
 	cmake_src_prepare
 }
