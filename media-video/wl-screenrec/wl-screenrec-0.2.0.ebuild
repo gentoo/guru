@@ -132,10 +132,9 @@ declare -A GIT_CRATES=(
 )
 
 RUST_MIN_VER="1.85.0"
-LLVM_COMPAT=( {19..20} )
-RUST_NEEDS_LLVM=1
+LLVM_COMPAT=( {19..22} )
 
-inherit cargo shell-completion llvm-r1
+inherit cargo shell-completion llvm-r2
 
 DESCRIPTION="High performance screen/audio recorder for wlroots"
 HOMEPAGE="https://github.com/russelltg/wl-screenrec"
@@ -168,7 +167,7 @@ DEPEND="
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 pkg_setup() {
-	llvm-r1_pkg_setup
+	llvm-r2_pkg_setup
 	rust_pkg_setup
 }
 
