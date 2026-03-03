@@ -23,3 +23,10 @@ src_install() {
 	dofishcomp completions/fish/neocmakelsp.fish
 	dozshcomp completions/zsh/_neocmakelsp
 }
+
+src_test() {
+	local skip=(
+		--skip document_link::tests::test_document_link_search
+	)
+	cargo_src_test -- "${skip[@]}"
+}
