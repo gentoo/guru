@@ -6,8 +6,9 @@ EAPI=8
 inherit cmake
 
 DESCRIPTION="Yet another AArch64 emitter"
-HOMEPAGE="https://github.com/merryhime/oaknut"
-SRC_URI="https://github.com/merryhime/oaknut/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+# This is a fork of the `merryhime/oaknut` repository
+HOMEPAGE="https://github.com/eden-emulator/oaknut"
+SRC_URI="https://github.com/eden-emulator/oaknut/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
