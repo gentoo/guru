@@ -28,7 +28,7 @@ DEPEND="
 	dev-libs/libgcrypt:=
 	virtual/zlib:=
 	dev-libs/openssl:=
-	net-dns/unbound:=[threads]
+	net-dns/unbound:=
 	net-libs/czmq:=
 	qrcode? ( media-libs/zxing-cpp dev-util/bc-ur )
 "
@@ -42,6 +42,7 @@ BDEPEND="
 "
 
 src_prepare() {
+	eapply "${FILESDIR}/fix-epee-missing-include.patch"
 	rm -r "${WORKDIR}"/${P}/src/third-party || die
 	cmake_src_prepare
 }
