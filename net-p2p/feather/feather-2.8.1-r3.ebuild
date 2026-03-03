@@ -33,7 +33,7 @@ DEPEND="
 	dev-libs/libgcrypt:=
 	virtual/zlib:=
 	dev-libs/openssl:=
-	net-dns/unbound:=[threads]
+	net-dns/unbound:=
 	net-libs/czmq:=
 	qrcode? ( media-libs/zxing-cpp dev-util/bc-ur )
 "
