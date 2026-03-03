@@ -50,6 +50,7 @@ BDEPEND="
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/featherwallet.asc
 
 src_prepare() {
+	eapply "${FILESDIR}/fix-epee-missing-include.patch"
 	default
 	echo "#define FEATHER_VERSION \"${PV}\"" > "${WORKDIR}"/${P}/src/config-feather.h || die
 	echo "#define TOR_VERSION \"NOT_EMBEDDED\"" >> "${WORKDIR}"/${P}/src/config-feather.h || die
