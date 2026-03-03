@@ -1,4 +1,4 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,7 +9,7 @@ ASMJIT_COMMIT="416f7356967c1f66784dc1580fe157f9406d8bff" # remotes/origin/a32_po
 GLSLANG_COMMIT="fc9889c889561c5882e83819dcaffef5ed45529b" # tags/15.3.0
 WOLFSSL_COMMIT="b077c81eb635392e694ccedbab8b644297ec0285" # tags/5.8.0-stable
 SOUNDTOUCH_COMMIT="3982730833b6daefe77dcfb32b5c282851640c17" # master
-YAMLCPP_COMMIT="456c68f452da09d8ca84b375faa2b1397713eaba" # master
+YAMLCPP_COMMIT="05c44fcd18074836e21e1eda9fc02b3a4a1529b5" # master
 FUSION_COMMIT="008e03eac0ac1d5f85e16f5fcaefdda3fee75cb8" # tags/1.2.11
 VULKANMEMORYALLOCATOR_COMMIT="1d8f600fd424278486eade7ed3e877c99f0846b1" # tags/3.3.0
 GAMEMODE_COMMIT="c54d6d4243b0dd0afcb49f2c9836d432da171a2b" # tags/1.8.2
@@ -32,7 +32,7 @@ else
 		https://github.com/wolfSSL/wolfssl/archive/${WOLFSSL_COMMIT}.tar.gz -> ${PN}-wolfssl-${WOLFSSL_COMMIT}.tar.gz
 		https://github.com/RPCS3/soundtouch/archive/${SOUNDTOUCH_COMMIT}.tar.gz
 			-> ${PN}-soundtouch-${SOUNDTOUCH_COMMIT}.tar.gz
-		https://github.com/RPCS3/yaml-cpp/archive/${YAMLCPP_COMMIT}.tar.gz -> ${PN}-yaml-cpp-${SOUNDTOUCH_COMMIT}-.tar.gz
+		https://github.com/RPCS3/yaml-cpp/archive/${YAMLCPP_COMMIT}.tar.gz -> ${PN}-yaml-cpp-${YAMLCPP_COMMIT}-.tar.gz
 		https://github.com/xioTechnologies/Fusion/archive/${FUSION_COMMIT}.tar.gz -> ${PN}-fusion-${FUSION_COMMIT}.tar.gz
 		https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator/archive/${VULKANMEMORYALLOCATOR_COMMIT}.tar.gz
 			-> ${PN}-VulkanMemoryAllocator-${VULKANMEMORYALLOCATOR_COMMIT}.tar.gz
