@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,6 +18,15 @@ KEYWORDS="~amd64"
 RESTRICT="test"
 PROPERTIES="test_network"
 
+src_unpack() {
+	cargo_src_unpack
+
+	cat >> "${ECARGO_HOME}/config.toml" <<- EOF || die
+		[patch."https://github.com/jpt13653903/tree-sitter-vhdl"]
+		tree-sitter-vhdl = { path = "${ECARGO_VENDOR}/tree-sitter-vhdl" }
+	EOF
+}
+
 src_test() {
 	local skip=(
 		--skip test_elixir_module
@@ -30,6 +39,6 @@ src_test() {
 }
 
 src_install() {
-	cargo_src_install --path crates/codebook-lsp
+	cargo_src_install --frozen --path crates/codebook-lsp
 	dodoc README.md
 }
