@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/Forkgram/tdesktop"
 
 MY_PV="${PV}"
 SRC_URI="
-	https://github.com/Forkgram/tdesktop/releases/download/v${MY_PV}/Telegram.tar.xz -> ${P}.tar.xz
+	https://github.com/Forkgram/tdesktop/releases/download/v${MY_PV}/Forkgram.tar.xz -> ${P}.tar.xz
 	https://raw.githubusercontent.com/Forkgram/tdesktop/dev/Telegram/Resources/art/icon16.png -> ${PN}-16.png
 	https://raw.githubusercontent.com/Forkgram/tdesktop/dev/Telegram/Resources/art/icon32.png -> ${PN}-32.png
 	https://raw.githubusercontent.com/Forkgram/tdesktop/dev/Telegram/Resources/art/icon48.png -> ${PN}-48.png
@@ -26,7 +26,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-QA_PREBUILT="/usr/bin/forkgram"
+QA_PREBUILT="/usr/bin/Forkgram"
 
 RDEPEND="
 	dev-libs/glib:2
@@ -47,17 +47,17 @@ src_unpack() {
 }
 
 src_install() {
-	newbin Telegram forkgram
+	dobin Forkgram
 
 	local size
 	for size in 16 32 48 64 128 256 512; do
 		newicon -s "${size}" "${DISTDIR}/${PN}-${size}.png" forkgram.png
 	done
 
-	make_desktop_entry forkgram Forkgram forkgram "Network;Chat;InstantMessaging;Qt;" "MimeType=x-scheme-handler/tg;"
+	make_desktop_entry Forkgram Forkgram forkgram "Network;Chat;InstantMessaging;Qt;" "MimeType=x-scheme-handler/tg;"
 
 	insinto /etc/tdesktop
 	newins - externalupdater <<-EOF
-		/usr/bin/forkgram
+		/usr/bin/Forkgram
 	EOF
 }
