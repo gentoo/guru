@@ -54,11 +54,6 @@ kde-apps/kwalletcli
 # Requires systemd. Cannot be masked per profile (see top comment)
 app-admin/run0edit
 
-# Daichi Yamamoto <dev@dyama.net> (2026-02-02)
-# It will only be used in COSMIC DE, Should use the package in ::cosmic-overlay.
-# Removal on 2026-03-04.
-gui-apps/pop-launcher
-
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2025-05-24)
 # Depends on masked net-libs/stem.
 # Masked until upstream supports running without stem.
