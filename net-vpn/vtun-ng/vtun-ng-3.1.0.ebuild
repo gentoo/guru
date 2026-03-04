@@ -8,6 +8,7 @@ CRATES="
 	aead@0.5.2
 	aes@0.8.4
 	aes-gcm@0.10.3
+	aes-gcm-siv@0.11.1
 	beef@0.5.2
 	bitflags@2.9.1
 	block-buffer@0.10.4
@@ -17,12 +18,14 @@ CRATES="
 	cbc@0.1.2
 	cfb-mode@0.8.2
 	cfg-if@1.0.1
+	chacha20@0.9.1
+	chacha20poly1305@0.10.1
 	cipher@0.4.4
 	cpufeatures@0.2.17
 	crc32fast@1.5.0
 	crypto-common@0.1.6
 	ctr@0.9.2
-	deranged@0.4.0
+	deranged@0.5.5
 	digest@0.10.7
 	dns-lookup@2.0.4
 	ecb@0.1.2
@@ -44,9 +47,10 @@ CRATES="
 	logos-derive@0.15.0
 	md5@0.8.0
 	miniz_oxide@0.8.9
-	num-conv@0.1.0
+	num-conv@0.2.0
 	ofb@0.6.1
 	opaque-debug@0.3.1
+	poly1305@0.8.0
 	polyval@0.6.2
 	powerfmt@0.2.0
 	ppv-lite86@0.2.21
@@ -62,17 +66,17 @@ CRATES="
 	rust-lzo@0.6.2
 	rustc_version@0.4.1
 	semver@1.0.26
-	serde@1.0.219
-	serde_derive@1.0.219
+	serde_core@1.0.228
+	serde_derive@1.0.228
 	sha2@0.10.9
 	signal-hook@0.3.18
 	signal-hook-registry@1.4.5
 	socket2@0.5.10
 	subtle@2.6.1
 	syn@2.0.104
-	time@0.3.41
-	time-core@0.1.4
-	time-macros@0.2.22
+	time@0.3.47
+	time-core@0.1.8
+	time-macros@0.2.27
 	typenum@1.18.0
 	unicode-ident@1.0.18
 	unicode-width@0.2.1
@@ -116,6 +120,7 @@ CRATES="
 	wit-bindgen-rt@0.39.0
 	zerocopy@0.8.26
 	zerocopy-derive@0.8.26
+	zeroize@1.8.2
 "
 
 inherit cargo systemd
@@ -130,6 +135,8 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc"
 IUSE="systemd +lzo +zlib"
+
+RUST_MIN_VER="1.88.0"
 
 DOCS=( ChangeLog Credits FAQ README README.Setup README.Shaper TODO )
 CONFIG_CHECK="~TUN"
