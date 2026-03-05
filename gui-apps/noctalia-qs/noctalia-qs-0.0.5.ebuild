@@ -12,7 +12,7 @@ if [[ "${PV}" = *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/noctalia-dev/noctalia-qs.git"
 elif [[ ${PV} == *_p* ]]; then
-	MY_COMMIT="46e60df2d6ebb4d52d5bde8a63a9a6255e556097"
+	MY_COMMIT=""
 	SRC_URI="https://github.com/noctalia-dev/noctalia-qs/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${MY_COMMIT}"
 else
