@@ -11,20 +11,13 @@ HOMEPAGE="https://quickshell.org/"
 if [[ "${PV}" = *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/noctalia-dev/noctalia-qs.git"
-elif [[ ${PV} == *_p* ]]; then
-	MY_COMMIT=""
-	SRC_URI="https://github.com/noctalia-dev/noctalia-qs/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}-${MY_COMMIT}"
 else
 	SRC_URI="https://github.com/noctalia-dev/noctalia-qs/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="LGPL-3"
 SLOT="0"
-
-if [[ ${PV} != *9999 ]] ; then
-	KEYWORDS="~amd64"
-fi
 
 # Upstream recommends leaving all build options enabled by default
 IUSE="
