@@ -15,23 +15,23 @@ CRATES="
 	anstyle-query@1.1.5
 	anstyle-wincon@3.0.11
 	anstyle@1.0.13
-	anyhow@1.0.101
+	anyhow@1.0.102
 	assert_cmd@2.1.2
 	async-recursion@1.1.1
 	autocfg@1.5.0
-	bitflags@2.10.0
+	bitflags@2.11.0
 	blake2@0.10.6
 	block-buffer@0.10.4
 	bstr@1.12.1
-	bumpalo@3.19.1
+	bumpalo@3.20.2
 	bytes@1.11.1
-	cc@1.2.55
+	cc@1.2.56
 	cfg-if@1.0.4
 	chrono-tz-build@0.3.0
 	chrono-tz@0.9.0
-	chrono@0.4.43
-	clap@4.5.58
-	clap_builder@4.5.58
+	chrono@0.4.44
+	clap@4.5.60
+	clap_builder@4.5.60
 	clap_complete@4.5.66
 	clap_derive@4.5.55
 	clap_lex@1.0.0
@@ -57,18 +57,18 @@ CRATES="
 	fastrand@2.3.0
 	find-msvc-tools@0.1.9
 	foldhash@0.1.5
-	futures-channel@0.3.31
-	futures-core@0.3.31
-	futures-executor@0.3.31
-	futures-io@0.3.31
-	futures-macro@0.3.31
-	futures-sink@0.3.31
-	futures-task@0.3.31
-	futures-util@0.3.31
-	futures@0.3.31
+	futures-channel@0.3.32
+	futures-core@0.3.32
+	futures-executor@0.3.32
+	futures-io@0.3.32
+	futures-macro@0.3.32
+	futures-sink@0.3.32
+	futures-task@0.3.32
+	futures-util@0.3.32
+	futures@0.3.32
 	generic-array@0.14.7
 	getrandom@0.2.17
-	getrandom@0.4.1
+	getrandom@0.4.2
 	glob@0.3.3
 	globset@0.4.18
 	globwalk@0.9.1
@@ -82,19 +82,19 @@ CRATES="
 	id-arena@2.3.0
 	ignore@0.4.25
 	indexmap@2.13.0
-	indicatif@0.18.3
+	indicatif@0.18.4
 	is-terminal@0.4.17
 	is_ci@1.2.0
 	is_terminal_polyfill@1.70.2
 	itertools@0.14.0
 	itoa@1.0.17
-	js-sys@0.3.85
+	js-sys@0.3.91
 	lazy_static@1.5.0
 	leb128fmt@0.1.0
-	libc@0.2.181
+	libc@0.2.182
 	libm@0.2.16
-	libredox@0.1.12
-	linux-raw-sys@0.11.0
+	libredox@0.1.14
+	linux-raw-sys@0.12.1
 	lock_api@0.4.14
 	log@0.4.29
 	memchr@2.8.0
@@ -105,7 +105,7 @@ CRATES="
 	once_cell@1.21.3
 	once_cell_polyfill@1.70.2
 	option-ext@0.2.0
-	owo-colors@4.2.3
+	owo-colors@4.3.0
 	parking_lot@0.12.5
 	parking_lot_core@0.9.12
 	parse-zoneinfo@0.3.1
@@ -119,8 +119,7 @@ CRATES="
 	phf_codegen@0.11.3
 	phf_generator@0.11.3
 	phf_shared@0.11.3
-	pin-project-lite@0.2.16
-	pin-utils@0.1.0
+	pin-project-lite@0.2.17
 	portable-atomic@1.13.1
 	ppv-lite86@0.2.21
 	predicates-core@1.0.10
@@ -130,16 +129,16 @@ CRATES="
 	prettyplease@0.2.37
 	proc-macro2@1.0.106
 	quote@1.0.44
-	r-efi@5.3.0
+	r-efi@6.0.0
 	rand@0.8.5
 	rand_chacha@0.3.1
 	rand_core@0.6.4
 	redox_syscall@0.5.18
 	redox_users@0.5.2
 	regex-automata@0.4.14
-	regex-syntax@0.8.9
+	regex-syntax@0.8.10
 	regex@1.12.3
-	rustix@1.1.3
+	rustix@1.1.4
 	rustversion@1.0.22
 	ryu@1.0.23
 	same-file@1.0.6
@@ -163,19 +162,19 @@ CRATES="
 	subtle@2.6.1
 	supports-color@2.1.0
 	supports-color@3.0.2
-	syn@2.0.115
+	syn@2.0.117
 	tabwriter@1.4.1
-	tempfile@3.25.0
+	tempfile@3.26.0
 	tera@1.20.1
 	termtree@0.5.1
 	thiserror-impl@2.0.18
 	thiserror@2.0.18
-	tokio-macros@2.6.0
-	tokio@1.49.0
+	tokio-macros@2.6.1
+	tokio@1.50.0
 	typed-arena@2.0.2
 	typenum@1.19.0
 	ucd-trie@0.1.7
-	unicode-ident@1.0.23
+	unicode-ident@1.0.24
 	unicode-segmentation@1.12.0
 	unicode-width@0.1.14
 	unicode-width@0.2.2
@@ -189,10 +188,10 @@ CRATES="
 	wasi@0.11.1+wasi-snapshot-preview1
 	wasip2@1.0.2+wasi-0.2.9
 	wasip3@0.4.0+wasi-0.3.0-rc-2026-01-06
-	wasm-bindgen-macro-support@0.2.108
-	wasm-bindgen-macro@0.2.108
-	wasm-bindgen-shared@0.2.108
-	wasm-bindgen@0.2.108
+	wasm-bindgen-macro-support@0.2.114
+	wasm-bindgen-macro@0.2.114
+	wasm-bindgen-shared@0.2.114
+	wasm-bindgen@0.2.114
 	wasm-encoder@0.244.0
 	wasm-metadata@0.244.0
 	wasmparser@0.244.0
@@ -222,8 +221,8 @@ CRATES="
 	wit-component@0.244.0
 	wit-parser@0.244.0
 	yansi@1.0.1
-	zerocopy-derive@0.8.39
-	zerocopy@0.8.39
+	zerocopy-derive@0.8.40
+	zerocopy@0.8.40
 	zmij@1.0.21
 "
 
