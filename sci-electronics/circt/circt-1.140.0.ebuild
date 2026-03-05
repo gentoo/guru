@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
 
 MY_PV="${PV//./\/}"
-MY_LLVM_PV="c2ddaaa4255cd4ab82eb9be6b1ac1842ec1e4edd"
+MY_LLVM_PV="b7c1a6f8b447fba6fff47d309eb7ba1bc22e8c53"
 CMAKE_BUILD_TYPE="Release"
 PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake python-r1
@@ -77,7 +77,7 @@ src_configure() {
 		-D LLVM_BUILD_EXAMPLES=OFF
 		-D LLVM_ENABLE_BINDINGS=OFF
 		-D LLVM_ENABLE_OCAMLDOC=OFF
-		-D LLVM_OPTIMIZED_TABLEGEN=ON
+		-D LLVM_OPTIMIZED_TABLEGEN=OFF
 		-D LLVM_EXTERNAL_PROJECTS=circt
 		-D LLVM_EXTERNAL_CIRCT_SOURCE_DIR="${S_CIRCT}"
 		-D LLVM_BUILD_TOOLS=ON
@@ -110,12 +110,16 @@ src_install() {
 	doexe "${BUILD_DIR}"/bin/circt-reduce
 	doexe "${BUILD_DIR}"/bin/circt-rtl-sim.py
 	doexe "${BUILD_DIR}"/bin/circt-synth
+	doexe "${BUILD_DIR}"/bin/circt-test
 	doexe "${BUILD_DIR}"/bin/circt-translate
+	doexe "${BUILD_DIR}"/bin/circt-verilog
+	doexe "${BUILD_DIR}"/bin/circt-verilog-lsp-server
+	doexe "${BUILD_DIR}"/bin/domaintool
+	doexe "${BUILD_DIR}"/bin/firld
 	doexe "${BUILD_DIR}"/bin/firtool
 	doexe "${BUILD_DIR}"/bin/handshake-runner
 	doexe "${BUILD_DIR}"/bin/hlstool
 	doexe "${BUILD_DIR}"/bin/kanagawatool
 	doexe "${BUILD_DIR}"/bin/om-linker
 	doexe "${BUILD_DIR}"/bin/py-split-input-file.py
-	# llhd-sim doesn't exist anymore
 }
