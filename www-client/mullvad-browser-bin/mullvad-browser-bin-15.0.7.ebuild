@@ -29,6 +29,7 @@ RDEPEND="
 	media-libs/freetype
 	media-video/ffmpeg
 	sys-apps/dbus
+	sys-libs/glibc
 	x11-libs/cairo
 	x11-themes/hicolor-icon-theme
 	x11-libs/libX11
