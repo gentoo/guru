@@ -17,10 +17,11 @@ S="${WORKDIR}/${MyP}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="blas cuda hip opencl sdl2 vulkan"
+IUSE="blas cuda ffmpeg hip opencl sdl2 vulkan"
 
 CDEPEND="blas? ( sci-libs/openblas )
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
+	ffmpeg? ( media-video/ffmpeg:= )
 	hip? ( sci-libs/hipBLAS:= )
 	opencl? ( sci-libs/clblast:= )
 	sdl2? ( media-libs/libsdl2:= )"
@@ -43,6 +44,7 @@ src_configure() {
 		-DGGML_CUBLAS=$(usex cuda)
 		-DGGML_HIPBLAS=$(usex hip)
 		-DGGML_VULKAN=$(usex vulkan)
+		-DWHISPER_FFMPEG=$(usex ffmpeg)
 		-DWHISPER_SDL2=$(usex sdl2)
 	)
 	cmake_src_configure
