@@ -365,26 +365,26 @@ CRATES="
 	oxc-browserslist@2.3.1
 	oxc-miette-derive@2.7.0
 	oxc-miette@2.7.0
-	oxc_allocator@0.112.0
-	oxc_ast@0.112.0
-	oxc_ast_macros@0.112.0
-	oxc_ast_visit@0.112.0
-	oxc_codegen@0.112.0
-	oxc_compat@0.112.0
-	oxc_data_structures@0.112.0
-	oxc_diagnostics@0.112.0
-	oxc_ecmascript@0.112.0
-	oxc_estree@0.112.0
+	oxc_allocator@0.115.0
+	oxc_ast@0.115.0
+	oxc_ast_macros@0.115.0
+	oxc_ast_visit@0.115.0
+	oxc_codegen@0.115.0
+	oxc_compat@0.115.0
+	oxc_data_structures@0.115.0
+	oxc_diagnostics@0.115.0
+	oxc_ecmascript@0.115.0
+	oxc_estree@0.115.0
 	oxc_index@4.1.0
-	oxc_parser@0.112.0
-	oxc_regular_expression@0.112.0
-	oxc_semantic@0.112.0
+	oxc_parser@0.115.0
+	oxc_regular_expression@0.115.0
+	oxc_semantic@0.115.0
 	oxc_sourcemap@6.0.2
-	oxc_span@0.112.0
-	oxc_str@0.112.0
-	oxc_syntax@0.112.0
-	oxc_transformer@0.112.0
-	oxc_traverse@0.112.0
+	oxc_span@0.115.0
+	oxc_str@0.115.0
+	oxc_syntax@0.115.0
+	oxc_transformer@0.115.0
+	oxc_traverse@0.115.0
 	pango-sys@0.18.0
 	pango@0.18.3
 	parking_lot@0.12.5
@@ -469,7 +469,7 @@ CRATES="
 	ropey@1.6.1
 	rquickjs-core@0.11.0
 	rquickjs-macro@0.11.0
-	rquickjs-serde@0.4.0
+	rquickjs-serde@0.5.0
 	rquickjs-sys@0.11.0
 	rquickjs@0.11.0
 	rust-i18n-macro@3.1.5
@@ -589,7 +589,7 @@ CRATES="
 	tree-sitter-cpp@0.23.4
 	tree-sitter-css@0.25.0
 	tree-sitter-go@0.25.0
-	tree-sitter-highlight@0.26.5
+	tree-sitter-highlight@0.26.6
 	tree-sitter-html@0.23.2
 	tree-sitter-java@0.23.5
 	tree-sitter-javascript@0.25.0
@@ -603,11 +603,11 @@ CRATES="
 	tree-sitter-ruby@0.23.1
 	tree-sitter-rust@0.24.0
 	tree-sitter-typescript@0.23.2
-	tree-sitter@0.26.5
+	tree-sitter@0.26.6
 	tree_magic_mini@3.2.2
 	triomphe@0.1.15
-	ts-rs-macros@11.1.0
-	ts-rs@11.1.0
+	ts-rs-macros@12.0.1
+	ts-rs@12.0.1
 	ttf-parser@0.25.1
 	typed-arena@2.0.2
 	typenum@1.19.0
