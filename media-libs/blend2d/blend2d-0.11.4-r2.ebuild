@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,11 +16,16 @@ else
 fi
 
 LICENSE="ZLIB"
-SLOT="0"
+SLOT="0/$(ver_cut 1-2)"
 IUSE="+jit test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="jit? ( >=dev-libs/asmjit-2024.10.25 )"
+RDEPEND="
+	jit? (
+		>=dev-libs/asmjit-2024.10.25
+		<dev-libs/asmjit-2025.06.15
+	)
+"
 DEPEND="${RDEPEND}"
 
 DOCS=( README.md CONTRIBUTING.md )
