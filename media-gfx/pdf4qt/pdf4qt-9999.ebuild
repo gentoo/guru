@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,15 +25,15 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-cpp/tbb:=
-	dev-libs/openssl
+	dev-libs/openssl:=
 	dev-qt/qtbase:6[gui,widgets,xml]
 	dev-qt/qtspeech:6
 	dev-qt/qtsvg:6
-	media-libs/blend2d
+	>=media-libs/blend2d-0.20:=
 	media-libs/freetype
-	media-libs/lcms
-	media-libs/libjpeg-turbo
-	media-libs/openjpeg
+	media-libs/lcms:2
+	media-libs/libjpeg-turbo:=
+	media-libs/openjpeg:=
 	virtual/zlib:=
 "
 DEPEND="$RDEPEND
