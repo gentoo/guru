@@ -5,7 +5,7 @@ EAPI=8
 
 LLVM_COMPAT=( {17..21} )
 PYTHON_COMPAT=( python3_{11..14} )
-inherit flag-o-matic llvm-r1 python-single-r1
+inherit flag-o-matic llvm-r2 python-single-r1
 
 DESCRIPTION="A high-level, general-purpose, multi-paradigm, compiled programming language"
 HOMEPAGE="https://www.swift.org"
@@ -130,7 +130,7 @@ pkg_setup() {
 	python_setup
 
 	# Sets up `PATH` to point to the appropriate LLVM toolchain.
-	llvm-r1_pkg_setup
+	llvm-r2_pkg_setup
 }
 
 src_unpack() {
@@ -155,7 +155,7 @@ src_unpack() {
 }
 
 src_configure() {
-	# `llvm-r1_pkg_setup` sets these tools to their absolute paths, but we need
+	# `llvm-r2_pkg_setup` sets these tools to their absolute paths, but we need
 	# to still pick them up dynamically based on `PATH` for stage1 and stage2
 	# builds below (to keep all parts of the Swift toolchain compiling with the
 	# same internal tools).

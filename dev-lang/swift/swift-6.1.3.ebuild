@@ -5,7 +5,7 @@ EAPI=8
 
 LLVM_COMPAT=( {17..21} )
 PYTHON_COMPAT=( python3_{11..14} )
-inherit llvm-r1 python-single-r1 toolchain-funcs
+inherit llvm-r2 python-single-r1 toolchain-funcs
 
 DESCRIPTION="A high-level, general-purpose, multi-paradigm, compiled programming language"
 HOMEPAGE="https://www.swift.org"
@@ -140,7 +140,7 @@ pkg_setup() {
 
 	# Sets up `PATH` to point to the appropriate LLVM toolchain, and ensure
 	# we're using the toolchain for compilation.
-	llvm-r1_pkg_setup
+	llvm-r2_pkg_setup
 }
 
 src_unpack() {
