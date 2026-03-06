@@ -22,8 +22,8 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	jit? (
-		>=dev-libs/asmjit-2024.10.25
-		<dev-libs/asmjit-2025.06.15
+		>=dev-libs/asmjit-2024.10.25:=
+		<dev-libs/asmjit-2025.06.15:=
 	)
 "
 DEPEND="${RDEPEND}"

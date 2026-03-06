@@ -1,0 +1,20 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 638acd5..0c225b5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -635,7 +635,6 @@ if ("x${CMAKE_CXX_COMPILER_ID}" STREQUAL "xMSVC" OR "x${CMAKE_CXX_COMPILER_FRONT
+ 
+   list(APPEND BLEND2D_PRIVATE_CFLAGS_DBG -GS)                                   # [+] Buffer security-check.
+   list(APPEND BLEND2D_PRIVATE_CFLAGS_REL -GS-)                                  # [-] Buffer security-check.
+-  list(APPEND BLEND2D_PRIVATE_CFLAGS_REL -O2)                                   # [+] Favor speed over size.
+   list(APPEND BLEND2D_PRIVATE_CFLAGS_REL -Oi)                                   # [+] Generate Intrinsic Functions.
+ 
+   if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+@@ -655,7 +654,6 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU|Clang")
+   list(APPEND BLEND2D_PRIVATE_CFLAGS -fno-math-errno)                           # [-] Disable math functions setting errno (performance reasons).
+   list(APPEND BLEND2D_PRIVATE_CFLAGS -fno-threadsafe-statics)                   # [-] Don't add guards when initializing statics (we don't need it).
+   list(APPEND BLEND2D_PRIVATE_CFLAGS -fno-exceptions -fno-rtti)                 # [-] Disable exceptions and RTTI (we never throw, we don't need RTTI).
+-  list(APPEND BLEND2D_PRIVATE_CFLAGS_REL -O2)                                   # [+] Compiling with -O2 in release mode is what we generally want.
+   list(APPEND BLEND2D_PRIVATE_CFLAGS_REL -fmerge-all-constants)                 # [+] We don't need unique address per constant (merging improves library size).
+ 
+   # -fno-semantic-interposition is not available on apple - the compiler issues a warning, which is not detected.

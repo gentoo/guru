@@ -20,12 +20,12 @@ SLOT="0/$(ver_cut 1-2)"
 IUSE="+jit test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="jit? ( >=dev-libs/asmjit-2025.06.15 )"
+RDEPEND="jit? ( >=dev-libs/asmjit-2025.10.12:= )"
 DEPEND="${RDEPEND}"
 
 DOCS=( README.md CONTRIBUTING.md )
 PATCHES=(
-	"${FILESDIR}/blend2d-0.11.4-avoid-adding-O2-to-cflags-gentoo-bug-943226.patch"
+	"${FILESDIR}/${PN}-0.21.2-avoid-adding-O2-to-cflags-gentoo-bug-943226.patch"
 )
 
 src_configure() {

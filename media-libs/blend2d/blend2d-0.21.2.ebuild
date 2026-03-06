@@ -20,21 +20,13 @@ SLOT="0/$(ver_cut 1-2)"
 IUSE="+jit test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="
-	jit? (
-		>=dev-libs/asmjit-2024.10.25
-		<dev-libs/asmjit-2025.06.15
-	)
-"
+RDEPEND="jit? ( >=dev-libs/asmjit-2025.10.12:= )"
 DEPEND="${RDEPEND}"
 
 DOCS=( README.md CONTRIBUTING.md )
 PATCHES=(
-	"${FILESDIR}/blend2d-0.11.4-avoid-adding-O2-to-cflags-gentoo-bug-943226.patch"
+	"${FILESDIR}/${PN}-0.21.2-avoid-adding-O2-to-cflags-gentoo-bug-943226.patch"
 )
-
-# see https://github.com/blend2d/blend2d/issues/217
-CMAKE_SKIP_TESTS="bl_test_image_io"
 
 src_configure() {
 	local mycmakeargs=(
