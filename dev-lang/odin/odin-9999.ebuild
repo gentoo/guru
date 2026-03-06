@@ -14,7 +14,7 @@ if [[ $PV == 9999 ]]; then
 	inherit git-r3
 else
 	MY_PV="${PV/./-}"
-	SRC_URI="https://github.com/odin-lang/Odin/archive/refs/tags/dev-${MY_PV}.tar.gz -> ${PN}-${MY_PV}.tar.gz"
+	SRC_URI="https://github.com/odin-lang/Odin/archive/refs/tags/dev-${MY_PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/Odin-dev-${MY_PV}"
 	KEYWORDS="~amd64"
 fi
