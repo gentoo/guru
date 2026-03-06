@@ -72,6 +72,7 @@ src_configure() {
 			-DCMAKE_BUILD_TYPE=Release
 			-DDISTRIBUTOR="${BRANDING_OS_NAME} GURU"
 			-DINSTALL_QML_PREFIX="lib64/qt6/qml"
+			-DGIT_REVISION=${EGIT_COMMIT}
 			-DCRASH_REPORTER=$(usex breakpad ON OFF)
 			-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
 			-DSOCKETS=$(usex sockets ON OFF)

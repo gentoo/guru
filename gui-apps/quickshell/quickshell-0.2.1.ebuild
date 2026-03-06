@@ -5,6 +5,8 @@ EAPI=8
 
 inherit branding cmake
 
+GIT_REVISION=a1a150fab00a93ea983aaca5df55304bc837f51b
+
 DESCRIPTION="Toolkit for building desktop widgets using QtQuick"
 HOMEPAGE="https://quickshell.org/"
 
@@ -67,6 +69,7 @@ src_configure(){
 			-DCMAKE_BUILD_TYPE=Release
 			-DDISTRIBUTOR="${BRANDING_OS_NAME} GURU"
 			-DINSTALL_QML_PREFIX="lib64/qt6/qml"
+			-DGIT_REVISION=${GIT_REVISION}
 			-DCRASH_REPORTER=$(usex breakpad ON OFF)
 			-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
 			-DSOCKETS=$(usex sockets ON OFF)
