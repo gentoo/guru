@@ -4,7 +4,7 @@
 EAPI=8
 
 LLVM_COMPAT=( {17..21} )
-inherit llvm-r2
+inherit flag-o-matic llvm-r2
 
 DESCRIPTION="The Data-Oriented Language for Sane Software Development."
 HOMEPAGE="https://odin-lang.org/"
@@ -31,9 +31,11 @@ RDEPEND="
 
 BDEPEND="${RDEPEND}"
 
-# build_odin.sh sets its own flags. Some gcc flags cause build failures
-CPPFLAGS=""
-CXXFLAGS=""
+src_configure() {
+	strip-flags
+	default
+}
+
 src_compile() {
 	./build_odin.sh release || die "failed to build odin"
 }
