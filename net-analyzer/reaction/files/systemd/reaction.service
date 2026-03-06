@@ -14,6 +14,8 @@ StateDirectory=reaction
 RuntimeDirectory=reaction
 # Start reaction in its state directory
 WorkingDirectory=/var/lib/reaction
+# Let reaction kill its child processes first                                                                                                                                                              
+KillMode=mixed                                                                                                                                                                                             
 
 [Install]
 WantedBy=multi-user.target
