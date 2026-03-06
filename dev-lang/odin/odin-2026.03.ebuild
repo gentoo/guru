@@ -24,7 +24,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-LICENSE="BSD"
+LICENSE="ZLIB"
 
 SLOT="0"
 
