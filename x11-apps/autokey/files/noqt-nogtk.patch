@@ -1,0 +1,43 @@
+--- a/setup.py	2026-03-07 21:28:49.175376290 +0100
++++ b/setup.py	2026-03-07 21:32:55.685275978 +0100
+@@ -127,7 +127,6 @@
+     maintainer=ak_data.maintainer,
+     maintainer_email=ak_data.maintainer_email,
+     url='https://github.com/autokey/autokey',
+-    cmdclass={'build_py': BuildWithQtResources},
+     license='GPLv3',
+     python_requires=">=3.5",
+     # This requires autokey submodules (subdirectories) to contain their own `__init__.py` file (i.e.
+@@ -138,9 +137,7 @@
+     packages=setuptools.find_packages('lib'),
+     package_dir={'': 'lib'},
+ 
+-    package_data={'autokey': ["configmanager/predefined_user_scripts/*"],
+-        'autokey.qtui': ['data/*', 'resources/icons/*', 'resources/ui/*.ui'],
+-                  'autokey.gtkui': ['data/*']},
++    package_data={'autokey': ["configmanager/predefined_user_scripts/*"]},
+     data_files=[('share/icons/hicolor/scalable/apps',
+                  ['config/autokey.svg',
+                   'config/autokey-status.svg',
+@@ -157,20 +154,9 @@
+                 ('share/icons/ubuntu-mono-light/apps/48',
+                  ['config/ubuntu-mono-light/autokey-status.svg',
+                   'config/ubuntu-mono-light/autokey-status-error.svg']),
+-                ('share/applications',
+-                 ['config/autokey-qt.desktop',
+-                  'config/autokey-gtk.desktop']),
+                 ('share/man/man1/',
+-                 ['doc/man/autokey-qt.1',
+-                  'doc/man/autokey-gtk.1',
+-                  'doc/man/autokey-run.1'])
++                 ['doc/man/autokey-run.1'])
+                 ],
+-    entry_points={
+-        'console_scripts': [
+-            'autokey-gtk=autokey.gtkui.__main__:main',
+-            'autokey-qt=autokey.qtui.__main__:Application'
+-        ]
+-    },
+     scripts=['autokey-run', 'autokey-shell'],
+     # Minimal installation pre-requisite python packages.
+     # Some are not included here because they should be installed

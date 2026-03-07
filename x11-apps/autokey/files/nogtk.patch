@@ -1,0 +1,30 @@
+--- a/setup.py	2026-03-07 21:28:49.175376290 +0100
++++ b/setup.py	2026-03-07 21:31:22.254308803 +0100
+@@ -139,8 +139,7 @@
+     package_dir={'': 'lib'},
+ 
+     package_data={'autokey': ["configmanager/predefined_user_scripts/*"],
+-        'autokey.qtui': ['data/*', 'resources/icons/*', 'resources/ui/*.ui'],
+-                  'autokey.gtkui': ['data/*']},
++        'autokey.qtui': ['data/*', 'resources/icons/*', 'resources/ui/*.ui']},
+     data_files=[('share/icons/hicolor/scalable/apps',
+                  ['config/autokey.svg',
+                   'config/autokey-status.svg',
+@@ -158,16 +157,13 @@
+                  ['config/ubuntu-mono-light/autokey-status.svg',
+                   'config/ubuntu-mono-light/autokey-status-error.svg']),
+                 ('share/applications',
+-                 ['config/autokey-qt.desktop',
+-                  'config/autokey-gtk.desktop']),
++                 ['config/autokey-qt.desktop']),
+                 ('share/man/man1/',
+                  ['doc/man/autokey-qt.1',
+-                  'doc/man/autokey-gtk.1',
+                   'doc/man/autokey-run.1'])
+                 ],
+     entry_points={
+         'console_scripts': [
+-            'autokey-gtk=autokey.gtkui.__main__:main',
+             'autokey-qt=autokey.qtui.__main__:Application'
+         ]
+     },

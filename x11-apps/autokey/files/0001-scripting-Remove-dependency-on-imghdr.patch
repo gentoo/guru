@@ -1,0 +1,68 @@
+From b4e2f89b869bf8cfb8ab5fd918a8cd30edd68d6c Mon Sep 17 00:00:00 2001
+From: Till Maas <opensource@till.name>
+Date: Fri, 17 Jan 2025 14:42:08 +0100
+Subject: [PATCH] scripting: Remove dependency on imghdr
+
+The imghdr module was removed in Python 3.13, use magic instead.
+
+References:
+https://github.com/autokey/autokey/pull/992/files#diff-0d8c52dae5aa11f6c84e8a1ad42f55143fb8ff26267eb82022a3513d56bc84d8
+
+Author: dlk3 <dave@daveking.com>
+Signed-off-by: Till Maas <opensource@till.name>
+---
+ lib/autokey/scripting/highlevel.py | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
+
+diff --git a/lib/autokey/scripting/highlevel.py b/lib/autokey/scripting/highlevel.py
+index b55f641..736ff9d 100644
+--- a/lib/autokey/scripting/highlevel.py
++++ b/lib/autokey/scripting/highlevel.py
+@@ -6,9 +6,9 @@ import time
+ import os
+ import subprocess
+ import tempfile
+-import imghdr
+ import struct
+ 
++import magic
+ 
+ class PatternNotFound(Exception):
+     """Exception raised by functions"""
+@@ -33,7 +33,7 @@ def visgrep(scr: str, pat: str, tolerance: int = 0) -> int:
+ 
+     Usage: C{visgrep("screen.png", "pat.png")}
+ 
+-    
++
+ 
+     @param scr: path of PNG image to be grepped.
+     @param pat: path of pattern image (PNG) to look for in scr.
+@@ -72,10 +72,11 @@ def get_png_dim(filepath: str) -> int:
+     @returns: (width, height).
+     @raise Exception: Raised if the file is not a png
+     """
+-    if not imghdr.what(filepath) == 'png':
+-        raise Exception("not PNG")
+-    head = open(filepath, 'rb').read(24)
+-    return struct.unpack('!II', head[16:24])
++    with open(filepath, 'rb') as f:
++        if not magic.detect_from_fobj(f).mime_type == "image/png":
++            raise Exception("not PNG")
++        head = f.read(24)
++        return struct.unpack('!II', head[16:24])
+ 
+ 
+ def mouse_move(x: int, y: int, display: str=''):
+@@ -144,7 +145,7 @@ def move_to_pat(pat: str, offset: (float, float)=None, tolerance: int=0) -> None
+     """See L{click_on_pat}"""
+     with tempfile.NamedTemporaryFile() as f:
+         subprocess.call('''
+-        xwd -root -silent -display :0 | 
++        xwd -root -silent -display :0 |
+         convert xwd:- png:''' + f.name, shell=True)
+         loc = visgrep(f.name, pat, tolerance)
+     pat_size = get_png_dim(pat)
+-- 
+2.48.0
+
