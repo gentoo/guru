@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -101,10 +101,12 @@ src_prepare() {
 	sed -i "s/const size_type/size_type/" \
 		"src/third-party/flatbuffers/stl_emulation.h" || die
 
-	sed -i "s/cataclysm-tiles/cataclysm-tiles-${SLOT}/g" \
-		"data/xdg/org.cataclysmdda.CataclysmDDA.desktop" || die
-
 	local f="org.cataclysmdda.CataclysmDDA"
+
+	sed -i \
+		-e "s/cataclysm-tiles/cataclysm-tiles-${SLOT}/g" \
+		-e "s/${f}/${f}-${SLOT}/g" \
+		"data/xdg/${f}.desktop" || die
 
 	mv "data/xdg/${f}.desktop" "data/xdg/${f}-${SLOT}.desktop" || die
 	mv "data/xdg/${f}.svg" "data/xdg/${f}-${SLOT}.svg" || die
