@@ -24,8 +24,8 @@ S="${WORKDIR}/SongRec-${PV}"
 LICENSE="GPL-3+"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD GPL-3+ ISC MIT
-	MPL-2.0 Unicode-3.0 Unlicense ZLIB
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD GPL-3+ MIT MPL-2.0
+	Unicode-3.0 Unlicense ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64"
