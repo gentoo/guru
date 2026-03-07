@@ -7,7 +7,7 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
 
 --- a/cmake/external/abseil-cpp.cmake
 +++ b/cmake/external/abseil-cpp.cmake
-@@ -36,7 +36,7 @@ onnxruntime_fetchcontent_declare(
+@@ -41,7 +41,7 @@ onnxruntime_fetchcontent_declare(
      URL_HASH SHA1=${DEP_SHA1_abseil_cpp}
      EXCLUDE_FROM_ALL
      PATCH_COMMAND ${ABSL_PATCH_COMMAND}
@@ -187,15 +187,14 @@ Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
    set(CXXOPTS_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 --- a/cmake/external/pybind11.cmake
 +++ b/cmake/external/pybind11.cmake
-@@ -6,7 +6,7 @@ onnxruntime_fetchcontent_declare(
+@@ -6,6 +6,6 @@ onnxruntime_fetchcontent_declare(
      URL ${DEP_URL_pybind11}
      URL_HASH SHA1=${DEP_SHA1_pybind11}
      EXCLUDE_FROM_ALL
--    FIND_PACKAGE_ARGS 2.13 NAMES pybind11
-+    FIND_PACKAGE_ARGS 2.13 NAMES pybind11 REQUIRED
+-    FIND_PACKAGE_ARGS 3.0 NAMES pybind11
++    FIND_PACKAGE_ARGS 3.0 NAMES pybind11 REQUIRED
  )
  onnxruntime_fetchcontent_makeavailable(pybind11_project)
- 
 --- a/cmake/external/wil.cmake
 +++ b/cmake/external/wil.cmake
 @@ -8,7 +8,7 @@ onnxruntime_fetchcontent_declare(

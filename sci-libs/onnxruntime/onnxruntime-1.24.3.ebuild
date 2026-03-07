@@ -70,7 +70,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.22.2-relax-the-dependency-on-flatbuffers.patch"
-	"${FILESDIR}/${PN}-1.24.1-use-system-libraries.patch"
+	"${FILESDIR}/${PN}-1.24.3-use-system-libraries.patch"
 )
 
 CMAKE_USE_DIR="${S}/cmake"
