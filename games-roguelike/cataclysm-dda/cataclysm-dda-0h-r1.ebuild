@@ -56,6 +56,11 @@ BDEPEND="
 
 [[ ${PV} != 9999 ]] && BDEPEND+=" soundpack? ( app-arch/unzip )"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-respect-flags.patch"
+	"${FILESDIR}/${P}-fix-gcc15.patch"
+)
+
 src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
@@ -72,8 +77,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	eapply "${FILESDIR}/${PN}-respect-flags.patch"
-
 	sed -i \
 		-e "s/-Werror //" \
 		-e "s/TARGET_NAME = cataclysm/TARGET_NAME = cataclysm-${SLOT}/" \
@@ -96,11 +99,6 @@ src_prepare() {
 	sed -i "s#data#${EPREFIX}/usr/share/${PN}-${SLOT}#" \
 		"data/fontdata.json" || die
 
-	# from upstream 1ab7d17
-	# NOTE: remove when bumping
-	sed -i "s/const size_type/size_type/" \
-		"src/third-party/flatbuffers/stl_emulation.h" || die
-
 	local f="org.cataclysmdda.CataclysmDDA"
 
 	sed -i \
@@ -112,7 +110,7 @@ src_prepare() {
 	mv "data/xdg/${f}.svg" "data/xdg/${f}-${SLOT}.svg" || die
 	mv "data/xdg/${f}.appdata.xml" "data/xdg/${f}-${SLOT}.appdata.xml" || die
 
-	eapply_user
+	default
 }
 
 src_compile() {
