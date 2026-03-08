@@ -12,7 +12,7 @@ SLOT="0"
 RESTRICT="network-sandbox"
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_EXT=1
-PYTHON_COMPAT=( python3_{10..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
 

@@ -7,7 +7,7 @@
 # TODO: Add USE flags for metal and multilib support (multlib depends on ABI x86="64 32")
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit cmake python-any-r1 check-reqs linux-info
 

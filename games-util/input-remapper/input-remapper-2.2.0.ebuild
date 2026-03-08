@@ -5,7 +5,7 @@ EAPI=8
 
 # Note: 2.2.0 has Python 3.14 support (https://github.com/sezanzeb/input-remapper/pull/1184)
 # however not all dependencies have ebuilds with 3.14 support yet. (dev-python/pydbus-0.6.0-r1)
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..13} )
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
 

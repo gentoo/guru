@@ -5,7 +5,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 DOTNET_PKG_COMPAT="8.0"
 NUGETS="
 coverlet.collector@6.0.4

@@ -5,7 +5,7 @@ EAPI=8
 
 PV_HASH=09824b1cff30cd3fcb657154188e6ddab708e2ec
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit cmake python-any-r1 linux-info
 
 declare -A submodules

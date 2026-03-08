@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit cmake edo python-any-r1
 
 DESCRIPTION="Header only C++11 tiny glTF 2.0 library"

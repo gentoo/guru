@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 RUST_MIN_VER="1.82.0"
 inherit cargo flag-o-matic gnome2-utils meson python-any-r1 xdg
 

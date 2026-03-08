@@ -711,7 +711,7 @@ declare -A GIT_CRATES=(
 F128_COMMIT="e60de395f0d6454c1dc546b87f06a6358425b6b6"
 INSTRUCTION_DECODER_COMMIT="7c5adb7621a6f277ee13ec1a4babe32ce56cc0c3"
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit cargo desktop python-any-r1
 

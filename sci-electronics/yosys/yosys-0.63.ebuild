@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 LLVM_COMPAT=( {18..21} )
 
 inherit python-any-r1 llvm-r2
