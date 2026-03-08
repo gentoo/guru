@@ -20,7 +20,7 @@ LICENSE="LGPL-3"
 SLOT="0"
 # Upstream recommends leaving all build options enabled by default
 IUSE="
-	+breakpad +jemalloc +sockets +wayland +layer-shell
+	+jemalloc +sockets +wayland +layer-shell
 	+session-lock +toplevel-management +screencopy +X
 	+pipewire +tray +mpris +pam +polkit +hyprland
 	+hyprland-global-shortcuts +hyprland-focus-grab
@@ -55,7 +55,6 @@ BDEPEND="
 	virtual/pkgconfig
 	dev-cpp/cli11
 	dev-qt/qtshadertools:6
-	breakpad? ( dev-util/breakpad )
 	wayland? (
 		dev-util/wayland-scanner
 		dev-libs/wayland-protocols
@@ -68,31 +67,30 @@ src_configure() {
 	append-flags -fno-strict-aliasing
 	filter-lto
 
-	mycmakeargs=(
-			-DCMAKE_BUILD_TYPE=Release
-			-DDISTRIBUTOR="${BRANDING_OS_NAME} GURU"
-			-DINSTALL_QML_PREFIX="lib64/qt6/qml"
-			-DGIT_REVISION=${EGIT_COMMIT}
-			-DCRASH_REPORTER=$(usex breakpad ON OFF)
-			-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
-			-DSOCKETS=$(usex sockets ON OFF)
-			-DWAYLAND=$(usex wayland ON OFF)
-			-DWAYLAND_WLR_LAYERSHELL=$(usex layer-shell ON OFF)
-			-DWAYLAND_SESSION_LOCK=$(usex session-lock ON OFF)
-			-DWAYLAND_TOPLEVEL_MANAGEMENT=$(usex toplevel-management ON OFF)
-			-DSCREENCOPY=$(usex screencopy ON OFF)
-			-DX11=$(usex X ON OFF)
-			-DSERVICE_PIPEWIRE=$(usex pipewire ON OFF)
-			-DSERVICE_STATUS_NOTIFIER=$(usex tray ON OFF)
-			-DSERVICE_MPRIS=$(usex mpris ON OFF)
-			-DSERVICE_PAM=$(usex pam ON OFF)
-			-DSERVICE_POLKIT=$(usex polkit ON OFF)
-			-DHYPRLAND=$(usex hyprland ON OFF)
-			-DHYPRLAND_GLOBAL_SHORTCUTS=$(usex hyprland-global-shortcuts)
-			-DHYPRLAND_FOCUS_GRAB=$(usex hyprland-focus-grab)
-			-DI3=$(usex i3 ON OFF)
-			-DI3_IPC=$(usex i3-ipc ON OFF)
-			-DBLUETOOTH=$(usex bluetooth ON OFF)
-		)
-		cmake_src_configure
+	local mycmakeargs=(
+		-DCMAKE_BUILD_TYPE=Release
+		-DDISTRIBUTOR="${BRANDING_OS_NAME} GURU"
+		-DINSTALL_QML_PREFIX="$(get_libdir)/qt6/qml"
+		-DGIT_REVISION=${EGIT_COMMIT}
+		-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
+		-DSOCKETS=$(usex sockets ON OFF)
+		-DWAYLAND=$(usex wayland ON OFF)
+		-DWAYLAND_WLR_LAYERSHELL=$(usex layer-shell ON OFF)
+		-DWAYLAND_SESSION_LOCK=$(usex session-lock ON OFF)
+		-DWAYLAND_TOPLEVEL_MANAGEMENT=$(usex toplevel-management ON OFF)
+		-DSCREENCOPY=$(usex screencopy ON OFF)
+		-DX11=$(usex X ON OFF)
+		-DSERVICE_PIPEWIRE=$(usex pipewire ON OFF)
+		-DSERVICE_STATUS_NOTIFIER=$(usex tray ON OFF)
+		-DSERVICE_MPRIS=$(usex mpris ON OFF)
+		-DSERVICE_PAM=$(usex pam ON OFF)
+		-DSERVICE_POLKIT=$(usex polkit ON OFF)
+		-DHYPRLAND=$(usex hyprland ON OFF)
+		-DHYPRLAND_GLOBAL_SHORTCUTS=$(usex hyprland-global-shortcuts)
+		-DHYPRLAND_FOCUS_GRAB=$(usex hyprland-focus-grab)
+		-DI3=$(usex i3 ON OFF)
+		-DI3_IPC=$(usex i3-ipc ON OFF)
+		-DBLUETOOTH=$(usex bluetooth ON OFF)
+	)
+	cmake_src_configure
 }
