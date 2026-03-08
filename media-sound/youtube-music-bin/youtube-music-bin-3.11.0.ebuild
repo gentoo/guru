@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -48,18 +48,7 @@ RDEPEND="
 	x11-libs/pango
 "
 
-RESTRICT="mirror strip"
-
-QA_PREBUILT="
-	opt/${MY_PN}/chrome-sandbox
-	opt/${MY_PN}/chrome_crashpad_handler
-	opt/${MY_PN}/libEGL.so
-	opt/${MY_PN}/libffmpeg.so
-	opt/${MY_PN}/libGLESv2.so
-	opt/${MY_PN}/libvk_swiftshader.so
-	opt/${MY_PN}/libvulkan.so.1
-	opt/${MY_PN}/${MY_PN}
-"
+QA_PREBUILT="*"
 
 src_prepare() {
 	default
@@ -68,25 +57,35 @@ src_prepare() {
 
 	if use wayland; then
 		sed -i \
-			'/^Exec=/ s|^\(Exec="[^"]*"\)\(.*\)$|\1 --ozone-platform=wayland\2|' \
-			usr/share/applications/"${MY_PN}".desktop \
-			|| die
+			'/^Exec=/ s|^\(Exec="[^"]*"\)\(.*\)$|\1 --ozone-platform=wayland --enable-wayland-ime\2|' \
+			usr/share/applications/"${MY_PN}".desktop || die
 	fi
 }
 
 src_install() {
-	insinto /opt/"${MY_PN}"
-	doins -r opt/"YouTube Music"/*
+	local destdir="/opt/${MY_PN}"
 
-	insinto /usr/share
-	doins -r usr/share/icons
+	exeinto "${destdir}"
+	doexe "opt/YouTube Music/${MY_PN}"
+	doexe "opt/YouTube Music/chrome-sandbox"
+	doexe "opt/YouTube Music/chrome_crashpad_handler"
 
-	domenu usr/share/applications/"${MY_PN}".desktop
+	insinto "${destdir}"
+	doins opt/"YouTube Music"/*.bin
+	doins opt/"YouTube Music"/*.pak
+	doins opt/"YouTube Music"/*.so
 
-	local f
-	for f in ${QA_PREBUILT}; do
-		fperms +x "/${f}"
+	doins "opt/YouTube Music/icudtl.dat"
+
+	doins -r "opt/YouTube Music/locales"
+	doins -r "opt/YouTube Music/resources"
+
+	dosym ../../opt/"${MY_PN}"/"${MY_PN}" /usr/bin/"${PN}"
+
+	local x
+	for x in 16 24 32 48 64 128 256 512 1024; do
+		doicon -s ${x} usr/share/icons/hicolor/${x}*/*
 	done
 
-	fperms u+s /opt/"${MY_PN}"/chrome-sandbox
+	domenu usr/share/applications/"${MY_PN}".desktop
 }
