@@ -23,6 +23,7 @@
 # Removal on 2026-04-02
 app-doc/geeknote
 app-misc/vocabsieve
+dev-python/nkdfu
 net-libs/dpdk
 sys-kernel/dpdk-kmod
 
