@@ -22,6 +22,7 @@
 # Unmaintaned. Does not support python3_12
 # Removal on 2026-04-02
 app-doc/geeknote
+sys-kernel/dpdk-kmod
 
 # Lucio Sauer <watermanpaint@posteo.net> (2026-02-10)
 # The hyprland suite is moving to the unofficial 'hyproverlay' repository at
