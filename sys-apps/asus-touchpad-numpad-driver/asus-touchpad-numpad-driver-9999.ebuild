@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_12 )
 inherit linux-info python-single-r1
 
 DESCRIPTION="Feature-rich configurable Asus NumPad drivers"

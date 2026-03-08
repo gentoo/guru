@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit meson python-single-r1 optfeature xdg
 
 DESCRIPTION="Persepolis is a download manager written in Python."

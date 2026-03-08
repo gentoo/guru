@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit cmake flag-o-matic python-r1
 
 DESCRIPTION="Console-based GLSL live-coding viewer"

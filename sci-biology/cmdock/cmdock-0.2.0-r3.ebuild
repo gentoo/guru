@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..13} )
 BOINC_APP_OPTIONAL=1
 inherit boinc-app flag-o-matic meson optfeature python-any-r1
 

@@ -4,7 +4,7 @@
 EAPI=8
 
 LLVM_COMPAT=( {17..21} )
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit llvm-r2 python-single-r1 toolchain-funcs
 
 DESCRIPTION="A high-level, general-purpose, multi-paradigm, compiled programming language"
