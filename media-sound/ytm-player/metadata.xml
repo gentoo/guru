@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>dsaf</name>
+		<email>ghostyn678+git@gmail.com</email>
+	</maintainer>
+	<longdescription>
+		A full-featured YouTube Music player for the terminal.
+		Browse your library, search, queue tracks, and control
+		playback - all from a TUI with vim-style keybindings.
+		Runs on Linux, macOS, and Windows.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">peternaame-boop/ytm-player</remote-id>
+	</upstream>
+</pkgmetadata>
