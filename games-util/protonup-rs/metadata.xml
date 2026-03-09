@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>ingenarel_neojesus@disroot.org</email>
+    <name>ingenarel</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">auyer/Protonup-rs</remote-id>
+  </upstream>
+  <longdescription lang="en">
+    A CLI program to automate the installation and update of Linux Gaming Compatibility tools, like ProtonGe, WineGE,
+    Luxtorpeda, Boxtron, VKD3D-Proton, Lutris-VKD3D, DXVK, Kron4ek, GEProton-rtsp, Proton-CachyOS. Written in Rust.
+  </longdescription>
+</pkgmetadata>

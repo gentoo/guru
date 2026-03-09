@@ -1,0 +1,93 @@
+diff --git a/libprotonup/src/downloads.rs b/libprotonup/src/downloads.rs
+index 20f618b..1580f7e 100644
+--- a/libprotonup/src/downloads.rs
++++ b/libprotonup/src/downloads.rs
+@@ -280,87 +280,10 @@ impl Download {
+ mod tests {
+     use std::str::FromStr;
+ 
+-    use crate::{constants, sources};
++    use crate::sources;
+ 
+     use super::*;
+ 
+-    #[tokio::test]
+-    async fn test_list_releases() {
+-        let conditions = &[
+-            (
+-                sources::CompatTool::from_str(constants::DEFAULT_LUTRIS_TOOL).unwrap(),
+-                "Get WineGE",
+-            ),
+-            (
+-                sources::CompatTool::from_str(constants::DEFAULT_STEAM_TOOL).unwrap(),
+-                "Get GEProton",
+-            ),
+-            (
+-                sources::CompatTool::from_str("Luxtorpeda").unwrap(),
+-                "Get Luxtorpeda",
+-            ),
+-        ];
+-
+-        for (source_parameters, desc) in conditions {
+-            let result = list_releases(source_parameters).await;
+-
+-            assert!(
+-                result.is_ok(),
+-                "case : '{desc}' test: list_releases returned error"
+-            );
+-
+-            let result = result.unwrap();
+-
+-            assert!(
+-                result.len() > 1,
+-                "case : '{desc}' test: test_list_releases returned an empty list"
+-            );
+-        }
+-    }
+-
+-    #[tokio::test]
+-    async fn test_get_release() {
+-        let agent = format!("{}/v{}", constants::USER_AGENT, constants::VERSION,);
+-
+-        let client = match reqwest::Client::builder().user_agent(agent).build() {
+-            Ok(client) => client,
+-            Err(e) => {
+-                eprintln!("Error: {e}");
+-                std::process::exit(1)
+-            }
+-        };
+-
+-        let conditions = &[
+-            (
+-                sources::CompatTool::from_str(constants::DEFAULT_LUTRIS_TOOL).unwrap(),
+-                "Get WineGE",
+-            ),
+-            (
+-                sources::CompatTool::from_str(constants::DEFAULT_STEAM_TOOL).unwrap(),
+-                "Get GEProton",
+-            ),
+-        ];
+-        for (source_parameters, desc) in conditions {
+-            let url = format!(
+-                "{}/{}/{}/releases/latest",
+-                source_parameters.forge.get_url(),
+-                source_parameters.repository_account,
+-                source_parameters.repository_name
+-            );
+-
+-            let rel = match client.get(url).send().await {
+-                Ok(res) => res,
+-                Err(e) => {
+-                    panic!("Error: {e}");
+-                }
+-            }
+-            .json::<Release>()
+-            .await;
+-
+-            assert!(rel.is_ok(), "case : '{desc}' test: test_get_release wrong");
+-        }
+-    }
+-
+     #[tokio::test]
+     async fn test_get_download_name() {
+         let empty = "".to_owned();
