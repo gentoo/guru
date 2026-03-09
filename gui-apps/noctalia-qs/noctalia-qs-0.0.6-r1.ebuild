@@ -23,17 +23,24 @@ SLOT="0"
 
 # Upstream recommends leaving all build options enabled by default
 IUSE="
-	+jemalloc +sockets +wayland +layer-shell
-	+session-lock +toplevel-management +screencopy +X
-	+pipewire +tray +mpris +pam +polkit +hyprland
-	+hyprland-global-shortcuts +hyprland-focus-grab
-	+i3 +i3-ipc +bluetooth
+	+jemalloc +sockets
+	+wayland +layer-shell +session-lock +toplevel-management
+	+hyprland +screencopy
+	+X +i3
+	+tray +pipewire +mpris +pam +polkit +greetd +upower +notifications
+	+bluetooth +network
 "
-REQUIRED_USE="screencopy? ( toplevel-management )"
+REQUIRED_USE="
+	layer-shell?         ( wayland )
+	session-lock?        ( wayland )
+	toplevel-management? ( wayland )
+	hyprland?            ( wayland )
+	screencopy?          ( wayland )
+"
 
 RDEPEND="
 	!gui-apps/quickshell
-	dev-qt/qtbase:6=[dbus]
+	dev-qt/qtbase:6=[dbus,vulkan]
 	dev-qt/qtsvg:6=
 	dev-qt/qtdeclarative:6=
 	jemalloc? ( dev-libs/jemalloc )
@@ -53,12 +60,15 @@ RDEPEND="
 		dev-libs/glib
 	)
 	bluetooth? ( net-wireless/bluez )
+	network? ( net-misc/networkmanager )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	dev-cpp/cli11
+	dev-util/spirv-tools
 	dev-qt/qtshadertools:6
+	screencopy? ( dev-util/vulkan-headers )
 	wayland? (
 		dev-util/wayland-scanner
 		dev-libs/wayland-protocols
@@ -66,6 +76,13 @@ BDEPEND="
 "
 
 src_configure() {
+	# hyprland controls all Hyprland sub-features as a group.
+	# i3 controls I3/Sway IPC.
+	# screencopy controls all screencopy backends (icc, wlr, hyprland-toplevel).
+	local _hyprland=$(usex hyprland ON OFF)
+	local _screencopy=$(usex screencopy ON OFF)
+	local _i3=$(usex i3 ON OFF)
+
 	local mycmakeargs=(
 		-DCMAKE_BUILD_TYPE=Release
 		-DDISTRIBUTOR="${BRANDING_OS_NAME} GURU"
@@ -77,19 +94,28 @@ src_configure() {
 		-DWAYLAND_WLR_LAYERSHELL=$(usex layer-shell ON OFF)
 		-DWAYLAND_SESSION_LOCK=$(usex session-lock ON OFF)
 		-DWAYLAND_TOPLEVEL_MANAGEMENT=$(usex toplevel-management ON OFF)
-		-DSCREENCOPY=$(usex screencopy ON OFF)
+		-DHYPRLAND=${_hyprland}
+		-DHYPRLAND_IPC=${_hyprland}
+		-DHYPRLAND_GLOBAL_SHORTCUTS=${_hyprland}
+		-DHYPRLAND_FOCUS_GRAB=${_hyprland}
+		-DHYPRLAND_SURFACE_EXTENSIONS=${_hyprland}
+		-DSCREENCOPY=${_screencopy}
+		-DSCREENCOPY_ICC=${_screencopy}
+		-DSCREENCOPY_WLR=${_screencopy}
+		-DSCREENCOPY_HYPRLAND_TOPLEVEL=${_screencopy}
 		-DX11=$(usex X ON OFF)
-		-DSERVICE_PIPEWIRE=$(usex pipewire ON OFF)
+		-DI3=${_i3}
+		-DI3_IPC=${_i3}
 		-DSERVICE_STATUS_NOTIFIER=$(usex tray ON OFF)
+		-DSERVICE_PIPEWIRE=$(usex pipewire ON OFF)
 		-DSERVICE_MPRIS=$(usex mpris ON OFF)
 		-DSERVICE_PAM=$(usex pam ON OFF)
 		-DSERVICE_POLKIT=$(usex polkit ON OFF)
-		-DHYPRLAND=$(usex hyprland ON OFF)
-		-DHYPRLAND_GLOBAL_SHORTCUTS=$(usex hyprland-global-shortcuts)
-		-DHYPRLAND_FOCUS_GRAB=$(usex hyprland-focus-grab)
-		-DI3=$(usex i3 ON OFF)
-		-DI3_IPC=$(usex i3-ipc ON OFF)
+		-DSERVICE_GREETD=$(usex greetd ON OFF)
+		-DSERVICE_UPOWER=$(usex upower ON OFF)
+		-DSERVICE_NOTIFICATIONS=$(usex notifications ON OFF)
 		-DBLUETOOTH=$(usex bluetooth ON OFF)
+		-DNETWORK=$(usex network ON OFF)
 	)
 	cmake_src_configure
 }

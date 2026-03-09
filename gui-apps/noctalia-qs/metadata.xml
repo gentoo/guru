@@ -22,11 +22,11 @@
 		<flag name="pam">Enable <pkg>sys-libs/pam</pkg> integration for user authentication</flag>
 		<flag name="polkit">Enable creating <pkg>sys-auth/polkit</pkg> agents that can prompt user for authentication</flag>
 		<flag name="hyprland">Enable <pkg>gui-wm/hyprland</pkg> specific integrations</flag>
-		<flag name="hyprland-global-shortcuts">Enable creation of global shortcuts under <pkg>gui-wm/hyprland</pkg> through the hyprland-global-shortcuts-v1 protocol</flag>
-		<flag name="hyprland-focus-grab">Enables windows to grab focus on <pkg>gui-wm/hyprland</pkg> through the hyprland-focus-grab-v1 protocol</flag>
 		<flag name="i3">Enable <pkg>x11-wm/i3</pkg> and <pkg>gui-wm/sway</pkg> specific features</flag>
-		<flag name="i3-ipc">Enable interfacing with <pkg>x11-wm/i3</pkg> and <pkg>gui-wm/sway</pkg>'s IPC</flag>
 		<flag name="bluetooth">Enable Bluetooth integration using <pkg>net-wireless/bluez</pkg></flag>
+		<flag name="greetd">Enable <pkg>gui-libs/greetd</pkg> integration</flag>
+		<flag name="network">Enable Network integration using <pkg>net-misc/networkmanager</pkg></flag>
+		<flag name="notifications">Enable notifications service integration</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">noctalia-dev/noctalia-qs</remote-id>
