@@ -14,6 +14,7 @@
     <flag name="niri">build client for Niri</flag>
     <flag name="cosmic">build client for COSMIC Wayland</flag>
     <flag name="socket">build client for Socket client with logind session monitor</flag>
+    <flag name="ewm">build client for EWM (experimental)</flag>
   </use>
   <upstream>
     <remote-id type="github">xremap/xremap</remote-id>

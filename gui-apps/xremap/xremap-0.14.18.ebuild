@@ -14,7 +14,7 @@ CRATES="
 	anstyle-query@1.1.5
 	anstyle-wincon@3.0.11
 	anstyle@1.0.13
-	anyhow@1.0.101
+	anyhow@1.0.102
 	async-broadcast@0.7.2
 	async-channel@2.5.0
 	async-executor@1.13.3
@@ -76,16 +76,16 @@ CRATES="
 	foldhash@0.1.5
 	fork@0.6.0
 	funty@2.0.0
-	futures-channel@0.3.31
-	futures-core@0.3.31
-	futures-executor@0.3.31
-	futures-io@0.3.31
+	futures-channel@0.3.32
+	futures-core@0.3.32
+	futures-executor@0.3.32
+	futures-io@0.3.32
 	futures-lite@2.6.1
-	futures-macro@0.3.31
-	futures-sink@0.3.31
-	futures-task@0.3.31
-	futures-util@0.3.31
-	futures@0.3.31
+	futures-macro@0.3.32
+	futures-sink@0.3.32
+	futures-task@0.3.32
+	futures-util@0.3.32
+	futures@0.3.32
 	gethostname@1.1.0
 	getrandom@0.4.1
 	hashbrown@0.12.3
@@ -256,12 +256,12 @@ CRATES="
 	wyz@0.5.1
 	x11rb-protocol@0.13.2
 	x11rb@0.13.2
-	zbus@5.13.2
-	zbus_macros@5.13.2
+	zbus@5.14.0
+	zbus_macros@5.14.0
 	zbus_names@4.3.1
 	zmij@1.0.20
-	zvariant@5.9.2
-	zvariant_derive@5.9.2
+	zvariant@5.10.0
+	zvariant_derive@5.10.0
 	zvariant_utils@3.3.0
 "
 
@@ -279,8 +279,8 @@ LICENSE="MIT"
 LICENSE+=" Apache-2.0 BSD GPL-3+ MIT Unicode-3.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="cosmic gnome hyprland kde niri socket udev wlroots x11"
-REQUIRED_USE="?? ( cosmic gnome hyprland kde niri socket wlroots x11 )"
+IUSE="cosmic ewm gnome hyprland kde niri socket udev wlroots x11"
+REQUIRED_USE="?? ( cosmic ewm gnome hyprland kde niri socket wlroots x11 )"
 
 DEPEND="udev? ( virtual/libudev )"
 RDEPEND="${DEPEND}"
@@ -300,6 +300,7 @@ src_configure() {
 		$(usev niri)
 		$(usev cosmic)
 		$(usev socket)
+		$(usev ewm)
 	)
 	cargo_src_configure --no-default-features
 }
