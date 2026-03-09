@@ -44,7 +44,7 @@ CRATES="
 	itertools@0.13.0
 	itoa@1.0.17
 	js-sys@0.3.91
-	libc@0.2.182
+	libc@0.2.183
 	memchr@2.8.0
 	nfq-updated@0.2.6
 	nix@0.27.1
@@ -59,7 +59,7 @@ CRATES="
 	plotters-svg@0.3.7
 	plotters@0.3.7
 	proc-macro2@1.0.106
-	quote@1.0.44
+	quote@1.0.45
 	rayon-core@1.13.0
 	rayon@1.11.0
 	regex-automata@0.4.14
@@ -72,7 +72,7 @@ CRATES="
 	serde_derive@1.0.228
 	serde_json@1.0.149
 	shlex@1.3.0
-	socket2@0.6.2
+	socket2@0.6.3
 	syn@2.0.117
 	thiserror-impl@1.0.69
 	thiserror@1.0.69
@@ -93,29 +93,19 @@ CRATES="
 	windivert@0.6.0
 	windows-link@0.2.1
 	windows-services@0.26.1
-	windows-sys@0.60.2
 	windows-sys@0.61.2
 	windows-targets@0.48.5
-	windows-targets@0.53.5
 	windows@0.48.0
 	windows_aarch64_gnullvm@0.48.5
-	windows_aarch64_gnullvm@0.53.1
 	windows_aarch64_msvc@0.48.5
-	windows_aarch64_msvc@0.53.1
 	windows_i686_gnu@0.48.5
-	windows_i686_gnu@0.53.1
-	windows_i686_gnullvm@0.53.1
 	windows_i686_msvc@0.48.5
-	windows_i686_msvc@0.53.1
 	windows_x86_64_gnu@0.48.5
-	windows_x86_64_gnu@0.53.1
 	windows_x86_64_gnullvm@0.48.5
-	windows_x86_64_gnullvm@0.53.1
 	windows_x86_64_msvc@0.48.5
-	windows_x86_64_msvc@0.53.1
 	winres@0.1.12
-	zerocopy-derive@0.8.40
-	zerocopy@0.8.40
+	zerocopy-derive@0.8.42
+	zerocopy@0.8.42
 	zmij@1.0.21
 "
 
