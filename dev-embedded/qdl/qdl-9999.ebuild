@@ -7,7 +7,7 @@ inherit git-r3 toolchain-funcs
 
 DESCRIPTION="Tool to communicate with Qualcomm System On a Chip bootroms"
 HOMEPAGE="https://github.com/linux-msm/qdl"
-EGIT_REPO_URI="https://github.com/andersson/qdl.git"
+EGIT_REPO_URI="https://github.com/linux-msm/qdl.git"
 
 LICENSE="BSD"
 SLOT="0"
