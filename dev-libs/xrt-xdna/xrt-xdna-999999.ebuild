@@ -3,16 +3,8 @@
 
 EAPI=8
 
-PV_HASH=09824b1cff30cd3fcb657154188e6ddab708e2ec
-
 PYTHON_COMPAT=( python3_{12..14} )
 inherit cmake python-any-r1 linux-info
-
-declare -A submodules
-submodules["xrt"]=https://github.com/Xilinx/XRT.git@e2ce7d539b6974c7b39620ce1cda2851c9abca5a
-submodules["xrt/src/runtime_src/aie-rt"]=https://github.com/Xilinx/aie-rt.git@a8b0667133ea2851ce27793a1796c5968226d9af
-submodules["xrt/src/runtime_src/core/common/aiebu"]=https://github.com/Xilinx/aiebu.git@9065273e0c0a4ac5930fff904ac245cf38dd3087
-submodules["xrt/src/runtime_src/core/common/elf"]=https://github.com/serge1/ELFIO.git@f849001fc229c2598f8557e0df22866af194ef98
 
 DESCRIPTION="Runtime for AIE and FPGA based platforms"
 HOMEPAGE="https://github.com/amd/xdna-driver"
@@ -26,11 +18,18 @@ if [[ ${PV} == 999999 ]] ; then
 		xrt/src/runtime_src/aie-rt
 		xrt/src/runtime_src/core/common/aiebu
 		xrt/src/runtime_src/core/common/elf
+		xrt/src/runtime_src/xdp
 	)
 	inherit git-r3
 else
+	declare -A submodules
+	submodules["xrt"]=https://github.com/Xilinx/XRT.git@e07940e1eaf9bbe21977d7044d8a4f45c87e5fa2
+	submodules["xrt/src/runtime_src/aie-rt"]=https://github.com/Xilinx/aie-rt.git@a8b0667133ea2851ce27793a1796c5968226d9af
+	submodules["xrt/src/runtime_src/core/common/aiebu"]=https://github.com/Xilinx/aiebu.git@9065273e0c0a4ac5930fff904ac245cf38dd3087
+	submodules["xrt/src/runtime_src/core/common/elf"]=https://github.com/serge1/ELFIO.git@f849001fc229c2598f8557e0df22866af194ef98
+
 	SRC_URI="
-		https://github.com/amd/xdna-driver/archive/${PV_HASH}.tar.gz -> ${P}.tar.gz
+		https://github.com/amd/xdna-driver/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	"
 	for k in "${!submodules[@]}"; do
 		git_url="${submodules[$k]%@*}"
@@ -40,7 +39,7 @@ else
 	done
 
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/xdna-driver-${PV_HASH}"
+	S="${WORKDIR}/xdna-driver-${PV}"
 fi
 
 SRC_URI+="
@@ -104,14 +103,7 @@ src_prepare() {
 	[[ "${actual_vtd_hash}" != "${VTD_HASH}" ]] && \
 		die "VTD hash mismatch, ebuild requested ${VTD_HASH} while package wants ${actual_vtd_hash}"
 
-	mkdir -p "${WORKDIR}"/amdxdna_bins/vtd_archives || die
-	pushd "${WORKDIR}"/amdxdna_bins/vtd_archives || die
-	cp "${DISTDIR}/xrt_smi_strx-${VTD_HASH:0:8}.a" xrt_smi_strx.a || die
-	cp "${DISTDIR}/xrt_smi_phx-${VTD_HASH:0:8}.a" xrt_smi_phx.a || die
-	cp "${DISTDIR}/xrt_smi_npu3-${VTD_HASH:0:8}.a" xrt_smi_npu3.a || die
-	popd || die
-
-	sed -e "/Unknown Linux package flavor/d" -i "CMake/pkg.cmake" || die
+	sed -e "/Unknown Linux package flavor/ s/FATAL_ERROR/MESSAGE/" -i "CMake/pkg.cmake" || die
 
 	sed -e "s/set (XRT_UPSTREAM 0)/set (XRT_UPSTREAM 1)/" -i xrt/src/CMake/settings.cmake || die
 
@@ -120,11 +112,9 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_Git=ON
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}"/usr
 		-DSKIP_KMOD=1
 		-DUMQ_HELLO_TEST=n
-
 		-DPython3_EXECUTABLE="${PYTHON}"
 		-Wno-dev
 	)
@@ -135,6 +125,11 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
+
+	insinto /usr/share/xrt/amdxdna/bins
+	newins "${DISTDIR}/xrt_smi_strx-${VTD_HASH:0:8}.a" xrt_smi_strx.a
+	newins "${DISTDIR}/xrt_smi_phx-${VTD_HASH:0:8}.a" xrt_smi_phx.a
+	newins "${DISTDIR}/xrt_smi_npu3-${VTD_HASH:0:8}.a" xrt_smi_npu3.a
 
 	# belongs to dev-util/xrt
 	rm -rf "${ED}/bins" || die
