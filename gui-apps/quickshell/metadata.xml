@@ -15,6 +15,7 @@
 		your wayland compositor or window manager to build a complete desktop environment.
 	</longdescription>
 	<use>
+		<flag name="breakpad">Enable Google's <pkg>dev-util/breakpad</pkg> crash reporter</flag>
 		<flag name="sockets">Enable Unix Sockets (WARNING: Disabling is unsafe!)</flag>
 		<flag name="layer-shell">Enable wlroots layershell integration through the zwlr-layer-shell-v1 protocol</flag>
 		<flag name="session-lock">Enable session lock support through the ext-session-lock-v1 protocol</flag>
