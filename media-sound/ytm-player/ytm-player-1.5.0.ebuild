@@ -33,9 +33,26 @@ RDEPEND="
 	>=dev-python/ytmusicapi-1.11.0[${PYTHON_USEDEP}]
 "
 
+BDEPEND="
+	test? (
+		dev-python/anyascii[${PYTHON_USEDEP}]
+	)
+"
+
+EPYTEST_PLUGINS=( pytest-asyncio )
+distutils_enable_tests pytest
+
 pkg_postinst() {
 	optfeature "MPRIS media key support" dev-python/dbus-next
 	optfeature "last.fm scrobbling" dev-python/pylast
 	optfeature "Discord rich presence" dev-python/pypresence
 	optfeature "spotify playlist import" dev-python/spotipy
+}
+
+python_test() {
+	# The default portage tempdir is too long for AF_UNIX sockets
+	local -x TMPDIR
+	TMPDIR="$(mktemp -d --tmpdir=/tmp ${PF}-XXX)" || die
+
+	epytest
 }
