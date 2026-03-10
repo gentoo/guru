@@ -5,9 +5,19 @@ EAPI=8
 
 inherit linux-mod-r1 toolchain-funcs
 
-# FWAPI=https://gitlab.com/api/v4/projects/kernel-firmware%2Fdrm-firmware/repository/branches/amd-ipu-staging
-# curl -s "$FWAPI" | jq -r '.commit.id'
-FW_COMMIT=82da0aea7f8f20e4c058195cc695e01aaa4b99f8
+# To regenerate, run:
+# ebuild xdna-driver-999999.ebuild info
+FW_COMMIT=5c040900cb08fe65c4f76c0c63ce5d7f318eae93
+
+declare -A FIRMWARES=(
+	[1502_00/npu.sbin.1.5.5.391]=npu.dev.sbin
+	[17f1_10/npu.sbin.0.0.20.173]=npu.dev.sbin
+	[17f1_10/cert.sbin.20260217]=cert.dev.sbin
+	[17f2_10/npu.sbin.0.0.20.173]=npu.dev.sbin
+	[17f2_10/cert.sbin.20260217]=cert.dev.sbin
+	[17f0_10/npu.sbin.255.0.11.69]=npu.dev.sbin
+	[17f0_11/npu.sbin.255.0.11.71]=npu.dev.sbin
+)
 
 DESCRIPTION="AMD XDNA Driver"
 HOMEPAGE="https://github.com/amd/xdna-driver"
@@ -21,21 +31,11 @@ else
 	KEYWORDS="~amd64"
 fi
 
-# INFO_FILE=https://raw.githubusercontent.com/amd/xdna-driver/main/tools/info.json
-# COMMON_PREFIX=https://gitlab.com/kernel-firmware/drm-firmware/-/raw/amd-ipu-staging/amdnpu/
-# curl -s "$INFO_FILE" | jq -r ".firmwares[] | .url | sub(\"${COMMON_PREFIX}\"; \"\")"
-FIRMWARES=(
-	1502_00/npu.sbin.1.5.5.391
-	17f0_00/npu.sbin.0.7.22.185
-	17f0_10/1.7_npu.sbin.1.1.0.59
-	17f0_11/1.7_npu.sbin.1.1.0.60
-)
-
 FW_URI_PREFIX=https://gitlab.com/kernel-firmware/drm-firmware/-/raw/${FW_COMMIT}/amdnpu
 
 SRC_URI+=" firmware? ( "
-for fw in "${FIRMWARES[@]}"; do
-	SRC_URI+="${FW_URI_PREFIX}/${fw} -> ${FW_COMMIT:0:6}-${fw%%/*}__npu.dev.sbin "
+for fw in "${!FIRMWARES[@]}"; do
+	SRC_URI+="${FW_URI_PREFIX}/${fw} -> ${FW_COMMIT:0:6}-${fw%%/*}__${FIRMWARES[${fw}]} "
 done
 SRC_URI+=")"
 
@@ -44,12 +44,27 @@ LICENSE="GPL-2 firmware? ( linux-fw-redistributable )"
 SLOT="0"
 IUSE="+firmware"
 
+pkg_info() {
+	local FWAPI=https://gitlab.com/api/v4/projects/kernel-firmware%2Fdrm-firmware/repository/branches/amd-ipu-staging
+	local FW_COMMIT=$(curl -s "$FWAPI" | jq -r '.commit.id')
+	local INFO_FILE=https://raw.githubusercontent.com/amd/xdna-driver/main/tools/info.json
+	local COMMON_PREFIX=https://gitlab.com/kernel-firmware/drm-firmware/-/raw/amd-ipu-staging/amdnpu/
+	# shellcheck disable=SC2016
+	local JQ_EXPR='.firmwares[] | (.url | sub($prefix; "")) as $p | "    [" + $p + "]=" + .fw_name'
+
+	printf "FW_COMMIT=%s\n\n" "$FW_COMMIT"
+	echo 'declare -A FIRMWARES=('
+	curl -s "$INFO_FILE" | jq -r --arg prefix "$COMMON_PREFIX" "$JQ_EXPR"
+	echo ')'
+}
+
 src_prepare() {
 	sed -e "s/-Werror//" -i Kbuild || die
 
 	# Forward clang compiler, otherwise fails when kernel is compiled with clang cflags
 	# shellcheck disable=SC2016
 	sed -e 's/make -s /make -s CC="${CC}" /' \
+		-e 's:>/dev/null 2>&1::' \
 		-i "${WORKDIR}/${P}"/src/driver/tools/configure_kernel.sh || die
 
 	default
@@ -69,11 +84,11 @@ src_compile() {
 }
 
 src_install() {
-	for fw in "${FIRMWARES[@]}"; do
+	for fw in "${!FIRMWARES[@]}"; do
 		local dir="${fw%%/*}"
-		local src_filename="${FW_COMMIT:0:6}-${dir}__npu.dev.sbin"
+		local src_filename="${FW_COMMIT:0:6}-${dir}__${FIRMWARES[${fw}]}"
 		insinto "/lib/firmware/amdnpu/${dir}"
-		newins "${DISTDIR}/${src_filename}" npu.dev.sbin
+		newins "${DISTDIR}/${src_filename}" "${FIRMWARES[${fw}]}"
 	done
 
 	insinto /usr/lib/modules-load.d
