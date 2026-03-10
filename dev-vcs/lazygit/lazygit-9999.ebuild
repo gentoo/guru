@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,6 +19,7 @@ LICENSE="MIT"
 # dependency licenses:
 LICENSE+=" Apache-2.0 BSD-2 BSD ISC MIT Unlicense "
 SLOT="0"
+BDEPEND=">=dev-lang/go-1.25.0"
 RDEPEND="dev-vcs/git"
 
 DOCS=( {CODE-OF-CONDUCT,CONTRIBUTING,README}.md docs )
