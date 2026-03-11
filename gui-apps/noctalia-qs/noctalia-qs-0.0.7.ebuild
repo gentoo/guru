@@ -5,7 +5,7 @@ EAPI=8
 
 inherit branding cmake
 
-GIT_REVISION=b58414209fce1669cff818e50468e926613baa10
+GIT_REVISION=9ffd4463e33aa6c80d166e445c52aa0293ae057e
 
 DESCRIPTION="Toolkit for building desktop widgets using QtQuick"
 HOMEPAGE="https://quickshell.org/"
@@ -74,6 +74,8 @@ BDEPEND="
 		dev-libs/wayland-protocols
 	)
 "
+
+DOCS=( README.md changelog/ )
 
 src_configure() {
 	# hyprland controls all Hyprland sub-features as a group.
