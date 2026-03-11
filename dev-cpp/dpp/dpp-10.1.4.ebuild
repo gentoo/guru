@@ -25,7 +25,6 @@ RDEPEND="
 	virtual/zlib:=
 
 	voice? (
-		dev-libs/libsodium:=
 		media-libs/opus
 	)
 "
