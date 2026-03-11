@@ -70,6 +70,8 @@ BDEPEND="
 	)
 "
 
+DOCS=( README.md changelog/ )
+
 src_configure() {
 	# hyprland controls all Hyprland sub-features as a group.
 	# i3 controls I3/Sway IPC.

@@ -71,6 +71,8 @@ BDEPEND="
 	)
 "
 
+DOCS=( README.md changelog/ )
+
 src_configure() {
 	# -Werror=strict-aliasing
 	# https://github.com/quickshell-mirror/quickshell/issues/599
