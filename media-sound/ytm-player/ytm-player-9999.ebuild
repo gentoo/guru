@@ -51,8 +51,6 @@ pkg_postinst() {
 
 python_test() {
 	# The default portage tempdir is too long for AF_UNIX sockets
-	local -x TMPDIR
-	TMPDIR="$(mktemp -d --tmpdir=/tmp ${PF}-XXX)" || die
-
+	local -x TMPDIR=/tmp
 	epytest
 }
