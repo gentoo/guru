@@ -7,7 +7,8 @@ inherit git-r3
 
 DESCRIPTION="Audio tool using FFTW and libebur128"
 HOMEPAGE="https://github.com/ray17x/bitfake2"
-EGIT_REPO_URI="https://github.com/ray17x/bitfake2.git"
+SRC_URI="https://github.com/ray17x/bitfake2/archive/refs/tags/v1.0.tar.gz -> ${P}.tar.gz"
+KEYWORDS="~amd64"
 
 LICENSE="GPL-3"
 SLOT="0"
