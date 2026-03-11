@@ -7,7 +7,7 @@
 	</maintainer>
 	<maintainer type="person">
 		<name>Samuel Hautamäki</name>
-		<email>samuel@samuelhautamaki.eu</email>
+		<email>reachme@samuelhautamaki.eu</email>
 	</maintainer>
 	<use>
 		<flag name="voice">Enable voice-chat support</flag>
