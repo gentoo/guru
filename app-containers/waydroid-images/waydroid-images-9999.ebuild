@@ -24,7 +24,9 @@ S="${WORKDIR}"
 LICENSE="Apache-2.0"
 
 SLOT="0"
-IUSE="+system-vanilla system-gapps +vendor-mainline vendor-halium android-10 android-11 +android-13"
+IUSE="+system-vanilla system-gapps"
+IUSE+=" +vendor-mainline vendor-halium"
+IUSE+=" android-10 android-11 +android-13"
 REQUIRED_USE="
 	^^ ( system-vanilla system-gapps )
 	^^ ( vendor-mainline vendor-halium )
@@ -87,7 +89,7 @@ waydroid_ota_info() {
 
 	cat "${ota_file}" | \
 		python3 -c 'import sys,json;j=json.load(sys.stdin)["response"];\
-		j=[x for x in j if x["version"]==sys.argv[1]][0];\
+		j=next(x for x in j if x["version"]==sys.argv[1]);\
 		print(*(j[x] for x in ["filename","id","url"]),sep="\0",end="")' \
 		"${version}" || die
 }
