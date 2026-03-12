@@ -54,8 +54,4 @@ src_install() {
 	python_doscript run0edit
 
 	einstalldocs
-
-	# setup editor.conf
-	dodir /etc/"${PN}"
-	echo "$(which ${EDITOR})" >> "${ED}"/etc/"${PN}"/editor.conf || die
 }
