@@ -46,7 +46,8 @@ pkg_postinst() {
 	optfeature "MPRIS media key support" dev-python/dbus-next
 	optfeature "last.fm scrobbling" dev-python/pylast
 	optfeature "Discord rich presence" dev-python/pypresence
-	optfeature "spotify playlist import" dev-python/spotipy
+	optfeature "spotify playlist import" dev-python/spotipy # spotifyscraper & thefuzz are not packaged
+	optfeature "lyrics transliteration to ASCII" dev-python/anyascii
 }
 
 python_test() {
