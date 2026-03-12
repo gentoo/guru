@@ -18,13 +18,23 @@ DEPEND="${RDEPEND}"
 DOCS=( AUTHORS NEWS README doc/ examples )
 
 src_configure() {
-	econf \
-		--with-sysdeps=/usr/$(get_libdir)/skalibs/ \
-		--enable-shared \
-		--disable-allstatic \
-		--with-pkgconfig
+	tc-export CC
+
+	# --with-dynlib and --with-sysdeps needs to match skalibs' --dynlibdir and --sysdepdir respectively
+	local myconf=(
+		--dynlibdir="/$(get_libdir)"
+		--libdir="/usr/$(get_libdir)/${PN}"
+		--sysconfdir=/etc
+
+		--with-dynlib="/$(get_libdir)"
+		--with-sysdeps="/usr/$(get_libdir)/skalibs/"
+
+		--enable-shared
+		--disable-allstatic
+	)
 
 	# TODO: --enable-nsss
+	econf "${myconf[@]}"
 }
 
 src_compile() {
