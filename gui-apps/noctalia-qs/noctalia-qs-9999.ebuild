@@ -27,6 +27,7 @@ IUSE="
 	+X +i3
 	+tray +pipewire +mpris +pam +polkit +greetd +upower +notifications
 	+bluetooth +network
+	lto
 "
 REQUIRED_USE="
 	layer-shell?         ( wayland )
@@ -116,6 +117,7 @@ src_configure() {
 		-DSERVICE_NOTIFICATIONS=$(usex notifications ON OFF)
 		-DBLUETOOTH=$(usex bluetooth ON OFF)
 		-DNETWORK=$(usex network ON OFF)
+		-DLTO=$(usex lto ON OFF)
 	)
 	cmake_src_configure
 }
