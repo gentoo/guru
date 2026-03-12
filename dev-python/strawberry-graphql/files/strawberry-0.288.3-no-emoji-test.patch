@@ -1,0 +1,19 @@
+diff --git a/tests/conftest.py b/tests/conftest.py
+index 954b5e32..7c30ad2f 100644
+--- a/tests/conftest.py
++++ b/tests/conftest.py
+@@ -6,14 +6,6 @@ import pytest
+ from strawberry.utils import IS_GQL_32
+ 
+ 
+-def pytest_emoji_xfailed(config: pytest.Config) -> tuple[str, str]:
+-    return "🤷‍♂️ ", "XFAIL 🤷‍♂️ "
+-
+-
+-def pytest_emoji_skipped(config: pytest.Config) -> tuple[str, str]:
+-    return "🦘 ", "SKIPPED 🦘"
+-
+-
+ pytest_plugins = ("tests.plugins.strawberry_exceptions",)
+ 
+ 
