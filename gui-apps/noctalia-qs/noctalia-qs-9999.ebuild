@@ -89,6 +89,7 @@ src_configure() {
 		-DDISTRIBUTOR="${BRANDING_OS_NAME} GURU"
 		-DINSTALL_QML_PREFIX="$(get_libdir)/qt6/qml"
 		-DGIT_REVISION=${EGIT_COMMIT}
+		-DCRASH_HANDLER=OFF # dev-cpp/cpptrace::gentoo does not have required use flags
 		-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
 		-DSOCKETS=$(usex sockets ON OFF)
 		-DWAYLAND=$(usex wayland ON OFF)
