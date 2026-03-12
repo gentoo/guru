@@ -1,0 +1,14 @@
+diff --git a/setup.cfg b/setup.cfg
+index 742e1f6..43d8c0d 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -52,7 +52,7 @@ types =
+ 
+ [options.packages.find]
+ exclude =
+-    tests
++    tests*
+ 
+ [flake8]
+ exclude = venv/*,tox/*,docs/*,testproject/*,build/*
+
