@@ -1,7 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+inherit toolchain-funcs
 
 DESCRIPTION="Run a command at a particular time"
 HOMEPAGE="https://github.com/leahneukirchen/snooze"
@@ -12,6 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 src_compile() {
+	tc-export CC
 	emake CFLAGS="${CFLAGS}"
 }
 
