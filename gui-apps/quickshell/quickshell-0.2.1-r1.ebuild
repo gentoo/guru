@@ -76,22 +76,21 @@ src_configure() {
 	# hyprland controls all Hyprland sub-features as a group.
 	# i3 controls I3/Sway IPC.
 	# screencopy controls all screencopy backends (icc, wlr, hyprland-toplevel).
-	local _hyprland=$(usex hyprland ON OFF)
-	local _screencopy=$(usex screencopy ON OFF)
-	local _i3=$(usex i3 ON OFF)
+	local _hyprland=$(usex hyprland)
+	local _screencopy=$(usex screencopy)
+	local _i3=$(usex i3)
 
 	local mycmakeargs=(
-		-DCMAKE_BUILD_TYPE=Release
 		-DDISTRIBUTOR="${BRANDING_OS_NAME} GURU"
 		-DINSTALL_QML_PREFIX="$(get_libdir)/qt6/qml"
 		-DGIT_REVISION=${GIT_REVISION}
-		-DCRASH_REPORTER=$(usex breakpad ON OFF)
-		-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
-		-DSOCKETS=$(usex sockets ON OFF)
-		-DWAYLAND=$(usex wayland ON OFF)
-		-DWAYLAND_WLR_LAYERSHELL=$(usex layer-shell ON OFF)
-		-DWAYLAND_SESSION_LOCK=$(usex session-lock ON OFF)
-		-DWAYLAND_TOPLEVEL_MANAGEMENT=$(usex toplevel-management ON OFF)
+		-DCRASH_REPORTER=$(usex breakpad)
+		-DUSE_JEMALLOC=$(usex jemalloc)
+		-DSOCKETS=$(usex sockets)
+		-DWAYLAND=$(usex wayland)
+		-DWAYLAND_WLR_LAYERSHELL=$(usex layer-shell)
+		-DWAYLAND_SESSION_LOCK=$(usex session-lock)
+		-DWAYLAND_TOPLEVEL_MANAGEMENT=$(usex toplevel-management)
 		-DHYPRLAND=${_hyprland}
 		-DHYPRLAND_IPC=${_hyprland}
 		-DHYPRLAND_GLOBAL_SHORTCUTS=${_hyprland}
@@ -101,17 +100,17 @@ src_configure() {
 		-DSCREENCOPY_ICC=${_screencopy}
 		-DSCREENCOPY_WLR=${_screencopy}
 		-DSCREENCOPY_HYPRLAND_TOPLEVEL=${_screencopy}
-		-DX11=$(usex X ON OFF)
+		-DX11=$(usex X)
 		-DI3=${_i3}
 		-DI3_IPC=${_i3}
-		-DSERVICE_STATUS_NOTIFIER=$(usex tray ON OFF)
-		-DSERVICE_PIPEWIRE=$(usex pipewire ON OFF)
-		-DSERVICE_MPRIS=$(usex mpris ON OFF)
-		-DSERVICE_PAM=$(usex pam ON OFF)
-		-DSERVICE_GREETD=$(usex greetd ON OFF)
-		-DSERVICE_UPOWER=$(usex upower ON OFF)
-		-DSERVICE_NOTIFICATIONS=$(usex notifications ON OFF)
-		-DBLUETOOTH=$(usex bluetooth ON OFF)
+		-DSERVICE_STATUS_NOTIFIER=$(usex tray)
+		-DSERVICE_PIPEWIRE=$(usex pipewire)
+		-DSERVICE_MPRIS=$(usex mpris)
+		-DSERVICE_PAM=$(usex pam)
+		-DSERVICE_GREETD=$(usex greetd)
+		-DSERVICE_UPOWER=$(usex upower)
+		-DSERVICE_NOTIFICATIONS=$(usex notifications)
+		-DBLUETOOTH=$(usex bluetooth)
 	)
 	cmake_src_configure
 }
