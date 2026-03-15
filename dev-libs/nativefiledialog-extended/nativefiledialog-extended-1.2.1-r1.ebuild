@@ -15,13 +15,13 @@ SRC_URI="
 LICENSE="ZLIB"
 SLOT="0/$(ver_cut 1)"
 KEYWORDS="~amd64 ~x86"
-IUSE="+desktop-portal"
+IUSE="X +desktop-portal wayland"
 
 DEPEND="
 	desktop-portal? ( sys-apps/dbus )
 	!desktop-portal? (
 		dev-libs/glib:2
-		x11-libs/gtk+:3
+		x11-libs/gtk+:3[X=,wayland=]
 	)
 "
 RDEPEND="
