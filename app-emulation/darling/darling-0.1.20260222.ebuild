@@ -10,7 +10,8 @@ DESCRIPTION="Translation layer for running macOS software on Linux"
 HOMEPAGE="https://www.darlinghq.org"
 
 SRC_URI="
-	https://github.com/darlinghq/darling/releases/download/v0.1.20260222/darling-source.tar.gz -> darling-complete-source-${PV}.tar.gz
+	https://github.com/darlinghq/darling/releases/download/v${PV}/darling-source.tar.gz
+		-> darling-complete-source-${PV}.tar.gz
 "
 
 S="${WORKDIR}/darling"
@@ -18,14 +19,14 @@ S="${WORKDIR}/darling"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="cli cli_dev cli_extra gui gui_frameworks gui_stubs jsc webkit python ruby perl metal multilib system"
+IUSE="cli cli-dev cli-extra gui gui-frameworks gui-stubs jsc webkit python ruby perl metal multilib +system"
 
 REQUIRED_USE="
-	cli_dev?		( cli python ruby perl )
+	cli-dev?		( cli python ruby perl )
 	cli?			( system )
-	cli_extra?		( cli )
-	gui_frameworks?	( gui )
-	gui_stubs?		( gui_frameworks )
+	cli-extra?		( cli )
+	gui-frameworks?	( gui )
+	gui-stubs?		( gui-frameworks )
 	gui?			( system )
 	webkit?			( jsc )
 	python?			( system )
@@ -160,11 +161,11 @@ src_configure() {
 	use ruby			&& components+=",ruby"
 	use perl			&& components+=",perl"
 	use cli				&& components+=",cli"
-	use cli_dev			&& components+=",cli_dev"
-	use cli_extra		&& components+=",cli_extra"
+	use cli-dev			&& components+=",cli_dev"
+	use cli-extra		&& components+=",cli_extra"
 	use gui				&& components+=",gui"
-	use gui_frameworks	&& components+=",gui_frameworks"
-	use gui_stubs		&& components+=",gui_stubs"
+	use gui-frameworks	&& components+=",gui_frameworks"
+	use gui-stubs		&& components+=",gui_stubs"
 	use jsc				&& components+=",jsc"
 	use webkit			&& components+=",webkit"
 
