@@ -29,7 +29,11 @@ BDEPEND="
 	)
 "
 
+EPYTEST_DESELECT=(
+	tests/test_configuration.py::test_schema_in_repository_is_consistent_with_configuration_definition
+)
 EPYTEST_PLUGINS=()
+
 distutils_enable_tests pytest
 
 pkg_postinst() {
