@@ -51,5 +51,8 @@ src_install() {
 
 pkg_postinst () {
 	elog "Please consult Gentoo wiki to configure the bootloader
-	https://wiki.gentoo.org/wiki/ZFS/rootfs#ZFSBootMenu"
+	https://wiki.gentoo.org/wiki/ZFS/ZFSBootMenu"
+	elog "To create en EFI image, an EFI stub loader is needed."
+	elog "To use the stub loader provided by systemdboot, enable
+	the boot and kernel-install USE flags for sys-apps/systemd-utils"
 }
