@@ -31,9 +31,7 @@ DOCS=( {CHANGELOG,SECURITY,README}.md )
 src_prepare() {
 	default
 
-	mv run0edit_main.py run0edit || die
-
-	python_fix_shebang run0edit run0edit_inner.py
+	python_fix_shebang run0edit_main.py run0edit_inner.py
 
 	local b2=$(b2sum "${S}"/run0edit_inner.py | cut -d' ' -f1)
 	local sitedir=$(python_get_sitedir)
@@ -45,13 +43,13 @@ src_prepare() {
 			N
 			s|^.*|INNER_SCRIPT_B2: Final[str] = \"${b2}\"|
 		}" \
-		run0edit || die
+		run0edit_main.py || die
 }
 
 src_install() {
 	python_domodule run0edit_inner.py
 
-	python_doscript run0edit
+	python_newscript run0edit_main.py run0edit
 
 	einstalldocs
 }
