@@ -29,13 +29,15 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-go/protobuf-go
-	dev-go/protorpc
+	dev-go/protoc-gen-go-grpc
 	dev-qt/qttools:6[linguist]
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-1.0.0-Use-system-QHotkey.patch"
-	"${FILESDIR}/${PN}-1.0.7-Use-system-quirc.patch"
+	"${FILESDIR}/${PN}-1.0.0-use-system-QHotkey.patch"
+	"${FILESDIR}/${PN}-1.1.1-dont-treat-warnings-as-errors.patch"
+	"${FILESDIR}/${PN}-1.1.1-store-the-database-in-AppConfigLocation-by-default.patch"
+	"${FILESDIR}/${PN}-1.1.1-use-system-quirc.patch"
 )
 
 src_unpack() {
@@ -66,19 +68,21 @@ src_compile() {
 	cd "${S}/core/server" || die
 
 	pushd gen || die
-	protoc -I . --go_out=. --protorpc_out=. libcore.proto
+	protoc -I . --go_out=. --go-grpc_out=. libcore.proto
 	popd || die
 
 	VERSION_SINGBOX=$(go list -m -f '{{.Version}}' github.com/sagernet/sing-box)
 	ego build \
-		-trimpath -ldflags "-w -s -X 'github.com/sagernet/sing-box/constant.Version=${VERSION_SINGBOX}'" \
-		-tags "with_clash_api,with_gvisor,with_quic,with_wireguard,with_utls,with_dhcp,with_tailscale"
+		-trimpath -ldflags "-w -s -checklinkname=0 \
+		-X 'github.com/sagernet/sing-box/constant.Version=${VERSION_SINGBOX}' \
+		-X 'internal/godebug.defaultGODEBUG=multipathtcp=0'" \
+		-tags "with_clash_api,with_gvisor,with_quic,with_wireguard,with_utls,with_dhcp,with_tailscale,badlinkname,tfogo_checklinkname0"
 }
 
 src_install() {
 	exeinto /usr/lib/Throne
 	doexe "${BUILD_DIR}/Throne"
-	doexe core/server/Core
+	doexe core/server/ThroneCore
 
 	dosym -r /usr/lib/Throne/Throne /usr/bin/Throne
 

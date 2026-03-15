@@ -1,0 +1,26 @@
+From 727bf520b02d032e2dce926381841681568b1eed Mon Sep 17 00:00:00 2001
+From: Pavel Sobolev <contact@paveloom.dev>
+Date: Sun, 15 Mar 2026 19:06:50 +0300
+Subject: [PATCH] Store the database in `AppConfigLocation` by default.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+---
+ src/main.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/main.cpp b/src/main.cpp
+index c3c63d53..2922ff4d 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -100,7 +100,7 @@ int main(int argc, char* argv[]) {
+     QStringList arguments = QApplication::arguments();
+ 
+     // dirs & clean
+-    auto wd = QDir(QApplication::applicationDirPath());
++    auto wd = QDir(QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation));
+     if (arguments.contains("-appdata")) {
+         QString appDataDir;
+         int appdataIndex = arguments.indexOf("-appdata");
+-- 
+2.53.0
+
