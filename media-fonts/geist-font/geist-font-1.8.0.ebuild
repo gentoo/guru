@@ -23,9 +23,6 @@ DOCS="${WORKDIR}/${P}/OFL.txt"
 BDEPEND="app-arch/unzip"
 
 src_install() {
-	local FONT_S_ARRAY=()
-	local FONT_SUFFIX_LIST=""
-
 	if use otf; then
 		local FONT_S=()
 		local FONT_SUFFIX="otf"
