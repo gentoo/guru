@@ -27,11 +27,11 @@ BDEPEND="
 	>=dev-python/cython-3.2.4[${PYTHON_USEDEP}]
 "
 RDEPEND="
-	>=dev-python/discord-protos-1.2.126[${PYTHON_USEDEP}]
 	>=dev-python/emoji-2.15.0[${PYTHON_USEDEP}]
 	>=dev-python/filetype-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/numpy-2.4.3[${PYTHON_USEDEP}]
 	>=dev-python/orjson-3.11.7[${PYTHON_USEDEP}]
+	>=dev-python/protobuf-7.34.0[${PYTHON_USEDEP}]
 	>=dev-python/pycryptodome-3.23.0[${PYTHON_USEDEP}]
 	>=dev-python/pynacl-1.6.2[${PYTHON_USEDEP}]
 	>=dev-python/pysocks-1.7.1[${PYTHON_USEDEP}]
