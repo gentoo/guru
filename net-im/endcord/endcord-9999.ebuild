@@ -7,7 +7,7 @@ DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{12..14} )
 
-inherit distutils-r1 flag-o-matic optfeature wrapper
+inherit distutils-r1 optfeature wrapper
 
 DESCRIPTION="Feature rich Discord TUI client"
 HOMEPAGE="https://github.com/sparklost/endcord"
@@ -22,8 +22,6 @@ fi
 
 LICENSE="GPL-3"
 SLOT=0
-
-RESTRICT="strip"
 
 BDEPEND="
 	>=dev-python/cython-3.2.4[${PYTHON_USEDEP}]
@@ -48,10 +46,6 @@ RDEPEND="
 PATCHES=( "${FILESDIR}/${PN}-1.3.0-flags.patch" )
 
 DOCS=( README.md docs/ )
-
-python_configure_all() {
-	filter-lto # incorrectly links extensions
-}
 
 python_install() {
 	distutils-r1_python_install
