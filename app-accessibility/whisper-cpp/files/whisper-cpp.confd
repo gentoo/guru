@@ -1,0 +1,16 @@
+# model file to use
+whisper_model="/foo/bar/ggml-base.en.bin"
+
+# log to syslog
+# output_logger="logger -t \"$RC_SVCNAME\" -p daemon.info"
+# error_logger="logger -t \"$RC_SVCNAME\" -p daemon.err"
+
+# log to file
+output_log="/var/log/$RC_SVCNAME/$RC_SVCNAME.log"
+error_log="/var/log/$RC_SVCNAME/$RC_SVCNAME.log"
+
+# user to run daemon as
+command_user="whisper"
+
+# extra options
+command_args="-t 8 --port 8124"

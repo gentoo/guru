@@ -1,0 +1,14 @@
+#!/sbin/openrc-run
+# Copyright 1999-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License, v2
+
+supervisor=supervise-daemon
+description="Whisper-CPP Service"
+command="/usr/bin/whisper-server"
+command_args+=" -m ${whisper_model}"
+required_files="${whisper_model}"
+
+start_pre() {
+        checkpath --directory --owner $command_user --mode 0775 \
+                /var/log/$RC_SVCNAME
+}
