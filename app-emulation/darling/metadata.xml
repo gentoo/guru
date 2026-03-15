@@ -17,4 +17,28 @@
     supports most command line tools and some GUI applications
     for macOS.
   </longdescription>
+
+  <use>
+    <flag name="system">Includes core and everything necessary to enter a shell</flag>
+    <flag name="cli">
+      Includes system and most standalone command-line programs (i.e. those that don't
+      require additional runtimes or complex frameworks/libraries)
+    </flag>
+    <flag name="cli_dev">
+      Includes cli, python, ruby, and perl, along with some additional targets normally
+      regarded as GUI targets. These additional targets are necessary for certain parts
+      of the Xcode CLI tools.
+    </flag>
+    <flag name="cli_extra">Includes cli and some additional programs not installed on a standard macOS installation (e.g. GNU tar)</flag>
+    <flag name="gui">
+      Includes system and everything necessary to run basic Cocoa, Metal, and OpenGL apps.
+      Note that only includes the minimum required for GUI applications; most applications
+      will also require additional frameworks (e.g. audio, video, location, etc.)
+    </flag>
+    <flag name="gui_frameworks">
+      Includes gui and many GUI-related frameworks depended upon by Cocoa apps (e.g. audio
+      frameworks). Note that this component only includes non-stub frameworks.
+    </flag>
+    <flag name="gui_stubs">Includes gui_frameworks and many stubbed GUI-related frameworks.</flag>
+    <flag name="jsc">This is a large framework used for executing JavaScript code, primarily in web browsers.</flag>
 </pkgmetadata>
