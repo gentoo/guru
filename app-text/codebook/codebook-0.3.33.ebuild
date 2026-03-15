@@ -18,15 +18,6 @@ KEYWORDS="~amd64"
 RESTRICT="test"
 PROPERTIES="test_network"
 
-src_unpack() {
-	cargo_src_unpack
-
-	cat >> "${ECARGO_HOME}/config.toml" <<- EOF || die
-		[patch."https://github.com/jpt13653903/tree-sitter-vhdl"]
-		tree-sitter-vhdl = { path = "${ECARGO_VENDOR}/tree-sitter-vhdl" }
-	EOF
-}
-
 src_test() {
 	local skip=(
 		--skip test_elixir_module
