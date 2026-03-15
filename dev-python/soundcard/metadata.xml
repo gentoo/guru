@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<longdescription>
+		SoundCard is a library for playing and recording audio without resorting
+		to a CPython extension. Instead, it is implemented using the wonderful
+		CFFI and the native audio libraries of Linux, Windows and macOS.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">bastibe/SoundCard</remote-id>
+		<remote-id type="pypi">SoundCard</remote-id>
+	</upstream>
+</pkgmetadata>
