@@ -26,7 +26,7 @@ IUSE="examples"
 RESTRICT="test"
 
 DEPEND="
-	>=dev-lang/go-1.24.0
+	>=dev-lang/go-1.25.8
 "
 
 src_unpack() {
