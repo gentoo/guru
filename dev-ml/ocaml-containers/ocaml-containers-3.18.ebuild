@@ -8,7 +8,8 @@ inherit dune
 
 DESCRIPTION="Modular, clean and powerful extension of the OCaml standard library"
 HOMEPAGE="https://github.com/c-cube/ocaml-containers"
-SRC_URI="https://github.com/c-cube/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+SRC_URI="https://github.com/c-cube/${PN}/releases/download/v${PV}/containers-${PV}.tbz -> ${P}.gh.tbz"
+S="${WORKDIR}/${DUNE_PKG_NAME}-${PV}"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
