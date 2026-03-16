@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <name>Pavel Sobolev</name>
+    <email>contact@paveloom.dev</email>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://github.com/IngoMeyer441/simple-term-menu/issues</bugs-to>
+    <remote-id type="github">IngoMeyer441/simple-term-menu</remote-id>
+    <remote-id type="pypi">simple-term-menu</remote-id>
+  </upstream>
+</pkgmetadata>
