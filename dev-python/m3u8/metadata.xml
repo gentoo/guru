@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <name>Pavel Sobolev</name>
+    <email>contact@paveloom.dev</email>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://github.com/globocom/m3u8/issues</bugs-to>
+    <remote-id type="github">globocom/m3u8</remote-id>
+    <remote-id type="pypi">m3u8</remote-id>
+  </upstream>
+</pkgmetadata>
+
