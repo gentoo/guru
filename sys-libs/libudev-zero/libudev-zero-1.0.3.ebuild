@@ -23,6 +23,10 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX=/usr install-shared
-	use static-libs && emake DESTDIR="${D}" PREFIX=/usr install-static
+	local makeflags=(
+		DESTDIR="${D}" PREFIX=/usr LIBDIR=/usr/"$(get_libdir)"
+	)
+
+	emake "${makeflags[@]}" install-shared
+	use static-libs && emake "${makeflags[@]}" install-static
 }
