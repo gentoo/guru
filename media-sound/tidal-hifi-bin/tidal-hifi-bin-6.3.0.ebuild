@@ -5,7 +5,6 @@
 # It was going to be named with the codename as well, however that sadly would have broken ebuild fetching (PV)
 # If you are reading this, thank you. <3
 
-
 EAPI=8
 
 MY_PN="${PN/-bin/}"
@@ -115,7 +114,7 @@ src_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
-	elog "As with this version's codename, (6.3.0-mavy) this ebuild is dedicated to Mavy, the late niece of tidal-hifi's maintainer. (Mastermindzh)"
+	elog "As with this version's codename, (6.3.0-mavy) this ebuild is dedicated to Mavy,"
+	elog "the late niece of tidal-hifi's maintainer. (Mastermindzh)"
 	elog "If you are reading this, thank you. <3"
 }
-
