@@ -24,7 +24,7 @@ SLOT="0"
 
 RDEPEND="
 	media-video/mpv
-	net-misc/yt-dlp
+	>=net-misc/yt-dlp-2025.01.12[${PYTHON_USEDEP}]
 	>=dev-python/aiosqlite-0.20.0[${PYTHON_USEDEP}]
 	>=dev-python/click-8.1.0[${PYTHON_USEDEP}]
 	>=dev-python/python-mpv-1.0.0[${PYTHON_USEDEP}]
