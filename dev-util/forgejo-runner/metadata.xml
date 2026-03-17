@@ -9,6 +9,11 @@
 		<email>ceres@ceressees.dev</email>
 		<name>Ceres Milner</name>
 	</maintainer>
+	<use>
+		<flag name="docker">Have forgejo-runner use <pkg>app-containers/docker</pkg></flag>
+		<flag name="podman">Have forgejo-runner use <pkg>app-containers/podman</pkg></flag>
+		<flag name="lxc">Have forgejo-runner use <pkg>app-containers/lxc</pkg></flag>
+	</use>
 	<upstream>
 		<remote-id type="github">gentoo-golang-dist/forgejo-runner</remote-id>
 	</upstream>

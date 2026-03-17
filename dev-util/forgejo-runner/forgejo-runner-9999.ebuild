@@ -22,12 +22,21 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="examples"
+IUSE="examples docker podman lxc"
 RESTRICT="test"
+REQUIRED_USE="|| ( docker podman lxc )"
 
 DEPEND="
 	>=dev-lang/go-1.25.8
 "
+
+RDEPEND="
+	acct-user/runner[docker=,podman=,lxc=]
+"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-systemd-rundir.patch"
+)
 
 src_unpack() {
 	if [[ "${PV}" == *9999* ]]; then

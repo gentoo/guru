@@ -1,0 +1,15 @@
+diff --git a/contrib/forgejo-runner.service b/contrib/forgejo-runner.service
+index 785d35df..0cbe146d 100644
+--- a/contrib/forgejo-runner.service
++++ b/contrib/forgejo-runner.service
+@@ -8,8 +8,8 @@ ExecStart=/usr/local/bin/forgejo-runner daemon
+ ExecReload=/bin/kill -s HUP $MAINPID
+ 
+ # This user and working directory must already exist
+-User=runner 
+-WorkingDirectory=/home/runner
++User=runner
++WorkingDirectory=/var/lib/runner
+ Restart=on-failure
+ TimeoutSec=0
+ RestartSec=10
