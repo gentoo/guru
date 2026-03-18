@@ -49,7 +49,7 @@ RDEPEND="${DEPEND}"
 DOCS=( "README.md" )
 
 PATCHES=(
-	"${FILESDIR}/${P}-fix-scdoc-path.patch"
+	"${FILESDIR}/river-0.4.1-fix-scdoc-path.patch"
 )
 
 src_unpack() {
