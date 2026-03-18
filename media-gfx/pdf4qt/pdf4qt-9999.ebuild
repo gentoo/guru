@@ -26,7 +26,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	dev-cpp/tbb:=
 	dev-libs/openssl:=
-	dev-qt/qtbase:6[gui,widgets,xml]
+	dev-qt/qtbase:6[concurrent,gui,widgets,xml]
 	dev-qt/qtspeech:6
 	dev-qt/qtsvg:6
 	>=media-libs/blend2d-0.20:=
@@ -42,7 +42,7 @@ DEPEND="$RDEPEND
 
 DOCS=( NOTES.txt README.md RELEASES.txt )
 PATCHES=(
-	"${FILESDIR}/${PN}-1.5.1.0-Make-building-of-tests-optional.patch"
+	"${FILESDIR}/${PN}-1.5.3.9999-Make-building-of-tests-optional.patch"
 	"${FILESDIR}/${PN}-1.5.1.0-Make-runtime-respect-cmake-s-plugin-dir-settings.patch"
 	"${FILESDIR}/${PN}-1.5.1.0-Fix-translation-install-path-on-nix.patch"
 )
