@@ -52,7 +52,7 @@ RDEPEND="
 	)
 "
 
-#PATCHES=( "${FILESDIR}/${PN}-1.4.0-flags.patch" )
+PATCHES=( "${FILESDIR}/${PN}-1.4.0-flags.patch" )
 
 DOCS=( README.md docs/ )
 
