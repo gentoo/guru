@@ -1,0 +1,28 @@
+strips forced compilation flags
+
+--- a/setup.py
++++ b/setup.py
+@@ -4,21 +4,9 @@
+ from Cython.Build import cythonize
+ from setuptools import Extension, setup
+
+-extra_compile_args = [
+-    "-flto",
+-    "-O3",
+-    "-ffast-math",
+-    "-fomit-frame-pointer",
+-    "-funroll-loops",
+-]
+-extra_link_args = [
+-    "-flto",
+-    "-O3",
+-    "-s",
+-]
++extra_compile_args = []
++extra_link_args = []
+
+-if shutil.which("lld") and os.environ.get("CC") == "clang":
+-    extra_link_args.append("-fuse-ld=lld")
+
+ extensions = [
+     Extension(

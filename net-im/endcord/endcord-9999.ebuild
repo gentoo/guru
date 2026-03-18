@@ -23,6 +23,8 @@ fi
 LICENSE="GPL-3"
 SLOT=0
 
+IUSE="media"
+
 BDEPEND="
 	>=dev-python/cython-3.2.4[${PYTHON_USEDEP}]
 "
@@ -30,10 +32,12 @@ RDEPEND="
 	>=dev-python/emoji-2.15.0[${PYTHON_USEDEP}]
 	>=dev-python/filetype-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/numpy-2.4.3[${PYTHON_USEDEP}]
-	>=dev-python/orjson-3.11.7[${PYTHON_USEDEP}]
+	|| (
+		>=dev-python/orjson-3.11.7[${PYTHON_USEDEP}]
+		dev-python/ujson[${PYTHON_USEDEP}]
+	)
 	>=dev-python/protobuf-7.34.0[${PYTHON_USEDEP}]
 	>=dev-python/pycryptodome-3.23.0[${PYTHON_USEDEP}]
-	>=dev-python/pynacl-1.6.2[${PYTHON_USEDEP}]
 	>=dev-python/pysocks-1.7.1[${PYTHON_USEDEP}]
 	>=dev-python/python-socks-2.8.1[${PYTHON_USEDEP}]
 	>=dev-python/qrcode-8.2[${PYTHON_USEDEP}]
@@ -41,9 +45,14 @@ RDEPEND="
 	>=dev-python/soundfile-0.13.1[${PYTHON_USEDEP}]
 	>=dev-python/urllib3-2.6.3[${PYTHON_USEDEP}]
 	>=dev-python/websocket-client-1.9.0[${PYTHON_USEDEP}]
+	media? (
+		>=dev-python/pynacl-1.6.2[${PYTHON_USEDEP}]
+		>=dev-python/pillow-12.1.1[${PYTHON_USEDEP}]
+		>=dev-python/av-16.1.0[${PYTHON_USEDEP}]
+	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-1.3.0-flags.patch" )
+#PATCHES=( "${FILESDIR}/${PN}-1.4.0-flags.patch" )
 
 DOCS=( README.md docs/ )
 
@@ -76,4 +85,6 @@ pkg_postinst() {
 
 	optfeature "store token in system keyring (requires gnome-keyring running under dbus)" \
 		app-crypt/libsecret
+
+	optfeature "round notification images" media-gfx/imagemagick
 }

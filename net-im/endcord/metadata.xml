@@ -10,6 +10,9 @@
 		It is built with Python (this doesnt mean its slow) and ncurses library, to deliver
 		lightweight yet feature rich experience.
 	</longdescription>
+	<use>
+		<flag name="media">Enable media support for voice calls and ASCII media</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">sparklost/endcord</remote-id>
 	</upstream>
