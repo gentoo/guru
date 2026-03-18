@@ -3,9 +3,9 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.85.0"
+RUST_MIN_VER="1.87.0"
 
-inherit cargo
+inherit cargo optfeature
 
 DESCRIPTION="Bespoke dotfile management for sharkgirls."
 HOMEPAGE="https://codeberg.org/vimproved/blahajdots"
@@ -20,15 +20,8 @@ fi
 
 LICENSE="GPL-3+"
 # Dependent crate licenses
-LICENSE+="
-	Apache-2.0-with-LLVM-exceptions MIT Unicode-DFS-2016
-	|| ( Apache-2.0 Boost-1.0 )
-"
+LICENSE+=" Apache-2.0 MIT MPL-2.0 Unicode-3.0 ZLIB"
 SLOT="0"
-IUSE="+gtk"
-
-DEPEND="gtk? ( dev-libs/glib:2= )"
-RDEPEND="${DEPEND}"
 
 QA_FLAGS_IGNORED="usr/bin/blahaj"
 
@@ -41,17 +34,13 @@ src_unpack() {
 	fi
 }
 
-src_configure() {
-	local myfeatures=(
-		$(usev gtk gsettings)
-	)
-
-	cargo_src_configure --no-default-features
-}
-
 src_install() {
 	cargo_src_install
 
 	insinto /usr/share/blahajdots
 	doins -r builtins/*
+}
+
+pkg_postinst() {
+	optfeature "gsettings backend support" gnome-base/gsettings-desktop-schemas
 }
