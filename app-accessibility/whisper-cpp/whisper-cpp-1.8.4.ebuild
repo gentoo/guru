@@ -41,9 +41,16 @@ src_configure() {
 		-DGGML_BLAS=$(usex blas)
 		-DGGML_CLBLAST=$(usex opencl)
 		-DGGML_CUBLAS=$(usex cuda)
-		-DGGML_HIPBLAS=$(usex hip)
+		-DGGML_HIP=$(usex hip)
 		-DGGML_VULKAN=$(usex vulkan)
 		-DWHISPER_SDL2=$(usex sdl2)
 	)
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+
+	newinitd "${FILESDIR}/${PN}.init" "${PN}"
+	newconfd "${FILESDIR}/${PN}.confd" "${PN}"
 }
