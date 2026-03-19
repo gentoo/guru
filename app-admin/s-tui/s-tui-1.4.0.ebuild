@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,8 +9,6 @@ inherit distutils-r1 optfeature
 
 DESCRIPTION="Stress-Terminal UI monitoring tool"
 HOMEPAGE="https://amanusk.github.io/s-tui/"
-
-PATCHES=( "${FILESDIR}/${P}-dropimport.patch" )
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
