@@ -5,27 +5,22 @@ EAPI=8
 
 DESCRIPTION="grub2 script to add ISO images to the grub2 boot menu"
 HOMEPAGE="https://wiki.grml.org/doku.php?id=rescueboot"
-
-SRC_URI="https://raw.github.com/grml/grml-rescueboot/master/etc/default/grml-rescueboot
-	https://raw.github.com/grml/grml-rescueboot/master/42_grml
-"
-
-S="${DISTDIR}"
+SRC_URI="https://github.com/grml/grml-rescueboot/releases/download/v${PV}/${PN}_${PV}+gh.tar.xz"
+S="${WORKDIR}"/workspace
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="
-	sys-boot/grub
-"
+RDEPEND="sys-boot/grub"
+BDEPEND="app-text/xmltoman"
 
 src_install() {
-	insinto /etc/default/
-	doins grml-rescueboot
+	insinto /etc/default
+	doins etc/default/grml-rescueboot
 
 	exeinto /etc/grub.d/
-	newexe 42_grml 42_grml
+	doexe 42_grml
 }
 
 pkg_postinst() {
