@@ -1,7 +1,18 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # New entries go on top.
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2026-03-20)
+# dev-python/mkdocs have been last rited.
+dev-games/surgescript doc
+dev-python/decopatch doc
+dev-python/devtools doc
+dev-python/pytest-cases doc
+dev-python/pytest-harvest doc
+dev-python/pytest-steps doc
+dev-python/termynal doc
+dev-python/textual doc
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2025-11-06)
 # Depends on treecleaned media-libs/raspberrypi-userland
