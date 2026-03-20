@@ -279,7 +279,7 @@ LICENSE="MIT"
 LICENSE+=" Apache-2.0 BSD GPL-3+ MIT Unicode-3.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="cosmic ewm gnome hyprland kde niri socket systemd udev wlroots x11"
+IUSE="cosmic ewm gnome hyprland kde niri socket udev wlroots x11"
 REQUIRED_USE="?? ( cosmic ewm gnome hyprland kde niri socket wlroots x11 )"
 
 DEPEND="udev? ( virtual/libudev )"
@@ -315,7 +315,7 @@ src_install() {
 	insinto /etc/xdg/autostart
 	doins example/xremap.desktop
 
-	use systemd && systemd_douserunit example/xremap.service
+	systemd_douserunit example/xremap.service
 
 	insinto /usr/lib/modules-load.d
 	doins "${FILESDIR}"/xremap-uinput.conf
