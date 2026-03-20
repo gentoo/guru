@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 MY_TEST_V="0.12"
 
 if [[ "$PV" == 9999 ]]; then
@@ -66,6 +68,10 @@ then
 		fi
 	}
 fi
+
+src_configure() {
+	tc-export AS LD CC AR
+}
 
 src_install() {
 	PREFIX="/usr" default
