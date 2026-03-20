@@ -88,9 +88,12 @@ src_install() {
 
 pkg_postinst() {
 	if ver_replacing -lt 0.4; then
-		ewarn "river 0.4.x is a significant rework of the compositor's architecture,"
+		ewarn "River 0.4.x is a significant rework of the compositor's architecture,"
 		ewarn "and requires significant manual migration. If you would like to stay on"
 		ewarn "river 0.3.x, simply add '>=gui-wm/river-0.4' to your package.mask to"
 		ewarn "use river-classic continuation of the 0.3.x branch."
 	fi
+
+	einfo "River requires an separate window manager in addition to the main"
+	einfo "compositor. For some options, see gui-wm/canoe and gui-wm/kwm."
 }
