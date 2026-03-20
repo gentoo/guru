@@ -7,7 +7,7 @@ DESCRIPTION="A dynamic tiling Wayland compositor"
 HOMEPAGE="https://isaacfreund.com/software/river/ https://codeberg.org/river/river"
 
 ZIG_SLOT="0.15"
-inherit zig
+inherit eapi9-ver zig
 
 if [[ "${PV}" = "9999" ]]; then
 	inherit git-r3
@@ -77,4 +77,16 @@ src_install() {
 
 	insinto /usr/share/wayland-sessions/
 	doins contrib/river.desktop
+}
+
+pkg_postinst() {
+	if ver_replacing -lt 0.4; then
+		ewarn "River 0.4.x is a significant rework of the compositor's architecture,"
+		ewarn "and requires significant manual migration. If you would like to stay on"
+		ewarn "river 0.3.x, simply add '>=gui-wm/river-0.4' to your package.mask to"
+		ewarn "use river-classic continuation of the 0.3.x branch."
+	fi
+
+	einfo "River requires an separate window manager in addition to the main"
+	einfo "compositor. For some options, see gui-wm/canoe and gui-wm/kwm."
 }
