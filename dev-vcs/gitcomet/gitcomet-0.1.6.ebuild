@@ -891,6 +891,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="dev-libs/libgit2:="
+RDEPEND=">=dev-vcs/git-2.50.1"
 
 DOCS=(
 	../../README.md
