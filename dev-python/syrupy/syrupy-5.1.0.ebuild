@@ -28,6 +28,8 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=( )
+EPYTEST_PLUGIN_AUTOLOAD=1
 # Can not use dev-python/pytest-xdist because strange errors appear
 # EPYTEST_XDIST=1
 EPYTEST_DESELECT=(
