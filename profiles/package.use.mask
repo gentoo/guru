@@ -32,8 +32,3 @@ sci-electronics/bluespec doc
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-11-21)
 # Bindings are written for those RocksDB versions which are not in the tree.
 net-im/conduit system-rocksdb
-
-# Leonardo Hernández Hernández <leohdz172@proton.me> (2023-11-01)
-# Per the commiter (Benoît Dufour)
-# "Disable qrcodegen by default. Only the ones who really want it should enable it."
-net-im/abaddon qrcodegen
