@@ -12,7 +12,7 @@ SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/${P}.tar.xz"
 LICENSE="GPL-3 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+jemalloc test +tools +fuse +perfmon flac ricepp stacktrace"
+IUSE=" test +tools +fuse +perfmon flac ricepp stacktrace"
 S="${WORKDIR}/dwarfs-${PV}"
 
 RDEPEND="
@@ -31,7 +31,6 @@ RDEPEND="
 	sys-libs/binutils-libs
 	stacktrace? ( >=dev-cpp/cpptrace-1.0.4 )
 	virtual/zlib:=
-	jemalloc? ( >=dev-libs/jemalloc-5.3.0 )
 	test? ( >=dev-cpp/gtest-1.17.0 )
 	>=dev-cpp/range-v3-0.12.0
 	dev-libs/date
@@ -59,7 +58,7 @@ CMAKE_WARN_UNUSED_CLI=0
 src_configure(){
 	use stacktrace && append-flags -g
 	mycmakeargs=(
-		-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
+		-DUSE_JEMALLOC=OFF
 		-DWITH_TESTS=$(usex test ON OFF)
 		-DWITH_MAN_PAGES=ON
 		-DWITH_MAN_OPTION=ON
