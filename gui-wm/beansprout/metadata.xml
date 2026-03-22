@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <name>Ben Buhse</name>
+        <email>me@benbuhse.email</email>
+    </maintainer>
+    <upstream>
+        <maintainer>
+          <name>Ben Buhse</name>
+          <email>me@benbuhse.email</email>
+        </maintainer>
+        <remote-id type="codeberg">beansprout/beansprout</remote-id>
+    </upstream>
+</pkgmetadata>
