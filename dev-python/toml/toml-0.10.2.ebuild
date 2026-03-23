@@ -8,23 +8,26 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
 
+TT_PV=2.1.0
+TT_P="toml-test-${TT_PV}"
 DESCRIPTION="Python library for TOML"
 HOMEPAGE="
 	https://github.com/uiri/toml
 	https://pypi.org/project/toml/
 "
-SRC_URI="https://github.com/uiri/toml/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
+SRC_URI="
+	https://github.com/uiri/toml/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz
+	test? (
+		https://github.com/toml-lang/toml-test/archive/refs/tags/v${TT_PV}.tar.gz
+			-> ${TT_P}.gh.tar.gz
+	)
+"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="dev-python/numpy[${PYTHON_USEDEP}]"
-
-EPYTEST_DESELECT=(
-	tests/test_api.py::test_invalid_tests
-	tests/test_api.py::test_valid_tests
-)
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
@@ -33,4 +36,9 @@ src_install() {
 	distutils-r1_src_install
 
 	dodoc LICENSE
+}
+
+python_test() {
+	mv "${WORKDIR}/${TT_P}" toml-test || die
+	epytest
 }
