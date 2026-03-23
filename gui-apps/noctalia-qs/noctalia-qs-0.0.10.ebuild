@@ -5,6 +5,8 @@ EAPI=8
 
 inherit branding cmake
 
+GIT_REVISION=12dba9653ae2c0dd24bf2633e2572a8093b0df5e
+
 DESCRIPTION="Toolkit for building desktop widgets using QtQuick"
 HOMEPAGE="https://quickshell.org/"
 
@@ -87,7 +89,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DDISTRIBUTOR="${BRANDING_OS_NAME} GURU"
 		-DINSTALL_QML_PREFIX="$(get_libdir)/qt6/qml"
-		-DGIT_REVISION=${EGIT_COMMIT}
+		-DGIT_REVISION=${GIT_REVISION}
 		-DCRASH_HANDLER=no # dev-cpp/cpptrace::gentoo does not have required use flags
 		-DBLUETOOTH=$(usex bluetooth)
 		-DDWL=$(usex dwl)

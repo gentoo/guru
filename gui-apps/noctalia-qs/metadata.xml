@@ -11,22 +11,26 @@
 		It serves as the shell framework powering Noctalia Shell.
 	</longdescription>
 	<use>
-		<flag name="sockets">Enable Unix Sockets (WARNING: Disabling is unsafe!)</flag>
-		<flag name="layer-shell">Enable wlroots layershell integration through the zwlr-layer-shell-v1 protocol</flag>
-		<flag name="session-lock">Enable session lock support through the ext-session-lock-v1 protocol</flag>
-		<flag name="toplevel-management">Enable management of windows through zwlr-foreign-toplevel-management-v1 protocol</flag>
-		<flag name="screencopy">Enable streaming video from monitors and toplevel windows through various protocols</flag>
-		<flag name="pipewire">Enable viewing and management of <pkg>media-video/pipewire</pkg> nodes</flag>
-		<flag name="tray">Enable system tray support using the status notifier dbus protocol</flag>
-		<flag name="mpris">Enable access to MPRIS compatible media players using its dbus protocol</flag>
-		<flag name="pam">Enable <pkg>sys-libs/pam</pkg> integration for user authentication</flag>
-		<flag name="polkit">Enable creating <pkg>sys-auth/polkit</pkg> agents that can prompt user for authentication</flag>
+		<flag name="bluetooth">Enable Bluetooth integration using <pkg>net-wireless/bluez</pkg></flag>
+		<flag name="dwl">Enable <pkg>gui-wm/dwl</pkg> specific integrations</flag>
+		<flag name="greetd">Enable <pkg>gui-libs/greetd</pkg> integration</flag>
 		<flag name="hyprland">Enable <pkg>gui-wm/hyprland</pkg> specific integrations</flag>
 		<flag name="i3">Enable <pkg>x11-wm/i3</pkg> and <pkg>gui-wm/sway</pkg> specific features</flag>
-		<flag name="bluetooth">Enable Bluetooth integration using <pkg>net-wireless/bluez</pkg></flag>
-		<flag name="greetd">Enable <pkg>gui-libs/greetd</pkg> integration</flag>
+		<flag name="jemalloc">Use <pkg>dev-libs/jemalloc</pkg> as the memory allocator for improved performance</flag>
+		<flag name="layer-shell">Enable wlroots layershell integration through the zwlr-layer-shell-v1 protocol</flag>
+		<flag name="mpris">Enable access to MPRIS compatible media players using its dbus protocol</flag>
 		<flag name="network">Enable Network integration using <pkg>net-misc/networkmanager</pkg></flag>
+		<flag name="niri">Enable <pkg>gui-wm/niri</pkg> specific integrations via its IPC protocol</flag>
 		<flag name="notifications">Enable notifications service integration</flag>
+		<flag name="pam">Enable <pkg>sys-libs/pam</pkg> integration for user authentication</flag>
+		<flag name="pipewire">Enable viewing and management of <pkg>media-video/pipewire</pkg> nodes</flag>
+		<flag name="polkit">Enable creating <pkg>sys-auth/polkit</pkg> agents that can prompt user for authentication</flag>
+		<flag name="screencopy">Enable streaming video from monitors and toplevel windows through various protocols</flag>
+		<flag name="session-lock">Enable session lock support through the ext-session-lock-v1 protocol</flag>
+		<flag name="sockets">Enable Unix Sockets (WARNING: Disabling is unsafe!)</flag>
+		<flag name="toplevel-management">Enable management of windows through zwlr-foreign-toplevel-management-v1 protocol</flag>
+		<flag name="tray">Enable system tray support using the status notifier dbus protocol</flag>
+		<flag name="upower">Enable power management integration via <pkg>sys-power/upower</pkg></flag>
 	</use>
 	<upstream>
 		<remote-id type="github">noctalia-dev/noctalia-qs</remote-id>
