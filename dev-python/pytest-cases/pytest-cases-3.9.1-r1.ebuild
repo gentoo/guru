@@ -6,13 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_USE_PEP517=setuptools
 
-DOCS_BUILDER="mkdocs"
-DOCS_DEPEND=(
-	dev-python/mkdocs-material
-	dev-python/regex
-)
-
-inherit distutils-r1 docs pypi
+inherit distutils-r1 pypi
 
 DESCRIPTION="Separate test code from test cases in pytest"
 HOMEPAGE="
@@ -36,7 +30,3 @@ EPYTEST_PLUGIN_LOAD_VIA_ENV=1
 EPYTEST_PLUGINS=( ${PN} pytest-asyncio pytest-harvest pytest-steps pytest-xdist )
 
 distutils_enable_tests pytest
-
-python_compile_all() {
-	docs_compile
-}
