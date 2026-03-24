@@ -9,7 +9,7 @@ SRC_URI="https://download3.operacdn.com/ftp/pub/opera_gx/128.0.5807.97/linux/ope
 LICENSE="Opera-GX-EULA"
 SLOT="0"
 KEYWORDS="~amd64"
-RESTRICT="strip test" 
+RESTRICT="bindist mirror strip test" 
 #re-stripping an already stripped binary can lead to file corruption or 'QA Notice: Pre-stripped files found' warnings. 
 #Using RESTRICT="strip" tells Portage to skip this step and leave the binary as-is.
 #Same goes for the test in RESTRICT, since it's an ebuild for an already precompiled binary we don't compile anything - thus there is no need to run any tests which are for compiled software.
