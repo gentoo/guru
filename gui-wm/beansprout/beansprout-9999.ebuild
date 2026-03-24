@@ -38,11 +38,10 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="man"
 
 BDEPEND="
 	dev-libs/wayland-protocols
-	man? ( app-text/scdoc )
+	app-text/scdoc
 "
 DEPEND="
 	dev-libs/wayland
@@ -65,7 +64,7 @@ src_configure() {
 	local my_zbs_args=(
 		-Dstrip=false # Let Portage control this
 		-Dpie=true
-		-Dman-pages=$(usex man true false)
+		-Dman-pages=true
 	)
 
 	zig_src_configure
