@@ -172,8 +172,7 @@ good-but-slow image thumbnails, read audio/media tags" media-video/ffmpeg
 	#optfeature "read RAW images" rawpy  # rawpy not packaged (yet)
 
 	# Other pillow imports not listed above
-	optfeature "generate thumbnails as .jxl images" dev-python/pillow-jxl-plugin
-	optfeature "generate thumbnails as .webp images" dev-python/pillow[webp]
+	optfeature "create thumbnails as jxl files" dev-python/pillow-jxl-plugin
 
 	# Optfeatures from pyproject.toml:project.optional-dependencies not listed above
 	optfeature "sftp protocol support" dev-python/paramiko
