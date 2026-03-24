@@ -6,7 +6,7 @@ DESCRIPTION="Opera GX Browser (Binary Package)"
 HOMEPAGE="https://www.opera.com/gx"
 SRC_URI="https://download3.operacdn.com/ftp/pub/opera_gx/128.0.5807.97/linux/opera-gx-stable_128.0.5807.97_amd64.deb"
 
-LICENSE="Opera-EULA"
+LICENSE="Opera-GX-EULA"
 SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="strip test" 
