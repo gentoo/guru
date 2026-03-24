@@ -31,7 +31,6 @@ RDEPEND="
 
 BDEPEND="
 	test? (
-		dev-python/griffe[${PYTHON_USEDEP}]
 		dev-python/httpx[${PYTHON_USEDEP}]
 		=dev-python/textual-dev-1.7*[${PYTHON_USEDEP}]
 	)
