@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,6 +20,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-python/jinja2[${PYTHON_USEDEP}]
+	dev-python/ifaddr[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
@@ -88,6 +89,15 @@ src_prepare() {
 	# Use a $TMPDIR for testing, not /dev/shm
 	sed -e 's/\["\/dev\/shm"[^]]*\]/[]/' \
 		-i tests/util.py || die
+
+	# Remove vendored dependencies
+	rm -r copyparty/stolen/ifaddr || die  # dev-python/ifaddr
+	#rm copyparty/stolen/qrcodegen.py || die  # TODO: not packaged
+	rm copyparty/stolen/surrogateescape.py || die  # python2-only dependency
+
+	# Patched dependency (avahi workaround)
+	# See https://github.com/9001/copyparty/issues/887#issuecomment-3368575829
+	#rm -r copyparty/stolen/dnslib || die
 
 	distutils-r1_src_prepare
 }
@@ -160,6 +170,10 @@ good-but-slow image thumbnails, read audio/media tags" media-video/ffmpeg
 	optfeature "read .heif images with pillow (rarely useful)" dev-python/pillow-heif
 	optfeature "read .avif images with pillow (rarely useful)" dev-python/pillow[avif]
 	#optfeature "read RAW images" rawpy  # rawpy not packaged (yet)
+
+	# Other pillow imports not listed above
+	optfeature "read .jxl images with pillow (rarely useful)" dev-python/pillow-jxl-plugin
+	optfeature "read .webp images with pillow" dev-python/pillow[webp]
 
 	# Optfeatures from pyproject.toml:project.optional-dependencies not listed above
 	optfeature "sftp protocol support" dev-python/paramiko
