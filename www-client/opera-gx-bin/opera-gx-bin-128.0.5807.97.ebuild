@@ -4,7 +4,7 @@ inherit desktop unpacker xdg
 
 DESCRIPTION="Opera GX Browser (Binary Package)"
 HOMEPAGE="https://www.opera.com/gx"
-SRC_URI="https://download3.operacdn.com/ftp/pub/opera_gx/128.0.5807.97/linux/opera-gx-stable_128.0.5807.97_amd64.deb"
+SRC_URI="https://download3.operacdn.com/ftp/pub/opera_gx/${PV}/linux/opera-gx-stable_${PV}_amd64.deb"
 
 LICENSE="Opera-GX-EULA"
 SLOT="0"
