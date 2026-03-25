@@ -43,12 +43,6 @@ RDEPEND="
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
-EPYTEST_DESELECT=(
-	# TODO Investigate test failures
-	instrumentation/opentelemetry-instrumentation-threading/tests/test_threading.py::TestThreading::test_threading_with_valid_context_token
-	instrumentation/opentelemetry-instrumentation-threading/tests/test_threading.py::TestThreading::test_threadpool_with_valid_context_token
-)
-
 python_test() {
 	cp -a "${BUILD_DIR}"/{install,test} || die
 	local -x PATH=${BUILD_DIR}/test/usr/bin:${PATH}
