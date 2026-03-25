@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{12..14} )
 
-inherit meson python-single-r1
+inherit meson python-single-r1 xdg
 
 MY_PN="LeShade"
 MY_P=${MY_PN}-${PV}
@@ -43,4 +43,18 @@ src_prepare() {
 	if [[ ${PV} == *9999 ]] ; then
 		sed -i "s/^build_type: str = .*/build_type: str = \"Nightly\"/" main.py || die
 	fi
+
+	sed -i 's/^Icon=.*/Icon=leshade/' flatpak/io.github.ishidawg.LeShade.desktop
+}
+
+src_install() {
+	meson_src_install
+
+	rm "${ED}/usr/share/${PN}/assets/"*
+	rm -r "${ED}/usr/share/licenses"
+
+	dosym ../../icons/hicolor/256x256/apps/${PN}.png /usr/share/${PN}/assets/logo.png
+
+	insinto /usr/share/metainfo
+	doins flatpak/io.github.ishidawg.LeShade.metainfo.xml
 }
