@@ -1,27 +1,31 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+
+# TODO: add esp-doc package in order to build documentation
+# TODO: add examples USE
+# TODO: fix to python-single which should help to fix python-gdb dep
 
 EAPI=8
 
 PYTHON_COMPAT=( python3_{12..13} )
-
-VER="13.2.0_20250707"
+PYTHON_GDB_USE=( python_targets_python3_{12..13} )
+VER="14.2.0_20251107"
 GDB_VER="16.3_20250913"
 OPENOCD_VER="0.12.0-esp32-20251215"
 
 CROSSTOOL_URL="https://github.com/espressif/crosstool-NG/releases/download/esp-${VER}"
 
-inherit estack python-r1
+inherit estack optfeature python-r1
 
 DESCRIPTION="Espressif IoT Development Framework"
 HOMEPAGE="https://www.espressif.com/"
 
-# See https://dl.espressif.com/dl/esp-idf/espidf.constraints.v5.3.txt for information about version dependencies
+# See https://dl.espressif.com/dl/esp-idf/espidf.constraints.v5.4.txt for information about version dependencies
 
 SRC_URI="https://dl.espressif.com/github_assets/espressif/${PN}/releases/download/v${PV}/${PN}-v${PV}.zip -> ${P}.zip
 	https://github.com/espressif/openocd-esp32/releases/download/v${OPENOCD_VER}/openocd-esp32-linux-amd64-${OPENOCD_VER}.tar.gz
-	https://github.com/espressif/binutils-gdb/releases/download/esp-gdb-v${GDB_VER}/xtensa-esp-elf-gdb-${GDB_VER}-x86_64-linux-gnu.tar.gz"
-SRC_URI+=" ${CROSSTOOL_URL}/xtensa-esp-elf-${VER}-x86_64-linux-gnu.tar.xz"
+	https://github.com/espressif/binutils-gdb/releases/download/esp-gdb-v${GDB_VER}/xtensa-esp-elf-gdb-${GDB_VER}-x86_64-linux-gnu.tar.gz
+	${CROSSTOOL_URL}/xtensa-esp-elf-${VER}-x86_64-linux-gnu.tar.xz"
 SRC_URI+=" riscv32? (
 	${CROSSTOOL_URL}/riscv32-esp-elf-${VER}-x86_64-linux-gnu.tar.xz
 	https://github.com/espressif/binutils-gdb/releases/download/esp-gdb-v${GDB_VER}/riscv32-esp-elf-gdb-${GDB_VER}-x86_64-linux-gnu.tar.gz
@@ -33,13 +37,17 @@ LICENSE="Apache-2.0"
 SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64"
 
-IUSE="riscv32"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+IUSE="python-gdb riscv32"
+REQUIRED_USE="
+	python-gdb? ( || ( ${PYTHON_GDB_USE[@]} ) )
+	${PYTHON_REQUIRED_USE}
+"
 
 BDEPEND="app-arch/unzip"
 RDEPEND="
 	${PYTHON_DEPS}
 
+	dev-build/cmake
 	dev-libs/libusb:1
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/pyserial[${PYTHON_USEDEP}]
@@ -47,7 +55,8 @@ RDEPEND="
 	dev-python/pyparsing[${PYTHON_USEDEP}]
 	dev-python/pyelftools[${PYTHON_USEDEP}]
 	dev-embedded/esp-coredump[${PYTHON_USEDEP}]
-	<dev-embedded/esptool-4.9.1
+	dev-embedded/esptool
+	dev-embedded/esp-idf-diag[${PYTHON_USEDEP}]
 	<dev-embedded/esp-idf-kconfig-3.0.0[${PYTHON_USEDEP}]
 	<dev-embedded/esp-idf-monitor-2.0.0[${PYTHON_USEDEP}]
 	dev-embedded/esp-idf-nvs-partition-gen[${PYTHON_USEDEP}]
@@ -61,7 +70,6 @@ RDEPEND="
 RESTRICT="strip"
 
 QA_PREBUILT="opt/* usr/lib* usr/share/esp-idf/*"
-QA_PRESTRIPPED="opt/*"
 
 PATCHES=(
 	"${FILESDIR}/allow-system-install-${PN}-5.3.patch"
@@ -147,17 +155,38 @@ EOF
 
 	# Remove unsupported python versions
 	rm "${WORKDIR}"/xtensa-esp-elf-gdb/bin/xtensa-esp-elf-gdb-3.{8..10} || die
+	if use riscv32; then
+		rm "${WORKDIR}"/riscv32-esp-elf-gdb/bin/riscv32-esp-elf-gdb-3.{8..10} || die
+	fi
+
+	# Remove disabled python versions
+	for i in "${PYTHON_GDB_USE[@]}"; do
+		if ! has "${i}" "${PYTHON_COMPAT[@]}";  then
+			rm -f "${WORKDIR}"/xtensa-esp-elf-gdb/bin/xtensa-esp-elf-gdb-3."${i##*_}" || die
+			if use riscv32; then
+				rm -f "${WORKDIR}"/riscv32-esp-elf-gdb/bin/riscv32-esp-elf-gdb-3."${i##*_}" || die
+			fi
+		fi
+	done
+
 	install_tool xtensa-esp-elf-gdb
 	if use riscv32; then
 		install_tool riscv32-esp-elf-gdb
 	fi
 
-	echo "IDF_PATH=/usr/share/${PN}" > 99esp-idf || die
-	doenvd 99esp-idf
+	newenvd - 99esp-idf <<-EOF
+	IDF_PATH=/usr/share/${PN}
+	ESP_ROM_ELF_DIR=/usr/share/${PN}/tools
+	OPENOCD_SCRIPTS=/opt/openocd-esp32/share/openocd/scripts
+EOF
 
 	insinto /usr/share/${PN}
 
 	rm -r .git || die
 	find . -name ".git" -exec rm -rf {} \; || die
 	doins -r .
+}
+
+pkg_postinst() {
+	optfeature "gdbgui target" dev-debug/gdbgui
 }
