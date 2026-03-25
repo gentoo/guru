@@ -41,17 +41,18 @@ RDEPEND="
 	>=dev-python/wrapt-1.0.0[${PYTHON_USEDEP}]
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-wrapt-2.patch"
+)
+
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
-EPYTEST_DESELECT=(
-	# TODO Investigate test failures
-	opentelemetry-instrumentation/tests/test_utils.py::UnwrapTestCase::test_can_unwrap_object_attribute
-	opentelemetry-instrumentation/tests/test_utils.py::UnwrapTestCase::test_can_unwrap_object_attribute_as_string
-	opentelemetry-instrumentation/tests/test_utils.py::UnwrapTestCase::test_raises_import_error_if_cannot_find_module
-	opentelemetry-instrumentation/tests/test_utils.py::UnwrapTestCase::test_raises_import_error_if_cannot_find_object
-	opentelemetry-instrumentation/tests/test_utils.py::UnwrapTestCase::test_raises_import_error_if_path_not_well_formed
-)
+src_prepare() {
+	# Apply patch at root of the monorepo (only needed till 0.62b0 release)
+	cd .. || die
+	distutils-r1_src_prepare
+}
 
 python_test() {
 	cp -a "${BUILD_DIR}"/{install,test} || die
