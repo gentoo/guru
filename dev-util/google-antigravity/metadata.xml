@@ -5,4 +5,7 @@
     <email>falbrechtskirchinger@gmail.com</email>
     <name>Florian Albrechtskirchinger</name>
   </maintainer>
+  <upstream>
+    <changelog>https://antigravity.google/changelog</changelog>
+  </upstream>
 </pkgmetadata>
