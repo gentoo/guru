@@ -1,0 +1,86 @@
+# Copyright 2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+DISTUTILS_EXT=1
+DISTUTILS_USE_PEP517=maturin
+PYTHON_COMPAT=( python3_{11..14} )
+
+RUST_MIN_VER="1.82.0"
+CRATES="
+	atomic@0.6.1
+	autocfg@1.5.0
+	block-buffer@0.10.4
+	bumpalo@3.19.0
+	bytemuck@1.24.0
+	cfg-if@1.0.4
+	crypto-common@0.1.6
+	digest@0.10.7
+	generic-array@0.14.9
+	getrandom@0.2.16
+	getrandom@0.3.4
+	heck@0.5.0
+	indoc@2.0.6
+	js-sys@0.3.81
+	libc@0.2.177
+	log@0.4.28
+	md-5@0.10.6
+	memoffset@0.9.1
+	once_cell@1.21.3
+	portable-atomic@1.11.1
+	ppv-lite86@0.2.21
+	proc-macro2@1.0.101
+	pyo3-build-config@0.26.0
+	pyo3-ffi@0.26.0
+	pyo3-macros-backend@0.26.0
+	pyo3-macros@0.26.0
+	pyo3@0.26.0
+	quote@1.0.41
+	r-efi@5.3.0
+	rand@0.8.5
+	rand_chacha@0.3.1
+	rand_core@0.6.4
+	rustversion@1.0.22
+	sha1_smol@1.0.1
+	syn@2.0.107
+	target-lexicon@0.13.3
+	typenum@1.19.0
+	unicode-ident@1.0.19
+	unindent@0.2.4
+	uuid@1.18.1
+	version_check@0.9.5
+	wasi@0.11.1+wasi-snapshot-preview1
+	wasip2@1.0.1+wasi-0.2.4
+	wasm-bindgen-backend@0.2.104
+	wasm-bindgen-macro-support@0.2.104
+	wasm-bindgen-macro@0.2.104
+	wasm-bindgen-shared@0.2.104
+	wasm-bindgen@0.2.104
+	wit-bindgen@0.46.0
+	zerocopy-derive@0.8.27
+	zerocopy@0.8.27
+"
+
+inherit cargo distutils-r1 pypi
+
+DESCRIPTION="Python bindings to Rust's UUID library"
+HOMEPAGE="
+	https://github.com/fastuuid/fastuuid
+	https://pypi.org/project/fastuuid/
+"
+SRC_URI+=" ${CARGO_CRATE_URIS}"
+
+LICENSE="BSD"
+# Dependent crate licenses
+LICENSE+=" Apache-2.0-with-LLVM-exceptions BSD MIT Unicode-3.0 ZLIB"
+SLOT="0"
+KEYWORDS="~amd64 ~arm64"
+
+QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/fastuuid/fastuuid.*.so"
+
+EPYTEST_PLUGINS=( hypothesis )
+EPYTEST_IGNORE=(
+	tests/test_benchmarks.py
+)
+distutils_enable_tests pytest
