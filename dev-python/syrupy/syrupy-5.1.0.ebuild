@@ -14,7 +14,7 @@ SRC_URI="https://github.com/syrupy-project/syrupy/archive/refs/tags/v${PV}.tar.g
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 DOCS+=( LICENSE README.md CHANGELOG.md )
 
@@ -24,16 +24,9 @@ RDEPEND="
 BDEPEND="
 	test? (
 		dev-python/invoke[${PYTHON_USEDEP}]
-		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 	)
 "
 
-EPYTEST_PLUGINS=( )
+EPYTEST_PLUGINS=( pytest-xdist )
 EPYTEST_PLUGIN_AUTOLOAD=1
-# Can not use dev-python/pytest-xdist because strange errors appear
-# EPYTEST_XDIST=1
-EPYTEST_DESELECT=(
-	# This test fails for some strange reason
-	"tests/integration/test_snapshot_option_update.py::test_update_failure_shows_snapshot_diff[xdist_two]"
-)
 distutils_enable_tests pytest
