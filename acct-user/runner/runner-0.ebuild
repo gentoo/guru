@@ -30,4 +30,3 @@ pkg_setup() {
 		ACCT_USER_GROUPS+=( lxc )
 	fi
 }
-
