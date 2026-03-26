@@ -15,5 +15,6 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="github">koverstreet/bcachefs-tools</remote-id>
+		<changelog>https://github.com/koverstreet/bcachefs-tools/blob/master/Changelog.mdwn</changelog>
 	</upstream>
 </pkgmetadata>
