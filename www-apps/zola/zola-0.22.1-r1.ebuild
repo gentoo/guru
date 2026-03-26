@@ -618,7 +618,8 @@ SRC_URI="
 	${CARGO_CRATE_URIS}
 "
 
-LICENSE="EUPL-1.2"
+# Code prior to version 0.22 is MIT
+LICENSE="EUPL-1.2 MIT"
 # Dependent crate licenses
 LICENSE+="
 	Apache-2.0 BSD-2 BSD CC0-1.0 CDLA-Permissive-2.0 EUPL-1.2 ISC MIT
