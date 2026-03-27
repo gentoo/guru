@@ -8,6 +8,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
+# See https://github.com/openai/openai-python/blob/main/.stats.yml
 API_SPEC_BASE="https://storage.googleapis.com/stainless-sdk-openapi-specs"
 API_SPEC="openai-openapi-spec-v2.3.0.yml"
 MY_PN="openai-python"
