@@ -13,3 +13,6 @@ trim_trailing_whitespace = true
 [repositories.xml]
 indent_style = space
 tab_width = 2
+
+[*.patch]
+trim_trailing_whitespace = false
