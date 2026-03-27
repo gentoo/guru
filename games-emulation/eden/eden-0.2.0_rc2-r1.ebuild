@@ -20,22 +20,25 @@ S="${WORKDIR}/${PN}"
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="camera +cubeb discord llvm lto +opengl +qt6 room sdl ssl test +usb web-applet web-service wifi"
+IUSE="camera +cubeb discord llvm lto +opengl +qt6 room sdl test +usb web-applet web-service wifi"
 REQUIRED_USE="
 	!qt6? ( !camera !discord !web-applet )
-	web-service? ( ssl || ( qt6 room ) )
+	web-service? ( || ( qt6 room ) )
 "
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	app-arch/lz4
 	app-arch/zstd
+	dev-cpp/cpp-httplib:=[ssl]
 	dev-libs/libfmt:=
 	dev-libs/mcl
+	dev-libs/openssl:=
 	>=dev-libs/sirit-1.0.1
 	dev-util/spirv-tools
 	games-util/gamemode
 	media-gfx/renderdoc
+	media-libs/libsdl2[haptic,joystick,sound,video]
 	media-libs/libva
 	media-libs/opus
 	media-video/ffmpeg
@@ -46,17 +49,11 @@ RDEPEND="
 	camera? ( dev-qt/qtmultimedia:6 )
 	cubeb? ( media-libs/cubeb )
 	discord? (
-		dev-cpp/cpp-httplib:=[ssl]
 		dev-libs/discord-rpc
 	)
 	qt6? (
 		dev-libs/quazip[qt6(+)]
 		dev-qt/qtbase:6[concurrent,dbus,gui,widgets]
-	)
-	sdl? ( media-libs/libsdl2[haptic,joystick,sound,video] )
-	ssl? (
-		dev-libs/openssl:=
-		dev-cpp/cpp-httplib:=[ssl]
 	)
 	usb? ( dev-libs/libusb )
 	web-applet? ( dev-qt/qtwebengine:6[widgets] )
@@ -148,15 +145,14 @@ src_configure() {
 		-DENABLE_CUBEB=$(usex cubeb)
 		-DENABLE_LIBUSB=$(usex usb)
 		-DENABLE_OPENGL=$(usex opengl)
-		-DENABLE_OPENSSL=$(usex ssl)
 		-DENABLE_QT=$(usex qt6)
-		-DENABLE_SDL2=$(usex sdl)
 		-DENABLE_WEB_SERVICE=$(usex web-service)
 		-DENABLE_WIFI_SCAN=$(usex wifi)
 		-DUSE_DISCORD_PRESENCE=$(usex discord)
 		-DYUZU_USE_QT_MULTIMEDIA=$(usex camera)
 		-DYUZU_USE_QT_WEB_ENGINE=$(usex web-applet)
 
+		-DYUZU_CMD=$(usex sdl)
 		-DYUZU_ROOM=$(usex room)
 
 		-Wno-dev

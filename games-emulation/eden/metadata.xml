@@ -16,8 +16,7 @@
     <flag name="llvm">Enable the LLVM backend for disassembly and symbol demangling</flag>
     <flag name="opengl">Enable the OpenGL graphics backend</flag>
     <flag name="room">Compile the dedicated room executable</flag>
-    <flag name="sdl">Enable the SDL2 frontend (eden-cli, controller backend...)</flag>
-    <flag name="ssl">Enable the OpenSSL backend for ISslConnection</flag>
+    <flag name="sdl">Enable the SDL2-based eden-cli frontend</flag>
     <flag name="usb">Enable the LibUSB controller backend</flag>
     <flag name="web-applet">Enable the custom web applet frontend through dev-qt/qtwebengine</flag>
     <flag name="web-service">Enable multiplayer support</flag>
