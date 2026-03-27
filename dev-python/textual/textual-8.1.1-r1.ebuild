@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 optfeature
 
@@ -18,7 +18,7 @@ SRC_URI="https://github.com/Textualize/textual/archive/refs/tags/v${PV}.tar.gz -
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	>=dev-python/markdown-it-py-2.1.0[${PYTHON_USEDEP}]
@@ -51,7 +51,7 @@ declare -A SYNTAX_LANGS=(
 BDEPEND="
 	test? (
 		dev-python/httpx[${PYTHON_USEDEP}]
-		=dev-python/textual-dev-1.7*[${PYTHON_USEDEP}]
+		=dev-python/textual-dev-1.8*[${PYTHON_USEDEP}]
 		$(printf " dev-libs/tree-sitter-%s[python,${PYTHON_USEDEP}]" "${!SYNTAX_LANGS[@]}")
 	)
 "
