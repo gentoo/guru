@@ -29,58 +29,79 @@ RDEPEND="
 	<dev-python/typing-extensions-5[${PYTHON_USEDEP}]
 "
 
+declare -A SYNTAX_LANGS=(
+	["bash"]="Bash"
+	["c"]="C"
+	# TODO Missing keyword for ~arm64 in ::gentoo
+	#["cmake"]="CMake"
+	["cpp"]="C++"
+	["html"]="HTML"
+	["javascript"]="JavaScript"
+	["json"]="JSON"
+	["lua"]="Lua"
+	# TODO No Python bindings in ::gentoo
+	#["markdown"]="Markdown"
+	["python"]="Python"
+	# TODO Missing keyword for ~arm64 in ::gentoo
+	#["ruby"]="Ruby"
+	["rust"]="Rust"
+	# TODO Many other (common) languages are neither in ::gentoo nor ::guru
+)
+
 BDEPEND="
 	test? (
 		dev-python/httpx[${PYTHON_USEDEP}]
 		=dev-python/textual-dev-1.7*[${PYTHON_USEDEP}]
+		$(printf " dev-libs/tree-sitter-%s[python,${PYTHON_USEDEP}]" "${!SYNTAX_LANGS[@]}")
 	)
 "
 
 DOCS+=( {CHANGELOG,README}.md )
 
-EPYTEST_PLUGINS=( pytest-asyncio )
-EPYTEST_XDIST=1
-EPYTEST_DESELECT=(
-	# Those tests ask to press keys
-	tests/snapshot_tests/test_snapshots.py
-	tests/test_xterm_parser.py::test_escape_sequence_resulting_in_multiple_keypresses
-
-	# Need a package that should be optional
-	tests/text_area/test_languages.py
-
-	# Xdist fails thoses
-	tests/test_focus.py::test_focus_next_and_previous
-	tests/test_focus.py::test_focus_next_wrap_around
-	tests/test_focus.py::test_focus_previous_wrap_around
-	tests/test_focus.py::test_wrap_around_selector
-	tests/test_focus.py::test_no_focus_empty_selector
-	tests/test_focus.py::test_focus_next_and_previous_with_type_selector
-	tests/test_focus.py::test_focus_next_and_previous_with_str_selector
-	tests/test_focus.py::test_focus_next_and_previous_with_str_selector_without_self
-	tests/test_focus.py::test_focus_chain
-	tests/test_focus.py::test_allow_focus
-	tests/test_focus.py::test_focus_next_and_previous_with_type_selector_without_self
-
-	# Needs a fixture that does not exist
-	tests/test_progress_bar.py::test_progress_bar_width_1fr
+EPYTEST_PLUGINS=(
+	syrupy
+	pytest-{asyncio,textual-snapshot}
 )
-
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
-# python_test() {
-# 	if [[ ${EPYTHON} == python3.13 ]]; then
-# 		EPYTEST_DESELECT+=(
-# 			# See https://github.com/Textualize/textual/issues/5327
-# 			"tests/text_area"
-# 			# Some tests just do not work under python3.13 (more than half of those in this file)
-# 			tests/test_focus.py
-# 		)
-# 		epytest -m 'not syntax' tests
-# 	else
-# 		epytest tests
-# 	fi
-# }
+EPYTEST_DESELECT=(
+	# Require unavailable tree-sitter-*[python] grammar packages (v8.1.1)
+	"tests/snapshot_tests/test_snapshots.py::test_text_area_language_rendering[markdown]"
+	"tests/snapshot_tests/test_snapshots.py::test_text_area_language_rendering[toml]"
+	"tests/snapshot_tests/test_snapshots.py::test_text_area_language_rendering[yaml]"
+	"tests/text_area/test_languages.py::test_setting_builtin_language_via_constructor" # markdown
+	"tests/snapshot_tests/test_snapshots.py::test_text_area_language_rendering[css]"
+	"tests/text_area/test_languages.py::test_setting_builtin_language_via_attribute" # markdown
+	"tests/snapshot_tests/test_snapshots.py::test_text_area_language_rendering[go]"
+	"tests/snapshot_tests/test_snapshots.py::test_text_area_language_rendering[regex]"
+	"tests/snapshot_tests/test_snapshots.py::test_text_area_language_rendering[sql]"
+	"tests/snapshot_tests/test_snapshots.py::test_text_area_language_rendering[java]"
+	"tests/snapshot_tests/test_snapshots.py::test_text_area_language_rendering[xml]"
+
+	# These tests do not render correctly per visual inspection of snapshot_report.html (v8.1.1)
+	# TODO Investigate/ask upstream
+	"tests/snapshot_tests/test_snapshots.py::test_richlog_width"
+	"tests/snapshot_tests/test_snapshots.py::test_richlog_min_width"
+	"tests/snapshot_tests/test_snapshots.py::test_richlog_deferred_render_expand"
+	"tests/snapshot_tests/test_snapshots.py::test_welcome"
+	"tests/snapshot_tests/test_snapshots.py::test_text_area_wrapping_and_folding"
+
+	# Likely missed in this PR: (v8.1.1)
+	# https://github.com/Textualize/textual/pull/6410#issuecomment-4135017177
+	"tests/test_arrange.py::test_arrange_dock_left"
+)
+
+python_test() {
+	# Tests use @pytest.mark.xdist_group
+	epytest --dist loadgroup
+}
 
 pkg_postinst() {
-	optfeature "bindings for python" dev-python/tree-sitter
+	optfeature_header "Install additional packages for syntax highlighting:"
+
+	local lang
+	for lang in "${!SYNTAX_LANGS[@]}"; do
+		optfeature "${SYNTAX_LANGS[${lang}]}" "dev-libs/tree-sitter-${lang}[python]"
+	done
 }
