@@ -25,13 +25,10 @@ RDEPEND="
 	=dev-python/typing-extensions-4*[${PYTHON_USEDEP}]
 "
 
-BDEPEND="
-	test? (
-		dev-python/pytest-aiohttp[${PYTHON_USEDEP}]
-		=dev-python/time-machine-2*[${PYTHON_USEDEP}]
-	)
-"
-
 DEPEND="${RDEPEND}"
 
+EPYTEST_PLUGINS=(
+	pytest-{asyncio,aiohttp}
+	time-machine
+)
 distutils_enable_tests pytest
