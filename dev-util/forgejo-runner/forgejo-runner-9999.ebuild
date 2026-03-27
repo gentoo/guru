@@ -22,7 +22,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="examples docker podman lxc"
+IUSE="+docker examples podman lxc"
 RESTRICT="test"
 REQUIRED_USE="|| ( docker podman lxc )"
 

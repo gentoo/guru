@@ -7,7 +7,7 @@ inherit acct-user
 
 DESCRIPTION="Forgejo-Runner user account"
 
-IUSE="docker podman lxc"
+IUSE="+docker podman lxc"
 
 ACCT_USER_HOME="/var/lib/${PN}"
 ACCT_USER_ID=-1
