@@ -50,7 +50,7 @@ src_prepare() {
 		-e "/ExecStart=/s#=.*#=${EPREFIX}/usr/bin/forgejo-runner daemon -c %h/runner-config.yml#g" \
 		-e "/ExecReload=/s#=#=${EPREFIX}#g" \
 		-e "/User=/s#=.*#=${PN}#g" \
-		-e '/WorkingDirectory=/s#=.*#/=~#g' \
+		-e '/WorkingDirectory=/s#=.*#=~#g' \
 		-i contrib/forgejo-runner.service || die
 }
 
