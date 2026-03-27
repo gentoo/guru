@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@stdy/cli": "^0.19.7"
+  }
+}
