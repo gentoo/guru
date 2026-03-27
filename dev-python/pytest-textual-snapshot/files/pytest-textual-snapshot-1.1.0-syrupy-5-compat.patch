@@ -1,0 +1,29 @@
+diff --git a/pytest_textual_snapshot.py b/pytest_textual_snapshot.py
+index 44c5fd4..902a002 100644
+--- a/pytest_textual_snapshot.py
++++ b/pytest_textual_snapshot.py
+@@ -31,12 +31,12 @@ if TYPE_CHECKING:
+ 
+ 
+ class SVGImageExtension(SingleFileSnapshotExtension):
+-    _file_extension = "svg"
++    file_extension = "svg"
+     _write_mode = WriteMode.TEXT
+ 
+-    def _read_snapshot_data_from_location(self, *args, **kwargs) -> Optional["SerializableData"]:
++    def read_snapshot_data_from_location(self, *args, **kwargs) -> Optional["SerializableData"]:
+         """Normalize SVG data right after they are loaded from persistent storage."""
+-        data = super()._read_snapshot_data_from_location(*args, **kwargs)
++        data = super().read_snapshot_data_from_location(*args, **kwargs)
+         if data is not None:
+             data = normalize_svg(data)
+         return data
+@@ -305,6 +305,8 @@ def retrieve_svg_diffs(
+     pass_count = 0
+ 
+     n = 0
++    if not Path(tempdir.name).exists():
++        return diffs, pass_count
+     for data_path in Path(tempdir.name).iterdir():
+         (
+             passed,
