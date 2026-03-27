@@ -28,5 +28,12 @@ BDEPEND="
 "
 
 EPYTEST_PLUGINS=( pytest-xdist )
-EPYTEST_PLUGIN_AUTOLOAD=1
 distutils_enable_tests pytest
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# Inject required plugins; autoloading can break (e.g., with pytest-relaxed)
+	sed -i 's/\([a-zA-Z0-9_]\+\)\.runpytest(/\1.runpytest("-p", "syrupy", "-p", "xdist", /' \
+		tests/integration/test_*.py || die
+}
