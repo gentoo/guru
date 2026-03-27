@@ -9,9 +9,9 @@ DESCRIPTION="Forgejo-Runner user account"
 
 IUSE="docker podman lxc"
 
-ACCT_USER_HOME=/var/lib/runner
+ACCT_USER_HOME="/var/lib/${PN}"
 ACCT_USER_ID=-1
-ACCT_USER_GROUPS=( runner )
+ACCT_USER_GROUPS=( "${PN}" )
 
 acct-user_add_deps
 
