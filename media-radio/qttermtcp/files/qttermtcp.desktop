@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=QtTermTCP
+Comment=Multi-platform version of BPQTermTCP
+Exec=QtTermTCP
+Icon=/usr/share/pixmaps/QtTermTCP_icon.png
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Categories=AudioVideo;Audio;HamRadio;
+StartupNotify=true
