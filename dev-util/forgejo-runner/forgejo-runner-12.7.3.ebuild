@@ -23,7 +23,7 @@ fi
 LICENSE="MIT"
 SLOT="0"
 IUSE="examples +docker podman lxc"
-RESTRICT="test"
+RESTRICT="mirror test"
 REQUIRED_USE="|| ( docker podman lxc )"
 
 DEPEND="
