@@ -272,6 +272,11 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="mirror"
+# apply-crates-fixes start
+DEPEND="
+	>=app-arch/zstd-1.5.7
+"
+# apply-crates-fixes end
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
@@ -279,6 +284,12 @@ DOCS=( README.md docs )
 
 PATCHES=( "${FILESDIR}/fix-tests-0.10.0.patch" )
 
+# apply-crates-fixes start
+src_compile(){
+	export ZSTD_SYS_USE_PKG_CONFIG=1 # fix for zstd-sys crate
+	cargo_src_compile
+}
+# apply-crates-fixes end
 src_install() {
 	cargo_src_install --path "${S}/${PN}"
 	einstalldocs
