@@ -5,7 +5,7 @@ EAPI=8
 
 LLVM_COMPAT=( {17..21} )
 PYTHON_COMPAT=( python3_{12..14} )
-inherit llvm-r1 python-single-r1 unpacker
+inherit llvm-r2 python-single-r1 unpacker
 
 DESCRIPTION="A high-level, general-purpose, multi-paradigm, compiled programming language"
 HOMEPAGE="https://www.swift.org"
