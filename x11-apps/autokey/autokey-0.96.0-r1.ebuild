@@ -23,6 +23,7 @@ RDEPEND="dev-python/dbus-python[${PYTHON_USEDEP}]
 	dev-python/pyinotify[${PYTHON_USEDEP}]
 	dev-python/python-xlib[${PYTHON_USEDEP}]
 	dev-python/pyhamcrest[${PYTHON_USEDEP}]
+	dev-python/python-magic
 	media-gfx/imagemagick
 	x11-misc/xautomation
 	x11-misc/wmctrl
@@ -39,8 +40,6 @@ RDEPEND="dev-python/dbus-python[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
-		dev-python/pytest[${PYTHON_USEDEP}]
-		dev-python/pytest-cov[${PYTHON_USEDEP}]
 		>=dev-python/pyhamcrest-2.1.0[${PYTHON_USEDEP}]
 		dev-python/coverage
 	)
@@ -76,5 +75,7 @@ src_compile() {
 	fi
 	distutils-r1_src_compile
 }
+
+EPYTEST_PLUGINS=( pytest-cov )
 
 distutils_enable_tests pytest
