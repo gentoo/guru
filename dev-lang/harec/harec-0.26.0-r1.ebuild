@@ -35,6 +35,9 @@ src_prepare() {
 		-e 's/CC =/CC ?=/' \
 		-e 's/AS =/AS ?=/' \
 		-e 's/LD =/LD ?=/' \
+		-e 's/CFLAGS =/CFLAGS +=/' \
+		-e 's/LDFLAGS =/LDFLAGS ?=/' \
+		-e 's/LDLINKFLAGS =/LDLINKFLAGS ?=/' \
 		-e "s/ARCH =/ARCH = ${target_triple/-*}/" \
 		config.mk || die
 
