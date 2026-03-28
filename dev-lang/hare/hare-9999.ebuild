@@ -28,7 +28,10 @@ DEPEND="
 	>=sys-devel/qbe-1.2
 "
 BDEPEND="app-text/scdoc"
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	sys-libs/timezone-data
+"
 
 # hare and haredoc are built by hare
 QA_FLAGS_IGNORED="usr/bin/hare usr/bin/haredoc"
