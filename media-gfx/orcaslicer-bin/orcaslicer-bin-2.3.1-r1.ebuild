@@ -17,11 +17,21 @@ SLOT="0"
 KEYWORDS="-* ~amd64"
 RESTRICT="mirror strip bindist"
 
-# AppImage bundles most dependencies, but we need basic system libs
+# AppImage bundles most dependencies, but we need basic system libs.
+# The bundled wxWidgets assumes X11 (xvimagesink), so gst-plugins-base
+# must have the X USE flag. libmspack is needed for .3mf unpacking,
+# and gst-plugins-openh264 for Bambu camera feeds.
 RDEPEND="
 	dev-libs/glib:2
+	dev-libs/libmspack
+	media-libs/gst-plugins-base:1.0[X]
+	media-libs/gst-plugins-good:1.0
+	media-libs/gstreamer:1.0
 	media-libs/libglvnd
 	media-libs/mesa
+	media-plugins/gst-plugins-openh264:1.0
+	net-libs/libsoup:3.0
+	net-libs/webkit-gtk:4.1
 	sys-apps/dbus
 	virtual/zlib
 	x11-libs/cairo
@@ -31,7 +41,6 @@ RDEPEND="
 	x11-libs/libxcb
 	x11-libs/libxkbcommon
 	x11-libs/pango
-	net-libs/webkit-gtk:4.1
 "
 
 BDEPEND="dev-util/patchelf"
