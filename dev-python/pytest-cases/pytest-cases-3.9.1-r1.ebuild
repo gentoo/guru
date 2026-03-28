@@ -30,3 +30,8 @@ EPYTEST_PLUGIN_LOAD_VIA_ENV=1
 EPYTEST_PLUGINS=( ${PN} pytest-asyncio pytest-harvest pytest-steps pytest-xdist )
 
 distutils_enable_tests pytest
+
+src_prepare() {
+	sed "/pkg_resources/d" -i setup.py || die
+	distutils-r1_src_prepare
+}
