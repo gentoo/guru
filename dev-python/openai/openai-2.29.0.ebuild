@@ -120,9 +120,15 @@ src_test() {
 		"${DISTDIR}/${API_SPEC}" &> .stdy.log &
 	local mock_pid=$!
 
+	is_mock_running() {
+		local -a args
+		readarray -d '' args < "/proc/${mock_pid}/cmdline" 2>/dev/null || return 1
+		[[ "${args[1]}" == "${mock}" ]]
+	}
+
 	local attempts=0
 	while ! curl -sf "http://127.0.0.1:4010/_x-steady/health" &>/dev/null; do
-		if ! kill -0 ${mock_pid} 2>/dev/null; then
+		if ! is_mock_running; then
 			cat .stdy.log
 			die "Mock server failed to start"
 		fi
@@ -134,13 +140,18 @@ src_test() {
 		sleep 0.1
 	done
 
+	# Oops; connected to another Steady instance running on 4010
+	is_mock_running || die
+
 	popd >/dev/null || die
 
 	nonfatal distutils-r1_src_test
 	local ret=${?}
 
-	einfo "Stopping mock server..."
-	kill "${mock_pid}" || die
+	if is_mock_running; then
+		einfo "Stopping mock server..."
+		kill "${mock_pid}" || die
+	fi
 
 	[[ ${ret} -ne 0 ]] && die
 }
