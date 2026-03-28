@@ -1,7 +1,9 @@
-# Copyright 2025 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
+# Copyright 2025-2026 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+inherit toolchain-funcs
 
 if [ "${PV}" != "9999" ]; then
 	VERIFY_SIG_METHOD=signify
@@ -48,6 +50,7 @@ if [ "${PV}" != "9999" ]; then
 fi
 
 src_configure() {
+	tc-export CC
 	use static && export LDSTATIC=-static
 }
 
