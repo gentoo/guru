@@ -38,7 +38,7 @@ src_prepare() {
 		-e 's/CFLAGS =/CFLAGS +=/' \
 		-e 's/LDFLAGS =/LDFLAGS ?=/' \
 		-e 's/LDLINKFLAGS =/LDLINKFLAGS ?=/' \
-		-e "s/ARCH =/ARCH = ${target_triple/-*}/" \
+		-e "s/ARCH =.*/ARCH = ${target_triple/-*}/" \
 		config.mk || die
 
 	tc-export CC AS LD
