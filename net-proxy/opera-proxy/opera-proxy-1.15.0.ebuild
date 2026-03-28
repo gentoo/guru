@@ -6,8 +6,8 @@ EAPI=8
 inherit go-module
 
 DESCRIPTION="Standalone Opera VPN proxies client"
-HOMEPAGE="https://github.com/Snawoot/opera-proxy"
-SRC_URI="https://github.com/Snawoot/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage"
+SRC_URI="https://github.com/gentoo-golang-dist/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/${P}-vendor.tar.xz"
 
 LICENSE="MIT"
