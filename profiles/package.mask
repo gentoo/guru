@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2026-03-20)
+# Unmaintained in ::guru. Depends on masked dev-python/pipenv.
+# Removal on 2026-04-28.
+media-sound/yewtube
+
 # Paul Zander <negril.nx+gentoo@gmail.com> (2026-03-27)
 # Requires media-libs/openexr:0/33 which is masked in ::gentoo
 # due to media-libs/openjph #966735
