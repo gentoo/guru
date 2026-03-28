@@ -1,7 +1,9 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+inherit toolchain-funcs
 
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
@@ -45,10 +47,12 @@ src_configure() {
 	sed -i \
 		-e "s;^ARCH =.*;ARCH = ${target_arch};" \
 		-e "s;^PREFIX =.*;PREFIX = ${EPREFIX}/usr;" \
+		-e 's;^AR =;AR ?=;' \
 		-e 's;^AS =;AS ?=;' \
 		-e 's;^LD =;LD ?=;' \
-		-e 's;^AR =;AR ?=;' \
 		config.mk || die
+
+	tc-export CC AR AS LD
 }
 
 src_install() {
