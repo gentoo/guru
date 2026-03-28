@@ -26,10 +26,10 @@ RDEPEND="
 BDEPEND="
 	test? (
 		>=dev-python/requests-mock-1.11.0[${PYTHON_USEDEP}]
-		>=dev-python/pytest-cov-4.0.0[${PYTHON_USEDEP}]
 		>=dev-python/mypy-1.13.0[${PYTHON_USEDEP}]
 		>=dev-python/types-requests-2.32.4.20250913[${PYTHON_USEDEP}]
 	)
 "
+EPYTEST_PLUGINS=( pytest-cov )
 
 distutils_enable_tests pytest
