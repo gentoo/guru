@@ -27,12 +27,15 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	default
 
+	local target_triple="${CTARGET:-${CHOST}}"
+
 	cp configs/linux.mk config.mk || die
 	sed -i \
 		-e 's/-Werror//' \
 		-e 's/CC =/CC ?=/' \
 		-e 's/AS =/AS ?=/' \
 		-e 's/LD =/LD ?=/' \
+		-e "s/ARCH =/ARCH = ${target_triple/-*}/" \
 		config.mk || die
 
 	tc-export CC AS LD
