@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ericanebula@proton.me</email>
+		<name>Erica Nebula</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/StarTuz/linuxtrack-Qt6-Wayland/issues</bugs-to>
+		<changelog>https://github.com/StarTuz/linuxtrack-Qt6-Wayland/releases</changelog>
+		<remote-id type="github">StarTuz/linuxtrack-Qt6-Wayland</remote-id>
+	</upstream>
+	<use>
+		<flag name="winebridge">Build with Wine bridge support (for use with non-native games running under wine/proton)</flag>
+	</use>
+</pkgmetadata>
