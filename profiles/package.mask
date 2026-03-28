@@ -19,6 +19,12 @@
 # New entries go on top.
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2026-03-20)
+# Unmaintained in ::guru. Depends on masked dev-python/click-didyoumean.
+# Removal on 2026-04-28.
+dev-python/celery
+dev-python/pytest-celery
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2026-03-20)
 # Unmaintained in ::guru. Depends on masked dev-python/pipenv.
 # Removal on 2026-04-28.
 media-sound/yewtube
