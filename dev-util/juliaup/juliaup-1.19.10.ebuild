@@ -5,19 +5,21 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.88.0"
+RUST_MIN_VER="1.88"
 CRATES="
 	addr2line@0.25.1
 	adler2@2.0.1
 	aho-corasick@1.1.4
 	android_system_properties@0.1.5
 	anstream@0.6.21
+	anstream@1.0.0
 	anstyle-parse@0.2.7
+	anstyle-parse@1.0.0
 	anstyle-query@1.1.5
 	anstyle-wincon@3.0.11
 	anstyle@1.0.13
-	anyhow@1.0.101
-	assert_cmd@2.1.2
+	anyhow@1.0.102
+	assert_cmd@2.2.0
 	assert_fs@1.1.3
 	atomic-waker@1.1.2
 	autocfg@1.5.0
@@ -35,20 +37,20 @@ CRATES="
 	cesu8@1.1.0
 	cfg-if@1.0.4
 	cfg_aliases@0.2.1
-	chrono@0.4.43
-	clap@4.5.57
-	clap_builder@4.5.57
-	clap_complete@4.5.65
-	clap_complete_nushell@4.5.10
-	clap_derive@4.5.55
-	clap_lex@0.7.7
+	chrono@0.4.44
+	clap@4.6.0
+	clap_builder@4.6.0
+	clap_complete@4.6.0
+	clap_complete_nushell@4.6.0
+	clap_derive@4.6.0
+	clap_lex@1.0.0
 	cli-table-derive@0.5.0
 	cli-table@0.5.0
 	cluFlock@1.2.7
 	cmake@0.1.57
 	colorchoice@1.0.4
 	combine@4.6.7
-	console@0.16.2
+	console@0.16.3
 	core-foundation-sys@0.8.7
 	core-foundation@0.10.1
 	core-foundation@0.9.4
@@ -58,7 +60,7 @@ CRATES="
 	crossbeam-utils@0.8.21
 	csv-core@0.1.13
 	csv@1.4.0
-	ctrlc@3.5.1
+	ctrlc@3.5.2
 	dialoguer@0.12.0
 	difflib@0.4.0
 	dirs-sys@0.5.0
@@ -69,8 +71,8 @@ CRATES="
 	dunce@1.0.5
 	either@1.15.0
 	encode_unicode@1.0.0
-	env_filter@0.1.4
-	env_logger@0.11.8
+	env_filter@1.0.0
+	env_logger@0.11.9
 	env_proxy@0.4.1
 	equivalent@1.0.2
 	errno@0.3.14
@@ -121,7 +123,7 @@ CRATES="
 	idna_adapter@1.2.1
 	ignore@0.4.25
 	indexmap@2.13.0
-	indicatif@0.18.3
+	indicatif@0.18.4
 	indoc@2.0.7
 	ipnet@2.11.0
 	iri-string@0.7.10
@@ -135,9 +137,9 @@ CRATES="
 	jni@0.21.1
 	jobserver@0.1.34
 	js-sys@0.3.85
-	libc@0.2.180
+	libc@0.2.182
 	libredox@0.1.12
-	linux-raw-sys@0.11.0
+	linux-raw-sys@0.12.1
 	litemap@0.8.1
 	log@0.4.29
 	lru-slab@0.1.2
@@ -145,8 +147,7 @@ CRATES="
 	miniz_oxide@0.8.9
 	mio@1.1.1
 	native-tls@0.2.14
-	nix@0.30.1
-	nix@0.31.1
+	nix@0.31.2
 	normalize-line-endings@0.3.0
 	normpath@1.5.0
 	ntapi@0.4.2
@@ -177,12 +178,12 @@ CRATES="
 	ppv-lite86@0.2.21
 	predicates-core@1.0.9
 	predicates-tree@1.0.12
-	predicates@3.1.3
-	proc-macro2@1.0.105
+	predicates@3.1.4
+	proc-macro2@1.0.106
 	quinn-proto@0.11.13
 	quinn-udp@0.5.14
 	quinn@0.11.9
-	quote@1.0.43
+	quote@1.0.45
 	r-efi@5.3.0
 	rand@0.9.2
 	rand_chacha@0.9.0
@@ -197,7 +198,7 @@ CRATES="
 	ring@0.17.14
 	rustc-demangle@0.1.27
 	rustc-hash@2.1.1
-	rustix@1.1.3
+	rustix@1.1.4
 	rustls-native-certs@0.8.3
 	rustls-pki-types@1.14.0
 	rustls-platform-verifier-android@0.1.1
@@ -218,7 +219,7 @@ CRATES="
 	serde_json@1.0.149
 	serde_spanned@1.0.4
 	shell-words@1.1.1
-	shellexpand@3.1.1
+	shellexpand@3.1.2
 	shlex@1.3.0
 	simd-adler32@0.3.8
 	slab@0.4.11
@@ -227,12 +228,12 @@ CRATES="
 	stable_deref_trait@1.2.1
 	strsim@0.11.1
 	subtle@2.6.1
-	syn@2.0.114
+	syn@2.0.117
 	sync_wrapper@1.0.2
 	synstructure@0.13.2
 	sysinfo@0.37.2
-	tar@0.4.44
-	tempfile@3.24.0
+	tar@0.4.45
+	tempfile@3.27.0
 	termcolor@1.4.1
 	terminal_size@0.4.3
 	termtree@0.5.1
@@ -248,9 +249,11 @@ CRATES="
 	tokio-util@0.7.16
 	tokio@1.49.0
 	toml@0.5.11
-	toml@0.9.11+spec-1.1.0
+	toml@0.9.12+spec-1.1.0
+	toml@1.0.6+spec-1.1.0
 	toml_datetime@0.7.5+spec-1.1.0
-	toml_parser@1.0.6+spec-1.1.0
+	toml_datetime@1.0.0+spec-1.1.0
+	toml_parser@1.0.9+spec-1.1.0
 	toml_writer@1.0.6+spec-1.1.0
 	tower-http@0.6.8
 	tower-layer@0.3.3
