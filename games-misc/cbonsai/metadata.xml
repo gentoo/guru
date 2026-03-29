@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <!-- maintainer-needed -->
+  <maintainer type="person">
+    <email>ceres@ceressees.dev</email>
+    <name>Ceres Milner</name>
+  </maintainer>
   <longdescription lang="en">
 cbonsai is a bonsai tree generator, written in C using ncurses. It intelligently creates, colors, and positions a bonsai tree, and is entirely configurable via CLI options-- see usage. There are 2 modes of operation: static (see finished bonsai tree), and live (see growth step-by-step).
   </longdescription>
