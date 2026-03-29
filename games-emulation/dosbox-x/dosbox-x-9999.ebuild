@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -34,6 +34,7 @@ BDEPEND="
 "
 
 # Unconditionally pulling in automagically-enabled optional dependencies:
+# - dev-lang/duktape
 # - media-libs/alsa-lib
 # - media-libs/sdl2-net
 # - net-libs/libpcap
@@ -48,6 +49,7 @@ BDEPEND="
 # depending on media-libs/libsdl2[alsa] to satisfy this requirement since
 # this ebuild already unconditionally pulls in media-libs/alsa-lib.
 COMMON_DEPEND="
+	dev-lang/duktape:=
 	media-libs/alsa-lib
 	media-libs/libsdl2[X,alsa,opengl?,sound,threads(+),video]
 	media-libs/sdl2-net
