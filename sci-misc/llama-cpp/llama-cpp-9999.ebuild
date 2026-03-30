@@ -34,7 +34,7 @@ SLOT="0"
 CPU_FLAGS_X86=( avx avx2 f16c )
 
 # wwma USE explained here: https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#hip
-IUSE="curl openblas +openmp blis rocm cuda opencl vulkan flexiblas wmma examples"
+IUSE="curl openblas +openmp blis rocm cuda opencl openssl vulkan flexiblas wmma examples"
 
 REQUIRED_USE="
 	?? (
@@ -63,6 +63,7 @@ CDEPEND="
 		)
 	)
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
+	openssl? ( dev-libs/openssl:= )
 "
 DEPEND="${CDEPEND}
 	opencl? ( dev-util/opencl-headers )
@@ -105,6 +106,7 @@ src_configure() {
 		-DGGML_NATIVE=0	# don't set march
 		-DGGML_RPC=ON
 		-DLLAMA_CURL=$(usex curl)
+		-DLLAMA_OPENSSL=$(usex openssl)
 		-DBUILD_NUMBER="1"
 		-DGENTOO_REMOVE_CMAKE_BLAS_HACK=ON
 		-DGGML_CUDA=$(usex cuda)
