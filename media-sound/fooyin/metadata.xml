@@ -7,6 +7,7 @@
 	</maintainer>
 	<use>
 		<flag name="archive">Build the libarchive input plugin using <pkg>app-arch/libarchive</pkg></flag>
+		<flag name="gme">Build the libgme input plugin using <pkg>media-libs/game-music-emu</pkg></flag>
 		<flag name="openmpt">Build the OpenMPT input plugin using <pkg>media-libs/libopenmpt</pkg></flag>
 		<flag name="pipewire">Enable sound support via native PipeWire backend</flag>
 		<flag name="replaygain">Enable support for Replay Gain scanning using <pkg>media-libs/libebur128</pkg> instead of using ffmpeg</flag>

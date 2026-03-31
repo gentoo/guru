@@ -22,7 +22,7 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-IUSE="alsa +archive openmpt +pipewire +replaygain sdl sndfile soundtouch soxr test"
+IUSE="alsa +archive gme openmpt +pipewire +replaygain sdl sndfile soundtouch soxr test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	|| ( alsa pipewire sdl )
@@ -39,12 +39,13 @@ RDEPEND="
 	media-video/ffmpeg:=
 	alsa? ( media-libs/alsa-lib )
 	archive? ( app-arch/libarchive:= )
+	gme? ( media-libs/game-music-emu )
 	openmpt? ( media-libs/libopenmpt )
 	pipewire? ( media-video/pipewire:= )
 	replaygain? ( media-libs/libebur128:= )
 	sdl? ( media-libs/libsdl2 )
 	sndfile? ( media-libs/libsndfile )
-	soundtouch? ( media-libs/libsoundtouch )
+	soundtouch? ( media-libs/libsoundtouch:= )
 	soxr? ( media-libs/soxr )
 "
 DEPEND="${RDEPEND}"
@@ -62,16 +63,14 @@ src_prepare() {
 	cmake_src_prepare
 }
 
-# libgme dependency can currently not be satisfied,
-# so building the input plugin is unconditionally disabled for now
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_ALSA=$(usex alsa)
 		-DBUILD_TESTING=$(usex test)
 		-DBUILD_CCACHE=OFF
-		-DCMAKE_DISABLE_FIND_PACKAGE_LIBGME=ON
 		-DINSTALL_HEADERS=ON
 		$(cmake_use_find_package archive LibArchive)
+		$(cmake_use_find_package gme LIBGME)
 		$(cmake_use_find_package openmpt OpenMpt)
 		$(cmake_use_find_package pipewire PipeWire)
 		$(cmake_use_find_package replaygain Ebur128)
