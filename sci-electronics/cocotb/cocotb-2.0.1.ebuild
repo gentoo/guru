@@ -24,10 +24,6 @@ RDEPEND="
 
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/cocotb-1.9.2-fix-license-qa.patch"
-)
-
 src_compile() {
 	# parallel build is broken
 	MAKEOPTS="-j1" distutils-r1_src_compile
