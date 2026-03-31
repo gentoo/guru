@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,4 +26,7 @@ all_ruby_prepare() {
 	# avoid useless dependencies
 	sed -i '/rubocop/d' Gemfile || die
 	rm -f Gemfile.lock || die
+	# replace Bundler usage with direct requires for Gentoo environment
+	sed -i -e '/[Bb]undler/d' spec/spec_helper.rb || die
+	sed -i '1i require "prawn-svg"' spec/spec_helper.rb || die
 }
