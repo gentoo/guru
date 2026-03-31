@@ -22,7 +22,7 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-IUSE="alsa +archive openmpt +pipewire +replaygain sdl sndfile test"
+IUSE="alsa +archive openmpt +pipewire +replaygain sdl sndfile soundtouch soxr test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	|| ( alsa pipewire sdl )
@@ -44,6 +44,8 @@ RDEPEND="
 	replaygain? ( media-libs/libebur128:= )
 	sdl? ( media-libs/libsdl2 )
 	sndfile? ( media-libs/libsndfile )
+	soundtouch? ( media-libs/libsoundtouch )
+	soxr? ( media-libs/soxr )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -75,6 +77,8 @@ src_configure() {
 		$(cmake_use_find_package replaygain Ebur128)
 		$(cmake_use_find_package sdl SDL2)
 		$(cmake_use_find_package sndfile SndFile)
+		$(cmake_use_find_package soundtouch SoundTouch)
+		$(cmake_use_find_package soxr SoXR)
 	)
 
 	cmake_src_configure

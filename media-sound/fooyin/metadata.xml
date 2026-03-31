@@ -10,6 +10,8 @@
 		<flag name="openmpt">Build the OpenMPT input plugin using <pkg>media-libs/libopenmpt</pkg></flag>
 		<flag name="pipewire">Enable sound support via native PipeWire backend</flag>
 		<flag name="replaygain">Enable support for Replay Gain scanning using <pkg>media-libs/libebur128</pkg> instead of using ffmpeg</flag>
+		<flag name="soundtouch">Build the SoundTouch-based DSP plugin using <pkg>media-libs/libsoundtouch</pkg></flag>
+		<flag name="soxr">Build the SoX-based resampler plugin using <pkg>media-libs/soxr</pkg></flag>
 	</use>
 	<upstream>
 		<remote-id type="github">fooyin/fooyin</remote-id>
