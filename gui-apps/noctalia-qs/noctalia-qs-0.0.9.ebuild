@@ -27,8 +27,8 @@ IUSE="
 	+wayland +layer-shell +session-lock +toplevel-management
 	+hyprland +screencopy
 	+X +i3
-	+tray +pipewire +mpris +pam +polkit +greetd +upower +notifications
-	+bluetooth +network
+	+tray +pipewire +mpris +pam +policykit +greetd +upower +notifications
+	+bluetooth +networkmanager
 	lto
 "
 REQUIRED_USE="
@@ -56,12 +56,12 @@ RDEPEND="
 	X? ( x11-libs/libxcb )
 	pipewire? ( media-video/pipewire )
 	pam? ( sys-libs/pam )
-	polkit? (
+	policykit? (
 		sys-auth/polkit
 		dev-libs/glib
 	)
 	bluetooth? ( net-wireless/bluez )
-	network? ( net-misc/networkmanager )
+	networkmanager? ( net-misc/networkmanager )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -113,12 +113,12 @@ src_configure() {
 		-DSERVICE_PIPEWIRE=$(usex pipewire)
 		-DSERVICE_MPRIS=$(usex mpris)
 		-DSERVICE_PAM=$(usex pam)
-		-DSERVICE_POLKIT=$(usex polkit)
+		-DSERVICE_POLKIT=$(usex policykit)
 		-DSERVICE_GREETD=$(usex greetd)
 		-DSERVICE_UPOWER=$(usex upower)
 		-DSERVICE_NOTIFICATIONS=$(usex notifications)
 		-DBLUETOOTH=$(usex bluetooth)
-		-DNETWORK=$(usex network)
+		-DNETWORK=$(usex networkmanager)
 		-DLTO=$(usex lto)
 	)
 	cmake_src_configure

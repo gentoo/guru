@@ -24,7 +24,7 @@ SLOT="0"
 # Upstream recommends leaving all build options enabled by default
 IUSE="
 	+bluetooth +dwl +greetd +hyprland +i3 +jemalloc +layer-shell
-	+mpris +network +niri +notifications +pam +pipewire +polkit
+	+mpris +networkmanager +niri +notifications +pam +pipewire +policykit
 	+screencopy +session-lock +sockets +tray +toplevel-management
 	+upower +wayland +X
 "
@@ -44,10 +44,10 @@ RDEPEND="
 	dev-qt/qtsvg:6=
 	bluetooth? ( net-wireless/bluez )
 	jemalloc? ( dev-libs/jemalloc )
-	network? ( net-misc/networkmanager )
+	networkmanager? ( net-misc/networkmanager )
 	pam? ( sys-libs/pam )
 	pipewire? ( media-video/pipewire )
-	polkit? (
+	policykit? (
 		dev-libs/glib
 		sys-auth/polkit
 	)
@@ -100,7 +100,7 @@ src_configure() {
 		-DHYPRLAND_SURFACE_EXTENSIONS=${_hyprland}
 		-DI3=${_i3}
 		-DI3_IPC=${_i3}
-		-DNETWORK=$(usex network)
+		-DNETWORK=$(usex networkmanager)
 		-DNIRI=${_niri}
 		-DNIRI_IPC=${_niri}
 		-DSCREENCOPY=${_screencopy}
@@ -112,7 +112,7 @@ src_configure() {
 		-DSERVICE_NOTIFICATIONS=$(usex notifications)
 		-DSERVICE_PAM=$(usex pam)
 		-DSERVICE_PIPEWIRE=$(usex pipewire)
-		-DSERVICE_POLKIT=$(usex polkit)
+		-DSERVICE_POLKIT=$(usex policykit)
 		-DSERVICE_STATUS_NOTIFIER=$(usex tray)
 		-DSERVICE_UPOWER=$(usex upower)
 		-DSOCKETS=$(usex sockets)
