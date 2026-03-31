@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake-multilib fcaps flag-o-matic xdg
+inherit cmake-multilib flag-o-matic xdg
 
 DESCRIPTION="WiVRn OpenXR streaming"
 HOMEPAGE="https://github.com/WiVRn/WiVRn"
@@ -157,7 +157,6 @@ PRESSURE_VESSEL_IMPORT_OPENXR_1_RUNTIMES=1
 
 pkg_postinst()
 {
-	fcaps cap_sys_nice usr/bin/wivrn-server
 	xdg_pkg_postinst
 	elog "WiVRn requires a compatible client on VR headset to run."
 	if [[ ${PV} == 9999 ]]; then
