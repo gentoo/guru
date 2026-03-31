@@ -61,6 +61,7 @@ RDEPEND="
 
 DEPEND="
 	${RDEPEND}
+	dev-cpp/ms-gsl
 	dev-libs/cxxopts
 	dev-libs/opencl-icd-loader
 	dev-libs/rapidjson
