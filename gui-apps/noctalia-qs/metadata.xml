@@ -14,7 +14,7 @@
 		<flag name="bluetooth">Enable Bluetooth integration using <pkg>net-wireless/bluez</pkg></flag>
 		<flag name="dwl">Enable <pkg>gui-wm/dwl</pkg> specific integrations</flag>
 		<flag name="greetd">Enable <pkg>gui-libs/greetd</pkg> integration</flag>
-		<flag name="hyprland">Enable <pkg>gui-wm/hyprland</pkg> specific integrations</flag>
+		<flag name="hyprland">Enable hyprland specific integrations</flag>
 		<flag name="i3">Enable <pkg>x11-wm/i3</pkg> and <pkg>gui-wm/sway</pkg> specific features</flag>
 		<flag name="jemalloc">Use <pkg>dev-libs/jemalloc</pkg> as the memory allocator for improved performance</flag>
 		<flag name="layer-shell">Enable wlroots layershell integration through the zwlr-layer-shell-v1 protocol</flag>
