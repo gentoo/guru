@@ -24,13 +24,9 @@
 		<flag name="pipewire">Enable viewing and management of <pkg>media-video/pipewire</pkg> nodes</flag>
 		<flag name="tray">Enable system tray support using the status notifier dbus protocol</flag>
 		<flag name="mpris">Enable access to MPRIS compatible media players using its dbus protocol</flag>
-		<flag name="pam">Enable <pkg>sys-libs/pam</pkg> integration for user authentication</flag>
-		<flag name="polkit">Enable creating <pkg>sys-auth/polkit</pkg> agents that can prompt user for authentication</flag>
-		<flag name="hyprland">Enable <pkg>gui-wm/hyprland</pkg> specific integrations</flag>
+		<flag name="hyprland">Enable hyprland specific integrations</flag>
 		<flag name="i3">Enable <pkg>x11-wm/i3</pkg> and <pkg>gui-wm/sway</pkg> specific features</flag>
-		<flag name="bluetooth">Enable Bluetooth integration using <pkg>net-wireless/bluez</pkg></flag>
 		<flag name="greetd">Enable <pkg>gui-libs/greetd</pkg> integration</flag>
-		<flag name="network">Enable Network integration using <pkg>net-misc/networkmanager</pkg></flag>
 		<flag name="notifications">Enable notifications service integration</flag>
 	</use>
 	<upstream>
