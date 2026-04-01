@@ -12,7 +12,7 @@ DESCRIPTION="Bambu Studio is a cutting-edge, feature-rich slicing software"
 HOMEPAGE="https://bambulab.com"
 
 SRC_URI="
-	https://github.com/bambulab/${MY_PN}/releases/download/v${PV}/Bambu_Studio_ubuntu-24.04_PR-9540.AppImage \
+	https://github.com/bambulab/${MY_PN}/releases/download/v${PV}/Bambu_Studio_linux_fedora-v02.05.00.66.AppImage \
 	-> ${P}.AppImage
 "
 
