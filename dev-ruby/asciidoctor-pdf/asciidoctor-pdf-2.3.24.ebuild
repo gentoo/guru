@@ -20,12 +20,11 @@ KEYWORDS="~amd64 ~x86"
 
 BDEPEND="test? ( app-text/poppler )"
 
-# prawn-2.5.0 is not compatible yet
 ruby_add_rdepend "
 	>=dev-ruby/asciidoctor-2.0
 	>=dev-ruby/concurrent-ruby-1.1
 	>=dev-ruby/matrix-0.4
-	~dev-ruby/prawn-2.4.0
+	>=dev-ruby/prawn-2.4.0:2
 	>=dev-ruby/prawn-icon-3.0.0
 	>=dev-ruby/prawn-svg-0.34.0
 	>=dev-ruby/prawn-table-0.2.0
@@ -45,6 +44,7 @@ all_ruby_prepare() {
 	sed -i -e "s:_relative ': './:" ${RUBY_FAKEGEM_GEMSPEC} || die
 
 	# Relax dependencies to allow newer versions
+	sed -i -e "s/'prawn', '~> 2.4.0'/'prawn', '>= 2.4.0'/" ${RUBY_FAKEGEM_GEMSPEC} || die
 	sed -i -e "s/'prawn-svg', '~> 0.34.0'/'prawn-svg', '>= 0.34.0'/" ${RUBY_FAKEGEM_GEMSPEC} || die
 	sed -i -e "s/'prawn-icon', '~> 3.0.0'/'prawn-icon', '>= 3.0.0'/" ${RUBY_FAKEGEM_GEMSPEC} || die
 
