@@ -59,7 +59,14 @@ src_unpack() {
 }
 
 src_install() {
+	# Fix RUNPATH and replace webkit-gtk 4.0 sonames with 4.1
+	# The fedora AppImage was built against webkit-gtk:4 (4.0 API)
+	# which has been removed from the Gentoo tree; webkit-gtk:4.1
+	# provides a compatible ABI under different sonames
 	patchelf --set-rpath '$ORIGIN' \
+		--replace-needed libwebkit2gtk-4.0.so.37 libwebkit2gtk-4.1.so.0 \
+		--replace-needed libjavascriptcoregtk-4.0.so.18 libjavascriptcoregtk-4.1.so.0 \
+		--remove-needed libOSMesa.so.8 \
 		"${S}"/squashfs-root/bin/bambu-studio || die
 	insinto /opt/"${PN}"
 	doins -r "${S}"/squashfs-root/*
