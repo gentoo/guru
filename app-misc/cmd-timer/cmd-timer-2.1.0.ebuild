@@ -46,6 +46,7 @@ if [ "${PV}" != "9999" ]; then
 fi
 
 src_configure() {
+	export LDFLAGS="${LDFLAGS} -lrt"
 	use static && export LDSTATIC=-static
 }
 
