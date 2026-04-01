@@ -5,7 +5,7 @@ EAPI=8
 
 inherit branding cmake
 
-GIT_REVISION=1c0710cd7c9f1483bb6dbf5e69023da97136646d
+GIT_REVISION=fb0cc1557d8321fb2e3f34e94beddefe56211e04
 
 DESCRIPTION="Toolkit for building desktop widgets using QtQuick"
 HOMEPAGE="https://quickshell.org/"
