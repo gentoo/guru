@@ -12,7 +12,7 @@ if [ "${PV}" != "9999" ]; then
 		verify-sig? ( https://distfiles.hacktivis.me/releases/cmd-timer/${P}.tar.gz.sign )
 	"
 
-	KEYWORDS="~amd64 ~arm64"
+	KEYWORDS="~amd64 ~arm64 ~x86"
 else
 	inherit git-r3
 	EGIT_REPO_URI="https://anongit.hacktivis.me/git/cmd-timer.git"
