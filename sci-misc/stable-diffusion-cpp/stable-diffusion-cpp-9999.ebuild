@@ -120,7 +120,7 @@ src_configure() {
 	fi
 
 	if use rocm; then
-		rocm_use_hLipcc
+		rocm_use_hipcc
 		mycmakeargs+=(
 			-DSD_HIPBLAS=ON -DAMDGPU_TARGETS=$(get_amdgpu_flags) -DGPU_TARGETS=$(get_amdgpu_flags)
 			-DGGML_HIP_ROCWMMA_FATTN=$(usex wmma)
