@@ -18,16 +18,16 @@ SRC_URI="
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="-* ~amd64"
 RDEPEND="
 	media-gfx/openvdb
 	media-libs/glew:0=
 	>=media-libs/glm-0.9.9.1
 	media-libs/gstreamer
-	media-libs/mesa
 	media-libs/libglvnd
-	net-libs/libsoup:3.0=
-	net-libs/webkit-gtk:4.1/0
+	media-libs/mesa
+	net-libs/libsoup:2.4
+	net-libs/webkit-gtk:4.1
 	>=sci-libs/opencascade-7.3.0:0=
 	virtual/glu
 	>=x11-libs/cairo-1.8.8:=
@@ -42,6 +42,10 @@ BDEPEND="
 "
 
 QA_PREBUILT="*"
+# libOSMesa.so.8 (mesa no longer provides osmesa)
+# libwebkit2gtk-4.0.so.37 / libjavascriptcoregtk-4.0.so.18 (webkit-gtk:4 removed from tree)
+# These are optional runtime deps that the AppImage can function without
+QA_FLAGS_IGNORED="opt/bambustudio-bin/.*"
 RESTRICT="strip test"
 
 src_unpack() {
