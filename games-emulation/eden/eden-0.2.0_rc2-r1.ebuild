@@ -54,6 +54,7 @@ RDEPEND="
 	qt6? (
 		dev-libs/quazip[qt6(+)]
 		dev-qt/qtbase:6[concurrent,dbus,gui,widgets]
+		dev-qt/qtcharts
 	)
 	usb? ( dev-libs/libusb )
 	web-applet? ( dev-qt/qtwebengine:6[widgets] )
