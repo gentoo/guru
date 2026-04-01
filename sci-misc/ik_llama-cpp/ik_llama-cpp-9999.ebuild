@@ -140,9 +140,7 @@ src_install() {
 
 	# avoid clashing with whisper.cpp
 	rm -rf "${ED}/usr/include"
-	mkdir -p "${ED}/usr/sbin"
-	for f in "${ED}"/usr/bin/llama-*; do
-		mv "$f" "${ED}/usr/sbin/ik_$(basename $f)" || die
+	for f in "${ED}"/usr/bin/*; do
+		mv "$f" "${ED}/usr/bin/ik_$(basename $f)" || die
 	done
-	rm -rf "${ED}/usr/bin"
 }
