@@ -1,7 +1,9 @@
-# Copyright 2021-2024 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
+# Copyright 2021-2026 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+inherit toolchain-funcs
 
 if [[ "${PV}" = 9999* ]]; then
 	inherit git-r3
@@ -59,6 +61,8 @@ src_configure() {
 	use static && export LDSTATIC="-static-pie"
 
 	rm cmd/xcd.c || die
+
+	tc-export CC
 
 	./configure PREFIX='/usr'
 }
