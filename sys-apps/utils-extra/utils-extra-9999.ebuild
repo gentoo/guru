@@ -58,6 +58,8 @@ src_configure() {
 
 	use static && export LDSTATIC="-static-pie"
 
+	rm cmd/xcd.c || die
+
 	./configure PREFIX='/usr'
 }
 
