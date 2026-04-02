@@ -8,7 +8,7 @@ HOMEPAGE="https://git.zabbix.com/projects/AP/repos/postgresql/browse"
 SRC_URI="
 	https://git.zabbix.com/rest/api/latest/projects/AP/repos/postgresql/archive?at=refs%2Ftags%2F${PV}&format=tgz
 		-> ${P}.tar.gz
-	https://vimja.cloud/public.php/dav/files/RdwWDqx5JQ9G6wt -> ${P}-vendor.tar.xz
+	https://vimja.cloud/public.php/dav/files/z59eKDyLFokW2KK/${CATEGORY}/${PN}/${P}-vendor.tar.xz
 "
 
 inherit go-module
