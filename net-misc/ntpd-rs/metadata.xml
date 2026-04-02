@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>zyx@envs.net</email>
+    <name>M. Muddassar Sarfraz</name>
+  </maintainer>
+  <longdescription lang="en">
+    A full-featured implementation of the Network Time Protocol, including NTS support.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">pendulum-project/ntpd-rs</remote-id>
+    <bugs-to>https://github.com/pendulum-project/ntpd-rs/issues</bugs-to>
+    <doc>https://docs.ntpd-rs.pendulum-project.org</doc>
+    <changelog>https://github.com/pendulum-project/ntpd-rs/blob/main/CHANGELOG.md</changelog>
+  </upstream>
+</pkgmetadata>

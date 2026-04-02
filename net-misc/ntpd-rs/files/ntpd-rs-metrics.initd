@@ -1,0 +1,47 @@
+#!/sbin/openrc-run
+
+supervisor=supervise-daemon
+
+name=ntpd-rs-metrics
+description="Network Time Service (ntpd-rs) metrics exporter"
+command=/usr/bin/ntp-metrics-exporter
+output_logger="logger --tag $RC_SVCNAME --priority daemon.info"
+error_logger="logger --tag $RC_SVCNAME --priority daemon.err"
+
+if [ $RC_UNAME = "Linux" ]; then
+	command_user="ntp:ntp"
+	no_new_privs=1
+fi
+
+extra_started_commands="reload"
+
+depend() {
+    need ntpd-rs
+}
+
+checkconfig() {
+    ntp-ctl validate || return $?
+}
+
+start_pre() {
+    if [ "$RC_CMD" != "restart" ]; then
+        checkconfig || return $?
+    fi
+
+    return 0
+}
+
+stop_pre() {
+    if [ "$RC_CMD" = "restart" ]; then
+        checkconfig || return $?
+    fi
+
+    return 0
+}
+
+reload() {
+    checkconfig || return $?
+    ebegin "Reloading $RC_SVCNAME"
+    supervise-daemon $RC_SVCNAME --signal SIGHUP
+    eend $?
+}
