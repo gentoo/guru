@@ -24,7 +24,7 @@ LICENSE="MIT"
 SLOT="0"
 CPU_FLAGS_X86=( avx avx2 f16c )
 
-IUSE="openblas blis rocm cuda opencl vulkan flexiblas wmma"
+IUSE="openblas blis rocm cuda opencl vulkan flexiblas webp wmma"
 
 REQUIRED_USE="
 	?? (
@@ -49,6 +49,7 @@ CDEPEND="
 		)
 	)
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
+	webp? ( media-libs/libwebp )
 "
 DEPEND="${CDEPEND}
 	opencl? ( dev-util/opencl-headers )
@@ -87,6 +88,7 @@ src_configure() {
 		-DGENTOO_REMOVE_CMAKE_BLAS_HACK=ON
 		-DSD_CUDA=$(usex cuda)
 		-DSD_OPENCL=$(usex opencl)
+		-DSD_WEBP=$(usex webp)
 		-DSD_VULKAN=$(usex vulkan)
 
 		# avoid clashing with whisper.cpp
