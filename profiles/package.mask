@@ -48,7 +48,6 @@ dev-python/mkdocs-rss-plugin
 # David Roman <stkw0@disroot.org> (2026-03-02)
 # Unmaintaned. Does not support python3_12
 # Removal on 2026-04-02
-app-misc/vocabsieve
 dev-python/nkdfu
 net-libs/dpdk
 sys-kernel/dpdk-kmod
