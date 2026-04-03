@@ -89,6 +89,7 @@ src_configure() {
 		-DSD_CUDA=$(usex cuda)
 		-DSD_OPENCL=$(usex opencl)
 		-DSD_WEBP=$(usex webp)
+		-DSD_USE_SYSTEM_WEBP=$(usex webp)
 		-DSD_VULKAN=$(usex vulkan)
 
 		# avoid clashing with whisper.cpp
