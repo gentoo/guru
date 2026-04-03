@@ -110,7 +110,9 @@ src_prepare() {
 	sed -e "/Unknown Linux package flavor/d" -i "CMake/pkg.cmake" || die
 
 	sed -e "s/set (XRT_UPSTREAM 0)/set (XRT_UPSTREAM 1)/" -i xrt/src/CMake/settings.cmake || die
-
+	# Boost >= 1.89 removed the system stub library (header-only since 1.69)
+sed -e 's/REQUIRED COMPONENTS system filesystem program_options/REQUIRED COMPONENTS filesystem program_options/g' \
+-i "${WORKDIR}"/XRT-*/src/CMake/boostUtil.cmake || die
 	cmake_src_prepare
 }
 
