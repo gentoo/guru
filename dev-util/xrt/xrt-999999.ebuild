@@ -51,12 +51,12 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-cpp/abseil-cpp:=
 	dev-debug/systemtap
 	dev-libs/boost:=
 	dev-libs/openssl:=
-	dev-libs/protobuf:=
 	sys-apps/util-linux
+	dev-cpp/abseil-cpp:=
+	dev-libs/protobuf:=
 "
 
 DEPEND="
@@ -77,12 +77,6 @@ BDEPEND="
 		dev-python/pyyaml[\${PYTHON_USEDEP}]
 	")
 "
-
-if [[ ${PV} != 999999 ]] ; then
-	PATCHES=(
-		"${FILESDIR}"/${PN}-202520.2.20.172-modern-protobuf.patch
-	)
-fi
 
 python_check_deps() {
 	python_has_version -b "dev-python/jinja2[${PYTHON_USEDEP}]" && \
@@ -118,9 +112,14 @@ src_prepare() {
 	sed -e '/BYPRODUCTS .*isa\.h/d' \
 		-i src/runtime_src/core/common/aiebu/specification/aie2ps/CMakeLists.txt || die
 
-	sed -e "s/set (XRT_UPSTREAM 0)/set (XRT_UPSTREAM 1)/" -i src/CMake/settings.cmake || die
+	sed -e "s/set (XRT_UPSTREAM 0)/set (XRT_UPSTREAM 1)/" \
+		-i src/CMake/settings.cmake || die
 
-	sed -e "s|\${XRT_INSTALL_DIR}/share/doc|\${CMAKE_INSTALL_DOCDIR}|" -i src/CMake/changelog.cmake || die
+	sed -e "s|\${XRT_INSTALL_DIR}/share/doc|\${CMAKE_INSTALL_DOCDIR}|" \
+		-i src/CMake/changelog.cmake || die
+
+	sed -e "s/CONFIGURATIONS Debug Release/CONFIGURATIONS Debug Release RelWithDebInfo/" \
+		-i src/runtime_src/core/common/aiebu/src/cpp/utils/asm/CMakeLists.txt || die
 
 	cmake_src_prepare
 }
@@ -132,13 +131,14 @@ src_configure() {
 		-DSPEC_TOOL_DEPS_DOWNLOADED=ON
 		-DXRT_ENABLE_WERROR=OFF
 		-DXRT_NPU=ON
+		-Wno-dev
 	)
 	[[ ${PV} != 999999 ]] && mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_Git=ON )
 
 	cmake_src_configure
 
 	ln -s "${DISTDIR}/${MGS_PY}" \
-		"${BUILD_DIR}"/src/runtime_src/core/common/aiebu/specification/${MGS}.py || die
+		"${BUILD_DIR}/src/runtime_src/core/common/aiebu/specification/${MGS}.py" || die
 }
 
 src_test() {
