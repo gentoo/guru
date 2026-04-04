@@ -6,9 +6,9 @@
 		<name>Saveliy Boyarchuk (Yappaholic)</name>
 	</maintainer>
 	<longdescription lang="en">
-		Mangowc(formerly maomaowm) is a Wayland compositor, forked from dwl.
+		Mangowm(formerly maomaowm/mangowc) is a Wayland compositor, forked from dwl.
 
-		Mangowc supports customizable complete animations, flexible window layouts
+		Mangowm supports customizable complete animations, flexible window layouts
 		(scroller, dwindle, master, etc.), rich window states, scratchpads,
 		window effects and powerful external configuration with live reloading.
 	</longdescription>
