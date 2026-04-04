@@ -45,15 +45,6 @@ dev-python/mkdocs-exclude
 dev-python/mkdocs-git-committers-plugin
 dev-python/mkdocs-rss-plugin
 
-# Lucio Sauer <watermanpaint@posteo.net> (2026-02-10)
-# The hyprland suite is moving to the unofficial 'hyproverlay' repository at
-#  https://codeberg.org/hyproverlay/hyproverlay.git
-# For more information please take a look at
-#  https://gitweb.gentoo.org/repo/gentoo.git/commit/?id=1d4db2ff53c5461db0c8aa1a93f4707593c8a4f3
-# The following list depends on last-rited packages.
-# Removal on 2026-03-11. Bugs #939727 #945878 #967011
-<=sys-auth/hyprpolkitagent-0.1.2
-
 # dsaf <ghostyn678+git@gmail.com> (2026-02-02)
 # Requires systemd. Cannot be masked per profile (see top comment)
 app-admin/run0edit
