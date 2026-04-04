@@ -52,7 +52,6 @@ dev-python/mkdocs-rss-plugin
 #  https://gitweb.gentoo.org/repo/gentoo.git/commit/?id=1d4db2ff53c5461db0c8aa1a93f4707593c8a4f3
 # The following list depends on last-rited packages.
 # Removal on 2026-03-11. Bugs #939727 #945878 #967011
-<=gui-apps/hyprsunset-0.2.0
 <=gui-apps/hyprsysteminfo-0.1.3
 <=gui-apps/nwg-dock-hyprland-0.4.8-r1
 <=gui-libs/xdg-desktop-portal-hyprland-1.3.11
