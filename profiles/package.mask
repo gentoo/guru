@@ -65,11 +65,6 @@ dev-python/mkdocs-rss-plugin
 <=gui-wm/hyprland-contrib-0.1-r1
 <=sys-auth/hyprpolkitagent-0.1.2
 
-# Lucio Sauer <watermanpaint@posteo.net> (2026-02-09)
-# Depends on masked KF5 packages, no porting to KF6 in sight.
-# Removal on 2026-03-09
-kde-apps/kwalletcli
-
 # dsaf <ghostyn678+git@gmail.com> (2026-02-02)
 # Requires systemd. Cannot be masked per profile (see top comment)
 app-admin/run0edit
