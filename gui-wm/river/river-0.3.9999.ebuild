@@ -41,7 +41,7 @@ DEPEND="
 	dev-libs/libevdev
 	dev-libs/libinput:=
 	dev-libs/wayland
-	gui-libs/wlroots:0.19[X?]
+	gui-libs/wlroots:0.20[X?]
 	x11-libs/libxkbcommon[wayland,X?]
 	x11-libs/pixman
 "
