@@ -1,4 +1,4 @@
-# Copyright 2025 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
+# Copyright 2025-2026 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,6 +25,10 @@ SLOT="0"
 
 IUSE="static"
 
+PATCHES=(
+	"${FILESDIR}/cmd-timer-2.1.0-Makefile-add-lrt.patch"
+)
+
 if [ "${PV}" != "9999" ]; then
 	BDEPEND="${BDEPEND} verify-sig? ( sec-keys/signify-keys-lanodan:2025 )"
 
@@ -46,7 +50,6 @@ if [ "${PV}" != "9999" ]; then
 fi
 
 src_configure() {
-	export LDFLAGS="${LDFLAGS} -lrt"
 	use static && export LDSTATIC=-static
 }
 
