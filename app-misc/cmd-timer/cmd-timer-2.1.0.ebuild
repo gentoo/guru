@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 if [ "${PV}" != "9999" ]; then
 	VERIFY_SIG_METHOD=signify
 	inherit verify-sig
@@ -50,6 +52,8 @@ if [ "${PV}" != "9999" ]; then
 fi
 
 src_configure() {
+	tc-export CC
+
 	use static && export LDSTATIC=-static
 }
 
