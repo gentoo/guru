@@ -29,6 +29,10 @@ IUSE="static"
 
 RDEPEND="!<sys-apps/utils-extra-0.0.2-r1"
 
+PATCHES=(
+	"${FILESDIR}/xcd-rgb-1.0.0-Makefile-add-lm.patch"
+)
+
 if [ "${PV}" != "9999" ]; then
 	BDEPEND="${BDEPEND} verify-sig? ( sec-keys/signify-keys-lanodan:2026 )"
 
@@ -51,7 +55,6 @@ fi
 
 src_configure() {
 	tc-export CC
-	export LDFLAGS="${LDFLAGS} -lm"
 	use static && export LDSTATIC=-static
 }
 

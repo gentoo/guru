@@ -1,0 +1,31 @@
+From 6fead385d4fefef96caa8ab7c937d65bd1c84f32 Mon Sep 17 00:00:00 2001
+From: "Haelwenn (lanodan) Monnier" <contact@hacktivis.me>
+Date: Wed, 1 Apr 2026 16:15:13 +0200
+Subject: [PATCH] Makefile: add -lm
+
+---
+ Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index c859f66..e64b0f8 100644
+--- a/Makefile
++++ b/Makefile
+@@ -9,10 +9,10 @@ MAN1DIR ?= ${MANDIR}/man1
+ CFLAGS ?= -O2 -g -Wall -Wextra
+ 
+ xcd: xcd.c
+-	${CC} -std=c99 ${CFLAGS} -o xcd xcd.c ${LDFLAGS} ${LDSTATIC}
++	${CC} -std=c99 ${CFLAGS} -o xcd xcd.c -lm ${LDFLAGS} ${LDSTATIC}
+ 
+ xcd-rgb: xcd.c
+-	${CC} -std=c99 ${CFLAGS} -DARG0_XCD_RGB -o xcd-rgb xcd.c ${LDFLAGS} ${LDSTATIC}
++	${CC} -std=c99 ${CFLAGS} -DARG0_XCD_RGB -o xcd-rgb xcd.c -lm ${LDFLAGS} ${LDSTATIC}
+ 
+ clean:
+ 	rm -f xcd-rgb xcd
+
+base-commit: ddfb445305a7047119d6dbeea9332a0ccf84797b
+-- 
+2.52.0
+

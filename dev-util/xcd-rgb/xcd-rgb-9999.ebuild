@@ -51,7 +51,6 @@ fi
 
 src_configure() {
 	tc-export CC
-	export LDFLAGS="${LDFLAGS} -lm"
 	use static && export LDSTATIC=-static
 }
 
