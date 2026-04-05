@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo-bugzilla@vimja.email</email>
+		<name>Niklaus 'vimja' Hofer</name>
+	</maintainer>
+	<use>
+		<flag name="mouse">Enable or disable mouse features in the livecoding
+			environment.</flag>
+		<flag name="portmidi">Enable or disable hardware MIDI output support
+			with PortMidi.</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">hundredrabbits/Orca-c</remote-id>
+	</upstream>
+</pkgmetadata>
