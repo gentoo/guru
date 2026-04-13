@@ -1,14 +1,14 @@
 certificate version 0.1
-pusher C8ACBAD28C919F19 1776090784 +0900
-pushee gentoo:repo/proj/guru
-nonce 1776090783-2475aee2e8cfc8c24d9c181b2c448a314b544170
+pusher Saveliy Boyarchuk <sav.boyar@gmail.com> 1776111303 +0000
+pushee git.gentoo.org:repo/proj/guru.git
+nonce 1776111303-cf3782c82f5c3f6584ad661e75095ea021e3a32a
 
-5232c314585f50e677a2c6057868d70fcf78ec41 7625676af1d5b084b515415a7c7aad423ed33833 refs/heads/dev
+7625676af1d5b084b515415a7c7aad423ed33833 32aa4e38d0206574b3380025aa0e4fc4ced58492 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iJEEABYKADkWIQT3FEDKUdX+khzTcBTIrLrSjJGfGQUCadz+oBsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMiwyLDIACgkQyKy60oyRnxkeGwEA1pGI92hiV86WcaVvREW/
-b73e8gdr6fwrxQ62rtTGVo8A/3Dj4EASwIjbUpAno2VUhKlLfY5pxrULoctMHx03
-YPYI
-=Ml2A
+iKYEABYKAE4WIQQmCo5rQUQ3a+xC7LVw2+jSf0NgugUCad1OxxsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwyLDIUHHNhdi5ib3lhckBnbWFpbC5jb20ACgkQcNvo0n9D
+YLrMHgEAxCOoFl23jbZbIm9rgb8yx0ouP7wY+gvsl3hIuGym+o4A/0iSki5P3IbX
+4kMmwHOIZ94NtJ77gr8+4jHX2Ed+nAUK
+=LBis
 -----END PGP SIGNATURE-----
