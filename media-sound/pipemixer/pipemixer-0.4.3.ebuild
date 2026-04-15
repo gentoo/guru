@@ -8,7 +8,7 @@ inherit meson
 DESCRIPTION="TUI volume control app for pipewire"
 HOMEPAGE="https://github.com/heather7283/pipemixer"
 
-if [[ ${PV} = 9999 ]]; then
+if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/heather7283/${PN}.git"
 else

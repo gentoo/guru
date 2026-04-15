@@ -8,7 +8,7 @@ inherit autotools flag-o-matic
 DESCRIPTION="A text-based widget toolkit"
 HOMEPAGE="https://github.com/gansm/finalcut/"
 
-if [[ "${PV}" = 9999 ]]; then
+if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/gansm/finalcut.git"
 else
@@ -47,7 +47,7 @@ DOCS=(
 src_prepare() {
 	default
 
-	[[ "${PV}" = 9999 ]] || eapply "${FILESDIR}/${P}-fix-tests.ebuild"
+	[[ "${PV}" == 9999 ]] || eapply "${FILESDIR}/${P}-fix-tests.ebuild"
 
 	sed -i "/doc_DATA/d" Makefile.am || die
 

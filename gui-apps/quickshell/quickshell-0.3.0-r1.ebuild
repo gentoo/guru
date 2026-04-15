@@ -10,7 +10,7 @@ GIT_REVISION=59e9c47b0eb48a9e4bcf9631fa062ee939bd2e83
 DESCRIPTION="Toolkit for building desktop widgets using QtQuick"
 HOMEPAGE="https://quickshell.org/"
 
-if [[ "${PV}" = *9999 ]]; then
+if [[ "${PV}" == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/quickshell-mirror/${PN^}.git"
 else

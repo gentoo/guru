@@ -10,7 +10,7 @@ inherit cargo optfeature shell-completion
 DESCRIPTION="Easily and securely share files from the command line"
 HOMEPAGE="https://timvisee.com/projects/ffsend/"
 
-if [[ "${PV}" = "9999" ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/timvisee/ffsend.git"
 else
@@ -44,7 +44,7 @@ src_unpack() {
 		popd &>> /dev/null || die
 	}
 
-	if [[ "${PV}" = "9999" ]]; then
+	if [[ "${PV}" == "9999" ]]; then
 		git-r3_src_unpack
 		patch_cargo_file
 		cargo_live_src_unpack

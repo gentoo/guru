@@ -8,7 +8,7 @@ inherit prefix
 DESCRIPTION="A full-featured BDD unit testing framework for all POSIX shells"
 HOMEPAGE="https://shellspec.info/"
 
-if [[ "${PV}" = 9999 ]]; then
+if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/shellspec/shellspec.git"
 else

@@ -145,7 +145,7 @@ inherit cargo edo
 DESCRIPTION="An interactive cheatsheet tool for the command-line"
 HOMEPAGE="https://github.com/denisidoro/navi"
 
-if [[ "${PV}" = "9999" ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/denisidoro/navi.git"
 else
@@ -181,7 +181,7 @@ BDEPEND="test? ( app-misc/tmux app-shells/fzf )"
 RDEPEND="|| ( app-shells/fzf app-misc/skim )"
 
 src_unpack() {
-	if [[ "${PV}" = "9999" ]]; then
+	if [[ "${PV}" == "9999" ]]; then
 		git-r3_src_unpack
 		cargo_live_src_unpack
 	else

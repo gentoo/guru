@@ -5,7 +5,7 @@ EAPI=8
 
 inherit toolchain-funcs
 
-if [[ "${PV}" = *9999* ]]; then
+if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/aearil/dustr.git"
 else

@@ -10,7 +10,7 @@ GIT_REVISION=fb0cc1557d8321fb2e3f34e94beddefe56211e04
 DESCRIPTION="Toolkit for building desktop widgets using QtQuick"
 HOMEPAGE="https://quickshell.org/"
 
-if [[ "${PV}" = *9999 ]]; then
+if [[ "${PV}" == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/noctalia-dev/noctalia-qs.git"
 else

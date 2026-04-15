@@ -6,7 +6,7 @@ EAPI=8
 DESCRIPTION="Ayatana Application Indicators Shared Library (GLib-2.0 reimplementation)"
 HOMEPAGE="https://github.com/AyatanaIndicators/libayatana-appindicator-glib"
 
-if [[ "${PV}" = "9999" ]]; then
+if [[ "${PV}" == "9999" ]]; then
 EGIT_REPO_URI="https://github.com/AyatanaIndicators/libayatana-appindicator-glib"
 inherit git-r3
 else

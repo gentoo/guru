@@ -8,7 +8,7 @@ inherit meson
 DESCRIPTION="A wayland based logout menu"
 HOMEPAGE="https://github.com/ArtsyMacaw/wlogout/"
 
-if [[ "${PV}" = 9999 ]]; then
+if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ArtsyMacaw/wlogout.git"
 else

@@ -8,7 +8,7 @@ inherit branding cmake xdg toolchain-funcs
 DESCRIPTION="Toolkit for building desktop widgets using QtQuick"
 HOMEPAGE="https://quickshell.org/"
 
-if [[ "${PV}" = *9999 ]]; then
+if [[ "${PV}" == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/quickshell-mirror/${PN^}.git"
 else

@@ -8,7 +8,7 @@ inherit autotools gnome2-utils xdg
 DESCRIPTION="Display GTK+ dialog boxes from command line or shell scripts"
 HOMEPAGE="https://github.com/v1cont/yad/"
 
-if [[ "${PV}" = 9999 ]]; then
+if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/v1cont/yad.git"
 else

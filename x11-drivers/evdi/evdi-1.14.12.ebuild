@@ -9,11 +9,11 @@ inherit linux-mod-r1 python-single-r1 flag-o-matic
 DESCRIPTION="Extensible Virtual Display Interface"
 HOMEPAGE="https://github.com/DisplayLink/evdi"
 
-if [[ "${PV}" = *9999* ]]; then
+if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/DisplayLink/evdi.git"
 else
-	if [[ "${PV}" = *_p* ]] ; then
+	if [[ "${PV}" == *_p* ]] ; then
 		EVDI_COMMIT="5d708d117baab842d6960f0ec61808a1541bda57"
 		SRC_URI="https://github.com/DisplayLink/evdi/archive/${EVDI_COMMIT}.tar.gz -> ${P}.tar.gz"
 		S="${WORKDIR}/${PN}-${EVDI_COMMIT}"

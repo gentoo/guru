@@ -1025,7 +1025,7 @@ REQUIRED_USE="
 	vulkan? ( || ( wayland X ) )
 "
 
-if [[ ${PV} = *9999* ]] ; then
+if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/squidowl/halloy"
 else
@@ -1065,7 +1065,7 @@ RDEPEND="
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_unpack() {
-	if [[ ${PV} = *9999* ]] ; then
+	if [[ ${PV} == *9999* ]] ; then
 		git-r3_src_unpack
 		cargo_live_src_unpack
 	else

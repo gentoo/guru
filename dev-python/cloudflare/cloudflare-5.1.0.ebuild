@@ -8,7 +8,7 @@ DISTUTILS_USE_PEP517="hatchling"
 inherit distutils-r1 eapi9-ver
 DESCRIPTION="Python wrapper for the Cloudflare v4 API"
 HOMEPAGE="https://pypi.org/project/cloudflare/"
-if [ "${PV}" == 9999 ]; then
+if [[ "${PV}" == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/cloudflare/cloudflare-python"
 	inherit git-r3
 	RESTRICT="test"

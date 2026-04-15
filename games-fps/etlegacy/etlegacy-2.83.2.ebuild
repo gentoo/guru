@@ -14,7 +14,7 @@ SRC_URI="https://cdn.splashdamage.com/downloads/games/wet/${ET_RELEASE}.x86_full
 
 S="${WORKDIR}/${P/_rc/rc}"
 
-if [[ ${PV} = "9999" ]]; then
+if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="git://github.com/${PN}/${PN}.git"
 else
@@ -69,7 +69,7 @@ BDEPEND="$(unpacker_src_uri_depends)"
 #QA_TEXTRELS="usr/share/games/etlegacy/legacy/omni-bot/omnibot_et.so"
 
 src_unpack() {
-	if [[ "${PV}" = 9999 ]] ; then
+	if [[ "${PV}" == 9999 ]] ; then
 		git-r3_src_unpack
 	else
 		default

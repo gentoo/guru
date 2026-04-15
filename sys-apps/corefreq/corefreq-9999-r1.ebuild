@@ -8,7 +8,7 @@ inherit linux-mod-r1 systemd toolchain-funcs
 DESCRIPTION="CPU monitoring and tuning software designed for 64-bit processors"
 HOMEPAGE="https://github.com/cyring"
 
-if [[ "${PV}" = *9999* ]]; then
+if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/cyring/CoreFreq.git"
 else

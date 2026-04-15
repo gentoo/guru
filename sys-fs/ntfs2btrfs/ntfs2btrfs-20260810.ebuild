@@ -8,7 +8,7 @@ inherit cmake
 DESCRIPTION="Conversion tool from NTFS to Btrfs"
 HOMEPAGE="https://github.com/maharmstone/ntfs2btrfs"
 
-if [[ ${PV} = *9999 ]]; then
+if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/maharmstone/ntfs2btrfs.git"
 else

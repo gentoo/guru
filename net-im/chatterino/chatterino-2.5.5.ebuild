@@ -43,7 +43,7 @@ SRC_URI="
 		-> ${PN}-sol2-${SOL2_COMMIT}.tar.gz
 "
 
-if [[ "${PV}" = "9999" ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/Chatterino/chatterino2.git/"
 	EGIT_BRANCH="master"
 	EGIT_SUBMODULES=() # disable submodules
@@ -94,7 +94,7 @@ pkg_pretend() {
 	fi
 }
 
-if [[ "${PV}" = "9999" ]]; then
+if [[ "${PV}" == "9999" ]]; then
 src_unpack() {
 	local pkg
 	local -a pkgs=(
