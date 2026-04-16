@@ -59,10 +59,10 @@ src_compile() {
 	local MY_LDFLAGS="-X github.com/AdguardTeam/AdGuardHome/internal/version.version=${PV}"
 	MY_LDFLAGS+=" -X github.com/AdguardTeam/AdGuardHome/internal/version.channel=release"
 	MY_LDFLAGS+=" -X github.com/AdguardTeam/AdGuardHome/internal/version.committime=$(date +%s)"
-	if [ "$(go env GOARM)" != '' ]
+	if [[ -n "$(go env GOARM)" ]]
 	then
 		MY_LDFLAGS+=" -X github.com/AdguardTeam/AdGuardHome/internal/version.goarm=$(go env GOARM)"
-	elif [ "$(go env GOMIPS)" != '' ]
+	elif [[ -n "$(go env GOMIPS)" ]]
 	then
 		MY_LDFLAGS+=" -X github.com/AdguardTeam/AdGuardHome/internal/version.gomips=$(go env GOMIPS)"
 	fi
