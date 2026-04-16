@@ -94,7 +94,7 @@ BDEPEND="
 src_install() {
 	insinto "/usr/share/themes"
 	for folder in * ; do
-		if [ -d "${folder}" ]; then
+		if [[ -d "${folder}" ]]; then
 			doins -r "${folder}"
 		fi
 	done

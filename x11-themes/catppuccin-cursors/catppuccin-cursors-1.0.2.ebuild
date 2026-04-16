@@ -92,7 +92,7 @@ BDEPEND="app-arch/unzip"
 src_install() {
 	insinto "/usr/share/icons"
 	for folder in * ; do
-		if [ -d "${folder}" ]; then
+		if [[ -d "${folder}" ]]; then
 			doins -r "${folder}"
 		fi
 	done

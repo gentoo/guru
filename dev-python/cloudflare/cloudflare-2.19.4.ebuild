@@ -38,7 +38,7 @@ python_prepare_all() {
 }
 python_test() {
 	pushd  CloudFlare/tests
-	if [ -z "${CLOUDFLARE_API_TOKEN}" ]; then
+	if [[ -z "${CLOUDFLARE_API_TOKEN}" ]]; then
 		ewarn "Skipping some tests which require an actual cloudflare api token"
 		ewarn "To run them, provide the token in the environment variable CLOUDFLARE_API_TOKEN"
 		ewarn "The permissions needed are zone dns edit and user details read"

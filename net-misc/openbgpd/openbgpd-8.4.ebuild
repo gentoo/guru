@@ -39,7 +39,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	if [ -z "${REPLACING_VERSIONS}" ]; then
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		ewarn ""
 		ewarn "OpenBGPD portable (not running on OpenBSD) can’t export its RIB"
 		ewarn "to the FIB. It’s only suitable for route-reflectors or"

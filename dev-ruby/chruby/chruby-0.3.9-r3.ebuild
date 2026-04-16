@@ -18,7 +18,7 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	default
 
-	if [ -n "${PVR}" ] ; then
+	if [[ -n "${PVR}" ]] ; then
 		sed -i Makefile -e "s/^VERSION=${PV}$/VERSION=${PVR}/" \
 			|| die "can't fix doc location to follow Gentoo/FHS guidelines"
 	fi

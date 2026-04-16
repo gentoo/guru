@@ -121,22 +121,22 @@ pkg_postrm() {
 	fi
 
 	# Remove auto-cpufreq log file
-	if [ -f "${EROOT}/var/log/auto-cpufreq.log" ]; then
+	if [[ -f "${EROOT}/var/log/auto-cpufreq.log" ]]; then
 		rm "${EROOT}"/var/log/auto-cpufreq.log || die
 	fi
 
 	# Remove auto-cpufreq-install script
-	if [ -f "${EROOT}/usr/bin/auto-cpufreq-install" ]; then
+	if [[ -f "${EROOT}/usr/bin/auto-cpufreq-install" ]]; then
 		rm "${EROOT}"/usr/bin/auto-cpufreq-install || die
 	fi
 
 	# Restore original cpufreqctl binary if backup was made
-	if [ -f "${EROOT}/usr/bin/cpufreqctl.auto-cpufreq.bak" ]; then
+	if [[ -f "${EROOT}/usr/bin/cpufreqctl.auto-cpufreq.bak" ]]; then
 		mv "${EROOT}"/usr/bin/cpufreqctl.auto-cpufreq{.bak,} || die
 	fi
 	# Remove auto-cpufreq's cpufreqctl binary
 	# it overwrites cpufreqctl.sh
-	if [ -f "${EROOT}/usr/bin/cpufreqctl" ]; then
+	if [[ -f "${EROOT}/usr/bin/cpufreqctl" ]]; then
 		rm "${EROOT}"/usr/bin/cpufreqctl || die
 	fi
 }
