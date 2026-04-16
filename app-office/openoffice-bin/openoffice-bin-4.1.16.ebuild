@@ -16,7 +16,7 @@ NM1="${NM}-brand"
 NM2="${NM}4"
 NM3="${NM2}.$(ver_cut 2-3)"
 FILEPATH="https://downloads.sourceforge.net/openofficeorg.mirror"
-if [ "${ARCH}" = "amd64" ] ; then
+if [[ "${ARCH}" == "amd64" ]] ; then
 	XARCH="x86_64"
 else
 	XARCH="i586"
@@ -144,8 +144,9 @@ src_install() {
 	#Menu entries, icons and mime-types
 	cd "${ED}${INSTDIR}/share/xdg/" || die
 	for desk in base calc draw impress javafilter math printeradmin qstart startcenter writer; do
-		if [ "${desk}" = "javafilter" ] ; then
-			use java || { rm javafilter.desktop; continue; }
+		if [[ "${desk}" == "javafilter" ]] && ! use java; then
+			rm javafilter.desktop || die "deleting file javafilter.desktop failed"
+			continue
 		fi
 		mv ${desk}.desktop ${NM}-${desk}.desktop || die
 		sed -i -e "s/${NM2} /ooffice /g" ${NM}-${desk}.desktop || die
