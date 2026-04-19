@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: shards.eclass
@@ -6,7 +6,7 @@
 # Anna <cyber+gentoo@sysrq.in>
 # @AUTHOR:
 # Anna <cyber+gentoo@sysrq.in>
-# @SUPPORTED_EAPIS: 8
+# @SUPPORTED_EAPIS: 8 9
 # @PROVIDES: crystal-utils
 # @BLURB: eclass to build Crystal packages using Shards
 # @DESCRIPTION:
@@ -18,7 +18,7 @@
 # Typical ebuild for a Crystal application:
 #
 # @CODE@
-# EAPI=8
+# EAPI=9
 #
 # inherit shards
 #
@@ -38,7 +38,7 @@
 # Typical ebuild for a Crystal library:
 #
 # @CODE@
-# EAPI=8
+# EAPI=9
 #
 # inherit shards
 #
@@ -54,7 +54,7 @@
 # Typical ebuild for a hybrid Crystal library/applicaton:
 #
 # @CODE@
-# EAPI=8
+# EAPI=9
 #
 # inherit shards
 #
@@ -73,14 +73,14 @@
 # @CODE@
 
 case ${EAPI} in
-	8) ;;
+	8|9) ;;
 	*) die "${ECLASS}: EAPI ${EAPI} unsupported."
 esac
 
 if [[ ! ${_SHARDS_ECLASS} ]]; then
 _SHARDS_ECLASS=1
 
-inherit crystal-utils multiprocessing toolchain-funcs
+inherit crystal-utils toolchain-funcs
 
 BDEPEND="
 	${CRYSTAL_DEPS}
