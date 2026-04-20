@@ -1,0 +1,29 @@
+#Fix executable stack QA warning, and patch CMakeLists.txt to still recognise the patched source file
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -567,13 +567,13 @@
+              src/core/libraries/usbd/emulated/skylander.h
+ )
+ 
+-set(FIBER_LIB src/core/libraries/fiber/fiber_context.s
++set(FIBER_LIB src/core/libraries/fiber/fiber_context.S
+               src/core/libraries/fiber/fiber.cpp
+               src/core/libraries/fiber/fiber.h
+               src/core/libraries/fiber/fiber_error.h
+ )
+ 
+-set_source_files_properties(src/core/libraries/fiber/fiber_context.s PROPERTIES COMPILE_OPTIONS -Wno-unused-command-line-argument)
++set_source_files_properties(src/core/libraries/fiber/fiber_context.S PROPERTIES COMPILE_OPTIONS -Wno-unused-command-line-argument)
+ 
+ set(VDEC_LIB src/core/libraries/videodec/videodec2_impl.cpp
+              src/core/libraries/videodec/videodec2_impl.h
+--- a/src/core/libraries/fiber/fiber_context.s
++++ b/src/core/libraries/fiber/fiber_context.s
+@@ -119,3 +119,7 @@
+     movl $1, %edi
+     call _sceFiberForceQuit
+     ret
++
++#if defined(__linux__) && defined(__ELF__)
++.section .note.GNU-stack,"",%progbits
++#endif

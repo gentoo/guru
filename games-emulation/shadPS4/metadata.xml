@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ceres@ceressees.dev</email>
+		<name>Ceres Milner</name>
+	</maintainer>
+<use>
+	<flag name="discord">Enables Discord Rich Presence</flag>
+</use>
+	<upstream>
+		<remote-id type="github">shadps4-emu/shadPS4</remote-id>
+	</upstream>
+</pkgmetadata>
