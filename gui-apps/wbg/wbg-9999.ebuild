@@ -3,16 +3,9 @@
 
 EAPI=8
 
-inherit meson
+inherit meson git-r3
 
-if [[ ${PV} == *9999* ]]; then
-	EGIT_REPO_URI="https://codeberg.org/dnkl/wbg.git"
-	inherit git-r3
-else
-	SRC_URI="https://codeberg.org/dnkl/wbg/archive/${PV}.tar.gz  -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
-	S="${WORKDIR}/${PN}"
-fi
+EGIT_REPO_URI="https://codeberg.org/dnkl/wbg.git"
 
 DESCRIPTION="Super simple wallpaper application"
 HOMEPAGE="https://codeberg.org/dnkl/wbg"
@@ -20,7 +13,12 @@ HOMEPAGE="https://codeberg.org/dnkl/wbg"
 # ZLIB for nanosvg
 LICENSE="MIT ZLIB"
 SLOT="0"
-IUSE="jpeg jpegxl png webp"
+IUSE="jpeg jpegxl png webp +svg system-nanosvg"
+
+REQUIRED_USE="
+	|| ( jpeg jpegxl png webp svg )
+	system-nanosvg? ( svg )
+"
 
 RDEPEND="
 	dev-libs/wayland
@@ -29,6 +27,7 @@ RDEPEND="
 	jpegxl? ( media-libs/libjxl:= )
 	png? ( media-libs/libpng:= )
 	webp? ( media-libs/libwebp:= )
+	system-nanosvg? ( media-libs/nanosvg:= )
 "
 DEPEND="
 	${RDEPEND}
@@ -46,7 +45,8 @@ src_configure() {
 		$(meson_feature jpegxl jxl)
 		$(meson_feature png)
 		$(meson_feature webp)
-		-Dsvg=true
+		$(meson_feature system-nanosvg)
+		$(meson_use svg)
 	)
 
 	meson_src_configure

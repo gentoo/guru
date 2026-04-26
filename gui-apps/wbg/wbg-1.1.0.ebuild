@@ -15,7 +15,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="png jpeg webp"
+IUSE="+png jpeg webp"
 REQUIRED_USE="|| ( png jpeg webp )"
 
 DEPEND="
