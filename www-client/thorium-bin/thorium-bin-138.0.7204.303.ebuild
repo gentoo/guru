@@ -1,3 +1,7 @@
+# Copyright 1999-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+
 EAPI=8
 
 inherit desktop pax-utils xdg-utils unpacker
@@ -20,7 +24,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="cpu_flags_x86_avx2 cpu_flags_x86_avx cpu_flags_x86_sse3 widevine"
+IUSE="cpu_flags_x86_avx2 cpu_flags_x86_avx cpu_flags_x86_sse3"
 
 REQUIRED_USE="|| ( cpu_flags_x86_avx2 cpu_flags_x86_avx cpu_flags_x86_sse3 )"
 
