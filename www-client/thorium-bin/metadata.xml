@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>clubcyberia777@protonmail.com</email>
+		<name>kamui4008</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Alex313031/thorium</remote-id>
+		<bugs-to>https://github.com/Alex313031/thorium/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
