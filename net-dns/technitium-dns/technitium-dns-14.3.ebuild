@@ -61,7 +61,8 @@ src_install() {
 
 	# The included `systemd.service` file has hard-coded paths we'd need to
 	# adjust; we'll install our own.
-	rm -f "${DOTNET_PKG_OUTPUT}/systemd.service"
+	rm "${DOTNET_PKG_OUTPUT}/systemd.service" ||
+		die "systemd.service file moved upstream; check for updated path"
 
 	dotnet-pkg_src_install
 
