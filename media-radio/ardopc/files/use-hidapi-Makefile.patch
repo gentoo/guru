@@ -1,0 +1,11 @@
+--- ARDOPC/Makefile.orig	2025-09-09 13:20:15.830126226 +0200
++++ ARDOPC/Makefile	2025-09-09 13:04:01.151523238 +0200
+@@ -15,7 +15,7 @@
+ all: ardopc
+ 			
+ ardopc: $(OBJS)
+-	gcc $(OBJS) -Xlinker -Map=output.map -lrt -lm -lpthread -lasound -o ardopc
++	gcc $(OBJS) -Xlinker -Map=output.map -lrt -lm -lpthread -lhidapi-hidraw -lasound -o ardopc
+ 
+ 
+ -include *.d
