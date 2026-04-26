@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Theron York</name>
+		<email>theron.york@cloudnuke.org</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">heather7283/pipemixer</remote-id>
+	</upstream>
+</pkgmetadata>
