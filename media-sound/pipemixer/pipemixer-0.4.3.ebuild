@@ -14,15 +14,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
-	dev-lang/rust
-	dev-util/meson
+	sys-libs/ncurses
 "
 RDEPEND="${DEPEND}"
+BDEPEND="dev-util/meson"
 
 src_configure() {
 	meson_src_configure
 }
 
 pkg_postinst() {
-	elog "Run 'pipemixer' to start the TUI."
+	elog "Run 'pipemixer' to start the TUI volume control."
 }
