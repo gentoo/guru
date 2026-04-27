@@ -6,6 +6,10 @@ EAPI=8
 CRATES="
 "
 
+declare -A GIT_CRATES=(
+	[cpal]='https://github.com/RustAudio/cpal;509e5bba9dafb52c6e4a32492ccfb1933f1be9ed;cpal-%commit%'
+)
+
 RUST_MIN_VER="1.88.0"
 
 inherit cargo desktop xdg
@@ -24,8 +28,8 @@ S="${WORKDIR}/SongRec-${PV}"
 LICENSE="GPL-3+"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD GPL-3+ MIT MPL-2.0
-	Unicode-3.0 Unlicense ZLIB
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD GPL-3+ ISC MIT
+	MPL-2.0 Unicode-3.0 Unlicense ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64"
@@ -37,8 +41,18 @@ DEPEND="
 	dev-libs/openssl
 	media-libs/libpulse
 	net-libs/libsoup
+	media-video/pipewire
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	virtual/pkgconfig
+"
+
+src_configure() {
+	export PKG_CONFIG_ALLOW_CROSS=1
+
+	cargo_src_configure
+}
 
 src_install() {
 	cargo_src_install
