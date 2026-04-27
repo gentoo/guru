@@ -56,5 +56,5 @@ src_install() {
 pkg_postinst() {
 	optfeature "mounting brotli compressed files" "app-arch/brotli"
 	optfeature "mounting LZO compressed files" "app-arch/lzop"
-	optfeature "mounting compress (.Z) files" "app-arch/ncompress"
+	optfeature "mounting compress (.Z) files" "app-arch/ncompress" "app-arch/nix-compress"
 }
