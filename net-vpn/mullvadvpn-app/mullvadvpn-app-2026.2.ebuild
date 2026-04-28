@@ -3,6 +3,7 @@
 
 EAPI=8
 
+RPM_COMPRESS_TYPE="xz"
 inherit desktop rpm systemd shell-completion xdg
 
 MYPV="${PV/_beta/-beta}"
