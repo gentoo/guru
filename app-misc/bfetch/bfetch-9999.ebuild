@@ -11,7 +11,6 @@ EGIT_REPO_URI="https://github.com/Mjoyufull/bfetch.git"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
 
 src_compile() {
 	emake CC="$(tc-getCC)" \
