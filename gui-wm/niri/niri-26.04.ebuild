@@ -6,8 +6,8 @@ EAPI=8
 CRATES="
 "
 
-LLVM_COMPAT=( {18..21} )
-RUST_MIN_VER="1.82.0"
+LLVM_COMPAT=( {18..22} )
+RUST_MIN_VER="1.87.0"
 
 inherit cargo llvm-r2 optfeature shell-completion systemd
 
@@ -26,7 +26,7 @@ else
 	KEYWORDS="~amd64"
 
 	# used for version string
-	export NIRI_BUILD_COMMIT="b35bcae"
+	export NIRI_BUILD_COMMIT="8ed0da4"
 fi
 
 LICENSE="GPL-3+"
@@ -85,6 +85,7 @@ src_unpack() {
 
 src_prepare() {
 	sed -i 's/git = "[^ ]*"/version = "*"/' Cargo.toml || die
+	sed -i '/rev = /d' Cargo.toml || die
 	# niri-session doesn't work on OpenRC
 	if ! use systemd; then
 		local cmd="niri --session"
