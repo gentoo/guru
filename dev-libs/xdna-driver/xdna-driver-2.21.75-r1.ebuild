@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit linux-mod-r1 multiprocessing toolchain-funcs
+inherit linux-mod-r1 multiprocessing optfeature toolchain-funcs
 
 DESCRIPTION="AMD XDNA Driver"
 HOMEPAGE="https://github.com/amd/xdna-driver"
@@ -117,18 +117,19 @@ src_unpack() {
 src_prepare() {
 	sed -e "s/-Werror//" -i Kbuild || die
 
-	# Forward clang compiler, otherwise fails when kernel is compiled with clang cflags
-	# shellcheck disable=SC2016
-	sed -e 's/make -s /make -s CC="${CC}" /' \
-		-i "${WORKDIR}/${P}"/src/driver/tools/configure_kernel.sh || die
+	pushd "${WORKDIR}/${P}" || die
+	eapply "${FILESDIR}/${PN}-2.21.75-llvm-support.patch"
+	popd || die
 
 	default
 }
 
 src_configure() {
 	cd "${WORKDIR}/${P}/src" || die
-	KERNEL_SRC="${KERNEL_DIR}" ARCH=$(tc-arch-kernel) \
-	./driver/tools/configure_kernel.sh || die
+	KERNEL_SRC="${KERNEL_DIR}" \
+	KERNEL_VER="${KV_FULL}" \
+	ARCH="$(tc-arch-kernel)" \
+	CC="${KERNEL_CC}" ./driver/tools/configure_kernel.sh || die
 }
 
 src_compile() {
@@ -170,4 +171,13 @@ src_install() {
 	EOF
 
 	linux-mod-r1_src_install
+}
+
+pkg_postinst() {
+	linux-mod-r1_pkg_postinst
+
+	einfo "To reload kernel module between out-of-tree builds run:"
+	einfo "modprobe -r amdxdna && modprobe amdxdna"
+	einfo "However, switching between in-tree and out-of-tree builds requires a reboot."
+	optfeature "for runtime and xrt-smi tool" dev-libs/xrt-xdna
 }
