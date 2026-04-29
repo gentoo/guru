@@ -1,0 +1,51 @@
+From 2d73e02ec2587d35e142a5246be2afd823048380 Mon Sep 17 00:00:00 2001
+From: Oz Tiram <oz.tiram@gmail.com>
+Date: Wed, 8 Apr 2026 16:24:08 +0200
+Subject: [PATCH 2/2] Inject system packages
+
+---
+ pipenv/patched/pip/__main__.py | 9 +++++++++
+ pipenv/resolver.py             | 7 +++++++
+ 2 files changed, 16 insertions(+)
+
+diff --git a/pipenv/patched/pip/__main__.py b/pipenv/patched/pip/__main__.py
+index e76aed6e..c071b144 100644
+--- a/pipenv/patched/pip/__main__.py
++++ b/pipenv/patched/pip/__main__.py
+@@ -21,6 +21,15 @@ if __package__ == "":
+ if __name__ == "__main__":
+     import importlib.util
+     import sys
++
++    # GENTOO PATCH
++    SITE_PACKAGES_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
++
++    # Inject site directory into system path.
++    sys.path.insert(-1, SITE_PACKAGES_ROOT)
++
++    # END GENTOO PATCH
++
+     spec = importlib.util.spec_from_file_location(
+         "pipenv",
+         location=os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "__init__.py"))
+diff --git a/pipenv/resolver.py b/pipenv/resolver.py
+index 350717cd..5762648a 100644
+--- a/pipenv/resolver.py
++++ b/pipenv/resolver.py
+@@ -7,6 +7,13 @@ from dataclasses import dataclass, field
+ from pathlib import Path
+ from typing import Any, Dict, List, Optional, Set
+ 
++# GENTOO PATCH
++SITE_PACKAGES_ROOT = os.path.dirname(os.path.dirname(__file__))
++
++# Inject site directory into system path.
++sys.path.insert(-1, SITE_PACKAGES_ROOT)
++
++# END GENTOO PATCH
+ 
+ def _ensure_modules():
+     # Try to ensure typing_extensions is available in sys.modules
+-- 
+2.52.0
+

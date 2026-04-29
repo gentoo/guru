@@ -1,0 +1,78 @@
+From e974b2ca4114acc5feb6c3274a44128e43cb3ef3 Mon Sep 17 00:00:00 2001
+From: Oz Tiram <oz.tiram@gmail.com>
+Date: Wed, 29 Apr 2026 10:36:08 +0200
+Subject: [PATCH] fix(graph): inject pipdeptree parent into PYTHONPATH for
+ system installs
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+On Gentoo, vendored pip dependencies are de-bundled, so
+`pipenv.vendor.pipdeptree` resolves to the system pipdeptree
+(e.g. /usr/lib/python3.12/site-packages/pipdeptree/).
+
+When pipenv runs it via the virtualenv's Python, that interpreter
+cannot find `pipdeptree` — causing a ModuleNotFoundError.
+
+Fix by injecting pipdeptree_path.parent into PYTHONPATH before
+invoking the subprocess in both graph.py and update.py. The -l
+(local-only) flag still filters enumerated packages to the
+virtualenv via sys.prefix, so the graph output is unaffected.
+
+Signed-off-by: Oz Tiram <oz.tiram@gmail.com>
+---
+ pipenv/routines/graph.py  | 13 ++++++++++++-
+ pipenv/routines/update.py |  8 +++++++-
+ 2 files changed, 19 insertions(+), 2 deletions(-)
+
+diff --git a/pipenv/routines/graph.py b/pipenv/routines/graph.py
+index a1df5965..954ca326 100644
+--- a/pipenv/routines/graph.py
++++ b/pipenv/routines/graph.py
+@@ -1,4 +1,5 @@
+ import json as simplejson
++import os
+ import sys
+ from pathlib import Path
+ 
+@@ -51,7 +52,17 @@ def do_graph(project, bare=False, json=False, json_tree=False, reverse=False):
+         )
+         sys.exit(1)
+ 
+-    c = run_command(cmd_args, is_verbose=project.s.is_verbose())
++    # Ensure pipdeptree's parent directory is on PYTHONPATH so the virtualenv
++    # Python can import pipdeptree. This is necessary when pipdeptree is a
++    # system package (e.g. Gentoo unbundles vendored deps) rather than the
++    # copy vendored inside pipenv.
++    env = os.environ.copy()
++    pythonpath_parts = [str(pipdeptree_path.parent)]
++    if existing := env.get("PYTHONPATH"):
++        pythonpath_parts.append(existing)
++    env["PYTHONPATH"] = os.pathsep.join(pythonpath_parts)
++
++    c = run_command(cmd_args, is_verbose=project.s.is_verbose(), env=env)
+ 
+     # Run dep-tree.
+     if not bare:
+diff --git a/pipenv/routines/update.py b/pipenv/routines/update.py
+index 2dc4a289..bc0f605d 100644
+--- a/pipenv/routines/update.py
++++ b/pipenv/routines/update.py
+@@ -122,7 +122,13 @@ def get_reverse_dependencies(project) -> Dict[str, Set[Tuple[str, str]]]:
+     python_path = project.python()
+     cmd_args = [python_path, str(pipdeptree_path), "-l", "--reverse", "--json-tree"]
+ 
+-    c = run_command(cmd_args, is_verbose=project.s.is_verbose())
++    env = os.environ.copy()
++    pythonpath_parts = [str(pipdeptree_path.parent)]
++    if existing := env.get("PYTHONPATH"):
++        pythonpath_parts.append(existing)
++    env["PYTHONPATH"] = os.pathsep.join(pythonpath_parts)
++
++    c = run_command(cmd_args, is_verbose=project.s.is_verbose(), env=env)
+     if c.returncode != 0:
+         raise PipenvCmdError(c.err, c.out, c.returncode)
+     try:
+-- 
+2.52.0
+
