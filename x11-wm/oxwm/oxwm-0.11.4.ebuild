@@ -13,7 +13,7 @@ SRC_URI="https://github.com/tonybanters/oxwm/archive/4670ae7.tar.gz -> ${P}.tar.
 
 LICENSE="GPL-3"
 SLOT="0.15"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	x11-libs/libX11
