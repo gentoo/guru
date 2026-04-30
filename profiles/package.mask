@@ -67,11 +67,6 @@ sys-fs/bcachefs-kmod
 dev-python/celery
 dev-python/pytest-celery
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2026-03-20)
-# Unmaintained in ::guru. Depends on masked dev-python/pipenv.
-# Removal on 2026-04-28.
-media-sound/yewtube
-
 # Lucio Sauer <watermanpaint@posteo.net> (2026-02-10)
 # The hyprland suite is moving to the unofficial 'hyproverlay' repository at
 #  https://codeberg.org/hyproverlay/hyproverlay.git
