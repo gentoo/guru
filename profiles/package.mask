@@ -119,3 +119,7 @@ sys-libs/gcompat
 # (See also top comment)
 # Sorry for the inconvenience.
 app-office/lotus123r3
+
+# Shaumyadeep Chaudhuri <shaumya@gmail.com> (2026-04-30)
+# Requires systemd. Cannot be masked per profile (see top comment)
+sys-apps/dmemcg-booster

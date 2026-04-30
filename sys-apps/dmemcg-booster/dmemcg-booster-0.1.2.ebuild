@@ -35,15 +35,14 @@ S="${WORKDIR}/${P}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="systemd"
 
 DEPEND="
 	sys-apps/dbus
 	x11-libs/libdrm
 "
 RDEPEND="
-${DEPEND}
-	systemd? ( sys-apps/systemd:= )
+	${DEPEND}
+	sys-apps/systemd:=
 "
 BDEPEND="
 	virtual/pkgconfig
