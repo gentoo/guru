@@ -3,9 +3,8 @@
 
 EAPI=8
 
-PYPI_NO_NORMALIZE=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 optfeature pypi systemd
 
@@ -24,9 +23,9 @@ RDEPEND="
 	dev-python/commonmark[${PYTHON_USEDEP}]
 	dev-python/mako[${PYTHON_USEDEP}]
 	dev-python/mautrix[crypt?,${PYTHON_USEDEP}]
+	dev-python/pkg-resources[${PYTHON_USEDEP}]
 	dev-python/ruamel-yaml[${PYTHON_USEDEP}]
-	dev-python/setuptools[${PYTHON_USEDEP}]
-	>=dev-python/tulir-telethon-1.37.0_alpha1[${PYTHON_USEDEP}]
+	>=dev-python/tulir-telethon-1.99.0_alpha6[${PYTHON_USEDEP}]
 	dev-python/yarl[${PYTHON_USEDEP}]
 	|| (
 		dev-python/python-magic[${PYTHON_USEDEP}]
@@ -84,19 +83,21 @@ src_install() {
 pkg_postinst() {
 	optfeature "Prometheus statistics support" dev-python/prometheus_client
 
-	einfo
-	elog "Before you can use mautrix-telegram, you need to configure it correctly."
-	elog "The configuration file is located at \"/etc/mautrix/mautrix_telegram.yaml\""
-	elog
-	elog "When done, run the following command:"
-	elog "	# emerge --config ${CATEGORY}/${PN}"
-	elog
-	elog "Then, you need to register the bridge with your homeserver."
-	elog "Refer your homeserver's documentation for instructions."
-	elog "The registration file is located at /var/lib/mautrix_telegram/registration.yaml"
-	elog
-	elog "Finally, you may start the mautrix-telegram daemon."
-	einfo
+	if [[ ! ${REPLACING_VERSIONS} ]]; then
+		einfo
+		elog "Before you can use mautrix-telegram, you need to configure it correctly."
+		elog "The configuration file is located at \"/etc/mautrix/mautrix_telegram.yaml\""
+		elog
+		elog "When done, run the following command:"
+		elog "	# emerge --config ${CATEGORY}/${PN}"
+		elog
+		elog "Then, you need to register the bridge with your homeserver."
+		elog "Refer your homeserver's documentation for instructions."
+		elog "The registration file is located at /var/lib/mautrix_telegram/registration.yaml"
+		elog
+		elog "Finally, you may start the mautrix-telegram daemon."
+		einfo
+	fi
 }
 
 pkg_config() {
