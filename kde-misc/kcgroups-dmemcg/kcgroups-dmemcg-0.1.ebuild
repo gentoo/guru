@@ -24,11 +24,6 @@ DEPEND="
 	kde-frameworks/kwindowsystem:6
 "
 RDEPEND="${DEPEND}"
-BDEPEND="
-	dev-build/cmake
-	dev-build/ninja
-	kde-frameworks/extra-cmake-modules
-"
 
 src_configure() {
 	local mycmakeargs=(
