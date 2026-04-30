@@ -3,9 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
-inherit desktop python-single-r1 xdg
+inherit desktop python-single-r1 xdg optfeature
 
 DESCRIPTION="Camera controls for Linux"
 HOMEPAGE="https://github.com/soyersoyer/cameractrls"
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/soyersoyer/cameractrls/archive/refs/tags/v${PV}.tar.
 LICENSE="LGPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="systemd"
+
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
@@ -25,7 +25,6 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 	')
-	systemd? ( sys-apps/systemd:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="dev-util/desktop-file-utils"
@@ -71,11 +70,8 @@ src_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
-	if ! use systemd; then
-		elog "systemd USE flag is disabled. The 'Start with Systemd' option in the"
-		elog "GUI will not be available. cameractrlsd can still be started manually"
-		elog "or via the Desktop Portal autostart integration."
-	fi
+	optfeature_header "'Start with Systemd'"
+	optfeature "enable option in the gui" sys-apps/systemd
 }
 
 pkg_postrm() {
