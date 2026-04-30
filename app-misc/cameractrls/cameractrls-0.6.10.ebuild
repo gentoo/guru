@@ -74,6 +74,3 @@ pkg_postinst() {
 	optfeature "enable option in the gui" sys-apps/systemd
 }
 
-pkg_postrm() {
-	xdg_pkg_postrm
-}
