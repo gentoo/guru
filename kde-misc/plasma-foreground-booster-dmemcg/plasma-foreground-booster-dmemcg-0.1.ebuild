@@ -25,8 +25,3 @@ DEPEND="
 	kde-plasma/plasma-workspace:6
 "
 RDEPEND="${DEPEND}"
-BDEPEND="
-	dev-build/cmake
-	dev-build/ninja
-	kde-frameworks/extra-cmake-modules
-"
