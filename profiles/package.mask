@@ -65,7 +65,6 @@ sys-fs/bcachefs-kmod
 # Unmaintained in ::guru. Depends on masked dev-python/click-didyoumean.
 # Removal on 2026-04-28.
 dev-python/celery
-dev-python/pytest-celery
 
 # Lucio Sauer <watermanpaint@posteo.net> (2026-02-10)
 # The hyprland suite is moving to the unofficial 'hyproverlay' repository at
