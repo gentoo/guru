@@ -77,7 +77,6 @@ media-sound/yewtube
 dev-python/mkdocs-bootstrap-tables-plugin
 dev-python/mkdocs-exclude
 dev-python/mkdocs-git-committers-plugin
-dev-python/mkdocs-rss-plugin
 
 # Lucio Sauer <watermanpaint@posteo.net> (2026-02-10)
 # The hyprland suite is moving to the unofficial 'hyproverlay' repository at
