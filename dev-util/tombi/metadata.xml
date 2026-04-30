@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>ingenarel_neojesus@disroot.org</email>
+    <name>ingenarel</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">tombi-toml/tombi</remote-id>
+  </upstream>
+  <longdescription lang="en">
+    Tombi (鳶 /toɴbi/) is a powerful toolkit that provides a TOML Formatter, Linter, and Language Server Protocol to
+    help you maintain clean and consistent TOML files. It works out of the box with zero configuration. If needed, you
+    can still customize its behavior to match your team's preferences. Tombi's concept is to allow any team or project
+    to work on a TOML file with the same rules from the beginning.
+  </longdescription>
+</pkgmetadata>
