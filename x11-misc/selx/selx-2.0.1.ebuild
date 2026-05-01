@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,13 +17,12 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	x11-libs/libX11
-	x11-libs/libXext
 	x11-libs/libXrandr
 "
 DEPEND="${RDEPEND}"
 
 src_compile() {
-	edo $(tc-getCC) -o selx selx.c ${CFLAGS} ${LDFLAGS} -l X11 -l Xext -l Xrandr
+	edo $(tc-getCC) -o selx selx.c ${CFLAGS} ${LDFLAGS} -l X11 -l Xrandr
 }
 
 src_install() {
