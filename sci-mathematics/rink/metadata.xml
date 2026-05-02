@@ -10,8 +10,8 @@
 			<name>tiffany352</name>
 			<email>tiffany@tiffnix.com</email>
 		</maintainer>
-		<remote-id type="github">tiffany352/rink-rs</remote-id>
-		<bugs-to>https://github.com/tiffany352/rink-rs/issues/new/choose</bugs-to>
+		<remote-id type="codeberg">tiffany/rink</remote-id>
+		<bugs-to>https://codeberg.org/tiffany/rink/issues/new</bugs-to>
 		<changelog>https://rinkcalc.app/releases</changelog>
 	</upstream>
 </pkgmetadata>
