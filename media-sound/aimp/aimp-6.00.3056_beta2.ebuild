@@ -13,7 +13,7 @@ MY_PN="AIMP"
 DESCRIPTION="AIMP - Free Audio Player"
 HOMEPAGE="https://aimp.ru/"
 SRC_URI="
-	amd64? ( aimp_$(ver_cut 1-2)-$(ver_cut 3)b.x86_64.rpm )
+	amd64? ( aimp-$(ver_cut 1-2)-$(ver_cut 3)b.x86_64.rpm )
 "
 S="${WORKDIR}"
 
