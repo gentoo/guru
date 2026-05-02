@@ -3,6 +3,7 @@
 
 EAPI="8"
 
+RPM_COMPRESS_TYPE=none
 inherit wrapper rpm xdg
 
 BLOG_URL="https://www.aimp.ru/blogs/?p=1523&language=en#more-1523"
