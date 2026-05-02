@@ -119,6 +119,7 @@ src_prepare() {
 
 	pushd "${WORKDIR}/${P}" || die
 	eapply "${FILESDIR}/${PN}-2.21.75-llvm-support.patch"
+	eapply "${FILESDIR}/${PN}-2.21.75-try-compile-config.patch"
 	popd || die
 
 	default
