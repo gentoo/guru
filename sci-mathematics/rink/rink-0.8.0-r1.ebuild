@@ -229,7 +229,7 @@ inherit cargo desktop
 DESCRIPTION="Unit conversion tool, similar to frink"
 HOMEPAGE="https://rinkcalc.app/about"
 SRC_URI="
-	https://github.com/tiffany352/rink-rs/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://codeberg.org/tiffany/rink/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://files.demize.dev/gentoo/${CATEGORY}/${PN}/${PN}-docs-${PV}.tar.gz
 	${CARGO_CRATE_URIS}
 "
