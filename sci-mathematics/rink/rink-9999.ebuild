@@ -8,8 +8,8 @@ EAPI=8
 inherit cargo desktop git-r3
 
 DESCRIPTION="Unit conversion tool, similar to frink"
-HOMEPAGE="https://rinkcalc.app/about"
-EGIT_REPO_URI="https://github.com/tiffany352/rink-rs.git"
+HOMEPAGE="https://rinkcalc.app/about/"
+EGIT_REPO_URI="https://codeberg.org/tiffany/rink.git"
 
 LICENSE="MPL-2.0"
 # Dependent crate licenses
