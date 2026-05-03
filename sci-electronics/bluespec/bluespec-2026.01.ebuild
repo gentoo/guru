@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,10 +12,10 @@ if [[ ${PV} == "9999" ]] ; then
 else
 	SRC_URI="
 		https://github.com/B-Lang-org/bsc/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-		https://github.com/SRI-CSL/yices2/archive/refs/tags/Yices-2.6.4.tar.gz -> yices-2.6.4.tar.gz
+		https://github.com/B-Lang-org/bsc/releases/download/${PV}/yices-src-for-bsc-${PV}.tar.gz
 	"
 	S="${WORKDIR}/bsc-${PV}"
-	S_YICES="${WORKDIR}/yices2-Yices-2.6.4"
+	S_YICES="${WORKDIR}/src/vendor/yices/v2.6/yices2"
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -30,6 +30,7 @@ RDEPEND="
 	dev-haskell/old-time:0=
 	dev-haskell/regex-compat:0=
 	dev-haskell/split:0=
+	dev-haskell/strict-concurrency:0=
 	dev-haskell/syb:0=
 	dev-lang/tcl
 "
