@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>jernej.jakob@gmail.com</email>
+		<name>Jernej Jakob</name>
+	</maintainer>
+	<use>
+		<flag name="piv">Install dependencies for "piv" subcommand</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">Nitrokey/pynitrokey</remote-id>
+	</upstream>
+</pkgmetadata>
