@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit mix optfeature flag-o-matic
+inherit mix optfeature flag-o-matic toolchain-funcs
 
 DESCRIPTION="ActivityPub social networking software compatible with other Fediverse software"
 HOMEPAGE="https://pleroma.social/"
@@ -53,7 +53,6 @@ src_unpack() {
 	[[ "${PV}" == *9999 ]] && git-r3_src_unpack
 
 	cd "${S}" || die
-	eapply "${FILESDIR}/pleroma-2.10.0-vix_bump.patch"
 	emix deps.get --only prod
 }
 
@@ -78,14 +77,16 @@ src_prepare() {
 	echo 'config :tzdata, :data_dir, "/var/lib/pleroma/tzdata"' >> config/prod.exs || die
 
 	echo "import Config" > config/prod.secret.exs || die
-
-	# Needs -fPIC under glibc for exile library
-	# https://bugs.gentoo.org/937130
-	append-flags -fPIC
 }
 
 src_compile() {
 	mkdir -p pleroma || die
+
+	tc-export CC
+
+	# Needs -fPIC under glibc for exile library
+	# https://bugs.gentoo.org/937130
+	append-flags -fPIC
 
 	use system-vips && export VIX_COMPILATION_MODE="PLATFORM_PROVIDED_LIBVIPS"
 
