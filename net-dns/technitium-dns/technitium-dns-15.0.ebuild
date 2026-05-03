@@ -21,11 +21,12 @@ system.identitymodel.tokens.jwt@8.0.1
 inherit dotnet-pkg systemd
 
 MYPV="${PV}.0"
+SRC_URI_BASE="https://github.com/TechnitiumSoftware"
 DESCRIPTION="Open-source, self-hosted authoritative and recursive DNS+DHCP server."
 HOMEPAGE="https://technitium.com/dns/"
 SRC_URI="
-	https://github.com/TechnitiumSoftware/DnsServer/archive/refs/tags/v${MYPV}.tar.gz -> TechnitiumDnsServer-${MYPV}.tar.gz
-	https://github.com/TechnitiumSoftware/TechnitiumLibrary/archive/refs/tags/dns-server-v${MYPV}.tar.gz -> TechnitiumLibrary-${MYPV}.tar.gz
+	$SRC_URI_BASE/DnsServer/archive/refs/tags/v${MYPV}.tar.gz -> TechnitiumDnsServer-${MYPV}.tar.gz
+	$SRC_URI_BASE/TechnitiumLibrary/archive/refs/tags/dns-server-v${MYPV}.tar.gz -> TechnitiumLibrary-${MYPV}.tar.gz
 	${NUGET_URIS}
 "
 
