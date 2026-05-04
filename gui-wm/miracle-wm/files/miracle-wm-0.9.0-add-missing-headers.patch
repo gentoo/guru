@@ -51,9 +51,9 @@ index e73c08f..88277bd 100644
  #include <mir/scene/surface.h>
  
  using namespace miracle;
- --- a/src/plugin_handle.h
+--- a/src/plugin_handle.h
 +++ b/src/plugin_handle.h
-@@ -15,7 +15,9 @@ You should have received a copy of the GNU General Public License
+@@ -15,6 +15,8 @@ You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
  
@@ -62,3 +62,23 @@ index e73c08f..88277bd 100644
  namespace miracle
  {
  typedef uint32_t PluginHandle;
+--- a/src/parent_background_internal_client.cpp
++++ b/src/parent_background_internal_client.cpp
+@@ -28,6 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ #include <cmath>
+ #include <cstring>
+ #include <fcntl.h>
++#include <mutex>
+ #include <poll.h>
+ #include <sys/eventfd.h>
+ #include <sys/mman.h>
+--- a/src/move_service.h
++++ b/src/move_service.h
+@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ #define MIRACLE_WM_MOVE_SERVICE_H
+ 
+ #include <memory>
++#include <mutex>
+ #include <mir_toolkit/event.h>
+ 
+ namespace miracle
