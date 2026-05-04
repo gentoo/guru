@@ -37,6 +37,7 @@ RDEPEND="
 	dev-qt/qtsvg:6
 	media-libs/taglib:=
 	media-video/ffmpeg:=
+	virtual/zlib:=
 	alsa? ( media-libs/alsa-lib )
 	archive? ( app-arch/libarchive:= )
 	gme? ( media-libs/game-music-emu )
