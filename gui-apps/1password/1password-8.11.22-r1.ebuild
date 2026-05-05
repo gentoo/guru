@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Pulled from jaredallard's overlay to GURU
@@ -24,13 +24,38 @@ DEPEND="
 	x11-misc/xdg-utils
 	acct-group/1password
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	app-accessibility/at-spi2-core:2
+	dev-libs/expat
+	dev-libs/glib:2
+	dev-libs/nspr
+	dev-libs/nss
+	media-libs/alsa-lib
+	media-libs/mesa
+	net-print/cups
+	sys-apps/dbus
+	x11-libs/cairo
+	x11-libs/gtk+:3
+	x11-libs/libX11
+	x11-libs/libXcomposite
+	x11-libs/libXdamage
+	x11-libs/libXext
+	x11-libs/libXfixes
+	x11-libs/libXrandr
+	x11-libs/libxcb
+	x11-libs/libxkbcommon
+	x11-libs/pango
+	virtual/zlib
+"
 
 QA_PREBUILT="/opt/1Password/*"
 
 src_install() {
+	cd "${S}/${PN}"-* || die
+
 	dodir /opt/1Password
-	cp -ar "${S}/${PN}-"**"/"* "${ED}/opt/1Password/" || die "Install failed!"
+	cp -ar ./* "${ED}/opt/1Password/" || die "Install failed!"
 
 	# Fill in policy kit file with a list of (the first 10) human users of
 	# the system.
@@ -52,10 +77,18 @@ src_install() {
 	dosym -r /opt/1Password/1password /usr/bin/1password
 	dosym -r /opt/1Password/op-ssh-sign /usr/bin/op-ssh-sign
 
-	domenu /opt/1Password/resources/1password.desktop
-	newicon "${ED}/opt/1Password/resources/icons/hicolor/512x512/apps/1password.png" "${PN}.png"
+	domenu resources/1password.desktop
+	local size
+	for size in 32 64 256 512; do
+		doicon -s ${size} resources/icons/hicolor/${size}x${size}/apps/1password.png
+	done
 
 	dodoc "${ED}/opt/1Password/resources/custom_allowed_browsers"
+
+	# cleanup unneeded files
+	rm "${ED}/opt/1Password/com.1password.1Password.policy.tpl"
+	rm "${ED}/opt/1Password/resources/{1password.desktop,custom_allowed_browsers}"
+	rm -r "${ED}/opt/1Password/resources/icons"
 
 	# chrome-sandbox requires the setuid bit to be specifically set.
 	# See https://github.com/electron/electron/issues/17972
