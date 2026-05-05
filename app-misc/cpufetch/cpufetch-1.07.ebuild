@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc64"
 
-PATCHES=( "${FILESDIR}/${P}-makefile.patch" )
+PATCHES=( "${FILESDIR}/${PN}-1.06-makefile.patch" )
 
 src_prepare() {
 	default
