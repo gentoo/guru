@@ -14,6 +14,7 @@
     <flag name="niri">build client for Niri</flag>
     <flag name="cosmic">build client for COSMIC Wayland</flag>
     <flag name="socket">build client for Variant for system service</flag>
+    <flag name="pantheon">build client for Pantheon Wayland (aka Secure)</flag>
   </use>
   <upstream>
     <remote-id type="github">xremap/xremap</remote-id>
