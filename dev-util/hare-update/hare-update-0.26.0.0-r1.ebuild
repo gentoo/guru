@@ -10,7 +10,7 @@ if [[ "${PV}" = "9999" ]]; then
 else
 	SRC_URI="https://git.sr.ht/~sircmpwn/hare-update/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm64 ~riscv"
-	DEPEND="~dev-lang/hare-$(ver_cut 1-3):="
+	DEPEND="=dev-lang/hare-$(ver_cut 1-3)*:="
 fi
 
 DESCRIPTION="assist in upgrading a codebase to a newer Hare release"
