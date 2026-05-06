@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>elouan.lesteven@protonmail.com</email>
+    <name>Elouan Lesteven</name>
+    <description>Primary maintainer</description>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">shadps4-emu/shadps4-qtlauncher</remote-id>
+    <bugs-to>https://github.com/shadps4-emu/shadps4-qtlauncher/issues</bugs-to>
+  </upstream>
+</pkgmetadata>
