@@ -66,6 +66,7 @@ DEPEND="
 	dev-libs/rapidjson
 	dev-util/opencl-headers
 	x11-libs/libdrm
+	dev-cpp/ms-gsl
 "
 
 BDEPEND="
