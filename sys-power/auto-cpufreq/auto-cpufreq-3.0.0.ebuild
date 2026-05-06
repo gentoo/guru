@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12,13} )
+PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_USE_PEP517=poetry
 
 inherit distutils-r1 systemd xdg desktop
@@ -36,14 +36,23 @@ src_prepare() {
 	sed -i 's/poetry_dynamic_versioning.backend/poetry.core.masonry.api/' pyproject.toml || die
 	# Replace /usr/local/ paths with /usr/ in the source code to adhere to Gentoo standards
 	sed -i 's|/usr/local/share|/usr/share|g' scripts/auto-cpufreq-install.sh || die
-	sed -i 's|usr/local|usr|g' "scripts/${PN}.service" "scripts/${PN}-openrc" auto_cpufreq/core.py || die
-	sed -i 's|usr/local|usr|g' "scripts/${PN}.service" "scripts/${PN}-openrc" auto_cpufreq/gui/app.py || die
+	sed -i 's|usr/local|usr|g' \
+		"scripts/${PN}.service" \
+		"scripts/${PN}-openrc" \
+		"scripts/${PN}-dinit" \
+		"scripts/${PN}-runit" \
+		auto_cpufreq/core.py \
+		auto_cpufreq/gui/app.py \
+		auto_cpufreq/gui/objects.py || die
 	# Modify the service file to launch auto-cpufreq natively without the need for virtual environment
 	sed -i 's|WorkingDirectory=/opt/auto-cpufreq/venv||g' scripts/auto-cpufreq.service || die
 	sed -i 's|Environment=PYTHONPATH=/opt/auto-cpufreq||g' scripts/auto-cpufreq.service || die
 	sed -i 's|ExecStart=/opt/auto-cpufreq/venv/bin/python /opt/auto-cpufreq/venv/bin/auto-cpufreq --daemon|ExecStart=/usr/bin/auto-cpufreq --daemon|g' scripts/auto-cpufreq.service || die
-	# Change the path in core.py
-	sed -i 's|/opt/auto-cpufreq/override.pickle|/var/lib/auto-cpufreq/override.pickle|g' auto_cpufreq/core.py || die
+	# Change the state file paths in core.py
+	sed -i \
+		-e 's|/opt/auto-cpufreq/override.pickle|/var/lib/auto-cpufreq/override.pickle|g' \
+		-e 's|/opt/auto-cpufreq/turbo-override.pickle|/var/lib/auto-cpufreq/turbo-override.pickle|g' \
+		auto_cpufreq/core.py || die
 	distutils-r1_src_prepare
 }
 
@@ -53,7 +62,7 @@ python_install() {
 	# Create the scripts directory if it doesn't exist
 	dodir "/usr/share/${PN}/scripts"
 
-	# Create the directory for override.pickle
+	# Create the directory for auto-cpufreq state files
 	dodir /var/lib/auto-cpufreq
 	keepdir /var/lib/auto-cpufreq
 	fowners root:root /var/lib/auto-cpufreq
@@ -99,7 +108,7 @@ python_install() {
 pkg_postinst() {
 	xdg_pkg_postinst
 
-	elog "The auto-cpufreq override file will be stored in /var/lib/auto-cpufreq/override.pickle"
+	elog "The auto-cpufreq state files will be stored in /var/lib/auto-cpufreq"
 
 	# Create log file
 	touch /var/log/auto-cpufreq.log
@@ -115,7 +124,7 @@ pkg_postinst() {
 pkg_postrm() {
 	xdg_pkg_postrm
 
-	# Remove the override.pickle file and directory
+	# Remove the auto-cpufreq state files and directory
 	if [[ -d "${EROOT}/var/lib/auto-cpufreq" ]]; then
 		rm -rf "${EROOT}"/var/lib/auto-cpufreq || die
 	fi
