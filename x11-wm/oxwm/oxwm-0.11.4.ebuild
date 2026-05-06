@@ -11,8 +11,10 @@ DESCRIPTION="OXWM — DWM but better. Dynamic window manager written in Zig with
 HOMEPAGE="https://github.com/tonybanters/oxwm"
 SRC_URI="https://github.com/tonybanters/oxwm/archive/4670ae7.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/oxwm-4670ae7"
+
 LICENSE="GPL-3"
-SLOT="0.15"
+SLOT="0.16"
 KEYWORDS="~amd64"
 
 RDEPEND="
@@ -27,12 +29,10 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 BDEPEND="
-    ${RDEPEND}
-    dev-lang/zig
-    virtual/pkgconfig
+	${RDEPEND}
+	dev-lang/zig
+	virtual/pkgconfig
 "
-
-S="${WORKDIR}/oxwm-4670ae7"
 
 src_configure() {
 	zig_src_configure
