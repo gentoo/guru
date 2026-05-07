@@ -343,8 +343,6 @@ QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 DOCS=( README.md docs )
 
-PATCHES=( "${FILESDIR}/fix-tests-0.10.0.patch" )
-
 # apply-crates-fixes start
 src_compile(){
 	export ZSTD_SYS_USE_PKG_CONFIG=1 # fix for zstd-sys crate
@@ -358,8 +356,17 @@ src_compile(){
 	# but what it can do is use set the AWS_LC_SYS_CFLAGS var to override CFLAGS
 	cargo_src_compile
 }
+
+src_test(){
+	local CARGO_SKIP_TESTS=(
+		'downloads::tests::test_get_release'
+		'downloads::tests::test_list_releases'
+	)
+	cargo_src_test
+}
+
 # apply-crates-fixes end
-src_install() {
+src_install(){
 	cargo_src_install --path "${S}/${PN}"
 	einstalldocs
 }

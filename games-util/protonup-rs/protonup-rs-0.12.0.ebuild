@@ -345,8 +345,6 @@ QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 DOCS=( README.md docs )
 
-PATCHES=( "${FILESDIR}/fix-tests-0.12.0.patch" )
-
 # apply-crates-fixes start
 src_compile(){
 	export ZSTD_SYS_USE_PKG_CONFIG=1 # fix for zstd-sys crate
@@ -361,7 +359,16 @@ src_compile(){
 	cargo_src_compile
 }
 # apply-crates-fixes end
-src_install() {
+
+src_test(){
+	local CARGO_SKIP_TESTS=(
+		'downloads::tests::test_get_release'
+		'downloads::tests::test_list_releases'
+	)
+	cargo_src_test
+}
+
+src_install(){
 	cargo_src_install --path "${S}/${PN}"
 	einstalldocs
 }
