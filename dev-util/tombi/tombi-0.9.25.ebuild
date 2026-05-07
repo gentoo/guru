@@ -580,7 +580,7 @@ src_test(){
 }
 
 src_install(){
-	cargo_src_install --path rust/tombi-cli
+	dobin target/release/tombi
 
 	target/release/tombi completion bash > "${PN}" || die "generating bash completion failed"
 	dobashcomp "${PN}"
