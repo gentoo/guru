@@ -5,8 +5,7 @@ EAPI=8
 
 DESCRIPTION="Document-oriented NoSQL database"
 HOMEPAGE="https://couchdb.apache.org"
-SRC_URI="https://apache.org/dist/${PN}/source/${PV}/apache-${PN}-${PV}.tar.gz"
-S="${WORKDIR}/apache-${PN}-${PV}"
+SRC_URI="https://apache.org/dist/${PN}/source/${PV}/apache-${PN}-${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -25,21 +24,23 @@ RDEPEND="
 	acct-group/couchdb
 "
 
-DEPEND="
+DEPEND="${RDEPEND}"
+
+BDEPEND="
 	${RDEPEND}
 	>=dev-lang/erlang-28.1
 "
 
 src_prepare() {
 	# Change CouchDB's data directory to /var/lib/couchdb
-	sed -i 's|./data|/var/lib/couchdb|' "${S}"/configure
+	sed -i 's|./data|/var/lib/couchdb|' "${S}"/configure || die
 	eapply_user
 }
 
 src_configure() {
-	./configure \
+	econf \
 		--js-engine=quickjs \
-		--disable-spidermonkey || die
+		--disable-spidermonkey
 }
 
 src_compile() {
@@ -49,9 +50,9 @@ src_compile() {
 src_install() {
 	# CouchDB doesn't provide a helpful `make install`, so we have to manually copy
 	# most things over to ${D}
-	mkdir -p "${D}"/usr/lib/${PN} "${D}"/etc/${PN}
-	cp -vr "${S}"/rel/${PN} "${D}"/usr/lib/
-	mv -v "${D}"/usr/lib/${PN}/etc/{default.ini,local.ini,vm.args} "${D}"/etc/${PN}/
+	mkdir -p "${D}"/usr/lib/${PN} "${D}"/etc/${PN} || die
+	cp -vr "${S}"/rel/${PN} "${D}"/usr/lib/ || die
+	mv -v "${D}"/usr/lib/${PN}/etc/{default.ini,local.ini,vm.args} "${D}"/etc/${PN}/ || die
 
 	# Scope ownership of CouchDB directories to the couchdb user
 	fowners -R couchdb:couchdb /usr/lib/${PN}
@@ -64,7 +65,7 @@ src_install() {
 	newconfd "${FILESDIR}"/couchdb-conf.d couchdb
 
 	# Remove some cruft
-	rm -vr "${D}"/usr/lib/${PN}/erts-*/{doc,include,lib,man,src}
-	rm -vr "${D}"/usr/lib/${PN}/etc/
-	rm -vr "${D}"/usr/lib/${PN}/lib/couch-${PV}/priv/couch_{ejson_compare,js}
+	rm -vr "${D}"/usr/lib/${PN}/erts-*/{doc,include,lib,man,src} || die
+	rm -vr "${D}"/usr/lib/${PN}/etc/ || die
+	rm -vr "${D}"/usr/lib/${PN}/lib/couch-${PV}/priv/couch_{ejson_compare,js} || die
 }
