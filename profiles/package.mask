@@ -44,8 +44,6 @@ x11-apps/autokey
 # Requires <dev-python/priority-2.0.0 which was removed in ::gentoo
 # Maintainer has been inactive since 2024
 # Removal on 2026-05-07
-# revdep of scrapy
-dev-python/itemadapter
 # revdep of itemadapter
 dev-python/itemloaders
 
