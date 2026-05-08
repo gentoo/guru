@@ -37,9 +37,9 @@ BDEPEND="
 
 if [[ "${PV}" != 9999* ]]
 then
-	BDEPEND="${BDEPEND} verify-sig? ( sec-keys/signify-keys-lanodan:2025 )"
+	BDEPEND="${BDEPEND} verify-sig? ( sec-keys/signify-keys-lanodan:2026 )"
 
-	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/signify-keys/signify-keys-lanodan-2025.pub"
+	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/signify-keys/signify-keys-lanodan-2026.pub"
 
 	src_unpack() {
 		if use verify-sig; then
@@ -59,8 +59,6 @@ src_configure() {
 	export NO_BWRAP=1
 
 	use static && export LDSTATIC="-static-pie"
-
-	rm cmd/xcd.c || die
 
 	tc-export CC
 
