@@ -119,11 +119,6 @@ src_unpack() {
 
 src_prepare() {
 	sed -e "s/-Werror//" -i Kbuild || die
-
-	pushd "${WORKDIR}/${P}" || die
-	eapply "${FILESDIR}/${PN}-2.21.75-try-compile-config.patch"
-	popd || die
-
 	default
 }
 
