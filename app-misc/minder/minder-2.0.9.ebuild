@@ -16,12 +16,20 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	app-arch/libarchive
 	app-text/discount
 	dev-lang/vala
 	dev-libs/granite
 	dev-libs/json-glib
 	gui-libs/libhandy[vala]
 	gui-libs/gtksourceview:5[vala]
+	dev-libs/glib
+	dev-libs/libgee
+	dev-libs/libxml2
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/gtk+
+	x11-libs/pango
 "
 
 DEPEND="
