@@ -40,13 +40,6 @@ media-gfx/vimiv-qt
 # https://github.com/autokey/autokey/pull/1104
 x11-apps/autokey
 
-# David Roman <stkw0@disroot.org> (2026-04-07)
-# Requires <dev-python/priority-2.0.0 which was removed in ::gentoo
-# Maintainer has been inactive since 2024
-# Removal on 2026-05-07
-# revdep of itemadapter
-dev-python/itemloaders
-
 # Matt Jolly <kangie@gentoo.org> (2026-03-31)
 # Replaced by sys-fs/bcachefs-tools[modules] in ::gentoo.
 sys-fs/bcachefs-kmod
