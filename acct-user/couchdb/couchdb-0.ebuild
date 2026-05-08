@@ -6,7 +6,6 @@ EAPI=8
 inherit acct-user
 
 DESCRIPTION="User for Apache CouchDB"
-KEYWORDS="amd64"
 
 ACCT_USER_ID=-1
 ACCT_USER_GROUPS=( ${PN} )
