@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo-bugzilla@vimja.email</email>
+		<name>Niklaus 'vimja' Hofer</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">matrix-construct/tuwunel</remote-id>
+	</upstream>
+	<use>
+		<flag name="system-rocksdb">Use <pkg>dev-libs/rocksdb</pkg> instead of vendored version.</flag>
+	</use>
+</pkgmetadata>

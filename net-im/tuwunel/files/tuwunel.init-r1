@@ -1,0 +1,34 @@
+#!/sbin/openrc-run
+# Copyright 2023-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+#
+# shellcheck shell=sh
+
+export NO_COLOR=1
+export TUWUNEL_CONFIG=${CONDUIT_CONFIG:-/etc/tuwunel/tuwunel.toml}
+export TUWUNEL_PID_FILE=${TUWUNEL_PID_FILE:-/run/${RC_SVCNAME}.pid}
+export TUWUNEL_LOG_DIR=${TUWUNEL_LOG_DIR:-/var/log/tuwunel}
+export TUWUNEL_USER=${TUWUNEL_USER:-tuwunel}
+export TUWUNEL_GROUP=${TUWUNEL_GROUP:-tuwunel}
+
+description="Tuwunel [matrix] homeserver"
+supervisor="supervise-daemon"
+command="/usr/bin/tuwunel"
+command_user="${TUWUNEL_USER}:${TUWUNEL_GROUP}"
+pidfile="${TUWUNEL_PID_FILE}"
+
+output_log="${TUWUNEL_LOG_DIR}/tuwunel.log"
+error_log="${TUWUNEL_LOG_DIR}/tuwunel.err"
+
+required_files="${TUWUNEL_CONFIG}"
+
+start_stop_daemon_args="${start_stop_daemon_args} -- -c ${TUWUNEL_CONFIG}"
+
+depend() {
+	need net
+}
+
+start_pre() {
+	checkpath -f -m 0640 -o "${command_user}" "${output_log}"
+	checkpath -f -m 0640 -o "${command_user}" "${error_log}"
+}

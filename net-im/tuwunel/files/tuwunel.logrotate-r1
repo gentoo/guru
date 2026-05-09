@@ -1,0 +1,9 @@
+# /etc/logrotate.d/tuwunel
+
+/var/log/tuwunel.log {
+	create tuwunel tuwunel
+	maxsize 10M
+	notifempty
+	missingok
+	copytruncate
+}
