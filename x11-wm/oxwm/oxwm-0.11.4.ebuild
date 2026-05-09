@@ -4,17 +4,19 @@
 EAPI=8
 
 ZIG_OPTIONAL="1"
-
 inherit zig
 
 DESCRIPTION="OXWM — DWM but better. Dynamic window manager written in Zig with Lua config"
 HOMEPAGE="https://github.com/tonybanters/oxwm"
-SRC_URI="https://github.com/tonybanters/oxwm/archive/4670ae7.tar.gz -> ${P}.tar.gz"
 
-S="${WORKDIR}/oxwm-4670ae7"
+COMMIT="f699f6d1ff9e07cdd3831591bda84400e784b2c1"
+SRC_URI="https://github.com/tonybanters/oxwm/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+
+S="${WORKDIR}/oxwm-${COMMIT}"
 
 LICENSE="GPL-3"
-SLOT="0.16"
+SLOT="0"
+
 KEYWORDS="~amd64"
 
 RDEPEND="
@@ -55,7 +57,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "OXWM ${PV} installed successfully!"
+	elog "OXWM installed successfully!"
 	elog
 	elog "First launch will create ~/.config/oxwm/config.lua"
 	elog "Or manually run: oxwm --init"
