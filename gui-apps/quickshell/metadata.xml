@@ -5,6 +5,10 @@
 		<email>frailedev@proton.me</email>
 		<name>Maxwell Blake</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>ceres@ceressees.dev</email>
+		<name>Ceres Milner</name>
+	</maintainer>
 	<longdescription>
 		Quickshell is a toolkit for building status bars, widgets, lockscreens,
 		and other desktop components using QtQuick. It can be used alongside
