@@ -12,6 +12,7 @@ LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
+# Note: mdevd has optional support for nsss, which isn't packaged in gentoo
 RDEPEND=">=dev-libs/skalibs-2.14.5.0:="
 DEPEND="${RDEPEND}"
 
@@ -33,7 +34,6 @@ src_configure() {
 		--disable-allstatic
 	)
 
-	# TODO: --enable-nsss
 	econf "${myconf[@]}"
 }
 
