@@ -8,7 +8,8 @@ EAPI=8
 CRATES="
 "
 
-LLVM_COMPAT=( {16..21} )
+LLVM_COMPAT=( 21 )
+RUST_MIN_VER="1.94.0"
 
 inherit cargo llvm-r2 linux-info
 
@@ -166,7 +167,7 @@ src_install() {
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}"/tuwunel.logrotate-r1 tuwunel
 
-	newinitd "${FILESDIR}"/tuwunel.initd-r1 tuwunel
+	newinitd "${FILESDIR}"/tuwunel.init-r1 tuwunel
 	newconfd "${FILESDIR}"/tuwunel.conf-r1 tuwunel
 
 	# TODO: Add systemd service.
