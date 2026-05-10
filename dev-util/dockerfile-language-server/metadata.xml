@@ -6,6 +6,6 @@
 		<name>tea</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">rcjsuen/dockerfile-language-server-nodejs</remote-id>
+		<remote-id type="github">rcjsuen/dockerfile-language-server</remote-id>
 	</upstream>
 </pkgmetadata>
