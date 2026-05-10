@@ -38,3 +38,10 @@ src_configure() {
 
 	tc-export CC AR AS LD
 }
+
+src_install() {
+	default
+
+	exeinto /etc/user/init.d
+	newexe "${FILESDIR}/himitsud.initd" himitsud
+}
