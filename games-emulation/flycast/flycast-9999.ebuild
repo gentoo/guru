@@ -10,9 +10,9 @@ inherit cmake flag-o-matic git-r3 lua-single xdg
 DESCRIPTION="Sega Dreamcast, Naomi and Atomiswave emulator"
 HOMEPAGE="https://github.com/flyinghead/flycast"
 EGIT_REPO_URI="https://github.com/flyinghead/flycast"
-EGIT_SUBMODULES=( 'core/deps/asio' 'core/deps/breakpad' 'core/deps/libjuice' 'core/deps/libusb-cmake'
-	'core/deps/luabridge' 'core/deps/DreamPicoPort-API' 'core/deps/rcheevos' 'core/deps/volk'
-	'core/deps/xbyak' 'core/deps/VulkanMemoryAllocator' 'core/deps/tinygettext'
+EGIT_SUBMODULES=( 'core/deps/asio' 'core/deps/breakpad' 'core/deps/freetype' 'core/deps/libjuice'
+	'core/deps/libusb-cmake' 'core/deps/luabridge' 'core/deps/DreamPicoPort-API' 'core/deps/rcheevos'
+	'core/deps/volk' 'core/deps/xbyak' 'core/deps/VulkanMemoryAllocator' 'core/deps/tinygettext'
 	'core/deps/DreamPicoPort-API/ext/libusb-cmake' 'core/deps/tinygettext/external/tinycmmc' )
 
 LICENSE="GPL-2"
