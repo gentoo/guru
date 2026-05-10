@@ -145,7 +145,8 @@ src_prepare() {
 	ln -sr ../lua-* lib/lua/src || die
 
 	# delete ccache detection - already handled by portage
-	sed -i -e '/CCACHE_PROGRAM ccache/,+6d' CMakeLists.txt || die "Sed ccache broke !"
+	sed -i -e '/CCACHE_PROGRAM ccache/,+6d' CMakeLists.txt || die "Sed ccache1 broke !"
+	sed -i -e '/CCACHE_FOUND ccache/,+8d' lib/rapidjson/CMakeLists.txt || "Sed ccache2 broke !"
 
 	# disable doxygen automagic detection
 	# doyxgen doc generation seems anyway broken for now
