@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>gavrilostefanovic5@gmail.com</email>
+    <name>SGavrl</name>
+  </maintainer>
+  <longdescription>
+    Obscura is an open-source headless browser engine written in Rust,
+    built for web scraping and AI agent automation. It runs real JavaScript
+    via V8, supports the Chrome DevTools Protocol, and acts as a drop-in
+    replacement for headless Chrome with Puppeteer and Playwright.
+  </longdescription>
+  <use>
+    <flag name="stealth">Enable anti-fingerprinting and tracker blocking</flag>
+  </use>
+</pkgmetadata>
