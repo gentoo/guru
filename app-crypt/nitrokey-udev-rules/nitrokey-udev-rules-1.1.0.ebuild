@@ -25,6 +25,15 @@ src_install() {
 	udev_dorules 41-nitrokey.rules
 }
 
+src_test() {
+	# Default 'make check' depends on ruff and pyright, and checks the python
+	# rule generator script. Since upstream generates and includes the udev rules
+	# in the source tarball, this isn't necessary.
+	# Instead run 'udevadm verify', which makes more sense, and what upstream
+	# added as the 'verify' Makefile target post-1.1.0.
+	udevadm verify 41-nitrokey.rules
+}
+
 pkg_postinst() {
 	udev_reload
 }
