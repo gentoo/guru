@@ -3,6 +3,8 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.88.0"
+
 inherit cargo
 
 DESCRIPTION="Interactive find-and-replace in the terminal"
