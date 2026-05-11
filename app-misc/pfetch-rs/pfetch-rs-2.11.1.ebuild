@@ -206,3 +206,5 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="!app-misc/pfetch"
+
+QA_FLAGS_IGNORED="/usr/bin/pfetch"
