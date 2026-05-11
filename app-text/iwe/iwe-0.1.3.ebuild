@@ -20,6 +20,8 @@ LICENSE="Apache-2.0 BSD CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
+QA_FLAGS_IGNORED="usr/bin/iwe usr/bin/iwes"
+
 src_install() {
 	cargo_src_install --path crates/iwe
 	cargo_src_install --path crates/iwes
