@@ -51,6 +51,7 @@ src_install() {
 		cameraptzmidi.py \
 		cameraptzspnav.py \
 		cameraview.py
+	python_optimize
 
 	insinto "${site_packages}/CameraCtrls/images"
 	doins pkg/hu.irl.cameractrls.svg
