@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="msr-user-access"
 RESTRICT="bindist mirror strip"
-QA_FLAGS_IGNORED="usr/bin/occt opt/occt/occt"
+QA_PREBUILT="/opt/occt/occt"
 
 src_unpack() {
 	cp "${DISTDIR}"/"${P}".bin ./
