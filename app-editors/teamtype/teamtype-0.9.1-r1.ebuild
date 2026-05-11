@@ -45,7 +45,7 @@ src_install() {
 
 	doman target/manpages/*.1
 
-	dobashcomp target/completions/${PN}.bash
+	newbashcomp target/completions/${PN}.bash ${PN}
 	dofishcomp target/completions/${PN}.fish
 	dozshcomp target/completions/_${PN}
 }
