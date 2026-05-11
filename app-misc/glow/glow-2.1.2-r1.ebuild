@@ -18,6 +18,8 @@ LICENSE+=" Apache-2.0 BSD MIT "
 SLOT="0"
 KEYWORDS="~amd64"
 
+BDEPEND=">=dev-lang/go-1.25.9"
+
 src_compile(){
 	ego build -o bin/glow
 }
