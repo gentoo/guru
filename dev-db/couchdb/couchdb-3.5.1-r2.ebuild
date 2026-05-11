@@ -6,6 +6,7 @@ EAPI=8
 DESCRIPTION="Document-oriented NoSQL database"
 HOMEPAGE="https://couchdb.apache.org"
 SRC_URI="https://apache.org/dist/${PN}/source/${PV}/apache-${PN}-${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/apache-${PN}-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
