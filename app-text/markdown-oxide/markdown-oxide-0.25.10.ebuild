@@ -3,6 +3,8 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.81"
+
 inherit cargo
 
 DESCRIPTION="PKM Markdown Language Server"
@@ -15,6 +17,8 @@ SRC_URI="
 LICENSE="0BSD Apache-2.0 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
+
+QA_FLAGS_IGNORED="usr/bin/markdown-oxide"
 
 src_unpack() {
 	cargo_src_unpack
