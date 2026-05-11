@@ -19,6 +19,14 @@
 # New entries go on top.
 
 # David Roman <stkw0@disroot.org> (2026-04-26)
+# Missing components.Hard to package: upstream don't always make releases for new versions
+# Removal after 2026-06-11
+app-misc/aw-core
+app-misc/aw-client
+# revdep of aw-core
+dev-python/timeslot
+
+# David Roman <stkw0@disroot.org> (2026-04-26)
 # No revdeps. Unmaintained upstream
 # Removal after 2026-06-11
 dev-python/TakeTheTime
