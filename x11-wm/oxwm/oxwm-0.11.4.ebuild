@@ -16,7 +16,7 @@ inherit zig
 COMMIT="f699f6d1ff9e07cdd3831591bda84400e784b2c1"
 SRC_URI="https://codeload.github.com/tonybanters/oxwm/tar.gz/${COMMIT} -> ${P}.tar.gz
 	${ZBS_DEPENDENCIES_SRC_URI}"
-
+S="${WORKDIR}/${P}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -32,8 +32,6 @@ RDEPEND="
 
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
-
-S="${WORKDIR}/${P}"
 
 src_unpack() {
 	zig_src_unpack
