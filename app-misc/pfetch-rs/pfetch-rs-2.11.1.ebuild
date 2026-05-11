@@ -205,6 +205,9 @@ LICENSE+=" Apache-2.0 BSD GPL-3 ISC MIT MPL-2.0 Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="!app-misc/pfetch"
+RDEPEND="
+	dev-db/sqlite
+	!app-misc/pfetch
+"
 
 QA_FLAGS_IGNORED="/usr/bin/pfetch"
