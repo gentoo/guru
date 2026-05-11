@@ -3,6 +3,8 @@
 
 EAPI=8
 
+KFMIN=5.240.0
+
 inherit ecm linux-info optfeature toolchain-funcs xdg-utils
 
 DESCRIPTION="Core control application"
