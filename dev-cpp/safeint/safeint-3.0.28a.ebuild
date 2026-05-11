@@ -21,6 +21,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-3.0.28a-install-the-library.patch"
 	"${FILESDIR}/${PN}-3.0.28a-make-tests-optional.patch"
 	"${FILESDIR}/${PN}-3.0.28a-remove-broken-tests.patch"
+	"${FILESDIR}/${PN}-3.0.28a-strip-O3.patch"
 )
 
 src_configure() {

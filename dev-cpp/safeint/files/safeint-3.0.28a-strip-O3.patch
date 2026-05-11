@@ -1,0 +1,28 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Strip `-O3`.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/Test/ClangTest/CMakeLists.txt
++++ b/Test/ClangTest/CMakeLists.txt
+@@ -26,7 +26,7 @@ else()
+     set(CMAKE_CXX_COMPILER ${CLANG_PLUS_PLUS})
+ 
+     # the standard level is already at C++11, which is what we need for runtime tests
+-    add_compile_options(-O3 -ftrapv)
++    add_compile_options(-ftrapv)
+ 
+     # Note - the test matrix here is as follows:
+     # int128 is available (best case)
+--- a/Test/GccTest/CMakeLists.txt
++++ b/Test/GccTest/CMakeLists.txt
+@@ -31,7 +31,7 @@ else()
+     message(STATUS "g++ available, configuring g++ tests")
+     set(CMAKE_CXX_COMPILER ${GCC_PLUS_PLUS})
+     # the standard level is already at C++11, which is what we need for runtime tests
+-    add_compile_options(-O3 -ftrapv)
++    add_compile_options(-ftrapv)
+ 
+     # Note - -fsanitize=undefined isn't currently working with g++ and cmake
+     # if you go build from the old makefile in Test/GccTest, it does work
+
