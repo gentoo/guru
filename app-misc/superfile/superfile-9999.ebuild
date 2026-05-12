@@ -26,6 +26,11 @@ LICENSE="MIT"
 LICENSE+=" Apache-2.0 BSD-2 BSD GPL-3 ISC MIT MPL-2.0 "
 
 SLOT="0"
+# currently tests are disabled because superfile tends to create files in places it should not:
+# https://gist.githubusercontent.com/ingenarel/d1bc358ee532d5d3a50f5cc19c429253/raw
+# on top of that it has failed tests, tests depend on zoxide, tmux, python, a few python modules
+# the goal is to work on a src_test function slowly and bring back tests again
+RESTRICT="test"
 BDEPEND=">=dev-lang/go-1.25.5"
 
 src_unpack() {
