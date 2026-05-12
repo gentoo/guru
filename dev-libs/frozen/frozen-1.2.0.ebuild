@@ -17,6 +17,7 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.2.0-bump-minimum-required-CMake-version.patch"
+	"${FILESDIR}/${PN}-1.2.0-strip-Werror.patch"
 )
 
 src_configure() {
