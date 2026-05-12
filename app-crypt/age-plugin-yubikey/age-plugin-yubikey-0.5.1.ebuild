@@ -26,3 +26,5 @@ DEPEND="sys-apps/pcsc-lite"
 RDEPEND="${DEPEND}"
 
 ECARGO_VENDOR="${WORKDIR}/vendor"
+
+QA_FLAGS_IGNORED="/usr/bin/${PN}"

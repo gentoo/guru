@@ -22,6 +22,11 @@ KEYWORDS="~amd64 ~arm64"
 
 ECARGO_VENDOR="${WORKDIR}/vendor"
 
+QA_FLAGS_IGNORED="
+	/usr/bin/${PN}
+	/usr/bin/${PN}-keygen
+"
+
 src_install() {
 cargo_src_install --path rage
 }
