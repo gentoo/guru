@@ -24,6 +24,10 @@ BDEPEND="
 	man? ( app-text/ronn-ng )
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-4.1.1-bump-minimum-required-CMake-version.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DZYAN_SYSTEM_ZYCORE=yes
