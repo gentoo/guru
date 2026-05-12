@@ -35,7 +35,7 @@ src_install() {
     # Install example config (dnss.conf is in the root of S)
     if [[ -f "${S}/dnss.conf" ]]; then
         insinto /etc
-        newins "${S}/dnss.conf" dnss.conf.example
+        newins "${S}/pkg/aur/systemd/dnss.conf" dnss.conf.example
         elog "Installed example config as /etc/dnss.conf.example"
     else
         ewarn "dnss.conf not found in ${S}"

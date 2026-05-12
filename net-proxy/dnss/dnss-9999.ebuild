@@ -35,7 +35,7 @@ src_install() {
         newins dnss.conf dnss.conf.example
     fi
 
-    if use systemd && [[ -f dnss.service ]]; then
+    if use systemd && [[ -f pkg/aur/systemd/dnss.service ]]; then
         systemd_dounit dnss.service
     fi
 
