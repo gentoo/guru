@@ -15,43 +15,41 @@ KEYWORDS="~amd64"
 IUSE="openrc systemd"
 
 RDEPEND="
-    openrc? ( sys-apps/openrc )
-    systemd? ( sys-apps/systemd )
+	openrc? ( sys-apps/openrc )
+	systemd? ( sys-apps/systemd )
 "
-
 DEPEND="${RDEPEND}"
 
 SRC_URI="https://codeberg.org/zacoons/dnss/archive/${PV}.tar.gz -> ${P}.tar.gz"
-
 S="${WORKDIR}/dnss"
 
 src_compile() {
-    ezig build --release=fast
+	ezig build --release=fast
 }
 
 src_install() {
-    zig_src_install
+	zig_src_install
 
-    # Install example config (dnss.conf is in the root of S)
-    if [[ -f "${S}/dnss.conf" ]]; then
-        insinto /etc
-        newins "${S}/pkg/aur/systemd/dnss.conf" dnss.conf.example
-        elog "Installed example config as /etc/dnss.conf.example"
-    else
-        ewarn "dnss.conf not found in ${S}"
-    fi
+	# Example config
+	if [[ ! -f "${S}/example.dnss.conf" ]]; then
+		die "example.dnss.conf not found"
+	fi
+	insinto /etc
+	newins "${S}/example.dnss.conf" dnss.conf.example
 
-    if use systemd && [[ -f "${S}/dnss.service" ]]; then
-        systemd_dounit "${S}/dnss.service"
-        elog "Installed systemd service"
-    elif use systemd; then
-        ewarn "dnss.service not found"
-    fi
+	# systemd service
+	if use systemd; then
+		if [[ ! -f "${S}/pkg/aur/systemd/dnss.service" ]]; then
+			die "systemd service file not found at pkg/aur/systemd/dnss.service"
+		fi
+		systemd_dounit "${S}/pkg/aur/systemd/dnss.service"
+	fi
 
-    if use openrc && [[ -f "${S}/pkg/aur/openrc/dnss" ]]; then
-        newinitd "${S}/pkg/aur/openrc/dnss" dnss
-        elog "Installed OpenRC init script"
-    elif use openrc; then
-        ewarn "OpenRC script not found at pkg/aur/openrc/dnss"
-    fi
+	# OpenRC init script
+	if use openrc; then
+		if [[ ! -f "${S}/pkg/aur/openrc/dnss.service" ]]; then
+			die "OpenRC script not found at pkg/aur/openrc/dnss"
+		fi
+		newinitd "${S}/pkg/aur/openrc/dnss" dnss
+	fi
 }
