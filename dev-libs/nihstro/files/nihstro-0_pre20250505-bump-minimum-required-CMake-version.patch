@@ -1,0 +1,14 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Bump minimum required CMake version.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.6)
++cmake_minimum_required(VERSION 3.10)
+ 
+ project(nihstro)
+ 
+
