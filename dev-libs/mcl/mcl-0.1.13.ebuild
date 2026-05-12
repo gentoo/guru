@@ -31,6 +31,7 @@ PATCHES=(
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test)
+		-DMCL_WARNINGS_AS_ERRORS=no
 	)
 
 	cmake_src_configure
