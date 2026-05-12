@@ -6,7 +6,7 @@ EAPI=8
 DESCRIPTION="A dynamic tiling Wayland compositor"
 HOMEPAGE="https://isaacfreund.com/software/river/ https://codeberg.org/river/river"
 
-ZIG_SLOT="0.15"
+ZIG_SLOT="0.16"
 inherit eapi9-ver zig
 
 if [[ "${PV}" = "9999" ]]; then
@@ -55,7 +55,7 @@ PATCHES=(
 src_unpack() {
 	if [[ "${PV}" = "9999" ]]; then
 		git-r3_src_unpack
-		zig_live_fetch
+		zig_live_src_unpack
 	else
 		zig_src_unpack
 	fi
