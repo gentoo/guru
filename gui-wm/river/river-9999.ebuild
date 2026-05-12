@@ -65,6 +65,7 @@ src_configure() {
 	local my_zbs_args=(
 		-Dstrip=false # Let Portage control this
 		-Dpie=true
+		-Dllvm=$(usex llvm true false)
 		-Dman-pages=$(usex man true false)
 		-Dxwayland=$(usex X true false)
 	)
