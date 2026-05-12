@@ -1,0 +1,14 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Bump minimum required CMake version.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.8)
++cmake_minimum_required(VERSION 3.10)
+ project(microprofile)
+ 
+ option(MICROPROFILE_USE_CONFIG_FILE "Use user provided configuration in microprofile.config.h file." OFF)
+

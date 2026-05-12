@@ -15,3 +15,7 @@ KEYWORDS="~amd64"
 
 DEPEND="dev-libs/stb"
 BDEPEND="virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-4.0-bump-minimum-required-CMake-version.patch"
+)
