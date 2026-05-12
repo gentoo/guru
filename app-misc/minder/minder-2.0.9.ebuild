@@ -26,6 +26,7 @@ RDEPEND="
 	dev-libs/glib
 	dev-libs/libgee
 	dev-libs/libxml2
+	media-libs/libwebp
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf
 	x11-libs/gtk+
