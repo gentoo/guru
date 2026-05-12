@@ -27,6 +27,8 @@ QA_FLAGS_IGNORED="
 	/usr/bin/${PN}-keygen
 "
 
+PATCHES=( "${FILESDIR}/${P}-keygen-test.patch" )
+
 src_install() {
 cargo_src_install --path rage
 }
