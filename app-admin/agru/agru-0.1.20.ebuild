@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,8 +10,10 @@ HOMEPAGE="https://github.com/etkecc/agru"
 
 SRC_URI="
 	https://github.com/etkecc/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://xwaretech.info/agru-${PV}-deps.tar.xz
+	https://xwaretech.info/godeps/agru-${PV}-deps.tar.xz
 "
+
+BDEPEND=">=dev-lang/go-1.25.0"
 
 LICENSE="AGPL-3"
 SLOT="0"
