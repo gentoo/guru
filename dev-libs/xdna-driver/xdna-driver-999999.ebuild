@@ -158,14 +158,10 @@ src_install() {
 		popd &>/dev/null || die
 	fi
 
-	insinto /usr/lib/modules-load.d
+	# Prefer out-of-tree driver over kernel/drivers/accel/amdxdna/amdxdna.ko
+	insinto /etc/depmod.d
 	newins - amdxdna.conf <<-EOF
-		amdxdna
-	EOF
-
-	insinto /etc/modprobe.d
-	newins - amdxdna.conf <<-EOF
-		install amdxdna /sbin/insmod /lib/modules/\$(uname -r)/extra/amdxdna.ko* \$CMDLINE_OPTS
+		override amdxdna * extra
 	EOF
 
 	linux-mod-r1_src_install
