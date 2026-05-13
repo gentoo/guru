@@ -8,7 +8,7 @@ inherit go-module
 DESCRIPTION="Mass repository cloning tool for GitHub/GitLab/Bitbucket"
 HOMEPAGE="https://github.com/gabrie30/ghorg"
 SRC_URI="https://github.com/gabrie30/ghorg/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	http://joecool.ftfuchs.com/godeps/${P}-vendor.tar.xz"
+	https://xwaretech.info/godeps/${P}-vendor.tar.xz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
