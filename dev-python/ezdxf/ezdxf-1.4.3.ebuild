@@ -4,6 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{12..14} )
+DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 pypi
 
@@ -24,4 +25,7 @@ RDEPEND="
 	dev-python/numpy[${PYTHON_USEDEP}]
 	dev-python/fonttools[${PYTHON_USEDEP}]
 "
-BDEPEND="${RDEPEND}"
+BDEPEND="
+	${RDEPEND}
+	dev-python/cython[${PYTHON_USEDEP}]
+"
