@@ -75,10 +75,6 @@ BDEPEND+="
 	")
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0_p20251025-fix-clang.patch
-)
-
 CONFIG_CHECK="~AMD_IOMMU ~DRM_ACCEL"
 
 python_check_deps() {
@@ -138,6 +134,8 @@ src_prepare() {
 	sed -e "/Unknown Linux package flavor/ s/FATAL_ERROR/MESSAGE/" -i "CMake/pkg.cmake" || die
 
 	sed -e "s/set (XRT_UPSTREAM 0)/set (XRT_UPSTREAM 1)/" -i xrt/src/CMake/settings.cmake || die
+
+	sed -e 's/"-Werror"//' -i src/shim/CMakeLists.txt || die
 
 	cmake_src_prepare
 }

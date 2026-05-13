@@ -77,6 +77,7 @@ BDEPEND+="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0_p20251025-fix-clang.patch
+	"${FILESDIR}"/${PN}-2.21.75-gcc-16.patch
 )
 
 CONFIG_CHECK="~AMD_IOMMU ~DRM_ACCEL"
