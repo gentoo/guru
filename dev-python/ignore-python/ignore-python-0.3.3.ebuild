@@ -7,6 +7,8 @@ DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=maturin
 PYTHON_COMPAT=(python3_{12..14})
 
+RUST_MIN_VER="1.85.0"
+
 inherit cargo distutils-r1
 
 DESCRIPTION="Rust ignore crate Python bindings"
@@ -22,6 +24,8 @@ SRC_URI="
 LICENSE="MIT Unicode-3.0 Apache-2.0-with-LLVM-exceptions"
 SLOT="0"
 KEYWORDS="~amd64"
+
+QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/ignore/ignore.*.so"
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
