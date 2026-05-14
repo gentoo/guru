@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 if [[ "${PV}" = "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.sr.ht/~sircmpwn/hare-update"
@@ -25,4 +27,8 @@ src_prepare() {
 	default
 
 	sed -i "s;^PREFIX=.*;PREFIX=${EPREFIX}/usr;" Makefile || die
+}
+
+src_configure() {
+	tc-export AS LD CC AR
 }
