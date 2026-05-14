@@ -109,6 +109,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+QA_FLAGS_IGNORED="usr/bin/${PN}"
+
 src_compile() {
 	cargo_src_compile --bin="${PN}"
 	# Install shell-complete binary into target directory to be able to
