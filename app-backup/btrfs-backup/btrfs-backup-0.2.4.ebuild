@@ -122,7 +122,7 @@ src_install() {
 	cargo_src_install --bin="${PN}"
 
 	"$(cargo_target_dir)"/bin/shell-complete bash > "${PN}.bash" || die
-	dobashcomp "${PN}.bash"
+	newbashcomp "${PN}.bash" "${PN}"
 
 	"$(cargo_target_dir)"/bin/shell-complete fish >> "${PN}.fish" || die
 	dofishcomp "${PN}.fish"
