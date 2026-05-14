@@ -750,6 +750,8 @@ KEYWORDS="~amd64"
 IUSE="dev-bins +embed-plugins +plugins gui"
 REQUIRED_USE="embed-plugins? ( plugins )"
 
+RESTRICT="test" # interactive
+
 src_prepare() {
 	default
 
