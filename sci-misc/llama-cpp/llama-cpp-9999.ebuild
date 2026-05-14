@@ -102,6 +102,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DLLAMA_BUILD_WEBUI=OFF
 		-DLLAMA_BUILD_TESTS=OFF
 		-DLLAMA_BUILD_EXAMPLES=$(usex examples)
 		-DLLAMA_BUILD_SERVER=ON
