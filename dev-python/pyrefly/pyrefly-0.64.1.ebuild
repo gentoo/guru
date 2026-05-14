@@ -512,4 +512,24 @@ src_configure() {
 	export ZSTD_SYS_USE_PKG_CONFIG=1
 
 	cargo_src_configure
+
+}
+
+src_test() {
+	local -x CONFIG_DOC_PATH="${WORKDIR}/${P}/website/docs/configuration.mdx"
+	local -x ERROR_KINDS_DOC_PATH="${WORKDIR}/${P}/website/docs/error-kinds.mdx"
+
+	local -x TEST_FILES_PATH="${S}/lib/test/lsp/lsp_interaction/test_files"
+
+	local -x PYDANTIC_TEST_PATH="${S}/lib/test/pydantic/third-party"
+	local -x DJANGO_TEST_PATH="${S}/lib/test/django/third-party"
+	local -x FACTORY_BOY_TEST_PATH="${S}/lib/test/factory_boy/third-party"
+	local -x ATTRS_TEST_PATH="${S}/lib/test/attrs/third-party"
+	local -x MARSHMALLOW_TEST_PATH="${S}/lib/test/marshmallow/third-party"
+
+	local -x GLEAN_SNAPSHOTS_PATH="${S}/lib/report/glean/snapshots"
+	local -x REPORT_TEST_PATH="${S}/lib/test/report/test_files"
+	local -x STUBGEN_TEST_PATH="${S}/lib/test/stubgen"
+
+	cargo_src_test --no-fail-fast
 }
