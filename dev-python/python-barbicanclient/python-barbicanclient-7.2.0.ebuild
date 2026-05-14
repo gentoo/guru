@@ -20,15 +20,35 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
-	>dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
+	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.14.2[${PYTHON_USEDEP}]
 	>=dev-python/cliff-2.8.0[${PYTHON_USEDEP}]
 	>=dev-python/keystoneauth1-5.1.1[${PYTHON_USEDEP}]
 	>=dev-python/oslo-i18n-3.15.3[${PYTHON_USEDEP}]
-	>dev-python/oslo-serialization-2.18.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-serialization-2.18.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-utils-3.33.0[${PYTHON_USEDEP}]
+"
+
+BDEPEND="
+	test? (
+		>=dev-python/coverage-4.1[${PYTHON_USEDEP}]
+		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
+		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
+		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
+		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
+		>=dev-python/oslo-config-5.2.0[${PYTHON_USEDEP}]
+	)
 "
 
 src_prepare() {
 	distutils-r1_src_prepare
 }
+
+EPYTEST_PLUGINS=()
+
+EPYTEST_IGNORE=(
+	# Requires access to cloud instance
+	functionaltests/
+)
+
+distutils_enable_tests pytest
