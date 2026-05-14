@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 if [[ "${PV}" = "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.sr.ht/~sircmpwn/himitsu-ssh"
@@ -31,6 +33,8 @@ QA_FLAGS_IGNORED=".*"
 
 src_configure() {
 	sed -i 's;^PREFIX=.*;PREFIX=/usr;' Makefile || die
+
+	tc-export AS LD CC AR
 }
 
 src_test() {
