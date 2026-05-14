@@ -53,6 +53,7 @@ CDEPEND="
 	)
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 	webp? ( media-libs/libwebp )
+	webm? ( media-libs/libwebm )
 "
 DEPEND="${CDEPEND}
 	opencl? ( dev-util/opencl-headers )
@@ -94,7 +95,7 @@ src_configure() {
 		-DSD_WEBP=$(usex webp)
 		-DSD_USE_SYSTEM_WEBP=$(usex webp)
 		-DSD_WEBM=$(usex webm)
-
+		-DSD_USE_SYSTEM_WEBM=$(usex webm)
 		-DSD_VULKAN=$(usex vulkan)
 
 		# avoid clashing with whisper.cpp
