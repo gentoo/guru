@@ -39,9 +39,3 @@ src_prepare() {
 		mv "${WORKDIR}/${TT_P}" toml-test || die
 	fi
 }
-
-src_install() {
-	distutils-r1_src_install
-
-	dodoc LICENSE
-}
