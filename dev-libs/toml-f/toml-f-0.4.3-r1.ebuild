@@ -25,10 +25,15 @@ DEPEND="
 src_prepare() {
 	default
 
-	if ! use test ; then
-		sed -i -e '/^enable_testing()/d' \
-		-e '/^add_subdirectory("test")/d' CMakeLists.txt || die
-	fi
+	sed -i -e '/^cmake_minimum_required/s/VERSION 3.9/VERSION 3.10/' \
+		 CMakeLists.txt || die
 
 	cmake_src_prepare
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DBUILD_TESTING=$(usex test ON OFF)
+	)
+	cmake_src_configure
 }
