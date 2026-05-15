@@ -5,6 +5,8 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.95.0"
+
 CRATES="
 	addr2line@0.25.1
 	adler2@2.0.1
@@ -236,3 +238,7 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
+
+QA_FLAGS_IGNORED="
+	usr/bin/qview
+"
