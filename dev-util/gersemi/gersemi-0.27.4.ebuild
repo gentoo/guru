@@ -67,6 +67,8 @@ BDEPEND="
 	)
 "
 
+QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/gersemi.*.so"
+
 EPYTEST_DESELECT=(
 	tests/test_configuration.py::test_schema_in_repository_is_consistent_with_configuration_definition
 )
