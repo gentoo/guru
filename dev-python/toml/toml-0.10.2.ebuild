@@ -32,13 +32,16 @@ RDEPEND="dev-python/numpy[${PYTHON_USEDEP}]"
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
+src_prepare() {
+	distutils-r1_src_prepare
+
+	if use test; then
+		mv "${WORKDIR}/${TT_P}" toml-test || die
+	fi
+}
+
 src_install() {
 	distutils-r1_src_install
 
 	dodoc LICENSE
-}
-
-python_test() {
-	mv "${WORKDIR}/${TT_P}" toml-test || die
-	epytest
 }
