@@ -31,8 +31,7 @@ src_test() {
 }
 
 src_install() {
-	dobin ${PN}
-
-	DOCS=( LICENSE README.md )
 	default
+
+	dobin ${PN}
 }
