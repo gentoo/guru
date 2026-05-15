@@ -1,0 +1,16 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Strip `-Werror`.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/configure.ac
++++ b/configure.ac
+@@ -89,6 +89,6 @@ AC_CHECK_FUNCS([memmove memset regcomp select socket strcasecmp strncasecmp strc
+ 
+ AC_CONFIG_FILES([Makefile src/Makefile include/Makefile])
+ 
+-CFLAGS="${CFLAGS} -Wall -Werror"
++CFLAGS="${CFLAGS} -Wall"
+ 
+ AC_OUTPUT
+

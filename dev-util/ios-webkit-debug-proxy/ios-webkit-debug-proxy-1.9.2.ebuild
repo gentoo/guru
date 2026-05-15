@@ -22,7 +22,8 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.9.1-dont-build-examples.patch
+	"${FILESDIR}/${PN}-1.9.1-dont-build-examples.patch"
+	"${FILESDIR}/${PN}-1.9.2-strip-Werror.patch"
 )
 
 src_prepare() {
