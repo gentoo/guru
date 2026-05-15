@@ -36,7 +36,7 @@ src_unpack() {
 
 src_compile() {
 	ego build -trimpath -buildmode=pie -mod=readonly -modcacherw -ldflags \
-		"-s -w -linkmode external -extldflags \"${LDFLAGS}\" -X 'main.Version=${PV}'" \
+		"-linkmode external -extldflags \"${LDFLAGS}\" -X 'main.Version=${PV}'" \
 		-o _minify ./cmd/minify
 }
 
