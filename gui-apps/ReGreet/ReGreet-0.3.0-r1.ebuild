@@ -288,6 +288,8 @@ SLOT="0"
 
 KEYWORDS="~amd64"
 
+QA_FLAGS_IGNORED="usr/bin/regreet"
+
 RDEPEND="
 	dev-libs/glib
 	gui-libs/greetd
