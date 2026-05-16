@@ -21,6 +21,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	dev-libs/glib:2
 	gui-libs/gtk:4
 	gui-libs/libadwaita:1
 "
