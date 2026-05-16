@@ -19,7 +19,7 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	media-libs/imgui
+	media-libs/imgui[${MULTILIB_USEDEP}]
 "
 
 BDEPEND="
