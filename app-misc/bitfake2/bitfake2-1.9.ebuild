@@ -7,7 +7,7 @@ inherit toolchain-funcs
 
 DESCRIPTION="Audio tool using FFTW and libebur128"
 HOMEPAGE="https://github.com/ray17x/bitfake2"
-SRC_URI="https://github.com/ray17x/bitfake2/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ray17x/bitfake2/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -18,7 +18,8 @@ RDEPEND="
 	sci-libs/fftw:3.0
 	media-libs/libebur128
 	media-libs/libsndfile
-	media-video/ffmpeg:=
+	media-video/ffmpeg[lame(+),vorbis(+),opus(+)]
+	net-misc/curl
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
