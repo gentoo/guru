@@ -19,7 +19,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 BDEPEND="
-	>=dev-lang/go-1.23.1
+	>=dev-lang/go-1.25.0
 "
 
 DOCS=(
@@ -32,7 +32,7 @@ HTML_DOCS=(
 src_compile() {
 	pushd "cmd/${PN}"
 	ego generate ./...
-	ego build -ldflags="-s -w" -tags release
+	ego build -tags release
 }
 
 src_install() {
