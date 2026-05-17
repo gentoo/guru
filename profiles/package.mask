@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Takuya Wakazono <pastalian46@gmail.com> (2026-05-17)
+# Depends on Qt5. Qt6 port is supposedly coming soon.
+# https://github.com/meganz/MEGAsync/issues/954
+# Bug #948836.
+net-misc/megasync
+
 # David Roman <stkw0@disroot.org> (2026-05-13)
 # No new releases since 2023. It is a dep of a package that was never added.
 # Removal after 2026-06-13
