@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{12..14} )
 
-inherit distutils-r1 meson udev git-r3
+inherit distutils-r1 meson udev xdg git-r3
 
 DESCRIPTION="Steering Wheel Manager for Linux"
 HOMEPAGE="https://github.com/berarma/oversteer"
