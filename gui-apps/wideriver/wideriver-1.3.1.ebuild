@@ -24,6 +24,16 @@ BDEPEND="
 	test? ( dev-util/cmocka )
 "
 
+src_prepare() {
+	default
+	sed \
+		--in-place \
+		--expression='s/-Werror//g' \
+		--expression='/^DFLAGS/d' \
+		--expression='/^OFLAGS/d' \
+		config.mk || die
+}
+
 src_install() {
 	emake PREFIX="/usr" DESTDIR="${D}" install
 	dodoc README.md

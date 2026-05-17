@@ -24,14 +24,7 @@ BDEPEND="
 	test? ( dev-util/cmocka )
 "
 
-src_prepare() {
-	default
-	sed \
-		--in-place \
-		--expression='s/-Werror//g' \
-		--expression='/^DFLAGS/d' \
-		--expression='/^OFLAGS/d' \
-		config.mk || die
+src_compile() {
 }
 
 src_install() {
