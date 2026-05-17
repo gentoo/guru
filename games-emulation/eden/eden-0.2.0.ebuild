@@ -129,8 +129,10 @@ src_prepare() {
 		fi
 	done
 
-	einfo "removing sources: ${remove[*]}"
-	rm -r "${remove[@]}" || die
+	if (( ${#remove[@]} > 0 )); then
+		einfo "removing sources: ${remove[*]}"
+		rm -r "${remove[@]}" || die
+	fi
 
 	cmake_src_prepare
 }
