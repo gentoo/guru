@@ -777,7 +777,8 @@ declare -A GIT_CRATES=(
 	[winit]='https://github.com/pop-os/winit;dd46a1499bcc38f2134ab869e8860a32e091c55b;winit-%commit%'
 )
 
-LLVM_COMPAT=( 18 19 20 21 )
+LLVM_COMPAT=( 20 21 22 )
+RUST_MIN_VER="1.89.0"
 RUST_NEEDS_LLVM=1
 
 inherit cargo llvm-r1 systemd
