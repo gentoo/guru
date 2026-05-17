@@ -13,7 +13,7 @@ KEYWORDS="~amd64"
 IUSE="+man"
 
 RDEPEND="
-	>=gui-libs/wlroots-0.18.0
+	|| ( ~gui-libs/wlroots-0.18.0 ~gui-libs/wlroots-0.19.0 )
 	>=x11-base/xwayland-24.1.8
 "
 
