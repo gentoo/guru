@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake xdg toolchain-funcs
+inherit cmake xdg toolchain-funcs optfeature
 
 _TZDB_VER=121125
 
@@ -215,4 +215,11 @@ src_test() {
 
 	# See https://git.eden-emu.dev/eden-emu/eden/issues/126
 	./bin/tests "~Fibers::InterExchange" "~RingBuffer: Threaded Test" || die
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+
+	optfeature_header "SDL requires HIDRAW access for many controller gyroscopes to work."
+	optfeature "HIDRAW support" games-util/game-device-udev-rules
 }
