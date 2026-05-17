@@ -32,8 +32,8 @@ S="${WORKDIR}/dolphin-${LIBRETRO_COMMIT_SHA}"
 LICENSE="GPL-2+ BSD BSD-2 LGPL-2.1+ MIT ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bluetooth egl +evdev log"
-RESTRICT="test" # Upstream disables tests for Libretro
+IUSE="bluetooth egl +evdev log test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	app-arch/bzip2:=
@@ -76,9 +76,11 @@ DEPEND="
 "
 BDEPEND="
 	virtual/pkgconfig
+	test? ( dev-cpp/gtest )
 "
 
 PATCHES=(
+	"${FILESDIR}/${PN}-0.0.1_pre20260409-allow-running-tests.patch"
 	"${FILESDIR}/${PN}-0.0.1_pre20260409-use-more-system-libraries.patch"
 )
 
@@ -135,6 +137,7 @@ src_configure() {
 		-DENABLE_EVDEV=$(usex evdev)
 		-DENABLE_LTO=no # just adds -flto, user can do that via flags
 		-DENABLE_NOGUI=no
+		-DENABLE_TESTS=$(usex test)
 		-DFASTLOG=$(usex log)
 
 		# Undo cmake.eclass's defaults.
@@ -153,6 +156,10 @@ src_configure() {
 
 src_compile() {
 	cmake_src_compile
+}
+
+src_test() {
+	cmake_build unittests
 }
 
 src_install() {
