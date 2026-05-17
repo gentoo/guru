@@ -17,9 +17,6 @@ HOMEPAGE="https://github.com/libretro/dolphin"
 
 CPPIPC_COMMIT="ab4e5bd18e554aaa4503a0c6f6174d9bbfb11b42" # v1.4.1
 CPPOPTPARSE_COMMIT="2265d647232249a53a03b411099863ceca35f0d3"
-IMGUI_COMMIT="45acd5e0e82f4c954432533ae9985ff0e1aad6d5" # v1.92.2b
-IMPLOT_COMMIT="3da8bd34299965d3b0ab124df743fe3e076fa222"
-TINYGLTF_COMMIT="c5641f2c22d117da7971504591a8f6a41ece488b"
 WATCHER_COMMIT="06f84a1314be18f5e697ebbf28c0fab2d17c9c39" #v0.14.5
 SRC_URI="
 	https://github.com/libretro/dolphin/archive/${LIBRETRO_COMMIT_SHA}.tar.gz -> ${P}.tar.gz
@@ -27,12 +24,6 @@ SRC_URI="
 		-> cpp-ipc-${CPPIPC_COMMIT}.tar.gz
 	https://github.com/weisslj/cpp-optparse/archive/${CPPOPTPARSE_COMMIT}.tar.gz
 		-> cpp-optparse-${CPPOPTPARSE_COMMIT}.tar.gz
-	https://github.com/ocornut/imgui/archive/${IMGUI_COMMIT}.tar.gz
-		-> imgui-${IMGUI_COMMIT}.tar.gz
-	https://github.com/epezent/implot/archive/${IMPLOT_COMMIT}.tar.gz
-		-> implot-${IMPLOT_COMMIT}.tar.gz
-	https://github.com/syoyo/tinygltf/archive/${TINYGLTF_COMMIT}.tar.gz
-		-> tinygltf-${TINYGLTF_COMMIT}.tar.gz
 	https://github.com/e-dant/watcher/archive/${WATCHER_COMMIT}.tar.gz
 		-> watcher-${WATCHER_COMMIT}.tar.gz
 "
@@ -57,6 +48,8 @@ RDEPEND="
 	dev-util/glslang:=
 	games-emulation/libretro-info
 	media-libs/cubeb
+	>=media-libs/imgui-1.92
+	media-libs/implot:0/0.17
 	>=media-libs/libsfml-3.0:=
 	media-libs/libspng
 	net-libs/enet
@@ -76,6 +69,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
+	dev-cpp/tinygltf
 	dev-util/vulkan-headers
 	media-libs/VulkanMemoryAllocator
 	egl? ( media-libs/libglvnd )
@@ -84,14 +78,15 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-0.0.1_pre20260409-use-more-system-libraries.patch"
+)
+
 # [directory]=license
 declare -A KEEP_BUNDLED=(
 	# Please keep this list in `CMakeLists.txt` order
 	[Bochs_disasm]=LGPL-2.1+
 	[cpp-optparse]=MIT
-	[imgui]=MIT
-	[implot]=MIT
-	[tinygltf]=MIT
 	[FreeSurround]=GPL-2+
 	[curl]=curl # Intentionally static for Libretro
 	[picojson]=BSD-2
@@ -112,18 +107,10 @@ add_bundled_licenses
 src_prepare() {
 	mv -T "${WORKDIR}/cpp-ipc-${CPPIPC_COMMIT}" "Externals/cpp-ipc/cpp-ipc" || die
 	mv -T "${WORKDIR}/cpp-optparse-${CPPOPTPARSE_COMMIT}" "Externals/cpp-optparse/cpp-optparse" || die
-	mv -T "${WORKDIR}/imgui-${IMGUI_COMMIT}" "Externals/imgui/imgui" || die
-	mv -T "${WORKDIR}/implot-${IMPLOT_COMMIT}" "Externals/implot/implot" || die
-	mv -T "${WORKDIR}/tinygltf-${TINYGLTF_COMMIT}" "Externals/tinygltf/tinygltf" || die
 	mv -T "${WORKDIR}/watcher-${WATCHER_COMMIT}" "Externals/watcher/watcher" || die
 
 	# Avoid QA notices about CMake compatibility
 	rm -rf "Externals/cpp-ipc/cpp-ipc/3rdparty/gtest" || die
-	rm -rf "Externals/imgui/imgui/examples" || die
-	rm -rf "Externals/implot/implot/.github" || die
-	rm -rf "Externals/tinygltf/tinygltf/examples" || die
-	sed -i "s/\(cmake_minimum_required\).*/\1(VERSION 3.10)/" \
-		"Externals/tinygltf/tinygltf/CMakeLists.txt" || die
 
 	cmake_src_prepare
 
