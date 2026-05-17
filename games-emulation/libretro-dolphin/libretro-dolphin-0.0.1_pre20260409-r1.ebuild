@@ -41,8 +41,7 @@ S="${WORKDIR}/dolphin-${LIBRETRO_COMMIT_SHA}"
 LICENSE="GPL-2+ BSD BSD-2 LGPL-2.1+ MIT ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bluetooth egl +evdev log systemd"
-IUSE+=" debug"
+IUSE="bluetooth egl +evdev log"
 RESTRICT="test" # Upstream disables tests for Libretro
 
 RDEPEND="
@@ -75,7 +74,6 @@ RDEPEND="
 		dev-libs/libevdev
 		virtual/libudev
 	)
-	systemd? ( sys-apps/systemd:0= )
 "
 DEPEND="
 	${RDEPEND}
