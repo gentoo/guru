@@ -55,7 +55,6 @@ RDEPEND="
 	dev-libs/pugixml
 	dev-libs/xxhash
 	dev-util/glslang:=
-	dev-util/vulkan-headers
 	games-emulation/libretro-info
 	media-libs/cubeb
 	>=media-libs/libsfml-3.0:=
