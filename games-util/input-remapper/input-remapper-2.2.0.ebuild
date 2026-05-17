@@ -35,6 +35,7 @@ RDEPEND="
 		dev-python/psutil[${PYTHON_USEDEP}]
 		>=dev-python/evdev-1.3.0[${PYTHON_USEDEP}]
 		dev-python/setuptools[${PYTHON_USEDEP}]
+		dev-python/pkg-resources[${PYTHON_USEDEP}]
 	')
 	virtual/udev
 "
@@ -97,4 +98,12 @@ pkg_postinst() {
 
 pkg_postrm() {
 	udev_reload
+}
+
+pkg_postinst() {
+		einfo ""
+		einfo "This version of input-remapper relies on reprecated dependencies (dev-python/pkg-resources) and additionally cannot support python 3.14."
+		einfo ""
+		einfo "It is recommended to switch to the live ebuild, where both of these issues have been fixed, until the author releases a new version."
+		einfo ""
 }
