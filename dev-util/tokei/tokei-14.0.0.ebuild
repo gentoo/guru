@@ -5,7 +5,8 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.71.1"
+# bug #975048: dependencies needs newer Rust than version specified by tokei.
+RUST_MIN_VER="1.86.0"
 
 CRATES="
 	aho-corasick@1.1.3
