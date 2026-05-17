@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,21 +26,23 @@ RDEPEND="${DEPEND}"
 
 RESTRICT="test"
 
+OCAML_SUBPACKAGES=(
+	ezjsonm
+)
+
 src_prepare() {
 	default
+
+	use lwt && OCAML_SUBPACKAGES+=( ezjsonm-lwt )
+
 	# test libs and binaries are built unconditionally otherwise
 	rm lib_test/dune
 }
 
 src_compile() {
-	local pkgs="ezjsonm"
-	if use lwt ; then
-		pkgs="${pkgs},ezjsonm-lwt"
-	fi
-	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+	dune-compile ${OCAML_SUBPACKAGES[@]}
 }
 
 src_install() {
-	dune_src_install ezjsonm
-	use lwt && dune_src_install ezjsonm-lwt
+	dune-install ${OCAML_SUBPACKAGES[@]}
 }
