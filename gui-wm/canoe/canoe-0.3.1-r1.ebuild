@@ -140,6 +140,7 @@ KEYWORDS="~amd64"
 DEPEND="
 	media-libs/fontconfig
 	media-libs/freetype
+	x11-libs/libxkbcommon
 "
 RDEPEND="${DEPEND}"
 
