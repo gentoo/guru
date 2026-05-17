@@ -10,6 +10,8 @@ SRC_URI="https://github.com/alex-courtis/wideriver/archive/refs/tags/${PV}.tar.g
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	dev-libs/wayland
@@ -18,6 +20,9 @@ DEPEND="
 	gui-libs/wlroots
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	test? ( dev-util/cmocka )
+"
 
 src_install() {
 	emake PREFIX="/usr" DESTDIR="${D}" install
