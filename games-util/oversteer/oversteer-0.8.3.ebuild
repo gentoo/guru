@@ -35,6 +35,12 @@ src_configure() {
 	meson_src_configure
 }
 
+src_test() {
+	# Skip the appstream file test as it requires network access.
+	sed -i 's~appstream_util.found()~false~' "${S}/data/meson.build"
+	meson_src_test
+}
+
 pkg_postinst() {
 	udev_reload
 }
