@@ -31,7 +31,9 @@ DEPEND="
 	media-libs/glm
 	media-libs/libglvnd[${MULTILIB_USEDEP},X]
 	media-libs/openxr-loader[${MULTILIB_USEDEP}]
+	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
 	virtual/glu[${MULTILIB_USEDEP}]
+	x11-libs/libX11[${MULTILIB_USEDEP}]
 "
 RDEPEND="${DEPEND}"
 
