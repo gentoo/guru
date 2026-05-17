@@ -7,30 +7,44 @@ inherit cmake xdg
 
 _TZDB_VER=121125
 
-DESCRIPTION="Nintendo Switch Emulator"
-HOMEPAGE="https://eden-emu.dev"
-SRC_URI="
-	https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
+_COMMON_SRC="
 	https://git.eden-emu.dev/eden-emu/tzdb_to_nx/releases/download/${_TZDB_VER}/${_TZDB_VER}.tar.gz ->
 		nx-tzdb-${_TZDB_VER}.tar.gz
-	https://git.eden-emu.dev/eden-emu/eden/pulls/3967.patch -> ${PN}-0.2.0-fix-httplib-version.patch
 "
+
+DESCRIPTION="Nintendo Switch Emulator"
+HOMEPAGE="https://eden-emu.dev"
+
+if [[ "${PV}" == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://git.eden-emu.dev/eden-emu/eden.git"
+	EGIT_CLONE_TYPE="shallow"
+	EGIT_CHECKOUT_DIR="${WORKDIR}/${PN}"
+
+	SRC_URI="${_COMMON_SRC}"
+else
+	KEYWORDS="~amd64 ~arm64"
+	SRC_URI="
+		${_COMMON_SRC}
+		https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
+		https://git.eden-emu.dev/eden-emu/eden/pulls/3967.patch -> ${PN}-0.2.0-fix-httplib-version.patch
+	"
+
+	PATCHES=(
+		"${DISTDIR}/${PN}-0.2.0-fix-httplib-version.patch"
+	)
+fi
 
 S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
 IUSE="camera +cubeb discord llvm lto +opengl +qt6 room sdl test +usb web-applet web-service wifi"
 REQUIRED_USE="
 	!qt6? ( !camera !discord !web-applet )
 	web-service? ( || ( qt6 room ) )
 "
 RESTRICT="!test? ( test )"
-
-PATCHES=(
-	"${DISTDIR}/${PN}-0.2.0-fix-httplib-version.patch"
-)
 
 RDEPEND="
 	app-arch/lz4
@@ -120,6 +134,17 @@ add_bundled_licenses() {
 }
 add_bundled_licenses
 
+src_unpack() {
+	if [[ "${PV}" == 9999 ]]; then
+		git-r3_src_unpack
+
+		# unpack src files
+		unpack "nx-tzdb-${_TZDB_VER}.tar.gz"
+	else
+		default
+	fi
+}
+
 src_prepare() {
 	local s remove=()
 	for s in externals/*; do
@@ -138,9 +163,15 @@ src_prepare() {
 }
 
 src_configure() {
+	if [[ "${PV}" == 9999 ]]; then
+		eden_ver="$(git rev-parse --short=10 HEAD)-9999"
+	else
+		eden_ver="v${PV/_/-}"
+	fi
+
 	local mycmakeargs=(
 		-DCPMUTIL_FORCE_SYSTEM=yes
-		-DTITLE_BAR_FORMAT_IDLE="Eden | v${PV/_/-}"
+		-DTITLE_BAR_FORMAT_IDLE="Eden | ${eden_ver}"
 		-DYUZU_TZDB_PATH="${WORKDIR}/nx-tzdb-${_TZDB_VER}"
 		-DUSE_FASTER_LINKER=no
 
