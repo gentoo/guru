@@ -22,7 +22,8 @@ BDEPEND="
 "
 
 src_compile() {
-	ego build .
+	# CGO is not needed and it would inject -fno-stack-protector
+	CGO_ENABLED=0 ego build .
 }
 
 src_install() {
