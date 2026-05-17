@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake xdg
+inherit cmake xdg toolchain-funcs
 
 _TZDB_VER=121125
 
@@ -169,9 +169,17 @@ src_configure() {
 		eden_ver="v${PV/_/-}"
 	fi
 
+	if tc-is-gcc; then
+		eden_comp_id="GCC $(gcc-fullversion)"
+	elif tc-is-clang; then
+		eden_comp_id="Clang $(clang-fullversion)"
+	else
+		eden_comp_id="$(tc-getcc)"
+	fi
+
 	local mycmakeargs=(
 		-DCPMUTIL_FORCE_SYSTEM=yes
-		-DTITLE_BAR_FORMAT_IDLE="Eden | ${eden_ver}"
+		-DTITLE_BAR_FORMAT_IDLE="Eden | ${eden_ver} | ${eden_comp_id}"
 		-DYUZU_TZDB_PATH="${WORKDIR}/nx-tzdb-${_TZDB_VER}"
 		-DUSE_FASTER_LINKER=no
 
