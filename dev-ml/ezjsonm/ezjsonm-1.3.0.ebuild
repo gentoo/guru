@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit dune multiprocessing
+inherit dune
 
 DESCRIPTION="An easy interface on top of the Jsonm library"
 HOMEPAGE="https://github.com/mirage/ezjsonm"
