@@ -22,23 +22,35 @@ RESTRICT="mirror strip bindist"
 # must have the X USE flag. libmspack is needed for .3mf unpacking,
 # and gst-plugins-openh264 for Bambu camera feeds.
 RDEPEND="
+	app-accessibility/at-spi2-core
+	app-arch/bzip2
+	app-crypt/libsecret
+	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/libmspack
+	dev-libs/wayland
 	media-fonts/nanum
+	media-libs/fontconfig
 	media-libs/gst-plugins-base:1.0[X]
 	media-libs/gst-plugins-good:1.0
 	media-libs/gstreamer:1.0
+	media-libs/harfbuzz
 	media-libs/libglvnd
 	media-libs/mesa
+	media-libs/tiff
 	media-plugins/gst-plugins-openh264:1.0
 	net-libs/libsoup:3.0
 	net-libs/webkit-gtk:4.1
 	sys-apps/dbus
+	virtual/glu
 	virtual/zlib
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
+	x11-libs/libICE
+	x11-libs/libSM
 	x11-libs/libX11
+	x11-libs/libXext
 	x11-libs/libxcb
 	x11-libs/libxkbcommon
 	x11-libs/pango
