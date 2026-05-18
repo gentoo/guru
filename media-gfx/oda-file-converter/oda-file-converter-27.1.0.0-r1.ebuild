@@ -19,6 +19,7 @@ KEYWORDS="-* ~amd64"
 
 RDEPEND="
 	dev-qt/qtbase:6[gui,widgets]
+	media-libs/libglvnd
 	x11-themes/hicolor-icon-theme
 "
 
@@ -37,6 +38,10 @@ src_compile() {
 		|| die "Failed to fix insecure RPATH"
 	# Remove bundled qt.conf to use system Qt
 	rm -f "usr/bin/ODAFileConverter_${PV}/qt.conf" || die "Failed to remove qt.conf"
+	# Drop bundled libqtiff.so: it links against libtiff.so.5 which is no
+	# longer in the tree, and TIFF image support is unused by the converter.
+	rm -f "usr/bin/ODAFileConverter_${PV}/plugins/imageformats/libqtiff.so" \
+		|| die "Failed to remove bundled libqtiff.so"
 }
 
 src_install() {
