@@ -20,3 +20,5 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 ECARGO_VENDOR="${WORKDIR}/vendor"
+
+QA_FLAGS_IGNORED="/usr/bin/${PN}"
