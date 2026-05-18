@@ -194,6 +194,9 @@ RESTRICT="mirror"
 
 RUST_MIN_VER=1.88.0
 
+# rust does not use *FLAGS from make.conf
+QA_FLAGS_IGNORED="usr/bin/${PN}"
+
 src_install() {
 	dobin "$(cargo_target_dir)"/obs-cmd
 }
