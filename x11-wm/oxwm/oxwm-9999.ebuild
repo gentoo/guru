@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ZIG_OPTIONAL="1"
+ZIG_SLOT="0.16"
 
 inherit git-r3 zig
 
@@ -25,22 +25,20 @@ RDEPEND="
 
 DEPEND="${RDEPEND}"
 
-BDEPEND="
-	${RDEPEND}
-	dev-lang/zig
-	virtual/pkgconfig
-"
+BDEPEND="${RDEPEND}"
 
 src_unpack() {
 	git-r3_src_unpack
+	zig_live_src_unpack
 }
 
 src_configure() {
-	zig_src_configure
-}
+	local my_zbs_args=(
+		# Recommended default by upstream:
+		--release=small
+	)
 
-src_compile() {
-	zig_src_compile -Doptimize=ReleaseSmall
+	zig_src_configure
 }
 
 src_install() {
