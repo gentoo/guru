@@ -37,7 +37,7 @@ src_configure() {
 
 src_test() {
 	# Skip the appstream file test as it requires network access.
-	sed -i 's~appstream_util.found()~false~' "${S}/data/meson.build"
+	sed -i 's~appstream_util.found()~false~' "${S}/data/meson.build" || die
 	meson_src_test
 }
 
