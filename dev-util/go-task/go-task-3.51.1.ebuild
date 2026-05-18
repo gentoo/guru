@@ -5,7 +5,7 @@ inherit go-module
 DESCRIPTION="A task runner / simpler Make alternative written in Go"
 HOMEPAGE="https://taskfile.dev"
 SRC_URI="https://github.com/${PN}/task/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://git.skysolutions.fi/gentoo-mirror/guru-vendored/download/go-task-${PV}/go-task-${PV}-deps.tar.xz"
+SRC_URI+=" https://git.skysolutions.fi/gentoo-mirror/guru-vendored/releases/download/go-task-${PV}/go-task-${PV}-deps.tar.xz"
 S="${WORKDIR}/task-${PV}"
 LICENSE="MIT"
 SLOT="0"
