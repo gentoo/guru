@@ -71,6 +71,7 @@ src_prepare() {
 	cmake_src_prepare
 }
 
+# NOTE: -DCMAKE_POLICY_VERSION_MINIMUM=3.5 is needed to fix bug 975315.
 src_configure() {
 	local mycmakeargs=(
 		"-DBESPOKE_SYSTEM_PYBIND11=TRUE"
@@ -78,6 +79,7 @@ src_configure() {
 		"-DCMAKE_BUILD_TYPE=Release"
 		"-DCMAKE_INSTALL_PREFIX=/usr"
 		"-DCMAKE_SKIP_RPATH=ON"
+		"-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 	)
 	cmake_src_configure
 }
