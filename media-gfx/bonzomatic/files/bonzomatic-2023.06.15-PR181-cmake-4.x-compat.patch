@@ -1,0 +1,43 @@
+From fb92b8b0beec7ad741fc6952e3ee1b74eb5aff6f Mon Sep 17 00:00:00 2001
+From: "Haelwenn (lanodan) Monnier" <contact@hacktivis.me>
+Date: Mon, 18 May 2026 03:29:50 +0200
+Subject: [PATCH] bump cmake_minimum_required to 3.10 due to CMake 4.x
+X-Archived-At: https://github.com/Gargaj/Bonzomatic/pull/181
+
+> Compatibility with CMake < 3.5 has been removed from CMake.
+
+And after bumping to 3.5:
+
+> CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+>   Compatibility with CMake < 3.10 will be removed from a future version of
+>   CMake.
+
+And current oldoldstable Debian (11/bullseye) is shipping 3.18.4
+so 3.10 should be more than safe as a requirement.
+
+Related downstream issue: https://bugs.gentoo.org/975298
+---
+ CMakeLists.txt               | 2 +-
+ external/glfw/CMakeLists.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d40d4aee..179a8632 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.0)
++cmake_minimum_required(VERSION 3.10)
+ 
+ set(VERSION_MAJOR "1")
+ set(VERSION_MINOR "0")
+diff --git a/external/glfw/CMakeLists.txt b/external/glfw/CMakeLists.txt
+index be7b6397..77180143 100644
+--- a/external/glfw/CMakeLists.txt
++++ b/external/glfw/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.0)
++cmake_minimum_required(VERSION 3.10)
+ 
+ project(GLFW VERSION 3.3.3 LANGUAGES C)
+ 

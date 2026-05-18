@@ -61,6 +61,10 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="!system-glfw? ( wayland? ( dev-libs/wayland-protocols ) )"
 
+PATCHES=(
+	"${FILESDIR}/bonzomatic-2023.06.15-PR181-cmake-4.x-compat.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DBONZOMATIC_USE_SYSTEM_GLFW=$(usex system-glfw)
