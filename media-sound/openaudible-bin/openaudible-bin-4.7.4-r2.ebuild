@@ -23,6 +23,8 @@ RDEPEND="${DEPEND}
 	system-ffmpeg? ( media-video/ffmpeg[lame] )
 	system-jre? ( virtual/jre:21 )"
 
+QA_PREBUILT="*"
+
 src_unpack() {
 	unpack_deb ${A}
 }
