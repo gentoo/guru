@@ -54,7 +54,9 @@ RDEPEND="${DEPEND}"
 src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
-		zig_live_fetch
+		zig_live_src_unpack
+		# Workaround from vimproved until the eclass is updated
+		ln -s "${WORKDIR}/zig-pkg" "${S}/zig-pkg" || die
 	else
 		zig_src_unpack
 	fi
