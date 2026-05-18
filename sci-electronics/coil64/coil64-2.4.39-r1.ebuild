@@ -25,11 +25,8 @@ LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtwidgets:5
+	dev-qt/qt5compat:6
+	dev-qt/qtbase:6[gui,network,widgets]
 "
 
 DEPEND="
@@ -37,7 +34,7 @@ DEPEND="
 "
 
 src_configure() {
-	eqmake5 PREFIX="${EPREFIX}"/usr
+	eqmake6 PREFIX="${EPREFIX}"/usr
 }
 
 src_install() {
