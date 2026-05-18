@@ -40,7 +40,8 @@ RDEPEND="
 
 BDEPEND="
 	test? (
-		dev-python/anyascii[${PYTHON_USEDEP}]
+		>=dev-python/anyascii-0.3.0[${PYTHON_USEDEP}]
+		>=dev-python/responses-0.25.0[${PYTHON_USEDEP}]
 	)
 "
 
