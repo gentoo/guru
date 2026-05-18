@@ -28,4 +28,7 @@ DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.71
 "
 
-PATCHES=( "${FILESDIR}/${P}-fix-build.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-4.2.1-fix-build.patch"
+	"${FILESDIR}/${PN}-4.2.1-no-pie.patch"
+)
