@@ -8,7 +8,7 @@ DESCRIPTION="Software modular synth"
 HOMEPAGE="https://www.bespokesynth.com/"
 SRC_URI="https://github.com/BespokeSynth/BespokeSynth/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-JUCE_COMMIT="4f43011b96eb0636104cb3e433894cda98243626"
+JUCE_COMMIT="2a27ebcfae7ca7f6eb62b29d5f002ceefdaadbdb"
 SRC_URI+=" https://github.com/juce-framework/JUCE/archive/${JUCE_COMMIT}.tar.gz -> ${PN}-JUCE-${JUCE_COMMIT}.tar.gz"
 READERWRITER_COMMIT="8e7627d18c2108aca178888d88514179899a044f"
 SRC_URI+=" https://github.com/cameron314/readerwriterqueue/archive/${READERWRITER_COMMIT}.tar.gz -> ${PN}-readerwriterqueue-${READERWRITER_COMMIT}.tar.gz"
@@ -20,8 +20,6 @@ ODDSOUND_COMMIT="fcfaa59a043d515d288c9d587bf61a0a7d7571a8"
 SRC_URI+=" https://github.com/ODDSound/MTS-ESP/archive/${ODDSOUND_COMMIT}.tar.gz -> ${PN}-oddsound-mts-${ODDSOUND_COMMIT}.tar.gz"
 ASIO_COMMIT="c465349fa5cd91a64bb369f5131ceacab2c0c1c3"
 SRC_URI+=" https://github.com/chriskohlhoff/asio/archive/${ASIO_COMMIT}.tar.gz -> ${PN}-asio-${ASIO_COMMIT}.tar.gz"
-EXPRTK_COMMIT="ca58bbd8bcf1165dbe20268e91ccfd2d0e18e5dc"
-SRC_URI+=" https://github.com/ArashPartow/exprtk/archive/${EXPRTK_COMMIT}.tar.gz -> ${PN}-exprtk-{${EXPRTK_COMMIT}.tar.gz"
 
 S="${WORKDIR}/BespokeSynth-${PV}"
 
@@ -38,9 +36,9 @@ DEPEND="
 	x11-libs/libXrandr
 "
 
-#PATCHES=(
-#	"${FILESDIR}/ableton-link-dependencies.patch"
-#)
+PATCHES=(
+	"${FILESDIR}/${P}-find-jsoncpp.patch"
+)
 
 src_prepare() {
 	rmdir "${S}/libs/JUCE" || die
@@ -54,19 +52,15 @@ src_prepare() {
 	rmdir "${S}/libs/ableton-link" || die
 	mv "${WORKDIR}/link-${ABLETON_COMMIT}" "${S}/libs/ableton-link" || die
 
+	# patching out build dependency for dev-cpp/asio
+	#TODO: couldn't figure out how to have ableton-link build without asio-standalone.
+	# It doesn't want to use 'dev-cpp/asio' it seems.
+	# eapply "${FILESDIR}/ableton-link-dependencies.patch"
 	rmdir "${S}/libs/ableton-link/modules/asio-standalone" || die
 	mv "${WORKDIR}/asio-${ASIO_COMMIT}" "${S}/libs/ableton-link/modules/asio-standalone" || die
 
-	#  When patching out dependency for dev-cpp/asio, other issues show up.
-	#  For now, I'll leave it in here like this.
-	# rm "${S}/libs/ableton-link/cmake_include/AsioStandaloneConfig.cmake" || die
-	# eapply "${FILESDIR}/ableton-link-dependencies.patch"
-
 	rmdir "${S}/libs/oddsound-mts/MTS-ESP" || die
 	mv "${WORKDIR}/MTS-ESP-${ODDSOUND_COMMIT}" "${S}/libs/oddsound-mts/MTS-ESP" || die
-
-	rmdir "${S}/libs/exprtk" || die
-	mv "${WORKDIR}/exprtk-${EXPRTK_COMMIT}" "${S}/libs/exprtk" || die
 
 	cmake_src_prepare
 }
