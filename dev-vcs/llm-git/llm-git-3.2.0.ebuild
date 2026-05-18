@@ -8,6 +8,7 @@ EAPI=8
 CRATES="
 	addr2line@0.25.1
 	adler2@2.0.1
+	ahash@0.8.12
 	aho-corasick@1.1.4
 	android_system_properties@0.1.5
 	anstream@1.0.0
@@ -17,24 +18,26 @@ CRATES="
 	anstyle@1.0.14
 	anyhow@1.0.102
 	arboard@3.6.1
+	arrayref@0.3.9
+	arrayvec@0.7.6
 	atomic-waker@1.1.2
 	autocfg@1.5.0
-	aws-lc-rs@1.16.3
-	aws-lc-sys@0.40.0
+	aws-lc-rs@1.17.0
+	aws-lc-sys@0.41.0
 	backtrace-ext@0.2.1
 	backtrace@0.3.76
 	base64@0.22.1
-	bit-set@0.5.3
-	bit-vec@0.6.3
+	bit-set@0.8.0
+	bit-vec@0.8.0
 	bitflags@2.11.1
+	blake3@1.8.5
 	block-buffer@0.10.4
 	bstr@1.12.1
 	bumpalo@3.20.2
 	bytemuck@1.25.0
 	byteorder-lite@0.1.0
 	bytes@1.11.1
-	cc@1.2.60
-	cesu8@1.1.0
+	cc@1.2.62
 	cfg-if@1.0.4
 	cfg_aliases@0.2.1
 	chrono-tz-build@0.3.0
@@ -48,10 +51,12 @@ CRATES="
 	cmake@0.1.58
 	colorchoice@1.0.5
 	combine@4.6.7
+	constant_time_eq@0.4.2
 	core-foundation-sys@0.8.7
 	core-foundation@0.10.1
 	core-foundation@0.9.4
 	cpufeatures@0.2.17
+	cpufeatures@0.3.0
 	crc32fast@1.5.0
 	crossbeam-deque@0.8.6
 	crossbeam-epoch@0.9.18
@@ -69,9 +74,11 @@ CRATES="
 	equivalent@1.0.2
 	errno@0.3.14
 	error-code@3.3.2
-	fancy-regex@0.13.0
-	fax@0.2.6
-	fax_derive@0.2.0
+	fallible-iterator@0.3.0
+	fallible-streaming-iterator@0.1.9
+	fancy-regex@0.17.0
+	fastrand@2.4.1
+	fax@0.2.7
 	fdeflate@0.3.7
 	find-msvc-tools@0.1.9
 	fixedbitset@0.5.7
@@ -93,13 +100,16 @@ CRATES="
 	gethostname@1.1.0
 	getrandom@0.2.17
 	getrandom@0.3.4
+	getrandom@0.4.2
 	gimli@0.32.3
 	globset@0.4.18
 	globwalk@0.9.1
-	h2@0.4.13
+	h2@0.4.14
 	half@2.7.1
+	hashbrown@0.14.5
 	hashbrown@0.15.5
-	hashbrown@0.17.0
+	hashbrown@0.17.1
+	hashlink@0.9.1
 	heck@0.5.0
 	http-body-util@0.1.3
 	http-body@1.0.1
@@ -118,25 +128,27 @@ CRATES="
 	icu_properties@2.2.0
 	icu_properties_data@2.2.0
 	icu_provider@2.2.0
+	id-arena@2.3.0
 	idna@1.1.0
-	idna_adapter@1.2.1
+	idna_adapter@1.2.2
 	ignore@0.4.25
 	image@0.25.10
 	indexmap@2.14.0
 	ipnet@2.12.0
-	iri-string@0.7.12
 	is_ci@1.2.0
 	is_terminal_polyfill@1.70.2
 	itoa@1.0.18
+	jni-macros@0.22.4
 	jni-sys-macros@0.4.1
-	jni-sys@0.3.1
 	jni-sys@0.4.1
-	jni@0.21.1
+	jni@0.22.4
 	jobserver@0.1.34
-	js-sys@0.3.95
+	js-sys@0.3.98
 	lazy_static@1.5.0
-	libc@0.2.185
+	leb128fmt@0.1.0
+	libc@0.2.186
 	libm@0.2.16
+	libsqlite3-sys@0.30.1
 	linux-raw-sys@0.12.1
 	litemap@0.8.2
 	lock_api@0.4.14
@@ -182,15 +194,17 @@ CRATES="
 	png@0.18.1
 	potential_utf@0.1.5
 	ppv-lite86@0.2.21
+	prettyplease@0.2.37
 	proc-macro2@1.0.106
 	pxfm@0.1.29
 	quick-error@2.0.1
-	quick-xml@0.39.2
+	quick-xml@0.39.4
 	quinn-proto@0.11.14
 	quinn-udp@0.5.14
 	quinn@0.11.9
 	quote@1.0.45
 	r-efi@5.3.0
+	r-efi@6.0.0
 	rand@0.8.6
 	rand@0.9.4
 	rand_chacha@0.3.1
@@ -201,27 +215,30 @@ CRATES="
 	regex-automata@0.4.14
 	regex-syntax@0.8.10
 	regex@1.12.3
-	reqwest@0.13.2
+	reqwest@0.13.3
 	ring@0.17.14
+	rusqlite@0.32.1
 	rust-embed-impl@8.11.0
 	rust-embed-utils@8.11.0
 	rust-embed@8.11.0
 	rustc-demangle@0.1.27
 	rustc-hash@1.1.0
 	rustc-hash@2.1.2
+	rustc_version@0.4.1
 	rustix@1.1.4
 	rustls-native-certs@0.8.3
-	rustls-pki-types@1.14.0
+	rustls-pki-types@1.14.1
 	rustls-platform-verifier-android@0.1.1
-	rustls-platform-verifier@0.6.2
-	rustls-webpki@0.103.12
-	rustls@0.23.38
+	rustls-platform-verifier@0.7.0
+	rustls-webpki@0.103.13
+	rustls@0.23.40
 	rustversion@1.0.22
 	same-file@1.0.6
 	schannel@0.1.29
 	scopeguard@1.2.0
 	security-framework-sys@2.17.0
 	security-framework@3.7.0
+	semver@1.0.28
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
@@ -230,7 +247,9 @@ CRATES="
 	sha2@0.10.9
 	shlex@1.3.0
 	simd-adler32@0.3.9
-	siphasher@1.0.2
+	simd_cesu8@1.1.1
+	simdutf8@0.1.5
+	siphasher@1.0.3
 	slab@0.4.12
 	slug@0.1.6
 	smallvec@1.15.1
@@ -246,27 +265,26 @@ CRATES="
 	synstructure@0.13.2
 	system-configuration-sys@0.6.0
 	system-configuration@0.7.0
+	tempfile@3.27.0
 	tera@1.20.1
 	terminal_size@0.4.4
 	textwrap@0.16.2
-	thiserror-impl@1.0.69
 	thiserror-impl@2.0.18
-	thiserror@1.0.69
 	thiserror@2.0.18
 	tiff@0.11.3
-	tiktoken-rs@0.9.1
+	tiktoken-rs@0.11.0
 	tinystr@0.8.3
 	tinyvec@1.11.0
 	tinyvec_macros@0.1.1
 	tokio-macros@2.7.0
 	tokio-rustls@0.26.4
 	tokio-util@0.7.18
-	tokio@1.52.1
+	tokio@1.52.3
 	toml@1.1.2+spec-1.1.0
 	toml_datetime@1.1.1+spec-1.1.0
 	toml_parser@1.1.2+spec-1.1.0
 	toml_writer@1.1.1+spec-1.1.0
-	tower-http@0.6.8
+	tower-http@0.6.10
 	tower-layer@0.3.3
 	tower-service@0.3.3
 	tower@0.5.3
@@ -274,7 +292,7 @@ CRATES="
 	tracing@0.1.44
 	tree_magic_mini@3.2.2
 	try-lock@0.2.5
-	typenum@1.19.0
+	typenum@1.20.0
 	ucd-trie@0.1.7
 	unicode-ident@1.0.24
 	unicode-linebreak@0.1.5
@@ -282,27 +300,33 @@ CRATES="
 	unicode-segmentation@1.13.2
 	unicode-width@0.1.14
 	unicode-width@0.2.2
+	unicode-xid@0.2.6
 	untrusted@0.9.0
 	url@2.5.8
 	utf8_iter@1.0.4
 	utf8parse@0.2.2
+	vcpkg@0.2.15
 	version_check@0.9.5
 	walkdir@2.5.0
 	want@0.3.1
 	wasi@0.11.1+wasi-snapshot-preview1
 	wasip2@1.0.3+wasi-0.2.9
-	wasm-bindgen-futures@0.4.68
-	wasm-bindgen-macro-support@0.2.118
-	wasm-bindgen-macro@0.2.118
-	wasm-bindgen-shared@0.2.118
-	wasm-bindgen@0.2.118
+	wasip3@0.4.0+wasi-0.3.0-rc-2026-01-06
+	wasm-bindgen-futures@0.4.71
+	wasm-bindgen-macro-support@0.2.121
+	wasm-bindgen-macro@0.2.121
+	wasm-bindgen-shared@0.2.121
+	wasm-bindgen@0.2.121
+	wasm-encoder@0.244.0
+	wasm-metadata@0.244.0
+	wasmparser@0.244.0
 	wayland-backend@0.3.15
 	wayland-client@0.31.14
 	wayland-protocols-wlr@0.3.12
 	wayland-protocols@0.32.12
 	wayland-scanner@0.31.10
 	wayland-sys@0.31.11
-	web-sys@0.3.95
+	web-sys@0.3.98
 	web-time@1.1.0
 	webpki-root-certs@1.0.7
 	weezl@0.1.12
@@ -314,38 +338,35 @@ CRATES="
 	windows-registry@0.6.1
 	windows-result@0.4.1
 	windows-strings@0.5.1
-	windows-sys@0.45.0
 	windows-sys@0.52.0
 	windows-sys@0.60.2
 	windows-sys@0.61.2
-	windows-targets@0.42.2
 	windows-targets@0.52.6
 	windows-targets@0.53.5
-	windows_aarch64_gnullvm@0.42.2
 	windows_aarch64_gnullvm@0.52.6
 	windows_aarch64_gnullvm@0.53.1
-	windows_aarch64_msvc@0.42.2
 	windows_aarch64_msvc@0.52.6
 	windows_aarch64_msvc@0.53.1
-	windows_i686_gnu@0.42.2
 	windows_i686_gnu@0.52.6
 	windows_i686_gnu@0.53.1
 	windows_i686_gnullvm@0.52.6
 	windows_i686_gnullvm@0.53.1
-	windows_i686_msvc@0.42.2
 	windows_i686_msvc@0.52.6
 	windows_i686_msvc@0.53.1
-	windows_x86_64_gnu@0.42.2
 	windows_x86_64_gnu@0.52.6
 	windows_x86_64_gnu@0.53.1
-	windows_x86_64_gnullvm@0.42.2
 	windows_x86_64_gnullvm@0.52.6
 	windows_x86_64_gnullvm@0.53.1
-	windows_x86_64_msvc@0.42.2
 	windows_x86_64_msvc@0.52.6
 	windows_x86_64_msvc@0.53.1
-	winnow@1.0.1
+	winnow@1.0.3
+	wit-bindgen-core@0.51.0
+	wit-bindgen-rust-macro@0.51.0
+	wit-bindgen-rust@0.51.0
+	wit-bindgen@0.51.0
 	wit-bindgen@0.57.1
+	wit-component@0.244.0
+	wit-parser@0.244.0
 	wl-clipboard-rs@0.9.3
 	writeable@0.6.3
 	x11rb-protocol@0.13.2
@@ -355,7 +376,7 @@ CRATES="
 	zerocopy-derive@0.8.48
 	zerocopy@0.8.48
 	zerofrom-derive@0.1.7
-	zerofrom@0.1.7
+	zerofrom@0.1.8
 	zeroize@1.8.2
 	zerotrie@0.2.4
 	zerovec-derive@0.11.3
@@ -369,7 +390,7 @@ RUST_MIN_VER="1.91"
 
 inherit cargo
 
-DESCRIPTION="AI-powered git commit message generator using LLMs"
+DESCRIPTION="AI-powered git commit message generator using LLMs via OpenAI-compat APIs"
 HOMEPAGE="https://github.com/can1357/llm-git"
 SRC_URI="
 	https://github.com/can1357/${PN}/archive/v${PV}/${P}.tar.gz
@@ -379,8 +400,8 @@ SRC_URI="
 LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 BSD Boost-1.0 CDLA-Permissive-2.0 ISC MIT Unicode-3.0
-	ZLIB
+	Apache-2.0 BSD-2 BSD Boost-1.0 CDLA-Permissive-2.0 ISC MIT
+	Unicode-3.0 ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64"
