@@ -29,10 +29,10 @@ RDEPEND="
 	>=media-libs/gexiv2-0.10[introspection]
 	>=media-gfx/exiv2-0.27
 	>=x11-libs/gtk+-3.24.0:3[introspection]
+	x11-libs/libX11
 "
 DEPEND="
 	${RDEPEND}
-	x11-libs/libX11
 "
 BDEPEND="
 	dev-util/glib-utils
