@@ -4,7 +4,7 @@
 EAPI=8
 
 GITHUB_PN="DSView"
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit cmake python-r1 udev xdg
 
@@ -33,11 +33,8 @@ RDEPEND="${PYTHON_DEPS}
 	dev-libs/boost
 	dev-libs/glib
 	dev-libs/libzip
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtsvg:5
-	dev-qt/qtconcurrent:5
+	dev-qt/qtbase:6[concurrent,gui,widgets]
+	dev-qt/qtsvg:6
 	sci-libs/fftw:3.0
 	virtual/libusb:1
 "
@@ -52,14 +49,20 @@ BDEPEND="
 
 PATCHES=(
 	# bug 887877
-	"${FILESDIR}/${P}-gcc13.patch"
+	"${FILESDIR}/${PN}-1.3.0-gcc13.patch"
 	# bug 887913
-	"${FILESDIR}/${P}-fix-flags.patch"
+	"${FILESDIR}/${PN}-1.3.0-fix-flags.patch"
+	# Upstream commit c428bd66: fix Qt6 nativeEvent override signature.
+	"${FILESDIR}/${PN}-1.3.2-qt6.patch"
 )
 
 src_configure() {
+	# Upstream CMakeLists tries Qt5 first and only falls back to Qt6
+	# when Qt5 is absent; block the Qt5 probe so the Qt6 path runs
+	# even when Qt5 happens to still be installed.
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Core=ON
 	)
 
 	cmake_src_configure
