@@ -39,6 +39,8 @@ RESTRICT="test" # broken upstream tests
 DEPEND="
 	>=media-gfx/gimp-3.0.0
 	glib? ( dev-libs/glib:2 )
+	media-libs/babl
+	media-libs/gegl
 "
 RDEPEND="${DEPEND}"
 
