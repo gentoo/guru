@@ -18,6 +18,12 @@ BDEPEND="
 	doc? ( app-text/doxygen )
 "
 
+src_prepare() {
+	sed -i "s|doc/VulkanMemoryAllocator|doc/${PF}|" CMakeLists.txt
+
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DVMA_BUILD_DOCUMENTATION=$(usex doc)
