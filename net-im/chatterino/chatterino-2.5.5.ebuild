@@ -68,7 +68,6 @@ RESTRICT="mirror"
 
 RDEPEND="
 	dev-libs/openssl:=
-	dev-qt/qt5compat:6
 	dev-qt/qtbase:6[concurrent,gui,network,widgets]
 	dev-qt/qtsvg:6
 	dev-qt/qtimageformats:6
