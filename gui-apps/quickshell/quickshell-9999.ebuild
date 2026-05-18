@@ -33,10 +33,11 @@ REQUIRED_USE="
 	toplevel-management? ( wayland )
 	hyprland?            ( wayland )
 	screencopy?          ( wayland )
+	i3? ( X )
 "
 
 RDEPEND="
-	dev-qt/qtbase:6=[dbus,vulkan]
+	dev-qt/qtbase:6=[dbus,vulkan,X?]
 	dev-qt/qtsvg:6=
 	dev-qt/qtdeclarative:6=
 	jemalloc? ( dev-libs/jemalloc )
@@ -107,7 +108,7 @@ src_configure() {
 		-DSCREENCOPY_ICC=${_screencopy}
 		-DSCREENCOPY_WLR=${_screencopy}
 		-DSCREENCOPY_HYPRLAND_TOPLEVEL=${_screencopy}
-		-DX11=$(usex X )
+		-DX11=$(usex X)
 		-DI3=${_i3}
 		-DI3_IPC=${_i3}
 		-DSERVICE_STATUS_NOTIFIER=$(usex tray)

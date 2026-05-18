@@ -36,10 +36,11 @@ REQUIRED_USE="
 	toplevel-management? ( wayland )
 	hyprland?            ( wayland )
 	screencopy?          ( wayland )
+	i3? ( X )
 "
 
 RDEPEND="
-	dev-qt/qtbase:6=[dbus,vulkan]
+	dev-qt/qtbase:6=[dbus,vulkan,X?]
 	dev-qt/qtsvg:6=
 	dev-qt/qtdeclarative:6=
 	x11-libs/libdrm
