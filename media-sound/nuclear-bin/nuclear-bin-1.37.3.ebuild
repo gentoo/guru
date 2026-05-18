@@ -19,12 +19,14 @@ KEYWORDS="-* ~amd64"
 
 RDEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0:2
+	app-arch/xz-utils
 	dev-libs/expat
 	dev-libs/glib
 	dev-libs/nspr
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/mesa[opengl]
+	net-libs/libsoup
 	net-libs/webkit-gtk:4.1
 	net-print/cups
 	sys-apps/dbus
