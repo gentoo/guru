@@ -5,13 +5,6 @@ EAPI=8
 
 inherit cmake xdg toolchain-funcs optfeature
 
-_TZDB_VER=121125
-
-_COMMON_SRC="
-	https://git.eden-emu.dev/eden-emu/tzdb_to_nx/releases/download/${_TZDB_VER}/${_TZDB_VER}.tar.gz ->
-		nx-tzdb-${_TZDB_VER}.tar.gz
-"
-
 DESCRIPTION="Nintendo Switch Emulator"
 HOMEPAGE="https://eden-emu.dev"
 
@@ -20,20 +13,18 @@ if [[ "${PV}" == 9999 ]]; then
 	EGIT_REPO_URI="https://git.eden-emu.dev/eden-emu/eden.git"
 	EGIT_CLONE_TYPE="shallow"
 	EGIT_CHECKOUT_DIR="${WORKDIR}/${PN}"
-
-	SRC_URI="${_COMMON_SRC}"
 else
 	KEYWORDS="~amd64 ~arm64"
 	SRC_URI="
-		${_COMMON_SRC}
 		https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
-		https://git.eden-emu.dev/eden-emu/eden/pulls/3967.patch -> ${PN}-0.2.0-fix-httplib-version.patch
 	"
-
-	PATCHES=(
-		"${DISTDIR}/${PN}-0.2.0-fix-httplib-version.patch"
-	)
 fi
+
+_TZDB_VER=121125
+SRC_URI+="
+	https://git.eden-emu.dev/eden-emu/tzdb_to_nx/releases/download/${_TZDB_VER}/${_TZDB_VER}.tar.gz ->
+		nx-tzdb-${_TZDB_VER}.tar.gz
+"
 
 S="${WORKDIR}/${PN}"
 
@@ -44,6 +35,7 @@ REQUIRED_USE="
 	!qt6? ( !camera !discord !web-applet )
 	web-service? ( || ( qt6 room ) )
 "
+
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -57,7 +49,7 @@ RDEPEND="
 	dev-util/spirv-tools
 	games-util/gamemode
 	media-gfx/renderdoc
-	media-libs/libsdl2[haptic,joystick,sound,video]
+	media-libs/libsdl3[udev]
 	media-libs/libva
 	media-libs/opus
 	media-video/ffmpeg
@@ -139,7 +131,7 @@ src_unpack() {
 		git-r3_src_unpack
 
 		# unpack src files
-		unpack "nx-tzdb-${_TZDB_VER}.tar.gz"
+		unpack "${A}"
 	else
 		default
 	fi
@@ -154,7 +146,7 @@ src_prepare() {
 		fi
 	done
 
-	if (( ${#remove[@]} > 0 )); then
+	if [[ -n "${remove}" ]]; then
 		einfo "removing sources: ${remove[*]}"
 		rm -r "${remove[@]}" || die
 	fi
