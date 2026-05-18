@@ -18,6 +18,51 @@
 
 # New entries go on top.
 
+# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
+# https://bugs.gentoo.org/974546
+# https://bugs.gentoo.org/974547
+# Removal after 2026-06-18
+app-admin/aws-vault
+
+# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
+# https://bugs.gentoo.org/932823
+# Removal after 2026-06-18
+dev-ruby/ruby-install
+
+# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
+# https://bugs.gentoo.org/939886
+# https://bugs.gentoo.org/974570
+# Removal after 2026-06-18
+app-containers/slim
+
+# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
+# https://bugs.gentoo.org/974518
+# Removal after 2026-06-18
+app-admin/pulumi-bin
+
+# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
+# https://bugs.gentoo.org/974552
+# Removal after 2026-06-18
+app-admin/overmind
+
+# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
+# https://bugs.gentoo.org/974952
+# Removal after 2026-06-18
+dev-ruby/rbspy
+
+# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
+# https://bugs.gentoo.org/974977
+# https://bugs.gentoo.org/974978
+# https://bugs.gentoo.org/974979
+# Removal after 2026-06-18
+dev-util/mise
+
+# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
+# https://bugs.gentoo.org/975050
+# https://bugs.gentoo.org/975051
+# Removal after 2026-06-18
+dev-util/trivy
+
 # Takuya Wakazono <pastalian46@gmail.com> (2026-05-17)
 # Depends on Qt5. Qt6 port is supposedly coming soon.
 # https://github.com/meganz/MEGAsync/issues/954
