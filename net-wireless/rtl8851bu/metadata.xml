@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>mvidal.dp@gmail.com</email>
+    <name>mvidaldp</name>
+  </maintainer>
+
+  <upstream>
+    <bugs-to>https://github.com/fofajardo/rtl8851bu/issues</bugs-to>
+    <remote-id type="github">fofajardo/rtl8851bu</remote-id>
+  </upstream>
+</pkgmetadata>
