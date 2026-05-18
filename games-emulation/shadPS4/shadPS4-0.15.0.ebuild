@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
 DESCRIPTION="PlayStation 4 emulator written in C++"
 HOMEPAGE="https://shadps4.net"
@@ -45,12 +45,17 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	eapply "${FILESDIR}/shadPS4-0.15.0-executable-stack.patch"
+	eapply "${FILESDIR}/${P}-SDL3-rename.patch"
+	eapply "${FILESDIR}/${P}-cmake-4.patch"
+	eapply "${FILESDIR}/${P}-executable-stack.patch"
 	mv src/core/libraries/fiber/fiber_context.s src/core/libraries/fiber/fiber_context.S || die
 	cmake_src_prepare
 }
 
 src_configure() {
+	filter-lto
+	append-flags -fno-strict-aliasing
+
 	local mycmakeargs=(
 		-DENABLE_DISCORD_RPC="$(usex discord ON OFF)"
 		-DENABLE_UPDATER=OFF
