@@ -33,6 +33,7 @@ RDEPEND="
 	media-libs/libglvnd
 	media-libs/mesa
 	net-misc/curl
+	net-print/cups
 	sys-apps/dbus
 	virtual/zlib
 	sys-process/lsof
@@ -46,6 +47,7 @@ RDEPEND="
 	x11-libs/libXext
 	x11-libs/libXfixes
 	x11-libs/libxkbcommon
+	x11-libs/libxkbfile
 	x11-libs/libXrandr
 	x11-libs/libXScrnSaver
 	x11-libs/pango
@@ -60,6 +62,12 @@ src_install() {
 	# Install application files
 	mkdir -p "${ED}/opt/${PN}" || die
 	cp -r "${S}/arduino-ide_${PV}_Linux_64bit/"* "${ED}/opt/${PN}" || die
+
+	# Drop cortex-debug precompiled native modules: cross-arch arm/arm64
+	# variants never run on amd64, and the x64 variant links against
+	# libnode.so.72 which Electron does not ship. Cortex-debug falls back
+	# to non-native GDB driving when the modules are absent.
+	rm -rf "${ED}/opt/${PN}/resources/app/plugins/cortex-debug/extension/binary_modules" || die
 
 	# Fix chrome-sandbox permissions
 	fperms 4755 /opt/${PN}/chrome-sandbox
