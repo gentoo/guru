@@ -26,5 +26,6 @@ RDEPEND="
 	dev-libs/glib:2
 	x11-libs/gtk+:3
 	dev-libs/libxml2
+	x11-libs/pango
 "
 DEPEND="${RDEPEND}"
