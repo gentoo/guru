@@ -18,6 +18,14 @@
 
 # New entries go on top.
 
+# Daichi Yamamoto <dev@dyama.net> (2026-06-19)
+# https://bugs.gentoo.org/975028
+# https://bugs.gentoo.org/975042
+# The origin has been archived. Consider using uv instead.
+# cf. https://github.com/astral-sh/rye
+# Removal after 2026-06-19
+dev-util/rye
+
 # Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
 # https://bugs.gentoo.org/974546
 # https://bugs.gentoo.org/974547
