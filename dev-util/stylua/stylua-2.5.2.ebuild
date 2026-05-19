@@ -51,7 +51,7 @@ CRATES="
 	errno@0.3.8
 	fastrand@2.0.1
 	fluent-uri@0.1.4
-	full_moon@2.1.1
+	full_moon@2.2.0
 	full_moon_derive@0.11.0
 	globset@0.4.14
 	globwalk@0.9.1
