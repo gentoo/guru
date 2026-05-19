@@ -3,11 +3,14 @@
 
 EAPI=8
 
+declare -g -r -A ZBS_DEPENDENCIES=(
+)
+ZIG_SLOT="0.16"
+
+inherit eapi9-ver zig
+
 DESCRIPTION="A dynamic tiling Wayland compositor"
 HOMEPAGE="https://isaacfreund.com/software/river/ https://codeberg.org/river/river"
-
-ZIG_SLOT="0.16"
-inherit eapi9-ver zig
 
 if [[ "${PV}" = "9999" ]]; then
 	inherit git-r3
