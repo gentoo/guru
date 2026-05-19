@@ -339,6 +339,9 @@ DEPEND="
 	>=app-arch/zstd-1.5.7
 	$(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}')
 "
+RDEPEND="
+	>=app-arch/zstd-1.5.7
+"
 # apply-crates-fixes end
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
