@@ -11,5 +11,7 @@
           <email>me@benbuhse.email</email>
         </maintainer>
         <remote-id type="codeberg">beansprout/beansprout</remote-id>
+        <!-- make `pkgcheck scan` happy -->
+        <remote-id type="github">rockorager/zeit</remote-id>
     </upstream>
 </pkgmetadata>

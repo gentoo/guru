@@ -3,22 +3,20 @@
 
 EAPI=8
 
-ZIG_SLOT="0.15"
+ZIG_SLOT="0.16"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://codeberg.org/beansprout/beansprout.git"
 	inherit git-r3
 else
 	declare -g -r -A ZBS_DEPENDENCIES=(
-		[args-0.0.0-CiLiqojRAACGzDRO7A9dw7kWSchNk29caJZkXuMCb0Cn.tar.gz]='https://github.com/ikskuh/zig-args/archive/8ae26b44a884ff20dca98ee84c098e8f8e94902f.tar.gz'
 		[fcft-3.0.0-zcx6CxQfAADhnwm8SjyCkQF-VFHGiVarigc2de3ciInC.tar.gz]='https://git.sr.ht/~novakane/zig-fcft/archive/4bf5be61c869d08d5bcb0306049c63a9cb0795a7.tar.gz'
-		[kdl-0.0.0-8rilEKdHAQC_NOLDNu3Ts6kJT8uqqJvrPduFScEjSm_g.tar.gz]='https://codeberg.org/bwbuhse/zig-kdl/archive/13d9d247324f79b854187d6becc47fffdf7fea3b.tar.gz'
-		[known_folders-0.0.0-Fy-PJv3LAAABBRVoZWVrKZdyLoUfl5VRY5fqRRRdnF5L.tar.gz]='https://github.com/ziglibs/known-folders/archive/83d39161eac2ed6f37ad3cb4d9dd518696ce90bb.tar.gz'
+		[kdl-0.0.0-8rilELAEAgCwhdgb36ZsWmGgtvrKaLmLI7eMlwBz8UDt.tar.gz]='https://codeberg.org/desttinghim/zig-kdl/archive/22fa7655d70de1f447c864921ab847effec355f3.tar.gz'
+		[known_folders-0.0.0-Fy-PJk3KAACzUg2us_0JvQQmod1ZA8jBt7MuoKCihq88.tar.gz]='https://github.com/ziglibs/known-folders/archive/d6d03830968cca6b7b9f24fd97ee348346a6905d.tar.gz'
 		[pixman-0.3.0-LClMnz2VAAAs7QSCGwLimV5VUYx0JFnX5xWU6HwtMuDX.tar.gz]='https://codeberg.org/ifreund/zig-pixman/archive/v0.3.0.tar.gz'
-		[wayland-0.5.0-dev-lQa1kv_ZAQCZfnVZMocokZ78QJbH6NaM5RUC9ODQPhx5.tar.gz]='https://codeberg.org/ifreund/zig-wayland/archive/e57368ecbda85d564362779b253b744260a4b053.tar.gz'
-		[xkbcommon-0.4.0-dev-VDqIe0y2AgCNeWLthDZ3MUcUYzhyKXjK85ISm_zxk9Nk.tar.gz]='https://codeberg.org/ifreund/zig-xkbcommon/archive/6786ca619bb442c3f523b5bb894e6a1e48d7e897.tar.gz'
-		[zeit-0.6.0-5I6bk36tAgATpSl9wjFmRPMqYN2Mn0JQHgIcRNcqDpJA.tar.gz]='https://github.com/rockorager/zeit/archive/7ac64d72dbfb1a4ad549102e7d4e232a687d32d8.tar.gz'
-		[zigimg-0.1.0-8_eo2kSGFwADIkeZYTgfnLOV-khh6ZRoGmK6F2-s_QbY.tar.gz]='https://github.com/zigimg/zigimg/archive/fb74dfb7c6d83f2bd01a229826669451525a4ba8.tar.gz'
+		[wayland-0.6.0-lQa1kqz8AQADQmdNJsNhLoNHcnEGEUjrOaPV-dtEnEmX.tar.gz]='https://codeberg.org/ifreund/zig-wayland/archive/v0.6.0.tar.gz'
+		[xkbcommon-0.4.0-VDqIe0i2AgDRsok2GpMFYJ8SVhQS10_PI2M_CnHXsJJZ.tar.gz]='https://codeberg.org/ifreund/zig-xkbcommon/archive/v0.4.0.tar.gz'
+		[zeit-0.6.0-5I6bk7q6AgBdMJxze3D4l9ylQhkviQ_BX9FigDt13MFn.tar.gz]='https://github.com/rockorager/zeit/archive/refs/tags/v0.8.0.tar.gz'
 	)
 	S="${WORKDIR}/${PN}"
 	KEYWORDS="~amd64"
