@@ -20,7 +20,7 @@ LICENSE="BSD-2 BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
-BDEPEND=">=dev-lang/go-1.24"
+BDEPEND=">=dev-lang/go-1.25"
 
 src_compile() {
 	ego build -buildmode=pie
