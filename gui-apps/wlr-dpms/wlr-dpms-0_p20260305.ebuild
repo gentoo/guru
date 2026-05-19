@@ -1,11 +1,9 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit flag-o-matic
-
-COMMIT=b6a4aa82d7760d09a3323c93b02e10eb9eb89a3d
+COMMIT=bb86bdee332ddf1f2ceefc04bf73071ac24df3d5
 
 DESCRIPTION="change output power modes in wlroots compositors"
 HOMEPAGE="https://sr.ht/~dsemy/wlr-dpms/"
@@ -20,12 +18,9 @@ DEPEND="dev-libs/wayland"
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-DOCS=( README )
+PATCHES=( "${FILESDIR}"/makefile-respect-flags.patch )
 
-src_configure() {
-	# from Makefile
-	append-cflags -std=c99 -Wall -Wextra -Wno-unused-parameter -Wno-strict-prototypes
-}
+DOCS=( README )
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
