@@ -11,7 +11,7 @@ MY_PN="uplink-c"
 
 SRC_URI="
 https://github.com/storj/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-https://github.com/david-gentoo/uplink-c/releases/download/v${PVR}/${MY_PN}-${PVR}-vendor.tar.xz
+https://github.com/david-gentoo/uplink-c/releases/download/v${PV}/${MY_PN}-${PV}-vendor.tar.xz
 "
 
 S="${WORKDIR}/${MY_PN}-${PV}"
@@ -27,6 +27,15 @@ BDEPEND="
 	app-arch/unzip
 	virtual/pkgconfig
 "
+
+src_prepare() {
+	default
+
+	# remove upstream's pre-stripped flags
+	sed -i \
+		-e 's/[[:space:]]*-ldflags="-s -w"//' \
+		scripts/build-lib || die
+}
 
 src_compile() {
 	emake build

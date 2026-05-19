@@ -15,6 +15,6 @@
   <upstream>
     <remote-id type="github">storj/uplink-c</remote-id>
     <bugs-to>https://github.com/storj/uplink-c/issues</bugs-to>
-    <doc>https://docs.storj.io/</doc>
+    <doc>https://storj.dev/</doc>
   </upstream>
 </pkgmetadata>
