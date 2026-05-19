@@ -3,6 +3,9 @@
 
 EAPI=8
 
+# minimum taken from CMakeLists.txt
+QTMIN=6.4.0
+KFMIN=6.0.0
 inherit ecm
 
 DESCRIPTION="Desktop switching utility"
