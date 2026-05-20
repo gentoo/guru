@@ -1,7 +1,7 @@
 EAPI=8
 
 CRATES="
-	why2@1.4.13
+	why2@1.5.0
 	adler2@2.0.1
 	aho-corasick@1.1.4
 	alloca@0.4.0
@@ -61,15 +61,16 @@ CRATES="
 	crunchy@0.2.4
 	crypto-bigint@0.5.5
 	crypto-common@0.1.6
-	crypto-common@0.2.1
+	crypto-common@0.2.2
 	ctrlc@3.5.2
 	ctutils@0.4.2
 	darling@0.21.3
 	darling_core@0.21.3
 	darling_macro@0.21.3
-	dashmap@6.1.0
+	dashmap@6.2.1
 	dasp_sample@0.11.0
 	der@0.7.10
+	der@0.8.0
 	deranged@0.5.8
 	derive_more@2.1.1
 	derive_more-impl@2.1.1
@@ -137,15 +138,15 @@ CRATES="
 	memchr@2.8.0
 	miniz_oxide@0.8.9
 	mio@1.2.0
-	ml-kem@0.3.0
-	module-lattice@0.2.2
+	ml-kem@0.3.2
+	module-lattice@0.2.3
 	ndk@0.9.0
 	ndk-context@0.1.1
 	ndk-sys@0.6.0+11769913
-	nix@0.31.2
+	nix@0.31.3
 	nnnoiseless@0.5.2
 	num-complex@0.4.6
-	num-conv@0.2.1
+	num-conv@0.2.2
 	num-derive@0.4.2
 	num_enum@0.7.6
 	num_enum_derive@0.7.6
@@ -169,11 +170,12 @@ CRATES="
 	parking_lot@0.12.5
 	parking_lot_core@0.9.12
 	password-hash@0.5.0
-	pastey@0.2.2
+	pastey@0.2.3
 	pem-rfc7468@0.7.0
 	percent-encoding@2.3.2
 	pin-project-lite@0.2.17
 	pkcs8@0.10.2
+	pkcs8@0.11.0
 	pkg-config@0.3.33
 	plotters@0.3.7
 	plotters-backend@0.3.7
@@ -234,6 +236,7 @@ CRATES="
 	smallvec@1.15.1
 	socks@0.3.4
 	spki@0.7.3
+	spki@0.8.0
 	strength_reduce@0.2.4
 	strsim@0.11.1
 	subtle@2.6.1
@@ -282,8 +285,8 @@ CRATES="
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.11
 	winapi-x86_64-pc-windows-gnu@0.4.0
-	wincode@0.5.3
-	wincode-derive@0.4.4
+	wincode@0.5.4
+	wincode-derive@0.4.5
 	windows@0.62.2
 	windows_aarch64_gnullvm@0.42.2
 	windows_aarch64_gnullvm@0.52.6
@@ -315,7 +318,7 @@ CRATES="
 	windows_x86_64_gnullvm@0.52.6
 	windows_x86_64_msvc@0.42.2
 	windows_x86_64_msvc@0.52.6
-	winnow@1.0.2
+	winnow@1.0.3
 	wit-bindgen@0.51.0
 	wit-bindgen@0.57.1
 	wit-bindgen-core@0.51.0
