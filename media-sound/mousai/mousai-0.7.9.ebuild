@@ -24,10 +24,12 @@ RDEPEND="
 	dev-libs/glib:2
 	gui-libs/gtk:4
 	gui-libs/libadwaita:1
+	media-libs/graphene
 	media-libs/gst-plugins-bad:1.0
 	media-libs/gst-plugins-base:1.0
 	media-libs/gstreamer:1.0
 	net-libs/libsoup:3.0
+	x11-libs/cairo
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
