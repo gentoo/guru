@@ -346,6 +346,10 @@ KEYWORDS="~amd64"
 QA_FLAGS_IGNORED="usr/bin/why2 usr/bin/why2-server"
 IUSE="+server"
 
+DEPEND="media-libs/alsa-lib"
+RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
+
 src_unpack() {
 	cargo_src_unpack
 	tar xf "${DISTDIR}/${MY_PN}-${PV}.crate" -C "${WORKDIR}" || die
