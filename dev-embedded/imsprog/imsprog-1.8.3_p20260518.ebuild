@@ -35,10 +35,10 @@ BDEPEND="
 "
 
 src_install() {
-	HTML_DOCS=( IMSProg_programmer/other/index.html img/* )
+	local HTML_DOCS=( IMSProg_programmer/other/index.html img/* )
 	cmake_src_install
 	rm -r "${ED}"/usr/share/doc/imsprog || die
-	gunzip "${ED}"/usr/share/man/man1/*
+	gunzip "${ED}"/usr/share/man/man1/* || die
 }
 
 pkg_postrm() {
