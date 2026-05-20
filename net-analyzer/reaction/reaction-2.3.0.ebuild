@@ -486,6 +486,7 @@ CRATES="
 	zerovec@0.11.5
 	zmij@1.0.15
 "
+
 inherit cargo shell-completion systemd
 
 DESCRIPTION="Scan logs and take action"
@@ -501,14 +502,15 @@ LICENSE="AGPL-3"
 LICENSE+=" Apache-2.0 MIT MPL-2.0 Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
-RUST_MIN_VER="1.82.0"
+RUST_MIN_VER="1.89.0"
 
 src_install() {
 	cargo_src_install
-	newbashcomp target/release/${PN}.bash ${PN}
-	dofishcomp target/release/${PN}.fish
+	local target_dir="$(cargo_target_dir)"
+	newbashcomp ${target_dir}/${PN}.bash ${PN}
+	dofishcomp ${target_dir}/${PN}.fish
 	systemd_dounit "${FILESDIR}/systemd/${PN}.service"
-	doman target/release/*.[0-9]
+	doman ${target_dir}/*.[0-9]
 	doinitd "${FILESDIR}/init.d/${PN}"
 	keepdir /var/lib/${PN}
 	keepdir /etc/${PN}.d
