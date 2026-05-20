@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_EXT=1
 inherit distutils-r1 pypi
@@ -17,6 +17,10 @@ KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 # Tests requires many eda tools, and can't work inside network sandbox
 RESTRICT=test
+
+PATCHES=(
+	"${FILESDIR}"/${P}-python-3.14.patch
+)
 
 RDEPEND="
 	dev-python/find-libpython[${PYTHON_USEDEP}]
