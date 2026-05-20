@@ -25,6 +25,7 @@ RDEPEND="
 	dev-libs/libusb
 	net-print/cups
 	scanner? (
+		dev-libs/libxml2:2
 		media-gfx/sane-backends
 	)
 "
