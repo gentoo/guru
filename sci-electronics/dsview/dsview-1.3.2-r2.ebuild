@@ -54,6 +54,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.3.0-fix-flags.patch"
 	# Upstream commit c428bd66: fix Qt6 nativeEvent override signature.
 	"${FILESDIR}/${PN}-1.3.2-qt6.patch"
+	# bug 975564
+	"${FILESDIR}/${PN}-1.3.2-cmake4.patch"
 )
 
 src_configure() {
