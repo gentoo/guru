@@ -461,6 +461,8 @@ SRC_URI="https://github.com/josefbacik/systing/archive/v${PV}.tar.gz -> ${P}.tar
 	${CARGO_CRATE_URIS}
 "
 
+BDEPEND="llvm-core/clang"
+
 LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
