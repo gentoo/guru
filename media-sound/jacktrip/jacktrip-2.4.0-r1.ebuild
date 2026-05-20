@@ -13,32 +13,15 @@ SRC_URI="https://github.com/jacktrip/jacktrip/archive/refs/tags/v${PV}.tar.gz ->
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="gui jack qt5 +rtaudio virtualstudio"
+IUSE="gui jack +rtaudio virtualstudio"
 REQUIRED_USE="
-	virtualstudio? ( gui !qt5 )
+	virtualstudio? ( gui )
 	|| ( jack rtaudio )
 "
 
 DEPEND="
-	qt5? (
-		dev-qt/qtcore:5=
-		dev-qt/qtnetwork:5=
-	)
-
-	!qt5? (
-		dev-qt/qtbase:6=[network]
-	)
-
-	gui? (
-		qt5? (
-			dev-qt/qtgui:5=
-			dev-qt/qtwidgets:5=
-		)
-		!qt5? (
-			dev-qt/qtbase:6=[gui,widgets]
-		)
-	)
-
+	dev-qt/qtbase:6=[network]
+	gui? ( dev-qt/qtbase:6=[gui,widgets] )
 	jack? (
 		virtual/jack
 	)
@@ -79,6 +62,7 @@ src_configure() {
 		-Dnoupdater=true
 		-Dnogui=$(usex gui false true)
 		-Dnovs=$(usex virtualstudio false true)
+		-Dqtversion=6
 		$(meson_feature jack)
 		$(meson_feature rtaudio)
 	)
