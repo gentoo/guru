@@ -1,0 +1,30 @@
+From: Huang Rui <vowstar@gmail.com>
+Date: Wed, 20 May 2026 20:10:00 +0800
+Subject: [PATCH] external: lower catch2 min version to 3.13
+
+Gentoo ships up to dev-cpp/catch-3.13. With the upstream cap at 3.14
+find_package fails, FetchContent_MakeAvailable then falls through to
+git clone which is blocked by network-sandbox. Catch2's 3.13 to 3.14
+diff is API-compatible for slang's unit tests, so lowering the floor
+to 3.13 lets system Catch2 satisfy the FIND_PACKAGE_ARGS path and
+avoids the network access entirely.
+
+Bug: https://bugs.gentoo.org/975580
+Upstream-Status: Not submitted (distro version-floor concern)
+Signed-off-by: Huang Rui <vowstar@gmail.com>
+---
+ external/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/external/CMakeLists.txt b/external/CMakeLists.txt
+--- a/external/CMakeLists.txt
++++ b/external/CMakeLists.txt
+@@ -7,7 +7,7 @@
+ set(fmt_min_version "12.1")
+ set(mimalloc_min_version "3.3")
+ set(cpptrace_min_version "1.0")
+-set(catch2_min_version "3.14")
++set(catch2_min_version "3.13")
+
+ # --- fmt lib ---
+ set(find_pkg_args "")

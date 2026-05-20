@@ -37,11 +37,15 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-libs/libfmt-12.1
-	test? ( >=dev-cpp/catch-3.11 )
+	test? ( >=dev-cpp/catch-3.13:0 )
 "
 
+PATCHES=(
+	# bug 975580
+	"${FILESDIR}/${PN}-11.0-catch2-3.13.patch"
+)
+
 src_prepare() {
-	default
 	cmake_src_prepare
 }
 
