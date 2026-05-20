@@ -41,6 +41,8 @@ BDEPEND="
 	test? ( dev-vcs/git )
 "
 
+QA_FLAGS_IGNORED="usr/bin/mousai"
+
 PATCHES=(
 	"${FILESDIR}/${PN}-0.7.8-remove-the-cargo-clippy-test.patch"
 	"${FILESDIR}/${PN}-0.7.8-skip-failing-tests.patch"
