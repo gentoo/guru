@@ -3,6 +3,8 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.85.0"
+
 inherit cargo gnome2-utils meson xdg
 
 DESCRIPTION="Identify songs in seconds"
