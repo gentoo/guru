@@ -53,9 +53,10 @@ src_prepare() {
 		sed -i "s/UNKNOWN_REV/(Gentoo ${PVR})/g" "${S}"/src/config_rev || die
 	fi
 	# https://bugs.gentoo.org/785151
-	sed -i "s/python3/${EPYTHON}/g" "${S}"/configure.ac || die
-	find . -name "Makefile" -exec sed -i "s/python3/${EPYTHON}/g" {} + || die
-	find test_regress -type f -exec sed -i "s/python3/${EPYTHON}/g" {} + || die
+	# Word-boundary match to avoid mangling python3_version etc. (bug 975566).
+	sed -i "s/\<python3\>/${EPYTHON}/g" "${S}"/configure.ac || die
+	find . -name "Makefile" -exec sed -i "s/\<python3\>/${EPYTHON}/g" {} + || die
+	find test_regress -type f -exec sed -i "s/\<python3\>/${EPYTHON}/g" {} + || die
 	python_fix_shebang .
 	# https://bugs.gentoo.org/887917
 	if ! use debug; then
