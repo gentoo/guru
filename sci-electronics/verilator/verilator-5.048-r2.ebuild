@@ -43,6 +43,7 @@ BDEPEND="
 	test? (
 		dev-build/cmake
 		dev-debug/gdb
+		$(python_gen_cond_dep 'dev-python/distro[${PYTHON_USEDEP}]')
 	)
 "
 
