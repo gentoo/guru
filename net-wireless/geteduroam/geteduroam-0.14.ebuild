@@ -20,6 +20,7 @@ IUSE="gui libnotify"
 DEPEND="libnotify? ( x11-libs/libnotify )
 	gui? ( >=gui-libs/gtk-4.6 >=gui-libs/libadwaita-1.1 )
 	net-misc/networkmanager"
+BDEPEND=">=dev-lang/go-1.25.0"
 RDEPEND="${DEPEND}"
 
 src_compile() {
