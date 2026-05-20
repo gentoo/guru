@@ -1,0 +1,15 @@
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>reedy.sailors.8t@icloud.com</email>
+		<name>Emi</name>
+	</maintainer>
+	<upstream>
+		<doc>https://docs.noctalia.dev/v5/</doc>
+		<remote-id type="github">noctalia-dev/noctalia-shell</remote-id>
+	</upstream>
+	<longdescription>
+        A lightweight Wayland shell and bar built directly on Wayland + OpenGL ES, with no Qt or GTK dependency.
+	</longdescription>
+</pkgmetadata>
+
