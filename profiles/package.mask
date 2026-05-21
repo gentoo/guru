@@ -28,6 +28,7 @@ x11-drivers/xf86-input-xppen
 media-sound/pianobooster
 mpv-plugin/kde-do-not-disturb
 mpv-plugin/kde-night-color
+x11-misc/aerial-sddm-theme
 
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Not updated since 2023, depends on masked Qt5
