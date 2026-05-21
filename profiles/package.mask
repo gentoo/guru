@@ -19,6 +19,10 @@
 # New entries go on top.
 
 # David Roman <stkw0@disroot.org> (2026-05-21)
+# Not updated since 2024, depends on masked Qt5
+x11-drivers/xf86-input-xppen
+
+# David Roman <stkw0@disroot.org> (2026-05-21)
 # Unmaintained upstream, depends on masked Qt5
 # Removal after 2026-06-21
 media-sound/pianobooster
