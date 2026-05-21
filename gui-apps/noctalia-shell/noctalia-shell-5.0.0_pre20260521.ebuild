@@ -45,7 +45,6 @@ BDEPEND="
 
 DOCS=( README.md CREDITS.md example.toml )
 
-
 pkg_postinst() {
 	optfeature "external display brightness control" app-misc/ddcutil
 	optfeature "hardware-accelerated screen recording" media-video/gpu-screen-recorder
