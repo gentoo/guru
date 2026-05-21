@@ -1,0 +1,38 @@
+From 7d8afcf7e621775b858db80c0881499fbf3e6269 Mon Sep 17 00:00:00 2001
+From: Nicolas Mora <github@babelouest.org>
+Date: Sun, 26 Apr 2026 09:38:35 -0400
+Subject: [PATCH] Upgrade cmake min version to 3.14, fix dependency
+ libmicrohttpd lib name in debian package
+
+---
+ CMakeLists.txt | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 24f2ee6eb98b..5dc235b8bdfb 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -14,7 +14,7 @@
+ # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ #
+ 
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.14)
+ 
+ project(ulfius C)
+ 
+@@ -546,9 +546,9 @@ if (BUILD_DEB)
+         set(CPACK_DEBIAN_PACKAGE_DEPENDS "${CPACK_DEBIAN_PACKAGE_DEPENDS}, libgnutls28-dev|libgnutls-dev|libgnutls30 (>= 3.5.0)")
+     endif ()
+     if (WITH_WEBSOCKET)
+-        set(CPACK_DEBIAN_PACKAGE_DEPENDS "${CPACK_DEBIAN_PACKAGE_DEPENDS}, libmicrohttpd-dev|libmicrohttpd12 (>= 0.9.53)")
++        set(CPACK_DEBIAN_PACKAGE_DEPENDS "${CPACK_DEBIAN_PACKAGE_DEPENDS}, libmicrohttpd-dev|libmicrohttpd12|libmicrohttpd12t64 (>= 0.9.53)")
+     else ()
+-        set(CPACK_DEBIAN_PACKAGE_DEPENDS "${CPACK_DEBIAN_PACKAGE_DEPENDS}, libmicrohttpd-dev|libmicrohttpd12 (>= 0.9.51)")
++        set(CPACK_DEBIAN_PACKAGE_DEPENDS "${CPACK_DEBIAN_PACKAGE_DEPENDS}, libmicrohttpd-dev|libmicrohttpd12|libmicrohttpd12t64 (>= 0.9.51)")
+     endif ()
+ endif ()
+ 
+-- 
+2.53.0
+
