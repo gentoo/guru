@@ -37,6 +37,11 @@ src_prepare() {
 	sed -i \
 		-e 's/[[:space:]]*-ldflags="-s -w"//' \
 		scripts/build-lib || die
+
+	# Add SONAME to the shared object.
+	sed -i \
+		-e 's/go build /go build -ldflags="-extldflags=-Wl,-soname,libuplink.so" /' \
+		scripts/build-lib || die
 }
 
 src_compile() {
@@ -45,18 +50,18 @@ src_compile() {
 
 src_install() {
 	# Shared libs
-	dolib.so .build/libuplink.so || die "failed to install libuplink.so"
+	dolib.so .build/libuplink.so
 
 	# Optional static libs
 	if use static-libs ; then
-	dolib.a  .build/libuplink.a  || die "failed to install libuplink.a"
+	dolib.a  .build/libuplink.a
 	fi
 
 	# Headers (upstream copies them into .build/uplink)
 	insinto /usr/include/uplink
-	doins .build/uplink/*.h || die "failed to install headers"
+	doins .build/uplink/*.h
 
 	# pkg-config file
 	insinto /usr/$(get_libdir)/pkgconfig
-	doins .build/libuplink.pc || die "failed to install libuplink.pc"
+	doins .build/libuplink.pc
 }
