@@ -135,6 +135,8 @@ DEPEND="
 	net-libs/libnfnetlink
 "
 
+QA_FLAGS_IGNORED="usr/bin/dpibreak"
+
 src_install() {
 	cargo_src_install
 	doman dpibreak.1
