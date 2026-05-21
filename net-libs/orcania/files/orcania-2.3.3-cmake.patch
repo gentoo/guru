@@ -1,0 +1,25 @@
+From 95c8d229368d825b571421673a23ce6885ed89ec Mon Sep 17 00:00:00 2001
+From: Nicolas Mora <github@babelouest.org>
+Date: Sun, 26 Apr 2026 09:35:30 -0400
+Subject: [PATCH] Upgrade cmake min version to 3.14
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8f6ab6674f94..86f749a4c63f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -14,7 +14,7 @@
+ # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ #
+ 
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.14)
+ 
+ project(orcania C)
+ 
+-- 
+2.53.0
+
