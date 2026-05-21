@@ -18,7 +18,7 @@ LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 
-RESTRICT="mirror strip"
+RESTRICT="mirror strip fetch"
 
 BDEPEND="dev-util/patchelf"
 RDEPEND="
