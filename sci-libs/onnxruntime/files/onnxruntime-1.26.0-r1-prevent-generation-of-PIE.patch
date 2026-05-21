@@ -1,0 +1,16 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Prevent generation of PIE.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/cmake/CMakeLists.txt
++++ b/cmake/CMakeLists.txt
+@@ -1294,6 +1294,7 @@ endfunction()
+ function(onnxruntime_add_executable target_name)
+   add_executable(${target_name} ${ARGN})
+   onnxruntime_configure_target(${target_name})
++  set_target_properties(${target_name} PROPERTIES POSITION_INDEPENDENT_CODE OFF)
+   if (MSVC AND onnxruntime_target_platform STREQUAL "x86")
+     target_link_options(${target_name} PRIVATE /SAFESEH)
+   endif()
+

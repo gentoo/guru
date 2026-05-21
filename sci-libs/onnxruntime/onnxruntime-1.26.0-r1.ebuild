@@ -73,6 +73,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.22.2-relax-the-dependency-on-flatbuffers.patch"
 	"${FILESDIR}/${PN}-1.24.4-no-werror.patch"
 	"${FILESDIR}/${PN}-1.26.0-use-system-libraries.patch"
+	"${FILESDIR}/${PN}-1.26.0-r1-prevent-generation-of-PIE.patch"
 )
 
 CMAKE_USE_DIR="${S}/cmake"
