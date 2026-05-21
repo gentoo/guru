@@ -1,0 +1,10 @@
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>reedy.sailors.8t@icloud.com</email>
+		<name>Emi</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">uiriansan/SilentSDDM</remote-id>
+	</upstream>
+</pkgmetadata>
