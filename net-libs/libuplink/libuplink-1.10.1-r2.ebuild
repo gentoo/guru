@@ -22,6 +22,8 @@ KEYWORDS="~amd64 ~arm64"
 
 IUSE="static-libs"
 
+RESTRICT="test"
+
 BDEPEND="
 	>=dev-lang/go-1.20:=
 	app-arch/unzip
