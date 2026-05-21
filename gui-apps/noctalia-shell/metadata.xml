@@ -8,6 +8,10 @@
 		<email>ghostyn678+git@gmail.com</email>
 		<name>dsaf</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>reedy.sailors.8t@icloud.com</email>
+		<name>Emi</name>
+	</maintainer>
 	<upstream>
 		<doc>https://docs.noctalia.dev/</doc>
 		<remote-id type="github">noctalia-dev/noctalia-shell</remote-id>
