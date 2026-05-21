@@ -68,6 +68,8 @@ CRATES="
 	windows_x86_64_msvc@0.48.5
 "
 
+RUST_MIN_VER="1.85.0"
+
 inherit cargo
 
 DESCRIPTION="Futuristic take on hexdump"
