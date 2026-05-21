@@ -18,6 +18,8 @@ KEYWORDS="-* ~amd64 ~arm64"
 
 RDEPEND="!www-apps/soupault"
 
+QA_PREBUILT="*"
+
 src_unpack() {
 	default
 
