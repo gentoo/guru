@@ -22,6 +22,7 @@
 # Unmaintained upstream, depends on masked Qt5
 # Removal after 2026-06-21
 media-sound/pianobooster
+mpv-plugin/kde-do-not-disturb
 
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Not updated since 2023, depends on masked Qt5
