@@ -9,7 +9,7 @@ DESCRIPTION="Command to simulate input anywhere"
 HOMEPAGE="https://git.sr.ht/~geb/dotool"
 EGIT_COMMIT="945a7daedeef076db91261266b802498096f6f91"
 SRC_URI="https://git.sr.ht/~geb/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${PN}-${PV}.tar.gz ${EGO_SUM_SRC_URI}"
-SRC_URI+="https://codeberg.org/fictitiousexistence/gentoo-gofiles/raw/branch/main/dotool/${PN}-${PV}-deps.tar.xz"
+SRC_URI+="https://codeberg.org/fictitiousexistence/gentoo-depfiles/media/branch/main/dotool/${PN}-${PV}-deps.tar.xz"
 
 S=${WORKDIR}/${PN}-${EGIT_COMMIT}
 
@@ -24,7 +24,7 @@ DEPEND="dev-libs/libinput
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	local ldflags="-s -w -X main.Version=${PV}"
+	local ldflags="-X main.Version=${PV}"
 	go build -ldflags="${ldflags}" || die 'go build failed'
 	use man && scdoc < ./doc/${PN}.1.scd  > ./${PN}.1
 }
