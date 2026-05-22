@@ -40,7 +40,7 @@ SLOT="0"
 CPU_FLAGS_X86=( avx avx2 f16c )
 
 # wwma USE explained here: https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#hip
-IUSE="curl openblas +openmp blis rocm cuda opencl openssl vulkan flexiblas wmma webui examples"
+IUSE="curl openblas +openmp blis rocm cuda opencl openssl vulkan flexiblas wmma webui lto examples"
 
 REQUIRED_USE="
 	?? (
@@ -123,6 +123,7 @@ src_configure() {
 		-DLLAMA_BUILD_SERVER=ON
 		-DCMAKE_SKIP_BUILD_RPATH=ON
 		-DGGML_NATIVE=0	# don't set march
+		-DGGML_LTO=$(usex lto)
 		-DGGML_RPC=ON
 		-DLLAMA_CURL=$(usex curl)
 		-DLLAMA_OPENSSL=$(usex openssl)
