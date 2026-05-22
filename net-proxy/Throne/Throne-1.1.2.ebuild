@@ -30,6 +30,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-go/protobuf-go
 	dev-go/protoc-gen-go-grpc
+	>=dev-lang/go-1.25
 	dev-qt/qttools:6[linguist]
 "
 
