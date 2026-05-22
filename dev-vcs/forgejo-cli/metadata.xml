@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<longdescription lang="en">
+		forgejo-cli (binary name: fj) is a command-line client for Forgejo,
+		the soft-fork of Gitea that powers Codeberg and other community git
+		forges. It supports issues, pull requests (including AGit-style),
+		releases, repositories, organizations, teams, and authentication,
+		alongside ordinary git so it complements rather than replaces it.
+	</longdescription>
+	<longdescription lang="zh">
+		forgejo-cli（命令名 fj）是 Forgejo 的命令行客户端。Forgejo 是 Gitea
+		的软分叉，驱动了 Codeberg 等社区 git 平台。该工具支持 issue、PR
+		（含 AGit 风格）、release、仓库、组织、团队管理与认证等操作，
+		与 git 协同工作而非替代之。
+	</longdescription>
+	<upstream>
+		<remote-id type="codeberg">forgejo-contrib/forgejo-cli</remote-id>
+	</upstream>
+</pkgmetadata>
