@@ -3,7 +3,7 @@
 
 EAPI=8
 
-RUST_MIN_VERSION="1.85.0"
+RUST_MIN_VER="1.85.0"
 
 inherit cargo desktop shell-completion eapi9-ver
 
@@ -131,3 +131,5 @@ pkg_postinst() {
 		einfo "man 5 alacritty"
 	fi
 }
+
+QA_FLAGS_IGNORED=/usr/bin/alacritty
