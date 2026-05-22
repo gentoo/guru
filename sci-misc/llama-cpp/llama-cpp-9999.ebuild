@@ -23,6 +23,12 @@ else
 fi
 
 SRC_URI+="
+	webui? (
+		https://huggingface.co/buckets/ggml-org/llama-ui/resolve/latest/index.html -> llama-ui-${PV}-index.html
+		https://huggingface.co/buckets/ggml-org/llama-ui/resolve/latest/bundle.js -> llama-ui-${PV}-bundle.js
+		https://huggingface.co/buckets/ggml-org/llama-ui/resolve/latest/bundle.css -> llama-ui-${PV}-bundle.css
+		https://huggingface.co/buckets/ggml-org/llama-ui/resolve/latest/loading.html -> llama-ui-${PV}-loading.html
+	)
 	examples? (
 		https://huggingface.co/ggml-org/tiny-llamas/resolve/${TINY_LLAMAS_COMMIT}/stories15M-q4_0.gguf
 			-> ggml-org_models_tinyllamas_stories15M-q4_0-${TINY_LLAMAS_COMMIT}.gguf
@@ -34,7 +40,7 @@ SLOT="0"
 CPU_FLAGS_X86=( avx avx2 f16c )
 
 # wwma USE explained here: https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#hip
-IUSE="curl openblas +openmp blis rocm cuda opencl openssl vulkan flexiblas wmma examples"
+IUSE="curl openblas +openmp blis rocm cuda opencl openssl vulkan flexiblas wmma webui examples"
 
 REQUIRED_USE="
 	?? (
@@ -93,6 +99,15 @@ pkg_setup() {
 src_prepare() {
 	use cuda && cuda_src_prepare
 	cmake_src_prepare
+
+	if use webui; then
+		mkdir -p "${S}/build/tools/ui/dist" || die
+		cp "${DISTDIR}/llama-ui-${PV}-index.html" "${S}/build/tools/ui/dist/index.html" || die
+		cp "${DISTDIR}/llama-ui-${PV}-bundle.js"  "${S}/build/tools/ui/dist/bundle.js"  || die
+		cp "${DISTDIR}/llama-ui-${PV}-bundle.css" "${S}/build/tools/ui/dist/bundle.css" || die
+		cp "${DISTDIR}/llama-ui-${PV}-loading.html" "${S}/build/tools/ui/dist/loading.html" || die
+	fi
+
 	if use examples; then
 		mkdir -p "${BUILD_DIR}/tinyllamas" || die
 		cp "${DISTDIR}/ggml-org_models_tinyllamas_stories15M-q4_0-${TINY_LLAMAS_COMMIT}.gguf" \
@@ -102,7 +117,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DLLAMA_BUILD_WEBUI=OFF
+		-DLLAMA_BUILD_WEBUI=$(usex webui)
 		-DLLAMA_BUILD_TESTS=OFF
 		-DLLAMA_BUILD_EXAMPLES=$(usex examples)
 		-DLLAMA_BUILD_SERVER=ON
