@@ -15,30 +15,27 @@ else
 	S="${WORKDIR}/SilentSDDM-${PV}"
 fi
 
-LICENSE="GPL-3 OFL-1.1"
+LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="
 	x11-misc/sddm
+	media-fonts/redhat[otf,variable,redhatmono,redhatdisplay,redhattext]
 	>=dev-qt/qtsvg-6.10.1
 	>=dev-qt/qtvirtualkeyboard-6.10.1
 	>=dev-qt/qtmultimedia-6.10.1-r1
 "
 
 src_install() {
-	insinto /usr/share/fonts
-	doins -r fonts/redhat-vf fonts/redhat
 	insinto /usr/share/sddm/themes/silent
 	doins -r Main.qml metadata.desktop qmldir icons configs components backgrounds
 }
 
 pkg_postinst() {
 	elog "To enable this theme, add the following to /etc/sddm.conf and restart sddm"
-	elog ""
 	elog "[General]"
 	elog "InputMethod=qtvirtualkeyboard"
 	elog "GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard"]
-	elog ""
 	elog "[Theme]"
 	elog "Current=silent"
 }
