@@ -31,6 +31,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+QA_PREBUILT="usr/bin/fopnu"
+
 src_install() {
 	sed -i "/^Categories/ s/Internet;//" fopnu.desktop
 
