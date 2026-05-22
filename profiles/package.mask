@@ -21,6 +21,7 @@
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
 media-sound/noson-app
+net-p2p/dogecoin-qt
 
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Not updated since 2024, depends on masked Qt5
