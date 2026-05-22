@@ -7,7 +7,7 @@ CRATES="
 "
 
 declare -A GIT_CRATES=(
-	[cpal]='https://github.com/RustAudio/cpal;509e5bba9dafb52c6e4a32492ccfb1933f1be9ed;cpal-%commit%'
+	[cpal]='https://github.com/RustAudio/cpal;1c40a85e2e74b376c6b35eef8d111586d426a61f;cpal-%commit%'
 )
 
 RUST_MIN_VER="1.88.0"
@@ -42,6 +42,11 @@ DEPEND="
 	media-libs/libpulse
 	net-libs/libsoup
 	media-video/pipewire
+	dev-libs/glib
+	media-libs/graphene
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/pango
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
