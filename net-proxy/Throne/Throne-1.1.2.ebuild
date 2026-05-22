@@ -51,6 +51,9 @@ src_unpack() {
 src_prepare() {
 	rm -r 3rdparty/{QHotkey,quirc} || die
 
+	sed '/^cmake_minimum_required/ s/(.*)/(VERSION 3.10)/' \
+		-i 3rdparty/SQLiteCpp/CMakeLists.txt || die
+
 	cmake_src_prepare
 }
 
