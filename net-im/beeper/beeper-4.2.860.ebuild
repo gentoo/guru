@@ -112,8 +112,6 @@ src_install() {
 		LICENSE.electron.txt
 		LICENSES.chromium.html
 		beepertexts.png
-		resources/app/node_modules/@cbor-extract/cbor-extract-linux-x64/node.abi115.musl.node
-		resources/app/node_modules/@cbor-extract/cbor-extract-linux-x64/node.napi.musl.node
 		resources/app/node_modules/classic-level/prebuilds/linux-x64/classic-level.musl.node
 		usr
 	)
