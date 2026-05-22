@@ -1,0 +1,19 @@
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>reedy.sailors.8t@icloud.com</email>
+		<name>Emi</name>
+	</maintainer>
+	<use>
+		<flag name="redhatmono">Install the RedHatMono font</flag>
+		<flag name="redhatdisplay">Install the RedHatDisplay font</flag>
+		<flag name="redhattext">Install the RedHatText font</flag>
+		<flag name="otf">Install otf font files</flag>
+		<flag name="ttf">Install ttf font files</flag>
+		<flag name="webfonts">Install web font files</flag>
+		<flag name="variable">Install variable font files</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">RedHatOfficial/RedHatFont</remote-id>
+	</upstream>
+</pkgmetadata>
