@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>bip125@yandex.com</email>
-		<name>Peter Brinyiczki</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription>
 		Forkgram is a fork of the official Telegram Desktop application.
 		It does not fundamentally change the official client but adds
