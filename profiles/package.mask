@@ -143,9 +143,6 @@ dev-util/minify-bin
 # dev-python/cassowary completely dead upstream and insecure.
 # Removal 2026-05-21
 dev-python/cassowary
-# Mostly dead upstream, not much progress on pyqt6 bringup
-# Removal 2026-05-21
-media-gfx/vimiv-qt
 # progress getting made, unmask when done.
 # https://github.com/autokey/autokey/pull/1104
 x11-apps/autokey
