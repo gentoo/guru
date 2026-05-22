@@ -64,6 +64,7 @@ BDEPEND="
 
 	test? (
 		dev-cpp/gtest
+		$(python_gen_any_dep 'sci-ml/onnx[${PYTHON_USEDEP}]')
 
 		python? ( dev-python/pytest[${PYTHON_USEDEP}] )
 	)
@@ -77,6 +78,12 @@ PATCHES=(
 )
 
 CMAKE_USE_DIR="${S}/cmake"
+
+# The `$(python_get_sitedir)/onnx/onnx-ml.proto` file is used during tests
+python_check_deps() {
+	! use test && return 0
+	python_has_version "sci-ml/onnx[${PYTHON_USEDEP}]"
+}
 
 src_configure() {
 	# Python is used at build time unconditionally
