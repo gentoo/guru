@@ -59,14 +59,14 @@ src_install() {
 	fowners -R couchdb:couchdb /usr/lib/${PN}
 	fowners -R couchdb:couchdb /etc/${PN}
 	find "${D}"/usr/lib/${PN} -type d -exec chmod 0770 {} \;
-	fperms 0644 /etc/${PN}/*
+	fperms 0644 /etc/${PN}/{local.ini,vm.args,default.ini}
 
 	# Install scripts
 	newinitd "${FILESDIR}"/couchdb-init.d couchdb
 	newconfd "${FILESDIR}"/couchdb-conf.d couchdb
 
 	# Remove some cruft
-	rm -vr "${D}"/usr/lib/${PN}/erts-*/{doc,include,lib,man,src} || die
+	# rm -vr "${D}"/usr/lib/${PN}/erts-*/{doc,include,lib,man,src} || die
 	rm -vr "${D}"/usr/lib/${PN}/etc/ || die
 	rm -vr "${D}"/usr/lib/${PN}/lib/couch-${PV}/priv/couch_{ejson_compare,js} || die
 }
