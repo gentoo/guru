@@ -7,7 +7,8 @@ inherit toolchain-funcs
 
 DESCRIPTION="reasonable expectation of privacy"
 HOMEPAGE="https://flak.tedunangst.com/post/reop"
-SRC_URI="https://flak.tedunangst.com/files/${P}.tgz"
+# Ted Unangst infra has been down since early 2026, own copy, same checksum
+SRC_URI="https://distfiles.hacktivis.me/releases/reop/${P}.tgz"
 
 LICENSE="ISC"
 SLOT="0"
