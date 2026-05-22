@@ -73,7 +73,7 @@ src_compile() {
 
 	VERSION_SINGBOX=$(go list -m -f '{{.Version}}' github.com/sagernet/sing-box)
 	ego build \
-		-trimpath -ldflags "-w -s -checklinkname=0 \
+		-trimpath -ldflags "-checklinkname=0 \
 		-X 'github.com/sagernet/sing-box/constant.Version=${VERSION_SINGBOX}' \
 		-X 'internal/godebug.defaultGODEBUG=multipathtcp=0'" \
 		-tags "with_clash_api,with_gvisor,with_quic,with_wireguard,with_utls,with_dhcp,with_tailscale,badlinkname,tfogo_checklinkname0"
