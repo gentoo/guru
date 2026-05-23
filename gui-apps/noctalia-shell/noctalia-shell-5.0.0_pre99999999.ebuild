@@ -15,7 +15,7 @@ EGIT_BRANCH="v5"
 LICENSE="MIT"
 SLOT="0"
 
-IUSE="jemalloc"
+IUSE="+jemalloc"
 
 DEPEND="
 	dev-libs/glib:2
