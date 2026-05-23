@@ -5,6 +5,10 @@
 		<name>Julien Roy</name>
 		<email>julien@jroy.ca</email>
 	</maintainer>
+	<maintainer type="person">
+		<name>Emi</name>
+		<email>reedy.sailors.8t@icloud.com</email>
+	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/InioX/matugen/issues</bugs-to>
 		<remote-id type="github">InioX/matugen</remote-id>
