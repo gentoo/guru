@@ -40,6 +40,8 @@ BDEPEND="
 	debug? ( dev-vcs/git )
 "
 
+QA_FLAGS_IGNORED="usr/bin/decoder"
+
 PATCHES=(
 	"${FILESDIR}/${PN}-0.9.0-remove-the-cargo-test-and-cargo-clippy-tests.patch"
 )
