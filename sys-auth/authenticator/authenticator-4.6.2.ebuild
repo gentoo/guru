@@ -22,7 +22,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-libs/glib:2
-	gui-libs/gtk:4
+	gui-libs/gtk:4[wayland]
 	gui-libs/libadwaita:1
 	media-libs/gst-plugins-base:1.0
 	media-libs/gstreamer:1.0
