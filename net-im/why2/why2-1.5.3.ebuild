@@ -366,6 +366,6 @@ src_compile() {
 }
 
 src_install() {
-	dobin target/release/why2
-	use server && dobin target/release/why2-server
+	dobin "$(cargo_target_dir)/why2"
+	use server && dobin "$(cargo_target_dir)/why2-server"
 }
