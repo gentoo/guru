@@ -5,12 +5,13 @@ EAPI=8
 
 inherit meson optfeature
 
+MY_COMMIT="9559ebf5cfb2f4db9dc8a59c6318e08ddc248f33"
+
 DESCRIPTION="A lightweight Wayland shell and bar built directly on Wayland + OpenGL ES"
 HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia-shell"
 
-inherit git-r3
-EGIT_REPO_URI="https://github.com/noctalia-dev/noctalia-shell.git"
-EGIT_BRANCH="v5"
+SRC_URI="https://github.com/noctalia-dev/noctalia-shell/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${MY_COMMIT}"
 
 LICENSE="MIT"
 SLOT="0"
