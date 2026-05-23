@@ -134,10 +134,6 @@ python_test() {
 src_test() {
 	local -x GTEST_FILTER="*:-ActivationOpNoInfTest.Softsign:LayoutTransformationPotentiallyAddedOpsTests.OpsHaveLatestVersions"
 
-	local myctestargs=(
-		--output-on-failure
-	)
-
 	if use python; then
 		python_foreach_impl cmake_src_test
 		python_foreach_impl python_test
