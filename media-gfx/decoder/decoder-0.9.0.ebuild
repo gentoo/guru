@@ -24,8 +24,9 @@ RDEPEND="
 	dev-libs/glib:2
 	gui-libs/gtk:4[wayland]
 	gui-libs/libadwaita:1
-	media-libs/gst-plugins-base:1.0
+	media-libs/graphene
 	media-libs/gst-plugins-bad:1.0
+	media-libs/gst-plugins-base:1.0
 	media-libs/gstreamer:1.0
 	media-plugins/gst-plugin-gtk4
 "
