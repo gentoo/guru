@@ -34,7 +34,7 @@ DEPEND="
 	virtual/opengl
 	dev-libs/wayland
 	sys-auth/polkit
-	jemalloc? ( dev-libs/jemalloc )
+	jemalloc? ( dev-libs/jemalloc:= )
 "
 
 RDEPEND="${DEPEND}"
