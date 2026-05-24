@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{13..14} )
 
 WX_GTK_VER="3.2-gtk3"
 
@@ -26,7 +26,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+archive +chardet +colorer nfs samba sftp +ssl webdav wxwidgets X"
+IUSE="+archive aws +chardet +colorer nfs samba sftp +ssl webdav wxwidgets X"
 RESTRICT="mirror"
 
 RDEPEND="
@@ -38,6 +38,7 @@ RDEPEND="
 	archive? (
 		app-arch/libarchive
 	)
+	aws? ( >=dev-cpp/aws-sdk-cpp-1.11.712[storage] )
 	chardet? ( app-i18n/uchardet )
 	colorer? ( dev-libs/libxml2 )
 	nfs? ( net-fs/libnfs )
@@ -63,6 +64,8 @@ src_prepare() {
 		-i "${S}"/CMakeLists.txt || die
 	sed -e "s:execute_process(COMMAND rm -f \${CMAKE_INSTALL_PREFIX}/lib/far2l/Plugins/.*::" \
 		-i "${S}"/CMakeLists.txt || die
+	sed -e "s:cmake_minimum_required (VERSION 3\.5\.0):cmake_minimum_required (VERSION 3.10.0):" \
+		-i "${S}/CMakeLists.txt" || die
 	cmake_src_prepare
 }
 

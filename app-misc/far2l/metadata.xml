@@ -10,6 +10,7 @@
 	</upstream>
 	<use>
 		<flag name="archive">Multiarc extended archives support</flag>
+		<flag name="aws">AWS S3 support in Netrocks</flag>
 		<flag name="chardet">Auto charset detection</flag>
 		<flag name="colorer">Colorer plugin support</flag>
 		<flag name="nfs">NFS support in NetRocks</flag>
