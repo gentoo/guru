@@ -59,11 +59,26 @@ src_prepare() {
 	find . -name "Makefile" -exec sed -i "s/\<python3\>/${EPYTHON}/g" {} + || die
 	find test_regress -type f -exec sed -i "s/\<python3\>/${EPYTHON}/g" {} + || die
 	python_fix_shebang .
-	# https://bugs.gentoo.org/887917
-	if ! use debug; then
-		sed -i '/AC_SUBST(CFG_CXXFLAGS_DEBUG)/i CFG_CXXFLAGS_DEBUG=""' "${S}"/configure.ac || die
-		sed -i '/AC_SUBST(CFG_LDFLAGS_DEBUG)/i CFG_LDFLAGS_DEBUG=""' "${S}"/configure.ac || die
-	fi
+	# https://bugs.gentoo.org/887917 and https://bugs.gentoo.org/975970
+	# Upstream hard-codes -O3 / -Og / -ggdb / -gz / -Os / -O0, overriding user
+	# CFLAGS/CXXFLAGS. The previous attempt targeted CFG_*_DEBUG which does not
+	# exist in verilator's configure.ac (real names use _DBG), so the sed was
+	# a silent no-op. Fix every injection point.
+	local v
+	for v in CFG_CXXFLAGS_OPT CFG_CXXFLAGS_DBG CFG_LDFLAGS_DBG ; do
+		sed -i "/AC_SUBST(${v})/i ${v}=\"\"" "${S}"/configure.ac || die
+	done
+	sed -i -e 's/^OPT_FAST = .*/OPT_FAST =/' \
+		-e 's/^OPT_GLOBAL = .*/OPT_GLOBAL =/' \
+		"${S}"/include/verilated.mk.in || die
+	sed -i -e 's/"OPT_FAST=-O0"/""/g' \
+		-e 's/"OPT_GLOBAL=-O0"/""/g' \
+		-e 's/"-Os" if param\[.benchmark.\] else "-O0"/"" if True else ""/g' \
+		"${S}"/test_regress/driver.py || die
+	find "${S}"/examples -name Makefile_obj -exec sed -i \
+		-e 's/^OPT_FAST = .*/OPT_FAST =/' \
+		-e 's/^OPT_SLOW = .*/OPT_SLOW =/' \
+		-e 's/^OPT_GLOBAL = .*/OPT_GLOBAL =/' {} + || die
 	eautoconf --force
 }
 
