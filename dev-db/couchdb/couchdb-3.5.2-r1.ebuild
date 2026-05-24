@@ -29,7 +29,7 @@ DEPEND="${RDEPEND}"
 
 BDEPEND="
 	${RDEPEND}
-	>=dev-lang/erlang-28.1
+	~dev-lang/erlang-28.3
 "
 
 src_prepare() {
