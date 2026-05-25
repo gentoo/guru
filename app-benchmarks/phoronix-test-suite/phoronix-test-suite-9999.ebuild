@@ -5,7 +5,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1 xdg-utils
+inherit bash-completion-r1 optfeature xdg-utils
 
 DESCRIPTION="Phoronix's comprehensive, cross-platform testing and benchmark suite"
 HOMEPAGE="https://www.phoronix-test-suite.com"
@@ -93,19 +93,15 @@ get_optional_dependencies()
 			package_generic_name="$(echo "${optional_packages_xmlline}" | sed -r "s@${package_generic_name_regexp}@@g")"
 		elif [[ "${optional_packages_xmlline}" =~ ${package_names_regexp} ]]; then
 			packages="$(echo "${optional_packages_xmlline}" | sed -r -e "s@${package_names_regexp}@@g" -e "${reg}" )"
-			ifield=0
-			# shellcheck disable=SC2206
-			array_package_names=( ${packages} )
-			for (( ifield=0 ; ifield < ${#array_package_names[@]} ; ++ifield )); do
-				field_value="${array_package_names[ifield]}"
-				[[ ${field_value} =~ ^.+/.+$ ]]	|| continue	# skip invalid package atoms
-
-				if ! has_version "${field_value}"; then
-					installable_packages="${installable_packages}${installable_packages:+ }${field_value}"
+			for field_value in $packages; do
+				# TODO: remove this condition after the below PR is merged:
+				# https://github.com/phoronix-test-suite/phoronix-test-suite/pull/907
+				if [[ ${field_value} =~ ^.+/.+$ ]]; then # add valid atoms to list
+					installable_packages+=" ${field_value}"
 				fi
 			done
 		elif [[ "${optional_packages_xmlline}" =~ ${package_close_regexp} && -n "${installable_packages}" ]]; then
-			ewarn "  ${package_generic_name}: ${installable_packages}"
+			optfeature "${package_generic_name}" "${installable_packages}"
 			installable_packages=""
 		fi
 	done <<< "${1}"
@@ -140,7 +136,6 @@ pkg_postinst() {
 	xdg_mimeinfo_database_update
 	xdg_desktop_database_update
 
-	ewarn "${PN} has the following optional package dependencies:"
 	get_optional_dependencies "${GENTOO_OPTIONAL_PKGS_XML}"
 	unset -v GENTOO_OPTIONAL_PKGS_XML
 }
