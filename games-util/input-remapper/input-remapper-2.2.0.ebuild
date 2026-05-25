@@ -92,16 +92,14 @@ src_install() {
 
 pkg_postinst() {
 	udev_reload
+
+	einfo ""
+	einfo "This version of input-remapper relies on reprecated dependencies (dev-python/pkg-resources) and additionally cannot support python 3.14."
+	einfo ""
+	einfo "It is recommended to switch to the live ebuild, where both of these issues have been fixed, until the author releases a new version."
+	einfo ""
 }
 
 pkg_postrm() {
 	udev_reload
-}
-
-pkg_postinst() {
-		einfo ""
-		einfo "This version of input-remapper relies on reprecated dependencies (dev-python/pkg-resources) and additionally cannot support python 3.14."
-		einfo ""
-		einfo "It is recommended to switch to the live ebuild, where both of these issues have been fixed, until the author releases a new version."
-		einfo ""
 }
