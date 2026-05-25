@@ -4,7 +4,7 @@
 EAPI=8
 
 MYPV="$(ver_rs 3 '.gfm.')"
-PYTHON_COMPAT=( python3_12 )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit cmake python-any-r1
 
@@ -21,6 +21,8 @@ IUSE="test"
 DEPEND="test? ( ${PYTHON_DEPS} )"
 
 RESTRICT="!test? ( test )"
+
+PATCHES=( "${FILESDIR}"/cmake-minimum-required.patch )
 
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
