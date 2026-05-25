@@ -81,6 +81,8 @@ LICENSE+=" ISC MIT Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
+QA_FLAGS_IGNORED="/usr/bin/nvidia_oc"
+
 DEPENDS="
 	x11-drivers/nvidia-drivers
 "
