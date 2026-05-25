@@ -511,6 +511,12 @@ src_prepare() {
 	default
 }
 
+src_test() {
+	#Issue https://framagit.org/ppom/reaction/-/work_items/153
+	rm "${S}/tests/plugin_virtual.rs"
+	default
+}
+
 src_install() {
 	cargo_src_install
 	local target_dir="$(cargo_target_dir)"
