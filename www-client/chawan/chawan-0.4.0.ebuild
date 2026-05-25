@@ -27,10 +27,10 @@ DEPEND="
 	net-libs/libssh2
 "
 BDEPEND="
-	${DEPEND}
 	dev-lang/nim
 	virtual/pkgconfig
 "
+RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/makefile-491b4231.patch"
