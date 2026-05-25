@@ -221,6 +221,7 @@ RUST_MIN_VER="1.89.0"
 DEPEND="
 	app-arch/lz4:=
 	x11-libs/libxkbcommon[wayland]
+	dev-libs/wayland-protocols
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
