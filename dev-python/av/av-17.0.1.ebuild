@@ -55,6 +55,12 @@ EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 distutils_enable_sphinx docs dev-python/sphinx-copybutton
 
+EPYTEST_DESELECT=(
+	# needs network access
+	tests/test_doctests.py
+	tests/test_timeout.py
+)
+
 src_prepare() {
 	default
 
