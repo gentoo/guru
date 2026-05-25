@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<upstream>
-		<remote-id type="github">ggml-org/llama.cpp</remote-id>
-	</upstream>
+	<maintainer type="person">
+		<email>negril.nx+gentoo@gmail.com</email>
+		<name>Paul Zander</name>
+	</maintainer>
 	<use>
 		<flag name="blis">Build a BLIS backend</flag>
 		<flag name="flexiblas">Build a FlexiBLAS backend</flag>
@@ -14,4 +15,7 @@
 		<flag name="opencl">Build an OpenCL backend, so far only works on Adreno and Intel GPUs</flag>
 		<flag name="openssl">Use openssl to support HTTPS</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">ggml-org/llama.cpp</remote-id>
+	</upstream>
 </pkgmetadata>
