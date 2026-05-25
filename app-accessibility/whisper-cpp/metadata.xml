@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<maintainer type="person">
+		<email>negril.nx+gentoo@gmail.com</email>
+		<name>Paul Zander</name>
+	</maintainer>
 	<use>
 		<flag name="hip">Build a HIP (ROCm) backend</flag>
 		<flag name="sdl2">Build and install example applications that use media-libs/libsdl2</flag>
