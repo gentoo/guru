@@ -28,6 +28,15 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+pkg_setup() {
+	python_setup
+}
+
+src_prepare() {
+	default
+	python_fix_shebang scripts/meson_post_install.py
+}
+
 src_configure() {
 	local emesonargs=(
 	    -Dpython.bytecompile=2
