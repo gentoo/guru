@@ -201,7 +201,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://codeberg.org/LGFae/${PN}.git"
 else
 	SRC_URI="
-	https://codeberg.org/LGFae/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://codeberg.org/LGFae/awww/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 	"
 	KEYWORDS="~amd64 ~arm64"
