@@ -12,7 +12,8 @@ SRC_URI="https://github.com/leakingmemory/vtun-embedded/releases/download/v${PV}
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm64 ~ppc ~sparc ~x86"
-IUSE="systemd lzo socks5 ssl zlib"
+IUSE="systemd lzo socks5 ssl test zlib"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	lzo? ( dev-libs/lzo:2 )
@@ -22,6 +23,7 @@ RDEPEND="
 	dev-libs/libbsd"
 DEPEND="${RDEPEND}"
 BDEPEND="
+	test? ( dev-libs/check )
 	sys-devel/bison
 "
 
