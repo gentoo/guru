@@ -14,8 +14,4 @@
 		<flag name="opencl">Build an OpenCL backend, so far only works on Adreno and Intel GPUs</flag>
 		<flag name="openssl">Use openssl to support HTTPS</flag>
 	</use>
-	<maintainer type="person">
-		<email>zl29ah@gmail.com</email>
-		<name>Sergey Alirzaev</name>
-	</maintainer>
 </pkgmetadata>

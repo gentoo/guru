@@ -8,8 +8,4 @@
 	<upstream>
 		<remote-id type="github">ggml-org/whisper.cpp</remote-id>
 	</upstream>
-	<maintainer type="person">
-		<email>zl29ah@gmail.com</email>
-		<name>Sergey Alirzaev</name>
-	</maintainer>
 </pkgmetadata>
