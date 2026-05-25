@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # shellcheck disable=SC2034
@@ -103,7 +103,7 @@ src_prepare() {
 			|| die "sed failed: remove PTS bash completion have test"
 	# Remove all dependency resolving shell scripts - security vulnerability
 	rm -rf "${S}/pts-core/external-test-dependencies/scripts"
-	eapply_user
+	default
 }
 
 src_install() {
