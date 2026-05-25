@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{12..13} )
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1 systemd udev desktop
+inherit distutils-r1 systemd udev desktop xdg
 
 DESCRIPTION="A tool to change and program the mapping of your input device buttons"
 HOMEPAGE="https://github.com/sezanzeb/input-remapper"
