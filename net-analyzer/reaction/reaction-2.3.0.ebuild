@@ -504,11 +504,19 @@ SLOT="0"
 KEYWORDS="~amd64"
 RUST_MIN_VER="1.89.0"
 
+src_prepare() {
+	#Install man & completions regardless of profile
+	sed -i 's/var_os(.PROFILE.).*/true {/' \
+		"${S}/build.rs" || die "sed build.rs failed"
+	default
+}
+
 src_install() {
 	cargo_src_install
 	local target_dir="$(cargo_target_dir)"
 	newbashcomp ${target_dir}/${PN}.bash ${PN}
 	dofishcomp ${target_dir}/${PN}.fish
+	dozshcomp ${target_dir}/_${PN}
 	systemd_dounit "${FILESDIR}/systemd/${PN}.service"
 	doman ${target_dir}/*.[0-9]
 	doinitd "${FILESDIR}/init.d/${PN}"
