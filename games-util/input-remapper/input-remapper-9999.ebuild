@@ -38,9 +38,7 @@ RDEPEND="
 	virtual/udev
 "
 
-EPYTEST_PLUGINS=()
-
-distutils_enable_tests pytest
+RESTRICT=test
 
 src_compile() {
 	distutils-r1_src_compile

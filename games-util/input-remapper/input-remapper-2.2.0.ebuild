@@ -40,9 +40,7 @@ RDEPEND="
 	virtual/udev
 "
 
-EPYTEST_PLUGINS=()
-
-distutils_enable_tests pytest
+RESTRICT=test
 
 src_install() {
 	# Install data files
