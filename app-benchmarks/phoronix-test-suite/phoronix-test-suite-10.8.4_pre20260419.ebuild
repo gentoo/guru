@@ -7,6 +7,7 @@ EAPI=8
 
 inherit bash-completion-r1 xdg-utils
 
+COMMIT=6be84b0b38b8f37dcb69da417d242bd92dd6f258
 DESCRIPTION="Phoronix's comprehensive, cross-platform testing and benchmark suite"
 HOMEPAGE="https://www.phoronix-test-suite.com"
 
