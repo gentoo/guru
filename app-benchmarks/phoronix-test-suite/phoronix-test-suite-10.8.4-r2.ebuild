@@ -55,7 +55,7 @@ check_php_config()
 			dodir "${php_dir}"
 			cp -f "${EROOT%}/${php_dir}/php.ini" "${ED%}/${php_dir}/php.ini" \
 					|| die "cp failed: copy php.ini file"
-			sed -i -e 's|^allow_url_fopen .*|allow_url_fopen = On|g' "${ED%}/${php_dir}/php.ini" \
+			sed -i 's|^allow_url_fopen .*|allow_url_fopen = On|g' "${ED%}/${php_dir}/php.ini" \
 					|| die "sed failed: modify php.ini file"
 		elif [[ "$(eselect php show cli)" == "${slot}" ]]; then
 			ewarn "${slot} does not have a php.ini file."
@@ -107,11 +107,16 @@ get_optional_dependencies()
 }
 
 src_prepare() {
+	# Add ${PV} to documentation path (#939476)
+	sed -i "s|share/doc/phoronix-test-suite/|share/doc/${P}/|g" "${S}/install-sh" \
+		|| die "sed failed: adjust documentation path"
+
 	# BASH completion helper function "have" test is depreciated
-	sed -i -e '/^have phoronix-test-suite &&$/d' "${S}/pts-core/static/bash_completion" \
+	sed -i '/^have phoronix-test-suite &&$/d' "${S}/pts-core/static/bash_completion" \
 			|| die "sed failed: remove PTS bash completion have test"
 	# Remove all dependency resolving shell scripts - security vulnerability
-	rm -rf "${S}/pts-core/external-test-dependencies/scripts"
+	rm -r "${S}/pts-core/external-test-dependencies/scripts/" \
+		|| die "rm failed: pts-core/external-test-dependencies/scripts/"
 	default
 }
 
