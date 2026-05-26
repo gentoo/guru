@@ -18,5 +18,5 @@ RDEPEND="net-misc/openssh"
 DEPEND="${RDEPEND}"
 
 src_install() {
-	emake PREFIX="${D}/usr" install
+	emake CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" PREFIX="${D}/usr" install
 }
