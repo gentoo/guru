@@ -35,6 +35,7 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
+QA_FLAGS_IGNORED="/usr/bin/probe-rs /usr/bin/cargo-embed /usr/bin/cargo-flash"
 RESTRICT=test #TODO: allow manual testing if it is possible to install a target
 
 src_install() {
