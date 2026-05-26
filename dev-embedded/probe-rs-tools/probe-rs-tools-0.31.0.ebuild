@@ -45,7 +45,8 @@ src_install() {
 		SHELL="/usr/bin/${i}" "${D}/usr/bin/probe-rs" complete install --manual > "${T}/probe-rs.${i}"
 	done
 
-	dobashcomp "${T}/probe-rs.bash"
+	newbashcomp "${T}/probe-rs.bash" probe-rs
+	bashcomp_alias probe-rs cargo-embed cargo-flash
 	dofishcomp "${T}/probe-rs.fish"
-	dozshcomp "${T}/probe-rs.zsh"
+	newzshcomp "${T}/probe-rs.zsh" _probe-rs
 }
