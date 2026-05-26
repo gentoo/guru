@@ -29,7 +29,7 @@ fi
 LICENSE="GPL-3+"
 SLOT="0"
 
-IUSE="sdl"
+IUSE="sdl +server"
 
 RDEPEND="${DEPEND}
 		|| (
@@ -49,7 +49,9 @@ RDEPEND="${DEPEND}
 			media-libs/sdl2-image
 			media-libs/sdl2-mixer
 
-		)"
+		)
+		server? ( dev-lang/php[sqlite] )
+"
 
 check_php_config()
 {
@@ -110,7 +112,7 @@ get_optional_dependencies()
 
 src_prepare() {
 	# Add ${PV} to documentation path (#939476)
-	sed -i "s|share/doc/phoronix-test-suite/|share/doc/${P}/|g" "${S}/install-sh" \
+	sed -i "s|share/doc/phoronix-test-suite/|share/doc/${PF}/|g" "${S}/install-sh" \
 		|| die "sed failed: adjust documentation path"
 
 	# BASH completion helper function "have" test is depreciated
