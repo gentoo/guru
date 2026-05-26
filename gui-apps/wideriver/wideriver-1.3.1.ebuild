@@ -21,7 +21,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	test? ( dev-util/cmocka )
+	test? ( <dev-util/cmocka-2.0.0 )
 "
 
 src_prepare() {
