@@ -18,7 +18,7 @@ else
 	${CARGO_CRATE_URIS}
 	"
 	S="${WORKDIR}/${PN}"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 LICENSE="GPL-3"
@@ -33,6 +33,7 @@ RUST_MIN_VER="1.89.0"
 DEPEND="
 	app-arch/lz4:=
 	x11-libs/libxkbcommon[wayland]
+	dev-libs/wayland-protocols
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -62,6 +63,7 @@ src_install() {
 	dobin "$(cargo_target_dir)"/${PN}{,-daemon}
 	dosym ${PN} /usr/bin/swww
 	dosym ${PN}-daemon /usr/bin/swww-daemon
+
 	doman doc/generated/*.1
 
 	dodoc README.md CHANGELOG.md
@@ -72,5 +74,5 @@ src_install() {
 
 pkg_postinst() {
 	ewarn "The project has been renamed from swww to awww"
-	ewarn "This ebuild installs symlinks to ease the transition"
+	ewarn "This ebuild installs symlinks to ease the transition (these will be removed in the next minor (0.x) release)"
 }
