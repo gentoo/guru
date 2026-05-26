@@ -13,7 +13,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
-DEPEND="dev-qt/qtbase[gui]"
+DEPEND="dev-qt/qtbase[gui]
+		dev-qt/qtdeclarative
+"
 RDEPEND="${DEPEND}"
 
 BDEPEND="dev-build/just"
