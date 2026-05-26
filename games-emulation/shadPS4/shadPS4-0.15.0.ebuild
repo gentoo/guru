@@ -46,6 +46,7 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	eapply "${FILESDIR}/${P}-SDL3-rename.patch"
+	eapply "${FILESDIR}/${P}-getpid.patch"
 	eapply "${FILESDIR}/${P}-cmake-4.patch"
 	eapply "${FILESDIR}/${P}-executable-stack.patch"
 	eapply "${FILESDIR}/${P}-sstream.patch"
