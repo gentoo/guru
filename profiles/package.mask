@@ -133,11 +133,6 @@ dev-python/TakeTheTime
 # Removal after 2026-05-25
 dev-util/kubetail-bin
 
-# David Roman <stkw0@disroot.org> (2026-04-26)
-# Duplicate of dev-util/minify. No reason to maintain this version anymore
-# Removal after 2026-05-25
-dev-util/minify-bin
-
 # Joe Kappus <joe@wt.gd) (2026-04-23)
 # Depends on masked dev-python/pyqt5.
 # Progress getting made, unmask when done.
