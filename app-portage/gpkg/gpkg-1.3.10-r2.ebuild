@@ -440,7 +440,7 @@ CRATES="
 	zvariant_utils@3.3.0
 "
 
-RUST_MIN_VER="1.75.0"
+RUST_MIN_VER="1.88.0"
 
 inherit cargo desktop systemd xdg-utils
 
