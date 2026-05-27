@@ -27,8 +27,6 @@ SLOT="0"
 
 IUSE="static"
 
-RDEPEND="!<sys-apps/utils-extra-0.0.2-r1"
-
 if [ "${PV}" != "9999" ]; then
 	BDEPEND="${BDEPEND} verify-sig? ( sec-keys/signify-keys-lanodan:2026 )"
 
