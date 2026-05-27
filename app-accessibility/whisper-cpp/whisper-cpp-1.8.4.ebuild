@@ -33,6 +33,11 @@ RDEPEND="${CDEPEND}
 "
 BDEPEND="media-libs/shaderc"
 
+PATCHES=(
+	# https://bugs.gentoo.org/974516
+	"${FILESDIR}"/remove-test-vad-full.patch
+)
+
 src_configure() {
 	# Note: CUDA and HIP are currently untested. Build failures may occur.
 	# Turning off examples causes errors during configure
