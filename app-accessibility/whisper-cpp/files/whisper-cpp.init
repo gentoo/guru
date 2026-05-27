@@ -5,7 +5,7 @@
 supervisor=supervise-daemon
 description="Whisper-CPP Service"
 command="/usr/bin/whisper-server"
-command_args+=" -m ${whisper_model}"
+command_args="${command_args} -m ${whisper_model}"
 required_files="${whisper_model}"
 
 start_pre() {
