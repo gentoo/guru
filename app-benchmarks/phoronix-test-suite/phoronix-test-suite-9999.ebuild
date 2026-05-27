@@ -37,7 +37,6 @@ RDEPEND="${DEPEND}
 		)
 		media-libs/libpng
 		>=dev-lang/php-5.3[cli,curl,gd,posix,pcntl,simplexml,sockets,ssl,truetype,xml,zip,zlib]
-		www-servers/apache
 		x11-base/xorg-server
 		sdl? (
 			media-libs/libsdl
@@ -140,6 +139,15 @@ pkg_postinst() {
 
 	get_optional_dependencies "${GENTOO_OPTIONAL_PKGS_XML}"
 	unset -v GENTOO_OPTIONAL_PKGS_XML
+
+	if use server; then
+		# if nginx is present do not show apache as it has worse integration
+		if ! has_version www-servers/nginx; then
+			optfeature_header "Alternatives for the PHP webserver used by Phoromatic"
+			optfeature "nginx (zeroconf)" www-servers/nginx
+			optfeature "Apache (needs manual configuration)" www-servers/apache
+		fi
+	fi
 }
 
 pkg_postrm() {
