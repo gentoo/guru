@@ -11,4 +11,5 @@
 		<doc>https://github.com/phoronix-test-suite/phoronix-test-suite/tree/master/documentation</doc>
 		<remote-id type="github">phoronix-test-suite/phoronix-test-suite</remote-id>
 	</upstream>
+	<stabilize-allarches/>
 </pkgmetadata>
