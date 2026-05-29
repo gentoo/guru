@@ -46,6 +46,7 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
+		>=dev-python/cachetools-5.0.0[${PYTHON_USEDEP}]
 		>=dev-python/dirty-equals-0.9.0[${PYTHON_USEDEP}]
 		>=dev-python/inline-snapshot-0.27.2[${PYTHON_USEDEP}]
 		>=dev-python/opentelemetry-sdk-1.20.0[${PYTHON_USEDEP}]
