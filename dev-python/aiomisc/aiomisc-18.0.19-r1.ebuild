@@ -23,6 +23,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
+	>=dev-python/aiothreads-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/caio-0.9.0[${PYTHON_USEDEP}]
 	>=dev-python/colorlog-6.0[${PYTHON_USEDEP}]
 "
