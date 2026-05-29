@@ -11,7 +11,7 @@ inherit distutils-r1
 MY_PV=${PV/_beta/b}
 MY_P="opentelemetry-python-contrib-${MY_PV}"
 
-OTLP_PV=1.40.0
+OTLP_PV=1.42.1
 OTLP_P="opentelemetry-python-${OTLP_PV}"
 
 DESCRIPTION="Thread context propagation support for OpenTelemetry"
@@ -35,7 +35,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
-	~dev-python/opentelemetry-api-1.40.0[${PYTHON_USEDEP}]
+	~dev-python/opentelemetry-api-${OTLP_PV}[${PYTHON_USEDEP}]
 	~dev-python/opentelemetry-instrumentation-${PV}[${PYTHON_USEDEP}]
 	>=dev-python/wrapt-1.0.0[${PYTHON_USEDEP}]
 "
