@@ -5,6 +5,9 @@
     <email>falbrechtskirchinger@gmail.com</email>
     <name>Florian Albrechtskirchinger</name>
   </maintainer>
+  <use>
+    <flag name="ms-auth">Enable Microsoft Authentication</flag>
+  </use>
   <upstream>
     <changelog>https://antigravity.google/changelog</changelog>
   </upstream>

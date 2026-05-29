@@ -34,7 +34,7 @@ S="${WORKDIR}"
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="kerberos verify-sig"
+IUSE="kerberos +ms-auth verify-sig"
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
@@ -53,6 +53,7 @@ RDEPEND="
 	media-libs/libglvnd
 	media-libs/mesa
 	net-misc/curl
+	net-print/cups
 	sys-apps/dbus
 	virtual/zlib:=
 	sys-process/lsof
@@ -72,6 +73,10 @@ RDEPEND="
 	x11-libs/pango
 	x11-misc/xdg-utils
 	kerberos? ( app-crypt/mit-krb5 )
+	ms-auth? (
+		net-libs/libsoup:3.0
+		net-libs/webkit-gtk:4.1
+	)
 	verify-sig? ( >=sec-keys/openpgp-keys-google-artifact-registry-20210504 )
 "
 
