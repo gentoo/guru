@@ -24,20 +24,6 @@
 # Removal after 2026-06-29. Bug #975802
 dev-vcs/lazyjj
 
-# David Roman <stkw0@disroot.org> (2026-05-29)
-# Depends on removed version of dev-python/opentelemetry-api
-# Probably a version bump will fix the issue
-# Removal after 2026-08-29
-dev-python/opentelemetry-exporter-otlp-proto-common
-dev-python/opentelemetry-exporter-otlp-proto-grpc
-dev-python/opentelemetry-exporter-otlp-proto-http
-dev-python/opentelemetry-instrumentation
-dev-python/opentelemetry-instrumentation-threading
-# depends on opentelemetry-exporter-otlp-proto-http
-dev-python/posthog
-# depends on posthog
-app-text/frog
-
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
 media-sound/noson-app
