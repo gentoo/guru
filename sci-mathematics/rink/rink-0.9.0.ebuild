@@ -290,7 +290,7 @@ SRC_URI="
 	${CARGO_CRATE_URIS}
 "
 
-S="${WORKDIR}/rink-rs-${PV}"
+S="${WORKDIR}/rink"
 
 LICENSE="MPL-2.0"
 # Dependent crate licenses
