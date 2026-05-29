@@ -11,7 +11,7 @@ inherit distutils-r1
 MY_PV=${PV/_beta/b}
 MY_P="opentelemetry-python-contrib-${MY_PV}"
 
-OTLP_PV=1.40.0
+OTLP_PV=1.42.1
 OTLP_P="opentelemetry-python-${OTLP_PV}"
 
 DESCRIPTION="Instrumentation Tools & Auto Instrumentation for OpenTelemetry Python"
@@ -35,24 +35,15 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
-	~dev-python/opentelemetry-api-1.40.0[${PYTHON_USEDEP}]
-	~dev-python/opentelemetry-semantic-conventions-1.40.0[${PYTHON_USEDEP}]
+	~dev-python/opentelemetry-api-${OTLP_PV}[${PYTHON_USEDEP}]
+	~dev-python/opentelemetry-sdk-${OTLP_PV}[${PYTHON_USEDEP}]
+	~dev-python/opentelemetry-semantic-conventions-${OTLP_PV}[${PYTHON_USEDEP}]
 	>=dev-python/packaging-18.0[${PYTHON_USEDEP}]
 	>=dev-python/wrapt-1.0.0[${PYTHON_USEDEP}]
 "
 
-PATCHES=(
-	"${FILESDIR}/${P}-wrapt-2.patch"
-)
-
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
-
-src_prepare() {
-	# Apply patch at root of the monorepo (only needed till 0.62b0 release)
-	cd .. || die
-	distutils-r1_src_prepare
-}
 
 python_test() {
 	cp -a "${BUILD_DIR}"/{install,test} || die
