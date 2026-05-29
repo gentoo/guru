@@ -60,6 +60,7 @@ RDEPEND="
 BDEPEND="
 	dev-python/hatch-fancy-pypi-readme[${PYTHON_USEDEP}]
 	test? (
+		dev-python/dirty-equals[${PYTHON_USEDEP}]
 		dev-python/distro[${PYTHON_USEDEP}]
 		dev-python/httpx-aiohttp[${PYTHON_USEDEP}]
 		net-libs/nodejs[npm]
