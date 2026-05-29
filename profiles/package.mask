@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Vivian Heisz (vhz) <demize@unstable.systems> (2026-05-29)
+# Depends on a forked dependency that's since been unpublished.
+# If there's an update, I'll bump, otherwise I'll treeclean.
+# Removal after 2026-06-29. Bug #975802
+dev-vcs/lazyjj
+
 # David Roman <stkw0@disroot.org> (2026-05-29)
 # Depends on removed version of dev-python/opentelemetry-api
 # Probably a version bump will fix the issue
