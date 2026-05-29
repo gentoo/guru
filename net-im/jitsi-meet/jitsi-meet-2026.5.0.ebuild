@@ -24,10 +24,14 @@ RESTRICT="bindist mirror splitdebug test"
 #	sys-libs/libuuid seems to be included in sys-apps/util-linux
 #	sys-fs/fuse
 RDEPEND="
-	x11-libs/gtk+:3
-	dev-libs/nss
-	x11-libs/libXtst
 	app-accessibility/at-spi2-core:2
+	dev-libs/nss
+	media-libs/alsa-lib
+	media-libs/mesa
+	net-print/cups
+	x11-libs/gtk+:3
+	x11-libs/libXtst
+	x11-libs/libxkbcommon
 "
 
 QA_PREBUILT="*"
