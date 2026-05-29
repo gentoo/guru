@@ -77,6 +77,7 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 "
 BDEPEND="
+	dev-python/setuptools-rust[${PYTHON_USEDEP}]
 	test? (
 		dev-python/blobfile[${PYTHON_USEDEP}]
 	)
