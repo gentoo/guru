@@ -143,9 +143,15 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
+BDEPEND="
+	test? (
+		dev-python/dirty-equals[${PYTHON_USEDEP}]
+	)
+"
+
 QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/jiter/jiter.*.so"
 
-EPYTEST_PLUGINS=( dirty-equals )
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 src_unpack() {
