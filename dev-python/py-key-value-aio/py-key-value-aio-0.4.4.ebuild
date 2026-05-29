@@ -33,6 +33,7 @@ BDEPEND="
 		>=dev-python/anyio-4.4.0[${PYTHON_USEDEP}]
 		>=dev-python/cachetools-5.0.0[${PYTHON_USEDEP}]
 		>=dev-python/cryptography-45.0.0[${PYTHON_USEDEP}]
+		>=dev-python/dirty-equals-0.10.0[${PYTHON_USEDEP}]
 		>=dev-python/diskcache-5.0.0[${PYTHON_USEDEP}]
 		>=dev-python/pathvalidate-3.3.1[${PYTHON_USEDEP}]
 		>=dev-python/pydantic-2.11.9[${PYTHON_USEDEP}]
