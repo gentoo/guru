@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Antigravity - URL Handler
+Comment=Experience liftoff
+GenericName=Agentic Development Platform
+Exec=/opt/google/antigravity/antigravity --open-url %U
+Icon=antigravity
+Type=Application
+NoDisplay=true
+StartupNotify=true
+Categories=Utility;Development;
+MimeType=x-scheme-handler/antigravity;
