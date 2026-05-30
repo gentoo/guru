@@ -34,7 +34,7 @@ S="${WORKDIR}"
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="kerberos +ms-auth verify-sig"
+IUSE="kerberos verify-sig webkit"
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
@@ -73,7 +73,7 @@ RDEPEND="
 	x11-libs/pango
 	x11-misc/xdg-utils
 	kerberos? ( app-crypt/mit-krb5 )
-	ms-auth? (
+	webkit? (
 		net-libs/libsoup:3.0
 		net-libs/webkit-gtk:4.1
 	)
@@ -135,6 +135,10 @@ src_install() {
 
 	if ! use kerberos; then
 		rm -r "${AG_HOME}/resources/app/node_modules/kerberos" || die
+	fi
+
+	if ! use webkit; then
+		rm -r "${AG_HOME}/resources/app/extensions/microsoft-authentication" || die
 	fi
 
 	# Do we really need a separate MIME type for the same file?
