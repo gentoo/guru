@@ -41,6 +41,8 @@ BDEPEND="
 	debug? ( dev-vcs/git )
 "
 
+QA_FLAGS_IGNORED="usr/bin/authenticator"
+
 src_configure() {
 	local profile="default"
 	use debug && profile="development"
