@@ -76,14 +76,18 @@ QA_DESKTOP_FILE="usr/share/applications/${MY_PN}.*\\.desktop"
 AGY_HOME_BASE="opt/google"
 AGY_HOME="${AGY_HOME_BASE}/${MY_PN}"
 
+pkg_pretend() {
+	# Protect against people using autounmask overzealously
+	use amd64 || use arm64 || die "Google Antigravity IDE only works on amd64 or arm64"
+}
+
+pkg_setup() {
+	chromium_suid_sandbox_check_kernel_config
+}
+
 src_unpack() {
 	default
 	mv "Antigravity IDE" "${MY_PN}" || die
-}
-
-src_configure() {
-	default
-	chromium_suid_sandbox_check_kernel_config
 }
 
 src_prepare() {
