@@ -40,6 +40,7 @@ RDEPEND="
 	app-arch/lz4:=
 	app-arch/xz-utils
 	app-arch/zstd:=
+	dev-cpp/tinygltf
 	dev-libs/hidapi
 	dev-libs/libfmt:=
 	dev-libs/lzo:2
@@ -54,6 +55,7 @@ RDEPEND="
 	media-libs/libspng
 	net-libs/enet
 	net-libs/mbedtls:0=
+	net-misc/curl
 	sys-libs/minizip-ng:=
 	virtual/libusb:1
 	virtual/opengl
@@ -69,7 +71,6 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	dev-cpp/tinygltf
 	dev-util/vulkan-headers
 	media-libs/VulkanMemoryAllocator
 	egl? ( media-libs/libglvnd )
@@ -90,7 +91,6 @@ declare -A KEEP_BUNDLED=(
 	[Bochs_disasm]=LGPL-2.1+
 	[cpp-optparse]=MIT
 	[FreeSurround]=GPL-2+
-	[curl]=curl # Intentionally static for Libretro
 	[picojson]=BSD-2
 	[expr]=MIT
 	[FatFs]=FatFs
