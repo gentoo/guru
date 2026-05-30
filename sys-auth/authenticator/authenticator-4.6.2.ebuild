@@ -3,6 +3,8 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.82"
+
 inherit cargo gnome2-utils meson xdg
 
 DESCRIPTION="2FA code generator for GNOME"
