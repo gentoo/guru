@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs multiprocessing
+
 DESCRIPTION="TUI web browser; supports CSS, images, JavaScript, and multiple web protocols"
 HOMEPAGE="https://chawan.net"
 
@@ -42,4 +44,29 @@ src_prepare(){
 		sed -i -E 's|^FLAGS\s+\+=.+|& -d:lto|' Makefile ||
 		die "Trying to sed the Makefile for lto failed!"
 	fi
+}
+
+src_configure(){
+	# code is mostly copy pasted from the nim_gen_config() function from nim-utils.eclass, modifed a bit to actually
+	# append to the original nim.cfg, instead of replacing it
+	cat >> "${S}"/nim.cfg <<- EOF || die "Failed to append to Nim config"
+		--parallelBuild:"$(makeopts_jobs)"
+
+		cc:"gcc"
+		gcc.exe:"$(tc-getCC)"
+		gcc.linkerexe:"$(tc-getCC)"
+		gcc.cpp.exe:"$(tc-getCXX)"
+		gcc.cpp.linkerexe:"$(tc-getCXX)"
+		gcc.options.speed:"${CFLAGS}"
+		gcc.options.size:"${CFLAGS}"
+		gcc.options.debug:"${CFLAGS}"
+		gcc.options.always:"${CPPFLAGS}"
+		gcc.options.linker:"${LDFLAGS}"
+		gcc.cpp.options.speed:"${CXXFLAGS}"
+		gcc.cpp.options.size:"${CXXFLAGS}"
+		gcc.cpp.options.debug:"${CXXFLAGS}"
+		gcc.cpp.options.always:"${CPPFLAGS}"
+		gcc.cpp.options.linker:"${LDFLAGS}"
+		EOF
+	default
 }
