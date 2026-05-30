@@ -14,12 +14,13 @@
     <flag name="openxr">Support Khronos Group's OpenXR API.</flag>
     <flag name="osc">Support VRChat's Open Sound Control protocol.</flag>
     <flag name="pipewire">Enable pipewire support for desktop capture.</flag>
-    <flag name="wayvr">Enable WayVR, a Wayland server for a VR environment.</flag>
+    <flag name="wayvrctl">Build the wayvrctl utility to control ui elements through IPC.</flag>
   </use>
   <upstream>
-    <remote-id type="github">wlx-team/wayvr</remote-id>
-    <bugs-to>https://github.com/wlx-team/wayvr/issues</bugs-to>
-    <changelog>https://github.com/wlx-team/wayvr/releases</changelog>
-    <doc>https://github.com/wlx-team/wayvr/blob/main/README.md</doc>
+    <remote-id type="github">wayvr-org/wayvr</remote-id>
+    <remote-id type="freedesktop-gitlab">galister/pipewire-rs</remote-id>
+    <bugs-to>https://github.com/wayvr-org/wayvr/issues</bugs-to>
+    <changelog>https://github.com/wayvr-org/wayvr/releases</changelog>
+    <doc>https://github.com/wayvr-org/wayvr/blob/main/README.md</doc>
   </upstream>
 </pkgmetadata>
