@@ -12,6 +12,8 @@ HOMEPAGE="https://gitlab.gnome.org/World/Authenticator"
 SRC_URI="
 	https://gitlab.gnome.org/World/Authenticator/-/archive/${PV}/Authenticator-${PV}.tar.bz2 -> ${P}.tar.bz2
 	https://gitlab.com/api/v4/projects/69517529/packages/generic/${PN}/${PV}/${P}-deps.tar.xz
+	https://gitlab.gnome.org/World/Authenticator/-/commit/d3a63c5d66b8812fd24eea8634ad17f42f9d6d04.patch
+		-> ${PN}-4.6.2-update-metainfo-file.patch
 "
 
 S="${WORKDIR}/Authenticator-${PV}"
@@ -46,6 +48,10 @@ BDEPEND="
 "
 
 QA_FLAGS_IGNORED="usr/bin/authenticator"
+
+PATCHES=(
+	"${DISTDIR}/${PN}-4.6.2-update-metainfo-file.patch"
+)
 
 src_configure() {
 	local profile="default"
