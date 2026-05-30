@@ -23,12 +23,16 @@ IUSE="debug test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	dev-db/sqlite:3
 	dev-libs/glib:2
+	dev-libs/openssl
 	gui-libs/gtk:4[wayland]
 	gui-libs/libadwaita:1
+	media-libs/graphene
 	media-libs/gst-plugins-base:1.0
 	media-libs/gstreamer:1.0
 	media-plugins/gst-plugin-gtk4
+	x11-libs/gdk-pixbuf:2
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
