@@ -41,6 +41,7 @@ RDEPEND="
 	media-libs/libsdl2
 	media-libs/libsoundtouch:=
 	media-libs/openal
+	media-libs/vulkan-loader
 	media-video/ffmpeg
 	net-libs/enet
 	virtual/libusb
