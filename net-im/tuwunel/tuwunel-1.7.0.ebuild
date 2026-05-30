@@ -8,7 +8,8 @@ EAPI=8
 CRATES="
 "
 
-LLVM_COMPAT=( {16..21} )
+LLVM_COMPAT=( 21 )
+RUST_MIN_VER="1.94.0"
 
 inherit cargo llvm-r2 linux-info
 
@@ -170,4 +171,11 @@ src_install() {
 	newconfd "${FILESDIR}"/tuwunel.conf-r1 tuwunel
 
 	# TODO: Add systemd service.
+}
+
+src_test() {
+	mkdir -p "${T}/var/lib/tuwunel" || die
+
+	TUWUNEL_DATABASE_PATH="${T}/var/lib/tuwunel" cargo_src_test
+
 }
