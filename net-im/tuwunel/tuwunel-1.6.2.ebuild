@@ -172,3 +172,10 @@ src_install() {
 
 	# TODO: Add systemd service.
 }
+
+src_test() {
+	mkdir -p "${T}/var/lib/tuwunel" || die
+
+	TUWUNEL_DATABASE_PATH="${T}/var/lib/tuwunel" cargo_src_test
+
+}
