@@ -2,9 +2,10 @@
 Name=Antigravity
 Comment=Experience liftoff
 GenericName=Agentic Development Platform
-Exec=/opt/google/antigravity/antigravity
+Exec=/opt/google/antigravity/antigravity %U
 Icon=antigravity
 Type=Application
 StartupNotify=false
 StartupWMClass=antigravity
 Categories=Development;
+MimeType=x-scheme-handler/antigravity;

@@ -107,7 +107,6 @@ src_install() {
 	fperms 4711 "/${AGY_HOME}/chrome-sandbox"
 
 	domenu "${FILESDIR}/${MY_PN}.desktop"
-	domenu "${FILESDIR}/${MY_PN}-url-handler.desktop"
 	newicon -s scalable "${FILESDIR}/${MY_PN}.png" ${MY_PN}.png
 
 	insinto /usr/share/metainfo
