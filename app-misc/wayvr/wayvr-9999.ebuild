@@ -5,15 +5,13 @@
 
 EAPI=8
 
-LLVM_COMPAT=({15..19})
+LLVM_COMPAT=({15..22})
 RUST_MIN_SLOT="1.83.0"
 
 inherit cargo git-r3 llvm-r2 desktop
-
-EGIT_REPO_URI="https://github.com/galister/wlx-overlay-s.git"
-
+EGIT_REPO_URI="https://github.com/wayvr-org/wayvr.git"
 DESCRIPTION="A lightweight OpenXR/OpenVR overlay for Wayland and X11 desktops"
-HOMEPAGE="https://github.com/galister/wlx-overlay-s"
+HOMEPAGE="https://github.com/wayvr-org/wayvr.git"
 
 REQUIRED_USE="
 	|| ( openvr openxr )
@@ -28,7 +26,7 @@ LICENSE+="
 	ISC MIT Unicode-DFS-2016 Unlicense
 "
 SLOT="0"
-IUSE="+openvr +openxr +wayland +X +pipewire +osc +wayvr"
+IUSE="+openvr +openxr +wayland +X +pipewire +osc +wayvrctl"
 DEPEND="
 	media-libs/alsa-lib
 	media-libs/shaderc
@@ -54,10 +52,6 @@ DEPEND="
 	wayland? (
 		x11-libs/libxkbcommon[wayland]
 	)
-	wayvr? (
-		dev-libs/wayland
-		media-libs/libglvnd
-	)
 	$(llvm_gen_dep '
 		llvm-core/clang:${LLVM_SLOT}=
 	')
@@ -67,10 +61,6 @@ BDEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${P}-x11-pipewire.patch"
-)
-
 pkg_setup() {
 	export PKG_CONFIG_ALLOW_CROSS=1
 	export OPENVR_NO_VENDOR=1
@@ -79,7 +69,6 @@ pkg_setup() {
 
 src_unpack() {
 	git-r3_src_unpack
-	eapply "${FILESDIR}/${P}-devendor-openvr.patch"
 	cargo_live_src_unpack
 }
 
@@ -91,14 +80,18 @@ src_configure() {
 		$(usev X x11)
 		$(usev pipewire)
 		$(usev osc)
-		$(usev wayvr)
 	)
 	cargo_src_configure --no-default-features --frozen
 }
 
 src_install() {
-	doicon --size 256 wlx-overlay-s.png
-	doicon --size scalable wlx-overlay-s.svg
-	domenu wlx-overlay-s.desktop
-	cargo_src_install
+	cargo_src_install --path wayvr
+	domenu wayvr/wayvr.desktop
+	doicon wayvr/wayvr.png --size 128
+	doicon wayvr/wayvr.svg --size scalable
+	if use wayvrctl; then
+		cargo_src_configure --no-default-features
+		cargo_src_install --path wayvrctl
+	fi
+
 }
