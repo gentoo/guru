@@ -27,6 +27,7 @@ KEYWORDS="~amd64"
 IUSE="server"
 
 RDEPEND="
+	dev-python/pathvalidate[${PYTHON_USEDEP}]
 	media-libs/sonic
 	sci-libs/onnxruntime[python,${PYTHON_USEDEP}]
 
