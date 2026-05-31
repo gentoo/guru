@@ -5,12 +5,13 @@ EAPI=8
 
 inherit meson optfeature
 
+MY_COMMIT="298fad1678d23c964aa8ea56bfe9dc3c84eed6a4"
+
 DESCRIPTION="A lightweight Wayland shell and bar built directly on Wayland + OpenGL ES"
 HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia-shell"
 
-inherit git-r3
-EGIT_REPO_URI="https://github.com/noctalia-dev/noctalia-shell.git"
-EGIT_BRANCH="v5"
+SRC_URI="https://github.com/noctalia-dev/noctalia-shell/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${MY_COMMIT}"
 
 LICENSE="MIT"
 SLOT="0"
@@ -18,25 +19,23 @@ SLOT="0"
 IUSE="+jemalloc"
 
 DEPEND="
-	dev-cpp/sdbus-c++
 	dev-libs/glib:2
-	jemalloc? ( dev-libs/jemalloc:= )
-	dev-libs/libxml2
-	dev-libs/wayland
-	gnome-base/librsvg:2
+	dev-cpp/sdbus-c++
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/libwebp
-	media-libs/mesa
+	gnome-base/librsvg:2
 	media-video/pipewire
 	net-misc/curl
-	sci-libs/libqalculate
-	sys-auth/polkit
 	sys-libs/pam
-	virtual/opengl
 	x11-libs/cairo[glib]
-	x11-libs/libxkbcommon
 	x11-libs/pango
+	x11-libs/libxkbcommon
+	media-libs/mesa
+	virtual/opengl
+	dev-libs/wayland
+	sys-auth/polkit
+	jemalloc? ( dev-libs/jemalloc:= )
 	sci-libs/libqalculate
 	dev-libs/libxml2
 "
