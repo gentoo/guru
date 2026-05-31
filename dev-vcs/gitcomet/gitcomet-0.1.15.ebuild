@@ -834,8 +834,20 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="dev-libs/libgit2:="
-RDEPEND=">=dev-vcs/git-2.50.1"
+DEPEND="
+	dev-libs/libgit2:=
+	media-libs/fontconfig
+	media-libs/freetype
+	x11-libs/libX11
+	x11-libs/libxcb
+	x11-libs/libxkbcommon
+	dev-libs/wayland
+"
+
+RDEPEND="
+	${DEPEND}
+	>=dev-vcs/git-2.50.1
+"
 
 src_configure() {
 	export LIBGIT2_NO_VENDOR=1
