@@ -29,9 +29,11 @@ RDEPEND="
 	gui-libs/libadwaita:1
 	media-libs/dav1d
 	media-libs/glycin:2[gtk]
+	media-libs/graphene
 	media-libs/gst-plugins-base:1.0[wayland]
 	media-libs/gstreamer:1.0
 	media-libs/libwebp
+	x11-libs/cairo
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
