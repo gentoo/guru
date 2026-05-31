@@ -91,6 +91,7 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_icon_cache_update
 	udev_reload
 
 	einfo ""
@@ -101,5 +102,6 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
+	xdg_icon_cache_update
 	udev_reload
 }
