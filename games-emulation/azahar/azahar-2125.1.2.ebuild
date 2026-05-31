@@ -33,7 +33,7 @@ RDEPEND="
 	dev-libs/sirit
 	dev-libs/teakra
 	dev-libs/xxhash
-	dev-qt/qtbase:6[concurrent,dbus,widgets]
+	dev-qt/qtbase:6[concurrent,dbus,opengl,widgets]
 	dev-qt/qtmultimedia:6
 	dev-util/glslang
 	media-libs/cubeb
