@@ -131,17 +131,6 @@ add_bundled_licenses() {
 }
 add_bundled_licenses
 
-src_unpack() {
-	if [[ "${PV}" == 9999 ]]; then
-		git-r3_src_unpack
-
-		# unpack src files
-		unpack "${A}"
-	else
-		default
-	fi
-}
-
 src_prepare() {
 	local s remove=()
 	for s in externals/*; do
