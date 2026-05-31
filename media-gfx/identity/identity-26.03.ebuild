@@ -43,6 +43,8 @@ BDEPEND="
 	sys-devel/gettext
 "
 
+QA_FLAGS_IGNORED="usr/bin/identity"
+
 src_configure() {
 	meson_src_configure
 
