@@ -17,6 +17,10 @@ KEYWORDS="~amd64 ~arm64"
 RDEPEND="net-misc/openssh"
 DEPEND="${RDEPEND}"
 
+src_compile() {
+	emake CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
+}
+
 src_install() {
-	emake CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" PREFIX="${D}/usr" install
+	emake PREFIX="${D}/usr" install
 }
