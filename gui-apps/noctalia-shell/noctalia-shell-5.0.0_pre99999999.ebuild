@@ -18,23 +18,25 @@ SLOT="0"
 IUSE="+jemalloc"
 
 DEPEND="
-	dev-libs/glib:2
 	dev-cpp/sdbus-c++
+	dev-libs/glib:2
+	jemalloc? ( dev-libs/jemalloc:= )
+	dev-libs/libxml2
+	dev-libs/wayland
+	gnome-base/librsvg:2
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/libwebp
-	gnome-base/librsvg:2
+	media-libs/mesa
 	media-video/pipewire
 	net-misc/curl
-	sys-libs/pam
-	x11-libs/cairo[glib]
-	x11-libs/pango
-	x11-libs/libxkbcommon
-	media-libs/mesa
-	virtual/opengl
-	dev-libs/wayland
+	sci-libs/libqalculate
 	sys-auth/polkit
-	jemalloc? ( dev-libs/jemalloc:= )
+	sys-libs/pam
+	virtual/opengl
+	x11-libs/cairo[glib]
+	x11-libs/libxkbcommon
+	x11-libs/pango
 "
 
 RDEPEND="${DEPEND}"
