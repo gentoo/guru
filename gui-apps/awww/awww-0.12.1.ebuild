@@ -229,8 +229,8 @@ BDEPEND="
 "
 
 QA_FLAGS_IGNORED="
-	usr/bin/swww
-	usr/bin/swww-daemon
+	usr/bin/${PN}
+	usr/bin/${PN}-daemon
 "
 
 src_unpack() {
