@@ -64,6 +64,7 @@ pkg_pretend() {
 }
 
 src_prepare() {
+	PATCHES=( "${FILESDIR}"/1.14.9-boost-system.patch )
 	if use pie && use ssp ; then
 		PATCHES+=( "${FILESDIR}"/hardened-all.patch )
 	elif use pie && ! use ssp ; then
