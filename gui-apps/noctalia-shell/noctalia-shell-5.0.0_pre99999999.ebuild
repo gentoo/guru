@@ -37,8 +37,6 @@ DEPEND="
 	x11-libs/cairo[glib]
 	x11-libs/libxkbcommon
 	x11-libs/pango
-	sci-libs/libqalculate
-	dev-libs/libxml2
 "
 
 RDEPEND="${DEPEND}"
