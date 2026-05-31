@@ -330,7 +330,7 @@ CRATES="
 	zerovec@0.10.4
 "
 
-RUST_MIN_VERSION="1.81"
+RUST_MIN_VER="1.81"
 
 inherit cargo
 
