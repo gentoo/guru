@@ -83,6 +83,8 @@ BDEPEND="
 	)
 "
 
+QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/tiktoken/_tiktoken.*\.so"
+
 PATCHES=(
 	# test_encoding.py::test_hyp_roundtrip throws ValueError for special tokens
 	"${FILESDIR}/tiktoken-0.12.0-special-token-roudtrip.patch"
