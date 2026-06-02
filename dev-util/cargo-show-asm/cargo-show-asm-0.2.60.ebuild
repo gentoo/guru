@@ -10,13 +10,13 @@ RUST_MIN_VER="1.86.0"
 CRATES="
 	adler2@2.0.1
 	aho-corasick@1.1.3
-	anyhow@1.0.100
+	anyhow@1.0.102
 	ar@0.9.0
-	bpaf@0.9.20
-	bpaf_derive@0.5.17
+	bpaf@0.9.26
+	bpaf_derive@0.5.26
 	camino@1.1.11
-	capstone-sys@0.17.0
-	capstone@0.13.0
+	capstone-sys@0.18.0
+	capstone@0.14.0
 	cargo-platform@0.3.0
 	cargo_metadata@0.23.1
 	cc@1.2.32
@@ -32,14 +32,14 @@ CRATES="
 	memchr@2.7.5
 	miniz_oxide@0.8.9
 	nom@8.0.0
-	object@0.38.0
-	owo-colors@4.2.3
+	object@0.39.1
+	owo-colors@4.3.0
 	proc-macro2@1.0.95
 	quote@1.0.40
 	regex-automata@0.4.13
 	regex-syntax@0.8.5
-	regex@1.12.2
-	rustc-demangle@0.1.26
+	regex@1.12.3
+	rustc-demangle@0.1.27
 	ruzstd@0.8.1
 	ryu@1.0.20
 	same-file@1.0.6
@@ -48,6 +48,7 @@ CRATES="
 	serde_derive@1.0.219
 	serde_json@1.0.142
 	shlex@1.3.0
+	static_assertions@1.1.0
 	supports-color@2.1.0
 	supports-color@3.0.2
 	syn@2.0.104
