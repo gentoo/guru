@@ -34,7 +34,7 @@ declare -A GIT_CRATES=(
 	[webrtc-sys]='https://github.com/juberti-oai/rust-sdks;e2d1d1d230c6fc9df171ccb181423f957bb3c1f0;rust-sdks-%commit%/webrtc-sys'
 )
 
-RUST_MIN_VER="1.93.0"
+RUST_MIN_VER="1.95.0"
 
 # python3 .github/scripts/rusty_v8_bazel.py resolved-v8-crate-version
 RUSTY_V8_TAG="147.4.0"
@@ -139,6 +139,9 @@ src_compile() {
 	local rusty_v8_triple
 	use amd64 && rusty_v8_triple=x86_64-unknown-linux-musl
 	use arm64 && rusty_v8_triple=aarch64-unknown-linux-musl
+
+	# codex-core trait resolution overflows rustc's default 8MiB stack
+	export RUST_MIN_STACK=16777216
 
 	RUSTY_V8_ARCHIVE="${DISTDIR}/rusty_v8_${RUSTY_V8_TAG}_librusty_v8_release_${rusty_v8_triple}.a.gz" \
 	RUSTY_V8_SRC_BINDING_PATH="${DISTDIR}/rusty_v8_${RUSTY_V8_TAG}_src_binding_release_${rusty_v8_triple}.rs" \
