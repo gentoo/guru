@@ -23,6 +23,11 @@ KEYWORDS="~amd64 ~arm64"
 EPYTEST_PLUGINS=( aiomisc-pytest )
 distutils_enable_tests pytest
 
+src_prepare() {
+	default
+	sed -i -E '/extra_compile_args/s/,\s*"-g"|"-g",\s*|"-g"//g' setup.py || die
+}
+
 python_test() {
 	rm -rf caio || die
 	epytest
