@@ -40,7 +40,8 @@ DEPEND="dev-libs/quazip
 
 RDEPEND="$DEPEND"
 
-PATCHES="${FILESDIR}/2.12.0-1878.patch"
+PATCHES="${FILESDIR}/2.12.0-1878.patch
+         ${FILESDIR}/2.12.0-1995.patch"
 
 src_configure() {
 	local mycmakeargs=(
