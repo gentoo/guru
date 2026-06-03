@@ -337,6 +337,8 @@ else
 	KEYWORDS="~amd64"
 fi
 
+BDEPEND="media-libs/shaderc"
+
 src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
