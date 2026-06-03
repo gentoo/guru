@@ -222,6 +222,7 @@ DEPEND="
 	app-arch/lz4:=
 	x11-libs/libxkbcommon[wayland]
 	dev-libs/wayland-protocols
+	dev-libs/wayland
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
