@@ -642,7 +642,7 @@ BDEPEND="virtual/pkgconfig"
 src_prepare() {
 	default
 	# Upstream enables stripping on rel and disables debuginfo on dev
-	sed -i '/strip/d;/debug = 0/d' Cargo.toml
+	sed -i '/strip/d;/debug = 0/d' Cargo.toml || die
 
 	# update libwebp-sys in webp crate
 	local libwebp_PV=0.14.2 webp_P=webp-0.3.1
@@ -662,6 +662,7 @@ src_configure() {
 	export RUSTONIG_SYSTEM_LIBONIG=1
 
 	local myfeatures=(
+		# usev only takes 2 args
 		$(usev cjk indexing-ja )
 		$(usev cjk indexing-zh )
 	)
