@@ -3,8 +3,8 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{12..13} )
+DISTUTILS_USE_PEP517=uv-build
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 #pypi
 
@@ -53,7 +53,6 @@ BDEPEND="
 		dev-python/inline-snapshot[${PYTHON_USEDEP}]
 
 		dev-python/aiohttp[${PYTHON_USEDEP}]
-		dev-python/chalice[${PYTHON_USEDEP}]
 		dev-python/channels[${PYTHON_USEDEP}]
 		dev-python/django[${PYTHON_USEDEP}]
 		dev-python/fastapi[${PYTHON_USEDEP}]
