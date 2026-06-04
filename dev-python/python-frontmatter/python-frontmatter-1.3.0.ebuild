@@ -17,7 +17,7 @@ SRC_URI="https://github.com/eyeseast/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-python/pyyaml[${PYTHON_USEDEP}]
