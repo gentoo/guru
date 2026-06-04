@@ -31,7 +31,7 @@ BDEPEND="app-text/scdoc"
 
 src_install() {
 	dodoc Compatibility.md
-	systemd_newunit contrib/systemd/xdg-desktop-portal-termfilechooser.service.in \
+	systemd_newuserunit contrib/systemd/xdg-desktop-portal-termfilechooser.service.in \
 		xdg-desktop-portal-termfilechooser.service
 	rm -r contrib/systemd || die
 
