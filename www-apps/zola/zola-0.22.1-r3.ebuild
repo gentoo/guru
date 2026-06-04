@@ -642,7 +642,7 @@ BDEPEND="virtual/pkgconfig"
 src_prepare() {
 	default
 	# Upstream enables stripping on rel and disables debuginfo on dev
-	sed -i 's:profile:ignore:' Cargo.toml || die
+	sed -i '/strip/d;/debug = 0/d' Cargo.toml
 
 	# update libwebp-sys in webp crate
 	local libwebp_PV=0.14.2 webp_P=webp-0.3.1
