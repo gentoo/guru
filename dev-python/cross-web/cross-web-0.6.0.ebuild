@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -33,14 +33,21 @@ BDEPEND="
 		>=dev-python/starlette-0.46.1[${PYTHON_USEDEP}]
 		>=dev-python/werkzeug-2.3[${PYTHON_USEDEP}]
 		>=dev-python/yarl-1.9[${PYTHON_USEDEP}]
-		>=dev-python/chalice-1.20[${PYTHON_USEDEP}]
 		>=dev-python/litestar-2.0[${PYTHON_USEDEP}]
 	)
 "
 
-EPYTEST_IGNORE=(
-	# avoid unpackaged test dependencies
-	tests/request/test_sanic.py
+# chalice seems dead upstream, avoid it for an easier py3.14 transition
+EPYTEST_DESELECT=(
+	# unpackaged sanic
+	"tests/testing/clients/test_http_clients.py::test_request_adapter_json[http_client_config8]"
+	"tests/testing/clients/test_http_clients.py::test_request_adapter_form_data[http_client_config8]"
 )
-EPYTEST_PLUGINS=( pytest-asyncio )
+EPYTEST_IGNORE=(
+	# unpackaged sanic
+	tests/request/test_sanic.py
+	# avoid chalice
+	tests/request/test_chalice.py
+)
+EPYTEST_PLUGINS=( pytest-asyncio pytest-django )
 distutils_enable_tests pytest
