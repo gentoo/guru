@@ -3,7 +3,7 @@
 
 EAPI=8
 WANT_AUTOCONF="2.71"
-inherit autotools desktop xdg-utils
+inherit autotools desktop toolchain-funcs xdg-utils
 DESCRIPTION="Dogecoin Core Qt for desktop. Downloaded blockchain is under 2.2GB. Much secure."
 HOMEPAGE="https://github.com/dogecoin"
 SRC_URI="https://github.com/dogecoin/dogecoin/archive/refs/tags/v${PV}.tar.gz -> ${PN}-v${PV}.tar.gz"
@@ -54,6 +54,11 @@ RDEPEND="${DEPEND}
 "
 
 pkg_pretend() {
+		local current_gcc=$(gcc-version)
+		if use gui && [[ ${current_gcc} == 16.* ]]; then 
+			eerror "GCC ${current_gcc} does not support gui selection for version ${PV} at this time."
+			die
+		fi
 
 		if use intel-avx2 && [[ ! -e "${ROOT}"/etc/portage/patches/app-crypt/intel-ipsec-mb/remove_digest_init.patch ]]; then
 			eerror "${ROOT}/etc/portage/patches/app-crypt/intel-ipsec-mb/remove_digest_init.patch does not exist!"
@@ -87,7 +92,7 @@ src_configure() {
 		--bindir="${DOGEDIR}/bin"
 		--disable-bench
 		--enable-c++17
-		$(use_with gui qt5)
+		--with-gui=$(usex gui qt5 no)
 		$(use_with intel-avx2 intel-avx2)
 		$(use_with dogecoind daemon)
 		$(use_with utils utils)
