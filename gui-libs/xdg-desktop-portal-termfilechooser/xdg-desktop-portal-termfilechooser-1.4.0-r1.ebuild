@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson systemd
+inherit meson
 
 DESCRIPTION="xdg-desktop-portal backend for choosing files with your favorite file chooser"
 HOMEPAGE="https://github.com/hunkyburrito/xdg-desktop-portal-termfilechooser"
@@ -31,9 +31,8 @@ BDEPEND="app-text/scdoc"
 
 src_install() {
 	dodoc Compatibility.md
-	systemd_newuserunit contrib/systemd/xdg-desktop-portal-termfilechooser.service.in \
-		xdg-desktop-portal-termfilechooser.service
-	rm -r contrib/systemd || die
 
 	meson_src_install
+
+	rm -r "${ED}/usr/share/${PN}/systemd" || die
 }
