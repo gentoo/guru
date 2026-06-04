@@ -1,16 +1,16 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{12..14} )
-
+PYPI_VERIFY_REPO=https://github.com/pydantic/pydantic-extra-types
 inherit distutils-r1 optfeature pypi
 
 DESCRIPTION="Extra Pydantic types"
 HOMEPAGE="
-	https://github.com/pydantic/pydantic-extra-types
+	https://github.com/pydantic/pydantic-extra-types/
 	https://pypi.org/project/pydantic-extra-types/
 "
 
@@ -29,6 +29,9 @@ BDEPEND="
 		dev-python/semver[${PYTHON_USEDEP}]
 		dev-python/pymongo[${PYTHON_USEDEP}]
 		dev-python/pytz[${PYTHON_USEDEP}]
+		$(python_gen_cond_dep '
+			dev-python/uuid-utils[${PYTHON_USEDEP}]
+		' python3_{12..13})
 	)
 "
 
@@ -59,4 +62,5 @@ pkg_postinst() {
 	# optfeature "pendulum_dt" pendulum
 	optfeature "mongo_object_id" dev-python/pymongo
 	# optfeature "cron" cron-converter
+	optfeature "JsonSchema" dev-python/jsonschema
 }
