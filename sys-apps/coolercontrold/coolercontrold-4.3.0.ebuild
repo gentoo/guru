@@ -13,7 +13,7 @@ RUST_MIN_VER="1.87.0"
 
 PYTHON_COMPAT=( python3_{11..14} )
 
-inherit cargo eapi9-ver optfeature python-single-r1 systemd
+inherit cargo optfeature python-single-r1 systemd
 
 DESCRIPTION="Monitor and control your cooling and other devices (daemon)"
 HOMEPAGE="https://gitlab.com/coolercontrol/coolercontrol"
@@ -111,8 +111,5 @@ pkg_postinst() {
 	# libdrm[video_cards_amdgpu] dlopen'd, but the feature is not really noteworthy enough for optfeature
 	# (more accurate gpu names for amd)
 	optfeature "sensors support" sys-apps/lm-sensors
-
-	if ver_replacing -lt 3.0.0; then
-		elog "coolercontrol-liqctld isn't packaged separately anymore. It's behind the liqtctl use flag now."
-	fi
+	optfeature "additional stressor variants for stress testing" app-benchmarks/stress-ng
 }

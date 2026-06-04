@@ -11,9 +11,9 @@ CRATES="
 
 RUST_MIN_VER="1.87.0"
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{11..14} )
 
-inherit cargo eapi9-ver optfeature python-single-r1 systemd
+inherit cargo optfeature python-single-r1 systemd
 
 DESCRIPTION="Monitor and control your cooling and other devices (daemon)"
 HOMEPAGE="https://gitlab.com/coolercontrol/coolercontrol"
@@ -33,8 +33,7 @@ LICENSE+=" GPL-2+"
 # Dependent crate licenses
 LICENSE+="
 	AGPL-3+ Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD GPL-3+
-	ISC MIT UoI-NCSA openssl Unicode-3.0 ZLIB
-
+	ISC MIT UoI-NCSA Unicode-3.0 ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64"
@@ -81,7 +80,7 @@ src_prepare() {
 	if use liquidctl; then
 		# Upstream solution not suitable for Gentoo where multiple python targets are available.
 		sed -e "s|@@PYTHON@@|${PYTHON}|" \
-			-i src/repositories/liquidctl/liqctld_service.rs || die
+			-i daemon/src/repositories/liquidctl/liqctld_service.rs || die
 	fi
 }
 
@@ -112,8 +111,5 @@ pkg_postinst() {
 	# libdrm[video_cards_amdgpu] dlopen'd, but the feature is not really noteworthy enough for optfeature
 	# (more accurate gpu names for amd)
 	optfeature "sensors support" sys-apps/lm-sensors
-
-	if ver_replacing -lt 3.0.0; then
-		elog "coolercontrol-liqctld isn't packaged separately anymore. It's behind the liqtctl use flag now."
-	fi
+	optfeature "additional stressor variants for stress testing" app-benchmarks/stress-ng
 }
