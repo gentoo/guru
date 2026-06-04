@@ -32,6 +32,7 @@ COMMON_DEPEND+="
 	>=gui-libs/scenefx-0.4.1
 	dev-libs/libpcre2
 	x11-libs/libxkbcommon
+	dev-libs/cJSON
 	X? (
 		x11-libs/libxcb:=
 		x11-libs/xcb-util-wm
