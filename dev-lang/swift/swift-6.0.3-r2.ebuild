@@ -108,9 +108,7 @@ BDEPEND="
 		llvm-core/lld:${LLVM_SLOT}=
 	')
 	dev-lang/python
-	$(python_gen_cond_dep '
-		dev-python/setuptools[${PYTHON_USEDEP}]
-	' python3_{12..13})
+	$(python_gen_cond_dep 'dev-python/setuptools[${PYTHON_USEDEP}]')
 "
 
 SWIFT_BUILD_PRESETS_INI_PATH="${S}/gentoo-build-presets.ini"

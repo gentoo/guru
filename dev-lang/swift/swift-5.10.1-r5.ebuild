@@ -102,9 +102,7 @@ BDEPEND="
 		llvm-core/lld:${LLVM_SLOT}=
 	')
 	dev-lang/python
-	$(python_gen_cond_dep '
-		dev-python/setuptools[${PYTHON_USEDEP}]
-	' python3_{12..13})
+	$(python_gen_cond_dep 'dev-python/setuptools[${PYTHON_USEDEP}]')
 "
 
 PKG_PREINST_SWIFT_INTENTIONALLY_SET='true'
