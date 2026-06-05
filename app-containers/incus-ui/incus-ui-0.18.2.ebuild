@@ -45,11 +45,3 @@ src_install() {
 
 	systemd_install_dropin incus.service "${FILESDIR}"/incus.systemd.override
 }
-
-pkg_postinst() {
-	systemctl daemon-reload
-}
-
-pkg_postrm() {
-	systemctl daemon-reload
-}
