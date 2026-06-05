@@ -13,6 +13,9 @@
     install of Swift on a new machine, this package vends a base version of
     Swift that newer versions can BDEPEND on.
   </longdescription>
+  <use>
+    <flag name="binary">Bootstrap from binary (dev-lang/swift-bin:5/10) instead of building from source (dev-lang/swift:5/10).</flag>
+  </use>
   <upstream>
     <remote-id type="github">swiftlang/swift</remote-id>
   </upstream>
