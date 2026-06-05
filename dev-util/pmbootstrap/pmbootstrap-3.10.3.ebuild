@@ -10,7 +10,10 @@ PYTHON_COMPAT=( python3_{12..14} )
 inherit distutils-r1 linux-info
 
 DESCRIPTION="Helper tool for developing and building postmarketOS"
-HOMEPAGE="https://postmarketos.org/"
+HOMEPAGE="
+	https://wiki.postmarketos.org/wiki/Pmbootstrap
+	https://gitlab.postmarketos.org/postmarketOS/pmbootstrap
+"
 SRC_URI="https://gitlab.postmarketos.org/postmarketOS/pmbootstrap/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
