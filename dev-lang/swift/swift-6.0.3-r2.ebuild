@@ -240,9 +240,12 @@ src_compile() {
 
 	# Versions of Swift 6.0 and later require an existing Swift compiler to
 	# bootstrap from. We can use any version from 5.10.1 and on.
-	local swift_version="$(best_version -b "${CATEGORY}/${PN}")"
-	swift_version="${swift_version#${CATEGORY}/}" # reduce to ${PVR} form
-	swift_version="${swift_version%-r[[:digit:]]*}" # reduce to ${P} form
+	local swift_version="$(eselect swift show | tail -n1 | xargs)"
+	if [[ "${swift_version}" != swift-* ]]; then
+		# Swift may be unset; we can use the latest available.
+		swift_Version="$(eselect swift show --latest | tail -n1 | xargs)"
+	fi
+	[[ "${swift_version}" == swift-* ]] || die "No Swift version found for bootstrapping."
 
 	local original_path="${PATH}"
 	export PATH="/usr/lib64/${swift_version}/usr/bin:${original_path}"
