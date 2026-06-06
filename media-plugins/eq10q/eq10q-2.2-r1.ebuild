@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,12 +12,17 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="
+DEPEND="
+	dev-cpp/atkmm:0
+	dev-cpp/cairomm:0
+	dev-cpp/glibmm:2
 	dev-cpp/gtkmm:2.4
+	dev-cpp/pangomm:1.4
+	dev-libs/libsigc++:2
 	media-libs/lv2
 	sci-libs/fftw:3.0=
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
