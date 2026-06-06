@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Tradicted Trading Journal
+Comment=Free open-source desktop trading journal
+Exec=tradicted-trading-journal %U
+Icon=tradicted-trading-journal
+Type=Application
+Categories=Office;Finance;
