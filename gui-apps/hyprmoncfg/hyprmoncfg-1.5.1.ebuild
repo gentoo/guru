@@ -19,11 +19,15 @@ KEYWORDS="-* ~amd64 ~arm64"
 
 BDEPEND=">=dev-lang/go-1.26.1"
 
+PATCHES=(
+	"${FILESDIR}/${P}-exec-error-message.patch"
+)
+
 src_compile() {
 	local build_date ldflags
 
 	build_date="$(date -u +%FT%TZ)"
-	ldflags="-s -w -X github.com/crmne/hyprmoncfg/internal/buildinfo.Version=${PV} -X github.com/crmne/hyprmoncfg/internal/buildinfo.Commit=509f68e -X github.com/crmne/hyprmoncfg/internal/buildinfo.Date=${build_date}"
+	ldflags="-X github.com/crmne/hyprmoncfg/internal/buildinfo.Version=${PV} -X github.com/crmne/hyprmoncfg/internal/buildinfo.Commit=509f68e -X github.com/crmne/hyprmoncfg/internal/buildinfo.Date=${build_date}"
 
 	GOPROXY=off ego build -trimpath -mod=readonly -ldflags "${ldflags}" -o hyprmoncfg ./cmd/hyprmoncfg
 	GOPROXY=off ego build -trimpath -mod=readonly -ldflags "${ldflags}" -o hyprmoncfgd ./cmd/hyprmoncfgd

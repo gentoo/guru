@@ -1,0 +1,24 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Carmine Roberto Mancini <carmine@carmine.dev>
+Date: Sat, 6 Jun 2026 13:00:00 +0200
+Subject: [PATCH] apply: put exec validation reason before long path
+
+Long build paths can make the TUI truncate the validation message before the
+actionable part of the error is visible.
+---
+ internal/apply/apply.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/internal/apply/apply.go b/internal/apply/apply.go
+index a4ecb96..046bcf3 100644
+--- a/internal/apply/apply.go
++++ b/internal/apply/apply.go
+@@ -304,7 +304,7 @@ func ValidatePostApplyExec(command string) error {
+ 			return fmt.Errorf("%s is a directory", executable)
+ 		}
+ 		if info.Mode().Perm()&0o111 == 0 {
+-			return fmt.Errorf("%s is not executable", executable)
++			return fmt.Errorf("not executable: %s", executable)
+ 		}
+ 		return nil
+ 	}
