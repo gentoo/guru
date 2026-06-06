@@ -36,7 +36,7 @@ BDEPEND="
 	test? ( dev-cpp/gtest )
 "
 
-PATCHES=( "${FILESDIR}/${P}_remove-python-dep.patch" )
+PATCHES=( "${FILESDIR}/${PN}-14.2.0_remove-python-dep.patch" )
 
 src_prepare() {
 	default
