@@ -27,3 +27,12 @@ src_configure() {
 
 	meson_src_configure
 }
+
+src_install() {
+	meson_src_install
+
+	dosym brzip /usr/bin/brzcat
+	dosym brzip /usr/bin/brunzip
+	dosym brzip.1 /usr/share/man/man1/brzcat.1
+	dosym brzip.1 /usr/share/man/man1/brunzip.1
+}
