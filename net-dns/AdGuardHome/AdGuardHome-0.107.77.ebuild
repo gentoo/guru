@@ -46,10 +46,6 @@ Web UI: 0.0.0.0:3000\n
 Data directory: /var/lib/${PN}\n
 Default config: /var/lib/${PN}/${PN}.yaml
 "
-src_unpack() {
-	# because we're using  vendor/ so we don't need go-module_src_unpack
-	default
-}
 
 src_prepare() {
 	default
