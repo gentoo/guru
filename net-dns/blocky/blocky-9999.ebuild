@@ -48,7 +48,7 @@ src_unpack() {
 		git-r3_src_unpack
 		go-module_live_vendor
 	else
-		default
+		go-module_src_unpack
 	fi
 }
 
