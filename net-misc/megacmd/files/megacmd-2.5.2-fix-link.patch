@@ -1,0 +1,33 @@
+Add missing links.
+--- a/build/cmake/modules/megacmd_libraries.cmake
++++ b/build/cmake/modules/megacmd_libraries.cmake
+@@ -16,10 +16,15 @@ macro(load_megacmdserver_libraries)
+         find_package(PkgConfig REQUIRED) # For libraries loaded using pkg-config
+ 
+         if(USE_PCRE) #TODO: UNTESTED!
+-            pkg_check_modules(pcre REQUIRED IMPORTED_TARGET libpcre)
++            pkg_check_modules(pcre REQUIRED IMPORTED_TARGET libpcrecpp)
+             target_link_libraries(LMegacmdServer PRIVATE PkgConfig::pcre)
+             set(USE_PCRE 1)
+         endif()
++
++        find_package(ZLIB REQUIRED)
++        target_link_libraries(LMegacmdServer PRIVATE ZLIB::ZLIB)
++        pkg_check_modules(readline IMPORTED_TARGET readline)
++        target_link_libraries(mega-cmd PRIVATE PkgConfig::readline)
+     endif()
+ 
+ endmacro()
+--- a/sdk/cmake/modules/sdklib_libraries.cmake
++++ b/sdk/cmake/modules/sdklib_libraries.cmake
+@@ -110,8 +110,8 @@ macro(load_sdklib_libraries)
+         pkg_check_modules(curl REQUIRED IMPORTED_TARGET libcurl)
+         target_link_libraries(SDKlib PRIVATE PkgConfig::curl)
+ 
+-        find_package(ICU COMPONENTS uc data REQUIRED)
+-        target_link_libraries(SDKlib PRIVATE ICU::uc ICU::data)
++        find_package(ICU COMPONENTS i18n uc data REQUIRED)
++        target_link_libraries(SDKlib PRIVATE ICU::i18n ICU::uc ICU::data)
+ 
+         if(USE_OPENSSL)
+             find_package(OpenSSL REQUIRED)
