@@ -19,6 +19,8 @@ The [GURU regulations](https://wiki.gentoo.org/wiki/Project:GURU#The_regulations
 
 *See [wiki.gentoo.org/wiki/Project:GURU](https://wiki.gentoo.org/wiki/Project:GURU) for more information on the project.*
 
+Note: By policy, PR that adds a new package are NOT accepted.
+
 </td>
 <td width="27%" style="border-style:solid; border-radius:10px;">
 
