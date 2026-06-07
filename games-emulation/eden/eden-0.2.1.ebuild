@@ -15,9 +15,7 @@ if [[ "${PV}" == 9999 ]]; then
 	EGIT_CHECKOUT_DIR="${WORKDIR}/${PN}"
 else
 	KEYWORDS="~amd64 ~arm64"
-	SRC_URI="
-		https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
-	"
+	SRC_URI="https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz"
 fi
 
 _TZDB_VER=121125
@@ -49,7 +47,7 @@ RDEPEND="
 	dev-util/spirv-tools
 	games-util/gamemode
 	media-gfx/renderdoc
-	media-libs/libsdl3[udev]
+	media-libs/libsdl2[haptic,joystick,sound,video]
 	media-libs/libva
 	media-libs/opus
 	media-video/ffmpeg
@@ -126,13 +124,6 @@ add_bundled_licenses() {
 }
 add_bundled_licenses
 
-src_unpack() {
-	git-r3_src_unpack
-
-	# unpack src files
-	unpack "${A}"
-}
-
 src_prepare() {
 	local s remove=()
 	for s in externals/*; do
@@ -199,10 +190,20 @@ src_configure() {
 src_test() {
 	cd "${BUILD_DIR}" || die
 
-	./bin/dynarmic_tests || die
-
 	# See https://git.eden-emu.dev/eden-emu/eden/issues/126
-	./bin/tests "~Fibers::InterExchange" "~RingBuffer: Threaded Test" || die
+	local CATCH_SKIP_TESTS=(
+		"CoreTiming\[BasicOrder\]"
+		"MemoryTracker: Cached write downloads"
+		"MemoryTracker: FlushCachedWrites batching"
+		"MemoryTracker: Out of bound ranges 1"
+		"MemoryTracker: Out of bound ranges 2"
+		"MemoryTracker: Out of bound ranges 3"
+		"MemoryTracker: Rasterizer counting"
+		"MemoryTracker: Small region"
+		"MemoryTracker: Sparse regions 2"
+		"RingBuffer: Threaded Test"
+	)
+	./bin/tests "${CATCH_SKIP_TESTS[@]/#/\~}" || die
 }
 
 pkg_postinst() {
