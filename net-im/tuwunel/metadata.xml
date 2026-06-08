@@ -8,7 +8,4 @@
 	<upstream>
 		<remote-id type="github">matrix-construct/tuwunel</remote-id>
 	</upstream>
-	<use>
-		<flag name="system-rocksdb">Use <pkg>dev-libs/rocksdb</pkg> instead of vendored version.</flag>
-	</use>
 </pkgmetadata>

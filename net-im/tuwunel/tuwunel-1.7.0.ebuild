@@ -68,7 +68,7 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="jemalloc system-rocksdb gzip zstd lz4 bzip2 systemd brotli ldap io-uring"
+IUSE="jemalloc gzip zstd lz4 bzip2 systemd brotli ldap io-uring"
 
 # bzip2 looks difficult to un-bundle:
 #   https://wiki.gentoo.org/wiki/Project:Rust/sys_crates#bzip2-sys
@@ -79,9 +79,6 @@ COMMON_DEPEND="
 	app-arch/snappy:=
 	zstd? (
 		app-arch/zstd:=
-	)
-	system-rocksdb? (
-		dev-libs/rocksdb
 	)
 "
 RDEPEND="
@@ -173,12 +170,8 @@ src_configure() {
 		export ZSTD_SYS_USE_PKG_CONFIG=1
 	fi
 
-	if use system-rocksdb; then
-		# https://wiki.gentoo.org/wiki/Writing_Rust_ebuilds#Common_-sys_crates
-		export SNAPPY_LIB_DIR="${ESYSROOT}/usr/$(get_libdir)"
-		export ROCKSDB_INCLUDE_DIR="${ESYSROOT}/usr/include"
-		export ROCKSDB_LIB_DIR="${ESYSROOT}/usr/$(get_libdir)"
-	fi
+	# The project maintains their own fork of rocksdb. Because of that,
+	# unbundling it is not an option at this point.
 
 	local myfeatures=(
 		element_hacks
