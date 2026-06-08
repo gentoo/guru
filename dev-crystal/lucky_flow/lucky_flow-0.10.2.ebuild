@@ -1,7 +1,7 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit shards
 
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-crystal/crystal-html5
+	<dev-crystal/crystal-html5-0.7.0
 	>=dev-crystal/habitat-0.4.9
 	dev-crystal/selenium
 	dev-crystal/webdrivers
