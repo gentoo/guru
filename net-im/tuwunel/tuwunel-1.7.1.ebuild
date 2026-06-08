@@ -73,8 +73,7 @@ BDEPEND="virtual/pkgconfig"
 # update with proper path to binaries this crate installs, omit leading /
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
-# TODO
-DOCS=( {APPSERVICES,CODE_OF_CONDUCT,DEPLOY,README,TURN}.md )
+DOCS=( ../../{README,RELEASE,CONTRIBUTING,CODE_OF_CONDUCT}.md )
 
 pkg_setup() {
 	CONFIG_CHECK=""
