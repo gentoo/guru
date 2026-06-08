@@ -14,14 +14,14 @@
 	</maintainer>
 	<upstream>
 		<doc>https://docs.noctalia.dev/</doc>
-		<remote-id type="github">noctalia-dev/noctalia-shell</remote-id>
+		<remote-id type="github">noctalia-dev/noctalia</remote-id>
 	</upstream>
 	<longdescription>
-		Noctalia is a beautiful, minimal desktop 
-		shell for Wayland that actually gets out 
+		Noctalia is a beautiful, minimal desktop
+		shell for Wayland that actually gets out
 		of your way.
-		Built on Quickshell with a 
-		warm lavender aesthetic that you can 
+		Built on Quickshell with a
+		warm lavender aesthetic that you can
 		easily customize to match your vibe.
 	</longdescription>
 </pkgmetadata>

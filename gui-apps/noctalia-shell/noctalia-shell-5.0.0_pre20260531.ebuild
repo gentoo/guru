@@ -8,9 +8,9 @@ inherit meson optfeature
 MY_COMMIT="298fad1678d23c964aa8ea56bfe9dc3c84eed6a4"
 
 DESCRIPTION="A lightweight Wayland shell and bar built directly on Wayland + OpenGL ES"
-HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia-shell"
+HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia"
 
-SRC_URI="https://github.com/noctalia-dev/noctalia-shell/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/noctalia-dev/noctalia/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${MY_COMMIT}"
 
 LICENSE="MIT"

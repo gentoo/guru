@@ -8,14 +8,14 @@ PYTHON_COMPAT=( python3_{12..15} )
 inherit optfeature python-single-r1
 
 DESCRIPTION="A sleek and minimal desktop shell thoughtfully crafted for Wayland"
-HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia-shell"
+HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia"
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/noctalia-dev/noctalia-shell.git"
+	EGIT_REPO_URI="https://github.com/noctalia-dev/noctalia.git"
 	EGIT_BRANCH="legacy-v4"
 else
-	SRC_URI="https://github.com/noctalia-dev/noctalia-shell/releases/download/v${PV}/noctalia-v${PV}.tar.gz"
+	SRC_URI="https://github.com/noctalia-dev/noctalia/releases/download/v${PV}/noctalia-v${PV}.tar.gz"
 	KEYWORDS="~amd64"
 	S="${WORKDIR}/noctalia-release"
 fi

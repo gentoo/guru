@@ -6,9 +6,9 @@ EAPI=8
 inherit meson optfeature git-r3
 
 DESCRIPTION="A lightweight Wayland shell and bar built directly on Wayland + OpenGL ES"
-HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia-shell"
+HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia"
 
-EGIT_REPO_URI="https://github.com/noctalia-dev/noctalia-shell.git"
+EGIT_REPO_URI="https://github.com/noctalia-dev/noctalia.git"
 
 LICENSE="MIT"
 SLOT="0"
