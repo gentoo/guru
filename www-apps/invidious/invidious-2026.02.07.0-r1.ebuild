@@ -55,6 +55,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-crystal/athena-negotiation
 	dev-crystal/http_proxy
 	>=dev-crystal/kemal-1.6.0
+	<dev-crystal/kemal-1.10.0
 	>=dev-crystal/protodec-0.1.5
 	virtual/crystal-db[postgres,sqlite]
 	test? (
