@@ -1,8 +1,9 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
+CRYSTAL_MIN_VER="1.17"
 inherit shards
 
 MY_PN="${PN#athena-}"
@@ -17,3 +18,10 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+
+src_test() {
+	# Error: Invalid option: --link-flags=<...>
+	local -x CRYSTAL_OPTS=
+
+	shards_src_test
+}
