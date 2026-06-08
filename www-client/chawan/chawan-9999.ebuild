@@ -35,7 +35,7 @@ BDEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/makefile-491b4231.patch"
+	"${FILESDIR}/makefile-35940f0f.patch"
 )
 
 src_prepare(){
