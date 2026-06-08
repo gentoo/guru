@@ -2,6 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
+		<name>Anna</name>
+		<email>cyber+gentoo@sysrq.in</email>
+	</maintainer>
+	<maintainer type="person">
 		<name>Jason Blackwell</name>
 		<email>blackwell@disroot.org</email>
 	</maintainer>
