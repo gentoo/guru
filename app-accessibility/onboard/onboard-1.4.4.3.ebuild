@@ -22,7 +22,7 @@ S="${WORKDIR}/${PN}-${UPSTREAM_VER}"
 # po/* are licensed under BSD 3-clause
 LICENSE="GPL-3+ BSD"
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="+accessibility wayland X"
 
 COMMON_DEPEND="app-text/hunspell:=
