@@ -17,18 +17,18 @@ KEYWORDS="~amd64 ~arm64"
 
 # TODO: 9999 (pyproject versioning?)
 
-IUSE="test"
 DEPEND="
 	>=dev-python/requests-2.0.0[${PYTHON_USEDEP}]
 	test? (
-		dev-python/pytest[${PYTHON_USEDEP}]
-		dev-python/pytest-recording[${PYTHON_USEDEP}]
 		dev-python/dnspython[${PYTHON_USEDEP}]
 		dev-python/cryptography[${PYTHON_USEDEP}]
 	)
 "
 RDEPEND="${DEPEND}"
 
+EPYTEST_PLUGINS=(
+	pytest-recording
+)
 distutils_enable_tests pytest
 
 python_prepare_all() {
