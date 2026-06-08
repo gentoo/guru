@@ -13,6 +13,7 @@ HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia-shell"
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/noctalia-dev/noctalia-shell.git"
+	EGIT_BRANCH="legacy-v4"
 else
 	SRC_URI="https://github.com/noctalia-dev/noctalia-shell/releases/download/v${PV}/noctalia-v${PV}.tar.gz"
 	KEYWORDS="~amd64"
