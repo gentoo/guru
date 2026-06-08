@@ -13,15 +13,18 @@ if [[ "${PV}" == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/gokcehan/lf.git"
 else
 	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-	SRC_URI="https://github.com/gokcehan/${PN}/archive/refs/tags/r${PV}.tar.gz -> ${P}.tar.gz"
-	# possible depfiles link if used
-	SRC_URI+=" https://github.com/ingenarel/guru-depfiles/releases/download/${P}-deps.tar.xz/${P}-deps.tar.xz"
+	SRC_URI="
+	https://github.com/gokcehan/${PN}/archive/refs/tags/r${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/ingenarel/guru-depfiles/releases/download/${P}-deps.tar.xz/${P}-go-mod-deps.tar.xz ->
+	${P}-deps.tar.xz
+	"
 	S="${WORKDIR}/${PN}-r${PV}"
 fi
 
 LICENSE="MIT"
-# dependency licenses:
+#gentoo-go-license lf-9999.ebuild
 LICENSE+=" Apache-2.0 BSD MIT "
+# dependency licenses
 SLOT="0"
 IUSE="+static"
 
