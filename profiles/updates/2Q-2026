@@ -1,1 +1,2 @@
 move dev-util/forgejo-cli dev-util/fj-cli
+move gui-apps/noctalia-shell gui-apps/noctalia
