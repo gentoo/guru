@@ -8,6 +8,32 @@ EAPI=8
 CRATES="
 "
 
+declare -A GIT_CRATES=(
+	[async-channel]='https://github.com/matrix-construct/async-channel;92e5e74063bf2a3b10414bcc8a0d68b235644280;async-channel-%commit%'
+	[axum-server-dual-protocol]='https://github.com/matrix-construct/axum-server-dual-protocol;76c782fa6f129f83ffdca59e903093e798d4a82f;axum-server-dual-protocol-%commit%'
+	[core_affinity]='https://github.com/matrix-construct/core_affinity_rs;ff148c2985cbaff3e6e953d45cda4d7696f38d75;core_affinity_rs-%commit%'
+	[event-listener]='https://github.com/matrix-construct/event-listener;fe4aebeeaae435af60087ddd56b573a2e0be671d;event-listener-%commit%'
+	[hyper-util]='https://github.com/matrix-construct/hyper-util;a3f59c4e51af19570a9f92839ecfe0ad6482e9e5;hyper-util-%commit%'
+	[jevmalloc-sys]='https://github.com/matrix-construct/jevmalloc;93795449913f65ab533b7fa482333eef63fc3ae0;jevmalloc-%commit%/jevmalloc-sys'
+	[jevmalloc]='https://github.com/matrix-construct/jevmalloc;93795449913f65ab533b7fa482333eef63fc3ae0;jevmalloc-%commit%/jevmalloc'
+	[lber]='https://github.com/matrix-construct/ldap3;fdfbba2bf916b53e5f73cdb1a495ebb649978079;ldap3-%commit%/lber'
+	[ldap3]='https://github.com/matrix-construct/ldap3;fdfbba2bf916b53e5f73cdb1a495ebb649978079;ldap3-%commit%'
+	[resolv-conf]='https://github.com/matrix-construct/resolv-conf;200e958941d522a70c5877e3d846f55b5586c68d;resolv-conf-%commit%'
+	[ruma-appservice-api]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-appservice-api'
+	[ruma-client-api]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-client-api'
+	[ruma-common]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-common'
+	[ruma-events]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-events'
+	[ruma-federation-api]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-federation-api'
+	[ruma-identifiers-validation]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-identifiers-validation'
+	[ruma-macros]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-macros'
+	[ruma-push-gateway-api]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-push-gateway-api'
+	[ruma-signatures]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-signatures'
+	[ruma]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma'
+	[rust-librocksdb-sys]='https://github.com/matrix-construct/rust-rocksdb;c11395350bc1f2090a0152f2d15c8c5847821eba;rust-rocksdb-%commit%/librocksdb-sys'
+	[rust-rocksdb]='https://github.com/matrix-construct/rust-rocksdb;c11395350bc1f2090a0152f2d15c8c5847821eba;rust-rocksdb-%commit%'
+	[rustyline-async]='https://github.com/matrix-construct/rustyline-async;ba743cae940659e95d7b8604bbd6fdd755171c8c;rustyline-async-%commit%'
+)
+
 LLVM_COMPAT=( 21 )
 RUST_MIN_VER="1.94.0"
 
@@ -18,9 +44,16 @@ HOMEPAGE="
 	https://tuwunel.chat
 	https://github.com/matrix-construct/tuwunel
 "
+
+ROCKSDB_GIT_COMMIT=9a3a213b55df0b11408102c899a940675c0d90e4
+RUST_ROCKSB_GIT_COMMIT=c11395350bc1f2090a0152f2d15c8c5847821eba
+
 SRC_URI="
+	${CARGO_CRATE_URIS}
 	https://github.com/matrix-construct/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://vimja.cloud/public.php/dav/files/z59eKDyLFokW2KK/${CATEGORY}/${PN}/${P}-vendor.tar.xz
+	https://github.com/gentoo-crate-dist/${PN}/releases/download/v${PV}/${P}-crates.tar.xz
+	https://github.com/matrix-construct/rocksdb/archive/${ROCKSDB_GIT_COMMIT}.tar.gz
+	-> rocksdb-${ROCKSDB_GIT_COMMIT}.tar.gz
 "
 
 # The repository's root directory is a "workspace root".
@@ -73,8 +106,7 @@ BDEPEND="virtual/pkgconfig"
 # update with proper path to binaries this crate installs, omit leading /
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
-# TODO
-DOCS=( {APPSERVICES,CODE_OF_CONDUCT,DEPLOY,README,TURN}.md )
+DOCS=( ../../{README,RELEASE,CONTRIBUTING,CODE_OF_CONDUCT}.md )
 
 pkg_setup() {
 	CONFIG_CHECK=""
@@ -93,16 +125,36 @@ pkg_setup() {
 	rust_pkg_setup
 }
 
-# See here for how this works and why it's needed:
-#   https://wiki.gentoo.org/wiki/Writing_Rust_ebuilds#Using_a_vendor_tarball_like_in_Go_ebuilds
 src_prepare() {
-	ln -s "${WORKDIR}/vendor/" "${WORKDIR}/${P}/vendor" || die
+	local patched_crates=(
+		async-channel
+		rustyline-async
+		resolv-conf
+		hyper-util
+		core_affinity
+		event-listener
+	)
 
-	sed -i "${ECARGO_HOME}/config.toml" -e '/source.crates-io/d'  || die
-	sed -i "${ECARGO_HOME}/config.toml" -e '/replace-with = "gentoo"/d'  || die
-	sed -i "${ECARGO_HOME}/config.toml" -e '/local-registry = "\/nonexistent"/d'  || die
+	for patched_crate in ${patched_crates[@]}; do
+		local commit_hash=$(
+			echo ${GIT_CRATES[${patched_crate}]} \
+				| cut --delimiter=';' --fields=2
+		)
+		local directory_prefix=$(
+			echo ${GIT_CRATES[${patched_crate}]} \
+				| cut --delimiter=';' --fields=3 \
+				| cut --delimiter='%' --fields=1
+		)
 
-	cat "${WORKDIR}/vendor/vendor-config.toml" >> "${ECARGO_HOME}/config.toml" || die
+		echo "" >> "${ECARGO_HOME}/config.toml" || die
+		echo "[patch.crates-io.${patched_crate}]" >> "${ECARGO_HOME}/config.toml" || die
+		echo "path = \"${WORKDIR}/${directory_prefix}${commit_hash}\"" >> "${ECARGO_HOME}/config.toml" || die
+	done
+
+	local rocksdb_path="${WORKDIR}"/rust-rocksdb-${RUST_ROCKSB_GIT_COMMIT}/librocksdb-sys/rocksdb
+
+	rmdir "${rocksdb_path}" || die
+	mv "${WORKDIR}"/rocksdb-${ROCKSDB_GIT_COMMIT} "${rocksdb_path}" || die
 
 	eapply_user
 }
@@ -147,7 +199,7 @@ src_configure() {
 	)
 
 	rust_pkg_setup
-	cargo_src_configure --no-default-features --frozen
+	cargo_src_configure --no-default-features --offline
 }
 
 src_install() {
