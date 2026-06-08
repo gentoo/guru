@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module
+inherit go-module desktop xdg
 
 DESCRIPTION="Pretty fancy and modern terminal file manager"
 HOMEPAGE="https://superfile.dev"
@@ -22,8 +22,8 @@ else
 fi
 
 LICENSE="MIT"
-#gentoo-go-license superfile-9999.ebuild
-LICENSE+=" Apache-2.0 BSD-2 BSD GPL-3 ISC MIT MPL-2.0 "
+#gentoo-go-license superfile-1.6.0.ebuild
+LICENSE+=" Apache-2.0 BSD-2 BSD CC0-1.0 GPL-3 ISC MIT MPL-2.0 OFL-1.1 Unlicense "
 
 SLOT="0"
 # currently tests are disabled because superfile tends to create files in places it should not:
@@ -31,7 +31,7 @@ SLOT="0"
 # on top of that it has failed tests, tests depend on zoxide, tmux, python, a few python modules
 # the goal is to work on a src_test function slowly and bring back tests again
 RESTRICT="test"
-BDEPEND=">=dev-lang/go-1.25.5"
+BDEPEND=">=dev-lang/go-1.25.7"
 
 src_unpack() {
 	if [[ "${PV}" == 9999* ]];then
@@ -48,4 +48,5 @@ src_compile() {
 
 src_install() {
 	dobin bin/spf
+	domenu asset/spf.desktop
 }
