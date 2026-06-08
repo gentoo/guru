@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://pypi.org/project/repology-client/
 "
 
-LICENSE="CC-BY-SA-3.0 EUPL-1.2"
+LICENSE="EUPL-1.2"
 SLOT="0"
 KEYWORDS="~amd64"
 
