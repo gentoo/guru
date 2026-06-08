@@ -52,7 +52,7 @@ DOCS=( README.md CREDITS.md example.toml )
 
 src_configure() {
 	local emesonargs=(
-			$(meson_feature jemalloc)
+		$(meson_feature jemalloc)
 	)
 	meson_src_configure
 }

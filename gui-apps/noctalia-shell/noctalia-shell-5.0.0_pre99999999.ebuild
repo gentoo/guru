@@ -3,14 +3,12 @@
 
 EAPI=8
 
-inherit meson optfeature
+inherit meson optfeature git-r3
 
 DESCRIPTION="A lightweight Wayland shell and bar built directly on Wayland + OpenGL ES"
 HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia-shell"
 
-inherit git-r3
 EGIT_REPO_URI="https://github.com/noctalia-dev/noctalia-shell.git"
-EGIT_BRANCH="v5"
 
 LICENSE="MIT"
 SLOT="0"
@@ -51,7 +49,7 @@ DOCS=( README.md CREDITS.md example.toml )
 
 src_configure() {
 	local emesonargs=(
-			$(meson_feature jemalloc)
+		$(meson_feature jemalloc)
 	)
 	meson_src_configure
 }
