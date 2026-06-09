@@ -45,7 +45,8 @@ src_unpack() {
 }
 
 src_install() {
-	mv "${SWIFT_PF}/image/usr" "${ED}"
+	[[ -d "${SWIFT_PF}/image" ]] || die "Expected image directory not found in package"
+	cp -R "${SWIFT_PF}/image/usr" "${ED}" || die "Copying prebuilt files failed"
 }
 
 pkg_preinst() {
