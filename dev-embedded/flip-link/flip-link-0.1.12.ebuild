@@ -58,3 +58,5 @@ LICENSE="|| ( Apache-2.0 MIT )"
 LICENSE+=" AGPL-3 MIT Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
+
+RESTRICT="test" # requires non default target
