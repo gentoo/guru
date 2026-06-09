@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ZIG_SLOT="0.15"
+ZIG_SLOT="0.16"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://codeberg.org/beansprout/beansprout.git"
