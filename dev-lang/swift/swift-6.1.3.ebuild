@@ -243,7 +243,7 @@ src_compile() {
 	local swift_version="$(eselect swift show | tail -n1 | xargs)"
 	if [[ "${swift_version}" != swift-* ]]; then
 		# Swift may be unset; we can use the latest available.
-		swift_Version="$(eselect swift show --latest | tail -n1 | xargs)"
+		swift_version="$(eselect swift show --latest | tail -n1 | xargs)"
 	fi
 	[[ "${swift_version}" == swift-* ]] || die "No Swift version found for bootstrapping."
 
