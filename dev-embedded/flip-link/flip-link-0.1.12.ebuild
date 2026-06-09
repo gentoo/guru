@@ -60,3 +60,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RESTRICT="test" # requires non default target
+
+QA_FLAGS_IGNORED="
+	usr/bin/flip-link
+"
