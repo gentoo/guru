@@ -5,25 +5,23 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_EXT=1
-PYTHON_COMPAT=( python3_{8..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
-inherit distutils-r1 gnome2-utils udev xdg
+inherit distutils-r1 optfeature gnome2 udev xdg
 
 DESCRIPTION="An onscreen keyboard useful for tablet PC users and for mobility impaired users"
-HOMEPAGE="https://launchpad.net/onboard https://github.com/onboard-osk/onboard"
+HOMEPAGE="https://github.com/onboard-osk/onboard"
 
-VER1="${PV%.*}"
-VER2="${PV##*.}"
-UPSTREAM_VER="${VER1}-${VER2}"
+MY_PV=$(ver_rs 3 '-')
 
-SRC_URI="https://github.com/onboard-osk/${PN}/archive/refs/tags/v${UPSTREAM_VER}.tar.gz -> ${PN}-v${UPSTREAM_VER}.tar.gz"
+SRC_URI="https://github.com/onboard-osk/${PN}/archive/refs/tags/v${MY_PV}.tar.gz -> ${PN}-v${MY_PV}.tar.gz"
 
-S="${WORKDIR}/${PN}-${UPSTREAM_VER}"
+S="${WORKDIR}/${PN}-${MY_PV}"
 # po/* are licensed under BSD 3-clause
 LICENSE="GPL-3+ BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="+accessibility wayland X"
+IUSE="wayland X"
 
 COMMON_DEPEND="app-text/hunspell:=
 	dev-libs/dbus-glib
@@ -47,10 +45,6 @@ DEPEND="${COMMON_DEPEND}
 	dev-util/intltool"
 RDEPEND="${COMMON_DEPEND}
 	app-text/iso-codes
-	accessibility? (
-		app-accessibility/at-spi2-core:2
-		gnome-extra/mousetweaks
-	)
 	wayland? (
 		app-accessibility/at-spi2-core:2
 		gui-libs/gtk-layer-shell
@@ -66,6 +60,10 @@ python_prepare_all() {
 	distutils-r1_python_prepare_all
 }
 
+src_configure() {
+	distutils-r1_src_configure
+}
+
 src_compile() {
 	export FAKEROOTKEY=gentoo-ebuild
 	distutils-r1_src_compile
@@ -73,7 +71,7 @@ src_compile() {
 
 src_install() {
 	distutils-r1_src_install
-	mv "${D}"/usr/share/doc/onboard "${D}"/usr/share/doc/"${P}"
+	mv "${D}"/usr/share/doc/onboard "${D}"/usr/share/doc/"${P}" || die
 
 	insinto /etc/xdg/autostart/
 	doins "${S}"/build/share/autostart/onboard-autostart.desktop
@@ -85,13 +83,12 @@ src_install() {
 }
 
 pkg_postinst() {
-	xdg_pkg_postinst
-	gnome2_schemas_update
+	gnome2_pkg_postinst
 	udev_reload
+	optfeature "Mouse accessibility enhancements for the GNOME desktop" gnome-extra/mousetweaks
 }
 
 pkg_postrm() {
-	xdg_pkg_postrm
-	gnome2_schemas_update
+	gnome2_pkg_postrm
 	udev_reload
 }
