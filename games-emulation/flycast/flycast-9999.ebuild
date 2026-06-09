@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,9 +23,9 @@ IUSE="alsa ao lua opengl +openmp pulseaudio vulkan"
 DEPEND="
 	dev-cpp/asio
 	dev-cpp/websocketpp
-	dev-libs/libchdr
 	dev-libs/libzip
 	dev-libs/xxhash
+	media-libs/libchdr
 	media-libs/libsdl2
 	net-libs/miniupnpc
 	virtual/zlib:=
