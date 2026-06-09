@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 src_compile() {
-	ego build -o ${PN} -ldflags="-s -w" || die
+	ego build -o ${PN} -ldflags="-w" || die
 }
 
 src_install() {
