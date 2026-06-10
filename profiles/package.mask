@@ -125,7 +125,6 @@ dev-python/pyperscan
 # Missing components.Hard to package: upstream don't always make releases for new versions
 # Removal after 2026-06-11
 app-misc/aw-core
-app-misc/aw-client
 # revdep of aw-core
 dev-python/timeslot
 
