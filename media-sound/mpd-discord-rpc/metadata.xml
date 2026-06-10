@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>ingenarel_neojesus@disroot.org</email>
+    <name>ingenarel</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">jakestanger/mpd-discord-rpc</remote-id>
+  </upstream>
+  <longdescription lang="en">
+    Rust application which displays your currently playing song / album / artist from MPD in Discord using Rich Presence,
+    along with the album art.
+    It includes support for multiple MPD hosts, so you can have more than one server to alternate between.
+    The program does not require MPD or Discord to be running in order to run.
+  </longdescription>
+</pkgmetadata>

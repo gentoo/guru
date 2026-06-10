@@ -1,0 +1,9 @@
+#!/sbin/openrc-run
+
+description="Discord Rich Presence for MPD"
+supervisor="supervise-daemon"
+command=/usr/bin/mpd-discord-rpc
+
+depend() {
+	use mpd
+}
