@@ -129,11 +129,6 @@ app-misc/aw-client
 # revdep of aw-core
 dev-python/timeslot
 
-# David Roman <stkw0@disroot.org> (2026-04-26)
-# No revdeps. Unmaintained upstream
-# Removal after 2026-06-11
-dev-python/TakeTheTime
-
 # Joe Kappus <joe@wt.gd) (2026-04-23)
 # Depends on masked dev-python/pyqt5.
 # Progress getting made, unmask when done.
