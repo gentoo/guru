@@ -121,12 +121,6 @@ net-misc/megasync
 # Removal after 2026-06-13
 dev-python/pyperscan
 
-# David Roman <stkw0@disroot.org> (2026-05-11)
-# Missing components.Hard to package: upstream don't always make releases for new versions
-# Removal after 2026-06-11
-# revdep of aw-core
-dev-python/timeslot
-
 # Joe Kappus <joe@wt.gd) (2026-04-23)
 # Depends on masked dev-python/pyqt5.
 # Progress getting made, unmask when done.
