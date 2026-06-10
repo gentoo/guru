@@ -33,11 +33,14 @@ COMMON_DEPEND="app-text/hunspell:=
 	gnome-base/gsettings-desktop-schemas
 	gnome-base/librsvg
 	media-libs/libcanberra
+	virtual/libudev
 	x11-libs/gtk+:3[introspection]
+	x11-libs/libXtst
+	x11-libs/libxkbfile
 	X? (
 		x11-libs/libX11
 		x11-libs/libXi
-		x11-libs/libXtst
+
 		x11-libs/libwnck:3
 	)
 	x11-libs/pango"
@@ -48,9 +51,6 @@ RDEPEND="${COMMON_DEPEND}
 	wayland? (
 		app-accessibility/at-spi2-core:2
 		gui-libs/gtk-layer-shell
-	)
-	X? (
-		x11-libs/libxkbfile
 	)"
 
 RESTRICT="mirror test"
