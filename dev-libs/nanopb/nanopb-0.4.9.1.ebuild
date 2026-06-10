@@ -35,6 +35,7 @@ RDEPEND="
 			( =dev-libs/protobuf-31* =dev-python/protobuf-6.31*[${PYTHON_USEDEP}] )
 			( =dev-libs/protobuf-32* =dev-python/protobuf-6.32*[${PYTHON_USEDEP}] )
 			( =dev-libs/protobuf-33* =dev-python/protobuf-6.33*[${PYTHON_USEDEP}] )
+			( =dev-libs/protobuf-34* =dev-python/protobuf-7.34*[${PYTHON_USEDEP}] )
 		)
 	')
 "
