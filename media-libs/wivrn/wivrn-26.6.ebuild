@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake-multilib fcaps flag-o-matic xdg
+inherit cmake-multilib flag-o-matic xdg
 
 DESCRIPTION="WiVRn OpenXR streaming"
 HOMEPAGE="https://github.com/WiVRn/WiVRn"
@@ -40,6 +40,7 @@ RDEPEND="
 		sys-auth/elogind
 	)
 	gui? (
+		dev-libs/kirigami-addons
 		dev-libs/qcoro[qml]
 		kde-frameworks/kcoreaddons:6
 		kde-frameworks/ki18n:6
@@ -56,10 +57,9 @@ RDEPEND="
 	systemd? (
 		sys-apps/systemd
 	)
-	vaapi? ( || (
-		media-video/ffmpeg[libdrm(-),vaapi]
+	vaapi? (
 		media-video/ffmpeg[drm(-),vaapi]
-	) )
+	)
 	x264? (
 		media-libs/x264
 	)
@@ -157,7 +157,6 @@ PRESSURE_VESSEL_IMPORT_OPENXR_1_RUNTIMES=1
 
 pkg_postinst()
 {
-	fcaps cap_sys_nice usr/bin/wivrn-server
 	xdg_pkg_postinst
 	elog "WiVRn requires a compatible client on VR headset to run."
 	if [[ ${PV} == 9999 ]]; then
