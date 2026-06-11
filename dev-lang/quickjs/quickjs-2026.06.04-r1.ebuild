@@ -30,7 +30,7 @@ src_prepare() {
 	sed -Ei '/^\s*(CC|AR)=/d' Makefile \
 		|| die "Failed removing hard-coded tools"
 
-	sed -i 's;$(PREFIX)/lib;$(LIBDIR);' Makefile || die "Failed fixing libdir"
+	sed -i 's;$(PREFIX)/lib;$(LIBDIR);g' Makefile || die "Failed fixing libdir"
 
 	if ! use static-libs; then
 		sed -i '/install -m644 libquickjs.a "$(DESTDIR)$(LIBDIR)\/quickjs"/d' Makefile || die "Failed fixing static-libs"
