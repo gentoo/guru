@@ -39,7 +39,7 @@ BDEPEND="dev-util/patchelf"
 RDEPEND="!bundled-jdk? ( >=virtual/jre-1.8 )
 	>=app-accessibility/at-spi2-core-2.46.0:2
 	dev-debug/gdb
-	llvm-core/lldb
+	dev-libs/openssl-compat:1.1.1
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/nspr
@@ -75,10 +75,11 @@ src_prepare() {
 	local remove_me=(
 		Install-Linux-tar.txt
 		bin/gdb
-		bin/lldb
+#		bin/lldb/linux/x64/lib/python3.12
 		plugins/remote-dev-server/selfcontained
 		plugins/gateway-plugin/lib/remote-dev-workers/remote-dev-worker-linux-arm64
 		plugins/platform-ijent-impl/ijent-aarch64-unknown-linux-musl-release
+		plugins/nativeDebug-plugin/bin/lldb/linux/aarch64
 		lib/async-profiler/aarch64
 	)
 
