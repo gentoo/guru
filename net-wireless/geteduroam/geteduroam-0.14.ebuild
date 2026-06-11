@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit go-module desktop systemd
+inherit go-module desktop systemd xdg-utils
 
 DESCRIPTION="geteduroam Linux client" #TODO: replace with a better description, this is currently what upstream has.
 HOMEPAGE="https://github.com/geteduroam/linux-app https://get.eduroam.org/"
@@ -43,4 +43,12 @@ src_install() {
 		systemd_douserunit "systemd/user/${PN}/${PN}-notifs.service"
 		systemd_douserunit "systemd/user/${PN}/${PN}-notifs.timer"
 	fi
+}
+
+pkg_postinst() {
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 }
