@@ -116,11 +116,6 @@ dev-util/trivy
 # Bug #948836.
 net-misc/megasync
 
-# David Roman <stkw0@disroot.org> (2026-05-13)
-# No new releases since 2023. It is a dep of a package that was never added.
-# Removal after 2026-06-13
-dev-python/pyperscan
-
 # Joe Kappus <joe@wt.gd) (2026-04-23)
 # Depends on masked dev-python/pyqt5.
 # Progress getting made, unmask when done.
