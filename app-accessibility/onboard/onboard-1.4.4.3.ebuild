@@ -25,6 +25,7 @@ IUSE="wayland X"
 
 COMMON_DEPEND="app-text/hunspell:=
 	dev-libs/dbus-glib
+	dev-libs/glib
 	dev-python/dbus-python[${PYTHON_USEDEP}]
 	dev-python/pycairo[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
@@ -34,16 +35,17 @@ COMMON_DEPEND="app-text/hunspell:=
 	gnome-base/librsvg
 	media-libs/libcanberra
 	virtual/libudev
+	x11-libs/cairo
 	x11-libs/gtk+:3[introspection]
 	x11-libs/libXtst
 	x11-libs/libxkbfile
+	x11-libs/pango
 	X? (
 		x11-libs/libX11
 		x11-libs/libXi
 
 		x11-libs/libwnck:3
-	)
-	x11-libs/pango"
+	)"
 DEPEND="${COMMON_DEPEND}
 	dev-util/intltool"
 RDEPEND="${COMMON_DEPEND}
