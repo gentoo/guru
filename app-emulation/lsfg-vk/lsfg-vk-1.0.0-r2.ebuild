@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -155,7 +155,7 @@ CRATES="
 	winnow@0.7.12
 "
 
-inherit cargo cmake desktop flag-o-matic toolchain-funcs
+inherit cargo cmake desktop flag-o-matic toolchain-funcs xdg-utils
 
 DESCRIPTION="Lossless Scaling Frame Generation on Linux via DXVK/Vulkan"
 HOMEPAGE="https://github.com/PancakeTAS/lsfg-vk"
@@ -280,6 +280,8 @@ src_install() {
 	if use gui; then
 		dobin "${S}/ui/$(cargo_target_dir)/lsfg-vk-ui"
 		domenu "${S}/ui/rsc/gay.pancake.lsfg-vk-ui.desktop"
+		xdg_desktop_database_update
 		newicon -s 256 "${S}/ui/rsc/icon.png" "gay.pancake.lsfg-vk-ui.png"
+		xdg_icon_cache_update
 	fi
 }
