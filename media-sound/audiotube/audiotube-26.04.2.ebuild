@@ -28,37 +28,42 @@ IUSE="handbook test"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-PYTHON_DEPEND="$(python_gen_cond_dep '
-	dev-python/ytmusicapi[${PYTHON_USEDEP}]
-	dev-python/pybind11[${PYTHON_USEDEP}]
-')"
-DEPEND="
+
+COMMON_DEPEND="
+	${PYTHON_DEPS}
+	$(python_gen_cond_dep '
+		dev-python/ytmusicapi[${PYTHON_USEDEP}]
+	')
 	>=dev-db/futuresql-0.1.1
 	>=dev-libs/kirigami-addons-0.11.0:6
-	>=dev-libs/qcoro-0.13.0
-	net-misc/yt-dlp
-	media-plugins/gst-plugins-meta:1.0[http]
-
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtimageformats-${QTMIN}:6
 	>=dev-qt/qtmultimedia-${QTMIN}:6[gstreamer]
 	>=dev-qt/qtsvg-${QTMIN}:6
-
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/purpose-${KFMIN}:6
-
-	${PYTHON_DEPEND}
+"
+DEPEND="
+	${COMMON_DEPEND}
+	>=dev-libs/qcoro-0.13.0
+	$(python_gen_cond_dep '
+		dev-python/pybind11[${PYTHON_USEDEP}]
+	')
 "
 RDEPEND="
-	${DEPEND}
-	${PYTHON_DEPS}
+	${COMMON_DEPEND}
+	media-plugins/gst-plugins-meta:1.0[http]
+	net-misc/yt-dlp
 "
 BDEPEND="
 	dev-build/cmake
 	kde-frameworks/extra-cmake-modules
 	sys-devel/gettext
 "
+pkg_setup() {
+	python-single-r1_pkg_setup
+}
