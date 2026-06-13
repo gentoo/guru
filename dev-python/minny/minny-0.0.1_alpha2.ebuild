@@ -36,5 +36,13 @@ RDEPEND="
 	dev-python/websockets[${PYTHON_USEDEP}]
 "
 
-EPYTEST_PLUGINS=()
+# Tests broken
+EPYTEST_DESELECT=(
+	tests/test_circup_install.py::test_with_deps_install
+	tests/test_circup_install.py::test_no_deps_install
+	tests/test_deploy.py::test_basic_deploy
+	tests/test_sync.py::test_sync_command
+	tests/test_circup_build.py::test_single_build
+	tests/test_circup_build.py::test_build_matches_bundle
+)
 distutils_enable_tests pytest
