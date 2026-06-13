@@ -61,7 +61,7 @@ src_install() {
 		newicon -s ${size} "browser/chrome/icons/default/default${size}.png" waterfox.png
 	done
 	#create desktop file
-	make_desktop_entry "/usr/bin/Waterfox" "Waterfox" waterfox "Network;WebBrowser" "$(cat "${FILESDIR}"/desktop_options)"
+	make_desktop_entry "/usr/bin/waterfox" "Waterfox" waterfox "Network;WebBrowser" "$(cat "${FILESDIR}"/desktop_options)"
 	#handle permissions of destdir files
 	fperms 0755 "${destdir}"/{waterfox-bin,updater,glxtest,vaapitest}
 	# Disable auto-updates
