@@ -24,7 +24,7 @@ S="${WORKDIR}"
 # It's complicated...
 LICENSE="all-rights-reserved"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="-* ~amd64 ~arm64"
 IUSE="kerberos webkit"
 RESTRICT="bindist mirror strip"
 
@@ -75,11 +75,6 @@ QA_DESKTOP_FILE="usr/share/applications/${MY_PN}.*\\.desktop"
 
 AGY_HOME_BASE="opt/google"
 AGY_HOME="${AGY_HOME_BASE}/${MY_PN}"
-
-pkg_pretend() {
-	# Protect against people using autounmask overzealously
-	use amd64 || use arm64 || die "Google Antigravity IDE only works on amd64 or arm64"
-}
 
 pkg_setup() {
 	chromium_suid_sandbox_check_kernel_config
