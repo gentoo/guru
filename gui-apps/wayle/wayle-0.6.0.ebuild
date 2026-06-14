@@ -27,12 +27,18 @@ IUSE="+settings"
 BDEPEND="virtual/pkgconfig"
 DEPEND="
 	dev-db/sqlite:3=
+	dev-libs/glib
+	dev-libs/wayland
 	gui-libs/gtk:4=[wayland]
 	gui-libs/gtk4-layer-shell
-	sci-libs/fftw
-	media-video/pipewire
 	media-libs/libpulse
+	media-video/pipewire
+	sci-libs/fftw
 	virtual/libudev
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/libxkbcommon
+	x11-libs/pango
 	settings? (
 		gui-libs/gtksourceview:5
 		media-libs/graphene
