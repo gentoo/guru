@@ -7,6 +7,9 @@
     <email>agireud@protonmail.com</email>
     <name>Alberto Gireud</name>
   </maintainer>
+  <use>
+    <flag name="tor">Enable embedded Tor network support via Arti</flag>
+  </use>
   <upstream>
     <bugs-to>https://github.com/squidowl/halloy/issues</bugs-to>
     <doc>https://halloy.chat</doc>
