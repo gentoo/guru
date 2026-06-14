@@ -33,7 +33,7 @@ RDEPEND="
 "
 
 src_install() {
-	insinto /etc/xdg/quickshell/noctalia-shell
+	insinto /etc/xdg/quickshell/noctalia
 	insopts -m0755
 	doins -r .
 
