@@ -8,6 +8,8 @@
 	<upstream>
 		<bugs-to>https://gitlab.com/shackra/goimapnotify/-/boards</bugs-to>
 		<doc>https://gitlab.com/shackra/goimapnotify/-/blob/master/README.md</doc>
+		<changelog>https://gitlab.com/shackra/goimapnotify/-/blob/master/CHANGELOG.md</changelog>
 		<remote-id type="gitlab">shackra/goimapnotify</remote-id>
+		<remote-id type="github">gentoo-golang-dist/goimapnotify</remote-id>
 	</upstream>
 </pkgmetadata>
