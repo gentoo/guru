@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gf.devel@pm.me</email>
+		<name>Gregor Feierabend</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://gitlab.com/shackra/goimapnotify/-/boards</bugs-to>
+		<doc>https://gitlab.com/shackra/goimapnotify/-/blob/master/README.md</doc>
+		<remote-id type="gitlab">shackra/goimapnotify</remote-id>
+	</upstream>
+</pkgmetadata>
