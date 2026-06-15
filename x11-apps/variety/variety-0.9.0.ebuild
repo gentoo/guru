@@ -23,6 +23,7 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="test"
 RESTRICT="!test? ( test )"
+PROPERTIES="test_network"
 
 DEPEND="
 	test? (
@@ -58,6 +59,8 @@ BDEPEND="
 "
 
 python_prepare_all() {
+	python_setup
+
 	# Remove upstream documentation to avoid incorrect installation paths
 	rm -f README.md CONTRIBUTING.md AUTHORS || die
 	rm -f data/ui/changes.txt || die
@@ -69,7 +72,7 @@ EOF
 
 	# Patch setup.py robustly so setuptools does not try to package
 	# variety/data and trigger namespace/package QA warnings.
-	python3 - <<'PY' || die
+	"${EPYTHON}" - <<'PY' || die
 from pathlib import Path
 p = Path("setup.py")
 text = p.read_text()
@@ -90,7 +93,7 @@ p.write_text(text)
 PY
 
 	# Silence deprecated PEP621 license table warning
-	python3 - <<'PY' || die
+	"${EPYTHON}" - <<'PY' || die
 from pathlib import Path
 p = Path("pyproject.toml")
 text = p.read_text()
@@ -102,7 +105,7 @@ p.write_text(text)
 PY
 
 	# Patch varietyconfig.py to make runtime data lookup use /usr/share/variety instead of package resources
-	python3 - <<'PY' || die "Failed to patch varietyconfig.py"
+	"${EPYTHON}" - <<'PY' || die "Failed to patch varietyconfig.py"
 import re
 import sys
 from pathlib import Path
