@@ -15,8 +15,6 @@ LICENSE="GPL-3 MIT MPL-2.0 BSD BSD-2 Apache-2.0"
 
 SLOT="0"
 
-KEYWORDS="~amd64"
-
 src_unpack() {
 	git-r3_src_unpack
 	go-module_live_vendor
