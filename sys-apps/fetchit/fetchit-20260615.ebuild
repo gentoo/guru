@@ -7,7 +7,7 @@ inherit lua-single toolchain-funcs
 DESCRIPTION="Minimal system info fetcher written in C with Lua configuration"
 HOMEPAGE="https://codeberg.org/nzuum/fetchit"
 
-COMMIT="b0ed7c1fe08d32fc26e458cd971930d550720462"
+COMMIT="a2bf22e58670ea0cf98c1f7ba488dc77ce38c102"
 SRC_URI="https://codeberg.org/nzuum/fetchit/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
 S="${WORKDIR}/fetchit"
@@ -20,6 +20,7 @@ REQUIRED_USE="${LUA_REQUIRED_USE}"
 
 RDEPEND="${LUA_DEPS}"
 DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 src_compile() {
 	emake \
