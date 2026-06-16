@@ -17,7 +17,7 @@ IUSE="X +bidi debug +gui +harfbuzz jpegxl mp3 ncurses opus webp"
 REQUIRED_USE="|| ( gui ncurses )"
 
 RDEPEND="
-	>=dev-libs/tfdn-1.11.0:=[ssl]
+	>=dev-libs/tfdn-1.12.0:=[ssl]
 	media-libs/libsdl2[X?,sound(+),video(+)]
 	gui? (
 		X? ( x11-libs/libX11 )
@@ -28,7 +28,7 @@ RDEPEND="
 		opus? ( media-libs/opusfile )
 		webp? ( media-libs/libwebp:= )
 	)
-	ncurses? ( >=dev-libs/sealcurses-2.0.18_pre20230206:= )
+	ncurses? ( >=dev-libs/sealcurses-2.0.18_pre20260322:= )
 "
 DEPEND="${RDEPEND}
 	gui? (
