@@ -294,3 +294,12 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 QA_FLAGS_IGNORED="usr/bin/bzmenu"
+
+DEPEND="
+	sys-apps/dbus
+"
+
+RDEPEND="
+	net-wireless/bluez
+	sys-apps/dbus
+"
