@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature
@@ -34,7 +35,7 @@ BDEPEND="
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/pytest-httpbin[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep \
-			'dev-python/zstandard[${PYTHON_USEDEP}]' python3_{11..13})
+			'dev-python/zstandard[${PYTHON_USEDEP}]')
 	)
 "
 
@@ -100,9 +101,5 @@ pkg_postinst() {
 	optfeature "jq source" "dev-python/jq[${PYTHON_USEDEP}]"
 	optfeature "httpheader source" "dev-python/lxml[${PYTHON_USEDEP}]"
 	optfeature "pypi source" "dev-python/packaging[${PYTHON_USEDEP}]"
-	if use python_targets_python3_11 || \
-		use python_targets_python3_12 || \
-		use python_targets_python3_13; then
-		optfeature "rpmrepo source" "dev-python/zstandard[${PYTHON_USEDEP}]"
-	fi
+	optfeature "rpmrepo source" "dev-python/zstandard[${PYTHON_USEDEP}]"
 }
