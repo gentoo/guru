@@ -34,8 +34,7 @@ BDEPEND="
 		dev-python/lxml[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/pytest-httpbin[${PYTHON_USEDEP}]
-		$(python_gen_cond_dep \
-			'dev-python/zstandard[${PYTHON_USEDEP}]')
+		dev-python/zstandard[${PYTHON_USEDEP}]
 		dev-vcs/git
 	)
 "
