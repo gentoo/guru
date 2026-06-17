@@ -134,8 +134,7 @@ src_install() {
 src_test() {
 	# tests create a wayland socket in the xdg runtime dir
 	local -x XDG_RUNTIME_DIR="${T}/xdg"
-	mkdir "${XDG_RUNTIME_DIR}" || die
-	chmod 0700 "${XDG_RUNTIME_DIR}" || die
+	mkdir --mode=0700 "${XDG_RUNTIME_DIR}" || die
 
 	# bug 950626
 	# https://yalter.github.io/niri/Packaging-niri.html#running-tests
