@@ -18,11 +18,23 @@ S="${WORKDIR}"
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
+IUSE="test"
 
-DEPEND="~net-analyzer/zabbix-${PV}[agent2]"
-RDEPEND="${DEPEND}"
+RESTRICT="!test? ( test )"
+
+RDEPEND="
+	~net-analyzer/zabbix-${PV}[agent2]
+	x11-drivers/nvidia-drivers
+"
+BDEPEND="x11-drivers/nvidia-drivers"
 
 DOCS=( "README.md" )
+
+src_prepare() {
+	default
+	# See https://bugs.gentoo.org/975428
+	sed --in-place 's/^#cgo linux LDFLAGS: -ldl/& -lnvidia-ml/' pkg/nvml/nvml_linux.go || die
+}
 
 src_install() {
 	exeinto "/usr/libexec/zabbix-agent2-plugin"
