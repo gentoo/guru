@@ -10,22 +10,23 @@ SRC_URI="https://github.com/jirutka/doas-sudo-shim/archive/v${PV}.tar.gz -> ${P}
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="doc"
 
-BDEPEND="dev-ruby/asciidoctor"
-RDEPEND="app-admin/doas"
+BDEPEND="doc? ( dev-ruby/asciidoctor )"
+RDEPEND="
+	app-admin/doas
+	!app-admin/sudo
+"
 
 src_compile() {
-	emake man
+	if use doc; then
+		emake man
+	fi
 }
 
 src_install() {
-	emake DESTDIR="${ED}" PREFIX=/usr install-exec install-man
+	local targets="install-exec"
+	use doc && targets+=" install-man"
+	emake DESTDIR="${ED}" PREFIX=/usr ${targets}
 	dodoc README.adoc LICENSE
-}
-
-pkg_postinst() {
-	elog "This package installs a 'sudo' script that forwards commands to doas."
-	elog "It conflicts with app-admin/sudo because both provide /usr/bin/sudo."
-	elog "To use this shim, either remove app-admin/sudo or mask it."
-	elog "Make sure your /etc/doas.conf is configured properly."
 }
