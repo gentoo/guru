@@ -10,21 +10,16 @@ SRC_URI="https://github.com/jirutka/doas-sudo-shim/archive/v${PV}.tar.gz -> ${P}
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc"
 
-BDEPEND="doc? ( dev-ruby/asciidoctor )"
+BDEPEND="dev-ruby/asciidoctor"
 RDEPEND="app-admin/doas"
 
 src_compile() {
-	if use doc; then
-		emake man
-	fi
+	emake man
 }
 
 src_install() {
-	local targets="install-exec"
-	use doc && targets+=" install-man"
-	emake DESTDIR="${ED}" PREFIX=/usr ${targets}
+	emake DESTDIR="${ED}" PREFIX=/usr install-exec install-man
 	dodoc README.adoc LICENSE
 }
 
