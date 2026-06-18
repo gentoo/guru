@@ -66,7 +66,8 @@ src_prepare() {
 src_compile() {
 	if [[ ${PV} != 9999 ]]; then
 		local GIT_HASH=$(gunzip < "${DISTDIR}/${P}.tar.gz" | git get-tar-commit-id)
-		export TYPST_VERSION="${PV} (${GIT_HASH::8})"
+		export TYPST_COMMIT_SHA="${GIT_HASH}"
+		export TYPST_VERSION="${PV}"
 	fi
 	export GEN_ARTIFACTS="artifacts/"
 
