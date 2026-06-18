@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit branding cmake
+inherit branding cmake xdg
 
 GIT_REVISION=a1a150fab00a93ea983aaca5df55304bc837f51b
 
