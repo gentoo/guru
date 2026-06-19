@@ -8,4 +8,9 @@
 	<upstream>
 		<remote-id type="github">KhronosGroup/KTX-Software</remote-id>
 	</upstream>
+	<use>
+		<flag name="tools">
+			Enable KTX command line tools
+		</flag>
+	</use>
 </pkgmetadata>
