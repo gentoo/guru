@@ -42,12 +42,13 @@ RDEPEND="
 
 	media-gfx/imagemagick
 	media-libs/gexiv2[introspection]
-	net-libs/webkit-gtk[introspection]
-	x11-libs/gdk-pixbuf:2[introspection]
 	x11-libs/gtk+:3[introspection]
 	x11-libs/libnotify[introspection]
-	x11-libs/pango[introspection]
 "
+# Trim RDEPEND from legacy versions
+# net-libs/webkit-gtk[introspection]
+# x11-libs/gdk-pixbuf:2[introspection]
+# x11-libs/pango[introspection]
 
 BDEPEND="
 	sys-devel/gettext
