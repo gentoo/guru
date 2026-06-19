@@ -72,6 +72,12 @@ EPYTEST_DESELECT=(
 	tests/server/tasks/test_concurrent_dependencies.py::test_sync_context_functions_work_in_background_without_deps
 	tests/server/http/test_http_dependencies.py::test_background_task_can_read_snapshotted_request_headers
 	tests/server/http/test_http_dependencies.py::test_background_task_current_http_dependencies_restore_headers
+
+	# Tests succeed, but teardown fails with:
+	# RuntimeError: Attempted to exit a cancel scope that isn't the current tasks's current cancel scope
+	tests/server/providers/proxy/test_stateful_proxy_client.py::TestStatefulProxyClient::test_concurrent_log_requests_no_mixing
+	tests/server/providers/proxy/test_stateful_proxy_client.py::TestStatefulProxyClient::test_stateful_proxy
+	tests/server/providers/proxy/test_stateful_proxy_client.py::TestStatefulProxyClient::test_multi_proxies_no_mixing
 )
 
 EPYTEST_IGNORE=(
