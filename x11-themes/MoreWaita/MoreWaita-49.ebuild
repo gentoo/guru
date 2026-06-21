@@ -18,5 +18,6 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
+# this ebuild does not install binaries
 RESTRICT="binchecks strip"
 RDEPEND="x11-themes/adwaita-icon-theme"
