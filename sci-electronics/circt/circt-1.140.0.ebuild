@@ -45,6 +45,7 @@ RDEPEND="
 		dev-python/psutil[${PYTHON_USEDEP}]
 		sci-electronics/verilator
 	)
+	app-arch/zstd:=
 	sys-libs/ncurses:0=
 "
 
@@ -73,6 +74,10 @@ src_configure() {
 		-D BUILD_SHARED_LIBS=OFF
 		-D LLVM_STATIC_LINK_CXX_STDLIB=ON
 		-D LLVM_ENABLE_ASSERTIONS=ON
+		# Link zstd deterministically rather than letting cmake autodetect
+		# it, so the app-arch/zstd RDEPEND always matches.  See
+		# https://bugs.gentoo.org/977877
+		-D LLVM_ENABLE_ZSTD=FORCE_ON
 		-D LLVM_BUILD_EXAMPLES=OFF
 		-D LLVM_ENABLE_BINDINGS=OFF
 		-D LLVM_ENABLE_OCAMLDOC=OFF
