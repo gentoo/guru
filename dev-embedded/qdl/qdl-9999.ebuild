@@ -18,7 +18,10 @@ DEPEND="
 	dev-libs/libusb:1
 	dev-libs/libxml2:=
 	dev-libs/libzip:=
-	test? ( dev-util/cmocka )
+	test? (
+		app-arch/zip
+		dev-util/cmocka
+	)
 "
 RDEPEND="${DEPEND}"
 
