@@ -807,9 +807,11 @@ src_compile() {
 src_install() {
 	# Install binaries directly from build output
 	# Using dobin instead of cargo_src_install since this is a workspace
-	# and surver doesn't have the same features as surfer
-	dobin target/release/surfer
-	dobin target/release/surver
+	# and surver doesn't have the same features as surfer.  Use
+	# cargo_target_dir so the path tracks USE=debug (target/debug) versus
+	# the default release build (target/release).
+	dobin "$(cargo_target_dir)"/surfer
+	dobin "$(cargo_target_dir)"/surver
 
 	# Install desktop file and icon shipped in the source tree.  Strip the
 	# .png from the Icon key so the desktop file passes validation, the icon
