@@ -9,11 +9,12 @@ inherit gnome2-utils meson python-single-r1  xdg
 
 DESCRIPTION="Tweak various aspects of GNOME"
 HOMEPAGE="https://gitlab.gnome.org/TheEvilSkeleton/Refine"
-SRC_URI="https://gitlab.gnome.org/TheEvilSkeleton/Refine/-/archive/${PV}/Refine-${PV}.tar.bz2"
+SRC_URI="https://gitlab.gnome.org/TheEvilSkeleton/Refine/-/archive/${PV}/Refine-${PV}.tar.bz2 -> ${P}.tar.bz2"
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+IUSE=""
 
 RDEPEND="
 	${PYTHON_DEPS}
@@ -38,6 +39,14 @@ src_prepare() {
 src_configure() {
 	local emesonargs=()
 	meson_src_configure
+}
+
+src_install() {
+	# Eerst installeren we de app via meson
+	meson_src_install
+
+	# Hier corrigeren we het foute Python-pad in het geïnstalleerde bestand
+	python_fix_shebang "${ED}/usr/bin/refine"
 }
 
 pkg_postinst() {
