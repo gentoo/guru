@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://gentoo.org">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>bjorn.megaflow@gmail.com</email>
+		<name>Björn</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="gitlab">TheEvilSkeleton/Refine</remote-id>
+	</upstream>
+</pkgmetadata>
