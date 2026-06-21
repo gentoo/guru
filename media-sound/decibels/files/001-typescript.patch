@@ -1,0 +1,19 @@
+diff -up decibels-49.6.1/tsconfig.json.depr decibels-49.6.1/tsconfig.json
+--- decibels-49.6.1/tsconfig.json.depr	2026-04-21 08:56:01.890568440 +0200
++++ decibels-49.6.1/tsconfig.json	2026-04-21 08:55:08.643312808 +0200
+@@ -8,6 +8,7 @@
+     "allowJs": true,
+     "checkJs": true,
+     "outDir": "_build/tsc-out",
++    "rootDir": "src",
+     "strict": true,
+     "moduleResolution": "node",
+     "baseUrl": ".",
+@@ -23,6 +24,7 @@
+     ],
+     "skipLibCheck": true,
+     "forceConsistentCasingInFileNames": true,
++    "ignoreDeprecations": "6.0",
+   },
+   "include": [
+     "gi-types/gi.d.ts",
