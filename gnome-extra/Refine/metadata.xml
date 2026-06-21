@@ -6,6 +6,6 @@
 		<name>Björn</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="gitlab">TheEvilSkeleton/Refine</remote-id>
+		<remote-id type="gnome-gitlab">TheEvilSkeleton/Refine</remote-id>
 	</upstream>
 </pkgmetadata>
