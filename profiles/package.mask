@@ -42,11 +42,6 @@ mpv-plugin/kde-do-not-disturb
 mpv-plugin/kde-night-color
 x11-misc/aerial-sddm-theme
 
-# David Roman <stkw0@disroot.org> (2026-05-21)
-# Unmaintained upstream, depends on masked Qt5
-# Removal after 2026-06-21
-media-plugins/qt-heif-image-plugin
-
 # Daichi Yamamoto <dev@dyama.net> (2026-06-19)
 # https://bugs.gentoo.org/975028
 # https://bugs.gentoo.org/975042
