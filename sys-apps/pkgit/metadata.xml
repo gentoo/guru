@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+        <maintainer type="person">
+        <email>theron.york@cloudnuke.org</email>
+        <name>Theron York</name>
+    </maintainer>
+        <upstream>
+        <remote-id type="codeberg">RealFCC/pkgit</remote-id>
+    </upstream>
+    <longdescription>
+        pkgit is an unconventional package manager designed to compile and install
+        packages directly from their git repositories. It uses C with Lua for
+        configuration and supports dependency resolution, version pinning, and
+        custom build scripts (bldit.lua).
+    </longdescription>
+</pkgmetadata>
