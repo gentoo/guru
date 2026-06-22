@@ -31,6 +31,7 @@ RDEPEND="
 	acct-user/blocky
 	acct-group/blocky
 "
+BDEPEND=">=dev-lang/go-1.26.2"
 
 # PATCHES=(
 # 	"${FILESDIR}"/disable-failed-tests-0.22.patch
@@ -40,12 +41,14 @@ FILECAPS=(
 	-m 755 'cap_net_bind_service=+ep' usr/bin/"${PN}"
 )
 
+QA_PRESTRIPPED="usr/bin/${PN}"
+
 src_unpack() {
 	if [[ ${PV} == 9999* ]]; then
 		git-r3_src_unpack
 		go-module_live_vendor
 	else
-		default
+		go-module_src_unpack
 	fi
 }
 
@@ -53,7 +56,7 @@ src_compile() {
 	[[ ${PV} != 9999* ]] && { export VERSION="${PV}" || die ; }
 
 	# mimicking project's Dockerfile
-	emake GO_SKIP_GENERATE=yes GO_BUILD_FLAGS="-tags static -v " build
+	emake GO_SKIP_GENERATE=1 GO_BUILD_FLAGS="-tags static -v " build
 
 	local shell
 	for shell in bash fish zsh; do
