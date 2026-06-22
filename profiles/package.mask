@@ -57,11 +57,6 @@ dev-util/rye
 app-admin/aws-vault
 
 # Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/932823
-# Removal after 2026-06-18
-dev-ruby/ruby-install
-
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
 # https://bugs.gentoo.org/939886
 # https://bugs.gentoo.org/974570
 # Removal after 2026-06-18
