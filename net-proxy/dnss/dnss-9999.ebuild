@@ -21,7 +21,6 @@ src_compile() {
 src_install() {
 	zig_src_install
 
-	# Example config
 	if [[ -f "${S}/example.dnss.conf" ]]; then
 		insinto /etc
 		newins "${S}/example.dnss.conf" dnss.conf.example

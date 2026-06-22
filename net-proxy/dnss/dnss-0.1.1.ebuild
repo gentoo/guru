@@ -8,22 +8,22 @@ inherit zig
 
 DESCRIPTION="A small, speedy DNS proxy and bad-stuff-blocker"
 HOMEPAGE="https://codeberg.org/zacoons/dnss"
-SRC_URI="https://codeberg.org/zacoons/dnss/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://codeberg.org/zacoons/dnss/archive/${PV}.tar.gz
+	-> ${P}.tar.gz"
 
+S="${WORKDIR}/dnss"
 LICENSE="Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
 
-S="${WORKDIR}/dnss"
-
 src_compile() {
+	export ZIG_STRIP=0
 	ezig build --release=fast
 }
 
 src_install() {
 	zig_src_install
 
-	# Example config
 	if [[ -f "${S}/example.dnss.conf" ]]; then
 		insinto /etc
 		newins "${S}/example.dnss.conf" dnss.conf.example
