@@ -50,7 +50,7 @@ src_compile(){
 		VERSION="${PV}"
 	fi
 	CGO_ENABLED=0 ego build \
-		-ldflags="-s -w -X 'github.com/docker/docker-language-server/internal/pkg/cli/metadata.Version=${VERSION}'" \
+		-ldflags="-X 'github.com/docker/docker-language-server/internal/pkg/cli/metadata.Version=${VERSION}'" \
 		-o ./bin/"${PN}" ./cmd/"${PN}"
 }
 
