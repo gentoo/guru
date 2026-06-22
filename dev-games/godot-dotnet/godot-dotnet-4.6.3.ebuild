@@ -241,7 +241,7 @@ RESTRICT="test"
 
 # dlopen: libglvnd
 RDEPEND="
-	!!dev-games/godot
+	!dev-games/godot
 	app-arch/brotli:=
 	app-arch/zstd:=
 	dev-games/recastnavigation:=
