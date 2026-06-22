@@ -422,7 +422,7 @@ CRATES="
 inherit llvm-r2
 # apply-crates-fixes end
 
-inherit cargo shell-completion
+inherit cargo shell-completion desktop xdg
 
 DESCRIPTION="A beautiful and configurable TUI client for MPD"
 HOMEPAGE="https://mierak.github.io/rmpc/"
@@ -447,9 +447,10 @@ fi
 SLOT="0"
 # apply-crates-fixes start
 DEPEND="
-	$(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}')
+	$(llvm_gen_dep 'llvm-runtimes/compiler-rt-sanitizers:${LLVM_SLOT}[libfuzzer]')
 "
 BDEPEND="
+	$(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}')
 	virtual/pkgconfig
 "
 # apply-crates-fixes end
@@ -478,7 +479,8 @@ src_install() {
 	cargo_src_install
 	einstalldocs
 	doman target/man/*
-	newbashcomp target/completions/rmpc.bash rmpc
-	dozshcomp target/completions/_rmpc
-	dofishcomp target/completions/rmpc.fish
+	newbashcomp target/completions/"${PN}".bash "${PN}"
+	dozshcomp target/completions/_"${PN}"
+	dofishcomp target/completions/"${PN}".fish
+	domenu assets/"${PN}".desktop
 }
