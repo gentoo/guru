@@ -11,6 +11,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+PATCHES=("${FILESDIR}/support-gcc16.patch")
+
 src_test() {
 	emake test
 }
