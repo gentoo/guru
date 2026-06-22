@@ -201,7 +201,7 @@ CRATES="
 	yansi@1.0.1
 "
 
-inherit cargo gnome2-utils meson xdg
+inherit cargo meson optfeature xdg
 
 DESCRIPTION="Keep an eye on system resources (CPU, Memory, GPU, Disk, Network)"
 HOMEPAGE="https://apps.gnome.org/app/net.nokyan.Resources/"
@@ -219,15 +219,12 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="+systemd"
-
 BDEPEND="
 	virtual/pkgconfig
 	>=dev-build/meson-1.8.0
 	dev-libs/appstream
 	dev-libs/appstream-glib
 	sys-auth/polkit
-	systemd? ( sys-apps/systemd )
 "
 
 DEPEND="
@@ -241,14 +238,12 @@ RDEPEND+="
 	>=gui-libs/libadwaita-1.8_alpha:1
 	>=x11-libs/cairo-1.14.0
 	"
-QA_FLAGS_IGNORED="/usr/libexec/resources/resources-kill /usr/libexec/resources/resources-adjust /usr/libexec/resources/resources-processes /usr/bin/resources"
-
-src_prepare() {
-	default
-	if ! use systemd; then
-		die "sys-process/resources unconditionally requires systemd to build and run."
-	fi
-}
+QA_FLAGS_IGNORED="
+	/usr/bin/resources
+	/usr/libexec/resources/resources-kill
+	/usr/libexec/resources/resources-processes
+	/usr/libexec/resources/resources-adjust
+"
 
 src_configure() {
 	local emesonargs=(
@@ -264,15 +259,10 @@ src_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
-	gnome2_schemas_update
 
-	elog "Resources can optionally use sys-apps/dmidecode to read"
-	elog "detailed motherboard and hardware information."
-	elog "If you want this functionality, please install it manually via:"
-	elog "  emerge sys-apps/dmidecode"
+optfeature "read detailed motherboard and hardware information" sys-apps/dmidecode
 }
 
 pkg_postrm() {
 	xdg_pkg_postrm
-	gnome2_schemas_update
 }
