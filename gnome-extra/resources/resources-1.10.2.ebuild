@@ -265,13 +265,14 @@ src_install() {
 pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_schemas_update
+
+	elog "Resources can optionally use sys-apps/dmidecode to read"
+	elog "detailed motherboard and hardware information."
+	elog "If you want this functionality, please install it manually via:"
+	elog "  emerge sys-apps/dmidecode"
 }
 
 pkg_postrm() {
 	xdg_pkg_postrm
 	gnome2_schemas_update
 }
-	elog "Resources can optionally use sys-apps/dmidecode to read"
-	elog "detailed motherboard and hardware information."
-	elog "If you want this functionality, please install it manually via:"
-	elog "  emerge sys-apps/dmidecode"
