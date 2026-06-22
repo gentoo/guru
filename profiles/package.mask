@@ -52,11 +52,6 @@ media-sound/opensoundmeter
 # Removal after 2026-06-21
 media-plugins/qt-heif-image-plugin
 
-# David Roman <stkw0@disroot.org> (2026-05-21)
-# Not updated since 2024, depends on masked Qt5
-# Removal after 2026-06-21
-games-util/dwarf-therapist
-
 # Daichi Yamamoto <dev@dyama.net> (2026-06-19)
 # https://bugs.gentoo.org/975028
 # https://bugs.gentoo.org/975042
