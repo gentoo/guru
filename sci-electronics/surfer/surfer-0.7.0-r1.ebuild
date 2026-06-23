@@ -724,7 +724,7 @@ INSTRUCTION_DECODER_COMMIT="02bdcbfd5663a72e4a0b1b9d54519412d417fab1"
 
 PYTHON_COMPAT=( python3_{12..14} )
 
-inherit cargo desktop python-any-r1
+inherit cargo desktop python-any-r1 xdg
 
 DESCRIPTION="Waveform viewer with a focus on a snappy usable interface"
 HOMEPAGE="https://surfer-project.org/ https://gitlab.com/surfer-project/surfer"
