@@ -23,7 +23,9 @@ QA_PREBUILT="
 "
 RDEPEND="
 	dev-db/sqlite:3
+	dev-libs/glib
 	media-libs/fontconfig
+	media-libs/freetype
 	media-libs/libsdl2
 	sys-libs/zlib
 	x11-libs/gtk+:3
