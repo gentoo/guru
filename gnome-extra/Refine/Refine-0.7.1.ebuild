@@ -20,7 +20,7 @@ RDEPEND="
 	${PYTHON_DEPS}
 	>=dev-libs/glib-2.76.0:2
 	>=gui-libs/gtk-4.10.0:4
-	>=gui-libs/libadwaita-1.9.1:1
+	>=gui-libs/libadwaita-1.7.9:1
 	$(python_gen_cond_dep '
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 	')
