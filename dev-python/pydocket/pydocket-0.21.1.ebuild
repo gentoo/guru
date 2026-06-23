@@ -47,13 +47,38 @@ EPYTEST_DESELECT=(
 )
 
 src_prepare() {
+	distutils-r1_src_prepare
+
+	# no coverage
 	sed -i \
 		-e '/--cov/d' \
 		-e '/--numprocesses/d' \
 		-e '/--maxprocesses/d' \
 		pyproject.toml || die
+	rm tests/sitecustomize.py || die
 
-	distutils-r1_src_prepare
+	# mock various Docker types to avoid dev-python/docker dependency
+	cat - tests/_container.py <<- 'EOF' > tests/_container.py.tmp || die
+	class _DockerErrors:
+	    ImageNotFound = Exception
+	class _Docker:
+	    errors = _DockerErrors
+	docker = _Docker()
+	DockerClient = object
+	Container = object
+	EOF
+	mv tests/_container.py{.tmp,} || die
+
+	sed -i \
+		-e '/import docker\.errors/d' \
+		-e '/from docker/d' \
+		tests/_container.py || die
+
+	sed -i \
+		-e '/from docker import DockerClient/d' \
+		-e '/from docker\.models\.containers import Container/d' \
+		-e '/from tests\._container import (/a \    Container, DockerClient,' \
+		tests/conftest.py || die
 }
 
 python_test() {
