@@ -473,5 +473,8 @@ src_test() {
 	local -x REPORT_TEST_PATH="${S}/lib/test/report/test_files"
 	local -x STUBGEN_TEST_PATH="${S}/lib/test/stubgen"
 
+	local -x COVERAGE_TEST_PATH="${S}/lib/test/coverage/test_files"
+	local -x SHAPE_DSL_TEST_PATH="${WORKDIR}/${P}/tensor-shapes"
+
 	cargo_src_test --no-fail-fast
 }
