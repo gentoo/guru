@@ -451,9 +451,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# Requires nightly
-	export RUSTC_BOOTSTRAP=1
-
 	# zstd-sys https://wiki.gentoo.org/wiki/Project:Rust/sys_crates#zstd-sys
 	export ZSTD_SYS_USE_PKG_CONFIG=1
 
