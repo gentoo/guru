@@ -8,7 +8,7 @@ DISTUTILS_USE_PEP517=( maturin crates/jiter-python )
 PYPI_VERIFY_REPO=https://github.com/pydantic/jiter
 PYTHON_COMPAT=( python3_{12..14} )
 
-RUST_MIN_VER="1.87.0"
+RUST_MIN_VER="1.88.0"
 CRATES="
 	ahash@0.8.12
 	aho-corasick@1.1.4
