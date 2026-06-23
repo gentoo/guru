@@ -97,3 +97,14 @@ EPYTEST_IGNORE=(
 	# requires node module @modelcontextprotocol/conformance@latest
 	tests/conformance/test_conformance.py
 )
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# raise timeouts for slower CI systems
+	# https://bugs.gentoo.org/977930
+	sed -i -e 's/@pytest.mark.timeout(15)/@pytest.mark.timeout(60)/' \
+		tests/client/test_stdio.py || die
+	sed -i -e 's/INIT_TIMEOUT = 3/INIT_TIMEOUT = 10/' \
+		tests/client/test_stdio.py || die
+}
