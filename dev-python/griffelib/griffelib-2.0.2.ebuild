@@ -27,6 +27,9 @@ KEYWORDS="~amd64 ~arm64"
 # pdm-backend is used by scripts/get_version.py
 BDEPEND="
 	dev-python/pdm-backend[${PYTHON_USEDEP}]
+	test? (
+		>=dev-python/jsonschema-4.17[${PYTHON_USEDEP}]
+	)
 "
 
 EPYTEST_PLUGINS=()
