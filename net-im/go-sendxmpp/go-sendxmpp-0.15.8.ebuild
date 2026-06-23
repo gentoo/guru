@@ -12,7 +12,7 @@ DESCRIPTION="A tool to send messages or files to an XMPP contact or MUC"
 HOMEPAGE="https://salsa.debian.org/mdosch/go-sendxmpp"
 SRC_URI="
 	https://salsa.debian.org/mdosch/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2 -> ${P}.tar.bz2
-	https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/${P}-vendor.tar.xz
+	https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/${P}-deps.tar.xz
 "
 S="${WORKDIR}/${PN}-v${PV}"
 
