@@ -5,7 +5,7 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.89"
+RUST_MIN_VER="1.93"
 PYPI_VERIFY_REPO=https://github.com/facebook/pyrefly/
 
 CRATES="
