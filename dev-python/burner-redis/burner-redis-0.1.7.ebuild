@@ -99,6 +99,12 @@ LICENSE+=" Apache-2.0 Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
+BDEPEND="
+	test? (
+		dev-python/redis[${PYTHON_USEDEP}]
+	)
+"
+
 EPYTEST_PLUGINS=( pytest-asyncio )
 distutils_enable_tests pytest
 
