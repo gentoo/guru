@@ -16,7 +16,7 @@ LICENSE="Apache-2.0 BSD BSD-2 CC0-1.0 MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64"
 
-BDEPEND=">=dev-lang/go-1.25.0"
+BDEPEND=">=dev-lang/go-1.25.8"
 
 src_compile() {
 	ego build -v -x -work -o ${PN}
