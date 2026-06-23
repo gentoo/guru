@@ -32,7 +32,8 @@ RDEPEND="
 BDEPEND="${RDEPEND}"
 
 src_configure() {
-	strip-flags
+	# Odin explicitly searches for and builds with clang++; unsupported GCC flags need to be stripped.
+	CC=clang CXX=clang++ strip-unsupported-flags
 	default
 }
 
