@@ -34,6 +34,12 @@ RDEPEND="
 	>=dev-python/uncalled-for-0.3.2[${PYTHON_USEDEP}]
 "
 
+BDEPEND="
+	test? (
+		>=dev-python/docker-7.1.0[${PYTHON_USEDEP}]
+	)
+"
+
 EPYTEST_PLUGINS=( pytest-{asyncio,timeout} )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
@@ -56,29 +62,6 @@ src_prepare() {
 		-e '/--maxprocesses/d' \
 		pyproject.toml || die
 	rm tests/sitecustomize.py || die
-
-	# mock various Docker types to avoid dev-python/docker dependency
-	cat - tests/_container.py <<- 'EOF' > tests/_container.py.tmp || die
-	class _DockerErrors:
-	    ImageNotFound = Exception
-	class _Docker:
-	    errors = _DockerErrors
-	docker = _Docker()
-	DockerClient = object
-	Container = object
-	EOF
-	mv tests/_container.py{.tmp,} || die
-
-	sed -i \
-		-e '/import docker\.errors/d' \
-		-e '/from docker/d' \
-		tests/_container.py || die
-
-	sed -i \
-		-e '/from docker import DockerClient/d' \
-		-e '/from docker\.models\.containers import Container/d' \
-		-e '/from tests\._container import (/a \    Container, DockerClient,' \
-		tests/conftest.py || die
 }
 
 python_test() {
