@@ -11,6 +11,7 @@ MY_PN="uplink-c"
 
 SRC_URI="
 https://github.com/storj/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+https://codeberg.org/davidreed/uplink-c/releases/download/v${PV}/${MY_PN}-${PV}-vendor.tar.xz
 https://github.com/david-gentoo/uplink-c/releases/download/v${PV}/${MY_PN}-${PV}-vendor.tar.xz
 "
 

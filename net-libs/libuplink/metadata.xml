@@ -14,6 +14,7 @@
 
   <upstream>
     <remote-id type="github">storj/uplink-c</remote-id>
+    <remote-id type="codeberg">davidreed/uplink-c</remote-id>
     <bugs-to>https://github.com/storj/uplink-c/issues</bugs-to>
     <doc>https://storj.dev/</doc>
   </upstream>
