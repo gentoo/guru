@@ -18,6 +18,10 @@
 
 # New entries go on top.
 
+# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-06-24)
+# Moved to www-client/opera-gx in ::gentoo
+www-client/opera-gx-bin
+
 # Vivian Heisz (vhz) <demize@unstable.systems> (2026-05-29)
 # Depends on a forked dependency that's since been unpublished.
 # If there's an update, I'll bump, otherwise I'll treeclean.
