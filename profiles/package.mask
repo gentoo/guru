@@ -18,6 +18,10 @@
 
 # New entries go on top.
 
+# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-06-25)
+# Moved to media-video/lossless-cut-bin in ::gentoo
+media-video/lossless-cut
+
 # Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-06-24)
 # Moved to www-client/opera-gx in ::gentoo
 www-client/opera-gx-bin
