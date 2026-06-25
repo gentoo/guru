@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit xdg
+inherit desktop xdg shell-completion
 
 DESCRIPTION="A GPU-accelerated cross-platform terminal emulator and multiplexer"
 HOMEPAGE="https://wezterm.org/"
@@ -15,6 +15,7 @@ S="${WORKDIR}/wezterm"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
+PROPERTIES="live"
 IUSE="wayland"
 
 RESTRICT="mirror strip network-sandbox"
@@ -68,28 +69,46 @@ src_unpack() {
 }
 
 src_install() {
-	local bin
 
+	# gaurd against upstream archive changes
 	[[ -d "${S}/usr/bin" ]] || die "archive layout changed: missing usr/bin/"
 	[[ -d "${S}/usr/share" ]] || die "archive layout changed: missing usr/share/"
 	[[ -d "${S}/etc" ]] || die "archive layout changed: missing etc/"
 
-	for bin in "${S}"/usr/bin/*; do
-		[[ -f "${bin}" ]] || continue
-		dobin "${bin}"
-	done
+	# install binaries
+	dobin "${S}"/usr/bin/open-wezterm-here
+	dobin "${S}"/usr/bin/strip-ansi-escapes
+	dobin "${S}"/usr/bin/wezterm
+	dobin "${S}"/usr/bin/wezterm-gui
+	dobin "${S}"/usr/bin/wezterm-mux-server
 
-	insinto /usr/share
-	doins -r "${S}"/usr/share/*
+	# install desktop file
+	domenu "${S}"/usr/share/applications/org.wezfurlong.wezterm.desktop
 
-	insinto /etc
-	doins -r "${S}"/etc/*
+	# install icon
+	doicon -s 128 "${S}"/usr/share/icons/hicolor/128x128/apps/org.wezfurlong.wezterm.png
+
+	# install completion file
+	dobashcomp "${S}"/usr/share/bash-completion/completions/wezterm
+	dozshcomp "${S}"/usr/share/zsh/functions/Completion/Unix/_wezterm
+
+	# install env/shell init script
+	insinto /etc/profile.d
+	doins "${S}"/etc/profile.d/wezterm.sh
+
+	# install extra files
+	insinto /usr/share/metainfo
+	doins "${S}"/usr/share/metainfo/org.wezfurlong.wezterm.appdata.xml
+
+	insinto /usr/share/nautilus-python/extensions
+	doins "${S}"/usr/share/nautilus-python/extensions/wezterm-nautilus.py
+
 }
 
 pkg_postinst() {
-	xdg_icon_cache_update
+	xdg_pkg_postinst
 }
 
 pkg_postrm() {
-	xdg_icon_cache_update
+	xdg_pkg_postrm
 }
