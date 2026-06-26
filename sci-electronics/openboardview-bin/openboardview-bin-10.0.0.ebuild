@@ -27,7 +27,7 @@ RDEPEND="
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/libsdl2
-	sys-libs/zlib
+	virtual/zlib:0/1
 	x11-libs/gtk+:3
 "
 src_unpack() {
