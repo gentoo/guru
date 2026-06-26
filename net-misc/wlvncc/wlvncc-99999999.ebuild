@@ -10,6 +10,7 @@ HOMEPAGE="https://github.com/any1/wlvncc"
 EGIT_REPO_URI="https://github.com/any1/wlvncc"
 LICENSE="GPL-2"
 SLOT="0"
+IUSE="video_cards_nvidia"
 
 DOCS=("README.md" "scripts/auth-script.sh")
 
@@ -23,4 +24,6 @@ RDEPEND="
 	x11-libs/libxkbcommon
 	x11-libs/pixman
 	dev-libs/wayland
+	video_cards_nvidia? ( gui-libs/egl-gbm )
+	!video_cards_nvidia? ( media-libs/mesa )
 "

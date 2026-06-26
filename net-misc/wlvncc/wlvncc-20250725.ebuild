@@ -14,6 +14,7 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="video_cards_nvidia"
 
 DEPEND="
 	dev-libs/lzo
@@ -25,4 +26,6 @@ RDEPEND="
 	x11-libs/libxkbcommon
 	x11-libs/pixman
 	dev-libs/wayland
+	video_cards_nvidia? ( gui-libs/egl-gbm )
+	!video_cards_nvidia? ( media-libs/mesa )
 "
