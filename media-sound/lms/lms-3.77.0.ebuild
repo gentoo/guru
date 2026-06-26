@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake pam systemd
 
-DESCRIPTION="Lightweight Music Server."
+DESCRIPTION="Lightweight Music Server"
 HOMEPAGE="https://lms-demo.poupon.dev/ https://github.com/epoupon/lms"
 SRC_URI="https://github.com/epoupon/lms/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 

@@ -5,7 +5,7 @@ EAPI=8
 
 inherit autotools
 
-DESCRIPTION="FUSE-based transcoding filesystem with support from/to many formats."
+DESCRIPTION="FUSE-based transcoding filesystem with support from/to many formats"
 HOMEPAGE="https://nschlia.github.io/ffmpegfs/"
 SRC_URI="https://github.com/nschlia/ffmpegfs/releases/download/v${PV}/${P}.tar.gz"
 

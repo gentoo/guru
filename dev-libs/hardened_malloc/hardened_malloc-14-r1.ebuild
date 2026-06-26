@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Hardened allocator designed for modern systems."
+DESCRIPTION="Hardened allocator designed for modern systems"
 HOMEPAGE="https://github.com/GrapheneOS/hardened_malloc"
 SRC_URI="https://github.com/GrapheneOS/hardened_malloc/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 

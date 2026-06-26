@@ -5,7 +5,7 @@ EAPI=8
 
 inherit unpacker desktop xdg optfeature
 
-DESCRIPTION="Linux SDL/ImGui edition software for viewing .brd files."
+DESCRIPTION="Linux SDL/ImGui edition software for viewing .brd files"
 HOMEPAGE="https://openboardview.org"
 
 SRC_URI="https://github.com/OpenBoardView/OpenBoardView/releases/download/${PV}/openboardview_${PV}-1_amd64.deb"
