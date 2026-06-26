@@ -31,6 +31,7 @@ BDEPEND="
 
 src_configure() {
 	mkdir -p "${S}/build"
+	ln -s "${WORKDIR}/${P}-build/version.h" "${S}/build/version.h"
 	ln -s "${WORKDIR}/${P}-build/vmlinux.h" "${S}/build/vmlinux.h"
 	ln -s "${WORKDIR}/${P}-build/flypaper.skel.h" "${S}/build/flypaper.skel.h"
 
