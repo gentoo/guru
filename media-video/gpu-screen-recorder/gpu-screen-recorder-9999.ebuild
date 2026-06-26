@@ -17,6 +17,7 @@ DEPEND="
 	media-video/ffmpeg
 	media-libs/libglvnd
 	x11-libs/libXcomposite
+	x11-libs/libXdamage
 	x11-libs/libXrandr
 	x11-libs/libXfixes
 	media-libs/libpulse
