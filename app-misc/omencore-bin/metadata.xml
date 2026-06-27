@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>samuel@hurtadom.dev</email>
+        <name>Samuel Hurtado Marin</name>
+    </maintainer>
+    <upstream>
+        <remote-id type="github">theantipopau/omencore</remote-id>
+        <bugs-to>https://github.com/theantipopau/omencore/issues</bugs-to>
+    </upstream>
+    <longdescription lang="en">
+        OmenCore is an independent control center for HP OMEN and Victus systems.
+        It replaces OMEN Gaming Hub with local-first fan control, performance
+        profiles, keyboard lighting, hardware monitoring, OSD, and diagnostics.
+    </longdescription>
+</pkgmetadata>

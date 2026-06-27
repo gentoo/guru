@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=OmenCore
+Comment=Advanced Performance Control for HP Omen Laptops
+Exec=omencore-gui
+Icon=preferences-system
+Terminal=false
+Categories=System;HardwareSettings;
