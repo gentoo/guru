@@ -146,7 +146,7 @@ sys-apps/dmemcg-booster
 # Won't build until bugs.gentoo.org/974338 is resolved
 >=net-misc/wlvncc-20260429
 
-# Bjorn <bjorn.megaflow@gmail.com> (23 jun 2026)
+# Bjorn <bjorn.megaflow@gmail.com> (2026-06-23)
 # Requires gui-libs/libadwaita >= 1.9, which is currently not in
 # the main Gentoo repository.
 >=gnome-extra/Refine-0.8.0
