@@ -25,7 +25,7 @@ SRC_URI="
 	amd64? ( ${BASE_SRC_URI}/antigravity_${PV}-${BUILD_ID_AMD64}_amd64_${DEB_HASH_AMD64}.deb -> ${P}_amd64.deb )
 	arm64? ( ${BASE_SRC_URI}/antigravity_${PV}-${BUILD_ID_ARM64}_arm64_${DEB_HASH_ARM64}.deb -> ${P}_arm64.deb )
 	verify-sig? (
-		https://raw.githubusercontent.com/falbrechtskirchinger/overlay-assets/main/distfiles/${P}-verify-sig.tar.xz
+		https://github.com/falbrechtskirchinger/overlay-assets/releases/download/v2026.06.27.0/${P}-verify-sig.tar.xz
 	)
 "
 S="${WORKDIR}"
