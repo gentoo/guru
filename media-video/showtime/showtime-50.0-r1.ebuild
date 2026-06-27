@@ -3,7 +3,7 @@
 
 EAPI=8
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..15} )
+PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit gnome.org gnome2-utils meson xdg python-single-r1
@@ -20,18 +20,18 @@ REQUIRED_USE="
 "
 
 DEPEND="${PYTHON_DEPS}
-	>=gui-libs/gtk-4.18.0
-	>=dev-libs/gobject-introspection-1.54:=
-	>=dev-util/blueprint-compiler-0.17.0
+	>=gui-libs/gtk-4.18.0:4
+	>=dev-libs/gobject-introspection-1.86.0:=
+	>=dev-util/blueprint-compiler-0.17
 	>=media-plugins/gst-plugin-gtk4-0.13.4:1.0
-	>=dev-python/pygobject-2.90.3:3
+	dev-python/pygobject:3
 "
 
 RDEPEND="${DEPEND}
 	>=media-plugins/gst-plugins-gtk-1.21.1:1.0
 	>=media-plugins/gst-plugins-meta-1.21.1:1.0
 	>=media-plugins/gst-plugins-taglib-1.21.1:1.0
-	>=gui-libs/libadwaita-1.7.7:1
+	>=gui-libs/libadwaita-1.8_alpha:1
 	x11-themes/adwaita-icon-theme
 "
 
