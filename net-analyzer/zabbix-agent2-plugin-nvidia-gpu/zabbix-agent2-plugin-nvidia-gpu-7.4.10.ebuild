@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="NVIDIA GPU loadable plugin for Zabbix Agent 2."
+DESCRIPTION="NVIDIA GPU loadable plugin for Zabbix Agent 2"
 HOMEPAGE="https://git.zabbix.com/projects/AP/repos/nvidia-gpu/browse"
 SRC_URI="
 	https://git.zabbix.com/rest/api/latest/projects/AP/repos/nvidia-gpu/archive?at=refs%2Ftags%2F${PV}&format=tgz

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="PostgreSQL loadable plugin for Zabbix Agent 2."
+DESCRIPTION="PostgreSQL loadable plugin for Zabbix Agent 2"
 HOMEPAGE="https://git.zabbix.com/projects/AP/repos/postgresql/browse"
 SRC_URI="
 	https://git.zabbix.com/rest/api/latest/projects/AP/repos/postgresql/archive?at=refs%2Ftags%2F${PV}&format=tgz

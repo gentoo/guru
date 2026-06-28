@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Ember+ loadable plugin for Zabbix Agent 2."
+DESCRIPTION="Ember+ loadable plugin for Zabbix Agent 2"
 HOMEPAGE="https://git.zabbix.com/projects/AP/repos/ember-plus/browse"
 SRC_URI="
 	https://git.zabbix.com/rest/api/latest/projects/AP/repos/ember-plus/archive?at=refs%2Ftags%2F${PV}&format=tgz

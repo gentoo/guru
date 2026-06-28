@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="MongoDB loadable plugin for Zabbix Agent 2."
+DESCRIPTION="MongoDB loadable plugin for Zabbix Agent 2"
 HOMEPAGE="https://git.zabbix.com/projects/AP/repos/mongodb/browse"
 SRC_URI="
 	https://git.zabbix.com/rest/api/latest/projects/AP/repos/mongodb/archive?at=refs%2Ftags%2F${PV}&format=tgz
