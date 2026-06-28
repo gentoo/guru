@@ -13,16 +13,7 @@
 		<name>dsaf</name>
 		<email>ghostyn678+git@gmail.com</email>
 	</maintainer>
-	<longdescription>
-		Electron wrapper around YouTube Music featuring:
-		-	Native look and feel, aims at keeping the original interface
-		-	Framework for custom plugins: change YouTube Music to your needs 
-			(style, content, features), enable/disable plugins in one click
-	</longdescription>
-	<use>
-		<flag name="wayland">Run in Wayland mode</flag>
-	</use>
 	<upstream>
-		<remote-id type="github">th-ch/youtube-music</remote-id>
+		<remote-id type="github">pear-devs/pear-desktop</remote-id>
 	</upstream>
 </pkgmetadata>
