@@ -11,7 +11,7 @@ SOURCE_ARCHIVE="${SOURCE_NAME}.tar.bz2"
 DESCRIPTION="Monero developer keys"
 HOMEPAGE="https://www.getmonero.org"
 SRC_URI="
-	https://downloads.getmonero.org/cli/source/${SOURCE_ARCHIVE} -> ${SOURCE_ARCHIVE}"
+	https://downloads.getmonero.org/cli/source/${SOURCE_ARCHIVE}"
 S="${WORKDIR}/${SOURCE_NAME}/utils/gpg_keys"
 
 LICENSE="public-domain"
