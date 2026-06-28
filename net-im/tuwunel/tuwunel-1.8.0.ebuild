@@ -9,29 +9,31 @@ CRATES="
 "
 
 declare -A GIT_CRATES=(
-	[async-channel]='https://github.com/matrix-construct/async-channel;92e5e74063bf2a3b10414bcc8a0d68b235644280;async-channel-%commit%'
+	[async-channel]='https://github.com/matrix-construct/async-channel;debb93f14a20fa7c1989042c2f07f53654d75908;async-channel-%commit%'
 	[axum-server-dual-protocol]='https://github.com/matrix-construct/axum-server-dual-protocol;76c782fa6f129f83ffdca59e903093e798d4a82f;axum-server-dual-protocol-%commit%'
 	[core_affinity]='https://github.com/matrix-construct/core_affinity_rs;ff148c2985cbaff3e6e953d45cda4d7696f38d75;core_affinity_rs-%commit%'
-	[event-listener]='https://github.com/matrix-construct/event-listener;fe4aebeeaae435af60087ddd56b573a2e0be671d;event-listener-%commit%'
-	[hyper-util]='https://github.com/matrix-construct/hyper-util;a3f59c4e51af19570a9f92839ecfe0ad6482e9e5;hyper-util-%commit%'
+	[event-listener]='https://github.com/matrix-construct/event-listener;18af85c4df39a11b44b39629783ed3ddec6a8853;event-listener-%commit%'
+	[hyper-util]='https://github.com/matrix-construct/hyper-util;0510e3a3cba7aedd504b4ee0d69fbf41e76a524f;hyper-util-%commit%'
 	[jevmalloc-sys]='https://github.com/matrix-construct/jevmalloc;93795449913f65ab533b7fa482333eef63fc3ae0;jevmalloc-%commit%/jevmalloc-sys'
 	[jevmalloc]='https://github.com/matrix-construct/jevmalloc;93795449913f65ab533b7fa482333eef63fc3ae0;jevmalloc-%commit%/jevmalloc'
 	[lber]='https://github.com/matrix-construct/ldap3;fdfbba2bf916b53e5f73cdb1a495ebb649978079;ldap3-%commit%/lber'
 	[ldap3]='https://github.com/matrix-construct/ldap3;fdfbba2bf916b53e5f73cdb1a495ebb649978079;ldap3-%commit%'
-	[resolv-conf]='https://github.com/matrix-construct/resolv-conf;200e958941d522a70c5877e3d846f55b5586c68d;resolv-conf-%commit%'
-	[ruma-appservice-api]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-appservice-api'
-	[ruma-client-api]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-client-api'
-	[ruma-common]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-common'
-	[ruma-events]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-events'
-	[ruma-federation-api]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-federation-api'
-	[ruma-identifiers-validation]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-identifiers-validation'
-	[ruma-macros]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-macros'
-	[ruma-push-gateway-api]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-push-gateway-api'
-	[ruma-signatures]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma-signatures'
-	[ruma]='https://github.com/matrix-construct/ruma;c1381a012e7afa9fdc1c4e970bfbccba561c7ed5;ruma-%commit%/crates/ruma'
-	[rust-librocksdb-sys]='https://github.com/matrix-construct/rust-rocksdb;c11395350bc1f2090a0152f2d15c8c5847821eba;rust-rocksdb-%commit%/librocksdb-sys'
-	[rust-rocksdb]='https://github.com/matrix-construct/rust-rocksdb;c11395350bc1f2090a0152f2d15c8c5847821eba;rust-rocksdb-%commit%'
-	[rustyline-async]='https://github.com/matrix-construct/rustyline-async;ba743cae940659e95d7b8604bbd6fdd755171c8c;rustyline-async-%commit%'
+	[resolv-conf]='https://github.com/matrix-construct/resolv-conf;ab5c3e44016bc76b8798ec837a5a9cf9d88bf233;resolv-conf-%commit%'
+	[ruma-appservice-api]='https://github.com/matrix-construct/ruma;55d532152ec3b6ebab8ac141cc4bcc78452aa049;ruma-%commit%/crates/ruma-appservice-api'
+	[ruma-client-api]='https://github.com/matrix-construct/ruma;55d532152ec3b6ebab8ac141cc4bcc78452aa049;ruma-%commit%/crates/ruma-client-api'
+	[ruma-common]='https://github.com/matrix-construct/ruma;55d532152ec3b6ebab8ac141cc4bcc78452aa049;ruma-%commit%/crates/ruma-common'
+	[ruma-events]='https://github.com/matrix-construct/ruma;55d532152ec3b6ebab8ac141cc4bcc78452aa049;ruma-%commit%/crates/ruma-events'
+	[ruma-federation-api]='https://github.com/matrix-construct/ruma;55d532152ec3b6ebab8ac141cc4bcc78452aa049;ruma-%commit%/crates/ruma-federation-api'
+	[ruma-identifiers-validation]='https://github.com/matrix-construct/ruma;55d532152ec3b6ebab8ac141cc4bcc78452aa049;ruma-%commit%/crates/ruma-identifiers-validation'
+	[ruma-identity-service-api]='https://github.com/matrix-construct/ruma;55d532152ec3b6ebab8ac141cc4bcc78452aa049;ruma-%commit%/crates/ruma-identity-service-api'
+	[ruma-macros]='https://github.com/matrix-construct/ruma;55d532152ec3b6ebab8ac141cc4bcc78452aa049;ruma-%commit%/crates/ruma-macros'
+	[ruma-push-gateway-api]='https://github.com/matrix-construct/ruma;55d532152ec3b6ebab8ac141cc4bcc78452aa049;ruma-%commit%/crates/ruma-push-gateway-api'
+	[ruma-signatures]='https://github.com/matrix-construct/ruma;55d532152ec3b6ebab8ac141cc4bcc78452aa049;ruma-%commit%/crates/ruma-signatures'
+	[ruma]='https://github.com/matrix-construct/ruma;55d532152ec3b6ebab8ac141cc4bcc78452aa049;ruma-%commit%/crates/ruma'
+	[rust-librocksdb-sys]='https://github.com/matrix-construct/rust-rocksdb;8d92399498d85b486707c6febb278ad902d3aba3;rust-rocksdb-%commit%/librocksdb-sys'
+	[rust-rocksdb]='https://github.com/matrix-construct/rust-rocksdb;8d92399498d85b486707c6febb278ad902d3aba3;rust-rocksdb-%commit%'
+	[rustyline-async]='https://github.com/matrix-construct/rustyline-async;879968ba99c2558ae234fd67a057b7ea6f761fd3;rustyline-async-%commit%'
+	[synapse-admin-api]='https://github.com/matrix-construct/synapse-admin-api;010b9a1e1cb8937669af7503de0dbccb125051f1;synapse-admin-api-%commit%'
 )
 
 LLVM_COMPAT=( 21 )
@@ -45,8 +47,10 @@ HOMEPAGE="
 	https://github.com/matrix-construct/tuwunel
 "
 
-ROCKSDB_GIT_COMMIT=9a3a213b55df0b11408102c899a940675c0d90e4
-RUST_ROCKSB_GIT_COMMIT=c11395350bc1f2090a0152f2d15c8c5847821eba
+# Copy this from the GIT_CRATES[rust-rocksdb] entry.
+RUST_ROCKSB_GIT_COMMIT=8d92399498d85b486707c6febb278ad902d3aba3
+# cat flake.lock | jq '.nodes.rocksdb.locked.rev'
+ROCKSDB_GIT_COMMIT=0bd7e6d6438d318d66e8374ec1fe24126204f3b3
 
 SRC_URI="
 	${CARGO_CRATE_URIS}
@@ -64,7 +68,7 @@ LICENSE="Apache-2.0"
 # Dependent crate licenses
 LICENSE+="
 	Apache-2.0 BSD-2 BSD BlueOak-1.0.0 CDLA-Permissive-2.0 ISC MIT
-	MPL-2.0 UoI-NCSA Unicode-3.0 Unlicense ZLIB
+	MPL-2.0 Unicode-3.0 Unlicense ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
@@ -123,13 +127,14 @@ pkg_setup() {
 }
 
 src_prepare() {
+	# grep '\[patch\.' ../../Cargo.toml
 	local patched_crates=(
 		async-channel
-		rustyline-async
-		resolv-conf
-		hyper-util
 		core_affinity
 		event-listener
+		hyper-util
+		resolv-conf
+		rustyline-async
 	)
 
 	for patched_crate in ${patched_crates[@]}; do
