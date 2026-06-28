@@ -6,7 +6,6 @@
 EAPI=8
 
 RUST_MIN_VER="1.93"
-PYPI_VERIFY_REPO=https://github.com/facebook/pyrefly/
 
 CRATES="
 	addr2line@0.25.1
@@ -406,7 +405,7 @@ declare -A GIT_CRATES=(
 	[rustversion]='https://github.com/fbsource/rustversion;3f072e049635b7463275fc4edebbbed3840d9297;rustversion-%commit%'
 )
 
-inherit cargo pypi
+inherit cargo
 
 DESCRIPTION="A fast type checker and language server for Python with powerful IDE features"
 HOMEPAGE="
@@ -414,7 +413,8 @@ HOMEPAGE="
 	https://github.com/facebook/pyrefly
 	https://pypi.org/project/pyrefly/
 "
-SRC_URI+="
+SRC_URI="
+	https://github.com/facebook/pyrefly/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz
 	${CARGO_CRATE_URIS}
 "
 
@@ -431,11 +431,6 @@ KEYWORDS="~amd64"
 
 DEPEND="app-arch/zstd:="
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	pypi_src_unpack
-	cargo_src_unpack
-}
 
 src_prepare() {
 	default
