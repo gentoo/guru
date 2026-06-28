@@ -9,10 +9,15 @@ SRC_URI="https://github.com/theantipopau/omencore/releases/download/v${PV}/OmenC
 S="${WORKDIR}" #src unzip /work directory
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="-* ~amd64"
 RESTRICT="mirror strip"
 QA_PREBUILT="*"
 BDEPEND="app-arch/unzip"
+RDEOEND="x11-libs/libSM
+		x11-libs/libX11
+		x11-libs/libXext
+		x11-libs/libXrandr
+		x11-libs/libXi"
 src_install() {
 	insinto /opt/omencore-bin
 	doins -r *
@@ -20,9 +25,5 @@ src_install() {
 	fperms 755 /opt/omencore-bin/omencore-gui
 	dosym -r /opt/omencore-bin/omencore-cli /usr/bin/omencore-cli
 	dosym -r /opt/omencore-bin/omencore-gui /usr/bin/omencore-gui
-	domenu "${FILESDIR}"/omencore-gui.desktop
-}
-pkg_postinst() {
-	einfo "omencore-gui: launch as normal user for monitoring (it's in the app menu)"
-	einfo "omencore-cli: use 'omencore-cli' as root for fan/thermal/RGB control"
+	make_desktop_entry "omencore-gui" "OmenCore" "preferences-system" "System;HardwareSettings;"
 }
