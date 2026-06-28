@@ -1,3 +1,4 @@
 move dev-util/forgejo-cli dev-util/fj-cli
 move gui-apps/noctalia-shell gui-apps/noctalia
 move dev-libs/libchdr media-libs/libchdr
+move media-sound/youtube-music-bin media-sound/pear-desktop-bin

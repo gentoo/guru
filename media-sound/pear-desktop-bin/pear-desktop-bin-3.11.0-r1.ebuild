@@ -5,7 +5,7 @@ EAPI=8
 
 inherit unpacker desktop xdg
 
-MY_PN="${PN/-bin/}"
+MY_PN="youtube-music"
 
 DESCRIPTION="YouTube Music Desktop App bundled with custom plugins"
 HOMEPAGE="https://th-ch.github.io/youtube-music/"
