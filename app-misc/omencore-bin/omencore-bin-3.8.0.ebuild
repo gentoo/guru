@@ -13,7 +13,7 @@ KEYWORDS="-* ~amd64"
 RESTRICT="mirror strip"
 QA_PREBUILT="*"
 BDEPEND="app-arch/unzip"
-RDEOEND="x11-libs/libSM
+RDEPEND="x11-libs/libSM
 		x11-libs/libX11
 		x11-libs/libXext
 		x11-libs/libXrandr
