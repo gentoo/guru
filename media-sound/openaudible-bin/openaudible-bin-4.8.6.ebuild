@@ -15,13 +15,12 @@ S="${WORKDIR}/opt/OpenAudible"
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+system-ffmpeg +system-jre +webapp"
 
 BDEPEND="app-arch/unzip"
-RDEPEND="${DEPEND}
+RDEPEND="
 	net-libs/webkit-gtk
-	system-ffmpeg? ( media-video/ffmpeg[lame] )
-	system-jre? ( virtual/jre:21 )"
+	virtual/jre:21
+"
 
 QA_PREBUILT="*"
 
@@ -30,10 +29,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	use system-ffmpeg && rm --force --recursive bin
-	use system-ffmpeg || rm --force bin/linux_x86_64/upgrade
-	use system-jre && rm --force --recursive jre
-	use webapp || rm --force --recursive webapp
+	rm --force --recursive jre || die
 
 	default
 }
@@ -46,12 +42,8 @@ src_install() {
 	doins -r .install4j
 	doexe OpenAudible
 
-	if use system-ffmpeg; then
-		dosym -r /usr/bin/ffmpeg /opt/${MY_PN}/bin/linux_x86_64/ffmpeg
-	else
-		exeinto /opt/${MY_PN}/bin/linux_x86_64/
-		doexe bin/linux_x86_64/ffmpeg
-	fi
+	exeinto /opt/${MY_PN}/bin/linux_x86_64/
+	doexe bin/linux_x86_64/ffmpeg
 
 	make_wrapper ${MY_PN} /opt/openaudible/OpenAudible /opt/${MY_PN}
 	newicon -s 512 share/icons/hicolor/512x512/apps/org.openaudible.OpenAudible.png ${MY_PN}.png
