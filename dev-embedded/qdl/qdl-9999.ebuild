@@ -11,10 +11,17 @@ EGIT_REPO_URI="https://github.com/linux-msm/qdl.git"
 
 LICENSE="BSD"
 SLOT="0"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	dev-libs/libusb:1
 	dev-libs/libxml2:=
+	dev-libs/libzip:=
+	test? (
+		app-arch/zip
+		dev-util/cmocka
+	)
 "
 RDEPEND="${DEPEND}"
 

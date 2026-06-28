@@ -6,6 +6,11 @@
     <name>Elouan Lesteven</name>
     <description>Primary maintainer</description>
   </maintainer>
+  <maintainer type="person">
+    <email>theron.york@cloudnuke.org</email>
+    <name>Theron York</name>
+    <description>Co‑maintainer, ebuild fixes and improvements</description>
+  </maintainer>
   <upstream>
     <remote-id type="github">areofyl/fetch</remote-id>
     <bugs-to>https://github.com/areofyl/fetch/issues</bugs-to>

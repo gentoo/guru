@@ -18,6 +18,14 @@
 
 # New entries go on top.
 
+# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-06-25)
+# Moved to media-video/lossless-cut-bin in ::gentoo
+media-video/lossless-cut
+
+# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-06-24)
+# Moved to www-client/opera-gx in ::gentoo
+www-client/opera-gx-bin
+
 # Vivian Heisz (vhz) <demize@unstable.systems> (2026-05-29)
 # Depends on a forked dependency that's since been unpublished.
 # If there's an update, I'll bump, otherwise I'll treeclean.
@@ -42,21 +50,6 @@ mpv-plugin/kde-do-not-disturb
 mpv-plugin/kde-night-color
 x11-misc/aerial-sddm-theme
 
-# David Roman <stkw0@disroot.org> (2026-05-21)
-# Not updated since 2023, depends on masked Qt5
-# Removal after 2026-06-21
-media-sound/opensoundmeter
-
-# David Roman <stkw0@disroot.org> (2026-05-21)
-# Unmaintained upstream, depends on masked Qt5
-# Removal after 2026-06-21
-media-plugins/qt-heif-image-plugin
-
-# David Roman <stkw0@disroot.org> (2026-05-21)
-# Not updated since 2024, depends on masked Qt5
-# Removal after 2026-06-21
-games-util/dwarf-therapist
-
 # Daichi Yamamoto <dev@dyama.net> (2026-06-19)
 # https://bugs.gentoo.org/975028
 # https://bugs.gentoo.org/975042
@@ -72,37 +65,15 @@ dev-util/rye
 app-admin/aws-vault
 
 # Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/932823
-# Removal after 2026-06-18
-dev-ruby/ruby-install
-
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
 # https://bugs.gentoo.org/939886
 # https://bugs.gentoo.org/974570
 # Removal after 2026-06-18
 app-containers/slim
 
 # Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/974518
-# Removal after 2026-06-18
-app-admin/pulumi-bin
-
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
 # https://bugs.gentoo.org/974552
 # Removal after 2026-06-18
 app-admin/overmind
-
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/974952
-# Removal after 2026-06-18
-dev-ruby/rbspy
-
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/974977
-# https://bugs.gentoo.org/974978
-# https://bugs.gentoo.org/974979
-# Removal after 2026-06-18
-dev-util/mise
 
 # Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
 # https://bugs.gentoo.org/975050
@@ -115,11 +86,6 @@ dev-util/trivy
 # https://github.com/meganz/MEGAsync/issues/954
 # Bug #948836.
 net-misc/megasync
-
-# David Roman <stkw0@disroot.org> (2026-05-13)
-# No new releases since 2023. It is a dep of a package that was never added.
-# Removal after 2026-06-13
-dev-python/pyperscan
 
 # Joe Kappus <joe@wt.gd) (2026-04-23)
 # Depends on masked dev-python/pyqt5.
@@ -179,3 +145,9 @@ sys-apps/dmemcg-booster
 # Dale Sweeney <agooglygooglr@gmail.com> (2026-05-08)
 # Won't build until bugs.gentoo.org/974338 is resolved
 >=net-misc/wlvncc-20260429
+
+# Bjorn <bjorn.megaflow@gmail.com> (23 jun 2026)
+# Requires gui-libs/libadwaita >= 1.9, which is currently not in
+# the main Gentoo repository.
+>=gnome-extra/Refine-0.8.0
+

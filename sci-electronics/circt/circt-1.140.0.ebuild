@@ -45,6 +45,7 @@ RDEPEND="
 		dev-python/psutil[${PYTHON_USEDEP}]
 		sci-electronics/verilator
 	)
+	app-arch/zstd:=
 	sys-libs/ncurses:0=
 "
 
@@ -69,11 +70,14 @@ src_configure() {
 		-D Python3_EXECUTABLE="${PYTHON}"
 		-D CMAKE_INSTALL_PREFIX=/usr
 		-D CMAKE_SKIP_RPATH=ON
-		-D LLVM_BINUTILS_INCDIR=/usr/include
 		-D LLVM_ENABLE_PROJECTS=mlir
 		-D BUILD_SHARED_LIBS=OFF
 		-D LLVM_STATIC_LINK_CXX_STDLIB=ON
 		-D LLVM_ENABLE_ASSERTIONS=ON
+		# Link zstd deterministically rather than letting cmake autodetect
+		# it, so the app-arch/zstd RDEPEND always matches.  See
+		# https://bugs.gentoo.org/977877
+		-D LLVM_ENABLE_ZSTD=FORCE_ON
 		-D LLVM_BUILD_EXAMPLES=OFF
 		-D LLVM_ENABLE_BINDINGS=OFF
 		-D LLVM_ENABLE_OCAMLDOC=OFF
@@ -86,8 +90,11 @@ src_configure() {
 }
 
 src_test() {
+	# Only exercise CIRCT's own suites.  check-mlir runs upstream MLIR
+	# mlir-runner JIT tests that dlopen the MLIR runtime shared libraries,
+	# which our static CMAKE_SKIP_RPATH build does not expose, and which are
+	# out of scope for packaging CIRCT.  See https://bugs.gentoo.org/977441
 	pushd "${BUILD_DIR}" || die
-	eninja check-mlir
 	eninja check-circt
 	eninja check-circt-integration
 	popd || die
@@ -98,28 +105,29 @@ src_install() {
 	mv "${S_LLVM}/mlir/LICENSE.TXT" "${S_LLVM}/mlir/mlir-LICENSE.TXT" || die
 	mv "${S_CIRCT}/LICENSE" "${S_CIRCT}/circt-LICENSE" || die
 	einstalldocs
+
+	# Several tools are only built when their optional frontend is present:
+	# circt-verilog and circt-verilog-lsp-server need the slang
+	# SystemVerilog parser, circt-bmc and circt-lec need Z3.  When those are
+	# unavailable the upstream build simply omits the binaries, so install
+	# whatever got built instead of aborting.  See
+	# https://bugs.gentoo.org/977442
+	local tool
+	local tools=(
+		arcilator circt-as circt-bmc circt-cocotb-driver.py circt-dis
+		circt-lec circt-lsp-server circt-opt circt-reduce circt-rtl-sim.py
+		circt-synth circt-test circt-translate circt-verilog
+		circt-verilog-lsp-server domaintool firld firtool handshake-runner
+		hlstool kanagawatool om-linker py-split-input-file.py
+	)
 	exeinto /usr/bin
-	doexe "${BUILD_DIR}"/bin/arcilator
-	doexe "${BUILD_DIR}"/bin/circt-as
-	doexe "${BUILD_DIR}"/bin/circt-bmc
-	doexe "${BUILD_DIR}"/bin/circt-cocotb-driver.py
-	doexe "${BUILD_DIR}"/bin/circt-dis
-	doexe "${BUILD_DIR}"/bin/circt-lec
-	doexe "${BUILD_DIR}"/bin/circt-lsp-server
-	doexe "${BUILD_DIR}"/bin/circt-opt
-	doexe "${BUILD_DIR}"/bin/circt-reduce
-	doexe "${BUILD_DIR}"/bin/circt-rtl-sim.py
-	doexe "${BUILD_DIR}"/bin/circt-synth
-	doexe "${BUILD_DIR}"/bin/circt-test
-	doexe "${BUILD_DIR}"/bin/circt-translate
-	doexe "${BUILD_DIR}"/bin/circt-verilog
-	doexe "${BUILD_DIR}"/bin/circt-verilog-lsp-server
-	doexe "${BUILD_DIR}"/bin/domaintool
-	doexe "${BUILD_DIR}"/bin/firld
-	doexe "${BUILD_DIR}"/bin/firtool
-	doexe "${BUILD_DIR}"/bin/handshake-runner
-	doexe "${BUILD_DIR}"/bin/hlstool
-	doexe "${BUILD_DIR}"/bin/kanagawatool
-	doexe "${BUILD_DIR}"/bin/om-linker
-	doexe "${BUILD_DIR}"/bin/py-split-input-file.py
+	for tool in "${tools[@]}"; do
+		if [[ -e "${BUILD_DIR}/bin/${tool}" ]]; then
+			doexe "${BUILD_DIR}/bin/${tool}"
+		else
+			ewarn "Skipping ${tool}, not built (optional frontend unavailable)"
+		fi
+	done
+
+	[[ -e "${ED}/usr/bin/firtool" ]] || die "firtool was not built"
 }

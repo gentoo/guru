@@ -17,7 +17,7 @@ CHROMIUM_LANGS="
 
 inherit chromium-2 desktop linux-info unpacker xdg
 
-DESCRIPTION="Web version of Tidal running in electron with Hi-Fi support thanks to Widevine."
+DESCRIPTION="Web version of Tidal running in electron with Hi-Fi support thanks to Widevine"
 HOMEPAGE="https://github.com/Mastermindzh/tidal-hifi"
 SRC_URI="https://github.com/Mastermindzh/tidal-hifi/releases/download/${PV}-Mavy/tidal-hifi-${PV}.tar.gz -> ${P}.tar.gz"
 

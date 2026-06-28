@@ -1,4 +1,4 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ inherit cmake docs flag-o-matic
 MY_PN="the_foundation"
 DESCRIPTION="Opinionated C11 library for low-level functionality"
 HOMEPAGE="https://git.skyjake.fi/skyjake/the_Foundation"
-SRC_URI="https://git.skyjake.fi/skyjake/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://codeberg.org/skyjake/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.codeberg.tar.gz"
 S="${WORKDIR}/${MY_PN}"
 
 LICENSE="BSD-2"

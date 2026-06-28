@@ -5,6 +5,9 @@
 		<email>ghostyn678+git@gmail.com</email>
 		<name>dsaf</name>
 	</maintainer>
+	<use>
+		<flag name="nvml">Enable the NVML device discovery</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">markusressel/fan2go</remote-id>
 		<bugs-to>https://github.com/markusressel/fan2go/issues</bugs-to>

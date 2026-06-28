@@ -51,11 +51,11 @@ src_compile() {
 
 src_install() {
 	# Install data files
-	insinto /usr/share/inputremapper/
+	insinto /usr/share/input-remapper/
 	doins -r "${S}"/data/*
 
 	# Install lang files
-	insinto /usr/share/inputremapper/lang
+	insinto /usr/share/input-remapper/lang
 	doins -r "${S}"/mo/lang/*
 
 	# Install udev rules
@@ -98,11 +98,11 @@ src_install() {
 }
 
 pkg_postinst() {
-	xdg_icon_cache_update
+	xdg_pkg_postinst
 	udev_reload
 }
 
 pkg_postrm() {
-	xdg_icon_cache_update
+	xdg_pkg_postrm
 	udev_reload
 }

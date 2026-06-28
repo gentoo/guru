@@ -1,0 +1,22 @@
+From 04a25bd141efcd2c0d29ef7d868b205a844b3ad2 Mon Sep 17 00:00:00 2001
+From: underscorejoser <259754904+underscorejoser@users.noreply.github.com>
+Date: Mon, 9 Mar 2026 03:07:29 -0300
+Subject: [PATCH] Support GCC16
+
+---
+ new.cc | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/new.cc b/new.cc
+index 165e19ee..885ed942 100644
+--- a/new.cc
++++ b/new.cc
+@@ -1,5 +1,7 @@
+ // needed with libstdc++ but not libc++
+-#if __has_include(<bits/functexcept.h>)
++#if __has_include(<bits/new_throw.h>)
++#include <bits/new_throw.h>
++#elif __has_include(<bits/functexcept.h>)
+ #include <bits/functexcept.h>
+ #endif
+ 

@@ -59,8 +59,7 @@ src_prepare() {
 src_compile() {
 	# mimicking https://github.com/AdguardTeam/AdGuardHome/blob/master/scripts/make/go-build.sh
 
-	local MY_LDFLAGS="-s -w"
-	MY_LDFLAGS+=" -X github.com/AdguardTeam/AdGuardHome/internal/version.version=${PV}"
+	local MY_LDFLAGS="-X github.com/AdguardTeam/AdGuardHome/internal/version.version=${PV}"
 	MY_LDFLAGS+=" -X github.com/AdguardTeam/AdGuardHome/internal/version.channel=release"
 	MY_LDFLAGS+=" -X github.com/AdguardTeam/AdGuardHome/internal/version.committime=$(date +%s)"
 	if [ "$(go env GOARM)" != '' ]

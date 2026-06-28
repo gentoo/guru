@@ -1,0 +1,23 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Don't stub `gi.repository`
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/bottles/tests/backend/integration/playtime/conftest.py
++++ b/bottles/tests/backend/integration/playtime/conftest.py
+@@ -6,15 +6,6 @@ import contextlib
+ import sqlite3
+ import pytest
+ 
+-_glib_stub = types.SimpleNamespace(
+-    SOURCE_REMOVE=False,
+-    idle_add=lambda func, *args, **kwargs: func(),
+-    timeout_add=lambda *_a, **_k: 0,
+-)
+-_gi_repository = types.SimpleNamespace(GLib=_glib_stub)
+-sys.modules.setdefault("gi", types.SimpleNamespace(repository=_gi_repository))
+-sys.modules.setdefault("gi.repository", _gi_repository)
+-
+ class _FVSRepoStub:
+     def __init__(self, *args, **kwargs):
+         self.active_state_id = 0

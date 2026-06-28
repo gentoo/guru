@@ -20,6 +20,7 @@ else
 	S="${WORKDIR}/noctalia-release"
 fi
 
+MY_PN="noctalia-shell"
 LICENSE="MIT"
 SLOT="0"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -33,12 +34,12 @@ RDEPEND="
 "
 
 src_install() {
-	insinto /etc/xdg/quickshell/noctalia-shell
+	insinto /etc/xdg/quickshell/${MY_PN}
 	insopts -m0755
 	doins -r .
 
-	python_optimize "${ED}/etc/xdg/quickshell/${PN}/Scripts/python/src"
-	python_fix_shebang "${ED}/etc/xdg/quickshell/${PN}/Scripts/python/src"
+	python_optimize "${ED}/etc/xdg/quickshell/${MY_PN}/Scripts/python/src"
+	python_fix_shebang "${ED}/etc/xdg/quickshell/${MY_PN}/Scripts/python/src"
 }
 
 pkg_postinst() {

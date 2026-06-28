@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit go-module desktop systemd
+inherit go-module desktop systemd xdg
 
 DESCRIPTION="geteduroam Linux client" #TODO: replace with a better description, this is currently what upstream has.
 HOMEPAGE="https://github.com/geteduroam/linux-app https://get.eduroam.org/"

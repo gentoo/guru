@@ -16,7 +16,6 @@ KEYWORDS=""
 
 RDEPEND="dev-lang/lua:5.4"
 DEPEND="${RDEPEND}"
-BDEPEND=""
 
 src_compile() {
 	emake \

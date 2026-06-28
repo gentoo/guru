@@ -37,6 +37,7 @@ RDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${P}-cmake.patch"
+	"${FILESDIR}/${P}-cmake-ex.patch"
 )
 
 src_configure() {

@@ -8,7 +8,7 @@ inherit cmake flag-o-matic
 COMMIT="35c2e0332301f7aa14d3a849b30a844d65fa81bd"
 DESCRIPTION="SDL Emulation and Adaptation Layer for Curses"
 HOMEPAGE="https://git.skyjake.fi/skyjake/sealcurses"
-SRC_URI="https://git.skyjake.fi/skyjake/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://codeberg.org/skyjake/${PN}/archive/${COMMIT}.tar.gz -> ${P}.codeberg.tar.gz"
 S="${WORKDIR}/${PN}"
 
 LICENSE="BSD-2"

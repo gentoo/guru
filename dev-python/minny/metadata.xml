@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <name>Dominik George</name>
+    <email>nik+gentoo@squirrel.land</email>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://github.com/aivarannamaa/minny/issues</bugs-to>
+    <remote-id type="github">aivarannamaa/minny</remote-id>
+    <remote-id type="pypi">minny</remote-id>
+  </upstream>
+</pkgmetadata>

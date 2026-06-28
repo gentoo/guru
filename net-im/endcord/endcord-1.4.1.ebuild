@@ -23,8 +23,6 @@ fi
 LICENSE="GPL-3"
 SLOT=0
 
-IUSE="media"
-
 BDEPEND="
 	>=dev-python/cython-3.2.4[${PYTHON_USEDEP}]
 "
@@ -45,11 +43,6 @@ RDEPEND="
 	>=dev-python/soundfile-0.13.1[${PYTHON_USEDEP}]
 	>=dev-python/urllib3-2.6.3[${PYTHON_USEDEP}]
 	>=dev-python/websocket-client-1.9.0[${PYTHON_USEDEP}]
-	media? (
-		>=dev-python/pynacl-1.6.2[${PYTHON_USEDEP}]
-		>=dev-python/pillow-12.1.1[${PYTHON_USEDEP}]
-		>=dev-python/av-17.0.0[${PYTHON_USEDEP}]
-	)
 "
 
 PATCHES=( "${FILESDIR}/${PN}-1.4.0-flags.patch" )

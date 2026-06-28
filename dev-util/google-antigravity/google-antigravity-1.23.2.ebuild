@@ -33,7 +33,7 @@ S="${WORKDIR}"
 # It's complicated...
 LICENSE="all-rights-reserved"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="-* ~amd64 ~arm64"
 IUSE="kerberos verify-sig webkit"
 RESTRICT="bindist mirror strip"
 
@@ -86,11 +86,6 @@ QA_DESKTOP_FILE="usr/share/applications/antigravity.*\\.desktop"
 # Google Chrome installs into opt/google/chrome
 AG_HOME_BASE="opt/google"
 AG_HOME="${AG_HOME_BASE}/antigravity"
-
-pkg_pretend() {
-	# Protect against people using autounmask overzealously
-	use amd64 || use arm64 || die "Google Antigravity only works on amd64 or arm64"
-}
 
 pkg_setup() {
 	chromium_suid_sandbox_check_kernel_config

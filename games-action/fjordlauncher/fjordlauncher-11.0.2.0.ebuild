@@ -47,7 +47,7 @@ COMMON_DEPEND="
 	app-arch/libarchive:=
 	app-text/cmark:=
 	dev-cpp/tomlplusplus
-	>=dev-qt/qtbase-${QTMIN}:6[concurrent,gui,network,opengl,widgets,xml(+)]
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent,gui,network,opengl,vulkan,widgets,xml(+)]
 	>=dev-qt/qtnetworkauth-${QTMIN}:6
 	games-util/gamemode
 	media-gfx/qrencode:=

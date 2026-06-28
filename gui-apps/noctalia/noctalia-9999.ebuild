@@ -20,6 +20,7 @@ else
 	S="${WORKDIR}/noctalia-release"
 fi
 
+MY_PN="noctalia-shell"
 LICENSE="MIT"
 SLOT="0"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -33,20 +34,17 @@ RDEPEND="
 "
 
 src_install() {
-	insinto /etc/xdg/quickshell/noctalia-shell
+	insinto /etc/xdg/quickshell/${MY_PN}
 	insopts -m0755
 	doins -r .
 
-	python_optimize "${ED}/etc/xdg/quickshell/${PN}/Scripts/python/src"
-	python_fix_shebang "${ED}/etc/xdg/quickshell/${PN}/Scripts/python/src"
+	python_optimize "${ED}/etc/xdg/quickshell/${MY_PN}/Scripts/python/src"
+	python_fix_shebang "${ED}/etc/xdg/quickshell/${MY_PN}/Scripts/python/src"
 }
 
 pkg_postinst() {
 	optfeature "clipboard history support" app-misc/cliphist
-	optfeature "audio visualizer component" media-sound/cava
 	optfeature "night light functionality" gui-apps/wlsunset
-	optfeature "enable 'Portal' option in screen recorder" sys-apps/xdg-desktop-portal
-	optfeature "calendar events support" gnome-extra/evolution-data-server
 	optfeature "power profile management" sys-power/power-profiles-daemon
 	optfeature "external display brightness control" app-misc/ddcutil
 }

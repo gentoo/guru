@@ -1,7 +1,7 @@
 # Copyright 2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit toolchain-funcs multiprocessing
 
@@ -50,7 +50,7 @@ src_configure(){
 	# code is mostly copy pasted from the nim_gen_config() function from nim-utils.eclass, modifed a bit to actually
 	# append to the original nim.cfg, instead of replacing it
 	cat >> "${S}"/nim.cfg <<- EOF || die "Failed to append to Nim config"
-		--parallelBuild:"$(makeopts_jobs)"
+		--parallelBuild:"$(get_makeopts_jobs)"
 
 		cc:"gcc"
 		gcc.exe:"$(tc-getCC)"

@@ -6,7 +6,7 @@ EAPI=8
 LLVM_COMPAT=( {17..21} )
 inherit flag-o-matic llvm-r2
 
-DESCRIPTION="The Data-Oriented Language for Sane Software Development."
+DESCRIPTION="The Data-Oriented Language for Sane Software Development"
 HOMEPAGE="https://odin-lang.org/"
 
 if [[ $PV == 9999 ]]; then

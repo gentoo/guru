@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>ingenarel_neojesus@disroot.org</email>
+    <name>ingenarel</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">docker/docker-language-server</remote-id>
+  </upstream>
+  <longdescription lang="en">
+    The Docker Language Server is a language server for providing language features for file types in the Docker
+    ecosystem (Dockerfiles, Compose files, and Bake files).
+  </longdescription>
+</pkgmetadata>

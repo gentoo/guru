@@ -115,10 +115,14 @@ multilib_src_configure() {
 	use debug || append-cflags "-DNDEBUG"
 	use debug || append-cxxflags "-DNDEBUG"
 	if [[ ${PV} != 9999 ]]; then
-		GIT_DESC=v${PV}
-		GIT_COMMIT=v${PV}
+		GIT_TAG=v${PV}
+		GIT_DESC=""
+		GIT_COMMIT=""
+	else
+		GIT_TAG=""
 	fi
 	local mycmakeargs=(
+		-DGIT_TAG=${GIT_TAG}
 		-DGIT_DESC=${GIT_DESC}
 		-DGIT_COMMIT=${GIT_COMMIT}
 		-DWIVRN_BUILD_CLIENT=OFF

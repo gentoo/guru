@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit branding cmake flag-o-matic
+inherit branding cmake flag-o-matic xdg
 
 DESCRIPTION="Toolkit for building desktop widgets using QtQuick"
 HOMEPAGE="https://quickshell.org/"

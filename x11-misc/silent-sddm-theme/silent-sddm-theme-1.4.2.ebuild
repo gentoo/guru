@@ -35,7 +35,7 @@ pkg_postinst() {
 	elog "To enable this theme, add the following to /etc/sddm.conf and restart sddm"
 	elog "[General]"
 	elog "InputMethod=qtvirtualkeyboard"
-	elog "GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard"]
+	elog "GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard"
 	elog "[Theme]"
 	elog "Current=silent"
 }

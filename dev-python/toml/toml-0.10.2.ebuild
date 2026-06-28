@@ -4,9 +4,9 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
-inherit distutils-r1
+inherit distutils-r1 optfeature
 
 TT_PV=2.1.0
 TT_P="toml-test-${TT_PV}"
@@ -27,7 +27,13 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
-RDEPEND="dev-python/numpy[${PYTHON_USEDEP}]"
+BDEPEND="
+	test? (
+		$(python_gen_cond_dep '
+			dev-python/numpy[${PYTHON_USEDEP}]
+		' python3_{12..14})
+	)
+"
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
@@ -38,4 +44,8 @@ src_prepare() {
 	if use test; then
 		mv "${WORKDIR}/${TT_P}" toml-test || die
 	fi
+}
+
+pkg_postinst() {
+	optfeature "toml.TomlNumpyEncoder" dev-python/numpy
 }

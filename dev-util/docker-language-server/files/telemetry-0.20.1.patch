@@ -1,0 +1,85 @@
+diff --git a/internal/pkg/cli/start.go b/internal/pkg/cli/start.go
+index 47ea4c5..55722d5 100644
+--- a/internal/pkg/cli/start.go
++++ b/internal/pkg/cli/start.go
+@@ -84,13 +84,11 @@ For socket mode, pass the --address option.
+ func runStdioServer(_ context.Context) error {
+ 	docManager := document.NewDocumentManager()
+ 	s := server.NewServer(docManager)
+-	s.StartBackgrondProcesses(context.Background())
+ 	return s.RunStdio()
+ }
+ 
+ func runSocketServer(_ context.Context, addr string) error {
+ 	docManager := document.NewDocumentManager()
+ 	s := server.NewServer(docManager)
+-	s.StartBackgrondProcesses(context.Background())
+ 	return s.RunTCP(addr)
+ }
+diff --git a/internal/pkg/server/server.go b/internal/pkg/server/server.go
+index 220bff6..139a442 100644
+--- a/internal/pkg/server/server.go
++++ b/internal/pkg/server/server.go
+@@ -159,7 +159,6 @@ func (s *Server) Initialized(context *glsp.Context, params *protocol.Initialized
+ }
+ 
+ func (s *Server) shutdown(ctx *glsp.Context) error {
+-	_, _ = s.telemetry.Publish(context.Background())
+ 	protocol.SetTraceValue(protocol.TraceValueOff)
+ 	return nil
+ }
+@@ -182,26 +181,6 @@ func (s *Server) recomputeDiagnostics() {
+ 	}
+ }
+ 
+-func (s *Server) StartBackgrondProcesses(ctx context.Context) {
+-	s.publishTelemetry(ctx)
+-}
+-
+-func (s *Server) publishTelemetry(ctx context.Context) {
+-	go func() {
+-		defer s.handlePanic("publishTelemetry")
+-
+-		for {
+-			select {
+-			case <-ctx.Done():
+-				return
+-			default:
+-				time.Sleep(time.Second * 60)
+-				_, _ = s.telemetry.Publish(ctx)
+-			}
+-		}
+-	}()
+-}
+-
+ func (s *Server) handleRecovered(method string, recovered interface{}) bool {
+ 	if recovered != nil {
+ 		debug.PrintStack()
+diff --git a/internal/telemetry/client.go b/internal/telemetry/client.go
+index 8d942f6..42ba887 100644
+--- a/internal/telemetry/client.go
++++ b/internal/telemetry/client.go
+@@ -27,19 +27,19 @@ type TelemetryClientImpl struct {
+ }
+ 
+ func NewClient() TelemetryClient {
+-	return &TelemetryClientImpl{telemetry: configuration.TelemetrySettingAll}
++	return &TelemetryClientImpl{telemetry: configuration.TelemetrySettingOff}
+ }
+ 
+ func (c *TelemetryClientImpl) UpdateTelemetrySetting(value string) {
+ 	switch value {
+ 	case "all":
+-		c.telemetry = configuration.TelemetrySettingAll
++		c.telemetry = configuration.TelemetrySettingOff
+ 	case "error":
+-		c.telemetry = configuration.TelemetrySettingError
++		c.telemetry = configuration.TelemetrySettingOff
+ 	case "off":
+ 		c.telemetry = configuration.TelemetrySettingOff
+ 	default:
+-		c.telemetry = configuration.TelemetrySettingAll
++		c.telemetry = configuration.TelemetrySettingOff
+ 	}
+ }
+ 

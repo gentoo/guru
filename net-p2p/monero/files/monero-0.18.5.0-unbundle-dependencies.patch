@@ -1,0 +1,72 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 001fd0220..84fec3fe7 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -461,7 +461,7 @@ endif()
+ # elseif(CMAKE_SYSTEM_NAME MATCHES ".*BSDI.*")
+ #   set(BSDI TRUE)
+ 
+-include_directories(external/rapidjson/include external/easylogging++ src contrib/epee/include external external/supercop/include)
++include_directories(external/rapidjson/include external/easylogging++ src contrib/epee/include external )
+ 
+ if(APPLE)
+   cmake_policy(SET CMP0042 NEW)
+@@ -1251,7 +1251,6 @@ if(PROTOKIT_LIBRARY)
+   set(ZMQ_LIB "${ZMQ_LIB};${PROTOKIT_LIBRARY}")
+ endif()
+ 
+-include(external/supercop/functions.cmake) # place after setting flags and before src directory inclusion
+ add_subdirectory(contrib)
+ add_subdirectory(src)
+ 
+diff --git a/external/CMakeLists.txt b/external/CMakeLists.txt
+index 5bdd5d9b4..316f62d2a 100644
+--- a/external/CMakeLists.txt
++++ b/external/CMakeLists.txt
+@@ -44,4 +44,3 @@ endif()
+ add_subdirectory(db_drivers)
+ add_subdirectory(easylogging++)
+ add_subdirectory(qrcodegen)
+-add_subdirectory(randomx EXCLUDE_FROM_ALL)
+diff --git a/src/crypto/CMakeLists.txt b/src/crypto/CMakeLists.txt
+index 595c7f966..35b80de9a 100644
+--- a/src/crypto/CMakeLists.txt
++++ b/src/crypto/CMakeLists.txt
+@@ -55,6 +55,7 @@ list(APPEND crypto_sources CryptonightR_template.S)
+ endif()
+ 
+ include_directories(${RANDOMX_INCLUDE})
++include_directories(SYSTEM /usr/include/monero)
+ 
+ set(crypto_headers)
+ 
+@@ -98,5 +99,3 @@ endif()
+ set_property(SOURCE CryptonightR_template.S PROPERTY LANGUAGE C)
+ set_property(SOURCE CryptonightR_template.S PROPERTY XCODE_EXPLICIT_FILE_TYPE sourcecode.asm)
+ 
+-# Must be done last, because it references libraries in this directory
+-add_subdirectory(wallet)
+diff --git a/src/crypto/wallet/crypto.h b/src/crypto/wallet/crypto.h
+index cee0ca18e..ca7dae077 100644
+--- a/src/crypto/wallet/crypto.h
++++ b/src/crypto/wallet/crypto.h
+@@ -30,7 +30,6 @@
+ #pragma once
+ 
+ #include <cstddef>
+-#include "crypto/wallet/ops.h"
+ 
+ namespace crypto {
+   namespace wallet {
+diff --git a/src/device/CMakeLists.txt b/src/device/CMakeLists.txt
+index e4f1159b5..5543e6f8a 100644
+--- a/src/device/CMakeLists.txt
++++ b/src/device/CMakeLists.txt
+@@ -73,7 +73,6 @@ target_link_libraries(device
+     cncrypto
+     cryptonote_format_utils_basic
+     ringct_basic
+-    wallet-crypto
+     ${OPENSSL_CRYPTO_LIBRARIES}
+     ${Boost_SERIALIZATION_LIBRARY}
+   PRIVATE

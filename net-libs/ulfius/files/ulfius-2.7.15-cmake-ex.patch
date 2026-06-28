@@ -1,0 +1,22 @@
+From: Kurt Kanzenbach <kurt@kmk-computers.de>
+Date: Sun Jun 14 11:51:52 2026
+Subject: cmake/ex: Upgrade cmake min version to 3.14
+
+Upgrade cmake min version to 3.14.
+
+Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
+---
+ example_programs/CMakeLists.txt |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--- a/example_programs/CMakeLists.txt
++++ b/example_programs/CMakeLists.txt
+@@ -13,7 +13,7 @@
+ # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ #
+ 
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.14)
+ 
+ project(ulfius_examples C)
+ 
