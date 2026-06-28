@@ -9,7 +9,10 @@ PYTHON_COMPAT=( python3_{12..14} )
 inherit distutils-r1 optfeature
 
 DESCRIPTION="Full-featured YouTube Music TUI client with vim-style navigation"
-HOMEPAGE="https://github.com/peternaame-boop/ytm-player"
+HOMEPAGE="
+	https://ytm-player.com
+	https://github.com/peternaame-boop/ytm-player
+"
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
@@ -23,7 +26,7 @@ LICENSE="MIT"
 SLOT="0"
 
 DOCS=(
-	{README,CHANGELOG,SECURITY}.md
+	{README,CONTRIBUTING,CHANGELOG,SECURITY}.md
 	docs/
 )
 
@@ -36,6 +39,8 @@ RDEPEND="
 	>=dev-python/pillow-10.0[${PYTHON_USEDEP}]
 	>=dev-python/textual-7.0.0[${PYTHON_USEDEP}]
 	>=dev-python/ytmusicapi-1.11.0[${PYTHON_USEDEP}]
+	>=dev-python/dbus-fast-4.0.0[${PYTHON_USEDEP}]
+	>=dev-python/packaging-21.0[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
@@ -49,7 +54,6 @@ EPYTEST_PLUGINS=( pytest-asyncio )
 distutils_enable_tests pytest
 
 pkg_postinst() {
-	optfeature "MPRIS media key support" dev-python/dbus-next
 	optfeature "last.fm scrobbling" dev-python/pylast
 	optfeature "Discord rich presence" dev-python/pypresence
 	optfeature "spotify playlist import" dev-python/spotipy # spotifyscraper & thefuzz are not packaged
