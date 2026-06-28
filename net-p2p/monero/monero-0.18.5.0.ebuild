@@ -24,8 +24,9 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/monero-project/monero.git"
 	EGIT_SUBMODULES=()
 else
+	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/monero/binaryfate.asc
 	SRC_URI="
-		https://downloads.getmonero.org/cli/source/${SOURCE_ARCHIVE} -> ${SOURCE_ARCHIVE}
+		https://downloads.getmonero.org/cli/source/${SOURCE_ARCHIVE}
 		verify-sig? ( https://raw.githubusercontent.com/monero-project/monero-site/5e8d74229b742b54173010e3a676215b6f2fd1d7/downloads/hashes.txt -> ${P}-release-hashes.txt )
 	"
 	# Todo: replace this hashes.txt URL with one based on ${P} (See https://github.com/monero-project/monero/issues/10760)
@@ -67,12 +68,10 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-0.18.5.0-unbundle-dependencies.patch
 )
 
-VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/monero/binaryfate.asc
-
 src_unpack() {
 	if use verify-sig; then
 		pushd "${DISTDIR}" > /dev/null || die
-			verify-sig_verify_message ${DISTDIR}/${P}-release-hashes.txt - | \
+			verify-sig_verify_message "${DISTDIR}"/"${P}"-release-hashes.txt - | \
 				grep -F "${SOURCE_ARCHIVE}" | \
 				verify-sig_verify_unsigned_checksums - sha256 "${SOURCE_ARCHIVE}"
 		popd || die
