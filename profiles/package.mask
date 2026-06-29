@@ -58,12 +58,6 @@ x11-misc/aerial-sddm-theme
 dev-util/rye
 
 # Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/974546
-# https://bugs.gentoo.org/974547
-# Removal after 2026-06-18
-app-admin/aws-vault
-
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
 # https://bugs.gentoo.org/939886
 # https://bugs.gentoo.org/974570
 # Removal after 2026-06-18
