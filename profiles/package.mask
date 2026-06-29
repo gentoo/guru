@@ -71,11 +71,6 @@ app-admin/aws-vault
 app-containers/slim
 
 # Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/974552
-# Removal after 2026-06-18
-app-admin/overmind
-
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
 # https://bugs.gentoo.org/975050
 # https://bugs.gentoo.org/975051
 # Removal after 2026-06-18
