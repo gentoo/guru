@@ -9,7 +9,11 @@ MY_PN="youtube-music"
 
 DESCRIPTION="YouTube Music Desktop App bundled with custom plugins"
 HOMEPAGE="https://th-ch.github.io/youtube-music/"
-SRC_URI="https://github.com/th-ch/youtube-music/releases/download/v${PV}/${MY_PN}_${PV}_amd64.deb"
+SRC_URI="
+	amd64? (
+		https://github.com/pear-devs/pear-desktop/releases/download/v${PV}/${MY_PN}_${PV}_amd64.deb
+	)
+"
 
 S="${WORKDIR}"
 
@@ -48,7 +52,7 @@ RDEPEND="
 	x11-libs/pango
 "
 
-QA_PREBUILT="*"
+QA_PREBUILT="/opt/${MY_PN}"
 
 src_prepare() {
 	default

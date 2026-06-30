@@ -9,8 +9,11 @@ MY_PN="youtube-music"
 
 DESCRIPTION="Pear 🍐 is extension for music player"
 HOMEPAGE="https://github.com/pear-devs/pear-desktop"
-SRC_URI="https://github.com/pear-devs/pear-desktop/releases/download/v${PV}/${MY_PN}_${PV}_amd64.deb"
-
+SRC_URI="
+	amd64? (
+		https://github.com/pear-devs/pear-desktop/releases/download/v${PV}/${MY_PN}_${PV}_amd64.deb
+	)
+"
 S="${WORKDIR}"
 
 LICENSE="MIT"
@@ -47,7 +50,7 @@ RDEPEND="
 	x11-libs/pango
 "
 
-QA_PREBUILT="*"
+QA_PREBUILT="/opt/${MY_PN}"
 
 src_prepare() {
 	default
