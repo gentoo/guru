@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Paul Zander <negril.nx+gentoo@gmail.com> (2026-06-30)
+# https://bugs.gentoo.org/932824
+# https://bugs.gentoo.org/933208
+# outdated - maintainer-needed
+# Removal after 2026-07-30
+sys-boot/ventoy-bin
+
 # Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-06-25)
 # Moved to media-video/lossless-cut-bin in ::gentoo
 media-video/lossless-cut
