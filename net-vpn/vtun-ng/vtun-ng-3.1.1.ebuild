@@ -25,7 +25,7 @@ CRATES="
 	crc32fast@1.5.0
 	crypto-common@0.1.6
 	ctr@0.9.2
-	deranged@0.4.0
+	deranged@0.5.5
 	digest@0.10.7
 	dns-lookup@2.0.4
 	ecb@0.1.2
@@ -47,7 +47,7 @@ CRATES="
 	logos-derive@0.15.0
 	md5@0.8.0
 	miniz_oxide@0.8.9
-	num-conv@0.1.0
+	num-conv@0.2.0
 	ofb@0.6.1
 	opaque-debug@0.3.1
 	poly1305@0.8.0
@@ -58,7 +58,7 @@ CRATES="
 	proctitle@0.1.1
 	quote@1.0.40
 	r-efi@5.3.0
-	rand@0.9.2
+	rand@0.9.3
 	rand_chacha@0.9.0
 	rand_core@0.6.4
 	rand_core@0.9.3
@@ -66,17 +66,17 @@ CRATES="
 	rust-lzo@0.6.2
 	rustc_version@0.4.1
 	semver@1.0.26
-	serde@1.0.219
-	serde_derive@1.0.219
+	serde_core@1.0.228
+	serde_derive@1.0.228
 	sha2@0.10.9
 	signal-hook@0.3.18
 	signal-hook-registry@1.4.5
 	socket2@0.5.10
 	subtle@2.6.1
 	syn@2.0.104
-	time@0.3.41
-	time-core@0.1.4
-	time-macros@0.2.22
+	time@0.3.47
+	time-core@0.1.8
+	time-macros@0.2.27
 	typenum@1.18.0
 	unicode-ident@1.0.18
 	unicode-width@0.2.1
@@ -135,6 +135,8 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc"
 IUSE="systemd +lzo +zlib"
+
+RUST_MIN_VER="1.88.0"
 
 DOCS=( ChangeLog Credits FAQ README README.Setup README.Shaper TODO )
 CONFIG_CHECK="~TUN"
