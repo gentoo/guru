@@ -8,7 +8,11 @@ inherit optfeature
 DESCRIPTION="Feature rich Discord TUI client"
 HOMEPAGE="https://github.com/sparklost/endcord"
 
-SRC_URI="https://github.com/sparklost/endcord/releases/download/${PV}/endcord-${PV}-linux.tar.gz"
+SRC_URI="
+	amd64? (
+		https://github.com/sparklost/endcord/releases/download/${PV}/endcord-${PV}-linux.tar.gz
+	)
+"
 S="${WORKDIR}"
 
 LICENSE="GPL-3"
