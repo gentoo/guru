@@ -134,7 +134,7 @@ SRC_URI="${CARGO_CRATE_URIS}
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc"
-IUSE="systemd +lzo +zlib"
+IUSE="systemd +lzo"
 
 RUST_MIN_VER="1.88.0"
 
@@ -152,7 +152,6 @@ src_unpack() {
 src_configure() {
 	local myfeatures=(
 		$(usev lzo)
-		$(usev zlib)
 	)
 	cargo_src_configure
 }
