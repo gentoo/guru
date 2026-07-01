@@ -42,8 +42,8 @@ src_unpack() {
 
 src_prepare() {
 	cd "${WORKDIR}"/Omnissa-Horizon-Client-"${PV}"-"${VER2}".x64
-	# Patch lib dir
 	sed -i 's:/usr/lib/:/usr/lib64/:g' usr/bin/*
+    sed -i 's/Categories=Application;/Categories=/g' usr/share/applications/*.desktop
 
 	eapply_user
 }
