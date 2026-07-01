@@ -9,19 +9,21 @@ MY_PN="${PN%-bin}"
 
 DESCRIPTION="OpenAudible is a cross-platform audiobook manager designed for Audible users."
 HOMEPAGE="https://openaudible.org/"
-SRC_URI="https://github.com/${MY_PN}/${MY_PN}/releases/download/v${PV}/OpenAudible_${PV}_x86_64.deb"
+SRC_URI="
+	amd64? (
+		https://github.com/${MY_PN}/${MY_PN}/releases/download/v${PV}/OpenAudible_${PV}_x86_64.deb
+	)
+"
 S="${WORKDIR}/opt/OpenAudible"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE="+system-ffmpeg +system-jre +webapp"
+KEYWORDS="-* ~amd64"
 
 BDEPEND="app-arch/unzip"
 RDEPEND="
 	net-libs/webkit-gtk
-	system-ffmpeg? ( media-video/ffmpeg[lame] )
-	system-jre? ( virtual/jre:21 )
+	virtual/jre:21
 "
 
 QA_PREBUILT="*"
@@ -31,10 +33,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	use system-ffmpeg && rm --force --recursive bin || die
-	use system-ffmpeg || rm --force bin/linux_x86_64/upgrade || die
-	use system-jre && rm --force --recursive jre || die
-	use webapp || rm --force --recursive webapp || die
+	rm --force --recursive jre || die
 
 	default
 }
@@ -47,12 +46,8 @@ src_install() {
 	doins -r .install4j
 	doexe OpenAudible
 
-	if use system-ffmpeg; then
-		dosym -r /usr/bin/ffmpeg /opt/${MY_PN}/bin/linux_x86_64/ffmpeg
-	else
-		exeinto /opt/${MY_PN}/bin/linux_x86_64/
-		doexe bin/linux_x86_64/ffmpeg
-	fi
+	exeinto /opt/${MY_PN}/bin/linux_x86_64/
+	doexe bin/linux_x86_64/ffmpeg
 
 	make_wrapper ${MY_PN} /opt/openaudible/OpenAudible /opt/${MY_PN}
 	newicon -s 512 share/icons/hicolor/512x512/apps/org.openaudible.OpenAudible.png ${MY_PN}.png
