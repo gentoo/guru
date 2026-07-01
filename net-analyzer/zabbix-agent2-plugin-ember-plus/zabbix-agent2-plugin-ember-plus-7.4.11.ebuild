@@ -20,6 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 DEPEND="~net-analyzer/zabbix-${PV}[agent2]"
+BDEPEND=">=dev-lang/go-1.25.9"
 RDEPEND="${DEPEND}"
 
 DOCS=( "README.md" )
