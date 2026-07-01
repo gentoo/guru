@@ -9,12 +9,16 @@ MY_PN="${PN%-bin}"
 
 DESCRIPTION="OpenAudible is a cross-platform audiobook manager designed for Audible users."
 HOMEPAGE="https://openaudible.org/"
-SRC_URI="https://github.com/${MY_PN}/${MY_PN}/releases/download/v${PV}/OpenAudible_${PV}_x86_64.deb"
+SRC_URI="
+	amd64? (
+		https://github.com/${MY_PN}/${MY_PN}/releases/download/v${PV}/OpenAudible_${PV}_x86_64.deb
+	)
+"
 S="${WORKDIR}/opt/OpenAudible"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="-* ~amd64"
 
 BDEPEND="app-arch/unzip"
 RDEPEND="
