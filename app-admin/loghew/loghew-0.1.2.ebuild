@@ -245,8 +245,6 @@ https://github.com/nehadyounis/loghew/releases/download/v${PV}/source.tar.gz -> 
 	${CARGO_CRATE_URIS}
 "
 
-LICENSE=""
-# Dependent crate licenses
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
