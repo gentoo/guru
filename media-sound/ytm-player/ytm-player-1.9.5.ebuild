@@ -39,7 +39,7 @@ RDEPEND="
 	>=dev-python/pillow-10.0[${PYTHON_USEDEP}]
 	>=dev-python/textual-7.0.0[${PYTHON_USEDEP}]
 	>=dev-python/ytmusicapi-1.11.0[${PYTHON_USEDEP}]
-	>=dev-python/dbus-fast-4.0.0[${PYTHON_USEDEP}]
+	>=dev-python/dbus-fast-5.0.0[${PYTHON_USEDEP}]
 	>=dev-python/packaging-21.0[${PYTHON_USEDEP}]
 "
 
