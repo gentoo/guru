@@ -17,6 +17,7 @@ LICENSE="omnissa"
 SLOT="0"
 KEYWORDS=""
 RESTRICT="mirror"
+QA_SONAME="usr/lib64/libpcoip_client.so"
 
 inherit xdg
 
@@ -43,7 +44,7 @@ src_unpack() {
 src_prepare() {
 	cd "${WORKDIR}"/Omnissa-Horizon-Client-"${PV}"-"${VER2}".x64
 	sed -i 's:/usr/lib/:/usr/lib64/:g' usr/bin/*
-    sed -i 's/Categories=Application;/Categories=/g' usr/share/applications/*.desktop
+	sed -i 's/Categories=Application;/Categories=/g' usr/share/applications/*.desktop
 
 	eapply_user
 }
@@ -74,7 +75,7 @@ src_install() {
 
 	cd "${WORKDIR}"/Omnissa-Horizon-PCoIP-"${PV}"-"${VER2}".x64/usr
 	insinto /usr/lib64
-	doins lib/libpcoip_client.so
+	dolib.so lib/libpcoip_client.so
 	doins -r lib/omnissa
 	doins -r lib/pcoip
 
