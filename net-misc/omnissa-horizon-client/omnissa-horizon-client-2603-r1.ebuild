@@ -30,7 +30,7 @@ x11-libs/cairo
 x11-libs/libX11
 x11-libs/libXext
 x11-libs/libXrender
-dev-libs/lttng-ust-compat
+dev-util/lttng-ust-compat
 sys-apps/pcsc-lite
 "
 
