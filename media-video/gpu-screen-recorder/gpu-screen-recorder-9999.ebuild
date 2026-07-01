@@ -15,6 +15,7 @@ IUSE="+filecaps systemd"
 
 DEPEND="
 	media-video/ffmpeg
+	media-video/pipewire
 	media-libs/libglvnd
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
