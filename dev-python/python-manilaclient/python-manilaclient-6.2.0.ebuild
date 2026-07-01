@@ -48,7 +48,12 @@ distutils_enable_tests unittest
 src_prepare() {
 	# This test requires tempest which has been removed.
 	rm --force manilaclient/tests/unit/test_functional_utils.py
+
+	# Not sure what's happened here.
+	sed --in-place --expression='s/FakeIdentityClient/FakeIdentityv3Client/g' manilaclient/tests/unit/osc/v2/fakes.py
+
 	distutils-r1_src_prepare
+
 }
 
 python_test() {
