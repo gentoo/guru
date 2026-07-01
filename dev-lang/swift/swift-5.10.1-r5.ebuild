@@ -59,6 +59,7 @@ PATCHES=(
 	"${FILESDIR}/${PF}/link-with-lld.patch"
 	"${FILESDIR}/${PF}/lldb-cmake-minimum-version.patch"
 	"${FILESDIR}/${PF}/respect-c-cxx-flags.patch"
+	"${FILESDIR}/${PF}/sanitizer-remove-scc.patch"
 )
 
 S="${WORKDIR}"
