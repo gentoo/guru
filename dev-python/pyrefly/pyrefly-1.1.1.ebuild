@@ -429,6 +429,14 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
+IUSE="test"
+RESTRICT="!test? ( test )"
+
+BDEPEND="
+	test? (
+		dev-python/numpy
+	)
+"
 DEPEND="app-arch/zstd:="
 RDEPEND="${DEPEND}"
 
