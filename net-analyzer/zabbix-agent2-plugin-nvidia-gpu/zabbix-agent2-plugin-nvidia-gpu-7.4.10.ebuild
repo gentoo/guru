@@ -26,7 +26,10 @@ RDEPEND="
 	~net-analyzer/zabbix-${PV}[agent2]
 	x11-drivers/nvidia-drivers
 "
-BDEPEND="x11-drivers/nvidia-drivers"
+BDEPEND="
+	>=dev-lang/go-1.24.10
+	x11-drivers/nvidia-drivers
+"
 
 DOCS=( "README.md" )
 
