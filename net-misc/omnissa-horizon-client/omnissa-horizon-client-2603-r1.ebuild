@@ -15,7 +15,7 @@ S="${WORKDIR}"
 
 LICENSE="omnissa"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 RESTRICT="mirror strip"
 QA_SONAME="usr/lib64/libpcoip_client.so"
 
