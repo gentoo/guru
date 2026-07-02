@@ -7,7 +7,7 @@ inherit autotools
 
 DESCRIPTION="TUI and CLI wrappers for Gentoo system upgrades"
 HOMEPAGE="https://gitlab.com/masterwolf/pupgrade"
-SRC_URI="https://gitlab.com/masterwolf/pupgrade/-/archive/${PV}/pupgrade-${PV}.tar.bz2"
+SRC_URI="https://gitlab.com/masterwolf/pupgrade/-/archive/${PV}/${P}.tar.bz2"
 
 S="${WORKDIR}/pupgrade-${PV}/source"
 
@@ -27,8 +27,8 @@ eautoreconf
 default
 }
 
-src_compile() {
-
+src_compile()
+{
 emake
 }
 
