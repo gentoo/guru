@@ -42,15 +42,16 @@ src_unpack() {
 }
 
 src_prepare() {
-	cd "${WORKDIR}"/Omnissa-Horizon-Client-"${PV}"-"${VER2}".x64
-	sed -i 's:/usr/lib/:/usr/lib64/:g' usr/bin/*
-	sed -i 's/Categories=Application;/Categories=/g' usr/share/applications/*.desktop
+	default
+	cd "${WORKDIR}"/Omnissa-Horizon-Client-"${PV}"-"${VER2}".x64 || die
+	sed -i 's:/usr/lib/:/usr/lib64/:g' usr/bin/*  || die
+	sed -i 's/Categories=Application;/Categories=/g' usr/share/applications/*.desktop || die
 
 	eapply_user
 }
 
 src_install() {
-	cd "${WORKDIR}"/Omnissa-Horizon-Client-"${PV}"-"${VER2}".x64/usr
+	cd "${WORKDIR}"/Omnissa-Horizon-Client-"${PV}"-"${VER2}".x64/usr || die
 
 	for binfile in bin/*; do
 		dobin "${binfile}"
@@ -60,9 +61,10 @@ src_install() {
 	doins lib/libclientSdkCPrimitive.so
 	doins -r lib/omnissa
 	exeinto /usr/lib64/omnissa/horizon/bin/
-	for binfile in lib/omnissa/horizon/bin/*; do
-		doexe "${binfile}"
-	done
+	doexe lib/omnissa/horizon/bin/*
+	#for binfile in lib/omnissa/horizon/bin/*; do
+#		doexe "${binfile}"
+#	done
 
 	insinto /usr/share
 	doins -r share/applications
@@ -73,7 +75,7 @@ src_install() {
 
 #	dodoc -r share/doc
 
-	cd "${WORKDIR}"/Omnissa-Horizon-PCoIP-"${PV}"-"${VER2}".x64/usr
+	cd "${WORKDIR}"/Omnissa-Horizon-PCoIP-"${PV}"-"${VER2}".x64/usr || die
 	insinto /usr/lib64
 	dolib.so lib/libpcoip_client.so
 	doins -r lib/omnissa
