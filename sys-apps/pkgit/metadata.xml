@@ -3,9 +3,10 @@
 <pkgmetadata>
   <maintainer type="person">
     <email>blod@duck.com</email>
-    <name>any</name>
+    <name>Any</name>
   </maintainer>
   <upstream>
 	  <remote-id type="git">https://git.symlinx.net/pkgit/</remote-id>
   </upstream>
 </pkgmetadata>
+
