@@ -25,6 +25,13 @@ BDEPEND="
 	test? ( >=dev-util/cmocka-2.0 )
 "
 
+src_prepare() {
+	# Otherwise pyroaring (the only reverse dependency) isn't able to #include
+	sed -i 's:I${includedir}:I${includedir}/roaring:' roaring.pc.in
+
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		# messes with `-march=native` but oh well
