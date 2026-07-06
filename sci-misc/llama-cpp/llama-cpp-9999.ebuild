@@ -90,9 +90,9 @@ CDEPEND="
 	flexiblas? ( sci-libs/flexiblas:= )
 	rocm? (
 		>=dev-util/hip-${ROCM_VERSION}:=
-		>=sci-libs/hipBLAS-${ROCM_VERSION}:=[${ROCM_USEDEP}]
+		>=sci-libs/hipBLAS-${ROCM_VERSION}:=
 		wmma? (
-			>=sci-libs/rocWMMA-${ROCM_VERSION}:=[${ROCM_USEDEP}]
+			>=sci-libs/rocWMMA-${ROCM_VERSION}:=
 		)
 	)
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
