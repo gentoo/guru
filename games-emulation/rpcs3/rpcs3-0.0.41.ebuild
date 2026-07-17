@@ -43,7 +43,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="discord faudio +llvm opencv vulkan wayland"
+IUSE="discord faudio +llvm opencv vulkan X wayland"
 
 DEPEND="
 	app-arch/7zip
@@ -63,6 +63,7 @@ DEPEND="
 	media-libs/libpng:=
 	media-libs/openal
 	media-libs/rtmidi
+	media-libs/libsdl3[opengl,vulkan?,X?,wayland?]
 	media-video/ffmpeg:=
 	net-libs/miniupnpc:=
 	net-misc/curl
