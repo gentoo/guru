@@ -191,4 +191,12 @@ pkg_postinst() {
 		ewarn "Make sure you have OSS installed in your system."
 		ewarn ""
 	fi
+
+	xdg_desktop_database_update
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
+	xdg_icon_cache_update
 }
