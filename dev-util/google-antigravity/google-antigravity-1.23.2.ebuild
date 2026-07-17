@@ -146,7 +146,7 @@ src_install() {
 
 	mv usr/share/appdata usr/share/metainfo || die
 
-	pax-mark m "${AG_HOME}/antigravity"
+	pax-mark m "${ED}/${AG_HOME}/antigravity"
 	dosym -r "/${AG_HOME}/bin/antigravity" "usr/bin/google-antigravity"
 }
 

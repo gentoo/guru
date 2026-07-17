@@ -165,6 +165,7 @@ stainless_setup_mock_server() {
 	local -x npm_config_cache="${WORKDIR}/stainless-npm-cache"
 	mkdir -p "${npm_config_cache}" || die
 
+	local f
 	for f in "${STAINLESS_MOCK_SERVER_DISTFILES[@]}"; do
 		[[ -e ${DISTDIR}/${f} ]] || continue
 		if ! npm cache add "${DISTDIR}/${f}" &>"${T}/stainless-npm-cache-add.log"; then
@@ -233,6 +234,8 @@ _stainless_is_mock_server_running() {
 # Call the mock server health check endpoint.
 _stainless_mock_server_health_check() {
 	local base_url="http://127.0.0.1:${STAINLESS_MOCK_SERVER_PORT_ACTUAL}"
+
+	# omit '|| die'; caller checks exit code
 	curl -sf "${base_url}/_x-steady/health" &>/dev/null
 }
 
@@ -378,6 +381,7 @@ stainless-python_src_unpack() {
 			"'${STAINLESS_MOCK_SERVER_VERSION}' (from var) !=" \
 			"'${expected_pv}' (from package.json)"
 
+	local f
 	for f in ${A}; do
 		! has "${f}" "${STAINLESS_MOCK_SERVER_DISTFILES[@]}" && unpack "${f}"
 	done

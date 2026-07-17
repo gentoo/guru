@@ -5,11 +5,16 @@
 		<email>julien@jroy.ca</email>
 		<name>Julien Roy</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>salah.coronya@gmail.com</email>
+		<name>Christopher Byrne</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">latchset/clevis</remote-id>
 	</upstream>
 	<use>
-		<flag name="luks">Enable LUKS support</flag>
-		<flag name="tpm">Enable TPM support</flag>
+		<flag name="dracut">Install dracut modules</flag>
+		<flag name="pkcs11">Enable PKCS#11 smartcard support</flag>
+		<flag name="tpm1">Enable support for Trusted Platform Module (TPM) 1.2</flag>
 	</use>
 </pkgmetadata>

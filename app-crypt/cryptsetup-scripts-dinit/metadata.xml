@@ -1,0 +1,14 @@
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>reedy.sailors.8t@icloud.com</email>
+		<name>Emi</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="codeberg">gentoo-dinit/cryptsetup</remote-id>
+	</upstream>
+	<longdescription>
+		debian cryptsetup scripts with patches to remove things that aren't neccessary for usage with services
+	</longdescription>
+</pkgmetadata>
+

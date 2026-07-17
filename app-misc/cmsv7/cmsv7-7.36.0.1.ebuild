@@ -5,7 +5,7 @@ EAPI=8
 
 RPM_COMPRESS_TYPE="xz"
 
-inherit rpm
+inherit rpm xdg
 
 DESCRIPTION="A vehicle monitoring and management platform"
 HOMEPAGE="https://www.cmsv7.com"
@@ -50,6 +50,9 @@ RDEPEND="
 	x11-libs/libXrandr
 	x11-libs/libxkbcommon
 	x11-libs/pango
+	dev-libs/expat
+	dev-libs/glib
+	x11-libs/libxcb
 "
 
 BDEPEND="

@@ -267,7 +267,9 @@ SRC_URI="
 	https://github.com/elkowar/yolk/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 "
 
-QA_FLAGS_IGNORE="/usr/bin/yolk"
+QA_FLAGS_IGNORE="
+	usr/bin/yolk
+"
 
 LICENSE="|| ( Apache-2.0 MIT )"
 # Dependent crate licenses

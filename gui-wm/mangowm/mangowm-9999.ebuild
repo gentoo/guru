@@ -42,6 +42,8 @@ COMMON_DEPEND+="
 RDEPEND="
 	${COMMON_DEPEND}
 	x11-libs/pixman
+	x11-libs/cairo
+	x11-libs/pango
 	X? (
 		x11-base/xwayland
 	)

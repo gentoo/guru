@@ -5,6 +5,7 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.85.0"
 CRATES="
 	aho-corasick@1.1.4
 	fnv@1.0.7

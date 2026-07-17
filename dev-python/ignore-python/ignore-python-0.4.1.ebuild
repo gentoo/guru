@@ -31,5 +31,6 @@ EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 python_test() {
-	epytest --override-ini="pythonpath=${BUILD_DIR}/install$(python_get_sitedir)"
+	cp "${BUILD_DIR}/install$(python_get_sitedir)/ignore/ignore"*.so ignore || die
+	epytest
 }

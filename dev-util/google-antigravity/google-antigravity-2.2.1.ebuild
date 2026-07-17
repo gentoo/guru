@@ -95,7 +95,7 @@ src_install() {
 	mkdir -p "${ED}/${AGY_HOME}" || die
 	cp -r . "${ED}/${AGY_HOME}" || die
 
-	pax-mark m "/${AGY_HOME}/${MY_PN}"
+	pax-mark m "${ED}/${AGY_HOME}/${MY_PN}"
 	fperms 0755 "/${AGY_HOME}/${MY_PN}"
 	dosym "/${AGY_HOME}/${MY_PN}" "/usr/bin/${MY_PN}"
 

@@ -1,7 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="HMM-based speech synthesis system (HTS) engine and API"
 HOMEPAGE="https://hts-engine.sourceforge.net/"
@@ -10,10 +10,7 @@ S="${WORKDIR}/hts_engine_API-${PV}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="speech-tools"
 
-DEPENDS="speech-tools? ( app-accessibility/speech-tools )"
-
-src_configure() {
-	econf $(use_enable speech-tools festival)
-}
+PATCHES=(
+	"${FILESDIR}/hts_engine-1.10-musl.patch"
+)

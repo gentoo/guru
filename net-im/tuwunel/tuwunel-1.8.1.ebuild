@@ -36,7 +36,8 @@ declare -A GIT_CRATES=(
 )
 
 LLVM_COMPAT=( 21 )
-RUST_MIN_VER="1.94.0"
+# grep rust-version Cargo.toml
+RUST_MIN_VER="1.95.0"
 
 inherit cargo llvm-r2 linux-info
 
@@ -126,6 +127,7 @@ pkg_setup() {
 }
 
 src_prepare() {
+	# See https://bugs.gentoo.org/977089
 	# grep '\[patch\.' ../../Cargo.toml | sort
 	local patched_crates=(
 		async-channel

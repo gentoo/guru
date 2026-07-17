@@ -17,8 +17,7 @@ HOMEPAGE="
 SRC_URI="
 	https://github.com/BerriAI/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz
 	test? (
-		https://ai.google.dev/static/api/interactions.openapi.json
-			-> ${P}-openapi-spec.json
+		https://github.com/fasys-guru/rehost/releases/download/v2026.07.14/${P}-openapi-spec.json.xz
 	)
 "
 

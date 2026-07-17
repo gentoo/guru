@@ -113,7 +113,7 @@ RUST_MIN_VER="1.92"
 
 inherit cargo
 
-DESCRIPTION="fast and easy-to-use DPI circumvention tool in Rust."
+DESCRIPTION="fast and easy-to-use DPI circumvention tool in Rust"
 HOMEPAGE="https://github.com/dilluti0n/dpibreak"
 SRC_URI="
 	https://github.com/dilluti0n/dpibreak/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
