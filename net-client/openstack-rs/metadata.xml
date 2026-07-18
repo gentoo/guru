@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo-bugzilla@vimja.email</email>
+		<name>Niklaus 'vimja' Hofer</name>
+	</maintainer>
+	<use>
+		<flag name="cli">Build the OpenStack cli binary, called osc</flag>
+		<flag name="tui">Build the OpenStack tui binary, called ostui</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">gtema/openstack</remote-id>
+	</upstream>
+</pkgmetadata>
