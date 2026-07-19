@@ -1,0 +1,156 @@
+# https://bugs.gentoo.org/979547
+# https://github.com/Smithay/smithay/pull/2103
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -218,7 +218,7 @@
+ 
+ [dependencies]
+ appendlist = "1.4"
+-atomic_float = "1.1.0"
++portable-atomic = { version = "1", features = ["float"] }
+ bitflags = "2.2.1"
+ calloop = "0.14.0"
+ cgmath = "0.18.0"
+diff '--color=auto' -ru a/src/backend/x11/window_inner.rs b/src/backend/x11/window_inner.rs
+--- a/src/backend/x11/window_inner.rs
++++ b/src/backend/x11/window_inner.rs
+@@ -15,9 +15,9 @@
+ use drm_fourcc::DrmFourcc;
+ use std::sync::{
+     Arc, Mutex, Weak,
+-    atomic::{AtomicU32, AtomicU64},
+     mpsc::Sender,
+ };
++use portable_atomic::{AtomicU32, AtomicU64};
+ use x11rb::{
+     connection::Connection,
+     protocol::{
+diff '--color=auto' -ru a/src/wayland/compositor/mod.rs b/src/wayland/compositor/mod.rs
+--- a/src/wayland/compositor/mod.rs
++++ b/src/wayland/compositor/mod.rs
+@@ -124,7 +124,7 @@
+ use crate::utils::Transform;
+ pub use crate::utils::hook::HookId;
+ use crate::utils::{Buffer, Logical, Point, Rectangle, user_data::UserDataMap};
+-use atomic_float::AtomicF64;
++use portable_atomic::AtomicF64;
+ use wayland_server::backend::GlobalId;
+ use wayland_server::protocol::wl_compositor::WlCompositor;
+ use wayland_server::protocol::wl_subcompositor::WlSubcompositor;
+diff '--color=auto' -ru a/src/wayland/output/handlers.rs b/src/wayland/output/handlers.rs
+--- a/src/wayland/output/handlers.rs
++++ b/src/wayland/output/handlers.rs
+@@ -1,6 +1,6 @@
+ use std::sync::{Arc, atomic::Ordering};
+ 
+-use atomic_float::AtomicF64;
++use portable_atomic::AtomicF64;
+ use tracing::{trace, warn, warn_span};
+ use wayland_protocols::xdg::xdg_output::zv1::server::{
+     zxdg_output_manager_v1::{self, ZxdgOutputManagerV1},
+diff '--color=auto' -ru a/src/wayland/output/mod.rs b/src/wayland/output/mod.rs
+--- a/src/wayland/output/mod.rs
++++ b/src/wayland/output/mod.rs
+@@ -82,7 +82,7 @@
+     utils::iter::new_locked_obj_iter,
+ };
+ 
+-use atomic_float::AtomicF64;
++use portable_atomic::AtomicF64;
+ use tracing::info;
+ use wayland_protocols::xdg::xdg_output::zv1::server::zxdg_output_manager_v1::ZxdgOutputManagerV1;
+ use wayland_server::{
+diff '--color=auto' -ru a/src/wayland/pointer_gestures.rs b/src/wayland/pointer_gestures.rs
+--- a/src/wayland/pointer_gestures.rs
++++ b/src/wayland/pointer_gestures.rs
+@@ -98,7 +98,7 @@
+ 
+ use std::sync::{Arc, Mutex, atomic::Ordering};
+ 
+-use atomic_float::AtomicF64;
++use portable_atomic::AtomicF64;
+ use wayland_protocols::wp::pointer_gestures::zv1::server::{
+     zwp_pointer_gesture_hold_v1::{self, ZwpPointerGestureHoldV1},
+     zwp_pointer_gesture_pinch_v1::{self, ZwpPointerGesturePinchV1},
+diff '--color=auto' -ru a/src/wayland/relative_pointer.rs b/src/wayland/relative_pointer.rs
+--- a/src/wayland/relative_pointer.rs
++++ b/src/wayland/relative_pointer.rs
+@@ -86,7 +86,7 @@
+ 
+ use std::sync::{Arc, Mutex, atomic::Ordering};
+ 
+-use atomic_float::AtomicF64;
++use portable_atomic::AtomicF64;
+ use wayland_protocols::wp::relative_pointer::zv1::server::{
+     zwp_relative_pointer_manager_v1::{self, ZwpRelativePointerManagerV1},
+     zwp_relative_pointer_v1::{self, ZwpRelativePointerV1},
+diff '--color=auto' -ru a/src/wayland/seat/pointer.rs b/src/wayland/seat/pointer.rs
+--- a/src/wayland/seat/pointer.rs
++++ b/src/wayland/seat/pointer.rs
+@@ -1,6 +1,6 @@
+ use std::sync::{Arc, Mutex, atomic::Ordering};
+ 
+-use atomic_float::AtomicF64;
++use portable_atomic::AtomicF64;
+ use wayland_server::{
+     Client, Dispatch, DisplayHandle, Resource, Weak,
+     backend::{ClientId, ObjectId},
+diff '--color=auto' -ru a/src/wayland/seat/touch.rs b/src/wayland/seat/touch.rs
+--- a/src/wayland/seat/touch.rs
++++ b/src/wayland/seat/touch.rs
+@@ -1,6 +1,6 @@
+ use std::sync::{Arc, atomic::Ordering};
+ 
+-use atomic_float::AtomicF64;
++use portable_atomic::AtomicF64;
+ use wayland_server::{
+     Dispatch, DisplayHandle, Resource,
+     backend::ClientId,
+diff '--color=auto' -ru a/src/wayland/tablet_manager/tablet_tool.rs b/src/wayland/tablet_manager/tablet_tool.rs
+--- a/src/wayland/tablet_manager/tablet_tool.rs
++++ b/src/wayland/tablet_manager/tablet_tool.rs
+@@ -7,7 +7,7 @@
+ use crate::utils::{Client as ClientCoords, Logical, Point};
+ use crate::wayland::compositor::CompositorHandler;
+ use crate::wayland::seat::CURSOR_IMAGE_ROLE;
+-use atomic_float::AtomicF64;
++use portable_atomic::AtomicF64;
+ use wayland_protocols::wp::tablet::zv2::server::{
+     zwp_tablet_seat_v2::ZwpTabletSeatV2,
+     zwp_tablet_tool_v2::{self, ZwpTabletToolV2},
+diff '--color=auto' -ru a/src/xwayland/xwm/dnd.rs b/src/xwayland/xwm/dnd.rs
+--- a/src/xwayland/xwm/dnd.rs
++++ b/src/xwayland/xwm/dnd.rs
+@@ -10,7 +10,7 @@
+     },
+ };
+ 
+-use atomic_float::AtomicF64;
++use portable_atomic::AtomicF64;
+ use calloop::LoopHandle;
+ use rustix::fs::OFlags;
+ use smallvec::SmallVec;
+diff '--color=auto' -ru a/src/xwayland/xwm/mod.rs b/src/xwayland/xwm/mod.rs
+--- a/src/xwayland/xwm/mod.rs
++++ b/src/xwayland/xwm/mod.rs
+@@ -135,7 +135,7 @@
+         xwayland_shell::{self, XWaylandShellHandler},
+     },
+ };
+-use atomic_float::AtomicF64;
++use portable_atomic::AtomicF64;
+ use calloop::{Interest, LoopHandle, Mode, PostAction, generic::Generic};
+ use rustix::fs::OFlags;
+ use std::{
+diff '--color=auto' -ru a/src/xwayland/xwm/surface.rs b/src/xwayland/xwm/surface.rs
+--- a/src/xwayland/xwm/surface.rs
++++ b/src/xwayland/xwm/surface.rs
+@@ -22,7 +22,7 @@
+     utils::Point,
+ };
+ 
+-use atomic_float::AtomicF64;
++use portable_atomic::AtomicF64;
+ use encoding_rs::WINDOWS_1252;
+ use std::{
+     borrow::Cow,
