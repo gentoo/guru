@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mr.shurpatov@gmail.com</email>
+		<name>Darllowin</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">dividebysandwich/LightningView</remote-id>
+		<bugs-to>https://github.com/dividebysandwich/LightningView/issues</bugs-to>
+	</upstream>
+	<use>
+		<flag name="alsa">Enable ALSA audio output</flag>
+		<flag name="pipewire">Enable PipeWire sound server support</flag>
+		<flag name="pulseaudio">Enable PulseAudio sound server support</flag>
+		<flag name="X">Enable X11 video backend</flag>
+		<flag name="wayland">Enable Wayland video backend</flag>
+	</use>
+</pkgmetadata>
