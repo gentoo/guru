@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -6,9 +6,9 @@ EAPI=7
 inherit toolchain-funcs xdg-utils
 
 DESCRIPTION="GTK+ 3.0 implementation of an AT&T / Teletype DMD 5620 emulator."
-HOMEPAGE="https://github.com/sethm/dmd_gtk"
-SRC_URI="https://github.com/sethm/dmd_gtk/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/dmd_gtk-${PV}"
+HOMEPAGE="https://git.loomcom.com/seth/dmd_gtk"
+SRC_URI="https://git.loomcom.com/seth/dmd_gtk/archive/db99836fc2d5d5c3d3b361f7998aee00e423564b.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/dmd_gtk"
 
 LICENSE="MIT"
 SLOT="0"
