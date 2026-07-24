@@ -300,6 +300,8 @@ SRC_URI="
 	${CARGO_CRATE_URIS}
 "
 
+RUST_MIN_VER="1.87.0"
+
 LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
