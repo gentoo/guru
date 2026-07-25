@@ -4,9 +4,9 @@
 EAPI=8
 
 CRATES="
-cc@1.3.0
-find-msvc-tools@0.1.9
-shlex@2.0.1
+	cc@1.3.0
+	find-msvc-tools@0.1.9
+	shlex@2.0.1
 "
 
 inherit cargo
@@ -39,23 +39,23 @@ src_prepare()
 src_test()
 {
 
-mkdir -p build || die
-cp target/release/b build/b || die
+	mkdir -p build || die
+	cp target/release/b build/b || die
 
-cargo_src_compile --bin btest
-einfo "Running btest matrix..."
-./target/release/btest || die "btest failed"
+	cargo_src_compile --bin btest
+	einfo "Running btest matrix..."
+	./target/release/btest || die "btest failed"
 }
 
 src_compile()
 {
-cargo_src_compile --bin bgen
-einfo "Running bgen code generator..."
-./target/release/bgen || die "bgen execution failed"
-cargo_src_compile --bin b
+	cargo_src_compile --bin bgen
+	einfo "Running bgen code generator..."
+	./target/release/bgen || die "bgen execution failed"
+	cargo_src_compile --bin b
 }
 
 src_install()
 {
-cargo_src_install --bin b
+	cargo_src_install --bin b
 }
