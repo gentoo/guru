@@ -1,11 +1,11 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit desktop optfeature xdg verify-sig
 
-DESCRIPTION="The Mullvad Browser is developed to minimize tracking and fingerprinting."
+DESCRIPTION="The Mullvad Browser is developed to minimize tracking and fingerprinting"
 HOMEPAGE="https://github.com/mullvad/mullvad-browser/ https://mullvad.net/"
 SRC_NAME="https://github.com/mullvad/mullvad-browser/releases/download/${PV}/mullvad-browser-linux-x86_64-${PV}.tar.xz"
 SRC_URI="
@@ -47,14 +47,21 @@ RDEPEND="
 	x11-libs/libXrender
 	x11-libs/libXt
 	x11-libs/libXtst
+	x11-libs/gdk-pixbuf
+	x11-libs/gtk+
+	x11-libs/libXext
+	x11-libs/pango
 "
 BDEPEND="
 	verify-sig? ( sec-keys/openpgp-keys-mullvad-browser-bin )
 "
 
-VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/mullvad-browser-bin.asc
-
 QA_PREBUILT="*"
+
+src_unpack() {
+	VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/mullvad-browser-bin.asc
+	default
+}
 
 src_install() {
 	# Install profiles to home dir
