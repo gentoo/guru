@@ -5,6 +5,10 @@
                 <email>justin026@protonmail.com</email>
                 <name>Justin</name>
         </maintainer>
+        <maintainer type="person">
+                <email>bakedsnake@vagrantz.xyz</email>
+                <name>Gil (bakedsnake)</name>
+        </maintainer>
         <upstream>
                 <remote-id type="github">mullvad/mullvad-browser</remote-id>
         </upstream>
