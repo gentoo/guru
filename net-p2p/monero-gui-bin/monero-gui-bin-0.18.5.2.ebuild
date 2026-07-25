@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop xdg
 
-DESCRIPTION="An open-source GUI wallet developed by the Monero community."
+DESCRIPTION="An open-source GUI wallet developed by the Monero community"
 HOMEPAGE="https://github.com/monero-project/monero-gui/ https://www.getmonero.org/"
 SRC_URI="https://downloads.getmonero.org/gui/monero-gui-linux-x64-v${PV}.tar.bz2 -> ${P}.tar.bz2"
 
