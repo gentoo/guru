@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 flag-o-matic
 
-DESCRIPTION="Python wrapper for the C library CRoaring."
+DESCRIPTION="Python wrapper for the C library CRoaring"
 HOMEPAGE="https://github.com/Ezibenroc/PyRoaringBitMap"
 # tests not included in pypi tarballs
 SRC_URI="

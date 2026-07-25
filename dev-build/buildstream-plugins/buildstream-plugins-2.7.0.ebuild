@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
 
-DESCRIPTION="A collection of plugins for the BuildStream project."
+DESCRIPTION="A collection of plugins for the BuildStream project"
 HOMEPAGE="https://apache.github.io/buildstream-plugins/"
 SRC_URI="
 	https://github.com/apache/buildstream-plugins/archive/refs/tags/${PV}.tar.gz
