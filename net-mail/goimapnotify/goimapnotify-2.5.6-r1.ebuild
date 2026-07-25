@@ -14,8 +14,6 @@ HOMEPAGE="https://radicle.network/nodes/jardin.jorgearaya.dev/rad:z39RJHSHs166S5
 
 LICENSE="GPL-3 MIT MPL-2.0 BSD BSD-2 Apache-2.0"
 
-KEYWORDS="~amd64"
-
 SLOT="0"
 
 src_unpack() {
