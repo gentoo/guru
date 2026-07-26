@@ -2,8 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email>ingenarel_neojesus@disroot.org</email>
-    <name>ingenarel</name>
+  <!-- maintainer needed -->
   </maintainer>
   <longdescription>
     This small application allows Tridactyl to communicate with your system, allowing Tridactyl to read files on your
