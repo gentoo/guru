@@ -1,4 +1,4 @@
-# Copyright 2020-2025 Gentoo Authors
+# Copyright 2020-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ LUA_COMPAT=( lua5-{1..2} luajit )
 
 inherit lua-single
 
-DESCRIPTION="Use nvim as a pager to view manpages, diff, etc with nvim's syntax highlighting."
+DESCRIPTION="Use nvim as a pager to view manpages, diff, etc with nvim's syntax highlighting"
 HOMEPAGE="https://github.com/lucc/nvimpager"
 SRC_URI="https://github.com/lucc/nvimpager/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -19,7 +19,7 @@ REQUIRED_USE="test? ( ${LUA_REQUIRED_USE} )"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	>=app-editors/neovim-0.9.0[-nvimpager]
+	>=app-editors/neovim-0.12.3[-nvimpager]
 	app-shells/bash
 "
 RDEPEND="${DEPEND}"
