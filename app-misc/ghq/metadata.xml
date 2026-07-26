@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
   <!-- maintainer needed -->
-  </maintainer>
   <upstream>
     <remote-id type="github">x-motemen/ghq</remote-id>
     <bugs-to>https://github.com/x-motemen/ghq/issues</bugs-to>
