@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32"
+USE_RUBY="ruby32 ruby33 ruby34 ruby40"
 RUBY_OPTIONAL="yes"
 
 inherit readme.gentoo-r1 ruby-ng
@@ -19,7 +19,7 @@ KEYWORDS="~amd64"
 IUSE="test"
 REQUIRED_USE="test? ( || ( $(ruby_get_use_targets) ) )"
 
-RDEPEND=">=app-shells/zsh-4.3.11"
+RDEPEND=">=app-shells/zsh-5.9.1"
 BDEPEND="
 	test? (
 		${RDEPEND}
@@ -28,7 +28,7 @@ BDEPEND="
 		dev-ruby/bundler
 		dev-ruby/pry
 		dev-ruby/pry-byebug
-		dev-ruby/rspec:3
+		dev-ruby/rspec
 		dev-ruby/rspec-wait
 		virtual/rubygems
 	)
