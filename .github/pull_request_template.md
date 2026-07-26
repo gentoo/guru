@@ -12,3 +12,5 @@ Please check all the boxes that apply:
 - [ ] All e-mail addresses added to `metadata.xml` correspond to valid [Gentoo Bugzilla](https://bugs.gentoo.org/), and I will be reading the bug mail send to them, or none were added.
 
 Please note that all boxes must be checked for the pull request to be merged.
+
+Ideally, please file the pull request against the `dev` branch to avoid potential merge conflicts. However, since pull requests are merged manually, there is no need to close if opened against `master` instead.
