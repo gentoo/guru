@@ -7,7 +7,7 @@ RUBY_FAKEGEM_EXTRADOC=""
 RUBY_FAKEGEM_GEMSPEC="rspec-wait.gemspec"
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_TASK_TEST=""
-USE_RUBY="ruby31 ruby32"
+USE_RUBY="ruby32 ruby33 ruby34 ruby40"
 
 inherit ruby-fakegem
 
