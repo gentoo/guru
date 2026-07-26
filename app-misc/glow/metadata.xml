@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
   <!-- maintainer needed -->
-  </maintainer>
   <upstream>
     <remote-id type="github">charmbracelet/glow</remote-id>
   </upstream>

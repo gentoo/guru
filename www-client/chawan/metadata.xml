@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
   <!-- maintainer needed -->
-  </maintainer>
   <longdescription>
     Chawan is a text-mode web browser and pager for Unix-like systems, with a focus on implementing modern web standards
     while remaining self-contained, easy to understand and extensible. It includes functionality like CSS, inline images

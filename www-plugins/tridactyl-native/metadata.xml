@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
   <!-- maintainer needed -->
-  </maintainer>
   <longdescription>
     This small application allows Tridactyl to communicate with your system, allowing Tridactyl to read files on your
     computer, including "RC" configuration files; write files to your computer launch applications, including opening
