@@ -30,6 +30,7 @@ DEPEND="
 	gnome-base/librsvg:2
 	media-libs/fontconfig
 	media-libs/freetype
+	media-libs/libjxl
 	media-libs/libwebp
 	media-libs/mesa
 	media-video/pipewire
