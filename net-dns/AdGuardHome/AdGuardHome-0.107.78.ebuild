@@ -20,8 +20,7 @@ LICENSE="GPL-3"
 LICENSE+=" Apache-2.0 BSD BSD-2 MIT ZLIB"
 
 SLOT="0"
-#KEYWORDS="~amd64 ~arm64"
-KEYWORDS="" # Masked until dev-lang/go-1.26.5 is available
+KEYWORDS="~amd64 ~arm64"
 
 IUSE="+web"
 # RESTRICT="test"
