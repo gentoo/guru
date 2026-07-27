@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<longdescription lang="en">
+		An mdformat plugin that adds GitHub Flavored Markdown support, covering
+		tables, task list items, strikethroughs and autolinks. It registers two
+		plugins, gfm for the full GFM syntax and tables for table rendering
+		alone, and supersedes the mdformat-tables plugin.
+	</longdescription>
+	<longdescription lang="zh">
+		为 mdformat 添加 GitHub Flavored Markdown 支持的插件，涵盖表格、任务
+		列表项、删除线和自动链接。它注册两个插件，gfm 提供完整的 GFM 语法，
+		tables 仅提供表格渲染，并取代了原先的 mdformat-tables 插件。
+	</longdescription>
+	<upstream>
+		<remote-id type="github">hukkin/mdformat-gfm</remote-id>
+		<remote-id type="pypi">mdformat-gfm</remote-id>
+	</upstream>
+</pkgmetadata>
