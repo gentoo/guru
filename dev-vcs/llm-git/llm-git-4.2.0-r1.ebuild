@@ -17,12 +17,21 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-python/httpx[${PYTHON_USEDEP}]
-	dev-python/jinja2[${PYTHON_USEDEP}]
+	>=dev-python/httpx2-2.4.0[${PYTHON_USEDEP}]
 	dev-python/blake3[${PYTHON_USEDEP}]
+	dev-python/jinja2[${PYTHON_USEDEP}]
+	dev-vcs/git
 "
 
 BDEPEND="test? ( dev-vcs/git )"
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
+
+src_prepare() {
+	sed -i \
+		-e 's/^import httpx$/import httpx2 as httpx/' \
+		lgit/{api,cli,tokens}.py || die
+	sed -i -e 's/"httpx"/"httpx2"/' pyproject.toml || die
+	distutils-r1_src_prepare
+}
