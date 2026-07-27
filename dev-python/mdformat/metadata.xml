@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<longdescription lang="en">
+		Mdformat is an opinionated Markdown formatter that can be used to
+		enforce a consistent style in Markdown files. It is a CommonMark
+		compliant formatter, and its plugin system extends the syntax it
+		understands, for example to GitHub Flavored Markdown tables.
+	</longdescription>
+	<longdescription lang="zh">
+		Mdformat 是一个风格固定的 Markdown 格式化工具，用于在 Markdown 文件中
+		强制统一的排版风格。它完全符合 CommonMark 规范，并通过插件系统扩展所
+		支持的语法，例如 GitHub Flavored Markdown 表格。
+	</longdescription>
+	<upstream>
+		<remote-id type="github">hukkin/mdformat</remote-id>
+		<remote-id type="pypi">mdformat</remote-id>
+	</upstream>
+</pkgmetadata>
