@@ -24,6 +24,12 @@ RDEPEND="
 "
 BDEPEND="dev-lang/go"
 
+src_prepare() {
+	default
+	sed -i 's|^#!/bin/env bash$|#!/usr/bin/env bash|' \
+		config/vshell/nvim/colorschemes/tokyonight.nvim/scripts/{build,docs} || die
+}
+
 src_compile() {
 	cd backend || die
 	go build -mod=vendor -buildvcs=false -trimpath \
