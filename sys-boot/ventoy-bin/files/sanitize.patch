@@ -114,13 +114,6 @@ diff -rup old/Ventoy2Disk.sh new/Ventoy2Disk.sh
 -else
 -    ash ./tool/VentoyWorker.sh $*
 -fi
--
--if [ -n "$OLDDIR" ]; then 
--    CURDIR=$(pwd)
--    if [ "$CURDIR" != "$OLDDIR" ]; then
--        cd "$OLDDIR"
--    fi
--fi
 +./tool/VentoyWorker.sh $*
 diff -rup old/VentoyPlugson.sh new/VentoyPlugson.sh
 --- VentoyPlugson.sh	2022-12-24 06:00:51.000000000 -0700
