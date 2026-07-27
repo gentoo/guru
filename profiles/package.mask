@@ -61,12 +61,6 @@ x11-drivers/xf86-input-xppen
 # Removal after 2026-06-18
 app-containers/slim
 
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/975050
-# https://bugs.gentoo.org/975051
-# Removal after 2026-06-18
-dev-util/trivy
-
 # Takuya Wakazono <pastalian46@gmail.com> (2026-05-17)
 # Depends on Qt5. Qt6 port is supposedly coming soon.
 # https://github.com/meganz/MEGAsync/issues/954
