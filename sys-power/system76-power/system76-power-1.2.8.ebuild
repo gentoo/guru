@@ -5,195 +5,213 @@ EAPI=8
 
 CRATES="
 	addr2line@0.24.2
-	adler2@2.0.0
+	adler2@2.0.1
 	aho-corasick@1.1.3
-	anstream@0.6.15
-	anstyle-parse@0.2.5
-	anstyle-query@1.1.1
-	anstyle-wincon@3.0.4
-	anstyle@1.0.8
-	anyhow@1.0.91
+	anstream@0.6.19
+	anstyle-parse@0.2.7
+	anstyle-query@1.1.3
+	anstyle-wincon@3.0.9
+	anstyle@1.0.11
+	anyhow@1.0.98
 	async-broadcast@0.5.1
-	async-channel@2.3.1
-	async-executor@1.13.1
+	async-channel@2.5.0
+	async-executor@1.13.2
 	async-fs@1.6.0
 	async-io@1.13.0
-	async-io@2.3.4
+	async-io@2.4.1
 	async-lock@2.8.0
 	async-lock@3.4.0
 	async-process@1.8.1
 	async-recursion@1.1.1
-	async-signal@0.2.10
+	async-signal@0.2.11
 	async-task@4.7.1
-	async-trait@0.1.83
+	async-trait@0.1.88
 	atomic-waker@1.1.2
-	autocfg@1.4.0
-	backtrace@0.3.74
+	autocfg@1.5.0
+	backtrace@0.3.75
 	bitflags@1.3.2
-	bitflags@2.6.0
+	bitflags@2.9.1
 	block-buffer@0.10.4
-	blocking@1.6.1
+	blocking@1.6.2
 	byteorder@1.5.0
-	bytes@1.8.0
-	cc@1.1.31
-	cfg-if@1.0.0
-	clap@4.5.20
-	clap_builder@4.5.20
-	clap_derive@4.5.18
-	clap_lex@0.7.2
-	colorchoice@1.0.2
+	bytes@1.10.1
+	cc@1.2.29
+	cfg-if@1.0.1
+	clap@4.5.40
+	clap_builder@4.5.40
+	clap_derive@4.5.40
+	clap_lex@0.7.5
+	colorchoice@1.0.4
 	concat-in-place@1.1.0
 	concurrent-queue@2.5.0
-	cpufeatures@0.2.14
-	crossbeam-utils@0.8.20
+	cpufeatures@0.2.17
+	crossbeam-utils@0.8.21
 	crypto-common@0.1.6
-	darling@0.20.10
-	darling_core@0.20.10
-	darling_macro@0.20.10
+	darling@0.20.11
+	darling_core@0.20.11
+	darling_macro@0.20.11
 	derivative@2.2.0
-	derive_setters@0.1.6
+	derive_setters@0.1.8
 	digest@0.10.7
-	enumflags2@0.7.10
-	enumflags2_derive@0.7.10
+	enumflags2@0.7.12
+	enumflags2_derive@0.7.12
 	env_filter@0.1.3
-	env_logger@0.11.7
-	equivalent@1.0.1
-	errno@0.3.9
-	event-listener-strategy@0.5.2
+	env_logger@0.11.8
+	equivalent@1.0.2
+	errno@0.3.13
+	event-listener-strategy@0.5.4
 	event-listener@2.5.3
 	event-listener@3.1.0
-	event-listener@5.3.1
+	event-listener@5.4.0
 	fastrand@1.9.0
-	fastrand@2.1.1
+	fastrand@2.3.0
 	fern@0.6.2
 	fnv@1.0.7
 	futures-core@0.3.31
 	futures-io@0.3.31
 	futures-lite@1.13.0
-	futures-lite@2.3.0
+	futures-lite@2.6.0
 	futures-sink@0.3.31
 	futures-task@0.3.31
 	futures-util@0.3.31
 	generic-array@0.14.7
-	getrandom@0.2.15
+	getrandom@0.2.16
+	getrandom@0.3.3
 	gimli@0.31.1
-	hashbrown@0.15.0
+	hashbrown@0.15.4
 	heck@0.5.0
 	hermit-abi@0.3.9
-	hermit-abi@0.4.0
+	hermit-abi@0.5.2
 	hex@0.4.3
 	hidapi@1.5.0
 	ident_case@1.0.1
-	indexmap@2.6.0
+	indexmap@2.10.0
 	inotify-sys@0.1.5
 	inotify@0.10.2
 	instant@0.1.13
 	intel-pstate@1.0.1
 	io-lifetimes@1.0.11
+	io-uring@0.7.8
 	is_terminal_polyfill@1.70.1
-	itoa@1.0.11
-	jiff-static@0.2.5
-	jiff@0.2.5
-	libc@0.2.161
+	itoa@1.0.15
+	jiff-static@0.2.15
+	jiff@0.2.15
+	libc@0.2.174
 	linux-raw-sys@0.3.8
-	linux-raw-sys@0.4.14
-	log@0.4.22
-	memchr@2.7.4
+	linux-raw-sys@0.4.15
+	linux-raw-sys@0.9.4
+	log@0.4.27
+	memchr@2.7.5
 	memoffset@0.7.1
 	memoffset@0.9.1
-	miniz_oxide@0.8.0
-	mio@1.0.2
+	miniz_oxide@0.8.9
+	mio@1.0.4
 	nix@0.26.4
 	numtoa@0.2.4
-	object@0.36.5
-	once_cell@1.20.2
+	object@0.36.7
+	once_cell@1.21.3
+	once_cell_polyfill@1.70.1
 	ordered-stream@0.2.0
 	parking@2.2.1
-	pin-project-lite@0.2.14
+	pin-project-lite@0.2.16
 	pin-utils@0.1.0
 	piper@0.2.4
-	pkg-config@0.3.31
+	pkg-config@0.3.32
 	polling@2.8.0
-	polling@3.7.3
+	polling@3.8.0
 	portable-atomic-util@0.2.4
-	portable-atomic@1.11.0
-	ppv-lite86@0.2.20
+	portable-atomic@1.11.1
+	ppv-lite86@0.2.21
 	proc-macro-crate@1.3.1
-	proc-macro2@1.0.94
+	proc-macro2@1.0.95
 	quote@1.0.40
+	r-efi@5.3.0
 	rand@0.8.5
 	rand_chacha@0.3.1
 	rand_core@0.6.4
-	regex-automata@0.4.8
+	regex-automata@0.4.9
 	regex-syntax@0.8.5
-	regex@1.11.0
-	rustc-demangle@0.1.24
-	rustix@0.37.27
-	rustix@0.38.37
-	ryu@1.0.18
-	serde@1.0.213
-	serde_derive@1.0.213
-	serde_json@1.0.132
-	serde_repr@0.1.19
+	regex@1.11.1
+	rustc-demangle@0.1.25
+	rustix@0.37.28
+	rustix@0.38.44
+	rustix@1.0.7
+	ryu@1.0.20
+	serde@1.0.219
+	serde_derive@1.0.219
+	serde_json@1.0.140
+	serde_repr@0.1.20
 	sha1@0.10.6
 	shlex@1.3.0
-	signal-hook-registry@1.4.2
-	slab@0.4.9
+	signal-hook-registry@1.4.5
+	slab@0.4.10
 	smart-default@0.6.0
 	socket2@0.4.10
-	socket2@0.5.7
+	socket2@0.5.10
 	static_assertions@1.1.0
 	strsim@0.11.1
 	syn@1.0.109
-	syn@2.0.100
-	tempfile@3.13.0
-	thiserror-impl@1.0.65
-	thiserror@1.0.65
-	tokio-macros@2.4.0
-	tokio@1.41.0
-	toml_datetime@0.6.8
+	syn@2.0.104
+	tempfile@3.20.0
+	thiserror-impl@1.0.69
+	thiserror@1.0.69
+	tokio-macros@2.5.0
+	tokio@1.46.1
+	toml_datetime@0.6.11
 	toml_edit@0.19.15
-	tracing-attributes@0.1.27
-	tracing-core@0.1.32
-	tracing@0.1.40
-	typenum@1.17.0
+	tracing-attributes@0.1.30
+	tracing-core@0.1.34
+	tracing@0.1.41
+	typenum@1.18.0
 	uds_windows@1.1.0
-	unicode-ident@1.0.13
+	unicode-ident@1.0.18
 	utf8parse@0.2.2
 	version_check@0.9.5
 	waker-fn@1.2.0
-	wasi@0.11.0+wasi-snapshot-preview1
+	wasi@0.11.1+wasi-snapshot-preview1
+	wasi@0.14.2+wasi-0.2.4
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
 	windows-sys@0.48.0
 	windows-sys@0.52.0
 	windows-sys@0.59.0
+	windows-sys@0.60.2
 	windows-targets@0.48.5
 	windows-targets@0.52.6
+	windows-targets@0.53.2
 	windows_aarch64_gnullvm@0.48.5
 	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_gnullvm@0.53.0
 	windows_aarch64_msvc@0.48.5
 	windows_aarch64_msvc@0.52.6
+	windows_aarch64_msvc@0.53.0
 	windows_i686_gnu@0.48.5
 	windows_i686_gnu@0.52.6
+	windows_i686_gnu@0.53.0
 	windows_i686_gnullvm@0.52.6
+	windows_i686_gnullvm@0.53.0
 	windows_i686_msvc@0.48.5
 	windows_i686_msvc@0.52.6
+	windows_i686_msvc@0.53.0
 	windows_x86_64_gnu@0.48.5
 	windows_x86_64_gnu@0.52.6
+	windows_x86_64_gnu@0.53.0
 	windows_x86_64_gnullvm@0.48.5
 	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_gnullvm@0.53.0
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.6
+	windows_x86_64_msvc@0.53.0
 	winnow@0.5.40
+	wit-bindgen-rt@0.39.0
 	xdg-home@1.3.0
 	zbus@3.15.2
 	zbus_macros@3.15.2
 	zbus_names@2.6.1
 	zbus_polkit@3.0.1
-	zerocopy-derive@0.7.35
-	zerocopy@0.7.35
+	zerocopy-derive@0.8.26
+	zerocopy@0.8.26
 	zvariant@3.15.2
 	zvariant_derive@3.15.2
 	zvariant_utils@1.0.1
