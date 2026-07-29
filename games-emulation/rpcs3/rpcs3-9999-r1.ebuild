@@ -123,6 +123,11 @@ src_prepare() {
 	# Disable automagic ccache
 	sed -i -e '/find_program(CCACHE_PATH ccache .*)/d' CMakeLists.txt || die
 
+	# QA Notice: Compatibility with CMake < 3.5 has been removed from CMake 4
+	find . -maxdepth 9 -type f -name CMakeLists.txt \
+	-exec sed -i -e '/cmake_minimum_required/c\cmake_minimum_required(VERSION 4.0)' {} \; \
+	|| die "Could not update cmake_minimum_required"
+
 	# Unbundle yaml-cpp: system yaml-cpp should be compiled with -fexceptions
 	# sed -i -e '/yaml-cpp/d' 3rdparty/CMakeLists.txt || die
 	# sed -i -e '$afind_package(yaml-cpp)\n' CMakeLists.txt || die
