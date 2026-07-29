@@ -5,8 +5,8 @@
 		<email>bakedsnake@vagrantz.xyz</email>
 		<name>bakedsnake</name>
 	</maintainer>
-    <upstream>
-        <bugs-to>https://github.com/deivid-rodriguez/pry-byebug/issues</bugs-to>
-        <remote-id type="github">deivid-rodriguez/pry-byebug</remote-id>
-    </upstream>
+	<upstream>
+		<bugs-to>https://github.com/deivid-rodriguez/pry-byebug/issues</bugs-to>
+		<remote-id type="github">deivid-rodriguez/pry-byebug</remote-id>
+	</upstream>
 </pkgmetadata>
