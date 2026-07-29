@@ -17,12 +17,18 @@ SERIALIZE_COMMIT="a3103cdf29f66da243c150b0962a3c20e7d059eb"
 SETTINGS_COMMIT="d9246de5677f369054231ddb4d663be6b1eaf45d"
 SIGNALS_COMMIT="d5fdf0e823a6cd3153e5982ec9aa40f737f59b21"
 SOL2_COMMIT="2b0d2fe8ba0074e16b499940c4f3126b9c7d3471"
+DATE_COMMIT="179a6b921ccd6179b5b04dce812a89f71a51b4df"
+FMT_COMMIT="123913715afeb8a437e6388b4473fcc4753e1c9a"
 
 SRC_URI="
 	https://github.com/Chatterino/certify/archive/${CERTIFY_COMMIT}.tar.gz
 		-> ${PN}-certify-${CERTIFY_COMMIT}.tar.gz
+	https://github.com/HowardHinnant/date/archive/${DATE_COMMIT}.tar.gz
+		-> ${PN}-date-${DATE_COMMIT}.tar.gz
 	https://github.com/nonstd-lite/expected-lite/archive/${EXPECTED_COMMIT}.tar.gz
 		-> ${PN}-expected-${EXPECTED_COMMIT}.tar.gz
+	https://github.com/fmtlib/fmt/archive/${FMT_COMMIT}.tar.gz
+		-> ${PN}-fmt-${FMT_COMMIT}.tar.gz
 	https://github.com/Chatterino/libcommuni/archive/${LIBCOMMUNI_COMMIT}.tar.gz
 		-> ${PN}-libcommuni-${LIBCOMMUNI_COMMIT}.tar.gz
 	https://github.com/lua/lua/archive/${LUA_COMMIT}.tar.gz
@@ -98,7 +104,9 @@ src_unpack() {
 	local pkg
 	local -a pkgs=(
 		certify-${CERTIFY_COMMIT}
+		date-${DATE_COMMIT}
 		expected-${EXPECTED_COMMIT}
+		fmt-${FMT_COMMIT}
 		libcommuni-${LIBCOMMUNI_COMMIT}
 		lua-${LUA_COMMIT}
 		magic-${MAGIC_COMMIT}
@@ -134,9 +142,22 @@ src_prepare() {
 	)
 
 	for lib in "${libs[@]}"; do
-		rmdir lib/"${lib}" || die "can't remove stubbed libdirs"
+		rmdir lib/"${lib}" || die "can't remove stubbed libdir: ${lib}"
 		ln -sr ../"${lib}"-* ./lib/"${lib}" || die "failed to create symlink for ${lib}"
 	done
+
+	# bundled sublibs for twitch-eventsub-ws lib
+	libs=(
+		date
+		fmt
+	)
+
+	for lib in "${libs[@]}"; do
+		local -a sublib=lib/twitch-eventsub-ws/lib/"${lib}"
+		rmdir "${sublib}" || die "can't remove stubbed libdir: ${lib}"
+		ln -sr ../"${lib}"-* ./"${sublib}" || die "failed to create symlink for ${lib}"
+	done
+	# --
 
 	# bundled lua -- see chatterino2/pull/6495
 	rmdir lib/lua/src || die
