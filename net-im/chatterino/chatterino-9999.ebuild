@@ -127,7 +127,7 @@ src_unpack() {
 fi
 
 src_prepare() {
-	local lib
+	local lib sublib
 	local -a libs=(
 		certify
 		expected-lite
@@ -153,7 +153,7 @@ src_prepare() {
 	)
 
 	for lib in "${libs[@]}"; do
-		local -a sublib=lib/twitch-eventsub-ws/lib/"${lib}"
+		sublib=lib/twitch-eventsub-ws/lib/"${lib}"
 		rmdir "${sublib}" || die "can't remove stubbed libdir: ${lib}"
 		ln -sr ../"${lib}"-* ./"${sublib}" || die "failed to create symlink for ${lib}"
 	done
