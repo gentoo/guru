@@ -4,7 +4,10 @@
 	<upstream>
 		<remote-id type="github">cyring/CoreFreq</remote-id>
 	</upstream>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>bakedsnake@vagrantz.xyz</email>
+		<name>bakedsnake</name>
+	</maintainer>
 	<longdescription lang="en">
 CoreFreq provides a framework to retrieve CPU data with a high degree of precision:
 
