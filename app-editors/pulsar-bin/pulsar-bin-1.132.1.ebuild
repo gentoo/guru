@@ -79,10 +79,8 @@ src_install(){
 	dosym -r /opt/Pulsar/resources/pulsar.sh /usr/bin/pulsar
 
 	# Bug #906939
-	if use amd64; then
-		rm "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/tree-sitter-bash/build/node_gyp_bins/python3 || die
-		rmdir "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/tree-sitter-bash/build/node_gyp_bins || die
-	fi
+	find "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/ -type l -name python3 -delete || die
+	find "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/ -type d -name node_gyp_bins -delete || die
 
 	doicon "${ED}"/opt/Pulsar/resources/pulsar.png
 	make_desktop_entry "/usr/bin/pulsar %F" "Pulsar" "pulsar" \
