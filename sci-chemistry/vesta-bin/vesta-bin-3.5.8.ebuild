@@ -35,7 +35,7 @@ RDEPEND="x11-libs/gtk+:3[wayland]
 	virtual/glu
 	>=virtual/jre-1.4.1"
 
-RESTRICT="strip"
+RESTRICT="mirror strip"
 
 QA_PREBUILT="opt/VESTA/*"
 
