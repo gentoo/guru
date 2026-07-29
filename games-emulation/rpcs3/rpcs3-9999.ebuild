@@ -82,7 +82,7 @@ QA_PREBUILT="usr/share/rpcs3/test/.*"
 QA_WX_LOAD="usr/share/rpcs3/test/*"
 
 PATCHES=(
-	"${FILESDIR}/${P}-system-stb.patch"
+	"${FILESDIR}/${PN}-system-stb.patch"
 )
 
 src_prepare() {
