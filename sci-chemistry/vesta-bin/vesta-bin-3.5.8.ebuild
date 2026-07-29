@@ -45,9 +45,13 @@ src_install() {
 	fperms +x /opt/VESTA/VESTA
 	fperms +x /opt/VESTA/VESTA-gui
 
-	domenu "${FILESDIR}"/VESTA.desktop
 	newicon -s 128x128 img/logo.png VESTA.png
 	newicon -s 256x256 img/logo@2x.png VESTA.png
+
+	make_desktop_entry "/opt/VESTA/VESTA" \
+					   "VESTA" \
+					   "VESTA" \
+					   "Science;"
 
 	dosym -r /opt/VESTA/libVESTA.so /usr/lib64/libVESTA.so
 }
