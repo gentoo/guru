@@ -23,7 +23,7 @@ KEYWORDS="~amd64"
 RDEPEND="x11-libs/gtk+:3[wayland]
 	>=x11-libs/gtk+-2.10:2
 	>=virtual/glu-9.0-r2
-	>=virtual/jdk-17"
+	>=virtual/jre-1.4.1"
 
 RESTRICT="strip"
 
