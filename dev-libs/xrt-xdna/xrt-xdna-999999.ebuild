@@ -89,27 +89,18 @@ python_check_deps() {
 	python_has_version -b "dev-python/pybind11[${PYTHON_USEDEP}]"
 }
 
+pkg_setup() {
+	python-any-r1_pkg_setup
+}
+
 src_unpack() {
 	if [[ ${PV} == 999999 ]] ; then
 		git-r3_src_unpack
 
 		pushd "${S}" || die
-		local VTD_HASH=$(grep -oP 'VTD/raw/\K[0-9a-f]+' tools/info.json | head -n1)
-		[[ "${VTD_HASH}" == "" ]] && die "Failed to extract VTD hash"
-
-		local VTD_FILES=(
-			"https://github.com/Xilinx/VTD/raw/${VTD_HASH}/archive/strx/xrt_smi_strx.a"
-			"https://github.com/Xilinx/VTD/raw/${VTD_HASH}/archive/phx/xrt_smi_phx.a"
-			"https://github.com/Xilinx/VTD/raw/${VTD_HASH}/archive/npu3/xrt_smi_npu3.a"
-		)
-
-		mkdir -p amdxdna_bins/vtd_archives || die
-
-		for url in "${VTD_FILES[@]}"; do
-			if ! wget -nc "${url}" -O "amdxdna_bins/vtd_archives/${url##*/}"; then
-				die "Fetching from ${url} failed"
-			fi
-		done
+		# This downloads files specified in https://github.com/amd/xdna-driver/blob/main/tools/WHENCE
+		# VTD files signatures are not present in the Manifest, but effectively pinned via "whence-commit"
+		"${EPYTHON}" tools/sync_from_whence.py vtd --out amdxdna_bins/vtd_archives --whence tools/WHENCE || die
 
 		local msgs_url="https://raw.githubusercontent.com/Tanami/markdown-graphviz-svg/${MGS_COMMIT}/src/${MGS}/${MGS}.py"
 		if ! wget -nc "${msgs_url}" -O "${MGS_PY}"; then
