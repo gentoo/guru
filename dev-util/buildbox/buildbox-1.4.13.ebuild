@@ -113,22 +113,6 @@ src_test() {
 	if use fuse; then
 		# fuse: failed to open /dev/fuse: Permission denied
 		addwrite "/dev/fuse"
-
-		# fusermount3: mount failed: Operation not permitted
-		# NOTE: only tested inside container with /dev/fuse mounted
-		# FIXME: test on host
-		CMAKE_SKIP_TESTS+=(
-			casd_local_service_static_instance_tests
-			casd_local_service_dynamic_instance_tests
-			casd_local_service_remote_server_dynamic_instance_tests
-			casd_local_service_remote_server_static_instance_tests
-			casd_local_execution_service_tests
-			casd_hybrid_execution_service_tests
-			casd_hybrid_fallback_execution_service_tests_1
-			casd_hybrid_fallback_execution_service_tests_2
-			casd_hybrid_fallback_execution_service_tests_3
-			fuse_*
-		)
 	fi
 
 	cmake_src_test

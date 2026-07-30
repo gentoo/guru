@@ -60,14 +60,8 @@ python_test() {
 
 	# fuse: failed to open /dev/fuse: Permission denied
 	addwrite "/dev/fuse"
-	# still fails inside a bubblewrap container :/
-	# fusermount3: mount failed: Operation not permitted
 
 	EPYTEST_DESELECT=(
-		# fuse tests
-		tests/sources/bazel.py::test_basic
-		tests/sources/bazel.py::test_multi_url
-		tests/sources/bazel.py::test_no_sha
 		# tests using network
 		tests/sources/bazel_file.py::test_basic
 		tests/sources/bazel_file.py::test_multi_url

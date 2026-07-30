@@ -140,11 +140,6 @@ python_test() {
 		tests/frontend/workspace.py::test_build[workspace-no-guess-strict-zip]
 		tests/frontend/workspace.py::test_build[workspace-no-guess-non-strict-git_tag]
 		tests/frontend/workspace.py::test_build[workspace-no-guess-non-strict-zip]
-		# fuse tests
-		# "std::runtime_error exception thrown at [buildboxcommon_fusestager.cpp:149], errMsg = "The FUSE stager child process unexpectedly died with exit code 2""
-		# TODO: test on host instead of container with /dev/fuse mounted
-		tests/sourcecache
-		tests/sources
 	)
 
 	# to not pollute the source directory and make grepping hard.
