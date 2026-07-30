@@ -74,6 +74,6 @@ src_compile() {
 }
 
 src_install() {
-	cmake_src_install
 	use doc && HTML_DOCS=( "${S}/Documentation/_build/html" )
+	cmake_src_install
 }
