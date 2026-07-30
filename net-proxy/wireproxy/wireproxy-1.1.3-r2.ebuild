@@ -13,7 +13,7 @@ LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-BDEPEND=">=dev-lang/go-1.26"
+BDEPEND=">=dev-lang/go-1.26.0"
 
 src_compile() {
 	ego build ./cmd/wireproxy
