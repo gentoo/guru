@@ -20,7 +20,7 @@ QA_PREBUILT="opt/VESTA/*"
 RDEPEND="app-accessibility/at-spi2-core:2
 	dev-libs/glib:2
 	media-libs/fontconfig:1.0
-	media-libs/libglvnd
+	media-libs/libglvnd[X]
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-2.10:2
