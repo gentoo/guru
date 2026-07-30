@@ -6,20 +6,15 @@ EAPI=8
 inherit desktop xdg
 
 DESCRIPTION="Visualisation for Electronic and STructural Analysis"
-
 HOMEPAGE="https://jp-minerals.org/vesta/en/"
-
 SRC_URI="https://jp-minerals.org/vesta/archives/${PV}/VESTA-gtk3.tar.bz2"
-
 S="${WORKDIR}/VESTA-gtk3"
 
 LICENSE="VESTA"
-
 SLOT="0"
-
 KEYWORDS="~amd64"
-
-BDEPEND="dev-util/patchelf"
+RESTRICT="mirror strip"
+QA_PREBUILT="opt/VESTA/*"
 
 # As of 3.5.6, wayland support required for gtk even when running on xorg.
 RDEPEND="app-accessibility/at-spi2-core:2
@@ -36,10 +31,7 @@ RDEPEND="app-accessibility/at-spi2-core:2
 	x11-libs/pango
 	virtual/glu
 	>=virtual/jre-1.4.1"
-
-RESTRICT="mirror strip"
-
-QA_PREBUILT="opt/VESTA/*"
+BDEPEND="dev-util/patchelf"
 
 src_prepare() {
 	default
