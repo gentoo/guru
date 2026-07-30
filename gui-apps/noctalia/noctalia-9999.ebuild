@@ -31,6 +31,7 @@ DEPEND="
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/libjxl
+	media-libs/libsndfile
 	media-libs/libwebp
 	media-libs/mesa
 	media-video/pipewire
@@ -69,5 +70,7 @@ pkg_postinst() {
 	xdg_pkg_postinst
 
 	optfeature "external display brightness control" app-misc/ddcutil
+	optfeature "battery and power device integration" sys-power/upower
+	optfeature "clipboard auto-paste" gui-apps/wtype
 	optfeature "hardware-accelerated screen recording" media-video/gpu-screen-recorder
 }
