@@ -49,7 +49,7 @@ src_prepare() {
 
 src_install() {
 	insinto /opt/VESTA
-	doins -r "${S}"/*
+	doins -r *
 
 	fperms +x /opt/VESTA/VESTA
 	fperms +x /opt/VESTA/VESTA-gui
