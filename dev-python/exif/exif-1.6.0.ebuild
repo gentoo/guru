@@ -6,7 +6,7 @@ PYTHON_COMPAT=( python3_{12..14} python3_13t )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
-DESCRIPTION="Read and modify image EXIF metadata using Python."
+DESCRIPTION="Read and modify image EXIF metadata using Python"
 HOMEPAGE="https://gitlab.com/TNThieding/exif"
 SRC_URI="https://gitlab.com/TNThieding/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2"
 S="${WORKDIR}/${PN}-v${PV}"
