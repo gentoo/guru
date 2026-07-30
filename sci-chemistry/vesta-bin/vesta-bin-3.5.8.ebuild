@@ -19,6 +19,8 @@ SLOT="0"
 
 KEYWORDS="~amd64"
 
+BDEPEND="dev-util/patchelf"
+
 # As of 3.5.6, wayland support required for gtk even when running on xorg.
 RDEPEND="app-accessibility/at-spi2-core:2
 	dev-libs/glib:2
@@ -39,6 +41,12 @@ RESTRICT="mirror strip"
 
 QA_PREBUILT="opt/VESTA/*"
 
+src_prepare() {
+	default
+
+	patchelf --set-rpath '$ORIGIN' VESTA-gui || die "Failed to add RUNPATH"
+}
+
 src_install() {
 	insinto /opt/VESTA
 	doins -r "${S}"/*
@@ -53,6 +61,4 @@ src_install() {
 					   "VESTA" \
 					   "VESTA" \
 					   "Science;"
-
-	dosym -r /opt/VESTA/libVESTA.so /usr/lib64/libVESTA.so
 }
