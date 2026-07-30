@@ -27,7 +27,7 @@ RDEPEND="app-accessibility/at-spi2-core:2
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-2.10:2
-	x11-libs/gtk+:3[wayland]
+	>=x11-libs/gtk+-3.22:3[wayland]
 	x11-libs/libX11
 	x11-libs/libXtst
 	x11-libs/libXxf86vm
