@@ -68,6 +68,8 @@ python_test() {
 		source_determinism.py::test_deterministic_source_umask[git]
 	)
 
+	export BST_TEST_SUITE=1
+
 	# to not pollute the source directory and make grepping hard.
 	# can't just use ${T} as the --basetemp option removes the directory
 	# if it exists
