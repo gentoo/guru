@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit linux-mod-r1 multiprocessing optfeature toolchain-funcs
+PYTHON_COMPAT=( python3_{11..15} )
+
+inherit linux-mod-r1 multiprocessing optfeature python-any-r1 toolchain-funcs
 
 DESCRIPTION="AMD XDNA Driver"
 HOMEPAGE="https://github.com/amd/xdna-driver"
@@ -13,10 +15,7 @@ if [[ ${PV} == 999999 ]] ; then
 	EGIT_SUBMODULES=()
 	inherit git-r3
 
-	BDEPEND="
-		app-misc/jq
-		net-misc/wget
-	"
+	BDEPEND="${PYTHON_DEPS}"
 else
 	SRC_URI="https://github.com/amd/xdna-driver/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
@@ -53,10 +52,11 @@ SLOT="0"
 IUSE="compress-xz compress-zstd"
 REQUIRED_USE="?? ( compress-xz compress-zstd )"
 
-BDEPEND="
+BDEPEND+="
 	compress-xz? ( app-arch/xz-utils )
 	compress-zstd? ( app-arch/zstd )
 "
+DEPEND="${PYTHON_DEPS}"
 
 pkg_setup() {
 	if use compress-xz || use compress-zstd ; then
@@ -74,6 +74,10 @@ pkg_setup() {
 		linux-info_pkg_setup
 	fi
 	linux-mod-r1_pkg_setup
+
+	if [[ ${PV} == 999999 ]] ; then
+		python-any-r1_pkg_setup
+	fi
 }
 
 pkg_info() {
@@ -95,15 +99,9 @@ src_unpack() {
 	if [[ ${PV} == 999999 ]] ; then
 		git-r3_src_unpack
 
-		while IFS=$'\t' read -r device pci_dev_id pci_rev_id fw_name url; do
-			outdir="${firmware_dir}/${pci_dev_id}_${pci_rev_id}"
-			mkdir -p "${outdir}" || die
-			wget -O "${outdir}/${fw_name}" "${url}" || die
-		done < <(
-			jq -r '.firmwares[] |
-				[.device, .pci_device_id, .pci_revision_id, .fw_name, .url]
-				| @tsv' "${WORKDIR}/${P}/tools/info.json" || die
-		) || die
+		# This downloads files specified in https://github.com/amd/xdna-driver/blob/main/tools/WHENCE
+		# Firmware files signatures are not present in the Manifest, but effectively pinned via "whence-commit"
+		"${EPYTHON}" "${P}/tools/sync_from_whence.py" firmware --out "${firmware_dir}" || die
 	else
 		default
 
@@ -144,17 +142,30 @@ src_install() {
 	if use compress-xz || use compress-zstd; then
 		pushd "${ED}/lib/firmware/amdnpu" &>/dev/null || die
 		einfo "Compressing firmware ..."
-		local compressor
+		local compressor suffix
 
 		if use compress-xz; then
 			compressor="xz -T1 -C crc32"
+			suffix=".xz"
 		elif use compress-zstd; then
 			compressor="zstd -15 -T1 -C -q --rm"
+			suffix=".zst"
 		fi
 		# shellcheck disable=SC2086
 		find . -type f -print0 | \
 			xargs -0 -P $(makeopts_jobs) -I'{}' ${compressor} '{}'
 		assert
+
+		# Symlinks were copied verbatim by doins -r and now point at
+		# filenames that no longer exist because their targets were
+		# just compressed. Relink them at the new, compressed names.
+		local link target
+		while IFS= read -r -d ''  link; do
+			target=$(readlink "${link}") || die
+			ln -sf "${target}${suffix}" "${link}${suffix}" || die
+			rm -f "${link}" || die
+		done < <(find . -type l -print0)
+
 		popd &>/dev/null || die
 	fi
 
