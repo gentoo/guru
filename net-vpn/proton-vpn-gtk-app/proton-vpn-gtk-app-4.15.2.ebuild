@@ -16,9 +16,12 @@ SRC_URI="https://github.com/ProtonVPN/proton-vpn-gtk-app/archive/refs/tags/v${PV
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="elogind systemd"
 RESTRICT="test"
 
 RDEPEND="
+	elogind? ( sys-auth/elogind )
+	systemd? ( sys-apps/systemd:= )
 	$(python_gen_cond_dep '
 		dev-python/dbus-python[${PYTHON_USEDEP}]
 		dev-python/distro[${PYTHON_USEDEP}]
