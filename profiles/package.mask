@@ -37,10 +37,6 @@ sys-devel/clang-bloomberg-p2996
 # Removal after 2026-07-30
 sys-boot/ventoy-bin
 
-# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-06-25)
-# Moved to media-video/lossless-cut-bin in ::gentoo
-media-video/lossless-cut
-
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
 media-sound/noson-app
