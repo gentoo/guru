@@ -47,10 +47,6 @@ net-misc/megasync
 # https://github.com/autokey/autokey/pull/1104
 x11-apps/autokey
 
-# Matt Jolly <kangie@gentoo.org> (2026-03-31)
-# Replaced by sys-fs/bcachefs-tools[modules] in ::gentoo.
-sys-fs/bcachefs-kmod
-
 # Lucio Sauer <watermanpaint@posteo.net> (2026-02-10)
 # The hyprland suite is moving to the unofficial 'hyproverlay' repository at
 #  https://codeberg.org/hyproverlay/hyproverlay.git
