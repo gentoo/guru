@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,6 +20,7 @@ KEYWORDS="~amd64"
 DOCS=( README.md data docs/docs )
 
 RDEPEND="acct-user/anubis"
+BDEPEND=">=dev-lang/go-1.26.4"
 
 src_prepare() {
 	default
