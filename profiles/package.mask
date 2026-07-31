@@ -41,10 +41,6 @@ sys-boot/ventoy-bin
 # Moved to media-video/lossless-cut-bin in ::gentoo
 media-video/lossless-cut
 
-# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-06-24)
-# Moved to www-client/opera-gx in ::gentoo
-www-client/opera-gx-bin
-
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
 media-sound/noson-app

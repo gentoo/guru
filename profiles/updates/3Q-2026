@@ -1,2 +1,3 @@
 move media-sound/qobuz-player media-sound/qobine
 move sci-chemistry/vesta-bin sci-chemistry/vesta
+move www-client/opera-gx-bin www-client/opera-gx
