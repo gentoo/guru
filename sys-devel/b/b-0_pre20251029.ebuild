@@ -39,18 +39,18 @@ src_test()
 {
 
 	mkdir -p build || die
-	cp target/release/b build/b || die
+	cp target/debug/b build/b || die
 
 	cargo_src_compile --bin btest
 	einfo "Running btest matrix..."
-	./target/release/btest || die "btest failed"
+	./target/debug/btest || die "btest failed"
 }
 
 src_compile()
 {
 	cargo_src_compile --bin bgen
 	einfo "Running bgen code generator..."
-	./target/release/bgen || die "bgen execution failed"
+	./target/debug/bgen || die "bgen execution failed"
 	cargo_src_compile --bin b
 }
 
