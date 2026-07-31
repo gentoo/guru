@@ -23,7 +23,7 @@ RDEPEND="
 	>=dev-lang/tk-8.6.12:=
 	>=dev-tcltk/togl-2.0-r3
 	>=dev-tcltk/bwidget-1.9.14
-	media-libs/libglvnd[X]
+	virtual/opengl[X]
 	sci-libs/fftw:3.0=
 	x11-libs/libX11
 "
