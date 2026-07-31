@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,6 +28,7 @@ RDEPEND="
 	dev-python/attrs[${PYTHON_USEDEP}]
 	dev-python/yarl[${PYTHON_USEDEP}]
 	crypt? (
+		dev-python/base58[${PYTHON_USEDEP}]
 		dev-python/python-olm[${PYTHON_USEDEP}]
 		dev-python/pycryptodome[${PYTHON_USEDEP}]
 		dev-python/unpaddedbase64[${PYTHON_USEDEP}]
