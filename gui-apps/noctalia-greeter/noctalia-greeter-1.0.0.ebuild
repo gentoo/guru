@@ -45,6 +45,8 @@ BDEPEND="
 	dev-libs/wayland-protocols
 "
 
+# TODO: unbundle tabler fonts
+
 src_install() {
 	meson_src_install
 
