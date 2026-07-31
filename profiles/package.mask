@@ -50,11 +50,6 @@ www-client/opera-gx-bin
 media-sound/noson-app
 net-p2p/dogecoin-qt
 
-# David Roman <stkw0@disroot.org> (2026-05-21)
-# Not updated since 2024, depends on masked Qt5
-# Removal after 2026-06-21
-x11-drivers/xf86-input-xppen
-
 # Takuya Wakazono <pastalian46@gmail.com> (2026-05-17)
 # Depends on Qt5. Qt6 port is supposedly coming soon.
 # https://github.com/meganz/MEGAsync/issues/954
