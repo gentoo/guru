@@ -30,13 +30,6 @@ net-proxy/MTProxy
 # Removal after 2026-09-04
 sys-devel/clang-bloomberg-p2996
 
-# Paul Zander <negril.nx+gentoo@gmail.com> (2026-06-30)
-# https://bugs.gentoo.org/932824
-# https://bugs.gentoo.org/933208
-# outdated - maintainer-needed
-# Removal after 2026-07-30
-sys-boot/ventoy-bin
-
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
 media-sound/noson-app
