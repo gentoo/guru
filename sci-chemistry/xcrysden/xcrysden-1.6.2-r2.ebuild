@@ -61,7 +61,12 @@ src_install() {
 		prefix="${ED}"/usr \
 		install
 
-	domenu "${FILESDIR}/${PN}.desktop"
 	doicon -s 32x32 "${FILESDIR}/icons/${PN}.png"
+
+	make_desktop_entry "xcrysden" \
+					   "XCrySDen" \
+					   "xcrysden" \
+					   "Science;"
+
 	docompress -x /usr/share/doc/${PF}/examples
 }
