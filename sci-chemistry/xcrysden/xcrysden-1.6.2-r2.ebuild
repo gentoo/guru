@@ -18,7 +18,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=x11-base/xorg-server-21.1.4
 	>=virtual/glu-9.0-r2
 	>=dev-lang/tcl-8.6.12:=
 	>=dev-lang/tk-8.6.12:=
