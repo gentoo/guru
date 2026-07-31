@@ -27,11 +27,11 @@ src_prepare() {
 
 src_install() {
 	insinto /opt/pokemon-colorscripts
-	doins -r "${S}/colorscripts"
-	doins "${S}/pokemon.json"
+	doins -r colorscripts
+	doins pokemon.json
 
 	python_scriptinto /opt/pokemon-colorscripts
-	python_doscript "${S}/pokemon-colorscripts.py"
+	python_doscript pokemon-colorscripts.py
 
 	dosym -r /opt/pokemon-colorscripts/pokemon-colorscripts.py /usr/bin/pokemon-colorscripts
 }
