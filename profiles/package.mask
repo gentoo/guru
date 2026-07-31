@@ -55,12 +55,6 @@ net-p2p/dogecoin-qt
 # Removal after 2026-06-21
 x11-drivers/xf86-input-xppen
 
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/939886
-# https://bugs.gentoo.org/974570
-# Removal after 2026-06-18
-app-containers/slim
-
 # Takuya Wakazono <pastalian46@gmail.com> (2026-05-17)
 # Depends on Qt5. Qt6 port is supposedly coming soon.
 # https://github.com/meganz/MEGAsync/issues/954
@@ -124,4 +118,3 @@ sys-apps/dmemcg-booster
 # Requires gui-libs/libadwaita >= 1.9, which is currently not in
 # the main Gentoo repository.
 >=gnome-extra/Refine-0.8.0
-
