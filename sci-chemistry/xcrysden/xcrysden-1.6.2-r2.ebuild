@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop flag-o-matic toolchain-funcs xdg
 
-DESCRIPTION="For the visualisation of molecular and crystal structures."
+DESCRIPTION="For the visualisation of molecular and crystal structures"
 
 HOMEPAGE="http://www.xcrysden.org/"
 
