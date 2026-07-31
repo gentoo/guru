@@ -40,7 +40,7 @@ PATCHES=(
 
 src_prepare() {
 	default
-	cp "${S}/system/Make.sys-shared" "${S}/Make.sys" || die 'Copying Make.sys to build dir failed.'
+	cp system/Make.sys-shared Make.sys || die 'Copying Make.sys to build dir failed.'
 
 	# fix doc install path
 	sed -e "s|share/doc/\$(xcrysden)|share/doc/${PF}|" \
