@@ -2,7 +2,7 @@
 <!DOCTYPE catmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <catmetadata>
 	<longdescription lang="en">
-		The dev-nim category contains packages whose primary purpose
+		The dev-crystal category contains packages whose primary purpose
 		is to provide Crystal modules, extensions and bindings, as well
 		as tools and utilities useful for development in the Crystal
 		programming language.
