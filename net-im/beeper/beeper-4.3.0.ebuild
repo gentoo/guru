@@ -112,7 +112,7 @@ src_install() {
 		LICENSE.electron.txt
 		LICENSES.chromium.html
 		beepertexts.png
-		resources/app.asar.unpacked/build
+		resources/app.asar.unpacked/build/ff{mpeg,probe}
 		resources/app.asar.unpacked/node_modules/classic-level/prebuilds/linux-x64/classic-level.musl.node
 		usr
 	)
@@ -126,9 +126,13 @@ src_install() {
 	cp -r . "${ED}${apphome}" || die
 	fperms 4711 "${apphome}"/chrome-sandbox
 
+	local shopt_save=$(shopt -p nullglob)
+	shopt -s nullglob
 	local libvips_dest=(
-		resources/app/node_modules/@img/sharp-libvips-linux-x64/lib/libvips-cpp.so.*
+		resources/app.asar.unpacked/node_modules/@img/sharp-libvips-linux-x64/lib/libvips-cpp.so.*
 	)
+	eval "${shopt_save}"
+
 	(( ${#libvips_dest[@]} == 1 )) ||
 		die "multiple or no libvips libraries found"
 	dosym -r /usr/$(get_libdir)/libvips-cpp.so.42 "${apphome}/${libvips_dest[0]}"
