@@ -35,6 +35,7 @@ PATCHES=(
 	"${FILESDIR}/${P}-Togl-lib.patch"
 	"${FILESDIR}/${P}-wrapper-paths.patch"
 	"${FILESDIR}/${P}-c23.patch"
+	"${FILESDIR}/${P}-disable-accum-buffer.patch"
 )
 
 src_prepare() {
