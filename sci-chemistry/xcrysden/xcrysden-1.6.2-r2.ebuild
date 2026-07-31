@@ -6,40 +6,35 @@ EAPI=8
 inherit desktop flag-o-matic toolchain-funcs xdg
 
 DESCRIPTION="For the visualisation of molecular and crystal structures"
-
 HOMEPAGE="http://www.xcrysden.org/"
-
 SRC_URI="http://www.xcrysden.org/download/${P}.tar.gz"
 
 LICENSE="GPL-2+"
-
 SLOT="0"
-
 KEYWORDS="~amd64"
 
-RDEPEND="
-	virtual/glu
-	dev-lang/tcl:=
+RDEPEND="dev-lang/tcl:=
 	dev-lang/tk:=
-	>=dev-tcltk/togl-2.0
 	dev-tcltk/bwidget
-	virtual/opengl[X]
+	>=dev-tcltk/togl-2.0
 	sci-libs/fftw:3.0=
 	x11-libs/libX11
-"
+	virtual/glu
+	virtual/opengl[X]"
 DEPEND="${RDEPEND}"
 
 PATCHES=(
+	"${FILESDIR}/${P}-c23.patch"
+	"${FILESDIR}/${P}-disable-accum-buffer.patch"
 	"${FILESDIR}/${P}-ext-bwidget.patch"
 	"${FILESDIR}/${P}-LDFLAGS.patch"
 	"${FILESDIR}/${P}-Togl-lib.patch"
 	"${FILESDIR}/${P}-wrapper-paths.patch"
-	"${FILESDIR}/${P}-c23.patch"
-	"${FILESDIR}/${P}-disable-accum-buffer.patch"
 )
 
 src_prepare() {
 	default
+
 	cp system/Make.sys-shared Make.sys || die 'Copying Make.sys to build dir failed.'
 
 	# fix doc install path
@@ -51,6 +46,7 @@ src_prepare() {
 
 src_compile() {
 	append-cflags "-fcommon"
+
 	emake xcrysden \
 		CC="$(tc-getBUILD_CC)" \
 		FC="$(tc-getFC)"
