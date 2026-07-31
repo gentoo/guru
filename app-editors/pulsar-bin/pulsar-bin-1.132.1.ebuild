@@ -30,6 +30,7 @@ RDEPEND="
 	dev-libs/glib
 	dev-libs/nss
 	dev-libs/openssl-compat
+	dev-libs/wayland
 	dev-vcs/git
 	media-libs/alsa-lib
 	media-libs/mesa
