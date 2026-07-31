@@ -25,6 +25,7 @@ RDEPEND="
 	dev-libs/olm
 "
 DEPEND="${RDEPEND}"
+BDEPEND=">=dev-lang/go-1.25.0"
 
 DOCS=( {CHANGELOG,README}.md )
 
