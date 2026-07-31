@@ -18,8 +18,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-dev-libs/libayatana-appindicator
-x11-libs/gtk+:3
+	dev-libs/libayatana-appindicator
+	x11-libs/gtk+:3
+	dev-libs/glib
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
@@ -27,7 +28,7 @@ BDEPEND="virtual/pkgconfig"
 src_configure() {
 	local mycmakeargs=(
 		-DHOME="${T}/portage-home"
-)
+	)
 cmake_src_configure
 }
 

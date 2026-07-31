@@ -15,6 +15,7 @@ SLOT="0"
 RDEPEND="
 	dev-libs/libayatana-appindicator
 	x11-libs/gtk+:3
+	dev-libs/glib
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
