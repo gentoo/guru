@@ -46,7 +46,7 @@ src_prepare() {
 	sed -e "s|share/doc/\$(xcrysden)|share/doc/${PF}|" \
 		-e "/ln -sf .*doc/d" \
 		-e "/gzip/d" \
-		-i Makefile || die
+		-i Makefile || die 'Failed to set correct doc install path'
 }
 
 src_compile() {
