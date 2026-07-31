@@ -20,6 +20,7 @@ RDEPEND="${PYTHON_DEPS}"
 
 src_prepare() {
 	default
+
 	sed -i \
 	's#PROGRAM_DIR = os.path.dirname(PROGRAM)#PROGRAM_DIR = "/opt/pokemon-colorscripts/"#g' \
 	pokemon-colorscripts.py || die "sed failed."
