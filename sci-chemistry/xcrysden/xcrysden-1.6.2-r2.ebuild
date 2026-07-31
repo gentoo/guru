@@ -13,8 +13,8 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-lang/tcl:=
-	dev-lang/tk:=
+RDEPEND="dev-lang/tcl:0/8.6
+	dev-lang/tk:0/8.6
 	dev-tcltk/bwidget
 	>=dev-tcltk/togl-2.0
 	sci-libs/fftw:3.0=
