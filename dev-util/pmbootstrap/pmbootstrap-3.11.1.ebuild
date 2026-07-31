@@ -1,4 +1,4 @@
-# Copyright 1999-2026 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,10 @@ PYTHON_COMPAT=( python3_{12..14} )
 inherit distutils-r1 linux-info
 
 DESCRIPTION="Helper tool for developing and building postmarketOS"
-HOMEPAGE="https://postmarketos.org/"
+HOMEPAGE="
+	https://wiki.postmarketos.org/wiki/Pmbootstrap
+	https://gitlab.postmarketos.org/postmarketOS/pmbootstrap
+"
 SRC_URI="https://gitlab.postmarketos.org/postmarketOS/pmbootstrap/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
@@ -34,6 +37,7 @@ EPYTEST_DESELECT=(
 	"test/core/test_pkgrepo.py"
 )
 EPYTEST_PLUGINS=()
+
 distutils_enable_tests pytest
 
 pkg_pretend() {
