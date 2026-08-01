@@ -26,7 +26,3 @@ RDEPEND="
 	dev-python/pygls[${PYTHON_USEDEP}]
 	dev-python/tree-sitter[${PYTHON_USEDEP}]
 "
-BDEPEND="test? ( ${RDEPEND} )"
-
-EPYTEST_PLUGINS=()
-distutils_enable_tests pytest
