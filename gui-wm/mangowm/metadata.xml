@@ -9,15 +9,13 @@
 		<email>junegentoo@gmail.com</email>
 		<name>June Peterson</name>
 	</maintainer>
-	<longdescription lang="en">
-		Mangowm(formerly maomaowm/mangowc) is a Wayland compositor, forked from dwl.
-
-		Mangowm supports customizable complete animations, flexible window layouts
-		(scroller, dwindle, master, etc.), rich window states, scratchpads,
-		window effects and powerful external configuration with live reloading.
+	<longdescription>
+		Mango starts where dwl ends. It keeps the lightweight, fast-build
+		philosophy while adding the features that make a compositor actually
+		usable day-to-day — without the bloat.
 	</longdescription>
 	<use>
-		<flag name="X">Enable support for X11 applications (XWayland)</flag>
+		<flag name="asan">Enable clang's Address Sanitizer functionality.</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">mangowm/mango</remote-id>
@@ -25,6 +23,6 @@
 			<name>DreamMaoMao</name>
 		</maintainer>
 		<bugs-to>https://github.com/mangowm/mango/issues</bugs-to>
-		<changelog>https://github.com/mangowm/mango/releases</changelog>
+		<doc>https://mangowm.github.io/docs</doc>
 	</upstream>
 </pkgmetadata>
