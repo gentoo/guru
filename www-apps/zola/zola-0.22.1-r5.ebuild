@@ -639,6 +639,10 @@ DEPEND="${RDEPEND}"
 
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-always-build-manpages.patch
+)
+
 src_prepare() {
 	default
 	# Upstream enables stripping on rel and disables debuginfo on dev
