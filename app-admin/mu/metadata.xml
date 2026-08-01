@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>derkaca751@gmail.com</email>
+		<name>MulpinKR</name>
+	</maintainer>
+	<longdescription>
+		Minimal privilege escalation runner — a lightweight alternative to
+		sudo/doas. Drops saved UIDs before exec to improve security posture
+		over a plain setuid binary.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">MulpinKR/mu</remote-id>
+	</upstream>
+</pkgmetadata>
