@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>sm+gentoo@skym.fi</email>
+    <name>Skyler Mäntysaari</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">SableClient/Sable</remote-id>
+  </upstream>
+</pkgmetadata>
