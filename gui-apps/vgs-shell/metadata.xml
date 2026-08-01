@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>brad@vanillagreen.com</email>
+    <name>Brad</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">vanillagreencom/vgs</remote-id>
+  </upstream>
+</pkgmetadata>
