@@ -1,11 +1,11 @@
 <app_info>
 <app>
-	<name>cmdock-l</name>
-	<user_friendly_name>CurieMarieDock @PV@ long tasks</user_friendly_name>
+	<name>sidock</name>
+	<user_friendly_name>SiDock@home CurieMarieDock</user_friendly_name>
 </app>
 
 <file_info>
-	<name>cmdock-l_wrapper</name>
+	<name>cmdock_wrapper</name>
 	<sticky/>
 	<executable/>
 </file_info>
@@ -16,7 +16,7 @@
 </file_info>
 
 <file_info>
-	<name>cmdock-l_job.xml</name>
+	<name>sidock_job.xml</name>
 	<sticky/>
 </file_info>
 <file_info>
@@ -25,19 +25,19 @@
 </file_info>
 
 <app_version>
-	<app_name>cmdock-l</app_name>
+	<app_name>sidock</app_name>
 	<version_num>100</version_num>
 	<file_ref>
-		<file_name>cmdock-l_wrapper</file_name>
+		<file_name>cmdock_wrapper</file_name>
 		<main_program/>
 	</file_ref>
 	<file_ref>
 		<file_name>cmdock</file_name>
-		<open_name>cmdock</open_name>
+		<open_name>sidock</open_name>
 		<copy_file/>
 	</file_ref>
 	<file_ref>
-		<file_name>cmdock-l_job.xml</file_name>
+		<file_name>sidock_job.xml</file_name>
 		<open_name>job.xml</open_name>
 		<copy_file/>
 	</file_ref>
@@ -46,5 +46,6 @@
 		<open_name>docking_out</open_name>
 		<copy_file/>
 	</file_ref>
+	<is_wrapper/>
 </app_version>
 </app_info>

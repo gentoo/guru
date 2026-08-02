@@ -1,6 +1,6 @@
 <job_desc>
 	<task>
-		<application>cmdock</application>
+		<application>sidock</application>
 		<stdout_filename>docking_log</stdout_filename>
 		<command_line>-c -j 1 -b 1 -r target.prm -p "@PREFIX@/data/scripts/dock.prm" -f htvs.ptc -i ligands.sdf -o docking_out</command_line>
 		<checkpoint_filename>docking_out.chk</checkpoint_filename>
