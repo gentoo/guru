@@ -62,7 +62,7 @@ SRC_URI="${MULLVAD_SRC_URI} -> ${P}.tar.bz2
 S="${WORKDIR}/${PN}-${MULLVAD_P}-${ESR_PV}"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 SLOT="0/$(ver_cut 1)"
-KEYWORDS="~*"
+KEYWORDS="~amd64"
 
 IUSE="+clang dbus debug eme-free hardened hwaccel jack libproxy pgo pulseaudio selinux sndio"
 IUSE+=" +system-av1 +system-harfbuzz +system-icu +system-jpeg +system-libevent +system-libvpx"
