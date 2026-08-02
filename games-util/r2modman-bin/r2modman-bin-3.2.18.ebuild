@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -64,12 +64,13 @@ RDEPEND="
 "
 
 QA_PREBUILT="
+	/opt/r2modman/chrome_crashpad_handler
 	/opt/r2modman/chrome-sandbox
 	/opt/r2modman/libEGL.so
 	/opt/r2modman/libGLESv2.so
 	/opt/r2modman/libffmpeg.so
 	/opt/r2modman/libvk_swiftshader.so
-	/opt/r2modman/libvulkan.so
+	/opt/r2modman/libvulkan.so.1
 	/opt/r2modman/r2modman
 	/opt/r2modman/swiftshader/libEGL.so
 	/opt/r2modman/swiftshader/libGLESv2.so
