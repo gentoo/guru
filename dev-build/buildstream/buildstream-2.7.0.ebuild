@@ -122,8 +122,6 @@ python_test() {
 
 	# fuse: failed to open /dev/fuse: Permission denied
 	addwrite "/dev/fuse"
-	# still fails inside a bubblewrap container :/
-	# fusermount3: mount failed: Operation not permitted
 
 	local EPYTEST_DESELECT=(
 		# the git_tag and zip tests fail
