@@ -14,7 +14,7 @@ RUST_NEEDS_LLVM=1
 # Minimum version required to build.
 # Max version supported by LLVM_COMPAT.
 RUST_MIN_VER=1.82.0
-#RUST_MAX_VER=1.94.1
+RUST_MAX_VER=1.94.1
 
 PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE="ncurses,sqlite,ssl"
@@ -22,6 +22,7 @@ PYTHON_REQ_USE="ncurses,sqlite,ssl"
 VIRTUALX_REQUIRED="manual"
 
 # Mullvad version & extensions
+MULLVAD_P="${P}esr"
 MULLVAD_PV="${PV}"
 MULLVAD_EXT_PV="0.9.10"
 MULLVAD_EXT_XPI="${PN}-extension-${MULLVAD_EXT_PV}.xpi"
@@ -34,6 +35,7 @@ WASI_SDK_VER=32.0
 WASI_SDK_LLVM_VER=22
 
 MOZ_PN="firefox"
+ESR_PV="15.0-1-build2"
 
 DESCRIPTION="The Mullvad Browser is developed to minimize tracking and fingerprinting"
 HOMEPAGE="https://github.com/mullvad/mullvad-browser/ https://mullvad.net/"
@@ -42,13 +44,13 @@ inherit check-reqs desktop flag-o-matic gnome2-utils linux-info llvm-r1 multipro
 	optfeature pax-utils python-any-r1 readme.gentoo-r1 rust toolchain-funcs virtualx xdg
 
 MULLVAD_BASE_URI="https://gitlab.torproject.org/tpo/applications/${PN}"
-MULLVAD_SRC_URI="${MULLVAD_BASE_URI}/-/archive/${P}esr-15.0-1-build2/${PN}-${P}esr-15.0-1-build2.tar.bz2?ref_type=tags"
+MULLVAD_SRC_URI="${MULLVAD_BASE_URI}/-/archive/${MULLVAD_P}-${ESR_PV}/${PN}-${MULLVAD_P}-${ESR_PV}.tar.bz2?ref_type=tags"
 
 PATCH_URIS=(
 	https://dev.gentoo.org/~juippis/mozilla/patchsets/${FIREFOX_PATCHSET}
 )
 
-SRC_URI="${MULLVAD_SRC_URI} -> ${P}.tar.gz
+SRC_URI="${MULLVAD_SRC_URI} -> ${P}.tar.bz2
 	https://github.com/mullvad/browser-extension/releases/download/v${MULLVAD_EXT_PV}-firefox-beta/${MULLVAD_EXT_XPI}
 	https://github.com/gorhill/uBlock/releases/download/${UBLOCK_PV}/${UBLOCK_XPI}
 	${PATCH_URIS[@]}
@@ -57,7 +59,7 @@ SRC_URI="${MULLVAD_SRC_URI} -> ${P}.tar.gz
 		arm64? ( https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-${WASI_SDK_VER/.*/}/wasi-sdk-${WASI_SDK_VER}-arm64-linux.tar.gz )
 	)"
 
-S="${WORKDIR}/${PN}-${P}esr-15.0-1-build2"
+S="${WORKDIR}/${PN}-${MULLVAD_P}-${ESR_PV}"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 SLOT="0/$(ver_cut 1)"
 KEYWORDS="~*"
@@ -1189,28 +1191,7 @@ src_install() {
 		"${BUILD_DIR}"/dist/bin/${PN} \
 		"${BUILD_DIR}"/dist/bin/plugin-container
 
-	#DESTDIR="${D}" ./mach install || die
-	# ./mach install doesn't install the locale information for some reason.
-	# Use packge-multi-locale instead
-	local mymozlangs=()
-	for lang_tuple in "${MOZ_LANG_MAP[@]}"; do
-		IFS=' ' read -r l10n lang <<< "${lang_tuple}"
-
-		if use "${l10n}"; then
-			mymozlangs+=("${lang}")
-		fi
-	done
-
-	if (( ${#mymozlangs[@]} == 0 )); then
-		einfo "Running ./mach package"
-		./mach package || die
-	else
-		einfo "Running ./mach package-multi-locale"
-		./mach package-multi-locale --locale "${mymozlangs[@]}" || die
-	fi
-
-	dodir "${MOZILLA_FIVE_HOME}" || die
-	cp -r "${BUILD_DIR}"/dist/${PN}/* "${ED}"/"${MOZILLA_FIVE_HOME}" || die
+	DESTDIR="${D}" ./mach install || die
 
 	# Upstream cannot ship symlink but we can (bmo#658850)
 	rm "${ED}${MOZILLA_FIVE_HOME}/${PN}-bin" || die
@@ -1236,8 +1217,6 @@ src_install() {
 	local PREFS_DIR="${MOZILLA_FIVE_HOME}/browser/defaults/preferences"
 	insinto "${PREFS_DIR}"
 	newins "${FILESDIR}"/gentoo-default-prefs.js gentoo-prefs.js
-	# Enable extensions in private ( this is always required for mullvad )
-	#newins "${FILESDIR}"/mullvad-extension-prefs.json extension-preferences.json
 
 	local GENTOO_PREFS="${ED}${PREFS_DIR}/gentoo-prefs.js"
 
