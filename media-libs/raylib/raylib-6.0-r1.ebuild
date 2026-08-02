@@ -38,7 +38,11 @@ RDEPEND="
 		dev-libs/wayland
 		media-libs/mesa[wayland]
 	)
-	system-glfw? ( >=media-libs/glfw-3.2.1 )
+	system-glfw? (
+		virtual/opengl
+		x11-libs/libXrandr
+		>=media-libs/glfw-3.2.1
+	)
 "
 DEPEND="${RDEPEND}"
 
