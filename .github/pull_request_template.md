@@ -9,6 +9,7 @@ Please check all the boxes that apply:
 - [ ] I have certified the above via adding a `Signed-off-by` line to *every* commit in the pull request.
 - [ ] This contribution has not been created with the assistance of Natural Language Processing artificial intelligence tools, in accordance with the [AI policy](https://wiki.gentoo.org/wiki/Project:Council/AI_policy).
 - [ ] I have run `pkgcheck scan --commits --net` to check for issues with my commits.
+- [ ] I have included the build logs for all the packages I'm adding or modifying.
 - [ ] All e-mail addresses added to `metadata.xml` correspond to valid [Gentoo Bugzilla](https://bugs.gentoo.org/), and I will be reading the bug mail send to them, or none were added.
 
 Please note that all boxes must be checked for the pull request to be merged.
