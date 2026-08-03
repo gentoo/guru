@@ -7,58 +7,74 @@ DOTNET_PKG_COMPAT="10.0"
 
 NUGETS="
 awesomeassertions@9.3.0
+benchmarkdotnet.annotations@0.15.5
+benchmarkdotnet@0.15.5
+cliwrap@3.9.0
+commandlineparser@2.9.1
 diffengine@7.3.0
 emptyfiles@2.7.0
 enumerableasyncprocessor@3.8.4
+gee.external.capstone@2.3.0
 githubactionstestlogger@2.4.1
+iced@1.21.0
 ini-parser-netstandard@2.5.3
-libgit2sharp@0.31.0
 libgit2sharp.nativebinaries@2.0.323
+libgit2sharp@0.31.0
 lovettsoftware.xmldiff@1.1.0
+microsoft.aspnetcore.spaservices.extensions@9.0.10
+microsoft.bcl.asyncinterfaces@1.1.0
 microsoft.bcl.asyncinterfaces@10.0.5
+microsoft.build.notargets@3.1.0
 microsoft.codeanalysis.analyzers@5.3.0-2.25625.1
 microsoft.codeanalysis.common@5.3.0
 microsoft.codeanalysis.csharp@5.3.0
 microsoft.codeanalysis.publicapianalyzers@4.14.0
 microsoft.csharp@4.7.0
+microsoft.diagnostics.netcore.client@0.2.410101
+microsoft.diagnostics.netcore.client@0.2.510501
+microsoft.diagnostics.runtime@3.1.512801
+microsoft.diagnostics.tracing.traceevent@3.1.21
 microsoft.diasymreader@2.0.0
-microsoft.extensions.configuration@8.0.0
+microsoft.dotnet.platformabstractions@3.1.6
 microsoft.extensions.configuration.abstractions@8.0.0
 microsoft.extensions.configuration.binder@8.0.0
 microsoft.extensions.configuration.binder@8.0.2
-microsoft.extensions.dependencyinjection@9.0.10
+microsoft.extensions.configuration@8.0.0
 microsoft.extensions.dependencyinjection.abstractions@8.0.0
 microsoft.extensions.dependencyinjection.abstractions@8.0.2
 microsoft.extensions.dependencyinjection.abstractions@9.0.10
+microsoft.extensions.dependencyinjection@9.0.10
 microsoft.extensions.dependencymodel@6.0.2
-microsoft.extensions.logging@9.0.10
 microsoft.extensions.logging.abstractions@8.0.2
 microsoft.extensions.logging.abstractions@9.0.10
 microsoft.extensions.logging.configuration@8.0.1
+microsoft.extensions.logging@9.0.10
+microsoft.extensions.options.configurationextensions@8.0.0
 microsoft.extensions.options@8.0.0
 microsoft.extensions.options@8.0.2
 microsoft.extensions.options@9.0.10
-microsoft.extensions.options.configurationextensions@8.0.0
 microsoft.extensions.primitives@8.0.0
 microsoft.extensions.primitives@9.0.10
+microsoft.net.compilers.toolset@5.3.0
 microsoft.netcore.platforms@1.1.0
 microsoft.netcore.platforms@5.0.0
 microsoft.netcore.platforms@5.0.1
 microsoft.testing.extensions.codecoverage@18.1.0
-microsoft.testing.extensions.trxreport@2.0.2
 microsoft.testing.extensions.trxreport.abstractions@2.0.2
+microsoft.testing.extensions.trxreport@2.0.2
+microsoft.testing.platform.msbuild@2.0.2
 microsoft.testing.platform@2.0.0
 microsoft.testing.platform@2.0.2
-microsoft.testing.platform.msbuild@2.0.2
 microsoft.testplatform.objectmodel@17.10.0
 microsoft.win32.registry.accesscontrol@5.0.0
 microsoft.win32.systemevents@5.0.0
 microsoft.windows.compatibility@5.0.2
 netstandard.library@2.0.3
 nreco.logging.file@1.2.2
+perfolizer@0.5.4
 polysharp@1.15.0
-runtime.linux-arm64.runtime.native.system.io.ports@5.0.0-rtm.20519.4
 runtime.linux-arm.runtime.native.system.io.ports@5.0.0-rtm.20519.4
+runtime.linux-arm64.runtime.native.system.io.ports@5.0.0-rtm.20519.4
 runtime.linux-x64.runtime.native.system.io.ports@5.0.0-rtm.20519.4
 runtime.native.system.data.sqlclient.sni@4.7.0
 runtime.native.system.io.ports@5.0.0
@@ -67,15 +83,26 @@ runtime.win-arm64.runtime.native.system.data.sqlclient.sni@4.4.0
 runtime.win-x64.runtime.native.system.data.sqlclient.sni@4.4.0
 runtime.win-x86.runtime.native.system.data.sqlclient.sni@4.4.0
 scriban@7.0.3
+serilog.extensions.logging.file@3.0.0
+serilog.extensions.logging@3.1.0
+serilog.formatting.compact@1.1.0
+serilog.sinks.async@1.5.0
+serilog.sinks.file@3.2.0
+serilog.sinks.rollingfile@3.3.0
+serilog@2.10.0
+serilog@2.3.0
+serilog@2.8.0
+serilog@2.9.0
 strongnamer@0.2.5
 system.buffers@4.5.1
 system.buffers@4.6.0
 system.buffers@4.6.1
 system.codedom@5.0.0
+system.codedom@9.0.5
 system.collections.immutable@9.0.0
 system.commandline@2.0.0-beta4.22272.1
-system.componentmodel.composition@5.0.0
 system.componentmodel.composition.registration@5.0.0
+system.componentmodel.composition@5.0.0
 system.configuration.configurationmanager@5.0.0
 system.data.datasetextensions@4.5.0
 system.data.odbc@5.0.0
@@ -86,18 +113,19 @@ system.diagnostics.eventlog@5.0.0
 system.diagnostics.eventlog@5.0.1
 system.diagnostics.performancecounter@5.0.0
 system.diagnostics.performancecounter@5.0.1
-system.directoryservices@5.0.0
 system.directoryservices.accountmanagement@5.0.0
 system.directoryservices.protocols@5.0.0
+system.directoryservices@5.0.0
 system.drawing.common@5.0.0
-system.io.abstractions@22.1.1
 system.io.abstractions.testinghelpers@22.0.16
+system.io.abstractions@22.1.1
 system.io.filesystem.accesscontrol@5.0.0
 system.io.hashing@9.0.10
 system.io.packaging@5.0.0
 system.io.pipelines@10.0.5
 system.io.ports@5.0.0
 system.management@5.0.0
+system.management@9.0.5
 system.memory@4.5.4
 system.memory@4.5.5
 system.memory@4.6.0
@@ -107,6 +135,7 @@ system.numerics.vectors@4.6.1
 system.private.servicemodel@4.8.0
 system.reflection.context@5.0.0
 system.reflection.metadata@9.0.0
+system.reflection.typeextensions@4.7.0
 system.runtime.caching@5.0.0
 system.runtime.compilerservices.unsafe@6.0.0
 system.runtime.compilerservices.unsafe@6.1.0
@@ -133,16 +162,16 @@ system.text.json@10.0.5
 system.threading.tasks.extensions@4.6.0
 system.threading.tasks.extensions@4.6.3
 system.windows.extensions@5.0.0
-testableio.system.io.abstractions@22.1.1
 testableio.system.io.abstractions.testinghelpers@22.0.16
 testableio.system.io.abstractions.wrappers@22.0.16
 testableio.system.io.abstractions.wrappers@22.1.1
+testableio.system.io.abstractions@22.1.1
 testably.abstractions.filesystem.interface@10.1.0
 testably.abstractions.filesystem.interface@9.0.0
-tunit@1.5.80
 tunit.assertions@1.5.80
 tunit.core@1.5.80
 tunit.engine@1.5.80
+tunit@1.5.80
 yamldotnet@16.3.0
 "
 
@@ -169,6 +198,8 @@ CHECKREQS_DISK_BUILD="2G"
 
 DOCS=( CHANGELOG.md README.md )
 
+PATCHES=( "${FILESDIR}"/${P}-compilers-toolset-pinned.patch )
+
 pkg_setup() {
 	check-reqs_pkg_setup
 	dotnet-pkg_pkg_setup
@@ -190,6 +221,7 @@ src_test() {
 	# so used edotnet run directly
 	edotnet run --project "${TEST_PROJECT}" \
 		--configuration Release \
+		--framework "net${DOTNET_PKG_COMPAT}" \
 		--no-restore \
 		-- \
 		--maximum-parallel-tests "${jobs}"
