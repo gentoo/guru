@@ -20,3 +20,8 @@ src_install() {
 	insinto /usr/share/themes
 	doins -r adw-gtk3{,-dark}
 }
+
+pkg_postinst() {
+	einfo "To apply this theme run:"
+	einfo "gsettings set org.gnome.desktop.interface gtk-theme ${PN}"
+}
