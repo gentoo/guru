@@ -3,6 +3,7 @@
 <pkgmetadata>
 	<maintainer type="person">
 		<email>mit.mis@gmail.com</email>
+		<name>Michal Andrzejczak</name>
 	</maintainer>
 	<longdescription lang="en">
 		CSharpier is an opinionated code formatter for C#.  It parses the

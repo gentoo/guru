@@ -152,8 +152,7 @@ DESCRIPTION="An opinionated code formatter for C#"
 HOMEPAGE="https://csharpier.com/
 	https://github.com/belav/csharpier/"
 SRC_URI="https://github.com/belav/${PN}/archive/refs/tags/${PV}.tar.gz
-	-> ${P}.gh.tar.gz"
-SRC_URI+=" ${NUGET_URIS} "
+	-> ${P}.gh.tar.gz ${NUGET_URIS}"
 
 LICENSE="MIT"
 SLOT="0"
@@ -173,10 +172,6 @@ DOCS=( CHANGELOG.md README.md )
 pkg_setup() {
 	check-reqs_pkg_setup
 	dotnet-pkg_pkg_setup
-}
-
-src_prepare() {
-	dotnet-pkg_src_prepare
 }
 
 src_configure() {
