@@ -24,8 +24,8 @@ RDEPEND="dev-lang/tcl:0/8.6
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${P}-c23.patch"
 	"${FILESDIR}/${P}-accumulation-buffer.patch"
+	"${FILESDIR}/${P}-c23.patch"
 	"${FILESDIR}/${P}-ext-bwidget.patch"
 	"${FILESDIR}/${P}-LDFLAGS.patch"
 	"${FILESDIR}/${P}-Togl-lib.patch"
