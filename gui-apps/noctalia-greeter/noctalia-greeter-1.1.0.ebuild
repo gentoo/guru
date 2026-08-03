@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson tmpfiles
+inherit meson optfeature tmpfiles
 
 DESCRIPTION="A minimal login greeter for greetd that matches Noctalia Shell"
 HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia-greeter"
@@ -68,4 +68,6 @@ src_install() {
 
 pkg_postinst() {
 	tmpfiles_process ${PN}.conf
+
+	optfeature "avatars" sys-apps/accountsservice
 }

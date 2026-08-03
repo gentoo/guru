@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson
+inherit meson optfeature
 
 DESCRIPTION="A minimal login greeter for greetd that matches Noctalia Shell"
 HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia-greeter"
@@ -55,4 +55,8 @@ src_install() {
 
 	keepdir /var/lib/${PN}
 	fowners greetd:greetd /var/lib/${PN}
+}
+
+pkg_postinst() {
+	optfeature "avatars" sys-apps/accountsservice
 }
