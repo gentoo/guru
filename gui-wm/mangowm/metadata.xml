@@ -2,6 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<maintainer type="person">
 		<email>sav.boyar@gmail.com</email>
 		<name>Saveliy Boyarchuk (Yappaholic)</name>
 	</maintainer>
