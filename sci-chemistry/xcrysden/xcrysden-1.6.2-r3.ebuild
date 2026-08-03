@@ -25,7 +25,7 @@ DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${P}-c23.patch"
-	"${FILESDIR}/${P}-disable-accum-buffer.patch"
+	"${FILESDIR}/${P}-accumulation-buffer.patch"
 	"${FILESDIR}/${P}-ext-bwidget.patch"
 	"${FILESDIR}/${P}-LDFLAGS.patch"
 	"${FILESDIR}/${P}-Togl-lib.patch"
