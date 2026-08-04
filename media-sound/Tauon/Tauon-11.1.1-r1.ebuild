@@ -4,7 +4,7 @@
 EAPI=8
 PLOCALES="cs de es fr_FR hu id it ja_JP nb_NO pl pt pt_BR pt_PT ru sv tr zh_CN"
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 
@@ -46,7 +46,9 @@ DEPEND="
 	dev-python/natsort[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/pyopengl[${PYTHON_USEDEP}]
+	dev-python/pygobject[${PYTHON_USEDEP}]
 	dev-python/pysdl3[${PYTHON_USEDEP}]
+	dev-python/rapidfuzz[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/setproctitle[${PYTHON_USEDEP}]
 	dev-python/send2trash[${PYTHON_USEDEP}]
@@ -73,6 +75,10 @@ PATCHES=(
 	"${FILESDIR}/${PN}-8.1.0-fix-locale-path.patch"
 )
 
+EPYTEST_DESELECT=( src/tauon/tests/test_launch.py::test_launch_main_script )
+EPYTEST_PLUGINS=()
+distutils_enable_tests pytest
+
 src_compile() {
 	distutils-r1_src_compile
 
@@ -97,6 +103,10 @@ python_install() {
 	domenu extra/tauonmb.desktop
 	doicon -s scalable extra/tauonmb.svg
 
+}
+
+python_test() {
+	epytest -vvv src/tauon/tests
 }
 
 pkg_postinst() {
