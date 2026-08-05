@@ -17,7 +17,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="cups greeter"
-RESTRICT="strip"
 
 DEPEND="
 	app-misc/jq
@@ -42,6 +41,8 @@ BDEPEND="
 	dev-lang/go
 	dev-util/pkgconf
 "
+
+PATCHES=("${FILESDIR}"/"${PN}-1.5.3-no-strip.patch")
 
 # set variables
 QML_DIR="${WORKDIR}"/dms # qml assets location
