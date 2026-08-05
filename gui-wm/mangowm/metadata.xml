@@ -27,6 +27,6 @@
 			<name>DreamMaoMao</name>
 		</maintainer>
 		<bugs-to>https://github.com/mangowm/mango/issues</bugs-to>
-		<doc>https://mangowm.github.io/docs</doc>
+		<doc>https://mangowm.github.io/docs/</doc>
 	</upstream>
 </pkgmetadata>
