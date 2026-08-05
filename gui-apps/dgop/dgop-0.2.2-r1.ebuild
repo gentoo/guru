@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 
 BDEPEND=">=dev-lang/go-1.25.0"
 
-RESTRICT="strip"
+PATCHES=("${FILESDIR}"/"${PN}-0.2.3-no-strip.patch")
 
 src_configure() {
 	sed -i '/^GOFLAGS=/d' "${S}/Makefile"

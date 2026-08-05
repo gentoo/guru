@@ -1,0 +1,21 @@
+diff --git a/Makefile b/Makefile
+index f51a98b..1410ed2 100644
+--- a/Makefile
++++ b/Makefile
+@@ -8,7 +8,6 @@ INSTALL_DIR=/usr/local/bin
+ 
+ # Go settings
+ GO=go
+-GOFLAGS=-ldflags="-s -w"
+ 
+ # Version and build info
+ VERSION=$(shell git describe --tags --always 2>/dev/null || echo "dev")
+@@ -16,7 +15,7 @@ BUILD_TIME=$(shell date -u '+%Y-%m-%d_%H:%M:%S')
+ COMMIT=$(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
+ 
+ # Build flags with version info
+-BUILD_LDFLAGS=-ldflags="-s -w -X main.Version=$(VERSION) -X main.buildTime=$(BUILD_TIME) -X main.commit=$(COMMIT)"
++BUILD_LDFLAGS=-ldflags="-X main.Version=$(VERSION) -X main.buildTime=$(BUILD_TIME) -X main.commit=$(COMMIT)"
+ 
+ .PHONY: all build clean install uninstall test fmt vet deps help
+ 
