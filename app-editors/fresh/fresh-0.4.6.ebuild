@@ -785,7 +785,7 @@ src_prepare() {
 		einfo "Telemetry enabled"
 	else
 		einfo "Removing telemetry"
-		rm -v crates/fresh-editor/src/services/telemetry.rs
+		rm -v crates/fresh-editor/src/services/telemetry.rs || die
 		echo "pub fn should_run_daily_check(_: &dyn crate::services::time_source::TimeSource, _: &std::path::Path) -> Option<String> { None }" > crates/fresh-editor/src/services/telemetry.rs || die
 		echo "pub fn track_open(_: &str) {}" >> crates/fresh-editor/src/services/telemetry.rs || die
 		sed -i 's/"description": "Check for new versions on startup (default: true)[^"]*"/"description": "Check for new versions on startup (default: true). Telemetry disabled by USE flag."/g' crates/fresh-editor/plugins/config-schema.json || die
