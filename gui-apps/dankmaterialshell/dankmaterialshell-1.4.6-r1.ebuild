@@ -104,7 +104,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	tmpfiles_process dms-greeter.conf
+	if use greeter; then
+		tmpfiles_process dms-greeter.conf
+	fi
 	xdg_desktop_database_update
 	xdg_icon_cache_update
 
