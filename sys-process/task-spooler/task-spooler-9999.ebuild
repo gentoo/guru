@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,6 +18,10 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
+
+PATCHES=(
+	"${FILESDIR}"/cmake-bump-minver-2.0.0.patch
+)
 
 src_configure() {
 	local mycmakeargs=(
