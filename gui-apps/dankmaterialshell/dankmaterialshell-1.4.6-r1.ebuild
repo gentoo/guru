@@ -109,6 +109,7 @@ pkg_postinst() {
 		tmpfiles_process dms-greeter.conf
 	fi
 
+	xdg_pkg_postinst
 	optfeature_header "Optional programs for extra features:"
 	optfeature "Audio visualizer" media-sound/cava
 	optfeature "I2C monitor brightness control" app-misc/ddcutil

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop optfeature shell-completion systemd xdg go-module
+inherit desktop optfeature shell-completion systemd go-module xdg
 
 DESCRIPTION="Desktop shell for wayland compositors built with Quickshell"
 HOMEPAGE="https://github.com/AvengeMedia/DankMaterialShell"
@@ -84,6 +84,7 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
 	optfeature_header "Optional programs for extra features:"
 	optfeature "Audio visualizer" media-sound/cava
 	optfeature "I2C monitor brightness control" app-misc/ddcutil
