@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop optfeature shell-completion systemd xdg-utils
+inherit desktop optfeature shell-completion systemd xdg
 
 DESCRIPTION="Desktop shell for wayland compositors built with Quickshell"
 HOMEPAGE="https://github.com/AvengeMedia/DankMaterialShell"
@@ -85,9 +85,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-
 	optfeature_header "Optional programs for extra features:"
 	optfeature "Audio visualizer" media-sound/cava
 	optfeature "I2C monitor brightness control" app-misc/ddcutil
@@ -98,9 +95,4 @@ pkg_postinst() {
 	optfeature "Fingerprint unlock notifier" sys-auth/fprintfd
 	optfeature "Wallpaper based colorscheme" x11-misc/matugen
 	optfeature "Wifi & Ethernet connection" net-misc/networkmanager
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }

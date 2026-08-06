@@ -3,13 +3,18 @@
 
 EAPI=8
 
-inherit desktop optfeature shell-completion systemd xdg-utils go-module
+inherit desktop optfeature shell-completion systemd xdg go-module
 
 DESCRIPTION="Desktop shell for wayland compositors built with Quickshell"
 HOMEPAGE="https://github.com/AvengeMedia/DankMaterialShell"
 
 inherit git-r3
 EGIT_REPO_URI="https://github.com/AvengeMedia/DankMaterialShell.git"
+
+MAIN_DIR="${S}" # git root
+S="${S}/core" # dms cli
+QML_DIR="${MAIN_DIR}"/quickshell # qml assets location
+PATCHES=("${FILESDIR}"/"${PN}-1.5.3-no-strip.patch")
 
 LICENSE="MIT"
 SLOT="0"
@@ -38,63 +43,47 @@ BDEPEND="
 	dev-util/pkgconf
 "
 
-# set variables
-QML_DIR="${S}"/quickshell # qml assets location
-CLI_DIR="${S}"/core
-
 src_unpack() {
 	git-r3_src_unpack
-	cd "${CLI_DIR}"
-	ego mod vendor
-	rm "${QML_DIR}"/DankCommon
-	cp -r "${S}"/dank-qml-common/DankCommon "${QML_DIR}"/DankCommon
-}
-
-src_prepare() {
-	default
-	cd "${CLI_DIR}"
-	eapply "${FILESDIR}"/"${PN}-1.5.3-no-strip.patch"
+	go-module_live_vendor
+	rm "${QML_DIR}"/DankCommon || die "failed to delete symlink to DankCommon"
+	cp -r "${MAIN_DIR}"/dank-qml-common/DankCommon "${QML_DIR}"/DankCommon || die "failed to copy DankCommon dir"
 }
 
 src_configure() {
-	cd "${CLI_DIR}"
 	default
 }
 
 src_compile() {
-	cd "${CLI_DIR}"
 	# build dms distro binary
 	emake VERSION="${PV}" DIST_OSES="linux" dist
 
 	# generate shell completions
-	"${CLI_DIR}"/bin/dms-linux-"${ARCH}" completion bash > "${CLI_DIR}"/dms-bashcomp
-	"${CLI_DIR}"/bin/dms-linux-"${ARCH}" completion zsh > "${CLI_DIR}"/dms-zshcomp
+	"${S}"/bin/dms-linux-"${ARCH}" completion bash > "${S}"/dms-bashcomp
+	"${S}"/bin/dms-linux-"${ARCH}" completion zsh > "${S}"/dms-zshcomp
 }
 
 src_install() {
 	# install dms binary
-	newbin "${CLI_DIR}"/bin/dms-linux-"${ARCH}" dms
+	newbin "${S}"/bin/dms-linux-"${ARCH}" dms
 
 	# install qml sources at /usr/share/quickshell/dms
 	insinto /usr/share/quickshell/dms
 	doins -r "${QML_DIR}/."
 
 	# install shell completions
-	newbashcomp "${CLI_DIR}"/dms-bashcomp dms
-	newzshcomp "${CLI_DIR}"/dms-zshcomp _dms
+	newbashcomp "${S}"/dms-bashcomp dms
+	newzshcomp "${S}"/dms-zshcomp _dms
 
 	# systemd unit
-	systemd_douserunit "${S}"/assets/systemd/dms.service
+	systemd_douserunit "${MAIN_DIR}"/assets/systemd/dms.service
 
 	# desktop entry and icon
-	domenu "${S}"/assets/dms-open.desktop
-	doicon -s scalable "${S}"/assets/danklogo.svg
+	domenu "${MAIN_DIR}"/assets/dms-open.desktop
+	doicon -s scalable "${MAIN_DIR}"/assets/danklogo.svg
 }
 
 pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-
 	optfeature_header "Optional programs for extra features:"
 	optfeature "Audio visualizer" media-sound/cava
 	optfeature "I2C monitor brightness control" app-misc/ddcutil
@@ -105,9 +94,4 @@ pkg_postinst() {
 	optfeature "Fingerprint unlock notifier" sys-auth/fprintfd
 	optfeature "Wallpaper based colorscheme" x11-misc/matugen
 	optfeature "Wifi & Ethernet connection" net-misc/networkmanager
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }
