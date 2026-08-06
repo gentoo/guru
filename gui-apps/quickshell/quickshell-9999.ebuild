@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit branding cmake flag-o-matic xdg
+inherit branding cmake flag-o-matic xdg toolchain-funcs
 
 DESCRIPTION="Toolkit for building desktop widgets using QtQuick"
 HOMEPAGE="https://quickshell.org/"
@@ -76,6 +76,10 @@ BDEPEND="
 DOCS=( README.md changelog/ )
 
 src_configure() {
+	if tc-ld-is-mold; then
+		ewarn "Using mold as a linker for quickshell will cause runtime issues"
+		tc-ld-force-bfd
+	fi
 	# -Werror=strict-aliasing
 	# https://github.com/quickshell-mirror/quickshell/issues/599
 	append-flags -fno-strict-aliasing

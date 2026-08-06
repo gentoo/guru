@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit branding cmake xdg
+inherit branding cmake xdg toolchain-funcs
 
 GIT_REVISION=a1a150fab00a93ea983aaca5df55304bc837f51b
 
@@ -73,6 +73,10 @@ BDEPEND="
 DOCS=( README.md changelog/ )
 
 src_configure() {
+	if tc-ld-is-mold; then
+		ewarn "Using mold as a linker for quickshell will cause runtime issues"
+		tc-ld-force-bfd
+	fi
 	# hyprland controls all Hyprland sub-features as a group.
 	# i3 controls I3/Sway IPC.
 	# screencopy controls all screencopy backends (icc, wlr, hyprland-toplevel).
