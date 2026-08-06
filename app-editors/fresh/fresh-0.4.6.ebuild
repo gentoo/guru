@@ -781,8 +781,7 @@ src_prepare() {
 
 	cp "crates/${MY_PN}/docs/fresh.txt" docs || die
 
-	if use telemetry; then
-	else
+	if !use telemetry; then
 		rm -v crates/fresh-editor/src/services/telemetry.rs || die
 		echo "pub fn should_run_daily_check(_: &dyn crate::services::time_source::TimeSource, _: &std::path::Path) -> Option<String> { None }" > crates/fresh-editor/src/services/telemetry.rs || die
 		echo "pub fn track_open(_: &str) {}" >> crates/fresh-editor/src/services/telemetry.rs || die
