@@ -76,12 +76,12 @@ src_prepare() {
 	# excepting files that should be kept for remote plugins
 	if ! use arm64 ; then
 		local skip_remote_files=(
-			"plugins/platform-ijent-impl/ijent-aarch64-unknown-linux-musl-release"
+			"plugins/platform-ijent-bundledBinaries/ijent-aarch64-unknown-linux-musl-release"
 			"plugins/gateway-plugin/lib/remote-dev-workers/remote-dev-worker-linux-arm64"
 		)
 	elif ! use amd64; then
 		local skip_remote_files=(
-			"plugins/platform-ijent-impl/ijent-x86_64-unknown-linux-musl-release"
+			"plugins/platform-ijent-bundledBinaries/ijent-x86_64-unknown-linux-musl-release"
 			"plugins/gateway-plugin/lib/remote-dev-workers/remote-dev-worker-linux-amd64"
 		)
 	fi
@@ -99,8 +99,8 @@ src_prepare() {
 		fi
 	done
 
-		patchelf --set-rpath '$ORIGIN' "jbr/lib/libjcef.so" || die
-		patchelf --set-rpath '$ORIGIN' "jbr/lib/jcef_helper" || die
+		patchelf --set-rpath '$ORIGIN' "plugins/jcef-plugin/jcef/libjcef.so" || die
+		patchelf --set-rpath '$ORIGIN' "plugins/jcef-plugin/jcef/jcef_helper" || die
 
 		# As per https://blog.jetbrains.com/platform/2024/07/wayland-support-preview-in-2024-2/ for full wayland support
 		if use wayland; then
@@ -111,11 +111,22 @@ src_prepare() {
 src_install() {
 		local dir="/opt/${P}"
 
+		# foreign-arch binaries kept for remote plugins; the host strip
+		# cannot parse them
+		if ! use arm64 ; then
+			dostrip -x "${dir}"/plugins/platform-ijent-bundledBinaries/ijent-aarch64-unknown-linux-musl-release
+			dostrip -x "${dir}"/plugins/gateway-plugin/lib/remote-dev-workers/remote-dev-worker-linux-arm64
+		elif ! use amd64 ; then
+			dostrip -x "${dir}"/plugins/platform-ijent-bundledBinaries/ijent-x86_64-unknown-linux-musl-release
+			dostrip -x "${dir}"/plugins/gateway-plugin/lib/remote-dev-workers/remote-dev-worker-linux-amd64
+		fi
+
 		insinto "${dir}"
 		doins -r *
 		fperms 755 "${dir}"/bin/{"${PN}",fsnotifier,format.sh,inspect.sh,jetbrains_client.sh,ltedit.sh,remote-dev-server,remote-dev-server.sh,restarter}
 		fperms 755 "${dir}"/jbr/bin/{java,javac,javadoc,jcmd,jdb,jfr,jhsdb,jinfo,jmap,jps,jrunscript,jstack,jstat,jwebserver,keytool,rmiregistry,serialver}
-		fperms 755 "${dir}"/jbr/lib/{chrome-sandbox,jcef_helper,jexec,jspawnhelper}
+		fperms 755 "${dir}"/jbr/lib/{jexec,jspawnhelper}
+		fperms 755 "${dir}"/plugins/jcef-plugin/jcef/{chrome-sandbox,jcef_helper}
 
 		make_wrapper "${PN}" "${dir}"/bin/"${PN}"
 		newicon bin/"${PN}".svg "${PN}".svg

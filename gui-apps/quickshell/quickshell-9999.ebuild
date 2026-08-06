@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit branding cmake flag-o-matic xdg
+inherit branding cmake xdg toolchain-funcs
 
 DESCRIPTION="Toolkit for building desktop widgets using QtQuick"
 HOMEPAGE="https://quickshell.org/"
@@ -13,11 +13,12 @@ if [[ "${PV}" = *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/quickshell-mirror/${PN^}.git"
 else
 	SRC_URI="https://github.com/quickshell-mirror/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 LICENSE="LGPL-3"
 SLOT="0"
+
 # Upstream recommends leaving all build options enabled by default
 IUSE="
 	+jemalloc +sockets
@@ -40,15 +41,13 @@ RDEPEND="
 	dev-qt/qtbase:6=[dbus,vulkan,X?]
 	dev-qt/qtsvg:6=
 	dev-qt/qtdeclarative:6=
+	x11-libs/libdrm
 	jemalloc? ( dev-libs/jemalloc )
 	wayland? (
 		dev-libs/wayland
 		dev-qt/qtwayland:6=
 	)
-	screencopy? (
-		x11-libs/libdrm
-		media-libs/mesa
-	)
+	screencopy? ( media-libs/mesa )
 	X? ( x11-libs/libxcb )
 	pipewire? ( media-video/pipewire )
 	pam? ( sys-libs/pam )
@@ -75,12 +74,13 @@ BDEPEND="
 
 DOCS=( README.md changelog/ )
 
-src_configure() {
-	# -Werror=strict-aliasing
-	# https://github.com/quickshell-mirror/quickshell/issues/599
-	append-flags -fno-strict-aliasing
-	filter-lto
+PATCHES=( "${FILESDIR}/${PN}-0.3.0-strict-aliasing.patch" )
 
+src_configure() {
+	if tc-ld-is-mold; then
+		ewarn "Using mold as a linker for quickshell will cause runtime issues"
+		tc-ld-force-bfd
+	fi
 	# hyprland controls all Hyprland sub-features as a group.
 	# i3 controls I3/Sway IPC.
 	# screencopy controls all screencopy backends (icc, wlr, hyprland-toplevel).
@@ -91,7 +91,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DDISTRIBUTOR="${BRANDING_OS_NAME} GURU"
 		-DINSTALL_QML_PREFIX="$(get_libdir)/qt6/qml"
-		-DGIT_REVISION=${EGIT_COMMIT}
 		-DCRASH_HANDLER=$(usex crash-handler)
 		-DUSE_JEMALLOC=$(usex jemalloc)
 		-DSOCKETS=$(usex sockets)
@@ -121,6 +120,7 @@ src_configure() {
 		-DSERVICE_NOTIFICATIONS=$(usex notifications)
 		-DBLUETOOTH=$(usex bluetooth)
 		-DNETWORK=$(usex networkmanager)
+
 	)
 	cmake_src_configure
 }

@@ -43,6 +43,7 @@ RDEPEND="
 	cuda? (
 		dev-util/nvidia-cuda-toolkit
 	)
+	!!sci-ml/ollama
 "
 
 QA_PREBUILT="*"
@@ -69,6 +70,9 @@ src_install(){
 	dosym ../../opt/ollama/bin/ollama                /usr/bin/ollama
 	dosym ../../opt/ollama/lib/ollama/llama-server   /usr/bin/llama-server
 	dosym ../../opt/ollama/lib/ollama/llama-quantize /usr/bin/llama-quantize
+
+	newinitd "${FILESDIR}/ollama.init" "${PN}"
+	newconfd "${FILESDIR}/ollama.confd" "${PN}"
 
 	systemd_dounit "${FILESDIR}/ollama.service"
 }

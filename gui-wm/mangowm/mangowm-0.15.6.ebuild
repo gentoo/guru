@@ -39,6 +39,7 @@ RDEPEND="
 	>=gui-libs/scenefx-0.5:0.5
 
 	dev-libs/cJSON
+	dev-libs/glib
 	dev-libs/libinput:=
 	dev-libs/libpcre2
 	dev-libs/wayland

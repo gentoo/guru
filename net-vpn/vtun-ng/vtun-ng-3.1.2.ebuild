@@ -10,117 +10,99 @@ CRATES="
 	aes-gcm@0.10.3
 	aes-gcm-siv@0.11.1
 	beef@0.5.2
-	bitflags@2.9.1
 	block-buffer@0.10.4
 	block-padding@0.3.3
 	blowfish@0.9.1
 	byteorder@1.5.0
 	cbc@0.1.2
 	cfb-mode@0.8.2
-	cfg-if@1.0.1
+	cfg-if@1.0.4
 	chacha20@0.9.1
 	chacha20poly1305@0.10.1
 	cipher@0.4.4
 	cpufeatures@0.2.17
 	crc32fast@1.5.0
-	crypto-common@0.1.6
+	crypto-common@0.1.7
 	ctr@0.9.2
-	deranged@0.5.5
+	deranged@0.5.8
 	digest@0.10.7
-	dns-lookup@2.0.4
+	dns-lookup@2.1.1
 	ecb@0.1.2
-	errno@0.3.13
-	flate2@1.1.2
+	errno@0.3.14
+	flate2@1.1.9
 	fnv@1.0.7
 	generic-array@0.14.7
-	getopts@0.2.23
-	getrandom@0.2.16
-	getrandom@0.3.3
+	getopts@0.2.24
+	getrandom@0.2.17
+	getrandom@0.3.4
 	ghash@0.5.1
 	inout@0.1.4
-	itoa@1.0.15
 	lazy_static@1.5.0
-	libc@0.2.174
-	log@0.4.28
-	logos@0.15.0
-	logos-codegen@0.15.0
-	logos-derive@0.15.0
+	libc@0.2.186
+	log@0.4.33
+	logos@0.15.1
+	logos-codegen@0.15.1
+	logos-derive@0.15.1
 	md5@0.8.0
 	miniz_oxide@0.8.9
-	num-conv@0.2.0
+	num-conv@0.2.2
 	ofb@0.6.1
 	opaque-debug@0.3.1
 	poly1305@0.8.0
 	polyval@0.6.2
 	powerfmt@0.2.0
 	ppv-lite86@0.2.21
-	proc-macro2@1.0.95
+	proc-macro2@1.0.106
 	proctitle@0.1.1
-	quote@1.0.40
+	quote@1.0.46
 	r-efi@5.3.0
-	rand@0.9.2
+	rand@0.9.4
 	rand_chacha@0.9.0
 	rand_core@0.6.4
-	rand_core@0.9.3
-	regex-syntax@0.8.5
+	rand_core@0.9.5
+	regex-syntax@0.8.11
 	rust-lzo@0.6.2
 	rustc_version@0.4.1
-	semver@1.0.26
+	semver@1.0.28
 	serde_core@1.0.228
 	serde_derive@1.0.228
 	sha2@0.10.9
 	signal-hook@0.3.18
-	signal-hook-registry@1.4.5
-	socket2@0.5.10
+	signal-hook-registry@1.4.8
+	simd-adler32@0.3.9
+	socket2@0.6.4
 	subtle@2.6.1
-	syn@2.0.104
-	time@0.3.47
-	time-core@0.1.8
-	time-macros@0.2.27
-	typenum@1.18.0
-	unicode-ident@1.0.18
-	unicode-width@0.2.1
+	syn@2.0.118
+	time@0.3.52
+	time-core@0.1.9
+	time-macros@0.2.31
+	typenum@1.20.1
+	unicode-ident@1.0.24
+	unicode-width@0.2.2
 	universal-hash@0.5.1
-	uzers@0.12.1
+	uzers@0.12.2
 	version_check@0.9.5
 	wasi@0.11.1+wasi-snapshot-preview1
-	wasi@0.14.2+wasi-0.2.4
+	wasip2@1.0.4+wasi-0.2.12
 	winapi@0.3.9
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-x86_64-pc-windows-gnu@0.4.0
-	windows-sys@0.48.0
-	windows-sys@0.52.0
+	windows-link@0.2.1
 	windows-sys@0.60.2
-	windows-targets@0.48.5
-	windows-targets@0.52.6
-	windows-targets@0.53.2
-	windows_aarch64_gnullvm@0.48.5
-	windows_aarch64_gnullvm@0.52.6
-	windows_aarch64_gnullvm@0.53.0
-	windows_aarch64_msvc@0.48.5
-	windows_aarch64_msvc@0.52.6
-	windows_aarch64_msvc@0.53.0
-	windows_i686_gnu@0.48.5
-	windows_i686_gnu@0.52.6
-	windows_i686_gnu@0.53.0
-	windows_i686_gnullvm@0.52.6
-	windows_i686_gnullvm@0.53.0
-	windows_i686_msvc@0.48.5
-	windows_i686_msvc@0.52.6
-	windows_i686_msvc@0.53.0
-	windows_x86_64_gnu@0.48.5
-	windows_x86_64_gnu@0.52.6
-	windows_x86_64_gnu@0.53.0
-	windows_x86_64_gnullvm@0.48.5
-	windows_x86_64_gnullvm@0.52.6
-	windows_x86_64_gnullvm@0.53.0
-	windows_x86_64_msvc@0.48.5
-	windows_x86_64_msvc@0.52.6
-	windows_x86_64_msvc@0.53.0
-	wit-bindgen-rt@0.39.0
-	zerocopy@0.8.26
-	zerocopy-derive@0.8.26
-	zeroize@1.8.2
+	windows-sys@0.61.2
+	windows-targets@0.53.5
+	windows_aarch64_gnullvm@0.53.1
+	windows_aarch64_msvc@0.53.1
+	windows_i686_gnu@0.53.1
+	windows_i686_gnullvm@0.53.1
+	windows_i686_msvc@0.53.1
+	windows_x86_64_gnu@0.53.1
+	windows_x86_64_gnullvm@0.53.1
+	windows_x86_64_msvc@0.53.1
+	wit-bindgen@0.57.1
+	zerocopy@0.8.52
+	zerocopy-derive@0.8.52
+	zeroize@1.9.0
 "
 
 inherit cargo systemd
@@ -134,7 +116,7 @@ SRC_URI="${CARGO_CRATE_URIS}
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc"
-IUSE="systemd +lzo +zlib"
+IUSE="systemd +lzo"
 
 RUST_MIN_VER="1.88.0"
 
@@ -152,7 +134,6 @@ src_unpack() {
 src_configure() {
 	local myfeatures=(
 		$(usev lzo)
-		$(usev zlib)
 	)
 	cargo_src_configure
 }

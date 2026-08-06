@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_EXT=1
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 
 inherit distutils-r1 optfeature gnome2 udev xdg
 
@@ -57,9 +57,9 @@ RDEPEND="${COMMON_DEPEND}
 
 RESTRICT="mirror test"
 
-python_prepare_all() {
-	gnome2_environment_reset
-	distutils-r1_python_prepare_all
+src_prepare() {
+	gnome2_src_prepare
+	distutils-r1_src_prepare
 }
 
 src_configure() {
@@ -72,6 +72,7 @@ src_compile() {
 }
 
 src_install() {
+	gnome2_src_install
 	distutils-r1_src_install
 	mv "${D}"/usr/share/doc/onboard "${D}"/usr/share/doc/"${P}" || die
 
@@ -82,6 +83,10 @@ src_install() {
 		insinto /usr/lib/udev/rules.d/
 		doins "${S}"/data/72-onboard-uinput.rules
 	fi
+}
+
+pkg_preinst(){
+	gnome2_pkg_preinst
 }
 
 pkg_postinst() {
