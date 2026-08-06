@@ -45,7 +45,7 @@ COMMON_DEPEND="
 		gui-libs/gtk:4[introspection]
 		>=gui-libs/libadwaita-1.5.0:1
 		media-libs/graphene
-		media-libs/libdisplay-info:=
+		media-libs/libdisplay-info:0/3
 		x11-libs/cairo
 		x11-libs/pango
 	)
