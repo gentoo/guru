@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop optfeature shell-completion systemd tmpfiles xdg-utils
+inherit desktop optfeature shell-completion systemd xdg-utils
 
 DESCRIPTION="Desktop shell for wayland compositors built with Quickshell"
 HOMEPAGE="https://github.com/AvengeMedia/DankMaterialShell"
@@ -16,7 +16,7 @@ S="${WORKDIR}/dms-cli-${PV}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="cups greeter"
+IUSE="cups"
 
 DEPEND="
 	app-misc/jq
@@ -33,7 +33,6 @@ DEPEND="
 	sys-power/upower
 	kde-frameworks/kimageformats
 	cups? ( net-print/cups-pk-helper )
-	greeter? ( gui-libs/greetd )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -46,7 +45,6 @@ PATCHES=("${FILESDIR}"/"${PN}-1.5.3-no-strip.patch")
 
 # set variables
 QML_DIR="${WORKDIR}"/dms # qml assets location
-GRT_DIR="${QML_DIR}"/Modules/Greetd  # greeter location
 
 src_unpack() {
 	# unpack dms source
@@ -55,19 +53,6 @@ src_unpack() {
 	mkdir -p ${QML_DIR} || die "failed to create directory: ${QML_DIR}"
 	cd "${QML_DIR}"  || die "cd into ${QML_DIR} failed"
 	unpack dms-qml-"${PV}".tar.gz
-}
-
-src_configure() {
-	if use greeter; then
-		# set DMS_PATH: /usr/share/quickshell/dms
-		sed -i 's|^DMS_PATH=.*$|DMS_PATH="/usr/share/quickshell/dms"|' \
-			"${GRT_DIR}"/assets/dms-greeter
-
-		# fix tmpfile usergroup: greeter -> greetd
-		sed -i "s/\sgreeter/ greetd/g" "${QML_DIR}"/systemd/tmpfiles-dms-greeter.conf
-	fi
-
-	default
 }
 
 src_compile() {
@@ -82,11 +67,6 @@ src_compile() {
 src_install() {
 	# install dms binary
 	newbin "${S}"/bin/dms-linux-"${ARCH}" dms
-
-	if use greeter; then
-		dobin "${GRT_DIR}"/assets/dms-greeter
-		newtmpfiles "${QML_DIR}"/systemd/tmpfiles-dms-greeter.conf dms-greeter.conf
-	fi
 
 	# install qml sources at /usr/share/quickshell/dms
 	insinto /usr/share/quickshell
@@ -105,9 +85,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	if use greeter; then
-		tmpfiles_process dms-greeter.conf
-	fi
 	xdg_desktop_database_update
 	xdg_icon_cache_update
 
@@ -121,13 +98,6 @@ pkg_postinst() {
 	optfeature "Fingerprint unlock notifier" sys-auth/fprintfd
 	optfeature "Wallpaper based colorscheme" x11-misc/matugen
 	optfeature "Wifi & Ethernet connection" net-misc/networkmanager
-
-	if use greeter; then
-		elog "\nTo use dms-greeter as your default greetd greeter run the following:\n"
-		elog "  \$ dms greeter enable"
-		elog "  \$ systemctl disable --now gdm.service sddm.service lightdm.service"
-		elog "  \$ systemctl enable --now greetd.service"
-	fi
 }
 
 pkg_postrm() {
