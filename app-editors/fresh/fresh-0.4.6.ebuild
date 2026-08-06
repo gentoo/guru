@@ -781,10 +781,13 @@ src_prepare() {
 
 	cp "crates/${MY_PN}/docs/fresh.txt" docs || die
 
-	if !use telemetry; then
+	if ! use telemetry; then
 		rm -v crates/fresh-editor/src/services/telemetry.rs || die
-		echo "pub fn should_run_daily_check(_: &dyn crate::services::time_source::TimeSource, _: &std::path::Path) -> Option<String> { None }" > crates/fresh-editor/src/services/telemetry.rs || die
-		echo "pub fn track_open(_: &str) {}" >> crates/fresh-editor/src/services/telemetry.rs || die
+		cat > crates/fresh-editor/src/services/telemetry.rs << EOF
+		pub fn should_run_daily_check(_: &dyn crate::services::time_source::TimeSource, _: &std::path::Path) -> Option<String> { None }
+		pub fn track_open(_: &str) {}
+EOF
+
 		sed -i 's/"description": "Check for new versions on startup (default: true)[^"]*"/"description": "Check for new versions on startup (default: true). Telemetry disabled by USE flag."/g' crates/fresh-editor/plugins/config-schema.json || die
 	fi
 }
