@@ -26,11 +26,12 @@ LICENSE+=" Apache-2.0 BSD GPL-3+ ISC MIT MPL-2.0 OFL-1.1"
 LICENSE+=" Apache-2.0 BSD-2 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="heif"
 
 DEPEND="
 	dev-db/sqlite:3
 	dev-libs/olm
-	media-libs/libheif:=
+	heif? ( media-libs/libheif:= )
 "
 RDEPEND="${DEPEND}"
 BDEPEND=">=dev-lang/go-1.25.0"
@@ -48,7 +49,7 @@ src_configure() {
 	# https://github.com/mattn/go-sqlite3#linux
 	# -tags libsqlite3: use system sqlite3 instead of bundled
 	# -tags libheif: use system libheif instead of bundled heic
-	GO_BUILD_TAGS="libheif,libsqlite3"
+	GO_BUILD_TAGS="$(usex heif libheif noheif),libsqlite3"
 
 	go-module_src_configure
 }
