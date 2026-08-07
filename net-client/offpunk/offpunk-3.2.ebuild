@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,9 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DOCS=( doc/. CHANGELOG CONTRIBUTORS README.md TODO )
+DOCS=( CHANGELOG CONTRIBUTORS README.md )
+
+BDEPEND="sys-devel/gettext"
 
 EPYTEST_PLUGINS=( pytest-mock )
 
@@ -33,13 +35,13 @@ src_install() {
 
 pkg_postinst() {
 	optfeature "HTML support" "dev-python/beautifulsoup4 dev-python/readability-lxml"
-	optfeature "HTTP support" dev-python/requests
+	optfeature "HTTP/HTTPS/Gopher support" net-misc/curl
 	optfeature "RSS/Atom feed support" dev-python/feedparser
 	optfeature "Wayland clipboard support" gui-apps/wl-clipboard
 	optfeature "X11 clipboard support" x11-misc/xsel x11-misc/xclip
 	optfeature "XDG support" x11-misc/xdg-utils
 	optfeature "better TOFU certificate validation" dev-python/cryptography
 	optfeature "custom process title support" dev-python/setproctitle
-	optfeature "inline images support" media-gfx/chafa media-gfx/timg
-	optfeature "text encoding detection" dev-python/chardet
+	optfeature "inline images support" media-gfx/chafa
+	optfeature "text encoding detection" dev-python/charset-normalizer
 }
