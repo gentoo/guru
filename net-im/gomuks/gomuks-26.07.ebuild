@@ -49,6 +49,8 @@ src_configure() {
 	# -tags libsqlite3: use system sqlite3 instead of bundled
 	# -tags libheif: use system libheif instead of bundled heic
 	GO_BUILD_TAGS="libheif,libsqlite3"
+
+	go-module_src_configure
 }
 
 src_compile() {
@@ -67,7 +69,7 @@ src_compile() {
 		ego build \
 			-ldflags "${go_ldflags[*]}" \
 			-tags "${GO_BUILD_TAGS}" \
-			-x -v "./cmd/${cmd}"
+			"./cmd/${cmd}"
 	done
 }
 
