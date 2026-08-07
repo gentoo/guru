@@ -1,36 +1,43 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 PYTHON_COMPAT=( python3_{12..14} )
-inherit linux-info xdg python-single-r1
+PYTHON_REQ_USE="ssl"
+inherit linux-info optfeature python-single-r1 systemd xdg
 
 DESCRIPTION="Container-based approach to boot a full Android system on Linux systems"
-HOMEPAGE="https://waydro.id"
+HOMEPAGE="
+	https://waydro.id
+	https://github.com/waydroid/waydroid
+"
 SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-IUSE="apparmor +clipboard"
+IUSE="apparmor"
 
-DEPEND="|| ( virtual/linux-sources virtual/dist-kernel )"
-RDEPEND="
+RDEPEND="${PYTHON_DEPS}
 	app-containers/lxc[apparmor?,seccomp]
-	$(python_gen_cond_dep '
-		clipboard? ( >=dev-python/pyclip-0.7.0[wayland,${PYTHON_USEDEP}] )
-		dev-python/pygobject[${PYTHON_USEDEP}]
-		>=dev-python/gbinder-1.3.0[${PYTHON_USEDEP}]
-		dev-python/dbus-python[${PYTHON_USEDEP}]
-	')
 	net-firewall/nftables
-	net-dns/dnsmasq
-	>=dev-libs/libglibutil-1.0.80
-	>=dev-libs/gbinder-1.1.43
+	net-dns/dnsmasq[dhcp]
+	sys-apps/dbus
+	sys-auth/polkit
+	virtual/notification-daemon
+	x11-libs/gtk+:3[introspection,wayland]
 	x11-themes/hicolor-icon-theme
-	${PYTHON_DEPS}
+	$(python_gen_cond_dep '
+		dev-python/dbus-python[${PYTHON_USEDEP}]
+		>=dev-python/gbinder-1.3.0[${PYTHON_USEDEP}]
+		dev-python/pygobject[${PYTHON_USEDEP}]
+	')
+	|| (
+		media-video/pipewire[sound-server]
+		media-sound/pulseaudio-daemon
+	)
 "
 CONFIG_CHECK="
 	~ANDROID_BINDER_IPC
@@ -79,28 +86,37 @@ src_prepare() {
 
 src_install() {
 	python_fix_shebang waydroid.py
-	emake install DESTDIR="${D}" USE_NFTABLES=1 USE_SYSTEMD=1
-	elog "Installing waydroid OpenRC daemon"
-	doinitd "${FILESDIR}"/waydroid
+	newinitd "${FILESDIR}"/waydroid.initd waydroid
+
+	local mymakeargs=(
+		DESTDIR="${D}"
+		PREFIX="${EPREFIX}"/usr
+		SYSD_DIR="$(systemd_get_systemunitdir)"
+		USE_NFTABLES=1
+		USE_SYSTEMD=1
+	)
+	emake "${mymakeargs[@]}" install install_apparmor
 }
 
 pkg_postinst() {
 	xdg_pkg_postinst
 
 	elog "After package installation run either 'emerge --config app-containers/waydroid'"
-	elog "or 'waydroid init' from root shell to install android container runtime"
-	elog "To run waydroid, 1. Start container: 'rc-service waydroid start'"
-	elog "2. start wayland channel (from user shell) 'waydroid session start'"
+	elog "or 'waydroid init' from root shell to install Android container runtime"
+	elog "To run Waydroid, 1. Start container: 'rc-service waydroid start'"
+	elog "2. Start Wayland channel (from user shell) 'waydroid session start'"
 	elog "Contact https://docs.waydro.id/usage/install-on-desktops for how-to guides"
 	elog "(does not cover Gentoo-specific things sadly)"
 	elog
-	ewarn "Make sure you have NFTABLES up and running in your kernel. See"
+	ewarn "Make sure you have nftables up and running in your kernel. See"
 	ewarn "https://wiki.gentoo.org/wiki/Nftables for how-to details"
 	ewarn
 	if use apparmor; then
 		ewarn "Check the known issues for apparmor:"
 		ewarn "https://docs.waydro.id/debugging/known-issues"
 	fi
+
+	optfeature "clipboard support" "dev-python/pyclip[wayland]"
 }
 
 pkg_config() {
