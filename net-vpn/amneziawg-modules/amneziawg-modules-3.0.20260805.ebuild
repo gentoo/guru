@@ -5,11 +5,12 @@ EAPI=8
 
 inherit linux-mod-r1
 
+MY_PN="amneziawg-linux-kernel-module"
 DESCRIPTION="AmneziaWG Linux kernel module"
 HOMEPAGE="https://github.com/amnezia-vpn/amneziawg-linux-kernel-module"
-SRC_URI="https://github.com/amnezia-vpn/amneziawg-linux-kernel-module/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/amnezia-vpn/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-S="${WORKDIR}/amneziawg-linux-kernel-module-${PV}"
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -23,11 +24,6 @@ pkg_setup() {
 
 	if kernel_is -lt 3 10 0; then
 		die "This version of ${PN} requires Linux >= 3.10."
-	fi
-
-	# https://github.com/amnezia-vpn/amneziawg-linux-kernel-module/issues/138
-	if kernel_is -ge 6 19 0; then
-		die "This version of ${PN} requires Linux < 6.19."
 	fi
 }
 
