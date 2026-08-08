@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module systemd
+inherit go-module optfeature systemd
 
 MY_PV="0.$(ver_rs 1-2 '').0"
 DESCRIPTION="Matrix-Telegram puppeting bridge"
@@ -104,6 +104,8 @@ pkg_postinst() {
 	elog
 	elog "Finally, you may start the mautrix-telegram daemon."
 	einfo
+
+	optfeature "animated sticker support" "dev-util/lottieconverter media-video/ffmpeg[vpx,webp]"
 }
 
 pkg_config() {
