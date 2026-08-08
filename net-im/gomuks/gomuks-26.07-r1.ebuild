@@ -31,16 +31,29 @@ IUSE="heif"
 DEPEND="
 	dev-db/sqlite:3
 	dev-libs/olm
+	media-libs/libwebp:=
 	heif? ( media-libs/libheif:= )
 "
 RDEPEND="${DEPEND}"
-BDEPEND=">=dev-lang/go-1.25.0"
+BDEPEND="
+	>=dev-lang/go-1.25.0
+	virtual/pkgconfig
+"
+
+PATCHES=( "${FILESDIR}"/${PN}-26.07-unbundle-libwebp.patch )
 
 DOCS=( {CHANGELOG,README}.md )
 
 src_unpack() {
 	go-module_src_unpack
 	mv "${WORKDIR}"/web/dist "${S}"/web || die
+}
+
+src_prepare() {
+	default
+
+	# unbundle libwebp
+	rm vendor/go.mau.fi/webp/z_*.c || die
 }
 
 src_configure() {
