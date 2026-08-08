@@ -3,27 +3,20 @@
 
 EAPI=8
 
-inherit autotools
+inherit autotools git-r3 shell-completion
 
-if [[ -z ${PV%%*9999} ]]; then
-	EGIT_REPO_URI="https://github.com/Thomas-Tsai/${PN}.git"
-	inherit git-r3
-else
-	[[ -n ${PV%%*_p*} ]] && MY_PV="${PV}"
-	SRC_URI="
-		https://github.com/Thomas-Tsai/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-	"
-	KEYWORDS="~amd64 ~x86"
-fi
 DESCRIPTION="Partition cloning tool"
 HOMEPAGE="https://partclone.org"
-
+EGIT_REPO_URI="https://github.com/Thomas-Tsai/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
+
 IUSE="apfs btrfs +e2fs exfat f2fs fat fuse hfs minix ncurses nilfs2 ntfs"
 IUSE+=" reiserfs static test ufs vmfs xfs"
-RESTRICT="!test? ( test )"
+
 REQUIRED_USE="static? ( !fuse )"
+
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	app-arch/zstd:=
@@ -63,7 +56,8 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.3.47-fix-ncurses-linking.patch
+	"${FILESDIR}"/${PN}-fix-ncurses-linking.patch
+	"${FILESDIR}"/${PN}-completions.patch
 )
 
 DOCS=(
@@ -74,6 +68,35 @@ DOCS=(
 	README.md
 )
 
+CMDS=(
+	apfs
+	btrfs
+	chkimg
+	dd
+	exfat
+	ext2
+	ext3
+	ext4
+	ext4dev
+	extfs
+	f2fs
+	fat
+	fat12
+	fat16
+	fat32
+	hfs+
+	hfsp
+	hfsplus
+	imager
+	minix
+	nilfs2
+	ntfs
+	reiser4
+	restore
+	vfat
+	xfs
+)
+
 src_prepare() {
 	default
 	eautoreconf
@@ -81,6 +104,9 @@ src_prepare() {
 
 src_configure() {
 	local myconf=(
+		--disable-jfs
+		--disable-reiser4
+		$(usev static --disable-xxhash)
 		$(use_enable e2fs extfs)
 		$(use_enable apfs)
 		$(use_enable btrfs)
@@ -99,15 +125,22 @@ src_configure() {
 		$(use_enable vmfs)
 		$(use_enable ufs)
 		$(use_enable xfs)
-		--disable-jfs
-		--disable-reiser4
-
-		$(usev static --disable-xxhash)
 	)
+
 	econf "${myconf[@]}"
 }
 
-src_test() {
-	local -x TERM=dummy
+src_install() {
 	default
+
+	newbashcomp "src/${PN}-completion" "${PN}"
+	local cmd
+	for cmd in "${CMDS[@]}"; do
+		bashcomp_alias "${PN}" "${PN}.${cmd}" || die
+	done
+}
+
+src_test() {
+	default
+	local -x TERM=dummy
 }

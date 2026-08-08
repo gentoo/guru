@@ -3,20 +3,21 @@
 
 EAPI=8
 
-inherit autotools git-r3 shell-completion
+inherit autotools shell-completion
 
-EGIT_REPO_URI="https://github.com/Thomas-Tsai/${PN}.git"
 DESCRIPTION="Partition cloning tool"
 HOMEPAGE="https://partclone.org"
+SRC_URI="https://github.com/Thomas-Tsai/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 IUSE="apfs btrfs +e2fs exfat f2fs fat fuse hfs minix ncurses nilfs2 ntfs"
 IUSE+=" reiserfs static test ufs vmfs xfs"
 
-REQUIRED_USE="static? ( !fuse )"
-
 RESTRICT="!test? ( test )"
+
+REQUIRED_USE="static? ( !fuse )"
 
 RDEPEND="
 	app-arch/zstd:=
@@ -56,8 +57,8 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.3.47-fix-ncurses-linking.patch
-	"${FILESDIR}"/${PN}-completions.patch
+	"${FILESDIR}"/${PN}-fix-ncurses-linking.patch
+	"${FILESDIR}"/${PN}-0.3.47-completions.patch
 )
 
 DOCS=(
@@ -104,9 +105,6 @@ src_prepare() {
 
 src_configure() {
 	local myconf=(
-		--disable-jfs
-		--disable-reiser4
-		$(usev static --disable-xxhash)
 		$(use_enable e2fs extfs)
 		$(use_enable apfs)
 		$(use_enable btrfs)
@@ -125,8 +123,11 @@ src_configure() {
 		$(use_enable vmfs)
 		$(use_enable ufs)
 		$(use_enable xfs)
-	)
+		--disable-jfs
+		--disable-reiser4
 
+		$(usev static --disable-xxhash)
+	)
 	econf "${myconf[@]}"
 }
 
@@ -141,6 +142,6 @@ src_install() {
 }
 
 src_test() {
-	default
 	local -x TERM=dummy
+	default
 }

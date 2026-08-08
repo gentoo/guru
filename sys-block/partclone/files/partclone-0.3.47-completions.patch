@@ -1,0 +1,8 @@
+--- a/src/partclone-completion
++++ b/src/partclone-completion
+@@ -173,6 +173,6 @@ complete -F _partclone_completions partclone.apfs partclone.ext2 partclone.f2fs  \
+	partclone.fat partclone.hfsp  partclone.nilfs2 partclone.restore partclone.ext4  \
+	partclone.fat12 partclone.hfsplus partclone.ntfs partclone.vfat partclone.ext4dev \
+	partclone.fat16 partclone.xfs partclone.exfat partclone.extfs partclone.fat32 \
+-	partclone.imager partclone.dd
++	partclone.imager partclone.dd partclone-completion partclone
