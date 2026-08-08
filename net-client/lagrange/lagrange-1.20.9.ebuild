@@ -45,7 +45,7 @@ VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/skyjake.asc"
 
 src_prepare() {
 	# remove libs that can be accidentally built by Depends.cmake
-	mv lib never-build-bundled-libs || die
+	mv lib "${T}"/never-build-bundled-libs || die
 
 	cmake_src_prepare
 }
