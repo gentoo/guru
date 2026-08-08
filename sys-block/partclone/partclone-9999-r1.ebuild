@@ -141,6 +141,6 @@ src_install() {
 }
 
 src_test() {
-	default
 	local -x TERM=dummy
+	default
 }
