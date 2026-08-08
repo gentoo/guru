@@ -1,13 +1,14 @@
-# Copyright 2025-2026 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit linux-info bash-completion-r1 systemd toolchain-funcs
+inherit linux-info systemd toolchain-funcs
 
 DESCRIPTION="Required tools for AmneziaWG, such as awg(8) and awg-quick(8)"
 HOMEPAGE="https://github.com/amnezia-vpn/amneziawg-tools"
-SRC_URI="https://github.com/amnezia-vpn/amneziawg-tools/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/amnezia-vpn/${PN}/archive/refs/tags/v${PV/_p/-}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${PV/_p/-}"
 
 LICENSE="GPL-2"
 SLOT="0"
