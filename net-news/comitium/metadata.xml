@@ -3,6 +3,7 @@
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
+		<remote-id type="sourcehut">~nytpu/comitium</remote-id>
 		<bugs-to>mailto:~nytpu/public-inbox@lists.sr.ht</bugs-to>
 	</upstream>
 </pkgmetadata>
