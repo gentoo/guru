@@ -53,5 +53,9 @@ distutils_enable_sphinx docs \
 	dev-python/sphinx-rtd-theme
 
 python_test() {
+	local EPYTEST_IGNORE=()
+	use grapheme ||
+		EPYTEST_IGNORE+=( tests/test_status_length.py )
+
 	epytest -o addopts=
 }
