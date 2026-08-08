@@ -11,9 +11,8 @@
 			<email>tulir@maunium.net</email>
 		</maintainer>
 		<changelog>https://github.com/mautrix/signal/releases</changelog>
-		<doc>https://docs.mau.fi/bridges/python/signal/index.html</doc>
+		<doc>https://docs.mau.fi/bridges/go/signal/index.html</doc>
 		<bugs-to>https://github.com/mautrix/signal/issues</bugs-to>
 		<remote-id type="github">mautrix/signal</remote-id>
-		<remote-id type="pypi">mautrix-signal</remote-id>
 	</upstream>
 </pkgmetadata>
