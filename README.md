@@ -44,6 +44,8 @@ The [GURU rules](https://wiki.gentoo.org/wiki/Project:GURU#Rules), and the Gento
 - https://dev.gentoo.org/~mgorny/python-guide/eclass.html
 - [GURU outdated packages](https://repology.org/projects/?inrepo=gentoo_ovl_guru&outdated=on)
 - [GURU Bugs](https://bugs.gentoo.org/buglist.cgi?f1=product&f2=component&list_id=7042152&o1=equals&query_format=advanced&resolution=---&v1=GURU&v2=Package%20issues)
+- [binhost.h97i.org](https://binhost.h97i.org)
+- [cloud.h97i.org](https://cloud.h97i.org)
 
 ## Email Addresses <a name="email"></a>
 
