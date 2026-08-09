@@ -20,14 +20,14 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/pillow[${PYTHON_USEDEP}]
-	>=media-libs/libheif-1.19.5:=
+	>=media-libs/libheif-1.23.1:=
 "
 BDEPEND="
 	test? (
 		dev-python/defusedxml[${PYTHON_USEDEP}]
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/pillow[jpeg,lcms,webp,zlib,${PYTHON_USEDEP}]
-		>=media-libs/libheif-1.19.5:=[x265]
+		>=media-libs/libheif-1.23.1:=[x265]
 		media-libs/opencv[png,python,${PYTHON_USEDEP}]
 	)
 "
