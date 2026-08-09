@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,7 +25,25 @@ DEPEND="
 		dev-python/hypothesis
 		dev-python/mock
 		dev-python/pytest-asyncio
+		dev-python/termcolor
+		dev-python/hypothesis
 	)
 "
+
+EPYTEST_PLUGINS=(  )
+EPYTEST_DESELECT=( "fire/fire_test.py::FireTest::testFireAsyncio" )
+
+src_prepare() {
+	default
+	# Update / remove deprecated options
+	sed -ie "/'License ::/d" setup.py \
+		|| die "Failed to remove deprecated setuptools options"
+
+	sed -ie "s/requires_python/python_requires/g" setup.py \
+		|| die "Failed to rename deprecated `requires_python`"
+
+	sed -ie "/tests_require/d" setup.py \
+		|| die "Failed to remove deprecated `tests_require`"
+}
 
 distutils_enable_tests pytest
