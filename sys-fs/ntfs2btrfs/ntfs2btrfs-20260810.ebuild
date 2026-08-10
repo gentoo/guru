@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,8 +20,7 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="+zlib +lzo +zstd"
 
-DEPEND="dev-libs/libfmt:=
-	zlib? ( virtual/zlib:= )
+DEPEND="zlib? ( virtual/zlib:= )
 	lzo? ( dev-libs/lzo )
 	zstd? ( app-arch/zstd )"
 RDEPEND="${DEPEND}"
