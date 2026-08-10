@@ -23,6 +23,7 @@ QA_PREBUILT="
 
 RDEPEND="
 	media-libs/fontconfig
+	media-libs/freetype
 	media-libs/libsdl2
 	virtual/zlib:0/1
 	virtual/opengl
