@@ -6,17 +6,21 @@
 		<email>julien@jroy.ca</email>
 	</maintainer>
 	<longdescription>
-		Clapper is a modern media player designed for simplicity and ease of use. Powered by GStreamer and built for the GNOME desktop environment using GTK4 toolkit, it has a clean and stylish interface that lets you focus on enjoying your favorite videos.
+		Clapper is a modern media player designed for simplicity and ease of
+		use. Powered by GStreamer and built for the GNOME desktop environment
+		using GTK4 toolkit, it has a clean and stylish interface that lets you
+		focus on enjoying your favorite videos.
 	</longdescription>
 	<upstream>
 		<bugs-to>https://github.com/Rafostar/clapper/issues</bugs-to>
-		<changelog>https://github.com/Rafostar/clapper/releases</changelog>
+		<doc>https://rafostar.github.io/clapper/doc/clapper/</doc>
 		<remote-id type="github">Rafostar/clapper</remote-id>
 	</upstream>
 	<use>
-		<flag name="discoverer">Build Clapper Discoverer feature</flag>
-		<flag name="mpris">Build Clapper MPRIS feature</flag>
-		<flag name="rawimporter">Build RAW system memory importer for clappersink</flag>
-		<flag name="server">Build Clapper Server feature</flag>
+		<flag name="discoverer" restrict="&lt;media-video/clapper-0.10">Build Clapper Discoverer feature</flag>
+		<flag name="mpris" restrict="&lt;media-video/clapper-0.10">Build Clapper MPRIS feature</flag>
+		<flag name="plugins">Support loading libpeas based plugins that enhance capabilities</flag>
+		<flag name="rawimporter" restrict="&lt;media-video/clapper-0.10">Build RAW system memory importer for clappersink</flag>
+		<flag name="server" restrict="&lt;media-video/clapper-0.10">Build Clapper Server feature</flag>
 	</use>
 </pkgmetadata>
