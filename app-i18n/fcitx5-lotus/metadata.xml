@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Trần Tiến Đạt</name>
+		<email>trantiendat29042005@gmail.com</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">LotusInputMethod/fcitx5-lotus</remote-id>
+	</upstream>
+</pkgmetadata>
