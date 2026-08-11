@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 optfeature pypi shell-completion
 
@@ -21,7 +21,7 @@ RDEPEND="
 	>=app-text/tesseract-4.1.1[jpeg,tiff,png,webp]
 	>=dev-python/deprecation-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/packaging-20[${PYTHON_USEDEP}]
-	>=dev-python/pikepdf-8.10.1[${PYTHON_USEDEP}]
+	>=dev-python/pikepdf-10.0.0[${PYTHON_USEDEP}]
 	>=dev-python/pillow-10.0.1[jpeg2k,lcms,${PYTHON_USEDEP}]
 	>=dev-python/pluggy-1.0[${PYTHON_USEDEP}]
 	>=dev-python/rich-13.0[${PYTHON_USEDEP}]
@@ -41,8 +41,6 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-16.10.2-suppress-runtime-error.patch
-	"${FILESDIR}"/${PN}-16.10.2-xfail-tests.patch
 )
 
 EPYTEST_PLUGINS=( hypothesis )
@@ -54,9 +52,6 @@ EPYTEST_IGNORE=(
 EPYTEST_DESELECT=(
 	# Fails if Tesseract was compiled with Clang
 	tests/test_rotation.py::test_rotate_deskew_ocr_timeout
-
-	# XFAIL reason should be a string, not a tuple
-	tests/test_metadata.py::test_malformed_docinfo
 )
 
 distutils_enable_tests pytest
