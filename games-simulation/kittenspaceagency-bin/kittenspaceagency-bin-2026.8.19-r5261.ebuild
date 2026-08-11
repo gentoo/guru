@@ -9,10 +9,10 @@ DESCRIPTION="A space flight and rocketry simulation"
 HOMEPAGE="https://ksa.ahwoo.com"
 SRC_URI="
 	amd64? (
-		setup_ksa_v${PV}.${PR#r}.tar.gz
+		ksa_linux_v${PV}.${PR#r}.tar.gz
 	)
 "
-S="${WORKDIR}/linux-x64"
+S="${WORKDIR}"
 LICENSE="all-rights-reserved"
 
 SLOT="0"
