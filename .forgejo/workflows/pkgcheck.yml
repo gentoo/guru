@@ -1,0 +1,66 @@
+name: pkgcheck
+
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+
+env:
+  REPO_OWNER: "gentoo"
+  REPO_NAME: "guru"
+  REPO_WORKFLOW: "pkgcheck.yml"
+  IRC_NICK: "guru-ci"
+  IRC_HOST: "irc.libera.chat"
+  IRC_PORT: "6697"
+  IRC_CHANNEL: "#gentoo-guru"
+
+jobs:
+  build:
+    # codeberg-tiny has a max runtime of 2min, but this usually isn't
+    # enough time for pkgcheck to do its thing, so use -medium (10min).
+    runs-on: codeberg-medium-lazy
+    container:
+      # At time of writing, the default image for codeberg-tiny-lazy is
+      # ghcr.io/catthehacker/ubuntu, which has bash 5.2.21. However,
+      # EAPI 9 requires bash >= 5.3. pkgcheck has an official image
+      # though! (albeit on github...)
+      image: ghcr.io/pkgcore/pkgcheck
+
+    steps:
+      # You need nodejs for actions/checkout. Yes, really.
+      - name: Install necessary packages
+        run: |
+          apk add nodejs
+
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Prepare job
+        run: |
+          LAST_STATUS=$(python ./scripts/last_status.py)
+          IRC_NOTIFY=${{ forgejo.repository == 'gentoo/guru' && forgejo.event_name != 'pull_request' }}
+          echo "last_status=${LAST_STATUS}" >> "${FORGEJO_ENV}"
+          echo "irc_notify=${IRC_NOTIFY}" >> "${FORGEJO_ENV}"
+
+      - name: Run pkgcheck
+        run: |
+          ./scripts/pkgcheck.sh
+        env:
+          PKGCHECK_ARGS: "--keywords=-RedundantVersion,-NonsolvableDepsInDev"
+
+      - name: Inform failure on IRC
+        if: ${{ failure() && env.last_status == 'success' && fromJSON(env.irc_notify) }}
+        run: |
+          python ./scripts/irc_notify.py
+        env:
+          IRC_MESSAGE: CI failure detected on job ${{ forgejo.workflow }} - ${{ forgejo.server_url }}/${{ forgejo.repository }}/actions/runs/${{ forgejo.run_number }}
+
+      - name: Inform recovery on IRC
+        if: ${{ success() && env.last_status != 'success' && fromJSON(env.irc_notify) }}
+        run: |
+          python ./scripts/irc_notify.py
+        env:
+          IRC_MESSAGE: CI on job ${{ forgejo.workflow }} is green again. Thanks!
