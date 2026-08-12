@@ -7,11 +7,18 @@ inherit linux-mod-r1 systemd toolchain-funcs
 
 DESCRIPTION="CPU monitoring and tuning software designed for 64-bit processors"
 HOMEPAGE="https://www.cyring.fr/"
-SRC_URI="https://github.com/cyring/CoreFreq/archive/${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/CoreFreq-${PV}"
+
+if [[ "${PV}" = *9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/cyring/CoreFreq.git"
+else
+	SRC_URI="https://github.com/cyring/CoreFreq/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/CoreFreq-${PV}"
+	KEYWORDS="-* ~amd64"
+fi
+
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-* ~amd64"
 
 DOCS=( README.md )
 
