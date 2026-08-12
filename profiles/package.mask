@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # David Roman <stkw0@disroot.org> (2026-07-22)
+# Unmaintained. SRC_URI can not be fetched. Bugs #978733, #980699
+# Removal after 2026-09-12
+www-client/yandex-browser
+
+# David Roman <stkw0@disroot.org> (2026-07-22)
 # Archived by upstream.
 # Bug #975821
 # Removal after 2026-08-22
