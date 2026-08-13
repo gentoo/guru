@@ -23,7 +23,7 @@ src_compile() {
 	local build_date ldflags
 
 	build_date="$(date -u +%FT%TZ)"
-	ldflags="-X github.com/crmne/hyprmoncfg/internal/buildinfo.Version=${PV} -X github.com/crmne/hyprmoncfg/internal/buildinfo.Commit=fedb356 -X github.com/crmne/hyprmoncfg/internal/buildinfo.Date=${build_date}"
+	ldflags="-X github.com/crmne/hyprmoncfg/internal/buildinfo.Version=${PV} -X github.com/crmne/hyprmoncfg/internal/buildinfo.Commit=2bf6d61 -X github.com/crmne/hyprmoncfg/internal/buildinfo.Date=${build_date}"
 
 	GOPROXY=off ego build -buildvcs=false -trimpath -mod=readonly -ldflags "${ldflags}" -o hyprmoncfg ./cmd/hyprmoncfg
 	GOPROXY=off ego build -buildvcs=false -trimpath -mod=readonly -ldflags "${ldflags}" -o hyprmoncfgd ./cmd/hyprmoncfgd
@@ -40,6 +40,7 @@ src_install() {
 	insinto /usr/share/licenses/${PN}
 	doins LICENSE
 	domenu packaging/applications/hyprmoncfg.desktop
+	domenu packaging/applications/hyprmoncfg-omarchy.desktop
 	doicon packaging/icons/hyprmoncfg.svg
 	systemd_douserunit packaging/systemd/hyprmoncfgd.service
 }
