@@ -1,0 +1,23 @@
+From: https://github.com/google/python-fire/commit/716bbc23d7eca949fdb682172283c8d18f742cb6
+From: David Bieber <david810@gmail.com>
+Subject: [PATCH] Add Python 3.13 and 3.14 checking in build workflow (#623)
+* Add Python 3.13 and 3.14 checking in build workflow
+
+--- a/fire/inspectutils.py	2026-08-13 22:49:35.213681329 +0200
++++ b/fire/inspectutils.py	2026-08-13 22:51:08.232253224 +0200
+@@ -14,7 +14,6 @@
+
+ """Inspection utility functions for Python Fire."""
+
+-import asyncio
+ import inspect
+ import sys
+ import types
+@@ -343,6 +342,6 @@
+
+ def IsCoroutineFunction(fn):
+   try:
+-    return asyncio.iscoroutinefunction(fn)
++    return inspect.iscoroutinefunction(fn)
+   except:  # pylint: disable=bare-except
+     return False

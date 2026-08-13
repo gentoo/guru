@@ -9,29 +9,41 @@ PYPI_PN="fire"
 inherit distutils-r1 pypi
 
 DESCRIPTION="Library for automatically generating command line interfaces from Python objects"
-HOMEPAGE="https://pypi.org/project/python-fire/"
+HOMEPAGE="https://pypi.org/project/fire"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 RDEPEND="
-	dev-python/six
-	dev-python/termcolor
+	${PYTHON_DEPS}
+	dev-python/six[${PYTHON_USEDEP}]
+	dev-python/termcolor[${PYTHON_USEDEP}]
+"
+BDEPEND="
+	${PYTHON_DEPS}
 "
 DEPEND="
 	${RDEPEND}
 	test? (
-		dev-python/hypothesis
-		dev-python/mock
-		dev-python/pytest-asyncio
-		dev-python/termcolor
-		dev-python/hypothesis
+		dev-python/hypothesis[${PYTHON_USEDEP}]
+		dev-python/mock[${PYTHON_USEDEP}]
+		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
+		dev-python/termcolor[${PYTHON_USEDEP}]
+		dev-python/hypothesis[${PYTHON_USEDEP}]
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}/python-fire-asyncio.patch"
+	"${FILESDIR}/python-fire-inspect.patch"
+)
+
 EPYTEST_PLUGINS=(  )
-EPYTEST_DESELECT=( "fire/fire_test.py::FireTest::testFireAsyncio" )
+
+distutils_enable_tests pytest
 
 src_prepare() {
 	default
@@ -45,5 +57,3 @@ src_prepare() {
 	sed -ie "/tests_require/d" setup.py \
 		|| die "Failed to remove deprecated `tests_require`"
 }
-
-distutils_enable_tests pytest
