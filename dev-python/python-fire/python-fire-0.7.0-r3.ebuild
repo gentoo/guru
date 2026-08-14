@@ -15,15 +15,9 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-
 RDEPEND="
-	${PYTHON_DEPS}
 	dev-python/six[${PYTHON_USEDEP}]
 	dev-python/termcolor[${PYTHON_USEDEP}]
-"
-BDEPEND="
-	${PYTHON_DEPS}
 "
 DEPEND="
 	${RDEPEND}
@@ -41,13 +35,19 @@ PATCHES=(
 	"${FILESDIR}/python-fire-inspect.patch"
 )
 
-EPYTEST_PLUGINS=(  )
+EPYTEST_PLUGINS=( pytest-asyncio )
 
 distutils_enable_tests pytest
 
 src_prepare() {
 	default
 	# Update / remove deprecated options
-	sed -ie "/license =/d" pyproject.toml \
+	sed -ie "/'License ::/d" setup.py \
 		|| die "Failed to remove deprecated setuptools options"
+
+	sed -ie "s/requires_python/python_requires/g" setup.py \
+		|| die "Failed to rename deprecated `requires_python`"
+
+	sed -ie "/tests_require/d" setup.py \
+		|| die "Failed to remove deprecated `tests_require`"
 }
