@@ -1,0 +1,12 @@
+# Configuration file for tuwunel
+TUWUNEL_CONFIG=/etc/tuwunel/tuwunel.toml
+
+# PID file:
+#TUWUNEL_PID_FILE=/run/tuwunel.pid
+
+# Path for the log files:
+#TUWUNEL_LOG_DIR=/var/log/tuwunel
+
+# User and group to run the service with:
+#TUWUNEL_USER=tuwunel
+#TUWUNEL_GROUP=tuwunel

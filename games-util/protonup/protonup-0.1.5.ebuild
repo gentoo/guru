@@ -4,9 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
-
-EPYTHON=python3
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
 
@@ -19,11 +17,3 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-python/requests[${PYTHON_USEDEP}]"
-
-src_compile() {
-	distutils-r1_src_compile
-}
-
-src_install() {
-	distutils-r1_src_install
-}

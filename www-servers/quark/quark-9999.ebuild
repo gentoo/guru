@@ -9,6 +9,10 @@ DESCRIPTION="A small, GET-only static HTTP server"
 HOMEPAGE="https://tools.suckless.org/quark/"
 EGIT_REPO_URI="https://git.suckless.org/quark/"
 
+if [[ ${PV} != *9999* ]]; then
+	EGIT_COMMIT=""
+fi
+
 LICENSE="ISC"
 SLOT="0"
 

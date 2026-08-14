@@ -1,0 +1,13 @@
+Bump cmake_minimum_required to 3.16 to silence QA warnings.
+This code isn't actually used.
+--- a/src/MEGASync/mega/cmake/vcpkg_overlay_ports/jxrlib/CMakeLists.txt
++++ b/src/MEGASync/mega/cmake/vcpkg_overlay_ports/jxrlib/CMakeLists.txt
+@@ -2,7 +2,7 @@
+ # BSD (Same as jxrlib)
+ # Based on https://jxrlib.codeplex.com/discussions/440294
+ # and modified for vcpkg packaging
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.16)
+ project(jxrlib C)
+ 
+ # Need shared libs for ABI

@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,7 +23,7 @@ KEYWORDS="-* ~amd64"
 RDEPEND="
 	dev-libs/libxml2
 	sys-libs/ncurses:=
-	sys-libs/zlib
+	virtual/zlib
 "
 
 QA_FLAGS_IGNORED="opt/${P}/.*"

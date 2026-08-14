@@ -1,0 +1,25 @@
+diff --git a/app.py b/app.py
+index df70c61..343dfe8 100644
+--- a/app.py
++++ b/app.py
+@@ -7,7 +7,7 @@ from textual.widgets import Header, Footer, Static, Input, Button, DataTable, Se
+ from textual.containers import Container, Horizontal, ScrollableContainer
+ from textual.screen import ModalScreen
+ from textual.binding import Binding
+-from network import *
++from gazelle_tui.network import *
+ import subprocess
+ import asyncio
+ import json
+diff --git a/gazelle b/gazelle
+index bf31f1c..7c72add 100755
+--- a/gazelle
++++ b/gazelle
+@@ -2,6 +2,6 @@
+ """Gazelle - A NetworkManager TUI"""
+ 
+ if __name__ == "__main__":
+-    from app import Gazelle
++    from gazelle_tui.app import Gazelle
+     app = Gazelle()
+     app.run()

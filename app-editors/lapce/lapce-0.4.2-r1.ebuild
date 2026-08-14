@@ -1,11 +1,11 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 EAPI=8
 
 inherit cargo desktop xdg-utils
 
 DESCRIPTION="Lightning-fast and Powerful Code Editor written in Rust "
-HOMEPAGE="https://lapce.dev/"
+HOMEPAGE="https://lap.dev/lapce/"
 SRC_URI="
 	https://github.com/lapce/lapce/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/lapce/lapce/releases/download/v${PV}/vendor.tar.gz -> ${P}-vendor.tar.gz
@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 DEPEND="
 	x11-libs/gtk+:3
 	media-libs/fontconfig
-	sys-libs/zlib
+	virtual/zlib:=
 	x11-libs/libxcb:=
 	dev-libs/libgit2:=
 "

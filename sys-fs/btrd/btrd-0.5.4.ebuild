@@ -100,3 +100,5 @@ LICENSE="GPL-2"
 LICENSE+=" Boost-1.0 MIT Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
+
+QA_FLAGS_IGNORED="usr/bin/btrd"

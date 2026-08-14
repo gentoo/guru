@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>shaumya@gmail.com</email>
+		<name>Shaumyadeep Chaudhuri</name>
+	</maintainer>
+	<longdescription>
+		Fork of KDE's KCGroups utility library, adding integration with the dmem cgroup controller.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">pixelcluster/kcgroups</remote-id>
+	</upstream>
+</pkgmetadata>

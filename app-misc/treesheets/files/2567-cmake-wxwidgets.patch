@@ -1,0 +1,48 @@
+--- treesheets/CMakeLists.txt	2025-10-03 16:54:26.510454884 +0200
++++ treesheets/CMakeLists.txt	2025-10-03 21:29:02.708115372 +0200
+@@ -31,18 +31,13 @@
+ ### Thirdparty dependencies
+ 
+ include(FetchContent)
+-FetchContent_Declare(
+-    wxwidgets
+-    GIT_REPOSITORY https://github.com/wxWidgets/wxWidgets
+-    GIT_TAG v3.2.8
+-    FIND_PACKAGE_ARGS 3.2.8 NAMES wxWidgets
+-)
+-FetchContent_Declare(
+-    lobster
+-    GIT_REPOSITORY https://github.com/aardappel/lobster
+-    GIT_TAG v2025.3
+-)
+-FetchContent_MakeAvailable(wxwidgets lobster)
++find_package(wxWidgets 3.2.8 REQUIRED COMPONENTS core base aui net xml)
++#FetchContent_Declare(
++#    lobster
++#    GIT_REPOSITORY https://github.com/aardappel/lobster.git
++#    GIT_TAG v2025.3
++#)
++#FetchContent_MakeAvailable(lobster)
+ 
+ ### Options
+ 
+@@ -56,6 +51,7 @@
+ ### Libraries (lobster, lobster-impl, StackWalker)
+ 
+ ## lobster (script interpreter)
++set(lobster_SOURCE_DIR lobster-src)
+ 
+ add_library(lobster STATIC
+     ${lobster_SOURCE_DIR}/dev/external/flatbuffers/src/idl_gen_text.cpp
+@@ -141,9 +137,10 @@
+ endif()
+ 
+ target_precompile_headers(TreeSheets PUBLIC src/stdafx.h)
++include(${wxWidgets_USE_FILE})
+ 
+ ## Link wxWidgets, lobster-impl and StackWalker into TreeSheets
+-set(TREESHEETS_LIBS wx::aui wx::adv wx::core wx::xml wx::net lobster-impl)
++set(TREESHEETS_LIBS ${wxWidgets_LIBRARIES} lobster-impl)
+ if(WIN32)
+     list(APPEND TREESHEETS_LIBS StackWalker)
+ endif()

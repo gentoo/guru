@@ -1,0 +1,46 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Remove the `cargo test` and `cargo clippy` tests.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -57,37 +57,3 @@ cargo_build = custom_target(
+     'cp', cargo_target / rust_target / meson.project_name(), '@OUTPUT@',
+   ]
+ )
+-
+-cargo_extra_options = [
+-  cargo_build_options,
+-  '--all-targets',
+-  '--all-features',
+-  '--workspace',
+-]
+-
+-cargo_test_options = cargo_extra_options
+-test(
+-  'cargo-test',
+-  cargo,
+-  args: [
+-    'test',
+-    cargo_test_options,
+-  ],
+-  env: cargo_env,
+-  timeout: 400,
+-)
+-
+-cargo_clippy_options = [
+-  cargo_extra_options,
+-  cargo_clippy_deny_warnings,
+-]
+-test(
+-  'cargo-clippy',
+-  cargo,
+-  args: [
+-    'clippy',
+-    cargo_clippy_options,
+-  ],
+-  env: cargo_env,
+-  timeout: 400, # cargo might take a bit of time sometimes
+-)
+

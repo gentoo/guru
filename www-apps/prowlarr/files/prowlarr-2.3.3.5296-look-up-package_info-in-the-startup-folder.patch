@@ -1,0 +1,23 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Look up `package_info` in the startup folder.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/src/NzbDrone.Core/Configuration/DeploymentInfoProvider.cs
++++ b/src/NzbDrone.Core/Configuration/DeploymentInfoProvider.cs
+@@ -29,13 +29,13 @@ public class DeploymentInfoProvider : IDeploymentInfoProvider
+         public DeploymentInfoProvider(IAppFolderInfo appFolderInfo, IDiskProvider diskProvider)
+         {
+             var bin = appFolderInfo.StartUpFolder;
+-            var packageInfoPath = Path.Combine(bin, "..", "package_info");
++            var packageInfoPath = Path.Combine(bin, "package_info");
+             var releaseInfoPath = Path.Combine(bin, "release_info");
+ 
+             PackageUpdateMechanism = UpdateMechanism.BuiltIn;
+             DefaultBranch = "master";
+ 
+-            if (Path.GetFileName(bin) == "bin" && diskProvider.FileExists(packageInfoPath))
++            if (diskProvider.FileExists(packageInfoPath))
+             {
+                 var data = diskProvider.ReadAllText(packageInfoPath);
+

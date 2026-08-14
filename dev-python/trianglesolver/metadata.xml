@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">trianglesolver</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		trianglesolver is a simple Python library that attempts to solve triangles
+		given partial information about sides and angles. It uses the law of sines
+		and the law of cosines to compute missing values.
+	</longdescription>
+	<longdescription lang="zh">
+		trianglesolver是一个简单的Python库，用于根据三角形的部分边和角信息
+		来求解三角形。它使用正弦定律和余弦定律来计算缺失值。
+	</longdescription>
+</pkgmetadata>

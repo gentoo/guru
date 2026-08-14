@@ -1,0 +1,15 @@
+diff --git a/aiomisc/pytest.py b/aiomisc/pytest.py
+index c5368d2..34b96cf 100644
+--- a/aiomisc/pytest.py
++++ b/aiomisc/pytest.py
+@@ -494,10 +494,6 @@ def pytest_fixture_setup(fixturedef, request):  # type: ignore
+             except StopAsyncIteration:  # NOQA
+                 pass
+ 
+-        loop_fixturedef.addfinalizer(
+-            partial(fixturedef.finish, request=request)
+-        )
+-
+         request.addfinalizer(finalizer)
+         return event_loop.run_until_complete(gen.__anext__())
+ 

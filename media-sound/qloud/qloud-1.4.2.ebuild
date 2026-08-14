@@ -25,16 +25,12 @@ KEYWORDS="~amd64 ~x86"
 RESTRICT="test"
 
 BDEPEND="
-	dev-qt/linguist-tools:5
+	dev-qt/qttools:6[linguist]
 "
 ## x11-libs/qwt:6 to be removed in the near future
 RDEPEND="
-	dev-qt/qtcharts:5
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	dev-qt/qtcharts:6
+	dev-qt/qtbase:6[gui,widgets,xml]
 	media-libs/libsndfile
 	sci-libs/fftw:3.0
 	virtual/jack
@@ -57,7 +53,7 @@ src_prepare() {
 }
 
 src_configure() {
-	eqmake5
+	eqmake6
 }
 
 src_install() {

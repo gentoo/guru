@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<longdescription lang="en">
+		OrcaSlicer is a powerful open-source 3D printing slicer based on Bambu Studio
+		and PrusaSlicer. It supports a wide range of 3D printers including Bambu Lab,
+		Prusa, Voron, VzBot, RatRig, Creality, and many others. Features include
+		advanced calibration tools, multi-material support, tree supports, adaptive
+		layer height, and extensive customization options. This is a binary package
+		that installs the official AppImage release.
+	</longdescription>
+	<longdescription lang="zh">
+		OrcaSlicer 是一款功能强大的开源 3D 打印切片软件，基于 Bambu Studio 和
+		PrusaSlicer 开发。它支持众多 3D 打印机，包括拓竹（Bambu Lab）、Prusa、
+		Voron、VzBot、RatRig、创想三维（Creality）等。主要功能包括高级校准工具、
+		多材料支持、树状支撑、自适应层高以及丰富的自定义选项。此软件包安装官方
+		发布的 AppImage 二进制版本。
+	</longdescription>
+	<upstream>
+		<remote-id type="github">OrcaSlicer/OrcaSlicer</remote-id>
+		<bugs-to>https://github.com/OrcaSlicer/OrcaSlicer/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,18 @@
+Build using the configuration of the chosen kernel, not /proc/config.gz
+
+Upstream PR: https://github.com/amd/xdna-driver/pull/1285
+--- a/src/driver/tools/configure_kernel.sh
++++ b/src/driver/tools/configure_kernel.sh
+@@ -67,7 +67,11 @@ try_compile() {
+     conftest_c="$tmpdir/conftest.c"
+     conftest_mk="$tmpdir/Makefile"
+     USE_LLVM=""
+-    if [ -e /proc/config.gz ]; then
++    if [ -e "${KERNEL_SRC}/.config" ]; then
++        if grep -q "CONFIG_CC_IS_CLANG=y" "${KERNEL_SRC}/.config" 2>/dev/null; then
++            USE_LLVM="LLVM=1"
++        fi
++    elif [ -e /proc/config.gz ]; then
+         if zgrep -q "CONFIG_CC_IS_CLANG=y" /proc/config.gz 2>/dev/null; then
+             USE_LLVM="LLVM=1"
+         fi

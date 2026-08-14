@@ -1,0 +1,13 @@
+Fix cstdint include for GCC 15
+
+--- tenacity.orig/libraries/lib-utility/MemoryX.cpp
++++ tenacity/libraries/lib-utility/MemoryX.cpp
+@@ -10,6 +10,8 @@
+ 
+ #include "MemoryX.h"
+ 
++#include <cstdint>
++
+ // Make the symbol table non-empty
+ UTILITY_API void lib_utility_dummy_symbol()
+ {}

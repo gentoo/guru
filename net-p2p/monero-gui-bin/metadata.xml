@@ -5,6 +5,10 @@
     <email>justin026@protonmail.com</email>
     <name>Justin Donofrio</name>
   </maintainer>
+  <maintainer type="person">
+    <email>ravfx@xmr.mx</email>
+    <name>RavFX</name>
+  </maintainer>
   <longdescription lang="en">
     Monero is a private, secure, untraceable, decentralised digital
     currency. You are your bank, you control your funds, and nobody

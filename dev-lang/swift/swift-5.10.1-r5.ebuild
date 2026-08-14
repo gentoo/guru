@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-LLVM_COMPAT=( {15..19} )
-PYTHON_COMPAT=( python3_{11..13} )
-inherit flag-o-matic llvm-r1 python-single-r1
+LLVM_COMPAT=( {17..21} )
+PYTHON_COMPAT=( python3_{12..14} )
+inherit flag-o-matic llvm-r2 python-single-r1
 
 DESCRIPTION="A high-level, general-purpose, multi-paradigm, compiled programming language"
 HOMEPAGE="https://www.swift.org"
@@ -54,9 +54,11 @@ PATCHES=(
 	"${FILESDIR}/${PF}/backtracing-noexecstack.patch"
 	"${FILESDIR}/${PF}/clang-indexstore-exports.patch"
 	"${FILESDIR}/${PF}/disable-libdispatch-werror.patch"
+	"${FILESDIR}/${PF}/fix-issues-caused-by-build-system-updates.patch"
 	"${FILESDIR}/${PF}/link-ncurses-tinfo.patch"
 	"${FILESDIR}/${PF}/link-with-lld.patch"
 	"${FILESDIR}/${PF}/lldb-cmake-minimum-version.patch"
+	"${FILESDIR}/${PF}/remove-linux-scc_h.patch"
 	"${FILESDIR}/${PF}/respect-c-cxx-flags.patch"
 )
 
@@ -78,7 +80,7 @@ RDEPEND="
 	>=dev-libs/libxml2-2.11.5
 	>=net-misc/curl-8.4
 	>=sys-libs/ncurses-6
-	>=sys-libs/zlib-1.3
+	>=virtual/zlib-1.3:=
 	dev-lang/python
 	$(llvm_gen_dep 'llvm-core/lld:${LLVM_SLOT}=')
 "
@@ -94,16 +96,15 @@ BDEPEND="
 	>=dev-vcs/git-2.39
 	>=sys-apps/coreutils-9
 	>=sys-devel/gcc-11
+	<sys-devel/gcc-16
 	>=sys-libs/ncurses-6
-	>=sys-libs/zlib-1.3
+	>=virtual/zlib-1.3:=
 	$(llvm_gen_dep '
 		llvm-core/clang:${LLVM_SLOT}=
 		llvm-core/lld:${LLVM_SLOT}=
 	')
 	dev-lang/python
-	$(python_gen_cond_dep '
-		dev-python/setuptools[${PYTHON_USEDEP}]
-	' python3_{12..13})
+	$(python_gen_cond_dep 'dev-python/setuptools[${PYTHON_USEDEP}]')
 "
 
 PKG_PREINST_SWIFT_INTENTIONALLY_SET='true'
@@ -129,7 +130,7 @@ pkg_setup() {
 	python_setup
 
 	# Sets up `PATH` to point to the appropriate LLVM toolchain.
-	llvm-r1_pkg_setup
+	llvm-r2_pkg_setup
 }
 
 src_unpack() {
@@ -154,7 +155,7 @@ src_unpack() {
 }
 
 src_configure() {
-	# `llvm-r1_pkg_setup` sets these tools to their absolute paths, but we need
+	# `llvm-r2_pkg_setup` sets these tools to their absolute paths, but we need
 	# to still pick them up dynamically based on `PATH` for stage1 and stage2
 	# builds below (to keep all parts of the Swift toolchain compiling with the
 	# same internal tools).
@@ -180,6 +181,33 @@ src_configure() {
 	# up from `libc++` and others from `libstdc++`, leading to linker failures.
 	# This requires forcing the usage of `libstdc++` to build consistently.
 	append-cxxflags '-stdlib=libstdc++'
+
+	# Swift is going to be building against GCC's libstdc++ using Clang, and GCC
+	# 16 libstdc++ headers can only be parsed by Clang 22 and later. Swift's
+	# LLVM will automatically pick up on the latest headers on disk, so we need
+	# to point Clang to a specific GCC install dir if GCC 16 or later are
+	# installed.
+	#
+	# Adapted from `toolchain-func.eclass`'s `_gcc_install_dir`.
+	local gcc_install_dir="$(LC_ALL=C gcc -print-search-dirs 2>/dev/null \
+		| awk '$1=="install:" {print $2}')" \
+		|| die "Failed to get GCC install dir"
+
+	if [[ "$(basename "${gcc_install_dir}")" -ge 16 ]]; then
+		local base="$(dirname "${gcc_install_dir}")"
+
+		gcc_install_dir=""
+		while read -r -d '' dir; do
+			if [[ "$(basename "${dir}")" -lt 16 ]]; then
+				gcc_install_dir="${dir}"
+				break
+			fi
+		done < <(find "${base}" -mindepth 1 -maxdepth 1 -print0 | sort -rVz) \
+			|| die "Failed to find GCC install dirs"
+	fi
+
+	[[ -n "${gcc_install_dir}" ]] || die "Failed to find GCC <16 install dir"
+	append-cxxflags "--gcc-install-dir=${gcc_install_dir}"
 }
 
 src_compile() {
@@ -394,4 +422,3 @@ pkg_postrm() {
 		eselect swift update
 	fi
 }
-

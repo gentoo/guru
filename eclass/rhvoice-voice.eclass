@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: rhvoice-voice.eclass
@@ -19,7 +19,7 @@
 #
 # @CODE
 #
-# EAPI=8
+# EAPI=9
 #
 # RHVOICE_VOICE="arina"
 # RHVOICE_VOICE_REPO="arina-rus"
@@ -31,7 +31,7 @@
 # @CODE
 
 case ${EAPI} in
-	8) ;;
+	8|9) ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 

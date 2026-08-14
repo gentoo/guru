@@ -17,3 +17,7 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+
+PATCHES=(
+	"${FILESDIR}/cmake-bump.patch"
+)

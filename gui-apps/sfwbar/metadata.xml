@@ -16,6 +16,7 @@
 		<flag name="idleinhibit">Enable support for Idle inhibit protocol. Prevents screenlockers (e.g swaylock) from popping up by inhibiting idle mode</flag>
 		<flag name="bsdctl">Enable support for BSD sysctl module. Default disabled by upstream</flag>
 		<flag name="man">Rebuild man pages from rst files</flag>
+		<flag name="pipewire">Enable support for pipewire privacy monitor</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">LBCrion/sfwbar</remote-id>

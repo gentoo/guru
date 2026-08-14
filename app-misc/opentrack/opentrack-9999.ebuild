@@ -8,20 +8,21 @@ inherit cmake desktop flag-o-matic toolchain-funcs
 DESCRIPTION="Head tracking software for MS Windows, Linux, and Apple OSX"
 HOMEPAGE="https://github.com/opentrack/opentrack"
 
+FUSION_PV="1.2.11"
+
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/opentrack/opentrack.git"
 else
-	SRC_URI="https://github.com/opentrack/opentrack/archive/refs/tags/${P}.tar.gz"
+	SRC_URI="https://github.com/opentrack/opentrack/archive/${P}.tar.gz"
 	KEYWORDS="~amd64"
 	S="${WORKDIR}/opentrack-${P}"
 fi
+SRC_URI+=" https://github.com/xioTechnologies/Fusion/archive/v${FUSION_PV}.tar.gz -> Fusion-${FUSION_PV}.tar.gz"
 
-LICENSE="ISC"
+LICENSE="ISC MIT"
 SLOT="0"
-
 IUSE="neuralnet opencv openmp wine"
-
 REQUIRED_USE="neuralnet? ( openmp opencv )"
 
 DEPEND="
@@ -52,6 +53,15 @@ src_prepare() {
 	cmake_src_prepare
 }
 
+src_unpack() {
+	if [[ ${PV} == 9999 ]]; then
+		git-r3_src_unpack
+	else
+		unpack ${P}.tar.xz
+	fi
+	unpack Fusion-${FUSION_PV}.tar.gz
+}
+
 src_configure() {
 	use openmp && append-cxxflags -fopenmp && append-ldflags -fopenmp
 
@@ -59,6 +69,9 @@ src_configure() {
 		$(cmake_use_find_package neuralnet ONNXRuntime)
 		$(cmake_use_find_package opencv OpenCV)
 		$(cmake_use_find_package openmp OpenMP)
+
+		# disconnect the build from external Fusion sources
+		-DFETCHCONTENT_SOURCE_DIR_AHRSFUSION="${WORKDIR}/Fusion-${FUSION_PV}"
 	)
 
 	# opentrack overwrites emerge cflags unconditionally: we can prevent

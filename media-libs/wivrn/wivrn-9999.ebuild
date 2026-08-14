@@ -3,14 +3,14 @@
 
 EAPI=8
 
-inherit cmake-multilib fcaps flag-o-matic xdg
+inherit cmake-multilib flag-o-matic xdg
 
 DESCRIPTION="WiVRn OpenXR streaming"
 HOMEPAGE="https://github.com/WiVRn/WiVRn"
 
 LICENSE="GPL-3 Apache-2.0 MIT"
 SLOT="0"
-IUSE="debug gui nvenc +pipewire pulseaudio systemd vaapi wireshark-plugins x264"
+IUSE="debug gui nvenc +pipewire pulseaudio vaapi wireshark-plugins x264"
 REQUIRED_USE="|| ( nvenc vaapi x264 )"
 
 if [[ ${PV} == 9999 ]]; then
@@ -40,6 +40,7 @@ RDEPEND="
 		sys-auth/elogind
 	)
 	gui? (
+		dev-libs/kirigami-addons
 		dev-libs/qcoro[qml]
 		kde-frameworks/kcoreaddons:6
 		kde-frameworks/ki18n:6
@@ -53,31 +54,29 @@ RDEPEND="
 	pulseaudio? (
 		media-libs/libpulse
 	)
-	systemd? (
-		sys-apps/systemd
-	)
-	vaapi? ( || (
-		media-video/ffmpeg[libdrm(-),vaapi]
+	vaapi? (
 		media-video/ffmpeg[drm(-),vaapi]
-	) )
-	wireshark-plugins? (
-		net-analyzer/wireshark
 	)
 	x264? (
 		media-libs/x264
 	)
+	wireshark-plugins? (
+		!=net-analyzer/wireshark-4.6.0
+		net-analyzer/wireshark
+	)
 "
 DEPEND="
 	${RDEPEND}
+
 	dev-libs/boost
-"
-BDEPEND="
 	dev-cpp/cli11
 	dev-cpp/eigen
 	dev-cpp/nlohmann_json
+	dev-util/vulkan-headers
+"
+BDEPEND="
 	dev-util/glslang
 	dev-util/gdbus-codegen
-	dev-util/vulkan-headers
 "
 
 if [[ ${PV} == 9999 ]]; then
@@ -113,16 +112,21 @@ multilib_src_configure() {
 	use debug || append-cflags "-DNDEBUG"
 	use debug || append-cxxflags "-DNDEBUG"
 	if [[ ${PV} != 9999 ]]; then
-		GIT_DESC=v${PV}
-		GIT_COMMIT=v${PV}
+		GIT_TAG=v${PV}
+		GIT_DESC=""
+		GIT_COMMIT=""
+	else
+		GIT_TAG=""
 	fi
 	local mycmakeargs=(
+		-DGIT_TAG=${GIT_TAG}
 		-DGIT_DESC=${GIT_DESC}
 		-DGIT_COMMIT=${GIT_COMMIT}
 		-DWIVRN_BUILD_CLIENT=OFF
 		-DWIVRN_BUILD_SERVER=$(multilib_is_native_abi && echo ON || echo OFF)
 		-DWIVRN_BUILD_SERVER_LIBRARY=ON
-		-DWIVRN_OPENXR_MANIFEST_TYPE=filename
+		-DWIVRN_OPENXR_MANIFEST_TYPE=relative
+		-DWIVRN_OPENXR_MANIFEST_ABI=$(multilib_is_native_abi && echo OFF || echo ON)
 		-DWIVRN_BUILD_DASHBOARD=$(multilib_native_usex gui)
 		-DWIVRN_BUILD_DISSECTOR=$(multilib_native_usex wireshark-plugins)
 		-DWIVRN_BUILD_WIVRNCTL=$(multilib_is_native_abi && echo ON || echo OFF)
@@ -133,7 +137,6 @@ multilib_src_configure() {
 		-DWIVRN_USE_VAAPI=$(multilib_native_usex vaapi)
 		-DWIVRN_USE_VULKAN_ENCODE=ON
 		-DWIVRN_USE_X264=$(multilib_native_usex x264)
-		-DWIVRN_USE_SYSTEMD=$(multilib_native_usex systemd)
 		-DWIVRN_USE_SYSTEM_OPENXR=ON
 		-DWIVRN_USE_SYSTEM_BOOST=ON
 		-DFETCHCONTENT_FULLY_DISCONNECTED=ON
@@ -147,19 +150,13 @@ multilib_src_configure() {
 multilib_src_install() {
 	cmake_src_install
 
-	local i ldpath=""
-	for i in $(get_all_libdirs) ; do
-		ldpath="${ldpath}:/usr/${i}/wivrn"
-	done
 	newenvd - "50${PN}" <<-_EOF_
-		LDPATH="${ldpath}"
-		PRESSURE_VESSEL_IMPORT_OPENXR_1_RUNTIMES=1
+PRESSURE_VESSEL_IMPORT_OPENXR_1_RUNTIMES=1
 	_EOF_
- }
+}
 
 pkg_postinst()
 {
-	fcaps cap_sys_nice usr/bin/wivrn-server
 	xdg_pkg_postinst
 	elog "WiVRn requires a compatible client on VR headset to run."
 	if [[ ${PV} == 9999 ]]; then

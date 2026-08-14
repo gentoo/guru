@@ -1,4 +1,4 @@
-# Copyright 2019-2023 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
+# Copyright 2019-2025 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: mix.eclass
@@ -17,7 +17,7 @@ case "${EAPI:-0}" in
 	0|1|2|3|4|5)
 		die "Unsupported EAPI=${EAPI:-0} (too old) for ${ECLASS}"
 		;;
-	6|7)
+	6|7|8)
 		;;
 	*)
 		die "Unsupported EAPI=${EAPI} (unknown) for ${ECLASS}"
@@ -37,13 +37,17 @@ DEPEND="${RDEPEND}"
 BDEPEND="!<${CATEGORY}/${P} !>${CATEGORY}/${PF}"
 
 # @ECLASS_VARIABLE: HEX_OFFLINE
+# @INTERNAL
+# @DESCRIPTION:
+# Tell hex to not fetch registry or packages, only installed and cached,
+# see lib/mix/tasks/hex.config.ex in dev-elixir/hex
 HEX_OFFLINE=1
 
 # @ECLASS_VARIABLE: MIX_ENV
+# @INTERNAL
+# @DESCRIPTION:
+# Build mode (prod, dev, test), shouldn't be changed
 MIX_ENV="prod"
-
-# @ECLASS_VARIABLE: MIX_NO_DEPS
-MIX_NO_DEPS=1
 
 # @FUNCTION: emix
 # @USAGE: <targets>
@@ -58,12 +62,20 @@ emix() {
 }
 
 # @ECLASS_VARIABLE: MIX_REWRITE
+# @INTERNAL
+# @DESCRIPTION:
+# See mix_src_prepare
 MIX_REWRITE=""
 
 # @ECLASS_VARIABLE: MIX_BUILD_NAME
+# @INTERNAL
+# @DESCRIPTION:
+# Subdirectory of `${S}/_build/`, should be equal to MIX_ENV
 MIX_BUILD_NAME="${MIX_ENV}"
 
 # @FUNCTION: mix_src_prepare
+# @DESCRIPTION:
+# Remove only&optional deps from mix.exs when MIX_REWRITE is non-empty
 mix_src_prepare() {
 	if [[ "${MIX_REWRITE}" != "" ]]
 	then

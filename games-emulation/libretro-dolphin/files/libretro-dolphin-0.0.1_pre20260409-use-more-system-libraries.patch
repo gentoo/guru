@@ -1,0 +1,43 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use more system libraries.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -695,8 +695,8 @@ dolphin_find_optional_system_library_pkgconfig(FMT
+   fmt>=10.1 fmt::fmt Externals/fmt
+ )
+ 
+-add_subdirectory(Externals/imgui)
+-add_subdirectory(Externals/implot)
++dolphin_find_optional_system_library_pkgconfig(imgui imgui imgui Externals/imgui)
++dolphin_find_optional_system_library_pkgconfig(implot implot implot Externals/implot)
+ 
+ dolphin_find_optional_system_library(glslang Externals/glslang DOLPHIN_TRY_VERSIONS 15 16)
+ 
+@@ -705,7 +705,12 @@ dolphin_find_optional_system_library(glslang Externals/glslang DOLPHIN_TRY_VERSI
+ if(WIN32 OR APPLE)
+   add_subdirectory(Externals/spirv_cross)
+ endif()
+-add_subdirectory(Externals/tinygltf)
++
++dolphin_find_optional_system_library(TinyGLTF Externals/tinygltf)
++target_compile_definitions(tinygltf::tinygltf INTERFACE TINYGLTF_NOEXCEPTION)
++target_compile_definitions(tinygltf::tinygltf INTERFACE TINYGLTF_NO_EXTERNAL_IMAGE)
++target_compile_definitions(tinygltf::tinygltf INTERFACE TINYGLTF_USE_CPP14)
++dolphin_alias_library(tinygltf tinygltf::tinygltf)
+ 
+ if(ENABLE_VULKAN)
+   add_definitions(-DHAS_VULKAN)
+--- a/Source/Core/VideoCommon/Assets/MeshAsset.cpp
++++ b/Source/Core/VideoCommon/Assets/MeshAsset.cpp
+@@ -6,7 +6,7 @@
+ #include <array>
+ #include <utility>
+ 
+-#include <tinygltf/tiny_gltf.h>
++#include <tiny_gltf.h>
+ 
+ #include "Common/IOFile.h"
+ #include "Common/Logging/Log.h"

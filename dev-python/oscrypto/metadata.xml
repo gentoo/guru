@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <description>co-maintainers welcome</description>
-    <email>agireud@protonmail.com</email>
-    <name>Alberto Gireud</name>
-  </maintainer>
+  <!-- maintainer-needed -->
   <upstream>
     <remote-id type="github">wbond/oscrypto</remote-id>
     <remote-id type="pypi">oscrypto</remote-id>

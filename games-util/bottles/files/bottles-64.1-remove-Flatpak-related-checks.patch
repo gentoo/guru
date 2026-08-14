@@ -1,0 +1,117 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Remove Flatpak-related checks
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/bottles/frontend/meson.build
++++ b/bottles/frontend/meson.build
+@@ -23,12 +23,6 @@ params_file = configure_file(
+     configuration: conf
+ )
+ 
+-fs = import('fs')
+-
+-if not fs.is_file('/' + '.flatpak-info')
+-  error('file does not exist')
+-endif
+-
+ bottles_sources = [
+   '__init__.py',
+   'main.py',
+--- a/bottles/frontend/views/bottle_details.py
++++ b/bottles/frontend/views/bottle_details.py
+@@ -692,22 +692,7 @@ class BottleView(Adw.PreferencesPage):
+             dialog.connect("response", execute)
+             dialog.show()
+ 
+-        if Xdp.Portal.running_under_sandbox():
+-            if self.window.settings.get_boolean("show-sandbox-warning"):
+-                dialog = Adw.MessageDialog.new(
+-                    self.window,
+-                    _("Be Aware of Sandbox"),
+-                    _(
+-                        "Bottles is running in a sandbox, a restricted permission environment needed to keep you safe. If the program won't run, consider moving inside the bottle (3 dots icon on the top), then launch from there."
+-                    ),
+-                )
+-                dialog.add_response("dismiss", _("_Dismiss"))
+-                dialog.connect("response", lambda *args: show_chooser())
+-                dialog.present()
+-            else:
+-                show_chooser()
+-        else:
+-            show_chooser()
++        show_chooser()
+ 
+     def analyze_with_eagle(self, path):
+         """Open the Eagle analysis view and scan the given executable."""
+--- a/bottles/frontend/views/bottle_preferences.py
++++ b/bottles/frontend/views/bottle_preferences.py
+@@ -141,7 +141,7 @@ class PreferencesView(Adw.PreferencesPage):
+         self.queue = details.queue
+         self.details = details
+ 
+-        if not gamemode_available or not Xdp.Portal.running_under_sandbox():
++        if not gamemode_available:
+             return
+ 
+         _not_available = _("This feature is unavailable on your system.")
+--- a/bottles/frontend/views/list.py
++++ b/bottles/frontend/views/list.py
+@@ -83,9 +83,6 @@ class BottlesBottleRow(Adw.ActionRow):
+ 
+     def run_executable(self, *_args):
+         """Display file dialog for executable"""
+-        if not Xdp.Portal.running_under_sandbox():
+-            return
+-
+         def set_path(_dialog, response):
+             if response != Gtk.ResponseType.ACCEPT:
+                 return
+--- a/bottles/frontend/views/new_bottle_dialog.py
++++ b/bottles/frontend/views/new_bottle_dialog.py
+@@ -86,7 +86,7 @@ class BottlesNewBottleDialog(Adw.Dialog):
+         super().__init__(**kwargs)
+         # common variables and references
+         self.window = GtkUtils.get_parent_window()
+-        if not self.window or not Xdp.Portal.running_under_sandbox():
++        if not self.window:
+             return
+ 
+         self.app = self.window.get_application()
+--- a/bottles/frontend/windows/window.py
++++ b/bottles/frontend/windows/window.py
+@@ -125,35 +125,6 @@ class BottlesWindow(Adw.ApplicationWindow):
+             manager = Adw.StyleManager.get_default()
+             manager.set_color_scheme(Adw.ColorScheme.FORCE_DARK)
+ 
+-        # Be VERY explicit that non-sandboxed environments are unsupported
+-        if not Xdp.Portal.running_under_sandbox():
+-
+-            def response(dialog, response, *args):
+-                if response == "close":
+-                    quit(1)
+-
+-            body = _(
+-                "Bottles is only supported within a sandboxed environment. Official sources of Bottles are available at"
+-            )
+-            download_url = "usebottles.com/download"
+-
+-            error_dialog = Adw.AlertDialog.new(
+-                _("Unsupported Environment"),
+-                f"{body} <a href='https://{download_url}' title='https://{download_url}'>{download_url}.</a>",
+-            )
+-
+-            error_dialog.add_response("close", _("Close"))
+-            error_dialog.set_body_use_markup(True)
+-            error_dialog.connect("response", response)
+-            error_dialog.present(self)
+-            logging.error(
+-                _(
+-                    "Bottles is only supported within a sandboxed format. Official sources of Bottles are available at:"
+-                )
+-            )
+-            logging.error("https://usebottles.com/download/")
+-            return
+-
+         # Loading view
+         self.page_loading = LoadingView()

@@ -1,0 +1,25 @@
+#!/sbin/openrc-run
+# shellcheck shell=sh
+#
+# Copyright 2025-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+supervisor="supervise-daemon"
+description="GoatCounter web analytics daemon service"
+command="/usr/bin/goatcounter"
+command_args="serve"
+command_user="goatcounter:goatcounter"
+pidfile="/run/goatcounter.pid"
+capabilities="^cap_net_bind_service"
+
+output_log="/var/log/goatcounter.log"
+error_log="${output_log}"
+
+depend() {
+	need net
+	use dns firewall postgresql
+}
+
+start_pre() {
+	checkpath -fo "${command_user}" "${output_log}"
+}

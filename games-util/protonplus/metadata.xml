@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@amielke.de</email>
+		<name>Andreas Mielke</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Vysp3r/ProtonPlus</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		GTK4/libadwaita application to install and manage Proton-GE and other Wine or Proton compatibility tools.
+	</longdescription>
+</pkgmetadata>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>truffle074@gmail.com</email>
+		<name>Bryce Copeland (truffle)</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/persepolisdm/persepolis/issues</bugs-to>
+		<remote-id type="github">persepolisdm/persepolis</remote-id>
+	</upstream>
+</pkgmetadata>

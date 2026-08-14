@@ -9,7 +9,10 @@
     <flag name="system-vanilla">Use the VANILLA variant of system.img</flag>
     <flag name="system-gapps">Use the GAPPS variant of system.img</flag>
     <flag name="vendor-mainline">Use the MAINLINE variant of vendor.img</flag>
-    <flag name="vendor-halium">Use the HALIUM_11 variant of vendor.img</flag>
+    <flag name="vendor-halium">Use the HALIUM variant of vendor.img</flag>
+    <flag name="android-10">Install Android version 10</flag>
+    <flag name="android-11">Install Android version 11</flag>
+    <flag name="android-13">Install Android version 13</flag>
   </use>
   <upstream>
     <remote-id type="github">waydroid/waydroid</remote-id>

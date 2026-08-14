@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>negril.nx+gentoo@gmail.com</email>
+		<name>Paul Zander</name>
+	</maintainer>
+	<stabilize-allarches/>
 	<upstream>
-		<remote-id type="pypi">graphql-core</remote-id>
 		<remote-id type="github">graphql-python/graphql-core</remote-id>
+		<remote-id type="pypi">graphql-core</remote-id>
 	</upstream>
 </pkgmetadata>

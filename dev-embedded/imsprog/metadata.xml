@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>christianschoffit@gmail.com</email>
+		<name>Christian Schoffit</name>
+	</maintainer>
+	<longdescription>
+		IMSProg - software for CH341A-based programmers to work with I2C,
+		SPI and MicroWire EEPROM/Flash chips. It is composed by IMSProg
+		(the programmer), IMSProgEditor (the chip database editor) and
+		IMSProgUpdater (the chip database updates downloader)
+	</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Mikhail Medvedev</name>
+			<email>e-ink-reader@yandex.ru</email>
+		</maintainer>
+		<changelog>https://github.com/bigbigmdm/IMSProg/releases</changelog>
+		<doc>https://github.com/bigbigmdm/IMSProg</doc>
+		<remote-id type="github">bigbigmdm/IMSProg</remote-id>
+	</upstream>
+</pkgmetadata>

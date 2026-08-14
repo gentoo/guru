@@ -3,8 +3,7 @@
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<use>
-		<flag name="qrcodegen">Support for login through QR Code feature using dev-libs/qr-code-generator</flag>
-		<flag name="libhandy">Support for features using gui-libs/libhandy</flag>
+		<flag name="voice">Voice support</flag>
 		<flag name="rnnoise">Support for noise reduction using media-libs/rnnoise</flag>
 	</use>
 	<upstream>

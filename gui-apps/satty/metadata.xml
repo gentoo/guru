@@ -5,9 +5,13 @@
 		<email>gonegrier.duarte@gmail.com</email>
 		<name>Gonçalo Negrier Duarte</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>minyaylo51@gmail.com</email>
+		<name>Neatink</name>
+	</maintainer>
 	<upstream>
-		<doc>https://github.com/gabm/satty</doc>
-		<bugs-to>https://github.com/gabm/satty/issues</bugs-to>
-		<remote-id type="github">gabm/satty</remote-id>
+		<doc>https://github.com/Satty-org/Satty</doc>
+		<bugs-to>https://github.com/Satty-org/Satty/issues</bugs-to>
+		<remote-id type="github">Satty-org/Satty</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -1,0 +1,122 @@
+Fix build with GCC 15 and runtime issue with libstdc++ 15.1.
+https://github.com/CleverRaven/Cataclysm-DDA/pull/80800
+
+From ac41a58401b663e8ae27d7352eb95795bf778dac Mon Sep 17 00:00:00 2001
+From: avaliente-bc <56400759+avaliente-bc@users.noreply.github.com>
+Date: Wed, 6 Apr 2022 21:27:37 +0200
+Subject: [PATCH 1/2] stl_emulation span::count_ is not const anymore
+
+In C++ we cannot have both assignment operator and const member. Since
+span::operator= is defined, span::count_ constness must be removed.
+
+cherry-picked from upstream
+google/flatbuffers@20aad0c41e1252b04c72111c3eb221280a9c2009.
+
+fixes:
+
+	In file included from ../src/third-party/flatbuffers/util.h:25,
+			 from ../src/third-party/flatbuffers/flexbuffers.h:26,
+			 from ../src/flexbuffer_json.h:9,
+			 from ../src/json.h:1623,
+			 from ../src/units.h:17,
+			 from ../src/damage.h:18,
+			 from ../src/bodypart.h:15,
+			 from ../src/avatar.h:16,
+			 from ../tests/battery_mod_test.cpp:9:
+	../src/third-party/flatbuffers/stl_emulation.h: In member function ‘constexpr flatbuffers::span<T, Extent>& flatbuffers::span<T, Extent>::operator=(const flatbuffers::span<T, Extent>&)’:
+	../src/third-party/flatbuffers/stl_emulation.h:550:12: error: assignment of read-only member ‘flatbuffers::span<T, Extent>::count_’
+	  550 |     count_ = other.count_;
+	      |     ~~~~~~~^~~~~~~~~~~~~~
+
+under gcc 14.
+--- a/src/third-party/flatbuffers/stl_emulation.h
++++ b/src/third-party/flatbuffers/stl_emulation.h
+@@ -626,7 +626,7 @@ class span FLATBUFFERS_FINAL_CLASS {
+  private:
+   // This is a naive implementation with 'count_' member even if (Extent != dynamic_extent).
+   pointer const data_;
+-  const size_type count_;
++  size_type count_;
+ };
+ 
+  #if !defined(FLATBUFFERS_SPAN_MINIMAL)
+
+From 531de9110868acf2df825bce0368de4fbbcb8a13 Mon Sep 17 00:00:00 2001
+From: andrei <a12l+git@runbox.com>
+Date: Fri, 2 May 2025 23:23:27 +0300
+Subject: [PATCH 2/2] mapdata: ensure EMPTY_GROUP is initialized before
+ generic_factory<field_type>
+
+--- a/src/item_factory.cpp
++++ b/src/item_factory.cpp
+@@ -87,8 +87,6 @@ static const item_category_id item_category_tools( "tools" );
+ static const item_category_id item_category_veh_parts( "veh_parts" );
+ static const item_category_id item_category_weapons( "weapons" );
+ 
+-static const item_group_id Item_spawn_data_EMPTY_GROUP( "EMPTY_GROUP" );
+-
+ static const material_id material_bean( "bean" );
+ static const material_id material_blood( "blood" );
+ static const material_id material_bone( "bone" );
+@@ -1891,7 +1889,7 @@ void Item_factory::init()
+     add_actor( std::make_unique<effect_on_conditons_actor>() );
+     // An empty dummy group, it will not spawn anything. However, it makes that item group
+     // id valid, so it can be used all over the place without need to explicitly check for it.
+-    m_template_groups[Item_spawn_data_EMPTY_GROUP] =
++    m_template_groups[get_Item_spawn_data_EMPTY_GROUP()] =
+         std::make_unique<Item_group>( Item_group::G_COLLECTION, 100, 0, 0, "EMPTY_GROUP" );
+ }
+ 
+--- a/src/item_group.cpp
++++ b/src/item_group.cpp
+@@ -67,6 +67,12 @@ void Item_spawn_data::relic_generator::load( const JsonObject &jo )
+     mandatory( jo, was_loaded, "procgen_id", id );
+ }
+ 
++item_group_id get_Item_spawn_data_EMPTY_GROUP()
++{
++    static const item_group_id Item_spawn_data_EMPTY_GROUP( "EMPTY_GROUP" );
++    return Item_spawn_data_EMPTY_GROUP;
++}
++
+ relic Item_spawn_data::relic_generator::generate_relic( const itype_id &it_id ) const
+ {
+     return id->generate( rules, it_id );
+--- a/src/item_group.h
++++ b/src/item_group.h
+@@ -411,4 +411,6 @@ class Item_group : public Item_spawn_data
+         prop_list items;
+ };
+ 
++item_group_id get_Item_spawn_data_EMPTY_GROUP();
++
+ #endif // CATA_SRC_ITEM_GROUP_H
+--- a/src/mapdata.cpp
++++ b/src/mapdata.cpp
+@@ -26,8 +26,6 @@
+ #include "trap.h"
+ #include "type_id.h"
+ 
+-static const item_group_id Item_spawn_data_EMPTY_GROUP( "EMPTY_GROUP" );
+-
+ namespace
+ {
+ 
+@@ -340,7 +338,7 @@ map_bash_info::map_bash_info() : str_min( -1 ), str_max( -1 ),
+     str_min_supported( -1 ), str_max_supported( -1 ),
+     explosive( 0 ), sound_vol( -1 ), sound_fail_vol( -1 ),
+     collapse_radius( 1 ), destroy_only( false ), bash_below( false ),
+-    drop_group( Item_spawn_data_EMPTY_GROUP ),
++    drop_group( get_Item_spawn_data_EMPTY_GROUP() ),
+     ter_set( ter_str_id::NULL_ID() ), furn_set( furn_str_id::NULL_ID() ) {}
+ 
+ bool map_bash_info::load( const JsonObject &jsobj, const std::string_view member,
+@@ -395,7 +393,7 @@ bool map_bash_info::load( const JsonObject &jsobj, const std::string_view member
+         drop_group = item_group::load_item_group( j.get_member( "items" ), "collection",
+                      "map_bash_info for " + context );
+     } else {
+-        drop_group = Item_spawn_data_EMPTY_GROUP;
++        drop_group = get_Item_spawn_data_EMPTY_GROUP();
+     }
+ 
+     if( j.has_array( "tent_centers" ) ) {

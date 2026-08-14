@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <name>crueter</name>
+    <email>crueter@crueter.xyz</email>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">kem-a/appimage-thumbnailer</remote-id>
+    <bugs-to>https://github.com/kem-a/appimage-thumbnailer/issues</bugs-to>
+  </upstream>
+</pkgmetadata>

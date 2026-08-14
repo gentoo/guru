@@ -1,0 +1,16 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Relax AppStream file validation
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/data/meson.build
++++ b/data/meson.build
+@@ -51,7 +51,7 @@ gnome.compile_resources('data',
+ appstream_util = find_program('appstream-util', required: false)
+ if appstream_util.found()
+   test('Validate appstream file', appstream_util,
+-    args: ['validate', appstream_file]
++    args: ['validate-relax', '--nonet', appstream_file]
+   )
+ endif
+

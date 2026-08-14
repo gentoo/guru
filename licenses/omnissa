@@ -1,0 +1,67 @@
+OMNISSA SOFTWARE EXHIBIT
+Updated as of June 2026
+This Software Exhibit to the Omnissa General Terms applies if Customer acquires licenses to Software.
+1. LICENSE GRANT.
+1.1 License Grant. Omnissa grants Customer a non-exclusive, non-transferable license to may use the
+Software as set forth in section 1.3 (Scope of Use) of the General Terms. Customer may: (a) deploy the
+number of Software licenses set forth in the Order within the Territory; and (b) use the Software and the
+Documentation during the term of the license, solely for Customer’s internal business operations and
+subject to the provisions of the Product Guide. Licenses granted to Customer are for use of object code
+only.
+1.2 Third-Party Agents. Customer may permit Third-Party Agents to deploy and use the Software on
+Customer’s behalf solely to deliver services to Customer.
+1.3 Copying Permitted. Customer may make a reasonable number of copies of the Software for “cold
+standby” disaster recovery, backup, and archival purposes. Use of those copies is limited to testing
+Customer’s disaster recovery procedures and effectiveness, and as may be necessary during any
+reasonable period subsequent to the occurrence of an actual disaster during which Customer cannot
+operate the Software.
+1.4 License Term. Customer may use Subscription Software solely during the Subscription Term. Upon
+expiration of the Subscription Term, Customer must promptly cease use of the Subscription Software and
+the related Documentation.
+1.5 Migration Licenses. Customer may request licenses to the Software that may be used only to upgrade or
+replace hardware, change data centers, or upgrade to a newer version of the Software (“Migration
+Licenses”). Customer may only use Migration Licenses for the period granted by Omnissa. Migration
+Licenses are provided “AS IS” without indemnification, support, or warranty of any kind, express or implied.
+Omnissa’s aggregate liability (excluding indirect damages, for which Omnissa expressly disclaims all
+liability) for any claim arising from Customer’s use of Migration Licenses will not exceed $5,000 USD.
+1.6 Cloud Services. If the Software includes a Cloud Service component or if a Software bundle or edition
+includes a Cloud Service entitlement, that Cloud Service is subject to the Cloud Services Exhibit.
+2. LICENSE RESTRICTIONS. Customer must not, and must not allow anyone else to: (a) make the Software
+available in any form to any third parties, except as specified in section 1.2 (Third-Party Agents) above; (b)
+modify, translate, enhance, or create derivative works from the Software; (c) reverse engineer, decompile,
+or otherwise attempt to derive source code from the Software, except to the extent permitted by
+applicable law; or (d) remove any copyright or other proprietary notices from the Software or the
+Documentation.
+3. RECORDS AND REPORTING.
+3.1 Verification. Customer agrees to provide reports and records, certified by an authorized individual at
+Customer, as reasonably requested by Omnissa to verify that Customer’s use of the Software is in
+compliance with Agreement and the Order, including but not limited to the Authorized Use Limitation and
+the License Metric. These reporting and verification obligations remain in effect during the term of
+Customer’s entitlement to the Software and for twelve (12) months thereafter. Customer agrees that, upon
+thirty (30) days’ prior written notice, Omnissa or an independent third party may verify Customer’s
+compliance with the Agreement and the Order with respect to Customer’s use of the Software, remotely
+or at Customer’s facilities. Customer must cooperate with that verification, which Omnissa agrees will be
+confidential, and commercially reasonable in nature and time. If Customer’s certification or Omnissa’s
+OMNISSA SOFTWARE EXHIBIT © 2026 Omnissa, LLC
+v. June 2026 Page 2
+verification reveals any unpaid or unlicensed use, Omnissa will provide written notification to Customer and
+within thirty (30) days of that written notification Customer will order a sufficient number of seats or
+licenses to the Software and any applicable Support to cover Customer’s use in excess of the Authorized
+Use Limitation. If any verification reveals an underpayment of ten percent (10%) or more of total fees owed
+for the review period, Customer will also reimburse Omnissa for Omnissa’s reasonable expenses incurred
+for the verification.
+3.2 Reporting. Upon request by Omnissa, at least 90 days prior to the expiration of Customer’s entitlement to
+Support Services (if Support Services are purchased separately) or to Subscription Software, Customer
+must report to Omnissa the number of Software licenses Customer has deployed, and other information
+reasonably requested by Omnissa related to Customer’s deployment and use of the Software.
+4. SUPPORT SERVICES. Omnissa will provide Support Services for the Software as provided in the Support
+Services Guide. Customer's use of a version of the Software provided through Omnissa’s Support Services
+will be subject to the terms of the Product Guide on the date Customer first installs that release.
+5. DEFINITIONS.
+Authorized Use Limitation means the quantity of the Software licensed in accordance with the License
+Metric specified in an Order.
+License Metric means the specific criteria for measuring the usage of the Software (e.g., Devices, Named
+Users, etc.).
+Territory means the country in which Customer has been invoiced. If the Territory for Software includes
+any European Economic Area member states or the United Kingdom, Customer may deploy that Software
+throughout the European Economic Area or the United Kingdom, respectively.

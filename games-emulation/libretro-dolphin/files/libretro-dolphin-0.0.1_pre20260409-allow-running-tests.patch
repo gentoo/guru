@@ -1,0 +1,39 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Allow running tests.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -321,8 +321,10 @@ else()
+   check_and_add_flag(NO_STRICT_ALIASING -fno-strict-aliasing)
+   check_and_add_flag(NO_EXCEPTIONS -fno-exceptions)
+ 
+-  check_and_add_flag(VISIBILITY_INLINES_HIDDEN -fvisibility-inlines-hidden)
+-  check_and_add_flag(VISIBILITY_HIDDEN -fvisibility=hidden)
++  if(NOT ENABLE_TESTS)
++    check_and_add_flag(VISIBILITY_INLINES_HIDDEN -fvisibility-inlines-hidden)
++    check_and_add_flag(VISIBILITY_HIDDEN -fvisibility=hidden)
++  endif()
+ 
+   check_and_add_flag(FOMIT_FRAME_POINTER -fomit-frame-pointer NO_DEBINFO_ONLY)
+ 
+@@ -493,7 +495,6 @@ if(LIBRETRO)
+   set(ENCODE_FRAMEDUMPS OFF CACHE BOOL "" FORCE)
+   set(ENABLE_LLVM OFF CACHE BOOL "" FORCE)
+   set(ENABLE_NOGUI OFF CACHE BOOL "" FORCE)
+-  set(ENABLE_TESTS OFF CACHE BOOL "" FORCE)
+   set(ENABLE_QT OFF CACHE BOOL "" FORCE)
+   set(ENABLE_PULSEAUDIO OFF CACHE BOOL "" FORCE)
+   set(ENABLE_SDL OFF CACHE BOOL "" FORCE)
+--- a/Source/UnitTests/CMakeLists.txt
++++ b/Source/UnitTests/CMakeLists.txt
+@@ -6,7 +6,7 @@ string(APPEND CMAKE_RUNTIME_OUTPUT_DIRECTORY "/Tests")
+ 
+ add_executable(tests EXCLUDE_FROM_ALL UnitTestsMain.cpp StubHost.cpp)
+ set_target_properties(tests PROPERTIES FOLDER Tests)
+-target_link_libraries(tests PRIVATE fmt::fmt gtest::gtest core uicommon)
++target_link_libraries(tests PUBLIC PRIVATE fmt::fmt gtest::gtest core dolphin_libretro uicommon)
+ add_test(NAME tests COMMAND tests)
+ add_custom_command(TARGET tests POST_BUILD
+   COMMAND ${CMAKE_COMMAND} -E remove_directory "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sys"

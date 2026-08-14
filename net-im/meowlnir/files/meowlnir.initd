@@ -1,0 +1,16 @@
+#!/sbin/openrc-run
+# Copyright 2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+#
+# shellcheck shell=sh
+
+supervisor="supervise-daemon"
+command="/usr/bin/meowlnir"
+command_args="-c ${MEOWLNIR_CONF:-/etc/meowlnir/config.yaml} ${MEOWLNIR_ARGS}"
+command_user="meowlnir:meowlnir"
+pidfile="/run/${RC_SVCNAME}.pid"
+
+depend() {
+	use dns postgresql
+	need net
+}

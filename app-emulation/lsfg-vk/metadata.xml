@@ -9,4 +9,7 @@
     <upstream>
         <remote-id type="github">PancakeTAS/lsfg-vk</remote-id>
     </upstream>
+    <use>
+        <flag name="cli">Enables building lsfg-vk-cli</flag>
+    </use>
 </pkgmetadata>

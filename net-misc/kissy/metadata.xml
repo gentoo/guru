@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>ceres@ceressees.dev</email>
+    <name>Ceres Milner</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="codeberg">magalunaa/kissy</remote-id>
+  </upstream>
+</pkgmetadata>

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+  <upstream>
+    <doc>https://docs.stripe.com/cli</doc>
+    <bugs-to>https://github.com/stripe/stripe-cli/issues</bugs-to>
+    <remote-id type="github">stripe/stripe-cli</remote-id>
+  </upstream>
+  <!-- maintainer-needed -->
 </pkgmetadata>

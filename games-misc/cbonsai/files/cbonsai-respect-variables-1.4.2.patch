@@ -1,0 +1,13 @@
+--- a/Makefile	2025-06-20 03:28:16.000000000 +0100
++++ b/Makefile	2026-03-29 14:36:43.324630218 +0100
+@@ -1,9 +1,7 @@
+ .POSIX:
+-CC	= cc
+ PKG_CONFIG	?= pkg-config
+ CFLAGS	+= -Wall -Wextra -Wshadow -Wpointer-arith -Wcast-qual -pedantic $(shell $(PKG_CONFIG) --cflags ncursesw panelw)
+-LDLIBS	= $(shell $(PKG_CONFIG) --libs ncursesw panelw || echo "-lncursesw -ltinfo -lpanelw")
+-PREFIX	= /usr/local
++LDLIBS	= $(shell $(PKG_CONFIG) --libs ncursesw panelw || echo "-lncursesw -ltinfo -lpanelw") $(LDFLAGS)
+ DATADIR	= $(PREFIX)/share
+ MANDIR	= $(DATADIR)/man
+ WITH_BASH	= 1

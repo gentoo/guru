@@ -38,6 +38,9 @@ DEPEND="
 	)
 "
 
+# hare rather than C
+QA_FLAGS_IGNORED="usr/bin/hare-gi"
+
 src_prepare() {
 	default
 	sed -i 's;^PREFIX = .*;PREFIX = /usr;' Makefile || die

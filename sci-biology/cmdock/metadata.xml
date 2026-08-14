@@ -7,7 +7,7 @@
 	</maintainer>	
 	<upstream>
 		<remote-id type="gitlab">Jukic/cmdock</remote-id>
-		<bugs-to>https://gitlab.com/Jukic/cmdock/-/issues</bugs-to>
+		<bugs-to>https://gitlab.com/Jukic/cmdock/-/work_items</bugs-to>
 		<doc>https://rxdock.gitlab.io/documentation/devel/html/</doc>
 	</upstream>
 	<use>

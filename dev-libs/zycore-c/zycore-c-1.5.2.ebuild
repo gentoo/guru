@@ -22,6 +22,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.5.2-build-documentation-only-when-requested.patch"
+	"${FILESDIR}/${PN}-1.5.2-bump-minimum-required-CMake-version.patch"
 )
 
 src_configure() {

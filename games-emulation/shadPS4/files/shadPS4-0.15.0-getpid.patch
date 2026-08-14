@@ -1,0 +1,14 @@
+Includes headers needed for getpid()
+Closes: https://bugs.gentoo.org/975955
+
+--- a/src/core/debugger.cpp
++++ b/src/core/debugger.cpp
+@@ -12,6 +12,8 @@
+ #elif defined(__linux__)
+ #include <filesystem>
+ #include <fstream>
++#include <sys/types.h>
++#include <unistd.h>
+ #elif defined(__APPLE__)
+ #include <errno.h>
+ #include <signal.h>

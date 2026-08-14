@@ -1,0 +1,14 @@
+#!/sbin/openrc-run
+# Copyright 2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+description="Gentoo Package Manager D-Bus daemon"
+command="/usr/bin/gpkg-daemon"
+command_background="yes"
+pidfile="/run/${RC_SVCNAME}.pid"
+start_stop_daemon_args="--env RUST_LOG=${GPKG_LOG_LEVEL:-info}"
+
+depend() {
+	need dbus
+	after portage
+}

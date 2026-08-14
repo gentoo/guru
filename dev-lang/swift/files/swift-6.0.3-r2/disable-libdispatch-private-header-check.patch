@@ -1,0 +1,23 @@
+# `DispatchGlobalExecutor` checks for the presence of `dispatch/private.h` for
+# certain low-level libdispatch functionality, and because the header is
+# normally only available on Darwin platforms (it is never installed as part of
+# a normal Swift build on any platform), makes certain assumptions about
+# symbols available there. However, `dev-libs/libdispatch` explicitly installs
+# private headers system-wide for `gnustep-base/libobjc2`, and those get picked
+# up during the Swift build. Because of the structure of the header on Linux,
+# anyone who has `dev-libs/libdispatch` installed will fail to build.
+
+--- a/swift/stdlib/public/Concurrency/DispatchGlobalExecutor.inc
++++ b/swift/stdlib/public/Concurrency/DispatchGlobalExecutor.inc
+@@ -33,11 +33,6 @@
+ #endif
+ #endif
+ 
+-#if __has_include(<dispatch/private.h>)
+-#include <dispatch/private.h>
+-#define SWIFT_CONCURRENCY_HAS_DISPATCH_PRIVATE 1
+-#endif
+-
+ // Ensure that Job's layout is compatible with what Dispatch expects.
+ // Note: MinimalDispatchObjectHeader just has the fields we care about, it is
+ // not complete and should not be used for anything other than these asserts.

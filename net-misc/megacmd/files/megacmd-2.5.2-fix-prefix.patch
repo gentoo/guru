@@ -1,0 +1,26 @@
+Fix incorrect install path (/usr/usr/bin).
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -128,7 +127,7 @@ include(CMakePackageConfigHelpers) # For the CMake package
+ include(target_sources_conditional) # To add files to the project without building them
+ include(target_platform_compile_options) # To add compile options depeding on the platform
+ 
+-if(UNIX AND NOT APPLE)
++if(0)
+     # Set rpath and location for dirs accordingly:
+     # If CMAKE_INSTALL_PREFIX is set (not default), it will set rpath to to such prefix plus /opt/....
+     # If CMAKE_INSTALL_PREFIX is not set, it will set rpath to /opt/....
+@@ -461,6 +460,7 @@ elseif(NOT WIN32)
+         PATTERN "python" EXCLUDE
+         PATTERN "win" EXCLUDE)
+ 
++    if(0)
+     install(FILES "${CMAKE_CURRENT_LIST_DIR}/src/client/megacmd_completion.sh"
+         DESTINATION "etc/bash_completion.d"
+         )
+@@ -485,4 +485,5 @@ elseif(NOT WIN32)
+             PATTERN "*dylib*" #macOS
+             PATTERN "manual-link" EXCLUDE
+             PATTERN "pkgconfig" EXCLUDE)
++    endif()
+ endif() #not WIN32

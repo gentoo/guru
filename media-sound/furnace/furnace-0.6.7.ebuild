@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,8 +11,8 @@ HOMEPAGE="https://github.com/tildearrow/furnace"
 # when performing updates, check whether the project has switched to a new
 # version of adpcm. adpcm doesn't seem to update frequently.
 SRC_URI="
-	https://github.com/tildearrow/furnace/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/superctr/adpcm/archive/ef7a217154badc3b99978ac481b268c8aab67bd8.tar.gz -> ${P}-adpcm-ef7a217.tar.gz
+https://github.com/tildearrow/furnace/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+https://github.com/superctr/adpcm/archive/ef7a217154badc3b99978ac481b268c8aab67bd8.tar.gz -> ${PN}-adpcm-ef7a217.tar.gz
 "
 LICENSE="GPL-2+"
 SLOT="0"
@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~arm64"
 IUSE="jack"
 
 RDEPEND="
-	dev-libs/libfmt
+	dev-libs/libfmt:=
 	media-libs/alsa-lib
 	media-libs/freetype
 	media-libs/libglvnd
@@ -29,7 +29,7 @@ RDEPEND="
 	media-libs/portaudio
 	media-libs/rtmidi
 	sci-libs/fftw
-	sys-libs/zlib
+	virtual/zlib:=
 	x11-themes/hicolor-icon-theme
 	jack? ( virtual/jack )
 "

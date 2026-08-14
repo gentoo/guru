@@ -1,0 +1,234 @@
+https://github.com/Moonbase59/loudgain/commit/b59e3c520af0b36d09693c70a44ed4d3585f5b8a
+From b59e3c520af0b36d09693c70a44ed4d3585f5b8a Mon Sep 17 00:00:00 2001
+From: Moonbase59 <moonbase@quantentunnel.de>
+Date: Wed, 30 Oct 2019 05:12:30 +0100
+Subject: [PATCH] Add multiprocessing rgbpm2 script for mass-tagging
+
+---
+ bin/rgbpm2 | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 178 insertions(+)
+ create mode 100755 bin/rgbpm2
+
+diff --git a/bin/rgbpm2 b/bin/rgbpm2
+new file mode 100755
+index 0000000..0080a9a
+--- /dev/null
++++ b/bin/rgbpm2
+@@ -0,0 +1,178 @@
++#!/usr/bin/env python
++# -*- coding: utf-8 -*-
++
++# Copyright (c) 2019 Matthias C. Hormann
++
++from __future__ import print_function
++
++import os
++import errno
++import sys
++import signal
++import argparse
++import textwrap
++import fnmatch
++import subprocess
++import multiprocessing
++
++def init_worker():
++    """Initialize workers so they can’t get a KeyboardInterrupt
++    """
++    signal.signal(signal.SIGINT, signal.SIG_IGN)
++
++def loudgain(args):
++    """loudgain args
++    args[0] = folder
++    args[1] = file extension
++    args[2:n] = loudgain options
++    args[n+1:] = filenames
++    """
++    print("Working on {} ...".format(os.path.abspath(os.path.join(args[0],
++        '*' + args[1]))))
++    try:
++        retcode = subprocess.check_call(['loudgain', '-q'] + args[2:],
++            stdout=open(os.devnull, 'wb'))
++
++    except subprocess.CalledProcessError as e:
++        print("loudgain returned status {}, command was:\n{}".format(
++            e.returncode, subprocess.list2cmdline(e.cmd)), file=sys.stderr)
++        retcode = e.returncode
++
++    except OSError as e:
++        if e.errno == errno.ENOENT:
++            print("loudgain not found, but it is required", file=sys.stderr)
++        else:
++            print("Execution failed:", e, file=sys.stderr)
++        retcode = e.errno
++
++    return retcode
++
++def main():
++    """Main program
++    Usage: rgbpm2 [-h] [-v] folder [folder ...]
++    """
++    # dict: file extension, loudgain cmdline args (use lowercase extensions)
++    # see `loudgain -h` for an explanation of options
++    # '.mp4' deliberately left out: these are doable but usually videos
++    extensions = {
++        '.flac': ['-a', '-k', '-s', 'e'],
++        '.ogg':  ['-a', '-k', '-s', 'e'],
++        '.oga':  ['-a', '-k', '-s', 'e'],
++        '.spx':  ['-a', '-k', '-s', 'e'],
++        '.opus': ['-a', '-k', '-s', 'e'],
++        '.mp2':  ['-I', '3', '-S', '-L', '-a', '-k', '-s', 'e'],
++        '.mp3':  ['-I', '3', '-S', '-L', '-a', '-k', '-s', 'e'],
++        '.m4a':  ['-L', '-a', '-k', '-s', 'e'],
++        '.wma':  ['-L', '-a', '-k', '-s', 'e'],
++        '.asf':  ['-L', '-a', '-k', '-s', 'e'],
++        '.wav':  ['-I', '3', '-L', '-a', '-k', '-s', 'e'],
++        '.aif':  ['-I', '3', '-L', '-a', '-k', '-s', 'e'],
++        '.aiff': ['-I', '3', '-L', '-a', '-k', '-s', 'e'],
++        '.wv':   ['-S', '-a', '-k', '-s', 'e'],
++        '.ape':  ['-S', '-a', '-k', '-s', 'e']
++    }
++
++    # exclude all folders ending in '[compilations]'
++    # special characters masked in [] (glob/fnmatch syntax)
++    excludes = ['*[[]compilations[]]']
++
++    parser = argparse.ArgumentParser(
++        description='ReplayGain album folders recursively, using loudgain.\n' +
++            'Files of the same type in the same folder are '
++            'considered an album.\n \n' +
++            textwrap.fill("Supported audio file types: " +
++                ", ".join(sorted(extensions)), 75),
++        epilog='Please report any issues to '
++            'https://github.com/Moonbase59/loudgain/issues.',
++        formatter_class=argparse.RawDescriptionHelpFormatter)
++    parser.add_argument('-v', '--version', action='version',
++        version='%(prog)s ' + __version__)
++    parser.add_argument('-n', '--numproc', type=int, choices=range(1, 33),
++        metavar='1..32', default=multiprocessing.cpu_count(),
++        help='set max. number of parallel processes (default: %(default)d)')
++    parser.add_argument('-f', '--follow-links', action='store_true',
++        help='follow links (default: %(default)s); use with care!')
++    parser.add_argument('folder', nargs='+',
++        help='Path of a folder of audio files.')
++    args = parser.parse_args()
++
++    # set number of parallel processes to use
++    numproc = min(args.numproc, multiprocessing.cpu_count())
++
++    # First, check if loudgain exists and show some info
++    try:
++        output = subprocess.check_output(["loudgain", "--version"],
++            stderr=subprocess.STDOUT)
++        print("Using loudgain v{}, max. {} parallel processes.".format(
++            output.split()[1], numproc))
++    except OSError as e:
++        if e.errno == errno.ENOENT:
++            # handle file not found error.
++            print("loudgain executable not found; this is required",
++                file=sys.stderr)
++            exit(1)
++        else:
++            # Something else went wrong while trying to run `loudgain`
++            raise
++
++    # Traverse folders, set up list of files.
++    # dict: {folder: {filetype: [files]}}
++    cluster = dict()
++    for folder in args.folder:
++        for root, dirs, files in os.walk(os.path.abspath(os.path.join(
++            os.getcwd(), folder)), followlinks=args.follow_links, topdown=True):
++            # remove excluded dirs "in-place", only if topdown=True (default)
++            for exclude in excludes:
++                for dir in dirs:
++                    if fnmatch.fnmatch(dir, exclude):
++                        print("Excluding  {}".format(os.path.join(root, dir)))
++                        dirs.remove(dir)
++            # add files with known extensions to cluster
++            for file in files:
++                fileName, fileExt = os.path.splitext(file)
++                if fileExt.lower() in extensions:
++                    cluster.setdefault(root, {}).setdefault(fileExt.lower(),
++                        []).append(file)
++
++    # set up the tasks for multiprocesssing
++    # a task is one loudgain invocation (one folder, same file type)
++    tasks = []
++    for folder in cluster:
++        for ext in cluster[folder]:
++            filelist = []
++            for file in cluster[folder][ext]:
++                filelist.append(os.path.join(folder, file))
++            tasks.append([folder] + [ext] + extensions[ext] + filelist)
++
++    # Set up the parallel task pool
++    # The initializer function prevents child processes from being aborted
++    # by KeyboardInterrupt (Ctrl+C).
++    pool = multiprocessing.Pool(processes=numproc, initializer=init_worker)
++
++    # Run the jobs
++    # The key magic is that we must call results.get() with a timeout, because
++    # a Condition.wait() without a timeout swallows KeyboardInterrupts.
++    results = pool.map_async(loudgain, tasks)
++
++    while not results.ready():
++        try:
++            results.wait(timeout=1)
++        except KeyboardInterrupt:
++            pool.terminate()
++            pool.join()
++            print("KeyboardInterrupt, all processes aborted!", file=sys.stderr)
++            exit(1)
++
++    # print(results.get())
++    if not all(ret == 0 for ret in results.get()):
++        print("Errors occurred!", file=sys.stderr)
++
++
++__version_info__ = ('0', '14')
++__version__ = '.'.join(__version_info__)
++
++APPNAME = "rgbpm2 " + __version__
++LICENSE = "MIT"
++
++if __name__ == '__main__':
++    main()
+
+https://github.com/Moonbase59/loudgain/commit/41311d5a889aeb40f83fa4283f152d9e23e53a67
+From 41311d5a889aeb40f83fa4283f152d9e23e53a67 Mon Sep 17 00:00:00 2001
+From: Moonbase59 <moonbase@quantentunnel.de>
+Date: Thu, 31 Oct 2019 00:37:59 +0100
+Subject: [PATCH] Flush prints to stdout so they're not buffered
+
+---
+ bin/rgbpm2 | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/bin/rgbpm2 b/bin/rgbpm2
+index 0080a9a..4c47fea 100755
+--- a/bin/rgbpm2
++++ b/bin/rgbpm2
+@@ -29,6 +29,7 @@ def loudgain(args):
+     """
+     print("Working on {} ...".format(os.path.abspath(os.path.join(args[0],
+         '*' + args[1]))))
++    sys.stdout.flush()
+     try:
+         retcode = subprocess.check_call(['loudgain', '-q'] + args[2:],
+             stdout=open(os.devnull, 'wb'))
+@@ -105,6 +106,7 @@ def main():
+             stderr=subprocess.STDOUT)
+         print("Using loudgain v{}, max. {} parallel processes.".format(
+             output.split()[1], numproc))
++        sys.stdout.flush()
+     except OSError as e:
+         if e.errno == errno.ENOENT:
+             # handle file not found error.
+@@ -126,6 +128,7 @@ def main():
+                 for dir in dirs:
+                     if fnmatch.fnmatch(dir, exclude):
+                         print("Excluding  {}".format(os.path.join(root, dir)))
++                        sys.stdout.flush()
+                         dirs.remove(dir)
+             # add files with known extensions to cluster
+             for file in files:

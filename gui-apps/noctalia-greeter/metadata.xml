@@ -1,0 +1,22 @@
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>emi@genchu.org</email>
+		<name>Emi</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<upstream>
+		<doc>https://docs.noctalia.dev/</doc>
+		<remote-id type="github">noctalia-dev/noctalia-greeter</remote-id>
+	</upstream>
+	<longdescription>
+		Noctalia Greeter is the screen you see
+		before your desktop session starts.
+		It lets you pick a user, enter your password,
+		choose a Wayland session, and pick a color scheme 
+		with the same visual language as Noctalia Shell.
+	</longdescription>
+</pkgmetadata>

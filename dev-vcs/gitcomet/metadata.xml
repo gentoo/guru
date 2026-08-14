@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<longdescription>
+		GitComet is built for teams that want fast Git operations
+		with local-first privacy, familiar workflows, and open
+		source freedom.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">Auto-Explore/GitComet</remote-id>
+	</upstream>
+</pkgmetadata>

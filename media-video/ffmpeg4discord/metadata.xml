@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<longdescription>
+		ff4d is a command-line tool that compresses video files to fit under a specified file
+		size, making them easy to share on Discord and other platforms with file size limits.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">zfleeman/ffmpeg4discord</remote-id>
+	</upstream>
+</pkgmetadata>

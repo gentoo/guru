@@ -1,0 +1,27 @@
+remove debian specific stuff
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -22,21 +22,8 @@
+ 
+ cmake_minimum_required(VERSION 3.16)
+ 
+-# Get version from debian/changelog
+-execute_process(
+-    COMMAND dpkg-parsechangelog -SVersion
+-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+-    OUTPUT_VARIABLE PROJECT_VERSION_FROM_CHANGELOG
+-    OUTPUT_STRIP_TRAILING_WHITESPACE
+-    RESULT_VARIABLE DPKG_RESULT
+-)
+-
+-if(NOT DPKG_RESULT EQUAL 0)
+-    message(FATAL_ERROR "Failed to get version from debian/changelog using dpkg-parsechangelog")
+-endif()
+-
+ project(exit-options
+-    VERSION ${PROJECT_VERSION_FROM_CHANGELOG}
++    VERSION 9.9.9.9
+     DESCRIPTION "Exit Options dialog for MX Fluxbox"
+     LANGUAGES CXX
+ )

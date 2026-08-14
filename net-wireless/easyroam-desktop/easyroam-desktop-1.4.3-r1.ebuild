@@ -25,7 +25,7 @@ RDEPEND="
 	net-libs/glib-networking
 	net-libs/libsoup:3.0
 	net-libs/webkit-gtk:4.1[keyring]
-	sys-libs/zlib
+	virtual/zlib
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3

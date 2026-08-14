@@ -1,0 +1,134 @@
+diff --git a/meson.build b/meson.build
+index 1146a26..9634dc0 100644
+--- a/meson.build
++++ b/meson.build
+@@ -253,13 +253,14 @@ if get_option('mangoapp')
+   ]
+ endif
+ 
+-imgui_sp = subproject('imgui', default_options: imgui_options)
+-dearimgui_dep = imgui_sp.get_variable('imgui_dep')
++dearimgui_dep = dependency('imgui', fallback: ['imgui'], required: true, default_options: imgui_options)
+ 
+-meson.override_dependency('imgui', dearimgui_dep)
+-
+-implot_sp = subproject('implot', default_options: ['default_library=static'])
+-implot_dep = implot_sp.get_variable('implot_dep')
++if is_unixy
++  implot_dep = dependency('implot', fallback: ['implot'], required: true, default_options: ['default_library=static'])
++else
++  implot_dep = null_dep
++  implot_lib = static_library('nulllib', [])
++endif
+ 
+ spdlog_options = [
+   'default_library=static',
+diff --git a/src/app/main.cpp b/src/app/main.cpp
+index 2235476..0d457c8 100644
+--- a/src/app/main.cpp
++++ b/src/app/main.cpp
+@@ -6,9 +6,9 @@
+ #include <sys/ipc.h>
+ #include <sys/msg.h>
+ 
+-#include "imgui.h"
+-#include "imgui_impl_glfw.h"
+-#include "imgui_impl_opengl3.h"
++#include <imgui/imgui.h>
++#include <imgui/imgui_impl_glfw.h>
++#include <imgui/imgui_impl_opengl3.h>
+ #include <stdio.h>
+ #include <thread>
+ #include <unistd.h>
+diff --git a/src/gl/gl_hud.cpp b/src/gl/gl_hud.cpp
+index 2ef688d..c47cadc 100644
+--- a/src/gl/gl_hud.cpp
++++ b/src/gl/gl_hud.cpp
+@@ -7,7 +7,7 @@
+ #include <memory>
+ #include <unistd.h>
+ #include <spdlog/spdlog.h>
+-#include <imgui.h>
++#include <imgui/imgui.h>
+ #ifdef __linux__
+ #include <implot.h>
+ #endif
+diff --git a/src/gl/gl_renderer.cpp b/src/gl/gl_renderer.cpp
+index 08111f1..69b38a0 100644
+--- a/src/gl/gl_renderer.cpp
++++ b/src/gl/gl_renderer.cpp
+@@ -65,7 +65,7 @@
+ //----------------------------------------
+ 
+ #include <spdlog/spdlog.h>
+-#include <imgui.h>
++#include <imgui/imgui.h>
+ #include "gl_renderer.h"
+ #include <stdio.h>
+ #include <stdint.h>     // intptr_t
+diff --git a/src/hud_elements.h b/src/hud_elements.h
+index 70deb51..3ccdba8 100644
+--- a/src/hud_elements.h
++++ b/src/hud_elements.h
+@@ -3,7 +3,7 @@
+ #include <string>
+ #include <utility>
+ #include <map>
+-#include <imgui.h>
++#include <imgui/imgui.h>
+ #include "timing.hpp"
+ #include <functional>
+ #include "vulkan/vulkan.h"
+diff --git a/src/imgui_utils.h b/src/imgui_utils.h
+index f2797e4..3923d3a 100644
+--- a/src/imgui_utils.h
++++ b/src/imgui_utils.h
+@@ -1,6 +1,6 @@
+ #pragma once
+ 
+-#include <imgui.h>
++#include <imgui/imgui.h>
+ 
+ #ifdef __linux__
+ #include <implot.h>
+diff --git a/src/overlay.h b/src/overlay.h
+index cad97c2..bf9faf6 100644
+--- a/src/overlay.h
++++ b/src/overlay.h
+@@ -6,8 +6,8 @@
+ #include <stdint.h>
+ #include <vector>
+ #include <deque>
+-#include <imgui.h>
+-#include "imgui_internal.h"
++#include <imgui/imgui.h>
++#include <imgui/imgui_internal.h>
+ #include "overlay_params.h"
+ #include "hud_elements.h"
+ 
+diff --git a/src/overlay_params.cpp b/src/overlay_params.cpp
+index ab7e37d..5e4bf90 100644
+--- a/src/overlay_params.cpp
++++ b/src/overlay_params.cpp
+@@ -10,7 +10,7 @@
+ #include <wordexp.h>
+ #include <unistd.h>
+ #endif
+-#include "imgui.h"
++#include <imgui/imgui.h>
+ #include <iostream>
+ #include <string>
+ #include <sstream>
+diff --git a/src/vulkan.cpp b/src/vulkan.cpp
+index ffadf25..b1e8c23 100644
+--- a/src/vulkan.cpp
++++ b/src/vulkan.cpp
+@@ -37,7 +37,7 @@
+ #include <sstream>
+ #include <inttypes.h>
+ #include <spdlog/spdlog.h>
+-#include <imgui.h>
++#include <imgui/imgui.h>
+ 
+ #include "mesa/util/macros.h" // defines "restrict" for vk_util.h
+ #include "mesa/util/os_socket.h"

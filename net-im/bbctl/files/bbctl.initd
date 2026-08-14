@@ -1,0 +1,26 @@
+#!/sbin/openrc-run
+# shellcheck shell=sh
+#
+# Copyright 2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+bridge=${RC_SVCNAME#*.}
+
+supervisor="supervise-daemon"
+command="/usr/bin/bbctl"
+command_args="${BBCTL_OPTS} run ${bridge?} ${BBCTL_BRIDGE_OPTS}"
+respawn_max=0
+
+depend() {
+	use dns firewall
+	need net
+}
+
+start_pre() {
+	if [ "${bridge?}" = "${RC_SVCNAME?}" ]; then
+		eerror "${RC_SVCNAME?} cannot be started directly. You must create"
+		eerror "symbolic links to it for the bridges you want to start"
+		eerror "(e.g. bbctl.sh-irc) and add those to the appropriate runlevels."
+		return 1
+	fi
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>gentoo@gtdm.me</email>
+    <name>Leroy Tennie</name>
+  </maintainer>
+  <use>
+    <flag name="geist">Install the standard "Geist" font</flag>
+    <flag name="geistmono">Install the "Geist Mono" monospace font variant</flag>
+    <flag name="geistpixel">Install the "Geist Pixel" font variant</flag>
+    <flag name="otf">Install OpenType font files (.otf)</flag>
+    <flag name="ttf">Install TrueType font files (.ttf)</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">vercel/geist-font</remote-id>
+  </upstream>
+</pkgmetadata>

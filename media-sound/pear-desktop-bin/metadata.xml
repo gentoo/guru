@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Maël GUERIN</name>
+		<email>mael.guerin@murena.io</email>
+	</maintainer>
+	<maintainer type="person">
+		<name>Thomas Clarke</name>
+		<email>colonia_duck@posteo.net</email>
+	</maintainer>
+	<maintainer type="person">
+		<name>dsaf</name>
+		<email>ghostyn678+git@gmail.com</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">pear-devs/pear-desktop</remote-id>
+	</upstream>
+</pkgmetadata>

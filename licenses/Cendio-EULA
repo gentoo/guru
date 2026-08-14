@@ -1,0 +1,409 @@
+                 END USER LICENSE AGREEMENT
+
+                 Last updated 25 June 2025
+
+
+IMPORTANT: PLEASE READ THIS END USER LICENSE AGREEMENT
+CAREFULLY. INSTALLING OR USING THINLINC SOFTWARE CONSTITUTES
+ACCEPTANCE OF THIS AGREEMENT.
+
+THIS AGREEMENT CONTAINS CERTAIN WAIVERS OF YOUR RIGHTS INCLUDING A
+REQUIREMENT THAT CERTAIN CLAIMS MUST BE RESOLVED THROUGH BINDING
+ARBITRATION.
+
+This License Agreement ("License") is entered into by you, the Licensed
+User or representative of the Licensed User ("Licensee") and (depending
+on how you obtained the software license) Cendio AB (for free licenses
+and licenses acquired from Cendio AB), or ThinLinc USA Inc., an Indiana
+corporation (for licenses acquired from ThinLinc USA Inc.) (the
+applicable entity, the “Licensor”).
+
+
+                   THIS IS A LICENSE AND NOT A SALE
+
+
+1.      License
+
+1.1     Subject to the terms and conditions of this License, Licensor
+grants solely for use by Licensee a non-exclusive, non-transferable
+license to use the software programs ("Program(s)") and related user
+guides ("Documentation") solely for its own internal business purposes,
+including for the provision of offering hosting solutions where you
+remain the Licensee, at the site specified in the applicable business
+records of Licensor and solely in accordance with the accompanying
+Documentation.
+
+1.2     All proprietary rights, trade secrets, inventions, algorithms,
+processes, systems, techniques, designs, and developments in the
+Program(s) and the Documentation, and any modifications to or
+improvements thereof, and all copies (in whole or part) shall be the
+exclusive property of Licensor (and its licensors), and are protected by
+copyright laws, international treaty provisions, and other applicable
+laws, rules, and regulations. Licensee shall have no right, title, or
+interest therein except for the rights expressly granted under this
+License.
+
+1.3     Licensee may not use, copy, alter, merge, adapt, modify, rent,
+or lease the Program(s) or the Documentation, or any copy thereof, in
+whole or in part, except as expressly provided in this License or under
+applicable statutes.
+
+1.4     Licensee acknowledges that the Program(s) contains certain third
+party software for which Licensor has obtained the right to sub-license
+to Licensee under all the terms hereof save as set out expressly in the
+license agreements accompanying such products.
+
+1.5     The Program(s) may consist of software that provide services on
+a computer ("Server Program(s)") and software that allows a computer to
+access or utilize the services provided by the Server Program(s)
+("Client Program(s)"). The Server Program(s) are provided free of charge
+and may be redistributed and downloaded, provided all copyright notices
+and the terms of this License are not altered in any way or removed.
+The Client Program(s) are also provided free of charge and may be
+redistributed and downloaded, provided all copyright notices and the
+terms of this License are not altered in any way or removed. Subject to
+Sections 1.6 and 1.7, Licensee may connect the Client Program(s) to the
+Server Program(s).
+
+1.6     With exception of what is stated in Section 1.7, Licensee must
+have user licenses ("User License(s)") corresponding to the number of
+physical persons that have Server Program(s) or that have other software
+that is being monitored by the Server Program(s), running on behalf of
+said person ("Concurrent User(s)"). A non-human operated device shall be
+counted as a Concurrent User in addition to all individuals whenever
+such a device accesses the Server Program(s).
+
+1.7     Licensee may utilize the services provided by the Server
+Program(s) worldwide, free of charge and without acquiring User Licenses
+for up to three (3) Concurrent Users within Licensee’s organization. If
+the number of Concurrent Users within Licensee’s organization exceed
+three, Licensee must acquire User Licenses for all Concurrent Users.
+Where the Licensee uses the Program(s) without a valid User License, the
+warranty referenced in Section 4.1 and the indemnity in Section 6 is no
+longer applicable.
+
+1.8     User License(s) may be perpetual or limited to an expiration
+date ("Expiration Date"). After the Expiration Date, if any, the
+Licensee is no longer entitled to use any of the User License(s).
+
+1.9     A User License(s) is valid for the version of the Server
+Program(s) specified in the User License(s) and any older versions of
+the same Server Program(s). The User License(s) is also only valid for
+one specific installation of the Server Program(s). Two separate
+installations, even by the same legal entity, require separate User
+Licenses.
+
+1.10    The Licensee may reassign one or more User License(s) to a
+different installation any number of times. A User License may only be
+used on a single installation of the Server Program(s) at a time.
+
+1.11    Licensor provides no maintenance or support of the Program(s)
+under this License.
+
+
+2.      Open Source Software
+
+2.1     The Program(s) may include certain third party open source and
+free software components ("Open Source Components"), each of which has
+its own copyright and its own license conditions ("Open Source
+License"). A list of included Open Source Components and their
+respective licenses can be found in the open_source_licenses.txt file.
+You agree to comply with the terms of all applicable Open Source
+Licenses.
+
+2.2     Upon request Licensor will deliver all the corresponding source
+code for the Open Source Components at the cost of postage charges
+incurred. This offer to obtain the source code is valid for three years
+from the date you acquired the Program(s).
+
+2.3     To the extent any Open Source License grants the Licensee rights
+to use, copy or modify the Open Source Component that are broader than
+the rights granted in Section 1, then such rights shall take precedence
+over the rights and restrictions granted in this License solely for such
+Open Source Components.
+
+2.4     The Open Source Components are provided "as is" by the third
+party licensors who disclaim all liabilities, damages, (even if they
+have been advised of the possibility of such damages), warranties,
+indemnities and other obligations of any kind, express or implied, with
+regard to the Open Source Components. The Open Source Components are
+excluded from any indemnity provided by Licensor in this
+License. Nothing in the foregoing affects any performance warranty
+provided by Licensor with regard to the Program(s) as a whole.
+
+
+3.      Confidentiality
+
+3.1     Confidential Information. "Confidential Information" shall mean
+business information, pricing and terms, the Programs, Documentation,
+technical information, algorithms, source code of the Programs, future
+plans, product road maps, know-how, trade secrets, and any other
+information of a non-public nature that is known or used by a party.
+Confidential Information includes information generated as a result of
+the activities of the parties hereunder, as well as information owned by
+a party prior to or after the date hereof and made available to the
+other party hereunder, whether disclosed in writing, orally or in any
+other way. Confidential Information shall be held confidential at all
+times for Programs and any other information in the nature of a trade
+secret, and during the 5 (five) year period from the date of disclosure
+of other Confidential Information. Neither party shall disclose,
+directly or indirectly, any Confidential Information of the other party
+to any third person, firm or corporation without the prior written
+consent of the other party. Each party shall use protective measures no
+less stringent than that party uses to protect its own similar
+proprietary information, which protective measures shall under all
+circumstances be at least reasonable measures designed to ensure the
+continued confidentiality of the Confidential Information. The
+restrictions on disclosure of Confidential Information do not extend to
+any item of information which (i) is or becomes publicly known without
+breach of this License, (ii) is lawfully received by the receiving party
+from a third party who lawfully possesses the information and who is not
+bound to keep such information confidential, whether by contract or law,
+(iii) is published or otherwise made known to the public by the
+disclosing party, or (iv) is generated independently by the receiving
+party, without use of or reference to Confidential Information. Either
+party may disclose Confidential Information required to be disclosed
+pursuant to a subpoena or as otherwise required by law or regulation,
+provided that the receiving party where legally permissible appeals such
+requirement and that prior written notice of such required disclosure is
+furnished to the disclosing party as soon as possible in order to afford
+the disclosing party an opportunity to seek a protective order.
+
+
+4.      Limited Warranty and Disclaimer
+
+4.1     Licensor warrants that the Program(s) will operate substantially
+as set forth in the accompanying Documentation for a period of 90
+(ninety) days following delivery of the Program(s) to Licensee.
+
+4.2     Licensor warrants that prior to delivery of the Program(s) to
+Licensee, Licensor has used commercially reasonable efforts to prevent
+the Program(s) and any modified or enhanced versions of the Program(s)
+prepared by, or at the direction of, Licensor from being infected with,
+any "worms", "viruses", "Trojan Horses", "protect codes", "data destruct
+keys" or other programs or programming devices that might be used to
+access, modify, delete or damage the Program(s), or other software,
+computer hardware or data of Licensee.
+
+4.3     Licensee's sole and exclusive remedy for breach of any of the
+above warranties shall be, at Licensor's option, the repair or
+replacement of the Program(s) or the media, or the refund of the license
+fee paid by the Licensee, reduced by a reasonable depreciation based on
+the time the Program(s) have been in use.
+
+4.4     EXCEPT AS EXPRESSLY SET FORTH IN THIS SECTION 4 AND
+NOTWITHSTANDING ANY OTHER TERMS IN THIS LICENSE, (I) LICENSOR MAKES NO
+EXPRESS OR IMPLIED WARRANTY WITH RESPECT TO THE PROGRAM(S) OR
+DOCUMENTATION, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTY OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT
+OF THIRD PARTY RIGHTS, (II) LICENSEE’S USE OF THE PROGRAM(S), ITS
+CONTENTS, AND ANY SERVICES OR ITEMS OBTAINED THROUGH THE SAME, IS AT
+YOUR OWN RISK, AND (III) PROGRAM(S) AND DOCUMENTATION ARE PROVIDED ON AN
+"AS-IS" AND "AS-AVAILABLE" BASIS. LICENSOR DOES NOT WARRANT THAT ANY
+PROGRAM(S) WILL BE ERROR-FREE, OR THAT ANY DEFECTS THAT MAY EXIST IN ANY
+PROGRAM(S) CAN BE CORRECTED.
+
+
+5.      Limitation on Liability
+
+5.1     IN NO EVENT SHALL LICENSOR OR ITS AFFILIATES, SERVICE PROVIDERS,
+EMPLOYEES, AGENTS, OFFICERS, DIRECTORS, OR EQUITY HOLDERS (“LICENSOR
+PARTIES”) BE LIABLE FOR ANY LOSS OF PROFITS, USE, BUSINESS, DATA OR
+INFORMATION, OR FOR ANY INCIDENTAL, INDIRECT, SPECIAL, CONSEQUENTIAL OR
+EXEMPLARY DAMAGES WHATSOEVER, INCLUDING BUT NOT LIMITED TO DAMAGES
+RESULTING FROM LOSS OF ANTICIPATED SAVINGS OR LOST DATA, EVEN IF
+LICENSOR HAS BEEN ADVISED, KNEW OR SHOULD HAVE KNOWN OF THE POSSIBILITY
+THEREOF, OR FOR ANY INCIDENTAL, INDIRECT, SPECIAL, CONSEQUENTIAL OR
+EXEMPLARY DAMAGES RESULTING FROM ANY AND ALL CLAIMS BY ANY THIRD
+PARTIES. THE AGGREGATE LIABILITY OF LICENSOR PARTIES HEREUNDER WHETHER
+IN CONTRACT OR IN TORT SHALL IN NO EVENT EXCEED THE LESSER OF THE FEES
+PAID BY LICENSEE OVER THE PRECEDING 12 (TWELVE) MONTHS OR $100,000 (ONE
+HUNDRED THOUSAND DOLLARS). PROVIDED THAT IF THE LICENSEE HAS NOT PAID
+ANY FEES TO THE LICENSOR, THEN THE MAXIMUM AGGREGATE LIABILITY OF THE
+LICENSOR PARTIES IS $250.00. THE FOREGOING DOES NOT AFFECT ANY LIABILITY
+THAT CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.
+
+
+6.      Indemnity
+
+6.1     Licensor shall indemnify Licensee for any claim, demand or cause
+of action by a third party ("Demand") to the extent that it is based
+upon a claim that the Program(s) infringe any patent, trademark, or
+Berne Convention copyright, or that the Program(s) misappropriate any
+trade secret of any third party within the country in which the site is
+located. The foregoing indemnification is conditioned on Licensee
+notifying Licensor promptly in writing of such Demand, Licensee not
+making any admissions or prejudicial statements, Licensee giving
+Licensor sole control of the defense thereof (and any negotiations for
+settlement or compromise thereof), and Licensee cooperating in the
+defense thereof at Licensor’s request, provided that Licensee may, at
+its own expense, assist in such defense if it so chooses. Licensor, at
+its sole option and expense may: (a) procure for Licensee the right to
+continue using the Program(s); or (b) substitute a non-infringing
+version of the Program(s) so that the Program(s) become non-infringing
+and still conform to the applicable specifications; or (c) return the
+license fee paid by Licensee hereunder for the Program(s), less an
+amount equal to straight line depreciation of the Program(s) over four
+years, and Licensee shall immediately return the Program(s) to
+Licensor. Licensee shall not incur any costs or expenses on behalf of
+Licensor under or pursuant to this Section without Licensor's prior
+written consent.
+
+6.2     Licensor shall have no liability to Licensee for any Demand by a
+third party alleging infringement or misappropriation based upon (a) any
+use of the Program(s) in a manner other than as permitted in this
+License; or (b) any use of the Program(s) in combination with any
+product not provided by Licensor, to the extent that such Demand is
+directed against the combination. Notwithstanding the foregoing, no
+indemnification is given in relation to Open Source Components. The
+licensors of any third party software may extend indemnities which are
+to be found in the third party licenses referred to in 1.4 above.
+
+6.3     THE FOREGOING STATES THE ENTIRE LIABILITY OF THE PARTIES AND
+LICENSEE'S SOLE AND EXCLUSIVE REMEDY FOR SUCH DEMANDS.
+
+
+7.      Termination
+
+7.1     Licensor may terminate this License immediately upon written
+notice to Licensee if Licensee breaches the provisions of Section 1
+(License). Either party may at its option terminate this License
+immediately upon written notice in the event that the other party: (a)
+breaches any term of this License, which breach remains uncured for a
+period of 30 (thirty) days after written notice of such breach to the
+other party; or (b) becomes insolvent or asserts that it is insolvent,
+fails to pay its general obligations as they become due, institutes or
+has instituted against it any proceeding, arrangement, receivership or
+assignment for the benefit of creditors, or files or has filed against
+it any petition under applicable bankruptcy laws.
+
+7.2     ON TERMINATION OF THIS LICENSE FOR ANY REASON LICENSEE SHALL
+CEASE USING THE PROGRAM(S) AND THE DOCUMENTATION AND ALL COPIES OF THE
+SAME SHALL BE IMMEDIATELY RETURNED TO LICENSOR UPON WRITTEN REQUEST.
+
+7.3     The operation of Clauses 3, 4, 5, 7 and 8 shall survive the
+termination of this License.
+
+
+8.      General
+
+8.1     The Program(s) is subject to laws and regulations of the United
+States and European Union that restrict its export. Licensee agrees not
+to export or "re-export" (transfer) the Program(s) unless all applicable
+United States, European Union and other relevant government export
+controls and approvals have been complied with.
+
+8.2     Licensor licenses products for ultimate end use by federal
+government agencies and other federal government customers ("federal
+government customers") only under the following conditions. Rights
+granted herein include only those rights customarily provided to end use
+customers of Program(s) and Documentation as defined in this
+License. This customary commercial license in software is provided in
+accordance with FAR 12.211 (Technical Data) and 12.212 (Computer
+Software) and, for Department of Defense purchases, DFAR 252.227-7015
+(Technical Data - Commercial Items) and DFAR 227.7202-3 (Rights in
+Commercial Computer Software or Computer Software Documentation). If a
+federal government or other public sector customer has a need for rights
+not conveyed under these terms, it must negotiate with Licensor to
+determine if there are acceptable terms for transferring such rights,
+and a mutually acceptable written agreement specifically conveying such
+rights must be executed by both parties. To the extent that Licensee
+sublicenses Program(s) pursuant to the terms and conditions of the
+License to any sub-licensee that is a federal government agency or other
+federal government customer, Licensor will accept only the following
+subcontract or flow-down provisions: FAR 52.222-26, "Equal Opportunity";
+FAR 52.222-35, "Affirmative Action for Disabled Veterans and Veterans of
+the Vietnam Era"; and FAR 52.222-36, "Affirmative Action for Workers
+with Disabilities." Any additional subcontract or flow-down provisions,
+including any provisions imposed by federal, state, local or other
+governmental or quasi-governmental entities, must be negotiated between
+the parties and reflected in a mutually acceptable written agreement
+executed by both parties.
+
+8.3     Licensor and its licensors shall have the right to conduct an
+audit of (and to copy) Licensee's records on reasonable notice and not
+more than once in each twelve month period to verify that Licensee is
+complying with the terms hereof. In the event that an underpayment is
+revealed as the result of such audit Licensee shall immediately upon
+being so requested by Licensor pay such underpayment together with the
+costs of any such audit.
+
+8.4     If one or more provisions of this License are held to be illegal
+or unenforceable under applicable law, such illegal or unenforceable
+provision(s) shall be limited or excluded from this License to the
+minimum extent required so that this License shall otherwise remain in
+full force and effect and enforceable in accordance with its terms.
+
+8.5     Depending on the contracting entity, the following governing law
+and dispute resolution shall apply:
+
+   - Cendio AB (for free licenses and User Licenses acquired from Cendio
+     AB) This License shall be governed by and construed in accordance
+     with Swedish law. Any dispute, controversy or claim arising out of
+     or in connection with this License, or the breach, termination or
+     invalidity thereof shall be finally settled by arbitration
+     administered by the SCC Arbitration Institute (the "SCC"). The
+     Rules for Expedited Arbitrations shall apply where the amount in
+     dispute does not exceed EUR 200,000. Where the amount in dispute
+     exceeds EUR 200,000 the Arbitration Rules shall apply. The amount
+     in dispute includes the claims made in the Request for Arbitration
+     and any counterclaims made in the Answer to the Request for
+     Arbitration. The Arbitral Tribunal shall be composed of a sole
+     arbitrator. The place of arbitration shall be Stockholm. The
+     language to be used in the arbitral proceedings shall be English.
+
+   - ThinLinc USA Inc. (for User Licenses acquired from ThinLinc USA
+     Inc.)  This License shall be governed by and construed under the
+     laws of the State of Delaware. Any controversy or claim arising out
+     of or relating to this contract, or the breach thereof, shall be
+     settled by arbitration administered by the American Arbitration
+     Association in accordance with its Commercial Arbitration Rules and
+     judgment on the award rendered by the arbitrator may be entered in
+     any court having jurisdiction thereof. The arbitral tribunal shall
+     be composed of a sole arbitrator. The place of arbitration shall be
+     Indianapolis, Indiana.
+
+8.6     ANY CAUSE OF ACTION OR CLAIM LICENSEE MAY HAVE ARISING OUT OF OR
+RELATING TO THIS AGREEMENT OR THE PROGRAM(S) MUST BE COMMENCED WITHIN
+ONE (1) YEAR AFTER THE CAUSE OF ACTION ACCRUES; OTHERWISE, SUCH CAUSE OF
+ACTION OR CLAIM IS PERMANENTLY BARRED.
+
+8.7     Licensee agrees that this License is the complete and exclusive
+statement of the mutual understanding between the parties and supersedes
+all previous written and oral agreements and communications relating to
+the subject matter of this License, including any information provided
+on Licensor’s website about the Programs. It may not be modified or
+waived except in writing signed by authorized representatives of both
+parties.
+
+8.8     All notices under this License shall be in writing, and shall be
+deemed delivered 5 (five) days after sending in the case of notices sent
+by post or the next business day after sending in the case of notices by
+email. Licensee is required to inform Licensor in writing of any changes
+to Licensee’s contact information occurring after the date that Licensee
+agrees to this License; if Licensee does not, then notice provided to
+Licensor’s information on file for Licensee shall be considered
+effective.
+
+8.9     Licensee shall not assign, transfer, or sublicense any
+obligations or benefit under this License without the prior written
+consent, which shall not be unreasonably withheld, of Licensor (and any
+such attempt shall be void). Licensor may assign this License in whole
+or in part without notice to Licensee.
+
+8.10    The Program(s) are not specifically developed or licensed for
+use in any nuclear, aviation, mass transit or medical application or in
+any other inherently dangerous applications. Neither Licensor nor its
+suppliers shall be liable for any claims or damages arising from such
+use and Licensee agrees to indemnify and hold harmless Licensor and its
+suppliers from any claims for losses, costs, damages, or liability
+arising out of or in connection with such use of the Program(s).
+
+8.11    No waiver by Licensor of any term or condition herein shall be
+deemed a further or continuing waiver of such term or termination or a
+waiver of any other term or condition, and any failure of Licensor to
+assert a right or provision hereunder shall not constitute a waiver of
+such right or provision.
+
+8.12    Comments and questions regarding this License may be directed to
+contact@cendio.com.

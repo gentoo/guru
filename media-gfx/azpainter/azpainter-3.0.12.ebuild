@@ -24,7 +24,7 @@ DEPEND="
 	media-libs/libpng:=
 	media-libs/libwebp:=
 	media-libs/tiff:=
-	sys-libs/zlib:=
+	virtual/zlib:=
 	x11-libs/libX11
 	x11-libs/libXcursor
 	x11-libs/libXext

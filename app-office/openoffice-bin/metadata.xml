@@ -10,6 +10,9 @@
 		This is the binary version of Openoffice. Use this if you don't want to wait
 		for the source version to build, but be advised that this may not perform as quickly once installed as a natively compiled version.
 	</longdescription>
+	<use>
+		<flag name="kde">Add GTK+ Plasma's Breeze widget style</flag>
+	</use>
 	<upstream>
 		<remote-id type="sourceforge">openofficeorg.mirror</remote-id>
 	</upstream>

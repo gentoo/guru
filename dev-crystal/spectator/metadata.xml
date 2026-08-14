@@ -11,5 +11,6 @@
 			<email>icy.arctic.fox@gmail.com</email>
 		</maintainer>
 		<remote-id type="github">icy-arctic-fox/spectator</remote-id>
+		<remote-id type="gitlab">arctic-fox/spectator</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -1,0 +1,38 @@
+#!/sbin/openrc-run
+# Copyright 1999-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="AmneziaWG"
+description="AmneziaWG via awg-quick(8)"
+
+depend() {
+	need net
+	use dns
+}
+
+CONF="${SVCNAME#*.}"
+
+checkconfig() {
+	if [ "$CONF" = "$SVCNAME" ]; then
+		eerror "You cannot call this init script directly. You must create a symbolic link to it with the configuration name:"
+		eerror "    ln -s /etc/init.d/awg-quick /etc/init.d/awg-quick.vpn0"
+		eerror "And then call it instead:"
+		eerror "    /etc/init.d/awg-quick.vpn0 start"
+		return 1
+	fi
+	return 0
+}
+
+start() {
+	checkconfig || return 1
+	ebegin "Starting $description for $CONF"
+	awg-quick up "$CONF"
+	eend $? "Failed to start $description for $CONF"
+}
+
+stop() {
+	checkconfig || return 1
+	ebegin "Stopping $description for $CONF"
+	awg-quick down "$CONF"
+	eend $? "Failed to stop $description for $CONF"
+}

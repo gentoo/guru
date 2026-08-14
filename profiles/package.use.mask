@@ -1,33 +1,28 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # New entries go on top.
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2026-03-20)
+# dev-python/mkdocs have been last rited.
+dev-games/surgescript doc
+dev-python/decopatch doc
+dev-python/devtools doc
+dev-python/pytest-cases doc
+dev-python/pytest-harvest doc
+dev-python/pytest-steps doc
+dev-python/termynal doc
+dev-python/textual doc
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2025-11-06)
+# Depends on treecleaned media-libs/raspberrypi-userland
+games-emulation/RetroArch dispmanx
 
 # Quincy Fleming <quincyf467@protonmail.com> (2025-05-09)
 # Clipboard is still broken with wayland
 # https://github.com/Slackadays/Clipboard/issues/171
 app-misc/clipboard wayland
 
-# Vivian Heisz (demize) <demize@unstable.systems> (2025-04-20)
-# Building docs requires dev-ruby/asciidoctor-pdf, which is
-# currently masked due to dependency issues.
-# Bug 954116.
-sci-electronics/bluespec doc
-
-# John-Henry Lim <johnhenrylim12@gmail.com> (2024-02-19)
-# warp-dex relies on libpcap.so.0.8 which is not in tree.
-net-vpn/cloudflare-warp dex
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-11-21)
 # Bindings are written for those RocksDB versions which are not in the tree.
 net-im/conduit system-rocksdb
-
-# Leonardo Hernández Hernández <leohdz172@proton.me> (2023-11-01)
-# Per the commiter (Benoît Dufour)
-# "Disable qrcodegen by default. Only the ones who really want it should enable it."
-net-im/abaddon qrcodegen
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-06-17)
-# Broken docs build.
-dev-crystal/crikey doc
-dev-crystal/slang doc

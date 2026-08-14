@@ -1,0 +1,24 @@
+--- a/libs/cxxopts/test/add-subdirectory-test/CMakeLists.txt	2026-07-24 02:58:37.615590179 -0700
++++ b/libs/cxxopts/test/add-subdirectory-test/CMakeLists.txt	2026-07-24 02:58:58.775346667 -0700
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.1)
++cmake_minimum_required(VERSION 3.10)
+ 
+ project(cxxopts-test)
+ 
+--- a/libs/cxxopts/test/find-package-test/CMakeLists.txt	2026-07-24 02:58:37.616579140 -0700
++++ b/libs/cxxopts/test/find-package-test/CMakeLists.txt	2026-07-24 02:58:58.775391796 -0700
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.1)
++cmake_minimum_required(VERSION 3.10)
+ 
+ project(cxxopts-test)
+ 
+--- a/abc/CMakeLists.txt	2026-07-24 02:58:37.614680285 -0700
++++ b/abc/CMakeLists.txt	2026-07-24 02:58:58.776166078 -0700
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.5.0)
++cmake_minimum_required(VERSION 3.10)
+ 
+ include(CMakeParseArguments)
+ include(CheckCCompilerFlag)

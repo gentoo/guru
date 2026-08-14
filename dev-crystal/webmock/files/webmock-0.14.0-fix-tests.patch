@@ -1,0 +1,43 @@
+From fde6b20d5b80401a967e044b1a3e80ee391bed60 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Johannes=20M=C3=BCller?= <straightshoota@gmail.com>
+Date: Thu, 27 Mar 2025 18:57:18 +0100
+Subject: [PATCH] Fix using URL path in specs (#52)
+
+The specs were wrongly using the fully qualified URL as request resource.
+
+This does no longer work with crystal-lang/crystal#15499 (expected to be released in Crystal 1.16).
+---
+ spec/webmock_spec.cr | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
+
+diff --git a/spec/webmock_spec.cr b/spec/webmock_spec.cr
+index 3f11f24..c8509f9 100644
+--- a/spec/webmock_spec.cr
++++ b/spec/webmock_spec.cr
+@@ -379,9 +379,8 @@ describe WebMock do
+         to_return(body: "")
+       MSG
+       expect_raises WebMock::NetConnectNotAllowedError, error_msg do
+-        url = "https://www.example.com/"
+-        request = HTTP::Request.new("GET", url)
+-        uri = URI.parse(url)
++        uri = URI.parse("https://www.example.com/")
++        request = HTTP::Request.new("GET", uri.path)
+         HTTP::Client.new(uri).exec(request)
+       end
+     end
+@@ -398,9 +397,8 @@ describe WebMock do
+     MSG
+     WebMock.wrap do
+       expect_raises WebMock::NetConnectNotAllowedError, error_msg do
+-        url = "https://www.example.com/test"
+-        request = HTTP::Request.new("GET", url)
+-        uri = URI.parse(url)
++        uri = URI.parse("https://www.example.com/test")
++        request = HTTP::Request.new("GET", uri.path)
+         HTTP::Client.new(uri).exec(request)
+       end
+     end
+-- 
+2.51.2
+

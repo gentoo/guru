@@ -1,0 +1,15 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Bump minimum required CMake version.
+
+Upstream-Commit: https://github.com/serge-sans-paille/frozen/commit/5c3f679d52ff4badd8bc2a96907d954e8bbcd021
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.8)
++cmake_minimum_required(VERSION 3.10)
+ #
+ # Here we check whether frozen is being configured in isolation or as a component
+ # of a larger proeject. To do so, we query whether the `PROJECT_NAME` CMake
+

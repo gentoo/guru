@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Arduino IDE
+Comment=Arduino IDE 2.x - Open-source electronics prototyping platform
+GenericName=Arduino IDE
+Exec=/usr/bin/arduino-ide @exec_extra_flags@ %U
+Icon=arduino-ide
+Type=Application
+StartupNotify=true
+StartupWMClass=Arduino IDE
+Categories=Development;IDE;Electronics;
+MimeType=text/x-arduino;
+Keywords=arduino;electronics;microcontroller;embedded;

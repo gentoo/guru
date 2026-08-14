@@ -11,7 +11,7 @@ SRC_URI="https://github.com/merryhime/mcl/archive/refs/tags/${PV}.tar.gz -> ${P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -25,11 +25,13 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.1.13-build-tests-only-when-requested.patch
+	"${FILESDIR}"/${PN}-0.1.13-musl-lift_sequence-fix.patch
 )
 
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test)
+		-DMCL_WARNINGS_AS_ERRORS=no
 	)
 
 	cmake_src_configure

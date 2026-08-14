@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>bjorn.megaflow@gmail.com</email>
+		<name>Björn</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="gnome-gitlab">GNOME/decibels</remote-id>
+	</upstream>
+</pkgmetadata>

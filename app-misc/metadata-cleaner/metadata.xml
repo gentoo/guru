@@ -6,6 +6,6 @@
 		<name>Gasc Henri</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="gitlab">rmnvgr/metadata-cleaner</remote-id>
+		<remote-id type="gitlab">metadatacleaner/metadatacleaner</remote-id>
 	</upstream>
 </pkgmetadata>

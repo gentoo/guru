@@ -4,12 +4,12 @@
 #
 # shellcheck shell=sh
 
+supervisor="supervise-daemon"
 command="/usr/bin/snowflake-proxy"
 command_args="${SNOWFLAKE_PROXY_OPTS}"
 command_background=1
 command_user="nobody:nobody"
-pidfile="/run/snowflake-proxy.pid"
 
 depend() {
-	need net
+	after net
 }

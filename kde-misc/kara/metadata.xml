@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">dhruv8sh/kara</remote-id>
+		<bugs-to>https://github.com/dhruv8sh/kara/issues</bugs-to>
+		<maintainer>
+			<name>Dhruvesh Surolia</name>
+			<email>dhruv8sh@proton.me</email>
+		</maintainer>
+	</upstream>
+</pkgmetadata>

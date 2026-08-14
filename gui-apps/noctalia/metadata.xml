@@ -1,0 +1,27 @@
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type = "person">
+		<email>luke.gompz@gmail.com</email>
+		<name>Luke Gompertz</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>emi@genchu.org</email>
+		<name>Emi</name>
+	</maintainer>
+	<upstream>
+		<doc>https://docs.noctalia.dev/</doc>
+		<remote-id type="github">noctalia-dev/noctalia</remote-id>
+	</upstream>
+	<longdescription>
+		Noctalia is a beautiful, minimal desktop
+		shell for Wayland that actually gets out
+		of your way.
+		Built on Quickshell with a
+		warm lavender aesthetic that you can
+		easily customize to match your vibe.
+	</longdescription>
+</pkgmetadata>

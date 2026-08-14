@@ -1,0 +1,63 @@
+--- a/3rd/luamake/compile/ninja/linux.ninja
++++ b/3rd/luamake/compile/ninja/linux.ninja
+@@ -2,20 +2,20 @@ ninja_required_version = 1.7
+ builddir = build/linux
+ bin = $builddir/bin
+ obj = $builddir/obj
+-cc = gcc
+-ar = ar
++cc = REPLACE_ME
++ar = REPLACE_AR
+ luamake = luamake
+ rule c_source_lua
+   command = $cc -MMD -MT $out -MF $out.d -std=c11 -O2 -Wall $
+     -Ibee.lua/3rd/lua55 -DMAKE_LIB -DLUA_USE_LINUX -DNDEBUG -fPIC -o $out $
+     -c $in
+-  description = Compile C   $out
++  description = Compile C   $out CFLAGS
+   deps = gcc
+   depfile = $out.d
+ build $obj/source_lua/onelua.obj: c_source_lua bee.lua/3rd/lua55/onelua.c
+ rule cxx_source_bee
+   command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
+-    -fvisibility=hidden -Ibee.lua/3rd/lua55 -DNDEBUG -fPIC -o $out -c $in
++    -fvisibility=hidden -Ibee.lua/3rd/lua54 -DNDEBUG -fPIC -o $out -c $in CXXFLAGS
+   description = Compile C++ $out
+   deps = gcc
+   depfile = $out.d
+@@ -23,7 +23,7 @@ build $obj/source_bee/lua-seri.obj: cxx_source_bee $
+     bee.lua/3rd/lua-seri/lua-seri.cpp
+ rule cxx_source_bee_1
+   command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
+-    -fvisibility=hidden -DNDEBUG -fPIC -o $out -c $in
++    -fvisibility=hidden -DNDEBUG -fPIC -o $out -c $in CXXFLAGS
+   description = Compile C++ $out
+   deps = gcc
+   depfile = $out.d
+@@ -31,7 +31,7 @@ build $obj/source_bee/format.obj: cxx_source_bee_1 bee.lua/3rd/fmt/format.cc
+ rule cxx_source_bee_2
+   command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
+     -fvisibility=hidden -Ibee.lua -Ibee.lua/3rd/lua55 -DNDEBUG -fPIC -o $
+-    $out -c $in
++    $out -c $in CXXFLAGS
+   description = Compile C++ $out
+   deps = gcc
+   depfile = $out.d
+@@ -119,7 +119,7 @@ rule cxx_source_bootstrap
+   command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
+     -fvisibility=hidden -Ibee.lua -Ibee.lua/3rd/lua55 -DLUA_USE_LINUX $
+     -DNDEBUG -fPIC -o $out -c $in
+-  description = Compile C++ $out
++  description = Compile C++ $out CXXFLAGS
+   deps = gcc
+   depfile = $out.d
+ build $obj/source_bootstrap/bootstrap_init.obj: cxx_source_bootstrap $
+@@ -128,7 +128,7 @@ build $obj/source_bootstrap/main.obj: cxx_source_bootstrap $
+     bee.lua/bootstrap/main.cpp
+ rule link_bootstrap
+   command = $cc $in -o $out -Wl,-E -static-libgcc -lstdc++fs -pthread -lm $
+-    -ldl -Wl,-Bstatic -lstdc++ -Wl,-Bdynamic -s
++    -ldl -Wl,-Bstatic -lstdc++ -Wl,-Bdynamic -s LDFLAGS
+   description = Link    Exe $out
+ rule copy
+   command = cp -fv $in$input $out 1>/dev/null

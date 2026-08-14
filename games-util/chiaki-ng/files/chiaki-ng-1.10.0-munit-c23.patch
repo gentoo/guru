@@ -1,0 +1,15 @@
+Fix build with C23 / GCC 15+: ATOMIC_VAR_INIT was removed in C23.
+
+Upstream munit is unmaintained since 2020, so patch in-tree.
+
+--- a/test/munit/munit.c
++++ b/test/munit/munit.c
+@@ -798,7 +798,7 @@
+ #elif defined(HAVE_STDATOMIC)
+ #  include <stdatomic.h>
+ #  define ATOMIC_UINT32_T _Atomic uint32_t
+-#  define ATOMIC_UINT32_INIT(x) ATOMIC_VAR_INIT(x)
++#  define ATOMIC_UINT32_INIT(x) (x)
+ #elif defined(HAVE_CLANG_ATOMICS)
+ #  define ATOMIC_UINT32_T _Atomic uint32_t
+ #  define ATOMIC_UINT32_INIT(x) (x)

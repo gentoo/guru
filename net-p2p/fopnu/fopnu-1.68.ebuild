@@ -7,7 +7,9 @@ inherit desktop xdg
 
 DESCRIPTION="P2P file sharing system"
 HOMEPAGE="https://www.fopnu.com"
-SRC_URI="https://download2.fopnu.com/download/${P}-1.x86_64.manualinstall.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	amd64? ( https://download2.fopnu.com/download/${P}-1.x86_64.manualinstall.tar.gz -> ${P}.tar.gz )
+"
 
 S="${WORKDIR}/${P}-1.x86_64.manualinstall"
 
@@ -21,13 +23,15 @@ RDEPEND="
 	dev-libs/glib
 	sys-apps/dbus
 	sys-libs/glibc
-	sys-libs/zlib
+	virtual/zlib
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
 	x11-libs/pango
 "
 DEPEND="${RDEPEND}"
+
+QA_PREBUILT="usr/bin/fopnu"
 
 src_install() {
 	sed -i "/^Categories/ s/Internet;//" fopnu.desktop

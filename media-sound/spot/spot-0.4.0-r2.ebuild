@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -396,7 +396,7 @@ DEPEND="
 		>=gui-libs/libadwaita-1.3.3:1
 		>=media-libs/alsa-lib-1.2.9
 		>=media-libs/libpulse-15.0[glib]
-		sys-libs/zlib
+		virtual/zlib:=
 		x11-libs/cairo
 		x11-libs/gdk-pixbuf:2
 		x11-libs/pango

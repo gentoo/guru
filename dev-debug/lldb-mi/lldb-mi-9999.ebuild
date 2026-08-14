@@ -1,11 +1,11 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-LLVM_COMPAT=( {15..21} )
+LLVM_COMPAT=( {16..23} )
 
-inherit cmake llvm-r1
+inherit cmake llvm-r2
 
 DESCRIPTION="LLDB Machine Interface Driver"
 HOMEPAGE="https://github.com/lldb-tools/lldb-mi"

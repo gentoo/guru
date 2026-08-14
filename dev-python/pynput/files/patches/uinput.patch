@@ -1,0 +1,19 @@
+diff --git a/lib/pynput/_util/uinput.py b/lib/pynput/_util/uinput.py
+index b0a6a78..c891b83 100644
+--- a/lib/pynput/_util/uinput.py
++++ b/lib/pynput/_util/uinput.py
+@@ -72,6 +72,14 @@ class ListenerMixin(object):
+             except OSError:
+                 continue
+ 
++            # Some programmable mouse devices report each programmable input as
++            # a separate capability, so it is possible for a mouse to exceed
++            # keyboards in capability count; for this reason we will prefer a
++            # device with "keyboard" in its name
++            if 'keyboard' in next_dev.name.lower():
++                dev = next_dev
++                break
++
+             # Does this device provide more handled event codes?
+             capabilities = next_dev.capabilities()
+             next_count = sum(

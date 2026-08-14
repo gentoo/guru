@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit autotools python-single-r1
 
@@ -30,7 +30,8 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RDEPEND="
 	${PYTHON_DEPS}
 	dev-lang/perl
-	sys-libs/zlib
+	app-arch/lz4:=
+	virtual/zlib:=
 "
 
 DEPEND="

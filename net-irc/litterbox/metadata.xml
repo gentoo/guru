@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+  <!-- maintainer-needed -->
   <upstream>
     <maintainer>
       <name>June McEnroe</name>
@@ -18,8 +19,4 @@
     for litterbox is provided by scooper. Some formats of plain text logs can
     be imported into the litterbox database with unscoop.
   </longdescription>
-  <maintainer type="person">
-    <email>watermanpaint@posteo.net</email>
-    <name>Lucio Sauer</name>
-  </maintainer>
 </pkgmetadata>

@@ -26,7 +26,7 @@ RDEPEND="
 	>=gui-libs/libadwaita-1.5.0:1
 	net-p2p/transmission
 	sys-apps/dbus
-	sys-libs/zlib
+	virtual/zlib:=
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	x11-libs/pango

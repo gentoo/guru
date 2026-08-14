@@ -1,0 +1,47 @@
+# Copyright 2022-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+inherit toolchain-funcs
+
+if [[ "${PV}" = "9999" ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://git.sr.ht/~sircmpwn/himitsu"
+	SLOT="0"
+else
+	SRC_URI="https://git.sr.ht/~sircmpwn/himitsu/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~arm64 ~riscv"
+	SLOT="0/${PV}"
+fi
+
+DESCRIPTION="Secret storage system for Unix, suitable for storing passwords, keys, ..."
+HOMEPAGE="https://git.sr.ht/~sircmpwn/himitsu"
+LICENSE="GPL-3"
+
+DEPEND="
+	>=dev-lang/hare-0.26.0:=
+"
+PDEPEND="
+	|| (
+		app-admin/hiprompt-gtk
+		gui-apps/hiprompt-gtk-py
+	)
+"
+BDEPEND="app-text/scdoc"
+
+# binaries are hare-built
+QA_FLAGS_IGNORED="usr/bin/.*"
+
+src_configure() {
+	sed -i 's;^PREFIX=.*;PREFIX=/usr;' Makefile || die
+
+	tc-export CC AR AS LD
+}
+
+src_install() {
+	default
+
+	exeinto /etc/user/init.d
+	newexe "${FILESDIR}/himitsud.initd" himitsud
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>pinguinlars1105+gentoo@gmail.com</email>
+		<name>AshyPinguin</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/geteduroam/linux-app/issues</bugs-to>
+		<remote-id type="github">geteduroam/linux-app</remote-id>
+	</upstream>
+</pkgmetadata>

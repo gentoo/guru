@@ -1,0 +1,13 @@
+diff --git a/src/engine/platform/sound/ymf278b/ymf278.h b/src/engine/platform/sound/ymf278b/ymf278.h
+index b0622adb2..3e1f4a8d4 100644
+--- a/src/engine/platform/sound/ymf278b/ymf278.h
++++ b/src/engine/platform/sound/ymf278b/ymf278.h
+@@ -4,6 +4,7 @@
+ #include <vector>
+ #include <string>
+ #include <algorithm>
++#include <stdint.h>
+ 
+ #define UNREACHABLE while (1) assert(false)
+ 
+

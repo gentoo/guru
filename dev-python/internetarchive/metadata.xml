@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
-	<upstream>
-		<remote-id type="github">jjjake/internetarchive</remote-id>
-		<remote-id type="pypi">internetarchive</remote-id>
-		<doc>https://archive.org/developers/internetarchive</doc>
-	</upstream>
+  <maintainer type="person">
+    <email>esteve.varela@gmail.com</email>
+    <name>Esteve Varela Colominas</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">jjjake/internetarchive</remote-id>
+    <remote-id type="pypi">internetarchive</remote-id>
+    <doc>https://archive.org/developers/internetarchive</doc>
+  </upstream>
 </pkgmetadata>

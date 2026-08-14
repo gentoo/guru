@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{12..14} )
 
-inherit meson python-single-r1 xdg
+inherit gnome2-utils meson python-single-r1 xdg
 
 DESCRIPTION="Change the look of Adwaita with ease"
 HOMEPAGE="https://gradienceteam.github.io/"
@@ -40,6 +40,7 @@ BDEPEND="
 "
 
 RDEPEND="
+	dev-libs/libportal:=[gtk,introspection]
 	$(python_gen_cond_dep '
 		>=dev-python/anyascii-0.3[${PYTHON_USEDEP}]
 		dev-python/material-color-utilities[${PYTHON_USEDEP}]
@@ -69,4 +70,12 @@ DOCS=(
 src_install() {
 	meson_src_install
 	python_optimize
+}
+
+pkg_postinst() {
+    gnome2_schemas_update
+}
+
+pkg_postrm() {
+    gnome2_schemas_update
 }

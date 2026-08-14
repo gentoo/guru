@@ -1,0 +1,22 @@
+Add a missing link for icu-i18n.
+
+```
+/usr/x86_64-pc-linux-gnu/binutils-bin/2.46.0/ld: src/MEGASync/mega/libSDKlib.a(utils.cpp.o): undefined reference to symbol '_ZN3icu8Collator14createInstanceERKNS_6LocaleER10UErrorCode'
+/usr/x86_64-pc-linux-gnu/binutils-bin/2.46.0/ld: /usr/lib64/libicui18n.so.78: error adding symbols: DSO missing from command line
+```
+
+Fixes: https://github.com/meganz/sdk/commit/1f5c9cf8bd98a165aa65a9b05a6db118e35353e9
+Patch: https://github.com/meganz/sdk/pull/2768
+--- a/src/MEGASync/mega/cmake/modules/sdklib_libraries.cmake
++++ b/src/MEGASync/mega/cmake/modules/sdklib_libraries.cmake
+@@ -110,8 +110,8 @@ macro(load_sdklib_libraries)
+         pkg_check_modules(curl REQUIRED IMPORTED_TARGET libcurl)
+         target_link_libraries(SDKlib PRIVATE PkgConfig::curl)
+ 
+-        find_package(ICU COMPONENTS uc data REQUIRED)
+-        target_link_libraries(SDKlib PRIVATE ICU::uc ICU::data)
++        find_package(ICU COMPONENTS i18n uc data REQUIRED)
++        target_link_libraries(SDKlib PRIVATE ICU::i18n ICU::uc ICU::data)
+ 
+         if(USE_OPENSSL)
+             find_package(OpenSSL REQUIRED)

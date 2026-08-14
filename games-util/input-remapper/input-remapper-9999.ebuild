@@ -1,13 +1,13 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1 systemd git-r3 udev desktop
+inherit distutils-r1 systemd git-r3 udev desktop xdg
 
 DESCRIPTION="A tool to change and program the mapping of your input device buttons"
 HOMEPAGE="https://github.com/sezanzeb/input-remapper"
@@ -19,23 +19,35 @@ SLOT="0"
 KEYWORDS=""
 
 PATCHES=(
-	"${FILESDIR}/remove-non-python-files-from-setup.patch"
+	"${FILESDIR}/build-backend.patch"
+	"${FILESDIR}/mo-files.patch"
 )
 
-RDEPEND="x11-libs/gtk+:3
-x11-libs/gtksourceview
-x11-apps/xmodmap
-$(python_gen_cond_dep '
-	dev-python/pygobject[${PYTHON_USEDEP}]
-	dev-python/pydbus[${PYTHON_USEDEP}]
-	dev-python/pydantic[${PYTHON_USEDEP}]
-	dev-python/psutil[${PYTHON_USEDEP}]
-	>=dev-python/evdev-1.3.0[${PYTHON_USEDEP}]
-	dev-python/setuptools[${PYTHON_USEDEP}]
-')
-virtual/udev"
+RDEPEND="
+	x11-libs/gtk+:3
+	sys-devel/gettext
+	x11-libs/gtksourceview
+	x11-apps/xmodmap
+	$(python_gen_cond_dep '
+		dev-python/pygobject[${PYTHON_USEDEP}]
+		dev-python/dasbus[${PYTHON_USEDEP}]
+		dev-python/pydantic[${PYTHON_USEDEP}]
+		dev-python/psutil[${PYTHON_USEDEP}]
+		>=dev-python/evdev-1.3.0[${PYTHON_USEDEP}]
+	')
+	virtual/udev
+"
 
-distutils_enable_tests pytest
+RESTRICT=test
+
+src_compile() {
+	distutils-r1_src_compile
+
+	# With setup.py gone this needs to be manually executed.
+	# "mo-files.patch" makes language.py executable standalone
+	# and updates the output path to "${S}"/mo
+	python "${S}/install/language.py"
+}
 
 src_install() {
 	# Install data files
@@ -44,7 +56,7 @@ src_install() {
 
 	# Install lang files
 	insinto /usr/share/input-remapper/lang
-	doins -r "${S}"/mo/*
+	doins -r "${S}"/mo/lang/*
 
 	# Install udev rules
 	udev_dorules data/99-input-remapper.rules
@@ -86,9 +98,11 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
 	udev_reload
 }
 
 pkg_postrm() {
+	xdg_pkg_postrm
 	udev_reload
 }

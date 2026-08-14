@@ -1,0 +1,143 @@
+diff --git a/tests/conftest.py b/tests/conftest.py
+index a2dd94355..4dfabc726 100644
+--- a/tests/conftest.py
++++ b/tests/conftest.py
+@@ -17,7 +17,7 @@ import pytest
+ from pytest_lazy_fixtures import lf
+ from redis.asyncio import Redis as AsyncRedis
+ from redis.client import Redis
+-from time_machine import Coordinates, travel
++from time_machine import Traveller, travel
+ 
+ from litestar.logging import LoggingConfig
+ from litestar.middleware.session import SessionMiddleware
+@@ -36,7 +36,7 @@ if TYPE_CHECKING:
+     from types import ModuleType
+ 
+     from pytest import FixtureRequest, MonkeyPatch
+-    from time_machine import Coordinates
++    from time_machine import Traveller
+ 
+     from litestar import Litestar
+     from litestar.types import (
+@@ -266,7 +266,7 @@ def create_module(tmp_path: Path, monkeypatch: MonkeyPatch) -> Callable[[str], M
+ 
+ 
+ @pytest.fixture()
+-def frozen_datetime() -> Generator[Coordinates, None, None]:
++def frozen_datetime() -> Generator[Traveller, None, None]:
+     with travel(datetime.utcnow, tick=False) as frozen:
+         yield frozen
+ 
+diff --git a/tests/e2e/test_response_caching.py b/tests/e2e/test_response_caching.py
+index 462302843..943162f16 100644
+--- a/tests/e2e/test_response_caching.py
++++ b/tests/e2e/test_response_caching.py
+@@ -21,7 +21,7 @@ from litestar.testing import TestClient, create_test_client
+ from litestar.types import HTTPScope
+ 
+ if TYPE_CHECKING:
+-    from time_machine import Coordinates
++    from time_machine import Traveller
+ 
+ T = TypeVar("T")
+ 
+@@ -60,7 +60,7 @@ def test_default_cache_response(sync_to_thread: bool, mock: MagicMock) -> None:
+         assert mock.call_count == 1
+ 
+ 
+-def test_handler_expiration(mock: MagicMock, frozen_datetime: "Coordinates") -> None:
++def test_handler_expiration(mock: MagicMock, frozen_datetime: "Traveller") -> None:
+     @get("/cached-local", cache=10)
+     async def handler() -> str:
+         return mock()  # type: ignore[no-any-return]
+@@ -78,7 +78,7 @@ def test_handler_expiration(mock: MagicMock, frozen_datetime: "Coordinates") ->
+         assert mock.call_count == 2
+ 
+ 
+-def test_default_expiration(mock: MagicMock, frozen_datetime: "Coordinates") -> None:
++def test_default_expiration(mock: MagicMock, frozen_datetime: "Traveller") -> None:
+     @get("/cached-default", cache=True)
+     async def handler() -> str:
+         return mock()  # type: ignore[no-any-return]
+diff --git a/tests/unit/test_middleware/test_session/test_server_side_backend.py b/tests/unit/test_middleware/test_session/test_server_side_backend.py
+index d9905ff45..cb291a588 100644
+--- a/tests/unit/test_middleware/test_session/test_server_side_backend.py
++++ b/tests/unit/test_middleware/test_session/test_server_side_backend.py
+@@ -11,7 +11,7 @@ from litestar.stores.memory import MemoryStore
+ from litestar.testing import TestClient
+ 
+ if TYPE_CHECKING:
+-    from time_machine import Coordinates
++    from time_machine import Traveller
+ 
+     from litestar.middleware.session.server_side import ServerSideSessionBackend
+ 
+@@ -70,7 +70,7 @@ async def test_get_renew_on_access(
+     server_side_session_backend: "ServerSideSessionBackend",
+     session_data: bytes,
+     memory_store: MemoryStore,
+-    frozen_datetime: "Coordinates",
++    frozen_datetime: "Traveller",
+ ) -> None:
+     server_side_session_backend.config.max_age = 1
+     server_side_session_backend.config.renew_on_access = True
+@@ -121,7 +121,7 @@ async def test_max_age_expires(
+     server_side_session_backend: "ServerSideSessionBackend",
+     session_data: bytes,
+     memory_store: MemoryStore,
+-    frozen_datetime: "Coordinates",
++    frozen_datetime: "Traveller",
+ ) -> None:
+     server_side_session_backend.config.max_age = 1
+     await server_side_session_backend.set("foo", session_data, memory_store)
+diff --git a/tests/unit/test_stores.py b/tests/unit/test_stores.py
+index 471ae754b..97c8f2db9 100644
+--- a/tests/unit/test_stores.py
++++ b/tests/unit/test_stores.py
+@@ -12,7 +12,7 @@ from unittest.mock import MagicMock, Mock, patch
+ import pytest
+ from _pytest.fixtures import FixtureRequest
+ from pytest_mock import MockerFixture
+-from time_machine import Coordinates
++from time_machine import Traveller
+ 
+ from litestar.exceptions import ImproperlyConfiguredException
+ from litestar.stores.file import FileStore
+@@ -69,7 +69,7 @@ async def test_set_special_chars_key(store: Store, key: str) -> None:
+     assert await store.get(key) == value
+ 
+ 
+-async def test_expires(store: Store, frozen_datetime: Coordinates) -> None:
++async def test_expires(store: Store, frozen_datetime: Traveller) -> None:
+     await store.set("foo", b"bar", expires_in=1)
+ 
+     frozen_datetime.shift(2)
+@@ -87,7 +87,7 @@ async def test_expires(store: Store, frozen_datetime: Coordinates) -> None:
+ 
+ @pytest.mark.flaky(reruns=5)
+ @pytest.mark.parametrize("renew_for", [10, timedelta(seconds=10)])
+-async def test_get_and_renew(store: Store, renew_for: int | timedelta, frozen_datetime: Coordinates) -> None:
++async def test_get_and_renew(store: Store, renew_for: int | timedelta, frozen_datetime: Traveller) -> None:
+     if isinstance(store, (RedisStore, ValkeyStore)):
+         pytest.skip()
+ 
+@@ -176,7 +176,7 @@ async def test_delete_all(store: Store) -> None:
+         assert await store.get(key) is None
+ 
+ 
+-async def test_expires_in(store: Store, frozen_datetime: Coordinates) -> None:
++async def test_expires_in(store: Store, frozen_datetime: Traveller) -> None:
+     if not isinstance(store, (RedisStore, ValkeyStore)):
+         pytest.xfail("bug in FileStore and MemoryStore")
+ 
+@@ -460,7 +460,7 @@ async def test_namespaced_store_delete_all_propagates_down(namespaced_store: Nam
+ 
+ 
+ @pytest.mark.parametrize("store_fixture", ["memory_store", "file_store"])
+-async def test_memory_delete_expired(store_fixture: str, request: FixtureRequest, frozen_datetime: Coordinates) -> None:
++async def test_memory_delete_expired(store_fixture: str, request: FixtureRequest, frozen_datetime: Traveller) -> None:
+     store = request.getfixturevalue(store_fixture)
+ 
+     expect_expired: list[str] = []
+

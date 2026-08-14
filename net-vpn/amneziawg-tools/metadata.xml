@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <name>Pavel Sobolev</name>
+    <email>contact@paveloom.dev</email>
+  </maintainer>
+  <use>
+    <flag name="awg-quick">Install the awg-quick(8) helper tool. Most users want to use this.</flag>
+  </use>
+  <upstream>
+    <bugs-to>https://github.com/amnezia-vpn/amneziawg-tools/issues</bugs-to>
+    <remote-id type="github">amnezia-vpn/amneziawg-tools</remote-id>
+  </upstream>
+</pkgmetadata>

@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ inherit toolchain-funcs wrapper
 
 DESCRIPTION="Libre clone of Mega-Lo-Mania (original from ~1990), supports original resources"
 HOMEPAGE="https://gigalomania.sourceforge.net"
-SRC_URI="http://launchpad.net/${PN}/trunk/${PV}/+download/${PN}src.zip -> ${P}.zip"
+SRC_URI="https://launchpad.net/${PN}/trunk/${PV}/+download/${PN}src.zip -> ${P}.zip"
 
 S="${WORKDIR}/${PN}src"
 

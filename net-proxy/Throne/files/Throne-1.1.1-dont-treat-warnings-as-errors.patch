@@ -1,0 +1,16 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Don't treat warnings as errors.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/3rdparty/simple-protobuf/cmake/spb_compile_options.cmake
++++ b/3rdparty/simple-protobuf/cmake/spb_compile_options.cmake
+@@ -41,7 +41,7 @@ function(spb_enable_warnings TARGET)
+     endif()        
+     target_compile_definitions(${TARGET} PRIVATE _CRT_SECURE_NO_WARNINGS)
+   else()
+-   target_compile_options(${TARGET} PRIVATE -Wall -Wextra -Wpedantic -Werror -Wno-missing-field-initializers)
++   target_compile_options(${TARGET} PRIVATE -Wall -Wextra -Wpedantic -Wno-missing-field-initializers)
+   endif()
+ endfunction(spb_enable_warnings)
+

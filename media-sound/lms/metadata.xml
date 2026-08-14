@@ -2,7 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>davidroman96@gmail.com</email>
+		<email>stkw0@disroot.org</email>
 		<name>David Roman</name>
 	</maintainer>
 	<upstream>
@@ -10,5 +10,6 @@
 	</upstream>
 	<use>
 		<flag name="stb">Use <pkg>dev-libs/stb</pkg> graphic library instead of <pkg>media-gfx/graphicsmagick</pkg></flag>
+		<flag name="jukebox">Support playback in server's hardware</flag>
 	</use>
 </pkgmetadata>

@@ -3,31 +3,41 @@
 
 EAPI=8
 
-inherit cmake git-r3 prefix python-utils-r1
+inherit cmake prefix python-utils-r1
 
 DESCRIPTION="Clang fork implementing experimental support for P2996 (Reflection for C++26)"
 HOMEPAGE="https://github.com/bloomberg/clang-p2996"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD MIT public-domain rc"
 SLOT="0"
-KEYWORDS=""
 
-EGIT_REPO_URI="https://github.com/bloomberg/clang-p2996.git"
-EGIT_BRANCH="p2996"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/bloomberg/clang-p2996.git"
+	EGIT_BRANCH="p2996"
+else
+	GIT_COMMIT=""
+	SRC_URI="https://github.com/bloomberg/clang-p2996/archive/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/clang-p2996-${GIT_COMMIT}"
+	KEYWORDS="~amd64"
+fi
 
 ALL_LLVM_TARGETS="AArch64 AMDGPU ARC ARM AVR BPF CSKY DirectX Hexagon Lanai LoongArch M68k MSP430 Mips NVPTX PowerPC RISCV SPIRV Sparc SystemZ VE WebAssembly +X86 XCore Xtensa"
-IUSE="+debug +default-reflection-latest +pie"
+IUSE="+debug +default-reflection-latest +pie +static-libs"
 for target in ${ALL_LLVM_TARGETS}; do
 	IUSE+=" ${target%${target#+}}llvm_targets_${target#+}"
 done
 
-# TODO
-RDEPEND="sys-libs/zlib:0="
+RDEPEND="
+	app-arch/zstd:=
+	dev-libs/libxml2:=
+	virtual/zlib:=
+"
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/unknown-reflection.patch"
-	"${FILESDIR}/uninitialized.patch"
+	"${FILESDIR}/21.0.0_p20250702-unknown-reflection.patch"
+	"${FILESDIR}/21.0.0_p20250702-uninitialized.patch"
 )
 
 CMAKE_USE_DIR="$S/llvm"
@@ -37,7 +47,7 @@ src_prepare() {
 	mkdir -p x/y || die
 	BUILD_DIR=${WORKDIR}/x/y/clang
 
-	use default-reflection-latest && eapply "${FILESDIR}/enable-reflection-latest.patch"
+	use default-reflection-latest && eapply "${FILESDIR}/21.0.0_p20250702-enable-reflection-latest.patch"
 
 	cmake_src_prepare
 
@@ -73,6 +83,11 @@ src_configure() {
 		-DLLVM_LINK_LLVM_DYLIB=ON
 		-DLLVM_ENABLE_PROJECTS="clang"
 		-DLLVM_ENABLE_RUNTIMES="libcxxabi;libcxx"
+		-DRUNTIMES_CMAKE_ARGS="\
+			-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,${BUILD_DIR}/${libdir};\
+			-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-rpath,${BUILD_DIR}/${libdir};\
+			-DCMAKE_BUILD_WITH_INSTALL_RPATH=OFF;\
+			-DCMAKE_INSTALL_RPATH_USE_LINK_PATH=ON"
 		-DLLVM_TARGETS_TO_BUILD="$(IFS=';'; echo "${targets[*]}")"
 		-DLLVM_INCLUDE_BENCHMARKS=OFF
 		-DLLVM_INCLUDE_TESTS=OFF
@@ -85,12 +100,13 @@ src_configure() {
 		-DLLVM_ENABLE_ZLIB=FORCE_ON
 
 		-DLIBCXX_ENABLE_SHARED=ON
-		-DLIBCXX_ENABLE_STATIC=OFF
+		-DLIBCXX_ENABLE_STATIC=$(usex static-libs)
 		-DLIBCXX_CXX_ABI=libcxxabi
 		-DLIBCXX_USE_COMPILER_RT=OFF
 		-DLIBCXX_HAS_GCC_S_LIB=OFF
 		-DLIBCXX_INCLUDE_BENCHMARKS=OFF
 		-DLIBCXX_INCLUDE_TESTS=OFF
+		-DLIBCXXABI_ENABLE_STATIC=$(usex static-libs)
 		-DLIBCXXABI_LIBUNWIND_INCLUDES="${EPREFIX}"/usr/include
 		-DLIBCXXABI_USE_LLVM_UNWINDER=OFF
 

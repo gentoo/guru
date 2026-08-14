@@ -19,7 +19,7 @@ RDEPEND="
 	media-libs/libsndfile
 	media-libs/libsdl2
 	media-libs/libwebp
-	sys-libs/zlib
+	virtual/zlib:=
 	media-libs/libjpeg-turbo
 	>=media-video/ffmpeg-5.1
 	gles2? (

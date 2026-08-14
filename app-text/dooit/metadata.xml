@@ -8,5 +8,6 @@
 	<upstream>
 		<remote-id type="pypi">dooit</remote-id>
 		<remote-id type="github">dooit-org/dooit</remote-id>
+		<doc>https://dooit-org.github.io/dooit/</doc>
 	</upstream>
 </pkgmetadata>

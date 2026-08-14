@@ -16,24 +16,33 @@ LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="
-	dev-python/pyaml[${PYTHON_USEDEP}]
-	dev-python/pyside[dbus,gui,uitools,widgets,${PYTHON_USEDEP}]
-	dev-python/pyxdg[${PYTHON_USEDEP}]
-	dev-python/requests[${PYTHON_USEDEP}]
-	dev-python/steam[${PYTHON_USEDEP}]
-	dev-python/vdf[${PYTHON_USEDEP}]
-	dev-python/zstandard[${PYTHON_USEDEP}]
+	>=dev-python/pyaml-6.0[${PYTHON_USEDEP}]
+	>=dev-python/pyside-6.3.0[dbus,gui,uitools,widgets,${PYTHON_USEDEP}]
+	>=dev-python/pyxdg-0.27[${PYTHON_USEDEP}]
+	>=dev-python/requests-2.27.0[${PYTHON_USEDEP}]
+	>=dev-python/steam-1.6.1[${PYTHON_USEDEP}]
+	>=dev-python/vdf-4.0[${PYTHON_USEDEP}]
+	>=dev-python/zstandard-0.19.0[${PYTHON_USEDEP}]
+"
+BDEPEND="
+	test? (
+		dev-python/responses[${PYTHON_USEDEP}]
+	)
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-2.11.1-add-entrypoint.patch"
+EPYTEST_DESELECT=(
+	# pytest-responses is not packaged
+	tests/test_util.py::test_is_online
+	tests/test_util.py::test_is_online_errors
 )
 
 distutils_enable_tests pytest
 
 src_prepare() {
 	# execute entry point instead
-	sed -i "/^Exec=/s/net.davidotek.pupgui2/${PN}/" share/applications/net.davidotek.pupgui2.desktop || die
+	sed -i "/^Exec=/s/net.davidotek.pupgui2/${PN,,}/" share/applications/net.davidotek.pupgui2.desktop || die
+	# pytest-responses is not packaged (and not useful for us anyway)
+	sed -i -e "/^import pytest_responses/d" tests/test_util.py || die
 	distutils-r1_src_prepare
 }
 

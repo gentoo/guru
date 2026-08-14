@@ -30,6 +30,7 @@ DEPEND="${CDEPEND}
 RDEPEND="${CDEPEND}
 	vulkan? ( media-libs/vulkan-loader )
 "
+BDEPEND="media-libs/shaderc"
 
 src_configure() {
 	# Note: CUDA and HIP are currently untested. Build failures may occur.

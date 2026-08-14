@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,18 +7,20 @@ inherit desktop xdg
 
 DESCRIPTION="GUI configurator for supported QMK-based keyboards"
 HOMEPAGE="https://www.caniusevia.com/"
-SRC_URI="https://github.com/the-via/releases/releases/download/v${PV}/${P}-linux.AppImage -> ${P}.AppImage"
+SRC_URI="
+	amd64? ( https://github.com/the-via/releases/releases/download/v${PV}/${P}-linux.AppImage -> ${P}.AppImage )
+"
 
 S="${WORKDIR}"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="-* ~amd64"
 
 # Stripping AppImage binaries causes them to no longer recognize their internal
 # filesystem.
 RESTRICT="strip"
 
-# Except for sys-libs/zlib, these dependencies were extracted from the shared
+# Except for virtual/zlib, these dependencies were extracted from the shared
 # libraries required by the via-nativia executable; it's not clear whether
 # these are all _actually_ required, or whether the list is extensive because
 # the executable is an Electron app.
@@ -33,7 +35,7 @@ RDEPEND="
 	net-print/cups
 	sys-apps/dbus
 	sys-fs/fuse:0
-	sys-libs/zlib
+	virtual/zlib
 	x11-libs/cairo
 	x11-libs/gtk+:3
 	x11-libs/libX11

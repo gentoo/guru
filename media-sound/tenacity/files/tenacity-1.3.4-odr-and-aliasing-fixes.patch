@@ -1,0 +1,134 @@
+few simple fixes to work around strict-aliasing and one-definition-rules issues
+that cause problems with LTO compilation.
+
+most issues are actual problems withoverlapping file-local variable names which
+leak into other contexts. most are easily fixed with couple of anonymous
+namespaces to satisfy the compiler (none cause issues in practice, but generate
+errors when standard Gentoo LTO flags are used)
+
+NOTE: these fixes don't cover lib-ffmpeg-support module, which generate an
+enormous number of ODR violations
+
+diff --git a/src/prefs/SpectrumPrefs.cpp b/src/prefs/SpectrumPrefs.cpp
+index e9034ff83..b775475ab 100644
+--- a/src/prefs/SpectrumPrefs.cpp
++++ b/src/prefs/SpectrumPrefs.cpp
+@@ -228,9 +228,11 @@ void SpectrumPrefs::PopulateOrExchange(ShuttleGui & S)
+                8);
+ 
+             // i18n-hint Scheme refers to a color scheme for spectrogram colors
++            int _selection = static_cast<int>(mTempSettings.colorScheme);
+             S.Id(ID_COLOR_SCHEME).TieChoice(XC("Sche&me", "spectrum prefs"),
+-               (int&)mTempSettings.colorScheme,
++               _selection,
+                Msgids( SpectrogramSettings::GetColorSchemeNames() ) );
++            mTempSettings.colorScheme = static_cast<SpectrogramSettings::ColorScheme>(_selection);
+          }
+          S.EndMultiColumn();
+       }
+diff --git a/src/effects/Equalization.cpp b/src/effects/Equalization.cpp
+index 0cdf94500..3496658d0 100644
+--- a/src/effects/Equalization.cpp
++++ b/src/effects/Equalization.cpp
+@@ -148,13 +148,15 @@ enum
+    ID_Slider,   // needs to come last
+ };
+ 
+-enum kInterpolations
+-{
+-   kBspline,
+-   kCosine,
+-   kCubic,
+-   nInterpolations
+-};
++namespace {
++    enum kInterpolations
++    {
++       kBspline,
++       kCosine,
++       kCubic,
++       nInterpolations
++    };
++}
+ 
+ // Increment whenever EQCurves.xml is updated
+ #define EQCURVES_VERSION   1
+diff --git a/src/effects/Noise.cpp b/src/effects/Noise.cpp
+index e075b79ae..aa72bf792 100644
+--- a/src/effects/Noise.cpp
++++ b/src/effects/Noise.cpp
+@@ -32,13 +32,15 @@
+ #include "../widgets/valnum.h"
+ #include "../widgets/NumericTextCtrl.h"
+ 
+-enum kTypes
+-{
+-   kWhite,
+-   kPink,
+-   kBrownian,
+-   nTypes
+-};
++namespace {
++	enum kTypes
++	{
++	   kWhite,
++	   kPink,
++	   kBrownian,
++	   nTypes
++	};
++}
+ 
+ static const EnumValueSymbol kTypeStrings[nTypes] =
+ {
+diff --git a/src/effects/ScienFilter.cpp b/src/effects/ScienFilter.cpp
+index 2c3b9b786..6ce5ecf2e 100644
+--- a/src/effects/ScienFilter.cpp
++++ b/src/effects/ScienFilter.cpp
+@@ -88,13 +88,15 @@ enum
+    ID_StopbandRipple
+ };
+ 
+-enum kTypes
+-{
+-   kButterworth,
+-   kChebyshevTypeI,
+-   kChebyshevTypeII,
+-   nTypes
+-};
++namespace {
++    enum kTypes
++    {
++       kButterworth,
++       kChebyshevTypeI,
++       kChebyshevTypeII,
++       nTypes
++    };
++}
+ 
+ static const EnumValueSymbol kTypeStrings[nTypes] =
+ {
+diff --git a/src/effects/ToneGen.cpp b/src/effects/ToneGen.cpp
+index 8225421b9..3ff5081ae 100644
+--- a/src/effects/ToneGen.cpp
++++ b/src/effects/ToneGen.cpp
+@@ -38,12 +38,14 @@ frequency changes smoothly during the tone.
+ #include "../widgets/valnum.h"
+ #include "../widgets/NumericTextCtrl.h"
+ 
+-enum kInterpolations
+-{
+-   kLinear,
+-   kLogarithmic,
+-   nInterpolations
+-};
++namespace {
++	enum kInterpolations
++	{
++	   kLinear,
++	   kLogarithmic,
++	   nInterpolations
++	};
++}
+ 
+ static const EnumValueSymbol kInterStrings[nInterpolations] =
+ {

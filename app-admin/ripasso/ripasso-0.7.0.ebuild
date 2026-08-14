@@ -40,7 +40,7 @@ DEPEND="
 	dev-libs/libgpg-error
 	dev-libs/nettle
 	dev-libs/openssl:0=
-	sys-libs/zlib
+	virtual/zlib:=
 	gtk? ( gui-libs/gtk )
 "
 RDEPEND="${DEPEND}"

@@ -1,0 +1,15 @@
+Subject: Fix project meta-data
+Bug-Upstream: https://github.com/aivarannamaa/minny/issues/2
+From: Dominik George <nik+gentoo@squirrel.land>
+diff '--color=auto' -ru minny-fa7bcdfc54a846c604d1600db79a05e636de6667.orig/pyproject.toml minny-fa7bcdfc54a846c604d1600db79a05e636de6667/pyproject.toml
+--- minny-fa7bcdfc54a846c604d1600db79a05e636de6667.orig/pyproject.toml	2026-06-09 22:23:59.792619308 +0200
++++ minny-fa7bcdfc54a846c604d1600db79a05e636de6667/pyproject.toml	2025-12-19 21:58:35.000000000 +0100
+@@ -19,7 +19,7 @@
+ description = "Package and project manager for MicroPython and CircuitPython"
+ readme = "README.md"
+ license = "MIT"
+-license-files = ["LICEN[CS]E.*"]
++license-files = ["LICEN[CS]E"]
+ keywords = ["MicroPython", "CircuitPython"]
+ classifiers = [
+   "Development Status :: 4 - Beta",

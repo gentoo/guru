@@ -3,6 +3,7 @@
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
-		<bugs-to>https://anonticket.onionize.space/</bugs-to>
+		<bugs-to>https://anonticket.torproject.org</bugs-to>
+		<changelog>https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/-/blob/main/ChangeLog</changelog>
 	</upstream>
 </pkgmetadata>

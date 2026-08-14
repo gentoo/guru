@@ -1,0 +1,11 @@
+diff '--color=auto' -rdu onnxruntime-1.24.4.orig/cmake/CMakeLists.txt onnxruntime-1.24.4/cmake/CMakeLists.txt
+--- onnxruntime-1.24.4.orig/cmake/CMakeLists.txt	2026-03-16 23:52:22.000000000 +0100
++++ onnxruntime-1.24.4/cmake/CMakeLists.txt	2026-04-17 18:31:40.823920137 +0200
+@@ -1081,7 +1081,6 @@
+       target_compile_definitions(${target_name} PRIVATE USE_KLEIDIAI)
+     endif()
+ 
+-    set_target_properties(${target_name} PROPERTIES COMPILE_WARNING_AS_ERROR ON)
+     if (onnxruntime_USE_CUDA)
+       # Suppress a "conversion_function_not_usable" warning in gsl/span
+       target_compile_options(${target_name} PRIVATE "$<$<COMPILE_LANGUAGE:CUDA>:SHELL:-Xcudafe \"--diag_suppress=conversion_function_not_usable\">")

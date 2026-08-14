@@ -1,0 +1,16 @@
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;application/pdf;application/json;
+StartupWMClass=zen
+Keywords=Internet;WWW;Browser;Web;Explorer;
+Actions=new-window;new-private-window;profilemanager;
+
+[Desktop Action new-window]
+Name=Open a New Window
+Exec=/usr/bin/zen %u
+
+[Desktop Action new-private-window]
+Name=Open a New Private Window
+Exec=/usr/bin/zen --private-window %u
+
+[Desktop Action profilemanager]
+Name=Open the Profile Manager
+Exec=/usr/bin/zen --ProfileManager %u

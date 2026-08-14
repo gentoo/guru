@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..13} )
 # upstream doesn't yet officially claim 3.13 support but passes tests and works
 DISTUTILS_USE_PEP517="hatchling"
 inherit distutils-r1

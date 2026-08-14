@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">ROCm/container-toolkit</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		AMD Container Toolkit offers tools to streamline the use of AMD GPUs with
+		containers. The toolkit includes amd-container-runtime (AMD Container Runtime)
+		and amd-ctk (AMD Container Toolkit CLI). It enables containers to access full
+		AMD GPU acceleration for ROCm workloads. The toolkit supports environment
+		variable-based GPU selection (AMD_VISIBLE_DEVICES) and CDI (Container Device
+		Interface) specifications. This toolkit works with Docker 25+ on Linux systems
+		with AMD GPUs, providing GPU tracking, Docker Swarm integration, and runtime
+		configuration capabilities.
+	</longdescription>
+	<longdescription lang="zh">
+		AMD容器工具包提供了简化AMD GPU与容器配合使用的工具。该工具包包括
+		amd-container-runtime（AMD容器运行时）和amd-ctk（AMD容器工具包CLI）。
+		它使容器能够访问完整的AMD GPU加速以运行ROCm工作负载。该工具包支持基于
+		环境变量的GPU选择（AMD_VISIBLE_DEVICES）和CDI（容器设备接口）规范。
+		此工具包适用于配备AMD GPU的Linux系统上的Docker 25+版本，提供GPU跟踪、
+		Docker Swarm集成和运行时配置功能。
+	</longdescription>
+</pkgmetadata>

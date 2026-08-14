@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>ingenarelitems@gmail.com</email>
-    <name>ingenarel</name>
-  </maintainer>
+  <!-- maintainer needed -->
 <longdescription lang="en">
 Superfile is a very fancy and modern terminal file manager that can complete the file operations you need!!
 It can be said that good-looking is the original intention of superfile, so the entire superfile should be as beautiful as possible.

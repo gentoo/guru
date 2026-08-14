@@ -1,0 +1,27 @@
+From f9bb8654ce65164181ee69ca79ea56af74e69187 Mon Sep 17 00:00:00 2001
+From: "Haelwenn (lanodan) Monnier" <contact@hacktivis.me>
+Date: Wed, 1 Apr 2026 16:20:41 +0200
+Subject: [PATCH] Makefile: add -lrt
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 00cbf95..08f7efb 100644
+--- a/Makefile
++++ b/Makefile
+@@ -11,7 +11,7 @@ MAN1DIR ?= ${MANDIR}/man1
+ 
+ TIMER_SRC_C = timer.c strtodur.o
+ timer: ${TIMER_SRC_C} strtodur.h
+-	${CC} -std=c99 ${CFLAGS} -o $@ ${TIMER_SRC_C} ${LDFLAGS} ${LDSTATIC}
++	${CC} -std=c99 ${CFLAGS} -o $@ ${TIMER_SRC_C} -lrt ${LDFLAGS} ${LDSTATIC}
+ 
+ TEST_STRTODUR_SRC_C = t_strtodur.c strtodur.o
+ t_strtodur: ${TEST_STRTODUR_SRC_C} strtodur.h
+
+base-commit: ce19db749d5afddaf3e3ead8ebb4ed128a0df97d
+-- 
+2.52.0
+

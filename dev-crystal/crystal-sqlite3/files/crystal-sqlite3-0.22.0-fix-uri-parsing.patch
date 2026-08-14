@@ -1,0 +1,35 @@
+From f4e94b042ab64cf6558086b812e7fd56780cd4de Mon Sep 17 00:00:00 2001
+From: "Brian J. Cardiff" <bcardiff@gmail.com>
+Date: Thu, 16 Oct 2025 16:57:41 -0300
+Subject: [PATCH] Use URI#hostname to avoid interpreting :memory: as [:memory:]
+ (#105)
+
+---
+ src/sqlite3/connection.cr | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/sqlite3/connection.cr b/src/sqlite3/connection.cr
+index 750776f..948715e 100644
+--- a/src/sqlite3/connection.cr
++++ b/src/sqlite3/connection.cr
+@@ -12,7 +12,7 @@ class SQLite3::Connection < DB::Connection
+       params = HTTP::Params.parse(uri.query || "")
+ 
+       Options.new(
+-        filename: URI.decode_www_form((uri.host || "") + uri.path),
++        filename: URI.decode_www_form((uri.hostname || "") + uri.path),
+         # pragmas
+         busy_timeout: params.fetch("busy_timeout", default.busy_timeout),
+         cache_size: params.fetch("cache_size", default.cache_size),
+@@ -56,7 +56,7 @@ class SQLite3::Connection < DB::Connection
+   end
+ 
+   def self.filename(uri : URI)
+-    URI.decode_www_form((uri.host || "") + uri.path)
++    URI.decode_www_form((uri.hostname || "") + uri.path)
+   end
+ 
+   def build_prepared_statement(query) : Statement
+-- 
+2.51.2
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>watermanpaint@posteo.net</email>
+		<name>Lucio Sauer</name>
+	</maintainer>
+	<stabilize-allarches/>
+	<upstream>
+		<bugs-to>https://github.com/LedgerHQ/app-bitcoin-new/issues</bugs-to>
+		<changelog>https://github.com/LedgerHQ/app-bitcoin-new/blob/develop/bitcoin_client/CHANGELOG.md</changelog>
+		<remote-id type="github">LedgerHQ/app-bitcoin-new</remote-id>
+		<remote-id type="pypi">ledger-bitcoin</remote-id>
+	</upstream>
+</pkgmetadata>

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..13} )
 DISTUTILS_USE_PEP517=setuptools
 inherit click-app distutils-r1 pypi
 
@@ -16,6 +16,7 @@ HOMEPAGE="
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
+RESTRICT="test" # missing dependency <kafka-bin-4.0::gentoo
 
 RDEPEND="
 	dev-python/click[${PYTHON_USEDEP}]
@@ -33,22 +34,22 @@ RDEPEND="
 "
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
-	test? (
-		app-admin/consul
-		app-admin/vault
-		dev-db/etcd[server]
-		dev-db/postgresql[server]
-		dev-db/redis
-		dev-python/httpbin[${PYTHON_USEDEP}]
-		dev-python/requests[${PYTHON_USEDEP}]
-		dev-python/testtools[${PYTHON_USEDEP}]
-		<net-misc/kafka-bin-4.0
-		net-misc/memcached
-		net-misc/rabbitmq-server
-		sys-cluster/ceph
-		virtual/mysql[server]
-	)
 "
+#	test? (
+#		app-admin/consul
+#		app-admin/vault
+#		dev-db/etcd[server]
+#		dev-db/postgresql[server]
+#		dev-db/redis
+#		dev-python/httpbin[${PYTHON_USEDEP}]
+#		dev-python/requests[${PYTHON_USEDEP}]
+#		dev-python/testtools[${PYTHON_USEDEP}]
+#		<net-misc/kafka-bin-4.0
+#		net-misc/memcached
+#		net-misc/rabbitmq-server
+#		sys-cluster/ceph
+#		virtual/mysql[server]
+#	)
 
 EPYTEST_PLUGINS=( )
 EPYTEST_DESELECT=(
@@ -58,7 +59,7 @@ EPYTEST_DESELECT=(
 	pifpaf/tests/test_drivers.py::TestDrivers::test_redis_sentinel
 )
 
-distutils_enable_tests pytest
+# distutils_enable_tests pytest
 
 click-app_enable_completions pifpaf
 

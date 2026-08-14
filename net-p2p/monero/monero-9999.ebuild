@@ -16,7 +16,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_SUBMODULES=()
 else
 	SRC_URI="https://github.com/monero-project/monero/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="BSD MIT"
@@ -36,7 +36,7 @@ DEPEND="
 	dev-libs/randomx
 	dev-libs/rapidjson
 	dev-libs/supercop
-	net-dns/unbound:=[threads]
+	net-dns/unbound:=[threads(+)]
 	net-libs/miniupnpc:=
 	net-libs/zeromq:=
 	daemon? (

@@ -1,0 +1,34 @@
+Ref: https://github.com/cyrus-and/gdb-dashboard/pull/342
+
+From b47be5e0563dec7d8d71bd5477d7c27bb1fda0c1 Mon Sep 17 00:00:00 2001
+From: Valentin Tunev <vlttnv@fastmail.com>
+Date: Wed, 5 Nov 2025 21:59:17 +0200
+Subject: [PATCH] Fix buffer overflow in get_term_size()
+
+Use an 8-byte buffer, unpack the first 4 bytes for rows/cols, and
+include SystemError in the except clause to cover additional terminal
+errors.
+---
+ .gdbinit | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/.gdbinit b/.gdbinit
+index 3af237b..654f27d 100644
+--- a/.gdbinit
++++ b/.gdbinit
+@@ -612,11 +612,11 @@ class Dashboard(gdb.Command):
+             else:
+                 import termios
+                 import fcntl
+-                # first 2 shorts (4 byte) of struct winsize
+-                raw = fcntl.ioctl(fd, termios.TIOCGWINSZ, ' ' * 4)
+-                height, width = struct.unpack('hh', raw)
++                # struct winsize is 8 bytes, but we only need the first 2 shorts (rows, cols)
++                raw = fcntl.ioctl(fd, termios.TIOCGWINSZ, b'\0' * 8)
++                height, width = struct.unpack('hh', raw[:4])
+                 return int(width), int(height)
+-        except (ImportError, OSError):
++        except (ImportError, OSError, SystemError):
+             # this happens when no curses library is found on windows or when
+             # the terminal is not properly configured
+             return 80, 24  # hardcoded fallback value

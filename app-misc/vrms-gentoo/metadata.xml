@@ -2,9 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<description>co-maintainers welcome</description>
-		<email>zl29ah@gmail.com</email>
-		<name>Sergey Alirzaev</name>
+		<name>cat</name>
+		<email>cat@plan9.rocks</email>
 	</maintainer>
 	<upstream>
 		<remote-id type="github">z411/vrms-gentoo</remote-id>

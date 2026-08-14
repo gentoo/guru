@@ -1,0 +1,87 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Fix issues caused by build system updates.
+
+This includes fixes for issues caused by the following updates:
+
+- GCC 15 (specifically, changes in libstdc++)
+- GNU libc C library 2.42
+
+Specifically, the following is changed:
+
+- Added missing includes of the `<cstdint>` header [1]
+- Removed deprecated `struct termio` [2]
+- Removed a redundant include of the `<math.h>` header [3]
+
+[1] See https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=3a817a4a5a6d94da9127af3be9f84a74e3076ee2
+[2] See https://github.com/swiftlang/llvm-project/commit/59978b21ad9c65276ee8e14f26759691b8a65763
+[3] See https://github.com/swiftlang/swift/issues/81774
+
+Bug: https://bugs.gentoo.org/945025
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/llvm-project/compiler-rt/lib/sanitizer_common/sanitizer_common_interceptors_ioctl.inc
++++ b/llvm-project/compiler-rt/lib/sanitizer_common/sanitizer_common_interceptors_ioctl.inc
+@@ -338,17 +338,9 @@ static void ioctl_table_fill() {
+   _(SOUND_PCM_WRITE_CHANNELS, WRITE, sizeof(int));
+   _(SOUND_PCM_WRITE_FILTER, WRITE, sizeof(int));
+   _(TCFLSH, NONE, 0);
+-#if SANITIZER_GLIBC
+-  _(TCGETA, WRITE, struct_termio_sz);
+-#endif
+   _(TCGETS, WRITE, struct_termios_sz);
+   _(TCSBRK, NONE, 0);
+   _(TCSBRKP, NONE, 0);
+-#if SANITIZER_GLIBC
+-  _(TCSETA, READ, struct_termio_sz);
+-  _(TCSETAF, READ, struct_termio_sz);
+-  _(TCSETAW, READ, struct_termio_sz);
+-#endif
+   _(TCSETS, READ, struct_termios_sz);
+   _(TCSETSF, READ, struct_termios_sz);
+   _(TCSETSW, READ, struct_termios_sz);
+--- a/llvm-project/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cpp
++++ b/llvm-project/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cpp
+@@ -479,9 +479,6 @@ unsigned struct_ElfW_Phdr_sz = sizeof(Elf_Phdr);
+   unsigned struct_input_id_sz = sizeof(struct input_id);
+   unsigned struct_mtpos_sz = sizeof(struct mtpos);
+   unsigned struct_rtentry_sz = sizeof(struct rtentry);
+-#if SANITIZER_GLIBC || SANITIZER_ANDROID
+-  unsigned struct_termio_sz = sizeof(struct termio);
+-#endif
+   unsigned struct_vt_consize_sz = sizeof(struct vt_consize);
+   unsigned struct_vt_sizes_sz = sizeof(struct vt_sizes);
+   unsigned struct_vt_stat_sz = sizeof(struct vt_stat);
+--- a/llvm-project/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.h
++++ b/llvm-project/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.h
+@@ -1013,7 +1013,6 @@ extern unsigned struct_hd_geometry_sz;
+ extern unsigned struct_input_absinfo_sz;
+ extern unsigned struct_input_id_sz;
+ extern unsigned struct_mtpos_sz;
+-extern unsigned struct_termio_sz;
+ extern unsigned struct_vt_consize_sz;
+ extern unsigned struct_vt_sizes_sz;
+ extern unsigned struct_vt_stat_sz;
+--- a/swift/stdlib/include/llvm/ADT/SmallVector.h
++++ b/swift/stdlib/include/llvm/ADT/SmallVector.h
+@@ -22,6 +22,7 @@
+ #include <cassert>
+ #include <cstddef>
+ #include <cstdlib>
++#include <cstdint>
+ #include <cstring>
+ #include <functional>
+ #include <initializer_list>
+--- a/swift-foundation/Sources/_FoundationCShims/include/_CStdlib.h
++++ b/swift-foundation/Sources/_FoundationCShims/include/_CStdlib.h
+@@ -51,10 +51,6 @@
+ #include <locale.h>
+ #endif
+ 
+-#if __has_include(<math.h>)
+-#include <math.h>
+-#endif
+-
+ #if __has_include(<signal.h>)
+ /// Guard against including `signal.h` on WASI. The `signal.h` header file
+ /// itself is available in wasi-libc, but it's just a stub that doesn't actually

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<longdescription>
+		run0edit allows a permitted user to edit a file as root. 
+		Authorization uses the same mechanism as run0, which 
+		typically takes the form of a password prompt.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">HastD/run0edit</remote-id>
+	</upstream>
+</pkgmetadata>

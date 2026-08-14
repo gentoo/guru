@@ -1,0 +1,26 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Install the library.
+
+Bug: https://github.com/dcleblanc/SafeInt/issues/67
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -26,4 +26,14 @@ add_subdirectory(Test/ClangTest)
+ add_subdirectory(Test/GccTest)
+ add_subdirectory(Test/MsvcTest)
+ 
+-enable_testing()
+\ No newline at end of file
++enable_testing()
++
++add_library(SafeInt INTERFACE)
++target_include_directories(SafeInt INTERFACE .)
++
++include(GNUInstallDirs)
++install(
++    FILES SafeInt.hpp safe_math.h safe_math_impl.h
++    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
++)
++install(FILES LICENSE DESTINATION "${CMAKE_INSTALL_DOCDIR}")

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">mathandy/svgpathtools</remote-id>
+		<remote-id type="pypi">svgpathtools</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		svgpathtools is a collection of tools for manipulating and analyzing SVG
+		Path objects and Bezier curves. It provides functions for reading, writing,
+		and displaying SVG files, as well as tools for computing arc lengths,
+		bounding boxes, intersections, and other geometric properties of SVG paths.
+	</longdescription>
+	<longdescription lang="zh">
+		svgpathtools是一组用于操作和分析SVG路径对象和贝塞尔曲线的工具集。它提供了
+		读取、写入和显示SVG文件的功能，以及用于计算弧长、边界框、交点和SVG路径其他
+		几何属性的工具。
+	</longdescription>
+</pkgmetadata>

@@ -1,0 +1,32 @@
+--- a/swift/lib/AST/FunctionRefInfo.cpp
++++ b/swift/lib/AST/FunctionRefInfo.cpp
+@@ -14,6 +14,7 @@
+ //
+ //===----------------------------------------------------------------------===//
+
++#include <cstdint>
+ #include "swift/AST/FunctionRefInfo.h"
+ #include "swift/AST/DeclNameLoc.h"
+ #include "swift/AST/Identifier.h"/// itself is available in wasi-libc, but it's just a stub that doesn't actually
+--- a/swift/stdlib/include/llvm/ADT/SmallVector.h
++++ b/swift/stdlib/include/llvm/ADT/SmallVector.h
+@@ -22,6 +22,7 @@
+ #include <cassert>
+ #include <cstddef>
+ #include <cstdlib>
++#include <cstdint>
+ #include <cstring>
+ #include <functional>
+ #include <initializer_list>
+--- a/swift-foundation/Sources/_FoundationCShims/include/_CStdlib.h
++++ b/swift-foundation/Sources/_FoundationCShims/include/_CStdlib.h
+@@ -51,10 +51,6 @@
+ #include <locale.h>
+ #endif
+ 
+-#if __has_include(<math.h>)
+-#include <math.h>
+-#endif
+-
+ #if __has_include(<signal.h>)
+ /// Guard against including `signal.h` on WASI. The `signal.h` header file

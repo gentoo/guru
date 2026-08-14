@@ -29,7 +29,7 @@ RDEPEND="
 	dev-libs/libsodium:=
 	sys-libs/ncurses:0=
 	geoip? ( dev-libs/geoip )
-	zlib? ( sys-libs/zlib:= )
+	zlib? ( virtual/zlib:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -37,6 +37,10 @@ BDEPEND="
 	sys-devel/bison
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	"${FILESDIR}/netsniff-ng-0.6.9-gcc-15.patch"
+)
 
 src_prepare() {
 	default

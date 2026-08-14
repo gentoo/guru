@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Dale Sweeney</name>
+		<email>agooglygooglr@gmail.com</email>
+	</maintainer>
+	<longdescription>
+		Bind applications to network interfaces or mark them for app-based routing via eBPF
+	</longdescription>
+	<upstream>
+		<remote-id type="codeberg">iguanajuice/flypaper</remote-id>
+	</upstream>
+</pkgmetadata>

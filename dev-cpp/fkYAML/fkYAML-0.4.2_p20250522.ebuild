@@ -24,6 +24,7 @@ BDEPEND="
 "
 
 PATCHES=(
+	"${FILESDIR}/${PN}-0.4.2_p20250522-Strip-Werror.patch"
 	"${FILESDIR}/${PN}-0.4.2_p20250522-Use-system-Catch2.patch"
 )
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>engo@satan.red</email>
+        <name>Václav Šmejkal</name>
+    </maintainer>
+    <use>
+        <flag name="server">Build the why2-server binary</flag>
+    </use>
+    <upstream>
+        <bugs-to>https://git.satan.red/ENGO150/WHY2/issues</bugs-to>
+    </upstream>
+</pkgmetadata>

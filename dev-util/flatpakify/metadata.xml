@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>stefan.cristian+git@rogentos.ro</email>
+		<name>Stefan Cristian B.</name>
+	</maintainer>
+	<longdescription>Flatpakify is a small helper utility to produce or
+		normalize Flatpak manifests and metadata to ease packaging and
+		integration on Gentoo. This package provides the tools and helpers 
+		required to create reproducible Flatpak metadata suitable for
+		use in overlays or local packaging workflows. It can generate
+		Flatpaks (with generated manifests) from existing ebuilds.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">StefanCristian/flatpakify</remote-id>
+	<remote-id type="gitlab">StefanCristian/flatpakify</remote-id>
+	</upstream>
+</pkgmetadata>

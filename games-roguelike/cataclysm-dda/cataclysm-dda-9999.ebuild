@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -36,7 +36,7 @@ REQUIRED_USE="soundpack? ( sound ) sound? ( tiles ) \
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	sys-libs/zlib
+	virtual/zlib:=
 	ncurses? ( sys-libs/ncurses )
 	tiles? (
 		media-libs/libsdl2[video]
@@ -55,6 +55,10 @@ BDEPEND="
 
 [[ ${PV} != 9999 ]] && BDEPEND+=" soundpack? ( app-arch/unzip )"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-respect-flags.patch"
+)
+
 src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
@@ -71,12 +75,11 @@ src_unpack() {
 }
 
 src_prepare() {
-	eapply "${FILESDIR}/${PN}-respect-flags.patch"
-
 	sed -i \
 		-e "s/-Werror //" \
 		-e "s/TARGET_NAME = cataclysm/TARGET_NAME = cataclysm-${SLOT}/" \
 		-e "s/\$(TARGET_NAME)-tiles/cataclysm-tiles-${SLOT}/" \
+		-e "s/ZZIP_BIN=zzip/ZZIP_BIN=zzip-${SLOT}/g" \
 		-e "s/CataclysmDDA/CataclysmDDA-${SLOT}/" \
 		-e "s/${PN}/${PN}-${SLOT}/" \
 		"Makefile" || die
@@ -95,16 +98,18 @@ src_prepare() {
 	sed -i "s#data#${EPREFIX}/usr/share/${PN}-${SLOT}#" \
 		"data/fontdata.json" || die
 
-	sed -i "s/cataclysm-tiles/cataclysm-tiles-${SLOT}/g" \
-		"data/xdg/org.cataclysmdda.CataclysmDDA.desktop" || die
-
 	local f="org.cataclysmdda.CataclysmDDA"
+
+	sed -i \
+		-e "s/cataclysm-tiles/cataclysm-tiles-${SLOT}/g" \
+		-e "s/${f}/${f}-${SLOT}/g" \
+		"data/xdg/${f}.desktop" || die
 
 	mv "data/xdg/${f}.desktop" "data/xdg/${f}-${SLOT}.desktop" || die
 	mv "data/xdg/${f}.svg" "data/xdg/${f}-${SLOT}.svg" || die
 	mv "data/xdg/${f}.appdata.xml" "data/xdg/${f}-${SLOT}.appdata.xml" || die
 
-	eapply_user
+	default
 }
 
 src_compile() {

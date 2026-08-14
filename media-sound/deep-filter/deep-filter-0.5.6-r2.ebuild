@@ -562,6 +562,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE="ladspa"
+
+RESTRICT="mirror"
+
 DEPEND="
 	sci-libs/hdf5
 "

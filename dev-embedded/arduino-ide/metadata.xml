@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">arduino/arduino-ide</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		Arduino IDE 2.x is a modern, open-source IDE for Arduino development.
+		Based on the Eclipse Theia framework, it provides features like
+		autocompletion, code navigation, live debugger, and a unified interface
+		for managing libraries and boards.
+	</longdescription>
+	<longdescription lang="zh">
+		Arduino IDE 2.x 是用于 Arduino 开发的现代开源集成开发环境。
+		基于 Eclipse Theia 框架构建，提供自动补全、代码导航、实时调试器
+		以及统一的库和开发板管理界面等功能。
+	</longdescription>
+</pkgmetadata>

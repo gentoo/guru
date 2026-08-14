@@ -1,0 +1,15 @@
+# Swift defaults to building with `gold` on Linux because `bfd` can't correctly
+# handle Swift symbols; Gentoo no longer supports `gold`, so we have to make
+# sure that we build with `lld`.
+
+--- a/swift/lib/Driver/UnixToolChains.cpp
++++ b/swift/lib/Driver/UnixToolChains.cpp
+@@ -88,7 +88,7 @@ ToolChain::InvocationInfo toolchains::GenericUnix::constructInvocation(
+ }
+
+ std::string toolchains::GenericUnix::getDefaultLinker() const {
+-  return "";
++  return "lld";
+ }
+
+ bool toolchains::GenericUnix::addRuntimeRPath(const llvm::Triple &T,

@@ -5,21 +5,16 @@
 : ${FILESHELTER_GROUP:=fileshelter}
 : ${FILESHELTER_USER:=fileshelter}
 : ${FILESHELTER_BINDIR:=/var/lib/fileshelter}
-: ${FILESHELTER_PIDFILE:=/run/fileshelter.pid}
 
 command="/usr/bin/fileshelter"
-command_user="fileshelter:fileshelter"
+command_user="${FILESHELTER_USER}:${FILESHELTER_GROUP}"
 command_background=true
 directory="${FILESHELTER_BINDIR}"
-pidfile="${FILESHELTER_PIDFILE}"
+pidfile="/run/${RC_SVCNAME}.pid"
 extra_started_commands="reload"
 
 depend() {
 	use net
-}
-
-start_pre() {
-        checkpath -d -m 0750 -o "${FILESHELTER_USER}:${FILESHELTER_GROUP}" ${FILESHELTER_BINDIR}
 }
 
 reload () {

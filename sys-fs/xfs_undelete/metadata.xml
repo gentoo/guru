@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>zl29ah@gmail.com</email>
-		<name>Sergey Alirzaev</name>
-	</maintainer>
 	<longdescription lang="en">
 	It tries to recover all inodes on an XFS filesystem marked as deleted.
 	It's rather dumb, it just looks for the magic string IN\0\0\3\2\0\0 and

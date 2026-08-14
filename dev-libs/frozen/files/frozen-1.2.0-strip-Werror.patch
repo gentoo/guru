@@ -1,0 +1,33 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Strip `-Werror`.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -28,11 +28,11 @@ string(CONCAT generator
+   "$<$<OR:$<CXX_COMPILER_ID:GNU>"
+         ",$<CXX_COMPILER_ID:Clang>"
+         ",$<CXX_COMPILER_ID:AppleClang>>"
+-   ":-Wall;-Wextra;-Wpedantic;-Werror;-Wshadow;"
++   ":-Wall;-Wextra;-Wpedantic;-Wshadow;"
+     "$<$<BOOL:${frozen.coverage}>:--coverage>>"
+   "$<$<CXX_COMPILER_ID:Intel>:"
+     "$<$<PLATFORM_ID:Windows>:/W3;/WX;>"
+-    "$<$<NOT:$<PLATFORM_ID:Windows>>:-Wall;-Werror>>")
++    "$<$<NOT:$<PLATFORM_ID:Windows>>:-Wall>>")
+ 
+ target_compile_options(frozen.tests PUBLIC ${generator})
+ 
+--- a/tests/Makefile
++++ b/tests/Makefile
+@@ -1,7 +1,7 @@
+ SRCS=test_main.cpp test_rand.cpp test_set.cpp test_map.cpp test_unordered_set.cpp test_str_set.cpp test_unordered_str_set.cpp test_unordered_map.cpp test_unordered_map_str.cpp test_str.cpp test_algorithms.cpp
+ 
+ TARGET=test_main
+-CXXFLAGS=-O3 -Wall -std=c++14 -march=native -Wextra -W -Werror -Wshadow -fPIC
++CXXFLAGS=-O3 -Wall -std=c++14 -march=native -Wextra -W -Wshadow -fPIC
+ CPPFLAGS=-I../include
+ 
+ all:$(TARGET)
+

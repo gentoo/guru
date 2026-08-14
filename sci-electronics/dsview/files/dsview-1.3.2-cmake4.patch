@@ -1,0 +1,43 @@
+From: Huang Rui <vowstar@gmail.com>
+Date: Wed, 20 May 2026 19:45:00 +0800
+Subject: [PATCH] cmake: raise cmake_minimum_required to 3.10
+
+Upstream pins cmake_minimum_required to 2.8.6. CMake 4 dropped
+compatibility with policies < 3.5 and warns that < 3.10 will be dropped
+next, so cmake.eclass injects -DCMAKE_POLICY_VERSION_MINIMUM=3.5 and
+emits a QA notice nudging maintainers to update the project. Bump to
+3.10 so the build is clean under modern CMake without the eclass
+workaround.
+
+Bug: https://bugs.gentoo.org/975564
+Upstream-Status: Not submitted (low-activity upstream)
+Signed-off-by: Huang Rui <vowstar@gmail.com>
+---
+ CMakeLists.txt             | 2 +-
+ DSView/test/CMakeLists.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -19,7 +19,7 @@
+ ## along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ##
+
+-cmake_minimum_required(VERSION 2.8.6)
++cmake_minimum_required(VERSION 3.10)
+
+ project(DSView)
+
+diff --git a/DSView/test/CMakeLists.txt b/DSView/test/CMakeLists.txt
+--- a/DSView/test/CMakeLists.txt
++++ b/DSView/test/CMakeLists.txt
+@@ -19,7 +19,7 @@
+ ## along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ##
+
+-cmake_minimum_required(VERSION 2.8.6)
++cmake_minimum_required(VERSION 3.10)
+
+ include(FindPkgConfig)
+ include(GNUInstallDirs)

@@ -1,4 +1,4 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -31,7 +31,7 @@ RESTRICT="!test? ( test )"
 COMMON_DEPS="
 	dev-db/sqlite:3
 	dev-libs/capnproto
-	sys-libs/zlib
+	virtual/zlib:=
 "
 
 DEPEND="

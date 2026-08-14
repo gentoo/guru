@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+	<id>antigravity.desktop</id>
+	<metadata_license>MIT</metadata_license>
+	<project_license>MIT</project_license>
+	<name>Antigravity</name>
+	<url type="homepage">https://antigravity.google</url>
+	<summary>Experience liftoff</summary>
+	<description>
+		<p>Google Antigravity - Experience liftoff</p>
+	</description>
+	<screenshots>
+		<screenshot type="default">
+			<image>https://antigravity.google/assets/image/blog/agy2-layout.jpg</image>
+			<caption>Agent-first layout of Antigravity 2.0</caption>
+		</screenshot>
+	</screenshots>
+</component>

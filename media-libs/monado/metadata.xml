@@ -7,9 +7,8 @@
 	</maintainer>
 	<use>
 		<flag name="dbus">Enable dbus support (for BLE support)</flag>
-		<flag name="ffmpeg">Enable ffmpeg testing video driver</flag>
-		<flag name="gles">Enable OpenGL-ES Graphics API support</flag>
 		<flag name="gstreamer">Enable gstreamer</flag>
+		<flag name="onnxruntime">Enable handtracking support via <pkg>sci-libs/onnxruntime</pkg></flag>
 		<flag name="opencv">Enable OpenCV backend</flag>
 		<flag name="opengl">Enable OpenGL Graphics API support</flag>
 		<flag name="psvr">Enable PSVR HMD driver</flag>
@@ -21,4 +20,7 @@
 		<flag name="wayland">Enable Wayland support</flag>
 		<flag name="X">Enable xlib/xlib-randr/xcb support</flag>
 	</use>
+	<upstream>
+		<remote-id type="freedesktop-gitlab">monado/monado</remote-id>
+	</upstream>
 </pkgmetadata>

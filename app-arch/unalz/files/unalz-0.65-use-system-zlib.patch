@@ -1,0 +1,44 @@
+From b4ade05e7e6dec25fee7d57bac6a055137e332c0 Mon Sep 17 00:00:00 2001
+From: Changwoo Ryu <cwryu@debian.org>
+Date: Tue, 6 Jun 2023 14:47:48 +0900
+Subject: Use system zlib
+
+Gbp-Pq: libz-linkage.diff.
+---
+ Makefile       | 6 +++---
+ UnAlzBzip2.cpp | 2 +-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 215607b..0abc6ed 100755
+--- a/Makefile
++++ b/Makefile
+@@ -1,9 +1,9 @@
+ CPP = g++
+ CC  = gcc
+-OBJ = main.o UnAlz.o UnAlzUtils.o UnAlzBz2decompress.o UnAlzBzip2.o UnAlzbzlib.o zlib/adler32.o zlib/crc32.o zlib/infback.o zlib/inffast.o zlib/inflate.o zlib/inftrees.o zlib/zutil.o bzip2/blocksort.o bzip2/compress.o bzip2/crctable.o bzip2/huffman.o bzip2/randtable.o
++OBJ = main.o UnAlz.o UnAlzUtils.o UnAlzBz2decompress.o UnAlzBzip2.o UnAlzbzlib.o bzip2/blocksort.o bzip2/compress.o bzip2/crctable.o bzip2/huffman.o bzip2/randtable.o
+ BIN = unalz
+-LDFLAGS = 
+-CFLAGS = -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 
++LDFLAGS = -lz
++CFLAGS += -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 
+ 
+ all:
+ 	@echo ""
+diff --git a/UnAlzBzip2.cpp b/UnAlzBzip2.cpp
+index b4d764e..3e269b1 100755
+--- a/UnAlzBzip2.cpp
++++ b/UnAlzBzip2.cpp
+@@ -10,7 +10,7 @@
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ //#include "stdafx.h"
+-#include "zlib/zlib.h"
++#include <zlib.h>
+ #include "bzip2/bzlib.h"
+ #include "bzip2/bzlib_private.h"
+ #include "UnAlz.h"
+-- 
+cgit v1.2.3
+

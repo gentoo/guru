@@ -1,0 +1,101 @@
+diff --git a/Makefile b/Makefile
+index aa51ab7..dc3419f 100644
+--- a/Makefile
++++ b/Makefile
+@@ -45,7 +45,7 @@ INCLUDES += -I$(LIBGLIBUTIL_PATH)/include
+ DEBUG_LIBS = -L$(LIBGLIBUTIL_PATH)/build/debug -lglibutil
+ RELEASE_LIBS = -L$(LIBGLIBUTIL_PATH)/build/release -lglibutil
+ DEBUG_DEPS = libglibutil_debug
+-RELEASE_DEPS = libglibutil_release
++RELEASE_DEPS =
+ 
+ .PHONY: libglibutil_debug libglibutil_release
+ 
+@@ -135,7 +135,7 @@ WARNINGS = -Wall -Wstrict-aliasing -Wunused-result
+ DEFINES += -DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_2_32 \
+   -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_MAX_ALLOWED
+ INCLUDES += -I$(INCLUDE_DIR)
+-BASE_FLAGS = -fPIC -g
++BASE_FLAGS = -fPIC
+ FULL_CFLAGS = $(BASE_FLAGS) $(CFLAGS) $(DEFINES) $(WARNINGS) $(INCLUDES) \
+   -MMD -MP $(shell $(PKG_CONFIG) --cflags $(PKGS))
+ FULL_LDFLAGS = $(BASE_FLAGS) $(LDFLAGS) -shared -Wl,-soname,$(LIB_SONAME) \
+@@ -146,7 +146,7 @@ KEEP_SYMBOLS ?= 0
+ DEBUG_LDFLAGS = $(FULL_LDFLAGS) $(DEBUG_LIBS)
+ RELEASE_LDFLAGS = $(FULL_LDFLAGS) $(RELEASE_LIBS)
+ DEBUG_CFLAGS = $(FULL_CFLAGS) -DDEBUG
+-RELEASE_CFLAGS = $(FULL_CFLAGS) -O2
++RELEASE_CFLAGS = $(FULL_CFLAGS)
+ COVERAGE_CFLAGS = $(FULL_CFLAGS) -O0 --coverage -fprofile-update=atomic
+ 
+ #
+@@ -283,7 +283,7 @@ $(DEBUG_LIB): $(DEBUG_OBJS)
+ 
+ $(RELEASE_LIB): $(RELEASE_OBJS)
+ 	$(AR) rc $@ $?
+-	ranlib $@
++	$(RANLIB) $@
+ 
+ $(DEBUG_LINK):
+ 	ln -sf $(LIB_SO) $@
+diff --git a/test/common/Makefile b/test/common/Makefile
+index e81df69..2d47421 100644
+--- a/test/common/Makefile
++++ b/test/common/Makefile
+@@ -59,14 +59,14 @@ RELEASE_FLAGS =
+ 
+ KEEP_SYMBOLS ?= 0
+ ifneq ($(KEEP_SYMBOLS),0)
+-RELEASE_FLAGS += -g
++RELEASE_FLAGS +=
+ SUBMAKE_OPTS += KEEP_SYMBOLS=1
+ endif
+ 
+ DEBUG_LDFLAGS = $(LDFLAGS) $(DEBUG_FLAGS)
+ RELEASE_LDFLAGS = $(LDFLAGS) $(RELEASE_FLAGS)
+ DEBUG_CFLAGS = $(CFLAGS) $(DEBUG_FLAGS) -DDEBUG
+-RELEASE_CFLAGS = $(CFLAGS) $(RELEASE_FLAGS) -O2
++RELEASE_CFLAGS = $(CFLAGS) $(RELEASE_FLAGS)
+ 
+ #
+ # Files
+@@ -131,7 +131,7 @@ $(DEBUG_EXE): $(DEBUG_SO) $(DEBUG_BUILD_DIR) $(DEBUG_OBJS)
+ $(RELEASE_EXE): $(RELEASE_SO) $(RELEASE_BUILD_DIR) $(RELEASE_OBJS)
+ 	$(LD) $(RELEASE_OBJS) $(RELEASE_LDFLAGS) $< -o $@
+ ifeq ($(KEEP_SYMBOLS),0)
+-	strip $@
++	$(STRIP) $@
+ endif
+ 
+ libgbinder-debug:
+diff --git a/unit/common/Makefile b/unit/common/Makefile
+index f395dc9..e7dd760 100644
+--- a/unit/common/Makefile
++++ b/unit/common/Makefile
+@@ -33,7 +33,7 @@ INCLUDES += -I$(LIBGLIBUTIL_PATH)/include
+ DEBUG_LIBS = -L$(LIBGLIBUTIL_PATH)/build/debug -lglibutil
+ RELEASE_LIBS = -L$(LIBGLIBUTIL_PATH)/build/release -lglibutil
+ DEBUG_DEPS = libglibutil_debug
+-RELEASE_DEPS = libglibutil_release
++RELEASE_DEPS =
+ 
+ .PHONY: libglibutil_debug libglibutil_release
+ 
+@@ -74,7 +74,7 @@ WARNINGS += -Wall -Wno-deprecated-declarations
+ DEFINES += -DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_2_32 \
+   -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_MAX_ALLOWED
+ INCLUDES += -I$(COMMON_DIR) -I$(LIB_DIR)/src -I$(LIB_DIR)/include
+-BASE_FLAGS = -fPIC -g
++BASE_FLAGS = -fPIC
+ BASE_LDFLAGS = $(BASE_FLAGS) $(LDFLAGS)
+ BASE_CFLAGS = $(BASE_FLAGS) $(CFLAGS)
+ FULL_CFLAGS = $(BASE_CFLAGS) $(DEFINES) $(WARNINGS) $(INCLUDES) -MMD -MP \
+@@ -88,7 +88,7 @@ RELEASE_LDFLAGS = $(FULL_LDFLAGS)
+ COVERAGE_LDFLAGS = $(FULL_LDFLAGS) --coverage -fprofile-update=atomic
+ 
+ DEBUG_CFLAGS = $(FULL_CFLAGS) -DDEBUG
+-RELEASE_CFLAGS = $(FULL_CFLAGS) -O2
++RELEASE_CFLAGS = $(FULL_CFLAGS)
+ COVERAGE_CFLAGS = $(FULL_CFLAGS) -O0 --coverage -fprofile-update=atomic
+ 
+ DEBUG_LIB_FILE := $(shell $(QUIET_MAKE) -C $(LIB_DIR) print_debug_lib)

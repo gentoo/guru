@@ -1,0 +1,20 @@
+# Database connection: "sqlite+<file>" or "postgres+<connect>".
+# See "goatcounter help db" for detailed documentation.
+export GOATCOUNTER_DB="sqlite+/var/db/goatcounter/db.sqlite3"
+
+# Address to listen on.
+# See "goatcounter help listen" for detailed documentation.
+#export GOATCOUNTER_LISTEN=":8080"
+
+# Whether to serve over TLS.
+# See "goatcounter help listen" for detailed documentation.
+#export GOATCOUNTER_TLS="http"
+
+# Automatically run all pending migrations on startup.
+export GOATCOUNTER_AUTOMIGRATE=1
+
+# SMTP relay server, as URL (e.g. "smtp://user:pass@server").
+#export GOATCOUNTER_SMTP=""
+
+# Use a websocket to send data.
+#export GOATCOUNTER_WEBSOCKET=1

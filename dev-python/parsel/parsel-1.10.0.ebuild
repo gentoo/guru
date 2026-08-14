@@ -3,20 +3,20 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..13} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 pypi
 
 DESCRIPTION="Utility to extract data from XML/HTML documents using XPath or CSS selectors"
 HOMEPAGE="
-	https://scrapy.org/
+	https://www.scrapy.org/
 	https://pypi.org/project/parsel/
 	https://github.com/scrapy/parsel
 "
 
 LICENSE="BSD"
 SLOT=0
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-python/cssselect[${PYTHON_USEDEP}]

@@ -1,0 +1,85 @@
+diff --git a/Makefile b/Makefile
+index 65b372c..e8f6903 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,17 +1,6 @@
+ .PHONY: clean fmt install profile test uninstall
+ 
+-OPTFLAGS ?= -O2 -finline-functions
+-WARNFLAGS ?= -Wall -Wextra -Wpedantic -Wshadow -Werror -Wfatal-errors -Wconversion -Wsign-conversion -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations
+-CFLAGS ?= -std=c11 -pipe -fPIC $(OPTFLAGS) $(WARNFLAGS)
+-
+-UNAME_S := $(shell uname -s)
+-ifeq ($(UNAME_S),Darwin)
+-	CFLAGS += -fstack-protector-strong -D_GNU_SOURCE
+-else ifeq ($(OS),Windows_NT)
+-	CFLAGS += -D_WIN32
+-else
+-	CFLAGS += -fstack-protector-strong -D_GNU_SOURCE -fno-plt -Wl,-z,now -D_FORTIFY_SOURCE=3
+-endif
++CFLAGS += -std=c11 -D_GNU_SOURCE $(LDFLAGS)
+ 
+ PREFIX ?= /usr
+ BINDIR ?= $(PREFIX)/bin
+@@ -28,9 +17,6 @@ tinyxxd: main.c
+ tinyxxd_debug: main.c
+ 	$(CC) $(CFLAGS) -g -o $@ $<
+ 
+-tinyxxd_asan: main.c
+-	$(CC) $(CFLAGS) -g -fsanitize=address,undefined -o $@ $<
+-
+ profile: tinyxxd_debug
+ 	dd if=/dev/random of=sample.bin bs=1M count=1
+ 	valgrind --dump-instr=yes --collect-jumps=yes --tool=callgrind ./tinyxxd_debug sample.bin
+@@ -48,7 +34,7 @@ benchfull:
+ fmt: main.c
+ 	clang-format -style=WebKit -i main.c
+ 
+-test: xxd tinyxxd_asan
++test:
+ 	@echo 'Preparing tests...'
+ 	@echo -n 'This is a test file' > sample.bin
+ 	@printf '\x00\x09\x0a\x0d\x20\x41\x7e\x7f\x80\xff' > colorbytes.bin
+@@ -77,15 +63,14 @@ test: xxd tinyxxd_asan
+ 	@$(MAKE) run_test CMD='-o 0x100 sample.bin' DESC='Display offset +0x100'
+ 	@$(MAKE) run_test CMD='-i -C sample.bin' DESC='C include capitalized'
+ 	@$(MAKE) run_test CMD='-i -n myvar sample.bin' DESC='C include custom name'
+-	@$(MAKE) run_test CMD='-i -b sample.bin' DESC='C include binary format'
+-	@$(MAKE) verify_conversion_test
++	@$(MAKE) run_test CMD='-i -b sample.bin' DESC='C include binary format' @$(MAKE) verify_conversion_test
+ 	@rm -f -- *.hex sample.bin colorbytes.bin ebcdicbytes.bin tinyxxd_output.txt xxd_output.txt
+ 	@echo 'All tests complete.'
+ 
+ run_test:
+ 	@echo "Running test: $(DESC)"
+-	@./tinyxxd_asan $(CMD) > tinyxxd_output.txt
+-	@./xxd $(CMD) > xxd_output.txt
++	@./tinyxxd $(CMD) > tinyxxd_output.txt
++	@xxd $(CMD) > xxd_output.txt
+ 	@if diff -q tinyxxd_output.txt xxd_output.txt > /dev/null; then \
+ 		echo 'Test passed'; \
+ 	else \
+@@ -95,8 +80,8 @@ run_test:
+ 
+ verify_conversion_test:
+ 	@echo "Running conversion and verification test..."
+-	@./tinyxxd_asan sample.bin > sample_tinyxxd.bin
+-	@./tinyxxd_asan -r sample_tinyxxd.bin > sample_restored.bin
++	@./tinyxxd sample.bin > sample_tinyxxd.bin
++	@./tinyxxd -r sample_tinyxxd.bin > sample_restored.bin
+ 	@if diff -q sample.bin sample_restored.bin > /dev/null; then \
+ 		echo -e "\033[0;32mConversion and verification test passed\033[0m"; \
+ 	else \
+@@ -128,12 +113,6 @@ fuzz: tinyxxd_fuzz
+ 	@dd if=/dev/urandom of=input_dir/sample.bin count=1 bs=128
+ 	afl-fuzz -i input_dir -o fuzz_output -- ./tinyxxd_fuzz @@
+ 
+-testfiles/xxd.c:
+-	cd testfiles && curl -sOL "https://raw.githubusercontent.com/vim/vim/master/src/xxd/xxd.c"
+-
+-xxd: testfiles/xxd.c
+-	$(CC) -std=c11 -pipe -D_GNU_SOURCE $(OPTFLAGS) -o $@ $<
+-
+ install: tinyxxd
+ 	install -D -m 755 tinyxxd "$(DESTDIR)$(BINDIR)/tinyxxd"
+ 

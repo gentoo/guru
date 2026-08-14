@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,11 +29,16 @@ DEPEND="
 	net-libs/libmicrohttpd:=
 	net-libs/orcania
 	net-libs/yder
-	sys-libs/zlib
+	virtual/zlib:=
 "
 RDEPEND="
 	${DEPEND}
 "
+
+PATCHES=(
+	"${FILESDIR}/${P}-cmake.patch"
+	"${FILESDIR}/${P}-cmake-ex.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(

@@ -2,11 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>gonegrier.duarte@gmail.com</email>
-		<name>Gonçalo Negrier Duarte</name>
+		<email>joe@wt.gd</email>
+		<name>Joe Kappus</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="github">pedro00dk/nvidia-exec</remote-id>
 	</upstream>
 </pkgmetadata>
-

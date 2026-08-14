@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
@@ -60,6 +60,10 @@ RDEPEND="
 # miniaudio: Uses miniaudio-0.10.4 while miniaudio-0.11.x broke API
 DEPEND="${RDEPEND}"
 BDEPEND="!system-glfw? ( wayland? ( dev-libs/wayland-protocols ) )"
+
+PATCHES=(
+	"${FILESDIR}/bonzomatic-2023.06.15-PR181-cmake-4.x-compat.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(

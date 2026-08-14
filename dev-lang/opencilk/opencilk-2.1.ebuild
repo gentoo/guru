@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -35,7 +35,7 @@ CMAKE_USE_DIR="${S}/llvm"
 RDEPEND="
 	dev-libs/libxml2
 	sys-libs/ncurses:=
-	sys-libs/zlib
+	virtual/zlib:=
 "
 
 src_prepare() {

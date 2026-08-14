@@ -29,8 +29,8 @@ BDEPEND="
 "
 
 src_unpack() {
-    git-r3_src_unpack
-    go-module_live_vendor
+	git-r3_src_unpack
+	go-module_live_vendor
 }
 
 src_compile() {

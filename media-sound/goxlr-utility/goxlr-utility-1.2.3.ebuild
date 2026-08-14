@@ -1,0 +1,754 @@
+# Copyright 2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+CRATES="
+	ab_glyph@0.2.32
+	ab_glyph_rasterizer@0.1.10
+	actix-codec@0.5.2
+	actix-cors@0.7.1
+	actix-http@3.11.2
+	actix-macros@0.2.4
+	actix-multipart-derive@0.7.0
+	actix-multipart@0.7.2
+	actix-router@0.5.3
+	actix-rt@2.11.0
+	actix-server@2.6.0
+	actix-service@2.0.3
+	actix-utils@3.0.1
+	actix-web-codegen@4.3.0
+	actix-web@4.11.0
+	actix-ws@0.3.0
+	addr2line@0.25.1
+	adler2@2.0.1
+	ahash@0.7.8
+	aho-corasick@1.1.3
+	aligned-vec@0.6.4
+	alloc-no-stdlib@2.0.4
+	alloc-stdlib@0.2.2
+	alsa-sys@0.3.1
+	alsa@0.9.1
+	android_system_properties@0.1.5
+	ansi_term@0.12.1
+	anstream@0.6.21
+	anstyle-parse@0.2.7
+	anstyle-query@1.1.4
+	anstyle-wincon@3.0.10
+	anstyle@1.0.13
+	anyhow@1.0.100
+	approx@0.5.1
+	arbitrary@1.4.2
+	arg_enum_proc_macro@0.3.4
+	arrayvec@0.7.6
+	async-broadcast@0.7.2
+	async-channel@2.5.0
+	async-executor@1.13.3
+	async-io@2.6.0
+	async-lock@3.4.1
+	async-process@2.5.0
+	async-recursion@1.1.1
+	async-signal@0.2.13
+	async-task@4.7.1
+	async-trait@0.1.89
+	atomic-waker@1.1.2
+	atty@0.2.14
+	autocfg@1.5.0
+	av1-grain@0.2.4
+	avif-serialize@0.8.6
+	backtrace@0.3.76
+	base64@0.22.1
+	bincode@1.3.3
+	bindgen@0.58.1
+	bindgen@0.72.1
+	bit-set@0.8.0
+	bit-vec@0.8.0
+	bit_field@0.10.3
+	bitflags@1.3.2
+	bitflags@2.9.4
+	bitstream-io@2.6.0
+	block-buffer@0.10.4
+	block2@0.6.2
+	block@0.1.6
+	blocking@1.6.2
+	brotli-decompressor@5.0.0
+	brotli@8.0.2
+	bstr@1.12.0
+	built@0.7.7
+	bumpalo@3.19.0
+	bytemuck@1.24.0
+	byteorder-lite@0.1.0
+	byteorder@1.5.0
+	bytes@1.10.1
+	bytestring@1.5.0
+	cc@1.2.41
+	cesu8@1.1.0
+	cexpr@0.4.0
+	cexpr@0.6.0
+	cfg-expr@0.15.8
+	cfg-if@1.0.3
+	cfg_aliases@0.2.1
+	chrono@0.4.42
+	clang-sys@1.8.1
+	clap@2.34.0
+	clap@4.5.48
+	clap_builder@4.5.48
+	clap_complete@4.5.58
+	clap_derive@4.5.47
+	clap_lex@0.7.5
+	cocoa-foundation@0.1.2
+	color_quant@1.1.0
+	colorchoice@1.0.4
+	combine@4.6.7
+	concat-string@1.0.1
+	concurrent-queue@2.5.0
+	const-random-macro@0.1.16
+	const-random@0.1.18
+	convert_case@0.4.0
+	core-foundation-sys@0.8.7
+	core-foundation@0.10.1
+	core-foundation@0.9.4
+	core-graphics-types@0.1.3
+	coreaudio-rs@0.13.0
+	coreaudio-sys@0.2.17
+	cpal@0.16.0
+	cpufeatures@0.2.17
+	crc32fast@1.5.0
+	crossbeam-deque@0.8.6
+	crossbeam-epoch@0.9.18
+	crossbeam-utils@0.8.21
+	crunchy@0.2.4
+	crypto-common@0.1.6
+	darling@0.20.11
+	darling@0.21.3
+	darling_core@0.20.11
+	darling_core@0.21.3
+	darling_macro@0.20.11
+	darling_macro@0.21.3
+	dasp_frame@0.11.0
+	dasp_sample@0.11.0
+	deranged@0.5.4
+	derivative@2.2.0
+	derive_arbitrary@1.4.2
+	derive_more-impl@2.0.1
+	derive_more@0.99.20
+	derive_more@2.0.1
+	digest@0.10.7
+	directories@6.0.0
+	dirs-sys@0.5.0
+	dispatch2@0.3.0
+	displaydoc@0.2.5
+	dlv-list@0.5.2
+	doctest-file@1.0.0
+	dunce@1.0.5
+	dyn-clonable-impl@0.9.2
+	dyn-clonable@0.9.2
+	dyn-clone@1.0.20
+	ebur128@0.1.10
+	educe@0.5.11
+	either@1.15.0
+	encoding_rs@0.8.35
+	endi@1.1.0
+	enum-map-derive@0.17.0
+	enum-map@2.7.3
+	enum-ordinalize-derive@4.3.1
+	enum-ordinalize@4.3.0
+	enumflags2@0.7.12
+	enumflags2_derive@0.7.12
+	enumset@1.1.10
+	enumset_derive@0.14.0
+	env_home@0.1.0
+	env_logger@0.8.4
+	equator-macro@0.4.2
+	equator@0.4.2
+	equivalent@1.0.2
+	errno@0.3.14
+	event-listener-strategy@0.5.4
+	event-listener@5.4.1
+	exr@1.73.0
+	extended@0.1.0
+	fancy-regex@0.16.2
+	fastrand@2.3.0
+	fax@0.2.6
+	fax_derive@0.2.0
+	fdeflate@0.3.7
+	file-rotate@0.8.0
+	find-msvc-tools@0.1.4
+	find-winsdk@0.2.0
+	flate2@1.1.4
+	fnv@1.0.7
+	foldhash@0.1.5
+	form_urlencoded@1.2.2
+	fsevent-sys@4.1.0
+	futures-channel@0.3.31
+	futures-core@0.3.31
+	futures-executor@0.3.31
+	futures-io@0.3.31
+	futures-lite@2.6.1
+	futures-macro@0.3.31
+	futures-sink@0.3.31
+	futures-task@0.3.31
+	futures-util@0.3.31
+	futures@0.3.31
+	generic-array@0.14.7
+	getrandom@0.2.16
+	getrandom@0.3.3
+	gif@0.13.3
+	gimli@0.32.3
+	glob@0.3.3
+	griddle@0.5.2
+	half@2.7.0
+	hashbrown@0.11.2
+	hashbrown@0.14.5
+	hashbrown@0.16.0
+	heck@0.5.0
+	hermit-abi@0.1.19
+	hermit-abi@0.5.2
+	hex@0.4.3
+	hound@3.5.1
+	http-body-util@0.1.3
+	http-body@1.0.1
+	http@0.2.12
+	http@1.3.1
+	httparse@1.10.1
+	httpdate@1.0.3
+	humantime@2.3.0
+	hyper-rustls@0.27.7
+	hyper-util@0.1.17
+	hyper@1.7.0
+	iana-time-zone-haiku@0.1.2
+	iana-time-zone@0.1.64
+	icu_collections@2.0.0
+	icu_locale_core@2.0.0
+	icu_normalizer@2.0.0
+	icu_normalizer_data@2.0.0
+	icu_properties@2.0.1
+	icu_properties_data@2.0.1
+	icu_provider@2.0.0
+	ident_case@1.0.1
+	idna@1.1.0
+	idna_adapter@1.2.1
+	image-webp@0.2.4
+	image@0.25.8
+	imageproc@0.25.0
+	imgref@1.12.0
+	impl-more@0.1.9
+	include_dir@0.7.4
+	include_dir_macros@0.7.4
+	indexmap@2.11.4
+	inotify-sys@0.1.5
+	inotify@0.11.0
+	interpolate_name@0.2.4
+	interprocess@2.2.3
+	io-kit-sys@0.4.1
+	io-uring@0.7.10
+	ipnet@2.11.0
+	iri-string@0.7.8
+	is_terminal_polyfill@1.70.1
+	itertools@0.12.1
+	itertools@0.13.0
+	itoa@1.0.15
+	jni-sys@0.3.0
+	jni@0.21.1
+	jobserver@0.1.34
+	js-sys@0.3.81
+	json-patch@4.1.0
+	jsonpath-rust@1.0.4
+	jsonptr@0.7.1
+	kqueue-sys@1.0.4
+	kqueue@1.1.1
+	ksni@0.3.1
+	language-tags@0.3.2
+	lazy_static@1.5.0
+	lazycell@1.3.0
+	lebe@0.5.3
+	libc@0.2.177
+	libfuzzer-sys@0.4.10
+	libloading@0.8.9
+	libm@0.2.15
+	libpulse-binding@2.30.1
+	libpulse-simple-binding@2.29.0
+	libpulse-simple-sys@1.22.0
+	libpulse-sys@1.23.0
+	libredox@0.1.10
+	libusb1-sys@0.7.0
+	libz-rs-sys@0.5.2
+	linux-raw-sys@0.11.0
+	litemap@0.8.0
+	local-channel@0.1.5
+	local-waker@0.1.4
+	lock_api@0.4.14
+	log-panics@2.1.0
+	log@0.4.28
+	loop9@0.1.5
+	lru-slab@0.1.2
+	mach2@0.4.3
+	malloc_buf@0.0.6
+	matrixmultiply@0.3.10
+	maybe-rayon@0.1.1
+	memchr@2.7.6
+	memoffset@0.9.1
+	mime@0.3.17
+	mime_guess@2.0.5
+	minimal-lexical@0.2.1
+	miniz_oxide@0.8.9
+	mio@1.0.4
+	moxcms@0.7.6
+	mslnk@0.1.8
+	nalgebra@0.32.6
+	ndk-context@0.1.1
+	ndk-sys@0.6.0+11769913
+	ndk@0.9.0
+	new_debug_unreachable@1.0.6
+	nix@0.30.1
+	nom@5.1.3
+	nom@7.1.3
+	noop_proc_macro@0.3.0
+	normpath@1.5.0
+	notify-types@2.0.0
+	notify@8.2.0
+	ntapi@0.4.1
+	num-bigint@0.4.6
+	num-complex@0.4.6
+	num-conv@0.1.0
+	num-derive@0.4.2
+	num-integer@0.1.46
+	num-iter@0.1.45
+	num-rational@0.4.2
+	num-traits@0.2.19
+	num@0.4.3
+	num_enum@0.7.4
+	num_enum_derive@0.7.4
+	num_threads@0.1.7
+	objc2-app-kit@0.3.2
+	objc2-audio-toolbox@0.3.2
+	objc2-cloud-kit@0.3.2
+	objc2-core-audio-types@0.3.2
+	objc2-core-audio@0.3.2
+	objc2-core-data@0.3.2
+	objc2-core-foundation@0.3.2
+	objc2-core-graphics@0.3.2
+	objc2-core-image@0.3.2
+	objc2-core-text@0.3.2
+	objc2-core-video@0.3.2
+	objc2-encode@4.1.0
+	objc2-foundation@0.3.2
+	objc2-io-kit@0.3.2
+	objc2-io-surface@0.3.2
+	objc2-quartz-core@0.3.2
+	objc2@0.6.3
+	objc@0.2.7
+	objc_exception@0.1.2
+	object@0.37.3
+	once_cell@1.21.3
+	once_cell_polyfill@1.70.1
+	opener@0.8.3
+	option-ext@0.2.0
+	ordered-multimap@0.7.3
+	ordered-stream@0.2.0
+	owned_ttf_parser@0.25.1
+	oxilangtag@0.1.5
+	parking@2.2.1
+	parking_lot@0.12.5
+	parking_lot_core@0.9.12
+	parse-size@1.1.0
+	paste@1.0.15
+	peeking_take_while@0.1.2
+	percent-encoding@2.3.2
+	pest@2.8.3
+	pest_derive@2.8.3
+	pest_generator@2.8.3
+	pest_meta@2.8.3
+	pin-project-internal@1.1.10
+	pin-project-lite@0.2.16
+	pin-project@1.1.10
+	pin-utils@0.1.0
+	piper@0.2.4
+	pkg-config@0.3.32
+	png@0.18.0
+	polling@3.11.0
+	potential_utf@0.1.3
+	powerfmt@0.2.0
+	ppv-lite86@0.2.21
+	prettyplease@0.2.37
+	primal-check@0.3.4
+	proc-macro-crate@3.4.0
+	proc-macro2@1.0.101
+	profiling-procmacros@1.0.17
+	profiling@1.0.17
+	pxfm@0.1.25
+	qoi@0.4.1
+	quick-error@2.0.1
+	quick-xml@0.38.3
+	quinn-proto@0.11.13
+	quinn-udp@0.5.14
+	quinn@0.11.9
+	quote@1.0.41
+	r-efi@5.3.0
+	rand@0.8.5
+	rand@0.9.2
+	rand_chacha@0.3.1
+	rand_chacha@0.9.0
+	rand_core@0.6.4
+	rand_core@0.9.3
+	rand_distr@0.4.3
+	rav1e@0.7.1
+	ravif@0.11.20
+	rawpointer@0.2.1
+	rayon-core@1.13.0
+	rayon@1.11.0
+	rb@0.4.1
+	realfft@3.5.0
+	recvmsg@1.0.0
+	redox_syscall@0.5.18
+	redox_users@0.5.2
+	regex-automata@0.4.12
+	regex-lite@0.1.8
+	regex-syntax@0.8.7
+	regex@1.12.1
+	reqwest@0.12.23
+	rgb@0.8.52
+	ring@0.17.14
+	ritelinked@0.3.2
+	rubato@0.16.2
+	rusb@0.9.4
+	rust-ini@0.21.3
+	rustc-demangle@0.1.26
+	rustc-hash@1.1.0
+	rustc-hash@2.1.1
+	rustc_version@0.4.1
+	rustfft@6.4.1
+	rustix@1.1.2
+	rustls-pki-types@1.12.0
+	rustls-webpki@0.103.7
+	rustls@0.23.32
+	rustversion@1.0.22
+	ryu@1.0.20
+	safe_arch@0.7.4
+	same-file@1.0.6
+	scopeguard@1.2.0
+	semver@1.0.27
+	serde@1.0.228
+	serde_core@1.0.228
+	serde_derive@1.0.228
+	serde_json@1.0.145
+	serde_plain@1.0.2
+	serde_repr@0.1.20
+	serde_spanned@0.6.9
+	serde_urlencoded@0.7.1
+	sha1@0.10.6
+	sha2@0.10.9
+	shell-words@1.1.0
+	shlex@1.3.0
+	signal-hook-registry@1.4.6
+	simba@0.8.1
+	simd-adler32@0.3.7
+	simd_helpers@0.1.0
+	simplelog@0.12.2
+	slab@0.4.11
+	smallvec@1.15.1
+	socket2@0.5.10
+	socket2@0.6.0
+	speech-dispatcher-sys@0.7.0
+	speech-dispatcher@0.16.0
+	stable_deref_trait@1.2.1
+	static_assertions@1.1.0
+	strength_reduce@0.2.4
+	strsim@0.11.1
+	strsim@0.8.0
+	strum@0.27.2
+	strum_macros@0.27.2
+	subtle@2.6.1
+	symphonia-bundle-flac@0.5.4
+	symphonia-bundle-mp3@0.5.4
+	symphonia-codec-adpcm@0.5.4
+	symphonia-codec-pcm@0.5.4
+	symphonia-codec-vorbis@0.5.4
+	symphonia-core@0.5.4
+	symphonia-format-mkv@0.5.4
+	symphonia-format-ogg@0.5.4
+	symphonia-format-riff@0.5.4
+	symphonia-metadata@0.5.4
+	symphonia-utils-xiph@0.5.4
+	symphonia@0.5.4
+	syn@1.0.109
+	syn@2.0.106
+	sync_wrapper@1.0.2
+	synstructure@0.13.2
+	sys-locale@0.3.2
+	sysinfo@0.37.2
+	system-deps@6.2.2
+	target-lexicon@0.12.16
+	tempfile@3.23.0
+	termcolor@1.4.1
+	textwrap@0.11.0
+	thiserror-impl@1.0.69
+	thiserror-impl@2.0.17
+	thiserror@1.0.69
+	thiserror@2.0.17
+	tiff@0.10.3
+	time-core@0.1.6
+	time-macros@0.2.24
+	time@0.3.44
+	tiny-keccak@2.0.2
+	tinystr@0.8.1
+	tinyvec@1.10.0
+	tinyvec_macros@0.1.1
+	tokio-macros@2.5.0
+	tokio-rustls@0.26.4
+	tokio-serde@0.9.0
+	tokio-util@0.7.16
+	tokio@1.47.1
+	tolk-sys@0.2.2
+	tolk@0.5.0
+	toml@0.8.23
+	toml_datetime@0.6.11
+	toml_datetime@0.7.3
+	toml_edit@0.22.27
+	toml_edit@0.23.7
+	toml_parser@1.0.4
+	tower-http@0.6.6
+	tower-layer@0.3.3
+	tower-service@0.3.3
+	tower@0.5.2
+	tracing-attributes@0.1.30
+	tracing-core@0.1.34
+	tracing@0.1.41
+	transpose@0.2.3
+	try-lock@0.2.5
+	ttf-parser@0.25.1
+	tts@0.26.3
+	typenum@1.19.0
+	ucd-trie@0.1.7
+	uds_windows@1.1.0
+	unicase@2.8.1
+	unicode-ident@1.0.19
+	unicode-width@0.1.14
+	unicode-xid@0.2.6
+	untrusted@0.9.0
+	url@2.5.7
+	utf8_iter@1.0.4
+	utf8parse@0.2.2
+	v_frame@0.3.9
+	vcpkg@0.2.15
+	vec_map@0.8.2
+	version-compare@0.2.0
+	version_check@0.9.5
+	walkdir@2.5.0
+	want@0.3.1
+	wasi@0.11.1+wasi-snapshot-preview1
+	wasi@0.14.7+wasi-0.2.4
+	wasip2@1.0.1+wasi-0.2.4
+	wasm-bindgen-backend@0.2.104
+	wasm-bindgen-futures@0.4.54
+	wasm-bindgen-macro-support@0.2.104
+	wasm-bindgen-macro@0.2.104
+	wasm-bindgen-shared@0.2.104
+	wasm-bindgen@0.2.104
+	wasm-streams@0.4.2
+	web-sys@0.3.81
+	web-time@1.1.0
+	webpki-roots@1.0.3
+	weezl@0.1.10
+	which@3.1.1
+	which@8.0.0
+	wide@0.7.33
+	widestring@0.4.3
+	widestring@1.2.1
+	winapi-i686-pc-windows-gnu@0.4.0
+	winapi-util@0.1.11
+	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9
+	windows-args@0.2.0
+	windows-collections@0.2.0
+	windows-collections@0.3.2
+	windows-core@0.54.0
+	windows-core@0.58.0
+	windows-core@0.61.2
+	windows-core@0.62.2
+	windows-future@0.2.1
+	windows-future@0.3.2
+	windows-implement@0.58.0
+	windows-implement@0.60.2
+	windows-interface@0.58.0
+	windows-interface@0.59.3
+	windows-link@0.1.3
+	windows-link@0.2.1
+	windows-numerics@0.2.0
+	windows-numerics@0.3.1
+	windows-result@0.1.2
+	windows-result@0.2.0
+	windows-result@0.3.4
+	windows-result@0.4.1
+	windows-strings@0.1.0
+	windows-strings@0.4.2
+	windows-strings@0.5.1
+	windows-sys@0.45.0
+	windows-sys@0.52.0
+	windows-sys@0.59.0
+	windows-sys@0.60.2
+	windows-sys@0.61.2
+	windows-targets@0.42.2
+	windows-targets@0.52.6
+	windows-targets@0.53.5
+	windows-threading@0.1.0
+	windows-threading@0.2.1
+	windows@0.54.0
+	windows@0.58.0
+	windows@0.61.3
+	windows@0.62.2
+	windows_aarch64_gnullvm@0.42.2
+	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_gnullvm@0.53.1
+	windows_aarch64_msvc@0.42.2
+	windows_aarch64_msvc@0.52.6
+	windows_aarch64_msvc@0.53.1
+	windows_i686_gnu@0.42.2
+	windows_i686_gnu@0.52.6
+	windows_i686_gnu@0.53.1
+	windows_i686_gnullvm@0.52.6
+	windows_i686_gnullvm@0.53.1
+	windows_i686_msvc@0.42.2
+	windows_i686_msvc@0.52.6
+	windows_i686_msvc@0.53.1
+	windows_x86_64_gnu@0.42.2
+	windows_x86_64_gnu@0.52.6
+	windows_x86_64_gnu@0.53.1
+	windows_x86_64_gnullvm@0.42.2
+	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_gnullvm@0.53.1
+	windows_x86_64_msvc@0.42.2
+	windows_x86_64_msvc@0.52.6
+	windows_x86_64_msvc@0.53.1
+	windres@0.2.2
+	winnow@0.7.13
+	winreg@0.5.1
+	winreg@0.55.0
+	winrt-toast-reborn@0.3.8
+	winsafe@0.0.19
+	wit-bindgen@0.46.0
+	writeable@0.6.1
+	wtf8@0.0.3
+	xml-rs@0.8.27
+	xmltree@0.11.0
+	yoke-derive@0.8.0
+	yoke@0.8.0
+	zbus@5.11.0
+	zbus_macros@5.11.0
+	zbus_names@4.2.0
+	zerocopy-derive@0.8.27
+	zerocopy@0.8.27
+	zerofrom-derive@0.1.6
+	zerofrom@0.1.6
+	zeroize@1.8.2
+	zerotrie@0.2.2
+	zerovec-derive@0.11.1
+	zerovec@0.11.4
+	zip@6.0.0
+	zlib-rs@0.5.2
+	zopfli@0.8.2
+	zune-core@0.4.12
+	zune-inflate@0.2.54
+	zune-jpeg@0.4.21
+	zvariant@5.7.0
+	zvariant_derive@5.7.0
+	zvariant_utils@3.2.1
+"
+
+declare -A GIT_CRATES=(
+	[xpc-connection-sys]='https://github.com/dfrankland/xpc-connection-rs;cd4fb3d05edb4292ccb9566ae27cdeb874222d2a;xpc-connection-rs-%commit%/xpc-connection-sys'
+)
+
+DESCRIPTION="A utility for monitoring and controlling a TC-Helicon GoXLR or GoXLR Mini"
+HOMEPAGE="https://github.com/GoXLR-on-Linux/goxlr-utility"
+
+inherit cargo udev shell-completion desktop xdg
+
+if [[ ${PV} == *9999* ]]; then
+		EGIT_REPO_URI="https://github.com/GoXLR-on-Linux/${PN}.git"
+		inherit git-r3
+else
+	SRC_URI="
+		https://github.com/GoXLR-on-Linux/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+		${CARGO_CRATE_URIS}
+	"
+	KEYWORDS="~amd64"
+fi
+
+LICENSE="MIT Music-Tribe"
+LICENSE+="
+	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0
+	CDLA-Permissive-2.0 ISC MIT MPL-2.0 UoI-NCSA Unicode-3.0 Unlicense
+	ZLIB
+"
+SLOT="0"
+IUSE="tts"
+
+RDEPEND="
+	media-libs/libpulse
+	dev-util/pkgconf
+	sys-apps/dbus
+	tts? (
+		app-accessibility/speech-dispatcher
+		llvm-core/clang
+	)
+"
+
+src_unpack() {
+	if [[ "${PV}" == *9999* ]]; then
+		git-r3_src_unpack
+		cargo_live_src_unpack
+	else
+		cargo_src_unpack
+	fi
+}
+
+src_configure() {
+	local myfeatures=(
+		$(usev tts)
+	)
+	cargo_src_configure --no-default-features
+}
+
+src_install() {
+		dobin "${WORKDIR}"/${P}/target/release/goxlr-daemon
+		dobin "${WORKDIR}"/${P}/target/release/goxlr-client
+		dobin "${WORKDIR}"/${P}/target/release/goxlr-defaults
+		dobin "${WORKDIR}"/${P}/target/release/goxlr-launcher
+
+		udev_dorules 50-goxlr.rules
+
+		doicon -s 48 "${WORKDIR}"/${P}/daemon/resources/goxlr-utility.png
+		doicon -s scalable "${WORKDIR}"/${P}/daemon/resources/goxlr-utility.svg
+		newicon "${WORKDIR}"/${P}/daemon/resources/goxlr-utility-large.png goxlr-utility.png
+		domenu "${WORKDIR}"/${P}/daemon/resources/goxlr-utility.desktop
+
+		# Grab the Path where the AutoComplete scripts are..
+		AUTOCOMPLETE=$("${WORKDIR}"/${P}/ci/cargo-out-dir target/release/ client-stamp)
+		dobashcomp $AUTOCOMPLETE/goxlr-client.bash
+		dofishcomp $AUTOCOMPLETE/goxlr-client.fish
+		dozshcomp $AUTOCOMPLETE/_goxlr-client
+
+		dodoc README.md
+}
+
+pkg_postinst() {
+	udev_reload
+	xdg_icon_cache_update
+	elog ""
+	elog "If you use systemd, make sure Pulseaudio is running for the GoXLR utility to work."
+	elog ""
+	elog "It's recommended to start pulseaudio via its systemd user units:"
+	elog ""
+	elog "  systemctl --user enable pulseaudio.service pulseaudio.socket"
+	elog ""
+	elog "Root user can change system default configuration for all users:"
+	elog ""
+	elog "  systemctl --global enable pulseaudio.service pulseaudio.socket"
+	elog ""
+}
+
+pkg_postrm() {
+	udev_reload
+	xdg_icon_cache_update
+}

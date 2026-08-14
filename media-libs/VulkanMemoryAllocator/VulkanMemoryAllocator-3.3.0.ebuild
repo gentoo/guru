@@ -11,12 +11,18 @@ SRC_URI="https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator/archi
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="doc"
 
 BDEPEND="
 	doc? ( app-text/doxygen )
 "
+
+src_prepare() {
+	sed -i "s|doc/VulkanMemoryAllocator|doc/${PF}|" CMakeLists.txt
+
+	cmake_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(

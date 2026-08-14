@@ -1,7 +1,7 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit go-module
 
@@ -39,7 +39,7 @@ src_unpack() {
 
 src_compile() {
 	GOFLAGS+=" -mod=vendor -trimpath"
-	local go_ldflags="-s -linkmode external -extldflags \"${LDFLAGS}\""
+	local go_ldflags="-linkmode external -extldflags \"${LDFLAGS}\""
 	ego build ${GOFLAGS} -ldflags="${go_ldflags}" .
 }
 

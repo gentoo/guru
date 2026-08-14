@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>juha@luotio.net</email>
+		<name>Juha Luotio</name>
+		<description>Maintainer of the ebuild only.</description>
+	</maintainer>
+	<longdescription>
+		Libation is a free, open-source tool for managing and downloading Audible audiobooks. It liberates 
+		DRM-protected Audible files to MP3 or M4B, preserves metadata like titles and cover art, 
+		and supports features like chapter splitting and PDF downloads.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">rmcrackan/Libation</remote-id>
+	</upstream>
+</pkgmetadata>

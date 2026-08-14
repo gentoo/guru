@@ -1,0 +1,61 @@
+# Copyright 1999-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{12..14} )
+
+inherit distutils-r1 meson udev xdg git-r3
+
+DESCRIPTION="Steering Wheel Manager for Linux"
+HOMEPAGE="https://github.com/berarma/oversteer"
+EGIT_REPO_URI="https://github.com/berarma/oversteer.git"
+
+LICENSE="GPL-3"
+SLOT="0"
+KEYWORDS=""
+
+RDEPEND="
+	dev-python/pygobject[${PYTHON_USEDEP}]
+	dev-python/pyudev[${PYTHON_USEDEP}]
+	dev-python/pyxdg[${PYTHON_USEDEP}]
+	dev-python/evdev[${PYTHON_USEDEP}]
+	sys-devel/gettext
+	dev-libs/appstream-glib
+	dev-python/matplotlib[gtk3,${PYTHON_USEDEP}]
+	dev-python/scipy[${PYTHON_USEDEP}]
+"
+DEPEND="${RDEPEND}"
+
+pkg_setup() {
+	python_setup
+}
+
+src_prepare() {
+	default
+	python_fix_shebang scripts/meson_post_install.py
+}
+
+src_configure() {
+	local emesonargs=(
+	    -Dpython.bytecompile=2
+	)
+	meson_src_configure
+}
+
+src_test() {
+	# Skip the appstream file test as it requires network access.
+	sed -i 's~appstream_util.found()~false~' "${S}/data/meson.build" || die
+	meson_src_test
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+	udev_reload
+}
+
+pkg_postrm() {
+	xdg_pkg_postrm
+	udev_reload
+}

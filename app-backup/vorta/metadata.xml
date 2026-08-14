@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>egger.m@protonmail.com</email>
+		<name>Michael Egger</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">borgbase/vorta</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		Vorta is a backup client for macOS and Linux desktops.
+		It integrates the mighty BorgBackup with your desktop environment to protect your data from disk failure,
+		ransomware and theft.
+	</longdescription>
+</pkgmetadata>

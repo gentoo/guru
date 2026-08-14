@@ -6,6 +6,10 @@
 		<description>Primary maintainer</description>
 		<name>Artemis Everfree</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>ceres@ceressees.dev</email>
+		<name>Ceres Milner</name>
+	</maintainer>
 	<upstream>
 		<changelog>https://codeberg.org/forgejo/forgejo/releases</changelog>
 		<bugs-to>https://codeberg.org/forgejo/forgejo/issues</bugs-to>

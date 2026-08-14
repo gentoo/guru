@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -30,8 +30,7 @@ SLOT="0"
 # Sync with "minimum_runtime_zig_version" from upstream's "build.zig".
 RDEPEND="
 	|| (
-		>=dev-lang/zig-0.14.0
-		>=dev-lang/zig-bin-0.14.0
+		>=dev-lang/zig-9999
 	)
 "
 
@@ -40,7 +39,7 @@ DOCS=( README.md )
 if [[ ${PV} == 9999 ]]; then
 	src_unpack() {
 		git-r3_src_unpack
-		zig_live_fetch -Denable-tracy=false
+		zig_live_src_unpack
 	}
 fi
 

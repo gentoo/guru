@@ -1,0 +1,32 @@
+tweaks the executable that comes with persepolis to work better with
+gentoo's python-exec.
+
+by default meson will detect the python executable used to run it, then
+replace @PYTHON@ with that path to be used at runtime. this doesn't work
+with portage's path abstraction. instead this replaces with a generic path
+then relies on 'python_newscript', run in the ebuild, to resolve the
+correct path.
+
+also remove's the hard-coded 'pythonsitepackagedir', python-exec will set
+the system path correctly at runtime.
+
+diff --git a/persepolis/persepolis.py b/persepolis/persepolis.py
+index d5e5b25..67bc72b 100644
+--- a/persepolis/persepolis.py
++++ b/persepolis/persepolis.py
+@@ -1,4 +1,4 @@
+-#!@PYTHON@
++#!/usr/bin/python
+ 
+ 
+ # -*- coding: utf-8 -*-
+@@ -19,9 +19,6 @@
+ # this file is created for running persepolis from /usr/bin/ or /usr/local/bin/.
+ import sys
+ 
+-pythonsitepackagedir = '@pythonsitepackagedir@'
+-
+ if __name__ == '__main__':
+-    sys.path.append(pythonsitepackagedir)
+     from persepolis.scripts import persepolis
+     persepolis.main()

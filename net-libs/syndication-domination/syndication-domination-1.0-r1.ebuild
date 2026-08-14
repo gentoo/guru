@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_12 )
 
 inherit meson python-single-r1
 
@@ -29,7 +29,7 @@ REQUIRED_USE="
 "
 DEPEND="
 	app-text/htmltidy
-	dev-libs/libfmt
+	dev-libs/libfmt:=
 	dev-libs/pugixml
 	python? (
 		$(python_gen_cond_dep '

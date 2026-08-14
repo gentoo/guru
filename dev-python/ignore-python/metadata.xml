@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <name>Pavel Sobolev</name>
+    <email>contact@paveloom.dev</email>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://github.com/borsattoz/ignore-python/issues</bugs-to>
+    <remote-id type="github">borsattoz/ignore-python</remote-id>
+    <remote-id type="pypi">ignore-python</remote-id>
+  </upstream>
+</pkgmetadata>

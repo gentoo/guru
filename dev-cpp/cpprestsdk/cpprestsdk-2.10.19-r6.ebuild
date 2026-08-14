@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND=">=dev-libs/openssl-1.1.1q
 		>=dev-libs/boost-1.80.0-r1:=
-		>=sys-libs/zlib-1.2.13-r1"
+		>=virtual/zlib-1.2.13-r1:="
 
 DEPEND="${RDEPEND}"
 

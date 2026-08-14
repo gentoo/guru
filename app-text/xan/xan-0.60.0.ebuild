@@ -1,0 +1,71 @@
+# Copyright 2025-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+RUST_MIN_VER="1.87.0"
+
+# Crate list bundled into a single tarball published at
+# https://github.com/vowstar/vowstar-overlay-dist
+CRATES=""
+
+inherit cargo
+
+DESCRIPTION="The CSV magician"
+HOMEPAGE="https://github.com/medialab/xan"
+
+if [[ "${PV}" == *9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/medialab/xan"
+else
+	SRC_URI="https://github.com/medialab/xan/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI+=" https://github.com/vowstar/vowstar-overlay-dist/releases/download/${PN}-${PV}/${PN}-${PV}-crates.tar.xz"
+	SRC_URI+=" ${CARGO_CRATE_URIS}"
+	KEYWORDS="~amd64"
+	RESTRICT="mirror"
+fi
+
+LICENSE="|| ( MIT Unlicense )"
+# Dependent crate licenses
+LICENSE+="
+	Apache-2.0 BSD-2 BSD CC0-1.0 GPL-2+ ISC MIT MPL-2.0 Unicode-3.0
+	Unlicense ZLIB
+"
+SLOT="0"
+# apply-crates-fixes start
+RDEPEND="
+	>=app-arch/zstd-1.5.7
+	>=dev-libs/jemalloc-5.3.0
+"
+DEPEND="${RDEPEND}"
+# apply-crates-fixes end
+
+QA_FLAGS_IGNORED="usr/bin/xan"
+
+DOCS=( README.md docs )
+
+src_unpack() {
+	if [[ "${PV}" == *9999* ]]; then
+		git-r3_src_unpack
+		cargo_live_src_unpack
+	else
+		cargo_src_unpack
+	fi
+}
+# apply-crates-fixes start
+src_compile() {
+	export ZSTD_SYS_USE_PKG_CONFIG=1 # fix for zstd-sys crate
+	JEMALLOC_OVERRIDE="/usr/$(get_libdir)/libjemalloc.so"
+	export JEMALLOC_OVERRIDE # fix for jemalloc-sys crate
+	cargo_src_compile
+}
+# apply-crates-fixes end
+
+src_install() {
+	cargo_src_install
+	# docs/cookbook ships a pre-compressed sample dataset that would be
+	# installed as an already-compressed file, tripping the QA check for
+	# compressed files in /usr/share/doc (bug 978812).
+	rm "${S}"/docs/cookbook/resources/dataviz.tar.gz || die
+	einstalldocs
+}

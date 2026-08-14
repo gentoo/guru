@@ -1,0 +1,60 @@
+diff --git a/chalice/awsclient.py b/chalice/awsclient.py
+index ff28738..bc3fd31 100644
+--- a/chalice/awsclient.py
++++ b/chalice/awsclient.py
+@@ -44,10 +44,10 @@ import botocore.session  # noqa
+ from botocore.loaders import create_loader
+ from botocore.exceptions import ClientError
+ from botocore.utils import datetime2timestamp
+-from botocore.vendored.requests import (
++from requests import (
+     ConnectionError as RequestsConnectionError,
+ )
+-from botocore.vendored.requests.exceptions import (
++from requests.exceptions import (
+     ReadTimeout as RequestsReadTimeout,
+ )
+ from typing import TypedDict
+diff --git a/chalice/deploy/deployer.py b/chalice/deploy/deployer.py
+index de1c17c..4feba5f 100644
+--- a/chalice/deploy/deployer.py
++++ b/chalice/deploy/deployer.py
+@@ -88,7 +88,7 @@ import socket
+ import logging
+ 
+ import botocore.exceptions
+-from botocore.vendored.requests import ConnectionError as \
++from requests import ConnectionError as \
+     RequestsConnectionError
+ from botocore.session import Session  # noqa
+ from typing import Optional, Dict, List, Any, Type, cast  # noqa
+diff --git a/tests/functional/test_awsclient.py b/tests/functional/test_awsclient.py
+index c565dd7..03f805f 100644
+--- a/tests/functional/test_awsclient.py
++++ b/tests/functional/test_awsclient.py
+@@ -5,9 +5,9 @@ from unittest import mock
+ 
+ import pytest
+ import botocore.exceptions
+-from botocore.vendored.requests import ConnectionError as \
++from requests import ConnectionError as \
+     RequestsConnectionError
+-from botocore.vendored.requests.exceptions import ReadTimeout as \
++from requests.exceptions import ReadTimeout as \
+     RequestsReadTimeout
+ from botocore import stub
+ from botocore.utils import datetime2timestamp
+diff --git a/tests/unit/deploy/test_deployer.py b/tests/unit/deploy/test_deployer.py
+index 0fbe1b9..98bd2cd 100644
+--- a/tests/unit/deploy/test_deployer.py
++++ b/tests/unit/deploy/test_deployer.py
+@@ -8,7 +8,7 @@ import botocore.session
+ import pytest
+ from unittest import mock
+ from botocore.stub import Stubber
+-from botocore.vendored.requests import ConnectionError as \
++from requests import ConnectionError as \
+     RequestsConnectionError
+ from pytest import fixture
+ 
+

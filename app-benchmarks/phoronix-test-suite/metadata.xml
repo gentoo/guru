@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>fkobi@pm.me</email>
+		<name>Filip Kobierski</name>
+	</maintainer>
+	<use>
+		<flag name="server">Enable the Phoromatic server</flag>
+	</use>
 	<upstream>
+		<bugs-to>https://github.com/phoronix-test-suite/phoronix-test-suite/issues</bugs-to>
+		<changelog>https://github.com/phoronix-test-suite/phoronix-test-suite/releases</changelog>
+		<doc>https://github.com/phoronix-test-suite/phoronix-test-suite/tree/master/documentation</doc>
 		<remote-id type="github">phoronix-test-suite/phoronix-test-suite</remote-id>
 	</upstream>
+	<stabilize-allarches/>
 </pkgmetadata>

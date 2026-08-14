@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>yt+gentoo@sysv.in</email>
+		<name>tooknox</name>
+	</maintainer>
+	<longdescription lang="en">
+		FlexBV Free edition is a slimmed down product of the full licenced version.
+		It's a modern and cross platform alternative to existing boardview programs.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://pldaniels.com</bugs-to>
+	</upstream>
+</pkgmetadata>

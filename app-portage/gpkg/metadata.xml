@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>neotrax70@gmail.com</email>
+		<name>N3oTraX</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="codeberg">NoBodyZ/gpkg</remote-id>
+		<bugs-to>https://codeberg.org/NoBodyZ/gpkg/issues</bugs-to>
+	</upstream>
+	<use>
+		<flag name="btrfs">Enable Btrfs snapshot management in kernel configuration tab (requires kerneltools)</flag>
+		<flag name="dracut">Enable dracut initramfs configuration editing (requires kerneltools)</flag>
+		<flag name="appindicator">Install AppIndicator extension for GNOME systray icon support (SNI protocol)</flag>
+		<flag name="grub2">GRUB2 bootloader support in kernel configuration (beta)</flag>
+		<flag name="kerneltools">Enable kernel configuration tab with auto-compile hooks, bootloader management, and kernel tools</flag>
+		<flag name="limine">Limine bootloader support in kernel configuration</flag>
+		<flag name="refind">rEFInd bootloader support in kernel configuration (beta)</flag>
+		<flag name="sourceview">Enable syntax highlighting in configuration editors (GtkSourceView)</flag>
+		<flag name="systemd">Install systemd service for gpkg-daemon</flag>
+		<flag name="systemd-boot">systemd-boot bootloader support in kernel configuration (beta)</flag>
+		<flag name="vte">Enable embedded VTE terminal for Portage output</flag>
+	</use>
+	<longdescription lang="en">
+		gpkg is a graphical package manager for Gentoo Linux built with
+		GTK4 and libadwaita. It provides a modern interface for managing
+		Portage packages, including an integrated terminal, package search
+		with USE flag management, system updates, news and elog viewer,
+		graphical etc-update, disk cleanup, kernel configuration tools,
+		and make.conf editing. It communicates with a privileged daemon
+		via D-Bus for system operations.
+	</longdescription>
+</pkgmetadata>

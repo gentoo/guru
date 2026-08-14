@@ -19,6 +19,10 @@ KEYWORDS="~amd64"
 
 RDEPEND="dev-libs/boost:="
 
+PATCHES=(
+	"${FILESDIR}/${PN}-0_pre20250505-bump-minimum-required-CMake-version.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-Wno-dev

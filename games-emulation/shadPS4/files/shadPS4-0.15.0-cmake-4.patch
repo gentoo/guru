@@ -1,0 +1,102 @@
+Fix CMake 4 Compatibility
+
+--- a/externals/dear_imgui/examples/example_android_opengl3/CMakeLists.txt
++++ b/externals/dear_imgui/examples/example_android_opengl3/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.6)
++cmake_minimum_required(VERSION 3.10)
+ 
+ project(ImGuiExample)
+ 
+--- a/externals/dear_imgui/examples/example_glfw_vulkan/CMakeLists.txt
++++ b/externals/dear_imgui/examples/example_glfw_vulkan/CMakeLists.txt
+@@ -3,7 +3,7 @@
+ #  cd build
+ #  cmake -g "Visual Studio 14 2015" ..
+ 
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.10)
+ project(imgui_example_glfw_vulkan C CXX)
+ 
+ if(NOT CMAKE_BUILD_TYPE)
+--- a/externals/discord-rpc/thirdparty/rapidjson/CMakeLists.txt
++++ b/externals/discord-rpc/thirdparty/rapidjson/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
++CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
+ 
+ SET(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules)
+ 
+--- a/externals/discord-rpc/thirdparty/rapidjson/example/CMakeLists.txt
++++ b/externals/discord-rpc/thirdparty/rapidjson/example/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.10)
+ 
+ if(POLICY CMP0054)
+   cmake_policy(SET CMP0054 NEW)
+--- a/externals/discord-rpc/thirdparty/rapidjson/thirdparty/gtest/CMakeLists.txt
++++ b/externals/discord-rpc/thirdparty/rapidjson/thirdparty/gtest/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.6.4)
++cmake_minimum_required(VERSION 3.10)
+ 
+ if (POLICY CMP0048)
+   cmake_policy(SET CMP0048 NEW)
+--- a/externals/discord-rpc/thirdparty/rapidjson/thirdparty/gtest/googlemock/CMakeLists.txt
++++ b/externals/discord-rpc/thirdparty/rapidjson/thirdparty/gtest/googlemock/CMakeLists.txt
+@@ -43,7 +43,7 @@
+   cmake_policy(SET CMP0048 NEW)
+   project(gmock VERSION 1.9.0 LANGUAGES CXX C)
+ endif()
+-cmake_minimum_required(VERSION 2.6.4)
++cmake_minimum_required(VERSION 3.10)
+ 
+ if (COMMAND set_up_hermetic_build)
+   set_up_hermetic_build()
+--- a/externals/discord-rpc/thirdparty/rapidjson/thirdparty/gtest/googletest/CMakeLists.txt
++++ b/externals/discord-rpc/thirdparty/rapidjson/thirdparty/gtest/googletest/CMakeLists.txt
+@@ -50,7 +50,7 @@
+   cmake_policy(SET CMP0048 NEW)
+   project(gtest VERSION 1.9.0 LANGUAGES CXX C)
+ endif()
+-cmake_minimum_required(VERSION 2.6.4)
++cmake_minimum_required(VERSION 3.10)
+ 
+ if (POLICY CMP0063) # Visibility
+   cmake_policy(SET CMP0063 NEW)
+--- a/externals/sirit/externals/SPIRV-Headers/tests/find_package/CMakeLists.txt
++++ b/externals/sirit/externals/SPIRV-Headers/tests/find_package/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.0)
++cmake_minimum_required(VERSION 3.10)
+ 
+ project(TEST_FIND_PACKAGE LANGUAGES CXX)
+ 
+--- a/externals/sirit/externals/SPIRV-Headers/tools/buildHeaders/CMakeLists.txt
++++ b/externals/sirit/externals/SPIRV-Headers/tools/buildHeaders/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.0)
++cmake_minimum_required(VERSION 3.10)
+ 
+ set(CMAKE_INSTALL_PREFIX "install" CACHE STRING "prefix" FORCE)
+ 
+--- a/externals/zydis/CMakeLists.txt
++++ b/externals/zydis/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.9 FATAL_ERROR)
++cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+ 
+ if (CMAKE_VERSION VERSION_GREATER_EQUAL "3.15")
+     # Enable runtime library selection via CMAKE_MSVC_RUNTIME_LIBRARY
+--- a/externals/zydis/dependencies/zycore/CMakeLists.txt
++++ b/externals/zydis/dependencies/zycore/CMakeLists.txt
+@@ -2,7 +2,7 @@
+     return()
+ endif ()
+ 
+-cmake_minimum_required(VERSION 3.9 FATAL_ERROR)
++cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+ 
+ if (CMAKE_VERSION VERSION_GREATER_EQUAL "3.15")
+     # Enable runtime library selection via CMAKE_MSVC_RUNTIME_LIBRARY

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Jonas Frei</name>
+		<email>freijon@pm.me</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">wayle-rs/wayle</remote-id>
+		<bugs-to>https://github.com/wayle-rs/wayle/issues</bugs-to>
+	</upstream>
+	<use>
+		<flag name="settings">Build the settings GUI</flag>
+	</use>
+</pkgmetadata>

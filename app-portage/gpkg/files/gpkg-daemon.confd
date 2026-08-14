@@ -1,0 +1,4 @@
+# /etc/conf.d/gpkg-daemon
+
+# Log level: error, warn, info, debug, trace
+GPKG_LOG_LEVEL="info"

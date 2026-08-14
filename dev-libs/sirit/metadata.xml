@@ -5,6 +5,10 @@
         <name>Samuel Bauer</name>
         <email>samuel.bauer@yahoo.fr</email>
 </maintainer>
+<maintainer type="person">
+        <name>Pavel Sobolev</name>
+        <email>contact@paveloom.dev</email>
+</maintainer>
 <upstream>
         <remote-id type="github">PabloMK7/sirit</remote-id>
 </upstream>

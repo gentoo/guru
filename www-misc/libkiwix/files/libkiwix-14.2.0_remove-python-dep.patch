@@ -1,0 +1,68 @@
+diff --git i/static/meson.build w/static/meson.build
+index b650cabc..e69cff63 100644
+--- i/static/meson.build
++++ w/static/meson.build
+@@ -35,30 +35,8 @@ lib_resources = custom_target('resources',
+     depends: preprocessed_resources
+ )
+ 
+-# This could be replaced with
+-# ```
+-# fs = import('fs')
+-# i18n_resource_files = fs.read('i18n_resources_list.txt').strip().split('\n')
+-# ```
+-# once we move to meson >= 0.57.0
+-
+-if meson.version().version_compare('>=0.47.0')
+-    i18n_resource_files = run_command(
+-        find_program('python3'),
+-        '-c',
+-        'import sys; f=open(sys.argv[1]); print(f.read())',
+-        files('i18n_resources_list.txt'),
+-        check: true
+-    ).stdout().strip().split('\n')
+-else
+-    i18n_resource_files = run_command(
+-        find_program('python3'),
+-        '-c',
+-        'import sys; f=open(sys.argv[1]); print(f.read())',
+-        files('i18n_resources_list.txt'),
+-    ).stdout().strip().split('\n')
+-endif
+-
++fs = import('fs')
++i18n_resource_files = fs.read('i18n_resources_list.txt').strip().split('\n')
+ 
+ i18n_resources = custom_target('i18n_resources',
+     input: i18n_resource_files,
+diff --git i/test/meson.build w/test/meson.build
+index 5b81bce9..292ae28b 100644
+--- i/test/meson.build
++++ w/test/meson.build
+@@ -51,25 +51,9 @@ if gtest_dep.found() and not meson.is_cross_build()
+       'welcome.html',
+     ]
+     foreach file : data_files
+-        # configure_file(input : 'data/' + file,
+-        #                output : file,
+-        #                copy: true )
+-        #
+-        # Above (commented) command doesn't work with Meson versions below 0.47
+-        # (in which the 'copy' keyword was first introduced). We want to keep
+-        # compatibility with Ubuntu 18.04 Bionic (which has Meson version 0.45)
+-        # until its EOL.
+-        #
+-        # Below is a python based workaround.
+         configure_file(input : 'data/' + file,
+                        output : file,
+-                       command: [
+-                         find_program('python3'),
+-                          '-c',
+-                          'import sys; import shutil; shutil.copy(sys.argv[1], sys.argv[2])',
+-                          '@INPUT@',
+-                          '@OUTPUT@'
+-                       ])
++                       copy: true )
+     endforeach
+ 
+     foreach test_name : tests

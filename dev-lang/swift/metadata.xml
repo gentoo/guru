@@ -10,7 +10,7 @@
   </upstream>
   <use>
     <flag name="libcxx">
-      Use <pkg>llvm-runtimes/libcxx</pkg> as the default C++ runtime library.
+      Build against <pkg>llvm-runtimes/libcxx</pkg> as the default C++ runtime library over GCC's libdstc++.
     </flag>
   </use>
   <slots>

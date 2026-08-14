@@ -1,0 +1,12 @@
+use precompiled doc from tarball
+--- a/meson.build
++++ b/meson.build
+@@ -148,7 +148,7 @@ conf.set_quoted('APP_VERSION', version)
+ configure_file(output: 'buildconf.hpp', configuration: conf)
+ 
+ # doc generator
+-python3 = find_program('python3', native: true, required: false)
++python3 = find_program('python3', native: true, required: false, disabler: true)
+ if python3.found()
+     extra_dir = meson.global_source_root() / 'extra'
+     # man 1

@@ -8,7 +8,7 @@ inherit go-module
 DESCRIPTION="distributed, offline-first bug tracker"
 HOMEPAGE="https://github.com/git-bug/git-bug"
 SRC_URI="https://github.com/git-bug/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	http://joecool.ftfuchs.com/godeps/${P}-deps.tar.xz"
+	https://xwaretech.info/godeps/${P}-deps.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"

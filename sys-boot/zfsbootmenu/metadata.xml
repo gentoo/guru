@@ -9,6 +9,10 @@
     <email>c@cgps.ch</email>
     <name>Chaquen Beliakov Amaya</name>
   </maintainer>
+  <maintainer type="person">
+    <email>ceres@ceressees.dev</email>
+    <name>Ceres Milner</name>
+  </maintainer>
   <upstream>
     <remote-id type="github">zbm-dev/zfsbootmenu</remote-id>
   </upstream>

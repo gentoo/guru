@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>elouan.lesteven@protonmail.com</email>
+    <name>Elouan Lesteven</name>
+    <description>Primary maintainer</description>
+  </maintainer>
+  <maintainer type="person">
+    <email>theron.york@cloudnuke.org</email>
+    <name>Theron York</name>
+    <description>Co‑maintainer, ebuild fixes and improvements</description>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">areofyl/fetch</remote-id>
+    <bugs-to>https://github.com/areofyl/fetch/issues</bugs-to>
+  </upstream>
+</pkgmetadata>

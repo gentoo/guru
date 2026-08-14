@@ -1,0 +1,22 @@
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<longdescription>
+		A modern, full-featured terminal text editor, 
+		with zero configuration. Familiar keybindings, 
+		mouse support, and IDE-level features — no learning curve required.	
+	</longdescription>
+	<use>
+		<flag name="plugins">TypeScript plugin runtime support</flag>
+		<flag name="embed-plugins">Bundle default plugins into the binary as a fallback</flag>
+		<flag name="gui">Native GPU-accelerated window via wgpu</flag>
+		<flag name="dev-bins">Build extra developer binaries (generate_schema, event_debug)</flag>
+	</use>
+	<upstream>
+		<doc>https://getfresh.dev/docs/</doc>
+		<remote-id type="github">sinelaw/fresh</remote-id>
+	</upstream>
+</pkgmetadata>

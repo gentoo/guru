@@ -1,0 +1,24 @@
+Fix a build time bug caused by SDL3 renaming functions
+From: https://github.com/Seme30/shadPS4/commit/e00f726be75218201243639b3bea5de77f315191
+Upstream Bug: https://github.com/shadps4-emu/shadPS4/issues/4112
+
+--- a/src/core/libraries/np/trophy_ui.cpp
++++ b/src/core/libraries/np/trophy_ui.cpp
+@@ -98,7 +98,7 @@
+         return;
+     }
+ 
+-    MIX_SetMasterGain(mixer, static_cast<float>(Config::getVolumeSlider() / 100.f));
++    MIX_SetMixerGain(mixer, static_cast<float>(Config::getVolumeSlider() / 100.f));
+     auto musicPathMp3 = CustomTrophy_Dir / "trophy.mp3";
+     auto musicPathWav = CustomTrophy_Dir / "trophy.wav";
+ 
+@@ -112,7 +112,7 @@
+         audio =
+             MIX_LoadAudio_IO(mixer, SDL_IOFromMem(soundData.data(), soundData.size()), false, true);
+         // due to low volume of default sound file
+-        MIX_SetMasterGain(mixer, MIX_GetMasterGain(mixer) * 1.3f);
++        MIX_SetMixerGain(mixer, MIX_GetMixerGain(mixer) * 1.3f);
+     }
+ 
+     if (!audio) {

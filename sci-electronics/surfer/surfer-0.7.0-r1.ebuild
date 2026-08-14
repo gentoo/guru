@@ -1,0 +1,825 @@
+# Copyright 2025-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+CRATES="
+	accesskit@0.24.0
+	accesskit_atspi_common@0.18.0
+	accesskit_consumer@0.35.0
+	accesskit_macos@0.26.0
+	accesskit_unix@0.21.0
+	accesskit_windows@0.32.1
+	accesskit_winit@0.32.2
+	addr2line@0.25.1
+	adler2@2.0.1
+	ahash@0.8.12
+	aho-corasick@1.1.4
+	allocator-api2@0.2.21
+	ambient-authority@0.0.2
+	android-activity@0.6.0
+	android-properties@0.2.2
+	android_system_properties@0.1.5
+	anstream@1.0.0
+	anstyle-parse@1.0.0
+	anstyle-query@1.1.4
+	anstyle-wincon@3.0.10
+	anstyle@1.0.13
+	anyhow@1.0.100
+	arbitrary@1.4.2
+	arboard@3.6.1
+	arrayvec@0.7.6
+	as-raw-xcb-connection@1.0.1
+	async-broadcast@0.7.2
+	async-channel@2.5.0
+	async-executor@1.13.3
+	async-io@2.6.0
+	async-lock@3.4.1
+	async-process@2.5.0
+	async-recursion@1.1.1
+	async-signal@0.2.13
+	async-task@4.7.1
+	async-trait@0.1.89
+	atomic-waker@1.1.2
+	atspi-common@0.13.0
+	atspi-proxies@0.13.0
+	atspi@0.29.0
+	autocfg@1.5.0
+	aws-lc-rs@1.16.2
+	aws-lc-sys@0.39.0
+	base64@0.22.1
+	bincode@1.3.3
+	bindgen@0.72.1
+	bit-set@0.9.1
+	bit-vec@0.9.1
+	bitflags@1.3.2
+	bitflags@2.10.0
+	block-buffer@0.10.4
+	block2@0.5.1
+	block2@0.6.2
+	blocking@1.6.2
+	bumpalo@3.19.0
+	bytemuck@1.24.0
+	bytemuck_derive@1.10.2
+	byteorder-lite@0.1.0
+	bytes@1.11.0
+	bytesize@2.3.1
+	calloop-wayland-source@0.3.0
+	calloop@0.13.0
+	camino@1.2.1
+	cap-fs-ext@3.4.5
+	cap-primitives@3.4.5
+	cap-rand@3.4.5
+	cap-std@3.4.5
+	cap-time-ext@3.4.5
+	cbindgen@0.29.2
+	cc@1.2.55
+	cesu8@1.1.0
+	cexpr@0.6.0
+	cfg-if@1.0.4
+	cfg_aliases@0.2.1
+	cgl@0.3.2
+	chrono@0.4.43
+	clang-sys@1.8.1
+	clap@4.6.0
+	clap_builder@4.6.0
+	clap_derive@4.6.0
+	clap_lex@1.0.0
+	clipboard-win@5.4.1
+	cmake@0.1.57
+	cobs@0.3.0
+	codespan-reporting@0.13.1
+	color@0.3.2
+	colorchoice@1.0.4
+	combine@4.6.7
+	concurrent-queue@2.5.0
+	config@0.15.18
+	convert_case@0.10.0
+	core-foundation-sys@0.8.7
+	core-foundation@0.10.1
+	core-foundation@0.9.4
+	core-graphics-types@0.1.3
+	core-graphics@0.23.2
+	cpp_demangle@0.4.5
+	cpufeatures@0.2.17
+	cranelift-assembler-x64-meta@0.128.4
+	cranelift-assembler-x64@0.128.4
+	cranelift-bforest@0.128.4
+	cranelift-bitset@0.128.4
+	cranelift-codegen-meta@0.128.4
+	cranelift-codegen-shared@0.128.4
+	cranelift-codegen@0.128.4
+	cranelift-control@0.128.4
+	cranelift-entity@0.128.4
+	cranelift-frontend@0.128.4
+	cranelift-isle@0.128.4
+	cranelift-native@0.128.4
+	cranelift-srcgen@0.128.4
+	crc32fast@1.5.0
+	crossbeam-deque@0.8.6
+	crossbeam-epoch@0.9.18
+	crossbeam-utils@0.8.21
+	crunchy@0.2.4
+	crypto-common@0.1.6
+	cursor-icon@1.2.0
+	darling@0.20.11
+	darling_core@0.20.11
+	darling_macro@0.20.11
+	deranged@0.5.5
+	derive_builder@0.20.2
+	derive_builder_core@0.20.2
+	derive_builder_macro@0.20.2
+	derive_more-impl@2.1.0
+	derive_more@2.1.0
+	digest@0.10.7
+	directories-next@2.0.0
+	directories@6.0.0
+	dirs-sys-next@0.1.2
+	dirs-sys@0.5.0
+	dispatch2@0.3.0
+	dispatch@0.2.0
+	displaydoc@0.2.5
+	dlib@0.5.2
+	document-features@0.2.12
+	downcast-rs@1.2.1
+	dpi@0.1.2
+	dunce@1.0.5
+	ecolor@0.34.1
+	eframe@0.34.1
+	egui-remixicon@0.34.0
+	egui-wgpu@0.34.1
+	egui-winit@0.34.1
+	egui@0.34.1
+	egui_extras@0.34.1
+	egui_glow@0.34.1
+	egui_plot@0.35.0
+	either@1.15.0
+	emath@0.34.1
+	embedded-io@0.4.0
+	embedded-io@0.6.1
+	encoding_rs@0.8.35
+	endi@1.1.0
+	enum-iterator-derive@1.5.0
+	enum-iterator@2.3.0
+	enum-map-derive@0.17.0
+	enum-map@2.7.3
+	enumflags2@0.7.12
+	enumflags2_derive@0.7.12
+	enumn@0.1.14
+	env_filter@1.0.1
+	env_logger@0.11.10
+	epaint@0.34.1
+	epaint_default_fonts@0.34.1
+	equivalent@1.0.2
+	errno@0.3.14
+	error-code@3.3.2
+	euclid@0.22.14
+	event-listener-strategy@0.5.4
+	event-listener@5.4.1
+	extism-convert-macros@1.21.0
+	extism-convert@1.21.0
+	extism-manifest@1.21.0
+	extism-pdk-derive@1.4.1
+	extism-pdk@1.4.1
+	extism@1.21.0
+	eyre@0.6.12
+	fallible-iterator@0.3.0
+	fastrand@2.3.0
+	fax@0.2.6
+	fax_derive@0.2.0
+	fd-lock@4.0.4
+	fdeflate@0.3.7
+	fearless_simd@0.3.0
+	filetime@0.2.26
+	find-msvc-tools@0.1.9
+	flate2@1.1.8
+	fnv@1.0.7
+	foldhash@0.1.5
+	foldhash@0.2.0
+	font-types@0.11.1
+	foreign-types-macros@0.2.3
+	foreign-types-shared@0.3.1
+	foreign-types@0.5.0
+	form_urlencoded@1.2.2
+	fs-set-times@0.20.3
+	fs_extra@1.3.0
+	fsevent-sys@4.1.0
+	fst-reader@0.16.5
+	ftr_parser@0.3.0
+	futures-channel@0.3.32
+	futures-core@0.3.32
+	futures-executor@0.3.32
+	futures-io@0.3.32
+	futures-lite@2.6.1
+	futures-macro@0.3.32
+	futures-sink@0.3.32
+	futures-task@0.3.32
+	futures-util@0.3.32
+	futures@0.3.32
+	fuzzy-matcher@0.3.7
+	generic-array@0.14.9
+	gethostname@1.1.0
+	getrandom@0.2.17
+	getrandom@0.3.4
+	gimli@0.32.3
+	gl_generator@0.14.0
+	glob@0.3.3
+	glow@0.17.0
+	glutin-winit@0.5.0
+	glutin@0.32.3
+	glutin_egl_sys@0.7.1
+	glutin_glx_sys@0.6.1
+	glutin_wgl_sys@0.6.1
+	h2@0.4.12
+	half@2.7.1
+	hashbrown@0.15.5
+	hashbrown@0.16.1
+	heck@0.5.0
+	hermit-abi@0.5.2
+	hex@0.4.3
+	hexf-parse@0.2.1
+	http-body-util@0.1.3
+	http-body@1.0.1
+	http@1.4.0
+	httparse@1.10.1
+	httpdate@1.0.3
+	hyper-rustls@0.27.7
+	hyper-util@0.1.20
+	hyper@1.9.0
+	iana-time-zone-haiku@0.1.2
+	iana-time-zone@0.1.65
+	icu_collections@2.1.1
+	icu_locale_core@2.1.1
+	icu_normalizer@2.1.1
+	icu_normalizer_data@2.1.1
+	icu_properties@2.1.1
+	icu_properties_data@2.1.1
+	icu_provider@2.1.1
+	id-arena@2.2.1
+	ident_case@1.0.1
+	idna@1.1.0
+	idna_adapter@1.2.1
+	image-compare@0.5.0
+	image@0.25.10
+	indenter@0.3.4
+	indexmap@2.13.0
+	inotify-sys@0.1.5
+	inotify@0.11.0
+	io-extras@0.18.4
+	io-lifetimes@2.0.4
+	ipnet@2.11.0
+	iri-string@0.7.8
+	is_terminal_polyfill@1.70.2
+	itertools@0.13.0
+	itertools@0.14.0
+	itoa@1.0.15
+	jni-sys-macros@0.4.1
+	jni-sys@0.3.1
+	jni-sys@0.4.1
+	jni@0.21.1
+	jobserver@0.1.34
+	js-sys@0.3.95
+	khronos_api@3.1.0
+	kqueue-sys@1.0.4
+	kqueue@1.1.1
+	kurbo@0.13.0
+	lazy_static@1.5.0
+	leb128@0.2.5
+	leb128fmt@0.1.0
+	libc@0.2.184
+	libloading@0.8.9
+	libm@0.2.15
+	libredox@0.1.12
+	linebender_resource_handle@0.1.1
+	linux-raw-sys@0.12.1
+	linux-raw-sys@0.4.15
+	litemap@0.8.1
+	litrs@1.0.0
+	local-impl@0.1.2
+	lock_api@0.4.14
+	log@0.4.29
+	lru-slab@0.1.2
+	lz4_flex@0.11.6
+	lz4_flex@0.13.0
+	mach2@0.4.3
+	manyhow-macros@0.11.4
+	manyhow@0.11.4
+	matchers@0.2.0
+	maybe-owned@0.3.4
+	memchr@2.7.6
+	memfd@0.6.5
+	memmap2@0.9.10
+	memoffset@0.9.1
+	mime@0.3.17
+	minimal-lexical@0.2.1
+	miniz_oxide@0.8.9
+	miniz_oxide@0.9.1
+	mio@1.1.0
+	moxcms@0.8.1
+	naga@29.0.1
+	ndk-context@0.1.1
+	ndk-sys@0.6.0+11769913
+	ndk@0.9.0
+	nohash-hasher@0.2.0
+	nom@7.1.3
+	notify-types@2.0.0
+	notify@8.2.0
+	nu-ansi-term@0.50.3
+	num-bigint@0.4.6
+	num-complex@0.4.6
+	num-conv@0.2.0
+	num-integer@0.1.46
+	num-iter@0.1.45
+	num-rational@0.4.2
+	num-traits@0.2.19
+	num@0.4.3
+	num_enum@0.7.6
+	num_enum_derive@0.7.6
+	num_threads@0.1.7
+	numeric-sort@0.1.5
+	objc-sys@0.3.5
+	objc2-app-kit@0.2.2
+	objc2-app-kit@0.3.2
+	objc2-cloud-kit@0.2.2
+	objc2-contacts@0.2.2
+	objc2-core-data@0.2.2
+	objc2-core-foundation@0.3.2
+	objc2-core-graphics@0.3.2
+	objc2-core-image@0.2.2
+	objc2-core-location@0.2.2
+	objc2-encode@4.1.0
+	objc2-foundation@0.2.2
+	objc2-foundation@0.3.2
+	objc2-io-surface@0.3.2
+	objc2-link-presentation@0.2.2
+	objc2-metal@0.2.2
+	objc2-quartz-core@0.2.2
+	objc2-symbols@0.2.2
+	objc2-system-configuration@0.3.2
+	objc2-ui-kit@0.2.2
+	objc2-ui-kit@0.3.2
+	objc2-uniform-type-identifiers@0.2.2
+	objc2-user-notifications@0.2.2
+	objc2@0.5.2
+	objc2@0.6.4
+	object@0.37.3
+	once_cell@1.21.3
+	once_cell_polyfill@1.70.2
+	openssl-probe@0.2.0
+	option-ext@0.2.0
+	orbclient@0.3.48
+	ordered-stream@0.2.0
+	parking@2.2.1
+	parking_lot@0.12.5
+	parking_lot_core@0.9.12
+	pathdiff@0.2.3
+	peniko@0.6.0
+	percent-encoding@2.3.2
+	phf@0.13.1
+	phf_generator@0.13.1
+	phf_macros@0.13.1
+	phf_shared@0.13.1
+	pin-project-internal@1.1.10
+	pin-project-lite@0.2.16
+	pin-project@1.1.10
+	piper@0.2.4
+	pkg-config@0.3.32
+	png@0.18.1
+	polling@3.11.0
+	pollster@0.4.0
+	port_check@0.3.0
+	portable-atomic-util@0.2.4
+	portable-atomic@1.11.1
+	postcard@1.1.3
+	potential_utf@0.1.4
+	powerfmt@0.2.0
+	ppv-lite86@0.2.21
+	prettyplease@0.2.37
+	proc-macro-crate@3.5.0
+	proc-macro-utils@0.10.0
+	proc-macro2@1.0.106
+	profiling@1.0.17
+	project-root@0.2.2
+	prost-derive@0.14.1
+	prost@0.14.1
+	pulley-interpreter@41.0.4
+	pulley-macros@41.0.4
+	pure-rust-locales@0.8.2
+	pxfm@0.1.25
+	pyo3-build-config@0.28.3
+	pyo3-ffi@0.28.3
+	pyo3-macros-backend@0.28.3
+	pyo3-macros@0.28.3
+	pyo3@0.28.3
+	quick-error@2.0.1
+	quick-xml@0.38.4
+	quinn-proto@0.11.13
+	quinn-udp@0.5.14
+	quinn@0.11.9
+	quote@1.0.45
+	r-efi@5.3.0
+	rand@0.8.6
+	rand@0.9.4
+	rand_chacha@0.3.1
+	rand_chacha@0.9.0
+	rand_core@0.6.4
+	rand_core@0.9.3
+	raw-window-handle@0.6.2
+	rayon-core@1.13.0
+	rayon@1.12.0
+	read-fonts@0.37.0
+	redox_syscall@0.4.1
+	redox_syscall@0.5.18
+	redox_syscall@0.7.1
+	redox_users@0.4.6
+	redox_users@0.5.2
+	regalloc2@0.13.3
+	regex-automata@0.4.13
+	regex-syntax@0.8.8
+	regex@1.12.3
+	renderdoc-sys@1.1.0
+	reqwest@0.13.2
+	rfd@0.17.2
+	ring@0.17.14
+	rmp-serde@1.3.1
+	rmp@0.8.15
+	ron@0.12.1
+	rustc-demangle@0.1.26
+	rustc-hash@1.1.0
+	rustc-hash@2.1.1
+	rustc_version@0.4.1
+	rustix-linux-procfs@0.1.1
+	rustix@0.38.44
+	rustix@1.1.4
+	rustls-native-certs@0.8.3
+	rustls-pki-types@1.13.0
+	rustls-platform-verifier-android@0.1.1
+	rustls-platform-verifier@0.6.2
+	rustls-webpki@0.103.8
+	rustls@0.23.34
+	rustversion@1.0.22
+	same-file@1.0.6
+	schannel@0.1.28
+	scoped-tls@1.0.1
+	scopeguard@1.2.0
+	security-framework-sys@2.15.0
+	security-framework@3.5.1
+	self_cell@1.2.2
+	semver@1.0.27
+	serde@1.0.228
+	serde_core@1.0.228
+	serde_derive@1.0.228
+	serde_json@1.0.148
+	serde_repr@0.1.20
+	serde_spanned@1.1.1
+	sha2@0.10.9
+	sharded-slab@0.1.7
+	shlex@1.3.0
+	signal-hook-registry@1.4.6
+	simd-adler32@0.3.7
+	simple-eyre@0.3.1
+	siphasher@1.0.2
+	skia-bindings@0.93.1
+	skia-safe@0.93.1
+	skrifa@0.40.0
+	slab@0.4.11
+	slotmap@1.0.7
+	smallvec@1.15.1
+	smithay-client-toolkit@0.19.2
+	smithay-clipboard@0.7.2
+	smol_str@0.2.2
+	socket2@0.6.1
+	softposit@0.4.0
+	stable_deref_trait@1.2.1
+	static_assertions@1.1.0
+	strsim@0.11.1
+	subtle@2.6.1
+	syn@2.0.117
+	sync_wrapper@1.0.2
+	synstructure@0.13.2
+	sys-locale@0.3.2
+	system-configuration-sys@0.6.0
+	system-configuration@0.7.0
+	system-interface@0.27.3
+	tar@0.4.44
+	target-lexicon@0.13.3
+	tempfile@3.23.0
+	termcolor@1.4.1
+	test-log-macros@0.2.18
+	test-log@0.2.18
+	thiserror-impl@1.0.69
+	thiserror-impl@2.0.17
+	thiserror@1.0.69
+	thiserror@2.0.17
+	thread_local@1.1.9
+	tiff@0.11.3
+	time-core@0.1.8
+	time-macros@0.2.27
+	time@0.3.47
+	tinystr@0.8.2
+	tinyvec@1.10.0
+	tinyvec_macros@0.1.1
+	tokio-macros@2.6.0
+	tokio-rustls@0.26.4
+	tokio-stream@0.1.17
+	tokio-util@0.7.16
+	tokio@1.48.0
+	toml@0.9.12+spec-1.1.0
+	toml@1.1.2+spec-1.1.0
+	toml_datetime@0.7.5+spec-1.1.0
+	toml_datetime@1.1.1+spec-1.1.0
+	toml_edit@0.25.10+spec-1.1.0
+	toml_parser@1.1.2+spec-1.1.0
+	toml_writer@1.1.1+spec-1.1.0
+	tower-http@0.6.8
+	tower-layer@0.3.3
+	tower-service@0.3.3
+	tower@0.5.2
+	tracing-attributes@0.1.31
+	tracing-core@0.1.36
+	tracing-log@0.2.0
+	tracing-subscriber@0.3.23
+	tracing@0.1.44
+	try-lock@0.2.5
+	twox-hash@2.1.2
+	type-map@0.5.1
+	typeid@1.0.3
+	typenum@1.19.0
+	uds_windows@1.1.0
+	unicode-ident@1.0.22
+	unicode-segmentation@1.12.0
+	unicode-width@0.2.2
+	unicode-xid@0.2.6
+	untrusted@0.9.0
+	url@2.5.8
+	utf8_iter@1.0.4
+	utf8parse@0.2.2
+	uuid@1.20.0
+	valuable@0.1.1
+	vello_common@0.0.6
+	vello_cpu@0.0.6
+	vergen-gitcl@9.1.0
+	vergen-lib@9.1.0
+	vergen@9.1.0
+	version_check@0.9.5
+	walkdir@2.5.0
+	want@0.3.1
+	wasi-common@41.0.4
+	wasi@0.11.1+wasi-snapshot-preview1
+	wasi@0.14.7+wasi-0.2.4
+	wasip2@1.0.2+wasi-0.2.9
+	wasite@1.0.2
+	wasm-bindgen-futures@0.4.68
+	wasm-bindgen-macro-support@0.2.118
+	wasm-bindgen-macro@0.2.118
+	wasm-bindgen-shared@0.2.118
+	wasm-bindgen@0.2.118
+	wasm-encoder@0.243.0
+	wasm-encoder@0.246.2
+	wasm-streams@0.5.0
+	wasm-tracing@2.1.0
+	wasmparser@0.243.0
+	wasmparser@0.246.2
+	wasmprinter@0.243.0
+	wasmtime-environ@41.0.4
+	wasmtime-internal-cache@41.0.4
+	wasmtime-internal-component-macro@41.0.4
+	wasmtime-internal-component-util@41.0.4
+	wasmtime-internal-cranelift@41.0.4
+	wasmtime-internal-fiber@41.0.4
+	wasmtime-internal-jit-debug@41.0.4
+	wasmtime-internal-jit-icache-coherence@41.0.4
+	wasmtime-internal-math@41.0.4
+	wasmtime-internal-slab@41.0.4
+	wasmtime-internal-unwinder@41.0.4
+	wasmtime-internal-versioned-export-macros@41.0.4
+	wasmtime-internal-winch@41.0.4
+	wasmtime-internal-wit-bindgen@41.0.4
+	wasmtime@41.0.4
+	wast@246.0.2
+	wast@35.0.2
+	wat@1.246.2
+	wayland-backend@0.3.11
+	wayland-client@0.31.11
+	wayland-csd-frame@0.3.0
+	wayland-cursor@0.31.11
+	wayland-protocols-plasma@0.3.9
+	wayland-protocols-wlr@0.3.9
+	wayland-protocols@0.32.9
+	wayland-scanner@0.31.8
+	wayland-sys@0.31.7
+	web-sys@0.3.95
+	web-time@1.1.0
+	webbrowser@1.1.0
+	webpki-root-certs@1.0.6
+	weezl@0.1.10
+	wellen@0.20.5
+	wgpu-core-deps-windows-linux-android@29.0.0
+	wgpu-core@29.0.1
+	wgpu-hal@29.0.1
+	wgpu-naga-bridge@29.0.1
+	wgpu-types@29.0.1
+	wgpu@29.0.1
+	whoami@2.1.1
+	wiggle-generate@41.0.4
+	wiggle-macro@41.0.4
+	wiggle@41.0.4
+	winapi-i686-pc-windows-gnu@0.4.0
+	winapi-util@0.1.11
+	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9
+	winch-codegen@41.0.4
+	windows-collections@0.3.2
+	windows-core@0.62.2
+	windows-future@0.3.2
+	windows-implement@0.60.2
+	windows-interface@0.59.3
+	windows-link@0.2.1
+	windows-numerics@0.3.1
+	windows-registry@0.6.1
+	windows-result@0.4.1
+	windows-strings@0.5.1
+	windows-sys@0.45.0
+	windows-sys@0.52.0
+	windows-sys@0.60.2
+	windows-sys@0.61.2
+	windows-targets@0.42.2
+	windows-targets@0.52.6
+	windows-targets@0.53.5
+	windows-threading@0.2.1
+	windows@0.62.2
+	windows_aarch64_gnullvm@0.42.2
+	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_gnullvm@0.53.1
+	windows_aarch64_msvc@0.42.2
+	windows_aarch64_msvc@0.52.6
+	windows_aarch64_msvc@0.53.1
+	windows_i686_gnu@0.42.2
+	windows_i686_gnu@0.52.6
+	windows_i686_gnu@0.53.1
+	windows_i686_gnullvm@0.52.6
+	windows_i686_gnullvm@0.53.1
+	windows_i686_msvc@0.42.2
+	windows_i686_msvc@0.52.6
+	windows_i686_msvc@0.53.1
+	windows_x86_64_gnu@0.42.2
+	windows_x86_64_gnu@0.52.6
+	windows_x86_64_gnu@0.53.1
+	windows_x86_64_gnullvm@0.42.2
+	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_gnullvm@0.53.1
+	windows_x86_64_msvc@0.42.2
+	windows_x86_64_msvc@0.52.6
+	windows_x86_64_msvc@0.53.1
+	winit@0.30.13
+	winnow@0.7.15
+	winnow@1.0.0
+	winx@0.36.4
+	wit-bindgen@0.51.0
+	wit-parser@0.243.0
+	witx@0.9.1
+	writeable@0.6.2
+	x11-dl@2.21.0
+	x11rb-protocol@0.13.2
+	x11rb@0.13.2
+	xattr@1.6.1
+	xcursor@0.3.10
+	xkbcommon-dl@0.4.2
+	xkeysym@0.2.1
+	xml-rs@0.8.28
+	yoke-derive@0.8.1
+	yoke@0.8.1
+	zbus-lockstep-macros@0.5.2
+	zbus-lockstep@0.5.2
+	zbus@5.13.1
+	zbus_macros@5.13.1
+	zbus_names@4.3.1
+	zbus_xml@5.1.0
+	zerocopy-derive@0.8.39
+	zerocopy@0.8.39
+	zerofrom-derive@0.1.6
+	zerofrom@0.1.6
+	zeroize@1.8.2
+	zerotrie@0.2.3
+	zerovec-derive@0.11.2
+	zerovec@0.11.5
+	zmij@1.0.21
+	zstd-safe@7.2.4
+	zstd-sys@2.0.16+zstd.1.5.7
+	zstd@0.13.3
+	zune-core@0.5.1
+	zune-jpeg@0.5.15
+	zvariant@5.9.1
+	zvariant_derive@5.9.1
+	zvariant_utils@3.3.0
+"
+
+declare -A GIT_CRATES=(
+	[egui_skia_renderer]='https://gitlab.com/oscargus/egui_skia_renderer;36fe7b49a59a87f9d4b62533bd81e6e37139e9cd;egui_skia_renderer-%commit%'
+)
+
+# Git submodule commits
+F128_COMMIT="e60de395f0d6454c1dc546b87f06a6358425b6b6"
+INSTRUCTION_DECODER_COMMIT="02bdcbfd5663a72e4a0b1b9d54519412d417fab1"
+
+PYTHON_COMPAT=( python3_{12..14} )
+
+inherit cargo desktop python-any-r1 xdg
+
+DESCRIPTION="Waveform viewer with a focus on a snappy usable interface"
+HOMEPAGE="https://surfer-project.org/ https://gitlab.com/surfer-project/surfer"
+SRC_URI="
+	https://gitlab.com/surfer-project/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2
+		-> ${P}.tar.bz2
+	https://github.com/jkarns275/f128/archive/${F128_COMMIT}.tar.gz
+		-> f128-${F128_COMMIT}.tar.gz
+	https://github.com/ics-jku/instruction-decoder/archive/${INSTRUCTION_DECODER_COMMIT}.tar.gz
+		-> instruction-decoder-${INSTRUCTION_DECODER_COMMIT}.tar.gz
+	${CARGO_CRATE_URIS}
+"
+
+S="${WORKDIR}/${PN}-v${PV}"
+
+LICENSE="EUPL-1.2"
+# Dependent crate licenses
+LICENSE+="
+	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0
+	CC0-1.0 CDLA-Permissive-2.0 EUPL-1.2 ISC MIT MPL-2.0 OFL-1.1
+	UbuntuFontLicense-1.0 Unicode-3.0 ZLIB
+"
+SLOT="0"
+KEYWORDS="~amd64"
+IUSE="accesskit +performance-plot python +wasm-plugins"
+
+DEPEND="dev-libs/openssl:="
+RDEPEND="${DEPEND}"
+BDEPEND="
+	virtual/pkgconfig
+	python? ( ${PYTHON_DEPS} )
+"
+
+RUST_MIN_VER="1.92"
+
+# rust does not use *FLAGS from make.conf, silence portage warning
+QA_FLAGS_IGNORED="
+	usr/bin/${PN}
+	usr/bin/surver
+"
+
+# Tests require network and special files
+RESTRICT="test"
+
+pkg_setup() {
+	use python && python-any-r1_pkg_setup
+	rust_pkg_setup
+}
+
+src_prepare() {
+	default
+
+	# Move submodules into place
+	rm -rf f128 instruction-decoder || die
+	mv "${WORKDIR}/f128-${F128_COMMIT}" f128 || die
+	mv "${WORKDIR}/instruction-decoder-${INSTRUCTION_DECODER_COMMIT}" instruction-decoder || die
+
+	# Remove dev-dependencies that aren't needed (tests disabled) and can't be
+	# fetched in offline mode
+	sed -i \
+		-e '/^\[dev-dependencies\]/,/^\[/{ /^\[dev-dependencies\]/d; /^\[/!d; }' \
+		-e "/^\[target\.'cfg(not(target_os = \"unknown\"))'.dev-dependencies\]/,/^\[/{ /^\[target/d; /^\[/!d; }" \
+		libsurfer/Cargo.toml || die
+}
+
+src_configure() {
+	local myfeatures=(
+		$(usev accesskit)
+		$(usev performance-plot performance_plot)
+		$(usev python)
+		$(usev wasm-plugins wasm_plugins)
+	)
+	cargo_src_configure
+}
+
+src_compile() {
+	cargo_src_compile --bin surfer --bin surver
+}
+
+src_install() {
+	# Install binaries directly from build output
+	# Using dobin instead of cargo_src_install since this is a workspace
+	# and surver doesn't have the same features as surfer.  Use
+	# cargo_target_dir so the path tracks USE=debug (target/debug) versus
+	# the default release build (target/release).
+	dobin "$(cargo_target_dir)"/surfer
+	dobin "$(cargo_target_dir)"/surver
+
+	# Install desktop file and icon shipped in the source tree.  Strip the
+	# .png from the Icon key so the desktop file passes validation, the icon
+	# is resolved by name from /usr/share/pixmaps.
+	doicon "${S}/surfer/assets/com.gitlab.surferproject.surfer.png"
+	sed -i -e '/^Icon=/s/\.png$//' \
+		"${S}/surfer/assets/com.gitlab.surferproject.surfer.desktop" || die
+	domenu "${S}/surfer/assets/com.gitlab.surferproject.surfer.desktop"
+
+	dodoc README.md CHANGELOG.md
+}

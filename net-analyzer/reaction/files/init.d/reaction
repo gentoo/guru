@@ -1,0 +1,14 @@
+#!/sbin/openrc-run
+# Copyright 1999-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+command="/usr/bin/reaction"
+command_args="start --config /etc/reaction.d"
+command_background="yes"
+pidfile="/run/reaction/reaction.pid"
+
+
+start_pre() {
+	install --mode 0750 --directory /var/lib/reaction
+	install --mode 0750 --directory /run/reaction
+}

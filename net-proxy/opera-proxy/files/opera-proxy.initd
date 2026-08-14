@@ -1,0 +1,15 @@
+#!/sbin/openrc-run
+# shellcheck shell=sh
+#
+# Copyright 2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+supervisor="supervise-daemon"
+command="/usr/bin/opera-proxy"
+command_user="nobody:nobody"
+pidfile="/run/opera-proxy.pid"
+
+depend() {
+	need net
+	use dns firewall
+}

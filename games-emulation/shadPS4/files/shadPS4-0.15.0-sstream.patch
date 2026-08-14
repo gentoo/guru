@@ -1,0 +1,14 @@
+Fixes build faliure
+Closes: https://bugs.gentoo.org/975037
+From: https://github.com/shadps4-emu/ext-hwinfo/commit/f85127c489e0f25903d2a56d9841adb5349a86f2
+
+--- a/externals/hwinfo/src/linux/disk.cpp
++++ b/externals/hwinfo/src/linux/disk.cpp
+@@ -13,6 +13,7 @@
+ #include <fstream>
+ #include <regex>
+ #include <vector>
++#include <sstream>
+ 
+ namespace {
+ 

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit cmake check-reqs python-any-r1
 
 DESCRIPTION="Microsoft DirectX Shader Compiler which is based on LLVM/Clang"
@@ -33,7 +33,7 @@ DEPEND="${PYTHON_DEPS}"
 #	dev-util/spirv-headers
 #	dev-util/spirv-tools
 RDEPEND="
-	sys-libs/zlib:0=
+	virtual/zlib:=
 	>=dev-libs/libffi-3.4.2-r1:0=
 "
 BDEPEND="sys-devel/gnuconfig"

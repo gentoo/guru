@@ -45,7 +45,7 @@ src_compile() {
 		LDFLAGS="${LDFLAGS}"
 		DO_USERDIRS=1
 		MP3LIB=mpg123
-		STRIP="$(type -P true)"
+		STRIP=true
 		USE_SDL2=1
 		USE_CODEC_FLAC=$(usex flac 1 0)
 		USE_CODEC_MIKMOD=$(usex mikmod 1 0)

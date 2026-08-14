@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>rose@pinkro.se</email>
+		<name>Rose Hellsing</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="codeberg">grunfink/snac2</remote-id>
+	</upstream>
+	<use>
+		<flag name="mastodon">Enable Mastodon API support</flag>
+		<flag name="sandbox">Enable experimental sandboxing through Linux Landlock</flag>
+	</use>
+</pkgmetadata>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>yt+gentoo@sysv.in</email>
+		<name>tooknox</name>
+	</maintainer>
+	<longdescription lang="en">
+		A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust. 
+		User facing docs and guide at: https://wezterm.org/
+	</longdescription>
+	<upstream>
+		<remote-id type="github">wezterm/wezterm</remote-id>
+	</upstream>
+</pkgmetadata>

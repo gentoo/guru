@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alexander@tsoy.me</email>
+		<name>Alexander Tsoy</name>
+	</maintainer>
+	<longdescription lang="en">
+		Project X originates from XTLS protocol, providing a set of network tools such as Xray-core and REALITY.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">XTLS/Xray-core</remote-id>
+	</upstream>
+</pkgmetadata>

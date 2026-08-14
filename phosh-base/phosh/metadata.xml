@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>cyber+gentoo@sysrq.in</email>
-		<name>Anna</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<use>
 		<flag name="calls">Enable calls support via <pkg>net-voip/gnome-calls</pkg></flag>
-		<flag name="desktop-portal">Enable <pkg>sys-apps/xdg-desktop-portal</pkg> backend implementation</flag>
 		<flag name="iio">Enable support for IIO sensors via <pkg>gnome-extra/iio-sensor-proxy</pkg></flag>
 		<flag name="screenshot">Enable screenshot manager support via <pkg>gui-apps/slurp</pkg></flag>
 	</use>

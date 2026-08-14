@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>yt+gentoo@sysv.in</email>
+		<name>tooknox</name>
+	</maintainer>
+	<longdescription lang="en">
+		Variety is a wallpaper downloader and manager for Linux systems.
+		It supports out-of-the-box most Linux desktop environments, and can be configured to work on more esoteric ones.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">varietywalls/variety</remote-id>
+	</upstream>
+</pkgmetadata>

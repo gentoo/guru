@@ -19,7 +19,7 @@ DEPEND="
 	app-arch/libarchive:=
 	app-arch/xz-utils
 	dev-qt/qtbase:6
-	sys-libs/zlib
+	virtual/zlib:=
 "
 RDEPEND="${DEPEND}"
 

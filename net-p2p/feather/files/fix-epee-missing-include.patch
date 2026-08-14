@@ -1,0 +1,8 @@
+diff '--color=auto' -Naur orig/monero/contrib/epee/src/abstract_http_client.cpp final/monero/contrib/epee/src/abstract_http_client.cpp
+--- orig/monero/contrib/epee/src/abstract_http_client.cpp	2025-04-12 18:06:53.000000000 -0600
++++ final/monero/contrib/epee/src/abstract_http_client.cpp	2026-03-03 16:03:26.000000000 -0600
+@@ -1,3 +1,4 @@
++#include <math.h>
+ #include "net/abstract_http_client.h"
+ #include "net/http_base.h"
+ #include "net/net_parse_helpers.h"

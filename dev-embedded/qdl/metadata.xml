@@ -5,10 +5,13 @@
     <email>quincyf467@protonmail.com</email>
     <name>Quincy Fleming</name>
   </maintainer>
+  <use>
+    <flag name="nbd">Build the nbdkit plugin via <pkg>sys-block/nbdkit</pkg></flag>
+  </use>
   <upstream>
-    <remote-id type="github">andersson/qdl</remote-id>
-    <doc lang="en">https://github.com/andersson/qdl#readme</doc>
-    <bugs-to>https://github.com/andersson/qdl/issues</bugs-to>
+    <remote-id type="github">linux-msm/qdl</remote-id>
+    <doc lang="en">https://github.com/linux-msm/qdl</doc>
+    <bugs-to>https://github.com/linux-msm/qdl/issues</bugs-to>
   </upstream>
   <longdescription lang="en">
     This tool communicates with USB devices of id 05c6:9008 to upload a flash

@@ -240,7 +240,7 @@ RESTRICT="test"
 
 DEPEND="
 	dev-libs/openssl:=
-	sys-libs/zlib
+	virtual/zlib:=
 "
 RDEPEND="${DEPEND}"
 

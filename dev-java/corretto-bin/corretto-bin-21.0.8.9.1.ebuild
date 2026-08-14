@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -31,7 +31,7 @@ RDEPEND="
 		media-libs/harfbuzz
 		elibc_glibc? ( >=sys-libs/glibc-2.2.5:* )
 		elibc_musl? ( sys-libs/musl )
-		sys-libs/zlib
+		virtual/zlib
 		alsa? ( media-libs/alsa-lib )
 		cups? ( net-print/cups )
 		selinux? ( sec-policy/selinux-java )

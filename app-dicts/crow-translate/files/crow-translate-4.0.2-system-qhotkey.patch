@@ -1,0 +1,13 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -87,8 +87,8 @@
+ kde_clang_format(${CLANG_FORMAT_SOURCES})
+ set(QAPPLICATION_CLASS QApplication)
+-option(QHOTKEY_INSTALL OFF)
+ set(BUILD_SHARED_LIBS OFF)
+ add_subdirectory(src/3rdparty/singleapplication)
+-add_subdirectory(src/3rdparty/qhotkey)
++find_package(QHotkey REQUIRED)
++add_library(QHotkey::QHotkey ALIAS qhotkey)
+
+ find_package(Qt6 REQUIRED COMPONENTS Widgets Multimedia Network LinguistTools Concurrent StateMachine TextToSpeech)

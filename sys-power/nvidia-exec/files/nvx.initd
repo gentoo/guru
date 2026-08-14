@@ -1,0 +1,18 @@
+#!/sbin/openrc-run
+# Copyright 1999-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+description="nvidia-exec daemon for Nvidia Optimus GPU switching"
+
+command="/usr/bin/nvx"
+command_args="daemon"
+command_background="yes"
+pidfile="/run/${RC_SVCNAME}.pid"
+
+output_log="/var/log/nvx.log"
+error_log="/var/log/nvx.log"
+
+depend() {
+	after udev
+	before xdm display-manager
+}

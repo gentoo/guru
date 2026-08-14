@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-LLVM_COMPAT=( {15..19} )
-PYTHON_COMPAT=( python3_{11..13} )
-inherit llvm-r1 python-single-r1 toolchain-funcs
+LLVM_COMPAT=( {17..22} )
+PYTHON_COMPAT=( python3_{12..14} )
+inherit flag-o-matic llvm-r2 python-single-r1
 
 DESCRIPTION="A high-level, general-purpose, multi-paradigm, compiled programming language"
 HOMEPAGE="https://www.swift.org"
@@ -53,10 +53,12 @@ SRC_URI="
 
 PATCHES=(
 	"${FILESDIR}/${PF}/backtracing-noexecstack.patch"
+	"${FILESDIR}/${PF}/disable-libdispatch-private-header-check.patch"
 	"${FILESDIR}/${PF}/disable-libdispatch-werror.patch"
 	"${FILESDIR}/${PF}/indexstoredb-constant.patch"
 	"${FILESDIR}/${PF}/link-ncurses-tinfo.patch"
 	"${FILESDIR}/${PF}/link-with-lld.patch"
+	"${FILESDIR}/${PF}/remove-linux-scc_h.patch"
 	"${FILESDIR}/${PF}/respect-c-cxx-flags.patch"
 )
 
@@ -64,6 +66,7 @@ S="${WORKDIR}"
 LICENSE="Apache-2.0"
 SLOT="6/0"
 KEYWORDS="~amd64"
+IUSE="libcxx"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RESTRICT="strip"
@@ -79,10 +82,36 @@ RDEPEND="
 	>=dev-libs/libxml2-2.11.5
 	>=net-misc/curl-8.4
 	>=sys-libs/ncurses-6
-	>=sys-libs/zlib-1.3
+	>=virtual/zlib-1.3:=
 	dev-lang/python
 	$(llvm_gen_dep 'llvm-core/lld:${LLVM_SLOT}=')
+	libcxx? ( $(llvm_gen_dep '=llvm-runtimes/libcxx-${LLVM_SLOT}*') )
 "
+
+# Adapted from `llvm-r2.eclass`'s `llvm_gen_dep` to output conditional
+# dependency alocks, which isn't currently supported. If llvm-r2 or a future
+# eclass introduces `llvm_gen_cond_dep`, this definition should be dropped in
+# favor of that.
+#
+# Used to conditionally depend on GCC <16 for LLVM_SLOT <22; see `src_configure`
+# for more.
+_swift_llvm_gen_cond_dep() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	[[ $# -ge 2 ]] || die "Usage: ${FUNCNAME} <dependency> <slot>..."
+
+	local dep=${1}
+	shift
+
+	local slot
+	for slot in "${_LLVM_SLOTS[@]}"; do
+		for match in $*; do
+			if [[ "$slot" == "${match}" ]]; then
+				echo "llvm_slot_${slot}? ( ${dep//\$\{LLVM_SLOT\}/${slot}} )"
+			fi
+		done
+	done
+}
 
 BDEPEND="
 	${PYTHON_DEPS}
@@ -97,7 +126,7 @@ BDEPEND="
 	>=sys-apps/coreutils-9
 	>=sys-devel/gcc-11
 	>=sys-libs/ncurses-6
-	>=sys-libs/zlib-1.3
+	>=virtual/zlib-1.3:=
 	|| (
 		dev-lang/swift
 		dev-lang/swift-bootstrap
@@ -106,10 +135,10 @@ BDEPEND="
 		llvm-core/clang:${LLVM_SLOT}=
 		llvm-core/lld:${LLVM_SLOT}=
 	')
+	libcxx? ( $(llvm_gen_dep '=llvm-runtimes/libcxx-${LLVM_SLOT}*') )
+	!libcxx? ( $(_swift_llvm_gen_cond_dep '<sys-devel/gcc-16' {17..21}) )
 	dev-lang/python
-	$(python_gen_cond_dep '
-		dev-python/setuptools[${PYTHON_USEDEP}]
-	' python3_{12..13})
+	$(python_gen_cond_dep 'dev-python/setuptools[${PYTHON_USEDEP}]')
 "
 
 SWIFT_BUILD_PRESETS_INI_PATH="${S}/gentoo-build-presets.ini"
@@ -138,7 +167,7 @@ pkg_setup() {
 
 	# Sets up `PATH` to point to the appropriate LLVM toolchain, and ensure
 	# we're using the toolchain for compilation.
-	llvm-r1_pkg_setup
+	llvm-r2_pkg_setup
 }
 
 src_unpack() {
@@ -202,14 +231,43 @@ src_configure() {
 		fi
 	fi
 
-	if [[ "$(tc-get-cxx-stdlib)" = 'libc++' ]]; then
-		# On systems which use libc++ as their default C++ stdlib (e.g. systems
-		# with the LLVM profile), we want to build the internal libc++ and
-		# ensure we link against it.
+	if use libcxx; then
 		extra_build_flags+=(
 			--libcxx
 			--extra-cmake-options=-DCLANG_DEFAULT_CXX_STDLIB=libc++
 		)
+	elif [[ "${LLVM_SLOT}" -ge 22 ]]; then
+		# While `__COUNTER__` is being standardized, Clang 22 considers it a C2Y
+		# extension, and produces compilation errors by default. The semantics
+		# haven't changed, so these can be downgraded to warnings.
+		append-cxxflags '-Wno-error=c2y-extensions'
+	else
+		# Swift is going to be building against GCC's libstdc++ using Clang, and
+		# GCC 16 libstdc++ headers can only be parsed by Clang 22 and later.
+		# Swift's LLVM will automatically pick up on the latest headers on disk,
+		# so we need to point Clang to a specific GCC install dir if GCC 16 or
+		# later are installed.
+		#
+		# Adapted from `toolchain-func.eclass`'s `_gcc_install_dir`.
+		local gcc_install_dir="$(LC_ALL=C gcc -print-search-dirs 2>/dev/null \
+			| awk '$1=="install:" {print $2}')" \
+			|| die "Failed to get GCC install dir"
+
+		if [[ "$(basename "${gcc_install_dir}")" -ge 16 ]]; then
+			local base="$(dirname "${gcc_install_dir}")"
+
+			gcc_install_dir=""
+			while read -r -d '' dir; do
+				if [[ "$(basename "${dir}")" -lt 16 ]]; then
+					gcc_install_dir="${dir}"
+					break
+				fi
+			done < <(find "${base}" -mindepth 1 -maxdepth 1 -print0 | sort -rVz) \
+				|| die "Failed to find GCC install dirs"
+		fi
+
+		[[ -n "${gcc_install_dir}" ]] || die "Failed to find GCC <16 install dir"
+		append-cxxflags "--gcc-install-dir=${gcc_install_dir}"
 	fi
 
 	extra_build_flags+=(${SWIFT_EXTRA_BUILD_FLAGS})
@@ -239,9 +297,12 @@ src_compile() {
 
 	# Versions of Swift 6.0 and later require an existing Swift compiler to
 	# bootstrap from. We can use any version from 5.10.1 and on.
-	local swift_version="$(best_version -b "${CATEGORY}/${PN}")"
-	swift_version="${swift_version#${CATEGORY}/}" # reduce to ${PVR} form
-	swift_version="${swift_version%-r[[:digit:]]*}" # reduce to ${P} form
+	local swift_version="$(eselect swift show | tail -n1 | xargs)"
+	if [[ "${swift_version}" != swift-* ]]; then
+		# Swift may be unset; we can use the latest available.
+		swift_version="$(eselect swift show --latest | tail -n1 | xargs)"
+	fi
+	[[ "${swift_version}" == swift-* ]] || die "No Swift version found for bootstrapping."
 
 	local original_path="${PATH}"
 	export PATH="/usr/lib64/${swift_version}/usr/bin:${original_path}"
@@ -318,4 +379,3 @@ pkg_postrm() {
 		eselect swift update
 	fi
 }
-

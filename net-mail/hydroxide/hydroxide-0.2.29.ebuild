@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -38,7 +38,7 @@ src_unpack() {
 }
 
 src_compile() {
-	ego build -v -x -p "$(makeopts_jobs)" ./cmd/hydroxide
+	ego build -v -x -p "$(get_makeopts_jobs)" ./cmd/hydroxide
 }
 
 src_install() {

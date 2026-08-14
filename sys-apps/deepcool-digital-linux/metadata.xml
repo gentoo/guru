@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>filip@kszczot.pl</email>
+		<name>Filip Kszczot</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/Nortank12/deepcool-digital-linux/issues</bugs-to>
+		<remote-id type="github">Nortank12/deepcool-digital-linux</remote-id>
+	</upstream>
+</pkgmetadata>

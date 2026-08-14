@@ -1,0 +1,49 @@
+Rename the executable to avoid a conflict with dev-haskell/wai-app-static::gentoo.
+
+Debian Patch: https://salsa.debian.org/gnome-team/warp/-/raw/d8b6946d3f7e2929ae9580b892246e9ff8b27a16/debian/patches/rename-warp.diff
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -1,12 +1,12 @@
+ [package]
+-name = "warp"
++name = "warp-gtk"
+ license = "GPL-3.0-only"
+ version = "1.0.0"
+ authors = ["Fina Wilke <finaw@gnome.org>"]
+ homepage = "https://apps.gnome.org/Warp/"
+ repository = "https://gitlab.gnome.org/World/warp/"
+ edition = "2024"
+-default-run = "warp"
++default-run = "warp-gtk"
+ rust-version = "1.92"
+ 
+ [package.metadata.urls]
+--- a/data/app.drey.Warp.desktop.in.in
++++ b/data/app.drey.Warp.desktop.in.in
+@@ -2,7 +2,7 @@
+ Name=Warp
+ Comment=Fast and secure file transfer
+ Type=Application
+-Exec=warp %u
++Exec=warp-gtk %u
+ Terminal=false
+ Categories=Utility
+ Keywords=Gnome;GTK;Wormhole;Magic-Wormhole;
+--- a/data/app.drey.Warp.metainfo.xml.in.in
++++ b/data/app.drey.Warp.metainfo.xml.in.in
+@@ -26,7 +26,7 @@
+     <control>touch</control>
+   </recommends>
+   <provides>
+-    <binary>warp</binary>
++    <binary>warp-gtk</binary>
+   </provides>
+ 
+   <branding>
+--- a/data/app.drey.Warp.service.in
++++ b/data/app.drey.Warp.service.in
+@@ -1,3 +1,3 @@
+ [D-BUS Service]
+ Name=@app-id@
+-Exec=@bindir@/warp --gapplication-service
++Exec=@bindir@/warp-gtk --gapplication-service

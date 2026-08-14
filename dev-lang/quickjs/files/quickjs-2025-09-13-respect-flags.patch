@@ -1,0 +1,62 @@
+From 95fcacedc0d84a8d10f8189ebe932d6774e2367c Mon Sep 17 00:00:00 2001
+From: "Haelwenn (lanodan) Monnier" <contact@hacktivis.me>
+Date: Fri, 20 Feb 2026 23:28:22 +0100
+Subject: [PATCH] Makefile: respect CFLAGS/LDFLAGS
+
+---
+ Makefile | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index dcbbf7e..7d41f8a 100644
+--- a/Makefile
++++ b/Makefile
+@@ -101,7 +101,7 @@ endif
+ ifdef CONFIG_CLANG
+   HOST_CC=clang
+   CC=$(CROSS_PREFIX)clang
+-  CFLAGS+=-g -Wall -MMD -MF $(OBJDIR)/$(@F).d
++  CFLAGS+=-Wall -MMD -MF $(OBJDIR)/$(@F).d
+   CFLAGS += -Wextra
+   CFLAGS += -Wno-sign-compare
+   CFLAGS += -Wno-missing-field-initializers
+@@ -125,13 +125,13 @@ else ifdef CONFIG_COSMO
+   HOST_CC=gcc
+   CC=cosmocc
+   # cosmocc does not correct support -MF
+-  CFLAGS=-g -Wall #-MMD -MF $(OBJDIR)/$(@F).d
++  CFLAGS=-Wall #-MMD -MF $(OBJDIR)/$(@F).d
+   CFLAGS += -Wno-array-bounds -Wno-format-truncation
+   AR=cosmoar
+ else
+   HOST_CC=gcc
+   CC=$(CROSS_PREFIX)gcc
+-  CFLAGS+=-g -Wall -MMD -MF $(OBJDIR)/$(@F).d
++  CFLAGS+=-Wall -MMD -MF $(OBJDIR)/$(@F).d
+   CFLAGS += -Wno-array-bounds -Wno-format-truncation -Wno-infinite-recursion
+   ifdef CONFIG_LTO
+     AR=$(CROSS_PREFIX)gcc-ar
+@@ -162,14 +162,14 @@ endif
+ endif
+ 
+ CFLAGS+=$(DEFINES)
+-CFLAGS_DEBUG=$(CFLAGS) -O0
+-CFLAGS_SMALL=$(CFLAGS) -Os
+-CFLAGS_OPT=$(CFLAGS) -O2
++CFLAGS_DEBUG=$(CFLAGS)
++CFLAGS_SMALL=$(CFLAGS)
++CFLAGS_OPT=$(CFLAGS)
+ CFLAGS_NOLTO:=$(CFLAGS_OPT)
+ ifdef CONFIG_COSMO
+ LDFLAGS+=-s # better to strip by default
+ else
+-LDFLAGS+=-g
++LDFLAGS+=
+ endif
+ ifdef CONFIG_LTO
+ CFLAGS_SMALL+=-flto
+
+base-commit: f1139494d18a2053630c5ed3384a42bb70db3c53
+-- 
+2.52.0
+

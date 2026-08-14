@@ -1,4 +1,4 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,7 +24,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	>=dev-cpp/trantor-${MY_TRANTOR_V}:=
 	dev-libs/jsoncpp:=
-	sys-libs/zlib
+	virtual/zlib:=
 	brotli? ( app-arch/brotli:= )
 	mariadb? ( dev-db/mariadb:= )
 	postgres? ( dev-db/postgresql:= )

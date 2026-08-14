@@ -1,29 +1,26 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-EGIT_REPO_URI="https://github.com/linux-can/${PN}.git"
-EGIT_BRANCH="master"
+inherit cmake systemd
 
-inherit autotools git-r3 systemd
+DESCRIPTION="SocketCAN userspace utilities and tools"
+HOMEPAGE="https://github.com/linux-can/can-utils"
 
-DESCRIPTION="CAN userspace utilities and tools"
-HOMEPAGE="https://github.com/linux-can/"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/linux-can/can-utils.git"
+else
+	SRC_URI="https://github.com/linux-can/can-utils/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="GPL-2"
 SLOT="0"
 
-src_prepare() {
-	eautoreconf
-}
-
-# Default src_install + newconfd and newinitd
 src_install() {
-
-	emake DESTDIR="${D}" install
-
-	einstalldocs
+	cmake_src_install
 
 	systemd_dounit "${FILESDIR}/slcan.service"
 	systemd_install_serviced "${FILESDIR}/slcan.service.conf"

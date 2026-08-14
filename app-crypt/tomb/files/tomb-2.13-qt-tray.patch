@@ -1,0 +1,15 @@
+Fix file system location of localization file.
+
+From: Lucio Sauer <watermanpaint@posteo.net>
+--- a/extras/qt-tray/main.cpp
++++ b/extras/qt-tray/main.cpp
+@@ -30,7 +30,8 @@ int main(int argc, char *argv[])
+     QTranslator translator(0);
+ 
+ 
+-    translator.load( QString("./i18n/tomb-qt-tray_") + QLocale::system().name() );
++    translator.load( QString("tomb-qt-tray_it"),
++		     "@GENTOO_PORTAGE_EPREFIX@/usr/share/locale/it_IT/LC_MESSAGES");
+ 
+     a.installTranslator( &translator );
+     //w.show();

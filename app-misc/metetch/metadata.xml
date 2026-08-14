@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>contact.techoraye@gmail.com</email>
+		<name>Mathieu Roberge</name>
+	</maintainer>
+	
+	<upstream>
+		<remote-id type="github">Techoraye/metetch</remote-id>
+	</upstream>
+	
+	<longdescription>
+		metetch is a fast and lightweight system information display utility
+		written in C++. It features modular and customizable output, making it
+		ideal for quickly viewing system details in the terminal.
+	</longdescription>
+</pkgmetadata>

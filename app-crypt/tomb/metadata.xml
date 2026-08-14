@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>t0x0m@pm.me</email>
-    <name>Thomas Huba</name>
-  </maintainer>
+  <!-- maintainer-needed -->
   <upstream>
     <maintainer>
       <email>J@Dyne.org</email>

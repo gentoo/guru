@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,8 +15,8 @@ SLOT="0"
 
 RDEPEND="
 	|| (
-		>=dev-lang/zig-0.13
-		>=dev-lang/zig-bin-0.13
+		>=dev-lang/zig-0.14
+		>=dev-lang/zig-bin-0.14
 	)
 "
 

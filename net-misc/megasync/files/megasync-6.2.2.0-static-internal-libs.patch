@@ -1,0 +1,19 @@
+Build the SDK as static libraries.
+Do not set BUILD_SHARED_LIBS=OFF globally, so plugins can still be built as shared libraries.
+--- a/src/MEGASync/mega/bindings/qt/CMakeLists.txt
++++ b/src/MEGASync/mega/bindings/qt/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-add_library(SDKQtBindings)
++add_library(SDKQtBindings STATIC)
+ add_library(MEGA::SDKQtBindings ALIAS SDKQtBindings)
+ 
+ target_sources(SDKQtBindings
+--- a/src/MEGASync/mega/cmake/modules/sdklib_target.cmake
++++ b/src/MEGASync/mega/cmake/modules/sdklib_target.cmake
+@@ -1,5 +1,5 @@
+ ## SDKlib target ##
+-add_library(SDKlib)
++add_library(SDKlib STATIC)
+ add_library(MEGA::SDKlib ALIAS SDKlib)
+ 
+ set(SDKLIB_PUB_HEADERS

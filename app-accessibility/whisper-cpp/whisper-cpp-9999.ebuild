@@ -1,0 +1,62 @@
+# Copyright 2023-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+inherit cmake
+
+DESCRIPTION="Port of OpenAI's Whisper model in C/C++ "
+HOMEPAGE="https://github.com/ggml-org/whisper.cpp"
+
+if [[ ${PV} == *9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/ggml-org/whisper.cpp"
+else
+	MyPN="whisper.cpp"
+	MyP="${MyPN}-${PV}"
+	SRC_URI="https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v${PV}.tar.gz -> ${MyP}.tar.gz"
+	S="${WORKDIR}/${MyP}"
+	KEYWORDS="~amd64"
+fi
+
+LICENSE="MIT"
+SLOT="0"
+IUSE="blas cuda ffmpeg hip opencl sdl2 vulkan"
+
+CDEPEND="blas? ( sci-libs/openblas )
+	cuda? ( dev-util/nvidia-cuda-toolkit:= )
+	ffmpeg? ( media-video/ffmpeg:= )
+	hip? ( sci-libs/hipBLAS:= )
+	opencl? ( sci-libs/clblast:= )
+	sdl2? ( media-libs/libsdl2:= )"
+DEPEND="${CDEPEND}
+	vulkan? ( dev-util/vulkan-headers )
+"
+RDEPEND="${CDEPEND}
+	vulkan? ( media-libs/vulkan-loader )
+"
+BDEPEND="media-libs/shaderc"
+
+src_configure() {
+	# Note: CUDA and HIP are currently untested. Build failures may occur.
+	# Turning off examples causes errors during configure
+	# -DWHISPER_BUILD_TESTS=$(usex test)
+	local mycmakeargs=(
+		-DWHISPER_BUILD_EXAMPLES=ON
+		-DGGML_BLAS=$(usex blas)
+		-DGGML_CLBLAST=$(usex opencl)
+		-DGGML_CUBLAS=$(usex cuda)
+		-DGGML_HIP=$(usex hip)
+		-DGGML_VULKAN=$(usex vulkan)
+		-DWHISPER_FFMPEG=$(usex ffmpeg)
+		-DWHISPER_SDL2=$(usex sdl2)
+	)
+	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+
+	newinitd "${FILESDIR}/${PN}.init" "${PN}"
+	newconfd "${FILESDIR}/${PN}.confd" "${PN}"
+}

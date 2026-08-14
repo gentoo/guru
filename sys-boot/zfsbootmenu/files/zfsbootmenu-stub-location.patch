@@ -6,7 +6,7 @@ index e8b196c..38b2812 100644
      Enabled: false
  EFI:
    ImageDir: /boot/efi/EFI/zbm
-+  Stub: /usr/lib/systemd/boot/efi/linuxx64.elf.stub
++  Stub: /usr/lib/systemd/boot/efi/linuxx64.efi.stub
    Versions: false
    Enabled: false
  Kernel:

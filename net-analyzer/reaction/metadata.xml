@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <name>Dale Showers</name>
+        <email>gentoo@fictx.com</email>
+    </maintainer>
+    <longdescription>
+      A daemon that scans program outputs for repeated patterns, and takes action. 
+      A common usage is to scan ssh and webserver logs, and to ban hosts that cause multiple authentication errors.
+      Reaction aims at being a successor to fail2ban.
+    </longdescription>
+    <upstream>
+        <changelog>https://framagit.org/ppom/reaction/-/releases#changes</changelog>
+        <doc>https://reaction.ppom.me/</doc>
+        <bugs-to>https://framagit.org/ppom/reaction/-/issues</bugs-to>
+    </upstream>
+</pkgmetadata>

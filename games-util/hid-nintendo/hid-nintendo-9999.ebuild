@@ -1,9 +1,9 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit git-r3 linux-mod
+inherit linux-mod-r1
 
 DESCRIPTION="A Nintendo HID kernel module"
 HOMEPAGE="https://github.com/nicman23/dkms-hid-nintendo https://github.com/DanielOgorchock/linux"
@@ -12,11 +12,29 @@ EGIT_REPO_URI="https://github.com/nicman23/dkms-hid-nintendo"
 LICENSE="GPL-2"
 SLOT="0"
 
-MODULE_NAMES="${PN}(kernel/drivers/hid:${S}/src)"
-BUILD_TARGETS="-C /usr/src/linux M=${S}/src"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/nicman23/dkms-hid-nintendo"
+else
+	MY_COMMIT=""
+	SRC_URI="https://github.com/nicman23/dkms-hid-nintendo/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/dkms-hid-nintendo-${MY_COMMIT}"
+	KEYWORDS="~amd64"
+fi
 
-pkg_setup() {
-	CONFIG_CHECK="~HID ~HID_GENERIC ~USB_HID ~HIDRAW ~UHID"
-	check_extra_config
-	linux-mod_pkg_setup
+CONFIG_CHECK="~HID ~HID_GENERIC ~USB_HID ~HIDRAW ~UHID"
+
+src_prepare() {
+	default
+	if kernel_is -ge 6 12; then
+		# header was moved in 6.12
+		sed -i 's|<asm/unaligned.h>|<linux/unaligned.h>|' src/hid-nintendo.c || die
+	fi
+}
+
+src_compile() {
+	local modlist=( src/hid-nintendo="${S}/src" )
+	local modargs=( -C "${KV_DIR}" M="${S}/src" )
+
+	linux-mod-r1_src_compile
 }

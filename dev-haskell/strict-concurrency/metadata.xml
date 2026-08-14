@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">ygale/strict-concurrency</remote-id>
+		<remote-id type="hackage">strict-concurrency</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		strict-concurrency provides head normal form strict versions of standard
+		Haskell concurrency abstractions such as MVars and Chans. These variants
+		give callers more control over where evaluation happens than the default
+		lazy types.
+	</longdescription>
+	<longdescription lang="zh">
+		strict-concurrency 提供标准 Haskell 并发抽象（如 MVar 和 Chan）的弱头范式
+		严格版本。相比默认的惰性类型，这些变体让调用者可以更明确地控制求值发生的
+		位置。
+	</longdescription>
+</pkgmetadata>

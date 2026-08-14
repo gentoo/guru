@@ -1,0 +1,77 @@
+diff --git a/meson_options.txt b/meson_options.txt
+index 0c22fd6..11a810b 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -1,3 +1,6 @@
+ option('user', type: 'string', value: 'clevis', description: 'Unprivileged user for secure clevis operations')
+ option('group', type: 'string', value: 'clevis', description: 'Unprivileged group for secure clevis operations')
+ option('tpm1', type: 'feature', value: 'auto', description: 'Enable TPM 1.2 pin support')
++option('dracut', type: 'feature', value: 'auto', description: 'Enable dracut support for clevis')
++option('udisks', type: 'feature', value: 'auto', description: 'Enable udisks2 support for clevis')
++option('bashcompdir', type: 'string', value: '', description: 'Directory for bash completion files') 
+diff --git a/src/bash/meson.build b/src/bash/meson.build
+index e9e597a..c353361 100644
+--- a/src/bash/meson.build
++++ b/src/bash/meson.build
+@@ -1,7 +1,11 @@
+ bashcomp = dependency('bash-completion', required: false)
+ 
+-if bashcomp.found()
+-  bashcompdir = bashcomp.get_variable(pkgconfig : 'completionsdir')
++if get_option('bashcompdir') != '' or bashcomp.found() 
++  if get_option('bashcompdir') != ''
++    bashcompdir = get_option('bashcompdir')
++  else
++    bashcompdir = bashcomp.get_variable(pkgconfig: 'completionsdir')
++  endif
+   install_data('clevis', install_dir: bashcompdir)
+ else
+   warning('Will not install bash completion due to missing dependencies!')
+diff --git a/src/luks/dracut/meson.build b/src/luks/dracut/meson.build
+index d78af7d..fb61872 100644
+--- a/src/luks/dracut/meson.build
++++ b/src/luks/dracut/meson.build
+@@ -1,9 +1,12 @@
+-subdir('clevis')
+-subdir('clevis-pin-tang')
+-if not get_option('tpm1').disabled()
+-  subdir('clevis-pin-tpm1')
++dracut = dependency('dracut', required: get_option('dracut'))
++if dracut.found()
++  subdir('clevis')
++  subdir('clevis-pin-tang')
++  if not get_option('tpm1').disabled()
++    subdir('clevis-pin-tpm1')
++  endif
++  subdir('clevis-pin-tpm2')
++  subdir('clevis-pin-sss')
++  subdir('clevis-pin-null')
++  subdir('clevis-pin-pkcs11')
+ endif
+-subdir('clevis-pin-tpm2')
+-subdir('clevis-pin-sss')
+-subdir('clevis-pin-null')
+-subdir('clevis-pin-pkcs11')
+diff --git a/src/luks/udisks2/meson.build b/src/luks/udisks2/meson.build
+index 866055b..8bf4a2d 100644
+--- a/src/luks/udisks2/meson.build
++++ b/src/luks/udisks2/meson.build
+@@ -1,6 +1,6 @@
+-audit = dependency('audit', version: '>=2.7.8', required: false)
+-udisks2 = dependency('udisks2', required: false)
+-gio = dependency('gio-2.0', required: false)
++udisks2 = dependency('udisks2', required: get_option('udisks'))
++audit = dependency('audit', version: '>=2.7.8', required: get_option('udisks'))
++gio = dependency('gio-2.0', required: get_option('udisks'))
+ 
+ if udisks2.found() and audit.found() and gio.found()
+   autostartdir = join_paths(sysconfdir, 'xdg', 'autostart')
+@@ -18,7 +18,7 @@ if udisks2.found() and audit.found() and gio.found()
+     install_dir: libexecdir,
+     install: true,
+   )
+-else
++elif get_option('udisks').auto()
+   warning('Will not build udisks2 support due to missing dependencies!')
+ endif
+ 

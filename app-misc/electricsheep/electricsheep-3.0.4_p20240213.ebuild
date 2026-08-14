@@ -33,7 +33,7 @@ DEPEND="dev-lang/lua:5.1
 	media-libs/libpng:*
 	media-video/ffmpeg:0
 	net-misc/curl
-	sys-libs/zlib
+	virtual/zlib:=
 	x11-libs/libX11
 	x11-libs/libXrender
 	x11-libs/wxGTK:${WX_GTK_VER}

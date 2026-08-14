@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,11 +8,13 @@ inherit desktop wrapper xdg
 DESCRIPTION="Game like benchmark (CPU, GPU), for ~5 minutes"
 HOMEPAGE="https://benchmark.unigine.com/superposition"
 
-SRC_URI="https://assets.unigine.com/d/Unigine_Superposition-${PV}.run"
+SRC_URI="
+	amd64? ( https://assets.unigine.com/d/Unigine_Superposition-${PV}.run )
+"
 
 LICENSE="Unigine-Superposition-Benchmark-EULA"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="-* ~amd64"
 
 RESTRICT="bindist mirror strip"
 
@@ -26,7 +28,7 @@ RDEPEND="
 	media-libs/freetype
 	media-libs/libglvnd
 	sys-apps/dbus
-	sys-libs/zlib
+	virtual/zlib
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
@@ -35,7 +37,7 @@ RDEPEND="
 	x11-libs/libXinerama
 	x11-libs/libXrandr
 	x11-libs/libXrender
-	x11-libs/libxcb:=
+	x11-libs/libxcb:0
 "
 
 QA_PREBUILT="

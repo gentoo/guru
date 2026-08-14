@@ -1,0 +1,25 @@
+From b339844d5bf2124c1440d051869e47c92fdc86bd Mon Sep 17 00:00:00 2001
+From: Nicolas Mora <github@babelouest.org>
+Date: Sun, 26 Apr 2026 09:37:34 -0400
+Subject: [PATCH] Upgrade cmake min version to 3.14
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bc91906f1db8..4256773bd64f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -14,7 +14,7 @@
+ # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ #
+ 
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.14)
+ 
+ project(yder C)
+ 
+-- 
+2.53.0
+

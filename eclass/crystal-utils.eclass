@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: crystal-utils.eclass
@@ -6,7 +6,7 @@
 # Anna <cyber+gentoo@sysrq.in>
 # @AUTHOR:
 # Anna <cyber+gentoo@sysrq.in>
-# @SUPPORTED_EAPIS: 8
+# @SUPPORTED_EAPIS: 8 9
 # @BLURB: utility functions for Crystal packages
 # @DESCRIPTION:
 # A utility eclass providing functions to invoke Crystal.
@@ -17,14 +17,28 @@
 # All helper functions die on failure and support being called via 'nonfatal'.
 
 case ${EAPI} in
-	8) ;;
+	8) inherit edo ;;
+	9) ;;
 	*) die "${ECLASS}: EAPI ${EAPI} unsupported."
 esac
 
 if [[ ! ${_CRYSTAL_UTILS_ECLASS} ]]; then
 _CRYSTAL_UTILS_ECLASS=1
 
-inherit edo flag-o-matic multiprocessing
+inherit flag-o-matic multiprocessing
+
+# @ECLASS_VARIABLE: CRYSTAL_MAX_VER
+# @DEFAULT_UNSET
+# @PRE_INHERIT
+# @DESCRIPTION:
+# Highest Crystal version supported by the package. If unset, no upper bound
+# is assumed.
+
+# @ECLASS_VARIABLE: CRYSTAL_MIN_VER
+# @PRE_INHERIT
+# @DESCRIPTION:
+# Lowest Crystal version supported by the package.
+: "${CRYSTAL_MIN_VER:=1.16.3}"
 
 # @ECLASS_VARIABLE: CRYSTAL_DEPS
 # @OUTPUT_VARIABLE
@@ -32,10 +46,15 @@ inherit edo flag-o-matic multiprocessing
 # This is an eclass-generated Crystal dependency string.
 CRYSTAL_DEPS="
 	|| (
-		dev-lang/crystal
-		dev-lang/crystal-bin
+		>=dev-lang/crystal-${CRYSTAL_MIN_VER}
+		>=dev-lang/crystal-bin-${CRYSTAL_MIN_VER}
 	)
-"
+${CRYSTAL_MAX_VER:+\
+	|| (
+		<=dev-lang/crystal-${CRYSTAL_MAX_VER}-r9999
+		<=dev-lang/crystal-bin-${CRYSTAL_MAX_VER}-r9999
+	)
+}"
 
 # @ECLASS_VARIABLE: SHARDS_DEPS
 # @OUTPUT_VARIABLE
@@ -155,7 +174,7 @@ eshards() {
 # Function for building a target.  All arguments are passed to crystal.
 crystal_build() {
 	local build_args=(
-		--threads=$(makeopts_jobs)
+		--threads=$(get_makeopts_jobs)
 		--verbose
 	)
 

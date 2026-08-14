@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">mozman/ezdxf</remote-id>
+		<remote-id type="pypi">ezdxf</remote-id>
+		<doc>https://ezdxf.mozman.at/</doc>
+		<bugs-to>https://github.com/mozman/ezdxf/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		ezdxf is a Python library for creating and manipulating DXF (Drawing
+		Exchange Format) documents. It allows users to seamlessly load and edit
+		DXF files while preserving all content except for comments. The library
+		supports DXF versions R12, R2000, R2004, R2007, R2010, R2013, and R2018
+		for reading and writing, with read-only support for older versions. It
+		includes optional C-extensions for improved performance and provides a
+		command-line interface for viewing, converting, and inspecting DXF files.
+	</longdescription>
+	<longdescription lang="zh">
+		ezdxf是一个用于创建和操作DXF（图形交换格式）文档的Python库。它允许用户
+		无缝加载和编辑DXF文件，同时保留除注释外的所有内容。该库支持DXF版本R12、
+		R2000、R2004、R2007、R2010、R2013和R2018的读写，对旧版本提供只读支持。
+		它包含可选的C扩展以提高性能，并提供用于查看、转换和检查DXF文件的命令行
+		界面。
+	</longdescription>
+</pkgmetadata>

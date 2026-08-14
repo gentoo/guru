@@ -1,0 +1,156 @@
+# Copyright 1999-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# shellcheck disable=SC2034
+
+EAPI=8
+
+inherit bash-completion-r1 optfeature xdg-utils
+
+COMMIT=6be84b0b38b8f37dcb69da417d242bd92dd6f258
+DESCRIPTION="Phoronix's comprehensive, cross-platform testing and benchmark suite"
+HOMEPAGE="https://www.phoronix-test-suite.com"
+
+if [[ ${PV} == *9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
+else
+	if [[ -n ${COMMIT} ]]; then
+		SRC_URI="https://github.com/${PN}/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+		S="${WORKDIR}/${PN}-${COMMIT}"
+	else
+		SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz -> ${P}.gh.tar.gz"
+		S="${WORKDIR}/${PN}"
+	fi
+	KEYWORDS="~amd64"
+
+fi
+
+LICENSE="GPL-3+"
+SLOT="0"
+
+IUSE="sdl +server"
+
+RDEPEND="${DEPEND}
+		|| (
+			>=app-arch/7zip-24.09[symlink(+)]
+			app-arch/p7zip
+		)
+		media-libs/libpng
+		>=dev-lang/php-5.3[cli,curl,gd,posix,pcntl,simplexml,sockets,ssl,truetype,xml,zip,zlib]
+		x11-base/xorg-server
+		sdl? (
+			media-libs/libsdl
+			media-libs/sdl-net
+			media-libs/sdl-image
+			media-libs/libsdl2
+			media-libs/sdl2-net
+			media-libs/sdl2-image
+			media-libs/sdl2-mixer
+
+		)
+		server? ( dev-lang/php[sqlite] )
+"
+
+check_php_config()
+{
+	local slot
+	for slot in $(eselect --brief php list cli); do
+		local php_dir="/etc/php/cli-${slot}"
+
+		if [[ -f "${EROOT%}/${php_dir}/php.ini" ]]; then
+			dodir "${php_dir}"
+			cp -f "${EROOT%}/${php_dir}/php.ini" "${ED%}/${php_dir}/php.ini" \
+					|| die "cp failed: copy php.ini file"
+			sed -i 's|^allow_url_fopen .*|allow_url_fopen = On|g' "${ED%}/${php_dir}/php.ini" \
+					|| die "sed failed: modify php.ini file"
+		elif [[ "$(eselect php show cli)" == "${slot}" ]]; then
+			ewarn "${slot} does not have a php.ini file."
+			ewarn "${PN} needs the 'allow_url_fopen' option set to \"On\""
+			ewarn "for downloading to work properly."
+			ewarn
+		else
+			elog "${slot} does not have a php.ini file."
+			elog "${PN} may need the 'allow_url_fopen' option set to \"On\""
+			elog "for downloading to work properly if you switch to ${slot}"
+			elog
+		fi
+	done
+}
+
+get_optional_dependencies()
+{
+	(($# == 1)) || die "${FUNCNAME[0]}(): invalid number of arguments: ${#} (1)"
+
+	local -a array_package_names
+	local field_value ifield package_generic_name optional_packages_xmlline packages installable_packages=""
+	local package_close_regexp="</Package>" \
+		  package_generic_name_regexp="^.*<GenericName>|</GenericName>.*$" \
+		  package_names_regexp="^.*<PackageName>|</PackageName>.*$"
+		  reg='s@(^[[:blank:]]+|[[:blank:]]+$)$@@g'
+
+	line=0
+	while IFS=$'\n' read -r optional_packages_xmlline; do
+		if [[ "${optional_packages_xmlline}" =~ ${package_generic_name_regexp} ]]; then
+			package_generic_name="$(echo "${optional_packages_xmlline}" | sed -r "s@${package_generic_name_regexp}@@g")"
+		elif [[ "${optional_packages_xmlline}" =~ ${package_names_regexp} ]]; then
+			packages="$(echo "${optional_packages_xmlline}" | sed -r -e "s@${package_names_regexp}@@g" -e "${reg}" )"
+			for field_value in $packages; do
+				# TODO: remove this condition after the below PR is merged:
+				# https://github.com/phoronix-test-suite/phoronix-test-suite/pull/907
+				if [[ ${field_value} =~ ^.+/.+$ ]]; then # add valid atoms to list
+					installable_packages+=" ${field_value}"
+				fi
+			done
+		elif [[ "${optional_packages_xmlline}" =~ ${package_close_regexp} && -n "${installable_packages}" ]]; then
+			optfeature "${package_generic_name}" "${installable_packages}"
+			installable_packages=""
+		fi
+	done <<< "${1}"
+}
+
+src_prepare() {
+	# Add ${PV} to documentation path (#939476)
+	sed -i "s|share/doc/phoronix-test-suite/|share/doc/${PF}/|g" "${S}/install-sh" \
+		|| die "sed failed: adjust documentation path"
+
+	# BASH completion helper function "have" test is depreciated
+	sed -i '/^have phoronix-test-suite &&$/d' "${S}/pts-core/static/bash_completion" \
+			|| die "sed failed: remove PTS bash completion have test"
+	# Remove all dependency resolving shell scripts - security vulnerability
+	rm -r "${S}/pts-core/external-test-dependencies/scripts/" \
+		|| die "rm failed: pts-core/external-test-dependencies/scripts/"
+	default
+}
+
+src_install() {
+	# Store the contents of this file - since it will be installed / deleted before we need it.
+	GENTOO_OPTIONAL_PKGS_XML="$(cat "${S}/pts-core/external-test-dependencies/xml/gentoo-packages.xml")"
+	newbashcomp pts-core/static/bash_completion "${PN}"
+	DESTDIR="${D}" "${S}/install-sh" "${EPREFIX%}/usr"
+
+	# Fix the cli-php config for downloading to work.
+	check_php_config
+}
+
+pkg_postinst() {
+	xdg_icon_cache_update
+	xdg_mimeinfo_database_update
+	xdg_desktop_database_update
+
+	get_optional_dependencies "${GENTOO_OPTIONAL_PKGS_XML}"
+	unset -v GENTOO_OPTIONAL_PKGS_XML
+
+	if use server; then
+		# if nginx is present do not show apache as it has worse integration
+		if ! has_version www-servers/nginx; then
+			optfeature_header "Alternatives for the PHP webserver used by Phoromatic"
+			optfeature "nginx (zeroconf)" www-servers/nginx
+			optfeature "Apache (needs manual configuration)" www-servers/apache
+		fi
+	fi
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
+}

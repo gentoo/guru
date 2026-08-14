@@ -1,0 +1,21 @@
+https://github.com/joseph-roitman/pytest-snapshot/issues/71
+https://github.com/joseph-roitman/pytest-snapshot/pull/72
+
+From c9df38f672d42f13ab519ad7a9337d7b44b87346 Mon Sep 17 00:00:00 2001
+From: Reuven Peleg <4018286+R-Peleg@users.noreply.github.com>
+Date: Tue, 9 Jul 2024 10:58:50 +0300
+Subject: [PATCH] Allow the '(' in the new pytest's output
+
+--- a/tests/test_assert_match.py
++++ b/tests/test_assert_match.py
+@@ -87,8 +87,8 @@ def test_sth(snapshot):
+         r"E* assert * == *",
+         r"E* At index 4 diff: * != *",
+         r"E* Full diff:",
+-        r"E* - b'the valu\xc3\x89 of snapshot1.txt{}'".format(repr(os.linesep)[1:-1]),
+-        r"E* + b'the INCORRECT value of snapshot1.txt{}'".format(repr(os.linesep)[1:-1]),
++        r"E* - *b'the valu\xc3\x89 of snapshot1.txt{}'*".format(repr(os.linesep)[1:-1]),
++        r"E* + *b'the INCORRECT value of snapshot1.txt{}'*".format(repr(os.linesep)[1:-1]),
+     ])
+     assert result.ret == 1
+ 

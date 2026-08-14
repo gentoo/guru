@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>author@lch361.net</email>
+		<name>Lich</name>
+	</maintainer>
+	<longdescription>
+		A minimalistic, composable, no-system-dependency command line editing
+		library. Provides support for keybindings, selection of text, modal editing,
+		history, syntax highlighting and more. Has an API composed of reading input,
+		editing line and rendering the user interface. Available as a Zig module and
+		C header file.
+	</longdescription>
+	<use>
+		<flag name="term">Compile spiral_term* functions</flag>
+		<flag name="editor">Compile spiral_editor* functions</flag>
+		<flag name="screen">Compile spiral_screen* functions</flag>
+	</use>
+	<upstream>
+		<remote-id type="codeberg">lch361/spiral</remote-id>
+		<maintainer>
+			<email>author@lch361.net</email>
+			<name>Lich</name>
+		</maintainer>
+		<bugs-to>https://codeberg.org/lch361/spiral/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

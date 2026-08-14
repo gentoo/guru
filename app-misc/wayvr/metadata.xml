@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>sam@binarycake.ca</email>
+    <name>Sam Wilson</name>
+  </maintainer>
+  <maintainer type="person">
+    <email>patricknicolas@laposte.net</email>
+    <name>Patrick Nicolas</name>
+  </maintainer>
+  <use>
+    <flag name="openvr">Support Valve's SteamVR SDK.</flag>
+    <flag name="openxr">Support Khronos Group's OpenXR API.</flag>
+    <flag name="osc">Support VRChat's Open Sound Control protocol.</flag>
+    <flag name="pipewire">Enable pipewire support for desktop capture.</flag>
+    <flag name="wayvrctl">Build the wayvrctl utility to control ui elements through IPC.</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">wayvr-org/wayvr</remote-id>
+    <remote-id type="freedesktop-gitlab">galister/pipewire-rs</remote-id>
+    <bugs-to>https://github.com/wayvr-org/wayvr/issues</bugs-to>
+    <changelog>https://github.com/wayvr-org/wayvr/releases</changelog>
+    <doc>https://github.com/wayvr-org/wayvr/blob/main/README.md</doc>
+  </upstream>
+</pkgmetadata>

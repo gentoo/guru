@@ -1,0 +1,155 @@
+# Copyright 2024-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+CRATES="
+"
+
+LLVM_COMPAT=( {19..22} )
+RUST_MIN_VER="1.87.0"
+
+inherit cargo llvm-r2 optfeature shell-completion systemd
+
+DESCRIPTION="Scrollable-tiling Wayland compositor"
+HOMEPAGE="https://github.com/niri-wm/niri"
+
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/niri-wm/niri.git"
+else
+	SRC_URI="
+		https://github.com/niri-wm/niri/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/niri-wm/niri/releases/download/v${PV}/${P}-vendored-dependencies.tar.xz
+		${CARGO_CRATE_URIS}
+	"
+	KEYWORDS="~amd64"
+
+	# used for version string
+	export NIRI_BUILD_COMMIT="8ed0da4"
+fi
+
+LICENSE="GPL-3+"
+# Dependent crate licenses
+LICENSE+="
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD ISC MIT MPL-2.0
+	Unicode-3.0 ZLIB
+"
+SLOT="0"
+IUSE="+dbus screencast systemd"
+REQUIRED_USE="
+	screencast? ( dbus )
+	systemd? ( dbus )
+"
+
+DEPEND="
+	dev-libs/glib:2
+	dev-libs/libinput:=
+	dev-libs/wayland
+	<media-libs/libdisplay-info-0.4.0:=
+	media-libs/mesa
+	sys-auth/seatd:=
+	virtual/libudev:=
+	x11-libs/cairo
+	x11-libs/libxkbcommon
+	x11-libs/pango
+	x11-libs/pixman
+	screencast? ( media-video/pipewire:= )
+"
+RDEPEND="
+	${DEPEND}
+	screencast? ( sys-apps/xdg-desktop-portal-gnome )
+"
+# libclang is required for bindgen
+BDEPEND="
+	screencast? ( $(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}') )
+"
+
+ECARGO_VENDOR="${WORKDIR}/vendor"
+
+QA_FLAGS_IGNORED="usr/bin/niri"
+
+pkg_setup() {
+	llvm-r2_pkg_setup
+	rust_pkg_setup
+}
+
+src_unpack() {
+	if [[ ${PV} == 9999 ]]; then
+		git-r3_src_unpack
+		cargo_live_src_unpack
+	else
+		cargo_src_unpack
+	fi
+}
+
+src_prepare() {
+	sed -i \
+		-e 's/git = "[^ ]*"/version = "*"/' \
+		-e '/rev =/d' \
+		Cargo.toml || die
+	# niri-session doesn't work on OpenRC
+	if ! use systemd; then
+		local cmd="niri --session"
+		use dbus && cmd="dbus-run-session $cmd"
+		sed -i "s/niri-session/$cmd/" resources/niri.desktop || die
+	fi
+	default
+}
+
+src_configure() {
+	local myfeatures=(
+		$(usev dbus)
+		$(usev screencast xdp-gnome-screencast)
+		$(usev systemd)
+	)
+	cargo_src_configure --no-default-features
+}
+
+src_compile() {
+	cargo_src_compile
+
+	"$(cargo_target_dir)"/niri completions bash > niri  || die
+	"$(cargo_target_dir)"/niri completions fish > niri.fish || die
+	"$(cargo_target_dir)"/niri completions zsh > _niri || die
+}
+
+src_install() {
+	cargo_src_install
+
+	dobin resources/niri-session
+	systemd_douserunit resources/niri{.service,-shutdown.target}
+
+	insinto /usr/share/wayland-sessions
+	doins resources/niri.desktop
+
+	insinto /usr/share/xdg-desktop-portal
+	doins resources/niri-portals.conf
+
+	dobashcomp niri
+	dofishcomp niri.fish
+	dozshcomp _niri
+}
+
+src_test() {
+	# tests create a wayland socket in the xdg runtime dir
+	local -x XDG_RUNTIME_DIR="${T}/xdg"
+	mkdir --mode=0700 "${XDG_RUNTIME_DIR}" || die
+
+	# bug 950626
+	# https://yalter.github.io/niri/Packaging-niri.html#running-tests
+	local -x RAYON_NUM_THREADS=2
+	local skip=(
+		# requires surfacesless EGL to be available
+		--skip=::egl
+	)
+	cargo_src_test -- --test-threads=2 "${skip[@]}"
+}
+
+pkg_postinst() {
+	optfeature "Xwayland support" "gui-apps/xwayland-satellite"
+	optfeature_header "Default applications"
+	optfeature "Application launcher" "gui-apps/fuzzel"
+	optfeature "Status bar" "gui-apps/waybar"
+	optfeature "Terminal" "x11-terms/alacritty"
+}

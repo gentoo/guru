@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>ingenarelitems@gmail.com</email>
-    <name>ingenarel</name>
-  </maintainer>
+  <!-- maintainer-needed -->
   <upstream>
     <remote-id type="github">ayn2op/discordo</remote-id>
     <bugs-to>https://github.com/ayn2op/discordo/issues</bugs-to>

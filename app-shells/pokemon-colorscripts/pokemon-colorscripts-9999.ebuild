@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit git-r3 python-single-r1
 
@@ -20,6 +20,7 @@ RDEPEND="${PYTHON_DEPS}"
 
 src_prepare() {
 	default
+
 	sed -i \
 	's#PROGRAM_DIR = os.path.dirname(PROGRAM)#PROGRAM_DIR = "/opt/pokemon-colorscripts/"#g' \
 	pokemon-colorscripts.py || die "sed failed."
@@ -27,11 +28,11 @@ src_prepare() {
 
 src_install() {
 	insinto /opt/pokemon-colorscripts
-	doins -r "${S}/colorscripts"
-	doins "${S}/pokemon.json"
+	doins -r colorscripts
+	doins pokemon.json
 
 	python_scriptinto /opt/pokemon-colorscripts
-	python_doscript "${S}/pokemon-colorscripts.py"
+	python_doscript pokemon-colorscripts.py
 
 	dosym -r /opt/pokemon-colorscripts/pokemon-colorscripts.py /usr/bin/pokemon-colorscripts
 }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -14,6 +14,14 @@
 		<bugs-to>https://gitlab.gnome.org/World/Phosh/phosh/-/issues</bugs-to>
 		<doc>https://gitlab.gnome.org/World/Phosh/phosh/-/wikis/Home</doc>
 		<remote-id type="gnome-gitlab">World/Phosh/phosh</remote-id>
+		<maintainer>
+			<name>Guido Günther</name>
+			<email>agx@sigxcpu.org</email>
+		</maintainer>
+		<maintainer>
+			<name>Zander Brown</name>
+			<email>zbrown@gnome.org</email>
+		</maintainer>
 	</upstream>
 	<use>
 		<flag name="lockscreen-plugins">Build lockscreen plugins and widgets</flag>

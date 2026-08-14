@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ MY_PV="${PV/_r/r}"
 
 DESCRIPTION="A native port of Lotus 1-2-3 to Linux."
 
-HOMEPAGE="https://123r3.net/"
+HOMEPAGE="https://github.com/taviso/123elf"
 
 SRC_URI="
 	https://github.com/taviso/123elf/archive/refs/tags/v${MY_PV}.tar.gz
@@ -33,6 +33,7 @@ DEPEND="sys-libs/ncurses-compat:5"
 RDEPEND="${DEPEND}"
 
 BDEPEND="
+	app-alternatives/cpio
 	app-alternatives/gzip[reference]
 	sys-devel/binutils[multitarget]
 	sys-libs/ncurses[abi_x86_32(-)]

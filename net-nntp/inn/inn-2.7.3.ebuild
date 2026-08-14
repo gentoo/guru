@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit optfeature perl-functions python-single-r1 tmpfiles verify-sig
 
 DESCRIPTION="InterNetNews - the Internet meets Netnews"
@@ -41,7 +41,7 @@ DEPEND="
 	sasl? ( dev-libs/cyrus-sasl:2 )
 	sqlite? ( dev-db/sqlite:3 )
 	ssl? ( dev-libs/openssl:= )
-	zlib? ( sys-libs/zlib:= )
+	zlib? ( virtual/zlib:= )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="

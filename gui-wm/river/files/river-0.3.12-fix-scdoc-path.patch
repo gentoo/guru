@@ -1,0 +1,14 @@
+--- a/build.zig
++++ b/build.zig
+@@ -252,8 +252,9 @@
+         inline for (.{ "river", "riverctl", "rivertile" }) |page| {
+             // Workaround for https://github.com/ziglang/zig/issues/16369
+             // Even passing a buffer to std.Build.Step.Run appears to be racy and occasionally deadlocks.
+-            const scdoc = b.addSystemCommand(&.{ "/bin/sh", "-c", "scdoc < doc/" ++ page ++ ".1.scd" });
++            // Fix: Ensure scdoc runs in the correct source directory to find .scd files
++            const scdoc = b.addSystemCommand(&.{ "/bin/sh", "-c", b.fmt("cd {s} && scdoc < doc/{s}.1.scd", .{ b.build_root.path orelse ".", page }) });
+             // This makes the caching work for the Workaround, and the extra argument is ignored by /bin/sh.
+             scdoc.addFileArg(b.path("doc/" ++ page ++ ".1.scd"));
+
+             const stdout = scdoc.captureStdOut();
+             b.getInstallStep().dependOn(&b.addInstallFile(stdout, "share/man/man1/" ++ page ++ ".1").step);

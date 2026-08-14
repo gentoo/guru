@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="command line utility to communicate with ModBus slave (RTU or TCP) "
+DESCRIPTION="command line utility to communicate with ModBus slave (RTU or TCP)"
 HOMEPAGE="https://github.com/epsilonrt/mbpoll"
 SRC_URI="https://github.com/epsilonrt/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 

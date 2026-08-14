@@ -11,6 +11,10 @@
     <flag name="kde">build client for KDE-Plasma Wayland</flag>
     <flag name="wlroots">build client for Sway, Wayfire, etc.</flag>
     <flag name="hyprland">build client for Hyprland</flag>
+    <flag name="niri">build client for Niri</flag>
+    <flag name="cosmic">build client for COSMIC Wayland</flag>
+    <flag name="socket">build client for Variant for system service</flag>
+    <flag name="pantheon">build client for Pantheon Wayland (aka Secure)</flag>
   </use>
   <upstream>
     <remote-id type="github">xremap/xremap</remote-id>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>negril.nx+gentoo@gmail.com</email>
+		<name>Paul Zander</name>
+	</maintainer>
+	<upstream>
+		<doc>https://aminalaee.github.io/uuid-utils</doc>
+		<remote-id type="github">aminalaee/uuid-utils</remote-id>
+		<remote-id type="pypi">uuid_utils</remote-id>
+	</upstream>
+</pkgmetadata>

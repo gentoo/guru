@@ -44,7 +44,7 @@ RDEPEND="
 	x11-libs/libXScrnSaver
 	alsa? ( media-libs/alsa-lib )
 	cg? ( media-gfx/nvidia-cg-toolkit:0= )
-	arm? ( dispmanx? ( || ( media-libs/raspberrypi-userland:0 media-libs/raspberrypi-userland-bin:0 ) ) )
+	arm? ( dispmanx? ( dev-embedded/raspberrypi-utils:0 ) )
 	ffmpeg? ( >=media-video/ffmpeg-2.1.3:0= )
 	jack? ( virtual/jack:= )
 	libass? ( media-libs/libass:0= )
@@ -75,7 +75,7 @@ RDEPEND="
 	)
 	xinerama? ( x11-libs/libXinerama:0= )
 	xv? ( x11-libs/libXv )
-	zlib? ( sys-libs/zlib:0= )
+	zlib? ( virtual/zlib:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -194,4 +194,12 @@ pkg_postinst() {
 		ewarn "Make sure you have OSS installed in your system."
 		ewarn ""
 	fi
+
+	xdg_desktop_database_update
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
+	xdg_icon_cache_update
 }

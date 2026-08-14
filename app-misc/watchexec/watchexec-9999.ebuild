@@ -7,21 +7,17 @@ EAPI=8
 
 CRATES=" "
 
-# MSRV as of watchexec-2.2.1 is 1.61.
-#RUST_MIN_VER="1.71.1"
+# Some of deps requires Rust 1.88 as of watchexec-2.4.1.
+RUST_MIN_VER="1.88.0"
 
 inherit cargo shell-completion
 
 DESCRIPTION="Executes commands in response to file modifications"
 HOMEPAGE="https://watchexec.github.io"
 
-if [[ "$PV" == 9999 ]]; then
+if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/watchexec/watchexec.git"
-	src_unpack() {
-		git-r3_src_unpack
-		cargo_live_src_unpack
-	}
 else
 	SRC_URI="https://github.com/watchexec/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	SRC_URI+=" ${CARGO_CRATE_URIS}"
@@ -43,6 +39,15 @@ DOCS=( crates/cli/README.md )
 # rust does not use *FLAGS from make.conf, silence portage warning
 # update with proper path to binaries this crate installs, omit leading /
 QA_FLAGS_IGNORED="usr/bin/${PN}"
+
+src_unpack() {
+	if [[ "${PV}" == 9999 ]];then
+		git-r3_src_unpack
+		cargo_live_src_unpack
+	else
+		cargo_src_unpack
+	fi
+}
 
 src_compile() {
 	cargo_src_compile --manifest-path=crates/cli/Cargo.toml

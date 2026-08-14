@@ -1,0 +1,25 @@
+diff --git a/Makefile b/Makefile
+index dcbbf7e..04c67f1 100644
+--- a/Makefile
++++ b/Makefile
+@@ -379,6 +379,8 @@ ifdef CONFIG_LTO
+ endif
+ 	mkdir -p "$(DESTDIR)$(PREFIX)/include/quickjs"
+ 	install -m644 quickjs.h quickjs-libc.h "$(DESTDIR)$(PREFIX)/include/quickjs"
++	mkdir -p "$(DESTDIR)$(PREFIX)/lib/pkgconfig"
++	sed -e "s,@VERSION@,$(shell cat VERSION)," -e "s,@INCDIR@,$(PREFIX)/include/quickjs," -e "s,@LIBDIR@,$(PREFIX)/lib/quickjs," quickjs.pc.in > "$(DESTDIR)$(PREFIX)/lib/pkgconfig/quickjs.pc"
+ 
+ ###############################################################################
+ # examples
+diff --git a/quickjs.pc.in b/quickjs.pc.in
+new file mode 100644
+index 0000000..9c79525
+--- /dev/null
++++ b/quickjs.pc.in
+@@ -0,0 +1,6 @@
++Name: quickjs
++Description: Small and embeddable Javascript engine
++URL: https://bellard.org/quickjs/
++Version: @VERSION@
++Cflags: -I@INCDIR@
++Libs: -L@LIBDIR@ -lquickjs

@@ -1,0 +1,11 @@
+--- a/lib/CMakeLists.txt
++++ b/lib/CMakeLists.txt
+@@ -49,8 +49,6 @@ add_subdirectory(mdns)
+ 
+ add_subdirectory(accidental-noise)
+ 
+-ADD_SUBDIRECTORY(lz4)
+-
+ set(HIDAPI_WITH_LIBUSB OFF)
+ set(HIDAPI_WITH_HIDRAW ON)
+ add_subdirectory(hidapi)

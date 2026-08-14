@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit meson python-any-r1 xdg
 
@@ -16,7 +16,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-DESCRIPTION="Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL."
+DESCRIPTION="Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL"
 HOMEPAGE="https://taisei-project.org/"
 LICENSE="MIT CC-BY-4.0 CC0-1.0 public-domain"
 SLOT="0"
@@ -28,11 +28,11 @@ RDEPEND="
 	media-libs/freetype:2
 	media-libs/opusfile
 	>=media-libs/libpng-1.5
-	media-libs/libsdl2
+	media-libs/libsdl2[opengl]
 	media-libs/libwebp
 	media-libs/opusfile
 	app-arch/zstd
-	sys-libs/zlib
+	virtual/zlib:=
 	dev-libs/openssl:=
 	zip? ( dev-libs/libzip[zstd] )
 "

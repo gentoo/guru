@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -21,7 +21,7 @@ BDEPEND="dev-build/automake
 		dev-build/libtool
 		dev-build/make
 "
-RDEPEND="sys-libs/zlib
+RDEPEND="virtual/zlib:=
 		app-arch/bzip2
 		sys-libs/ncurses
 		sys-apps/util-linux

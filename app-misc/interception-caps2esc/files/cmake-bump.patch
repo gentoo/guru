@@ -1,0 +1,10 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index af5fd82b3d223e69dafd445606ef8fec826351f8..e84c429e8633f0a95432c9791a053d6317f5ba5c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.0)
++cmake_minimum_required(VERSION 3.10)
+ 
+ project(interception-tools)
+ 

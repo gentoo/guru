@@ -1,3 +1,5 @@
 move dev-db/limbo dev-db/turso
 move net-proxy/nekoray net-proxy/Throne
 move app-crypt/autofirma app-crypt/autofirma-bin
+move dev-build/FoBiS dev-build/fobis
+move dev-libs/StringiFor dev-libs/stringifor
