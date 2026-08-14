@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit linux-info systemd toolchain-funcs
+inherit linux-info shell-completion systemd toolchain-funcs
 
 DESCRIPTION="Required tools for AmneziaWG, such as awg(8) and awg-quick(8)"
 HOMEPAGE="https://github.com/amnezia-vpn/amneziawg-tools"
