@@ -24,7 +24,6 @@ DEPEND="
 	test? (
 		dev-python/hypothesis[${PYTHON_USEDEP}]
 		dev-python/mock[${PYTHON_USEDEP}]
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/termcolor[${PYTHON_USEDEP}]
 		dev-python/hypothesis[${PYTHON_USEDEP}]
 	)
