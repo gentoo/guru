@@ -24,7 +24,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-libs/glib:2
-	dev-libs/libportal
+	dev-libs/libportal[gtk]
 	gui-libs/gtk:4
 	gui-libs/gtksourceview:5
 	gui-libs/libadwaita:1
