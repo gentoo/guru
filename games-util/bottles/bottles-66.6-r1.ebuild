@@ -74,6 +74,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-64.1-dont-stub-gi.repository.patch"
 	"${FILESDIR}/${PN}-64.1-relax-AppStream-file-validation.patch"
 	"${FILESDIR}/${PN}-66.6-remove-Flatpak-related-checks.patch"
+	"${FILESDIR}/${PN}-66.6-r1-use-unresolved-path-to-umu-run.patch"
 )
 
 EPYTEST_DESELECT=(
