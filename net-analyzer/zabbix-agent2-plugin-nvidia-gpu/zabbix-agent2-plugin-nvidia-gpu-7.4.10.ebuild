@@ -8,7 +8,7 @@ HOMEPAGE="https://git.zabbix.com/projects/AP/repos/nvidia-gpu/browse"
 SRC_URI="
 	https://git.zabbix.com/rest/api/latest/projects/AP/repos/nvidia-gpu/archive?at=refs%2Ftags%2F${PV}&format=tgz
 		-> ${P}.tar.gz
-	https://vimja.cloud/public.php/dav/files/z59eKDyLFokW2KK/${CATEGORY}/${PN}/${P}-vendor.tar.xz
+	https://github.com/gentoo-golang-dist/${PN}/releases/download/${PV}/${P}-vendor.tar.xz
 "
 
 inherit go-module
@@ -32,6 +32,12 @@ BDEPEND="
 "
 
 DOCS=( "README.md" )
+
+src_unpack() {
+	mkdir "${P}" || die
+	ln --symbolic "${P}/vendor" "${S}/vendor" || die
+	go-module_src_unpack
+}
 
 src_prepare() {
 	default
