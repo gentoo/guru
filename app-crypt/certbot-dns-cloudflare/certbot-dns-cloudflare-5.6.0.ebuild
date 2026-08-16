@@ -1,9 +1,8 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=(python3_{12..13})
-# certbot ready for 3.13, but not cloudflare
+PYTHON_COMPAT=(python3_{12..14})
 #DISTUTILS_USE_SETUPTOOLS=rdepend
 DISTUTILS_USE_PEP517=setuptools
 
@@ -15,7 +14,7 @@ if [[ ${PV} == 9999* ]]; then
 	S=${WORKDIR}/${P}/${PN}
 else
 	SRC_URI="https://github.com/certbot/${MYPN}/archive/v${PV}.tar.gz -> ${MYPN}-${PV}.gh.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64"
 	S=${WORKDIR}/certbot-${PV}/${PN}
 fi
 
@@ -29,7 +28,8 @@ SLOT="0"
 
 RDEPEND="${CDEPEND}
 	>=app-crypt/certbot-${PV}[${PYTHON_USEDEP}]
-	=dev-python/cloudflare-2.19*[${PYTHON_USEDEP}]"
+	>=dev-python/cloudflare-4[${PYTHON_USEDEP}]"
 BDEPEND="test? ( ${RDEPEND} )"
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 distutils_enable_sphinx docs dev-python/sphinx-rtd-theme
