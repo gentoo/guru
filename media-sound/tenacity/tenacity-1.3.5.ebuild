@@ -3,12 +3,13 @@
 
 EAPI=8
 
+# as of 1.3.5 tenacity supports wxWidgets 3.3+, can be updated if/when it becomes available on gentoo
 WX_GTK_VER="3.2-gtk3"
 
 inherit cmake wxwidgets xdg virtualx
 
 # libnyquist doesn't have tags, instead use the specific submodule commit tenacity does
-LIBNYQUIST_COMMIT="d4fe08b079538a2fd79277ef1a83434663562f04"
+LIBNYQUIST_COMMIT="aaf654f44192240170cdb5ed4dc2f004dad2b1e2"
 
 DESCRIPTION="Easy-to-use, privacy-friendly, FLOSS, cross-platform multi-track audio editor"
 HOMEPAGE="https://tenacityaudio.org/"
@@ -28,6 +29,8 @@ REQUIRED_USE="
 	lame? ( mp3 )
 "
 
+# due to a clash with the file: /usr/share/pixmaps/gnome-mime-application-x-audacity-project.xmp
+# tenacity won't merge correctly with audacity also installed (bug #964248)
 DEPEND="
 	virtual/zlib:=
 	dev-libs/expat
