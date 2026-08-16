@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ MY_P="PlemolJP_${MY_PV}"
 MY_P_NF="PlemolJP_NF_${MY_PV}"
 MY_P_HS="PlemolJP_HS_${MY_PV}"
 
-DESCRIPTION="PlemolJP is a composite font of IBM Plex Mono and IBM Plex Sans JP."
+DESCRIPTION="PlemolJP is a composite font of IBM Plex Mono and IBM Plex Sans JP"
 HOMEPAGE="https://github.com/yuru7/PlemolJP"
 SRC_URI="
 	https://github.com/yuru7/PlemolJP/releases/download/${MY_PV}/${MY_P}.zip
