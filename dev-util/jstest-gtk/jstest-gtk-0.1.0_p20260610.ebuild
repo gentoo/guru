@@ -23,3 +23,10 @@ RDEPEND="
 	x11-libs/libX11
 "
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	# Bump CMake version, it just works
+	sed -e '/^cmake_minimum_required(/s/VERSION [^)]*/VERSION 4.0/' \
+		-i CMakeLists.txt
+	cmake_src_prepare
+}
