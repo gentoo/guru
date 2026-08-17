@@ -25,7 +25,6 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	xxd? (
-		!<app-editors/vim-core-9.1.1652-r1
 		!dev-util/xxd
 	)
 	test? ( dev-util/xxd )
