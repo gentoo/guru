@@ -31,7 +31,10 @@ RDEPEND="
 	test? ( dev-util/xxd )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-1.3.11-fixes.patch" )
+PATCHES=( "${FILESDIR}/${PN}-123a24e1-default-fixes.patch" )
+
+# until https://codeberg.org/gentoo/gentoo/pulls/435 or something that updates xxd on ::gentoo
+PATCHES+=( "${FILESDIR}/${PN}-123a24e1-until-gentoo-codeberg-435.patch" )
 
 src_compile() {
 	export CFLAGS LDFLAGS

@@ -1,5 +1,11 @@
+commit aae6ac70939bf828c13ae0ce48ce8c4dc688252f
+Author: ingenarel (NeoJesus) <ingenarel_neojesus@disroot.org>
+Date:   Tue Aug 18 00:58:38 2026 +0600
+
+    DEFAULT-PATCHES
+
 diff --git a/Makefile b/Makefile
-index 65b372c..e8f6903 100644
+index 3c16848..22db6ac 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -1,17 +1,6 @@
@@ -13,7 +19,7 @@ index 65b372c..e8f6903 100644
 -ifeq ($(UNAME_S),Darwin)
 -	CFLAGS += -fstack-protector-strong -D_GNU_SOURCE
 -else ifeq ($(OS),Windows_NT)
--	CFLAGS += -D_WIN32
+-	CFLAGS += -D_WIN32 -s
 -else
 -	CFLAGS += -fstack-protector-strong -D_GNU_SOURCE -fno-plt -Wl,-z,now -D_FORTIFY_SOURCE=3
 -endif
@@ -40,15 +46,7 @@ index 65b372c..e8f6903 100644
  	@echo 'Preparing tests...'
  	@echo -n 'This is a test file' > sample.bin
  	@printf '\x00\x09\x0a\x0d\x20\x41\x7e\x7f\x80\xff' > colorbytes.bin
-@@ -77,15 +63,14 @@ test: xxd tinyxxd_asan
- 	@$(MAKE) run_test CMD='-o 0x100 sample.bin' DESC='Display offset +0x100'
- 	@$(MAKE) run_test CMD='-i -C sample.bin' DESC='C include capitalized'
- 	@$(MAKE) run_test CMD='-i -n myvar sample.bin' DESC='C include custom name'
--	@$(MAKE) run_test CMD='-i -b sample.bin' DESC='C include binary format'
--	@$(MAKE) verify_conversion_test
-+	@$(MAKE) run_test CMD='-i -b sample.bin' DESC='C include binary format' @$(MAKE) verify_conversion_test
- 	@rm -f -- *.hex sample.bin colorbytes.bin ebcdicbytes.bin tinyxxd_output.txt xxd_output.txt
- 	@echo 'All tests complete.'
+@@ -92,8 +78,8 @@ test: xxd tinyxxd_asan
  
  run_test:
  	@echo "Running test: $(DESC)"
@@ -59,7 +57,7 @@ index 65b372c..e8f6903 100644
  	@if diff -q tinyxxd_output.txt xxd_output.txt > /dev/null; then \
  		echo 'Test passed'; \
  	else \
-@@ -95,8 +80,8 @@ run_test:
+@@ -103,8 +89,8 @@ run_test:
  
  verify_conversion_test:
  	@echo "Running conversion and verification test..."
@@ -70,9 +68,45 @@ index 65b372c..e8f6903 100644
  	@if diff -q sample.bin sample_restored.bin > /dev/null; then \
  		echo -e "\033[0;32mConversion and verification test passed\033[0m"; \
  	else \
-@@ -128,12 +113,6 @@ fuzz: tinyxxd_fuzz
+@@ -116,7 +102,7 @@ verify_conversion_test:
+ test_revert_crlf:
+ 	@echo "Running test: Revert hex dump with CRLF line endings"
+ 	@printf "00000000: 3132 3334\r\n00000004: 3536 3738\r\n" > repro_crlf.hex
+-	@./tinyxxd_asan -r repro_crlf.hex > repro_crlf.bin
++	@./tinyxxd -r repro_crlf.hex > repro_crlf.bin
+ 	@printf "12345678" > expected_crlf.bin
+ 	@if diff -q repro_crlf.bin expected_crlf.bin > /dev/null; then \
+ 		echo 'Test passed'; \
+@@ -129,7 +115,7 @@ test_revert_crlf:
+ test_le_padding:
+ 	@echo "Running test: Little-endian hex dump with padding"
+ 	@printf "ABCDEFG" > 7.bin
+-	@./tinyxxd_asan -e -c 8 7.bin > le_padding_output.txt
++	@./tinyxxd -e -c 8 7.bin > le_padding_output.txt
+ 	@printf "00000000: 44434241   474645  ABCDEFG\n" > le_padding_expected.txt
+ 	@if diff -q le_padding_output.txt le_padding_expected.txt > /dev/null; then \
+ 		echo 'Test passed'; \
+@@ -142,7 +128,7 @@ test_le_padding:
+ 
+ test_help_stdout:
+ 	@echo "Running test: -h outputs to stdout"
+-	@if ./tinyxxd_asan -h 2>/dev/null | grep -q 'Usage'; then \
++	@if ./tinyxxd -h 2>/dev/null | grep -q 'Usage'; then \
+ 		echo 'Test passed'; \
+ 	else \
+ 		echo 'Test failed: -h should write to stdout'; \
+@@ -151,7 +137,7 @@ test_help_stdout:
+ 
+ test_error_stderr:
+ 	@echo "Running test: bad option outputs to stderr"
+-	@if ./tinyxxd_asan -Z 2>&1 >/dev/null | grep -q 'Usage'; then \
++	@if ./tinyxxd -Z 2>&1 >/dev/null | grep -q 'Usage'; then \
+ 		echo 'Test passed'; \
+ 	else \
+ 		echo 'Test failed: bad option should write to stderr'; \
+@@ -181,12 +167,6 @@ fuzz: tinyxxd_fuzz
  	@dd if=/dev/urandom of=input_dir/sample.bin count=1 bs=128
- 	afl-fuzz -i input_dir -o fuzz_output -- ./tinyxxd_fuzz @@
+ 	AFL_SKIP_CPUFREQ=1 AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1 afl-fuzz -i input_dir -o fuzz_output -- ./tinyxxd_fuzz @@
  
 -testfiles/xxd.c:
 -	cd testfiles && curl -sOL "https://raw.githubusercontent.com/vim/vim/master/src/xxd/xxd.c"
