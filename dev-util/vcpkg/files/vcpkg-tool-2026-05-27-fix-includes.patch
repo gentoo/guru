@@ -1,0 +1,29 @@
+--- a/include/vcpkg/binarycaching.h
++++ b/include/vcpkg/binarycaching.h
+@@ -18,6 +18,7 @@
+ #include <vcpkg/packagespec.h>
+ #include <vcpkg/versions.h>
+ 
++#include <atomic>
+ #include <chrono>
+ #include <iterator>
+ #include <set>
+--- a/src/vcpkg/base/downloads.cpp
++++ b/src/vcpkg/base/downloads.cpp
+@@ -1,3 +1,5 @@
++#include <vcpkg/base/system-headers.h>
++
+ #include <vcpkg/base/api-stable-format.h>
+ #include <vcpkg/base/contractual-constants.h>
+ #include <vcpkg/base/curl.h>
+--- a/src/vcpkg/base/system.cpp
++++ b/src/vcpkg/base/system.cpp
+@@ -11,6 +11,8 @@
+ #include <vcpkg/base/system.h>
+ #include <vcpkg/base/uuid.h>
+ 
++#include <thread>
++
+ #if defined(__APPLE__)
+ #include <sys/sysctl.h>
+ #endif
