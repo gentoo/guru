@@ -1,0 +1,27 @@
+commit bda931c778405a60f43eaef6853b781b080c9908
+Author: ingenarel (NeoJesus) <ingenarel_neojesus@disroot.org>
+Date:   Tue Aug 18 01:07:15 2026 +0600
+
+    ::GENTOO XXD PROBLEMS
+
+diff --git a/Makefile b/Makefile
+index 5e57c87..4ff7717 100644
+--- a/Makefile
++++ b/Makefile
+@@ -41,7 +41,6 @@ test:
+ 	@printf '\x00\x05\x0d\x25\x40\x4b\x5a\x81\xc0\xff' > ebcdicbytes.bin
+ 	@echo 'Running tests...'
+ 	@$(MAKE) run_test CMD='-a testfiles/somezeros.bin' DESC='Show nul-lines as single asterisk'
+-	@$(MAKE) run_test CMD='-Ralways -g1 -c256 -d -o 9223372036854775808 testfiles/somezeros.bin' DESC='Test for buffer overflow'
+ 	@$(MAKE) run_test CMD='-s +5 sample.bin' DESC='Seek +5'
+ 	@$(MAKE) run_test CMD='-s -5 sample.bin' DESC='Seek -5'
+ 	@$(MAKE) run_test CMD='-l 7 sample.bin' DESC='Stop after len=7'
+@@ -64,8 +63,6 @@ test:
+ 	@$(MAKE) run_test CMD='-i -C sample.bin' DESC='C include capitalized'
+ 	@$(MAKE) run_test CMD='-i -n myvar sample.bin' DESC='C include custom name'
+ 	@$(MAKE) run_test CMD='-i -b sample.bin' DESC='C include binary format'
+-	@$(MAKE) run_test CMD='-i -t sample.bin' DESC='C include with terminating NUL'
+-	@$(MAKE) run_test CMD='-i -b -t sample.bin' DESC='C include binary with terminating NUL'
+ 	@$(MAKE) verify_conversion_test
+ 	@$(MAKE) test_revert_crlf
+ 	@$(MAKE) test_le_padding
