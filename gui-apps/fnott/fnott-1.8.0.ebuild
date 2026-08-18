@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson systemd xdg
+inherit meson systemd verify-sig xdg
 
 DESCRIPTION="Keyboard driven and lightweight Wayland notification daemon."
 HOMEPAGE="https://codeberg.org/dnkl/fnott"
@@ -12,7 +12,10 @@ if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://codeberg.org/dnkl/fnott.git"
 else
-	SRC_URI="https://codeberg.org/dnkl/fnott/releases/download/${PV}/${P}.tar.gz"
+	SRC_URI="
+		https://codeberg.org/dnkl/fnott/releases/download/${PV}/${P}.tar.gz
+		verify-sig? ( https://codeberg.org/dnkl/fnott/releases/download/${PV}/${P}.tar.gz.sig )
+	"
 	KEYWORDS="~amd64"
 fi
 
@@ -37,7 +40,10 @@ DEPEND="
 BDEPEND="
 	dev-util/wayland-scanner
 	app-text/scdoc
+	verify-sig? ( sec-keys/openpgp-keys-dnkl )
 "
+
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/dnkl.asc
 
 src_configure() {
 	local emesonargs=(
