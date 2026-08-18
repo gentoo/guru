@@ -5,7 +5,7 @@ EAPI=8
 
 inherit meson systemd verify-sig xdg
 
-DESCRIPTION="Keyboard driven and lightweight Wayland notification daemon."
+DESCRIPTION="Keyboard driven and lightweight Wayland notification daemon"
 HOMEPAGE="https://codeberg.org/dnkl/fnott"
 
 if [[ "${PV}" == "9999" ]]; then
