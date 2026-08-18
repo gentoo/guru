@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <longdescription>
+    CMakeRC is a resource compiler provided in a single CMake script that can easily be included in another project.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">vector-of-bool/cmrc</remote-id>
+  </upstream>
+</pkgmetadata>
