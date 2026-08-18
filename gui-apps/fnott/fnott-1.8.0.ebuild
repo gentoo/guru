@@ -12,8 +12,7 @@ if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://codeberg.org/dnkl/fnott.git"
 else
-	SRC_URI="https://codeberg.org/dnkl/fnott/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}"
+	SRC_URI="https://codeberg.org/dnkl/fnott/releases/download/${PV}/${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
