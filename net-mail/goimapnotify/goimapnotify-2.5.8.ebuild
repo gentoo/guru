@@ -5,16 +5,16 @@ EAPI=8
 
 inherit go-module
 
-DESCRIPTION="Execute scripts on IMAP mailbox changes using IDLE, golang version."
+DESCRIPTION="Execute scripts on IMAP mailbox changes using IDLE, golang version"
 
 HOMEPAGE="https://radicle.network/nodes/jardin.jorgearaya.dev/rad:z39RJHSHs166S5kr8Qstj6kd1LFah"
 
 # The official radicle repo does not support archive downloads by tag,
-# so we have to hardcode the commit hash
+# therefore we have to hardcode the commit hash
 GIT_COMMIT="7d8181fe3451f91d9ecd7e570c9e06677a555675"
 GIT_BRANCH="master"
 
-SRC_URI="https://jardin.jorgearaya.dev/raw/rad:z39RJHSHs166S5kr8Qstj6kd1LFah/${GIT_COMMIT}.tar.gz"
+SRC_URI="https://jardin.jorgearaya.dev/raw/rad:z39RJHSHs166S5kr8Qstj6kd1LFah/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3 MIT MPL-2.0 BSD BSD-2 Apache-2.0"
 
