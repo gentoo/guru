@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson optfeature git-r3 xdg
+inherit git-r3 meson optfeature shell-completion xdg
 
 DESCRIPTION="A lightweight Wayland shell and bar built directly on Wayland + OpenGL ES"
 HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia"
@@ -65,6 +65,22 @@ src_configure() {
 		$(meson_feature jemalloc)
 	)
 	meson_src_configure
+}
+
+src_compile() {
+	meson_src_compile
+
+	"${BUILD_DIR}"/${PN} completions bash > ${PN}.bash || die
+	"${BUILD_DIR}"/${PN} completions zsh > ${PN}.zsh || die
+	"${BUILD_DIR}"/${PN} completions fish > ${PN}.fish || die
+}
+
+src_install() {
+	meson_src_install
+
+	newbashcomp "${PN}.bash" "${PN}"
+	dofishcomp "${PN}.fish"
+	newzshcomp "${PN}.zsh" "_${PN}"
 }
 
 pkg_postinst() {
