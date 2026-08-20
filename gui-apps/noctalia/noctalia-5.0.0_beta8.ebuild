@@ -37,6 +37,7 @@ DEPEND="
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/libjxl
+	media-libs/libsndfile
 	media-libs/libwebp
 	media-libs/mesa
 	media-video/pipewire
