@@ -22,10 +22,11 @@ SRC_URI="
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="wayland X"
 
 RDEPEND="
 	dev-python/pysdl2[${PYTHON_USEDEP}]
-	media-libs/libsdl2
+	media-libs/libsdl2[wayland?,X?]
 	media-libs/sdl2-image
 	media-libs/sdl2-mixer
 	media-libs/sdl2-ttf
@@ -60,8 +61,8 @@ EPYTEST_PLUGINS=( pytest-asyncio )
 distutils_enable_tests pytest
 
 src_compile() {
-	export USE_WAYLAND=1
-	export USE_X11=1
+	use wayland && export USE_WAYLAND=1
+	use X && export USE_X11=1
 	distutils-r1_src_compile
 }
 
