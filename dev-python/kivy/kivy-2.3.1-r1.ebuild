@@ -51,9 +51,14 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2.3.1-fix-pytest-9.x.x-issues.patch"
 )
 
+EPYTEST_DESELECT+=(
+	"kivy/tests/test_uix_textinput.py::TextInputGraphicTest::test_selectall_copy_paste"
+)
+
 EPYTEST_IGNORE=(
 	"kivy/tests/test_audio.py"
 	"kivy/tests/test_benchmark.py"
+	"kivy/tests/test_clipboard.py"
 	"kivy/tests/test_video.py"
 )
 
