@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>hubbydenny@users.noreply.github.com</email>
+    <name>hubbydenny</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">hubbydenny/S-ecosystem</remote-id>
+  </upstream>
+</pkgmetadata>
+
