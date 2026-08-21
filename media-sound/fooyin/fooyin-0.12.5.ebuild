@@ -6,7 +6,7 @@ EAPI=8
 inherit cmake xdg
 
 DESCRIPTION="Play and manage your music with a powerful, highly customisable player"
-HOMEPAGE="https://www.fooyin.org/"
+HOMEPAGE="https://fooyin.org/"
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
