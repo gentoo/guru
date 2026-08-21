@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>yair.gadelov@gmail.com</email>
+		<name>Yair Gadelov</name>
+	</maintainer>
+	<longdescription>
+		gdbforge is a Vim-inspired multi-pane terminal front-end for GDB and
+		Delve. It provides source, console, IO, threads, call stack, and
+		breakpoint panes with modes, a command line, mouse/clipboard support,
+		and Lua automation for embedded and kernel debugging workflows.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">yairgd/gdbforge</remote-id>
+	</upstream>
+</pkgmetadata>
