@@ -12,8 +12,6 @@ else
 	MY_PN=${PN}
 fi
 
-FFMPEG="149"
-
 DESCRIPTION="The web browser from Yandex"
 HOMEPAGE="https://browser.yandex.ru/"
 SRC_URI="
@@ -26,7 +24,7 @@ LICENSE="Yandex-EULA"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 
-IUSE="+ffmpeg-codecs qt6"
+IUSE="qt6"
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
@@ -57,7 +55,6 @@ RDEPEND="
 	x11-libs/libXrandr
 	x11-libs/pango[X]
 	x11-misc/xdg-utils
-	ffmpeg-codecs? ( media-video/ffmpeg-chromium:${FFMPEG} )
 	qt6? ( dev-qt/qtbase:6[gui,widgets] )
 "
 DEPEND="
@@ -103,7 +100,6 @@ src_prepare() {
 
 	patchelf --remove-rpath "${S}/${YANDEX_HOME}/yandex_browser-sandbox" || die "Failed to fix library rpath (sandbox)"
 	patchelf --remove-rpath "${S}/${YANDEX_HOME}/yandex_browser" || die "Failed to fix library rpath (yandex_browser)"
-	patchelf --remove-rpath "${S}/${YANDEX_HOME}/find_ffmpeg" || die "Failed to fix library rpath (find_ffmpeg)"
 }
 
 src_install() {
@@ -112,8 +108,6 @@ src_install() {
 	mv "${D}"/usr/share/appdata "${D}"/usr/share/metainfo || die
 
 	make_wrapper "${PN}" "./${PN}" "/${YANDEX_HOME}" "/usr/$(get_libdir)/${MY_PN}/lib" || die "Failed to make wrapper"
-
-	dosym "../../../usr/$(get_libdir)/chromium/libffmpeg.so.${FFMPEG}" "${YANDEX_HOME}/libffmpeg.so"
 
 	# yandex_browser binary loads libudev.so.0 at runtime
 
