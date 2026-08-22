@@ -5,7 +5,7 @@ EAPI=8
 
 inherit unpacker desktop xdg-utils
 
-DESCRIPTION="A unique, open source launcher that allows you to play your favorite Minecraft mods, and keep them up to date, all in one neat little package."
+DESCRIPTION="Open source launcher letting you play and update your favourite Minecraft mods."
 HOMEPAGE="https://modrinth.com/app"
 SRC_URI="https://launcher-files.modrinth.com/versions/${PV}/linux/Modrinth%20App_${PV}_amd64.deb"
 
