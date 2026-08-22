@@ -23,7 +23,7 @@ src_compile() {
 	local build_date ldflags
 
 	build_date="$(date -u +%FT%TZ)"
-	ldflags="-X github.com/crmne/hyprmoncfg/internal/buildinfo.Version=${PV} -X github.com/crmne/hyprmoncfg/internal/buildinfo.Commit=6884f3a -X github.com/crmne/hyprmoncfg/internal/buildinfo.Date=${build_date}"
+	ldflags="-X github.com/crmne/hyprmoncfg/internal/buildinfo.Version=${PV} -X github.com/crmne/hyprmoncfg/internal/buildinfo.Commit=87b5c09 -X github.com/crmne/hyprmoncfg/internal/buildinfo.Date=${build_date}"
 
 	GOPROXY=off ego build -buildvcs=false -trimpath -mod=readonly -ldflags "${ldflags}" -o hyprmoncfg ./cmd/hyprmoncfg
 	GOPROXY=off ego build -buildvcs=false -trimpath -mod=readonly -ldflags "${ldflags}" -o hyprmoncfgd ./cmd/hyprmoncfgd
