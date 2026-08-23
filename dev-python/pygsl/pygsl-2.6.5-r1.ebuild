@@ -24,13 +24,13 @@ RESTRICT="test"
 
 BDEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
-"
-
-DEPEND="
-	dev-python/numpy[${PYTHON_USEDEP}]
-	sci-libs/gsl
 	dev-lang/swig
 "
+RDEPEND="
+	sci-libs/gsl:=
+	dev-python/numpy[${PYTHON_USEDEP}]
+"
+DEPEND="${RDEPEND}"
 
 PATCHES=( "${FILESDIR}/numpy-casts.patch" )
 
