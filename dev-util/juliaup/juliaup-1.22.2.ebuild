@@ -8,7 +8,7 @@ EAPI=8
 CRATES="
 "
 
-RUST_MIN_VER="1.88"
+RUST_MIN_VER="1.95"
 
 inherit cargo shell-completion toolchain-funcs
 
@@ -22,7 +22,8 @@ SRC_URI="
 LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 BSD CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0
+	Apache-2.0 BSD-2 BSD Boost-1.0 CDLA-Permissive-2.0 ISC MIT MPL-2.0
+	OFL-1.1 UbuntuFontLicense-1.0 Unicode-3.0 ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64"
@@ -59,15 +60,15 @@ src_install() {
 		einfo "generating shell completion files"
 
 		"${ED}"/usr/bin/juliaup completions bash > "${T}/${PN}" || die
-		ed -s "${T}/${PN}" <<< $'$s:^:#:\nw\nq' || die # comment out completion for `julia` command (#974972)
+		sed -i '$s:^:#:' "${T}/${PN}" || die # comment out completion for `julia` command (#974972)
 		dobashcomp "${T}/${PN}"
 
 		"${ED}"/usr/bin/juliaup completions zsh > "${T}/_${PN}" || die
-		ed -s "${T}/_${PN}" <<< $'$s:^:#:\nw\nq' || die
+		sed -i '$s:^:#:' "${T}/_${PN}" || die
 		dozshcomp "${T}/_${PN}"
 
 		"${ED}"/usr/bin/juliaup completions fish > "${T}/${PN}.fish" || die
-		ed -s "${T}/${PN}.fish" <<< $'$s:^:#:\nw\nq' || die
+		sed -i '$s:^:#:' "${T}/${PN}.fish" || die
 		dofishcomp "${T}/${PN}.fish"
 	else
 		ewarn "Shell completion files not installed! Install them manually with '${PN} completions --help'"
