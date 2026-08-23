@@ -128,28 +128,30 @@ pkg_setup() {
 
 src_prepare() {
 	# See https://bugs.gentoo.org/977089
-	# grep '\[patch\.' Cargo.toml | sort
-	local patched_crates=(
-		async-channel
-		core_affinity
-		event-listener
-		hyper-util
-		resolv-conf
-		rustls-platform-verifier
-		rustyline-async
+
+	# Get a list of patched crates from the project's Cargo.toml:
+	patched_crates=$(
+		grep '^\[patch\.' "${WORKDIR}"/"${P}"/Cargo.toml \
+			| cut --delimiter='.' --fields=3 \
+			| tr --delete ']'
 	)
 
-	for patched_crate in ${patched_crates[@]}; do
+	for patched_crate in ${patched_crates}; do
+		# Retrieve the crate's GIT hash from the GIT_CRATES array:
 		local commit_hash=$(
 			echo ${GIT_CRATES[${patched_crate}]} \
 				| cut --delimiter=';' --fields=2
 		)
+		# Retrieve the crate's path from the GIT_CRATES array, replacing the
+		# '%commit%' placeholder with the GIT hash retrieved above:
 		local crate_path=$(
 			echo ${GIT_CRATES[${patched_crate}]} \
 				| cut --delimiter=';' --fields=3 \
 				| sed --expression="s/%commit%/${commit_hash}/g"
 		)
 
+		# Add an entry to config.toml, configuring the correct location for
+		# retrieving the patched crate.
 		echo "" >> "${ECARGO_HOME}/config.toml" || die
 		echo "[patch.crates-io.${patched_crate}]" >> "${ECARGO_HOME}/config.toml" || die
 		echo "path = \"${WORKDIR}/${crate_path}\"" >> "${ECARGO_HOME}/config.toml" || die
