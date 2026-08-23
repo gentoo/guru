@@ -50,11 +50,11 @@ RDEPEND="
 	net-libs/gnutls
 	net-print/cups
 	sys-apps/dbus
-	sys-apps/systemd-utils
 	sys-apps/util-linux
 	sys-devel/gcc
 	sys-libs/glibc
 	sys-libs/libcap
+	virtual/libudev
 	virtual/zlib
 	x11-libs/cairo[X,glib]
 	x11-libs/gdk-pixbuf
