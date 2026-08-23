@@ -774,9 +774,10 @@ src_compile() {
 
 	cargo_src_compile --package openstack_cli
 
-	"${S}"/target/release/osc completion bash > osc || die
-	"${S}"/target/release/osc completion zsh > _osc || die
-	"${S}"/target/release/osc completion fish > osc.fish || die
+	local bin_path="${S}/$(cargo_target_dir)/osc"
+	"${bin_path}" completion bash > osc || die
+	"${bin_path}" completion zsh > _osc || die
+	"${bin_path}" completion fish > osc.fish || die
 }
 
 src_install(){
