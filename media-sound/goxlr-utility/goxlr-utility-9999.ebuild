@@ -9,8 +9,8 @@ HOMEPAGE="https://github.com/GoXLR-on-Linux/goxlr-utility"
 inherit cargo udev shell-completion desktop xdg
 
 if [[ ${PV} == *9999* ]]; then
-		EGIT_REPO_URI="https://github.com/GoXLR-on-Linux/${PN}.git"
-		inherit git-r3
+	EGIT_REPO_URI="https://github.com/GoXLR-on-Linux/${PN}.git"
+	inherit git-r3
 else
 	SRC_URI="
 		https://github.com/GoXLR-on-Linux/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
@@ -21,9 +21,9 @@ fi
 
 LICENSE="MIT Music-Tribe"
 LICENSE+="
-	    0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0
-	    CDLA-Permissive-2.0 ISC MIT MPL-2.0 UoI-NCSA Unicode-3.0 Unlicense
-	    ZLIB
+	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0
+	CDLA-Permissive-2.0 ISC MIT MPL-2.0 UoI-NCSA Unicode-3.0 Unlicense
+	ZLIB
 "
 SLOT="0"
 IUSE="tts"
@@ -55,25 +55,22 @@ src_configure() {
 }
 
 src_install() {
-		dobin "${WORKDIR}"/${P}/target/release/goxlr-daemon
-		dobin "${WORKDIR}"/${P}/target/release/goxlr-client
-		dobin "${WORKDIR}"/${P}/target/release/goxlr-defaults
-		dobin "${WORKDIR}"/${P}/target/release/goxlr-launcher
+	dobin "$(cargo_target_dir)/"goxlr-{daemon,client,defaults,launcher}
 
-		udev_dorules 50-goxlr.rules
+	udev_dorules 50-goxlr.rules
 
-		doicon -s 48 "${WORKDIR}"/${P}/daemon/resources/goxlr-utility.png
-		doicon -s scalable "${WORKDIR}"/${P}/daemon/resources/goxlr-utility.svg
-		newicon "${WORKDIR}"/${P}/daemon/resources/goxlr-utility-large.png goxlr-utility.png
-		domenu "${WORKDIR}"/${P}/daemon/resources/goxlr-utility.desktop
+	doicon -s 48 "${WORKDIR}"/${P}/daemon/resources/goxlr-utility.png
+	doicon -s scalable "${WORKDIR}"/${P}/daemon/resources/goxlr-utility.svg
+	newicon "${WORKDIR}"/${P}/daemon/resources/goxlr-utility-large.png goxlr-utility.png
+	domenu "${WORKDIR}"/${P}/daemon/resources/goxlr-utility.desktop
 
-		# Grab the Path where the AutoComplete scripts are..
-		AUTOCOMPLETE=$("${WORKDIR}"/${P}/ci/cargo-out-dir target/release/ client-stamp)
-		dobashcomp $AUTOCOMPLETE/goxlr-client.bash
-		dofishcomp $AUTOCOMPLETE/goxlr-client.fish
-		dozshcomp $AUTOCOMPLETE/_goxlr-client
+	# Grab the Path where the AutoComplete scripts are..
+	AUTOCOMPLETE="$("${WORKDIR}/${P}/ci/cargo-out-dir" "$(cargo_target_dir)/" client-stamp)"
+	dobashcomp "${AUTOCOMPLETE}/goxlr-client.bash"
+	dofishcomp "${AUTOCOMPLETE}/goxlr-client.fish"
+	dozshcomp "${AUTOCOMPLETE}/_goxlr-client"
 
-		dodoc README.md
+	dodoc README.md
 }
 
 pkg_postinst() {
