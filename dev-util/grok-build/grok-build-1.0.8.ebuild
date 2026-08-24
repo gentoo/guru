@@ -49,6 +49,7 @@ DEPEND="
 	sys-apps/bfs
 	sys-apps/ripgrep
 	sys-apps/ugrep
+	virtual/zlib:=
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
