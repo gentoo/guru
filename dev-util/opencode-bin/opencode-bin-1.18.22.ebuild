@@ -7,8 +7,12 @@ DESCRIPTION="The open source coding agent"
 HOMEPAGE="https://opencode.ai"
 
 SRC_URI="
-	amd64? ( https://github.com/anomalyco/opencode/releases/download/v${PV}/opencode-linux-x64.tar.gz )
-	arm64? ( https://github.com/anomalyco/opencode/releases/download/v${PV}/opencode-linux-arm64.tar.gz )
+	amd64? (
+		https://github.com/anomalyco/opencode/releases/download/v${PV}/opencode-linux-x64.tar.gz -> ${P}-amd64.tar.gz
+	)
+	arm64? (
+		https://github.com/anomalyco/opencode/releases/download/v${PV}/opencode-linux-arm64.tar.gz -> ${P}-arm64.tar.gz
+	)
 "
 
 S="${WORKDIR}"
