@@ -33,8 +33,7 @@ IUSE="ffmpeg server"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
-QA_FLAGS_IGNORED="/usr/bin/hwengine" # pascal sucks
-QA_PRESTRIPPED="/usr/bin/hwengine" # pascal sucks
+QA_FLAGS_IGNORED="/usr/bin/hwengine"
 
 DEPEND="${LUA_DEPS}
 	>=dev-games/physfs-3.0.1
@@ -62,12 +61,12 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.0.0-cmake_lua_version.patch"
 	"${FILESDIR}/${PN}-1.1.0-no-pas2c.patch"
 	"${FILESDIR}/${PN}-1.1.0-fix-linking.patch"
+	"${FILESDIR}/${PN}-1.1.0-no-strip.patch"
 )
 
 src_prepare() {
 	if [[ ${PV} == *_p* ]]; then
 		cat <<-EOF > share/version_info.txt || die
-			Hedgewars versioning information, do not modify
 			rev GIT
 			hash ${MY_COMMIT}
 		EOF
