@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{13..15} )
+PYTHON_COMPAT=( python3_{13..14} )
 
 inherit distutils-r1
 
@@ -71,6 +71,17 @@ EPYTEST_DESELECT=(
 	# https://github.com/mopidy/mopidy/commit/784073e52af58c51a11ad89eeb793a72ecc01c92
 	tests/_exts/m3u/test_translator.py::test_path_to_uri[test.mp3-file-file:///test.mp3]
 )
+
+src_prepare() {
+	# remove deprecated license classifiers
+	local class
+	local classifiers=( "license =" "\"License ::" )
+	for class in "${classifiers[@]}"; do
+		sed -ie "/${class}/d" pyproject.toml
+	done
+
+	eapply_user
+}
 
 src_configure() {
 	export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
