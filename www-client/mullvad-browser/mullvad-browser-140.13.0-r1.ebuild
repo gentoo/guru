@@ -460,7 +460,7 @@ pkg_setup() {
 			fi
 		fi
 
-		if [[ ${use_lto} = yes ]]; then
+		if [[ ${use_lto} == yes ]]; then
 			# -Werror=lto-type-mismatch -Werror=odr are going to fail with GCC,
 			# bmo#1516758, bgo#942288
 			filter-flags -Werror=lto-type-mismatch -Werror=odr
