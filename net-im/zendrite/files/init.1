@@ -34,18 +34,25 @@ fi
 if [ -n "${ZENDRITE_STDERR_FILE}" ]; then
     : # Do nothing, ZENDRITE_STDERR_FILE is set externally.
 else
-    ZENDRITE_STDERR_FILE="${RC_PREFIX%/}/var/log/zendrite/zendrite.stdout"
+    ZENDRITE_STDERR_FILE="${RC_PREFIX%/}/var/log/zendrite/zendrite.stderr"
 fi
 
 supervise_daemon_args="--stdout ${ZENDRITE_STDOUT_FILE} --stderr ${ZENDRITE_STDERR_FILE}"
 
 command="${RC_PREFIX%/}/usr/bin/zendrite"
-command_args="${ZENDRITE_OPTS} -config ${ZENDRITE_CONFIG}"
+command_args="${ZENDRITE_OPTS} --config ${ZENDRITE_CONFIG}"
 command_user="${ZENDRITE_USER}:${ZENDRITE_USER}"
 directory="${ZENDRITE_WORKING_DIRECTORY}"
 pidfile="${ZENDRITE_PIDFILE}"
 
 start_pre() {
+    # Create the stdout and stderr logfiles and make sure they are owned by the
+    # service user so it can write into them.
+    touch ${ZENDRITE_STDOUT_FILE}
+    touch ${ZENDRITE_STDERR_FILE}
+    chown ${ZENDRITE_USER}:${ZENDRITE_USER} ${ZENDRITE_STDOUT_FILE}
+    chown ${ZENDRITE_USER}:${ZENDRITE_USER} ${ZENDRITE_STDERR_FILE}
+
     test -f "${ZENDRITE_CONFIG}" || {
         echo "\"${ZENDRITE_CONFIG}\" does not exist or is not a regular file." >&2
         return 1
