@@ -13,7 +13,7 @@ name = os.getenv("REPO_NAME")
 workflow = os.getenv("REPO_WORKFLOW")
 path = (
     f"/api/v1/repos/{owner}/{name}/actions/runs/?workflow_id={workflow}"
-    "&page=1&limit=1&status=success&status=failure&status=cancelled"
+    "&page=1&limit=1&status=success&status=failure"
 )
 
 def main():
