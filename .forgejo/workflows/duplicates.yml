@@ -28,6 +28,7 @@ jobs:
         run: |
           LAST_STATUS=$(python ./scripts/last_status.py)
           IRC_NOTIFY=${{ forgejo.repository == 'gentoo/guru' && forgejo.event_name != 'pull_request' }}
+          echo "last_status=${LAST_STATUS} irc_notify=${IRC_NOTIFY}"
           echo "last_status=${LAST_STATUS}" >> "${FORGEJO_ENV}"
           echo "irc_notify=${IRC_NOTIFY}" >> "${FORGEJO_ENV}"
 
