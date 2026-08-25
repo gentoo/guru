@@ -1,4 +1,4 @@
-Do not fallback to pas2c. FPC alignment bug has been fixed:
+Do not fallback to pas2c on 32-bit arches. FPC alignment bug has been fixed:
 https://gitlab.com/freepascal.org/fpc/source/-/commit/fb918994574fec69e44b9868e0147510473b5aae
 
 --- a/CMakeLists.txt

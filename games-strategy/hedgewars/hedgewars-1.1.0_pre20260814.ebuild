@@ -6,7 +6,7 @@ EAPI=8
 LUA_COMPAT=( lua5-1 )
 RUST_MIN_VER="1.88.0"
 
-inherit cargo cmake lua-single xdg-utils
+inherit cargo cmake lua-single xdg
 
 DESCRIPTION="A turn-based strategy, artillery, action and comedy game"
 HOMEPAGE="https://www.hedgewars.org/"
@@ -37,7 +37,7 @@ QA_FLAGS_IGNORED="/usr/bin/hwengine"
 
 DEPEND="${LUA_DEPS}
 	>=dev-games/physfs-3.0.1
-	dev-qt/qtbase:6[network,widgets]
+	dev-qt/qtbase:6[network,ssl,widgets]
 	media-libs/libpng:0=
 	media-libs/libsdl2:=[opengl]
 	media-libs/sdl2-image:=[png]
@@ -53,8 +53,8 @@ RDEPEND="${DEPEND}
 	media-fonts/wqy-zenhei
 "
 BDEPEND="
-	dev-qt/qttools:6
 	dev-lang/fpc
+	dev-qt/qttools:6[linguist]
 "
 
 PATCHES=(
@@ -100,22 +100,14 @@ src_configure() {
 
 	CMAKE_BUILD_TYPE=$(usex debug Debug ${CMAKE_BUILD_TYPE})
 
-	cmake_src_configure
+	cargo_env cmake_src_configure
 }
 
 src_compile() {
-	cmake_src_compile
+	cargo_env cmake_src_compile
 }
 
 src_install() {
-	cmake_src_install
+	cargo_env cmake_src_install
 	doman man/${PN}.6
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
 }
