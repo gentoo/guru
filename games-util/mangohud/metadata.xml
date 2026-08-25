@@ -23,5 +23,6 @@
 		<flag name="mangoapp">Build and install mangoapp and mangoapp layer</flag>
 		<flag name="mangohudctl">Build and install mangohudctl</flag>
 		<flag name="mangoplot">Install mangoplot python script</flag>
+		<flag name="next">Build and install server/client rewrite</flag>
 	</use>
 </pkgmetadata>
