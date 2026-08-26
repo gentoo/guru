@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>hskim@dilluti0n.com</email>
+        <name>Hee-Suk Kim</name>
+    </maintainer>
+    <upstream>
+        <remote-id type="github">gholmann16/Janus</remote-id>
+    </upstream>
+</pkgmetadata>
