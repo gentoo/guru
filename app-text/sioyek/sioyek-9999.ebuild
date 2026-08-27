@@ -52,16 +52,19 @@ src_compile() {
 }
 
 src_install() {
-	#intall bin and shaders
-	insinto /opt/sioyek
-	doins sioyek
-	fperms +x /opt/sioyek/sioyek
-	insinto /opt/sioyek/shaders
+	dobin sioyek
+	domenu resources/sioyek.desktop
+	doicon resources/sioyek-icon-linux.png
+
+	insinto /usr/share/sioyek/shaders
 	doins pdf_viewer/shaders/*
 
-	domenu "${FILESDIR}/sioyek.desktop"
-	doicon resources/sioyek-icon-linux.png
-	insinto /usr/share/sioyek && doins tutorial.pdf pdf_viewer/keys.config pdf_viewer/prefs.config
+	insinto /usr/share/sioyek
+	doins tutorial.pdf
+
+	insinto /etc/sioyek
+	doins pdf_viewer/keys.config pdf_viewer/prefs.config
+
 	doman resources/sioyek.1
 }
 
