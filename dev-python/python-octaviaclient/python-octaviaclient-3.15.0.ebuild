@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=pbr
 PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
@@ -24,10 +24,10 @@ RDEPEND="
 	>=dev-python/keystoneauth1-3.18.0[${PYTHON_USEDEP}]
 	>=dev-python/python-neutronclient-6.7.0[${PYTHON_USEDEP}]
 	>=dev-python/python-openstackclient-3.12.0[${PYTHON_USEDEP}]
-	>=dev-python/osc-lib-1.14.1[${PYTHON_USEDEP}]
+	>=dev-python/osc-lib-4.3.0[${PYTHON_USEDEP}]
 	>dev-python/oslo-serialization-2.19.1-r9999[${PYTHON_USEDEP}]
 	>=dev-python/oslo-utils-3.33.0[${PYTHON_USEDEP}]
-	>=dev-python/pbr-3.0.0[${PYTHON_USEDEP}]
+	>=dev-python/pbr-6.1.1[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.14.2[${PYTHON_USEDEP}]
 "
 BDEPEND="
