@@ -10,7 +10,7 @@ S="${WORKDIR}/${PN}-portable-${PV}"
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="~amd64"
 IUSE="cvg"
 
 RDEPEND="
