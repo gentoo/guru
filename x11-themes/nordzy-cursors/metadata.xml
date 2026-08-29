@@ -6,7 +6,8 @@
 		<name>Julien Roy</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>https://github.com/guillaumeboehm/Nordzy-cursors_Cursor/issues</bugs-to>
+		<bugs-to>https://gitlab.com/gboehm/Nordzy-cursors/issues</bugs-to>
 		<remote-id type="github">guillaumeboehm/Nordzy-cursors_Cursor</remote-id>
+		<remote-id type="gitlab">gboehm/Nordzy-cursors</remote-id>
 	</upstream>
 </pkgmetadata>
