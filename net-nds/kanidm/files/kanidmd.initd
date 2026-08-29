@@ -1,0 +1,42 @@
+#!/sbin/openrc-run
+# Copyright 2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# shellcheck shell=sh
+
+extra_commands="configtest"
+description_configtest="Run kanidm's internal config check."
+
+: "${KANIDMD_CONFIGFILE:=/etc/kanidm/server.toml}"
+
+command="/usr/sbin/kanidmd"
+command_args="server -c \"${KANIDMD_CONFIGFILE}\""
+command_user="kanidm:kanidm"
+command_background=1
+pidfile="/var/run/kanidm/${RC_SVCNAME}.pid"
+
+depend() {
+	need net
+	use dns
+}
+
+start_pre() {
+	if [ "${RC_CMD}" != "restart" ]; then
+		configtest || return 1
+	fi
+
+	checkpath -do kanidm:kanidm /var/run/kanidm
+}
+
+stop_pre() {
+	if [ "${RC_CMD}" = "restart" ]; then
+		configtest || return 1
+	fi
+}
+
+configtest() {
+	ebegin "Checking kanidm's configuration"
+	${command} configtest -c "${KANIDMD_CONFIGFILE}"
+
+	eend $? "failed, please correct errors in the config file"
+}
