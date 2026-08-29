@@ -9,88 +9,84 @@ RUST_MIN_VER="1.87.0"
 
 CRATES="
 	ahash@0.8.12
-	aho-corasick@1.1.4
+	aho-corasick@1.1.5
 	anstream@1.0.0
 	anstyle-parse@1.0.0
 	anstyle-query@1.1.5
 	anstyle-wincon@3.0.11
 	anstyle@1.0.14
-	anyhow@1.0.102
+	anyhow@1.0.104
 	atomic-waker@1.1.2
 	base64@0.22.1
-	bitflags@2.11.0
-	bumpalo@3.20.2
-	bytes@1.11.1
-	cc@1.2.57
+	bitflags@2.13.1
+	bumpalo@3.20.3
+	bytes@1.12.1
+	cc@1.4.2
 	cfg-if@1.0.4
-	clap@4.6.0
-	clap_builder@4.6.0
-	clap_complete@4.6.0
-	clap_derive@4.6.0
+	clap@4.6.6
+	clap_builder@4.6.6
+	clap_complete@4.6.9
+	clap_derive@4.6.4
 	clap_lex@1.1.0
 	colorchoice@1.0.5
 	core-foundation-sys@0.8.7
 	core-foundation@0.10.1
 	dirs-sys@0.5.0
 	dirs@6.0.0
-	displaydoc@0.2.5
+	displaydoc@0.2.7
 	equivalent@1.0.2
 	errno@0.3.14
 	fallible-iterator@0.3.0
 	fallible-streaming-iterator@0.1.9
-	fastrand@2.3.0
-	find-msvc-tools@0.1.9
-	foldhash@0.1.5
+	fastrand@2.5.0
+	find-msvc-tools@0.1.10
 	foldhash@0.2.0
 	foreign-types-shared@0.1.1
 	foreign-types@0.3.2
 	form_urlencoded@1.2.2
-	futures-channel@0.3.32
-	futures-core@0.3.32
-	futures-task@0.3.32
-	futures-util@0.3.32
+	futures-channel@0.3.33
+	futures-core@0.3.33
+	futures-task@0.3.33
+	futures-util@0.3.33
 	getrandom@0.2.17
 	getrandom@0.3.4
-	getrandom@0.4.2
-	hashbrown@0.15.5
+	getrandom@0.4.3
 	hashbrown@0.16.1
-	hashlink@0.11.0
+	hashbrown@0.17.1
+	hashlink@0.12.1
 	heck@0.5.0
-	http-body-util@0.1.3
-	http-body@1.0.1
-	http@1.4.0
+	http-body-util@0.1.4
+	http-body@1.1.0
+	http@1.5.0
 	httparse@1.10.1
 	hyper-tls@0.6.0
 	hyper-util@0.1.20
-	hyper@1.8.1
-	icu_collections@2.1.1
-	icu_locale_core@2.1.1
-	icu_normalizer@2.1.1
-	icu_normalizer_data@2.1.1
-	icu_properties@2.1.2
-	icu_properties_data@2.1.2
-	icu_provider@2.1.1
-	id-arena@2.3.0
+	hyper@1.11.0
+	icu_collections@2.2.0
+	icu_locale_core@2.2.0
+	icu_normalizer@2.2.0
+	icu_normalizer_data@2.2.0
+	icu_properties@2.2.0
+	icu_properties_data@2.2.0
+	icu_provider@2.2.0
 	idna@1.1.0
-	idna_adapter@1.2.1
-	indexmap@2.13.0
-	ipnet@2.12.0
-	iri-string@0.7.11
+	idna_adapter@1.2.2
+	indexmap@2.14.0
+	ipnet@2.12.1
 	is_terminal_polyfill@1.70.2
 	itoa@1.0.18
-	js-sys@0.3.91
+	js-sys@0.3.104
 	lazy_static@1.5.0
-	leb128fmt@0.1.0
-	libc@0.2.183
-	libredox@0.1.15
-	libsqlite3-sys@0.37.0
+	libc@0.2.189
+	libredox@0.1.19
+	libsqlite3-sys@0.38.2
 	linux-raw-sys@0.12.1
-	litemap@0.8.1
-	log@0.4.29
+	litemap@0.8.2
+	log@0.4.33
 	matchers@0.2.0
-	memchr@2.8.0
+	memchr@2.8.3
 	minimal-lexical@0.2.1
-	mio@1.1.1
+	mio@1.2.2
 	mpd_client@1.4.1
 	mpd_protocol@1.0.3
 	native-tls@0.2.18
@@ -100,66 +96,64 @@ CRATES="
 	once_cell_polyfill@1.70.2
 	openssl-macros@0.1.1
 	openssl-probe@0.2.1
-	openssl-sys@0.9.112
-	openssl@0.10.76
+	openssl-sys@0.9.117
+	openssl@0.10.81
 	option-ext@0.2.0
 	percent-encoding@2.3.2
 	pin-project-lite@0.2.17
-	pin-utils@0.1.0
-	pkg-config@0.3.32
-	potential_utf@0.1.4
-	prettyplease@0.2.37
-	proc-macro2@1.0.106
-	quote@1.0.45
+	pkg-config@0.3.33
+	potential_utf@0.1.5
+	proc-macro2@1.0.107
+	quote@1.0.47
 	r-efi@5.3.0
 	r-efi@6.0.0
 	redox_users@0.5.2
-	regex-automata@0.4.14
-	regex-syntax@0.8.10
-	reqwest@0.13.2
-	rsqlite-vfs@0.1.0
-	rusqlite@0.39.0
+	regex-automata@0.4.18
+	regex-syntax@0.8.11
+	reqwest@0.13.4
+	rsqlite-vfs@0.1.1
+	rusqlite@0.40.2
 	rustix@1.1.4
-	rustls-pki-types@1.14.0
-	rustversion@1.0.22
+	rustls-pki-types@1.15.1
+	rustversion@1.0.23
 	ryu@1.0.23
 	schannel@0.1.29
 	sd-notify@0.5.0
 	security-framework-sys@2.17.0
 	security-framework@3.7.0
-	semver@1.0.27
-	serde@1.0.228
-	serde_core@1.0.228
-	serde_derive@1.0.228
-	serde_json@1.0.149
-	serde_spanned@1.1.0
+	serde@1.0.229
+	serde_core@1.0.229
+	serde_derive@1.0.229
+	serde_json@1.0.151
+	serde_spanned@1.1.1
 	serde_urlencoded@0.7.1
 	sharded-slab@0.1.7
-	shlex@1.3.0
+	shlex@2.0.1
 	signal-hook-registry@1.4.8
 	slab@0.4.12
-	smallvec@1.15.1
-	socket2@0.6.3
-	sqlite-wasm-rs@0.5.2
+	smallvec@1.15.2
+	socket2@0.6.5
+	sqlite-wasm-rs@0.5.5
 	stable_deref_trait@1.2.1
 	strsim@0.11.1
-	syn@2.0.117
+	syn@2.0.119
+	syn@3.0.3
 	sync_wrapper@1.0.2
 	synstructure@0.13.2
 	tempfile@3.27.0
-	thiserror-impl@2.0.18
-	thiserror@2.0.18
-	thread_local@1.1.9
-	tinystr@0.8.2
-	tokio-macros@2.6.1
+	thiserror-impl@2.0.20
+	thiserror@2.0.20
+	thread_local@1.1.10
+	tinystr@0.8.3
+	tokio-macros@2.7.2
 	tokio-native-tls@0.3.1
-	tokio-stream@0.1.18
-	tokio@1.50.0
-	toml@1.1.0+spec-1.1.0
-	toml_datetime@1.1.0+spec-1.1.0
-	toml_parser@1.1.0+spec-1.1.0
-	toml_writer@1.1.0+spec-1.1.0
-	tower-http@0.6.8
+	tokio-stream@0.1.19
+	tokio@1.53.1
+	toml@1.1.4+spec-1.1.0
+	toml_datetime@1.1.1+spec-1.1.0
+	toml_parser@1.1.3+spec-1.1.0
+	toml_writer@1.1.2+spec-1.1.0
+	tower-http@0.6.11
 	tower-layer@0.3.3
 	tower-service@0.3.3
 	tower@0.5.3
@@ -170,7 +164,6 @@ CRATES="
 	tracing@0.1.44
 	try-lock@0.2.5
 	unicode-ident@1.0.24
-	unicode-xid@0.2.6
 	url@2.5.8
 	utf8_iter@1.0.4
 	utf8parse@0.2.2
@@ -179,38 +172,29 @@ CRATES="
 	version_check@0.9.5
 	want@0.3.1
 	wasi@0.11.1+wasi-snapshot-preview1
-	wasip2@1.0.2+wasi-0.2.9
-	wasip3@0.4.0+wasi-0.3.0-rc-2026-01-06
-	wasm-bindgen-futures@0.4.64
-	wasm-bindgen-macro-support@0.2.114
-	wasm-bindgen-macro@0.2.114
-	wasm-bindgen-shared@0.2.114
-	wasm-bindgen@0.2.114
-	wasm-encoder@0.244.0
-	wasm-metadata@0.244.0
-	wasmparser@0.244.0
-	web-sys@0.3.91
+	wasip2@1.0.4+wasi-0.2.12
+	wasm-bindgen-futures@0.4.77
+	wasm-bindgen-macro-support@0.2.127
+	wasm-bindgen-macro@0.2.127
+	wasm-bindgen-shared@0.2.127
+	wasm-bindgen@0.2.127
+	web-sys@0.3.104
 	windows-link@0.2.1
 	windows-sys@0.61.2
-	winnow@1.0.0
-	wit-bindgen-core@0.51.0
-	wit-bindgen-rust-macro@0.51.0
-	wit-bindgen-rust@0.51.0
-	wit-bindgen@0.51.0
-	wit-component@0.244.0
-	wit-parser@0.244.0
-	writeable@0.6.2
-	yoke-derive@0.8.1
-	yoke@0.8.1
-	zerocopy-derive@0.8.47
-	zerocopy@0.8.47
-	zerofrom-derive@0.1.6
-	zerofrom@0.1.6
-	zeroize@1.8.2
-	zerotrie@0.2.3
-	zerovec-derive@0.11.2
-	zerovec@0.11.5
-	zmij@1.0.21
+	winnow@1.0.4
+	wit-bindgen@0.57.1
+	writeable@0.6.3
+	yoke-derive@0.8.2
+	yoke@0.8.3
+	zerocopy-derive@0.8.56
+	zerocopy@0.8.56
+	zerofrom-derive@0.1.7
+	zerofrom@0.1.8
+	zeroize@1.9.0
+	zerotrie@0.2.4
+	zerovec-derive@0.11.3
+	zerovec@0.11.6
+	zmij@1.0.23
 "
 
 inherit cargo systemd shell-completion
