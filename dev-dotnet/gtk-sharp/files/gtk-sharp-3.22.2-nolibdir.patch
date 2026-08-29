@@ -1,0 +1,19 @@
+--- a/Source/meson.build	2021-07-30 05:34:33.000000000 +0200
++++ b/Source/meson.build	2022-08-07 14:27:13.414754013 +0200
+@@ -74,7 +74,7 @@ version_data.set('PACKAGE_VERSION', pkg_
+ 
+ install_infos = []
+ nuget_infos = []
+-lib_install_dir = join_paths(get_option('libdir'), 'mono', pkg_version)
++lib_install_dir = join_paths(get_option('prefix'), 'lib', 'mono', pkg_version)
+ pkg_install_dir = join_paths(get_option('libdir'), 'pkgconfig')
+ gapi_xml_installdir = join_paths(get_option('datadir'), 'gapi-3.0')
+ 
+--- a/Source/parser/meson.build	2021-07-30 05:34:33.000000000 +0200
++++ b/Source/parser/meson.build	2022-08-07 14:24:57.849163225 +0200
+@@ -1,4 +1,4 @@
+-gapi_installdir = join_paths(get_option('libdir'), 'gapi-3.0')
++gapi_installdir = join_paths(get_option('prefix'), 'lib', 'gapi-3.0')
+ pkg_install_dir = '@0@/pkgconfig'.format(get_option('libdir'))
+ 
+ gapi_parser = executable('gapi-parser', 'gapi-parser.cs',
