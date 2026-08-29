@@ -7,7 +7,7 @@ RUST_MIN_VER="1.92.0"
 
 inherit cargo git-r3 shell-completion
 
-DESCRIPTION="An integrated language service for Typst."
+DESCRIPTION="An integrated language service for Typst"
 HOMEPAGE="https://github.com/Myriad-Dreamin/tinymist"
 EGIT_REPO_URI="https://github.com/Myriad-Dreamin/tinymist"
 

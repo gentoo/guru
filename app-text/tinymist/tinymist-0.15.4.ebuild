@@ -51,7 +51,7 @@ declare -A GIT_CRATES=(
 
 inherit cargo shell-completion
 
-DESCRIPTION="An integrated language service for Typst."
+DESCRIPTION="An integrated language service for Typst"
 HOMEPAGE="https://github.com/Myriad-Dreamin/tinymist"
 SRC_URI="
 	https://github.com/Myriad-Dreamin/tinymist/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
