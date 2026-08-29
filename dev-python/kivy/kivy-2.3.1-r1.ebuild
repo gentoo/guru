@@ -13,6 +13,8 @@ DESCRIPTION="Open source cross-platform UI framework written in Python"
 HOMEPAGE="https://kivy.org/"
 SRC_URI="
 	https://github.com/kivy/kivy/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/kivy/kivy/commit/dcd8fb2a6ae3f96789d51e00e1ff2f3c2fc339ef.patch
+		-> ${PN}-2.3.1-remove-all-the-compatibility-code-for-Python-2.x.patch
 	https://github.com/kivy/kivy/commit/5a1b27d7d3bdee6cedb55440bfae9c4e66fb3c68.patch
 		-> ${PN}-2.3.1-remove-old-Python-2-long-from-Cython-files.patch
 	https://github.com/kivy/kivy/commit/4b20740cb63b03fdfb65b782f1ce3de42bd6e7b3.patch
@@ -46,6 +48,7 @@ BDEPEND="
 "
 
 PATCHES=(
+	"${DISTDIR}/${PN}-2.3.1-remove-all-the-compatibility-code-for-Python-2.x.patch"
 	"${DISTDIR}/${PN}-2.3.1-remove-old-Python-2-long-from-Cython-files.patch"
 	"${DISTDIR}/${PN}-2.3.1-remove-Python-3.6-workaround.patch"
 	"${FILESDIR}/${PN}-2.3.1-fix-pytest-9.x.x-issues.patch"
