@@ -5,6 +5,9 @@
 		<name>Leonardo Hernández Hernández</name>
 		<email>leohdz172@proton.me</email>
 	</maintainer>
+	<use>
+		<flag name="system-nanosvg">Use system-installed nanosvg instead of bundled version</flag>
+	</use>
 	<longdescription lang="en">
 		Super simple wallpaper application for Wayland compositors implementing the layer-shell protocol.
 		Wbg takes a single command line argument: a path to an image file. This image is displayed scaled-to-fit on all monitors.
