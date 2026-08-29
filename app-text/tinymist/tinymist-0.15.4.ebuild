@@ -10,11 +10,20 @@ RUST_MIN_VER="1.92.0"
 CRATES=" "
 
 TYPST_HASH="391c2dcd698aabf2917db0336868d16f197057d9"
-TYPST_TS_HASH="5904247a0eca4938b4861223cb24431e530e429c"
+TYPST_TS_HASH="bd58ec034584828c272fac1b842acad5b1d79e61"
 XILEM_HASH="abe7da9eae473d4f09a7e69a058c31cfe6d3b2e3"
 
 declare -A GIT_CRATES=(
 	[docx-rs]="https://github.com/Myriad-Dreamin/docx-rs;db49a729f68dbdb9e8e91857fbb1c3d414209871;docx-rs-%commit%/docx-core"
+	[linebender_include_doc_path]="https://github.com/Myriad-dreamin/xilem;${XILEM_HASH};xilem-%commit%/include_doc_path"
+	[masonry]="https://github.com/Myriad-dreamin/xilem;${XILEM_HASH};xilem-%commit%/masonry"
+	[masonry_core]="https://github.com/Myriad-dreamin/xilem;${XILEM_HASH};xilem-%commit%/masonry_core"
+	[masonry_testing]="https://github.com/Myriad-dreamin/xilem;${XILEM_HASH};xilem-%commit%/masonry_testing"
+	[masonry_winit]="https://github.com/Myriad-dreamin/xilem;${XILEM_HASH};xilem-%commit%/masonry_winit"
+	[tree_arena]="https://github.com/Myriad-dreamin/xilem;${XILEM_HASH};xilem-%commit%/tree_arena"
+	[xilem]="https://github.com/Myriad-dreamin/xilem;${XILEM_HASH};xilem-%commit%/xilem"
+	[xilem_core]="https://github.com/Myriad-dreamin/xilem;${XILEM_HASH};xilem-%commit%/xilem_core"
+	[xilem_masonry]="https://github.com/Myriad-dreamin/xilem;${XILEM_HASH};xilem-%commit%/xilem_masonry"
 	[reflexo-typst2vec]="https://github.com/Myriad-Dreamin/typst.ts;${TYPST_TS_HASH};typst.ts-%commit%/crates/conversion/typst2vec"
 	[reflexo-typst]="https://github.com/Myriad-Dreamin/typst.ts;${TYPST_TS_HASH};typst.ts-%commit%/crates/reflexo-typst"
 	[reflexo-vec2svg]="https://github.com/Myriad-Dreamin/typst.ts;${TYPST_TS_HASH};typst.ts-%commit%/crates/conversion/vec2svg"
@@ -36,11 +45,8 @@ declare -A GIT_CRATES=(
 	[typstfmt]="https://github.com/Myriad-Dreamin/typstfmt;cdfe44ed065a90d80040c3b29dee7ed431a710ee;typstfmt-%commit%"
 	[typst-ansi-hl]="https://github.com/Myriad-Dreamin/typst-ansi-hl;3867cb7229ec6b3e3c8f5b1222af96f98bba9bff;typst-ansi-hl-%commit%/lib"
 	[typstyle-core]="https://github.com/Myriad-Dreamin/typstyle;992f36112200bc0ea61df8a7c2af6d9ae56781dd;typstyle-%commit%/crates/typstyle-core"
-	[xilem]="https://github.com/Myriad-Dreamin/xilem;${XILEM_HASH};xilem-%commit%/xilem"
-	[masonry]="https://github.com/Myriad-Dreamin/xilem;${XILEM_HASH};xilem-%commit%/masonry"
-	[masonry_testing]="https://github.com/Myriad-Dreamin/xilem;${XILEM_HASH};xilem-%commit%/masonry_testing"
-	[masonry_winit]="https://github.com/Myriad-Dreamin/xilem;${XILEM_HASH};xilem-%commit%/masonry_winit"
 	[typst-dev-assets]="https://github.com/typst/typst-dev-assets;29753d6069349e7fe4e5f75dcb2e77ff1adc5fac;typst-dev-assets-%commit%"
+	[wasm-minimal-protocol]="https://github.com/astrale-sharp/wasm-minimal-protocol;c51acd43095fe9da8fa943e064618e486fd2b58d;wasm-minimal-protocol-%commit%/crates/macro"
 )
 
 inherit cargo shell-completion
@@ -56,9 +62,9 @@ SRC_URI="
 LICENSE="Apache-2.0"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0
-	CDLA-Permissive-2.0 EUPL-1.2 ISC LGPL-3+ MIT MPL-2.0 Unicode-3.0
-	ZLIB
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD Boost-1.0
+	CC0-1.0 CDLA-Permissive-2.0 EUPL-1.2 ISC LGPL-3+ MIT MPL-2.0
+	Unicode-3.0 ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64"
@@ -89,6 +95,10 @@ src_prepare() {
 	done
 	sed -i -E -e "${sed_scripts[*]}" Cargo.toml ||
 		die "Failed to override dependencies in Cargo.toml"
+}
+
+src_configure() {
+	cargo_src_configure --bin tinymist
 }
 
 src_compile() {
