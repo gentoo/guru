@@ -1,0 +1,23 @@
+From 5cf22d6b8994c12389cca60b8873812695121205 Mon Sep 17 00:00:00 2001
+From: Erin <erin@erindesu.cz>
+Date: Sat, 29 Nov 2025 14:39:06 +0100
+Subject: [PATCH] fix: 32-bit time
+
+Closes: #2102
+---
+ src/utils/clock.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/utils/clock.rs b/src/utils/clock.rs
+index 46be5e2923af..19be8f8cf398 100644
+--- a/src/utils/clock.rs
++++ b/src/utils/clock.rs
+@@ -216,7 +216,7 @@ where
+     fn add(self, rhs: T) -> Self::Output {
+         let rhs = rhs.into();
+         let tv_nsec = (self.tp.tv_nsec + rhs.tp.tv_nsec) % NANOS_PER_SEC;
+-        let tv_sec = (self.tp.tv_sec + rhs.tp.tv_sec) + ((self.tp.tv_nsec + rhs.tp.tv_nsec) / NANOS_PER_SEC);
++        let tv_sec = (self.tp.tv_sec + rhs.tp.tv_sec) + i64::from((self.tp.tv_nsec + rhs.tp.tv_nsec) / NANOS_PER_SEC);
+         Self::from(Timespec { tv_sec, tv_nsec })
+     }
+ }

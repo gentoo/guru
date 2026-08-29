@@ -4,6 +4,11 @@
 EAPI=8
 
 CRATES="
+	libspa@0.10.0
+	libspa-sys@0.10.0
+	pipewire@0.10.0
+	pipewire-sys@0.10.0
+	portable-atomic@1.14.0
 "
 
 LLVM_COMPAT=( {19..22} )
@@ -65,6 +70,10 @@ BDEPEND="
 	screencast? ( $(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}') )
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-26.04-vendor_pipwire-0.10.0.patch # bug #979547 (backport #ef5b737)
+	"${FILESDIR}"/${PN}-26.04-32bit-atomic.patch # bug #979547
+)
 ECARGO_VENDOR="${WORKDIR}/vendor"
 
 QA_FLAGS_IGNORED="usr/bin/niri"
@@ -94,6 +103,14 @@ src_prepare() {
 		use dbus && cmd="dbus-run-session $cmd"
 		sed -i "s/niri-session/$cmd/" resources/niri.desktop || die
 	fi
+
+	# bug #979547
+	pushd "${ECARGO_VENDOR}/smithay" >/dev/null || die
+	eapply "${FILESDIR}/${PN}-26.04_vendor_smithay-0.7.0_32bit-time.patch"
+	eapply "${FILESDIR}/${PN}-26.04_vendor_smithay-0.7.0_32bit-atomic64.patch"
+	echo '{"files":{},"package":null}' > .cargo-checksum.json
+	popd >/dev/null || die
+
 	default
 }
 
