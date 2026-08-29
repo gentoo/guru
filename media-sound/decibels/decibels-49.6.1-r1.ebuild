@@ -17,7 +17,6 @@ DEPEND="
 	>=dev-libs/gobject-introspection-1.82.0-r2:=
 	>=gui-libs/gtk-4.5:4
 	>=dev-libs/gjs-1.71.0
-	>=app-misc/geoclue-2.3.1:2.0
 	>=gui-libs/libadwaita-1.4_alpha:1=
 	media-libs/gstreamer
 	media-libs/gst-plugins-bad
