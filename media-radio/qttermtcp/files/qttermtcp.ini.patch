@@ -1,0 +1,22 @@
+--- QtTermTCP.cpp.orig	2025-09-09 14:35:16.348670807 +0200
++++ QtTermTCP.cpp	2025-09-09 14:36:48.781377730 +0200
+@@ -587,7 +587,8 @@
+ 
+ QString GetConfPath()
+ {
+-	std::string conf_path = "QtTermTCP.ini";  // Default conf file stored alongside application.
++	mkdir(".local/share/QtTermTCP", 0775);
++	std::string conf_path = ".local/share/QtTermTCP/QtTermTCP.ini";
+ 
+ #ifdef __APPLE__
+ 
+@@ -1161,7 +1162,8 @@
+ 
+ 	// Get configuration path for MacOS.
+ 	std::string directory = QStandardPaths::standardLocations(QStandardPaths::AppDataLocation).at(0).toStdString();
+-	std::string conf_path = directory + "/QtTermTCP.ini";
++	std::string conf_path = ".local/share/QtTermTCP/QtTermTCP.ini";
++	mkdir(".local/share/QtTermTCP", 0775);
+ 
+ 	//mkdir(directory.c_str(), 0775);
+ 
