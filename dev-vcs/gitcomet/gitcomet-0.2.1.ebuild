@@ -889,6 +889,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+	debug? ( virtual/zlib:= )
 	dev-libs/libgit2:=
 	media-libs/fontconfig
 	media-libs/freetype
