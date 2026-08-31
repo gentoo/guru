@@ -32,6 +32,8 @@ REQUIRED_USE="
 "
 RESTRICT="mirror"
 
+# media-libs/libmtp provides udev rules and plugdev access for MTP devices.
+# far2l itself uses the bundled libmtp/libusb.
 RDEPEND="
 	archive? ( app-arch/libarchive )
 	aws? (
@@ -40,6 +42,7 @@ RDEPEND="
 	)
 	chardet? ( app-i18n/uchardet )
 	colorer? ( dev-libs/libxml2 )
+	mtp? ( media-libs/libmtp )
 	nfs? ( net-fs/libnfs )
 	python? (
 		${PYTHON_DEPS}
@@ -119,6 +122,7 @@ src_configure() {
 pkg_postinst() {
 	xdg_desktop_database_update
 	xdg_icon_cache_update
+	optfeature "accessing Android devices through the ADB plugin" dev-util/android-tools
 	optfeature "privileged file operations through far2l's sudo support" app-admin/sudo
 }
 
