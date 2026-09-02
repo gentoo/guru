@@ -6,136 +6,136 @@
 EAPI=8
 
 CRATES="
-	aho-corasick@1.1.4
+	aho-corasick@1.1.5
 	alloca@0.4.0
 	anes@0.1.6
-	anstyle@1.0.13
-	atomic_refcell@0.1.13
-	autocfg@1.5.0
-	bitflags@2.11.0
-	bumpalo@3.20.2
-	bytemuck@1.25.0
+	anstyle@1.0.14
+	atomic_refcell@0.1.14
+	autocfg@1.5.1
+	bitflags@2.13.1
+	bumpalo@3.20.3
+	bytemuck@1.25.2
 	byteorder-lite@0.1.0
 	cast@0.3.0
-	cc@1.2.56
-	cfg-expr@0.20.7
+	cc@1.4.4
+	cfg-expr@0.20.9
 	cfg-if@1.0.4
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.6.0
-	clap_builder@4.6.0
-	clap_derive@4.6.0
+	clap@4.6.6
+	clap_builder@4.6.6
+	clap_derive@4.6.4
 	clap_lex@1.1.0
 	criterion-plot@0.8.2
 	criterion@0.8.2
-	crossbeam-deque@0.8.6
-	crossbeam-epoch@0.9.18
-	crossbeam-utils@0.8.21
+	crossbeam-deque@0.8.7
+	crossbeam-epoch@0.9.20
+	crossbeam-utils@0.8.22
 	crunchy@0.2.4
-	either@1.15.0
+	either@1.18.0
 	equivalent@1.0.2
-	find-msvc-tools@0.1.9
-	futures-channel@0.3.32
-	futures-core@0.3.32
-	futures-executor@0.3.32
-	futures-io@0.3.32
-	futures-macro@0.3.32
-	futures-sink@0.3.32
-	futures-task@0.3.32
-	futures-util@0.3.32
-	gio-sys@0.22.0
-	gio@0.22.2
-	glib-macros@0.22.2
-	glib-sys@0.22.0
-	glib@0.22.2
-	gobject-sys@0.22.0
+	find-msvc-tools@0.1.11
+	futures-channel@0.3.34
+	futures-core@0.3.34
+	futures-executor@0.3.34
+	futures-io@0.3.34
+	futures-macro@0.3.34
+	futures-sink@0.3.34
+	futures-task@0.3.34
+	futures-util@0.3.34
+	gio-sys@0.22.8
+	gio@0.22.8
+	glib-macros@0.22.6
+	glib-sys@0.22.8
+	glib@0.22.8
+	gobject-sys@0.22.6
 	gstreamer-app-sys@0.25.0
-	gstreamer-app@0.25.0
-	gstreamer-base-sys@0.25.0
-	gstreamer-base@0.25.0
-	gstreamer-sys@0.25.0
-	gstreamer-video-sys@0.25.0
-	gstreamer-video@0.25.0
-	gstreamer@0.25.1
+	gstreamer-app@0.25.2
+	gstreamer-base-sys@0.25.3
+	gstreamer-base@0.25.3
+	gstreamer-sys@0.25.2
+	gstreamer-video-sys@0.25.3
+	gstreamer-video@0.25.3
+	gstreamer@0.25.3
 	half@2.7.1
-	hashbrown@0.16.1
+	hashbrown@0.17.1
 	heck@0.5.0
 	image@0.25.10
-	indexmap@2.13.0
+	indexmap@2.14.0
 	itertools@0.13.0
-	itertools@0.14.0
-	itoa@1.0.17
-	js-sys@0.3.91
+	itertools@0.15.0
+	itoa@1.0.18
+	js-sys@0.3.104
 	kstring@2.0.2
-	libc@0.2.183
+	libc@0.2.189
 	libglycin-rebind-sys@0.1.0
 	libglycin-rebind@0.1.0
-	memchr@2.8.0
+	memchr@2.8.3
 	moxcms@0.8.1
 	muldiv@1.0.1
-	num-integer@0.1.46
+	num-integer@0.1.47
 	num-rational@0.4.2
 	num-traits@0.2.19
 	once_cell@1.21.4
 	oorandom@11.1.5
 	option-operations@0.6.1
 	page_size@0.6.0
-	pastey@0.2.1
+	pastey@0.2.3
 	pin-project-lite@0.2.17
-	pkg-config@0.3.32
+	pkg-config@0.3.34
 	plotters-backend@0.3.7
 	plotters-svg@0.3.7
 	plotters@0.3.7
-	proc-macro2@1.0.106
-	pxfm@0.1.28
-	quote@1.0.45
+	proc-macro2@1.0.107
+	pxfm@0.1.30
+	quote@1.0.47
 	rayon-core@1.13.0
-	rayon@1.11.0
-	regex-automata@0.4.14
-	regex-syntax@0.8.10
-	regex@1.12.3
-	rustversion@1.0.22
+	rayon@1.12.0
+	regex-automata@0.4.18
+	regex-syntax@0.8.11
+	regex@1.13.1
+	rustversion@1.0.23
 	same-file@1.0.6
-	serde@1.0.228
-	serde_core@1.0.228
-	serde_derive@1.0.228
-	serde_json@1.0.149
-	serde_spanned@1.0.4
-	shlex@1.3.0
+	serde@1.0.229
+	serde_core@1.0.229
+	serde_derive@1.0.229
+	serde_json@1.0.151
+	serde_spanned@1.1.1
+	shlex@2.0.1
 	slab@0.4.12
-	smallvec@1.15.1
+	smallvec@1.15.2
 	static_assertions@1.1.0
-	syn@2.0.117
-	system-deps@7.0.7
-	target-lexicon@0.13.3
-	thiserror-impl@2.0.18
-	thiserror@2.0.18
+	syn@2.0.119
+	syn@3.0.4
+	system-deps@7.0.8
+	target-lexicon@0.13.5
+	thiserror-impl@2.0.20
+	thiserror@2.0.20
 	tinytemplate@1.2.1
-	toml@0.9.12+spec-1.1.0
-	toml_datetime@0.7.5+spec-1.1.0
-	toml_parser@1.0.9+spec-1.1.0
-	toml_writer@1.0.6+spec-1.1.0
+	toml@1.1.4+spec-1.1.0
+	toml_datetime@1.1.1+spec-1.1.0
+	toml_parser@1.1.3+spec-1.1.0
+	toml_writer@1.1.2+spec-1.1.0
 	unicode-ident@1.0.24
 	version-compare@0.2.1
 	walkdir@2.5.0
-	wasm-bindgen-macro-support@0.2.114
-	wasm-bindgen-macro@0.2.114
-	wasm-bindgen-shared@0.2.114
-	wasm-bindgen@0.2.114
-	web-sys@0.3.91
+	wasm-bindgen-macro-support@0.2.127
+	wasm-bindgen-macro@0.2.127
+	wasm-bindgen-shared@0.2.127
+	wasm-bindgen@0.2.127
+	web-sys@0.3.104
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.11
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
 	windows-link@0.2.1
 	windows-sys@0.61.2
-	winnow@0.7.15
-	zerocopy-derive@0.8.42
-	zerocopy@0.8.42
-	zmij@1.0.21
+	winnow@1.0.4
+	zerocopy-derive@0.8.56
+	zerocopy@0.8.56
+	zmij@1.0.23
 "
-
 inherit cargo meson optfeature
 
 DESCRIPTION="GStreamer video and audio file thumbnailer"
@@ -144,7 +144,7 @@ SRC_URI="https://gitlab.gnome.org/GNOME/gst-thumbnailers/-/archive/${PV}/gst-thu
 	${CARGO_CRATE_URIS}
 "
 S=${WORKDIR}/gst-thumbnailers-${PV}
-RUST_MIN_VER="1.92"
+RUST_MIN_VER="1.93"
 LICENSE="GPL-3+"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0 Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0"
@@ -155,7 +155,7 @@ RESTRICT="test"
 RDEPEND="
 	>=media-libs/gstreamer-1.26.0:1.0
 	>=media-libs/gst-plugins-base-1.26.0:1.0
-	>=media-libs/glycin-2.0.0
+	>=media-libs/glycin-2.0.0:2
 	dev-libs/glib:2
 "
 DEPEND="${RDEPEND}"
