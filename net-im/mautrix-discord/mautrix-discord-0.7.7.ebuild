@@ -16,6 +16,7 @@ S="${WORKDIR}/discord-${PV}"
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
+IUSE="systemd"
 
 RDEPEND="
 	acct-user/${PN}
@@ -37,7 +38,7 @@ src_install() {
 	fperms -R 770 /var/log/mautrix
 
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
-	systemd_dounit "${FILESDIR}/${PN}.service"
+	use systemd && systemd_dounit "${FILESDIR}/${PN}.service"
 
 	# Unlike other Mautrix bridges, mautrix-discord does not support the -e
 	# flag for generating a configuration file. The documentation advises to
