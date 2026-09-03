@@ -15,10 +15,21 @@ HOMEPAGE="https://github.com/ggml-org/llama.cpp"
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ggml-org/llama.cpp.git"
+	LLAMA_BUILD_IS_DEV=ON
+	MY_PV="${PV}"
 else
-	MY_PV="v${PV}"
+	if [[ $(ver_cut 4) == "p" ]]; then
+		LLAMA_BUILD_IS_DEV=ON
+		LLAMA_BUILD_NUMBER="b$(ver_cut 5)"
+		MY_PV="${LLAMA_BUILD_NUMBER}"
+		S="${WORKDIR}/llama.cpp-${MY_PV}"
+	else
+		LLAMA_BUILD_IS_DEV=OFF
+		LLAMA_BUILD_NUMBER="${PV}"
+		MY_PV="v${PV}"
+		S="${WORKDIR}/llama.cpp-${PV}"
+	fi
 	SRC_URI="https://github.com/ggml-org/llama.cpp/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/llama.cpp-${PV}"
 	KEYWORDS="~amd64"
 fi
 
@@ -102,15 +113,16 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DLLAMA_BUILD_IS_DEV=${LLAMA_BUILD_IS_DEV}
 		-DLLAMA_BUILD_TESTS=OFF
 		-DLLAMA_BUILD_EXAMPLES=$(usex examples)
 		-DLLAMA_BUILD_SERVER=ON
+		-DBUILD_NUMBER="${MY_PV}"
 		-DCMAKE_SKIP_BUILD_RPATH=ON
 		-DGGML_NATIVE=0	# don't set march
 		-DGGML_RPC=ON
 		-DLLAMA_CURL=$(usex curl)
 		-DLLAMA_OPENSSL=$(usex openssl)
-		-DBUILD_NUMBER="1"
 		-DGENTOO_REMOVE_CMAKE_BLAS_HACK=ON
 		-DGGML_CUDA=$(usex cuda)
 		-DGGML_OPENCL=$(usex opencl)
