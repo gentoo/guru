@@ -24,12 +24,6 @@
 # Removal after 2026-08-22
 net-proxy/MTProxy
 
-# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-07-04)
-# C++26 reflection has been available in GCC 16 for a few months.
-# This package has served its purpose and may be removed.
-# Removal after 2026-09-04
-sys-devel/clang-bloomberg-p2996
-
 # Bjorn <bjorn.megaflow@gmail.com> (2026-06-23)
 # Requires gui-libs/libadwaita >= 1.9, which is currently not in
 # the main Gentoo repository.
