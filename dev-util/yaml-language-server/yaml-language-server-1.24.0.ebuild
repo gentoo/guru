@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,8 +7,9 @@ DESCRIPTION="Language Server for YAML Files"
 HOMEPAGE="https://github.com/redhat-developer/yaml-language-server"
 SRC_URI="
 	mirror://npm/${PN}/-/${P}.tgz
-	https://tastytea.de/files/gentoo/${P}-deps.tar.xz
+	https://git.skysolutions.fi/gentoo-mirror/guru-vendored/releases/download/yaml-language-server-${PV}/yaml-language-server-${PV}-deps.tar.xz
 "
+
 S="${WORKDIR}"
 
 # NOTE: to generate the dependency tarball:
