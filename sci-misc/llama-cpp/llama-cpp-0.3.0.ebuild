@@ -119,7 +119,7 @@ src_configure() {
 		-DLLAMA_BUILD_SERVER=ON
 		-DBUILD_NUMBER="${MY_PV}"
 		-DCMAKE_SKIP_BUILD_RPATH=ON
-		-DGGML_NATIVE=0	# don't set march
+		-DGGML_NATIVE=OFF	# don't set march
 		-DGGML_RPC=ON
 		-DLLAMA_CURL=$(usex curl)
 		-DLLAMA_OPENSSL=$(usex openssl)
@@ -172,7 +172,8 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
+	dobin "${BUILD_DIR}/bin/ggml-rpc-server"
 
 	# avoid clashing with whisper.cpp
-	rm -rf "${ED}/usr/include"
+	rm -r "${ED}/usr/include" || die
 }

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ROCM_VERSION="6.3"
+ROCM_VERSION="7.1"
 
 inherit cmake cuda rocm linux-info
 
@@ -68,9 +68,9 @@ CDEPEND="
 	flexiblas? ( sci-libs/flexiblas:= )
 	rocm? (
 		>=dev-util/hip-${ROCM_VERSION}:=
-		>=sci-libs/hipBLAS-${ROCM_VERSION}:=
+		>=sci-libs/hipBLAS-${ROCM_VERSION}:=[${ROCM_USEDEP}]
 		wmma? (
-			>=sci-libs/rocWMMA-${ROCM_VERSION}:=
+			>=sci-libs/rocWMMA-${ROCM_VERSION}:=[${ROCM_USEDEP}]
 		)
 	)
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
@@ -113,14 +113,13 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DLLAMA_BUILD_WEBUI=OFF
 		-DLLAMA_BUILD_IS_DEV=${LLAMA_BUILD_IS_DEV}
 		-DLLAMA_BUILD_TESTS=OFF
 		-DLLAMA_BUILD_EXAMPLES=$(usex examples)
 		-DLLAMA_BUILD_SERVER=ON
 		-DBUILD_NUMBER="${MY_PV}"
 		-DCMAKE_SKIP_BUILD_RPATH=ON
-		-DGGML_NATIVE=0	# don't set march
+		-DGGML_NATIVE=OFF	# don't set march
 		-DGGML_RPC=ON
 		-DLLAMA_CURL=$(usex curl)
 		-DLLAMA_OPENSSL=$(usex openssl)
@@ -176,5 +175,5 @@ src_install() {
 	dobin "${BUILD_DIR}/bin/ggml-rpc-server"
 
 	# avoid clashing with whisper.cpp
-	rm -rf "${ED}/usr/include"
+	rm -r "${ED}/usr/include" || die
 }
