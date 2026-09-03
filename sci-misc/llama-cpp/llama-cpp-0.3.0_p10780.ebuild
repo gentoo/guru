@@ -16,6 +16,8 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ggml-org/llama.cpp.git"
 	LLAMA_BUILD_IS_DEV=ON
+	LLAMA_BUILD_NUMBER="b0000"
+	LLAMA_UI_VERSION="b10780"
 	MY_PV="${PV}"
 else
 	if [[ $(ver_cut 4) == "p" ]]; then
@@ -25,15 +27,18 @@ else
 		S="${WORKDIR}/llama.cpp-${MY_PV}"
 	else
 		LLAMA_BUILD_IS_DEV=OFF
-		LLAMA_BUILD_NUMBER="${PV}"
+		# Set from https://github.com/ggml-org/llama.cpp/releases/download/v${PV}/nightly-tag.txt
+		LLAMA_BUILD_NUMBER="b10780"
 		MY_PV="v${PV}"
 		S="${WORKDIR}/llama.cpp-${PV}"
 	fi
+	LLAMA_UI_VERSION="${LLAMA_BUILD_NUMBER}"
 	SRC_URI="https://github.com/ggml-org/llama.cpp/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
 SRC_URI+="
+	https://github.com/ggml-org/llama.cpp/releases/download/${LLAMA_UI_VERSION}/llama-${LLAMA_UI_VERSION}-ui.tar.gz
 	examples? (
 		https://huggingface.co/ggml-org/tiny-llamas/resolve/${TINY_LLAMAS_COMMIT}/stories15M-q4_0.gguf
 			-> ggml-org_models_tinyllamas_stories15M-q4_0-${TINY_LLAMAS_COMMIT}.gguf
@@ -124,6 +129,11 @@ pkg_setup() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 }
 
+src_unpack() {
+	[[ ${PV} == *9999* ]] && git-r3_src_unpack
+	default
+}
+
 src_prepare() {
 	use cuda && cuda_src_prepare
 	cmake_src_prepare
@@ -132,6 +142,10 @@ src_prepare() {
 		cp "${DISTDIR}/ggml-org_models_tinyllamas_stories15M-q4_0-${TINY_LLAMAS_COMMIT}.gguf" \
 			"${BUILD_DIR}/tinyllamas/stories15M-q4_0.gguf" || die
 	fi
+
+	# Move web UI assets where they belong, bug #979245
+	mkdir -p "${S}"/tools/ui || die
+	cp -a "${WORKDIR}"/llama-${LLAMA_UI_VERSION} "${S}"/tools/ui/dist || die
 }
 
 src_configure() {
@@ -141,7 +155,7 @@ src_configure() {
 		-DLLAMA_BUILD_TESTS=OFF
 		-DLLAMA_BUILD_EXAMPLES=$(usex examples)
 		-DLLAMA_BUILD_SERVER=ON
-		-DBUILD_NUMBER="${MY_PV}"
+		-DBUILD_NUMBER="${LLAMA_BUILD_NUMBER}"
 		-DLLAMA_CURL=$(usex curl)
 		-DLLAMA_OPENSSL=$(usex openssl)
 		-DGENTOO_REMOVE_CMAKE_BLAS_HACK=ON
