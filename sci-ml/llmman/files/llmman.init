@@ -1,0 +1,9 @@
+#!/sbin/openrc-run
+# Copyright 2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License, v2
+
+supervisor=supervise-daemon
+description="llmman Service"
+command="/usr/bin/llmman"
+command_args="serve"
+command_user="llmman:llmman"

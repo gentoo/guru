@@ -1,0 +1,14 @@
+[Unit]
+Description=llmman Service
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/llmman serve
+User=llmman
+Group=llmman
+Restart=always
+RestartSec=3
+Environment="PATH=$PATH"
+
+[Install]
+WantedBy=multi-user.target

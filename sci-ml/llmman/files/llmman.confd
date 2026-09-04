@@ -1,0 +1,13 @@
+# llmman listens on 127.0.0.1:17434 by default.
+# export LLMMAN_HOST="0.0.0.0:17434"
+
+# Additional allowed CORS origins.
+# export LLMMAN_ORIGINS="<origin>"
+
+# log to syslog
+# output_logger="logger -t \"$RC_SVCNAME\" -p daemon.info"
+# error_logger="logger -t \"$RC_SVCNAME\" -p daemon.err"
+
+# log to file
+output_log="/var/log/llmman/llmman.log"
+error_log="/var/log/llmman/llmman.log"
