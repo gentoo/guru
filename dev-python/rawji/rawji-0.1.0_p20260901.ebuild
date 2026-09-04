@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
-EGIT_COMMIT="5549fdb93028549c2bab8abe963f1a91c50b5368"
+EGIT_COMMIT="a702dc8254378974b86785e2654fe57d590fafe4"
 DESCRIPTION="Fujifilm RAF conversion using the camera's own engine over USB"
 HOMEPAGE="https://github.com/pinpox/rawji"
 SRC_URI="https://github.com/pinpox/rawji/archive/${EGIT_COMMIT}.tar.gz -> ${P}.gh.tar.gz"
