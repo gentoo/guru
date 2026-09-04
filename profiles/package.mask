@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# dsaf <ghostyn678+git@gmail.com> (2026-09-03)
+# Deprecated and archived by upstream.
+# No reverse dependencies.
+# Removal after 2026-10-03
+gui-apps/noctalia-qs
+
 # David Roman <stkw0@disroot.org> (2026-07-22)
 # Archived by upstream.
 # Bug #975821
