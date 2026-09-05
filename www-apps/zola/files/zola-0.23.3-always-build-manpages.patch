@@ -1,0 +1,30 @@
+From 727763bb6a0cbac63d368c96d8c5d02fab8e12dd Mon Sep 17 00:00:00 2001
+From: Dustin Smith <d.usty360@gmail.com>
+Date: Fri, 31 Jul 2026 20:07:50 -0400
+Subject: [PATCH] Build manpages regardless of PROFILE (debug/release)
+
+Upstream, manpages are only built when using the release profile. This
+patch removes that behavior, making manpages available even for
+USE="debug" users.
+
+Closes: https://bugs.gentoo.org/979739
+Thanks-to: Eli Schwartz <eschwartz@gentoo.org>
+---
+ build.rs | 3 ---
+ 1 file changed, 3 deletions(-)
+
+--- a/build.rs
++++ b/build.rs
+@@ -20,9 +20,6 @@ fn generate_man_pages() {
+ }
+ 
+ fn main() {
+-    if std::env::var("PROFILE").unwrap() != "release" {
+-        return;
+-    }
+     if cfg!(windows) {
+         generate_pe_header();
+     }
+-- 
+2.54.0
+
