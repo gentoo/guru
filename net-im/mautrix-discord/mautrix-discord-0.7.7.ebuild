@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,14 +7,16 @@ inherit go-module systemd
 
 DESCRIPTION="A Matrix-Discord puppeting bridge"
 HOMEPAGE="https://github.com/mautrix/discord"
-SRC_URI="https://github.com/mautrix/discord/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz
-	https://jroy.ca/dist/${P}-deps.tar.xz
+SRC_URI="
+	https://github.com/mautrix/discord/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	https://vimja.cloud/public.php/dav/files/z59eKDyLFokW2KK/${CATEGORY}/${PN}/${P}-vendor.tar.xz
 "
 S="${WORKDIR}/discord-${PV}"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
+IUSE="systemd"
 
 RDEPEND="
 	acct-user/${PN}
@@ -22,7 +24,7 @@ RDEPEND="
 	dev-util/lottieconverter
 "
 DEPEND="${RDEPEND}"
-BDEPEND=">=dev-lang/go-1.20.0"
+BDEPEND=">=dev-lang/go-1.25.0"
 
 src_compile() {
 	ego build
@@ -34,16 +36,24 @@ src_install() {
 	keepdir /var/log/mautrix/discord
 	fowners -R root:mautrix /var/log/mautrix
 	fperms -R 770 /var/log/mautrix
-	sed -i -e "s/\.\/logs/\/var\/log\/${PN/-/\\\/}/" "example-config.yaml" || die
-
-	insinto "/etc/mautrix"
-	newins "example-config.yaml" "${PN/-/_}.yaml"
 
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
-	systemd_dounit "${FILESDIR}/${PN}.service"
+	use systemd && systemd_dounit "${FILESDIR}/${PN}.service"
+
+	# Unlike other Mautrix bridges, mautrix-discord does not support the -e
+	# flag for generating a configuration file. The documentation advises to
+	# instead use the sample config from the project repository.
+	# https://docs.mau.fi/bridges/go/setup.html#step-2-configuring-and-running
+	sed -i -e "s/\.\/logs/\/var\/log\/${PN/-/\\\/}/" "example-config.yaml" || die
+	insinto /etc/mautrix
+	newins "${S}"/example-config.yaml "${PN/-/_}.yaml"
 
 	fowners -R root:mautrix /etc/mautrix
 	fperms -R 770 /etc/mautrix
+}
+
+src_test() {
+	ego test ./...
 }
 
 pkg_postinst() {
