@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>paul@paul-anderson.com</email>
+		<name>Paul Anderson</name>
+	</maintainer>
+	<maintainer type="project" proxied="proxy">
+		<email>proxy-maint@gentoo.org</email>
+		<name>Proxy Maintainers</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">JavaPerformance/md2any</remote-id>
+		<bugs-to>https://github.com/JavaPerformance/md2any/issues</bugs-to>
+		<doc>https://github.com/JavaPerformance/md2any#readme</doc>
+	</upstream>
+	<use>
+		<flag name="remote-images">Fetch http(s) image URLs referenced in markdown at build time</flag>
+		<flag name="svg">Rasterise SVG images via resvg / tiny-skia at build time</flag>
+	</use>
+</pkgmetadata>
