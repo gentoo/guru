@@ -1,13 +1,13 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit desktop xdg
 
-DESCRIPTION="Betterbird is a fine-tuned version of Mozilla Thunderbird."
+DESCRIPTION="Betterbird is a fine-tuned version of Mozilla Thunderbird"
 HOMEPAGE="https://github.com/Betterbird/thunderbird-patches/ https://betterbird.eu/"
-SRC_URI="https://www.betterbird.eu/downloads/LinuxArchive/betterbird-${PV}esr-bb24.en-US.linux-x86_64.tar.xz"
+SRC_URI="https://www.betterbird.eu/downloads/LinuxArchive/betterbird-${PV}esr-bb8.en-US.linux-x86_64.tar.xz"
 
 S="${WORKDIR}"
 LICENSE="MPL-2.0"
