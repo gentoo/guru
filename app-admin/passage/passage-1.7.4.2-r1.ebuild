@@ -25,3 +25,8 @@ RDEPEND="
 	wayland? ( gui-apps/wl-clipboard )
 	git? ( dev-vcs/git )
 "
+
+src_install() {
+	default
+	doman "${FILESDIR}/passage.1"
+}
