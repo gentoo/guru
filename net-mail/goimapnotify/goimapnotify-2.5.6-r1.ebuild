@@ -5,7 +5,7 @@ EAPI=8
 
 inherit go-module git-r3
 
-DESCRIPTION="Execute scripts on IMAP mailbox changes using IDLE, golang version."
+DESCRIPTION="Execute scripts on IMAP mailbox changes using IDLE, golang version"
 
 EGIT_REPO_URI="https://jardin.jorgearaya.dev/z39RJHSHs166S5kr8Qstj6kd1LFah.git"
 EGIT_COMMIT="251292f1544bf3c69ae6c8a325beb2930d6509b2"

@@ -1,0 +1,12 @@
+--- a/go.mau.fi/webp@v0.3.0/capi.go
++++ b/go.mau.fi/webp@v0.3.0/capi.go
+@@ -15,8 +15,7 @@
+ package webp
+ 
+ /*
+-#cgo CFLAGS: -I./internal/libwebp-1.6.0/
+-#cgo CFLAGS: -I./internal/libwebp-1.6.0/src/
++#cgo pkg-config: libwebp libwebpdemux libwebpmux
+ #cgo CFLAGS: -I./internal/include/
+ #cgo CFLAGS: -Wno-pointer-sign -DWEBP_USE_THREAD
+ #cgo !windows LDFLAGS: -lm

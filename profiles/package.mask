@@ -18,17 +18,22 @@
 
 # New entries go on top.
 
+# dsaf <ghostyn678+git@gmail.com> (2026-09-03)
+# Deprecated and archived by upstream.
+# No reverse dependencies.
+# Removal after 2026-10-03
+gui-apps/noctalia-qs
+
 # David Roman <stkw0@disroot.org> (2026-07-22)
 # Archived by upstream.
 # Bug #975821
 # Removal after 2026-08-22
 net-proxy/MTProxy
 
-# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-07-04)
-# C++26 reflection has been available in GCC 16 for a few months.
-# This package has served its purpose and may be removed.
-# Removal after 2026-09-04
-sys-devel/clang-bloomberg-p2996
+# Bjorn <bjorn.megaflow@gmail.com> (2026-06-23)
+# Requires gui-libs/libadwaita >= 1.9, which is currently not in
+# the main Gentoo repository.
+>=gnome-extra/Refine-0.8.0
 
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
@@ -40,6 +45,14 @@ net-p2p/dogecoin-qt
 # https://github.com/meganz/MEGAsync/issues/954
 # Bug #948836.
 net-misc/megasync
+
+# Dale Sweeney <agooglygooglr@gmail.com> (2026-05-08)
+# Won't build until bugs.gentoo.org/974338 is resolved
+>=net-misc/wlvncc-20260429
+
+# Shaumyadeep Chaudhuri <shaumya@gmail.com> (2026-04-30)
+# Requires systemd. Cannot be masked per profile (see top comment)
+sys-apps/dmemcg-booster
 
 # Joe Kappus <joe@wt.gd) (2026-04-23)
 # Depends on masked dev-python/pyqt5.
@@ -81,16 +94,3 @@ sys-libs/gcompat
 # (See also top comment)
 # Sorry for the inconvenience.
 app-office/lotus123r3
-
-# Shaumyadeep Chaudhuri <shaumya@gmail.com> (2026-04-30)
-# Requires systemd. Cannot be masked per profile (see top comment)
-sys-apps/dmemcg-booster
-
-# Dale Sweeney <agooglygooglr@gmail.com> (2026-05-08)
-# Won't build until bugs.gentoo.org/974338 is resolved
->=net-misc/wlvncc-20260429
-
-# Bjorn <bjorn.megaflow@gmail.com> (2026-06-23)
-# Requires gui-libs/libadwaita >= 1.9, which is currently not in
-# the main Gentoo repository.
->=gnome-extra/Refine-0.8.0

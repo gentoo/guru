@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>hskim@dilluti0n.com</email>
+        <name>Hee-Suk Kim</name>
+    </maintainer>
+    <use>
+        <flag name="cvg">EXPERIMENTAL: build cvg - cvs-like-git</flag>
+    </use>
+    <upstream>
+        <bugs-to>mailto:gameoftrees@openbsd.org</bugs-to>
+        <remote-id type="github">gameoftrees/got-portable</remote-id>
+    </upstream>
+</pkgmetadata>

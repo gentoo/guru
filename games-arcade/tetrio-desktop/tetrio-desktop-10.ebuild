@@ -8,7 +8,8 @@ inherit unpacker desktop xdg
 DESCRIPTION="TETR.IO desktop client."
 HOMEPAGE="https://tetr.io/"
 
-SRC_URI="https://tetr.io/about/desktop/builds/${PV}/TETR.IO%20Setup.deb -> ${P}.deb"
+SRC_URI="https://tetr.io/about/desktop/builds/${PV}/TETR.IO%20Setup.deb -> ${P}.deb
+tetrio-plus?	( https://gitlab.com/UniQMG/tetrio-plus/-/jobs/13795436076/artifacts/raw/tetrio-plus_v0.28.0_for_desktop_v10.asar.zip -> tetrio-plus-${PV}.zip )"
 
 S="${WORKDIR}"
 
@@ -57,9 +58,9 @@ src_unpack() {
 	unpack_deb "${P}.deb"
 
 	# No TETR.IO PLUS for v10 yet
-	#if use tetrio-plus; then
-	#	unpack "tetrio-plus-${PV}.zip"
-	#fi
+	if use tetrio-plus; then
+		unpack "tetrio-plus-${PV}.zip"
+	fi
 }
 
 src_prepare() {
@@ -68,13 +69,13 @@ src_prepare() {
 
 	default
 
-	if use tetrio-plus; then
-		ewarn "TETR.IO PLUS is not supported yet for v10"
-	fi
+	# if use tetrio-plus; then
+	# 	ewarn "TETR.IO PLUS is not supported yet for v10"
+	# fi
 
-	#if use tetrio-plus;	then
-	#	mv "${S}/app.asar" "${S}/opt/TETR.IO/resources/app.asar" || die
-	#fi
+	if use tetrio-plus;	then
+		mv "${S}/app.asar" "${S}/opt/TETR.IO/resources/app.asar" || die
+	fi
 
 	mv "${S}/opt/TETR.IO" "${S}/opt/${PN}" || die
 }
@@ -84,7 +85,7 @@ src_install() {
 	DESTDIR="/opt/${PN}"
 
 	doicon -s 256 "${ICONDIR}/256x256/apps/TETR.IO.png"
-	doicon -s 512 "${ICONDIR}/512x512/apps/TETR.IO.png"
+	# doicon -s 512 "${ICONDIR}/512x512/apps/TETR.IO.png"
 
 	domenu "usr/share/applications/tetrio-desktop.desktop"
 

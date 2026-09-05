@@ -11,13 +11,14 @@ EGIT_REPO_URI="https://github.com/linux-msm/qdl.git"
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="test"
+IUSE="nbd test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
 	dev-libs/libusb:1
 	dev-libs/libxml2:=
 	dev-libs/libzip:=
+	nbd? ( sys-block/nbdkit )
 	test? (
 		app-arch/zip
 		dev-util/cmocka
@@ -33,4 +34,16 @@ BDEPEND="
 src_prepare() {
 	sed -i '/default_options/d' meson.build || die
 	default
+}
+
+src_configure() {
+	local emesonargs=(
+		$(meson_feature nbd nbdkit)
+		$(meson_feature test tests)
+	)
+	meson_src_configure
+}
+
+src_test() {
+	meson_src_test --no-suite hil
 }

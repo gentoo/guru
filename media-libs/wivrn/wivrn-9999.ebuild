@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/WiVRn/WiVRn"
 
 LICENSE="GPL-3 Apache-2.0 MIT"
 SLOT="0"
-IUSE="debug gui nvenc +pipewire pulseaudio systemd vaapi wireshark-plugins x264"
+IUSE="debug gui nvenc +pipewire pulseaudio vaapi wireshark-plugins x264"
 REQUIRED_USE="|| ( nvenc vaapi x264 )"
 
 if [[ ${PV} == 9999 ]]; then
@@ -53,9 +53,6 @@ RDEPEND="
 	)
 	pulseaudio? (
 		media-libs/libpulse
-	)
-	systemd? (
-		sys-apps/systemd
 	)
 	vaapi? (
 		media-video/ffmpeg[drm(-),vaapi]
@@ -140,7 +137,6 @@ multilib_src_configure() {
 		-DWIVRN_USE_VAAPI=$(multilib_native_usex vaapi)
 		-DWIVRN_USE_VULKAN_ENCODE=ON
 		-DWIVRN_USE_X264=$(multilib_native_usex x264)
-		-DWIVRN_USE_SYSTEMD=$(multilib_native_usex systemd)
 		-DWIVRN_USE_SYSTEM_OPENXR=ON
 		-DWIVRN_USE_SYSTEM_BOOST=ON
 		-DFETCHCONTENT_FULLY_DISCONNECTED=ON

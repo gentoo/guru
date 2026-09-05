@@ -5,6 +5,9 @@
     <email>quincyf467@protonmail.com</email>
     <name>Quincy Fleming</name>
   </maintainer>
+  <use>
+    <flag name="nbd">Build the nbdkit plugin via <pkg>sys-block/nbdkit</pkg></flag>
+  </use>
   <upstream>
     <remote-id type="github">linux-msm/qdl</remote-id>
     <doc lang="en">https://github.com/linux-msm/qdl</doc>

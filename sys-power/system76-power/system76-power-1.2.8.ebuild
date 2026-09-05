@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -220,6 +220,8 @@ CRATES="
 declare -A GIT_CRATES=(
 	[sysfs-class]='https://github.com/pop-os/sysfs-class;ab63e7f638aadfaf896a02e53cf330343d331337;sysfs-class-%commit%'
 )
+
+RUST_MIN_VER="1.82.0"
 
 inherit cargo
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo-bugzilla@vimja.email</email>
+		<name>Niklaus 'vimja' Hofer</name>
+	</maintainer>
+	<longdescription lang='en'>
+		Zendrite is a second-generation Matrix homeserver written in Go, designed to be efficient, reliable, and scalable.
+
+		An opinionated fork of element-hq/dendrite https://zendrite.pat-s.me
+	</longdescription>
+	<upstream>
+		<bugs-to>https://codefloe.com/pat-s/zendrite/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,17 @@
+# Increase the maximum number of open file descriptors. Set to a higher
+# value for larger servers or if joining larger rooms.
+rc_ulimit="-n 4096"
+
+# Specify the network service that corresponds to the "bind" setting
+# in your configuration file. For example, if you bind to 127.0.0.1,
+# this should be set to "loopback" which provides the loopback interface.
+rc_need="loopback"
+
+# Uncomment if you are using PostgreSQL:
+# rc_need="${rc_need} postgresql"
+
+# Use supervisor-daemon to manage the process:
+supervisor="supervise-daemon"
+
+# Use to bind to different port (useful when running multiple instances).
+# ZENDRITE_OPTS="-http-bind-address localhost:8008"

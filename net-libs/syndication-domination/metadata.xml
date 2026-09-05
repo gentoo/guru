@@ -2,7 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
 <pkgmetadata>
 	<maintainer type="person">
-		<email>brettalcox@proton.me</email>
+		<email>gentoo.usable109@simplelogin.com</email>
 	</maintainer>
 	<upstream>
 		<remote-id type="gitlab">GabMus/syndication-domination</remote-id>

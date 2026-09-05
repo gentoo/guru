@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 DEPEND="
 	dev-cpp/yaml-cpp
 	dev-libs/libevdev
-	sys-libs/glibc
+	virtual/libc
 	virtual/libudev
 "
 RDEPEND="${DEPEND}"
