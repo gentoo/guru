@@ -1,16 +1,14 @@
 certificate version 0.1
-pusher Thomas Bracht Laumann Jespersen <laumann@gentoo.org> 1788705427 +0200
-pushee git.gentoo.org:repo/proj/guru.git
-nonce 1788705427-29a9bcfafef22682026e6e0b8279a97958fa63f6
+pusher DF84256885283521 1788706362 +0200
+pushee git.gentoo.org:repo/proj/guru
+nonce 1788706362-c5c1939b38bc9ebbda0c248525d30128a15ef61c
 
-82c1a7bfccc00c5541e4a4753f76b21f4c606b17 ebde6a76a5af155c360ffb9d53b83844c59e71db refs/heads/dev
+ebde6a76a5af155c360ffb9d53b83844c59e71db 9a39eef4238385dc6d1c39b76dd492c6f020e441 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQEFBAAWCgCtFiEEq7SpitE7F8gDwQG+I/uGahf0qDsFAmqdepMbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyXxSAAAAAAC4AKGlzc3Vlci1mcHJAbm90YXRpb25z
-Lm9wZW5wZ3AuZmlmdGhob3JzZW1hbi5uZXRBQkI0QTk4QUQxM0IxN0M4MDNDMTAx
-QkUyM0ZCODY2QTE3RjRBODNCExxsYXVtYW5uQGdlbnRvby5vcmcACgkQI/uGahf0
-qDvg4wEAxblhU2OG6O6b20wh0D9wJZA2JW8zSKRy0uH9YIWbaosA/RKz4zzwKeTs
-k+wFJ+4u1abrKmSKUmBc7fQlpjaumqcP
-=pZ9s
+iJEEABYKADkWIQQcFD0bEK7NPNmWHtiOMjR69AVa6AUCap1+OhsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwyLDIACgkQjjI0evQFWugBOgEA/CJHEfk0gglGv6oBIW8E
+V+Akj1jMk6ylHq0knaAE+0IBAN8nNNTjDABVbThG8IVRPA13xfwt8tl9Wc7bYIam
+Ic0A
+=7QTF
 -----END PGP SIGNATURE-----
