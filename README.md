@@ -8,9 +8,6 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://wiki.gentoo.org/wiki/Project:GURU/Information_for_Contributors)
 [![chat on libera](https://img.shields.io/badge/chat-on%20libera-brightgreen.svg)](https://web.libera.chat/#gentoo-guru)
 
-<table><tr>
-<td width="68%">
-
 **The official repository for new Gentoo packages, maintained collaboratively by Gentoo users.**
 
 This README contains some additional useful information for GURU contributors, such as common mistakes, frequently asked questions and other tips and tricks.
@@ -18,17 +15,6 @@ This README contains some additional useful information for GURU contributors, s
 The [GURU rules](https://wiki.gentoo.org/wiki/Project:GURU#Rules), and the Gentoo [developer manual](https://devmanual.gentoo.org/) take precedence over any information here.
 
 *See [wiki.gentoo.org/wiki/Project:GURU](https://wiki.gentoo.org/wiki/Project:GURU) for more information on the project.*
-
-</td>
-<td width="27%" style="border-style:solid; border-radius:10px;">
-
-### Contents
-
-1. [Useful Links](#links)
-2. [Email Addresses](#email)
-
-</td>
-</tr></table>
 
 ## Useful Links <a name="links"></a>
 
