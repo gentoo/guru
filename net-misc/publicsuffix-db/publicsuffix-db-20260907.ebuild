@@ -3,20 +3,29 @@
 
 EAPI=9
 
+# We need a stable list, so even though the offical site specifically
+# says not to pull it from VCS because it may break, the only other option
+# is to store snapshots of the list somewhere and pull that
+
+COMMIT="f540a06159213b6e8ed9c87d2dd3a52373637e92"
+
 DESCRIPTION="The Public Suffix List"
 HOMEPAGE="https://publicsuffix.org"
-SRC_URI="https://publicsuffix.org/list/public_suffix_list.dat -> public_suffix_list-${PV}.dat"
+SRC_URI="https://github.com/publicsuffix/list/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+
+S="${WORKDIR}/list-${COMMIT}"
 
 LICENSE="MPL-2.0"
 SLOT="0/${PV}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
-src_unpack() {
-	mkdir "${WORKDIR}/${P}" || die
-	cp "${DISTDIR}/public_suffix_list-${PV}.dat" "${WORKDIR}/${P}"
+# Portage does not empty functions, so fake it
+src_compile() {
+	# Skip the Makefile
+	true
 }
 
 src_install() {
 	insinto /usr/share/publicsuffix
-	newins "public_suffix_list-${PV}.dat" "public_suffix_list.dat"
+	doins public_suffix_list.dat
 }
