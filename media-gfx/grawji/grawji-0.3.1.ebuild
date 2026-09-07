@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{12..15} )
 
-inherit distutils-r1 virtualx
+inherit desktop distutils-r1 virtualx xdg
 
 DESCRIPTION="GTK4 frontend for rawji, interactive Fujifilm RAF conversion"
 HOMEPAGE="https://github.com/p5k369/grawji"
@@ -34,11 +34,19 @@ EPYTEST_IGNORE=(
 distutils_enable_tests pytest
 
 src_prepare() {
-	# rawji is provided by dev-python/rawji
+	xdg_environment_reset
 	sed -i 's|"rawji @ git+[^"]*"|"rawji"|' pyproject.toml || die
 	default
 }
 
 src_test() {
 	virtx distutils-r1_src_test
+}
+
+python_install_all() {
+	distutils-r1_python_install_all
+	domenu data/io.github.p5k369.grawji.desktop
+	doicon -s scalable data/io.github.p5k369.grawji.svg
+	insinto /usr/share/metainfo
+	doins data/io.github.p5k369.grawji.metainfo.xml
 }
