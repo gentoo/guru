@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop xdg toolchain-funcs
+inherit xdg toolchain-funcs
 
 DESCRIPTION="Doing phonetics by computer"
 HOMEPAGE="http://www.fon.hum.uva.nl/praat/"
