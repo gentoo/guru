@@ -14,9 +14,9 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 DEPEND="dev-libs/icu
-		dev-libs/boehm-gc
-		dev-libs/gmp
-		dev-libs/openssl"
+	dev-libs/boehm-gc
+	dev-libs/gmp
+	dev-libs/openssl"
 RDEPEND="${DEPEND}"
 BDEPEND=" test? ( dev-libs/criterion ) "
 
@@ -33,7 +33,7 @@ src_prepare() {
 
 src_test() {
 	emake test
-	./run_tests
+	./run_tests || die "package tests failed"
 }
 
 src_install() {
