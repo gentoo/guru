@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<maintainer type="person">
+		<email>mit.mis@gmail.com</email>
+		<name>Michal Andrzejczak</name>
+	</maintainer>
+	<longdescription>
+		Frontend for the wallpaper backends swaybg, swww, awww, wallutils,
+		hyprpaper, mpvpaper, gslapper, xwallpaper, feh and
+		linux-wallpaperengine, presenting the images of a chosen directory
+		as a thumbnail grid. GIF animations, videos and per-monitor
+		wallpapers work with the backends that support them; waypaper
+		--restore reapplies the last choice at login.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">anufrievroman/waypaper</remote-id>
+		<remote-id type="pypi">waypaper</remote-id>
+		<bugs-to>https://github.com/anufrievroman/waypaper/issues</bugs-to>
+	</upstream>
 </pkgmetadata>
