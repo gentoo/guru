@@ -75,10 +75,10 @@ src_test() {
 }
 
 src_install() {
-	dobin $(cargo_target_dir)/czkawka_cli
+	dobin "$(cargo_target_dir)/czkawka_cli"
 
-	use gtk && dobin $(cargo_target_dir)/czkawka_gui
-	use krokiet && dobin $(cargo_target_dir)/krokiet
+	use gtk && dobin "$(cargo_target_dir)/czkawka_gui"
+	use krokiet && dobin "$(cargo_target_dir)/krokiet"
 
 	if use gui; then
 		doicon data/icons/com.github.qarmin.czkawka.svg

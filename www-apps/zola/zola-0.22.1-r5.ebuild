@@ -679,7 +679,7 @@ src_compile() {
 
 	echo "Generating shell completion files"
 	for sh in bash fish zsh; do
-		$(cargo_target_dir)/${PN} completion ${sh} > ${sh}.completion || die
+		"$(cargo_target_dir)/${PN}" completion ${sh} > ${sh}.completion || die
 	done
 }
 
@@ -690,5 +690,5 @@ src_install() {
 	newfishcomp fish.completion ${PN}.fish
 	newzshcomp zsh.completion _${PN}
 
-	doman $(cargo_target_dir)/build/${PN}-*/out/${PN}{,-build,-check,-init,-serve}.1
+	doman "$(cargo_target_dir)/build/${PN}-"*/out/${PN}{,-build,-check,-init,-serve}.1
 }
