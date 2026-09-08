@@ -120,13 +120,7 @@ src_configure() {
 }
 
 pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
+	xdg_pkg_postinst
 	optfeature "accessing Android devices through the ADB plugin" dev-util/android-tools
 	optfeature "privileged file operations through far2l's sudo support" app-admin/sudo
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }
