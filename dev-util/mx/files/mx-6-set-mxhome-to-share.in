@@ -1,0 +1,13 @@
+diff --git a/mx.py b/mx.py
+index 4ff362b..e13d1d3 100644
+--- a/mx.py
++++ b/mx.py
+@@ -3824,7 +3824,7 @@ from mx_javamodules import JavaModuleDescriptor, get_java_module_info, lookup_pa
+ 
+ ERROR_TIMEOUT = 0x700000000 # not 32 bits
+ 
+-_mx_home = realpath(dirname(__file__))
++_mx_home = "/usr/share/${PN}" if exists("/usr/share/${PN}") else realpath(dirname(__file__))
+ _mx_path = 'mx' if _mx_home in os.environ.get('PATH', '').split(os.pathsep) else join(_mx_home, 'mx')
+ 
+ try:
