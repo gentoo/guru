@@ -17,10 +17,11 @@ RDEPEND="
 	sys-libs/ncurses:=
 	dev-libs/libbsd
 	app-crypt/libmd
+	dev-libs/openssl:=
 	sys-apps/util-linux
 	virtual/zlib
-	dev-libs/libevent
-	dev-libs/libretls
+	dev-libs/libevent:=
+	dev-libs/libretls:=
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
