@@ -22,4 +22,7 @@ RDEPEND="
 	x11-libs/pango
 "
 DEPEND="${RDEPEND}"
-BDEPEND="sys-devel/gettext"
+BDEPEND="
+	dev-libs/appstream
+	sys-devel/gettext
+"
