@@ -10,7 +10,7 @@ CRATES="
 "
 LUA_COMPAT=( lua5-1 luajit )
 
-inherit cargo desktop lua-single toolchain-funcs xdg-utils
+inherit cargo desktop lua-single toolchain-funcs xdg
 
 DESCRIPTION="Cross-platform runtime for Path of Building"
 HOMEPAGE="https://github.com/meehl/rusty-path-of-building"
