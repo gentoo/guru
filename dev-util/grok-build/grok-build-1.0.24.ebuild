@@ -17,7 +17,7 @@ declare -A GIT_CRATES=(
 	[nucleo]='https://github.com/helix-editor/nucleo;5b74652e482f7c07d827f18c6d21e7540c242c69;nucleo-%commit%'
 )
 
-inherit cargo check-reqs shell-completion
+inherit cargo check-reqs linux-info shell-completion
 
 # no tagged releases
 MY_COMMIT="f21225f2d463e1629769c7b4939807923c0ef83e"
@@ -61,7 +61,10 @@ QA_FLAGS_IGNORED="usr/bin/.*"
 CHECKREQS_DISK_BUILD=10G # 9.7G
 
 pkg_setup() {
+	local CONFIG_CHECK="~SECURITY_LANDLOCK"
+
 	check-reqs_pkg_setup
+	linux-info_pkg_setup
 	rust_pkg_setup
 }
 
