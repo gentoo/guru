@@ -22,6 +22,7 @@ RDEPEND="
 	gui-libs/gtk:4[introspection]
 	gui-libs/libadwaita:1[introspection]
 	media-libs/gexiv2[introspection]
+	x11-libs/gdk-pixbuf[jpeg]
 "
 
 EPYTEST_PLUGINS=()
