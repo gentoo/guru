@@ -31,6 +31,10 @@ REQUIRED_USE="
 RDEPEND="app-arch/libarchive
 	 app-crypt/libsecret
 	 >=dev-libs/glib-2.36
+	 x11-libs/cairo
+	 x11-libs/gdk-pixbuf
+	 x11-libs/libX11
+	 x11-libs/pango
 	 gtk? ( >=x11-libs/gtk+-3.22 )
 	 libcanberra? ( >=media-libs/libcanberra-gtk3-0.22 )
 	 lua? ( ${LUA_DEPS} )
@@ -55,13 +59,15 @@ BDEPEND="app-text/iso-codes
 	 dev-util/glib-utils
 	 net-misc/publicsuffix-db:=
 	 sys-devel/gettext
-	 virtual/pkgconfig"
+	 virtual/pkgconfig
+	 ${PYTHON_DEPS}"
 
 PATCHES=( "${FILESDIR}/${PN}-2.19.0-meson-fix-appstream-conditional-define.patch" )
 
 pkg_setup() {
 	use lua && lua-single_pkg_setup
-	use python && python-single-r1_pkg_setup
+	# Build scripts use Python
+	python-single-r1_pkg_setup
 }
 
 pkg_preinst() {
@@ -77,6 +83,14 @@ pkg_postinst() {
 		elog "You have disabled the gtk USE flag. This means you don't have"
 		elog "the GTK-GUI for ZoiteChat but only a text interface called \"zoitechat-text\"."
 	fi
+}
+
+src_prepare() {
+	default
+	# Compile process runs Python scripts, so the build shebangs have to be fixed BEFORE src_install
+	for PFN in $(find "${S}" -type d -path "${S}/plugins/python" -prune -o -name \*.py -print); do
+		python_fix_shebang "${PFN}"
+	done
 }
 
 src_configure() {
@@ -105,4 +119,13 @@ src_configure() {
 		-Dwith-upd=false
 	)
 	meson_src_configure
+}
+
+src_install() {
+	meson_src_install
+	if use python ; then
+		for PFN in $(find "${ED}" -type f -path "${ED}/plugins/python/\*.py"); do
+			python_fix_shebang "${PFN}"
+		done
+	fi
 }
