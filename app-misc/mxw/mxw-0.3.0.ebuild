@@ -5,6 +5,7 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.80"
 CRATES="
 	anstream@1.0.0
 	anstyle-parse@1.0.0
