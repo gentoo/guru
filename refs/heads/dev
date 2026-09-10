@@ -1,14 +1,20 @@
 certificate version 0.1
-pusher DF84256885283521 1789045967 +0200
-pushee git.gentoo.org:repo/proj/guru
-nonce 1789045967-dc4cf7ccee5e4c8c5e02c051c82c05581dee721c
+pusher Shimon Trolles <shimontrolles@gmail.com> 1789046567 +0300
+pushee git.gentoo.org:repo/proj/guru.git
+nonce 1789046567-2f5d73e5f171c617d722796850f3a0ba39f915da
 
-f840025ac23c4a85ee6c5d1ece0b7df2effef5cd f98def528d5ea539bbe1fa906162b7566455a1ff refs/heads/dev
+f98def528d5ea539bbe1fa906162b7566455a1ff 0ec44dfb1d0dd1d4bab1f3d0db45e1ebf8437532 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iJEEABYKADkWIQQcFD0bEK7NPNmWHtiOMjR69AVa6AUCaqKszxsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMiwyLDIACgkQjjI0evQFWui0HwEAwUsDFkXPFevLhnzub/pO
-uPX+Xx3FVjUtsvgzmjqA9hsBAPh4qrz4XQkoiXTez7g2I6+zhJ56VXPubpbw7hoo
-Z/4A
-=655M
+iQHIBAABCgCyFiEE2tzf1I0LNd10yDjsOUUt+l8p44YFAmqirycbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyXxSAAAAAAC4AKGlzc3Vlci1mcHJAbm90YXRpb25z
+Lm9wZW5wZ3AuZmlmdGhob3JzZW1hbi5uZXREQURDREZENDhEMEIzNURENzRDODM4
+RUMzOTQ1MkRGQTVGMjlFMzg2GBxzaGltb250cm9sbGVzQGdtYWlsLmNvbQAKCRA5
+RS36XynjhtVyB/4oqwytCLtkFSvPTnEjGGhOhTyev/+AxZZOIhPRFc4XGYDW6a+i
+AMAmdzoZZZ4MUG+8UvQHgO4Dzd63ZZM8bwZ+ohHlmLqEnmqlM9OPvsx2sKWb2EEM
+8SGI7teczwFTLG7ankHdU/Ms+CrqXVvFXP/kEu54QpKlEcbE6x4OiHax65XC94pa
+ktNFPuRimfa1yaQ7xil2ifIOy8g+41tvNfXjADwSCc29hRXIKW9uPD2jhBMwouXg
+w+VYtgLjriBIykhUlXI5pr8sfCAPgxr0wgpzOcaO6t0PhByOdf1mAu5VsXLrezEY
+K9PQbfa7TDjqw8/MEZel2momnxyj9YHtJ1Fn
+=9tMm
 -----END PGP SIGNATURE-----
