@@ -683,7 +683,9 @@ CRATES="
 
 "
 
-inherit cargo
+LLVM_COMPAT=( {19..23} )
+
+inherit cargo llvm-r2
 
 DESCRIPTION="Lightweight, fast and secure chat application powered by WHY2 encryption"
 HOMEPAGE="https://why2.satan.red"
@@ -699,9 +701,32 @@ KEYWORDS="~amd64"
 QA_FLAGS_IGNORED="usr/bin/why2 usr/bin/why2-server"
 IUSE="+server"
 
-DEPEND="media-libs/alsa-lib"
-RDEPEND="${DEPEND}"
-BDEPEND="virtual/pkgconfig"
+DEPEND="
+	media-libs/alsa-lib
+	media-libs/libglvnd
+	media-libs/mesa[opengl]
+	media-libs/opus
+	media-video/pipewire:=
+	x11-libs/libdrm
+"
+RDEPEND="
+	${DEPEND}
+	dev-libs/wayland
+	media-libs/vulkan-loader
+	x11-libs/libX11
+	x11-libs/libXcursor
+	x11-libs/libXi
+	x11-libs/libXrandr
+	x11-libs/libxkbcommon[wayland,X]
+"
+BDEPEND="
+	virtual/pkgconfig
+	$(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}')
+"
+
+pkg_setup() {
+	llvm-r2_pkg_setup
+}
 
 src_unpack() {
 	cargo_src_unpack
