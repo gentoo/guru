@@ -5,6 +5,10 @@
 		<email>negril.nx+gentoo@gmail.com</email>
 		<name>Paul Zander</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>stefan@sydow.email</email>
+		<name>Stefan Sydow</name>
+	</maintainer>
 	<use>
 		<flag name="blis">Build a BLIS backend</flag>
 		<flag name="flexiblas">Build a FlexiBLAS backend</flag>
