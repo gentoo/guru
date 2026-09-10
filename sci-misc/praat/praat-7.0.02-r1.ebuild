@@ -10,9 +10,11 @@ HOMEPAGE="http://www.fon.hum.uva.nl/praat/"
 SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/praat.github.io-${PV}"
 
+PATCHES=("${FILESDIR}/strip-cflags.patch")
+
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="+pango +gtk jack alsa +pulseaudio"
 
 # This constraint is pointless, really, but we can't have ?? ( gtk pango )
