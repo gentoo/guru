@@ -6,7 +6,7 @@ EAPI=8
 inherit go-module
 
 DESCRIPTION="Curlie is a frontend to curl that adds the ease of use of httpie"
-HOMEPAGE="https://curlie.io/"
+HOMEPAGE="https://rs.github.io/curlie/"
 SRC_URI="https://github.com/rs/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 # Using a dependency tarball as per https://devmanual.gentoo.org/eclass-reference/go-module.eclass/index.html

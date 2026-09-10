@@ -1,0 +1,21 @@
+Fix for network-isolated builds
+--- a/specification/CMakeLists.txt
++++ b/specification/CMakeLists.txt
+@@ -1,5 +1,6 @@
+ # SPDX-License-Identifier: MIT
+ # Copyright (C) 2023 Advanced Micro Devices, Inc.
++if(NOT SPEC_TOOL_DEPS_DOWNLOADED)
+ if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+   add_custom_target(spec-tool-deps
+     COMMAND wget -q -O markdown_graphviz_svg.py
+@@ -15,6 +16,10 @@ else()
+     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+     )
+ endif()
++else()
++  add_custom_target(spec-tool-deps)
++endif()
++
+ 
+ set(SPEC_PYTHON_PATH ${CMAKE_CURRENT_BINARY_DIR})
+ 

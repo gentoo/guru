@@ -1,0 +1,20 @@
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>emi@genchu.org</email>
+		<name>Emi</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">chimera-linux/turnstile</remote-id>
+	</upstream>
+	<use>
+		<flag name="dinit">Install Dinit-related backend and data</flag>
+		<flag name="runit">Install runit-related backend and data</flag>
+		<flag name="rundir">Enable rundir management by default</flag>
+	</use>
+	<longdescription>
+		Turnstile is a work in progress effort to create a session/login tracker to serve as a
+		fully featured alternative to the logind subproject from systemd,
+		and to provide a neutral API to both our session tracker and to logind itself.
+	</longdescription>
+</pkgmetadata>

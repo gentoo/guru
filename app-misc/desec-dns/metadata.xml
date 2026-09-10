@@ -7,5 +7,6 @@
     </maintainer>
     <upstream>
         <remote-id type="github">s-hamann/desec-dns</remote-id>
+        <remote-id type="pypi">desec-dns</remote-id>
     </upstream>
 </pkgmetadata>

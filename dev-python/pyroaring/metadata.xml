@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>zyx@envs.net</email>
+    <name>zyxhere💭</name>
+  </maintainer>
+  <longdescription>
+    An efficient and light-weight ordered set of integers. This is a Python
+    wrapper for the C library CRoaring.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">Ezibenroc/PyRoaringBitMap</remote-id>
+  </upstream>
+</pkgmetadata>

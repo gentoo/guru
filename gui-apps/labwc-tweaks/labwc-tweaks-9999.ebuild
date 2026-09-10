@@ -31,6 +31,12 @@ BDEPEND="
 	x11-libs/libxkbcommon
 "
 
+src_prepare() {
+	sed -i 's/^cmake_minimum_required(VERSION 3\.5)$/cmake_minimum_required(VERSION 3.10)/' CMakeLists.txt || die
+
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_BUILD_TYPE=None

@@ -7,6 +7,7 @@ inherit font
 
 DESCRIPTION="Patched font collection with a high number of glyphs (icons)"
 HOMEPAGE="https://github.com/ryanoasis/nerd-fonts"
+S="${WORKDIR}"
 
 LICENSE="OFL-1.1"
 SLOT="0"

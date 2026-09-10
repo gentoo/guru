@@ -30,6 +30,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DKTX_VERSION=${PV}
 		-DKTX_FEATURE_TESTS=OFF
+		-DCMAKE_CXX_STANDARD=14 # https://github.com/KhronosGroup/KTX-Software/issues/1172
 	)
 
 	cmake_src_configure

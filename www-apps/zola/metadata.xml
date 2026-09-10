@@ -5,6 +5,9 @@
       <email>zyx@envs.net</email>
       <name>zyxhere💭</name>
     </maintainer>
+    <use>
+       <flag name="cjk">Enable indexing ja and zh languages</flag>
+    </use>
     <upstream>
       <bugs-to>
         https://github.com/getzola/zola/issues

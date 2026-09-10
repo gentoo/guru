@@ -5,9 +5,6 @@
 		<email>contact@hacktivis.me</email>
 		<name>Haelwenn (lanodan) Monnier</name>
 	</maintainer>
-	<use>
-		<flag name="speech-tools">use memory allocation/free functions of <pkg>app-accessibility/speech-tools</pkg></flag>
-	</use>
 	<upstream>
 		<remote-id type="sourceforge">hts-engine</remote-id>
 	</upstream>

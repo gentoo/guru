@@ -1,0 +1,25 @@
+[package]
+name = "b"
+version = "0.0.20260722"
+edition = "2018"
+build = "build.rs"
+
+[[bin]]
+name ="b"
+path = "src/b.rs"
+
+[[bin]]
+name = "bgen"
+path = "src/bgen.rs"
+
+[[bin]]
+name = "btest"
+path = "src/btest.rs"
+
+[build-dependencies]
+cc = "1.0"
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"

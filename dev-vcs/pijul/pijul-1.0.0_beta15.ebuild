@@ -468,6 +468,7 @@ LICENSE+=" Apache-2.0 BSD-2 BSD CC0-1.0 MIT Unicode-3.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="git"
+RESTRICT="test"
 
 DEPEND="
 	app-arch/zstd

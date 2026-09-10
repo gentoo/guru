@@ -60,7 +60,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit cargo distutils-r1 pypi
 
-DESCRIPTION="Pillow plugin for JPEG-XL, using Rust for bindings."
+DESCRIPTION="Pillow plugin for JPEG-XL, using Rust for bindings"
 HOMEPAGE="
 	https://github.com/Isotr0py/pillow-jpegxl-plugin
 	https://pypi.org/project/pillow-jxl-plugin/

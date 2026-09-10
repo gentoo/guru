@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_COMPAT=( {17..21} )
+LLVM_COMPAT=( {17..22} )
 inherit flag-o-matic llvm-r2
 
 DESCRIPTION="The Data-Oriented Language for Sane Software Development"

@@ -5,9 +5,6 @@
 		<email>jernej.jakob@gmail.com</email>
 		<name>Jernej Jakob</name>
 	</maintainer>
-	<use>
-		<flag name="piv">Install dependencies for "piv" subcommand</flag>
-	</use>
 	<upstream>
 		<remote-id type="github">Nitrokey/pynitrokey</remote-id>
 	</upstream>

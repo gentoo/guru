@@ -18,68 +18,27 @@
 
 # New entries go on top.
 
-# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-06-25)
-# Moved to media-video/lossless-cut-bin in ::gentoo
-media-video/lossless-cut
+# dsaf <ghostyn678+git@gmail.com> (2026-09-03)
+# Deprecated and archived by upstream.
+# No reverse dependencies.
+# Removal after 2026-10-03
+gui-apps/noctalia-qs
 
-# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-06-24)
-# Moved to www-client/opera-gx in ::gentoo
-www-client/opera-gx-bin
+# David Roman <stkw0@disroot.org> (2026-07-22)
+# Archived by upstream.
+# Bug #975821
+# Removal after 2026-08-22
+net-proxy/MTProxy
 
-# Vivian Heisz (vhz) <demize@unstable.systems> (2026-05-29)
-# Depends on a forked dependency that's since been unpublished.
-# If there's an update, I'll bump, otherwise I'll treeclean.
-# Removal after 2026-06-29. Bug #975802
-dev-vcs/lazyjj
+# Bjorn <bjorn.megaflow@gmail.com> (2026-06-23)
+# Requires gui-libs/libadwaita >= 1.9, which is currently not in
+# the main Gentoo repository.
+>=gnome-extra/Refine-0.8.0
 
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
 media-sound/noson-app
 net-p2p/dogecoin-qt
-
-# David Roman <stkw0@disroot.org> (2026-05-21)
-# Not updated since 2024, depends on masked Qt5
-# Removal after 2026-06-21
-x11-drivers/xf86-input-xppen
-
-# David Roman <stkw0@disroot.org> (2026-05-21)
-# Unmaintained upstream, depends on masked Qt5
-# Removal after 2026-06-21
-media-sound/pianobooster
-mpv-plugin/kde-do-not-disturb
-mpv-plugin/kde-night-color
-x11-misc/aerial-sddm-theme
-
-# Daichi Yamamoto <dev@dyama.net> (2026-06-19)
-# https://bugs.gentoo.org/975028
-# https://bugs.gentoo.org/975042
-# The origin has been archived. Consider using uv instead.
-# cf. https://github.com/astral-sh/rye
-# Removal after 2026-06-19
-dev-util/rye
-
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/974546
-# https://bugs.gentoo.org/974547
-# Removal after 2026-06-18
-app-admin/aws-vault
-
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/939886
-# https://bugs.gentoo.org/974570
-# Removal after 2026-06-18
-app-containers/slim
-
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/974552
-# Removal after 2026-06-18
-app-admin/overmind
-
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/975050
-# https://bugs.gentoo.org/975051
-# Removal after 2026-06-18
-dev-util/trivy
 
 # Takuya Wakazono <pastalian46@gmail.com> (2026-05-17)
 # Depends on Qt5. Qt6 port is supposedly coming soon.
@@ -87,15 +46,19 @@ dev-util/trivy
 # Bug #948836.
 net-misc/megasync
 
+# Dale Sweeney <agooglygooglr@gmail.com> (2026-05-08)
+# Won't build until bugs.gentoo.org/974338 is resolved
+>=net-misc/wlvncc-20260429
+
+# Shaumyadeep Chaudhuri <shaumya@gmail.com> (2026-04-30)
+# Requires systemd. Cannot be masked per profile (see top comment)
+sys-apps/dmemcg-booster
+
 # Joe Kappus <joe@wt.gd) (2026-04-23)
 # Depends on masked dev-python/pyqt5.
 # Progress getting made, unmask when done.
 # https://github.com/autokey/autokey/pull/1104
 x11-apps/autokey
-
-# Matt Jolly <kangie@gentoo.org> (2026-03-31)
-# Replaced by sys-fs/bcachefs-tools[modules] in ::gentoo.
-sys-fs/bcachefs-kmod
 
 # Lucio Sauer <watermanpaint@posteo.net> (2026-02-10)
 # The hyprland suite is moving to the unofficial 'hyproverlay' repository at
@@ -126,28 +89,8 @@ app-admin/run0edit
 # sys-libs/libucontext is masked in ::gentoo
 sys-libs/gcompat
 
-# Julien Roy <julien@jroy.ca> (2024-03-09)
-# Dracut fails to boot with Clevis 20
-# https://github.com/latchset/clevis/issues/456
-~app-crypt/clevis-20
-~app-crypt/clevis-21
-
 # Viorel Munteanu <ceamac@gentoo.org> (2023-06-07)
 # Does not work on no-multilib profiles and cannot be masked per profile
 # (See also top comment)
 # Sorry for the inconvenience.
 app-office/lotus123r3
-
-# Shaumyadeep Chaudhuri <shaumya@gmail.com> (2026-04-30)
-# Requires systemd. Cannot be masked per profile (see top comment)
-sys-apps/dmemcg-booster
-
-# Dale Sweeney <agooglygooglr@gmail.com> (2026-05-08)
-# Won't build until bugs.gentoo.org/974338 is resolved
->=net-misc/wlvncc-20260429
-
-# Bjorn <bjorn.megaflow@gmail.com> (23 jun 2026)
-# Requires gui-libs/libadwaita >= 1.9, which is currently not in
-# the main Gentoo repository.
->=gnome-extra/Refine-0.8.0
-

@@ -1,0 +1,24 @@
+# https://bugs.gentoo.org/979547
+# https://github.com/niri-wm/niri/pull/4332
+index 49a75e3e..f27f81d5 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -82,6 +82,7 @@ pango = { version = "0.21.5", features = ["v1_44"] }
+ pangocairo = "0.21.5"
+ pipewire = { version = "0.10.0", optional = true, features = ["v0_3_33"] }
+ png = "0.18.1"
++portable-atomic = "1"
+ profiling = "1.0.17"
+ sd-notify = "0.5.0"
+ serde.workspace = true
+diff --git a/src/utils/id.rs b/src/utils/id.rs
+index c21511e6..04edf599 100644
+--- a/src/utils/id.rs
++++ b/src/utils/id.rs
+@@ -1,4 +1,5 @@
+-use std::sync::atomic::{AtomicU64, Ordering};
++use std::sync::atomic::Ordering;
++use portable_atomic::AtomicU64;
+ 
+ /// Counter that returns unique IDs.
+ pub struct IdCounter {

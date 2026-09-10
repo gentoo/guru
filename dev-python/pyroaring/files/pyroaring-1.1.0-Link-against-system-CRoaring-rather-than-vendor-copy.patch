@@ -1,0 +1,71 @@
+https://salsa.debian.org/tti0/python3-pyroaring/-/blob/debian/latest/debian/patches/0001-Link-against-system-CRoaring-rather-than-vendor-copy.patch
+
+From 1092a1ea9bc5ae6d185a00a9949dbf1cb8b84499 Mon Sep 17 00:00:00 2001
+From: Theodore Tucker <theodore@tti0.net>
+Date: Tue, 17 Mar 2026 16:55:38 +0000
+Subject: [PATCH] Link against system CRoaring rather than vendor copy
+Forwarded: not-needed
+
+--- a/setup.py
++++ b/setup.py
+@@ -33,54 +33,19 @@ except (IOError, ImportError, RuntimeError):
+     print('Could not generate long description.')
+     long_description = ''
+ 
+-
+-if PLATFORM_WINDOWS:
+-    # MSVC defaults to C++14, so no explicit C++ standard flag is needed.
+-    # roaring.c requires C11 for features like alignof and _Static_assert.
+-    ext_compile_args = []
+-    c_compile_args = ['/std:c11']
+-else:
+-    c_compile_args = ['-D__STDC_LIMIT_MACROS', '-D__STDC_CONSTANT_MACROS', '-D _GLIBCXX_ASSERTIONS']
+-    if PLATFORM_MACOSX:
+-        c_compile_args.append('-mmacosx-version-min=10.14')
+-    if 'DEBUG' in os.environ:
+-        c_compile_args.extend(['-O0', '-g'])
+-    else:
+-        c_compile_args.append('-O3')
+-    if 'ARCHI' in os.environ:
+-        if os.environ['ARCHI'] != "generic":
+-            c_compile_args.append('-march=%s' % os.environ['ARCHI'])
+-    # The '-march=native' flag is not universally allowed. In particular, it
+-    # will systematically fail on aarch64 systems (like the new Apple M1 systems). It
+-    # also creates troubles under macOS with pip installs and requires ugly workarounds.
+-    # The best way to handle people who want to use -march=native is to ask them
+-    # to pass ARCHI=native to their build process.
+-    # else:
+-    #    c_compile_args.append('-march=native')
+-    ext_compile_args = c_compile_args + ['-std=c++11']
+-    c_compile_args = c_compile_args + ['-std=c11']
++compile_args = ['-D__STDC_LIMIT_MACROS', '-D__STDC_CONSTANT_MACROS', '-D _GLIBCXX_ASSERTIONS']
+ 
+ pyroaring_module = Extension(
+     'pyroaring',
+     sources=[os.path.join(PKG_DIR, 'pyroaring.pyx')],
+-    extra_compile_args=ext_compile_args,
++    extra_compile_args=compile_args + ["-std=c++11"],
+     language='c++',
++    libraries=['roaring'],
+ )
+ 
+-# roaring.c is compiled as a separate static library because it must be compiled
+-# as C (not C++), with a C11 standard flag.
+-libraries = [(
+-    'croaring',
+-    {
+-        'sources': [os.path.join(PKG_DIR, 'roaring.c')],
+-        'cflags': c_compile_args,
+-    },
+-)]
+-
+ setup(
+     name='pyroaring',
+     ext_modules=[pyroaring_module],
+-    libraries=libraries,
+     package_data={'pyroaring': ['py.typed', '__init__.pyi']},
+     packages=['pyroaring'],
+     version=VERSION,
+-- 
+2.47.3
+

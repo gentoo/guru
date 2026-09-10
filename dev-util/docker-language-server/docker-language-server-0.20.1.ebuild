@@ -14,8 +14,7 @@ if [[ "${PV}" == 9999 ]]; then
 else
 	KEYWORDS="~amd64"
 	SRC_URI="https://github.com/docker/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/ingenarel/guru-depfiles/releases/download/${P}-deps.tar.xz/${P}-go-mod-deps.tar.xz ->
-	${P}-deps.tar.xz
+	https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/${P}-deps.tar.xz
 	"
 fi
 

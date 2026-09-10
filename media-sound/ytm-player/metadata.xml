@@ -13,5 +13,6 @@
 	</longdescription>
 	<upstream>
 		<remote-id type="github">peternaame-boop/ytm-player</remote-id>
+		<doc>https://ytm-player.com/#docs</doc>
 	</upstream>
 </pkgmetadata>

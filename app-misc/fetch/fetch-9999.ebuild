@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="A donut.c-inspired fetch tool that spins your distro logo in 3D."
+DESCRIPTION="A donut.c-inspired fetch tool that spins your distro logo in 3D"
 HOMEPAGE="https://github.com/areofyl/fetch"
 
 if [[ ${PV} == 9999 ]]; then

@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ ZIG_SLOT="0.14"
 inherit zig
 
 SRC_URI="
-	https://tangled.org/rockorager.dev/lsr/archive/refs%2Ftags%2Fv1.0.0
+	https://tangled.org/rockorager.dev/${PN}/archive/refs%2Ftags%2Fv${PV}?format=tar.gz -> ${P}.tar.gz
 	${ZBS_DEPENDENCIES_SRC_URI}
 "
 
@@ -28,7 +28,7 @@ KEYWORDS="~amd64"
 DOCS=( "README.md" )
 
 src_unpack() {
-	tar -xzf "${DISTDIR}/refs%2Ftags%2Fv${PV}" \
-		--transform="s|^${PN}-v${PV}|${P}|" || die "Failed to unpack ${DISTDIR}/refs%2Ftags%2Fv${PV}"
+	tar -xzf "${DISTDIR}/${P}.tar.gz" || die "Failed to unpack ${DISTDIR}/${P}.tar.gz"
+	mv did:plc:7sufqp5jkgsrtsit7gd5wpo2-v"${PV}" "${P}" || die "Failed to rename dir into ${P}"
 	zig_src_unpack
 }

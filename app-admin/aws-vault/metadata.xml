@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
-<pkgmetadata>
-	<upstream>
-		<bugs-to>https://github.com/ByteNess/aws-vault/issues</bugs-to>
-		<remote-id type="github">ByteNess/aws-vault</remote-id>
-	</upstream>
-</pkgmetadata>

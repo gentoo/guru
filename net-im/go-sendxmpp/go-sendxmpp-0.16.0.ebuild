@@ -12,7 +12,7 @@ DESCRIPTION="A tool to send messages or files to an XMPP contact or MUC"
 HOMEPAGE="https://salsa.debian.org/mdosch/go-sendxmpp"
 SRC_URI="
 	https://salsa.debian.org/mdosch/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2 -> ${P}.tar.bz2
-	https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/${P}-deps.tar.xz
+	https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/${P}-vendor.tar.xz
 "
 S="${WORKDIR}/${PN}-v${PV}"
 
@@ -21,6 +21,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 BDEPEND=">=dev-lang/go-1.25.0"
+
+# See https://bugs.gentoo.org/977931#c3
+src_unpack() {
+	mkdir "${S}" || die
+	ln -s "../${P}/vendor" "${S}"/vendor || die
+	go-module_src_unpack
+}
 
 src_compile() {
 	ego build -buildmode=pie

@@ -53,7 +53,7 @@ declare -rgA CPU_FEATURES=(
 )
 add_cpu_features_use() {
 	for flag in "${!CPU_FEATURES[@]}"; do
-		IFS=$';' read -r arch use <<< "${CPU_FEATURES[${flag}]}"
+		IFS=$';' read -rd '' arch use < <(printf %s "${CPU_FEATURES[${flag}]}")
 		IUSE+=" cpu_flags_${arch}_${use:-${flag,,}}"
 	done
 }

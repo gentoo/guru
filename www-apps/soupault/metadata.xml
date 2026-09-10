@@ -5,7 +5,7 @@
     Soupault (soup-oh) is a static website generator/framework that works with HTML element trees and can automatically manipulate them.
   </longdescription>
   <maintainer type="person">
-    <email>t@laumann.xyz</email>
+    <email>laumann@gentoo.org</email>
     <name>Thomas Bracht Laumann Jespersen</name>
   </maintainer>
   <upstream>

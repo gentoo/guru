@@ -8,21 +8,27 @@ HOMEPAGE="https://chatterino.com/"
 
 CERTIFY_COMMIT="a448a3915ddac716ce76e4b8cbf0e7f4153ed1e2"
 EXPECTED_COMMIT="df5814711f5f9111a2515a181bde67f22f2fe716"
-LIBCOMMUNI_COMMIT="bb5417c451d764f57f2f1b3e1c9a81496b5521bd"
+LIBCOMMUNI_COMMIT="9dc0de7c91d362abc431f680dd94e81eadf41622"
 LUA_COMMIT="1ab3208a1fceb12fca8f24ba57d6e13c5bff15e3"
 MAGIC_COMMIT="1384769c66bd16ec9bb1353f45fe8ec8ccc12dbd"
 MINIAUDIO_COMMIT="9634bedb5b5a2ca38c1ee7108a9358a4e233f14d"
 RAPIDJSON_COMMIT="24b5e7a8b27f42fa16b96fc70aade9106cf7102f"
-SERIALIZE_COMMIT="a5103e4bfd647d914ec2d49f9353022bf93c54e2"
+SERIALIZE_COMMIT="a3103cdf29f66da243c150b0962a3c20e7d059eb"
 SETTINGS_COMMIT="d9246de5677f369054231ddb4d663be6b1eaf45d"
 SIGNALS_COMMIT="d5fdf0e823a6cd3153e5982ec9aa40f737f59b21"
 SOL2_COMMIT="2b0d2fe8ba0074e16b499940c4f3126b9c7d3471"
+DATE_COMMIT="179a6b921ccd6179b5b04dce812a89f71a51b4df"
+FMT_COMMIT="123913715afeb8a437e6388b4473fcc4753e1c9a"
 
 SRC_URI="
 	https://github.com/Chatterino/certify/archive/${CERTIFY_COMMIT}.tar.gz
 		-> ${PN}-certify-${CERTIFY_COMMIT}.tar.gz
+	https://github.com/HowardHinnant/date/archive/${DATE_COMMIT}.tar.gz
+		-> ${PN}-date-${DATE_COMMIT}.tar.gz
 	https://github.com/nonstd-lite/expected-lite/archive/${EXPECTED_COMMIT}.tar.gz
 		-> ${PN}-expected-${EXPECTED_COMMIT}.tar.gz
+	https://github.com/fmtlib/fmt/archive/${FMT_COMMIT}.tar.gz
+		-> ${PN}-fmt-${FMT_COMMIT}.tar.gz
 	https://github.com/Chatterino/libcommuni/archive/${LIBCOMMUNI_COMMIT}.tar.gz
 		-> ${PN}-libcommuni-${LIBCOMMUNI_COMMIT}.tar.gz
 	https://github.com/lua/lua/archive/${LUA_COMMIT}.tar.gz
@@ -62,7 +68,7 @@ LICENSE="MIT"
 # bundled dependencies
 LICENSE+=" Boost-1.0 MIT Unlicense"
 SLOT="0"
-IUSE="debug libnotify +plugins qtkeychain spell"
+IUSE="debug libnotify +plugins spell"
 
 RESTRICT="mirror"
 
@@ -76,7 +82,6 @@ RDEPEND="
 		x11-libs/gdk-pixbuf:2
 		x11-libs/libnotify
 	)
-	qtkeychain? ( dev-libs/qtkeychain:= )
 	spell? ( app-text/hunspell )
 "
 DEPEND="
@@ -99,7 +104,9 @@ src_unpack() {
 	local pkg
 	local -a pkgs=(
 		certify-${CERTIFY_COMMIT}
+		date-${DATE_COMMIT}
 		expected-${EXPECTED_COMMIT}
+		fmt-${FMT_COMMIT}
 		libcommuni-${LIBCOMMUNI_COMMIT}
 		lua-${LUA_COMMIT}
 		magic-${MAGIC_COMMIT}
@@ -120,7 +127,7 @@ src_unpack() {
 fi
 
 src_prepare() {
-	local lib
+	local lib sublib
 	local -a libs=(
 		certify
 		expected-lite
@@ -135,9 +142,22 @@ src_prepare() {
 	)
 
 	for lib in "${libs[@]}"; do
-		rmdir lib/"${lib}" || die "can't remove stubbed libdirs"
+		rmdir lib/"${lib}" || die "can't remove stubbed libdir: ${lib}"
 		ln -sr ../"${lib}"-* ./lib/"${lib}" || die "failed to create symlink for ${lib}"
 	done
+
+	# bundled sublibs for twitch-eventsub-ws lib
+	libs=(
+		date
+		fmt
+	)
+
+	for lib in "${libs[@]}"; do
+		sublib=lib/twitch-eventsub-ws/lib/"${lib}"
+		rmdir "${sublib}" || die "can't remove stubbed libdir: ${lib}"
+		ln -sr ../"${lib}"-* ./"${sublib}" || die "failed to create symlink for ${lib}"
+	done
+	# --
 
 	# bundled lua -- see chatterino2/pull/6495
 	rmdir lib/lua/src || die
@@ -165,8 +185,6 @@ src_configure() {
 	local CMAKE_BUILD_TYPE=$(usex debug Debug Release)
 
 	local mycmakeargs=(
-		-DUSE_SYSTEM_QTKEYCHAIN=ON
-		-DBUILD_WITH_QTKEYCHAIN=$(usex qtkeychain)
 		-DBUILD_WITH_QT6=ON
 		-DBUILD_WITH_LIBNOTIFY=$(usex libnotify)
 		-DCHATTERINO_PLUGINS=$(usex plugins)

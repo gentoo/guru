@@ -1,0 +1,59 @@
+# Copyright 2024-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+inherit cmake flag-o-matic xdg
+
+DESCRIPTION="Open source PDF WYSIWYG editor based on Qt"
+HOMEPAGE="https://jakubmelka.github.io/"
+MY_PN="${PN^^}"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/JakubMelka/${MY_PN}"
+else
+	MY_P="${MY_PN}-${PV}"
+	SRC_URI="https://github.com/JakubMelka/${MY_PN}/archive/refs/tags/v${PV}.tar.gz
+		-> ${MY_P}.tar.gz"
+	KEYWORDS="~amd64"
+	S=${WORKDIR}/${MY_P}
+fi
+
+LICENSE="MIT"
+SLOT="0"
+IUSE="debug test"
+RESTRICT="!test? ( test )"
+
+RDEPEND="
+	dev-cpp/tbb:=
+	dev-libs/openssl:=
+	dev-qt/qtbase:6[concurrent,gui,widgets,xml]
+	dev-qt/qtspeech:6
+	dev-qt/qtsvg:6
+	>=media-libs/blend2d-0.20:=
+	media-libs/freetype
+	media-libs/lcms:2
+	media-libs/libjpeg-turbo:=
+	media-libs/openjpeg:=
+	virtual/zlib:=
+"
+DEPEND="$RDEPEND
+	test? ( dev-qt/qtbase:6[test] )
+"
+
+DOCS=( NOTES.txt README.md RELEASES.txt )
+
+src_configure() {
+	# without NDEBUG it shows annoying warning about keyboard accelerators reuse
+	use debug || append-cxxflags -DNDEBUG
+
+	local mycmakeargs=(
+		-DPDF4QT_INSTALL_DEPENDENCIES=OFF
+		-DPDF4QT_INSTALL_TO_USR=OFF
+		-DPDF4QT_BUILD_TESTS="$(usex test)"
+	)
+	cmake_src_configure
+}
+
+src_test() {
+	"${BUILD_DIR}"/bin/UnitTests || die "tests failed"
+}

@@ -61,3 +61,137 @@
  
          toolchain_file = None
          if self.is_darwin_host(host_target):
+--- a/swift/SwiftCompilerSources/CMakeLists.txt
++++ b/swift/SwiftCompilerSources/CMakeLists.txt
+@@ -222,6 +222,11 @@ function(add_swift_compiler_modules_library name)
+     list(APPEND sdk_option "-I" "${swift_exec_bin_dir}/../lib" "-I" "${sdk_path}/usr/lib")
+   endif()
+ 
++  separate_arguments(cxxflags NATIVE_COMMAND "${CMAKE_CXX_FLAGS}")
++  foreach(flag IN LISTS cxxflags)
++    list(APPEND swift_compile_options "-Xcc" "${flag}")
++  endforeach()
++
+   set(all_obj_files)
+   set(all_module_targets)
+   set(all_module_files)
+--- a/swift/cmake/modules/AddPureSwift.cmake
++++ b/swift/cmake/modules/AddPureSwift.cmake
+@@ -110,6 +110,11 @@ function(_set_swift_cxx_interop_options name)
+       "-cxx-interoperability-mode=default"
+     )
+   endif()
++
++  separate_arguments(cxxflags NATIVE_COMMAND "${CMAKE_CXX_FLAGS}")
++  foreach(flag IN LISTS cxxflags)
++    target_compile_options(${name} PRIVATE "SHELL: -Xcc ${flag}")
++  endforeach()
+ endfunction()
+ 
+ function(_set_pure_swift_link_flags name relpath_to_lib_dir)
+--- a/swift/stdlib/cmake/modules/SwiftSource.cmake
++++ b/swift/stdlib/cmake/modules/SwiftSource.cmake
+@@ -138,6 +138,12 @@ function(handle_swift_sources
+       endif()
+     endif()
+     list(APPEND swift_compile_flags "-color-diagnostics")
++
++    separate_arguments(cxxflags NATIVE_COMMAND "${CMAKE_CXX_FLAGS}")
++    foreach(flag IN LISTS cxxflags)
++      list(APPEND swift_compile_flags "-Xcc" "${flag}")
++    endforeach()
++
+     _compile_swift_files(
+         dependency_target
+         module_dependency_target
+--- a/swift-driver/Utilities/build-script-helper.py
++++ b/swift-driver/Utilities/build-script-helper.py
+@@ -4,6 +4,7 @@ import argparse
+ import os
+ import json
+ import platform
++import shlex
+ import shutil
+ import subprocess
+ import sys
+@@ -117,6 +118,10 @@ def get_swiftpm_options(args):
+   if args.action == 'install':
+     swiftpm_args += ['-Xswiftc', '-no-toolchain-stdlib-rpath']
+ 
++  cxxflags = shlex.split(os.getenv('CXXFLAGS', ''))
++  for flag in cxxflags:
++    swiftpm_args.extend(['-Xcc', flag])
++
+   return swiftpm_args
+ 
+ def install_binary(file, source_dir, install_dir, verbose):
+@@ -460,9 +465,7 @@ def build_llbuild_using_cmake(args, target, swiftc_exec, build_dir, base_cmake_f
+   mkdir_p(llbuild_api_dir)
+   subprocess.check_call(['touch', os.path.join(llbuild_api_dir, 'codemodel-v2')])
+   flags = [
+-        '-DCMAKE_C_COMPILER:=clang',
+-        '-DCMAKE_CXX_COMPILER:=clang++',
+-        '-DCMAKE_CXX_FLAGS=-target %s' % target,
++        '-DCMAKE_CXX_FLAGS=%s -target %s' % (os.getenv('CXXFLAGS', ''), target),
+         '-DLLBUILD_SUPPORT_BINDINGS:=Swift'
+     ]
+   llbuild_cmake_flags = base_cmake_flags + flags
+@@ -544,6 +547,9 @@ def cmake_build(args, swiftc_exec, cmake_args, swift_flags, source_path,
+     args.cmake_bin, '-G', 'Ninja',
+     '-DCMAKE_MAKE_PROGRAM=%s' % args.ninja_bin,
+     '-DCMAKE_BUILD_TYPE:=Release',
++    '-DCMAKE_C_COMPILER:=clang',
++    '-DCMAKE_CXX_COMPILER:=clang++',
++    '-DCMAKE_CXX_FLAGS=' + os.getenv('CXXFLAGS', ''),
+     '-DCMAKE_Swift_FLAGS=' + ' '.join(swift_flags),
+     '-DCMAKE_Swift_COMPILER:=%s' % (swiftc_exec),
+   ] + cmake_args + [source_path]
+--- a/swiftpm/Sources/Build/BuildDescription/ClangModuleBuildDescription.swift
++++ b/swiftpm/Sources/Build/BuildDescription/ClangModuleBuildDescription.swift
+@@ -19,6 +19,7 @@ import struct PackageGraph.ResolvedModule
+ import struct SPMBuildCore.BuildParameters
+ import struct SPMBuildCore.BuildToolPluginInvocationResult
+ import struct SPMBuildCore.CommandPluginResult
++import enum TSCBasic.ProcessEnv
+ 
+ @available(*, deprecated, renamed: "ClangModuleBuildDescription")
+ public typealias ClangTargetBuildDescription = ClangModuleBuildDescription
+@@ -365,6 +366,9 @@ public final class ClangModuleBuildDescription {
+             args += self.buildParameters.toolchain.extraFlags.cxxCompilerFlags
+             // User arguments (from -Xcxx) should follow generated arguments to allow user overrides
+             args += self.buildParameters.flags.cxxCompilerFlags
++            if let cxxflags = ProcessEnv.vars["CXXFLAGS"] {
++                args += cxxflags.split(separator: " ").map(String.init)
++            }
+         }
+ 
+         // Enable the correct lto mode if requested.
+--- a/swiftpm/Utilities/bootstrap
++++ b/swiftpm/Utilities/bootstrap
+@@ -22,6 +22,7 @@ import os
+ import pathlib
+ import platform
+ import re
++import shlex
+ import shutil
+ import subprocess
+ import sys
+@@ -554,6 +555,7 @@ def build_with_cmake(args, cmake_args, ninja_args, source_path, build_dir, cmake
+ 
+         cmd = [
+             "env"] + cmake_env + ["MACOSX_DEPLOYMENT_TARGET=%s" % (g_macos_deployment_target),
++            'CXXFLAGS=%s' % os.getenv('CXXFLAGS', ''),
+             args.cmake_path, "-G", "Ninja",
+             "-DCMAKE_MAKE_PROGRAM=%s" % args.ninja_path,
+             "-DCMAKE_BUILD_TYPE:=Debug",
+@@ -881,6 +883,10 @@ def get_swiftpm_flags(args):
+     # Enforce explicit target dependencies
+     # build_flags.extend(["--explicit-target-dependency-import-check", "error"])
+ 
++    cxxflags = shlex.split(os.getenv('CXXFLAGS', ''))
++    for flag in cxxflags:
++        build_flags.extend(['-Xcc', flag])
++
+     return build_flags
+ 
+ if __name__ == '__main__':

@@ -1,0 +1,40 @@
+From 4f3411259f54eadeca8ce5849d6faa11c8402821 Mon Sep 17 00:00:00 2001
+From: Pavel Sobolev <contact@paveloom.dev>
+Date: Sun, 9 Aug 2026 16:20:27 +0300
+Subject: [PATCH] Use system `QHotkey`
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+---
+ CMakeLists.txt                           | 2 +-
+ src/ui/mainWindow/mainwindow_hotkeys.cpp | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8c07ea7d..3319bdbc 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -66,7 +66,7 @@ set(BUILD_SHARED_LIBS OFF)
+ 
+ include("cmake/print.cmake")
+ include("cmake/nkr.cmake")
+-include("cmake/QHotkey.cmake")
++find_package(QHotkey CONFIG REQUIRED)
+ 
+ find_package(Threads)
+ 
+diff --git a/src/ui/mainWindow/mainwindow_hotkeys.cpp b/src/ui/mainWindow/mainwindow_hotkeys.cpp
+index a773f479..142ec5af 100644
+--- a/src/ui/mainWindow/mainwindow_hotkeys.cpp
++++ b/src/ui/mainWindow/mainwindow_hotkeys.cpp
+@@ -7,7 +7,7 @@
+ 
+ #include <memory>
+ 
+-#include <3rdparty/QHotkey/qhotkey.h>
++#include <QHotkey>
+ 
+ namespace {
+     QList<std::shared_ptr<QHotkey>> RegisteredHotkey;
+-- 
+2.55.0
+

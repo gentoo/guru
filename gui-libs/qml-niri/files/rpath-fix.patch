@@ -7,7 +7,7 @@ Closes: https://bugs.gentoo.org/976345
  set(CMAKE_CXX_STANDARD 17)
  set(CMAKE_CXX_STANDARD_REQUIRED ON)
  set(CMAKE_AUTOMOC ON)
-+set(CMAKE_SKIP_BUILD_RPATH TRUE)
++set(CMAKE_SKIP_RPATH TRUE)
  
  find_package(Qt6 REQUIRED COMPONENTS Core Gui Qml)
  

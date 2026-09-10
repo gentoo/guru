@@ -1,0 +1,21 @@
+diff --git a/meson_options.txt b/meson_options.txt
+index 11a810b..0f1dd68 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -4,3 +4,4 @@ option('tpm1', type: 'feature', value: 'auto', description: 'Enable TPM 1.2 pin
+ option('dracut', type: 'feature', value: 'auto', description: 'Enable dracut support for clevis')
+ option('udisks', type: 'feature', value: 'auto', description: 'Enable udisks2 support for clevis')
+ option('bashcompdir', type: 'string', value: '', description: 'Directory for bash completion files') 
++option('pkcs11', type: 'feature', value: 'auto', description: 'Enable PKCS11 pin support')
+diff --git a/src/pins/pkcs11/meson.build b/src/pins/pkcs11/meson.build
+index 95182e9..6ca708d 100644
+--- a/src/pins/pkcs11/meson.build
++++ b/src/pins/pkcs11/meson.build
+@@ -1,5 +1,5 @@
+-pcscd = find_program('pcscd', required: false)
+-pkcs11tool = find_program('pkcs11-tool', required: false)
++pcscd = find_program('pcscd', required: get_option('pkcs11'))
++pkcs11tool = find_program('pkcs11-tool', required: get_option('pkcs11'))
+ pcscd_disable_polkit = false
+ git = find_program('git', required: false)
+ 

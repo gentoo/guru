@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mit.mis@gmail.com</email>
+		<name>Michal Andrzejczak</name>
+	</maintainer>
+	<longdescription lang="en">
+		CSharpier is an opinionated code formatter for C#.  It parses the
+		source, discards the original formatting and prints the code back out
+		to a consistent style, in the manner of Prettier.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">belav/csharpier</remote-id>
+		<bugs-to>https://github.com/belav/csharpier/issues</bugs-to>
+		<doc>https://csharpier.com/docs/About</doc>
+	</upstream>
+</pkgmetadata>

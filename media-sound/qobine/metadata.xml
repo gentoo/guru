@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Jonas Frei</name>
+		<email>freijon@pm.me</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">SofusA/qobine</remote-id>
+		<bugs-to>https://github.com/SofusA/qobine/issues</bugs-to>
+	</upstream>
+	<use>
+		<flag name="server">Builds the standalone disconnect server</flag>
+	</use>
+</pkgmetadata>

@@ -1,19 +1,28 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU Public License v2
 
 EAPI=8
 
+# fork of gui-wm/sway::gentoo
+
 inherit fcaps meson optfeature
+
+MY_PN="sway"
 
 DESCRIPTION="SwayFX: Sway, but with eye candy!"
 HOMEPAGE="https://github.com/WillPower3309/swayfx"
-SRC_URI="https://github.com/WillPower3309/swayfx/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${PV}"
+
+if [[ ${PV} == *9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/WillPower3309/swayfx.git"
+else
+	SRC_URI="https://github.com/WillPower3309/swayfx/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~arm64"
+fi
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
-IUSE="+man +swaybar +swaynag tray wallpapers X"
+IUSE="+swaybar +swaynag tray wallpapers X"
 REQUIRED_USE="tray? ( swaybar )"
 
 DEPEND="
@@ -21,13 +30,14 @@ DEPEND="
 	>=dev-libs/libinput-1.26.0:0=
 	virtual/libudev
 	sys-auth/seatd:=
+	dev-libs/libevdev
 	dev-libs/libpcre2
 	>=dev-libs/wayland-1.21.0
 	x11-libs/cairo
-	>=x11-libs/libxkbcommon-1.5.0
+	x11-libs/libdrm
+	>=x11-libs/libxkbcommon-1.5.0:0=
 	x11-libs/pango
 	x11-libs/pixman
-	>=gui-libs/scenefx-0.4
 	media-libs/libglvnd
 	swaybar? ( x11-libs/gdk-pixbuf:2 )
 	tray? ( || (
@@ -36,36 +46,43 @@ DEPEND="
 		sys-libs/basu
 	) )
 	wallpapers? ( gui-apps/swaybg[gdk-pixbuf(+)] )
-	X? ( x11-libs/libxcb:0=
-		 x11-libs/xcb-util-wm
+	X? (
+		x11-libs/libxcb:0=
+		x11-libs/xcb-util-wm
 	)
+	gui-libs/scenefx:0.4
 "
-DEPEND+="
-	>=gui-libs/wlroots-0.19:=[X?]
-	<gui-libs/wlroots-0.20:=[X?]
-"
-
+# x11-libs/xcb-util-wm needed for xcb-iccm
+if [[ ${PV} == 9999 ]]; then
+	DEPEND+="~gui-libs/wlroots-9999:=[X=]"
+else
+	DEPEND+="
+		gui-libs/wlroots:0.19[X=]
+	"
+fi
 RDEPEND="
-	dev-libs/glib
-	dev-libs/libevdev
-	x11-misc/xkeyboard-config
-	!!gui-wm/sway
 	${DEPEND}
+	x11-misc/xkeyboard-config
+	!gui-wm/sway
 "
 BDEPEND="
 	>=dev-libs/wayland-protocols-1.24
-	>=dev-build/meson-0.60.0
+	>=dev-build/meson-1.3
 	virtual/pkgconfig
 "
-BDEPEND+="man? ( >=app-text/scdoc-1.9.2 )"
+if [[ ${PV} == 9999 ]]; then
+	BDEPEND+=" ~app-text/scdoc-9999"
+else
+	BDEPEND+=" >=app-text/scdoc-1.11.3"
+fi
 
 FILECAPS=(
-	cap_sys_nice usr/bin/sway # reflect ">=gui-wm/sway-1.9"
+	cap_sys_nice usr/bin/${MY_PN}
 )
 
 src_configure() {
 	local emesonargs=(
-		$(meson_feature man man-pages)
+		-Dman-pages=enabled
 		$(meson_feature tray)
 		$(meson_feature swaybar gdk-pixbuf)
 		$(meson_use swaynag)
@@ -88,7 +105,7 @@ src_install() {
 pkg_postinst() {
 	fcaps_pkg_postinst
 
-	optfeature_header "There are several packages that may be useful with swayfx:"
+	optfeature_header "There are several packages that may be useful with sway:"
 	optfeature "wallpaper utility" gui-apps/swaybg
 	optfeature "idle management utility" gui-apps/swayidle
 	optfeature "simple screen locker" gui-apps/swaylock

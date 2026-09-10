@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
-MY_PV=0.61.0
+MY_PV=0.62.1
 MY_P="openllmetry-${MY_PV}"
 DESCRIPTION="OpenTelemetry Semantic Conventions for AI applications"
 HOMEPAGE="
@@ -26,8 +26,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
-	>=dev-python/opentelemetry-api-1.38.0[${PYTHON_USEDEP}]
-	>=dev-python/opentelemetry-semantic-conventions-0.59_beta0[${PYTHON_USEDEP}]
+	>=dev-python/opentelemetry-sdk-1.42.0[${PYTHON_USEDEP}]
+	>=dev-python/opentelemetry-semantic-conventions-0.63_beta1[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=()

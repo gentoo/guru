@@ -1,0 +1,12 @@
+#!/sbin/openrc-run
+# shellcheck shell=sh
+#
+# Copyright 2022-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+: "${supervisor:=supervise-daemon}"
+
+description="Waydroid Container Manager"
+command="/usr/bin/waydroid"
+command_args="container start"
+pidfile="/run/${RC_SVCNAME}.pid"

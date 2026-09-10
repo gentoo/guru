@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_12 )
+PYTHON_COMPAT=( python3_12 python3_13 python3_14 )
 inherit git-r3 python-r1 xdg cmake
 EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 # this URL is to make the tests compile since organicmaps usually dynamically clones the repo
@@ -17,8 +17,15 @@ EGIT_SUBMODULES=(
 	3party/just_gtfs
 	3party/protobuf/protobuf # wait for https://github.com/organicmaps/organicmaps/pull/6310
 	3party/fast_obj
+	
+	3party/glfw
+	3party/minizip-ng
+	3party/glaze
+	3party/BLAKE3
+	3party/imgui/imgui
 )
 
+IUSE="test"
 DESCRIPTION="Offline maps and navigation using OpenStreetMap data"
 HOMEPAGE="https://organicmaps.app"
 
@@ -29,6 +36,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # depend on virtual/zlib:=[minizip] when it is not pulled in as subproject anymore
 RDEPEND="
+	dev-libs/blake3
 	dev-cpp/gflags
 	dev-db/sqlite
 	dev-lang/python
@@ -41,11 +49,12 @@ RDEPEND="
 	dev-util/vulkan-headers
 	media-libs/freetype
 	virtual/zlib:=
+	test? ( dev-cpp/gtest )
 	${PYTHON_DEPS}
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/more-3party.patch "${FILESDIR}"/no-dynamic-download.patch )
+PATCHES=( "${FILESDIR}"/more-3party.patch )
 
 WORLD_FEED_TESTS_S="${WORKDIR}/world_feed_integration_tests_data-${PV}"
 
@@ -60,13 +69,15 @@ src_configure() {
 	# organicmaps wants a ./configure.sh execution.
 	# However, this setups mainly stuff for Android and XCode builds that we don't need.
 	# We need just this line here
-	cp private_default.h private.h || die
+	#cp private_default.h private.h || die
 
 	CMAKE_BUILD_TYPE="RelWithDebInfo"
 	local mycmakeargs=(
 		-DWITH_SYSTEM_PROVIDED_3PARTY=yes
 		-DBUILD_SHARED_LIBS=off
 		-DTEST_DATA_REPO_URL="${WORLD_FEED_TESTS_S}"
+		-DBUILD_TESTING=$(usex test)
+		-DPLATFORM_DESKTOP=ON
 	)
 	cmake_src_configure
 }

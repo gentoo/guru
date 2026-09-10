@@ -5,9 +5,6 @@
 		<email>falbrechtskirchinger@gmail.com</email>
 		<name>Florian Albrechtskirchinger</name>
 	</maintainer>
-	<use>
-		<flag name="cli">Install dependencies required for the Command Line Interface</flag>
-	</use>
 	<upstream>
 		<remote-id type="pypi">mcp</remote-id>
 		<remote-id type="github">modelcontextprotocol/python-sdk</remote-id>

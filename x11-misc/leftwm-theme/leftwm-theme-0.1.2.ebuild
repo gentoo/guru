@@ -209,7 +209,7 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0 BSD MIT MPL-2.0 Unicode-DFS-2016"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 DEPEND="
 	dev-libs/openssl
@@ -222,8 +222,8 @@ RDEPEND="
 QA_FLAGS_IGNORED="usr/bin/leftwm-theme"
 
 src_test() {
-	# requires internet connection
-	cargo_src_test -- --skip test_update_repos
+	local CARGO_SKIP_TESTS=( test_update_repos )
+	cargo_src_test
 }
 
 src_install() {

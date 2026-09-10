@@ -14,7 +14,7 @@ else
 	KEYWORDS="~amd64 ~arm64"
 fi
 
-DESCRIPTION="A replacement for the wlroots scene API with eye-candy effects."
+DESCRIPTION="A replacement for the wlroots scene API with eye-candy effects"
 HOMEPAGE="https://github.com/wlrfx/scenefx"
 
 LICENSE="MIT"

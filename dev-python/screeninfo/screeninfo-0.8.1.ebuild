@@ -1,19 +1,20 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
-DESCRIPTION="Fetch location and size of physical screens."
+DESCRIPTION="Fetch location and size of physical screens"
 HOMEPAGE="https://github.com/rr-/screeninfo https://pypi.org/project/screeninfo"
 SRC_URI="https://github.com/rr-/screeninfo/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest

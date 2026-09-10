@@ -30,6 +30,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RDEPEND="
 	${PYTHON_DEPS}
 	dev-lang/perl
+	app-arch/lz4:=
 	virtual/zlib:=
 "
 

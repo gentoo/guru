@@ -20,9 +20,10 @@ DEPEND="
 	dev-libs/lzo
 	dev-libs/wayland-protocols
 	x11-libs/libdrm
+	media-video/ffmpeg
 "
 RDEPEND="
-	dev-libs/aml
+	dev-libs/aml:0
 	x11-libs/libxkbcommon
 	x11-libs/pixman
 	dev-libs/wayland

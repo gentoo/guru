@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop wrapper toolchain-funcs
 
-DESCRIPTION="An integrated development environment for JavaScript and related technologies."
+DESCRIPTION="An integrated development environment for JavaScript and related technologies"
 HOMEPAGE="https://www.jetbrains.com/webstorm/"
 SRC_URI="
 	amd64? ( https://download-cdn.jetbrains.com/${PN}/WebStorm-${PV}.tar.gz )

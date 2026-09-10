@@ -11,7 +11,7 @@ DESCRIPTION="Unit conversion tool, similar to frink"
 HOMEPAGE="https://rinkcalc.app/about/"
 EGIT_REPO_URI="https://codeberg.org/tiffany/rink.git"
 
-LICENSE="MPL-2.0"
+LICENSE="MPL-2.0 GPL-3"
 # Dependent crate licenses
 # owo-colors is MIT but notated as LICENCE
 LICENSE+="
@@ -19,7 +19,10 @@ LICENSE+="
 "
 
 SLOT="0"
-IUSE="doc"
+IUSE="doc bundle-files test"
+REQUIRED_USE="test? ( bundle-files )"
+
+RESTRICT="!test? ( test )"
 
 DEPEND+="
 	net-misc/curl
@@ -39,14 +42,10 @@ src_unpack() {
 src_configure() {
 	# RINK_PATH is used in the build process to define the data file location
 	export RINK_PATH=/usr/share/rink
-	cargo_src_configure --no-default-features
-}
-
-src_test() {
-	local tests_skip=(
-		# requires bundled files, which are disabled in this ebuild
-		--skip test_to_ansi
+	local myfeatures=(
+		$(usev bundle-files)
 	)
+	cargo_src_configure --no-default-features
 }
 
 src_install() {

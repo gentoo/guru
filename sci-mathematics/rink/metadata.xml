@@ -14,4 +14,10 @@
 		<bugs-to>https://codeberg.org/tiffany/rink/issues/new</bugs-to>
 		<changelog>https://rinkcalc.app/releases/</changelog>
 	</upstream>
+	<use>
+		<flag name="bundle-files">Bundles the definition files into the application.
+			Recommended only for tests, as the definition files are installed
+			globally.
+		</flag>
+	</use>
 </pkgmetadata>

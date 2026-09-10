@@ -1,0 +1,22 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -27,7 +27,7 @@ wayland-protocols = { version = "0.32", features = [
+     "staging",
+ ] }
+ wayland-protocols-wlr = { version = "0.3", features = ["client"] }
+-ffmpeg-next = "8.0.0"
++ffmpeg-next = "8.1.0"
+ ffmpeg-sys-next = "8.0.1" # need direct dep on -sys to get metadata to consume in build.rs
+ thiserror = "2.0.3"
+ human-size = "0.4.2"
+@@ -43,10 +43,6 @@ mio = { version = "1.0.4", features = ["os-poll"] }
+ signal-hook = "0.3.15"
+ signal-hook-mio = { version = "0.2.4", features = ["support-v1_0"] }
+
+-[patch.crates-io]
+-# Waiting on https://github.com/zmwangx/rust-ffmpeg-sys/pull/91
+-ffmpeg-sys-next = { git = "https://github.com/russelltg/rust-ffmpeg-sys", branch = "vulkan" }
+-
+ # Uncomment for local dev
+ # ffmpeg-next = { path = "../rust-ffmpeg" }
+ # ffmpeg-sys-next = { path = "../rust-ffmpeg-sys" }

@@ -1,0 +1,17 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use unresolved path to `umu-run`
+
+Otherwise, it will try to run `python-exec2` directly.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+--- a/bottles/backend/umu/provider.py
++++ b/bottles/backend/umu/provider.py
+@@ -44,7 +44,7 @@ class UmuProvider:
+ 
+     def _inspect(self, path: Path, source: UmuProviderSource) -> UmuInstallation:
+         try:
+-            resolved = path.expanduser().resolve(strict=True)
++            resolved = path.expanduser().absolute()
+         except OSError as error:
+             raise UmuProviderError(f"UMU launcher does not exist: {path}") from error
+         if not resolved.is_file() or not os.access(resolved, os.X_OK):

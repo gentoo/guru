@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 DISTUTILS_USE_PEP517=hatchling
 
 VERIFY_SIG_METHOD="signify"
@@ -24,7 +24,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="sqlite postgres"
-RESTRICT="test"
 
 DEPEND="${RDEPEND}"
 RDEPEND="${PYTHON_DEPS}

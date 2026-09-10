@@ -8,4 +8,7 @@
 	<upstream>
 		<remote-id type="github">miracle-wm-org/miracle-wm</remote-id>
 	</upstream>
+	<use>
+		<flag name="tools">Build internal gtk4 tools</flag>
+	</use>
 </pkgmetadata>

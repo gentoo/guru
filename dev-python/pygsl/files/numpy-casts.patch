@@ -1,0 +1,24 @@
+From 566d44d80f717f766c1df3b113c5b00027d72324 Mon Sep 17 00:00:00 2001
+From: bakedsnake <bakedsnake@vagrantz.xyz>
+Date: Sat, 15 Aug 2026 04:31:20 +0200
+Subject: [PATCH] Cast to object pointer to fix build error
+# https://github.com/pygsl/pygsl/pull/102
+
+--- a/src/transform/arraycopy.c
++++ b/src/transform/arraycopy.c
+@@ -411,6 +411,6 @@
+	}
+ 
+-	m = master;
++	m = (PyArrayObject *) master;
+	assert(m);
+	assert(
+		PyArray_TYPE(m) == PyGSL_TRANSFORM_MODE_SWITCH(mode, NPY_CDOUBLE, NPY_CFLOAT)
+@@ -432,6 +432,6 @@
+		}else{
+			FUNC_MESS("Copying input to output array");
+			/* Check if it is an array of the approbriate size */
+-			s = shadow;
++			s = (PyArrayObject *) shadow;
+			if((PyGSL_array_check((PyObject *) s)) && (PyArray_NDIM(s) == 1)
+				&& (PyArray_TYPE(s) == PyArray_TYPE(m))

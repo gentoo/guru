@@ -1,0 +1,425 @@
+diff --git a/meson.build b/meson.build
+index 8c45872..cd786d7 100644
+--- a/meson.build
++++ b/meson.build
+@@ -1,6 +1,10 @@
+ project('clevis', 'c', license: 'GPL3+',
+   version: '23',
+-  default_options: 'c_std=c99'
++  default_options: [ 
++    'c_std=c99',
++    'warning_level=2',
++    'werror=true'
++  ]
+ )
+ 
+ libexecdir = join_paths(get_option('prefix'), get_option('libexecdir'))
+@@ -15,9 +19,6 @@ data.set('bindir', bindir)
+ data.set('libdir', libdir)
+ 
+ add_project_arguments(
+-  '-Wall',
+-  '-Wextra',
+-  '-Werror',
+   '-Wstrict-aliasing',
+   '-Wchar-subscripts',
+   '-Wformat-security',
+diff --git a/src/bash/meson.build b/src/bash/meson.build
+index 89ba746..e9e597a 100644
+--- a/src/bash/meson.build
++++ b/src/bash/meson.build
+@@ -1,7 +1,7 @@
+ bashcomp = dependency('bash-completion', required: false)
+ 
+ if bashcomp.found()
+-  bashcompdir = bashcomp.get_pkgconfig_variable('completionsdir')
++  bashcompdir = bashcomp.get_variable(pkgconfig : 'completionsdir')
+   install_data('clevis', install_dir: bashcompdir)
+ else
+   warning('Will not install bash completion due to missing dependencies!')
+diff --git a/src/luks/dracut/clevis-pin-null/meson.build b/src/luks/dracut/clevis-pin-null/meson.build
+index 57278f7..0c7e172 100644
+--- a/src/luks/dracut/clevis-pin-null/meson.build
++++ b/src/luks/dracut/clevis-pin-null/meson.build
+@@ -1,7 +1,7 @@
+ dracut = dependency('dracut', required: false)
+ 
+ if dracut.found()
+-  dracutdir = dracut.get_pkgconfig_variable('dracutmodulesdir') + '/50' + meson.project_name() + '-pin-null'
++  dracutdir = dracut.get_variable(pkgconfig : 'dracutmodulesdir') + '/50' + meson.project_name() + '-pin-null'
+ 
+   configure_file(
+     input: 'module-setup.sh.in',
+diff --git a/src/luks/dracut/clevis-pin-pkcs11/meson.build b/src/luks/dracut/clevis-pin-pkcs11/meson.build
+index 689222b..ecd1421 100644
+--- a/src/luks/dracut/clevis-pin-pkcs11/meson.build
++++ b/src/luks/dracut/clevis-pin-pkcs11/meson.build
+@@ -1,7 +1,7 @@
+ dracut = dependency('dracut', required: false)
+ 
+ if dracut.found()
+-  dracutdir = dracut.get_pkgconfig_variable('dracutmodulesdir') + '/50' + meson.project_name() + '-pin-pkcs11'
++  dracutdir = dracut.get_variable(pkgconfig : 'dracutmodulesdir') + '/50' + meson.project_name() + '-pin-pkcs11'
+ 
+   configure_file(
+     input: 'module-setup.sh.in',
+diff --git a/src/luks/dracut/clevis-pin-sss/meson.build b/src/luks/dracut/clevis-pin-sss/meson.build
+index c652a9e..34a7345 100644
+--- a/src/luks/dracut/clevis-pin-sss/meson.build
++++ b/src/luks/dracut/clevis-pin-sss/meson.build
+@@ -1,7 +1,7 @@
+ dracut = dependency('dracut', required: false)
+ 
+ if dracut.found()
+-  dracutdir = dracut.get_pkgconfig_variable('dracutmodulesdir') + '/50' + meson.project_name() + '-pin-sss'
++  dracutdir = dracut.get_variable(pkgconfig : 'dracutmodulesdir') + '/50' + meson.project_name() + '-pin-sss'
+ 
+   configure_file(
+     input: 'module-setup.sh.in',
+diff --git a/src/luks/dracut/clevis-pin-tang/meson.build b/src/luks/dracut/clevis-pin-tang/meson.build
+index 8e1cfca..92af675 100644
+--- a/src/luks/dracut/clevis-pin-tang/meson.build
++++ b/src/luks/dracut/clevis-pin-tang/meson.build
+@@ -1,7 +1,7 @@
+ dracut = dependency('dracut', required: false)
+ 
+ if dracut.found()
+-  dracutdir = dracut.get_pkgconfig_variable('dracutmodulesdir') + '/50' + meson.project_name() + '-pin-tang'
++  dracutdir = dracut.get_variable(pkgconfig : 'dracutmodulesdir') + '/50' + meson.project_name() + '-pin-tang'
+ 
+   configure_file(
+     input: 'module-setup.sh.in',
+diff --git a/src/luks/dracut/clevis-pin-tpm1/meson.build b/src/luks/dracut/clevis-pin-tpm1/meson.build
+index 8e5a675..6515b6a 100644
+--- a/src/luks/dracut/clevis-pin-tpm1/meson.build
++++ b/src/luks/dracut/clevis-pin-tpm1/meson.build
+@@ -1,7 +1,7 @@
+ dracut = dependency('dracut', required: false)
+ 
+ if dracut.found()
+-  dracutdir = dracut.get_pkgconfig_variable('dracutmodulesdir') + '/50' + meson.project_name() + '-pin-tpm1'
++  dracutdir = dracut.get_variable(pkgconfig : 'dracutmodulesdir') + '/50' + meson.project_name() + '-pin-tpm1'
+ 
+   configure_file(
+     input: 'module-setup.sh.in',
+diff --git a/src/luks/dracut/clevis-pin-tpm2/meson.build b/src/luks/dracut/clevis-pin-tpm2/meson.build
+index 7863f8b..58990e7 100644
+--- a/src/luks/dracut/clevis-pin-tpm2/meson.build
++++ b/src/luks/dracut/clevis-pin-tpm2/meson.build
+@@ -1,7 +1,7 @@
+ dracut = dependency('dracut', required: false)
+ 
+ if dracut.found()
+-  dracutdir = dracut.get_pkgconfig_variable('dracutmodulesdir') + '/50' + meson.project_name() + '-pin-tpm2'
++  dracutdir = dracut.get_variable(pkgconfig : 'dracutmodulesdir') + '/50' + meson.project_name() + '-pin-tpm2'
+ 
+   configure_file(
+     input: 'module-setup.sh.in',
+diff --git a/src/luks/dracut/clevis/meson.build b/src/luks/dracut/clevis/meson.build
+index e6230f3..ca21624 100644
+--- a/src/luks/dracut/clevis/meson.build
++++ b/src/luks/dracut/clevis/meson.build
+@@ -1,7 +1,7 @@
+ dracut = dependency('dracut', required: false)
+ 
+ if dracut.found()
+-  dracutdir = dracut.get_pkgconfig_variable('dracutmodulesdir') + '/50' + meson.project_name()
++  dracutdir = dracut.get_variable(pkgconfig : 'dracutmodulesdir') + '/50' + meson.project_name()
+ 
+   dracut_data = configuration_data()
+   dracut_data.merge_from(data)
+diff --git a/src/luks/meson.build b/src/luks/meson.build
+index 6c7b035..5469c3b 100644
+--- a/src/luks/meson.build
++++ b/src/luks/meson.build
+@@ -42,7 +42,7 @@ clevis_luks_unbind = configure_file(input: 'clevis-luks-unbind.in',
+ 
+ # SystemD dependencies checked here, used both in systemd and dracut subdirs
+ systemd = dependency('systemd', required: false)
+-systemdutildir = systemd.found() ? systemd.get_pkgconfig_variable('systemdutildir', default: '') : ''
++systemdutildir = systemd.found() ? systemd.get_variable(pkgconfig : 'systemdutildir', default_value: '') : ''
+ 
+ sd_reply_pass = find_program(
+   (systemdutildir != '') ? join_paths(systemdutildir, 'systemd-reply-password') : '',
+diff --git a/src/luks/tests/meson.build b/src/luks/tests/meson.build
+index aebc481..0735219 100644
+--- a/src/luks/tests/meson.build
++++ b/src/luks/tests/meson.build
+@@ -28,21 +28,21 @@ common_functions = configure_file(input: 'luks-common-test-functions.in',
+ 
+ env = environment()
+ env.prepend('PATH',
+-  join_paths(meson.source_root(), 'src'),
+-  join_paths(meson.source_root(), 'src', 'luks'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'sss'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'tang'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'tpm1'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'tpm2'),
++  join_paths(meson.project_source_root(), 'src'),
++  join_paths(meson.project_source_root(), 'src', 'luks'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'sss'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'tang'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'tpm1'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'tpm2'),
+   meson.current_source_dir(),
+   meson.current_build_dir(),
+-  join_paths(meson.build_root(), 'src'),
+-  join_paths(meson.build_root(), 'src', 'luks'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'sss'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'tang'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'tang', 'tests'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'tpm1'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'tpm2'),
++  join_paths(meson.project_build_root(), 'src'),
++  join_paths(meson.project_build_root(), 'src', 'luks'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'sss'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'tang'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'tang', 'tests'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'tpm1'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'tpm2'),
+   separator: ':'
+ )
+ 
+diff --git a/src/pins/file/meson.build b/src/pins/file/meson.build
+index dbd9a56..fd43e14 100644
+--- a/src/pins/file/meson.build
++++ b/src/pins/file/meson.build
+@@ -8,7 +8,7 @@ mans += join_paths(meson.current_source_dir(), 'clevis-encrypt-file.1')
+ 
+ env = environment()
+ env.append('PATH',
+-  join_paths(meson.source_root(), 'src'),
++  join_paths(meson.project_source_root(), 'src'),
+   meson.current_source_dir(),
+   '/usr/libexec',
+   libexecdir,
+@@ -18,7 +18,7 @@ env.append('PATH',
+ test('pin-file', find_program('./pin-file'), env: env)
+ 
+ if dracut.found()
+-  dracutdir = dracut.get_pkgconfig_variable('dracutmodulesdir') + '/50' + meson.project_name() + '-pin-file'
++  dracutdir = dracut.get_variable(pkgconfig : 'dracutmodulesdir') + '/50' + meson.project_name() + '-pin-file'
+   configure_file(
+     input: 'dracut.module-setup.sh.in',
+     output: 'module-setup.sh',
+diff --git a/src/pins/pkcs11/tests/meson.build b/src/pins/pkcs11/tests/meson.build
+index 73ca2f7..998562d 100644
+--- a/src/pins/pkcs11/tests/meson.build
++++ b/src/pins/pkcs11/tests/meson.build
+@@ -1,22 +1,22 @@
+ env = environment()
+ env.prepend('PATH',
+-  join_paths(meson.source_root(), 'src'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'pkcs11'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'pkcs11', 'tests'),
+-  join_paths(meson.build_root(), 'src'),
+-  join_paths(meson.build_root(), 'src', 'pins'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'pkcs11'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'pkcs11', 'tests'),
+-  join_paths(meson.source_root(), 'src'),
+-  join_paths(meson.source_root(), 'src', 'luks'),
+-  join_paths(meson.source_root(), 'src', 'luks', 'tests'),
+-  join_paths(meson.build_root(), 'src'),
+-  join_paths(meson.build_root(), 'src', 'luks'),
+-  join_paths(meson.build_root(), 'src', 'luks', 'tests'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'tang'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'tang', 'tests'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'tang'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'tang', 'tests'),
++  join_paths(meson.project_source_root(), 'src'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'pkcs11'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'pkcs11', 'tests'),
++  join_paths(meson.project_build_root(), 'src'),
++  join_paths(meson.project_build_root(), 'src', 'pins'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'pkcs11'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'pkcs11', 'tests'),
++  join_paths(meson.project_source_root(), 'src'),
++  join_paths(meson.project_source_root(), 'src', 'luks'),
++  join_paths(meson.project_source_root(), 'src', 'luks', 'tests'),
++  join_paths(meson.project_build_root(), 'src'),
++  join_paths(meson.project_build_root(), 'src', 'luks'),
++  join_paths(meson.project_build_root(), 'src', 'luks', 'tests'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'tang'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'tang', 'tests'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'tang'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'tang', 'tests'),
+   separator: ':'
+ )
+ 
+diff --git a/src/pins/sss/meson.build b/src/pins/sss/meson.build
+index 2a5295a..d77fa24 100644
+--- a/src/pins/sss/meson.build
++++ b/src/pins/sss/meson.build
+@@ -19,8 +19,8 @@ if jansson.found() and libcrypto.found()
+ 
+   env = environment()
+   env.prepend('PATH',
+-    join_paths(meson.source_root(), 'src'),
+-    join_paths(meson.source_root(), 'src', 'pins', 'tang'),
++    join_paths(meson.project_source_root(), 'src'),
++    join_paths(meson.project_source_root(), 'src', 'pins', 'tang'),
+     meson.current_build_dir(),
+     '/usr/libexec',
+     libexecdir,
+diff --git a/src/pins/tang/tests/meson.build b/src/pins/tang/tests/meson.build
+index 47fa5d6..feb02a9 100644
+--- a/src/pins/tang/tests/meson.build
++++ b/src/pins/tang/tests/meson.build
+@@ -23,15 +23,15 @@ tang_data.set('TANGD_KEYGEN', '')
+ tang_data.set('TANGD', '')
+ 
+ if socat.found()
+-  tang_data.set('SOCAT', socat.path())
++  tang_data.set('SOCAT', socat.full_path())
+ endif
+ 
+ if kgen.found()
+-  tang_data.set('TANGD_KEYGEN', kgen.path())
++  tang_data.set('TANGD_KEYGEN', kgen.full_path())
+ endif
+ 
+ if tang.found()
+-  tang_data.set('TANGD', tang.path())
++  tang_data.set('TANGD', tang.full_path())
+ endif
+ 
+ tang_tests_common = configure_file(
+@@ -42,10 +42,10 @@ tang_tests_common = configure_file(
+ 
+ env = environment()
+ env.prepend('PATH',
+-  join_paths(meson.source_root(), 'src'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'tang'),
+-  join_paths(meson.build_root(), 'src', 'luks', 'tests'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'tang', 'tests'),
++  join_paths(meson.project_source_root(), 'src'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'tang'),
++  join_paths(meson.project_build_root(), 'src', 'luks', 'tests'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'tang', 'tests'),
+   separator: ':'
+ )
+ 
+diff --git a/src/pins/template/meson.build b/src/pins/template/meson.build
+index e307526..5a84aa9 100644
+--- a/src/pins/template/meson.build
++++ b/src/pins/template/meson.build
+@@ -20,7 +20,7 @@ if curl.found()
+ #%# Set up a test environment
+   env = environment()
+   env.append('PATH',
+-    join_paths(meson.source_root(), 'src'),
++    join_paths(meson.project_source_root(), 'src'),
+     meson.current_source_dir(),
+     '/usr/libexec',
+     libexecdir,
+@@ -35,7 +35,7 @@ endif
+ 
+ #%# dracut support
+ if dracut.found()
+-  dracutdir = dracut.get_pkgconfig_variable('dracutmodulesdir') + '/50' + meson.project_name() + '-pin-@pin@'
++  dracutdir = dracut.get_variable(pkgconfig : 'dracutmodulesdir') + '/50' + meson.project_name() + '-pin-@pin@'
+ #?# In general, substituation is not needed but it's better to
+ #?# stay flexible.
+   configure_file(
+diff --git a/src/pins/tpm1/tests/meson.build b/src/pins/tpm1/tests/meson.build
+index 4f7ebbd..ca1be7d 100644
+--- a/src/pins/tpm1/tests/meson.build
++++ b/src/pins/tpm1/tests/meson.build
+@@ -1,14 +1,14 @@
+ # Tests
+ env = environment()
+ env.prepend('PATH',
+-  join_paths(meson.source_root(), 'src'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'tpm1'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'tpm1', 'tests'),
+-  join_paths(meson.build_root(), 'src'),
+-  join_paths(meson.build_root(), 'src', 'luks', 'tests'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'tang', 'tests'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'tpm1'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'tpm1', 'tests'),
++  join_paths(meson.project_source_root(), 'src'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'tpm1'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'tpm1', 'tests'),
++  join_paths(meson.project_build_root(), 'src'),
++  join_paths(meson.project_build_root(), 'src', 'luks', 'tests'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'tang', 'tests'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'tpm1'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'tpm1', 'tests'),
+   separator: ':'
+ )
+ 
+@@ -23,14 +23,14 @@ tcsd = find_program('tcsd', '/usr/sbin/tcsd', required: false)
+ swtpm = find_program('swtpm', '/usr/bin/swtpm', required: false)
+ swtpm_setup = find_program('swtpm_setup', '/usr/bin/swtpm_setup', required: false)
+ 
+-tpm1_data.set('TPM_VERSION_BIN', tpm_version.found() ? tpm_version.path() : '')
+-tpm1_data.set('TPM_SEALDATA_BIN', tpm_sealdata.found() ? tpm_sealdata.path() : '')
+-tpm1_data.set('TPM_UNSEALDATA_BIN', tpm_unsealdata.found() ? tpm_unsealdata.path() : '')
+-tpm1_data.set('TPM_TAKEOWNERSHIP_BIN', tpm_takeownership.found() ? tpm_takeownership.path() : '')
+-tpm1_data.set('TCSD_BIN', tcsd.found() ? tcsd.path() : '')
+-tpm1_data.set('SWTPM_BIN', swtpm.found() ? swtpm.path() : '')
+-tpm1_data.set('SWTPM_SETUP_BIN', swtpm_setup.found() ? swtpm_setup.path() : '')
+-tpm1_data.set('LIBCLEVIS_TPM1_TCSD_PRELOAD', libclevis_tpm1_tcsd_preload.path())
++tpm1_data.set('TPM_VERSION_BIN', tpm_version.found() ? tpm_version.full_path() : '')
++tpm1_data.set('TPM_SEALDATA_BIN', tpm_sealdata.found() ? tpm_sealdata.full_path() : '')
++tpm1_data.set('TPM_UNSEALDATA_BIN', tpm_unsealdata.found() ? tpm_unsealdata.full_path() : '')
++tpm1_data.set('TPM_TAKEOWNERSHIP_BIN', tpm_takeownership.found() ? tpm_takeownership.full_path() : '')
++tpm1_data.set('TCSD_BIN', tcsd.found() ? tcsd.full_path() : '')
++tpm1_data.set('SWTPM_BIN', swtpm.found() ? swtpm.full_path() : '')
++tpm1_data.set('SWTPM_SETUP_BIN', swtpm_setup.found() ? swtpm_setup.full_path() : '')
++tpm1_data.set('LIBCLEVIS_TPM1_TCSD_PRELOAD', libclevis_tpm1_tcsd_preload.full_path())
+ 
+ configure_file(
+   input: 'tpm1-common-test-functions.in',
+diff --git a/src/pins/tpm2/tests/meson.build b/src/pins/tpm2/tests/meson.build
+index f3e21e1..cd0d15d 100644
+--- a/src/pins/tpm2/tests/meson.build
++++ b/src/pins/tpm2/tests/meson.build
+@@ -1,20 +1,20 @@
+ # Tests.
+ env = environment()
+ env.prepend('PATH',
+-  join_paths(meson.source_root(), 'src'),
+-  join_paths(meson.source_root(), 'src', 'luks'),
+-  join_paths(meson.source_root(), 'src', 'luks', 'tests'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'sss'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'tang'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'tpm2'),
+-  join_paths(meson.source_root(), 'src', 'pins', 'tpm2', 'tests'),
+-  join_paths(meson.build_root(), 'src'),
+-  join_paths(meson.build_root(), 'src', 'luks'),
+-  join_paths(meson.build_root(), 'src', 'luks', 'tests'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'sss'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'tang'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'tpm2'),
+-  join_paths(meson.build_root(), 'src', 'pins', 'tpm2', 'tests'),
++  join_paths(meson.project_source_root(), 'src'),
++  join_paths(meson.project_source_root(), 'src', 'luks'),
++  join_paths(meson.project_source_root(), 'src', 'luks', 'tests'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'sss'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'tang'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'tpm2'),
++  join_paths(meson.project_source_root(), 'src', 'pins', 'tpm2', 'tests'),
++  join_paths(meson.project_build_root(), 'src'),
++  join_paths(meson.project_build_root(), 'src', 'luks'),
++  join_paths(meson.project_build_root(), 'src', 'luks', 'tests'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'sss'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'tang'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'tpm2'),
++  join_paths(meson.project_build_root(), 'src', 'pins', 'tpm2', 'tests'),
+   separator: ':'
+ )
+ 
+@@ -25,9 +25,9 @@ socat = find_program('socat', required: false)
+ swtpm = find_program('swtpm', '/usr/bin/swtpm', required: false)
+ swtpm_setup = find_program('swtpm_setup', '/usr/bin/swtpm_setup', required: false)
+ 
+-tpm2_data.set('SOCAT_BIN', socat.found() ? socat.path() : '')
+-tpm2_data.set('SWTPM_BIN', swtpm.found() ? swtpm.path() : '')
+-tpm2_data.set('SWTPM_SETUP_BIN', swtpm_setup.found() ? swtpm_setup.path() : '')
++tpm2_data.set('SOCAT_BIN', socat.found() ? socat.full_path() : '')
++tpm2_data.set('SWTPM_BIN', swtpm.found() ? swtpm.full_path() : '')
++tpm2_data.set('SWTPM_SETUP_BIN', swtpm_setup.found() ? swtpm_setup.full_path() : '')
+ 
+ configure_file(
+   input: 'tpm2-common-test-functions.in',

@@ -6,13 +6,16 @@
 		<name>Huang Rui</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">verilator/verilator</remote-id>
+		<remote-id type="github">llvm/circt</remote-id>
 	</upstream>
 	<longdescription lang="en">
-	Verilator, the fastest free Verilog HDL simulator.
-	Accepts synthesizable Verilog or SystemVerilog
-	Performs lint code-quality checks
-	Compiles into multithreaded C++, SystemC, or (soon) C++-under-Python
-	Creates XML to front-end your own tools
+		CIRCT is an umbrella project containing reusable compiler
+		infrastructure for hardware design tools. It provides hardware
+		intermediate representations, transformations, and command-line tools
+		built on LLVM and MLIR.
+	</longdescription>
+	<longdescription lang="zh">
+		CIRCT 是一个为硬件设计工具提供可复用编译器基础设施的项目。它基于 LLVM
+		和 MLIR，提供硬件中间表示、转换流程和命令行工具。
 	</longdescription>
 </pkgmetadata>

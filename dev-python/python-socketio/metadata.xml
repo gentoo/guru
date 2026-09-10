@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>bakedsnake@vagrantz.xyz</email>
+		<name>bakedsnake</name>
+	</maintainer>
 	<use>
 		<flag name="client">Add websocket client</flag>
 		<flag name="asyncio-client">Add async websocket client</flag>

@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -32,6 +32,7 @@ RDEPEND="
 	dev-libs/libxml2:=
 	gui-libs/gtk:4[introspection]
 	>=gui-libs/libadwaita-1.8.0:1[introspection]
+	media-libs/glycin:2[gtk]
 	net-libs/libsoup:3.0
 "
 

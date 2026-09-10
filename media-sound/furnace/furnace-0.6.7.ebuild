@@ -11,8 +11,8 @@ HOMEPAGE="https://github.com/tildearrow/furnace"
 # when performing updates, check whether the project has switched to a new
 # version of adpcm. adpcm doesn't seem to update frequently.
 SRC_URI="
-	https://github.com/tildearrow/furnace/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/superctr/adpcm/archive/ef7a217154badc3b99978ac481b268c8aab67bd8.tar.gz -> ${P}-adpcm-ef7a217.tar.gz
+https://github.com/tildearrow/furnace/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+https://github.com/superctr/adpcm/archive/ef7a217154badc3b99978ac481b268c8aab67bd8.tar.gz -> ${PN}-adpcm-ef7a217.tar.gz
 "
 LICENSE="GPL-2+"
 SLOT="0"

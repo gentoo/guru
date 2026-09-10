@@ -6,6 +6,6 @@
 		<name>Anna</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">Snawoot/opera-proxy</remote-id>
+		<remote-id type="github">Alexey71/opera-proxy</remote-id>
 	</upstream>
 </pkgmetadata>

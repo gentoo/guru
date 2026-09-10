@@ -1,0 +1,24 @@
+diff --git a/Directory.Build.props b/Directory.Build.props
+index 9555b768..cf551757 100644
+--- a/Directory.Build.props
++++ b/Directory.Build.props
+@@ -11,4 +11,7 @@
+     <AnalysisMode>Recommended</AnalysisMode>
+     <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+   </PropertyGroup>
++  <ItemGroup>
++    <PackageReference Include="Microsoft.Net.Compilers.Toolset" PrivateAssets="all" />
++  </ItemGroup>
+ </Project>
+diff --git a/Directory.Packages.props b/Directory.Packages.props
+index 36b668f8..8361740d 100644
+--- a/Directory.Packages.props
++++ b/Directory.Packages.props
+@@ -19,6 +19,7 @@
+     <PackageVersion Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="4.14.0" />
+     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
+     <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.10" />
++    <PackageVersion Include="Microsoft.Net.Compilers.Toolset" Version="5.3.0" />
+     <PackageVersion Include="NReco.Logging.File" Version="1.2.2" />
+     <PackageVersion Include="TUnit" Version="1.5.80" />
+     <PackageVersion Include="PolySharp" Version="1.15.0" />

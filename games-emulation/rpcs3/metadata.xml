@@ -5,6 +5,10 @@
 	<name>mazes-80</name>
 	<email>samuel.bauer@yahoo.fr</email>
 </maintainer>
+<maintainer type="person">
+	<name>bakedsnake</name>
+	<email>bakedsnake@vagrantz.xyz</email>
+</maintainer>
 <use>
 	<flag name="discord">Enables Discord Rich Presence</flag>
 	<flag name="faudio">Add faudio sound backend support</flag>

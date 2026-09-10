@@ -38,6 +38,7 @@ src_configure() {
 		-DKTX_VERSION=${PV}
 		-DKTX_FEATURE_TESTS=OFF
 		-DBUILD_SHARED_LIBS=OFF # https://github.com/KhronosGroup/KTX-Software/issues/935
+		-DCMAKE_CXX_STANDARD=14 # https://github.com/KhronosGroup/KTX-Software/issues/1172
 	)
 
 	cmake_src_configure

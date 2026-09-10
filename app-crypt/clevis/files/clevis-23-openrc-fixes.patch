@@ -1,0 +1,25 @@
+diff --git a/src/luks/dracut/clevis/meson.build b/src/luks/dracut/clevis/meson.build
+index f37cc3ce..e6230f33 100644
+--- a/src/luks/dracut/clevis/meson.build
++++ b/src/luks/dracut/clevis/meson.build
+@@ -5,7 +5,7 @@ if dracut.found()
+ 
+   dracut_data = configuration_data()
+   dracut_data.merge_from(data)
+-  dracut_data.set('SYSTEMD_REPLY_PASS', sd_reply_pass.path())
++  dracut_data.set('SYSTEMD_REPLY_PASS', sd_reply_pass.found() ? sd_reply_pass.path() : '')
+ 
+   configure_file(
+     input: 'module-setup.sh.in',
+diff --git a/src/luks/dracut/clevis/module-setup.sh.in b/src/luks/dracut/clevis/module-setup.sh.in
+index 32fac41f..cb0bd22f 100755
+--- a/src/luks/dracut/clevis/module-setup.sh.in
++++ b/src/luks/dracut/clevis/module-setup.sh.in
+@@ -52,6 +52,7 @@ install() {
+         inst_script "$moddir"/clevis-password-unlocker-prepare /bin/clevis-password-unlocker-prepare
+         inst_multiple \
+             clevis-luks-unlock \
++            chmod \
+             blkid
+     fi
+ 

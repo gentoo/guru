@@ -28,6 +28,7 @@ LICENSE+="
 SLOT="0"
 IUSE="+openvr +openxr +wayland +X +pipewire +osc +wayvrctl"
 DEPEND="
+	dev-libs/openssl
 	media-libs/alsa-lib
 	media-libs/shaderc
 	media-libs/fontconfig

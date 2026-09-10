@@ -9,7 +9,7 @@ CRATES="
 RUST_MIN_VER="1.85.0"
 inherit cargo shell-completion
 
-DESCRIPTION="Real-time co-editing of local text files."
+DESCRIPTION="Real-time co-editing of local text files"
 HOMEPAGE="https://teamtype.github.io/teamtype/"
 SRC_URI="https://github.com/teamtype/teamtype/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://raw.githubusercontent.com/PPN-SD/vendor/refs/tags/${P}/${P}-crates.tar.xz"

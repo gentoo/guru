@@ -1,0 +1,28 @@
+https://github.com/apache/buildstream/pull/2130
+
+From a263b4d2ac31ce1a2fb190e737464245dde3686c Mon Sep 17 00:00:00 2001
+From: Abderrahim Kitouni <akitouni@gnome.org>
+Date: Tue, 2 Jun 2026 15:50:56 +0100
+Subject: [PATCH] conftest: rename the destination of the --plugins option
+
+This conflicts with the `-p` option of pytest
+--- a/tests/conftest.py
++++ b/tests/conftest.py
+@@ -41,7 +41,7 @@
+ #################################################
+ def pytest_addoption(parser):
+     parser.addoption("--integration", action="store_true", default=False, help="Run integration tests")
+-    parser.addoption("--plugins", action="store_true", default=False, help="Run only plugins tests")
++    parser.addoption("--plugins", action="store_true", dest="bst_plugins", default=False, help="Run only plugins tests")
+     parser.addoption("--remote-execution", action="store_true", default=False, help="Run remote-execution tests only")
+     parser.addoption("--remote-cache", action="store_true", default=False, help="Run remote-cache tests only")
+ 
+@@ -74,7 +74,7 @@ def pytest_collection_modifyitems(session, config, items):
+                 item.add_marker(pytest.mark.skip("skipping remote-cache test"))
+ 
+         # With --plugins only run plugins tests
+-        if config.getvalue("plugins"):
++        if config.getvalue("bst_plugins"):
+             if not item.get_closest_marker("generic_source_test"):
+                 item.add_marker(pytest.mark.skip("Skipping not generic source test"))
+ 

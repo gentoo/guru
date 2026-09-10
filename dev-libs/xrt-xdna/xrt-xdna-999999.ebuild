@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 inherit cmake python-any-r1 linux-info
 
 DESCRIPTION="Runtime for AIE and FPGA based platforms"
@@ -13,7 +13,6 @@ if [[ ${PV} == 999999 ]] ; then
 	EGIT_REPO_URI="https://github.com/amd/xdna-driver.git"
 	EGIT_SUBMODULES=(
 		xrt
-		xrt/src/runtime_src/aie-rt
 		xrt/src/runtime_src/core/common/aiebu
 		xrt/src/runtime_src/core/common/elf
 		xrt/src/runtime_src/xdp
@@ -21,8 +20,16 @@ if [[ ${PV} == 999999 ]] ; then
 	inherit git-r3
 
 	BDEPEND="net-misc/wget"
+
+	MGS_COMMIT=master
+	MGS=markdown_graphviz_svg
+	MGS_PY=${MGS}-${MGS_COMMIT}.py
 else
 	VTD_HASH=c79b5d21568a4ffa5b0612a8279b352fc4e1109a
+
+	MGS_COMMIT=554d75e924ed621f23d077b0495c247c329bc770
+	MGS=markdown_graphviz_svg
+	MGS_PY=${MGS}-${MGS_COMMIT:0:8}.py
 
 	declare -Ag submodules
 	submodules["xrt"]=https://github.com/Xilinx/XRT.git@4eb1f4392a012b4e6eca759762389c612537f7c7
@@ -35,6 +42,7 @@ else
 		https://github.com/Xilinx/VTD/raw/${VTD_HASH}/archive/strx/xrt_smi_strx.a -> xrt_smi_strx-${VTD_HASH:0:8}.a
 		https://github.com/Xilinx/VTD/raw/${VTD_HASH}/archive/phx/xrt_smi_phx.a -> xrt_smi_phx-${VTD_HASH:0:8}.a
 		https://github.com/Xilinx/VTD/raw/${VTD_HASH}/archive/npu3/xrt_smi_npu3.a -> xrt_smi_npu3-${VTD_HASH:0:8}.a
+		https://raw.githubusercontent.com/Tanami/markdown-graphviz-svg/${MGS_COMMIT}/src/${MGS}/${MGS}.py -> ${MGS_PY}
 	"
 	for k in "${!submodules[@]}"; do
 		git_url="${submodules[$k]%@*}"
@@ -81,27 +89,23 @@ python_check_deps() {
 	python_has_version -b "dev-python/pybind11[${PYTHON_USEDEP}]"
 }
 
+pkg_setup() {
+	python-any-r1_pkg_setup
+}
+
 src_unpack() {
 	if [[ ${PV} == 999999 ]] ; then
 		git-r3_src_unpack
 
 		pushd "${S}" || die
-		local VTD_HASH=$(grep -oP 'VTD/raw/\K[0-9a-f]+' tools/info.json | head -n1)
-		[[ "${VTD_HASH}" == "" ]] && die "Failed to extract VTD hash"
+		# This downloads files specified in https://github.com/amd/xdna-driver/blob/main/tools/WHENCE
+		# VTD files signatures are not present in the Manifest, but effectively pinned via "whence-commit"
+		"${EPYTHON}" tools/sync_from_whence.py vtd --out amdxdna_bins/vtd_archives --whence tools/WHENCE || die
 
-		local VTD_FILES=(
-			"https://github.com/Xilinx/VTD/raw/${VTD_HASH}/archive/strx/xrt_smi_strx.a"
-			"https://github.com/Xilinx/VTD/raw/${VTD_HASH}/archive/phx/xrt_smi_phx.a"
-			"https://github.com/Xilinx/VTD/raw/${VTD_HASH}/archive/npu3/xrt_smi_npu3.a"
-		)
-
-		mkdir -p amdxdna_bins/vtd_archives || die
-
-		for url in "${VTD_FILES[@]}"; do
-			if ! wget -nc "${url}" -O "amdxdna_bins/vtd_archives/${url##*/}"; then
-				die "Fetching from ${url} failed"
-			fi
-		done
+		local msgs_url="https://raw.githubusercontent.com/Tanami/markdown-graphviz-svg/${MGS_COMMIT}/src/${MGS}/${MGS}.py"
+		if ! wget -nc "${msgs_url}" -O "${MGS_PY}"; then
+			die "Fetching from ${msgs_url} failed"
+		fi
 
 		popd || die
 	else
@@ -131,6 +135,10 @@ src_unpack() {
 }
 
 src_prepare() {
+	pushd "xrt/src/runtime_src/core/common/aiebu" || die
+	eapply "${FILESDIR}"/aiebu-no-downloads.patch
+	popd || die
+
 	sed -e "/Unknown Linux package flavor/ s/FATAL_ERROR/MESSAGE/" -i "CMake/pkg.cmake" || die
 
 	sed -e "s/set (XRT_UPSTREAM 0)/set (XRT_UPSTREAM 1)/" -i xrt/src/CMake/settings.cmake || die
@@ -146,11 +154,20 @@ src_configure() {
 		-DSKIP_KMOD=1
 		-DUMQ_HELLO_TEST=n
 		-DPython3_EXECUTABLE="${PYTHON}"
+		-DSPEC_TOOL_DEPS_DOWNLOADED=ON
 		-Wno-dev
 	)
 	[[ ${PV} != 999999 ]] && mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_Git=ON )
 
 	cmake_src_configure
+
+	if [[ ${PV} == 999999 ]]; then
+		local mgs_py_path="${S}/${MGS_PY}"
+	else
+		local mgs_py_path="${DISTDIR}/${MGS_PY}"
+	fi
+
+	ln -s "${mgs_py_path}" "${BUILD_DIR}/xrt/src/runtime_src/core/common/aiebu/specification/${MGS}.py" || die
 }
 
 src_install() {

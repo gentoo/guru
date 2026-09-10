@@ -3,8 +3,8 @@
 
 EAPI=8
 
-LLVM_COMPAT=( {17..21} )
-PYTHON_COMPAT=( python3_{12..14} )
+LLVM_COMPAT=( {17..22} )
+PYTHON_COMPAT=( python3_{12..15} )
 inherit llvm-r2 python-single-r1 unpacker
 
 DESCRIPTION="A high-level, general-purpose, multi-paradigm, compiled programming language"

@@ -79,7 +79,6 @@ DEPEND="
 	dev-cpp/simpleini
 	dev-libs/boost:=[context]
 	dev-libs/frozen
-	dev-libs/unordered_dense
 	dev-util/spirv-headers
 	dev-util/vulkan-headers
 	dev-util/vulkan-utility-libraries

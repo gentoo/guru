@@ -13,8 +13,12 @@
 		<flag name="aws">AWS S3 support in Netrocks</flag>
 		<flag name="chardet">Auto charset detection</flag>
 		<flag name="colorer">Colorer plugin support</flag>
+		<flag name="mtp">MTP/PTP plugin support</flag>
 		<flag name="nfs">NFS support in NetRocks</flag>
+		<flag name="python">Python plugin support</flag>
+		<flag name="rar">RAR archives support in MultiArc</flag>
 		<flag name="samba">SMB support in NetRocks</flag>
+		<flag name="sdl">Experimental SDL GUI backend support</flag>
 		<flag name="sftp">SFTP support in NetRocks</flag>
 		<flag name="ssl">FTPS support in NetRocks</flag>
 		<flag name="webdav">WebDav support in NetRocks</flag>
