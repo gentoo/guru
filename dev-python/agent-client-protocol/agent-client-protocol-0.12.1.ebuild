@@ -32,6 +32,7 @@ BDEPEND="
 	test? (
 		>=dev-python/h2-3[${PYTHON_USEDEP}]
 		>=dev-python/httpx-0.27[${PYTHON_USEDEP}]
+		>=dev-python/uvicorn-0.30[${PYTHON_USEDEP}]
 		>=dev-python/websockets-12.0[${PYTHON_USEDEP}]
 	)
 "
