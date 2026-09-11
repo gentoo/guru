@@ -1,7 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
+EAPI=9
 
 MY_PV="$(ver_rs 4 _)"
 SANE_CONF_DIR="/etc/sane.d"
@@ -9,15 +9,17 @@ SANE_CONF_DIR="/etc/sane.d"
 DESCRIPTION="HP Unified Linux Driver (for samsung hardware)"
 HOMEPAGE="https://support.hp.com"
 
+# Upstream ships an uncompressed tar under a .tar.gz name.
 SRC_URI="
-	https://ftp.ext.hp.com/pub/softlib/software13/printers/LaserJet/M437_M443/ULDLINUX_HewlettPackard_V${MY_PV}.zip
+	https://ftp.hp.com/pub/softlib/software13/printers/laserMFP100/uld-hp_V${MY_PV}.tar.gz
+		-> uld-hp_V${MY_PV}.tar
 "
 
 S="${WORKDIR}/uld"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~mips ~x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~mips"
 
 IUSE="+scanner"
 RESTRICT="mirror bindist"
@@ -35,21 +37,9 @@ DEPEND="
 	${RDEPEND}
 "
 
-BDEPEND="
-	app-arch/unzip
-"
-
 # Do not complain about CFLAGS etc since it is binary package
 QA_FLAGS_IGNORED=".*"
 QA_PRESTRIPPED="${QA_FLAGS_IGNORED}"
-
-src_unpack() {
-	default
-
-	for f in "${WORKDIR}"/*/*.tar.gz; do
-		tar -zxf "$f" -C "${WORKDIR}" || die
-	done
-}
 
 src_install() {
 	export AGREE_EULA="y"
