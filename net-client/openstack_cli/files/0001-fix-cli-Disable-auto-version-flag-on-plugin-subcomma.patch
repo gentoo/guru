@@ -1,0 +1,98 @@
+From ce14e9a768954e0eda68b8593bf41a32cda7c348 Mon Sep 17 00:00:00 2001
+From: Artem Goncharov <Artem.goncharov@gmail.com>
+Date: Fri, 11 Sep 2026 09:28:57 +0200
+Subject: [PATCH] fix(cli): Disable auto --version flag on plugin subcommands
+ (#1989)
+
+install/remove/info/verify each define a `version` argument, which
+collides with clap's auto-generated `--version`/`-V` flag on every
+derived Parser subcommand. Collision crashed at runtime whenever the
+CLI built these commands (e.g. `osc completion`).
+
+Signed-off-by: Artem Goncharov <artem.goncharov@gmail.com>
+---
+ cli/plugin/src/info.rs      |  1 +
+ cli/plugin/src/install.rs   |  1 +
+ cli/plugin/src/remove.rs    |  1 +
+ cli/plugin/src/verify.rs    |  1 +
+ openstack_cli/tests/main.rs | 12 ++++++++++++
+ 5 files changed, 16 insertions(+)
+
+diff --git a/cli/plugin/src/info.rs b/cli/plugin/src/info.rs
+index 1ded9be1b..1a0376f50 100644
+--- a/cli/plugin/src/info.rs
++++ b/cli/plugin/src/info.rs
+@@ -25,6 +25,7 @@ use structable::{StructTable, StructTableOptions};
+ /// Show every installed version of a wasm auth plugin, read from the
+ /// lockfile.
+ #[derive(Debug, Parser)]
++#[command(disable_version_flag = true)]
+ pub struct InfoCommand {
+     /// Plugin name.
+     pub name: String,
+diff --git a/cli/plugin/src/install.rs b/cli/plugin/src/install.rs
+index 5071c9908..c7720464a 100644
+--- a/cli/plugin/src/install.rs
++++ b/cli/plugin/src/install.rs
+@@ -43,6 +43,7 @@ use crate::confirm;
+ /// installing over an already-installed `name@version` fails unless
+ /// `--force` is given.
+ #[derive(Debug, Parser)]
++#[command(disable_version_flag = true)]
+ pub struct InstallCommand {
+     /// Plugin to install: `<name>` (latest) or `<name>@<version>` (pinned),
+     /// resolved against the registry index. Omit when using `--file`.
+diff --git a/cli/plugin/src/remove.rs b/cli/plugin/src/remove.rs
+index ae1d76a98..3a3a2efcf 100644
+--- a/cli/plugin/src/remove.rs
++++ b/cli/plugin/src/remove.rs
+@@ -29,6 +29,7 @@ use crate::list::PluginListEntry;
+ /// other versions of `name` remain, the most recently installed of those
+ /// becomes active.
+ #[derive(Debug, Parser)]
++#[command(disable_version_flag = true)]
+ pub struct RemoveCommand {
+     /// Plugin name to remove.
+     pub name: String,
+diff --git a/cli/plugin/src/verify.rs b/cli/plugin/src/verify.rs
+index b71b38425..cacf69803 100644
+--- a/cli/plugin/src/verify.rs
++++ b/cli/plugin/src/verify.rs
+@@ -28,6 +28,7 @@ use structable::{StructTable, StructTableOptions};
+ /// Fails on the first version whose on-disk content no longer matches, or
+ /// whose file is missing.
+ #[derive(Debug, Parser)]
++#[command(disable_version_flag = true)]
+ pub struct VerifyCommand {
+     /// Plugin name to verify.
+     pub name: String,
+diff --git a/openstack_cli/tests/main.rs b/openstack_cli/tests/main.rs
+index f050347ae..4aa420d0e 100644
+--- a/openstack_cli/tests/main.rs
++++ b/openstack_cli/tests/main.rs
+@@ -40,6 +40,7 @@ mod object_store;
+ mod placement;
+ 
+ use assert_cmd::prelude::*;
++use clap::CommandFactory;
+ use std::process::Command;
+ 
+ #[test]
+@@ -51,3 +52,14 @@ fn help() -> Result<(), Box<dyn std::error::Error>> {
+ 
+     Ok(())
+ }
++
++/// Walks the whole clap command tree and panics on structural errors —
++/// duplicate arg/group names (e.g. a subcommand field named `version`
++/// colliding with the auto-generated `--version` flag), conflicting
++/// short/long flags, etc. `clap::Command::build()` alone (via `--help`)
++/// does not exercise every subcommand, so a per-subcommand arg collision
++/// can slip past it; `debug_assert()` recurses into every subcommand.
++#[test]
++fn cli_tree_has_no_arg_collisions() {
++    openstack_cli::Cli::command().debug_assert();
++}
+-- 
+2.55.0
+
