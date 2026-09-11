@@ -37,6 +37,7 @@ DEPEND="
 	gnome-base/librsvg:2
 	media-libs/fontconfig
 	media-libs/freetype
+	media-libs/harfbuzz
 	media-libs/libjxl
 	media-libs/libsndfile
 	media-libs/libwebp
