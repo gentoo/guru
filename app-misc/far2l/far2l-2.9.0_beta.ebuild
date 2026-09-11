@@ -33,7 +33,7 @@ REQUIRED_USE="
 RESTRICT="mirror"
 
 # media-libs/libmtp provides udev rules and plugdev access for MTP devices.
-# far2l itself uses the bundled libmtp/libusb.
+# far2l itself uses the bundled libmtp with mtp enabled.
 RDEPEND="
 	archive? ( app-arch/libarchive )
 	aws? (
@@ -42,7 +42,10 @@ RDEPEND="
 	)
 	chardet? ( app-i18n/uchardet )
 	colorer? ( dev-libs/libxml2 )
-	mtp? ( media-libs/libmtp )
+	mtp? (
+		media-libs/libmtp
+		dev-libs/libusb:1
+	)
 	nfs? ( net-fs/libnfs )
 	python? (
 		${PYTHON_DEPS}
@@ -116,7 +119,7 @@ src_configure() {
 
 	if use mtp; then
 		mycmakeargs+=(
-			-DMTP_SYSTEM_LIBUSB=OFF
+			-DMTP_SYSTEM_LIBUSB=ON
 			-DMTP_SYSTEM_LIBMTP=OFF
 		)
 	fi
