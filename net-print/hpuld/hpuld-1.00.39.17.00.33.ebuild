@@ -17,7 +17,7 @@ SRC_URI="
 
 S="${WORKDIR}/uld"
 
-LICENSE="all-rights-reserved"
+LICENSE="HP-EULA"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~loong ~mips"
 
