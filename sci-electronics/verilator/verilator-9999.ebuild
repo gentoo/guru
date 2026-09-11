@@ -49,10 +49,6 @@ BDEPEND="
 
 src_prepare() {
 	default
-	if [[ ! "${PV}" == "9999" ]] ; then
-		# https://github.com/verilator/verilator/issues/3352
-		sed -i "s/UNKNOWN_REV/(Gentoo ${PVR})/g" "${S}"/src/config_rev || die
-	fi
 	# https://bugs.gentoo.org/785151
 	sed -i "s/python3/${EPYTHON}/g" "${S}"/configure.ac || die
 	find . -name "Makefile" -exec sed -i "s/python3/${EPYTHON}/g" {} + || die
