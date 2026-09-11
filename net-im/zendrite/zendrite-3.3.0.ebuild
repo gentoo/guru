@@ -26,7 +26,7 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
-	>=dev-lang/go-1.25.0
+	>=dev-lang/go-1.26.0
 	test? ( dev-libs/olm )
 "
 RDEPEND="
@@ -41,7 +41,8 @@ src_compile() {
 
 src_test() {
 	# Do not run tests that require access to a working PostgreSQL installation...
-	ego test ./... -skip "TestUpDropEventReferenceSHAPrevEvents|.*/postgres|.*/.*/postgres"
+	ego test ./... \
+		-skip "TestUpDropEventReferenceSHAPrevEvents|TestOutputEventTimestampUpgrade/.*|.*/postgres|.*/.*/postgres"
 }
 
 src_install() {
