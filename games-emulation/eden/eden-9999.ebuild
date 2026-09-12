@@ -51,8 +51,7 @@ RDEPEND="
 	media-gfx/renderdoc
 	media-libs/libsdl3[udev]
 	media-libs/libva
-	media-libs/opus
-	media-video/ffmpeg
+	media-video/ffmpeg[opus]
 	net-libs/enet
 	net-libs/mbedtls:3
 	virtual/zlib:=
