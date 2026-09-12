@@ -33,6 +33,7 @@ RDEPEND="
 	media-libs/sdl2-mixer
 	media-libs/sdl2-ttf
 
+	dev-libs/glib
 	media-libs/gstreamer
 
 	dev-python/filetype[${PYTHON_USEDEP}]
