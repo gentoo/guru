@@ -9,6 +9,10 @@
 		<email>stefan@sydow.email</email>
 		<name>Stefan Sydow</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>gilles.dartiguelongue@esiee.org</email>
+		<name>Gilles Dartiguelongue</name>
+	</maintainer>
 	<use>
 		<flag name="blis">Build a BLIS backend</flag>
 		<flag name="flexiblas">Build a FlexiBLAS backend</flag>
