@@ -158,7 +158,6 @@ src_configure() {
 		-DBUILD_NUMBER="${LLAMA_BUILD_NUMBER}"
 		-DLLAMA_CURL=$(usex curl)
 		-DLLAMA_OPENSSL=$(usex openssl)
-		-DGENTOO_REMOVE_CMAKE_BLAS_HACK=ON
 
 		# avoid clashing with whisper.cpp
 		-DCMAKE_INSTALL_LIBDIR="${EPREFIX}/usr/$(get_libdir)/llama.cpp"
