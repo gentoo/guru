@@ -52,7 +52,7 @@ CRATES="
 	bindgen@0.72.1
 	bit_field@0.10.3
 	bitflags@1.3.2
-	bitflags@2.13.1
+	bitflags@2.13.2
 	bit-set@0.10.0
 	bit-set@0.5.3
 	bit-vec@0.6.3
@@ -67,7 +67,7 @@ CRATES="
 	bumpalo@3.20.3
 	by_address@1.2.1
 	bytemuck@1.25.2
-	bytemuck_derive@1.12.0
+	bytemuck_derive@1.12.1
 	byteorder@1.5.0
 	byteorder-lite@0.1.0
 	bytes@1.12.1
@@ -260,7 +260,7 @@ CRATES="
 	libc@0.2.189
 	libloading@0.8.9
 	libm@0.2.16
-	libredox@0.1.23
+	libredox@0.1.24
 	libspa@0.10.1
 	libspa-sys@0.10.1
 	libwayshot@0.9.0
@@ -494,7 +494,7 @@ CRATES="
 	siphasher@1.0.3
 	slab@0.4.12
 	slotmap@1.1.1
-	smallvec@1.16.0
+	smallvec@1.16.1
 	smithay-client-toolkit@0.19.2
 	smol_str@0.2.2
 	socket2@0.6.5
@@ -539,9 +539,9 @@ CRATES="
 	tokio-macros@2.7.2
 	tokio-socks@0.5.3
 	tokio-stream@0.1.19
-	toml@1.1.5+spec-1.1.0
+	toml@1.1.6+spec-1.1.0
 	toml_datetime@1.1.1+spec-1.1.0
-	toml_edit@0.25.13+spec-1.1.0
+	toml_edit@0.25.15+spec-1.1.0
 	toml_parser@1.1.3+spec-1.1.0
 	toml_writer@1.1.2+spec-1.1.0
 	tracing@0.1.44
@@ -563,7 +563,7 @@ CRATES="
 	utf8_iter@1.0.4
 	utf8parse@0.2.2
 	utf8-zero@0.8.1
-	uuid@1.26.0
+	uuid@1.26.1
 	version_check@0.9.5
 	version-compare@0.2.1
 	vsimd@0.8.0
@@ -663,8 +663,8 @@ CRATES="
 	zbus_macros@5.19.0
 	zbus_names@4.3.4
 	zcheapstr@1.1.0
-	zerocopy@0.8.56
-	zerocopy-derive@0.8.56
+	zerocopy@0.8.57
+	zerocopy-derive@0.8.57
 	zerofrom@0.1.8
 	zerofrom-derive@0.1.7
 	zeroize@1.9.0
@@ -680,7 +680,6 @@ CRATES="
 	zvariant@5.15.0
 	zvariant_derive@5.15.0
 	zvariant_utils@4.2.0
-
 "
 
 LLVM_COMPAT=( {19..23} )
