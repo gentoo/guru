@@ -66,7 +66,7 @@ X86_CPU_FLAGS=(
 CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
 
 # wwma USE explained here: https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#hip
-IUSE="${CPU_FLAGS[*]} curl openblas +openmp blis rocm cuda opencl openssl vulkan flexiblas wmma examples"
+IUSE="${CPU_FLAGS[*]} blis cuda curl examples flexiblas openblas opencl +openmp openssl rocm vulkan wmma"
 
 REQUIRED_USE="
 	?? (
