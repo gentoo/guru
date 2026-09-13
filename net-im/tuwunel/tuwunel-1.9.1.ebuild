@@ -13,26 +13,26 @@ declare -A GIT_CRATES=(
 	[core_affinity]='https://github.com/matrix-construct/core_affinity_rs;ff148c2985cbaff3e6e953d45cda4d7696f38d75;core_affinity_rs-%commit%'
 	[event-listener]='https://github.com/matrix-construct/event-listener;18af85c4df39a11b44b39629783ed3ddec6a8853;event-listener-%commit%'
 	[hyper-util]='https://github.com/matrix-construct/hyper-util;0510e3a3cba7aedd504b4ee0d69fbf41e76a524f;hyper-util-%commit%'
-	[jevmalloc-sys]='https://github.com/matrix-construct/jevmalloc;192b66e1a4d2c16bd6db7a84385ecb9c20889637;jevmalloc-%commit%/jevmalloc-sys'
-	[jevmalloc]='https://github.com/matrix-construct/jevmalloc;192b66e1a4d2c16bd6db7a84385ecb9c20889637;jevmalloc-%commit%/jevmalloc'
-	[lber]='https://github.com/matrix-construct/ldap3;fdfbba2bf916b53e5f73cdb1a495ebb649978079;ldap3-%commit%/lber'
-	[ldap3]='https://github.com/matrix-construct/ldap3;fdfbba2bf916b53e5f73cdb1a495ebb649978079;ldap3-%commit%'
+	[jevmalloc-sys]='https://github.com/matrix-construct/jevmalloc;ef3e8e6c903aa632ab87c3dd720a448e9b98a0c4;jevmalloc-%commit%/jevmalloc-sys'
+	[jevmalloc]='https://github.com/matrix-construct/jevmalloc;ef3e8e6c903aa632ab87c3dd720a448e9b98a0c4;jevmalloc-%commit%/jevmalloc'
 	[resolv-conf]='https://github.com/matrix-construct/resolv-conf;ab5c3e44016bc76b8798ec837a5a9cf9d88bf233;resolv-conf-%commit%'
-	[ruma-appservice-api]='https://github.com/matrix-construct/ruma;7cf3483a30fa331843531da2c99451d25771176a;ruma-%commit%/crates/ruma-appservice-api'
-	[ruma-client-api]='https://github.com/matrix-construct/ruma;7cf3483a30fa331843531da2c99451d25771176a;ruma-%commit%/crates/ruma-client-api'
-	[ruma-common]='https://github.com/matrix-construct/ruma;7cf3483a30fa331843531da2c99451d25771176a;ruma-%commit%/crates/ruma-common'
-	[ruma-events]='https://github.com/matrix-construct/ruma;7cf3483a30fa331843531da2c99451d25771176a;ruma-%commit%/crates/ruma-events'
-	[ruma-federation-api]='https://github.com/matrix-construct/ruma;7cf3483a30fa331843531da2c99451d25771176a;ruma-%commit%/crates/ruma-federation-api'
-	[ruma-identifiers-validation]='https://github.com/matrix-construct/ruma;7cf3483a30fa331843531da2c99451d25771176a;ruma-%commit%/crates/ruma-identifiers-validation'
-	[ruma-identity-service-api]='https://github.com/matrix-construct/ruma;7cf3483a30fa331843531da2c99451d25771176a;ruma-%commit%/crates/ruma-identity-service-api'
-	[ruma-macros]='https://github.com/matrix-construct/ruma;7cf3483a30fa331843531da2c99451d25771176a;ruma-%commit%/crates/ruma-macros'
-	[ruma-push-gateway-api]='https://github.com/matrix-construct/ruma;7cf3483a30fa331843531da2c99451d25771176a;ruma-%commit%/crates/ruma-push-gateway-api'
-	[ruma-signatures]='https://github.com/matrix-construct/ruma;7cf3483a30fa331843531da2c99451d25771176a;ruma-%commit%/crates/ruma-signatures'
-	[ruma]='https://github.com/matrix-construct/ruma;7cf3483a30fa331843531da2c99451d25771176a;ruma-%commit%/crates/ruma'
-	[rust-librocksdb-sys]='https://github.com/matrix-construct/rust-rocksdb;842a4c25d5e8b86e4c858ba98bdfabe24adb2641;rust-rocksdb-%commit%/librocksdb-sys'
-	[rust-rocksdb]='https://github.com/matrix-construct/rust-rocksdb;842a4c25d5e8b86e4c858ba98bdfabe24adb2641;rust-rocksdb-%commit%'
+	[ruma-appservice-api]='https://github.com/matrix-construct/ruma;db5cca886809a8b0f07e14572fe56b8517f158b1;ruma-%commit%/crates/ruma-appservice-api'
+	[ruma-client-api]='https://github.com/matrix-construct/ruma;db5cca886809a8b0f07e14572fe56b8517f158b1;ruma-%commit%/crates/ruma-client-api'
+	[ruma-common]='https://github.com/matrix-construct/ruma;db5cca886809a8b0f07e14572fe56b8517f158b1;ruma-%commit%/crates/ruma-common'
+	[ruma-events]='https://github.com/matrix-construct/ruma;db5cca886809a8b0f07e14572fe56b8517f158b1;ruma-%commit%/crates/ruma-events'
+	[ruma-federation-api]='https://github.com/matrix-construct/ruma;db5cca886809a8b0f07e14572fe56b8517f158b1;ruma-%commit%/crates/ruma-federation-api'
+	[ruma-identifiers-validation]='https://github.com/matrix-construct/ruma;db5cca886809a8b0f07e14572fe56b8517f158b1;ruma-%commit%/crates/ruma-identifiers-validation'
+	[ruma-identity-service-api]='https://github.com/matrix-construct/ruma;db5cca886809a8b0f07e14572fe56b8517f158b1;ruma-%commit%/crates/ruma-identity-service-api'
+	[ruma-macros]='https://github.com/matrix-construct/ruma;db5cca886809a8b0f07e14572fe56b8517f158b1;ruma-%commit%/crates/ruma-macros'
+	[ruma-push-gateway-api]='https://github.com/matrix-construct/ruma;db5cca886809a8b0f07e14572fe56b8517f158b1;ruma-%commit%/crates/ruma-push-gateway-api'
+	[ruma-signatures]='https://github.com/matrix-construct/ruma;db5cca886809a8b0f07e14572fe56b8517f158b1;ruma-%commit%/crates/ruma-signatures'
+	[ruma]='https://github.com/matrix-construct/ruma;db5cca886809a8b0f07e14572fe56b8517f158b1;ruma-%commit%/crates/ruma'
+	[rust-librocksdb-sys]='https://github.com/matrix-construct/rust-rocksdb;9c0aad8e358339afc1ab1acb658afe55a1a4c012;rust-rocksdb-%commit%/librocksdb-sys'
+	[rust-rocksdb]='https://github.com/matrix-construct/rust-rocksdb;9c0aad8e358339afc1ab1acb658afe55a1a4c012;rust-rocksdb-%commit%'
+	[rustls-platform-verifier-android]='https://github.com/matrix-construct/rustls-platform-verifier;c68093b6ac7d739e6b3aefb809c646a5e0210306;rustls-platform-verifier-%commit%/android-release-support'
+	[rustls-platform-verifier]='https://github.com/matrix-construct/rustls-platform-verifier;c68093b6ac7d739e6b3aefb809c646a5e0210306;rustls-platform-verifier-%commit%/rustls-platform-verifier'
 	[rustyline-async]='https://github.com/matrix-construct/rustyline-async;879968ba99c2558ae234fd67a057b7ea6f761fd3;rustyline-async-%commit%'
-	[synapse-admin-api]='https://github.com/matrix-construct/synapse-admin-api;5cb409a3fc10b2dc9d8ed4f0f2ed7a68ca910a6d;synapse-admin-api-%commit%'
+	[synapse-admin-api]='https://github.com/matrix-construct/synapse-admin-api;0578679492a9d1703b04b5b012dfcdc5f438fe07;synapse-admin-api-%commit%'
 )
 
 LLVM_COMPAT=( 21 )
@@ -48,9 +48,9 @@ HOMEPAGE="
 "
 
 # Copy this from the GIT_CRATES[rust-rocksdb] entry.
-RUST_ROCKSB_GIT_COMMIT=842a4c25d5e8b86e4c858ba98bdfabe24adb2641
+RUST_ROCKSB_GIT_COMMIT=9c0aad8e358339afc1ab1acb658afe55a1a4c012
 # cat flake.lock | jq '.nodes.rocksdb.locked.rev'
-ROCKSDB_GIT_COMMIT=0bd7e6d6438d318d66e8374ec1fe24126204f3b3
+ROCKSDB_GIT_COMMIT=d8a89161c6a53e79d61694289d2b78be36e6ca12
 
 SRC_URI="
 	${CARGO_CRATE_URIS}
@@ -128,30 +128,33 @@ pkg_setup() {
 
 src_prepare() {
 	# See https://bugs.gentoo.org/977089
-	# grep '\[patch\.' Cargo.toml | sort
-	local patched_crates=(
-		async-channel
-		core_affinity
-		event-listener
-		hyper-util
-		resolv-conf
-		rustyline-async
+
+	# Get a list of patched crates from the project's Cargo.toml:
+	patched_crates=$(
+		grep '^\[patch\.' "${WORKDIR}"/"${P}"/Cargo.toml \
+			| cut --delimiter='.' --fields=3 \
+			| tr --delete ']'
 	)
 
-	for patched_crate in ${patched_crates[@]}; do
+	for patched_crate in ${patched_crates}; do
+		# Retrieve the crate's GIT hash from the GIT_CRATES array:
 		local commit_hash=$(
 			echo ${GIT_CRATES[${patched_crate}]} \
 				| cut --delimiter=';' --fields=2
 		)
-		local directory_prefix=$(
+		# Retrieve the crate's path from the GIT_CRATES array, replacing the
+		# '%commit%' placeholder with the GIT hash retrieved above:
+		local crate_path=$(
 			echo ${GIT_CRATES[${patched_crate}]} \
 				| cut --delimiter=';' --fields=3 \
-				| cut --delimiter='%' --fields=1
+				| sed --expression="s/%commit%/${commit_hash}/g"
 		)
 
+		# Add an entry to config.toml, configuring the correct location for
+		# retrieving the patched crate.
 		echo "" >> "${ECARGO_HOME}/config.toml" || die
 		echo "[patch.crates-io.${patched_crate}]" >> "${ECARGO_HOME}/config.toml" || die
-		echo "path = \"${WORKDIR}/${directory_prefix}${commit_hash}\"" >> "${ECARGO_HOME}/config.toml" || die
+		echo "path = \"${WORKDIR}/${crate_path}\"" >> "${ECARGO_HOME}/config.toml" || die
 	done
 
 	local rocksdb_path="${WORKDIR}"/rust-rocksdb-${RUST_ROCKSB_GIT_COMMIT}/librocksdb-sys/rocksdb
@@ -216,7 +219,7 @@ src_install() {
 	newins "${WORKDIR}"/"${P}"/tuwunel-example.toml tuwunel.toml
 
 	insinto /etc/logrotate.d
-	newins "${FILESDIR}"/tuwunel.logrotate-r1 tuwunel
+	newins "${FILESDIR}"/tuwunel.logrotate-r2 tuwunel
 
 	newinitd "${FILESDIR}"/tuwunel.init-r1 tuwunel
 	newconfd "${FILESDIR}"/tuwunel.conf-r1 tuwunel
