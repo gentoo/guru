@@ -109,10 +109,10 @@ python_test() {
 python_install() {
 	distutils-r1_python_install
 
-	# Reuse the bundled copy of fusepy for partyfuse
+	# Reuse the bundled copy of mfusepy for partyfuse
 	# patched in scripts/deps-docker/Dockerfile (under "build fusepy")
 	sed -e "1a$(printf '%s\\n' \
-			'import copyparty.web.deps.fuse as fuse,sys,os' \
+			'import copyparty.web.deps.mfusepy as fuse,sys,os' \
 			'sys.path.append(os.path.dirname(fuse.__file__))' \
 		)" -i "${D}$(python_get_scriptdir)/partyfuse" || die
 
