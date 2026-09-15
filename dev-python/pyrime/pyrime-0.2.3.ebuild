@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,34 +18,24 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="+prompt-toolkit +ptpython"
+IUSE="prompt-toolkit"
 
 DEPEND="
 	app-i18n/librime
-	dev-python/autopxd[${PYTHON_USEDEP}]
 "
 RDEPEND="
-	$DEPEND
+	${DEPEND}
+	dev-python/platformdirs[${PYTHON_USEDEP}]
+	dev-python/wcwidth[${PYTHON_USEDEP}]
 	prompt-toolkit? (
 		dev-python/prompt-toolkit[${PYTHON_USEDEP}]
-		dev-python/platformdirs[${PYTHON_USEDEP}]
-	)
-	ptpython? (
-		dev-python/ptpython[${PYTHON_USEDEP}]
-		dev-python/platformdirs[${PYTHON_USEDEP}]
 	)
 "
 BDEPEND="
+	dev-python/autopxd2[${PYTHON_USEDEP}]
 	dev-python/cython[${PYTHON_USEDEP}]
 "
 
-PATCHES=(
-	"${FILESDIR}/${P}-fix-meson-project.patch"
-)
+EPYTEST_PLUGINS=( )
 
-EPYTEST_XDIST=1
 distutils_enable_tests pytest
-
-python_test() {
-	epytest
-}
