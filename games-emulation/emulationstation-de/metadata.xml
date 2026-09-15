@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>mvidal.dp@gmail.com</email>
+    <name>mvidaldp</name>
+  </maintainer>
+
+  <upstream>
+    <remote-id type="gitlab">es-de/emulationstation-de</remote-id>
+  </upstream>
+
+  <use>
+    <flag name="auto-updater">Enable built-in application updater</flag>
+    <flag name="deinit">Deinitialize input devices on launch</flag>
+    <flag name="video-hw">Enable hardware video decoding support</flag>
+    <flag name="asan">Enable AddressSanitizer instrumentation</flag>
+    <flag name="profiling">Enable profiling-oriented build settings</flag>
+  </use>
+</pkgmetadata>
