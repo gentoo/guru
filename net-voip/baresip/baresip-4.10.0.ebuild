@@ -64,6 +64,9 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
+	# Fix #981529. Will be fixed upstream next release
+	sed -i 's/^libdir=.*/libdir=\${prefix}\/@CMAKE_INSTALL_LIBDIR@/' packaging/libbaresip.pc.in
+
 	use aac && MODULES+="aac;"
 	use acip && MODULES+="ebuacip;"
 	use alsa && MODULES+="alsa;"
