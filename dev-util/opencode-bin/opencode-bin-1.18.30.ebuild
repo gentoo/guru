@@ -18,7 +18,7 @@ SRC_URI="
 S="${WORKDIR}"
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 RESTRICT="mirror strip"
 
 QA_PREBUILT="usr/bin/opencode"
