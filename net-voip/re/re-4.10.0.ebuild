@@ -23,8 +23,11 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-		local mycmakeargs=(
-				-DLIBRE_BUILD_STATIC=$(usex static-libs ON OFF)
-		)
-		cmake_src_configure
+	# Fix #981529. Will be fixed upstream next release
+	sed -i 's/^libdir=.*/libdir=\${prefix}\/@CMAKE_INSTALL_LIBDIR@/' packaging/libre.pc.in
+
+	local mycmakeargs=(
+		-DLIBRE_BUILD_STATIC=$(usex static-libs ON OFF)
+	)
+	cmake_src_configure
 }
