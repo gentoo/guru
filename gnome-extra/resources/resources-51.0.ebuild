@@ -6,188 +6,197 @@
 EAPI=8
 
 CRATES="
-	aho-corasick@1.1.4
-	anstream@0.6.21
-	anstyle-parse@0.2.7
+	aho-corasick@1.1.5
+	anstream@1.0.0
+	anstyle-parse@1.0.0
 	anstyle-query@1.1.5
 	anstyle-wincon@3.0.11
-	anstyle@1.0.13
-	anyhow@1.0.102
+	anstyle@1.0.14
+	anyhow@1.0.104
 	async-channel@2.5.0
-	autocfg@1.5.0
-	bitflags@2.11.0
+	autocfg@1.5.1
+	bitflags@2.13.2
 	block@0.1.6
-	bumpalo@3.20.2
+	bumpalo@3.20.3
 	byteorder@1.5.0
-	cairo-rs@0.21.5
-	cairo-sys-rs@0.21.5
-	cc@1.2.56
-	cfg-expr@0.20.7
+	cairo-rs@0.22.9
+	cairo-sys-rs@0.22.9
+	cc@1.4.5
+	cfg-expr@0.20.9
 	cfg-if@1.0.4
-	cfg_aliases@0.2.1
-	clap@4.5.60
-	clap_builder@4.5.60
-	clap_derive@4.5.55
-	clap_lex@1.0.0
-	colorchoice@1.0.4
+	cfg_aliases@0.2.2
+	clap@4.6.6
+	clap_builder@4.6.6
+	clap_derive@4.6.4
+	clap_lex@1.1.0
+	colorchoice@1.0.5
 	concurrent-queue@2.5.0
 	const-random-macro@0.1.16
 	const-random@0.1.18
-	convert_case@0.6.0
-	crossbeam-utils@0.8.21
+	convert_case@0.11.0
+	crossbeam-utils@0.8.23
 	crunchy@0.2.4
 	darling@0.20.11
 	darling_core@0.20.11
 	darling_macro@0.20.11
 	diff@0.1.13
 	dlv-list@0.5.2
-	either@1.15.0
+	either@1.18.0
 	env_logger@0.10.2
 	equivalent@1.0.2
 	errno-dragonfly@0.1.2
 	errno@0.2.8
 	event-listener-strategy@0.5.4
-	event-listener@5.4.1
+	event-listener@5.4.2
 	field-offset@0.3.6
-	find-msvc-tools@0.1.9
+	find-msvc-tools@0.1.12
 	fnv@1.0.7
-	futures-channel@0.3.32
-	futures-core@0.3.32
-	futures-executor@0.3.32
-	futures-io@0.3.32
-	futures-macro@0.3.32
-	futures-task@0.3.32
-	futures-util@0.3.32
-	gdk-pixbuf-sys@0.21.5
-	gdk-pixbuf@0.21.5
-	gdk4-sys@0.10.3
-	gdk4@0.10.3
+	futures-channel@0.3.34
+	futures-core@0.3.34
+	futures-executor@0.3.34
+	futures-io@0.3.34
+	futures-macro@0.3.34
+	futures-sink@0.3.34
+	futures-task@0.3.34
+	futures-util@0.3.34
+	futures@0.3.34
+	gdk-pixbuf-sys@0.22.9
+	gdk-pixbuf@0.22.0
+	gdk4-sys@0.11.4
+	gdk4@0.11.4
 	getrandom@0.2.17
 	gettext-rs@0.7.7
 	gettext-sys@0.26.0
-	gio-sys@0.21.5
-	gio@0.21.5
-	glib-macros@0.21.5
-	glib-sys@0.21.5
-	glib@0.21.5
-	glob@0.3.3
-	gobject-sys@0.21.5
-	graphene-rs@0.21.5
-	graphene-sys@0.21.5
-	gsk4-sys@0.10.3
-	gsk4@0.10.3
-	gtk4-macros@0.10.3
-	gtk4-sys@0.10.3
-	gtk4@0.10.3
+	gio-sys@0.22.9
+	gio-unix-sys@0.22.9
+	gio-unix@0.22.8
+	gio@0.22.9
+	glib-macros@0.22.9
+	glib-sys@0.22.9
+	glib@0.22.9
+	glob@0.3.4
+	gobject-sys@0.22.9
+	graphene-rs@0.22.8
+	graphene-sys@0.22.9
+	gsk4-sys@0.11.4
+	gsk4@0.11.4
+	gtk4-macros@0.11.4
+	gtk4-sys@0.11.4
+	gtk4@0.11.4
 	hashbrown@0.14.5
-	hashbrown@0.16.1
+	hashbrown@0.17.1
 	heck@0.5.0
-	hermit-abi@0.5.2
-	humantime@2.3.0
+	hermit-abi@0.5.3
+	humantime@2.4.0
 	ident_case@1.0.1
-	indexmap@2.13.0
+	indexmap@2.14.2
 	is-terminal@0.4.17
 	is_terminal_polyfill@1.70.2
-	js-sys@0.3.91
+	itoa@1.0.18
+	js-sys@0.3.105
 	kernel32-sys@0.2.2
-	kinded@0.3.0
-	kinded_macros@0.3.0
-	lazy-regex-proc_macros@3.6.0
-	lazy-regex@3.6.0
+	kinded@0.5.1
+	kinded_macros@0.5.1
+	lazy-regex-proc_macros@3.6.1
+	lazy-regex@3.6.1
 	lazy_static@1.5.0
-	libadwaita-sys@0.8.1
-	libadwaita@0.8.1
-	libc@0.2.182
+	libadwaita-sys@0.9.2
+	libadwaita@0.9.2
+	libc@0.2.189
 	libloading@0.8.9
 	locale_config@0.3.0
-	log@0.4.29
+	log@0.4.34
 	malloc_buf@0.0.6
-	memchr@2.8.0
+	memchr@2.8.3
 	memoffset@0.9.1
 	neli-proc-macros@0.1.4
 	neli-wifi@0.6.1
 	neli@0.6.5
-	nix@0.31.2
+	nix@0.31.3
 	num-traits@0.2.19
 	num_cpus@1.17.0
-	nutype@0.6.2
-	nutype_macros@0.6.2
-	nvml-wrapper-sys@0.9.0
-	nvml-wrapper@0.12.0
+	nutype@0.7.0
+	nutype_macros@0.7.0
+	nvml-wrapper-sys@0.10.0
+	nvml-wrapper@0.13.0
 	objc-foundation@0.1.1
 	objc@0.2.7
 	objc_id@0.1.1
-	once_cell@1.21.3
+	once_cell@1.21.4
 	once_cell_polyfill@1.70.2
 	ordered-multimap@0.7.3
-	pango-sys@0.21.5
-	pango@0.21.5
+	pango-sys@0.22.9
+	pango@0.22.9
 	parking@2.2.1
-	pastey@0.2.1
-	path-dedot@3.1.1
+	pastey@0.2.3
+	path-dedot@4.0.1
 	pin-project-lite@0.2.17
-	pkg-config@0.3.32
+	pkg-config@0.3.34
 	plotters-backend@0.3.7
-	plotters-cairo@0.8.0
+	plotters-cairo@0.9.0
 	plotters@0.3.7
 	pretty_assertions@1.4.1
 	pretty_env_logger@0.5.0
 	proc-macro-crate@3.5.0
-	proc-macro2@1.0.106
-	quote@1.0.45
-	regex-automata@0.4.14
-	regex-syntax@0.8.10
-	regex@1.12.3
+	proc-macro2@1.0.107
+	quote@1.0.47
+	regex-automata@0.4.18
+	regex-syntax@0.8.11
+	regex@1.13.1
 	rmp-serde@1.3.1
 	rmp@0.8.15
-	ron@0.12.0
+	ron@0.12.2
 	rust-ini@0.21.3
 	rustc_version@0.4.1
-	rustversion@1.0.22
-	semver@1.0.27
-	serde@1.0.228
-	serde_core@1.0.228
-	serde_derive@1.0.228
-	serde_spanned@1.0.4
-	shlex@1.3.0
+	rustversion@1.0.23
+	semver@1.0.28
+	serde@1.0.229
+	serde_core@1.0.229
+	serde_derive@1.0.229
+	serde_json@1.0.151
+	serde_spanned@1.1.1
+	shlex@2.0.1
 	slab@0.4.12
-	smallvec@1.15.1
+	smallvec@1.16.1
+	soup3-sys@0.9.0
+	soup3@0.9.0
 	static_assertions@1.1.0
 	strsim@0.11.1
 	strum@0.28.0
 	strum_macros@0.28.0
 	syn@1.0.109
-	syn@2.0.117
+	syn@2.0.119
+	syn@3.0.5
 	sysconf@0.3.4
-	system-deps@7.0.7
-	target-lexicon@0.13.3
+	system-deps@7.0.8
+	system-deps@9.0.0
+	target-lexicon@0.13.5
 	temp-dir@0.1.16
 	termcolor@1.4.1
 	thiserror-impl@1.0.69
-	thiserror-impl@2.0.18
+	thiserror-impl@2.0.20
 	thiserror@1.0.69
-	thiserror@2.0.18
+	thiserror@2.0.20
 	tiny-keccak@2.0.2
-	toml@0.9.12+spec-1.1.0
-	toml_datetime@0.7.5+spec-1.1.0
-	toml_datetime@1.0.0+spec-1.1.0
-	toml_edit@0.25.4+spec-1.1.0
-	toml_parser@1.0.9+spec-1.1.0
-	toml_writer@1.0.6+spec-1.1.0
+	toml@1.1.6+spec-1.1.0
+	toml_datetime@1.1.1+spec-1.1.0
+	toml_edit@0.25.15+spec-1.1.0
+	toml_parser@1.1.3+spec-1.1.0
+	toml_writer@1.1.2+spec-1.1.0
 	typeid@1.0.3
 	unescape@0.1.0
 	unicode-ident@1.0.24
-	unicode-segmentation@1.12.0
+	unicode-segmentation@1.13.3
 	urlencoding@2.1.3
 	utf8parse@0.2.2
 	uzers@0.12.2
 	version-compare@0.2.1
 	wasi@0.11.1+wasi-snapshot-preview1
-	wasm-bindgen-macro-support@0.2.114
-	wasm-bindgen-macro@0.2.114
-	wasm-bindgen-shared@0.2.114
-	wasm-bindgen@0.2.114
-	web-sys@0.3.91
+	wasm-bindgen-macro-support@0.2.128
+	wasm-bindgen-macro@0.2.128
+	wasm-bindgen-shared@0.2.128
+	wasm-bindgen@0.2.128
+	web-sys@0.3.105
 	winapi-build@0.1.1
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.11
@@ -196,19 +205,20 @@ CRATES="
 	winapi@0.3.9
 	windows-link@0.2.1
 	windows-sys@0.61.2
-	winnow@0.7.15
+	winnow@1.0.4
 	wrapcenum-derive@0.4.1
 	yansi@1.0.1
+	zmij@1.0.23
 "
 
-inherit cargo meson optfeature xdg
+inherit cargo meson optfeature xdg gnome2-utils
 
 DESCRIPTION="Keep an eye on system resources (CPU, Memory, GPU, Disk, Network)"
 HOMEPAGE="https://apps.gnome.org/app/net.nokyan.Resources/"
-SRC_URI="https://github.com/nokyan/resources/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://gitlab.gnome.org/GNOME/Incubator/resources/-/archive/${PV}/resources-${PV}.tar.bz2"
 SRC_URI+=" ${CARGO_CRATE_URIS}"
 
-RUST_MIN_VER="1.85.0"
+RUST_MIN_VER="1.93.0"
 
 LICENSE="GPL-3+"
 # Dependent crate licenses
@@ -227,27 +237,32 @@ BDEPEND="
 	sys-auth/polkit
 "
 
-DEPEND="
-	x11-libs/cairo
-	media-libs/graphene
-"
-# meson.build file
+DEPEND="${RDEPEND}"
+
 RDEPEND+="
 	>=dev-libs/glib-2.75.0:2
 	>=gui-libs/gtk-4.17.1:4
 	>=gui-libs/libadwaita-1.8_alpha:1
 	>=x11-libs/cairo-1.14.0
+	media-libs/graphene
 	"
 QA_FLAGS_IGNORED="
-	/usr/bin/resources
-	/usr/libexec/resources/resources-kill
-	/usr/libexec/resources/resources-processes
-	/usr/libexec/resources/resources-adjust
+	usr/bin/resources
+	usr/libexec/resources/resources-kill
+	usr/libexec/resources/resources-processes
+	usr/libexec/resources/resources-adjust
 "
+
+src_prepare() {
+	default
+	sed -i \
+		-e "s|cargo_env.append('CARGO_HOME', .*)|cargo_env.set('CARGO_HOME', '${ECARGO_HOME}')|g" \
+		src/meson.build || die
+}
 
 src_configure() {
 	local emesonargs=(
-	-Dprofile=default
+	-Dprofile=release
 	)
 	meson_src_configure
 	ln -s "${CARGO_HOME}" "${BUILD_DIR}/cargo" || die
@@ -259,10 +274,12 @@ src_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
+	gnome2_schemas_update
 
 optfeature "read detailed motherboard and hardware information" sys-apps/dmidecode
 }
 
 pkg_postrm() {
 	xdg_pkg_postrm
+	gnome2_schemas_update
 }
