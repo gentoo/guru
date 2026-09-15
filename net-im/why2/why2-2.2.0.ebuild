@@ -50,7 +50,6 @@ CRATES="
 	base64ct@1.8.3
 	base64-simd@0.8.0
 	bindgen@0.72.1
-	bit_field@0.10.3
 	bitflags@1.3.2
 	bitflags@2.13.2
 	bit-set@0.10.0
@@ -165,10 +164,8 @@ CRATES="
 	euclid@0.22.14
 	event-listener@5.4.2
 	event-listener-strategy@0.5.4
-	exr@1.74.2
 	fancy-regex@0.11.0
 	fastrand@2.5.0
-	fax@0.2.7
 	fdeflate@0.3.7
 	ff@0.14.0
 	filedescriptor@0.8.3
@@ -255,7 +252,6 @@ CRATES="
 	khronos-egl@6.0.0
 	lab@0.11.0
 	lazy_static@1.5.0
-	lebe@0.5.3
 	lewton@0.10.2
 	libc@0.2.189
 	libloading@0.8.9
@@ -364,7 +360,6 @@ CRATES="
 	parking_lot@0.12.5
 	parking_lot_core@0.9.12
 	password-hash@0.6.1
-	paste@1.0.15
 	pastey@0.2.3
 	pem-rfc7468@1.0.0
 	percent-encoding@2.3.2
@@ -405,8 +400,6 @@ CRATES="
 	proc-macro2@1.0.107
 	proc-macro-crate@3.5.0
 	profiling@1.0.18
-	pulp@0.22.3
-	pulp-wasm-simd-flag@0.1.1
 	pulseaudio@0.3.1
 	pxfm@0.1.30
 	qoi@0.4.1
@@ -430,13 +423,11 @@ CRATES="
 	ratatui-termina@0.1.0
 	ratatui-termwiz@0.1.2
 	ratatui-widgets@0.3.2
-	raw-cpuid@11.6.0
 	raw-window-handle@0.6.2
 	raw-window-metal@1.1.0
 	rayon@1.12.0
 	rayon-core@1.13.0
 	realfft@3.5.0
-	reborrow@0.5.5
 	redox_syscall@0.4.1
 	redox_syscall@0.5.18
 	redox_syscall@0.9.4
@@ -525,7 +516,6 @@ CRATES="
 	thiserror@2.0.20
 	thiserror-impl@1.0.69
 	thiserror-impl@2.0.20
-	tiff@0.11.3
 	time@0.3.55
 	time-core@0.1.9
 	time-macros@0.2.32
@@ -675,7 +665,6 @@ CRATES="
 	zlib-rs@0.6.7
 	zmij@1.0.23
 	zune-core@0.5.3
-	zune-inflate@0.2.54
 	zune-jpeg@0.5.15
 	zvariant@5.15.0
 	zvariant_derive@5.15.0
