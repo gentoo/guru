@@ -20,7 +20,6 @@
 		<flag name="opencl">Build an OpenCL backend, so far only works on Adreno and Intel GPUs</flag>
 		<flag name="openssl">Use openssl to support HTTPS</flag>
 		<flag name="rocm">Build a HIP (ROCm) backend</flag>
-		<flag name="wmma">Use rocWMMA to enhance flash attention performance</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">ggml-org/llama.cpp</remote-id>

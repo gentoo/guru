@@ -70,8 +70,7 @@ X86_CPU_FLAGS=(
 	sse4_2
 )
 CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
-# wmma USE explained here: https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#hip
-GGML_IUSE="${CPU_FLAGS[*]} blis cuda flexiblas openblas opencl +openmp rocm vulkan wmma"
+GGML_IUSE="${CPU_FLAGS[*]} blis cuda flexiblas openblas opencl +openmp rocm vulkan"
 unset X86_CPU_FLAGS CPU_FLAGS
 
 IUSE="${GGML_IUSE} curl examples openssl test"
@@ -83,9 +82,6 @@ REQUIRED_USE="
 		flexiblas
 	)
 	rocm? ( ${ROCM_REQUIRED_USE} )
-	wmma? (
-		rocm
-	)
 "
 RESTRICT="!test? ( test )"
 
@@ -100,9 +96,6 @@ COMMON_DEPEND="
 	rocm? (
 		>=dev-util/hip-${ROCM_VERSION}:=
 		>=sci-libs/hipBLAS-${ROCM_VERSION}:=
-		wmma? (
-			>=sci-libs/rocWMMA-${ROCM_VERSION}:=
-		)
 	)
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 	openssl? ( dev-libs/openssl:= )
@@ -232,7 +225,6 @@ src_configure() {
 		mycmakeargs+=(
 			-DGGML_HIP=ON
 			-DGPU_TARGETS=$(get_amdgpu_flags)
-			-DGGML_HIP_ROCWMMA_FATTN=$(usex wmma)
 		)
 	fi
 

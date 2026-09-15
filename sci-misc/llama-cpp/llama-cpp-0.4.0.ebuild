@@ -65,8 +65,7 @@ X86_CPU_FLAGS=(
 )
 CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
 
-# wwma USE explained here: https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#hip
-IUSE="${CPU_FLAGS[*]} blis cuda curl examples flexiblas openblas opencl +openmp openssl rocm vulkan wmma"
+IUSE="${CPU_FLAGS[*]} blis cuda curl examples flexiblas openblas opencl +openmp openssl rocm vulkan"
 
 REQUIRED_USE="
 	?? (
@@ -75,9 +74,6 @@ REQUIRED_USE="
 		flexiblas
 	)
 	rocm? ( ${ROCM_REQUIRED_USE} )
-	wmma? (
-		rocm
-	)
 "
 
 # curl is needed for pulling models from huggingface
@@ -91,9 +87,6 @@ CDEPEND="
 	rocm? (
 		>=dev-util/hip-${ROCM_VERSION}:=
 		>=sci-libs/hipBLAS-${ROCM_VERSION}:=[${ROCM_USEDEP}]
-		wmma? (
-			>=sci-libs/rocWMMA-${ROCM_VERSION}:=[${ROCM_USEDEP}]
-		)
 	)
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 	openssl? ( dev-libs/openssl:= )
@@ -221,7 +214,6 @@ src_configure() {
 		mycmakeargs+=(
 			-DGGML_HIP=ON
 			-DAMDGPU_TARGETS=$(get_amdgpu_flags)
-			-DGGML_HIP_ROCWMMA_FATTN=$(usex wmma)
 		)
 	fi
 
