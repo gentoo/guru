@@ -17,7 +17,7 @@ else
 		verify-sig? ( https://distfiles.hacktivis.me/releases/utils-extra/${P}.tar.gz.sign )
 	"
 
-	KEYWORDS="~amd64 ~arm64 ~riscv"
+	KEYWORDS="~amd64 ~arm64 ~riscv ~x64-solaris"
 fi
 
 DESCRIPTION="Collection of extra tools for Unixes"
