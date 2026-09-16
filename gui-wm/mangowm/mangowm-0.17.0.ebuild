@@ -68,6 +68,14 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+src_prepare() {
+	if use elibc_musl; then
+		eapply "${FILESDIR}"/${PN}-musl.patch
+	fi
+
+	default
+}
+
 src_configure() {
 	local emesonargs=(
 		$(meson_feature X xwayland)
