@@ -30,7 +30,7 @@ QA_FLAGS_IGNORED="
 inherit xdg
 
 RDEPEND="
-	media-libs/libva[X]
+	app-accessibility/at-spi2-core
 	dev-libs/glib:2
 	dev-libs/libglibutil
 	dev-libs/libxml2
@@ -43,11 +43,13 @@ RDEPEND="
 	media-libs/harfbuzz
 	media-libs/libpng:0/16
 	media-libs/libpulse
+	media-libs/libva[X]
 	media-libs/libv4l
 	media-libs/libva-compat[X]
 	media-libs/mesa
 	sys-apps/pcsc-lite
 	x11-libs/cairo[X]
+	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:3
 	x11-libs/libX11
 	x11-libs/libXcursor
@@ -63,6 +65,7 @@ RDEPEND="
 	x11-libs/libvdpau
 	x11-libs/libxcb
 	x11-libs/libxkbfile
+	x11-libs/pango
 "
 
 src_unpack() {
