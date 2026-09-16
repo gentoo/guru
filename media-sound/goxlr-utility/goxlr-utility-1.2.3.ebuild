@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -693,6 +693,8 @@ RDEPEND="
 		llvm-core/clang
 	)
 "
+
+QA_FLAGS_IGNORED="usr/bin/goxlr-defaults"
 
 src_unpack() {
 	if [[ "${PV}" == *9999* ]]; then
