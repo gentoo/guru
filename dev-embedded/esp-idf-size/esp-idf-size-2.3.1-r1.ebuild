@@ -19,7 +19,7 @@ KEYWORDS="~amd64"
 RESTRICT="test"
 
 RDEPEND="
-	dev-embedded/esp-pylib[${PYTHON_USEDEP}]
+	dev-python/esp-pylib[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 "
 

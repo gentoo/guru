@@ -20,7 +20,7 @@ RESTRICT="test"
 RDEPEND="
 	dev-embedded/esp-coredump[${PYTHON_USEDEP}]
 	dev-embedded/esp-idf-panic-decoder[${PYTHON_USEDEP}]
-	dev-embedded/esp-pylib[${PYTHON_USEDEP}]
+	dev-python/esp-pylib[${PYTHON_USEDEP}]
 	dev-python/pyelftools[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"

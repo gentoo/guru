@@ -27,7 +27,7 @@ BDEPEND="
 "
 
 RDEPEND="
-	dev-embedded/esp-pylib[${PYTHON_USEDEP}]
+	dev-python/esp-pylib[${PYTHON_USEDEP}]
 	dev-python/cachecontrol[${PYTHON_USEDEP}]
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/colorama[${PYTHON_USEDEP}]

@@ -21,7 +21,7 @@ RESTRICT="test"
 RDEPEND="
 	dev-python/textual[${PYTHON_USEDEP}]
 	dev-python/pyparsing[${PYTHON_USEDEP}]
-	dev-embedded/esp-pylib[${PYTHON_USEDEP}]
+	dev-python/esp-pylib[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
 
