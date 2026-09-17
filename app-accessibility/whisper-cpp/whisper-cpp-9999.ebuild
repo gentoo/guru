@@ -126,8 +126,8 @@ src_configure() {
 		-DWHISPER_USE_SYSTEM_LLAMA=$(usex sdl2)
 		-DWHISPER_BUILD_TESTS=$(usex test)
 		-DWHISPER_BUILD_EXAMPLES=ON
-		-DWHISPER_FFMPEG=$(usex ffmpeg)
 		-DWHISPER_SDL2=$(usex sdl2)
+		-DWHISPER_COMMON_FFMPEG=$(usex ffmpeg)
 
 		# avoid clashing with sci-ml/ggml
 		-DCMAKE_INSTALL_INCLUDEDIR="include/${MY_PN}"
