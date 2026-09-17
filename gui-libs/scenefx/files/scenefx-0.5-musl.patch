@@ -4,12 +4,6 @@ Date: Wed, 16 Sep 2026 16:41:19 -0400
 Subject: [PATCH] Include stddef.h for musl systems, defines __always_inline
 
 Inspired by a similar patch for =sys-kernel/linux-headers-5.10.
----
- include/scenefx/types/fx/clipped_region.h | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/include/scenefx/types/fx/clipped_region.h b/include/scenefx/types/fx/clipped_region.h
-index 02bac5d..df4a27f 100644
 --- a/include/scenefx/types/fx/clipped_region.h
 +++ b/include/scenefx/types/fx/clipped_region.h
 @@ -2,6 +2,7 @@
