@@ -7,6 +7,7 @@ ROCM_VERSION="7.1"
 
 inherit cmake cuda rocm linux-info toolchain-funcs
 
+MY_PN="${PN/-/.}"
 TINY_LLAMAS_COMMIT="99dd1a73db5a37100bd4ae633f4cfce6560e1567"
 
 DESCRIPTION="Port of Facebook's LLaMA model in C/C++"
@@ -24,13 +25,13 @@ else
 		LLAMA_BUILD_IS_DEV=ON
 		LLAMA_BUILD_NUMBER="b$(ver_cut 5)"
 		MY_PV="${LLAMA_BUILD_NUMBER}"
-		S="${WORKDIR}/llama.cpp-${MY_PV}"
+		S="${WORKDIR}/${MY_PN}-${MY_PV}"
 	else
 		LLAMA_BUILD_IS_DEV=OFF
 		# Set from https://github.com/ggml-org/llama.cpp/releases/download/v${PV}/nightly-tag.txt
 		LLAMA_BUILD_NUMBER="b10948"
 		MY_PV="v${PV}"
-		S="${WORKDIR}/llama.cpp-${PV}"
+		S="${WORKDIR}/${MY_PN}-${PV}"
 	fi
 	LLAMA_UI_VERSION="${LLAMA_BUILD_NUMBER}"
 	SRC_URI="https://github.com/ggml-org/llama.cpp/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
@@ -150,7 +151,6 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
 		-DLLAMA_BUILD_IS_DEV=${LLAMA_BUILD_IS_DEV}
 		-DLLAMA_BUILD_TESTS=OFF
 		-DLLAMA_BUILD_EXAMPLES=$(usex examples)
@@ -159,9 +159,10 @@ src_configure() {
 		-DLLAMA_CURL=$(usex curl)
 		-DLLAMA_OPENSSL=$(usex openssl)
 
-		# avoid clashing with whisper.cpp
-		-DCMAKE_INSTALL_LIBDIR="${EPREFIX}/usr/$(get_libdir)/llama.cpp"
-		-DCMAKE_INSTALL_RPATH="${EPREFIX}/usr/$(get_libdir)/llama.cpp"
+		# avoid clashing with sci-ml/ggml
+		-DCMAKE_INSTALL_INCLUDEDIR="include/${MY_PN}"
+		-DCMAKE_INSTALL_LIBDIR="$(get_libdir)/${MY_PN}"
+		-DCMAKE_INSTALL_RPATH="\$ORIGIN/../$(get_libdir)/${MY_PN};\$ORIGIN"
 	)
 
 	# GGML backends
@@ -231,7 +232,4 @@ src_configure() {
 src_install() {
 	cmake_src_install
 	dobin "${BUILD_DIR}/bin/ggml-rpc-server"
-
-	# avoid clashing with whisper.cpp
-	rm -r "${ED}/usr/include" || die
 }
