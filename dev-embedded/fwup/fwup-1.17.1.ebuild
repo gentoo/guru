@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit autotools
+
 DESCRIPTION="Configurable embedded Linux firmware update creator and runner"
 HOMEPAGE="https://github.com/fwup-home/fwup"
 SRC_URI="https://github.com/fwup-home/fwup/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -37,7 +39,7 @@ RDEPEND="
 
 src_prepare() {
 	default
-	./autogen.sh
+	eautoreconf
 }
 
 src_test() {
