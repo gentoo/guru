@@ -9,12 +9,16 @@ MY_PN="OrcaSlicer"
 
 DESCRIPTION="G-code generator for 3D printers (Bambu, Prusa, Voron, Creality)"
 HOMEPAGE="https://github.com/OrcaSlicer/OrcaSlicer"
-SRC_URI="https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v${PV}/${MY_PN}_Linux_AppImage_Ubuntu2404_V${PV}.AppImage -> ${P}.AppImage"
+
+SRC_URI="
+	amd64? ( https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v${PV}/${MY_PN}_Linux_AppImage_Ubuntu2404_V${PV}.AppImage -> ${P}-amd64.AppImage )
+	arm64? ( https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v${PV}/${MY_PN}_Linux_AppImage_Ubuntu2404_aarch64_V${PV}.AppImage -> ${P}-arm64.AppImage )
+"
 S="${WORKDIR}"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="-* ~amd64"
+KEYWORDS="-* ~amd64 ~arm64"
 RESTRICT="mirror strip bindist"
 
 # AppImage bundles most dependencies, but we need basic system libs.
@@ -61,9 +65,10 @@ BDEPEND="dev-util/patchelf"
 QA_PREBUILT="*"
 
 src_unpack() {
-	cp "${DISTDIR}/${P}.AppImage" "${WORKDIR}/" || die
-	chmod +x "${WORKDIR}/${P}.AppImage" || die
-	"${WORKDIR}/${P}.AppImage" --appimage-extract || die "Failed to extract AppImage"
+	local appimage="${P}-${ARCH}.AppImage"
+	cp "${DISTDIR}/${appimage}" "${WORKDIR}/" || die
+	chmod +x "${WORKDIR}/${appimage}" || die
+	"${WORKDIR}/${appimage}" --appimage-extract || die "Failed to extract AppImage"
 	mv squashfs-root "${MY_PN}" || die
 }
 
@@ -87,7 +92,7 @@ src_install() {
 
 	# Make binaries executable
 	fperms +x /opt/${PN}/AppRun
-	fperms +x /opt/${PN}/bin/orca-slicer
+	find "${ED}/opt/${PN}/bin" "${ED}/opt/${PN}/libexec" -type f -exec chmod +x {} \;
 
 	# Find and make all .so files executable
 	find "${ED}/opt/${PN}" -name "*.so*" -exec chmod +x {} \;
