@@ -5,6 +5,9 @@ EAPI=8
 
 inherit cmake
 
+MY_PN="${PN/-/.}"
+MY_P="${MY_PN}-${PV}"
+
 DESCRIPTION="Port of OpenAI's Whisper model in C/C++ "
 HOMEPAGE="https://github.com/ggml-org/whisper.cpp"
 
@@ -12,10 +15,8 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ggml-org/whisper.cpp"
 else
-	MyPN="whisper.cpp"
-	MyP="${MyPN}-${PV}"
-	SRC_URI="https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v${PV}.tar.gz -> ${MyP}.tar.gz"
-	S="${WORKDIR}/${MyP}"
+	SRC_URI="https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${MY_P}"
 	KEYWORDS="~amd64"
 fi
 
@@ -50,6 +51,11 @@ src_configure() {
 		-DGGML_VULKAN=$(usex vulkan)
 		-DWHISPER_FFMPEG=$(usex ffmpeg)
 		-DWHISPER_SDL2=$(usex sdl2)
+
+		# avoid clashing with sci-ml/ggml
+		-DCMAKE_INSTALL_INCLUDEDIR="include/${MY_PN}"
+		-DCMAKE_INSTALL_LIBDIR="$(get_libdir)/${MY_PN}"
+		-DCMAKE_INSTALL_RPATH="\$ORIGIN/../$(get_libdir)/${MY_PN};\$ORIGIN"
 	)
 	cmake_src_configure
 }
