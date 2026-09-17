@@ -15,7 +15,7 @@ S="${WORKDIR}/flips"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+gtk +pgo"
+IUSE="+gtk pgo"
 RDEPEND="
 	dev-libs/libdivsufsort
 	gtk? (
@@ -57,7 +57,8 @@ src_compile() {
 		emake "${myemakeargs[@]}"
 	else
 		# From make-linux.sh
-		emake "${myemakeargs[@]}" CFLAGS="${CXXFLAGS} -fprofile-generate"
+		emake "${myemakeargs[@]}" \
+			CFLAGS="${CXXFLAGS} -fprofile-generate=${T}/pgo"
 		einfo "Running tests ..."
 		./flips --create --bps-delta \
 			profile/firefox-10.0esr.tar \
@@ -66,7 +67,12 @@ src_compile() {
 			profile/firefox-10.0esr.tar \
 			profile/firefox-17.0esr.tar /dev/null || die
 		rm flips || die
-		emake "${myemakeargs[@]}" CFLAGS="${CXXFLAGS} -fprofile-use"
+		if tc-is-clang; then
+			llvm-profdata merge "${T}"/pgo \
+				--output="${T}"/pgo/default.profdata || die
+		fi
+		emake "${myemakeargs[@]}" \
+			CFLAGS="${CXXFLAGS} -fprofile-use=${T}/pgo"
 	fi
 }
 

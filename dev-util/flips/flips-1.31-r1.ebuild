@@ -13,7 +13,7 @@ SRC_URI="https://dl.smwcentral.net/11474/floating.zip -> ${P}.zip"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+divsuf +gtk +pgo"
+IUSE="+divsuf +gtk pgo"
 RDEPEND="
 	divsuf? ( dev-libs/libdivsufsort )
 	gtk? (
@@ -57,13 +57,19 @@ src_compile() {
 		emake "${myemakeargs[@]}"
 	else
 		# From make.sh
-		emake "${myemakeargs[@]}" CFLAGS="${CXXFLAGS} -fprofile-generate"
+		emake "${myemakeargs[@]}" \
+			CFLAGS="${CXXFLAGS} -fprofile-generate=${T}/pgo"
 		# Upstream is missing profiling data, use whatever's available
 		einfo "Running tests ..."
 		./profile/profile1.sh ./flips bps.ico ips.ico || die
 		./profile/profile1.sh ./flips libbps.cpp libips.cpp || die
 		rm flips || die
-		emake "${myemakeargs[@]}" CFLAGS="${CXXFLAGS} -fprofile-use"
+		if tc-is-clang; then
+			llvm-profdata merge "${T}"/pgo \
+				--output="${T}"/pgo/default.profdata || die
+		fi
+		emake "${myemakeargs[@]}" \
+			CFLAGS="${CXXFLAGS} -fprofile-use=${T}/pgo"
 	fi
 
 	magick flips.ico flips.png || die
