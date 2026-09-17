@@ -25,16 +25,37 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-CPU_FLAGS_X86=( avx avx2 f16c )
 
-IUSE="openblas blis rocm cuda opencl vulkan flexiblas webm webp wmma"
+# GGML CPU flags
+X86_CPU_FLAGS=(
+	amx_bf16
+	amx_int8
+	amx_tile
+	avx
+	avx2
+	avx512_bf16
+	avx512_vnni
+	avx512f
+	avx512vbmi
+	avx_vnni
+	bmi2
+	f16c
+	fma3
+	sse4_2
+)
+CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
+GGML_IUSE="${CPU_FLAGS[*]} blis cuda flexiblas openblas opencl rocm vulkan"
+unset X86_CPU_FLAGS CPU_FLAGS
 
+IUSE="${GGML_IUSE} webm webp"
+unset GGML_IUSE
 REQUIRED_USE="
 	?? (
 		openblas
 		blis
 		flexiblas
 	)
+	rocm? ( ${ROCM_REQUIRED_USE} )
 	webm? (
 		webp
 	)
@@ -43,7 +64,7 @@ REQUIRED_USE="
 	)
 "
 
-CDEPEND="
+COMMON_DEPEND="
 	openblas? ( sci-libs/openblas:= )
 	blis? ( sci-libs/blis:= )
 	flexiblas? ( sci-libs/flexiblas:= )
@@ -58,12 +79,14 @@ CDEPEND="
 	webp? ( media-libs/libwebp )
 	webm? ( media-libs/libwebm )
 "
-DEPEND="${CDEPEND}
+DEPEND="${COMMON_DEPEND}
 	opencl? ( dev-util/opencl-headers )
-	vulkan? ( dev-util/vulkan-headers )
+	vulkan? (
+		dev-util/spirv-headers
+		dev-util/vulkan-headers
+	)
 "
-RDEPEND="${CDEPEND}
-	dev-python/numpy
+RDEPEND="${COMMON_DEPEND}
 	opencl? ( dev-libs/opencl-icd-loader )
 	vulkan? ( media-libs/vulkan-loader )
 "
@@ -87,22 +110,46 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DSD_BUILD_SHARED_LIBS=OFF
-		-DSD_SERVER_BUILD_FRONTEND=OFF # requires pnpm and network access
-		-DGGML_NATIVE=0	# don't set march
-		-DGGML_RPC=ON
-		-DSD_CUDA=$(usex cuda)
-		-DSD_OPENCL=$(usex opencl)
+		-DSD_BUILD_EXAMPLES=ON
 		-DSD_WEBP=$(usex webp)
 		-DSD_USE_SYSTEM_WEBP=$(usex webp)
 		-DSD_WEBM=$(usex webm)
 		-DSD_USE_SYSTEM_WEBM=$(usex webm)
+
+		# GGML features controls
+		-DSD_CUDA=$(usex cuda)
 		-DSD_VULKAN=$(usex vulkan)
+		-DSD_OPENCL=$(usex opencl)
+		-DSD_RPC=ON
+
+		-DSD_BUILD_SHARED_LIBS=OFF
+		-DSD_SERVER_BUILD_FRONTEND=OFF # requires pnpm and network access
 
 		# avoid clashing with sci-ml/ggml
 		-DCMAKE_INSTALL_INCLUDEDIR="include/${MY_PN}"
 		-DCMAKE_INSTALL_LIBDIR="$(get_libdir)/${MY_PN}"
 		-DCMAKE_INSTALL_RPATH="\$ORIGIN/../$(get_libdir)/${MY_PN};\$ORIGIN"
+	)
+
+	# GGML backends
+	mycmakeargs+=(
+		-DGGML_NATIVE=OFF	# don't set march
+
+		# CPU Flags
+		-DGGML_SSE42=$(usex cpu_flags_x86_sse4_2)
+		-DGGML_AVX=$(usex cpu_flags_x86_avx)
+		-DGGML_AVX_VNNI=$(usex cpu_flags_x86_avx_vnni)
+		-DGGML_AVX2=$(usex cpu_flags_x86_avx2)
+		-DGGML_BMI2=$(usex cpu_flags_x86_bmi2)
+		-DGGML_AVX512=$(usex cpu_flags_x86_avx512f)
+		-DGGML_AVX512_VBMI=$(usex cpu_flags_x86_avx512vbmi)
+		-DGGML_AVX512_VNNI=$(usex cpu_flags_x86_avx512_vnni)
+		-DGGML_AVX512_BF16=$(usex cpu_flags_x86_avx512_bf16)
+		-DGGML_FMA=$(usex cpu_flags_x86_fma3)
+		-DGGML_F16C=$(usex cpu_flags_x86_f16c)
+		-DGGML_AMX_TILE=$(usex cpu_flags_x86_amx_tile)
+		-DGGML_AMX_INT8=$(usex cpu_flags_x86_amx_int8)
+		-DGGML_AMX_BF16=$(usex cpu_flags_x86_amx_bf16)
 	)
 
 	if use openblas ; then
