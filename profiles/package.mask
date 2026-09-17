@@ -24,12 +24,6 @@
 # Removal after 2026-10-03
 gui-apps/noctalia-qs
 
-# David Roman <stkw0@disroot.org> (2026-07-22)
-# Archived by upstream.
-# Bug #975821
-# Removal after 2026-08-22
-net-proxy/MTProxy
-
 # Bjorn <bjorn.megaflow@gmail.com> (2026-06-23)
 # Requires gui-libs/libadwaita >= 1.9, which is currently not in
 # the main Gentoo repository.
