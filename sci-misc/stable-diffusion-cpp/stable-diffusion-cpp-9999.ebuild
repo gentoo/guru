@@ -5,7 +5,7 @@ EAPI=8
 
 ROCM_VERSION="6.1"
 
-inherit cmake cuda rocm linux-info
+inherit cmake cuda rocm linux-info toolchain-funcs
 
 MY_PN="${PN/-/.}"
 MY_P="${MY_PN}-${PV}"
@@ -44,7 +44,7 @@ X86_CPU_FLAGS=(
 	sse4_2
 )
 CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
-GGML_IUSE="${CPU_FLAGS[*]} blis cuda flexiblas openblas opencl rocm vulkan"
+GGML_IUSE="${CPU_FLAGS[*]} blis cuda flexiblas openblas opencl +openmp rocm vulkan"
 unset X86_CPU_FLAGS CPU_FLAGS
 
 IUSE="${GGML_IUSE} webm webp"
@@ -66,6 +66,7 @@ REQUIRED_USE="
 
 COMMON_DEPEND="
 	openblas? ( sci-libs/openblas:= )
+	openmp? ( llvm-runtimes/openmp:= )
 	blis? ( sci-libs/blis:= )
 	flexiblas? ( sci-libs/flexiblas:= )
 	rocm? (
@@ -92,6 +93,10 @@ RDEPEND="${COMMON_DEPEND}
 "
 BDEPEND="media-libs/shaderc"
 
+pkg_pretend() {
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
+}
+
 pkg_setup() {
 	if use rocm; then
 		linux-info_pkg_setup
@@ -101,6 +106,8 @@ pkg_setup() {
 			fi
 		fi
 	fi
+
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 }
 
 src_prepare() {
@@ -150,6 +157,8 @@ src_configure() {
 		-DGGML_AMX_TILE=$(usex cpu_flags_x86_amx_tile)
 		-DGGML_AMX_INT8=$(usex cpu_flags_x86_amx_int8)
 		-DGGML_AMX_BF16=$(usex cpu_flags_x86_amx_bf16)
+
+		-DGGML_OPENMP=$(usex openmp)
 	)
 
 	if use openblas ; then
