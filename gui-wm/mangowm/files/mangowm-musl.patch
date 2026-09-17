@@ -3,12 +3,7 @@ From: Dustin Smith <d.usty360@gmail.com>
 Date: Wed, 16 Sep 2026 17:26:50 -0400
 Subject: [PATCH] Include stdint.h for musl systems
 
----
- include/mango/manage/misc.h | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/include/mango/manage/misc.h b/include/mango/manage/misc.h
-index 91a8fa21..fbc34469 100644
+Bug: https://bugs.gentoo.org/982624
 --- a/include/mango/manage/misc.h
 +++ b/include/mango/manage/misc.h
 @@ -4,6 +4,7 @@
