@@ -91,7 +91,6 @@ src_configure() {
 		-DSD_SERVER_BUILD_FRONTEND=OFF # requires pnpm and network access
 		-DGGML_NATIVE=0	# don't set march
 		-DGGML_RPC=ON
-		-DGENTOO_REMOVE_CMAKE_BLAS_HACK=ON
 		-DSD_CUDA=$(usex cuda)
 		-DSD_OPENCL=$(usex opencl)
 		-DSD_WEBP=$(usex webp)
