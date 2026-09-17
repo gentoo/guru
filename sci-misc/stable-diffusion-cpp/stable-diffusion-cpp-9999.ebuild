@@ -7,6 +7,9 @@ ROCM_VERSION="6.3"
 
 inherit cmake cuda rocm linux-info
 
+MY_PN="${PN/-/.}"
+MY_P="${MY_PN}-${PV}"
+
 DESCRIPTION="Diffusion model(SD,Flux,Wan,Qwen Image,Z-Image,...) inference in pure C/C++"
 HOMEPAGE="https://github.com/leejet/stable-diffusion.cpp"
 
@@ -16,7 +19,7 @@ if [[ ${PV} == *9999* ]]; then
 else
 	MY_PV="b${PV#0_pre}"
 	SRC_URI="https://github.com/leejet/stable-diffusion.cpp/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/stable-diffusion-cpp-${MY_PV}"
+	S="${WORKDIR}/${MY_P}"
 	KEYWORDS="~amd64"
 fi
 
@@ -84,7 +87,6 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_SKIP_BUILD_RPATH=ON
 		-DSD_BUILD_SHARED_LIBS=OFF
 		-DSD_SERVER_BUILD_FRONTEND=OFF # requires pnpm and network access
 		-DGGML_NATIVE=0	# don't set march
@@ -98,9 +100,10 @@ src_configure() {
 		-DSD_USE_SYSTEM_WEBM=$(usex webm)
 		-DSD_VULKAN=$(usex vulkan)
 
-		# avoid clashing with whisper.cpp
-		-DCMAKE_INSTALL_LIBDIR="${EPREFIX}/usr/$(get_libdir)/stable-diffusion.cpp"
-		-DCMAKE_INSTALL_RPATH="${EPREFIX}/usr/$(get_libdir)/stable-diffusion.cpp"
+		# avoid clashing with sci-ml/ggml
+		-DCMAKE_INSTALL_INCLUDEDIR="include/${MY_PN}"
+		-DCMAKE_INSTALL_LIBDIR="$(get_libdir)/${MY_PN}"
+		-DCMAKE_INSTALL_RPATH="\$ORIGIN/../$(get_libdir)/${MY_PN};\$ORIGIN"
 	)
 
 	if use openblas ; then
@@ -137,13 +140,4 @@ src_configure() {
 	fi
 
 	cmake_src_configure
-}
-
-src_install() {
-	cmake_src_install
-
-	# avoid clashing with whisper.cpp
-	rm -rf "${ED}/usr/include"
-
-	find "${ED}" -name "*.a" -delete || die
 }
