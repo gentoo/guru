@@ -38,12 +38,15 @@ else
 	KEYWORDS="~amd64"
 fi
 
+MODEL_STORIES15M_URI="
+	https://huggingface.co/ggml-org/tiny-llamas/resolve/${TINY_LLAMAS_COMMIT}/stories15M-q4_0.gguf
+		-> ggml-org_models_tinyllamas_stories15M-q4_0-${TINY_LLAMAS_COMMIT}.gguf
+"
+
 SRC_URI+="
 	https://github.com/ggml-org/llama.cpp/releases/download/${LLAMA_UI_VERSION}/llama-${LLAMA_UI_VERSION}-ui.tar.gz
-	examples? (
-		https://huggingface.co/ggml-org/tiny-llamas/resolve/${TINY_LLAMAS_COMMIT}/stories15M-q4_0.gguf
-			-> ggml-org_models_tinyllamas_stories15M-q4_0-${TINY_LLAMAS_COMMIT}.gguf
-	)
+	examples? ( ${MODEL_STORIES15M_URI} )
+	test? ( ${MODEL_STORIES15M_URI} )
 "
 
 LICENSE="MIT"
@@ -84,6 +87,7 @@ REQUIRED_USE="
 		rocm
 	)
 "
+RESTRICT="!test? ( test )"
 
 # curl is needed for pulling models from huggingface
 # numpy is used by convert_hf_to_gguf.py
@@ -142,7 +146,7 @@ src_unpack() {
 src_prepare() {
 	use cuda && cuda_src_prepare
 	cmake_src_prepare
-	if use examples; then
+	if use examples || use test; then
 		mkdir -p "${BUILD_DIR}/tinyllamas" || die
 		cp "${DISTDIR}/ggml-org_models_tinyllamas_stories15M-q4_0-${TINY_LLAMAS_COMMIT}.gguf" \
 			"${BUILD_DIR}/tinyllamas/stories15M-q4_0.gguf" || die
@@ -156,9 +160,10 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DLLAMA_BUILD_IS_DEV=${LLAMA_BUILD_IS_DEV}
-		-DLLAMA_BUILD_TESTS=OFF
+		-DLLAMA_BUILD_TESTS=$(usex test)
 		-DLLAMA_BUILD_EXAMPLES=$(usex examples)
 		-DLLAMA_BUILD_SERVER=ON
+		-DLLAMA_TESTS_INSTALL=OFF
 		-DBUILD_NUMBER="${LLAMA_BUILD_NUMBER}"
 		-DLLAMA_CURL=$(usex curl)
 		-DLLAMA_OPENSSL=$(usex openssl)
@@ -232,4 +237,12 @@ src_configure() {
 	fi
 
 	cmake_src_configure
+}
+
+src_test() {
+	local CMAKE_SKIP_TESTS=(
+		test-download-model  # due to network sandbox
+		test-arg-parser  # due to network sandbox in download functions test
+	)
+	cmake_src_test
 }
