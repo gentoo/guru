@@ -59,9 +59,6 @@ REQUIRED_USE="
 	webm? (
 		webp
 	)
-	wmma? (
-		rocm
-	)
 "
 
 COMMON_DEPEND="
@@ -72,9 +69,6 @@ COMMON_DEPEND="
 	rocm? (
 		>=dev-util/hip-${ROCM_VERSION}:=
 		>=sci-libs/hipBLAS-${ROCM_VERSION}:=
-		wmma? (
-			>=sci-libs/rocWMMA-${ROCM_VERSION}:=
-		)
 	)
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 	webp? ( media-libs/libwebp )
@@ -189,8 +183,9 @@ src_configure() {
 	if use rocm; then
 		rocm_use_hipcc
 		mycmakeargs+=(
-			-DSD_HIPBLAS=ON -DAMDGPU_TARGETS=$(get_amdgpu_flags) -DGPU_TARGETS=$(get_amdgpu_flags)
-			-DGGML_HIP_ROCWMMA_FATTN=$(usex wmma)
+			-DSD_HIPBLAS=ON
+			-DAMDGPU_TARGETS=$(get_amdgpu_flags)
+			-DGPU_TARGETS=$(get_amdgpu_flags)
 		)
 	fi
 
