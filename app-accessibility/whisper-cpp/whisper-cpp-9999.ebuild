@@ -9,6 +9,7 @@ inherit cmake cuda rocm linux-info toolchain-funcs
 
 MY_PN="${PN/-/.}"
 MY_P="${MY_PN}-${PV}"
+WHISPER_CPP_LLAMAS_COMMIT="80da2d8bfee42b0e836fc3a9890373e5defc00a6"
 
 DESCRIPTION="Port of OpenAI's Whisper model in C/C++ "
 HOMEPAGE="https://github.com/ggml-org/whisper.cpp"
@@ -21,6 +22,13 @@ else
 	S="${WORKDIR}/${MY_P}"
 	KEYWORDS="~amd64"
 fi
+
+SRC_URI+="
+	test? (
+		https://huggingface.co/ggerganov/whisper.cpp/resolve/${WHISPER_CPP_LLAMAS_COMMIT}/ggml-base.en.bin
+			-> ggerganov_models_whisper.cpp_ggml-base.en-${WHISPER_CPP_LLAMAS_COMMIT}.bin
+	)
+"
 
 LICENSE="MIT"
 SLOT="0"
@@ -46,7 +54,7 @@ CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
 GGML_IUSE="${CPU_FLAGS[*]} blis cuda flexiblas openblas opencl +openmp rocm vulkan"
 unset X86_CPU_FLAGS CPU_FLAGS
 
-IUSE="${GGML_IUSE} ffmpeg sdl2"
+IUSE="${GGML_IUSE} ffmpeg sdl2 test"
 unset GGML_IUSE
 REQUIRED_USE="
 	?? (
@@ -56,6 +64,7 @@ REQUIRED_USE="
 	)
 	rocm? ( ${ROCM_REQUIRED_USE} )
 "
+RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
 	openblas? ( sci-libs/openblas:= )
@@ -103,13 +112,15 @@ pkg_setup() {
 src_prepare() {
 	use cuda && cuda_src_prepare
 	cmake_src_prepare
+	if use test; then
+		cp "${DISTDIR}/ggerganov_models_whisper.cpp_ggml-base.en-${WHISPER_CPP_LLAMAS_COMMIT}.bin" \
+			"${S}"/models/ggml-base.en.bin || die
+	fi
 }
 
 src_configure() {
-	# Note: CUDA and HIP are currently untested. Build failures may occur.
-	# Turning off examples causes errors during configure
-	# -DWHISPER_BUILD_TESTS=$(usex test)
 	local mycmakeargs=(
+		-DWHISPER_BUILD_TESTS=$(usex test)
 		-DWHISPER_BUILD_EXAMPLES=ON
 		-DWHISPER_FFMPEG=$(usex ffmpeg)
 		-DWHISPER_SDL2=$(usex sdl2)
