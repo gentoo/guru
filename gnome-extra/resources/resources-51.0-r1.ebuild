@@ -245,7 +245,11 @@ RDEPEND+="
 	>=gui-libs/libadwaita-1.8_alpha:1
 	>=x11-libs/cairo-1.14.0
 	media-libs/graphene
+	x11-libs/gdk-pixbuf
+	x11-libs/pango
+	net-libs/libsoup:3.0
 	"
+
 QA_FLAGS_IGNORED="
 	usr/bin/resources
 	usr/libexec/resources/resources-kill
