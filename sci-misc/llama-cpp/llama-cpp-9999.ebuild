@@ -48,6 +48,8 @@ SRC_URI+="
 
 LICENSE="MIT"
 SLOT="0"
+
+# GGML CPU flags
 X86_CPU_FLAGS=(
 	amx_bf16
 	amx_int8
@@ -65,10 +67,12 @@ X86_CPU_FLAGS=(
 	sse4_2
 )
 CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
+# wmma USE explained here: https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#hip
+GGML_IUSE="${CPU_FLAGS[*]} blis cuda flexiblas openblas opencl +openmp rocm vulkan wmma"
+unset X86_CPU_FLAGS CPU_FLAGS
 
-# wwma USE explained here: https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md#hip
-IUSE="${CPU_FLAGS[*]} blis cuda curl examples flexiblas openblas opencl +openmp openssl rocm vulkan wmma"
-
+IUSE="${GGML_IUSE} curl examples openssl test"
+unset GGML_IUSE
 REQUIRED_USE="
 	?? (
 		openblas
@@ -83,7 +87,7 @@ REQUIRED_USE="
 
 # curl is needed for pulling models from huggingface
 # numpy is used by convert_hf_to_gguf.py
-CDEPEND="
+COMMON_DEPEND="
 	curl? ( net-misc/curl:= )
 	openblas? ( sci-libs/openblas:= )
 	openmp? ( llvm-runtimes/openmp:= )
@@ -99,14 +103,14 @@ CDEPEND="
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 	openssl? ( dev-libs/openssl:= )
 "
-DEPEND="${CDEPEND}
+DEPEND="${COMMON_DEPEND}
 	opencl? ( dev-util/opencl-headers )
 	vulkan? (
 		dev-util/spirv-headers
 		dev-util/vulkan-headers
 	)
 "
-RDEPEND="${CDEPEND}
+RDEPEND="${COMMON_DEPEND}
 	dev-python/numpy
 	opencl? ( dev-libs/opencl-icd-loader )
 	vulkan? ( media-libs/vulkan-loader )
