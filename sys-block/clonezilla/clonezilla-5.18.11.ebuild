@@ -10,8 +10,15 @@ SRC_URI="https://github.com/stevenshiau/clonezilla/archive/refs/tags/v${PV}.tar.
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="apfs btrfs +e2fs exfat f2fs fat fuse hfs minix nilfs2 ntfs
-reiserfs ufs vmfs xfs"
+IUSE="apfs btrfs +e2fs exfat f2fs fat fuse hfs minix nilfs2 ntfs xfs"
+
+# reiserfs? ( sys-block/partclone[reiserfs] )
+# ufs? ( sys-block/partclone[ufs] )
+# vmfs? ( sys-block/partclone[vmfs] )
+#
+# As of partclone v0.3.50 the above IUSE flags
+# have been disabled.
+# See: 1ec2e49cae9276b187098905d7a7ed45744dd1f6
 
 RDEPEND="
 	sys-apps/file
@@ -39,8 +46,5 @@ RDEPEND="
 	minix? ( sys-block/partclone[minix] )
 	nilfs2? ( sys-block/partclone[nilfs2] )
 	ntfs? ( sys-block/partclone[ntfs] )
-	reiserfs? ( sys-block/partclone[reiserfs] )
-	ufs? ( sys-block/partclone[ufs] )
-	vmfs? ( sys-block/partclone[vmfs] )
 	xfs? ( sys-block/partclone[xfs] )
 "
