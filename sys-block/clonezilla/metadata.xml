@@ -20,9 +20,6 @@
 		<flag name="minix">Support minix by partclone</flag>
 		<flag name="nilfs2">Support nilfs2 by partclone</flag>
 		<flag name="ntfs">Support ntfs by partclone</flag>
-		<flag name="reiserfs">Support reiserfs by partclone</flag>
-		<flag name="ufs">Support ufs by partclone</flag>
-		<flag name="vmfs">Support vmfs by partclone</flag>
 		<flag name="xfs">Support xfs by partclone</flag>
 	</use>
 </pkgmetadata>
