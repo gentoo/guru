@@ -5,7 +5,7 @@ EAPI=8
 
 inherit meson
 
-MY_COMMIT="5c4ef835c539b9e8e489abba1e9f0dd4f8a23a51"
+MY_COMMIT="127014591eb461196de9c2a6e1260719b6381fd8"
 
 DESCRIPTION="An independent compositor made by noctalia"
 HOMEPAGE="https://github.com/noctalia-dev/umbriel https://noctalia.dev/"
@@ -22,6 +22,7 @@ DEPEND="
 	gui-libs/wlroots:0.20[X?]
 	>=dev-libs/libinput-1.26.0
 	>=dev-libs/wayland-1.24.0
+	dev-libs/glib:2
 	jemalloc? ( dev-libs/jemalloc )
 	dev-cpp/tomlplusplus
 	dev-cpp/nlohmann_json
