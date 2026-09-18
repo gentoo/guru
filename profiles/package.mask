@@ -24,11 +24,6 @@
 # Removal after 2026-10-03
 gui-apps/noctalia-qs
 
-# Bjorn <bjorn.megaflow@gmail.com> (2026-06-23)
-# Requires gui-libs/libadwaita >= 1.9, which is currently not in
-# the main Gentoo repository.
->=gnome-extra/Refine-0.8.0
-
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
 media-sound/noson-app
