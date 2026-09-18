@@ -1,0 +1,12 @@
+PR merged https://github.com/artemsen/swayimg/pull/570.patch
+xkb: Add missing header for libcxx-23
+--- a/src/xkb.cpp
++++ b/src/xkb.cpp
+@@ -8,6 +8,7 @@
+ #include <unistd.h>
+ 
+ #include <cassert>
++#include <cstdlib>
+ #include <tuple>
+ 
+ Xkb::Xkb()

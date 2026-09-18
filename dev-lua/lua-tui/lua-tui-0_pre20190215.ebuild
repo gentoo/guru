@@ -3,7 +3,8 @@
 
 EAPI=8
 
-LUA_COMPAT=( lua5-{1..3} luajit )
+# lua-bit32 dependency does not yet support newer Lua implementations
+LUA_COMPAT=( lua5-1 luajit )
 
 inherit lua
 
@@ -21,7 +22,10 @@ KEYWORDS="~amd64"
 IUSE="examples"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
-DEPEND="${LUA_DEPS}"
+DEPEND="
+       dev-lua/lua-bit32[${LUA_USEDEP}]
+       ${LUA_DEPS}
+"
 RDEPEND="${DEPEND}"
 
 lua_enable_tests busted

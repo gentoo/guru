@@ -107,10 +107,11 @@ src_install() {
 	einstalldocs
 	doman "doc/${PN}.1"
 
-	"target/release/${PN}" --completion bash > "${PN}"
+	local bin_path="$(cargo_target_dir)/${PN}"
+	"${bin_path}" --completion bash > "${PN}"
 	dobashcomp "${PN}"
-	"target/release/${PN}" --completion zsh  > "_${PN}"
+	"${bin_path}" --completion zsh  > "_${PN}"
 	dozshcomp "_${PN}"
-	"target/release/${PN}" --completion fish > "${PN}.fish"
+	"${bin_path}" --completion fish > "${PN}.fish"
 	dofishcomp "${PN}.fish"
 }

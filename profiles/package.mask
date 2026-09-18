@@ -18,22 +18,11 @@
 
 # New entries go on top.
 
-# David Roman <stkw0@disroot.org> (2026-07-22)
-# Unmaintained. SRC_URI can not be fetched. Bugs #978733, #980699
-# Removal after 2026-09-12
-www-client/yandex-browser
-
-# David Roman <stkw0@disroot.org> (2026-07-22)
-# Archived by upstream.
-# Bug #975821
-# Removal after 2026-08-22
-net-proxy/MTProxy
-
-# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-07-04)
-# C++26 reflection has been available in GCC 16 for a few months.
-# This package has served its purpose and may be removed.
-# Removal after 2026-09-04
-sys-devel/clang-bloomberg-p2996
+# dsaf <ghostyn678+git@gmail.com> (2026-09-03)
+# Deprecated and archived by upstream.
+# No reverse dependencies.
+# Removal after 2026-10-03
+gui-apps/noctalia-qs
 
 # Bjorn <bjorn.megaflow@gmail.com> (2026-06-23)
 # Requires gui-libs/libadwaita >= 1.9, which is currently not in

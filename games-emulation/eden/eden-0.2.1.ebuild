@@ -15,7 +15,16 @@ if [[ "${PV}" == 9999 ]]; then
 	EGIT_CHECKOUT_DIR="${WORKDIR}/${PN}"
 else
 	KEYWORDS="~amd64 ~arm64"
-	SRC_URI="https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="
+		https://git.eden-emu.dev/eden-emu/eden/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
+		https://git.eden-emu.dev/eden-emu/eden/pulls/4278.patch -> ${PN}-0.2.1-fix-newer-httplib-compilation.patch
+		https://git.eden-emu.dev/eden-emu/eden/pulls/4279.patch -> ${PN}-0.2.1-fix-wifi-scanner-compilation.patch
+	"
+
+	PATCHES=(
+		"${DISTDIR}/${PN}-0.2.1-fix-newer-httplib-compilation.patch"
+		"${DISTDIR}/${PN}-0.2.1-fix-wifi-scanner-compilation.patch"
+	)
 fi
 
 _TZDB_VER=121125

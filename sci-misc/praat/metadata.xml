@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>me@dblsaiko.net</email>
+		<name>Katalin Rebhan</name>
+	</maintainer>
+	<use>
+		<flag name="pango">Without USE=gtk, build with minimal graphics support using <pkg>x11-libs/pango</pkg></flag>
+	</use>
+	<upstream>
+		<remote-id type="github">praat/praat.github.io</remote-id>
+	</upstream>
+</pkgmetadata>

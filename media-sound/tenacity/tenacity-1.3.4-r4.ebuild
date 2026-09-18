@@ -66,6 +66,7 @@ DEPEND="
 	dev-libs/sord
 	media-libs/sratom
 	media-libs/taglib
+	!media-sound/audacity
 "
 RDEPEND="${DEPEND}"
 

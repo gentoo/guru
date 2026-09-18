@@ -1,0 +1,60 @@
+#!/sbin/openrc-run
+
+ZENDRITE=${SVCNAME#*.}
+: ${ZENDRITE_CONFDIR:=${RC_PREFIX%/}/etc/zendrite}
+
+if [ -n "${ZENDRITE}" ] && [ ${SVCNAME} != "zendrite" ]; then
+    : ${ZENDRITE_CONFIG:=${ZENDRITE_CONFDIR}/${ZENDRITE}.yaml}
+    : ${ZENDRITE_PIDFILE:=${RC_PREFIX%/}/run/zendrite.${ZENDRITE}.pid}
+else
+    : ${ZENDRITE_CONFIG:=${ZENDRITE_CONFDIR}/zendrite.yaml}
+    : ${ZENDRITE_PIDFILE:=${RC_PREFIX%/}/run/zendrite.pid}
+fi
+
+if [ -n "${ZENDRITE_USER}" ]; then
+    : # Do nothing, ZENDRITE_USER is set externally.
+else
+    ZENDRITE_USER='zendrite'
+fi
+
+if [ -n "${ZENDRITE_WORKING_DIRECTORY}" ]; then
+    : # Do nothing, ZENDRITE_WORKING_DIRECTORY is set externally.
+else
+    ZENDRITE_WORKING_DIRECTORY='${RC_PREFIX%/}/var/lib/zendrite'
+fi
+
+# Where should supervise-daemon write zendrite's stdout to?
+if [ -n "${ZENDRITE_STDOUT_FILE}" ]; then
+    : # Do nothing, ZENDRITE_STDOUT_FILE is set externally.
+else
+    ZENDRITE_STDOUT_FILE="${RC_PREFIX%/}/var/log/zendrite/zendrite.stdout"
+fi
+
+# Where should supervise-daemon write zendrite's stderr to?
+if [ -n "${ZENDRITE_STDERR_FILE}" ]; then
+    : # Do nothing, ZENDRITE_STDERR_FILE is set externally.
+else
+    ZENDRITE_STDERR_FILE="${RC_PREFIX%/}/var/log/zendrite/zendrite.stderr"
+fi
+
+supervise_daemon_args="--stdout ${ZENDRITE_STDOUT_FILE} --stderr ${ZENDRITE_STDERR_FILE}"
+
+command="${RC_PREFIX%/}/usr/bin/zendrite"
+command_args="${ZENDRITE_OPTS} --config ${ZENDRITE_CONFIG}"
+command_user="${ZENDRITE_USER}:${ZENDRITE_USER}"
+directory="${ZENDRITE_WORKING_DIRECTORY}"
+pidfile="${ZENDRITE_PIDFILE}"
+
+start_pre() {
+    # Create the stdout and stderr logfiles and make sure they are owned by the
+    # service user so it can write into them.
+    touch ${ZENDRITE_STDOUT_FILE}
+    touch ${ZENDRITE_STDERR_FILE}
+    chown ${ZENDRITE_USER}:${ZENDRITE_USER} ${ZENDRITE_STDOUT_FILE}
+    chown ${ZENDRITE_USER}:${ZENDRITE_USER} ${ZENDRITE_STDERR_FILE}
+
+    test -f "${ZENDRITE_CONFIG}" || {
+        echo "\"${ZENDRITE_CONFIG}\" does not exist or is not a regular file." >&2
+        return 1
+    }
+}

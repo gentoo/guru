@@ -51,8 +51,7 @@ RDEPEND="
 	media-gfx/renderdoc
 	media-libs/libsdl3[udev]
 	media-libs/libva
-	media-libs/opus
-	media-video/ffmpeg
+	media-video/ffmpeg[opus]
 	net-libs/enet
 	net-libs/mbedtls:3
 	virtual/zlib:=
@@ -79,7 +78,6 @@ DEPEND="
 	dev-cpp/simpleini
 	dev-libs/boost:=[context]
 	dev-libs/frozen
-	dev-libs/unordered_dense
 	dev-util/spirv-headers
 	dev-util/vulkan-headers
 	dev-util/vulkan-utility-libraries

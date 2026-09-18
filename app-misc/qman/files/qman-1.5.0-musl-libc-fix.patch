@@ -1,0 +1,105 @@
+From 714a67ff68f7e2a7b3f9ede538cc2e2b0f4870cc Mon Sep 17 00:00:00 2001
+From: Pantelis Panayiotou <p.panayiotou@gmail.com>
+Date: Fri, 5 Sep 2025 14:14:46 +0300
+Subject: [PATCH] Fallback of strcasestr() for systems that don't use libc
+ (issue #68)
+
+(GURU context: This is a backport of [1] to 1.5.0, fixing a build issue
+ on musl systems.)
+
+[1]: https://github.com/plp13/qman/commit/1dcda6e0fef34fa5c592b133b7d899dce4264f46
+---
+ src/program.c |  2 +-
+ src/util.c    | 29 +++++++++++++++++++++++++++++
+ src/util.h    | 11 ++++++++---
+ 3 files changed, 38 insertions(+), 4 deletions(-)
+
+diff --git a/src/program.c b/src/program.c
+index c194f48..219fa34 100644
+--- a/src/program.c
++++ b/src/program.c
+@@ -389,7 +389,7 @@ bool man_loc(char *dst, unsigned dst_len, const wchar_t *args,
+       ret = false;
+       FILE *pp = xpopen(cmdstr, "r");
+       while (-1 != sreadline(dst, dst_len, pp)) {
+-        combo_ptr = strcasestr(dst, combo);
++        combo_ptr = xstrcasestr(dst, combo);
+         if (NULL != combo_ptr) {
+           combo_post = combo_ptr[strlen(combo)];
+           if ('.' == combo_post || '\0' == combo_post) {
+diff --git a/src/util.c b/src/util.c
+index 1216080..47adfab 100644
+--- a/src/util.c
++++ b/src/util.c
+@@ -326,6 +326,35 @@ size_t xmbstowcs(wchar_t *dest, const char *src, size_t n) {
+   return res;
+ }
+ 
++char *xstrcasestr(const char *haystack, const char *needle) {
++#if defined(__GLIBC__) && (defined(_GNU_SOURCE) || defined(_DEFAULT_SOURCE))
++  return strcasestr(haystack, needle);
++#else
++  unsigned i = 0, j;
++  char haystack_c, needle_c;
++
++  if (L'\0' == needle[0])
++    return (char *)haystack;
++
++  while (L'\0' != haystack[i]) {
++    j = 0;
++    while (TRUE) {
++      haystack_c = tolower(haystack[i + j]);
++      needle_c = tolower(needle[j]);
++      if (L'\0' == needle_c)
++        return (char *)&haystack[i];
++      else if (haystack_c != needle_c)
++        break;
++      else
++        j++;
++    }
++    i++;
++  }
++
++  return NULL;
++#endif
++}
++
+ int xsystem(const char *cmd, bool fail) {
+   int res = system(cmd);
+ 
+diff --git a/src/util.h b/src/util.h
+index 2f5caf1..2ca4185 100644
+--- a/src/util.h
++++ b/src/util.h
+@@ -193,7 +193,8 @@ void is_readable(const char *path);
+ // Safely call `calloc()`
+ extern void *xcalloc(size_t nmemb, size_t size);
+ 
+-// Safely call `reallocarray()`
++// Safely call `reallocarray()` if it exists, or our own local implementation if
++// it doesn't
+ extern void *xreallocarray(void *ptr, size_t nmemb, size_t size);
+ 
+ // Safely call `popen()`
+@@ -258,12 +259,16 @@ extern wchar_t *xwcsdup(const wchar_t *s);
+ // you're converting/copying parts of strings), use their vanilla counterparts
+ // instead.
+ 
+-// Safely call wcstombs()
++// Safely call `wcstombs()`
+ extern size_t xwcstombs(char *dest, const wchar_t *src, size_t n);
+ 
+-// Safely call mbstowcs()
++// Safely call `mbstowcs()`
+ size_t xmbstowcs(wchar_t *dest, const char *src, size_t n);
+ 
++// Safely call `strcasestr()` if it exists, or our own local implementation if
++// it doesn't
++extern char *xstrcasestr(const char *haystack, const char *needle);
++
+ // Safely call `system(cmd)`, to execute `cmd` in a new shell. If `fail` is
+ // true, and the return value of `system()` is non-zero, terminate. Otherwise
+ // return said return value.
+-- 
+2.55.0
+

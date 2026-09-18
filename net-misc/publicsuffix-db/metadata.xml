@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>salah.coronya@gmail.com</email>
+		<name>Christopher Byrne</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/publicsuffix/list/issues</bugs-to>
+		<remote-id type="github">publicsuffix/list</remote-id>
+	</upstream>
+<!-- Not appplicable for GURU, but we'll need to it if we get into Portage
+	<stabilize-allarches>
+-->
+</pkgmetadata>

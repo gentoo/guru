@@ -1,0 +1,20 @@
+diff --git a/data/misc/meson.build b/data/misc/meson.build
+index 0c88f51b..00b61c37 100644
+--- a/data/misc/meson.build
++++ b/data/misc/meson.build
+@@ -2,6 +2,7 @@ appdir = join_paths(get_option('datadir'), 'applications')
+ metainfodir = join_paths(get_option('datadir'), 'metainfo')
+ mimedir = join_paths(get_option('datadir'), 'mime', 'packages')
+ desktop_utils = find_program('desktop-file-validate', required: false)
++appstreamcli = find_program('appstreamcli', required: false)
+ 
+ if get_option('gtk-frontend')
+   if get_option('install-appdata')
+@@ -13,7 +14,6 @@ if get_option('gtk-frontend')
+       install_dir: metainfodir
+     )
+ 
+-    appstreamcli = find_program('appstreamcli', required: false)
+     if appstreamcli.found()
+       test('Validate net.zoite.Zoitechat.appdata.xml', appstreamcli,
+         args: ['validate', zoitechat_appdata]

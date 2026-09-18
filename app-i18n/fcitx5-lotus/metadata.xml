@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>trantiendat29042005@gmail.com</email>
+		<name>Trần Tiến Đạt</name>
+	</maintainer>
+	<longdescription>
+		Fcitx5 Lotus is a Vietnamese input method engine for the Fcitx5
+		framework, forked from VMK. It supports multiple typing methods
+		(Telex, VNI, custom keymaps) and several input processing modes,
+		including a non-preedit "smooth" mode via a privileged uinput
+		server for seamless text replacement.
+	</longdescription>
+	<use>
+		<flag name="openrc">Install the OpenRC init script for fcitx5-lotus-server</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">LotusInputMethod/fcitx5-lotus</remote-id>
+	</upstream>
+</pkgmetadata>

@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="casd fuse oci recc test tools"
 REQUIRED_USE="
-	^^ ( casd tools )
+	^^ ( casd tools recc )
 	fuse? ( casd )
 	oci? ( tools )
 "

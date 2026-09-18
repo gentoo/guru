@@ -45,7 +45,7 @@ else
 	done
 fi
 
-S="${WORKDIR}/${P}/src/driver/amdxdna"
+S="${WORKDIR}/${P}/drivers/accel/amdxdna"
 LICENSE="GPL-2 linux-fw-redistributable"
 SLOT="0"
 # Re-use compress-* USE flags from sys-kernel/linux-firmware.
@@ -121,11 +121,12 @@ src_prepare() {
 }
 
 src_configure() {
-	cd "${WORKDIR}/${P}/src" || die
+	pushd "${WORKDIR}/${P}/" || die
 	KERNEL_SRC="${KERNEL_DIR}" \
 	KERNEL_VER="${KV_FULL}" \
 	ARCH="$(tc-arch-kernel)" \
-	CC="${KERNEL_CC}" ./driver/tools/configure_kernel.sh || die
+	CC="${KERNEL_CC}" ./drivers/accel/tools/configure_kernel.sh || die
+	popd || die
 }
 
 src_compile() {

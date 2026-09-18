@@ -5,7 +5,7 @@ EAPI=8
 
 inherit toolchain-funcs xdg-utils
 
-DESCRIPTION="A lightweight feed reader with ncurses user interface inspired by Newsboat."
+DESCRIPTION="Lightweight feed reader with ncurses user interface inspired by Newsboat"
 HOMEPAGE="https://codeberg.org/newsraft/newsraft"
 
 if [[ ${PV} == 9999 ]]; then

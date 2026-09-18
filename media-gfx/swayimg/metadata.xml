@@ -13,6 +13,7 @@
 		<flag name="drm">Enable support for Direct Rendering Manager (DRM UI)</flag>
 		<flag name="exr">Enable support for EXR image format</flag>
 		<flag name="sixel">Enable support for Sixel image format</flag>
+		<flag name="ffmpeg">Enable support for video storyboard using <pkg>media-video/ffmpeg</pkg></flag>
 		<flag name="wayland">Enable Wayland UI and some compositors (Sway and Hyprland only)</flag>
 	</use>
 </pkgmetadata>

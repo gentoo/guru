@@ -72,7 +72,7 @@ src_compile() {
 src_install() {
 	cargo_src_install
 
-	dobin target/release/deepcool-digital-linux
+	dobin "$(cargo_target_dir)/deepcool-digital-linux"
 
 	newinitd "${FILESDIR}"/deepcool-digital-linux.initd deepcool-digital-linux
 	systemd_dounit "${FILESDIR}"/deepcool-digital-linux.service

@@ -35,9 +35,6 @@ python_prepare_all() {
 	default
 	distutils-r1_python_prepare_all
 
-	# https://projects.gentoo.org/python/guide/qawarn.html#stray-top-level-files-in-site-packages
-	sed -i 's/include = \["CHANGELOG.md"\]//' pyproject.toml || die "failed to sed pyproject.toml (exclude CHANGELOG.md)"
-
 	sed -i 's/version = "0.0.0"/version = "v'${PV}'"/' pyproject.toml || die "failed to sed pyproject.toml (fix version)"
 }
 

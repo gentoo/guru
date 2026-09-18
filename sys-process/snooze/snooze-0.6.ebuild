@@ -11,7 +11,7 @@ SRC_URI="https://github.com/leahneukirchen/snooze/archive/v${PV}.tar.gz -> ${P}.
 
 LICENSE="CC0-1.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 src_compile() {
 	tc-export CC

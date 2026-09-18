@@ -668,7 +668,7 @@ src_compile() {
 
 	echo "Generating shell completion files"
 	for sh in bash fish zsh; do
-		$(cargo_target_dir)/${PN} completion ${sh} > ${sh}.completion || die
+		"$(cargo_target_dir)/${PN}" completion ${sh} > ${sh}.completion || die
 	done
 }
 

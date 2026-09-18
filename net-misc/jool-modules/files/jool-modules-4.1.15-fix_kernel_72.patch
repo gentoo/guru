@@ -1,0 +1,42 @@
+PR pending https://github.com/NICMx/Jool/pull/456.patch
+From 47a8c7426f08e50505e69eef7ff607a04fbab52e Mon Sep 17 00:00:00 2001
+From: Tj <tj.iam.tj@proton.me>
+Date: Tue, 11 Aug 2026 00:26:14 +0000
+Subject: [PATCH] stats: fix v7.2 loss of snmp_fold_field()
+
+Since b056e7326724
+
+"ipv4: remove obsolete EXPORT_SYMBOL() and EXPORT_SYMBOL_GPL()"
+
+snmp_fold_field() is no longer available.
+
+Extract its code and use directly.
+
+Signed-off-by: Tj <tj.iam.tj@proton.me>
+--- a/src/mod/common/stats.c
++++ b/src/mod/common/stats.c
+@@ -4,6 +4,7 @@
+ #include <net/ip.h>
+ #include <net/snmp.h>
+ #include "mod/common/wkmalloc.h"
++#include "mod/common/linux_version.h"
+ 
+ struct jool_mib {
+ 	unsigned long mibs[JSTAT_COUNT];
+@@ -79,8 +80,15 @@ __u64 *jstat_query(struct jool_stats *stats)
+ 	if (!result)
+ 		return NULL;
+ 
+-	for (i = 0; i < JSTAT_COUNT; i++)
++	for (i = 0; i < JSTAT_COUNT; i++) {
++#if LINUX_VERSION_AT_LEAST(7, 2, 0, 0, 0)
++		int cpu;
++		for_each_possible_cpu(cpu)
++			result[i] += snmp_get_cpu_field(stats->mib, cpu, i);
++#else
+ 		result[i] = snmp_fold_field(stats->mib, i);
++#endif
++	}
+ 
+ 	return result;
+ }

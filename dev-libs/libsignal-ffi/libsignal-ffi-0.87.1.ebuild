@@ -626,6 +626,6 @@ src_unpack() {
 }
 
 src_install() {
-	dolib.a "${WORKDIR}"/libsignal-${PV}/$(cargo_target_dir)/libsignal_ffi.a
+	dolib.a "${WORKDIR}/libsignal-${PV}/$(cargo_target_dir)/libsignal_ffi.a"
 	einstalldocs
 }

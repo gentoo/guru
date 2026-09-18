@@ -28,6 +28,6 @@ src_compile() {
 }
 
 src_install() {
-	dobin target/release/wayfreeze
+	dobin "$(cargo_target_dir)/wayfreeze"
 	einstalldocs
 }

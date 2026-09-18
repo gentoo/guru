@@ -210,10 +210,11 @@ RDEPEND="${PYTHON_DEPS}"
 src_install() {
 	einstalldocs
 
-	pushd target/release &>> /dev/null || die
+	pushd "$(cargo_target_dir)" &> /dev/null || die
 	mv libpython_proton_vpn_local_agent.so local_agent.abi3.so || die
-	popd &>> /dev/null || die
 
 	python_moduleinto proton/vpn
-	python_foreach_impl python_domodule target/release/local_agent.abi3.so
+	python_foreach_impl python_domodule local_agent.abi3.so
+
+	popd &> /dev/null || die
 }

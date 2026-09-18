@@ -80,7 +80,7 @@ The xdg eclass will automatically export the correct functions to the `src_prepa
 
 - #### Use the latest EAPI whenever possible
 
-Since the packages in GURU are all 'new packages' (not in ::gentoo). It is good practice to use the latest [EAPI](https://devmanual.gentoo.org/ebuild-writing/eapi/index.html) (8 at the moment), this makes your ebuilds more future proof.
+Since the packages in GURU are all 'new packages' (not in ::gentoo). It is good practice to use the latest [EAPI](https://devmanual.gentoo.org/ebuild-writing/eapi/index.html) (9 at the moment), this makes your ebuilds more future proof.
 
 - #### Establish your package testing workflow
 

@@ -29,7 +29,9 @@ LICENSE+="
 "
 SLOT="0"
 RUST_MIN_VER="1.89.0"
+IUSE="jpegxl avif"
 
+# dav1d is statically linked else it would be optinal with avif flag
 DEPEND="
 	app-arch/lz4:=
 	x11-libs/libxkbcommon[wayland]
@@ -53,6 +55,14 @@ src_unpack() {
 	else
 	    cargo_src_unpack
 	fi
+}
+
+src_configure() {
+	local myfeatures=(
+		$(usev avif)
+		$(usev jpegxl jxl)
+	)
+	cargo_src_configure
 }
 
 src_compile() {
