@@ -24,12 +24,12 @@ DEPEND="
 	>=x11-libs/libdrm-2.4.122
 	gui-libs/gtk:4
 	dev-cpp/sdbus-c++
-	media-video/pipewire
+	dev-cpp/nlohmann_json
+	media-video/pipewire:=
 "
 RDEPEND="
 	${DEPEND}
 "
 BDEPEND="
 	>=dev-libs/wayland-protocols-1.24
-	>=dev-build/meson-1.3
 "
