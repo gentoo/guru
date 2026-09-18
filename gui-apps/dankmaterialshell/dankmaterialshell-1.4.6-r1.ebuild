@@ -117,7 +117,7 @@ pkg_postinst() {
 	optfeature "Volume & Speaker control" media-video/wireplumber
 	optfeature "Bluetooth & file transfer" net-wireless/bluez
 	optfeature "Calendar integration" app-misc/khal
-	optfeature "Fingerprint unlock notifier" sys-auth/fprintfd
+	optfeature "Fingerprint unlock notifier" sys-auth/fprintd
 	optfeature "Wallpaper based colorscheme" x11-misc/matugen
 	optfeature "Wifi & Ethernet connection" net-misc/networkmanager
 
