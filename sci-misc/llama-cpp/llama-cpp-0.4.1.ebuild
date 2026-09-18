@@ -112,7 +112,7 @@ RDEPEND="${COMMON_DEPEND}
 	opencl? ( dev-libs/opencl-icd-loader )
 	vulkan? ( media-libs/vulkan-loader )
 "
-BDEPEND="media-libs/shaderc"
+BDEPEND="vulkan? ( media-libs/shaderc )"
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
