@@ -14,13 +14,19 @@ SRC_URI="
 
 LICENSE="Apache-2.0 BSD MIT Unlicense"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 
 DEPEND="app-arch/xz-utils"
 RDEPEND="${DEPEND}"
 BDEPEND=">=dev-lang/go-1.27.0"
 
 DOCS=( CHANGELOG.md README.md )
+
+src_prepare() {
+	# https://bugs.gentoo.org/982180
+	cd "${WORKDIR}"/go-mod/github.com/valyala/gozstd@v1.26.0 && eapply "${FILESDIR}"/gozstd-cgo-flags.patch
+	eapply_user
+}
 
 src_compile() {
 	ego build

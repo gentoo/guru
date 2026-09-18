@@ -1,0 +1,16 @@
+--- a/dict.go
++++ b/dict.go
+@@ -4 +3,0 @@
+-#cgo CFLAGS: -O3
+--- a/gozstd.go
++++ b/gozstd.go
+@@ -4 +3,0 @@
+-#cgo CFLAGS: -O3
+--- a/reader.go
++++ b/reader.go
+@@ -4 +3,0 @@
+-#cgo CFLAGS: -O3
+--- a/writer.go
++++ b/writer.go
+@@ -4 +3,0 @@
+-#cgo CFLAGS: -O3
