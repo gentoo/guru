@@ -426,9 +426,14 @@ src_compile() {
 
 	escons "${esconsargs[@]}"
 
-	# godot requires access to input devices?
+	# godot requires access to input devices and video (despite headless)
 	addwrite /dev/input
 	addwrite /dev/bus/usb
+
+	addwrite /dev/video0
+	addwrite /dev/video1
+	addwrite /dev/video2
+	addwrite /dev/video3
 
 	# generate mono glue
 	bin/godot* --headless --generate-mono-glue modules/mono/glue || die "Failed to generate mono glue"
