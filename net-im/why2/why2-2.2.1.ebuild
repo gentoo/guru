@@ -713,6 +713,7 @@ BDEPEND="
 "
 
 pkg_setup() {
+	rust_pkg_setup
 	llvm-r2_pkg_setup
 }
 
@@ -724,7 +725,7 @@ src_unpack() {
 src_compile() {
 	cargo_src_compile  # builds client (default features)
 	if use server; then
-	cargo_src_compile --bin why2-server --no-default-features --features server
+		cargo_src_compile --bin why2-server --no-default-features --features server
 	fi
 }
 
