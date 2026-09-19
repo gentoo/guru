@@ -81,3 +81,13 @@ src_install() {
 	fperms 750 /var/lib/searxng
 	fperms 750 /var/log/searxng
 }
+
+pkg_postinst() {
+	einfo "SearXNG has been installed."
+	einfo ""
+	einfo "To start:"
+	einfo "  OpenRC: rc-update add searxng default && rc-service searxng start"
+	einfo "  systemd: systemctl enable --now searxng"
+	einfo ""
+	einfo "SearXNG will listen on http://127.0.0.1:8888"
+}
