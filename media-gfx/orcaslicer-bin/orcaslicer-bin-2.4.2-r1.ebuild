@@ -88,6 +88,7 @@ src_install() {
 	# Make binaries executable
 	fperms +x /opt/${PN}/AppRun
 	fperms +x /opt/${PN}/bin/orca-slicer
+	fperms +x /opt/${PN}/libexec/orca-slicer-env
 
 	# Find and make all .so files executable
 	find "${ED}/opt/${PN}" -name "*.so*" -exec chmod +x {} \;
