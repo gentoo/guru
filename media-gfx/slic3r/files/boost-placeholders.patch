@@ -1,0 +1,70 @@
+From d5084db14e7b4e75bf588fe063a5b9941c1cac31 Mon Sep 17 00:00:00 2001
+From: Jonathan Wakely <jwakely@redhat.com>
+Date: Wed, 3 Jun 2020 01:05:39 +0200
+Subject: [PATCH 01/15] Make boost::Placeholders::_1 visible
+
+Fixes https://github.com/slic3r/Slic3r/issues/4967
+---
+
+--- a/src/libslic3r/GCodeTimeEstimator.cpp
++++ b/src/libslic3r/GCodeTimeEstimator.cpp
+@@ -1,9 +1,12 @@
+ #include "GCodeTimeEstimator.hpp"
+-#include <boost/bind.hpp>
++#include <boost/bind/bind.hpp>
+ #include <cmath>
+ 
+ namespace Slic3r {
+ 
++using boost::placeholders::_1;
++using boost::placeholders::_2;
++
+ void
+ GCodeTimeEstimator::parse(const std::string &gcode)
+ {
+
+--- a/src/libslic3r/SLAPrint.cpp
++++ b/src/libslic3r/SLAPrint.cpp
+@@ -7,9 +7,12 @@
+ #include <iostream>
+ #include <complex>
+ #include <cstdio>
++#include <boost/bind/bind.hpp>
+ 
+ namespace Slic3r {
+ 
++using boost::placeholders::_1;
++
+ void
+ SLAPrint::slice()
+ {
+--- a/src/libslic3r/TriangleMesh.cpp
++++ b/src/libslic3r/TriangleMesh.cpp
+@@ -15,6 +15,7 @@
+ #include <stdexcept>
+ #include <boost/config.hpp>
+ #include <boost/nowide/convert.hpp>
++#include <boost/bind/bind.hpp>
+ 
+ #ifdef SLIC3R_DEBUG
+ #include "SVG.hpp"
+@@ -22,6 +23,8 @@
+ 
+ namespace Slic3r {
+ 
++using boost::placeholders::_1;
++
+ TriangleMesh::TriangleMesh()
+     : repaired(false)
+ {
+--- a/src/libslic3r/PrintObject.cpp
++++ b/src/libslic3r/PrintObject.cpp
+@@ -4,6 +4,9 @@
+ #include "Geometry.hpp"
+ #include <algorithm>
+ #include <vector>
++#include <boost/bind/bind.hpp>
++
++using boost::placeholders::_1;
+
+ namespace Slic3r {
