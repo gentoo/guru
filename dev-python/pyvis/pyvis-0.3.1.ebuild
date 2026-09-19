@@ -15,7 +15,7 @@ SRC_URI="https://github.com/WestHealth/pyvis/archive/refs/tags/v${PV}.tar.gz -> 
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	>=dev-python/jinja2-2.10[${PYTHON_USEDEP}]
