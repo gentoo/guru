@@ -62,13 +62,22 @@ distutils_enable_tests pytest
 src_install() {
 	distutils-r1_src_install
 
+	newconfd "${FILESDIR}/searxng.confd" searxng
+	newinitd "${FILESDIR}/searxng.initd" searxng
 	systemd_dounit "${FILESDIR}/searxng.service"
 
 	insinto /etc/searxng
 	doins "${FILESDIR}/settings.yml"
 
+	keepdir /var/lib/searxng
+	keepdir /var/log/searxng
+
 	fowners searxng:searxng /etc/searxng
+	fowners searxng:searxng /var/lib/searxng
+	fowners searxng:searxng /var/log/searxng
 
 	fperms 750 /etc/searxng
 	fperms 640 /etc/searxng/settings.yml
+	fperms 750 /var/lib/searxng
+	fperms 750 /var/log/searxng
 }

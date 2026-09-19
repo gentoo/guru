@@ -1,0 +1,12 @@
+# /etc/conf.d/searxng
+# Configuration for SearXNG OpenRC service
+
+# User and group to run as
+SEARXNG_USER="searxng"
+SEARXNG_GROUP="searxng"
+
+# Working directory
+SEARXNG_HOME="/var/lib/searxng"
+
+# Log file
+SEARXNG_LOG="/var/log/searxng/searxng.log"
