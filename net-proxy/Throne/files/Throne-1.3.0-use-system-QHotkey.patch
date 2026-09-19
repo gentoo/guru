@@ -1,0 +1,28 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Use system `QHotkey`
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -67,7 +67,7 @@ message("[CMAKE_FIND_ROOT_PATH] ${CMAKE_FIND_ROOT_PATH}")
+ set(BUILD_SHARED_LIBS OFF)
+ 
+ include("cmake/print.cmake")
+-include("cmake/QHotkey.cmake")
++find_package(QHotkey CONFIG REQUIRED)
+ 
+ find_package(Threads)
+ 
+--- a/src/ui/mainWindow/mainwindow_hotkeys.cpp
++++ b/src/ui/mainWindow/mainwindow_hotkeys.cpp
+@@ -7,7 +7,7 @@
+ 
+ #include <memory>
+ 
+-#include <3rdparty/QHotkey/qhotkey.h>
++#include <QHotkey>
+ 
+ namespace {
+     QList<std::shared_ptr<QHotkey>> RegisteredHotkey;
+
