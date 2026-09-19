@@ -63,4 +63,12 @@ src_install() {
 	distutils-r1_src_install
 
 	systemd_dounit "${FILESDIR}/searxng.service"
+
+	insinto /etc/searxng
+	doins "${FILESDIR}/settings.yml"
+
+	fowners searxng:searxng /etc/searxng
+
+	fperms 750 /etc/searxng
+	fperms 640 /etc/searxng/settings.yml
 }
