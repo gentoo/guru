@@ -23,6 +23,16 @@ BDEPEND="
 	app-arch/unzip
 "
 
+RDEPEND="
+	dev-libs/glib:2
+	dev-libs/wayland
+	sys-apps/dbus
+	x11-libs/cairo
+	x11-libs/gtk+:3
+	x11-libs/libX11
+	x11-libs/pango
+"
+
 QA_PREBUILT="*"
 
 src_install() {
