@@ -5,18 +5,22 @@ EAPI=8
 
 DOTNET_PKG_COMPAT=10.0
 NUGETS="
-bouncycastle.cryptography@2.6.2
-microsoft.aspnetcore.authentication.openidconnect@10.0.9
-microsoft.identitymodel.abstractions@8.0.1
-microsoft.identitymodel.jsonwebtokens@8.0.1
-microsoft.identitymodel.logging@8.0.1
-microsoft.identitymodel.protocols.openidconnect@8.0.1
-microsoft.identitymodel.protocols@8.0.1
-microsoft.identitymodel.tokens@8.0.1
+bouncycastle.cryptography@2.7.0
+microsoft.aspnetcore.authentication.openidconnect@10.0.12
+microsoft.bcl.cryptography@10.0.2
+microsoft.extensions.logging.abstractions@8.0.0
+microsoft.extensions.dependencyinjection.abstractions@8.0.0
+microsoft.identitymodel.abstractions@8.19.2
+microsoft.identitymodel.jsonwebtokens@8.19.2
+microsoft.identitymodel.logging@8.19.2
+microsoft.identitymodel.protocols.openidconnect@8.19.2
+microsoft.identitymodel.protocols@8.19.2
+microsoft.identitymodel.tokens@8.19.2
 microsoft.win32.systemevents@6.0.0
 qrcoder@1.8.0
 system.drawing.common@6.0.0
-system.identitymodel.tokens.jwt@8.0.1
+system.identitymodel.tokens.jwt@8.19.2
+system.directoryservices.protocols@10.0.12
 "
 inherit dotnet-pkg systemd
 
@@ -80,7 +84,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	if [[ -z ${REPLACING_VERSIONS} ]]; then
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog 'To start Technitium DNS:'
 		elog '* OpenRC: rc-update add technitium-dns boot'
 		elog '          rc-service technitium-dns start'
@@ -97,7 +101,7 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	if [[ -d "${ROOT}/etc/dns" ]]; then
+	if [[ -z "${REPLACING_VERSIONS}" && -d "${ROOT}/etc/dns" ]]; then
 		elog "Technitium DNS config files may still be present in \"${ROOT}/etc/dns\""
 	fi
 }
