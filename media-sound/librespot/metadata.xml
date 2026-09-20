@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>bakedsnake@vagrantz.xyz</email>
+		<name>bakedsnake</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">librespot-org/librespot</remote-id>
+	</upstream>
+	<use>
+		<flag name="alsa">Enable alsa backend feature.</flag>
+		<flag name="gstreamer">Enable gstreamer backend feature.</flag>
+		<flag name="jack">Enable jack backend feature.</flag>
+		<flag name="portaudio">Enable portaudio backend feature.</flag>
+		<flag name="rodio">Enable rodio backend feature.</flag>
+		<flag name="rodio-jack">Enable rodiojack backend feature.</flag>
+		<flag name="sdl">Enable sdl backend feature.</flag>
+	</use>
+</pkgmetadata>
