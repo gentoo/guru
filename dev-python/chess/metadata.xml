@@ -6,6 +6,7 @@
                 <name>Shimon Trolles</name>
         </maintainer>
         <upstream>
-                <remote-id type="github">niklasf/python-chess</remote-id>
+                <remote-id type="pypi">chess</remote-id>
+				<remote-id type="github">niklasf/python-chess</remote-id>
         </upstream>
 </pkgmetadata>
