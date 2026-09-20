@@ -23,6 +23,7 @@ RDEPEND="
 
 	$(python_gen_cond_dep '
 		dev-python/babel[${PYTHON_USEDEP}]
+		dev-python/curl-cffi[${PYTHON_USEDEP}]
 		dev-python/flask-babel[${PYTHON_USEDEP}]
 		dev-python/flask[${PYTHON_USEDEP}]
 		dev-python/httpx-socks[${PYTHON_USEDEP}]
