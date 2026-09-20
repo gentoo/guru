@@ -22,6 +22,5 @@ RDEPEND="
 	dev-python/requests
 	dev-python/deprecated
 "
-BDEPEND="
-"
+
 RESTRICT="test"
