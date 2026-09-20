@@ -103,10 +103,10 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_schemas_update
 
-	optfeature "SIP support" "\
-		media-libs/gst-plugins-base:1.0 \
-		media-libs/gst-plugins-good:1.0 \
-		media-plugins/gst-plugins-srtp:1.0 \
+	optfeature "SIP support" "
+		media-libs/gst-plugins-base:1.0
+		media-libs/gst-plugins-good:1.0
+		media-plugins/gst-plugins-srtp:1.0
 	"
 }
 
