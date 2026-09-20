@@ -79,6 +79,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.3.4-odr-and-aliasing-fixes.patch" # bug #961756
 	"${FILESDIR}/${PN}-1.3.4-ffmpeg-disable-lto.patch"
 	"${FILESDIR}/${PN}-1.3.4-fix-gcc15.patch"
+	"${FILESDIR}/${PN}-1.3.5-build-static-libnyquist.patch" # bug #981262
 )
 
 src_unpack() {
@@ -86,7 +87,7 @@ src_unpack() {
 
 	# otherwise build will try to run git --submodule --init
 	rmdir "${S}/lib-src/libnyquist" || die
-	ln -s "${WORKDIR}/libnyquist" "${S}/lib-src/libnyquist"
+	mv "${WORKDIR}/libnyquist" "${S}/lib-src/libnyquist"
 }
 
 src_configure() {
