@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,6 +27,7 @@ LICENSE+=" Apache-2.0 BSD MIT "
 # dependency licenses
 SLOT="0"
 IUSE="+static"
+BDEPEND=">=dev-lang/go-1.25.0"
 
 src_unpack() {
 	if [[ "${PV}" == 9999 ]];then
@@ -45,6 +46,10 @@ src_compile() {
 	}
 
 	ego build -ldflags="${ldflags}"
+}
+
+src_test(){
+	ego test ./...
 }
 
 src_install() {
