@@ -17,10 +17,18 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	dev-python/deprecated
 	dev-python/ndjson
 	dev-python/pydantic
+	dev-python/pyright
+	dev-python/pytest-recording
 	dev-python/requests
-	dev-python/deprecated
+	dev-python/requests-mock
+	dev-python/ruff
+	dev-python/sphinx
+	dev-python/sphinx-rtd-theme
+	dev-python/vcrpy
+	dev-python/watchdog
 "
 
 RESTRICT="test"
