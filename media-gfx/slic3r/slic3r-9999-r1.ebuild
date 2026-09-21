@@ -37,7 +37,7 @@ BDEPEND="
 RDEPEND="
 	dev-cpp/tbb
 	dev-lang/perl:=
-	dev-libs/boost
+	dev-libs/boost:=
 	dev-perl/Encode-Locale[${PERL_USEDEP}]
 	dev-perl/Moo[${PERL_USEDEP}]
 	gui-libs/gtk
