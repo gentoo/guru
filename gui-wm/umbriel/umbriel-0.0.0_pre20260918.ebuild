@@ -33,7 +33,6 @@ DEPEND="
 	>=x11-libs/pixman-0.43.0
 	media-libs/libglvnd
 	media-libs/mesa[egl(+),gles2(+)]
-	!gui-libs/scenefx
 "
 RDEPEND="
 	${DEPEND}
