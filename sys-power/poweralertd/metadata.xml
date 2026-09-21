@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>hskim@dilluti0n.com</email>
+        <name>Hee-Suk Kim</name>
+    </maintainer>
+    <upstream>
+        <maintainer status="active">
+            <email>contact@kl.wtf</email>
+            <name>Kenny Levinsen</name>
+        </maintainer>
+        <bugs-to>https://todo.sr.ht/~kennylevinsen/poweralertd</bugs-to>
+        <remote-id type="sourcehut">~kennylevinsen/poweralertd</remote-id>
+    </upstream>
+</pkgmetadata>
