@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>bakedsnake@vagrantz.xyz</email>
+		<name>bakedsnake</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">GStreamer/gst-plugins-rs</remote-id>
+		<remote-id type="freedesktop-gitlab">gstreamer/gstreamer-rs</remote-id>
+	</upstream>
+	<use>
+		<flag name="audiofx">Build with audiofx plugin.</flag>
+		<flag name="analytics">Build with analytics plugin.</flag>
+		<flag name="cdg">Build with cdg plugin.</flag>
+		<flag name="claxon">Build with claxon plugin.</flag>
+		<flag name="csound">Build with csound plugin.</flag>
+		<flag name="elevenlabs">Build with elevenlabs plugin.</flag>
+		<flag name="gif">Build with gif plugin.</flag>
+		<flag name="gtk4">Build with gtk4 plugin.</flag>
+		<flag name="hsv">Build with hsv plugin.</flag>
+		<flag name="lewton">Build with lewton plugin.</flag>
+		<flag name="ffv1">Build with ffv1 plugin.</flag>
+		<flag name="skia">Build with skia plugin.</flag>
+		<flag name="speechmatics">Build with speechmatics plugin.</flag>
+		<flag name="spotify">Build with spotify plugin.</flag>
+		<flag name="videofx">Build with videofx plugin.</flag>
+		<flag name="webp">Build with webp plugin.</flag>
+	</use>
+</pkgmetadata>
