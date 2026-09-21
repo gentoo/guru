@@ -13,7 +13,7 @@ SRC_URI="
 	https://xwaretech.info/godeps/agru-${PV}-deps.tar.xz
 "
 
-BDEPEND=">=dev-lang/go-1.25.0"
+BDEPEND=">=dev-lang/go-1.26"
 
 LICENSE="AGPL-3"
 SLOT="0"
