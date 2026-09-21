@@ -161,6 +161,7 @@ src_configure() {
 	mycmakeargs+=(
 		-DGGML_NATIVE=OFF	# don't set march
 		-DGGML_CCACHE=OFF
+		-DGGML_LTO="$(tc-is-lto)"
 
 		# CPU Flags
 		-DGGML_SSE42=$(usex cpu_flags_x86_sse4_2)
