@@ -10,7 +10,7 @@ CRATES=" "
 
 inherit cargo desktop xdg
 
-DESCRIPTION="A screenshot annotation tool inspired by Swappy and Flameshot."
+DESCRIPTION="A screenshot annotation tool inspired by Swappy and Flameshot"
 HOMEPAGE="https://github.com/Satty-org/Satty"
 
 if [[ "${PV}" == 9999 ]]; then
