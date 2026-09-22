@@ -1,14 +1,14 @@
 certificate version 0.1
-pusher me@dblsaiko.net 1790073505 +0200
+pusher me@dblsaiko.net 1790088130 +0200
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1790073506-54c3181e9459446eea60d2673574874a4cd34791
+nonce 1790088130-b7991449ed27515c8ee019a79412ba89dcff9eb3
 
-024d5408d445c031ce9ac8b3f653fcb8604b0212 ddb0d44fed80795746f92d6b2ed566f38df25045 refs/heads/dev
+ddb0d44fed80795746f92d6b2ed566f38df25045 d97fb3a99d6790e6ffda135b9681dbdd95ee298c refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iKIEABYKAEoWIQRZnaWI8gLWxkaKIHnv4LcrvDUVFwUCarJaoRsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMiwyLDIQHG1lQGRibHNhaWtvLm5ldAAKCRDv4LcrvDUVF+os
-AP9biWQvCyNn7L+RBE6z1nDSiU5yKGhzLJ6iNRaqpbqpZgEAsm/9ZvAMc0XVqXdO
-U5+jrhGAH3gUo13nsAkm1btPLQc=
-=OHX1
+iKIEABYKAEoWIQRZnaWI8gLWxkaKIHnv4LcrvDUVFwUCarKTwhsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwyLDIQHG1lQGRibHNhaWtvLm5ldAAKCRDv4LcrvDUVFza+
+AP9hXHglIGx4ABj2LtoOJ5G+0ewKsJQbZiiy7a9k4a8+gwD+Mj2m5k4i83n74FjT
+v9voKtFMOPiuySn/riHpWl7Lswc=
+=ppv+
 -----END PGP SIGNATURE-----
