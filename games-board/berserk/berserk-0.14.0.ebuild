@@ -17,18 +17,18 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-python/deprecated
+	dev-python/deprecated[${PYTHON_USEDEP}]
 	dev-python/ndjson
-	dev-python/pydantic
+	dev-python/pydantic[${PYTHON_USEDEP}]
 	dev-python/pyright
-	dev-python/pytest-recording
-	dev-python/requests
-	dev-python/requests-mock
-	dev-python/ruff
-	dev-python/sphinx
-	dev-python/sphinx-rtd-theme
-	dev-python/vcrpy
-	dev-python/watchdog
+	dev-python/pytest-recording[${PYTHON_USEDEP}]
+	dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/requests-mock[${PYTHON_USEDEP}]
+	dev-python/ruff[${PYTHON_USEDEP}]
+	dev-python/sphinx[${PYTHON_USEDEP}]
+	dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]
+	dev-python/vcrpy[${PYTHON_USEDEP}]
+	dev-python/watchdog[${PYTHON_USEDEP}]
 "
 
 RESTRICT="test"
