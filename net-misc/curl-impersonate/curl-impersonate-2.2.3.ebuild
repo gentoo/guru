@@ -57,6 +57,9 @@ src_prepare() {
 	ln -fs "${WORKDIR}/zlib-${ZLIB_V}" "${BUILD_DIR}/deps/src/zlib" || die
 	ln -fs "${WORKDIR}/zstd-${ZSTD_V}" "${BUILD_DIR}/deps/src/zstd" || die
 
+	sed -e 's/set(_toolchain_cmake_args/& "--no-warn-unused-cli"/' \
+		-i "CMakeLists.txt" || die
+
 	emake prepare-libidn2 BUILD_DIR="${BUILD_DIR}"
 }
 
