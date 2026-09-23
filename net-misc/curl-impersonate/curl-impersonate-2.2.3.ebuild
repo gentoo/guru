@@ -20,7 +20,7 @@ DESCRIPTION="Build of curl that impersonates real browsers"
 HOMEPAGE="https://github.com/lexiforest/curl-impersonate"
 SRC_URI="
 	https://github.com/lexiforest/curl-impersonate/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/google/boringssl/archive/${BORINGSSL_V}.zip -> boringssl-${BORINGSSL_V}.zip
+	https://github.com/google/boringssl/archive/${BORINGSSL_V}.tar.gz -> boringssl-${BORINGSSL_V}.tar.gz
 	https://github.com/google/brotli/archive/refs/tags/v${BROTLI_V}.tar.gz -> brotli-${BROTLI_V}.tar.gz
 	https://github.com/c-ares/c-ares/releases/download/v${CARES_V}/c-ares-${CARES_V}.tar.gz -> cares-${CARES_V}.tar.gz
 	https://github.com/curl/curl/archive/curl-${CURL_V//./_}.tar.gz -> curl-${CURL_V}.tar.gz
@@ -36,26 +36,27 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-src_unpack() {
-	unpack "${P}.tar.gz"
-}
-
 src_prepare() {
 	cmake_src_prepare
 
-	sed -e "s#^set(BORINGSSL_URL .*#set(BORINGSSL_URL \"${DISTDIR}/boringssl-${BORINGSSL_V}.zip\")#" \
-		-e "s#^set(BROTLI_URL .*#set(BROTLI_URL \"${DISTDIR}/brotli-${BROTLI_V}.tar.gz\")#" \
-		-e "s#^set(CARES_URL .*#set(CARES_URL \"${DISTDIR}/cares-${CARES_V}.tar.gz\")#" \
-		-e "s#^set(CURL_URL .*#set(CURL_URL \"${DISTDIR}/curl-${CURL_V}.tar.gz\")#" \
-		-e "s#^set(NGHTTP2_URL .*#set(NGHTTP2_URL \"${DISTDIR}/nghttp2-${NGHTTP2_V}.tar.bz2\")#" \
-		-e "s#^set(NGHTTP3_URL .*#set(NGHTTP3_URL \"${DISTDIR}/nghttp3-${NGHTTP3_V}.tar.bz2\")#" \
-		-e "s#^set(NGTCP2_URL .*#set(NGTCP2_URL \"${DISTDIR}/ngtcp2-${NGTCP2_V}.tar.bz2\")#" \
-		-e "s#^set(ZLIB_URL .*#set(ZLIB_URL \"${DISTDIR}/zlib-${ZLIB_V}.tar.gz\")#" \
-		-e "s#^set(ZSTD_URL .*#set(ZSTD_URL \"${DISTDIR}/zstd-${ZSTD_V}.tar.gz\")#" \
+	sed -e "/^  URL/d" \
+		-e "/^  URL_HASH/d" \
 		-i "CMakeLists.txt" || die
 
 	mkdir -p "${BUILD_DIR}/deps/downloads" || die
 	ln -s "${DISTDIR}/libidn2-${LIBIDN2_V}.tar.gz" "${BUILD_DIR}/deps/downloads" || die
+
+	mkdir -p "${BUILD_DIR}/deps/src" || die
+	ln -fs "${WORKDIR}/boringssl-${BORINGSSL_V}" "${BUILD_DIR}/deps/src/boringssl" || die
+	ln -fs "${WORKDIR}/brotli-${BROTLI_V}" "${BUILD_DIR}/deps/src/brotli" || die
+	ln -fs "${WORKDIR}/c-ares-${CARES_V}" "${BUILD_DIR}/deps/src/cares" || die
+	ln -fs "${WORKDIR}/curl-curl-${CURL_V//./_}" "${BUILD_DIR}/deps/src/curl" || die
+	ln -fs "${WORKDIR}/nghttp2-${NGHTTP2_V}" "${BUILD_DIR}/deps/src/nghttp2" || die
+	ln -fs "${WORKDIR}/nghttp3-${NGHTTP3_V}" "${BUILD_DIR}/deps/src/nghttp3" || die
+	ln -fs "${WORKDIR}/ngtcp2-${NGTCP2_V}" "${BUILD_DIR}/deps/src/ngtcp2" || die
+	ln -fs "${WORKDIR}/zlib-${ZLIB_V}" "${BUILD_DIR}/deps/src/zlib" || die
+	ln -fs "${WORKDIR}/zstd-${ZSTD_V}" "${BUILD_DIR}/deps/src/zstd" || die
+
 	emake prepare-libidn2 BUILD_DIR="${BUILD_DIR}"
 }
 
