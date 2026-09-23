@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{12..15} )
 DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1
+inherit distutils-r1 optfeature
 
 DESCRIPTION="Python proxy framework"
 HOMEPAGE="https://github.com/abhinavsingh/proxy.py"
@@ -65,3 +65,7 @@ EPYTEST_IGNORE=(
 
 EPYTEST_PLUGINS=( pytest-asyncio pytest-mock )
 distutils_enable_tests pytest
+
+pkg_postinst() {
+	optfeature "CloudflareDnsResolverPlugin" dev-python/httpx
+}
