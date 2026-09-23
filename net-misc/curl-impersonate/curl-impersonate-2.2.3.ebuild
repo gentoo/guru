@@ -55,8 +55,8 @@ src_prepare() {
 		-i "CMakeLists.txt" || die
 
 	mkdir -p "${BUILD_DIR}/deps/downloads" || die
-	ln -s "${DISTDIR}/libidn2-${LIBIDN2_V}.tar.gz" "${BUILD_DIR}/deps/downloads"
-	make prepare-libidn2 BUILD_DIR="${BUILD_DIR}"
+	ln -s "${DISTDIR}/libidn2-${LIBIDN2_V}.tar.gz" "${BUILD_DIR}/deps/downloads" || die
+	emake prepare-libidn2 BUILD_DIR="${BUILD_DIR}"
 }
 
 src_install() {
