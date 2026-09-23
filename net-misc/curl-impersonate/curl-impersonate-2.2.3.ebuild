@@ -35,6 +35,7 @@ SRC_URI="
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="static-libs"
 
 src_prepare() {
 	cmake_src_prepare
@@ -59,6 +60,11 @@ src_prepare() {
 
 	sed -e 's/set(_toolchain_cmake_args/& "--no-warn-unused-cli"/' \
 		-i "CMakeLists.txt" || die
+
+	if ! use static-libs; then
+		sed -e '/libcurl-impersonate\*\.a/d' \
+			-i "CMakeLists.txt" || die
+	fi
 
 	emake prepare-libidn2 BUILD_DIR="${BUILD_DIR}"
 }
