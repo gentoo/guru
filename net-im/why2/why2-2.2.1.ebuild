@@ -672,6 +672,7 @@ CRATES="
 "
 
 LLVM_COMPAT=( {19..23} )
+RUST_MIN_VER="1.90"
 
 inherit cargo llvm-r2
 
