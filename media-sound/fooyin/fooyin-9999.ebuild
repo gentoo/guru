@@ -31,6 +31,8 @@ REQUIRED_USE="
 RDEPEND="
 	dev-libs/icu:=
 	dev-libs/kdsingleapplication
+	dev-libs/libcdio-paranoia:=
+	dev-libs/libcdio:=
 	dev-libs/qcoro[network]
 	dev-qt/qtbase:6[concurrent,dbus,gui,icu,network,opengl,sql,widgets]
 	dev-qt/qtimageformats:6
