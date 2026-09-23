@@ -183,7 +183,7 @@ src_configure() {
 	fi
 
 	if use rocm; then
-		export HIPCXX="$(hipconfig -l)/clang" HIP_PATH="$(hipconfig -p)"
+		rocm_use_hipcc
 		mycmakeargs+=(
 			-DSD_HIPBLAS=ON
 			-DGPU_TARGETS=$(get_amdgpu_flags)
