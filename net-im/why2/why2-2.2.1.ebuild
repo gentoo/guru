@@ -697,6 +697,7 @@ DEPEND="
 	media-libs/opus
 	media-video/pipewire:=
 	x11-libs/libdrm
+	x11-libs/libxcb
 "
 RDEPEND="
 	${DEPEND}
