@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>thecyberduck@tutanota.com</email>
-		<name>dacyberduck</name>
-	</maintainer>
-	<upstream>
-		<remote-id type="github">AvengeMedia/danksearch</remote-id>
-		<bugs-to>https://github.com/AvengeMedia/danksearch/issues</bugs-to>
-	</upstream>
+  <maintainer type="person">
+      <email>thecyberduck@tutanota.com</email>
+      <name>dacyberduck</name>
+  </maintainer>
+  <maintainer type="person">
+    <email>emi@genchu.org</email>
+    <name>Emi</name>
+  </maintainer>
+  <upstream>
+      <remote-id type="github">AvengeMedia/danksearch</remote-id>
+      <bugs-to>https://github.com/AvengeMedia/danksearch/issues</bugs-to>
+  </upstream>
 </pkgmetadata>

@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>thecyberduck@tutanota.com</email>
-		<name>cyberduck</name>
-	</maintainer>
-	<upstream>
-		<remote-id type="github">AvengeMedia/DankMaterialShell</remote-id>
-		<bugs-to>https://github.com/AvengeMedia/DankMaterialShell/issues</bugs-to>
-	</upstream>
-	<use>
-		<flag name="greeter">Install dms greeter for greetd</flag>
-	</use>
+  <maintainer type="person">
+    <email>thecyberduck@tutanota.com</email>
+    <name>cyberduck</name>
+  </maintainer>
+  <maintainer type="person">
+    <email>emi@genchu.org</email>
+    <name>Emi</name>
+  </maintainer>
+  <upstream>
+      <remote-id type="github">AvengeMedia/DankMaterialShell</remote-id>
+      <bugs-to>https://github.com/AvengeMedia/DankMaterialShell/issues</bugs-to>
+  </upstream>
+  <use>
+      <flag name="greeter">Install dms greeter for greetd</flag>
+  </use>
 </pkgmetadata>
