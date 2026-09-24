@@ -18,7 +18,6 @@ BDEPEND=">=dev-lang/go-1.25.0"
 PATCHES=("${FILESDIR}"/"${PN}-0.2.3-no-strip.patch")
 
 src_configure() {
-	sed -i '/^GOFLAGS=/d' "${S}/Makefile"
 	sed -i "s/^VERSION=.*$/VERSION=\"${PV}\"/" "${S}/Makefile"
 
 	default
