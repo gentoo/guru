@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-        <maintainer type="person">
-                <email>shimontrolles@gmail.com</email>
-                <name>Shimon Trolles</name>
-        </maintainer>
-        <upstream>
-                <remote-id type="pypi">chess</remote-id>
-				<remote-id type="github">niklasf/python-chess</remote-id>
-        </upstream>
+  <maintainer type="person">
+          <email>shimontrolles@gmail.com</email>
+          <name>Shimon Trolles</name>
+  </maintainer>
+  <upstream>
+          <remote-id type="pypi">chess</remote-id>
+          <remote-id type="github">niklasf/python-chess</remote-id>
+  </upstream>
 </pkgmetadata>
