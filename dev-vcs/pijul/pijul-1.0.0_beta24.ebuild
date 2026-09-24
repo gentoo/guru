@@ -492,7 +492,8 @@ S="${ECARGO_VENDOR}/${PN}-${MY_PIJUL_PV}"
 LICENSE="GPL-2+"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 BSD CC0-1.0 CDLA-Permissive-2.0 ISC MIT Unicode-3.0 ZLIB
+	Apache-2.0 BSD CC0-1.0 CDLA-Permissive-2.0 GPL-2 GPL-2+ ISC MIT
+	Unicode-3.0 ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64"
