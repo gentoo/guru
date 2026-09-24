@@ -20,7 +20,6 @@ BDEPEND=">=dev-lang/go-1.25.0"
 PATCHES=("${FILESDIR}"/"${PN}-0.3.2-no-strip.patch")
 
 src_compile() {
-	sed -i '/^GOFLAGS=/d' "${S}/Makefile"
 	sed -i "s/^VERSION=.*$/VERSION=\"${PV}\"/" "${S}/Makefile"
 	sed -i 's/local\///' "${S}/assets/dsearch.service"
 
