@@ -5,7 +5,7 @@ EAPI=8
 
 inherit meson
 
-MY_COMMIT="127014591eb461196de9c2a6e1260719b6381fd8"
+MY_COMMIT="6bb9d1a2b5703d6d2b443e979604c7abfb463399"
 
 DESCRIPTION="An independent compositor made by noctalia"
 HOMEPAGE="https://github.com/noctalia-dev/umbriel https://noctalia.dev/"
