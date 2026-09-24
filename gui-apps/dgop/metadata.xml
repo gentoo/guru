@@ -4,10 +4,10 @@
   <maintainer type="person">
       <email>thecyberduck@tutanota.com</email>
       <name>dacyberduck</name>
+  </maintainer>
   <maintainer type="person">
     <email>emi@genchu.org</email>
     <name>Emi</name>
-  </maintainer>
   </maintainer>
   <upstream>
       <remote-id type="github">AvengeMedia/dgop</remote-id>
