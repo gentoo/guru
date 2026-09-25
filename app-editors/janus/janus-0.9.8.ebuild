@@ -26,3 +26,10 @@ BDEPEND="
 	dev-libs/appstream
 	sys-devel/gettext
 "
+
+src_configure() {
+	local emesonargs=(
+		-Dstrip=false
+	)
+	meson_src_configure
+}
