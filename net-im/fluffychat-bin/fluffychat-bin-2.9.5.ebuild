@@ -5,6 +5,8 @@
 
 EAPI=8
 
+inherit wrapper
+
 DESCRIPTION="The cutest instant messenger in the [matrix]"
 HOMEPAGE="https://fluffychat.im/ https://github.com/krille-chan/fluffychat"
 SRC_URI="https://github.com/krille-chan/fluffychat/releases/download/v${PV}/fluffychat-linux-x64.tar.gz -> ${P}.tar.gz"
@@ -48,4 +50,6 @@ src_install() {
 
 	exeinto /opt/fluffychat
 	doexe fluffychat
+
+	make_wrapper "fluffychat" "/opt/fluffychat/fluffychat"
 }
