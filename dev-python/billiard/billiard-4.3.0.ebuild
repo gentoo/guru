@@ -3,16 +3,15 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..15} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Python multiprocessing fork"
 HOMEPAGE="
 	https://pypi.org/project/billiard/
 	https://github.com/celery/billiard
 "
-SRC_URI="https://github.com/celery/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
