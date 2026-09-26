@@ -1,0 +1,42 @@
+From: bakedsnake <bakedsnake@vagrantz.xyz>
+Date: Thu, 24 Sep 2026 13:49:56 +0200
+Subject: [PATCH] Use system's libexpat instead of vendored code
+
+---
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -32,7 +32,6 @@ include_directories(${LIBDIR}/Slic3r/GUI/)
+ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/standalone/)
+ include_directories(${LIBDIR}/admesh/)
+ include_directories(${LIBDIR}/BSpline/)
+-include_directories(${LIBDIR}/expat/)
+ include_directories(${LIBDIR}/poly2tri/)
+ include_directories(${LIBDIR}/poly2tri/sweep)
+ include_directories(${LIBDIR}/poly2tri/common)
+@@ -107,11 +106,6 @@ add_library(admesh STATIC
+ set_property(TARGET admesh PROPERTY C_STANDARD 99)
+
+ add_library(clipper STATIC ${LIBDIR}/clipper.cpp)
+-add_library(expat STATIC
+-    ${LIBDIR}/expat/xmlparse.c
+-    ${LIBDIR}/expat/xmlrole.c
+-    ${LIBDIR}/expat/xmltok.c
+-)
+ add_library(polypartition STATIC ${LIBDIR}/polypartition.cpp)
+ add_library(poly2tri STATIC
+     ${LIBDIR}/poly2tri/common/shapes.cc
+@@ -149,7 +143,7 @@ IF(CMAKE_HOST_UNIX)
+     #set(Boost_LIBRARIES bsystem bthread bfilesystem)
+ ENDIF(CMAKE_HOST_UNIX)
+
+-target_link_libraries (slic3r libslic3r admesh BSpline clipper expat polypartition poly2tri ${Boost_LIBRARIES})
++target_link_libraries (slic3r libslic3r admesh BSpline clipper polypartition poly2tri ${Boost_LIBRARIES})
+
+ IF(wxWidgets_FOUND)
+     MESSAGE("wx found!")
+@@ -173,4 +167,4 @@ IF (WIN32)
+     target_link_libraries(extrude-tin boost-nowide)
+ ENDIF(WIN32)
+
+-target_link_libraries (extrude-tin libslic3r admesh BSpline clipper expat polypartition poly2tri ${Boost_LIBRARIES})
++target_link_libraries (extrude-tin libslic3r admesh BSpline clipper polypartition poly2tri ${Boost_LIBRARIES})

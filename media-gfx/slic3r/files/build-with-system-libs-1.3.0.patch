@@ -1,0 +1,143 @@
+From: bakedsnake <bakedsnake@vagrantz.xyz>
+Date: Thu, 24 Sep 2026 23:59:22 +0200
+Subject: [PATCH] no strict ansi
+
+---
+--- a/Build.PL
++++ b/Build.PL
+@@ -20,13 +20,14 @@ $ENV{LD_RUN_PATH} //= "";
+ # NOGDI            : prevents inclusion of wingdi.h which defines functions Polygon() and Polyline() in global namespace
+ # BOOST_ASIO_DISABLE_KQUEUE : prevents a Boost ASIO bug on OS X: https://svn.boost.org/trac/boost/ticket/5339
+ my @cflags = qw(-D_GLIBCXX_USE_C99 -DHAS_BOOL -DNOGDI -DSLIC3RXS -DBOOST_ASIO_DISABLE_KQUEUE -Dexprtk_disable_rtl_io_file -Dexprtk_disable_return_statement -Dexprtk_disable_rtl_vecops -Dexprtk_disable_string_capabilities -Dexprtk_disable_enhanced_features);
++# std=c++11 Enforce usage of C++11 (required now). Minimum compiler supported: gcc 4.9, clang 3.3, MSVC 14.0
+ if ($cpp_guess->is_gcc)	{
+ 	# GCC is pedantic with c++11 std, so undefine strict ansi to get M_PI back
+-	push @cflags, qw(-U__STRICT_ANSI__);
++	push @cflags, qw(-std=gnu++11);
++} else {
++    push @cflags, qw(-std=c++11);
+ }
+
+-# std=c++11 Enforce usage of C++11 (required now). Minimum compiler supported: gcc 4.9, clang 3.3, MSVC 14.0
+-push @cflags, qw(-std=c++11);
+
+ my @ldflags = ();
+
+From: bakedsnake <bakedsnake@vagrantz.xyz>
+Date: Thu, 24 Sep 2026 11:13:59 +0200
+Subject: [PATCH] use system's libexpat instead of vendored expat code
+
+---
+--- a/Build.PL
++++ b/Build.PL
+@@ -151,6 +151,15 @@ if (! $mswin) {
+         );
+ }
+
++if (! $mswin) {
++    push @LIBS, "-lm -ladmesh";
++
++    die <<'EOF' unless check_lib(lib => "expat");
++Could not find expat. Plase install.
++EOF
++    push @LIBS, "-lexpat";
++}
++
+ if (!$ENV{SLIC3R_STATIC} && $have_boost) {
+     # The boost library was detected by check_lib on Linux.
+     push @LIBS, map "-lboost_${_}", @boost_libraries;
+--- a/MANIFEST
++++ b/MANIFEST
+#@@ -2,13 +2,6 @@ Build.PL
+# lib/Slic3r/XS.pm
+# libslic3r.doxygen
+# MANIFEST                       This list of files
+#-src/admesh/connect.c
+#-src/admesh/normals.c
+#-src/admesh/shared.c
+#-src/admesh/stl.h
+#-src/admesh/stl_io.c
+#-src/admesh/stlinit.c
+#-src/admesh/util.c
+# src/boost/nowide/args.hpp
+# src/boost/nowide/cenv.hpp
+# src/boost/nowide/config.hpp
+@@ -26,26 +19,6 @@ src/boost/nowide/utf8_codecvt.hpp
+ src/boost/nowide/windows.hpp
+ src/clipper.cpp
+ src/clipper.hpp
+-src/expat/ascii.h
+-src/expat/asciitab.h
+-src/expat/COPYING
+-src/expat/expat.h
+-src/expat/expat_config.h
+-src/expat/expat_external.h
+-src/expat/iasciitab.h
+-src/expat/internal.h
+-src/expat/latin1tab.h
+-src/expat/nametab.h
+-src/expat/README
+-src/expat/utf8tab.h
+-src/expat/xmlparse.c
+-src/expat/xmlrole.c
+-src/expat/xmlrole.h
+-src/expat/xmltok.c
+-src/expat/xmltok.h
+-src/expat/xmltok_impl.h
+-src/expat/xmltok_impl.inc
+-src/expat/xmltok_ns.inc
+ src/libslic3r/BoundingBox.cpp
+ src/libslic3r/BoundingBox.hpp
+ src/libslic3r/BridgeDetector.cpp
+@@ -146,7 +119,6 @@ src/libslic3r/TriangleMesh.hpp
+ src/libslic3r/utils.cpp
+ src/libslic3r/Zip/ZipArchive.cpp
+ src/libslic3r/Zip/ZipArchive.hpp
+-src/miniz/miniz.h
+ src/perlglue.cpp
+ src/poly2tri/common/shapes.cc
+ src/poly2tri/common/shapes.h
+--- a/src/libslic3r/SlicingAdaptive.hpp
++++ b/src/libslic3r/SlicingAdaptive.hpp
+@@ -1,7 +1,7 @@
+ #ifndef slic3r_SlicingAdaptive_hpp_
+ #define slic3r_SlicingAdaptive_hpp_
+
+-#include "admesh/stl.h"
++#include <admesh/stl.h>
+
+ namespace Slic3r
+ {
+--- a/src/libslic3r/IO/AMF.cpp
++++ b/src/libslic3r/IO/AMF.cpp
+@@ -9,7 +9,7 @@
+ #include <boost/move/move.hpp>
+ #include <boost/nowide/fstream.hpp>
+ #include <boost/nowide/iostream.hpp>
+-#include <expat/expat.h>
++#include <expat.h>
+
+ namespace Slic3r { namespace IO {
+
+--- a/src/libslic3r/IO/TMF.hpp
++++ b/src/libslic3r/IO/TMF.hpp
+@@ -14,7 +14,7 @@
+ #include <boost/move/move.hpp>
+ #include <boost/nowide/fstream.hpp>
+ #include <boost/nowide/iostream.hpp>
+-#include <expat/expat.h>
++#include <expat.h>
+
+ #define PI 3.141592653589793238
+
+--- a/src/libslic3r/ConditionalGCode.cpp
++++ b/src/libslic3r/ConditionalGCode.cpp
+@@ -1,7 +1,7 @@
+ #include <string>
+
+ #include <sstream>
+-#include <exprtk/exprtk.hpp>
++#include <exprtk.hpp>
+ #include "ConditionalGCode.hpp"
+ namespace Slic3r {
+

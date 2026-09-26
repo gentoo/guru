@@ -19,7 +19,7 @@ fi
 LICENSE="AGPL-3"
 SLOT="0"
 
-IUSE="gui xs test"
+IUSE="+gui xs test"
 
 RESTRICT="!test? ( test )"
 
@@ -36,11 +36,15 @@ BDEPEND="
 
 RDEPEND="
 	dev-cpp/tbb
+	dev-cpp/exprtk
 	dev-lang/perl:=
 	dev-libs/boost:=
+	dev-libs/expat
+	dev-libs/miniz
 	dev-perl/Encode-Locale[${PERL_USEDEP}]
 	dev-perl/Moo[${PERL_USEDEP}]
 	gui-libs/gtk
+	media-libs/admesh
 	media-libs/freeglut
 	net-misc/curl[openssl]
 	virtual/perl-Encode
@@ -73,24 +77,30 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/admesh-vulnerability.patch"
-	"${FILESDIR}/boost-header.patch"
 	"${FILESDIR}/boost-io-context-${PV}.patch"
-	"${FILESDIR}/boost-placeholders.patch"
-	"${FILESDIR}/libexpat-cve-2024-45492.patch"
+	"${FILESDIR}/build-with-system-libs-${PV}.patch"
 )
 
 src_prepare() {
 	default
-	# boost_system	is	now  part  of  boost_thread
-	# since Boost 1.69
-	sed -i 's/my @boost_libraries = qw(system thread filesystem);/my @boost_libraries = qw(thread filesystem);/' \
-		Build.PL || die "Failed to remove `boost_system`"
+	local vendored=( admesh expat exprtk )
+	for v in "${vendored[@]}"; do
+		rm -rf src/"${v}" || die "Failed to remove vendored ${v}."
+	done
 
-	# No strict ansi
-	# See: https://github.com/slic3r/Slic3r/pull/4974
-	sed -i "s/push @cflags, qw(-std=c++11);/push @cflags, qw(-std=gnu++11);/" \
-		Build.PL || die "Failed to set gnu++11"
+	if [[ "${PV}" != *9999* ]]; then
+		cd .. || die
+		eapply "${FILESDIR}/cmake-with-system-libs.patch"
+		sed -i "/^src\/admesh/d" xs/MANIFEST || die
+	else
+		sed -i "/^set(EXPAT_INCLUDES$/,/^)$/c\find_package(expat REQUIRED)\n" \
+			../src/CMakeLists.txt || die
+
+		rm -rf src/miniz || die "Failed to remove vendored miniz"
+		sed -i "s|\"miniz/miniz.h\"|<miniz/miniz.h>|" src/Zip/ZipArchive.hpp || die
+		sed -i "/^add_library(miniz STATIC$/,/^)$/c\find_package(miniz REQUIRED)\n" \
+			../src/CMakeLists.txt || die
+	fi
 }
 
 src_compile() {
