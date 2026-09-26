@@ -14,7 +14,7 @@ else
 	SRC_URI="https://github.com/admesh/${PN}/releases/download/v${PV}/${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
-LICENSE="AGPL-3"
+LICENSE="GPL-2"
 SLOT="0"
 
 RESTRICT="test"
