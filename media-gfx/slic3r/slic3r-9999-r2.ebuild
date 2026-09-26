@@ -40,7 +40,7 @@ RDEPEND="
 	dev-lang/perl:=
 	dev-libs/boost:=
 	dev-libs/expat
-	dev-libs/miniz
+	dev-libs/miniz:=
 	dev-perl/Encode-Locale[${PERL_USEDEP}]
 	dev-perl/Moo[${PERL_USEDEP}]
 	gui-libs/gtk
