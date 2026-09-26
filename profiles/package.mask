@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# dsaf <ghostyn678+git@gmail.com> (2026-09-26)
+# No longer FOSS. Won't be maintaining it anymore.
+# Removal after 2026-10-26
+net-im/endcord
+net-im/endcord-bin
+
 # dsaf <ghostyn678+git@gmail.com> (2026-09-03)
 # Deprecated and archived by upstream.
 # No reverse dependencies.
