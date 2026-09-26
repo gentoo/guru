@@ -19,6 +19,8 @@ SLOT="0"
 
 RESTRICT="test"
 
+PATCHES=( "${FILESDIR}/slic3r-${P}.patch" )
+
 src_prepare() {
 	default
 	if [[ "${PV}" != *9999* ]]; then

@@ -1,0 +1,305 @@
+# The following patches to admesh were made
+#  on  the	admesh	version   that	 slic3r
+# vendors.
+# This consists of some  new  functions,  (
+# - stl_transform,
+# - stl_get_transform,
+# - calculate_normals
+# ), as well  as  adding  double  precision
+# to these same functions.
+#
+# bakedsnake 2026
+
+From 80718b79a9c96fdeb764f32266917e2ffd4d2597 Mon Sep 17 00:00:00 2001
+From: bubnikv <bubnikv@gmail.com>
+Date: Sun, 26 Feb 2017 21:59:09 +0100
+Subject: [PATCH] AdMesh: unify positive and negative zeros in
+ stl_check_facets_exact() and stl_check_facets_nearby() New function
+ stl_transform() by a 3x4 matrix. Some constness improvements.
+
+---
+--- a/src/stl.h
++++ b/src/stl.h
+@@ -170,6 +170,7 @@ extern void stl_rotate_z(stl_file *stl, float angle);
+ extern void stl_mirror_xy(stl_file *stl);
+ extern void stl_mirror_yz(stl_file *stl);
+ extern void stl_mirror_xz(stl_file *stl);
++extern void stl_transform(stl_file *stl, float *trafo3x4);
+ extern void stl_open_merge(stl_file *stl, const char *file);
+ extern void stl_invalidate_shared_vertices(stl_file *stl);
+ extern void stl_generate_shared_vertices(stl_file *stl);
+--- a/src/util.c
++++ b/src/util.c
+@@ -185,6 +185,24 @@ void calculate_normals(stl_file *stl) {
+   }
+ }
+ 
++void stl_transform(stl_file *stl, float *trafo3x4) {
++  int i_face, i_vertex, i, j;
++  if (stl->error)
++    return;
++  for (i_face = 0; i_face < stl->stats.number_of_facets; ++ i_face) {
++    stl_vertex *vertices = stl->facet_start[i_face].vertex;
++    for (i_vertex = 0; i_vertex < 3; ++ i_vertex) {
++      stl_vertex v_dst = vertices[i_vertex];
++      stl_vertex  v_src = v_dst;
++      v_dst.x = trafo3x4[0] * v_src.x + trafo3x4[1] * v_src.y + trafo3x4[2]  * v_src.z + trafo3x4[3];
++      v_dst.y = trafo3x4[4] * v_src.x + trafo3x4[5] * v_src.y + trafo3x4[6]  * v_src.z + trafo3x4[7];
++      v_dst.z = trafo3x4[8] * v_src.x + trafo3x4[9] * v_src.y + trafo3x4[10] * v_src.z + trafo3x4[11];
++    }
++  }
++  stl_get_size(stl);
++  calculate_normals(stl);
++}
++
+ void
+ stl_rotate_x(stl_file *stl, float angle) {
+   int i;
+
+From 32b3435e068488cfd159ae486cfeb6369b33771c Mon Sep 17 00:00:00 2001
+From: Michael Kirsch <mkirsch.git@gmail.com>
+Date: Sat, 30 Mar 2019 17:28:43 +0100
+Subject: [PATCH] add transform function with another output stl
+
+---
+--- a/src/stl.h
++++ b/src/stl.h
+@@ -171,6 +171,7 @@ extern void stl_mirror_xy(stl_file *stl);
+ extern void stl_mirror_yz(stl_file *stl);
+ extern void stl_mirror_xz(stl_file *stl);
+ extern void stl_transform(stl_file *stl, float *trafo3x4);
++extern void stl_transform(stl_file const *stl_src, stl_file *stl_dst, float const *trafo3x4);
+ extern void stl_open_merge(stl_file *stl, const char *file);
+ extern void stl_invalidate_shared_vertices(stl_file *stl);
+ extern void stl_generate_shared_vertices(stl_file *stl);
+--- a/src/util.c
++++ b/src/util.c
+@@ -203,6 +203,27 @@ void stl_transform(stl_file *stl, float *trafo3x4) {
+   calculate_normals(stl);
+ }
+ 
++void stl_transform(stl_file const *stl_src, stl_file *stl_dst, float const *trafo3x4) {
++  int i_face, i_vertex, i, j;
++  if (stl_src->error || stl_dst->error)
++    return;
++  stl_dst->stats.number_of_facets = stl_src->stats.number_of_facets;
++  stl_allocate(stl_dst);
++  for (i_face = 0; i_face < stl_src->stats.number_of_facets; ++ i_face) {
++    stl_vertex const *vertices_src = stl_src->facet_start[i_face].vertex;
++    stl_vertex *vertices_dst = stl_dst->facet_start[i_face].vertex;
++    for (i_vertex = 0; i_vertex < 3; ++ i_vertex) {
++      stl_vertex* v_dst = &vertices_dst[i_vertex];
++      stl_vertex const * v_src = &vertices_src[i_vertex];
++      v_dst->x = trafo3x4[0] * v_src->x + trafo3x4[1] * v_src->y + trafo3x4[2]  * v_src->z + trafo3x4[3];
++      v_dst->y = trafo3x4[4] * v_src->x + trafo3x4[5] * v_src->y + trafo3x4[6]  * v_src->z + trafo3x4[7];
++      v_dst->z = trafo3x4[8] * v_src->x + trafo3x4[9] * v_src->y + trafo3x4[10] * v_src->z + trafo3x4[11];
++    }
++  }
++  stl_get_size(stl_dst);
++  calculate_normals(stl_dst);
++}
++
+ void
+ stl_rotate_x(stl_file *stl, float angle) {
+   int i;
+
+From 9fc2aa8a82d43ea36a1ef61e40fae1d3c88ffa36 Mon Sep 17 00:00:00 2001
+From: Michael Kirsch <mkirsch.git@gmail.com>
+Date: Sat, 25 May 2019 01:52:42 +0200
+Subject: [PATCH] rename IO transform function
+
+---
+--- a/src/stl.h
++++ b/src/stl.h
+@@ -171,7 +171,7 @@ extern void stl_mirror_xy(stl_file *stl);
+ extern void stl_mirror_yz(stl_file *stl);
+ extern void stl_mirror_xz(stl_file *stl);
+ extern void stl_transform(stl_file *stl, float *trafo3x4);
+-extern void stl_transform(stl_file const *stl_src, stl_file *stl_dst, float const *trafo3x4);
++extern void stl_get_transform(stl_file const *stl_src, stl_file *stl_dst, float const *trafo3x4);
+ extern void stl_open_merge(stl_file *stl, const char *file);
+ extern void stl_invalidate_shared_vertices(stl_file *stl);
+ extern void stl_generate_shared_vertices(stl_file *stl);
+--- a/src/util.c
++++ b/src/util.c
+@@ -203,7 +203,7 @@ void stl_transform(stl_file *stl, float const *trafo3x4) {
+   calculate_normals(stl);
+ }
+ 
+-void stl_transform(stl_file const *stl_src, stl_file *stl_dst, float const *trafo3x4) {
++void stl_get_transform(stl_file const *stl_src, stl_file *stl_dst, float const *trafo3x4) {
+   int i_face, i_vertex, i, j;
+   if (stl_src->error || stl_dst->error)
+     return;
+
+From: Michael Kirsch <mkirsch.git@gmail.com>
+Date: Sun, 26 May 2019 13:15:33 +0200
+Subject: [PATCH] change transformation to use double precision
+
+---
+--- a/src/stl.h
++++ b/src/stl.h
+@@ -170,8 +170,8 @@ extern void stl_rotate_z(stl_file *stl, float angle);
+ extern void stl_mirror_xy(stl_file *stl);
+ extern void stl_mirror_yz(stl_file *stl);
+ extern void stl_mirror_xz(stl_file *stl);
+-extern void stl_transform(stl_file *stl, float *trafo3x4);
+-extern void stl_get_transform(stl_file const *stl_src, stl_file *stl_dst, float const *trafo3x4);
++extern void stl_transform(stl_file *stl, double const *trafo3x4);
++extern void stl_get_transform(stl_file const *stl_src, stl_file *stl_dst, double const *trafo3x4);
+ extern void stl_open_merge(stl_file *stl, const char *file);
+ extern void stl_invalidate_shared_vertices(stl_file *stl);
+ extern void stl_generate_shared_vertices(stl_file *stl);
+--- a/src/util.c
++++ b/src/util.c
+@@ -242,25 +242,28 @@ static void calculate_normals(stl_file *stl) {
+   }
+ }
+
+-void stl_transform(stl_file *stl, float *trafo3x4) {
++void stl_transform(stl_file *stl, double const *trafo3x4) {
+   int i_face, i_vertex, i, j;
+   if (stl->error)
+     return;
+   for (i_face = 0; i_face < stl->stats.number_of_facets; ++ i_face) {
+     stl_vertex *vertices = stl->facet_start[i_face].vertex;
+     for (i_vertex = 0; i_vertex < 3; ++ i_vertex) {
+-      stl_vertex v_dst = vertices[i_vertex];
+-      stl_vertex  v_src = v_dst;
+-      v_dst.x = trafo3x4[0] * v_src.x + trafo3x4[1] * v_src.y + trafo3x4[2]  * v_src.z + trafo3x4[3];
+-      v_dst.y = trafo3x4[4] * v_src.x + trafo3x4[5] * v_src.y + trafo3x4[6]  * v_src.z + trafo3x4[7];
+-      v_dst.z = trafo3x4[8] * v_src.x + trafo3x4[9] * v_src.y + trafo3x4[10] * v_src.z + trafo3x4[11];
++      stl_vertex *v_dst = &vertices[i_vertex];
++      double v_src_x = (double)(v_dst->x);
++      double v_src_y = (double)(v_dst->y);
++      double v_src_z = (double)(v_dst->z);
++      v_dst->x = (float)(trafo3x4[0] * v_src_x + trafo3x4[1] * v_src_y + trafo3x4[2]  * v_src_z + trafo3x4[3]);
++      v_dst->y = (float)(trafo3x4[4] * v_src_x + trafo3x4[5] * v_src_y + trafo3x4[6]  * v_src_z + trafo3x4[7]);
++      v_dst->z = (float)(trafo3x4[8] * v_src_x + trafo3x4[9] * v_src_y + trafo3x4[10] * v_src_z + trafo3x4[11]);
++
+     }
+   }
+   stl_get_size(stl);
+   calculate_normals(stl);
+ }
+
+-void stl_get_transform(stl_file const *stl_src, stl_file *stl_dst, float const *trafo3x4) {
++void stl_get_transform(stl_file const *stl_src, stl_file *stl_dst, double const *trafo3x4) {
+   int i_face, i_vertex, i, j;
+   if (stl_src->error || stl_dst->error)
+     return;
+@@ -272,9 +275,12 @@ void stl_get_transform(stl_file const *stl_src, stl_file *stl_dst, float const *
+     for (i_vertex = 0; i_vertex < 3; ++ i_vertex) {
+       stl_vertex* v_dst = &vertices_dst[i_vertex];
+       stl_vertex const * v_src = &vertices_src[i_vertex];
+-      v_dst->x = trafo3x4[0] * v_src->x + trafo3x4[1] * v_src->y + trafo3x4[2]  * v_src->z + trafo3x4[3];
+-      v_dst->y = trafo3x4[4] * v_src->x + trafo3x4[5] * v_src->y + trafo3x4[6]  * v_src->z + trafo3x4[7];
+-      v_dst->z = trafo3x4[8] * v_src->x + trafo3x4[9] * v_src->y + trafo3x4[10] * v_src->z + trafo3x4[11];
++      double v_src_x = (double)(v_src->x);
++      double v_src_y = (double)(v_src->y);
++      double v_src_z = (double)(v_src->z);
++      v_dst->x = (float)(trafo3x4[0] * v_src_x + trafo3x4[1] * v_src_y + trafo3x4[2]  * v_src_z + trafo3x4[3]);
++      v_dst->y = (float)(trafo3x4[4] * v_src_x + trafo3x4[5] * v_src_y + trafo3x4[6]  * v_src_z + trafo3x4[7]);
++      v_dst->z = (float)(trafo3x4[8] * v_src_x + trafo3x4[9] * v_src_y + trafo3x4[10] * v_src_z + trafo3x4[11]);
+     }
+   }
+   stl_get_size(stl_dst);
+
+--- a/src/stl.h
++++ b/src/stl.h
+@@ -162,6 +162,7 @@ extern void stl_translate(stl_file *stl, float x, float y, float z);
+ extern void stl_translate_relative(stl_file *stl, float x, float y, float z);
+ extern void stl_scale_versor(stl_file *stl, float versor[3]);
+ extern void stl_scale(stl_file *stl, float factor);
++extern void calculate_normals(stl_file *stl);
+ extern void stl_rotate_x(stl_file *stl, float angle);
+ extern void stl_rotate_y(stl_file *stl, float angle);
+ extern void stl_rotate_z(stl_file *stl, float angle);
+--- a/src/util.c
++++ b/src/util.c
+@@ -170,7 +170,7 @@ stl_scale(stl_file *stl, float factor) {
+   stl_scale_versor(stl, versor);
+ }
+ 
+-static void calculate_normals(stl_file *stl) {
++void calculate_normals(stl_file *stl) {
+   long i;
+   float normal[3];
+
+From: Alessandro Ranellucci <aar@cpan.org>
+Date: Sat, 17 Dec 2016 19:51:29 +0100
+Subject: [PATCH] Cut along X and Y axes too
+
+---
+--- a/src/stl.h
++++ b/src/stl.h
+@@ -46,11 +46,7 @@ typedef struct {
+   float z;
+ } stl_vertex;
+
+-typedef struct {
+-  float x;
+-  float y;
+-  float z;
+-} stl_normal;
++typedef stl_vertex stl_normal;
+
+ typedef char stl_extra[2];
+
+From d18fe56f8d270278c019652d9d15dcfb45c993f8 Mon Sep 17 00:00:00 2001
+From: Michael Kirsch <mkirsch.git@gmail.com>
+Date: Sat, 29 Jun 2019 10:47:41 +0200
+Subject: [PATCH] check for negative determinate in stl transform functions
+
+---
+
+--- a/src/util.c
++++ b/src/util.c
+@@ -201,6 +201,10 @@ void stl_transform(stl_file *stl, double const *trafo3x4) {
+       v_dst->z = (float)(trafo3x4[8] * v_src_x + trafo3x4[9] * v_src_y + trafo3x4[10] * v_src_z + trafo3x4[11]);
+     }
+   }
++  double det = trafo3x4[0]*trafo3x4[5]*trafo3x4[10] + trafo3x4[4]*trafo3x4[9]*trafo3x4[2] + trafo3x4[8]*trafo3x4[1]*trafo3x4[6]
++              - trafo3x4[0]*trafo3x4[9]*trafo3x4[6] - trafo3x4[4]*trafo3x4[1]*trafo3x4[10] - trafo3x4[8]*trafo3x4[5]*trafo3x4[2];
++  if(det < 0)
++    stl_reverse_all_facets(stl);
+   stl_get_size(stl);
+   calculate_normals(stl);
+ }
+@@ -237,6 +241,10 @@ void stl_get_transform(stl_file const *stl_src, stl_file *stl_dst, double const
+       v_dst->z = (float)(trafo3x4[8] * v_src_x + trafo3x4[9] * v_src_y + trafo3x4[10] * v_src_z + trafo3x4[11]);
+     }
+   }
++  double det = trafo3x4[0]*trafo3x4[5]*trafo3x4[10] + trafo3x4[4]*trafo3x4[9]*trafo3x4[2] + trafo3x4[8]*trafo3x4[1]*trafo3x4[6]
++              - trafo3x4[0]*trafo3x4[9]*trafo3x4[6] - trafo3x4[4]*trafo3x4[1]*trafo3x4[10] - trafo3x4[8]*trafo3x4[5]*trafo3x4[2];
++  if(det < 0)
++    stl_reverse_all_facets(stl_dst);
+   stl_get_size(stl_dst);
+   calculate_normals(stl_dst);
+ }
+
+From e7f7acf2f76e9699bd5d6c662aca16bdc4dbf6f2 Mon Sep 17 00:00:00 2001
+From: Michael Kirsch <mkirsch.git@gmail.com>
+Date: Wed, 10 Jul 2019 20:18:07 +0200
+Subject: [PATCH] recalculate volume only if determinante != 1
+
+---
+--- a/src/util.c
++++ b/src/util.c
+@@ -264,6 +264,8 @@ void stl_transform(stl_file *stl, double const *trafo3x4) {
+   if(det < 0)
+     stl_reverse_all_facets(stl);
+   stl_get_size(stl);
++  if(det - 1.0 > 1e-04)
++    stl_calculate_volume(stl);
+   calculate_normals(stl);
+ }
+
+@@ -292,6 +294,8 @@ void stl_get_transform(stl_file const *stl_src, stl_file *stl_dst, double const
+   if(det < 0)
+     stl_reverse_all_facets(stl_dst);
+   stl_get_size(stl_dst);
++  if(det - 1.0 > 1e-04)
++    stl_calculate_volume(stl_dst);
+   calculate_normals(stl_dst);
+ }
