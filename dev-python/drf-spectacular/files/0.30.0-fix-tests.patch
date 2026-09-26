@@ -1,0 +1,36 @@
+diff --git a/tests/test_command.py b/tests/test_command.py
+index 2d48aeb..485dd73 100644
+--- a/tests/test_command.py
++++ b/tests/test_command.py
+@@ -67,6 +67,7 @@ def test_command_custom_settings(capsys, clear_generator_settings):
+     assert 'description: custom setting' in capsys.readouterr().out
+ 
+ 
++@pytest.mark.django_db
+ def test_command_check(capsys):
+     management.call_command('check', '--deploy')
+     stderr = capsys.readouterr().err
+diff --git a/tests/test_fields.yml b/tests/test_fields.yml
+index b058b13..9be1e69 100644
+--- a/tests/test_fields.yml
++++ b/tests/test_fields.yml
+@@ -263,6 +263,7 @@ components:
+           maxLength: 200
+         field_ip_generic:
+           type: string
++          format: ipv6
+         field_decimal:
+           type: string
+           format: decimal
+diff --git a/tests/test_fields_oas_3_1.yml b/tests/test_fields_oas_3_1.yml
+index ec52e28..32b4b40 100644
+--- a/tests/test_fields_oas_3_1.yml
++++ b/tests/test_fields_oas_3_1.yml
+@@ -264,6 +264,7 @@ components:
+           maxLength: 200
+         field_ip_generic:
+           type: string
++          format: ipv6
+         field_decimal:
+           type: string
+           format: decimal
