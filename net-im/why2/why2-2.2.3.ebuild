@@ -4,7 +4,7 @@
 EAPI=8
 
 CRATES="
-	why2@1.5.2
+	why2@1.5.3
 	ab_glyph@0.2.32
 	ab_glyph_rasterizer@0.1.10
 	adler2@2.0.1
@@ -74,19 +74,19 @@ CRATES="
 	calloop-wayland-source@0.3.0
 	cast@0.3.0
 	castaway@0.2.4
-	cc@1.4.5
+	cc@1.5.1
 	cexpr@0.6.0
 	cfg_aliases@0.2.2
 	cfg-expr@0.20.9
-	cfg-if@1.0.4
+	cfg-if@1.0.5
 	chacha20@0.10.2
 	ciborium@0.2.2
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	clang-sys@1.9.1
-	clap@4.6.6
-	clap_builder@4.6.6
-	clap_lex@1.1.0
+	clap@4.6.7
+	clap_builder@4.6.7
+	clap_lex@1.1.1
 	cmov@0.5.4
 	codespan-reporting@0.13.1
 	colored@3.1.1
@@ -106,7 +106,7 @@ CRATES="
 	cpubits@0.1.1
 	cpufeatures@0.2.17
 	cpufeatures@0.3.1
-	crc32fast@1.5.1
+	crc32fast@1.5.2
 	criterion@0.8.2
 	criterion-plot@0.8.2
 	critical-section@1.2.0
@@ -169,8 +169,8 @@ CRATES="
 	fdeflate@0.3.7
 	ff@0.14.0
 	filedescriptor@0.8.3
-	find-msvc-tools@0.1.12
-	finl_unicode@1.4.0
+	find-msvc-tools@0.1.14
+	finl_unicode@1.5.0
 	fixedbitset@0.4.2
 	flate2@1.1.10
 	fnv@1.0.7
@@ -234,7 +234,7 @@ CRATES="
 	image-webp@0.2.4
 	indexmap@2.14.2
 	indoc@2.0.7
-	instability@0.3.13
+	instability@0.3.14
 	itertools@0.13.0
 	itertools@0.14.0
 	itoa@1.0.18
@@ -244,7 +244,7 @@ CRATES="
 	jni-sys@0.4.1
 	jni-sys-macros@0.4.1
 	jobserver@0.1.35
-	js-sys@0.3.105
+	js-sys@0.3.106
 	kasuari@0.4.12
 	keccak@0.2.2
 	kem@0.3.0
@@ -256,7 +256,7 @@ CRATES="
 	libc@0.2.189
 	libloading@0.8.9
 	libm@0.2.16
-	libredox@0.1.24
+	libredox@0.1.25
 	libspa@0.10.1
 	libspa-sys@0.10.1
 	libwayshot@0.9.0
@@ -269,7 +269,7 @@ CRATES="
 	litrs@1.0.0
 	lock_api@0.4.14
 	log@0.4.34
-	lru@0.18.4
+	lru@0.18.5
 	mac_address@1.1.8
 	mach2@0.6.0
 	memchr@2.8.3
@@ -363,10 +363,10 @@ CRATES="
 	pastey@0.2.3
 	pem-rfc7468@1.0.0
 	percent-encoding@2.3.2
-	pest@2.9.1
-	pest_derive@2.9.1
-	pest_generator@2.9.1
-	pest_meta@2.9.1
+	pest@2.9.2
+	pest_derive@2.9.2
+	pest_generator@2.9.2
+	pest_meta@2.9.2
 	phc@0.6.1
 	phf@0.11.3
 	phf_codegen@0.11.3
@@ -408,7 +408,7 @@ CRATES="
 	quick-xml@0.41.0
 	quote@1.0.47
 	radium@0.7.0
-	rand@0.10.2
+	rand@0.10.3
 	rand@0.8.8
 	rand_chacha@0.10.0
 	rand_chacha@0.3.1
@@ -419,7 +419,7 @@ CRATES="
 	ratatui@0.30.2
 	ratatui-core@0.1.2
 	ratatui-crossterm@0.1.2
-	ratatui-image@11.0.8
+	ratatui-image@11.1.0
 	ratatui-termina@0.1.0
 	ratatui-termwiz@0.1.2
 	ratatui-widgets@0.3.2
@@ -431,7 +431,7 @@ CRATES="
 	redox_syscall@0.4.1
 	redox_syscall@0.5.18
 	redox_syscall@0.9.4
-	redox_users@0.5.2
+	redox_users@0.5.3
 	ref-cast@1.0.27
 	ref-cast-impl@1.0.27
 	r-efi@5.3.0
@@ -442,14 +442,14 @@ CRATES="
 	renderdoc-sys@1.1.0
 	rfc6979@0.6.0
 	ring@0.17.14
-	ringbuf@0.5.1
+	ringbuf@0.5.2
 	rustc-hash@1.1.0
 	rustc-hash@2.1.3
 	rustc_version@0.4.1
 	rustfft@6.4.1
 	rustix@0.38.44
-	rustix@1.1.4
-	rustls@0.23.44
+	rustix@1.1.5
+	rustls@0.23.45
 	rustls-pki-types@1.15.1
 	rustls-webpki@0.103.15
 	rustversion@1.0.23
@@ -482,10 +482,10 @@ CRATES="
 	simd_cesu8@1.2.0
 	simdutf8@0.1.5
 	simple_logger@5.2.0
-	siphasher@1.0.3
+	siphasher@1.0.4
 	slab@0.4.12
 	slotmap@1.1.1
-	smallvec@1.16.1
+	smallvec@1.16.2
 	smithay-client-toolkit@0.19.2
 	smol_str@0.2.2
 	socket2@0.6.5
@@ -501,8 +501,8 @@ CRATES="
 	subtle@2.6.1
 	syn@1.0.109
 	syn@2.0.119
-	syn@3.0.5
-	synstructure@0.13.2
+	syn@3.0.6
+	synstructure@0.14.0
 	system-deps@7.0.8
 	tap@1.0.1
 	target-lexicon@0.13.5
@@ -513,9 +513,9 @@ CRATES="
 	termios@0.3.3
 	termwiz@0.23.3
 	thiserror@1.0.69
-	thiserror@2.0.20
+	thiserror@2.0.21
 	thiserror-impl@1.0.69
-	thiserror-impl@2.0.20
+	thiserror-impl@2.0.21
 	time@0.3.55
 	time-core@0.1.9
 	time-macros@0.2.32
@@ -523,8 +523,7 @@ CRATES="
 	tiny-skia-path@0.11.4
 	tinystr@0.8.4
 	tinytemplate@1.2.1
-	tinyvec@1.13.2
-	tinyvec_macros@0.1.1
+	tinyvec@1.13.3
 	tokio@1.53.1
 	tokio-macros@2.7.2
 	tokio-socks@0.5.3
@@ -542,13 +541,13 @@ CRATES="
 	typenum@1.20.1
 	ucd-trie@0.1.7
 	uds_windows@1.2.1
-	unicode-ident@1.0.24
+	unicode-ident@1.0.26
 	unicode-segmentation@1.13.3
 	unicode-truncate@2.0.1
 	unicode-width@0.2.2
 	untrusted@0.9.0
-	ureq@3.4.1
-	ureq-proto@0.6.2
+	ureq@3.4.2
+	ureq-proto@0.6.4
 	url@2.5.8
 	utf8_iter@1.0.4
 	utf8parse@0.2.2
@@ -561,11 +560,11 @@ CRATES="
 	walkdir@2.5.0
 	wasi@0.11.1+wasi-snapshot-preview1
 	wasip2@1.0.4+wasi-0.2.12
-	wasm-bindgen@0.2.128
-	wasm-bindgen-futures@0.4.78
-	wasm-bindgen-macro@0.2.128
-	wasm-bindgen-macro-support@0.2.128
-	wasm-bindgen-shared@0.2.128
+	wasm-bindgen@0.2.129
+	wasm-bindgen-futures@0.4.79
+	wasm-bindgen-macro@0.2.129
+	wasm-bindgen-macro-support@0.2.129
+	wasm-bindgen-shared@0.2.129
 	wayland-backend@0.3.17
 	wayland-client@0.31.15
 	wayland-csd-frame@0.3.0
@@ -577,7 +576,7 @@ CRATES="
 	wayland-server@0.31.14
 	wayland-sys@0.31.11
 	webpki-roots@1.0.9
-	web-sys@0.3.105
+	web-sys@0.3.106
 	web-time@1.1.0
 	weezl@0.1.12
 	wezterm-bidi@0.2.3
@@ -594,7 +593,7 @@ CRATES="
 	wgpu-hal@30.0.1
 	wgpu-naga-bridge@30.0.1
 	wgpu-types@30.0.1
-	wide@1.7.0
+	wide@1.7.1
 	widestring@1.2.1
 	winapi@0.3.9
 	winapi-i686-pc-windows-gnu@0.4.0
@@ -648,21 +647,21 @@ CRATES="
 	xkeysym@0.2.1
 	xml-rs@0.8.29
 	yoke@0.8.3
-	yoke-derive@0.8.2
+	yoke-derive@0.8.3
 	zbus@5.19.0
 	zbus_macros@5.19.0
 	zbus_names@4.3.4
 	zcheapstr@1.1.0
-	zerocopy@0.8.57
-	zerocopy-derive@0.8.57
+	zerocopy@0.8.59
+	zerocopy-derive@0.8.59
 	zerofrom@0.1.8
-	zerofrom-derive@0.1.7
+	zerofrom-derive@0.1.8
 	zeroize@1.9.0
 	zeroize_derive@1.5.0
 	zerotrie@0.2.5
 	zerovec@0.11.8
 	zerovec-derive@0.11.6
-	zlib-rs@0.6.7
+	zlib-rs@0.6.8
 	zmij@1.0.23
 	zune-core@0.5.3
 	zune-jpeg@0.5.15
