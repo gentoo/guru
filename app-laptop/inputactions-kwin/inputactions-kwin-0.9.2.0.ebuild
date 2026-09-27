@@ -19,7 +19,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	app-laptop/inputactions-ctl
 	dev-qt/qtbase:6[widgets]
-	kde-plasma/kwin
+	kde-plasma/kwin:=
 	x11-libs/libxkbcommon
 "
 # core
