@@ -80,6 +80,7 @@ CRATES="
 	cfg-expr@0.20.9
 	cfg-if@1.0.5
 	chacha20@0.10.2
+	chrono@0.4.45
 	ciborium@0.2.2
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
@@ -219,6 +220,8 @@ CRATES="
 	http@1.5.0
 	httparse@1.10.1
 	hybrid-array@0.4.15
+	iana-time-zone@0.1.65
+	iana-time-zone-haiku@0.1.2
 	icu_collections@2.3.0
 	icu_locale_core@2.3.0
 	icu_normalizer@2.3.0
