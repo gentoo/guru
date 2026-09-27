@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -59,4 +59,11 @@ src_configure() {
 src_install() {
 	meson_src_install
 	rm -rf "${ED}/usr/share/doc/fuzzel" || die
+}
+
+pkg_postinst() {
+	einfo "An example configuration file is installed at"
+	einfo "/etc/xdg/fuzzel/fuzzel.ini"
+	einfo "Copy it to your home directory in ~/.config/fuzzel/"
+	einfo "and edit with please"
 }
