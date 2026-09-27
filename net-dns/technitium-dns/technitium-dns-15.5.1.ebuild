@@ -24,13 +24,12 @@ system.directoryservices.protocols@10.0.12
 "
 inherit dotnet-pkg systemd
 
-MYPV="${PV}.0"
 SRC_URI_BASE="https://github.com/TechnitiumSoftware"
 DESCRIPTION="Open-source, self-hosted authoritative and recursive DNS+DHCP server"
 HOMEPAGE="https://technitium.com/dns/"
 SRC_URI="
-	$SRC_URI_BASE/DnsServer/archive/refs/tags/v${MYPV}.tar.gz -> TechnitiumDnsServer-${MYPV}.tar.gz
-	$SRC_URI_BASE/TechnitiumLibrary/archive/refs/tags/dns-server-v${MYPV}.tar.gz -> TechnitiumLibrary-${MYPV}.tar.gz
+	$SRC_URI_BASE/DnsServer/archive/refs/tags/v${PV}.tar.gz -> TechnitiumDnsServer-${PV}.tar.gz
+	$SRC_URI_BASE/TechnitiumLibrary/archive/refs/tags/dns-server-v${PV}.tar.gz -> TechnitiumLibrary-${PV}.tar.gz
 	${NUGET_URIS}
 "
 
@@ -42,10 +41,10 @@ KEYWORDS="~amd64"
 RDEPEND=">=dev-libs/icu-70"
 
 DOTNET_PKG_PROJECTS=(
-	"${S}/TechnitiumLibrary-dns-server-v${MYPV}/TechnitiumLibrary.ByteTree/TechnitiumLibrary.ByteTree.csproj"
-	"${S}/TechnitiumLibrary-dns-server-v${MYPV}/TechnitiumLibrary.Net/TechnitiumLibrary.Net.csproj"
-	"${S}/TechnitiumLibrary-dns-server-v${MYPV}/TechnitiumLibrary.Security.OTP/TechnitiumLibrary.Security.OTP.csproj"
-	"${S}/DnsServer-${MYPV}/DnsServerApp/DnsServerApp.csproj"
+	"${S}/TechnitiumLibrary-dns-server-v${PV}/TechnitiumLibrary.ByteTree/TechnitiumLibrary.ByteTree.csproj"
+	"${S}/TechnitiumLibrary-dns-server-v${PV}/TechnitiumLibrary.Net/TechnitiumLibrary.Net.csproj"
+	"${S}/TechnitiumLibrary-dns-server-v${PV}/TechnitiumLibrary.Security.OTP/TechnitiumLibrary.Security.OTP.csproj"
+	"${S}/DnsServer-${PV}/DnsServerApp/DnsServerApp.csproj"
 )
 
 src_prepare() {
@@ -59,7 +58,7 @@ src_prepare() {
 	# explicitly building into `DOTNET_PKG_OUTPUT`, we'll need to point there
 	# instead for the DLLs to be located.
 	local replace_hintpaths="s|<HintPath>(\\.\\.\\\\)*TechnitiumLibrary\\\\bin|<HintPath>${DOTNET_PKG_OUTPUT}|g"
-	grep -ErlZ 'HintPath.*TechnitiumLibrary' "${S}/DnsServer-${MYPV}" \
+	grep -ErlZ 'HintPath.*TechnitiumLibrary' "${S}/DnsServer-${PV}" \
 		| xargs -0 sed -E -i "${replace_hintpaths}" \
 		|| die
 }
