@@ -1,0 +1,123 @@
+--- QtSoundModem.cpp.orig	2025-09-09 14:17:03.763350984 +0200
++++ QtSoundModem.cpp	2025-09-09 14:18:03.168422924 +0200
+@@ -52,6 +52,9 @@
+ 
+ #include <time.h>
+ 
++#include <filesystem>
++#include <iostream>
++
+ QImage *Constellation[4];
+ QImage *Waterfall = 0;
+ QLabel *DCDLabel[4];
+@@ -570,7 +573,19 @@
+ 
+ 	serial = new serialThread;
+ 
+-	QSettings mysettings("QtSoundModem.ini", QSettings::IniFormat);
++        std::string iniPath = ".local/share/QtSoundModem/";
++
++        if (!std::filesystem::exists(iniPath)) {
++            try {
++                if (!std::filesystem::create_directory(iniPath)) {
++                    std::cout << "Error: Can't create '" << iniPath << "' for QtSoundModem settings." << std::endl;
++                }
++            } catch (const std::filesystem::filesystem_error& e) {
++                std::cout << "Error: Can't create '" << iniPath << "' for QtSoundModem settings." << std::endl;
++            }
++        }
++
++	QSettings mysettings(".local/share/QtSoundModem/QtSoundModem.ini", QSettings::IniFormat);
+ 
+ 	family = mysettings.value("FontFamily", "Courier New").toString();
+ 	csize = mysettings.value("PointSize", 0).toInt();
+@@ -1189,7 +1204,7 @@
+ 	{
+ 		if (i > 299)
+ 		{
+-			QSettings * settings = new QSettings("QtSoundModem.ini", QSettings::IniFormat);
++			QSettings * settings = new QSettings(".local/share/QtSoundModem/QtSoundModem.ini", QSettings::IniFormat);
+ 			ui.centerA->setValue(Freq_Change(0, i));
+ 			settings->setValue("Modem/RXFreq1", ui.centerA->value());
+ 			AGW_Report_Modem_Change(0);
+@@ -1202,7 +1217,7 @@
+ 	{
+ 		if (i > 300)
+ 		{
+-			QSettings * settings = new QSettings("QtSoundModem.ini", QSettings::IniFormat);
++			QSettings * settings = new QSettings(".local/share/QtSoundModem/QtSoundModem.ini", QSettings::IniFormat);
+ 			ui.centerB->setValue(Freq_Change(1, i));
+ 			settings->setValue("Modem/RXFreq2", ui.centerB->value());
+ 			AGW_Report_Modem_Change(1);
+@@ -1214,7 +1229,7 @@
+ 	{
+ 		if (i > 299)
+ 		{
+-			QSettings * settings = new QSettings("QtSoundModem.ini", QSettings::IniFormat);
++			QSettings * settings = new QSettings(".local/share/QtSoundModem/QtSoundModem.ini", QSettings::IniFormat);
+ 			ui.centerC->setValue(Freq_Change(2, i));
+ 			settings->setValue("Modem/RXFreq3", ui.centerC->value());
+ 			AGW_Report_Modem_Change(2);
+@@ -1226,7 +1241,7 @@
+ 	{
+ 		if (i > 299)
+ 		{
+-			QSettings * settings = new QSettings("QtSoundModem.ini", QSettings::IniFormat);
++			QSettings * settings = new QSettings(".local/share/QtSoundModem/QtSoundModem.ini", QSettings::IniFormat);
+ 			ui.centerD->setValue(Freq_Change(3, i));
+ 			settings->setValue("Modem/RXFreq4", ui.centerD->value());
+ 			AGW_Report_Modem_Change(3);
+@@ -3442,7 +3457,7 @@
+ {
+ 	UNUSED(event);
+ 
+-	QSettings mysettings("QtSoundModem.ini", QSettings::IniFormat);
++	QSettings mysettings(".local/share/QtSoundModem/QtSoundModem.ini", QSettings::IniFormat);
+ 	mysettings.setValue("geometry", QWidget::saveGeometry());
+ 	mysettings.setValue("windowState", saveState());
+ 
+@@ -3459,7 +3474,7 @@
+ 
+ 	closeTraceLog();
+ 		
+-	QSettings mysettings("QtSoundModem.ini", QSettings::IniFormat);
++	QSettings mysettings(".local/share/QtSoundModem/QtSoundModem.ini", QSettings::IniFormat);
+ 	mysettings.setValue("geometry", saveGeometry());
+ 	mysettings.setValue("windowState", saveState());
+ 	
+@@ -3886,4 +3901,4 @@
+ 	 Process6PackData((unsigned char *)Data.data(), Data.length());
+  }
+ 
+- 
+\ Kein Zeilenumbruch am Dateiende.
++ 
+--- Config.cpp.orig	2025-09-09 14:13:16.810042705 +0200
++++ Config.cpp	2025-09-09 14:13:50.691034141 +0200
+@@ -74,7 +74,7 @@
+ extern QFont Font;
+ 
+ 
+-QSettings* settings = new QSettings("QtSoundModem.ini", QSettings::IniFormat);
++QSettings* settings = new QSettings(".local/share/QtSoundModem/QtSoundModem.ini", QSettings::IniFormat);
+ 
+ // This makes geting settings for more channels easier
+ 
+@@ -137,7 +137,7 @@
+ {
+ 	int snd_ch;
+ 
+-	QSettings* settings = new QSettings("QtSoundModem.ini", QSettings::IniFormat);
++	QSettings* settings = new QSettings(".local/share/QtSoundModem/QtSoundModem.ini", QSettings::IniFormat);
+ 	settings->sync();
+ 
+ 	PSKRect = settings->value("PSKWindow").toRect();
+@@ -384,7 +384,7 @@
+ 
+ void saveSettings()
+ {
+-	QSettings * settings = new QSettings("QtSoundModem.ini", QSettings::IniFormat);
++	QSettings * settings = new QSettings(".local/share/QtSoundModem/QtSoundModem.ini", QSettings::IniFormat);
+ 
+ 	settings->setValue("FontFamily", Font.family());
+ 	settings->setValue("PointSize", Font.pointSize());
