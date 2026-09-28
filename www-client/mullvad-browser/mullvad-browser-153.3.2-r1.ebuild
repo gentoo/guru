@@ -3,9 +3,9 @@
 
 EAPI=8
 
-FIREFOX_PATCHSET="firefox-153-patches-01.tar.xz"
+FIREFOX_PATCHSET="firefox-153esr-patches-03.tar.xz"
 
-LLVM_COMPAT=( 21 22 )
+LLVM_COMPAT=( 22 )
 
 # This will also filter rust versions that don't match LLVM_COMPAT in the non-clang path; this is fine.
 RUST_NEEDS_LLVM=1
@@ -30,7 +30,7 @@ WASI_SDK_VER=32.0
 WASI_SDK_LLVM_VER=22
 
 MOZ_PN="firefox"
-ESR_PV="16.0-1-build1"
+ESR_PV="16.0-1-build2"
 
 DESCRIPTION="The Mullvad Browser is developed to minimize tracking and fingerprinting"
 HOMEPAGE="https://github.com/mullvad/mullvad-browser/ https://mullvad.net/"
@@ -561,6 +561,9 @@ src_prepare() {
 		rm -v "${WORKDIR}"/firefox-patches/*bgo-748849-RUST_TARGET_override.patch || die
 		rm -v "${WORKDIR}"/firefox-patches/*bgo-967694-musl-prctrl-exception-on-musl.patch || die
 	fi
+
+	# This patch is not needed as it is already implemented in mullvad
+	rm -v "${WORKDIR}"/firefox-patches/*handle-oe-linux-rust-targets-added-in-rustc-1.98.patch || die
 
 	eapply "${WORKDIR}/firefox-patches"
 
