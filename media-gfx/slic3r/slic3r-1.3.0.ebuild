@@ -83,20 +83,22 @@ PATCHES=(
 
 src_prepare() {
 	default
-	local vendored=( admesh expat exprtk )
+	local vendored=( admesh expat exprtk miniz )
 	for v in "${vendored[@]}"; do
 		rm -rf src/"${v}" || die "Failed to remove vendored ${v}."
 	done
 
 	if [[ "${PV}" != *9999* ]]; then
+		sed -i "/^src\/admesh/d" MANIFEST || die
+		find src/libslic3r/Zip -type f \( -name ZipArchive.hpp -o -name ZipArchive.cpp \) \
+			-exec sed -i "s|\"../../miniz/miniz.h\"|<miniz/miniz.h>|" "{}" \; || die
+
 		cd .. || die
 		eapply "${FILESDIR}/cmake-with-system-libs.patch"
-		sed -i "/^src\/admesh/d" xs/MANIFEST || die
 	else
 		sed -i "/^set(EXPAT_INCLUDES$/,/^)$/c\find_package(expat REQUIRED)\n" \
 			../src/CMakeLists.txt || die
 
-		rm -rf src/miniz || die "Failed to remove vendored miniz"
 		sed -i "s|\"miniz/miniz.h\"|<miniz/miniz.h>|" src/Zip/ZipArchive.hpp || die
 		sed -i "/^add_library(miniz STATIC$/,/^)$/c\find_package(miniz REQUIRED)\n" \
 			../src/CMakeLists.txt || die

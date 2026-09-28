@@ -30,7 +30,7 @@ Subject: [PATCH] use system's libexpat instead of vendored expat code
 ---
 --- a/Build.PL
 +++ b/Build.PL
-@@ -151,6 +151,15 @@ if (! $mswin) {
+@@ -151,6 +151,20 @@ if (! $mswin) {
          );
  }
 
@@ -41,6 +41,11 @@ Subject: [PATCH] use system's libexpat instead of vendored expat code
 +Could not find expat. Plase install.
 +EOF
 +    push @LIBS, "-lexpat";
++
++    die <<'EOF' unless check_lib(lib => "miniz");
++Could not find libexpat. Plase install.
++EOF
++    push @LIBS, "-lminiz";
 +}
 +
  if (!$ENV{SLIC3R_STATIC} && $have_boost) {
