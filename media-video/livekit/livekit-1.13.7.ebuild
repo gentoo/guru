@@ -17,8 +17,14 @@ KEYWORDS="~amd64"
 
 BDEPEND=">=dev-lang/go-1.26.0"
 
+IUSE="test-server"
+
 src_compile() {
 	ego build -o bin/livekit-server ./cmd/server
+
+	if use test-server; then
+		ego build -o bin/livekit-test-server ./cmd/test-server
+	fi
 }
 
 src_install() {

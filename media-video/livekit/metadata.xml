@@ -8,4 +8,7 @@
 	<upstream>
 		<remote-id type="github">livekit/livekit</remote-id>
 	</upstream>
+	<use>
+		<flag name="test-server">Build and install the LiveKit mock server.</flag>
+	</use>
 </pkgmetadata>
