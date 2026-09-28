@@ -67,10 +67,6 @@ src_install() {
 	# install dms binary
 	newbin "${S}"/bin/dms-linux-"${ARCH}" dms
 
-	# install qml sources at /usr/share/quickshell/dms
-	insinto /usr/share/quickshell/dms
-	doins -r "${QML_DIR}/."
-
 	# install shell completions
 	newbashcomp "${S}"/dms-bashcomp dms
 	newzshcomp "${S}"/dms-zshcomp _dms
