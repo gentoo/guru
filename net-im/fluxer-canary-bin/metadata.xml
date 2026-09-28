@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>me@cylenia.dev</email>
+		<name>Cylenia</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/fluxerapp/fluxer/issues</bugs-to>
+		<doc>https://docs.fluxer.app/</doc>
+		<remote-id type="github">fluxerapp/fluxer</remote-id>
+	</upstream>
+</pkgmetadata>

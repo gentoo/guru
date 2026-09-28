@@ -1,0 +1,22 @@
+[Desktop Entry]
+Type=Application
+Name=Fluxer Canary
+Comment=Open source voice and text chat client
+Exec="/opt/fluxer-canary-bin/fluxer-canary" %U
+TryExec=/opt/fluxer-canary-bin/fluxer-canary
+Icon=fluxer-canary-bin
+Terminal=false
+Categories=Network;InstantMessaging;Chat;
+MimeType=x-scheme-handler/fluxer;
+StartupWMClass=fluxer-canary
+SingleMainWindow=true
+StartupNotify=true
+Actions=open-settings;new-dm;
+
+[Desktop Action open-settings]
+Name=Open settings
+Exec="/opt/fluxer-canary-bin/fluxer-canary" --fluxer-task=open-settings %U
+
+[Desktop Action new-dm]
+Name=New direct message
+Exec="/opt/fluxer-canary-bin/fluxer-canary" --fluxer-task=new-dm %U
