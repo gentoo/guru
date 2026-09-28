@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David Roman <stkw0@disroot.org> (2026-09-28)
+# Unmaintained, multiple bugs open (#921886, #921887, #921888)
+# Removal after 2026-10-28
+dev-util/insomnia-bin
+
 # dsaf <ghostyn678+git@gmail.com> (2026-09-26)
 # No longer FOSS. Won't be maintaining it anymore.
 # Removal after 2026-10-26
