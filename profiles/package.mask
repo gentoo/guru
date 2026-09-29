@@ -37,6 +37,7 @@ gui-apps/noctalia-qs
 
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
+# Removal after 2026-10-29
 media-sound/noson-app
 net-p2p/dogecoin-qt
 
