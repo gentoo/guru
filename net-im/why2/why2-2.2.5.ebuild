@@ -602,7 +602,7 @@ CRATES="
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.11
 	winapi-x86_64-pc-windows-gnu@0.4.0
-	wincode@0.6.1
+	wincode@0.6.2
 	wincode-derive@0.5.1
 	windows@0.58.0
 	windows@0.62.2
