@@ -25,6 +25,9 @@ SLOT=0
 
 BDEPEND="
 	>=dev-python/setuptools-69[${PYTHON_USEDEP}]
+	test? (
+		dev-python/coverage[${PYTHON_USEDEP}]
+	)
 "
 RDEPEND="
 	>=dev-python/flask-3.0.1[${PYTHON_USEDEP}]
@@ -32,4 +35,5 @@ RDEPEND="
 	>=dev-python/platformdirs-4.5.0[${PYTHON_USEDEP}]
 "
 
-distutils_enable_tests unittest
+EPYTEST_PLUGINS=()
+distutils_enable_tests pytest
