@@ -17,8 +17,6 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="test verify-provenance"
-
 RDEPEND="
 	>=media-plugins/gst-plugins-rs-1.26.11[spotify]
 	media-sound/librespot[gstreamer]
@@ -28,7 +26,7 @@ DEPEND="${RDEPEND}"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-EPYTEST_PLUGINS=( pytest pytest-cov responses )
+EPYTEST_PLUGINS=( pytest pytest-cov responses cyclopts )
 
 distutils_enable_tests pytest
 
