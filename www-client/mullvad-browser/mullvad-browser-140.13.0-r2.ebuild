@@ -3,13 +3,18 @@
 
 EAPI=8
 
-FIREFOX_PATCHSET="firefox-153esr-patches-03.tar.xz"
+FIREFOX_PATCHSET="firefox-140esr-patches-13.tar.xz"
+FIREFOX_LOONG_PATCHSET="firefox-139-loong-patches-02.tar.xz"
 
-LLVM_COMPAT=( 22 )
+LLVM_COMPAT=( 20 21 )
 
 # This will also filter rust versions that don't match LLVM_COMPAT in the non-clang path; this is fine.
 RUST_NEEDS_LLVM=1
-RUST_MIN_VER=1.90.0
+
+# Minimum version required to build.
+# Max version supported by LLVM_COMPAT.
+RUST_MIN_VER=1.82.0
+RUST_MAX_VER=1.94.1
 
 PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE="ncurses,sqlite,ssl"
@@ -17,7 +22,7 @@ PYTHON_REQ_USE="ncurses,sqlite,ssl"
 VIRTUALX_REQUIRED="manual"
 
 # Mullvad version & extensions
-MULLVAD_P="${P%.*}.0esr"
+MULLVAD_P="${P}esr"
 MULLVAD_PV="${PV}"
 MULLVAD_EXT_PV="0.9.10"
 MULLVAD_EXT_XPI="${PN}-extension-${MULLVAD_EXT_PV}.xpi"
@@ -30,7 +35,7 @@ WASI_SDK_VER=32.0
 WASI_SDK_LLVM_VER=22
 
 MOZ_PN="firefox"
-ESR_PV="16.0-1-build2"
+ESR_PV="15.0-1-build2"
 
 DESCRIPTION="The Mullvad Browser is developed to minimize tracking and fingerprinting"
 HOMEPAGE="https://github.com/mullvad/mullvad-browser/ https://mullvad.net/"
@@ -556,16 +561,18 @@ src_prepare() {
 		rm -v "${WORKDIR}"/firefox-patches/*-LTO-Only-enable-LTO-*.patch || die
 	fi
 
-	# Workaround for bgo#915651 and bmo#1988166 on musl
+	# Workaround for bgo#915651 on musl
 	if use elibc_glibc ; then
 		rm -v "${WORKDIR}"/firefox-patches/*bgo-748849-RUST_TARGET_override.patch || die
-		rm -v "${WORKDIR}"/firefox-patches/*bgo-967694-musl-prctrl-exception-on-musl.patch || die
 	fi
 
-	# This patch is not needed as it is already implemented in mullvad
-	rm -v "${WORKDIR}"/firefox-patches/*handle-oe-linux-rust-targets-added-in-rustc-1.98.patch || die
-
 	eapply "${WORKDIR}/firefox-patches"
+	use loong && eapply "${WORKDIR}/firefox-loong-patches"
+
+	# ICU's subslot change should trigger rebuild on Firefox if it is updated 77->78.
+	if use system-icu && has_version ">=dev-libs/icu-78.1" ; then
+		eapply "${FILESDIR}/firefox-146.0.1-icu78.patch" # bgo#967261
+	fi
 
 	# Fix spacing error in `${S}/toolkit/content/jac.mn`
 	# mozbuild.preprocessor.Preprocessor.Error: 'AMBIGUOUS_COMMENT', '#  ifndef MOZ_GLEAN_A...
@@ -918,7 +925,8 @@ src_configure() {
 	# wasm-sandbox
 	# Since graphite2 is one of the sandboxed libraries, system-graphite2 obviously can't work with +wasm-sandbox.
 	if use wasm-sandbox ; then
-		mozconfig_add_options_ac '+wasm-sandbox' --with-wasi-sysroot="${WORKDIR}/wasi-sdk-${WASI_SDK_VER}-${wasi_arch}-linux/share/wasi-sysroot/"
+		mozconfig_add_options_ac '+wasm-sandbox' \
+		--with-wasi-sysroot="${WORKDIR}/wasi-sdk-${WASI_SDK_VER}-${wasi_arch}-linux/share/wasi-sysroot/"
 	else
 		mozconfig_add_options_ac 'no wasm-sandbox' --without-wasm-sandboxed-libraries
 		mozconfig_use_with system-harfbuzz system-graphite2
@@ -1273,8 +1281,8 @@ src_install() {
 
 	# Prefer the upstream svg file they use when packaging flatpak so it's always up-to-date.
 	insinto /usr/share/icons/hicolor/symbolic/apps
-	newins "${S}"/browser/installer/linux/app/flatpak/files/share/icons/hicolor/symbolic/apps/org.mozilla.firefox-symbolic.svg firefox-symbolic.svg
-	dosym -r /usr/share/icons/hicolor/symbolic/apps/firefox-symbolic.svg /usr/share/icons/hicolor/symbolic/apps/org.mozilla.firefox-symbolic.svg
+	newins "${S}"/browser/installer/linux/app/flatpak/files/share/icons/hicolor/symbolic/apps/org.mozilla.firefox-symbolic.svg mullvad-browser-symbolic.svg
+	dosym -r /usr/share/icons/hicolor/symbolic/apps/mullvad-browser-symbolic.svg /usr/share/icons/hicolor/symbolic/apps/org.mullvad.browser-symbolic.svg
 
 	local icon size
 	for icon in "${icon_srcdir}"/default*.png ; do
@@ -1320,24 +1328,28 @@ src_install() {
 
 	if use gnome-shell ; then
 		# Install search provider for Gnome
+		mv browser/components/shell/search-provider-files/org.mozilla.firefox.search-provider.ini \
+			browser/components/shell/search-provider-files/org.mullvad.browser.search-provider.ini
 		insinto /usr/share/gnome-shell/search-providers/
-		doins browser/components/shell/search-provider-files/org.mozilla.firefox.search-provider.ini
+		doins browser/components/shell/search-provider-files/org.mullvad.browser.search-provider.ini
 
+		mv browser/components/shell/search-provider-files/org.mozilla.firefox.SearchProvider.service \
+			browser/components/shell/search-provider-files/org.mullvad.browser.SearchProvider.service
 		insinto /usr/share/dbus-1/services/
-		doins browser/components/shell/search-provider-files/org.mozilla.firefox.SearchProvider.service
+		doins browser/components/shell/search-provider-files/org.mullvad.browser.SearchProvider.service
 
 		# Toggle between rapid and esr desktop file names
 		if [[ -n ${MOZ_ESR} ]] ; then
 			sed -e "s/firefox.desktop/${desktop_filename}/g" \
-				-i "${ED}/usr/share/gnome-shell/search-providers/org.mozilla.firefox.search-provider.ini" ||
-					die "Failed to sed org.mozilla.firefox.search-provider.ini file."
+				-i "${ED}/usr/share/gnome-shell/search-providers/org.mullvad.browser.search-provider.ini" ||
+					die "Failed to sed org.mullvad.browser.search-provider.ini file."
 		fi
 
 		# Make the dbus service aware of a previous session, bgo#939196
 		sed -e \
 			"s/Exec=\/usr\/bin\/firefox/Exec=\/usr\/$(get_libdir)\/firefox\/firefox --dbus-service \/usr\/bin\/firefox/g" \
-			-i "${ED}/usr/share/dbus-1/services/org.mozilla.firefox.SearchProvider.service" ||
-				die "Failed to sed org.mozilla.firefox.SearchProvider.service dbus file"
+			-i "${ED}/usr/share/dbus-1/services/org.mullvad.browser.SearchProvider.service" ||
+				die "Failed to sed org.mullvad.browser.SearchProvider.service dbus file"
 
 		# Update prefs to enable Gnome search provider
 		cat >>"${GENTOO_PREFS}" <<-EOF || die "failed to enable gnome-search-provider via prefs"
