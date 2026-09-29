@@ -3,9 +3,16 @@
 
 EAPI=8
 
-inherit git-r3 meson
+inherit meson
 
-EGIT_REPO_URI="https://repo.dec05eba.com/gpu-screen-recorder"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://repo.dec05eba.com/gpu-screen-recorder"
+else
+	SRC_URI="https://dec05eba.com/snapshot/${PN}.git.${PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}"
+	KEYWORDS="~amd64 ~arm64"
+fi
 
 DESCRIPTION="A screen recorder that has minimal impact on system performance"
 HOMEPAGE="https://git.dec05eba.com/gpu-screen-recorder/about"
@@ -24,6 +31,8 @@ DEPEND="
 	media-libs/libpulse
 	media-libs/libva
 	x11-libs/libdrm
+	x11-libs/libX11
+	sys-apps/dbus
 	sys-libs/libcap
 	dev-libs/wayland
 "

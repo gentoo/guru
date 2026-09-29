@@ -31,6 +31,8 @@ DEPEND="
 	media-libs/libpulse
 	media-libs/libva
 	x11-libs/libdrm
+	x11-libs/libX11
+	sys-apps/dbus
 	sys-libs/libcap
 	dev-libs/wayland
 "
