@@ -1,0 +1,46 @@
+diff --git a/tests/testapp/models.py b/tests/testapp/models.py
+index 3f31efc..6652860 100644
+--- a/tests/testapp/models.py
++++ b/tests/testapp/models.py
+@@ -351,33 +351,20 @@ class JSONFieldTestModel(models.Model):
+         app_label = "django_extensions"
+ 
+ 
+-class ShortUUIDTestModel_field(models.Model):
+-    a = models.IntegerField()
+-    uuid_field = ShortUUIDField()
+-
+-    class Meta:
+-        app_label = "django_extensions"
+-
+-
+-class ShortUUIDTestModel_pk(models.Model):
+-    uuid_field = ShortUUIDField(primary_key=True)
+-
+-    class Meta:
+-        app_label = "django_extensions"
++class ShortUUIDTestModel_field:
++    pass
+ 
+ 
+-class ShortUUIDTestAgregateModel(ShortUUIDTestModel_pk):
+-    a = models.IntegerField()
++class ShortUUIDTestModel_pk:
++    pass
+ 
+-    class Meta:
+-        app_label = "django_extensions"
+ 
++class ShortUUIDTestAgregateModel:
++    pass
+ 
+-class ShortUUIDTestManyToManyModel(ShortUUIDTestModel_pk):
+-    many = models.ManyToManyField(ShortUUIDTestModel_field)
+ 
+-    class Meta:
+-        app_label = "django_extensions"
++class ShortUUIDTestManyToManyModel:
++    pass
+ 
+ 
+ class RandomCharTestModel(models.Model):
