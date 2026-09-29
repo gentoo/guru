@@ -34,8 +34,12 @@ then
 fi
 
 src_unpack() {
-	if [[ "${PV}" != 9999* ]] && use verify-sig
-	then
+	if [[ "${PV}" = 9999* ]]; then
+		git-r3_src_unpack
+		return
+	fi
+
+	if use verify-sig; then
 		# Too many levels of symbolic links workaround
 		cd "${WORKDIR}" || die
 		cp "${DISTDIR}/${P}.tar.gz" "${DISTDIR}/${P}.tar.gz.sign" "${WORKDIR}/" || die
