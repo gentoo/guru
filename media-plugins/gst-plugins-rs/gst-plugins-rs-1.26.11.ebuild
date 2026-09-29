@@ -823,8 +823,9 @@ declare -A GIT_CRATES=(
 )
 
 RUST_MIN_VER="1.97.1"
+PYTHON_COMPAT=( python3_{12..14} )
 
-inherit cargo meson
+inherit cargo meson python-any-r1
 
 SKIA_VER="0.91.0"
 SKIA_BIN="skia-binaries-fab0a5adad3361364d3e-x86_64-unknown-linux-gnu-pdf"
@@ -872,6 +873,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
+	${PYTHON_DEPS}
 	dev-build/gn
 	dev-lang/nasm
 	dev-util/cargo-c
@@ -923,6 +925,11 @@ QA_FLAGS_IGNORED="
 	/usr/lib64/gstreamer-1.0/libgstcdg.so
 	/usr/lib64/gstreamer-1.0/libgstrsanalytics.so
 "
+
+src_prepare() {
+	default
+	python_fix_shebang .
+}
 
 src_configure() {
 	export SKIA_BINARIES_URL="file://${DISTDIR}/${SKIA_BIN}.tar.gz"
