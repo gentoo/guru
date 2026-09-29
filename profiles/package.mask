@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David Roman <stkw0@disroot.org> (2026-09-29)
+# Unmaintained since 2024, multiple bugs open (#928323, #928322, #928321)
+# Removal after 2026-10-29
+media-gfx/gephi-bin
+
 # David Roman <stkw0@disroot.org> (2026-09-28)
 # Unmaintained, multiple bugs open (#921886, #921887, #921888)
 # Removal after 2026-10-28
