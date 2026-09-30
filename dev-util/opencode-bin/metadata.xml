@@ -9,6 +9,10 @@
     <email>gentoo-bugzilla@vimja.email</email>
     <name>Niklaus 'vimja' Hofer</name>
   </maintainer>
+  <maintainer type="person">
+    <email>ghostyn678+git@gmail.com</email>
+    <name>dsaf</name>
+  </maintainer>
   <upstream>
     <bugs-to>https://github.com/anomalyco/opencode/issues</bugs-to>
     <remote-id type="github">anomalyco/opencode</remote-id>
