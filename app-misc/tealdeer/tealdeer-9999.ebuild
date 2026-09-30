@@ -7,7 +7,7 @@ CRATES=" "
 
 inherit cargo flag-o-matic shell-completion
 
-DESCRIPTION="A very fast implementation of tldr in Rust."
+DESCRIPTION="A very fast implementation of tldr in Rust"
 HOMEPAGE="https://github.com/tldr-pages/tldr
 	https://github.com/tealdeer-rs/tealdeer"
 
