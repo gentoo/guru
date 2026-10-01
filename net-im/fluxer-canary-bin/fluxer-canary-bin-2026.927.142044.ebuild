@@ -30,6 +30,9 @@ RDEPEND="
 	dev-libs/nspr
 	dev-libs/nss
 	x11-libs/pango
+	net-print/cups
+	dev-libs/openssl
+	media-video/pipewire
 "
 
 DEPEND="${RDEPEND}"
@@ -42,7 +45,7 @@ KEYWORDS="~amd64"
 
 RESTRICT="strip"
 DESTDIR="/opt/fluxer-canary-bin"
-QA_PREBUILT="/opt/fluxer-canary-bin"
+QA_PREBUILT="*"
 
 src_install() {
 	for size in 16 24 32 48 64 128 256 512; do
