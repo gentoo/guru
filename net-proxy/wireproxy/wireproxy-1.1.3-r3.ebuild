@@ -27,4 +27,10 @@ src_compile() {
 src_install() {
 	einstalldocs
 	dobin wireproxy
+	newinitd "${FILESDIR}/wireproxy.initd" wireproxy
+
+	# Avoid world-readability of config file that can contain credentials
+	insinto /etc
+	insopts -m0640
+	newins - wireproxy.conf <<< ""
 }

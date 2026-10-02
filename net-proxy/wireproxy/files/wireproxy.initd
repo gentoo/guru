@@ -1,0 +1,26 @@
+#!/sbin/openrc-run
+supervisor=supervise-daemon
+command=/usr/bin/wireproxy
+command_args="-c /etc/wireproxy.conf"
+pidfile="/run/${RC_SVCNAME}.pid"
+extra_commands="checkconfig"
+
+depend() {
+    need net
+}
+
+checkconfig() {
+    "${command}" ${command_args} -n || { eend $? "Invalid configuration"; return $?; }
+}
+
+start_pre() {
+    if [ "${RC_CMD}" != "restart" ] ; then
+        checkconfig > /dev/null || return $?
+    fi
+}
+
+stop_pre() {
+    if [ "${RC_CMD}" = "restart" ] ; then
+        checkconfig > /dev/null || return $?
+    fi
+}
