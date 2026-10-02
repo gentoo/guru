@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="A virtual package providing a base Swift to bootstrap future versions with."
+DESCRIPTION="A virtual package providing a base Swift to bootstrap future versions with"
 HOMEPAGE="https://www.swift.org"
 
 S="${WORKDIR}"
