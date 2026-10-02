@@ -1,11 +1,11 @@
-# Copyright 2019-2025 Gentoo Authors
+# Copyright 2019-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit unpacker xdg
 
-DESCRIPTION="a markdown editor,markdown reader."
+DESCRIPTION="A Markdown editor and reader"
 HOMEPAGE="https://typora.io"
 SRC_URI="
 	amd64? ( https://typora.io/linux/typora_${PV}_amd64.deb )
