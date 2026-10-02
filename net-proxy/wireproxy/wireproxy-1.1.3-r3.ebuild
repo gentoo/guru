@@ -21,7 +21,7 @@ DOCS=(
 )
 
 src_compile() {
-	ego build ./cmd/wireproxy
+	ego build -ldflags "-X 'main.version=${PV}'" ./cmd/wireproxy
 }
 
 src_install() {
