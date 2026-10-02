@@ -1,11 +1,11 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit autotools
 
-DESCRIPTION="Fast block device sync with digest, designed to improve block-based backups."
+DESCRIPTION="Fast block device sync with digest, designed to improve block-based backups"
 HOMEPAGE="https://github.com/nethappen/blocksync-fast/"
 SRC_URI="https://github.com/nethappen/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
