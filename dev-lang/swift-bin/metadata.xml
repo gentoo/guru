@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>itai@itaiferber.net</email>
-    <name>Itai Ferber</name>
-  </maintainer>
+  <!-- maintainer needed -->
   <upstream>
     <remote-id type="github">swiftlang/swift</remote-id>
   </upstream>
