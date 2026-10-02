@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop xdg
 
-DESCRIPTION="A dedicated music player for your Plex media library."
+DESCRIPTION="A dedicated music player for your Plex media library"
 HOMEPAGE="https://www.plex.tv/plexamp/"
 SRC_URI="https://plexamp.plex.tv/plexamp.plex.tv/desktop/Plexamp-${PV}.AppImage -> ${P}.AppImage"
 
