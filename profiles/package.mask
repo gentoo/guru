@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Paul Zander <negril.nx+gentoo@gmail.com> (2026-10-03)
+# Unmaintained
+# Doesn't build with dev-libs/libcsv::gentoo (requires pkgconfig)
+# Doesn't fetch because it was renamed upstream #975791
+# Removal after 2026-11-03
+dev-db/psequel
+
 # David Roman <stkw0@disroot.org> (2026-09-29)
 # Unmaintained since 2024, multiple bugs open (#935329, #935330, #935331)
 # Removal after 2026-10-29
