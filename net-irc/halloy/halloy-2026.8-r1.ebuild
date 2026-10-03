@@ -1058,7 +1058,7 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	x11-libs/libxcb
+	x11-libs/libxcb:=
 	x11-libs/libxkbcommon[wayland?,X?]
 "
 
