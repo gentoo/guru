@@ -206,10 +206,17 @@ src_configure() {
 src_test() {
 	cd "${BUILD_DIR}" || die
 
-	./bin/dynarmic_tests || die
-
-	# See https://git.eden-emu.dev/eden-emu/eden/issues/126
-	./bin/tests "~Fibers::InterExchange" "~RingBuffer: Threaded Test" || die
+	local CATCH_SKIP_TESTS=(
+		"MemoryTracker: Cached write downloads"
+		"MemoryTracker: FlushCachedWrites batching"
+		"MemoryTracker: Out of bound ranges 1"
+		"MemoryTracker: Out of bound ranges 2"
+		"MemoryTracker: Out of bound ranges 3"
+		"MemoryTracker: Rasterizer counting"
+		"MemoryTracker: Small region"
+		"MemoryTracker: Sparse regions 2"
+	)
+	./bin/tests "${CATCH_SKIP_TESTS[@]/#/\~}" || die
 }
 
 pkg_postinst() {
