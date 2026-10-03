@@ -21,9 +21,11 @@ else
 fi
 
 _TZDB_VER=121125
+_ZBIC_VER=11b08f2712264bbed731545085cbd9702096ceb7
 SRC_URI+="
 	https://git.eden-emu.dev/eden-emu/tzdb_to_nx/releases/download/${_TZDB_VER}/${_TZDB_VER}.tar.gz ->
 		nx-tzdb-${_TZDB_VER}.tar.gz
+	https://github.com/kinnay/zbic/archive/${_ZBIC_VER}.tar.gz -> zbic-${_ZBIC_VER}.tar.gz
 "
 
 S="${WORKDIR}/${PN}"
@@ -128,7 +130,7 @@ src_unpack() {
 	git-r3_src_unpack
 
 	# unpack src files
-	unpack "${A}"
+	unpack ${A}
 }
 
 src_prepare() {
@@ -168,6 +170,9 @@ src_configure() {
 		-DTITLE_BAR_FORMAT_IDLE="Eden | ${eden_ver} | ${eden_comp_id}"
 		-DYUZU_TZDB_PATH="${WORKDIR}/nx-tzdb-${_TZDB_VER}"
 		-DUSE_FASTER_LINKER=no
+
+		-Dzbic_FORCE_BUNDLED=yes
+		-Dzbic_CUSTOM_DIR="${WORKDIR}/zbic-${_ZBIC_VER}"
 
 		-DENABLE_LTO=$(usex lto)
 
