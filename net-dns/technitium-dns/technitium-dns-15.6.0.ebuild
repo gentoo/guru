@@ -100,7 +100,7 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	if [[ -z "${REPLACING_VERSIONS}" && -d "${ROOT}/etc/dns" ]]; then
+	if [[ -z "${REPLACED_BY_VERSION}" && -d "${ROOT}/etc/dns" ]]; then
 		elog "Technitium DNS config files may still be present in \"${ROOT}/etc/dns\""
 	fi
 }
