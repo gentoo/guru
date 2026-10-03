@@ -21,10 +21,12 @@ else
 fi
 
 _TZDB_VER=121125
+_RESHADE_VER=v6.8.0
 _ZBIC_VER=11b08f2712264bbed731545085cbd9702096ceb7
 SRC_URI+="
 	https://git.eden-emu.dev/eden-emu/tzdb_to_nx/releases/download/${_TZDB_VER}/${_TZDB_VER}.tar.gz ->
 		nx-tzdb-${_TZDB_VER}.tar.gz
+	https://github.com/crosire/reshade/archive/${_RESHADE_VER}.tar.gz -> reshade-${_RESHADE_VER/v/}.tar.gz
 	https://github.com/kinnay/zbic/archive/${_ZBIC_VER}.tar.gz -> zbic-${_ZBIC_VER}.tar.gz
 "
 
@@ -171,6 +173,8 @@ src_configure() {
 		-DYUZU_TZDB_PATH="${WORKDIR}/nx-tzdb-${_TZDB_VER}"
 		-DUSE_FASTER_LINKER=no
 
+		-Dreshade_FORCE_BUNDLED=yes
+		-Dreshade_CUSTOM_DIR="${WORKDIR}/reshade-${_RESHADE_VER/v/}"
 		-Dzbic_FORCE_BUNDLED=yes
 		-Dzbic_CUSTOM_DIR="${WORKDIR}/zbic-${_ZBIC_VER}"
 
