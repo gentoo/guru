@@ -5,13 +5,13 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.89.0"
+RUST_MIN_VER="1.95.0"
 
 CRATES=" "
 
 inherit cargo
 
-DESCRIPTION="The language checker for developers."
+DESCRIPTION="The language checker for developers"
 HOMEPAGE="https://writewithharper.com"
 SRC_URI="
 	https://github.com/TimovVeen/harper/releases/download/v${PV}/harper-${PV}-crates.tar.xz
@@ -29,7 +29,10 @@ LICENSE+=" Apache-2.0 MIT MPL-2.0 Unicode-3.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 
+src_configure() {
+	cargo_src_configure --bin harper-ls --bin harper-cli
+}
+
 src_install() {
-	cargo_src_install --path ./harper-ls
-	cargo_src_install --path ./harper-cli
+	dobin "$(cargo_target_dir)"/{harper-ls,harper-cli}
 }
