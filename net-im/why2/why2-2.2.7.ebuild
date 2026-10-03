@@ -35,7 +35,7 @@ CRATES="
 	async-io@2.6.0
 	async-lock@3.4.2
 	async-process@2.5.0
-	async-recursion@1.1.1
+	async-recursion@1.2.0
 	async-signal@0.2.14
 	async-task@4.7.1
 	async-trait@0.1.92
@@ -74,10 +74,10 @@ CRATES="
 	calloop-wayland-source@0.3.0
 	cast@0.3.0
 	castaway@0.2.4
-	cc@1.5.1
+	cc@1.6.0
 	cexpr@0.6.0
 	cfg_aliases@0.2.2
-	cfg-expr@0.20.9
+	cfg-expr@0.20.10
 	cfg-if@1.0.5
 	chacha20@0.10.2
 	chrono@0.4.45
@@ -254,9 +254,9 @@ CRATES="
 	khronos_api@3.1.0
 	khronos-egl@6.0.0
 	lab@0.11.0
-	lazy_static@1.5.0
+	lazy_static@1.5.1
 	lewton@0.10.2
-	libc@0.2.189
+	libc@0.2.190
 	libloading@0.8.9
 	libm@0.2.16
 	libredox@0.1.25
@@ -273,7 +273,7 @@ CRATES="
 	lock_api@0.4.14
 	log@0.4.34
 	lru@0.18.5
-	mac_address@1.1.8
+	mac_address@1.2.0
 	mach2@0.6.0
 	memchr@2.8.3
 	memmap2@0.9.11
@@ -282,7 +282,7 @@ CRATES="
 	minimal-lexical@0.2.1
 	miniz_oxide@0.8.9
 	miniz_oxide@0.9.1
-	mio@1.2.3
+	mio@1.2.4
 	ml-kem@0.3.2
 	module-lattice@0.2.3
 	moxcms@0.8.1
@@ -293,6 +293,7 @@ CRATES="
 	ndk-context@0.1.1
 	ndk-sys@0.6.0+11769913
 	nix@0.29.0
+	nix@0.30.1
 	nnnoiseless@0.5.2
 	nom@7.1.3
 	nom@8.0.0
@@ -527,7 +528,7 @@ CRATES="
 	tinystr@0.8.4
 	tinytemplate@1.2.1
 	tinyvec@1.13.3
-	tokio@1.53.1
+	tokio@1.53.2
 	tokio-macros@2.7.2
 	tokio-socks@0.5.3
 	tokio-stream@0.1.19
@@ -555,7 +556,7 @@ CRATES="
 	utf8_iter@1.0.4
 	utf8parse@0.2.2
 	utf8-zero@0.8.1
-	uuid@1.26.1
+	uuid@1.27.0
 	version_check@0.9.5
 	version-compare@0.2.1
 	vsimd@0.8.0
@@ -650,7 +651,7 @@ CRATES="
 	xkeysym@0.2.1
 	xml-rs@0.8.29
 	yoke@0.8.3
-	yoke-derive@0.8.3
+	yoke-derive@0.8.4
 	zbus@5.19.0
 	zbus_macros@5.19.0
 	zbus_names@4.3.4
