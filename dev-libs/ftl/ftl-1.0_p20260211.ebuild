@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 FORTRAN_STANDARD="2003"
 inherit flag-o-matic fortran-2 toolchain-funcs
 
-COMMIT="e19574fb309076550d7d6179273f63c79e236207"
+COMMIT="f1f0c3845f7822cba61f07a285ceee37c4a1426b"
 DESCRIPTION="The Fortran Template Library (FTL) is a general purpose library for Fortran 2003"
 HOMEPAGE="https://github.com/SCM-NV/ftl"
 SRC_URI="https://github.com/SCM-NV/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
