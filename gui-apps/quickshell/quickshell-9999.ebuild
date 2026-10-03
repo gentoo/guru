@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit branding cmake xdg toolchain-funcs
+inherit branding cmake xdg
 
 DESCRIPTION="Toolkit for building desktop widgets using QtQuick"
 HOMEPAGE="https://quickshell.org/"
@@ -77,10 +77,6 @@ DOCS=( README.md changelog/ )
 PATCHES=( "${FILESDIR}/${PN}-0.3.0-strict-aliasing.patch" )
 
 src_configure() {
-	if tc-ld-is-mold; then
-		ewarn "Using mold as a linker for quickshell will cause runtime issues"
-		tc-ld-force-bfd
-	fi
 	# hyprland controls all Hyprland sub-features as a group.
 	# i3 controls I3/Sway IPC.
 	# screencopy controls all screencopy backends (icc, wlr, hyprland-toplevel).
