@@ -1,0 +1,36 @@
+From c49237b2319016bfbd0acdf50de607339005c378 Mon Sep 17 00:00:00 2001
+From: Andre Vehreschild <vehre@gmx.de>
+Date: Mon, 14 Apr 2025 10:54:16 +0200
+Subject: [PATCH] Remove wrong error.
+
+Issuing this error was a misinterpretation of the standard.
+---
+ src/runtime-libraries/mpi/mpi_caf.c | 8 --------
+ 1 file changed, 8 deletions(-)
+
+diff --git a/src/runtime-libraries/mpi/mpi_caf.c b/src/runtime-libraries/mpi/mpi_caf.c
+index 98d2a306..39dadf7d 100644
+--- a/src/runtime-libraries/mpi/mpi_caf.c
++++ b/src/runtime-libraries/mpi/mpi_caf.c
+@@ -10357,8 +10357,6 @@ void
+ PREFIX(form_team)(int team_id, caf_team_t *team, int *new_index, int *stat,
+                   char *errmsg, charlen_t errmsg_len)
+ {
+-  static const char *duplicate_team_id
+-      = "FORM TEAM: Team ids have to be unique";
+   static const char *negative_team_id
+       = "FORM TEAM: Team id shall be a positive unique integer";
+   static const char *negative_new_index
+@@ -10371,12 +10369,6 @@ PREFIX(form_team)(int team_id, caf_team_t *team, int *new_index, int *stat,
+   if (stat)
+     *stat = 0;
+ 
+-  for (caf_teams_list_t *cur = teams_list; cur; cur = cur->prev)
+-    if (cur->team_id == team_id)
+-    {
+-      caf_internal_error(duplicate_team_id, stat, errmsg, errmsg_len);
+-      return;
+-    }
+   if (team_id < 0)
+   {
+     caf_internal_error(negative_team_id, stat, errmsg, errmsg_len);

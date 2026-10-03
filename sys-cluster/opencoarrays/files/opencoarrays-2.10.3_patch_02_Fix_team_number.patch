@@ -1,0 +1,159 @@
+From 9a82ef47e7d0d19fdc493506cb7197b4901f2070 Mon Sep 17 00:00:00 2001
+From: Andre Vehreschild <vehre@gmx.de>
+Date: Mon, 28 Apr 2025 09:00:46 +0200
+Subject: [PATCH] Fix team_number test.
+
+---
+ CMakeLists.txt                                |  4 +-
+ src/tests/unit/teams/CMakeLists.txt           |  3 +-
+ .../{team_number.f90 => team_number.F90}      |  4 +-
+ src/tests/unit/teams/team_number_pre15.f90    | 71 -------------------
+ 4 files changed, 5 insertions(+), 77 deletions(-)
+ rename src/tests/unit/teams/{team_number.f90 => team_number.F90} (98%)
+ delete mode 100644 src/tests/unit/teams/team_number_pre15.f90
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 888613454..8f9ee35ae 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -806,6 +806,7 @@ if(opencoarrays_aware_compiler)
+     add_caf_test(comp_allocated_2 2 comp_allocated_2)
+     add_caf_test(alloc_comp_get_convert_nums 2 alloc_comp_get_convert_nums)
+     if(NOT CMAKE_Fortran_COMPILER_VERSION VERSION_LESS 8)
++      add_caf_test(team_number 8 team_number)
+       add_caf_test(teams_subset 3 teams_subset)
+       add_caf_test(get_communicator 3  get_communicator)
+       add_caf_test(teams_coarray_get 5 teams_coarray_get)
+@@ -818,11 +819,8 @@ if(opencoarrays_aware_compiler)
+       set_tests_properties(alloc_comp_multidim_shape PROPERTIES TIMEOUT 300)
+     endif()
+     if(NOT CMAKE_Fortran_COMPILER_VERSION VERSION_LESS 15)
+-        add_caf_test(team_number 8 team_number)
+         add_caf_test(teams_this_image 8 teams_this_image)
+         add_caf_test(teams_num_images 8 teams_num_images)
+-    else()
+-        add_caf_test(team_number_pre15 8 team_number_pre15)
+     endif()
+   endif()
+ 
+diff --git a/src/tests/unit/teams/CMakeLists.txt b/src/tests/unit/teams/CMakeLists.txt
+index e5d5eb9db..8307b0788 100644
+--- a/src/tests/unit/teams/CMakeLists.txt
++++ b/src/tests/unit/teams/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-caf_compile_executable(team_number_pre15 team_number_pre15.f90)
++caf_compile_executable(team_number team_number.F90)
+ caf_compile_executable(teams_subset teams_subset.f90)
+ caf_compile_executable(get_communicator get-communicator.F90)
+ caf_compile_executable(teams_coarray_get teams_coarray_get.f90)
+@@ -8,7 +8,6 @@ caf_compile_executable(teams_coarray_send_by_ref teams_coarray_send.f90)
+ caf_compile_executable(teams_coarray_sendget teams_coarray_sendget.f90)
+ caf_compile_executable(sync_team sync-team.f90)
+ if (gfortran_compiler AND (NOT CMAKE_Fortran_COMPILER_VERSION VERSION_LESS 16.0.0))
+-    caf_compile_executable(team_number team_number.f90)
+     caf_compile_executable(teams_this_image teams_this_image.f90)
+     caf_compile_executable(teams_num_images teams_num_images.f90)
+ endif()
+diff --git a/src/tests/unit/teams/team_number.f90 b/src/tests/unit/teams/team_number.F90
+similarity index 98%
+rename from src/tests/unit/teams/team_number.f90
+rename to src/tests/unit/teams/team_number.F90
+index e34b339d2..a50ebd676 100644
+--- a/src/tests/unit/teams/team_number.f90
++++ b/src/tests/unit/teams/team_number.F90
+@@ -29,7 +29,7 @@
+ ! OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ program main
+   !! summary: Test team_number intrinsic function
+-  use iso_fortran_env, only : team_type, current_team
++  use, intrinsic :: iso_fortran_env
+   use iso_c_binding, only : c_loc
+   use oc_assertions_interface, only : assert
+ 
+@@ -43,7 +43,9 @@ program main
+ 
+   call assert(team_number()==standard_initial_value,"initial team number conforms with Fortran standard before 'change team'")
+ 
++#ifdef GCC_GE_15
+   call assert(team_number(get_team(current_team))==standard_initial_value,"initial team number conforms with Fortran standard before 'change team'")
++#endif
+ 
+   after_change_team: block
+     associate(parent_team_number => 100 + (num_images()-1)/4, child_team_number => 1000 + mod(num_images()-1,4)/2)
+diff --git a/src/tests/unit/teams/team_number_pre15.f90 b/src/tests/unit/teams/team_number_pre15.f90
+deleted file mode 100644
+index 7cc1a8758..000000000
+--- a/src/tests/unit/teams/team_number_pre15.f90
++++ /dev/null
+@@ -1,71 +0,0 @@
+-! BSD 3-Clause License
+-!
+-! Copyright (c) 2018-2019, Sourcery Institute
+-! All rights reserved.
+-!
+-! Redistribution and use in source and binary forms, with or without
+-! modification, are permitted provided that the following conditions are met:
+-!
+-! * Redistributions of source code must retain the above copyright notice, this
+-!   list of conditions and the following disclaimer.
+-!
+-! * Redistributions in binary form must reproduce the above copyright notice,
+-!   this list of conditions and the following disclaimer in the documentation
+-!   and/or other materials provided with the distribution.
+-!
+-! * Neither the name of the copyright holder nor the names of its
+-!   contributors may be used to endorse or promote products derived from
+-!   this software without specific prior written permission.
+-!
+-! THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+-! AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+-! IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+-! DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+-! FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+-! DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+-! SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+-! CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+-! OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-! OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-program main
+-  !! summary: Test team_number intrinsic function
+-  use iso_fortran_env, only : team_type
+-  use iso_c_binding, only : c_loc
+-  use oc_assertions_interface, only : assert
+-
+-  implicit none
+-
+-  integer, parameter :: standard_initial_value=-1
+-
+-  type(team_type) :: parent, child
+-
+-  if (num_images() < 8) error stop "I need at least 8 images to function."
+-
+-  call assert(team_number()==standard_initial_value,"initial team number conforms with Fortran standard before 'change team'")
+-
+- !call assert(
+- !  team_number(c_loc(home))==standard_initial_value,"initial team number conforms with Fortran standard before 'change team'"
+- !)
+-   !! TODO: uncomment the above assertion after implementing support for team_number's optional argument:
+-
+-  after_change_team: block
+-    associate(parent_team_number => 100 + (num_images()-1)/4, child_team_number => 1000 + mod(num_images()-1,4)/2)
+-      !! Prepare for forming two teams: my_team = 1 for even image numbers in the initial team; 2 for odd image numbers
+-      form team(parent_team_number,parent)
+-      change team(parent)
+-        call assert(team_number()==parent_team_number,"team number conforms with Fortran standard after 'change team'")
+-        form team (child_team_number, child)
+-        change team(child)
+-          call assert(team_number()==child_team_number,"team number conforms with Fortran standard after 'change team'")
+-          call assert(team_number(child)==child_team_number,"team_number(child) conforms with Fortran standard after 'change team'")
+-          call assert(team_number(parent)==parent_team_number,"team_number(parent) conforms with Fortran standard")
+-        end team
+-      end team
+-      call assert(team_number()==standard_initial_value,"initial team number conforms with Fortran standard")
+-    end associate
+-  end block after_change_team
+-
+-  sync all
+-  if (this_image()==1) print *,"Test passed."
+-
+-end program

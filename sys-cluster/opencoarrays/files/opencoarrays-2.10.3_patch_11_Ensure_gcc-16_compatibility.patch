@@ -1,0 +1,71 @@
+From 8d19ac523d137d6738eb6091cd1695b4d798c044 Mon Sep 17 00:00:00 2001
+From: Andre Vehreschild <vehre@gmx.de>
+Date: Fri, 4 Jul 2025 13:53:18 +0200
+Subject: [PATCH] Ensure gcc-16 compatibility.
+
+Fix is_present for descriptor arrays in gcc-16.
+Remove compiling warning from test_case.
+---
+ src/runtime-libraries/mpi/mpi_caf.c             | 16 ++++++++--------
+ src/tests/unit/collectives/co_reduce_string.f90 |  5 ++---
+ 2 files changed, 10 insertions(+), 11 deletions(-)
+
+diff --git a/src/runtime-libraries/mpi/mpi_caf.c b/src/runtime-libraries/mpi/mpi_caf.c
+index 91784a529..f235ae792 100644
+--- a/src/runtime-libraries/mpi/mpi_caf.c
++++ b/src/runtime-libraries/mpi/mpi_caf.c
+@@ -6095,19 +6095,19 @@ PREFIX(is_present_on_remote)(caf_token_t token, const int image_index,
+ 
+   if (this_image == remote_image)
+   {
++    mpi_caf_token_t *mpi_token = (mpi_caf_token_t *)token;
+     int32_t result = 0;
+     mpi_caf_token_t src_token = {get_data, MPI_WIN_NULL, NULL};
+-    void *src_ptr = ((mpi_caf_token_t *)token)->memptr;
+-
+-    dprint("Shortcutting due to self access on image %d.\n", image_index);
+-    accessor_hash_table[is_present_index].u.is_present(add_data, &this_image,
+-                                                       &result,
+ #ifdef GCC_GE_16
+-                                                       &src_ptr,
++    void *src_ptr
++        = mpi_token->desc ? mpi_token->desc : (void *)&mpi_token->memptr;
+ #else
+-                                                       src_ptr,
++    void *src_ptr = mpi_token->memptr;
+ #endif
+-                                                       &src_token, 0);
++
++    dprint("Shortcutting due to self access on image %d.\n", image_index);
++    accessor_hash_table[is_present_index].u.is_present(
++        add_data, &this_image, &result, src_ptr, &src_token, 0);
+ 
+     return result;
+   }
+diff --git a/src/tests/unit/collectives/co_reduce_string.f90 b/src/tests/unit/collectives/co_reduce_string.f90
+index ad094f92a..7b7dad797 100644
+--- a/src/tests/unit/collectives/co_reduce_string.f90
++++ b/src/tests/unit/collectives/co_reduce_string.f90
+@@ -40,7 +40,7 @@ program co_reduce_strings
+   associate (me => this_image())
+     allocate(strarr(numstrings)[*])
+     do i = 1, numstrings
+-      write(strarr(i), "('foo'I02)") i * me
++      write(strarr(i), "('foo',I02)") i * me
+     end do
+     ! Collectively reduce the maximum string.
+     call co_reduce(strarr, strmax)
+@@ -50,7 +50,7 @@ program co_reduce_strings
+   ! implicitly synchronizes.
+   associate (np => num_images())
+     do i = 1, np
+-      write (expect, "('foo'I02)") i * np
++      write (expect, "('foo',I02)") i * np
+       if (strarr(i) /= expect) then
+         ! On errror print what we got and what we expected.
+         print *, "Got: ", strarr(i), ", expected: ", expect
+@@ -77,4 +77,3 @@ pure function strmax(lhs, rhs) result(maxstr) bind(C,name="strmax")
+   end function
+ 
+ end program co_reduce_strings
+-

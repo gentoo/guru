@@ -1,0 +1,32 @@
+From d1ab79d2459f10ca2b239bfeb03aa6e0e30c236b Mon Sep 17 00:00:00 2001
+From: Andre Vehreschild <vehre@gmx.de>
+Date: Wed, 16 Apr 2025 13:55:46 +0200
+Subject: [PATCH] Keep team_translate rework.
+
+---
+ src/runtime-libraries/mpi/mpi_caf.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/src/runtime-libraries/mpi/mpi_caf.c b/src/runtime-libraries/mpi/mpi_caf.c
+index 1d6075b5..500a4316 100644
+--- a/src/runtime-libraries/mpi/mpi_caf.c
++++ b/src/runtime-libraries/mpi/mpi_caf.c
+@@ -5752,7 +5752,18 @@ team_translate(int *remote_image, int *this_image, caf_token_t token,
+ 
+ #ifdef GCC_GE_16
+   if (team)
++  {
++    caf_team_stack_node_t *cur = current_team;
++    while (cur && cur->team_list_elem != *team)
++      cur = cur->parent;
++    if (!cur)
++    {
++      caf_internal_error("Team %d is not active", stat, NULL, 0,
++                         (*(caf_teams_list_t **)team)->team_id);
++      return false;
++    }
+     comm = (*(caf_teams_list_t **)team)->communicator;
++  }
+   else if (team_number)
+   {
+     bool found = false;
