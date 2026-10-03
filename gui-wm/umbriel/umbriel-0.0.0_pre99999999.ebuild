@@ -12,10 +12,10 @@ EGIT_REPO_URI="https://github.com/noctalia-dev/umbriel.git"
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="jemalloc X screencast"
+IUSE="jemalloc screencast"
 
 DEPEND="
-	gui-libs/wlroots:0.20[X?]
+	gui-libs/wlroots:0.20[X(+)]
 	>=dev-libs/libinput-1.26.0
 	>=dev-libs/wayland-1.24.0
 	dev-libs/glib:2
@@ -24,15 +24,17 @@ DEPEND="
 	dev-cpp/nlohmann_json
 	x11-libs/cairo
 	x11-libs/pango
+	x11-libs/libxcb
+	x11-libs/xcb-util-wm
 	>=x11-libs/libdrm-2.4.122
 	>=x11-libs/libxkbcommon-1.5.0
 	>=x11-libs/pixman-0.43.0
+	x11-base/xwayland
 	media-libs/libglvnd
 	media-libs/mesa[egl(+),gles2(+)]
 "
 RDEPEND="
 	${DEPEND}
-	X? ( gui-apps/xwayland-satellite )
 	screencast? ( sys-apps/xdg-desktop-portal-umbriel )
 "
 BDEPEND="
