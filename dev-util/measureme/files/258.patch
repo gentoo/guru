@@ -1,0 +1,24 @@
+From cb2797dd3c81ef5e90a9cd4eded150f561514a52 Mon Sep 17 00:00:00 2001
+From: Jakob Hellermann <jakob.hellermann@protonmail.com>
+Date: Thu, 30 Apr 2026 20:49:03 +0200
+Subject: [PATCH] Remove unnecessary unsafe block
+
+---
+ measureme/src/counters.rs | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/measureme/src/counters.rs b/measureme/src/counters.rs
+index 18d5e63..8aedeaa 100644
+--- a/measureme/src/counters.rs
++++ b/measureme/src/counters.rs
+@@ -689,8 +689,8 @@ mod hw {
+     impl CpuModel {
+         /// Detect the model of the current CPU using `cpuid`.
+         pub(super) fn detect() -> Result<Self, Box<dyn Error + Send + Sync>> {
+-            let cpuid0 = unsafe { std::arch::x86_64::__cpuid(0) };
+-            let cpuid1 = unsafe { std::arch::x86_64::__cpuid(1) };
++            let cpuid0 = std::arch::x86_64::__cpuid(0);
++            let cpuid1 = std::arch::x86_64::__cpuid(1);
+             let mut vendor = [0; 12];
+             vendor[0..4].copy_from_slice(&cpuid0.ebx.to_le_bytes());
+             vendor[4..8].copy_from_slice(&cpuid0.edx.to_le_bytes());
