@@ -18,7 +18,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/ggml-org/llama.cpp.git"
 	LLAMA_BUILD_IS_DEV=ON
 	LLAMA_BUILD_NUMBER="b0000"
-	LLAMA_UI_VERSION="b10964"
+	LLAMA_UI_VERSION="b11146"
 	MY_PV="${PV}"
 else
 	if [[ $(ver_cut 4) == "p" ]]; then
@@ -29,7 +29,7 @@ else
 	else
 		LLAMA_BUILD_IS_DEV=OFF
 		# Set from https://github.com/ggml-org/llama.cpp/releases/download/v${PV}/nightly-tag.txt
-		LLAMA_BUILD_NUMBER="b10964"
+		LLAMA_BUILD_NUMBER="b11146"
 		MY_PV="v${PV}"
 		S="${WORKDIR}/${MY_PN}-${PV}"
 	fi
