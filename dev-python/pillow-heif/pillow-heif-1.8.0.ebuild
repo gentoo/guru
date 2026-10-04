@@ -5,7 +5,8 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
+PYPI_VERIFY_REPO=https://github.com/bigcat88/pillow_heif
 inherit distutils-r1 pypi
 
 DESCRIPTION="Python interface for libheif library"
@@ -20,14 +21,14 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/pillow[${PYTHON_USEDEP}]
-	>=media-libs/libheif-1.19.0:=
+	>=media-libs/libheif-1.23.4:=
 "
 BDEPEND="
 	test? (
 		dev-python/defusedxml[${PYTHON_USEDEP}]
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/pillow[jpeg,lcms,webp,zlib,${PYTHON_USEDEP}]
-		>=media-libs/libheif-1.19.0:=[x265]
+		>=media-libs/libheif-1.23.4:=[x265]
 		media-libs/opencv[png,python,${PYTHON_USEDEP}]
 	)
 "
