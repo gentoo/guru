@@ -239,3 +239,10 @@ src_test() {
 	)
 	cmake_src_test
 }
+
+src_install() {
+	cmake_src_install
+
+	dodoc -r "${S}"/docs
+	dodoc "${S}"/tools/*/README.md
+}
