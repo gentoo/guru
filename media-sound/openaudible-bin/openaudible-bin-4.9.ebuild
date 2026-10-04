@@ -34,6 +34,7 @@ src_unpack() {
 
 src_prepare() {
 	rm --force --recursive jre || die
+	rm --force bin/linux_x86_64/upgrade
 
 	default
 }
@@ -48,6 +49,8 @@ src_install() {
 
 	exeinto /opt/${MY_PN}/bin/linux_x86_64/
 	doexe bin/linux_x86_64/ffmpeg
+	doexe bin/linux_x86_64/whisper-cli
+	doexe bin/linux_x86_64/whisper-cli-avx2
 
 	make_wrapper ${MY_PN} /opt/openaudible/OpenAudible /opt/${MY_PN}
 	newicon -s 512 share/icons/hicolor/512x512/apps/org.openaudible.OpenAudible.png ${MY_PN}.png
