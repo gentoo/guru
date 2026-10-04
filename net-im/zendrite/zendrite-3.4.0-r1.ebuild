@@ -97,11 +97,6 @@ src_install() {
 	insinto /etc/zendrite
 	doins "${S}"/zendrite-sample.yaml
 
-	newinitd "${FILESDIR}"/init.1 zendrite
-	newconfd "${FILESDIR}"/conf.1 zendrite
-
-	keepdir /var/log/zendrite
-	keepdir /var/lib/zendrite
-
-	fowners zendrite:zendrite /var/log/zendrite
+	newinitd "${FILESDIR}"/init-r2 zendrite
+	newconfd "${FILESDIR}"/conf-r2 zendrite
 }
