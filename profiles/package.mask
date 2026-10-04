@@ -46,12 +46,6 @@ dev-util/insomnia-bin
 net-im/endcord
 net-im/endcord-bin
 
-# dsaf <ghostyn678+git@gmail.com> (2026-09-03)
-# Deprecated and archived by upstream.
-# No reverse dependencies.
-# Removal after 2026-10-03
-gui-apps/noctalia-qs
-
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
 # Removal after 2026-10-29
