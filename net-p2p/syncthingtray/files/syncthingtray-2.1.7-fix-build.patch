@@ -1,0 +1,29 @@
+From cf2aa323f935041a55a8852a19a63968c832f517 Mon Sep 17 00:00:00 2001
+From: Martchus <martchus@gmx.net>
+Date: Mon, 28 Sep 2026 09:43:23 +0200
+Subject: [PATCH] Fix build of Plasmoid without Qt Quick GUI
+
+---
+ plasmoid/lib/syncthingapplet.cpp | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/plasmoid/lib/syncthingapplet.cpp b/plasmoid/lib/syncthingapplet.cpp
+index 557c4575..81921564 100644
+--- a/plasmoid/lib/syncthingapplet.cpp
++++ b/plasmoid/lib/syncthingapplet.cpp
+@@ -595,11 +595,13 @@ bool SyncthingApplet::showFileBrowser(const QString &dirId)
+ void SyncthingApplet::showIgnorePatterns(const QString &dirId)
+ {
+     if (auto row = 0; auto *const dir = m_data.connection()->findDirInfo(dirId, row)) {
++#if defined(GUI_QTQUICK) && defined(SYNCTHINGWIDGETS_GUI_QTQUICK_MODE_DESKTOP)
+         if (m_quickUI.has_value()) {
+             m_quickUI->ui.editIgnorePatterns(dir->id, dir->displayName());
+-        } else {
+-            showCenteredDialog(QtGui::ignorePatternsDialog(*m_data.connection(), *dir));
++            return;
+         }
++#endif
++        showCenteredDialog(QtGui::ignorePatternsDialog(*m_data.connection(), *dir));
+     }
+ }
+ 
