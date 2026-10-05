@@ -1,0 +1,52 @@
+Make it possible to specify custom CFLAGS/CXXFLAGS/etc in the environment
+
+Also remove -s from LDFLAGS to allow portage to deal with the debug
+information.
+
+--- sdFormatLinux-0.2.0.orig/Makefile
++++ sdFormatLinux-0.2.0/Makefile
+@@ -12,25 +12,25 @@
+ ARCH     :=
+ CFLAGS   := $(ARCH) -std=c17 -O2 -g -fPIE -fstrict-aliasing \
+ 			-ffunction-sections -fdata-sections -fstack-protector-strong \
+-			-Wall -Wextra -Wstrict-aliasing=2
++			-Wall -Wextra -Wstrict-aliasing=2 $(CFLAGS)
+ CXXFLAGS := $(ARCH) -std=c++20 -O2 -g -fPIE -fstrict-aliasing \
+ 			-ffunction-sections -fdata-sections -fstack-protector-strong \
+-			-Wall -Wextra -Wstrict-aliasing=2
+-ASFLAGS  := $(ARCH) -O2 -g -fPIE -x assembler-with-cpp
++			-Wall -Wextra -Wstrict-aliasing=2 $(CXXFLAGS)
++ASFLAGS  := $(ARCH) -O2 -g -fPIE -x assembler-with-cpp $(ASFLAGS)
+ ARFLAGS  := -rcs
+-LDFLAGS  := $(ARCH) -O2 -s -pie -fPIE -Wl,--gc-sections,-z,relro,-z,now,-z,noexecstack
++LDFLAGS  := $(ARCH) -O2 -pie -fPIE -Wl,--gc-sections,-z,relro,-z,now,-z,noexecstack $(LDFLAGS)
+ 
+ PREFIX   :=
+ ifneq ($(strip $(USE_CLANG)),)
+-CC       := $(PREFIX)clang
+-CXX      := $(PREFIX)clang++
+-AS       := $(PREFIX)clang
+-AR       := $(PREFIX)gcc-ar
++CC       ?= $(PREFIX)clang
++CXX      ?= $(PREFIX)clang++
++AS       ?= $(PREFIX)clang
++AR       ?= $(PREFIX)gcc-ar
+ else
+-CC       := $(PREFIX)gcc
+-CXX      := $(PREFIX)g++
+-AS       := $(PREFIX)gcc
+-AR       := $(PREFIX)gcc-ar
++CC       ?= $(PREFIX)gcc
++CXX      ?= $(PREFIX)g++
++AS       ?= $(PREFIX)gcc
++AR       ?= $(PREFIX)gcc-ar
+ endif
+ 
+ 
+@@ -107,4 +107,4 @@
+ 	@echo $(notdir $@)
+ 	$(AR) $(ARFLAGS) $@ $^
+ 
+-endif
+\ No newline at end of file
++endif

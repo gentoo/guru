@@ -1,0 +1,18 @@
+Unhardcode "lsblk" path
+
+On many systems, lsblk might not be available exactly on /usr/bin. Since
+popen() respects $PATH, it makes sense to avoid hardcoding this path.
+
+--- sdFormatLinux-0.2.0.orig/source/blockdev.cpp
++++ sdFormatLinux-0.2.0/source/blockdev.cpp
+@@ -21,8 +21,8 @@
+ static int checkDevice(const char *const path)
+ {
+ 	int res = EINVAL; // By default assume the given path is not a suitable device.
+-	char cmd[64] = "/usr/bin/lsblk -dnr -oTYPE,HOTPLUG,PHY-SEC ";
+-	strncpy(&cmd[43], path, sizeof(cmd) - 43);
++	char cmd[64] = "lsblk -dnr -oTYPE,HOTPLUG,PHY-SEC ";
++	strncpy(&cmd[34], path, sizeof(cmd) - 34);
+ 	cmd[sizeof(cmd) - 1] = '\0';
+ 	FILE *const p = ::popen(cmd, "r");
+ 	if(p == nullptr)
