@@ -33,6 +33,7 @@ RDEPEND="
 	>=dev-python/flask-3.0.1[${PYTHON_USEDEP}]
 	>=dev-python/ffmpeg-python-0.2.0[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-4.5.0[${PYTHON_USEDEP}]
+	media-video/ffmpeg[x264,gpl]
 "
 
 EPYTEST_PLUGINS=()
