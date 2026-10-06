@@ -16,7 +16,7 @@ LICENSE="Apache-2.0 BSD BSD-2 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND=">=dev-lang/go-1.25.0"
+BDEPEND=">=dev-lang/go-1.26.0"
 
 DOCS=( README.md gdu.1.md )
 
@@ -31,5 +31,15 @@ src_install() {
 }
 
 src_test() {
-	ego test ./...
+	# skip tests failing in sandbox
+	local skip_tests=(
+		TestDefaultMountTableHasFilesystemIDs
+		TestReadFromStorageWithErr
+		TestRemoveStoredFile
+		TestStoredAnalyzer
+		TestStoredAnalyzerWithZip
+		TestStoredDirRemoveFile
+		TestStoredDirUpdateStats
+	)
+	ego test ./... -skip "$(IFS='|'; echo "${skip_tests[*]}")"
 }
