@@ -21,12 +21,3 @@ fi
 # this ebuild does not install binaries
 RESTRICT="binchecks strip"
 RDEPEND="x11-themes/adwaita-icon-theme"
-
-src_prepare() {
-	default
-
-	einfo "Fixing invalid Meson identifiers starting with digits..."
-	find . -name "meson.build" -exec sed -i 's/16x16_places_iconsdir/iconsdir_16x_places/g' {} + || die
-	find . -name "meson.build" -exec sed -i 's/16x16_iconsdir/iconsdir_16x/g' {} + || die
-
-}
