@@ -1,0 +1,11 @@
+#!/sbin/openrc-run
+
+supervisor=supervise-daemon
+
+name=Turnstile
+description="Independent session/login tracker"
+command=/usr/bin/turnstiled
+
+depend() {
+        after seatd elogind
+}
