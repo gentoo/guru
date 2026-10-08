@@ -121,7 +121,7 @@ CRATES="
 	crypto-common@0.1.7
 	crypto-common@0.2.2
 	csscolorparser@0.6.2
-	ctutils@0.4.2
+	ctutils@0.4.3
 	cursor-icon@1.2.0
 	darling@0.23.0
 	darling@0.24.1
@@ -154,7 +154,7 @@ CRATES="
 	drm-sys@0.8.1
 	easyfft@0.4.2
 	ecdsa@0.17.0
-	either@1.18.0
+	either@1.19.0
 	elliptic-curve@0.14.1
 	endi@1.1.1
 	enumflags2@0.7.12
@@ -305,8 +305,8 @@ CRATES="
 	num-integer@0.1.47
 	num_threads@0.1.7
 	num-traits@0.2.19
-	objc2@0.5.2
-	objc2@0.6.4
+	objc2@0.5.3
+	objc2@0.6.5
 	objc2-app-kit@0.2.2
 	objc2-app-kit@0.3.2
 	objc2-audio-toolbox@0.3.2
@@ -395,7 +395,7 @@ CRATES="
 	portable-atomic@1.15.0
 	portable-atomic-util@0.2.8
 	potential_utf@0.1.6
-	powerfmt@0.2.0
+	powerfmt@0.2.1
 	ppv-lite86@0.2.21
 	presser@0.3.1
 	primal-check@0.3.4
@@ -446,7 +446,7 @@ CRATES="
 	renderdoc-sys@1.1.0
 	rfc6979@0.6.0
 	ring@0.17.14
-	ringbuf@0.5.2
+	ringbuf@0.5.3
 	rustc-hash@1.1.0
 	rustc-hash@2.1.3
 	rustc_version@0.4.1
@@ -472,7 +472,7 @@ CRATES="
 	serde_derive@1.0.229
 	serde_json@1.0.151
 	serde_repr@0.1.21
-	serde_spanned@1.1.1
+	serde_spanned@1.1.2
 	sha2@0.10.9
 	sha2@0.11.0
 	sha3@0.11.0
@@ -494,7 +494,7 @@ CRATES="
 	smol_str@0.2.2
 	socket2@0.6.5
 	spirv@0.4.0+sdk-1.4.341.0
-	spki@0.8.0
+	spki@0.8.1
 	stable_deref_trait@1.2.1
 	static_assertions@1.1.0
 	strength_reduce@0.2.4
@@ -532,11 +532,11 @@ CRATES="
 	tokio-macros@2.7.2
 	tokio-socks@0.5.3
 	tokio-stream@0.1.19
-	toml@1.1.6+spec-1.1.0
-	toml_datetime@1.1.1+spec-1.1.0
-	toml_edit@0.25.15+spec-1.1.0
-	toml_parser@1.1.3+spec-1.1.0
-	toml_writer@1.1.2+spec-1.1.0
+	toml@1.1.7+spec-1.1.0
+	toml_datetime@1.1.2+spec-1.1.0
+	toml_edit@0.25.16+spec-1.1.0
+	toml_parser@1.1.4+spec-1.1.0
+	toml_writer@1.1.3+spec-1.1.0
 	tracing@0.1.44
 	tracing-attributes@0.1.31
 	tracing-core@0.1.36
@@ -656,11 +656,11 @@ CRATES="
 	zbus_macros@5.19.0
 	zbus_names@4.3.4
 	zcheapstr@1.1.0
-	zerocopy@0.8.59
-	zerocopy-derive@0.8.59
+	zerocopy@0.8.62
+	zerocopy-derive@0.8.62
 	zerofrom@0.1.8
 	zerofrom-derive@0.1.8
-	zeroize@1.9.0
+	zeroize@1.9.1
 	zeroize_derive@1.5.0
 	zerotrie@0.2.5
 	zerovec@0.11.8
