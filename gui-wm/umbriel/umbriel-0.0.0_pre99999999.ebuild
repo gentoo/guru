@@ -31,6 +31,7 @@ DEPEND="
 	>=x11-libs/pixman-0.43.0
 	x11-base/xwayland
 	media-libs/libglvnd
+	media-libs/libdisplay-info
 	media-libs/mesa[egl(+),gles2(+)]
 "
 RDEPEND="
