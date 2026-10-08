@@ -20,20 +20,9 @@ DEPEND="dev-libs/icu
 RDEPEND="${DEPEND}"
 BDEPEND=" test? ( dev-libs/criterion ) "
 
-src_prepare() {
-	default
-
-	# Strip AddressSanitizer from tests as it conflicts with Portage's LD_PRELOAD sandbox.
-	# Strip -Werror per Gentoo QA policy to prevent build failures on future GCC bumps.
-	sed -i \
-		-e 's/-fsanitize=address//g' \
-		-e 's/-Werror//g' \
-		Makefile || die
-}
-
 src_test() {
 	emake test
-	./run_tests || die "package tests failed"
+	COZENAGE_LIB_PATH="${S}/lib/cozenage" ./run_tests || die "tests failed"
 }
 
 src_install() {
