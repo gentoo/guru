@@ -3,9 +3,10 @@
 
 EAPI=8
 
+PYTHON_COMPAT=( python3_{12..15} )
 ROCM_VERSION="6.1"
 
-inherit cmake cuda rocm linux-info toolchain-funcs
+inherit cmake cuda rocm linux-info python-any-r1 toolchain-funcs
 
 MY_PN="${PN/-/.}"
 TINY_LLAMAS_COMMIT="99dd1a73db5a37100bd4ae633f4cfce6560e1567"
@@ -86,7 +87,6 @@ REQUIRED_USE="
 RESTRICT="!test? ( test )"
 
 # curl is needed for pulling models from huggingface
-# numpy is used by convert_hf_to_gguf.py
 COMMON_DEPEND="
 	curl? ( net-misc/curl:= )
 	openblas? ( sci-libs/openblas:= )
@@ -108,11 +108,13 @@ DEPEND="${COMMON_DEPEND}
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	>=dev-python/numpy-2.2.6
 	opencl? ( dev-libs/opencl-icd-loader )
 	vulkan? ( media-libs/vulkan-loader )
 "
-BDEPEND="vulkan? ( media-libs/shaderc )"
+BDEPEND="
+	opencl? ( ${PYTHON_DEPS} )
+	vulkan? ( media-libs/shaderc )
+"
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -126,6 +128,10 @@ pkg_setup() {
 				ewarn "To use ROCm/HIP, you need to have HSA_AMD_SVM option enabled in your kernel."
 			fi
 		fi
+	fi
+
+	if use opencl; then
+		python-any-r1_pkg_setup
 	fi
 
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
