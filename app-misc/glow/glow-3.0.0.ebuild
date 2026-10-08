@@ -27,15 +27,23 @@ src_test(){
 	ego test -v ./...
 }
 
-src_install(){
+src_install() {
 	dobin bin/glow
-	bin/glow man > glow.1
+
+	# Run without a controlling terminal: glow probes /dev/tty for
+	# colors/cursor position on startup, which garbles the build output.
+	local glow=( setsid -w bin/glow )
+
+	"${glow[@]}" man > glow.1 || die "generating man page failed"
 	doman glow.1
 	einstalldocs
-	bin/glow completion bash > "${PN}" || die "generating bash completion failed"
+
+	"${glow[@]}" completion bash > "${PN}" || die "generating bash completion failed"
 	dobashcomp "${PN}"
-	bin/glow completion zsh > "_${PN}" || die "generating zsh completion failed"
+
+	"${glow[@]}" completion zsh > "_${PN}" || die "generating zsh completion failed"
 	dozshcomp "_${PN}"
-	bin/glow completion fish > "${PN}.fish" || die "generating fish completion failed"
+
+	"${glow[@]}" completion fish > "${PN}.fish" || die "generating fish completion failed"
 	dofishcomp "${PN}.fish"
 }
