@@ -16,7 +16,7 @@ LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDPEND="
+BDEPEND="
 	test? ( dev-python/six[${PYTHON_USEDEP}] )
 "
 
