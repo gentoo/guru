@@ -1,10 +1,13 @@
-# Copyright 2026 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+CRATES=" "
+
+RATATUI_COMMIT='dde5e05eccfe5b7cb7712b4bdf76edd0c2cd1f25'
 declare -A GIT_CRATES=(
-	[ratatui-core]="https://github.com/yazi-rs/ratatui;dde5e05eccfe5b7cb7712b4bdf76edd0c2cd1f25;ratatui-%commit%/ratatui-core"
+	[ratatui-core]="https://github.com/yazi-rs/ratatui;${RATATUI_COMMIT};ratatui-%commit%/ratatui-core"
 )
 
 RUST_MIN_VER="1.95.0"
@@ -13,86 +16,71 @@ inherit cargo desktop optfeature shell-completion xdg
 
 DESCRIPTION="Blazing fast terminal file manager written in Rust, based on async I/O"
 HOMEPAGE="https://yazi-rs.github.io"
-SRC_URI="
-	https://github.com/sxyazi/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+SRC_URI="https://github.com/sxyazi/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/gentoo-crate-dist/${PN}/releases/download/v${PV}/${P}-crates.tar.xz
 	${CARGO_CRATE_URIS}
 "
 
+# both the LICENSE file and LICENSE-ICONS are MIT
 LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
 	Apache-2.0 BSD Boost-1.0 BlueOak-1.0.0 CC0-1.0 CDLA-Permissive-2.0
 	ISC MIT MPL-2.0 Unicode-3.0 ZLIB
 "
-
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="+cli test"
-RESTRICT="!test? ( test )"
 
-BDEPEND="
-	virtual/pkgconfig
-"
+IUSE="+cli"
 
 DEPEND="
 	dev-libs/oniguruma:=
 "
+# apply-crates-fixes start
+DEPEND+="
+	>=dev-libs/jemalloc-5.3.1:=
+"
+BDEPEND="
+	virtual/pkgconfig
+"
+# apply-crates-fixes end
 
 RDEPEND="
 	${DEPEND}
-	sys-apps/file
 	cli? ( dev-vcs/git )
 "
 
 DOCS=(
-	CHANGELOG.md
-	README.md
-	LICENSE
-	LICENSE-ICONS
+	"CHANGELOG.md"
+	"README.md"
+	yazi-config/preset/
 )
 
-src_unpack() {
-	cargo_src_unpack
-
-	local crate="ratatui-core"
-	local crate_uri commit crate_dir host
-
-	IFS=';' read -r crate_uri commit crate_dir host \
-		<<< "${GIT_CRATES["${crate}"]}"
-	: "${crate_dir:=${crate}-%commit%}"
-
-	printf -- \
-		'[patch.crates-io]\n%s = { path = "%s" }\n' \
-		"${crate}" \
-		"${WORKDIR}/${crate_dir//%commit%/${commit}}" \
-		>> "${CARGO_HOME}/config.toml" || die
-}
+QA_FLAGS_IGNORED="
+	usr/bin/ya.*
+"
 
 src_prepare() {
-	default
-
-	cargo_env "${CARGO}" update \
-		--offline \
-		-p ratatui-core || die "failed to update ratatui-core lock entry"
-
+	sed -i -r 's/strip\s+= true/strip = false/' Cargo.toml || die "Sed failed!"
 	sed -i -E \
-		's/^strip[[:space:]]*=[[:space:]]*true/strip = false/' \
-		Cargo.toml || die
-}
-
-src_configure() {
-	cargo_src_configure --frozen
+		"s|^ratatui-core\s=\s\{\sgit\s=.+|ratatui-core = \{ path = '${WORKDIR}/ratatui-${RATATUI_COMMIT}/ratatui-core' \}|" \
+		Cargo.toml || die "Patching ratatui-core path failed"
+	eapply_user
 }
 
 src_compile() {
+	# apply-crates-fixes start
+	# unvendoring for tikv-jemalloc-sys crate
+	export JEMALLOC_OVERRIDE="${ESYSROOT}/usr/$(get_libdir)/libjemalloc.so"
+	# https://github.com/tikv/jemallocator/issues/19
+	export CARGO_FEATURE_UNPREFIXED_MALLOC_ON_SUPPORTED_PLATFORMS=1
+	# apply-crates-fixes end
+
 	# workaround for GCC 15 issues:
 	# unvendor libonig from rust-onig. see bugs 943785, 945008
 	export RUSTONIG_SYSTEM_LIBONIG=1
-
 	# generate shell completions from the actual CLI definitions
-	export YAZI_GEN_COMPLETIONS=1
-
+	export YAZI_GEN_COMPLETIONS=true
 	# silences vergen
 	export YAZI_NO_GITCL=1
 
@@ -111,22 +99,21 @@ src_test() {
 }
 
 src_install() {
-	dobin "$(cargo_target_dir)/yazi"
+	dobin "$(cargo_target_dir)/${PN}"
 	use cli && dobin "$(cargo_target_dir)/ya"
 
-	newbashcomp yazi-boot/completions/yazi.bash yazi
-	dozshcomp yazi-boot/completions/_yazi
-	dofishcomp yazi-boot/completions/yazi.fish
+	newbashcomp "${S}/yazi-boot/completions/${PN}.bash" "${PN}"
+	dozshcomp "${S}/yazi-boot/completions/_${PN}"
+	dofishcomp "${S}/yazi-boot/completions/${PN}.fish"
 
 	if use cli; then
-		newbashcomp yazi-cli/completions/ya.bash ya
-		dozshcomp yazi-cli/completions/_ya
-		dofishcomp yazi-cli/completions/ya.fish
+		newbashcomp "${S}/yazi-cli/completions/ya.bash" "ya"
+		dozshcomp "${S}/yazi-cli/completions/_ya"
+		dofishcomp "${S}/yazi-cli/completions/ya.fish"
 	fi
 
-	domenu assets/yazi.desktop
+	domenu "assets/${PN}.desktop"
 	newicon assets/logo.png yazi.png
-
 	einstalldocs
 }
 
