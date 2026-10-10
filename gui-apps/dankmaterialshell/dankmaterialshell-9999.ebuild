@@ -13,7 +13,6 @@ EGIT_REPO_URI="https://github.com/AvengeMedia/DankMaterialShell.git"
 
 MAIN_DIR="${S}" # git root
 S="${S}/core" # dms cli
-QML_DIR="${MAIN_DIR}"/quickshell # qml assets location
 PATCHES=("${FILESDIR}"/"${PN}-1.5.3-no-strip.patch")
 
 LICENSE="MIT"
@@ -39,15 +38,13 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-build/cmake
-	>=dev-lang/go-1.26.4
+	>=dev-lang/go-1.27.1
 	dev-util/pkgconf
 "
 
 src_unpack() {
 	git-r3_src_unpack
 	go-module_live_vendor
-	rm "${QML_DIR}"/DankCommon || die "failed to delete symlink to DankCommon"
-	cp -r "${MAIN_DIR}"/dank-qml-common/DankCommon "${QML_DIR}"/DankCommon || die "failed to copy DankCommon dir"
 }
 
 src_configure() {
