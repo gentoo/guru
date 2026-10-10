@@ -74,7 +74,7 @@ CRATES="
 	calloop-wayland-source@0.3.0
 	cast@0.3.0
 	castaway@0.2.4
-	cc@1.6.0
+	cc@1.7.0
 	cexpr@0.6.0
 	cfg_aliases@0.2.2
 	cfg-expr@0.20.10
@@ -236,7 +236,7 @@ CRATES="
 	image@0.25.10
 	image-webp@0.2.4
 	indexmap@2.14.2
-	indoc@2.0.7
+	indoc@2.0.8
 	instability@0.3.14
 	itertools@0.13.0
 	itertools@0.14.0
@@ -342,6 +342,7 @@ CRATES="
 	objc2-ui-kit@0.2.2
 	objc2-uniform-type-identifiers@0.2.2
 	objc2-user-notifications@0.2.2
+	objc2-video-toolbox@0.3.2
 	objc-sys@0.3.5
 	ogg@0.8.0
 	once_cell@1.21.4
@@ -367,10 +368,10 @@ CRATES="
 	pastey@0.2.3
 	pem-rfc7468@1.0.0
 	percent-encoding@2.3.2
-	pest@2.9.2
-	pest_derive@2.9.2
-	pest_generator@2.9.2
-	pest_meta@2.9.2
+	pest@2.9.3
+	pest_derive@2.9.3
+	pest_generator@2.9.3
+	pest_meta@2.9.3
 	phc@0.6.1
 	phf@0.11.3
 	phf_codegen@0.11.3
@@ -404,6 +405,7 @@ CRATES="
 	proc-macro2@1.0.107
 	proc-macro-crate@3.5.0
 	profiling@1.0.18
+	psm@0.1.24
 	pulseaudio@0.3.1
 	pxfm@0.1.30
 	qoi@0.4.1
@@ -489,13 +491,14 @@ CRATES="
 	siphasher@1.0.4
 	slab@0.4.12
 	slotmap@1.1.1
-	smallvec@1.16.2
+	smallvec@1.16.3
 	smithay-client-toolkit@0.19.2
 	smol_str@0.2.2
 	socket2@0.6.5
 	spirv@0.4.0+sdk-1.4.341.0
 	spki@0.8.1
 	stable_deref_trait@1.2.1
+	stacker@0.1.25
 	static_assertions@1.1.0
 	strength_reduce@0.2.4
 	strict-num@0.1.1
@@ -505,7 +508,7 @@ CRATES="
 	subtle@2.6.1
 	syn@1.0.109
 	syn@2.0.119
-	syn@3.0.6
+	syn@3.0.7
 	synstructure@0.14.0
 	system-deps@7.0.8
 	tap@1.0.1
@@ -532,10 +535,10 @@ CRATES="
 	tokio-macros@2.7.2
 	tokio-socks@0.5.3
 	tokio-stream@0.1.19
-	toml@1.1.7+spec-1.1.0
+	toml@1.1.8+spec-1.1.0
 	toml_datetime@1.1.2+spec-1.1.0
-	toml_edit@0.25.16+spec-1.1.0
-	toml_parser@1.1.4+spec-1.1.0
+	toml_edit@0.25.17+spec-1.1.0
+	toml_parser@1.1.5+spec-1.1.0
 	toml_writer@1.1.3+spec-1.1.0
 	tracing@0.1.44
 	tracing-attributes@0.1.31
@@ -556,7 +559,7 @@ CRATES="
 	utf8_iter@1.0.4
 	utf8parse@0.2.2
 	utf8-zero@0.8.1
-	uuid@1.27.0
+	uuid@1.28.0
 	version_check@0.9.5
 	version-compare@0.2.1
 	vsimd@0.8.0
