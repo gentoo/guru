@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,12 @@ PYPI_NO_NORMALIZE=1
 inherit distutils-r1 pypi
 
 DESCRIPTION="FoBiS.py, a Fortran Building System for poor men"
-HOMEPAGE="https://github.com/szaghi/FoBiS"
+HOMEPAGE="
+	https://szaghi.github.io/FoBiS/
+	https://github.com/szaghi/FoBiS
+	https://pypi.org/project/FoBiS.py/
+"
+SRC_URI="$(pypi_sdist_url "${PN}_py" "${PV}") -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -20,5 +25,8 @@ IUSE="graphviz"
 RESTRICT="mirror"
 
 RDEPEND="
-	graphviz? ( dev-python/graphviz[${PYTHON_USEDEP}] )
+	${PYTHON_DEPS}
+	$(python_gen_any_dep '
+		graphviz? ( dev-python/graphviz[${PYTHON_USEDEP}] )
+	')
 "

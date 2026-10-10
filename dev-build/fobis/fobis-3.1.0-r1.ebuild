@@ -11,8 +11,11 @@ PYPI_NO_NORMALIZE=1
 inherit distutils-r1 pypi
 
 DESCRIPTION="FoBiS.py, a Fortran Building System for poor men"
-HOMEPAGE="https://github.com/szaghi/FoBiS"
-SRC_URI="$(pypi_sdist_url "${PN}_py" "${PV}") -> ${P}.tar.gz"
+HOMEPAGE="
+	https://szaghi.github.io/FoBiS/
+	https://github.com/szaghi/FoBiS
+	https://pypi.org/project/FoBiS.py/
+"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -21,5 +24,8 @@ IUSE="graphviz"
 RESTRICT="mirror"
 
 RDEPEND="
-	graphviz? ( dev-python/graphviz[${PYTHON_USEDEP}] )
+	${PYTHON_DEPS}
+	$(python_gen_any_dep '
+		graphviz? ( dev-python/graphviz[${PYTHON_USEDEP}] )
+	')
 "

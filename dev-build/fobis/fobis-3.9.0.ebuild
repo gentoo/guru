@@ -13,6 +13,7 @@ inherit distutils-r1 pypi
 
 DESCRIPTION="FoBiS.py, a Fortran Building System for poor men"
 HOMEPAGE="
+	https://szaghi.github.io/FoBiS/
 	https://github.com/szaghi/FoBiS
 	https://pypi.org/project/FoBiS.py/
 "
