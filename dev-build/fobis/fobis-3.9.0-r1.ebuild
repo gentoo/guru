@@ -21,7 +21,7 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="graphviz"
+IUSE="doc graphviz"
 RESTRICT="mirror"
 
 RDEPEND="
@@ -40,4 +40,9 @@ src_prepare() {
 	# The tmp-path contains version of package to within sandbox envinroment.
 	# Therefore the count(__version__) method catch an "AssertionError: assert 3 == 2"
 	sed -i -e 's/assert out.count(__version__) == 2/assert out.count(__version__) == 3/' tests/test_ecosystem.py || die
+}
+
+python_install_all() {
+	distutils-r1_python_install_all
+	use doc && dodoc -r docs
 }
