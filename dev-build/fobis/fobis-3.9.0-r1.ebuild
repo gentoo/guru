@@ -5,11 +5,9 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{12..14} )
-PYPI_PN="FoBiS.py"
-PYPI_NO_NORMALIZE=1
-PYPI_VERIFY_REPO="https://github.com/szaghi/FoBiS"
+MY_PN="FoBiS"
 
-inherit distutils-r1 pypi
+inherit distutils-r1
 
 DESCRIPTION="FoBiS.py, a Fortran Building System for poor men"
 HOMEPAGE="
@@ -17,8 +15,8 @@ HOMEPAGE="
 	https://github.com/szaghi/FoBiS
 	https://pypi.org/project/FoBiS.py/
 "
-SRC_URI="$(pypi_sdist_url "${PN}_py" "${PV}") -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}_py-${PV}"
+SRC_URI="https://github.com/szaghi/FoBiS/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -33,3 +31,13 @@ RDEPEND="
 		graphviz? ( dev-python/graphviz[${PYTHON_USEDEP}] )
 	')
 "
+
+EPYTEST_PLUGINS=( pytest-cov )
+distutils_enable_tests pytest
+
+src_prepare() {
+	default
+	# The tmp-path contains version of package to within sandbox envinroment.
+	# Therefore the count(__version__) method catch an "AssertionError: assert 3 == 2"
+	sed -i -e 's/assert out.count(__version__) == 2/assert out.count(__version__) == 3/' tests/test_ecosystem.py || die
+}
