@@ -22,13 +22,14 @@ fi
 LICENSE="GPL-3+"
 SLOT="0"
 
-IUSE="alsa +archive gme openmpt +pipewire projectm pulseaudio +replaygain sdl sndfile soundtouch soxr test"
+IUSE="alsa flac gme jack mp3 openmpt opus +pipewire projectm pulseaudio +replaygain sdl sndfile soundtouch soxr test vorbis"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
-	|| ( alsa pipewire pulseaudio sdl )
+	|| ( alsa jack pipewire pulseaudio sdl )
 "
 
 RDEPEND="
+	app-arch/libarchive:=
 	dev-libs/icu:=
 	dev-libs/kdsingleapplication
 	dev-libs/libcdio-paranoia:=
@@ -40,20 +41,23 @@ RDEPEND="
 	media-libs/taglib:=
 	media-video/ffmpeg:=
 	virtual/zlib:=
+	x11-libs/libX11
 	alsa? ( media-libs/alsa-lib )
-	archive? ( app-arch/libarchive:= )
+	flac? ( media-libs/flac:=[cxx] )
 	gme? ( media-libs/game-music-emu )
+	jack? ( virtual/jack )
+	mp3? ( media-sound/mpg123-base )
 	openmpt? ( media-libs/libopenmpt )
+	opus? ( media-libs/opusfile )
 	pipewire? ( media-video/pipewire:= )
-	projectm? (
-		media-libs/libprojectm:4=
-	)
+	projectm? ( media-libs/libprojectm:4= )
 	pulseaudio? ( media-libs/libpulse )
 	replaygain? ( media-libs/libebur128:= )
 	sdl? ( media-libs/libsdl2 )
 	sndfile? ( media-libs/libsndfile )
 	soundtouch? ( media-libs/libsoundtouch:= )
 	soxr? ( media-libs/soxr )
+	vorbis? ( media-libs/libvorbis )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -80,9 +84,12 @@ src_configure() {
 		-DBUILD_TESTING=$(usex test)
 		-DFETCH_PROJECTM=OFF
 		-DINSTALL_HEADERS=ON
-		$(cmake_use_find_package archive LibArchive)
+		$(cmake_use_find_package flac FLAC)
 		$(cmake_use_find_package gme LIBGME)
+		$(cmake_use_find_package jack Jack)
+		$(cmake_use_find_package mp3 Mpg123)
 		$(cmake_use_find_package openmpt OpenMpt)
+		$(cmake_use_find_package opus OpusFile)
 		$(cmake_use_find_package pipewire PipeWire)
 		$(cmake_use_find_package projectm projectM4)
 		$(cmake_use_find_package pulseaudio PulseAudio)
@@ -91,6 +98,7 @@ src_configure() {
 		$(cmake_use_find_package sndfile SndFile)
 		$(cmake_use_find_package soundtouch SoundTouch)
 		$(cmake_use_find_package soxr SoXR)
+		$(cmake_use_find_package vorbis Vorbis)
 	)
 
 	cmake_src_configure
