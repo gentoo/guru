@@ -84,7 +84,7 @@ CRATES="
 
 inherit cargo shell-completion
 
-DESCRIPTION="A cargo subcommand that displays the generated assembly of Rust source code."
+DESCRIPTION="A cargo subcommand that displays the generated assembly of Rust source code"
 HOMEPAGE="https://github.com/pacak/cargo-show-asm"
 SRC_URI="
 	https://github.com/pacak/cargo-show-asm/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
