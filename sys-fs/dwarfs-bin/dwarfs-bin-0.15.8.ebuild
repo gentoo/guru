@@ -6,8 +6,12 @@ EAPI=8
 DESCRIPTION="Static version of a fast very high compression read-only FUSE file system"
 HOMEPAGE="https://github.com/mhx/dwarfs"
 SRC_URI="
-	amd64? ( https://github.com/mhx/dwarfs/releases/download/v${PV}/dwarfs-${PV}-Linux-x86_64.tar.xz -> ${P}-amd64.tar.xz )
-	arm64? ( https://github.com/mhx/dwarfs/releases/download/v${PV}/dwarfs-${PV}-Linux-aarch64.tar.xz -> ${P}-arm64.tar.xz )
+	amd64? (
+		https://github.com/mhx/dwarfs/releases/download/v${PV}/dwarfs-${PV}-Linux-x86_64.tar.xz -> ${P}-amd64.tar.xz
+	)
+	arm64? (
+		https://github.com/mhx/dwarfs/releases/download/v${PV}/dwarfs-${PV}-Linux-aarch64.tar.xz -> ${P}-arm64.tar.xz
+	)
 "
 
 LICENSE="GPL-3"
