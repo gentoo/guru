@@ -1,0 +1,22 @@
+From 259491d3a8f5719f0df2b83a7ffc2c51ffff83ea Mon Sep 17 00:00:00 2001
+From: Niklaus 'vimja' Hofer <vimja@vimja.email>
+Date: Sun, 11 Oct 2026 18:13:10 +0200
+Subject: [PATCH] admin_grant_registration: Set recursion_limit to 256.
+
+---
+ tests/admin_grant_registration.rs | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/tests/admin_grant_registration.rs b/tests/admin_grant_registration.rs
+index 3b6296c05..bb96ef7a7 100644
+--- a/tests/admin_grant_registration.rs
++++ b/tests/admin_grant_registration.rs
+@@ -1,4 +1,5 @@
+ #![cfg(test)]
++#![recursion_limit = "256"]
+ 
+ use tuwunel_core::{
+ 	Result,
+-- 
+2.56.0
+
