@@ -15,14 +15,20 @@ SRC_URI="https://github.com/p5k369/grawji/archive/refs/tags/v${PV}.tar.gz -> ${P
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="heif jxl"
 
 RDEPEND="
+	>=dev-python/lsdetect-0.3.0[${PYTHON_USEDEP}]
+	dev-python/numpy[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
-	dev-python/rawji[${PYTHON_USEDEP}]
+	dev-python/pyusb[${PYTHON_USEDEP}]
+	>=dev-python/rawji-0.1.0_p20260920[${PYTHON_USEDEP}]
 	gui-libs/gtk:4[introspection]
 	gui-libs/libadwaita:1[introspection]
 	media-libs/gexiv2[introspection]
 	x11-libs/gdk-pixbuf[jpeg]
+	heif? ( media-libs/libheif[gdk-pixbuf,x265] )
+	jxl? ( media-libs/libjxl )
 "
 
 EPYTEST_PLUGINS=()
