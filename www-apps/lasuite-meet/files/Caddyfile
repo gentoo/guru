@@ -1,0 +1,19 @@
+# Example Caddyfile for LaSuite Meet
+
+:8000 {
+	root * /usr/share/lasuite-meet/www/
+	file_server
+
+	@backend {
+		path /api/*
+		path /admin/*
+	}
+	route @backend {
+		reverse_proxy unix///var/run/lasuite-meet/http.sock
+	}
+
+	handle_errors 404 {
+		rewrite /
+		file_server
+	}
+}

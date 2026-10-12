@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+: ${RUNTIME_DIRECTORY:=/run/lasuite-meet}
+: ${HTTP_BIND:=unix:"${RUNTIME_DIRECTORY}"/http.sock}
+
+exec gunicorn --pythonpath /usr/libexec/lasuite-meet --bind "${HTTP_BIND}" meet.wsgi:application
