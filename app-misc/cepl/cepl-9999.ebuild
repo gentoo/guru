@@ -1,11 +1,11 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit toolchain-funcs
 
-DESCRIPTION="A readline C and C++ REPL with history, tab-completion, and undo."
+DESCRIPTION="A readline C and C++ REPL with history, tab-completion, and undo"
 HOMEPAGE="https://github.com/alyptik/cepl"
 S="${WORKDIR}"
 
