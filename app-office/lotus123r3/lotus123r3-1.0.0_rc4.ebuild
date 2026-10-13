@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 MY_PV="${PV/_r/r}"
 
-DESCRIPTION="A native port of Lotus 1-2-3 to Linux."
+DESCRIPTION="A native port of Lotus 1-2-3 to Linux"
 
 HOMEPAGE="https://github.com/taviso/123elf"
 
