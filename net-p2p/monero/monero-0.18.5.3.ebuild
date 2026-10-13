@@ -27,7 +27,7 @@ else
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/monero/binaryfate.asc
 	SRC_URI="
 		https://downloads.getmonero.org/cli/source/${SOURCE_ARCHIVE}
-		verify-sig? ( https://raw.githubusercontent.com/monero-project/monero-site/71456b9f871ead4e77db84d8fe5dc4109578af45/downloads/hashes.txt -> ${P}-release-hashes.txt )
+		verify-sig? ( https://raw.githubusercontent.com/monero-project/monero-site/5a596d19334d647cdad65cdb9f1287729c9d140d/downloads/hashes.txt -> ${P}-release-hashes.txt )
 	"
 	# Todo: replace this hashes.txt URL with one based on ${P} (See https://github.com/monero-project/monero/issues/10760)
 	KEYWORDS="~amd64"
