@@ -58,10 +58,6 @@ net-p2p/dogecoin-qt
 # Bug #948836.
 net-misc/megasync
 
-# Dale Sweeney <agooglygooglr@gmail.com> (2026-05-08)
-# Won't build until bugs.gentoo.org/974338 is resolved
->=net-misc/wlvncc-20260429
-
 # Shaumyadeep Chaudhuri <shaumya@gmail.com> (2026-04-30)
 # Requires systemd. Cannot be masked per profile (see top comment)
 sys-apps/dmemcg-booster
