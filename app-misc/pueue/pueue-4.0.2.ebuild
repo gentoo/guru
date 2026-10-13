@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,7 +9,7 @@ RUST_MIN_VER="1.85.0"
 
 inherit cargo systemd shell-completion
 
-DESCRIPTION="A cli tool for managing long running shell commands."
+DESCRIPTION="A cli tool for managing long running shell commands"
 HOMEPAGE="https://github.com/nukesor/pueue"
 
 SRC_URI="https://github.com/Nukesor/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
