@@ -1,0 +1,16 @@
+The ebuild installs gettext catalogs under /usr/share/locale. Use that
+directory for non-Flatpak builds instead of the build-time source tree,
+which is not available after installation.
+
+diff --git a/src/config.rs b/src/config.rs
+--- a/src/config.rs
++++ b/src/config.rs
+@@ -1,7 +1,7 @@
+ pub const DATA_DIR: &str = "stremio";
+ 
+ pub const GETTEXT_DOMAIN: &str = "stremio";
+-pub const GETTEXT_DIR_DEV: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/po");
++pub const GETTEXT_DIR_DEV: &str = "/usr/share/locale";
+ pub const GETTEXT_DIR_FLATPAK: &str = "/app/share/locale";
+ 
+ pub const STARTUP_URL: &str = "http://127.0.0.1:11470/proxy/d=https%3A%2F%2Fweb.stremio.com/";

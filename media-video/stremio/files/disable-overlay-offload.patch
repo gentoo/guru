@@ -1,0 +1,27 @@
+Wrapping overlays in GtkGraphicsOffload causes composition problems; add
+them directly to GtkOverlay so they use the normal GTK rendering path.
+
+diff --git a/src/app/window/mod.rs b/src/app/window/mod.rs
+--- a/src/app/window/mod.rs
++++ b/src/app/window/mod.rs
+@@ -31,7 +31,7 @@
+     pub fn set_overlay(&self, widget: &impl IsA<Widget>) {
+         let window = self.imp();
+ 
+-        window.overlay.add_overlay(&graphics_offload(widget));
++        window.overlay.add_overlay(widget);
+     }
+ 
+     pub fn set_fullscreen(&self, fullscreen: bool) {
+@@ -65,11 +65,3 @@
+         self.imp().open_file(file_path);
+     }
+ }
+-
+-fn graphics_offload(widget: &impl IsA<Widget>) -> gtk::GraphicsOffload {
+-    gtk::GraphicsOffload::builder()
+-        .vexpand(true)
+-        .hexpand(true)
+-        .child(widget)
+-        .build()
+-}

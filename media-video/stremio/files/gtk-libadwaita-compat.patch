@@ -1,0 +1,17 @@
+Downgrade GTK and libadwaite dependencies to known working versions supported by gentoo
+
+diff --git a/Cargo.toml b/Cargo.toml
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -12,9 +12,9 @@
+ offline-build = []
+ 
+ [dependencies]
+-gtk = { package = "gtk4", version = "0.11.4", features = ["v4_22"] }
++gtk = { package = "gtk4", version = "0.11.4", features = ["v4_20"] }
+ gdk-wayland = { package = "gdk4-wayland", version = "0.11.4", features = ["v4_20", "wayland_crate"] }
+-adw = { package = "libadwaita", version = "0.9.2", features = ["v1_9"] }
++adw = { package = "libadwaita", version = "0.9.2", features = ["v1_8"] }
+ webkit = { package = "webkit6", version = "0.6.1", features = ["v2_52"] }
+ ashpd = { version = "0.13.13", features = ["background", "gtk4", "inhibit", "open_uri"] }
+ ksni = "0.3.6"

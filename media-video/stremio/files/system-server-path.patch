@@ -1,0 +1,17 @@
+The ebuild installs server.js under /usr/libexec/stremio and does not
+require a launcher to set SERVER_PATH. Use the installed copy by default
+to avoid a startup panic
+
+diff --git a/src/server.rs b/src/server.rs
+--- a/src/server.rs
++++ b/src/server.rs
+@@ -19,7 +19,8 @@
+ 
+ impl Server {
+     pub fn new() -> Self {
+-        let server_path = env::var("SERVER_PATH").expect("Failed to read SERVER_PATH env");
++        let server_path = env::var("SERVER_PATH")
++            .unwrap_or_else(|_| "/usr/libexec/stremio/server.js".into());
+         let file = PathBuf::from(&server_path);
+ 
+         Self {

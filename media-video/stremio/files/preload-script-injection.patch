@@ -1,0 +1,28 @@
+The web interface needs the preload script when its first document starts.
+Register it before loading the startup URL to avoid a navigation race
+
+diff --git a/src/app/imp.rs b/src/app/imp.rs
+--- a/src/app/imp.rs
++++ b/src/app/imp.rs
+@@ -78,8 +78,8 @@
+         let dev_mode = self.dev_mode.get();
+ 
+         let webview = WebView::default();
++        webview.inject_script(PRELOAD_SCRIPT);
+         webview.load_uri(&startup_url);
+-        webview.inject_script(PRELOAD_SCRIPT);
+         webview.dev_mode(dev_mode);
+ 
+         let window = Window::new(&app);
+diff --git a/src/app/webview/mod.rs b/src/app/webview/mod.rs
+--- a/src/app/webview/mod.rs
++++ b/src/app/webview/mod.rs
+@@ -43,7 +43,7 @@
+             script,
+             UserContentInjectedFrames::TopFrame,
+             UserScriptInjectionTime::Start,
+-            &[],
++            &["http://*/*", "https://*/*"],
+             &[],
+         );
+ 

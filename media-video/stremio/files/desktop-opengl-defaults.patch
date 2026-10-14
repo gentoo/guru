@@ -1,0 +1,26 @@
+GtkGLArea and libmpv need compatible rendering paths. Selecting GLES or
+Vulkan can break composition on proprietary NVIDIA Wayland drivers.
+Default GDK and GSK to desktop OpenGL before GTK starts
+
+diff --git a/src/main.rs b/src/main.rs
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -33,6 +33,18 @@
+ }
+ 
+ fn main() -> ExitCode {
++    // GtkGLArea and libmpv must use desktop OpenGL.  In particular, allowing
++    // GDK to choose GLES or GSK to choose Vulkan breaks composition on the
++    // proprietary NVIDIA Wayland driver.  Keep both knobs user-overridable.
++    unsafe {
++        if env::var_os("GDK_DEBUG").is_none() {
++            env::set_var("GDK_DEBUG", "gl-prefer-gl");
++        }
++        if env::var_os("GSK_RENDERER").is_none() {
++            env::set_var("GSK_RENDERER", "gl");
++        }
++    }
++
+     tracing_subscriber::fmt::init();
+ 
+     let data_dir = dirs::data_dir()
