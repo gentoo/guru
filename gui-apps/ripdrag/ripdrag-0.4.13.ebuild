@@ -128,6 +128,8 @@ src_prepare() {
 	sed -i '/^strip = true/d' Cargo.toml || die
 }
 
+QA_PREFIX_IGNORED="usr/bin/ripdrag"
+
 src_install() {
 	cargo_src_install
 	einstalldocs
