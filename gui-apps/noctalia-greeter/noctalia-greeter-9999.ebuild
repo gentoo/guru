@@ -32,6 +32,7 @@ DEPEND="
 	gui-libs/wlroots:0.20=
 	media-libs/fontconfig
 	media-libs/freetype
+	media-libs/libjxl
 	media-libs/libwebp
 	media-libs/mesa
 	sys-apps/dbus
