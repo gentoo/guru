@@ -287,11 +287,12 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-CONFIG_CHECK="~INTEL_RAPL"
-
 QA_FLAGS_IGNORED="usr/bin/scaphandre"
 
 pkg_setup() {
-	linux-info_pkg_setup
+	if use amd64; then
+		CONFIG_CHECK="~INTEL_RAPL"
+		linux-info_pkg_setup
+	fi
 	rust_pkg_setup
 }
