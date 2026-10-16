@@ -3,18 +3,42 @@
 
 EAPI=8
 
-PYTHON_COMPAT=(python3_{12..14})
+PYTHON_COMPAT=(python3_{12..15})
+RUST_MIN_VER="1.85.0"
 
 CRATES="
-cc@1.0.73
-cxx@1.0.71
-cxxbridge-flags@1.0.71
-cxxbridge-macro@1.0.71
-link-cplusplus@1.0.6
-proc-macro2@1.0.40
-quote@1.0.20
-syn@1.0.98
+anstyle@1.0.14
+cc@1.2.29
+clap@4.6.1
+clap_builder@4.6.0
+clap_lex@1.1.0
+codespan-reporting@0.13.1
+cxx@1.0.194
+cxx-build@1.0.194
+cxxbridge-cmd@1.0.194
+cxxbridge-flags@1.0.194
+cxxbridge-macro@1.0.194
+equivalent@1.0.2
+foldhash@0.2.0
+hashbrown@0.17.1
+indexmap@2.14.0
+libc@0.2.183
+link-cplusplus@1.0.12
+proc-macro2@1.0.103
+quote@1.0.41
+scratch@1.0.9
+serde@1.0.228
+serde_core@1.0.228
+serde_derive@1.0.228
+shlex@1.3.0
+strsim@0.11.1
+syn@2.0.106
+termcolor@1.4.1
 unicode-ident@1.0.1
+unicode-width@0.2.2
+winapi-util@0.1.11
+windows-link@0.2.1
+windows-sys@0.61.2
 "
 
 inherit cargo cmake python-any-r1 xdg
@@ -63,7 +87,7 @@ DEPEND="
 	websockets? ( net-libs/libwebsockets[client] )
 "
 RDEPEND="${DEPEND}"
-BDEPEND="
+BDEPEND="${BDEPEND}
 	>=dev-lang/python-3.9
 	dev-util/glslang
 	dev-util/spirv-tools
