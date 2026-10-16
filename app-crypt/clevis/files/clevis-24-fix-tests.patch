@@ -1,0 +1,77 @@
+diff --git a/src/pins/pkcs11/tests/pkcs11-common-tests b/src/pins/pkcs11/tests/pkcs11-common-tests
+index 2a5226a..abcebe8 100644
+--- a/src/pins/pkcs11/tests/pkcs11-common-tests
++++ b/src/pins/pkcs11/tests/pkcs11-common-tests
+@@ -24,6 +24,7 @@ PIN="123456"
+ P11LIB=""
+ SOFTHSM_PATHS="/usr/local/lib/softhsm/libsofthsm2.so \
+ /usr/lib/softhsm/libsofthsm2.so \
++/usr/lib64/softhsm/libsofthsm2.so \
+ /usr/lib64/pkcs11/libsofthsm2.so"
+ 
+ for hsmlib in ${SOFTHSM_PATHS}; do
+diff --git a/src/pins/tpm2/tests/meson.build b/src/pins/tpm2/tests/meson.build
+index cd0d15d..0f35581 100644
+--- a/src/pins/tpm2/tests/meson.build
++++ b/src/pins/tpm2/tests/meson.build
+@@ -24,10 +24,14 @@ tpm2_data.merge_from(data)
+ socat = find_program('socat', required: false)
+ swtpm = find_program('swtpm', '/usr/bin/swtpm', required: false)
+ swtpm_setup = find_program('swtpm_setup', '/usr/bin/swtpm_setup', required: false)
++swtpm_create_user_config_files = find_program('swtpm-create-user-config-files',
++  '/usr/share/swtpm/swtpm-create-user-config-files', required: false)
+ 
+-tpm2_data.set('SOCAT_BIN', socat.found() ? socat.full_path() : '')
+-tpm2_data.set('SWTPM_BIN', swtpm.found() ? swtpm.full_path() : '')
++tpm2_data.set('SOCAT_BIN', socat.found() ? socat.path() : '')
++tpm2_data.set('SWTPM_BIN', swtpm.found() ? swtpm.path() : '')
+ tpm2_data.set('SWTPM_SETUP_BIN', swtpm_setup.found() ? swtpm_setup.full_path() : '')
++tpm2_data.set('SWTPM_CREATE_USER_CONFIG_FILES', swtpm_create_user_config_files.found()
++  ? swtpm_create_user_config_files.full_path() : '')
+ 
+ configure_file(
+   input: 'tpm2-common-test-functions.in',
+diff --git a/src/pins/tpm2/tests/tpm2-common-test-functions.in b/src/pins/tpm2/tests/tpm2-common-test-functions.in
+index f5e5f49..6878a86 100644
+--- a/src/pins/tpm2/tests/tpm2-common-test-functions.in
++++ b/src/pins/tpm2/tests/tpm2-common-test-functions.in
+@@ -23,6 +23,7 @@
+ SOCAT_BIN="@SOCAT_BIN@"
+ SWTPM_BIN="@SWTPM_BIN@"
+ SWTPM_SETUP_BIN="@SWTPM_SETUP_BIN@"
++SWTPM_CREATE_USER_CONFIG_FILES="@SWTPM_CREATE_USER_CONFIG_FILES@"
+ 
+ SWTPM_SOCKET_PID=
+ 
+@@ -46,6 +47,8 @@ if ! TESTDIR="$(mktemp -d)"; then
+     echo "Creating a temporary dir for TPM files failed!" >&2
+     exit 1
+ fi
++# allow swtpm to work without root
++XDG_CONFIG_HOME="${TESTDIR}/.config"
+ trap 'on_exit' EXIT
+ pushd "$TESTDIR" || error "Unable to change directory"
+ 
+@@ -92,6 +95,7 @@ tpm2_sw_check_preconditions() {
+     [ -x "${SOCAT_BIN}" ] || skip_test "Skipping TPM2 test with software emulation, socat not found"
+     [ -x "${SWTPM_BIN}" ] || skip_test "Skipping TPM2 test with software emulation, swtpm not found"
+     [ -x "${SWTPM_SETUP_BIN}" ] || skip_test "Skipping TPM2 test with software emulation, swtpm_setup not found"
++    [ -x "${SWTPM_CREATE_USER_CONFIG_FILES}" ] ||  skip_test "Skipping TPM2 test with software emulation, swtpm_create_user_config_files not found"
+ 
+     if ! "${SWTPM_BIN}" socket --print-capabilities | jq -e '(.version | test("^0\\.[0-6](\\..*)?$")) or (.features | index("tpm-2.0"))' >/dev/null 2>&1; then
+         skip_test "Skipping TPM2 test with software emulation, no support for TPM 2.0 in swtpm"
+@@ -105,6 +109,14 @@ tpm2_start_emulation() {
+ 
+     echo "Starting TPM 2 emulation" >&2
+ 
++    mkdir -p "${XDG_CONFIG_HOME}"
++    echo create_certs_tool = /usr/share/swtpm/swtpm-localca > "${XDG_CONFIG_HOME}/swtpm_setup.conf"
++    echo create_certs_tool_config = ${XDG_CONFIG_HOME}/swtpm-localca.conf >> "${XDG_CONFIG_HOME}/swtpm_setup.conf"
++    echo create_certs_tool_options = ${XDG_CONFIG_HOME}/swtpm-localca.options >> "${XDG_CONFIG_HOME}/swtpm-localca.options"
++
++    # Create certificate and provisioning directories for swtpm, seperate from the global ones
++    "${SWTPM_CREATE_USER_CONFIG_FILES}"
++
+     # Setup TPM 2 data
+     "${SWTPM_SETUP_BIN}" --tpm-state "$TESTDIR" --tpm2 --create-platform-cert --lock-nvram --display >&2 || error "Unable to setup TPM 2 emulation"
+ 
