@@ -1,0 +1,25 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Don't update the test runner during the build
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/utils/build/build.js
++++ b/utils/build/build.js
+@@ -295,17 +295,6 @@ class GroupStep extends Step {
+ 
+ /** @type {Step[]} */
+ const updateSteps = [];
+-
+-// Update test runner.
+-updateSteps.push(new ProgramStep({
+-  command: 'npm',
+-  args: ['ci', '--save=false', '--fund=false', '--audit=false'],
+-  shell: true,
+-  cwd: path.join(__dirname, '..', '..', 'tests', 'playwright-test', 'stable-test-runner'),
+-  concurrent: true,
+-}));
+-
+-
+ steps.push(new GroupStep(updateSteps));
+ 
+ // Build injected icons.
