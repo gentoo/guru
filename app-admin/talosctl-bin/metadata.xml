@@ -5,4 +5,7 @@
 		<email>sm+gentoo@skym.fi</email>
 		<name>Skyler</name>
 	</maintainer>
+        <upstream>
+		<remote-id type="github">siderolabs/talos</remote-id>
+	</upstream>
 </pkgmetadata>
