@@ -380,8 +380,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
-	>=gui-libs/gtk-4.20:4[wayland]
-	>=gui-libs/libadwaita-1.8:1
+	>=gui-libs/gtk-4.21:4[wayland]
+	>=gui-libs/libadwaita-1.9:1
 	>=net-libs/webkit-gtk-2.52:6
 	media-libs/libepoxy
 	media-video/mpv:=[libmpv]
@@ -398,7 +398,6 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/gtk-libadwaita-compat.patch"
 	"${FILESDIR}/disable-dbus-activation.patch"
 	"${FILESDIR}/system-gettext-path.patch"
 	"${FILESDIR}/system-server-path.patch"
