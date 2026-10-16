@@ -16,10 +16,16 @@ inherit cargo desktop optfeature shell-completion xdg
 
 DESCRIPTION="Blazing fast terminal file manager written in Rust, based on async I/O"
 HOMEPAGE="https://yazi-rs.github.io"
-SRC_URI="https://github.com/sxyazi/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+if [[ "${PV}" == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/sxyazi/yazi.git"
+else
+	SRC_URI="https://github.com/sxyazi/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/gentoo-crate-dist/${PN}/releases/download/v${PV}/${P}-crates.tar.xz
 	${CARGO_CRATE_URIS}
 "
+	KEYWORDS="~amd64 ~arm64"
+fi
 
 # both the LICENSE file and LICENSE-ICONS are MIT
 LICENSE="MIT"
@@ -29,7 +35,6 @@ LICENSE+="
 	ISC MIT MPL-2.0 Unicode-3.0 ZLIB
 "
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
 
 IUSE="+cli"
 
@@ -59,6 +64,15 @@ DOCS=(
 QA_FLAGS_IGNORED="
 	usr/bin/ya.*
 "
+
+src_unpack() {
+	if [[ "${PV}" == 9999 ]]; then
+		git-r3_src_unpack
+		cargo_live_src_unpack
+	else
+		cargo_src_unpack
+	fi
+}
 
 src_prepare() {
 	sed -i -r 's/strip\s+= true/strip = false/' Cargo.toml || die "Sed failed!"
