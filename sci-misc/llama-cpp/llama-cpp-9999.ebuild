@@ -120,7 +120,14 @@ RDEPEND="${COMMON_DEPEND}
 BDEPEND="
 	opencl? ( ${PYTHON_DEPS} )
 	vulkan? ( media-libs/shaderc )
+	test? ( $(python_gen_any_dep 'dev-python/jinja2[${PYTHON_USEDEP}]') )
 "
+
+python_check_deps() {
+	if use test; then
+		python_has_version "dev-python/jinja2[${PYTHON_USEDEP}]"
+	fi
+}
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -136,7 +143,7 @@ pkg_setup() {
 		fi
 	fi
 
-	if use opencl; then
+	if use opencl || use test; then
 		python-any-r1_pkg_setup
 	fi
 
