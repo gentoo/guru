@@ -1,7 +1,8 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# I hope this will be only a temporary ebuild until I have time to add flutter and/or dart so we can build it from source
+# I hope this will be only a temporary ebuild until I have time to add flutter
+# and/or dart so we can build it from source
 
 EAPI=8
 
