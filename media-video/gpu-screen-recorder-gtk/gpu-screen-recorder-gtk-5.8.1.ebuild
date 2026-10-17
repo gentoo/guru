@@ -15,7 +15,7 @@ else
 fi
 
 DESCRIPTION="GTK frontend for gpu-screen-recorder"
-HOMEPAGE="https://git.dec05eba.com/gpu-screen-recorder-gtk/about"
+HOMEPAGE="https://git.dec05eba.com/gpu-screen-recorder-gtk/about/"
 LICENSE="GPL-3"
 SLOT="0"
 

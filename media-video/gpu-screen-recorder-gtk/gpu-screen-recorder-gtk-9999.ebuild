@@ -7,8 +7,8 @@ inherit git-r3 meson
 
 EGIT_REPO_URI="https://repo.dec05eba.com/gpu-screen-recorder-gtk"
 
-DESCRIPTION="GTK frontend for gpu-screen-recorder."
-HOMEPAGE="https://git.dec05eba.com/gpu-screen-recorder-gtk/about"
+DESCRIPTION="GTK frontend for gpu-screen-recorder"
+HOMEPAGE="https://git.dec05eba.com/gpu-screen-recorder-gtk/about/"
 LICENSE="GPL-3"
 SLOT="0"
 
