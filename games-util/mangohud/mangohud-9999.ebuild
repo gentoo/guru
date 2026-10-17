@@ -16,6 +16,8 @@ VK_BOOTSTRAP_VER="1.4.328"
 VK_HEADERS_VER="1.4.346"
 # Check subprojects/vkroots.wrap for this value
 VKROOTS_COMMIT="5106d8a0df95de66cc58dc1ea37e69c99afc9540"
+# Check subprojects/wlr-protocols.wrap for this value
+WLR_PROTOCOLS_COMMIT="bf4fc79abc359eea5a0edec0ac6d4a2b2955f82a"
 
 SRC_URI="
 	https://github.com/KhronosGroup/Vulkan-Headers/archive/v${VK_HEADERS_VER}.tar.gz
@@ -26,6 +28,8 @@ SRC_URI="
 		-> vk-bootstrap-${VK_BOOTSTRAP_VER}.tar.gz
 	https://github.com/misyltoad/vkroots/archive/${VKROOTS_COMMIT}.tar.gz
 		-> vkroots-${VKROOTS_COMMIT}.tar.gz
+	https://gitlab.freedesktop.org/wlroots/wlr-protocols/-/archive/${WLR_PROTOCOLS_COMMIT}.tar.gz
+		-> wlr-protocols-${WLR_PROTOCOLS_COMMIT}.tar.gz
 "
 
 if [[ ${PV} == 9999 ]]; then
@@ -63,12 +67,12 @@ DEPEND="
 		media-libs/mesa[opengl,${MULTILIB_USEDEP}]
 		elogind? ( sys-auth/elogind )
 		systemd? ( sys-apps/systemd[${MULTILIB_USEDEP}] )
+		wayland? ( dev-libs/wayland-protocols )
 	)
 	dev-libs/spdlog:=[${MULTILIB_USEDEP}]
 	dev-libs/libfmt:=[${MULTILIB_USEDEP}]
 	=media-libs/imgui-1.91.6*:=[${MULTILIB_USEDEP}]
 	=media-libs/implot-0.16*:=[${MULTILIB_USEDEP}]
-	sys-libs/libcap[${MULTILIB_USEDEP}]
 	x11-libs/libdrm[${MULTILIB_USEDEP}]
 	x11-libs/libxkbcommon:=[${MULTILIB_USEDEP}]
 	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
@@ -79,11 +83,11 @@ DEPEND="
 	)
 	wayland? (
 		dev-libs/wayland[${MULTILIB_USEDEP}]
-		dev-libs/wayland-protocols
 	)
 	mangoapp? (
-		=media-libs/imgui-1.91.6*[glfw,opengl]
-		media-libs/glfw[X(+)?,wayland(+)?]
+		=media-libs/imgui-1.91.6*[glfw,opengl,${MULTILIB_USEDEP}]
+		media-libs/glfw[X(+)?,wayland(+)?,${MULTILIB_USEDEP}]
+		x11-libs/libXi[${MULTILIB_USEDEP}]
 	)
 "
 
@@ -119,6 +123,7 @@ src_unpack() {
 	unpack vk-bootstrap-${VK_BOOTSTRAP_VER}.tar.gz
 	unpack Vulkan-Headers-${VK_HEADERS_VER}.tar.gz
 	unpack Vulkan-Utility-Libraries-${VK_HEADERS_VER}.tar.gz
+	unpack wlr-protocols-${WLR_PROTOCOLS_COMMIT}.tar.gz
 }
 
 src_prepare() {
@@ -128,12 +133,14 @@ src_prepare() {
 	mv "${WORKDIR}/Vulkan-Utility-Libraries-${VK_HEADERS_VER}" "${S}/subprojects/" || die
 	mv "${WORKDIR}/vkroots-${VKROOTS_COMMIT}" "${S}/subprojects/vkroots" || die
 	mv "${WORKDIR}/vk-bootstrap-${VK_BOOTSTRAP_VER}" "${S}/subprojects/vk-bootstrap" || die
+	mv "${WORKDIR}/wlr-protocols-${WLR_PROTOCOLS_COMMIT}" "${S}/subprojects/wlr-protocols" || die
 
 	pushd subprojects || die
 	mv packagefiles/vulkan-headers/* Vulkan-Headers-${VK_HEADERS_VER} || die
 	mv packagefiles/vulkan-utility-libraries/* Vulkan-Utility-Libraries-${VK_HEADERS_VER} || die
 	mv packagefiles/vkroots/* vkroots || die
 	mv packagefiles/vk-bootstrap/* vk-bootstrap || die
+	mv packagefiles/wlr-protocols/* wlr-protocols || die
 
 	# save some space when using FEATURES=installsources
 	rm -rf "*.wrap" "{packagefiles/imgui-0.16}" || die
