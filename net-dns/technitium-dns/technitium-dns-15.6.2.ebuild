@@ -6,7 +6,7 @@ EAPI=8
 DOTNET_PKG_COMPAT=10.0
 NUGETS="
 bouncycastle.cryptography@2.7.0
-microsoft.aspnetcore.authentication.openidconnect@10.0.12
+microsoft.aspnetcore.authentication.openidconnect@10.0.13
 microsoft.bcl.cryptography@10.0.2
 microsoft.extensions.logging.abstractions@8.0.0
 microsoft.extensions.dependencyinjection.abstractions@8.0.0
@@ -17,10 +17,10 @@ microsoft.identitymodel.protocols.openidconnect@8.19.2
 microsoft.identitymodel.protocols@8.19.2
 microsoft.identitymodel.tokens@8.19.2
 microsoft.win32.systemevents@6.0.0
-qrcoder@1.8.0
+qrcoder@1.8.1
 system.drawing.common@6.0.0
 system.identitymodel.tokens.jwt@8.19.2
-system.directoryservices.protocols@10.0.12
+system.directoryservices.protocols@10.0.13
 "
 inherit dotnet-pkg systemd
 
@@ -29,7 +29,7 @@ DESCRIPTION="Open-source, self-hosted authoritative and recursive DNS+DHCP serve
 HOMEPAGE="https://technitium.com/dns/"
 SRC_URI="
 	$SRC_URI_BASE/DnsServer/archive/refs/tags/v${PV}.tar.gz -> TechnitiumDnsServer-${PV}.tar.gz
-	$SRC_URI_BASE/TechnitiumLibrary/archive/refs/tags/dns-server-v${PV}.tar.gz -> TechnitiumLibrary-${PV}.tar.gz
+	$SRC_URI_BASE/TechnitiumLibrary/archive/refs/tags/dns-server-${PV}.tar.gz -> TechnitiumLibrary-${PV}.tar.gz
 	${NUGET_URIS}
 "
 
@@ -41,9 +41,9 @@ KEYWORDS="~amd64"
 RDEPEND=">=dev-libs/icu-70"
 
 DOTNET_PKG_PROJECTS=(
-	"${S}/TechnitiumLibrary-dns-server-v${PV}/TechnitiumLibrary.ByteTree/TechnitiumLibrary.ByteTree.csproj"
-	"${S}/TechnitiumLibrary-dns-server-v${PV}/TechnitiumLibrary.Net/TechnitiumLibrary.Net.csproj"
-	"${S}/TechnitiumLibrary-dns-server-v${PV}/TechnitiumLibrary.Security.OTP/TechnitiumLibrary.Security.OTP.csproj"
+	"${S}/TechnitiumLibrary-dns-server-${PV}/TechnitiumLibrary.ByteTree/TechnitiumLibrary.ByteTree.csproj"
+	"${S}/TechnitiumLibrary-dns-server-${PV}/TechnitiumLibrary.Net/TechnitiumLibrary.Net.csproj"
+	"${S}/TechnitiumLibrary-dns-server-${PV}/TechnitiumLibrary.Security.OTP/TechnitiumLibrary.Security.OTP.csproj"
 	"${S}/DnsServer-${PV}/DnsServerApp/DnsServerApp.csproj"
 )
 
