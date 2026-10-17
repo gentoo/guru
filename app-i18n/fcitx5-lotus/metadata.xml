@@ -12,9 +12,6 @@
 		including a non-preedit "smooth" mode via a privileged uinput
 		server for seamless text replacement.
 	</longdescription>
-	<use>
-		<flag name="openrc">Install the OpenRC init script for fcitx5-lotus-server</flag>
-	</use>
 	<upstream>
 		<remote-id type="github">LotusInputMethod/fcitx5-lotus</remote-id>
 	</upstream>
