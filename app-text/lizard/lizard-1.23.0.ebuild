@@ -8,7 +8,7 @@ DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1
 
-DESCRIPTION="A simple code complexity analyser, supports most of the popular languages."
+DESCRIPTION="A simple code complexity analyser, supports most of the popular languages"
 HOMEPAGE="http://www.lizard.ws/"
 SRC_URI="https://github.com/terryyin/lizard/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
