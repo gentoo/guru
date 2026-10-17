@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# David Roman <stkw0@disroot.org> (2026-10-17)
+# No maintainer downstream, upstream is also not very active
+# Bad quality ebuild (use EGIT instead of a proper release tarball).
+# Removal after 2026-10-17
+games-misc/varlpenis
+
 # Paul Zander <negril.nx+gentoo@gmail.com> (2026-10-03)
 # Unmaintained
 # Doesn't build with dev-libs/libcsv::gentoo (requires pkgconfig)
