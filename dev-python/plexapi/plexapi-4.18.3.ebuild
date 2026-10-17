@@ -11,7 +11,7 @@ PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
-DESCRIPTION="Python bindings for the Plex API."
+DESCRIPTION="Python bindings for the Plex API"
 HOMEPAGE="
 	https://pypi.org/project/PlexAPI/
 	https://github.com/pkkid/python-plexapi
