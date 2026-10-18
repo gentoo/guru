@@ -8,19 +8,20 @@ HOMEPAGE="https://gitlab.com/tuxedocomputers/development/packages/tuxedo-yt6801"
 SRC_PV="v${PV}-8"
 SRC_URI="
 		https://en.motor-comm.com/En/Skippower/downloadFile.html?id=607 -> yt6801-linux-driver-${PV}.zip
-		https://gitlab.com/tuxedocomputers/development/packages/tuxedo-yt6801/-/archive/${SRC_PV}/tuxedo-yt6801-${SRC_PV}.tar.gz"
+		https://gitlab.com/tuxedocomputers/development/packages/tuxedo-yt6801/-/archive/${SRC_PV}/tuxedo-yt6801-${SRC_PV}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="virtual/linux-sources"
+BDEPEND="app-arch/unzip"
 DEPEND="${RDEPEND}"
 
 inherit linux-mod-r1
 
 src_unpack() {
-	unpack tuxedo-yt6801-${SRC_PV}.tar.gz || die
+	unpack tuxedo-yt6801-${SRC_PV}.tar.bz2 || die
 	mkdir yt6801-driver || die
 	cd yt6801-driver || die
 	unpack yt6801-linux-driver-${PV}.zip || die

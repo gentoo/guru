@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gf.devel@pm.me</email>
+		<name>Gregor Feierabend</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://gitlab.com/tuxedocomputers/development/packages/tuxedo-yt6801/-/boards</bugs-to>
+		<remote-id type="gitlab">tuxedocomputers/development/packages/tuxedo-yt6801</remote-id>
+	</upstream>
+</pkgmetadata>
