@@ -20,7 +20,7 @@ LICENSE="BSD-2 BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
-BDEPEND=">=dev-lang/go-1.25.0"
+BDEPEND=">=dev-lang/go-1.26.0"
 
 # See https://bugs.gentoo.org/977931#c3
 src_unpack() {
@@ -38,4 +38,8 @@ src_install() {
 	doman man/go-sendxmpp.1
 	doman man/go-sendxmpp.5
 	default
+}
+
+src_test() {
+	ego test ./...
 }
