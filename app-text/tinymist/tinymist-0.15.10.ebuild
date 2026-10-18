@@ -9,8 +9,8 @@ RUST_MIN_VER="1.92.0"
 
 CRATES=" "
 
-TYPST_HASH="391c2dcd698aabf2917db0336868d16f197057d9"
-TYPST_TS_HASH="bd58ec034584828c272fac1b842acad5b1d79e61"
+TYPST_HASH="59b5999da8e74e74583069408d2564fc1f9bc973"
+TYPST_TS_HASH="98ea19e0c32277646bf435b246477882ad818c9f"
 XILEM_HASH="abe7da9eae473d4f09a7e69a058c31cfe6d3b2e3"
 
 declare -A GIT_CRATES=(
@@ -44,7 +44,6 @@ declare -A GIT_CRATES=(
 	[typst]="https://github.com/Myriad-Dreamin/typst;${TYPST_HASH};typst-%commit%/crates/typst"
 	[typstfmt]="https://github.com/Myriad-Dreamin/typstfmt;cdfe44ed065a90d80040c3b29dee7ed431a710ee;typstfmt-%commit%"
 	[typst-ansi-hl]="https://github.com/Myriad-Dreamin/typst-ansi-hl;3867cb7229ec6b3e3c8f5b1222af96f98bba9bff;typst-ansi-hl-%commit%/lib"
-	[typstyle-core]="https://github.com/Myriad-Dreamin/typstyle;992f36112200bc0ea61df8a7c2af6d9ae56781dd;typstyle-%commit%/crates/typstyle-core"
 	[typst-dev-assets]="https://github.com/typst/typst-dev-assets;29753d6069349e7fe4e5f75dcb2e77ff1adc5fac;typst-dev-assets-%commit%"
 	[wasm-minimal-protocol]="https://github.com/astrale-sharp/wasm-minimal-protocol;c51acd43095fe9da8fa943e064618e486fd2b58d;wasm-minimal-protocol-%commit%/crates/macro"
 )
@@ -55,7 +54,7 @@ DESCRIPTION="An integrated language service for Typst"
 HOMEPAGE="https://github.com/Myriad-Dreamin/tinymist"
 SRC_URI="
 	https://github.com/Myriad-Dreamin/tinymist/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/TimovVeen/tinymist/releases/download/v${PV}/tinymist-${PV}-crates.tar.xz
+	https://github.com/gentoo-crate-dist/tinymist/releases/download/v${PV}/${P}-crates.tar.xz
 	${CARGO_CRATE_URIS}
 "
 
