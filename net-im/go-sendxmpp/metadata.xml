@@ -6,6 +6,6 @@
 		<name>Niklaus 'vimja' Hofer</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>https://salsa.debian.org/mdosch/go-sendxmpp/-/issues</bugs-to>
+		<bugs-to>https://salsa.debian.org/mdosch/go-sendxmpp/-/work_items</bugs-to>
 	</upstream>
 </pkgmetadata>
