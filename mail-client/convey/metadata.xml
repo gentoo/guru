@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>emiljacobs@gmail.com</email>
+		<name>Emil Jacobs</name>
+	</maintainer>
+	<use>
+		<flag name="libunwind">Use libunwind for back traces in problem reports</flag>
+		<flag name="tnef">Support Microsoft-proprietary TNEF attachments</flag>
+	</use>
+	<upstream>
+		<remote-id type="gnome-gitlab">donnybeelo/convey</remote-id>
+	</upstream>
+</pkgmetadata>
