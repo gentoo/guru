@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools desktop
 
@@ -30,6 +30,7 @@ PATCHES=(
 )
 
 src_prepare() {
+	sed -i 's:games/:share/:' configure.in || die
 	default
 	eautoreconf
 }
@@ -38,11 +39,14 @@ src_install() {
 	dobin atris
 	insinto /usr/share/${PN}
 	doins -r styles graphics
+	rm ${D}/usr/share/${PN}/styles/Makefile*
+	rm ${D}/usr/share/${PN}/graphics/Makefile*
 
 	if use sound; then
 		cd "${WORKDIR}"/${PN}-sounds-1.0.1
 		doins -r sounds
 		cd "${S}"
+		rm ${D}/usr/share/${PN}/sounds/Makefile*
 	fi
 
 	if use doc; then
