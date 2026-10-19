@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# Paul Zander <negril.nx+gentoo@gmail.com> (2026-10-19)
+# Hard depend on systemd
+# archived by the owner on May 3, 2026
+# Removal after 2026-10-19
+sys-power/envycontrol
+
 # David Roman <stkw0@disroot.org> (2026-10-17)
 # No maintainer downstream, upstream is also not very active
 # Bad quality ebuild (use EGIT instead of a proper release tarball).
