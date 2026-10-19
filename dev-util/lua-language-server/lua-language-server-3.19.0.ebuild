@@ -40,11 +40,11 @@ src_prepare() {
 	# Shipped file doesn't respect CFLAGS/CXXFLAGS/LDFLAGS
 	eapply "${FILESDIR}/3.16.4-linux.ninja.patch"
 	eapply_user
-	sed -i -e "s/^cc = REPLACE_ME/cc = $(tc-getCC)/" \
-		-e "s/^ar = REPLACE_AR/ar = $(tc-getAR)/" \
-		-e "s/CFLAGS/${CFLAGS}/" \
-		-e "s/CXXFLAGS/${CXXFLAGS}/" \
-		-e "s/LDFLAGS/${LDFLAGS}/" \
+	sed -i -e "s|^cc = REPLACE_ME|cc = $(tc-getCC)|" \
+		-e "s|^ar = REPLACE_AR|ar = $(tc-getAR)|" \
+		-e "s|CFLAGS|${CFLAGS}|" \
+		-e "s|CXXFLAGS|${CXXFLAGS}|" \
+		-e "s|LDFLAGS|${LDFLAGS}|" \
 		3rd/luamake/compile/ninja/linux.ninja || die
 	if [[ $(tc-get-cxx-stdlib) == libc++ ]]; then
 		sed -i "s/-lstdc++fs//" 3rd/luamake/compile/ninja/linux.ninja || die
@@ -64,12 +64,12 @@ src_compile() {
 		build/build.ninja || die
 
 	eapply "${FILESDIR}/3.16.4-build.ninja.patch"
-	sed -i -e "s/REPLACE_ME/$(tc-getCC)/" \
-		-e "s/REPLACE_AR/$(tc-getAR)/" \
+	sed -i -e "s|REPLACE_ME|$(tc-getCC)|" \
+		-e "s|REPLACE_AR|$(tc-getAR)|" \
 		-e "s|LUAMAKE_PATH|${S}/3rd/luamake/luamake|" \
-		-e "s/CFLAGS/${CFLAGS}/" \
-		-e "s/CXXFLAGS/${CXXFLAGS}/" \
-		-e "s/LDFLAGS/${LDFLAGS}/" \
+		-e "s|CFLAGS|${CFLAGS}|" \
+		-e "s|CXXFLAGS|${CXXFLAGS}|" \
+		-e "s|LDFLAGS|${LDFLAGS}|" \
 		build/build.ninja || die
 	if [[ $(tc-get-cxx-stdlib) == libc++ ]]; then
 		sed -i "s/-lstdc++fs//" build/build.ninja || die
