@@ -30,7 +30,7 @@ RDEPEND="
 	test? ( dev-util/xxd )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-123a24e1-default-fixes.patch" )
+PATCHES=( "${FILESDIR}/${PN}-da64dbf542cc27ba614e45fcaf82955fa4643d16-default-fixes.patch" )
 
 # until https://codeberg.org/gentoo/gentoo/pulls/435 or something that updates xxd on ::gentoo
 PATCHES+=( "${FILESDIR}/${PN}-123a24e1-until-gentoo-codeberg-435.patch" )

@@ -1,0 +1,113 @@
+commit db24ab85688e37a00ed4edfd60b8a606d1f4cd98
+Author: ingenarel (NeoJesus) <ingenarel_neojesus@disroot.org>
+Date:   Mon Oct 19 08:56:24 2026 +0600
+
+    DEFAULT PATCHES
+    
+    Signed-off-by: ingenarel (NeoJesus) <ingenarel_neojesus@disroot.org>
+
+diff --git a/Makefile b/Makefile
+index 29759f0..0b2f1f3 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,16 +2,7 @@
+ 
+ OPTFLAGS ?= -O2 -finline-functions
+ WARNFLAGS ?= -Wall -Wextra -Wpedantic -Wshadow -Werror -Wfatal-errors -Wconversion -Wsign-conversion -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wno-c11-extensions
+-CFLAGS ?= -std=c99 -pipe -fPIC $(OPTFLAGS) $(WARNFLAGS)
+-
+-UNAME_S := $(shell uname -s)
+-ifeq ($(UNAME_S),Darwin)
+-	CFLAGS += -fstack-protector-strong -D_GNU_SOURCE
+-else ifeq ($(OS),Windows_NT)
+-	CFLAGS += -D_WIN32 -s
+-else
+-	CFLAGS += -fstack-protector-strong -D_GNU_SOURCE -fno-plt -Wl,-z,now -D_FORTIFY_SOURCE=3
+-endif
++CFLAGS += -std=c11 -D_GNU_SOURCE -D_FORTIFY_SOURCE=3
+ 
+ PREFIX ?= /usr
+ BINDIR ?= $(PREFIX)/bin
+@@ -26,13 +17,10 @@ ZIG ?= zig
+ CROSS_CFLAGS := -std=c99 $(OPTFLAGS) $(WARNFLAGS) -fstack-protector-strong
+ 
+ tinyxxd: main.c
+-	$(CC) $(CFLAGS) -o $@ $<
++	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $<
+ 
+ tinyxxd_debug: main.c
+-	$(CC) $(CFLAGS) -g -o $@ $<
+-
+-tinyxxd_asan: main.c
+-	$(CC) $(CFLAGS) -g -fsanitize=address,undefined -o $@ $<
++	$(CC) $(CFLAGS) $(LDFLAGS) -g -o $@ $<
+ 
+ win64: main.c
+ 	$(ZIG) cc -target x86_64-windows-gnu $(CROSS_CFLAGS) -D_WIN32 -o tinyxxd.exe $<
+@@ -57,7 +45,7 @@ benchfull:
+ fmt: main.c
+ 	clang-format -style=WebKit -i main.c
+ 
+-test: xxd tinyxxd_asan
++test:
+ 	@echo 'Preparing tests...'
+ 	@echo -n 'This is a test file' > sample.bin
+ 	@printf '\x00\x09\x0a\x0d\x20\x41\x7e\x7f\x80\xff' > colorbytes.bin
+@@ -101,8 +89,8 @@ test: xxd tinyxxd_asan
+ 
+ run_test:
+ 	@echo "Running test: $(DESC)"
+-	@./tinyxxd_asan $(CMD) > tinyxxd_output.txt
+-	@./xxd $(CMD) > xxd_output.txt
++	@./tinyxxd $(CMD) > tinyxxd_output.txt
++	@xxd $(CMD) > xxd_output.txt
+ 	@if diff -q tinyxxd_output.txt xxd_output.txt > /dev/null; then \
+ 		echo 'Test passed'; \
+ 	else \
+@@ -112,8 +100,8 @@ run_test:
+ 
+ verify_conversion_test:
+ 	@echo "Running conversion and verification test..."
+-	@./tinyxxd_asan sample.bin > sample_tinyxxd.bin
+-	@./tinyxxd_asan -r sample_tinyxxd.bin > sample_restored.bin
++	@./tinyxxd sample.bin > sample_tinyxxd.bin
++	@./tinyxxd -r sample_tinyxxd.bin > sample_restored.bin
+ 	@if diff -q sample.bin sample_restored.bin > /dev/null; then \
+ 		echo -e "\033[0;32mConversion and verification test passed\033[0m"; \
+ 	else \
+@@ -125,7 +113,7 @@ verify_conversion_test:
+ test_revert_crlf:
+ 	@echo "Running test: Revert hex dump with CRLF line endings"
+ 	@printf "00000000: 3132 3334\r\n00000004: 3536 3738\r\n" > repro_crlf.hex
+-	@./tinyxxd_asan -r repro_crlf.hex > repro_crlf.bin
++	@./tinyxxd -r repro_crlf.hex > repro_crlf.bin
+ 	@printf "12345678" > expected_crlf.bin
+ 	@if diff -q repro_crlf.bin expected_crlf.bin > /dev/null; then \
+ 		echo 'Test passed'; \
+@@ -138,7 +126,7 @@ test_revert_crlf:
+ test_le_padding:
+ 	@echo "Running test: Little-endian hex dump with padding"
+ 	@printf "ABCDEFG" > 7.bin
+-	@./tinyxxd_asan -e -c 8 7.bin > le_padding_output.txt
++	@./tinyxxd -e -c 8 7.bin > le_padding_output.txt
+ 	@printf "00000000: 44434241   474645  ABCDEFG\n" > le_padding_expected.txt
+ 	@if diff -q le_padding_output.txt le_padding_expected.txt > /dev/null; then \
+ 		echo 'Test passed'; \
+@@ -151,7 +139,7 @@ test_le_padding:
+ 
+ test_help_stdout:
+ 	@echo "Running test: -h outputs to stdout"
+-	@if ./tinyxxd_asan -h 2>/dev/null | grep -q 'Usage'; then \
++	@if ./tinyxxd -h 2>/dev/null | grep -q 'Usage'; then \
+ 		echo 'Test passed'; \
+ 	else \
+ 		echo 'Test failed: -h should write to stdout'; \
+@@ -160,7 +148,7 @@ test_help_stdout:
+ 
+ test_error_stderr:
+ 	@echo "Running test: bad option outputs to stderr"
+-	@if ./tinyxxd_asan -Z 2>&1 >/dev/null | grep -q 'Usage'; then \
++	@if ./tinyxxd -Z 2>&1 >/dev/null | grep -q 'Usage'; then \
+ 		echo 'Test passed'; \
+ 	else \
+ 		echo 'Test failed: bad option should write to stderr'; \
