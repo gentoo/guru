@@ -47,7 +47,7 @@ python_prepare_all() {
 
 	# Tries to download and extract the driver,
 	# but we have it in the system already
-	rm setup.py
+	rm setup.py || die
 
 	distutils-r1_python_prepare_all
 }
