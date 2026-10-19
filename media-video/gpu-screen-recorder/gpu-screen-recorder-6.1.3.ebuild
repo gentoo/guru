@@ -18,7 +18,7 @@ DESCRIPTION="A screen recorder that has minimal impact on system performance"
 HOMEPAGE="https://git.dec05eba.com/gpu-screen-recorder/about"
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+filecaps systemd"
+IUSE="+filecaps"
 
 DEPEND="
 	media-video/ffmpeg[vulkan]
@@ -32,7 +32,7 @@ DEPEND="
 	media-libs/libva
 	x11-libs/libdrm
 	x11-libs/libX11
-	sys-apps/dbus
+	sys-apps/dbus:0
 	sys-libs/libcap
 	dev-libs/wayland
 "
@@ -41,12 +41,8 @@ BDEPEND="${DEPEND}"
 
 src_configure() {
 	local emesonargs=(
-		$(meson_use systemd)
+		-Dsystemd=true
 		$(meson_use filecaps capabilities)
 	)
 	meson_src_configure
-}
-
-src_install() {
-	meson_src_install
 }
