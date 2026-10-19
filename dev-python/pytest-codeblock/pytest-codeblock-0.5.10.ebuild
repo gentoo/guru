@@ -34,10 +34,10 @@ distutils_enable_tests pytest
 
 src_prepare() {
 	# Tests call `pytest` as well, so let's avoid code coverage altogether
-	sed -e '/addopts/,/^]$/d' -i pyproject.toml
+	sed -e '/addopts/,/^]$/d' -i pyproject.toml || die
 
 	# Having this variable set breaks all Django related tests
-	sed -e "/DJANGO_SETTINGS_MODULE/d" -i pyproject.toml
+	sed -e "/DJANGO_SETTINGS_MODULE/d" -i pyproject.toml || die
 
 	distutils-r1_src_prepare
 }
