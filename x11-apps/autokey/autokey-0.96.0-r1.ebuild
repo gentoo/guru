@@ -17,7 +17,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
-IUSE="+gtk qt5"
+IUSE="+gtk" # qt5
 
 RDEPEND="dev-python/dbus-python[${PYTHON_USEDEP}]
 	dev-python/pyinotify[${PYTHON_USEDEP}]
@@ -33,11 +33,12 @@ RDEPEND="dev-python/dbus-python[${PYTHON_USEDEP}]
 		dev-libs/libayatana-appindicator
 		x11-libs/gtksourceview:3.0
 	)
-	qt5? (
-		dev-python/pyqt5[${PYTHON_USEDEP}]
-		dev-python/qscintilla[${PYTHON_USEDEP}]
-	)
 "
+# 	qt5? (
+# 		dev-python/pyqt5[${PYTHON_USEDEP}]
+# 		dev-python/qscintilla[${PYTHON_USEDEP}]
+# 	)
+# "
 BDEPEND="
 	test? (
 		>=dev-python/pyhamcrest-2.1.0[${PYTHON_USEDEP}]
@@ -48,7 +49,7 @@ BDEPEND="
 src_compile() {
 	eapply "${FILESDIR}"/0001-scripting-Remove-dependency-on-imghdr.patch
 
-	if ! use qt5; then
+	if in_iuse qt5 && ! use qt5; then
 		rm --verbose --force --recursive "${S}/lib/autokey/qtui"
 		rm --verbose --force --recursive "${S}/lib/autokey/qtapp.py"
 		rm --verbose --force --recursive "${S}/lib/autokey/scripting/clipboard_qt.py"
