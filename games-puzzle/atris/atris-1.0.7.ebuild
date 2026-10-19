@@ -7,8 +7,11 @@ inherit autotools desktop
 
 DESCRIPTION="Alizarin tetris"
 HOMEPAGE="https://www.wkiri.com/projects/atris/"
-SRC_URI="http://www.gnu-darwin.org/distfiles/${P}.tar.gz
-	http://www.gnu-darwin.org/distfiles/${PN}-sounds-1.0.1.tar.gz"
+SOUNDS_PV="1.0.1"
+SRC_URI="
+	http://www.gnu-darwin.org/distfiles/${P}.tar.gz
+	http://www.gnu-darwin.org/distfiles/${PN}-sounds-${SOUNDS_PV}.tar.gz
+"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -30,7 +33,7 @@ PATCHES=(
 )
 
 src_prepare() {
-	sed -i 's:games/:share/:' configure.in || die
+	sed -i 's#games/#share/#' configure.in || die
 	default
 	eautoreconf
 }
@@ -39,26 +42,28 @@ src_install() {
 	dobin atris
 	insinto /usr/share/${PN}
 	doins -r styles graphics
-	rm ${D}/usr/share/${PN}/styles/Makefile*
-	rm ${D}/usr/share/${PN}/graphics/Makefile*
+
+	rm "${ED}/usr/share/${PN}/styles"/Makefile* || die
+	rm "${ED}/usr/share/${PN}/graphics"/Makefile* || die
 
 	if use sound; then
-		cd "${WORKDIR}"/${PN}-sounds-1.0.1
+		pushd "${WORKDIR}"/${PN}-sounds-${SOUNDS_PV} >/dev/null || die
 		doins -r sounds
-		cd "${S}"
-		rm ${D}/usr/share/${PN}/sounds/Makefile*
+		popd >/dev/null || die
+		rm "${ED}/usr/share/${PN}/sounds"/Makefile* || die
 	fi
 
 	if use doc; then
-		dodoc -a html,jpg Docs
+		dodoc -r Docs
 	fi
 	dodoc AUTHORS NEWS README
 
 	newicon icon.xpm ${PN}.xpm
 	make_desktop_entry ${PN} Atris ${PN} BlocksGame
 
-	echo "CONFIG_PROTECT=/var/games/${PN}/" > 99${PN}
-	doenvd 99${PN}
+	newenvd - 99${PN} <<-_EOF_
+		CONFIG_PROTECT=/var/games/${PN}/
+	_EOF_
 
 	keepdir /var/games/${PN}
 	insinto /var/games/${PN}
