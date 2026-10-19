@@ -17,7 +17,7 @@ fi
 
 LICENSE="MIT"
 # dependency licenses:
-LICENSE+=" Apache-2.0 BSD-2-Clause BSD-3-Clause Unlicense " 
+LICENSE+=" Apache-2.0 BSD-2 BSD Unlicense "
 SLOT="0"
 BDEPEND=">=dev-lang/go-1.22.0"
 RDEPEND="app-containers/docker-cli"
