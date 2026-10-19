@@ -53,4 +53,6 @@ EPYTEST_DESELECT=(
 	tests/test_session.py::test_s3_is_overloaded
 )
 
+EPYTEST_PLUGINS=()
+
 distutils_enable_tests pytest
