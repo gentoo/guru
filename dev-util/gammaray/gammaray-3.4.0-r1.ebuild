@@ -6,7 +6,7 @@ EAPI=8
 # skip warning for unused files in 3rdparty/backward-cpp
 CMAKE_QA_COMPAT_SKIP=1
 
-inherit cmake flag-o-matic qmake-utils xdg
+inherit cmake flag-o-matic qt-utils xdg
 
 MY_PN="GammaRay"
 DESCRIPTION="High-level runtime introspection tool for Qt applications"
@@ -108,7 +108,7 @@ src_configure() {
 		$(cmake_use_find_package wayland Wayland)
 		$(cmake_use_find_package webengine Qt6WebEngineWidgets)
 		-DBUILD_TESTING=$(usex test)
-		-DECM_MKSPECS_INSTALL_DIR="$(qt6_get_mkspecsdir)"
+		-DECM_MKSPECS_INSTALL_DIR="$(qt_get_mkspecsdir 6)"
 		# enable doc for manpages
 		-DGAMMARAY_BUILD_DOCS=ON
 		-DGAMMARAY_BUILD_UI=ON
