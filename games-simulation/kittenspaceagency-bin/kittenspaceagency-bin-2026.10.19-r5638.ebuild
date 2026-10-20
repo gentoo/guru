@@ -46,7 +46,12 @@ src_install() {
 		#!/usr/bin/env bash
 
 		cd /opt/kittenspaceagency
-		XDG_SESSION_TYPE=x11 exec ./KSA "$@"
+		# KSA defaults to x11 protocol as of r5622, only falling back to wayland if x11 (eg xwayland) is unavailable
+		# "Changed KSA on Linux to start on X11 by default, using XWayland on a Wayland desktop, so detached windows work without any launch option."
+		# "If X11 can't start, such as on a Wayland desktop without XWayland, it falls back to the platform GLFW would have chosen."
+		# "Added the -wayland launch option to run on native Wayland instead. Detached windows are still turned off there, because Wayland can't position windows. -force-x11 is still accepted but no longer needed."
+		# "Changed the KSA launch profile for devs to no longer pass -force-x11, and added a "KSA (Wayland)" profile that passes -wayland."
+		exec ./KSA "$@"
 	ENDWRAPPER
 
 	dobin kittenspaceagency
