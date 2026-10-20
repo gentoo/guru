@@ -26,13 +26,13 @@ app-portage/quantum-resolver
 # Paul Zander <negril.nx+gentoo@gmail.com> (2026-10-19)
 # Hard depend on systemd
 # archived by the owner on May 3, 2026
-# Removal after 2026-10-19
+# Removal after 2026-11-19
 sys-power/envycontrol
 
 # David Roman <stkw0@disroot.org> (2026-10-17)
 # No maintainer downstream, upstream is also not very active
 # Bad quality ebuild (use EGIT instead of a proper release tarball).
-# Removal after 2026-10-17
+# Removal after 2026-11-17
 games-misc/varlpenis
 
 # Paul Zander <negril.nx+gentoo@gmail.com> (2026-10-03)
