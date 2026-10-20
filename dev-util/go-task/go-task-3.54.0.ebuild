@@ -14,7 +14,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64"
 
-BDEPEND=">=dev-lang/go-1.25.10"
+BDEPEND=">=dev-lang/go-1.26.4"
 
 src_compile() {
 	ego build github.com/go-task/task/v3/cmd/task
