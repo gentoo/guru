@@ -23,16 +23,16 @@ DEPEND="
 	dev-cpp/tomlplusplus
 	dev-cpp/nlohmann_json
 	dev-libs/glib:2
-	dev-libs/libxml2
-	dev-libs/libinput
+	dev-libs/libxml2:2=
+	dev-libs/libinput:0=
 	dev-libs/wayland
 	dev-libs/stb
 	gnome-base/librsvg:2
 	gui-libs/greetd
-	gui-libs/wlroots:0.20=
+	gui-libs/wlroots:0.20
 	media-libs/fontconfig
 	media-libs/freetype
-	media-libs/libwebp
+	media-libs/libwebp:0=
 	media-libs/mesa
 	sys-apps/dbus
 	virtual/opengl
