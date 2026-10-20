@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson optfeature shell-completion xdg
+inherit meson optfeature shell-completion toolchain-funcs xdg
 
 DESCRIPTION="A lightweight Wayland shell and bar built directly on Wayland + OpenGL ES"
 HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia"
@@ -78,17 +78,24 @@ src_configure() {
 src_compile() {
 	meson_src_compile
 
-	"${BUILD_DIR}"/${PN} completions bash > ${PN}.bash || die
-	"${BUILD_DIR}"/${PN} completions zsh > ${PN}.zsh || die
-	"${BUILD_DIR}"/${PN} completions fish > ${PN}.fish || die
+	if ! tc-is-cross-compiler; then
+		"${BUILD_DIR}"/${PN} completions bash > ${PN}.bash || die
+		"${BUILD_DIR}"/${PN} completions zsh  > ${PN}.zsh  || die
+		"${BUILD_DIR}"/${PN} completions fish > ${PN}.fish || die
+	else
+		ewarn "Cross-compiling: shell completion files are not generated."
+		ewarn "Generate them on the target with '${PN} completions --help'."
+	fi
 }
 
 src_install() {
 	meson_src_install
 
-	newbashcomp "${PN}.bash" "${PN}"
-	dofishcomp "${PN}.fish"
-	newzshcomp "${PN}.zsh" "_${PN}"
+	if ! tc-is-cross-compiler; then
+		newbashcomp "${PN}.bash" "${PN}"
+		dofishcomp "${PN}.fish"
+		newzshcomp "${PN}.zsh" "_${PN}"
+	fi
 }
 
 pkg_postinst() {
