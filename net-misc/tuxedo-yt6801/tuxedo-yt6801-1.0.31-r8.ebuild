@@ -35,8 +35,8 @@ src_unpack() {
 src_compile() {
 	cd "${S}/src" || die
 
-	local modlist=( yt6801=net/ethernet/motorcomm:"${S}/src" )
-	local modargs=( KSRC=${KERNEL_DIR} KCFLAGS=-DFXGMAC_INT_MODERATION_ENABLED=1 )
+	local modlist=( yt6801=net/ethernet/motorcomm:"${S}/src"::all )
+	local modargs=( KVER=${KV_FULL} BASEDIR=/lib/modules/${KV_FULL} moderation_en=1 )
 
 	linux-mod-r1_src_compile
 }
