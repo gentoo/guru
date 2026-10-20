@@ -1,0 +1,21 @@
+--- a/Ghidra/Debug/Debugger-agent-dbgeng/build.gradle
++++ b/Ghidra/Debug/Debugger-agent-dbgeng/build.gradle
+@@ -29,18 +29,8 @@ dependencies {
+ }
+ 
+ def tlb = file("build/os/win_x86_64/dbgmodel.tlb")
+-def depsFile = file("${DEPS_DIR}/Debugger-agent-dbgeng/dbgmodel.tlb")
+ def binRepoFile = file("${BIN_REPO}/${getGhidraRelativePath(project)}/os/win_x86_64/dbgmodel.tlb")
+ 
+-tasks.assemblePyPackage {
+-	def prebuiltTlb = depsFile.exists() ? depsFile : (binRepoFile.exists() ? binRepoFile : null)
+-	assert prebuiltTlb != null : "Failed to locate prebuilt TLB file"
+-
+-	from(prebuiltTlb) {
+-		into("src/ghidradbg/dbgmodel/tlb")
+-	}
+-}
+-
+ task buildTlb(type: Exec) {
+ 
+ 	def tmpBatch = file("build/buildTlb.bat")

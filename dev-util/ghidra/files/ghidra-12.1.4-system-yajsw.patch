@@ -1,0 +1,38 @@
+--- a/Ghidra/Features/GhidraServer/build.gradle
++++ b/Ghidra/Features/GhidraServer/build.gradle
+@@ -35,22 +35,8 @@ dependencies {
+ 	runGhidraServer project
+ }
+ 
++// System YAJSW.
+ CopySpec yajswCopySpec = copySpec {
+-	File depsFile = file("${DEPS_DIR}/GhidraServer/${yajswRelease}.zip")
+-	File binRepoFile = file("${BIN_REPO}/Ghidra/Features/GhidraServer/${yajswRelease}.zip")
+-
+-	// First check if the file is in the dependencies repo.  If not, check in the bin repo.
+-	def yajswZipTree = depsFile.exists() ? zipTree(depsFile) : zipTree(binRepoFile)
+-	
+-	from(yajswZipTree) {
+-		include "${yajswRelease}/lib/core/**"
+-		include "${yajswRelease}/lib/extended/**"
+-		include "${yajswRelease}/templates/**"
+-		include "${yajswRelease}/*.jar"
+-		include "${yajswRelease}/doc/**"
+-		include "${yajswRelease}/LICENSE.txt"
+-		include "${yajswRelease}/yajsw.policy.txt"
+-	}
+ }
+ // Unpack YAJSW archive into build/data for development use
+ task yajswDevUnpack(type:Copy) {
+--- a/Ghidra/RuntimeScripts/Linux/server/ghidraSvr
++++ b/Ghidra/RuntimeScripts/Linux/server/ghidraSvr
+@@ -120,7 +120,8 @@ else
+ 	fi
+ fi
+ 
+-WRAPPER_HOME=$(find "${DATA_DIR}" -maxdepth 1 -name "${WRAPPER_NAME_PREFIX}*" -type d | head -n 1)
++WRAPPER_HOME=$(java-config --classpath=yajsw) || exit 1
++WRAPPER_HOME="${WRAPPER_HOME%/*}"
+ 
+ if [ ! -d "${WRAPPER_HOME}" -o ! -f "${WRAPPER_HOME}/wrapper.jar" ]; then
+ 	echo
