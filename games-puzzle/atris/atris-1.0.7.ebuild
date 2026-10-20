@@ -54,7 +54,8 @@ src_install() {
 	fi
 
 	if use doc; then
-		dodoc -r Docs
+		DOCS=( Docs/*html Docs/*jpg )
+		einstalldocs
 	fi
 	dodoc AUTHORS NEWS README
 
