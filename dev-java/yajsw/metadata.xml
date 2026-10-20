@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mit.mis@gmail.com</email>
+		<name>Michal Andrzejczak</name>
+	</maintainer>
+	<longdescription lang="en">
+		YAJSW runs an arbitrary Java or native application as a system daemon:
+		it starts the process, restarts it when it exits or stops responding,
+		captures its output, and installs it into the init system. It is a
+		clean-room reimplementation of the Tanuki Java Service Wrapper.
+	</longdescription>
+	<upstream>
+		<remote-id type="sourceforge">yajsw</remote-id>
+	</upstream>
+</pkgmetadata>

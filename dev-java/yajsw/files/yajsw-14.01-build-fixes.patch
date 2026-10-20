@@ -1,0 +1,42 @@
+# Fix the build path and Java settings for Gradle 9
+
+--- a/build/gradle/build.gradle
++++ b/build/gradle/build.gradle
+@@ -4,10 +4,10 @@
+ }
+ 
+ ext {
+-	projectHome = 'Z:/dev/yajsw2026' //'../..'
+-	coreLibsDir = new File("$projectHome/lib/core").getAbsolutePath()
++	projectHome = rootProject.projectDir.parentFile.parentFile
++	coreLibsDir = new File(projectHome, "lib/core").getAbsolutePath()
+ 	println "$coreLibsDir"
+-	extendedLibsDir = new File("$projectHome/lib/extended").getAbsolutePath()
++	extendedLibsDir = new File(projectHome, "lib/extended").getAbsolutePath()
+ // dependency versions
+ 
+ 	commons_cli_version 			= '1.11.0'
+@@ -66,8 +66,10 @@
+ 
+ 
+ 
+-sourceCompatibility = 11
+-targetCompatibility = 11
++java {
++	sourceCompatibility = JavaVersion.VERSION_11
++	targetCompatibility = JavaVersion.VERSION_11
++}
+ //options.bootClasspath = "${System.getProperty('java6.home')}/jre/lib/rt.jar"
+ version = ''
+ 
+--- a/build/gradle/settings.gradle
++++ b/build/gradle/settings.gradle
+@@ -1,7 +1,7 @@
+ // defines a list of subprojects
+ 
+ // build8. comment out for build9
+-include "wrapper", "wrapper-app", "ahessian", "hessian4", "srvmgr", "groovy-patch"
++include "wrapper", "wrapper-app", "ahessian", "hessian4", "groovy-patch"
+ 
+ // build9. comment out for build8
+ //include "wrapper", "wrapper-app", "wrapper-app9", "ahessian", "hessian4", "srvmgr", "groovy-patch", "groovy-patch9"

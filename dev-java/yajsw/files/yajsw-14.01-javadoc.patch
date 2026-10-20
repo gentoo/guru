@@ -1,0 +1,15 @@
+# Turn off doc checks so the docs can build
+# this works around errors in the source comments
+
+--- a/build/gradle/wrapper/build.gradle
++++ b/build/gradle/wrapper/build.gradle
+@@ -1,5 +1,9 @@
+ def projectHome = '../../..'
+ 
++tasks.named('javadoc') {
++    options.addBooleanOption('Xdoclint:none', true)
++}
++
+ // set the sources for this build
+ sourceSets.main.java.srcDirs = ["$projectHome/src/yajsw/src/main/java", "$projectHome/src/app/src/main/java"]
+ sourceSets.main.java.exclude 'com/sun/jna/Native.java', 'com/sun/jna/Platform.java', 'org/apache/commons/vfs2/impl/StandardFileSystemManager.java'

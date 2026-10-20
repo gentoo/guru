@@ -1,0 +1,112 @@
+# Use system jars in the build and the launchers
+
+--- a/build/gradle/build.gradle
++++ b/build/gradle/build.gradle
+@@ -32,7 +32,10 @@
+ 	joda_time_version 				= '2.7'
+ 	permit_version					= '0.4'
+ }
+-defaultTasks 'clean', 'build'
++ext.systemClasspath = System.getenv('GENTOO_CLASSPATH').split(File.pathSeparator)
++    .findAll { !it.endsWith('/slf4j-nop.jar') }
++
++defaultTasks 'clean', 'build'
+ 
+ // common settings for all sub-projects
+ allprojects  {
+@@ -45,26 +48,16 @@
+ 
+ 
+ 
+-// for simplicity and to avoid dependency issues which arise due to the usage of SNAPSHOT libs
+-// we use libs from local disk instead of public repository
+-repositories {
+-    flatDir { 
+-    dirs "$coreLibsDir/commons", "$coreLibsDir/jna", "$coreLibsDir/netty", "$coreLibsDir/permit", 
+-    "$coreLibsDir/yajsw", 
+-    "$extendedLibsDir/groovy", 
+-    "$extendedLibsDir/regex", 
+-    "$extendedLibsDir/cron",
+-    "$extendedLibsDir/commons",
+-    "$extendedLibsDir/abeille",
+-    "$extendedLibsDir/jgoodies",
+-    "$extendedLibsDir/slf4j",
+-    "$extendedLibsDir/velocity"
+-    
++configurations.configureEach {
++    withDependencies {
++        removeAll { it instanceof ExternalModuleDependency }
+     }
+-	}
+-    
+-
+-
++}
++dependencies {
++    implementation files(rootProject.systemClasspath)
++    implementation fileTree(dir: new File(rootProject.projectHome, 'lib'),
++        includes: ['**/*.jar'], excludes: ['**/yajsw/*.jar', '**/groovy-patch.jar'])
++}
+ 
+ java {
+ 	sourceCompatibility = JavaVersion.VERSION_11
+--- a/build/gradle/wrapper/build.gradle
++++ b/build/gradle/wrapper/build.gradle
+@@ -2,6 +2,9 @@
+ 
+ // set the sources for this build
+ sourceSets.main.java.srcDirs = ["$projectHome/src/yajsw/src/main/java", "$projectHome/src/app/src/main/java"]
++sourceSets.main.java.exclude 'com/sun/jna/Native.java', 'com/sun/jna/Platform.java', 'org/apache/commons/vfs2/impl/StandardFileSystemManager.java'
++sourceSets.main.java.exclude 'io/netty/util/internal/CleanerJava9.java', 'io/netty/util/internal/ObjectUtil.java', 'io/netty/util/internal/PlatformDependent0.java'
++sourceSets.main.java.exclude(['AbstractInternalLogger', 'InternalLogLevel', 'InternalLogger', 'InternalLoggerFactory', 'JdkLogger', 'JdkLoggerFactory'].collect { "io/netty/util/internal/logging/${it}.java" })
+ sourceSets.main.resources.srcDirs = ["$projectHome/src/yajsw/src/main/java"]
+ sourceSets.main.resources.includes  = ['resources/*']
+ 
+@@ -50,7 +53,16 @@
+ // TODO generate manifest instead of editing
+ jar {
+     manifest {
+-        from '../../MANIFEST.MF'
++        def systemJars = rootProject.systemClasspath.collect { new File(it).toURI().toString() }
++        from('../../MANIFEST.MF') {
++            eachEntry { entry ->
++                if (entry.key.startsWith('Class-Path-')) {
++                    entry.value = (entry.value.split().findAll { file("$projectHome/$it").exists() }
++                        + systemJars).unique().join(' ')
++                }
++            }
++        }
++        attributes 'Class-Path': systemJars.join(' ')
+     }
+     exclude 'org/rzo/yajsw/app/AbstractWrapperJVMMain*'
+     exclude 'org/rzo/yajsw/app/WrapperGroovyMain*'
+--- a/build/gradle/wrapper-app/build.gradle
++++ b/build/gradle/wrapper-app/build.gradle
+@@ -42,6 +42,15 @@
+ // TODO generate manifest
+ jar {
+     manifest {
+-        from '../../MANIFEST.MF'
++        def systemJars = rootProject.systemClasspath.collect { new File(it).toURI().toString() }
++        from('../../MANIFEST.MF') {
++            eachEntry { entry ->
++                if (entry.key.startsWith('Class-Path-')) {
++                    entry.value = (entry.value.split().findAll { file("$projectHome/$it").exists() }
++                        + systemJars).unique().join(' ')
++                }
++            }
++        }
++        attributes 'Class-Path': systemJars.join(' ')
+     }
+ }
+--- a/src/app/src/main/java/org/rzo/yajsw/boot/WrapperLoader.java
++++ b/src/app/src/main/java/org/rzo/yajsw/boot/WrapperLoader.java
+@@ -215,7 +215,7 @@
+ 			File myFile;
+ 			try
+ 			{
+-				myFile = new File(parent, file);
++				myFile = new File(parent.toURI().resolve(file));
+ 				if (!myFile.exists())
+ 				{
+ 					if (logErrors)
