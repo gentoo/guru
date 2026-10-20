@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# David Roman <stkw0@disroot.org> (2026-10-20)
+# Abandoned upstream and downstream, live ebuild only.
+# Removal after 2026-11-20
+app-portage/quantum-resolver
+
 # Paul Zander <negril.nx+gentoo@gmail.com> (2026-10-19)
 # Hard depend on systemd
 # archived by the owner on May 3, 2026
