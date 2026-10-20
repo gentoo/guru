@@ -1,0 +1,36 @@
+QA marks the stray top-level jar in site-packages.
+Lookup adjusted to the new location.
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -26,7 +26,7 @@
+ 
+ if(SKBUILD)
+     message(DEBUG "SKBuild invocation")
+-    set(DEST_JAR ${SKBUILD_PLATLIB_DIR})
++    set(DEST_JAR ${SKBUILD_PLATLIB_DIR}/jpype)
+     set(DEST_EXTENSION ${SKBUILD_PLATLIB_DIR})
+ else()
+     # in-place build, set output to cmakes output dir.
+--- a/jpype/_core.py
++++ b/jpype/_core.py
+@@ -313,7 +313,7 @@
+ #        extra_jvm_args += ['--module-path=%s'%mp ]
+ 
+     # Get the support library
+-    support_lib_p = Path(__file__).resolve().parent.parent / "org.jpype.jar"
++    support_lib_p = Path(__file__).resolve().parent / "org.jpype.jar"
+     if not support_lib_p.exists():  # pragma: no cover
+         raise RuntimeError(
+             f"Unable to find org.jpype.jar support library at {support_lib_p}")
+--- a/jpype/_pyinstaller/hook-jpype.py
++++ b/jpype/_pyinstaller/hook-jpype.py
+@@ -6,6 +6,6 @@
+ 
+ fspath = getattr(os, 'fspath', str)
+ 
+-jar_path = Path(jpype.__file__).parent.parent.joinpath('org.jpype.jar')
++jar_path = Path(jpype.__file__).parent.joinpath('org.jpype.jar')
+ 
+-datas = [[fspath(jar_path), '.']]
++datas = [[fspath(jar_path), 'jpype']]

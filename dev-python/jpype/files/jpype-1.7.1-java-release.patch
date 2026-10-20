@@ -1,0 +1,32 @@
+Upstream uses URLDecoder.decode(String, Charset) - unavailable in Java 9
+
+--- a/native/build.xml
++++ b/native/build.xml
+@@ -1,7 +1,7 @@
+ <project default="all" name="JPype - Native">
+ 
+ 	<!-- JAVA_VERSION must match the oldest supported Java version -->
+-	<property name="JAVA_VERSION" value="9" />
++	<property name="JAVA_VERSION" value="11" />
+ 
+ 	<!-- src can't be "java" as it breaks nose tests -->
+ 	<property name="src" location="jpype_module/src/main/java"/>
+@@ -17,16 +17,14 @@
+ 		<mkdir dir="${build}/classes/META-INF/versions/0"/>
+ 		<mkdir dir="${build}/lib"/>
+ 		<javac destdir="${build}/classes"
+-			source="${JAVA_VERSION}"
+-			target="${JAVA_VERSION}"
++			release="${JAVA_VERSION}"
+ 			excludes="**/Reflector0.java"
+             includeantruntime="false"
+ 			>
+ 			<src path="${src}"/>
+ 		</javac>
+ 		<javac destdir="${build}/classes/META-INF/versions/0"
+-			source="${JAVA_VERSION}"
+-			target="${JAVA_VERSION}"
++			release="${JAVA_VERSION}"
+ 			includes="**/Reflector0.java"
+             includeantruntime="false"
+ 			>
