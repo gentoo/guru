@@ -1,4 +1,4 @@
-commit 17c86fd5c241892ad514e5f291e1716e42109c19
+commit 411339dc4eded08e95bc70860873c3632a92bb1b
 Author: ingenarel (NeoJesus) <ingenarel_neojesus@disroot.org>
 Date:   Mon Oct 19 07:55:22 2026 +0600
 
@@ -7,7 +7,7 @@ Date:   Mon Oct 19 07:55:22 2026 +0600
     Signed-off-by: ingenarel (NeoJesus) <ingenarel_neojesus@disroot.org>
 
 diff --git a/Makefile b/Makefile
-index 8ba7bd0..7ca4879 100644
+index 8ba7bd0..a17f446 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -2,16 +2,7 @@
@@ -24,7 +24,7 @@ index 8ba7bd0..7ca4879 100644
 -else
 -	CFLAGS += -fstack-protector-strong -D_GNU_SOURCE -fno-plt -Wl,-z,now -D_FORTIFY_SOURCE=3
 -endif
-+CFLAGS += -std=c11 -D_GNU_SOURCE -D_FORTIFY_SOURCE=3
++CFLAGS += -std=c11 -D_GNU_SOURCE
  
  PREFIX ?= /usr
  BINDIR ?= $(PREFIX)/bin
