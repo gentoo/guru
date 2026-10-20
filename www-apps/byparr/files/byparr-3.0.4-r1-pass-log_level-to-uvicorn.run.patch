@@ -1,0 +1,26 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Pass `log_level` to `uvicorn.run`
+
+FastAPI dropped support for extra keyword arguments since `0.145.0`.
+
+See https://github.com/fastapi/fastapi/pull/16518.
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/main.py
++++ b/main.py
+@@ -17,7 +17,7 @@ from src.utils import get_browser, logger
+ logger.info("Using version %s", VERSION)
+ logger.info("Log level set to %s", logging.getLevelName(LOG_LEVEL))
+ 
+-app = FastAPI(debug=LOG_LEVEL == logging.DEBUG, log_level=LOG_LEVEL)
++app = FastAPI(debug=LOG_LEVEL == logging.DEBUG)
+ app.add_middleware(GZipMiddleware)
+ app.add_middleware(LogRequest)
+ 
+@@ -40,4 +40,4 @@ if __name__ == "__main__":
+         loop.run_until_complete(init())
+         logger.info("Initialization complete.")
+     else:
+-        uvicorn.run(app, host=HOST, port=PORT)
++        uvicorn.run(app, host=HOST, port=PORT, log_level=LOG_LEVEL)
