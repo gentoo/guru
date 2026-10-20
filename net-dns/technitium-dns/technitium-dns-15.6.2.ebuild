@@ -29,7 +29,7 @@ DESCRIPTION="Open-source, self-hosted authoritative and recursive DNS+DHCP serve
 HOMEPAGE="https://technitium.com/dns/"
 SRC_URI="
 	$SRC_URI_BASE/DnsServer/archive/refs/tags/v${PV}.tar.gz -> TechnitiumDnsServer-${PV}.tar.gz
-	$SRC_URI_BASE/TechnitiumLibrary/archive/refs/tags/dns-server-${PV}.tar.gz -> TechnitiumLibrary-${PV}.tar.gz
+	$SRC_URI_BASE/TechnitiumLibrary/archive/refs/tags/dns-server-v${PV}.tar.gz -> TechnitiumLibrary-${PV}.tar.gz
 	${NUGET_URIS}
 "
 
@@ -41,9 +41,9 @@ KEYWORDS="~amd64"
 RDEPEND=">=dev-libs/icu-70"
 
 DOTNET_PKG_PROJECTS=(
-	"${S}/TechnitiumLibrary-dns-server-${PV}/TechnitiumLibrary.ByteTree/TechnitiumLibrary.ByteTree.csproj"
-	"${S}/TechnitiumLibrary-dns-server-${PV}/TechnitiumLibrary.Net/TechnitiumLibrary.Net.csproj"
-	"${S}/TechnitiumLibrary-dns-server-${PV}/TechnitiumLibrary.Security.OTP/TechnitiumLibrary.Security.OTP.csproj"
+	"${S}/TechnitiumLibrary-dns-server-v${PV}/TechnitiumLibrary.ByteTree/TechnitiumLibrary.ByteTree.csproj"
+	"${S}/TechnitiumLibrary-dns-server-v${PV}/TechnitiumLibrary.Net/TechnitiumLibrary.Net.csproj"
+	"${S}/TechnitiumLibrary-dns-server-v${PV}/TechnitiumLibrary.Security.OTP/TechnitiumLibrary.Security.OTP.csproj"
 	"${S}/DnsServer-${PV}/DnsServerApp/DnsServerApp.csproj"
 )
 
