@@ -380,11 +380,18 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+	>=dev-libs/glib-2.70:2
+	dev-libs/wayland
 	>=gui-libs/gtk-4.21:4[wayland]
 	>=gui-libs/libadwaita-1.9:1
-	>=net-libs/webkit-gtk-2.52:6
+	>=media-libs/graphene-1.10
 	media-libs/libepoxy
 	media-video/mpv:=[libmpv]
+	net-libs/libsoup:3.0
+	>=net-libs/webkit-gtk-2.52:6
+	>=x11-libs/cairo-1.14[glib]
+	>=x11-libs/gdk-pixbuf-2.36.8:2
+	>=x11-libs/pango-1.50
 "
 RDEPEND="
 	${DEPEND}
@@ -393,9 +400,13 @@ RDEPEND="
 	x11-themes/hicolor-icon-theme
 "
 BDEPEND="
+	dev-libs/glib:2
 	sys-devel/gettext
 	virtual/pkgconfig
 "
+
+# Rust binaries use RUSTFLAGS and do not contain GCC's CFLAGS marker.
+QA_FLAGS_IGNORED="usr/bin/stremio"
 
 PATCHES=(
 	"${FILESDIR}/disable-dbus-activation.patch"
