@@ -13,7 +13,4 @@
       <remote-id type="github">duxlabs-dev/dux-shell</remote-id>
       <bugs-to>https://github.com/duxlabs-dev/dux-shell/issues</bugs-to>
   </upstream>
-  <use>
-      <flag name="greeter">Install dms greeter for greetd</flag>
-  </use>
 </pkgmetadata>
