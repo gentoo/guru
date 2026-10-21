@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>kc8rwr@unfy.us</email>
+    <name>Leif J. Burrow</name>
+  </maintainer>
+  <longdescription>
+    A wrapper script for GIMP 3.0 that restores scanning functionality
+    by calling the standalone XSane interface and importing the
+    result as a new layer.
+  </longdescription>
+  <upstream>
+    <bugs-to>mailto:blog@yingtongli.me</bugs-to>
+  </upstream>
+</pkgmetadata>
