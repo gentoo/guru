@@ -1,0 +1,33 @@
+--- ARDOPCommonCode/ARDOPCommon.c.orig	2025-09-09 13:04:01.154856669 +0200
++++ ARDOPCommonCode/ARDOPCommon.c	2025-09-09 13:04:01.154856669 +0200
+@@ -697,7 +697,7 @@
+ #ifdef WIN32
+ 	Len = rawhid_recv(0, Msg, 64, 100);
+ #else
+-	Len = read(CM108Handle, Msg, 64);
++	Len = hid_read(CM108Handle, Msg, 64);
+ #endif
+ 
+ 	if (Len <= 0)
+@@ -750,12 +750,12 @@
+ 			return FALSE;
+ 		}
+ #else
+-		ret = write(CM108Handle, Msg, 64);
++		ret = hid_write(CM108Handle, Msg, 64);
+ 
+ 		if (ret != 64)
+ 		{
+ 			printf ("Write to %s failed, n=%d, errno=%d\n", HIDDevice, ret, errno);
+-			close (CM108Handle);
++			hid_close (CM108Handle);
+ 			CM108Handle = 0;
+ 			return FALSE;
+ 		}
+@@ -956,4 +956,4 @@
+ #endif
+ }
+ 
+-#endif
+\ Kein Zeilenumbruch am Dateiende.
++#endif
