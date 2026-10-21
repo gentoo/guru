@@ -19,6 +19,11 @@
 # New entries go on top.
 
 # David Roman <stkw0@disroot.org> (2026-10-21)
+# Live ebuild only. Unmaintained
+# Removal after 2026-11-21
+dev-ruby/rbenv
+
+# David Roman <stkw0@disroot.org> (2026-10-21)
 # Live ebuild only. Without meaningful activity since 2022
 # Removal after 2026-11-21
 media-plugins/qt-jpegxl-image-plugin
