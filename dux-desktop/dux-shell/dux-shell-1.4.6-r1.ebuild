@@ -6,10 +6,10 @@ EAPI=8
 inherit desktop optfeature shell-completion systemd tmpfiles xdg
 
 DESCRIPTION="Desktop shell for wayland compositors built with Quickshell"
-HOMEPAGE="https://github.com/AvengeMedia/DankMaterialShell"
+HOMEPAGE="https://github.com/duxlabs-dev/dux-shell"
 # dms source code & QML (quickshell) files
-SRC_URI="https://github.com/AvengeMedia/DankMaterialShell/releases/download/v${PV}/dms-cli-${PV}.tar.gz
-	https://github.com/AvengeMedia/DankMaterialShell/releases/download/v${PV}/dms-qml.tar.gz -> dms-qml-${PV}.tar.gz"
+SRC_URI="https://github.com/duxlabs-dev/dux-shell/releases/download/v${PV}/dms-cli-${PV}.tar.gz
+	https://github.com/duxlabs-dev/dux-shell/releases/download/v${PV}/dms-qml.tar.gz -> dms-qml-${PV}.tar.gz"
 
 S="${WORKDIR}/dms-cli-${PV}"
 

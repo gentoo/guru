@@ -6,10 +6,10 @@ EAPI=8
 inherit desktop optfeature shell-completion systemd xdg
 
 DESCRIPTION="Desktop shell for wayland compositors built with Quickshell"
-HOMEPAGE="https://github.com/AvengeMedia/DankMaterialShell"
+HOMEPAGE="https://github.com/duxlabs-dev/dux-shell"
 # dms source code & QML (quickshell) files
-SRC_URI="https://github.com/AvengeMedia/DankMaterialShell/releases/download/v${PV}/dms-cli-${PV}.tar.gz
-	https://github.com/AvengeMedia/DankMaterialShell/releases/download/v${PV}/dms-qml.tar.gz -> dms-qml-${PV}.tar.gz"
+SRC_URI="https://github.com/duxlabs-dev/dux-shell/releases/download/v${PV}/dms-cli-${PV}.tar.gz
+	https://github.com/duxlabs-dev/dux-shell/releases/download/v${PV}/dms-qml.tar.gz -> dms-qml-${PV}.tar.gz"
 
 S="${WORKDIR}/dms-cli-${PV}"
 
@@ -44,7 +44,7 @@ BDEPEND="
 PATCHES=("${FILESDIR}"/"${PN}-1.5.3-no-strip.patch")
 
 # set variables
-QML_DIR="${WORKDIR}"/quickshell # qml assets location
+QML_DIR="${WORKDIR}"/dms # qml assets location
 
 src_unpack() {
 	# unpack dms source
@@ -57,7 +57,7 @@ src_unpack() {
 
 src_compile() {
 	# build dms distro binary
-	emake VERSION="${PV}" dist DIST_OSES=linux
+	emake VERSION="${PV}" dist
 
 	# generate shell completions
 	"${S}"/bin/dms-linux-"${ARCH}" completion bash > "${S}"/dms-bashcomp
@@ -67,6 +67,10 @@ src_compile() {
 src_install() {
 	# install dms binary
 	newbin "${S}"/bin/dms-linux-"${ARCH}" dms
+
+	# install qml sources at /usr/share/quickshell/dms
+	insinto /usr/share/quickshell
+	doins -r "${QML_DIR}"
 
 	# install shell completions
 	newbashcomp "${S}"/dms-bashcomp dms

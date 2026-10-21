@@ -10,8 +10,8 @@
     <name>Emi</name>
   </maintainer>
   <upstream>
-      <remote-id type="github">AvengeMedia/DankMaterialShell</remote-id>
-      <bugs-to>https://github.com/AvengeMedia/DankMaterialShell/issues</bugs-to>
+      <remote-id type="github">duxlabs-dev/dux-shell</remote-id>
+      <bugs-to>https://github.com/duxlabs-dev/dux-shell/issues</bugs-to>
   </upstream>
   <use>
       <flag name="greeter">Install dms greeter for greetd</flag>

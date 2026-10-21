@@ -1,1 +1,2 @@
 move app-misc/zcock app-misc/zclock
+move gui-apps/dankmaterialshell dux-desktop/dux-shell

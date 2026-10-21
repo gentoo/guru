@@ -3,20 +3,19 @@
 
 EAPI=8
 
-inherit desktop optfeature shell-completion systemd go-module xdg
+inherit desktop optfeature shell-completion systemd xdg
 
 DESCRIPTION="Desktop shell for wayland compositors built with Quickshell"
-HOMEPAGE="https://github.com/AvengeMedia/DankMaterialShell"
+HOMEPAGE="https://github.com/duxlabs-dev/dux-shell"
+# dms source code & QML (quickshell) files
+SRC_URI="https://github.com/duxlabs-dev/dux-shell/releases/download/v${PV}/dms-cli-${PV}.tar.gz
+	https://github.com/duxlabs-dev/dux-shell/releases/download/v${PV}/dms-qml.tar.gz -> dms-qml-${PV}.tar.gz"
 
-inherit git-r3
-EGIT_REPO_URI="https://github.com/AvengeMedia/DankMaterialShell.git"
-
-MAIN_DIR="${S}" # git root
-S="${S}/core" # dms cli
-PATCHES=("${FILESDIR}"/"${PN}-1.5.3-no-strip.patch")
+S="${WORKDIR}/dms-cli-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 IUSE="cups"
 
 DEPEND="
@@ -38,22 +37,27 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-build/cmake
-	>=dev-lang/go-1.27.1
+	dev-lang/go
 	dev-util/pkgconf
 "
 
-src_unpack() {
-	git-r3_src_unpack
-	go-module_live_vendor
-}
+PATCHES=("${FILESDIR}"/"${PN}-1.5.3-no-strip.patch")
 
-src_configure() {
-	default
+# set variables
+QML_DIR="${WORKDIR}"/quickshell # qml assets location
+
+src_unpack() {
+	# unpack dms source
+	unpack dms-cli-"${PV}".tar.gz
+	# unpack QML assets in ${QML_DIR}
+	mkdir -p ${QML_DIR} || die "failed to create directory: ${QML_DIR}"
+	cd "${QML_DIR}"  || die "cd into ${QML_DIR} failed"
+	unpack dms-qml-"${PV}".tar.gz
 }
 
 src_compile() {
 	# build dms distro binary
-	emake VERSION="${PV}" DIST_OSES="linux" dist
+	emake VERSION="${PV}" dist DIST_OSES=linux
 
 	# generate shell completions
 	"${S}"/bin/dms-linux-"${ARCH}" completion bash > "${S}"/dms-bashcomp
@@ -69,11 +73,11 @@ src_install() {
 	newzshcomp "${S}"/dms-zshcomp _dms
 
 	# systemd unit
-	systemd_douserunit "${MAIN_DIR}"/assets/systemd/dms.service
+	systemd_douserunit "${QML_DIR}"/assets/systemd/dms.service
 
 	# desktop entry and icon
-	domenu "${MAIN_DIR}"/assets/dms-open.desktop
-	doicon -s scalable "${MAIN_DIR}"/assets/danklogo.svg
+	domenu "${QML_DIR}"/assets/dms-open.desktop
+	doicon -s scalable "${QML_DIR}"/assets/danklogo.svg
 }
 
 pkg_postinst() {
