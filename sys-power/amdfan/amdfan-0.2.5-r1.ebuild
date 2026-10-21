@@ -5,11 +5,11 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 systemd autotools
 
-DESCRIPTION="Updated AMD Fan control utility forked from amdgpu-fan and updated."
+DESCRIPTION="Updated AMD Fan control utility forked from amdgpu-fan and updated"
 HOMEPAGE="https://mcgillij.dev/pages/amdfan.html"
 SRC_URI="https://github.com/mcgillij/amdfan/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
