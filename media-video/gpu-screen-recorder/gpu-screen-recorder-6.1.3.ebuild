@@ -21,23 +21,22 @@ SLOT="0"
 IUSE="+filecaps"
 
 DEPEND="
-	media-video/ffmpeg[vulkan]
-	media-video/pipewire
+	media-video/ffmpeg:=[vulkan]
+	media-video/pipewire:=
 	media-libs/libglvnd
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
 	x11-libs/libXrandr
 	x11-libs/libXfixes
 	media-libs/libpulse
-	media-libs/libva
+	media-libs/libva:=
 	x11-libs/libdrm
 	x11-libs/libX11
-	sys-apps/dbus:0
+	sys-apps/dbus
 	sys-libs/libcap
 	dev-libs/wayland
 "
 RDEPEND="${DEPEND}"
-BDEPEND="${DEPEND}"
 
 src_configure() {
 	local emesonargs=(
