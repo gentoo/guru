@@ -1,0 +1,60 @@
+#!/sbin/openrc-run
+# shellcheck shell=sh
+#
+# Copyright 2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+MIX_ENV=prod
+
+extra_stopped_commands="downgrade upgrade init"
+description_downgrade="Rollback database migrations"
+description_upgrade="Execute database migrations"
+description_init="Create initial configuration"
+
+command="/usr/sbin/mobilizon"
+command_args="daemon"
+command_user="mobilizon:mobilizon"
+
+depend() {
+	need net postgresql
+	use epmd
+	after firewall
+}
+
+stop() {
+	ebegin "Stopping ${RC_SVCNAME}"
+	"${command}" stop
+	eend $?
+}
+
+restart() {
+	ebegin "Restarting ${RC_SVCNAME}"
+	"${command}" restart
+	eend $?
+}
+
+downgrade() {
+	ebegin "Rolling back database migrations"
+	mobilizon_ctl rollback
+	eend $?
+}
+
+upgrade() {
+	ebegin "Executing database migrations"
+	mobilizon_ctl migrate
+	eend $?
+}
+
+init() {
+	local psql_file="/tmp/setup_mobilizon_db.psql"
+
+	su - mobilizon -c \
+			mobilizon_ctl instance gen  \
+			--output /etc/mobilizon/config.exs \
+			--output-psql "${psql_file}" || return 1
+
+	su - postgres -c \
+			psql -f "${psql_file}" || return 1
+
+	rm -r "${psql_file}"
+}
