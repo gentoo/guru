@@ -41,8 +41,6 @@ BDEPEND="
 
 PATCHES=("${FILESDIR}"/"${PN}-2.0.0-no-strip.patch")
 
-QML_DIR="${WORKDIR}/DankMaterialShell-${PV}/quickshell"
-
 src_unpack() {
 	unpack dms-source-${PV}.tar.gz
 	unpack dms-cli-"${PV}".tar.gz
