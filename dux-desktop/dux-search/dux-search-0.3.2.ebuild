@@ -6,8 +6,8 @@ EAPI=8
 inherit go-module systemd
 
 DESCRIPTION="Indexed filesystem search in GO"
-HOMEPAGE="https://github.com/AvengeMedia/danksearch"
-SRC_URI="https://github.com/AvengeMedia/${PN}/releases/download/v${PV}/dsearch-${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/duxlabs-dev/dux-search"
+SRC_URI="https://github.com/duxlabs-dev/${PN}/releases/download/v${PV}/dsearch-${PV}.tar.gz -> ${P}.tar.gz"
 
 S="${WORKDIR}/dsearch-${PV}"
 
@@ -15,7 +15,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND=">=dev-lang/go-1.26.0"
+BDEPEND=">=dev-lang/go-1.25.0"
 
 PATCHES=("${FILESDIR}"/"${PN}-0.3.2-no-strip.patch")
 

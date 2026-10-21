@@ -10,7 +10,7 @@
     <name>Emi</name>
   </maintainer>
   <upstream>
-      <remote-id type="github">AvengeMedia/danksearch</remote-id>
-      <bugs-to>https://github.com/AvengeMedia/danksearch/issues</bugs-to>
+      <remote-id type="github">duxlabs-dev/dux-search</remote-id>
+      <bugs-to>https://github.com/duxlabs-dev/dux-search/issues</bugs-to>
   </upstream>
 </pkgmetadata>
