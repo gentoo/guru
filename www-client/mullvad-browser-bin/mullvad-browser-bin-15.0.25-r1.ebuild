@@ -21,10 +21,10 @@ KEYWORDS="-* ~amd64"
 IUSE="X"
 
 RDEPEND="
-	app-accessibility/at-spi2-core
+	app-accessibility/at-spi2-core:2
 	app-misc/mime-types
 	dev-libs/dbus-glib
-	dev-libs/glib
+	dev-libs/glib:2
 	dev-libs/nspr
 	dev-libs/nss
 	gui-libs/gtk
@@ -47,8 +47,8 @@ RDEPEND="
 	x11-libs/libXrender
 	x11-libs/libXt
 	x11-libs/libXtst
-	x11-libs/gdk-pixbuf
-	x11-libs/gtk+
+	x11-libs/gdk-pixbuf:2
+	x11-libs/gtk+:3
 	x11-libs/libXext
 	x11-libs/pango
 "
