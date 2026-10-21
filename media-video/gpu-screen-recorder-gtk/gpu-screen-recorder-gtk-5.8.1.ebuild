@@ -21,10 +21,12 @@ SLOT="0"
 
 DEPEND="
 	dev-libs/libayatana-appindicator
-	media-video/gpu-screen-recorder
 	x11-libs/gtk+:3
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	media-video/gpu-screen-recorder
+	${DEPEND}
+"
 
 pkg_postinst() {
 	xdg_pkg_postinst
