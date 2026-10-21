@@ -27,6 +27,8 @@ RDEPEND="
 	glfw? ( media-libs/glfw:0[${MULTILIB_USEDEP}] )
 	sdl2? ( media-libs/libsdl2[${MULTILIB_USEDEP}] )
 	sdl2-renderer? ( media-libs/libsdl2[${MULTILIB_USEDEP}] )
+	sdl3? ( media-libs/libsdl3[${MULTILIB_USEDEP}] )
+	sdl3-renderer? ( media-libs/libsdl3[${MULTILIB_USEDEP}] )
 	opengl? ( || (
 		>=media-libs/mesa-24.1.0_rc1[opengl,${MULTILIB_USEDEP}]
 		<media-libs/mesa-24.1.0_rc1[gles2,egl(+),${MULTILIB_USEDEP}]
@@ -63,8 +65,8 @@ multilib_src_configure() {
 		$(meson_feature glfw)
 		$(meson_feature sdl2)
 		$(meson_feature sdl2-renderer sdl2_renderer)
-		-Dsdl3=disabled
-		-Dsdl3_renderer=disabled
+		$(meson_feature sdl3)
+		$(meson_feature sdl3-renderer sdl3_renderer)
 		$(meson_feature webgpu)
 		-Dosx=disabled
 		-Dwin=disabled
