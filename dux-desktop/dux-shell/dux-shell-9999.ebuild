@@ -11,10 +11,6 @@ HOMEPAGE="https://github.com/duxlabs-dev/dux-shell"
 inherit git-r3
 EGIT_REPO_URI="https://github.com/duxlabs-dev/dux-shell.git"
 
-MAIN_DIR="${S}" # git root
-S="${S}/core" # dms cli
-PATCHES=("${FILESDIR}"/"${PN}-1.5.3-no-strip.patch")
-
 LICENSE="MIT"
 SLOT="0"
 IUSE="cups"
@@ -42,38 +38,33 @@ BDEPEND="
 	dev-util/pkgconf
 "
 
+PATCHES=("${FILESDIR}"/"${PN}-2.0.0-no-strip.patch")
+
 src_unpack() {
 	git-r3_src_unpack
-	go-module_live_vendor
-}
-
-src_configure() {
-	default
+	pushd "${S}/core" >& /dev/null || die
+		ego mod vendor
+	popd >& /dev/null || die
 }
 
 src_compile() {
-	# build dms distro binary
-	emake VERSION="${PV}" DIST_OSES="linux" dist
+	cd core || die "Failed to cd"
+	emake VERSION="${PV}" dist DIST_OSES=linux
 
-	# generate shell completions
-	"${S}"/bin/dms-linux-"${ARCH}" completion bash > "${S}"/dms-bashcomp
-	"${S}"/bin/dms-linux-"${ARCH}" completion zsh > "${S}"/dms-zshcomp
+	bin/dms-linux-"${ARCH}" completion bash > "${S}"/dms-bashcomp || die "Failed to generate bash completion"
+	bin/dms-linux-"${ARCH}" completion zsh > "${S}"/dms-zshcomp || die "Failed to generate fish completion"
 }
 
 src_install() {
-	# install dms binary
-	newbin "${S}"/bin/dms-linux-"${ARCH}" dms
+	newbin core/bin/dms-linux-"${ARCH}" dms
 
-	# install shell completions
-	newbashcomp "${S}"/dms-bashcomp dms
-	newzshcomp "${S}"/dms-zshcomp _dms
+	newbashcomp dms-bashcomp dms
+	newzshcomp dms-zshcomp _dms
 
-	# systemd unit
-	systemd_douserunit "${MAIN_DIR}"/assets/systemd/dms.service
+	systemd_douserunit assets/systemd/dms.service
 
-	# desktop entry and icon
-	domenu "${MAIN_DIR}"/assets/dms-open.desktop
-	doicon -s scalable "${MAIN_DIR}"/assets/danklogo.svg
+	domenu assets/dms-open.desktop
+	doicon -s scalable assets/danklogo.svg
 }
 
 pkg_postinst() {
