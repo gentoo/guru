@@ -10,6 +10,6 @@
     <name>Emi</name>
   </maintainer>
   <upstream>
-      <remote-id type="github">AvengeMedia/dgop</remote-id>
+      <remote-id type="github">duxlabs-dev/dux-gop</remote-id>
   </upstream>
 </pkgmetadata>

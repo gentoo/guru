@@ -6,8 +6,10 @@ EAPI=8
 inherit go-module
 
 DESCRIPTION="API & CLI for System & Process Monitoring "
-HOMEPAGE="https://github.com/AvengeMedia/dgop"
-SRC_URI="https://github.com/AvengeMedia/${PN}/releases/download/v${PV}/${P}.tar.gz"
+HOMEPAGE="https://github.com/duxlabs-dev/dux-gop"
+SRC_URI="https://github.com/duxlabs-dev/${PN}/releases/download/v${PV}/dgop-${PV}.tar.gz"
+
+S="${WORKDIR}/dgop-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
@@ -24,5 +26,5 @@ src_configure() {
 }
 
 src_install() {
-	dobin "${S}/bin/${PN}"
+	dobin "${S}/bin/dgop"
 }
