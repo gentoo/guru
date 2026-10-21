@@ -19,3 +19,6 @@ option('win', type : 'feature', value : 'auto')
 
 # frameworks (renderer + platform)
 option('allegro5', type : 'feature', value : 'auto')
+
+# freetype
+option('freetype', type : 'feature', value : 'auto')

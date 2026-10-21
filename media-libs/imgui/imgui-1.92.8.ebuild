@@ -17,7 +17,7 @@ SRC_URI="https://github.com/ocornut/imgui/archive/v${PV}.tar.gz -> imgui-${PV}.t
 LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="allegro5 glfw sdl2 sdl3 sdl2-renderer sdl3-renderer opengl vulkan webgpu"
+IUSE="allegro5 glfw sdl2 sdl3 sdl2-renderer sdl3-renderer opengl truetype vulkan webgpu"
 
 RDEPEND="
 	dev-libs/stb:=
@@ -33,6 +33,7 @@ RDEPEND="
 		>=media-libs/mesa-24.1.0_rc1[opengl,${MULTILIB_USEDEP}]
 		<media-libs/mesa-24.1.0_rc1[gles2,egl(+),${MULTILIB_USEDEP}]
 	) )
+	truetype? ( media-libs/freetype[${MULTILIB_USEDEP}] )
 	vulkan? ( media-libs/vulkan-loader[${MULTILIB_USEDEP}] )
 	webgpu? ( dev-util/webgpu-headers )
 "
@@ -71,6 +72,7 @@ multilib_src_configure() {
 		-Dosx=disabled
 		-Dwin=disabled
 		$(meson_feature allegro5)
+		$(meson_feature truetype freetype)
 	)
 	meson_src_configure
 }
