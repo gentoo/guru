@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_USE_PEP517=uv-build
 
 inherit distutils-r1 optfeature
