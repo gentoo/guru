@@ -11,7 +11,7 @@ LLVM_COMPAT=( 22 )
 RUST_NEEDS_LLVM=1
 RUST_MIN_VER=1.90.0
 
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{12..14} )
 PYTHON_REQ_USE="ncurses,sqlite,ssl"
 
 VIRTUALX_REQUIRED="manual"
