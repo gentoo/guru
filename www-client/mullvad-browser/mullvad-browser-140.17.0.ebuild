@@ -16,7 +16,7 @@ RUST_NEEDS_LLVM=1
 RUST_MIN_VER=1.82.0
 RUST_MAX_VER=1.94.1
 
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{12..14} )
 PYTHON_REQ_USE="ncurses,sqlite,ssl"
 
 VIRTUALX_REQUIRED="manual"
@@ -35,7 +35,7 @@ WASI_SDK_VER=32.0
 WASI_SDK_LLVM_VER=22
 
 MOZ_PN="firefox"
-ESR_PV="15.0-1-build2"
+ESR_PV="15.0-1-build3"
 
 DESCRIPTION="The Mullvad Browser is developed to minimize tracking and fingerprinting"
 HOMEPAGE="https://github.com/mullvad/mullvad-browser/ https://mullvad.net/"
