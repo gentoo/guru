@@ -22,6 +22,7 @@
 # Live ebuild only. Unmaintained
 # Removal after 2026-11-23
 net-misc/commons-downloader
+net-vpn/gp-saml-gui
 
 # David Roman <stkw0@disroot.org> (2026-10-23)
 # Live ebuild only. Unmaintained
