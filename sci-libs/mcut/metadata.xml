@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mit.mis@gmail.com</email>
+		<name>Michal Andrzejczak</name>
+	</maintainer>
+	<longdescription>
+		MCUT is a tool for partitioning objects represented as meshes that model
+		solids or open surfaces. It supports slicing, Boolean operations, partial
+		cuts, sectioning and splitting of 3D meshes.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">cutdigital/mcut</remote-id>
+	</upstream>
+</pkgmetadata>
