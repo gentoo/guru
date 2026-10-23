@@ -1,0 +1,7 @@
+--- a/settings.gradle
++++ b/settings.gradle
+@@ -45,4 +45,2 @@
+ includeProject('GhidraDocs', '.', true)
+-includeProjects('GhidraBuild/EclipsePlugins/GhidraDev') // requires Eclipse PDE
+-includeProjects('GhidraBuild/EclipsePlugins/GhidraSleighEditor') // requires Eclipse DSL
+ 

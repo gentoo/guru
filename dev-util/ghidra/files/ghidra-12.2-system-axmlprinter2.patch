@@ -1,0 +1,14 @@
+--- a/Ghidra/Features/FileFormats/build.gradle
++++ b/Ghidra/Features/FileFormats/build.gradle
+@@ -45,3 +45,3 @@
+ 	// Used by "Android XML" file system
+-	api ':AXMLPrinter2'
++	api files(System.getenv("GENTOO_AXMLPRINTER2_JAR"))
+ 
+@@ -63 +63,6 @@
+ 
++jar {
++	manifest {
++		attributes("Class-Path": file(System.getenv("GENTOO_AXMLPRINTER2_JAR")).toURI().toString())
++	}
++}
