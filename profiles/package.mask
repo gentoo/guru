@@ -25,6 +25,7 @@ net-misc/commons-downloader
 net-vpn/gp-saml-gui
 x11-themes/hackerer
 x11-themes/juno
+x11-themes/midnight
 
 # David Roman <stkw0@disroot.org> (2026-10-23)
 # Live ebuild only. Unmaintained
