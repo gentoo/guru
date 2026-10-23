@@ -34,6 +34,7 @@ BDEPEND="
 		>=dev-python/dropbox-7.2.1[${PYTHON_USEDEP}]
 		>=dev-python/paramiko-1.15[${PYTHON_USEDEP}] )"
 
+EPYTEST_PLUGINS=()
 EPYTEST_IGNORE=( tests/test_gcloud.py )
 distutils_enable_tests pytest
 

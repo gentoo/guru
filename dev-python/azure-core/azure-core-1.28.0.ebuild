@@ -41,6 +41,9 @@ BDEPEND="app-arch/unzip"
 
 DOCS=( {CHANGELOG,CLIENT_LIBRARY_DEVELOPER,README}.md )
 
+# EPYTEST_PLUGINS=( pytest-trio )
+EPYTEST_PLUGINS=()
+
 distutils_enable_tests pytest
 
 pkg_postinst() {

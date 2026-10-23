@@ -39,4 +39,6 @@ BDEPEND="app-arch/unzip"
 
 DOCS=( {CHANGELOG,README,migration_guide}.md )
 
+EPYTEST_PLUGINS=()
+
 distutils_enable_tests pytest

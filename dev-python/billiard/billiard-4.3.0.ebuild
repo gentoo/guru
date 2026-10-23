@@ -19,6 +19,8 @@ KEYWORDS="~amd64 ~x86"
 
 BDEPEND="test? ( dev-python/psutil[${PYTHON_USEDEP}] )"
 
+EPYTEST_PLUGINS=()
+
 distutils_enable_tests pytest
 
 distutils_enable_sphinx Doc
