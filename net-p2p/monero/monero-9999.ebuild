@@ -37,7 +37,6 @@ DEPEND="
 	dev-libs/rapidjson
 	dev-libs/supercop
 	net-dns/unbound:=[threads(+)]
-	net-libs/miniupnpc:=
 	net-libs/zeromq:=
 	daemon? (
 		acct-group/monero
@@ -54,7 +53,6 @@ RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.18.3.3-miniupnp-api-18.patch
 	"${FILESDIR}"/${PN}-0.18.4.0-unbundle-dependencies.patch
 )
 
