@@ -1,5 +1,5 @@
 #!/sbin/openrc-run
-# Copyright 2020-2025 Gentoo Authors
+# Copyright 2020-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 name="Monero P2P Daemon"
@@ -8,8 +8,9 @@ description="Connects to the Monero P2P network"
 command=/usr/bin/monerod
 pidfile=/run/${RC_SVCNAME}/${RC_SVCNAME}.pid
 
+supervisor=supervise-daemon
+
 command_args="--non-interactive ${MONEROD_ARGS}"
-command_args_background="--detach --pidfile $pidfile"
 command_progress=1
 command_user="${MONEROD_USER:=monero}:${MONEROD_GROUP:=monero}"
 retry="SIGTERM/30/SIGKILL/5"
