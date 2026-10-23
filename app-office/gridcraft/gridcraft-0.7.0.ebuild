@@ -490,4 +490,3 @@ src_install() {
 }
 
 QA_FLAGS_IGNORED="usr/bin/gridcraft usr/bin/gridcraft-cli"
-

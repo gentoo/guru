@@ -782,4 +782,3 @@ src_install() {
 }
 
 QA_FLAGS_IGNORED="usr/bin/pdfcraft usr/bin/pdfcraft-cli"
-
