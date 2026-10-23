@@ -76,7 +76,7 @@ BDEPEND="
 
 DOCS=( README.md changelog/ )
 
-PATCHES=( "${FILESDIR}/${P}-strict-aliasing.patch" )
+PATCHES=( "${FILESDIR}/strict-aliasing.patch" )
 
 src_configure() {
 	if tc-ld-is-mold; then
