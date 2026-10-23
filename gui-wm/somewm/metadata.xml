@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="project">
+    <email>shuber@sthu.org</email>
+    <name>Stefan Huber</name>
+  </maintainer>
+  <longdescription>
+    SomeWM is a Lua-scriptable Wayland compositor and designed as a modern,
+    compatible alternative to AwesomeWM. It is compatible with AwesomeWM's Lua
+    API such that existing configs, widgets and themes carry over. While the 1.4
+    version give 100% AwesomeWM 4.4 compatibility, later versions will add new
+    features and may break compatibility.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">trip-zip/somewm</remote-id>
+    <bugs-to>https://github.com/trip-zip/somewm/issues</bugs-to>
+    <changelog>https://github.com/trip-zip/somewm/blob/main/CHANGELOG.md</changelog>
+    <doc>https://somewm.org/</doc>
+  </upstream>
+</pkgmetadata>
