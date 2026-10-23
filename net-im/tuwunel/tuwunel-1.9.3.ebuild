@@ -79,6 +79,7 @@ IUSE="jemalloc gzip zstd lz4 bzip2 systemd brotli ldap io-uring"
 # lz4 cannot be un-bundled:
 #   https://wiki.gentoo.org/wiki/Writing_Rust_ebuilds#Unbundling_C_libraries
 COMMON_DEPEND="
+	io-uring? ( sys-libs/liburing:= )
 	jemalloc? ( dev-libs/jemalloc:= )
 	app-arch/snappy:=
 	zstd? (
