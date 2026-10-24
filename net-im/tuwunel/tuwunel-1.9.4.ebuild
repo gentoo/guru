@@ -39,7 +39,7 @@ LLVM_COMPAT=( 21 )
 # grep rust-version Cargo.toml
 RUST_MIN_VER="1.95.0"
 
-inherit cargo llvm-r2 linux-info
+inherit check-reqs cargo llvm-r2 linux-info
 
 DESCRIPTION="High Performance Matrix Homeserver in Rust!"
 HOMEPAGE="
@@ -72,7 +72,8 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="jemalloc gzip zstd lz4 bzip2 systemd brotli ldap io-uring"
+IUSE="jemalloc gzip zstd lz4 bzip2 systemd brotli ldap io-uring test"
+RESTRICT="!test? ( test )"
 
 # bzip2 looks difficult to un-bundle:
 #   https://wiki.gentoo.org/wiki/Project:Rust/sys_crates#bzip2-sys
@@ -110,7 +111,16 @@ QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 DOCS=( ../../{README,RELEASE,CONTRIBUTING,CODE_OF_CONDUCT}.md )
 
+# Building the tests uses an excessive amount of disk space.
+CHECKREQS_DISK_BUILD="23G"
+
+pkg_pretend() {
+	use test && check-reqs_pkg_pretend
+}
+
 pkg_setup() {
+	use test && check-reqs_pkg_setup
+
 	CONFIG_CHECK=""
 
 	# IO-Uring requires kernel support.
