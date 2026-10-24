@@ -31,6 +31,7 @@ src_prepare() {
 		--expression='s/-Werror//g' \
 		--expression='/^DFLAGS/d' \
 		--expression='/^OFLAGS/d' \
+		--expression='/^CC/d' \
 		config.mk || die
 }
 
