@@ -1,16 +1,16 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_12 )
+PYTHON_COMPAT=( python3_{12..14} )
 MY_PN=${PN%-*}
 
 inherit desktop python-single-r1 xdg
 
 DESCRIPTION="Web based tool to extract data from plots, images, and maps"
 HOMEPAGE="https://automeris.io/WebPlotDigitizer/"
-SRC_URI="https://automeris.io/downloads/${MY_PN}-${PV}-linux-x64.zip"
+SRC_URI="https://apps.automeris.io/downloads/${MY_PN}-${PV}-linux-x64.zip"
 
 S="${WORKDIR}/${MY_PN}-${PV}-linux-x64"
 
