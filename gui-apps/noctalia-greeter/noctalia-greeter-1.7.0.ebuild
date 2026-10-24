@@ -68,6 +68,10 @@ src_install() {
 	dotmpfiles data/tmpfiles.d/${PN}.conf
 }
 
+src_test() {
+	LIBGL_ALWAYS_SOFTWARE=1 meson_src_test
+}
+
 pkg_postinst() {
 	tmpfiles_process ${PN}.conf
 
