@@ -30,6 +30,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DSTATIC_BINARY=OFF
 		-DSTATIC_LIBS=OFF
+		-DWITH_LTO=OFF # ineffective without flags.cmake
 		-DWITH_RANDOMX=OFF
 		-DWITH_GRPC=OFF
 		-DWITH_TLS=OFF
@@ -40,7 +41,7 @@ src_configure() {
 src_install(){
 	# remove insecure RUNPATHs
 	patchelf --remove-rpath "${BUILD_DIR}"/p2pool || die
-	default
+	dobin "${BUILD_DIR}/${PN}"
 }
 
 pkg_postinst() {

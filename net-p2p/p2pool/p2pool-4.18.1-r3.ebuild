@@ -68,6 +68,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DSTATIC_BINARY=OFF
 		-DSTATIC_LIBS=OFF
+		-DWITH_LTO=OFF # ineffective without flags.cmake
 		-DWITH_GRPC=OFF #$(usex grpc)
 		-DWITH_TLS=OFF #$(usex tls)
 	)
@@ -77,7 +78,7 @@ src_configure() {
 src_install(){
 	# remove insecure RUNPATHs
 	patchelf --remove-rpath "${BUILD_DIR}"/p2pool || die
-	default
+	dobin "${BUILD_DIR}/${PN}"
 
 	if use daemon; then
 		# data-dir
