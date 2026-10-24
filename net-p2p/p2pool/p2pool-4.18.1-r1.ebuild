@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 #TODO: enable/fix GRPC/TLS dependency and add it as USE flag (https://github.com/SChernykh/p2pool/issues/313)
@@ -70,7 +70,7 @@ src_configure() {
 src_install(){
 	# remove insecure RUNPATHs
 	patchelf --remove-rpath "${BUILD_DIR}"/p2pool || die
-	dobin "${BUILD_DIR}"/p2pool
+	default
 
 	if use daemon; then
 		# data-dir

@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -31,7 +31,9 @@ src_configure() {
 }
 
 src_install(){
-	dobin "${BUILD_DIR}/p2pool"
+	# remove insecure RUNPATHs
+	patchelf --remove-rpath "${BUILD_DIR}"/p2pool || die
+	default
 }
 
 pkg_postinst() {
