@@ -19,6 +19,13 @@ DEPEND="
 	net-misc/curl
 "
 
+src_prepare() {
+	# Do not mess with our FLAGS (#978166, #978167)
+	sed -i '/^include(cmake\/flags.cmake)$/d' CMakeLists.txt || die
+
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DSTATIC_BINARY=OFF
