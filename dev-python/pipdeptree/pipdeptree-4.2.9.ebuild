@@ -214,8 +214,6 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/disable-codegen-units-strip.patch" )
-
 EPYTEST_PLUGINS=( pytest-{mock,rerunfailures,subprocess,xdist} )
 # tests can fail if other packages are being merged simultaneously
 EPYTEST_RERUNS=5
