@@ -47,7 +47,7 @@ DEPEND="
 
 DOCS=( LICENSE PACKAGING.md README.md )
 
-PATCHES="${FILESDIR}/${P}_fpm_toml.patch"
+PATCHES=( "${FILESDIR}/${P}_fpm_toml.patch" )
 
 BSDIR="build/bootstrap" # Bootstrap directory path
 
