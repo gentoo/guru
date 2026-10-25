@@ -11,7 +11,8 @@ inherit distutils-r1 optfeature
 DESCRIPTION="Collection of custom storage backends for Django"
 HOMEPAGE="
 	https://github.com/jschneier/django-storages
-	https://pypi.org/project/django-storages/"
+	https://pypi.org/project/django-storages/
+"
 SRC_URI="https://github.com/jschneier/django-storages/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 PATCHES=( "${FILESDIR}/1.14.6-fix-moto-import.patch" )
@@ -21,7 +22,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-python/django-4.2[${PYTHON_USEDEP}]"
+	>=dev-python/django-4.2[${PYTHON_USEDEP}]
+"
 
 BDEPEND="
 	test? (
@@ -32,7 +34,9 @@ BDEPEND="
 		>=dev-python/boto3-1.4.4[${PYTHON_USEDEP}]
 		>=dev-python/moto-5[${PYTHON_USEDEP}]
 		>=dev-python/dropbox-7.2.1[${PYTHON_USEDEP}]
-		>=dev-python/paramiko-1.15[${PYTHON_USEDEP}] )"
+		>=dev-python/paramiko-1.15[${PYTHON_USEDEP}]
+	)
+"
 
 EPYTEST_PLUGINS=()
 EPYTEST_IGNORE=( tests/test_gcloud.py )
