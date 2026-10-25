@@ -11,7 +11,8 @@ inherit distutils-r1
 DESCRIPTION="Django OpenID Connect library"
 HOMEPAGE="
 	https://github.com/mozilla/mozilla-django-oidc
-	https://pypi.org/project/mozilla-django-oidc/"
+	https://pypi.org/project/mozilla-django-oidc/
+"
 SRC_URI="https://github.com/mozilla/mozilla-django-oidc/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MPL-2.0"
@@ -22,12 +23,15 @@ RDEPEND="
 	>=dev-python/django-4.2[${PYTHON_USEDEP}]
 	dev-python/pyjwt[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
-	dev-python/cryptography[${PYTHON_USEDEP}]"
+	dev-python/cryptography[${PYTHON_USEDEP}]
+"
 
 BDEPEND="
 	test? (
 		${RDEPEND}
-		>=dev-python/djangorestframework-3.14[${PYTHON_USEDEP}] )"
+		>=dev-python/djangorestframework-3.14[${PYTHON_USEDEP}]
+	)
+"
 
 EPYTEST_PLUGINS=( pytest-django )
 distutils_enable_tests pytest
