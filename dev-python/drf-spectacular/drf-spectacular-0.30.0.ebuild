@@ -11,7 +11,8 @@ inherit distutils-r1
 DESCRIPTION="Sane and flexible OpenAPI 3 schema generation for Django REST framework"
 HOMEPAGE="
 	https://github.com/tfranzel/drf-spectacular
-	https://pypi.org/project/drf-spectacular/"
+	https://pypi.org/project/drf-spectacular/
+"
 SRC_URI="https://github.com/tfranzel/drf-spectacular/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 PATCHES=( "${FILESDIR}"/0.30.0-fix-tests.patch )
@@ -26,7 +27,8 @@ RDEPEND="
 	>=dev-python/uritemplate-4.2.0[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-6.0.3[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-2.6.0[${PYTHON_USEDEP}]
-	>=dev-python/inflection-0.3.1[${PYTHON_USEDEP}]"
+	>=dev-python/inflection-0.3.1[${PYTHON_USEDEP}]
+"
 
 BDEPEND="
 	test? (
@@ -36,7 +38,9 @@ BDEPEND="
 		>=dev-python/dj-database-url-2.0[${PYTHON_USEDEP}]
 		>=dev-python/pyyaml-6.0.3[${PYTHON_USEDEP}]
 		>=dev-python/annotated-types-0.8.0[${PYTHON_USEDEP}]
-		>=dev-python/psycopg-3.3.6[${PYTHON_USEDEP}] )"
+		>=dev-python/psycopg-3.3.6[${PYTHON_USEDEP}]
+	)
+"
 
 EPYTEST_PLUGINS=( pytest-django pytest-cov )
 distutils_enable_tests pytest
