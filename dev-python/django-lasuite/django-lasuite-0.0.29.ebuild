@@ -11,19 +11,21 @@ inherit distutils-r1 optfeature pypi
 DESCRIPTION="Common library for LaSuite Django projects"
 HOMEPAGE="
 	https://github.com/suitenumerique/django-lasuite
-	https://pypi.org/project/django-lasuite/"
+	https://pypi.org/project/django-lasuite/
+"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# TODO
+RESTRICT="test"
+
 RDEPEND="
 	dev-python/django[${PYTHON_USEDEP}]
 	dev-python/asgiref[${PYTHON_USEDEP}]
-	dev-python/typing-extensions[${PYTHON_USEDEP}]"
-
-# TODO
-RESTRICT="test"
+	dev-python/typing-extensions[${PYTHON_USEDEP}]
+"
 
 pkg_postinst() {
 	optfeature "malware-detection" ">=dev-python/celery-5.0"
