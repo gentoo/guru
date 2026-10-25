@@ -30,12 +30,12 @@ RDEPEND="
 	>=dev-python/toposort-1.7[${PYTHON_USEDEP}]
 	>=dev-python/tqdm-4.64.0[${PYTHON_USEDEP}]
 	>=dev-util/pcpp-1.30[${PYTHON_USEDEP}]
-	test? ( dev-python/tomli-w[${PYTHON_USEDEP}] )
 "
 DEPEND="${RDEPEND}"
 
 DOCS=( CHANGELOG.md README.md )
 
+EPYTEST_PLUGINS=( tomli-w )
 distutils_enable_tests pytest
 
 src_prepare() {
