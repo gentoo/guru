@@ -11,16 +11,18 @@ inherit distutils-r1 pypi
 DESCRIPTION="Django application for country selection"
 HOMEPAGE="
 	https://github.com/SmileyChris/django-countries
-	https://pypi.org/project/django-countries/"
+	https://pypi.org/project/django-countries/
+"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# TODO
+RESTRICT="test"
+
 RDEPEND="
 	dev-python/django[${PYTHON_USEDEP}]
 	dev-python/asgiref[${PYTHON_USEDEP}]
-	dev-python/typing-extensions[${PYTHON_USEDEP}]"
-
-# TODO
-RESTRICT="test"
+	dev-python/typing-extensions[${PYTHON_USEDEP}]
+"
