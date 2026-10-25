@@ -18,7 +18,7 @@ DEPEND="dev-qt/qtbase[gui]
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/rpath-fix.patch" )
+PATCHES=( "${FILESDIR}/${P}-rpath-fix.patch" )
 
 src_install() {
 	mkdir -p "${D}/usr/lib64/qt6/qml"
