@@ -11,7 +11,8 @@ inherit distutils-r1
 DESCRIPTION="Parser for nested data in multipart form"
 HOMEPAGE="
 	https://github.com/remigermain/nested-multipart-parser
-	https://pypi.org/project/nested-multipart-parser/"
+	https://pypi.org/project/nested-multipart-parser/
+"
 SRC_URI="https://github.com/remigermain/nested-multipart-parser/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
@@ -21,7 +22,9 @@ KEYWORDS="~amd64"
 BDEPEND="
 	test? (
 		dev-python/django[${PYTHON_USEDEP}]
-		dev-python/djangorestframework[${PYTHON_USEDEP}] )"
+		dev-python/djangorestframework[${PYTHON_USEDEP}]
+	)
+"
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
