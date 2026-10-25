@@ -9,7 +9,8 @@ DESCRIPTION="Command line interface to LiveKit"
 HOMEPAGE="https://livekit.com/"
 SRC_URI="
 	https://github.com/livekit/livekit-cli/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://dblsaiko.net/pub/dist/${P}-deps.tar.xz"
+	https://dblsaiko.net/pub/dist/${P}-deps.tar.xz
+"
 LICENSE="Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -18,7 +19,8 @@ RDEPEND="media-libs/portaudio"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-lang/go-1.26.8
-	virtual/pkgconfig"
+	virtual/pkgconfig
+"
 
 src_compile() {
 	ego build -tags portaudio_system -o bin/lk ./cmd/lk
