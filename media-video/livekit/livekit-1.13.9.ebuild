@@ -9,7 +9,8 @@ DESCRIPTION="Real-time media server for WebRTC"
 HOMEPAGE="https://livekit.com/"
 SRC_URI="
 	https://github.com/livekit/livekit/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://dblsaiko.net/pub/dist/${P}-deps.tar.xz"
+	https://dblsaiko.net/pub/dist/${P}-deps.tar.xz
+"
 LICENSE="Apache-2.0"
 LICENSE+=" Apache-2.0 BSD-2 BSD ISC MIT MPL-2.0"
 SLOT="0"
