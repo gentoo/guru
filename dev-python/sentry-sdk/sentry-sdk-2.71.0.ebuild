@@ -14,7 +14,8 @@ DESCRIPTION="Python client for Sentry"
 HOMEPAGE="
 	https://sentry.io/
 	https://github.com/getsentry/sentry-python/
-	https://pypi.org/project/sentry-sdk/"
+	https://pypi.org/project/sentry-sdk/
+"
 SRC_URI="https://github.com/getsentry/sentry-python/archive/${PV}.tar.gz -> ${MY_P}.gh.tar.gz"
 
 S="${WORKDIR}/${MY_P}"
@@ -23,14 +24,16 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RESTRICT="test"
+
 RDEPEND="
 	>=dev-python/urllib3-1.26.11[${PYTHON_USEDEP}]
-	dev-python/certifi[${PYTHON_USEDEP}]"
+	dev-python/certifi[${PYTHON_USEDEP}]
+"
 
 DOCS=(
 	CHANGELOG.md
 	CONTRIBUTING.md
 	MIGRATION_GUIDE.md
-	README.md )
-
-RESTRICT="test"
+	README.md
+)
