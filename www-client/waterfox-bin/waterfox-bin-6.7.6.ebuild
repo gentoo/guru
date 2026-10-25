@@ -9,7 +9,10 @@ MY_PN="waterfox"
 
 DESCRIPTION="A privacy-focused, performance-oriented browser based on Firefox"
 HOMEPAGE="https://www.waterfox.com/"
-SRC_URI="https://cdn.waterfox.com/waterfox/releases/${PV}/Linux_x86_64/waterfox-${PV}.tar.bz2 -> ${P}.tar.bz2"
+SRC_URI="
+	amd64? ( https://cdn.waterfox.com/waterfox/releases/${PV}/Linux_x86_64/waterfox-${PV}.tar.bz2 -> ${P}-x86_64.tar.bz2 )
+	arm64? ( https://cdn.waterfox.com/waterfox/releases/${PV}/Linux_aarch64/waterfox-${PV}.tar.bz2 -> ${P}-aarch64.tar.bz2 )
+	"
 S="${WORKDIR}/${MY_PN}"
 
 LICENSE="MPL-2.0"
