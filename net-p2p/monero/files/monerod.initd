@@ -10,7 +10,7 @@ pidfile=/run/${RC_SVCNAME}/${RC_SVCNAME}.pid
 
 supervisor=supervise-daemon
 
-command_args="--non-interactive ${MONEROD_ARGS}"
+command_args="--non-interactive --config-file /etc/monero/monerod.conf"
 command_progress=1
 command_user="${MONEROD_USER:=monero}:${MONEROD_GROUP:=monero}"
 retry="SIGTERM/30/SIGKILL/5"

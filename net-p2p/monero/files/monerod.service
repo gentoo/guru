@@ -8,7 +8,7 @@ Group=monero
 StateDirectory=monero
 LogsDirectory=monero
 Type=simple
-ExecStart=/usr/bin/monerod --config-file /etc/monero/monerod.conf --non-interactive
+ExecStart=/usr/bin/monerod --non-interactive --config-file=/etc/monero/monerod.conf
 Restart=on-failure
 StandardOutput=null
 StandardError=null

@@ -150,7 +150,7 @@ src_install() {
 		doins "${FILESDIR}"/monerod.conf
 
 		# OpenRC
-		newconfd "${FILESDIR}"/monerod-0.18.4.0.confd monerod
+		newconfd "${FILESDIR}"/monerod.confd monerod
 		newinitd "${FILESDIR}"/monerod.initd monerod
 
 		# systemd
