@@ -75,6 +75,15 @@ src_configure() {
 	cmake_src_configure
 }
 
+src_test(){
+	"${BUILD_DIR}"/${PN} --test || die "Self-test failed"
+	"${BUILD_DIR}"/external/src/RandomX/randomx-tests || die "RandomX tests failed"
+	# TODO: add p2pool_tests
+	# https://github.com/SChernykh/p2pool/blob/abc833598f80d7a0345b6020ced90f19957d7a7c/.github/workflows/c-cpp.yml#L616
+
+	cmake_src_test
+}
+
 src_install(){
 	# remove insecure RUNPATHs
 	patchelf --remove-rpath "${BUILD_DIR}"/p2pool || die
