@@ -41,7 +41,7 @@ BDEPEND="
 
 src_unpack() {
 	if use verify-sig; then
-		local VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/SChernykh.asc
+		local VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/SChernykh.asc
 		pushd "${DISTDIR}" > /dev/null || die
 		verify-sig_verify_message ${P}_shasums.asc - | \
 			tr \\r \\n | \
