@@ -11,7 +11,8 @@ inherit distutils-r1 pypi
 DESCRIPTION="Python protocol stubs for LiveKit"
 HOMEPAGE="
 	https://github.com/livekit/python-sdks/
-	https://pypi.org/project/livekit-protocol/"
+	https://pypi.org/project/livekit-protocol/
+"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -19,4 +20,5 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	>=dev-python/protobuf-5[${PYTHON_USEDEP}]
-	>=dev-python/types-protobuf-5[${PYTHON_USEDEP}]"
+	>=dev-python/types-protobuf-5[${PYTHON_USEDEP}]
+"
