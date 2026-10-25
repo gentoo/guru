@@ -11,7 +11,8 @@ inherit distutils-r1 optfeature
 DESCRIPTION="Type-safe Pydantic Schemas for Django JSONFields"
 HOMEPAGE="
 	https://github.com/surenkov/django-pydantic-field
-	https://pypi.org/project/django-pydantic-field/"
+	https://pypi.org/project/django-pydantic-field/
+"
 SRC_URI="https://github.com/surenkov/django-pydantic-field/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
@@ -21,7 +22,8 @@ KEYWORDS="~amd64"
 RDEPEND="
 	>=dev-python/pydantic-1.10[${PYTHON_USEDEP}]
 	>=dev-python/django-3.1[${PYTHON_USEDEP}]
-	dev-python/typing-extensions[${PYTHON_USEDEP}]"
+	dev-python/typing-extensions[${PYTHON_USEDEP}]
+"
 
 BDEPEND="
 	test? (
@@ -30,7 +32,9 @@ BDEPEND="
 		dev-python/inflection[${PYTHON_USEDEP}]
 		>=dev-python/dj-database-url-2.0[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
-		dev-python/annotated-types[${PYTHON_USEDEP}] )"
+		dev-python/annotated-types[${PYTHON_USEDEP}]
+	)
+"
 
 EPYTEST_PLUGINS=( pytest-django syrupy )
 distutils_enable_tests pytest
