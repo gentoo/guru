@@ -1,0 +1,20 @@
+Disable OpenGL accumulation buffer when running under XWayland
+
+diff --git a/Tcl/custom-definitions b/Tcl/custom-definitions
+index 5267760..2635452 100644
+--- a/Tcl/custom-definitions
++++ b/Tcl/custom-definitions
+@@ -18,7 +18,12 @@
+ # $XCRYSDEN_TOPDIR/Tcl/toglOpt.tcl
+ # ------------------------------------------------------------------------
+ 
+-#set toglOpt(accum)  false 
++if {[info exists ::env(XDG_SESSION_TYPE)] &&
++    $::env(XDG_SESSION_TYPE) eq "wayland"} {
++    set toglOpt(accum) false
++} elseif {[info exists ::env(WAYLAND_DISPLAY)]} {
++    set toglOpt(accum) false
++}
+ #set toglOpt(stereo) none
+ 
+ 

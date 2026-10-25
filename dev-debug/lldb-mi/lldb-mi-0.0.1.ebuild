@@ -10,7 +10,7 @@ inherit cmake llvm-r2
 DESCRIPTION="LLDB Machine Interface Driver"
 HOMEPAGE="https://github.com/lldb-tools/lldb-mi"
 
-if [[ ${PV} = 9999* ]]; then
+if [[ ${PV} == 9999* ]]; then
 	EGIT_REPO_URI="https://github.com/lldb-tools/lldb-mi.git"
 	EGIT_BRANCH="main"
 	inherit git-r3

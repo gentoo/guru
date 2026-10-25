@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mit.mis@gmail.com</email>
+		<name>Michal Andrzejczak</name>
+	</maintainer>
+	<longdescription lang="en">
+		ASAR is a simple extensive archive format. It concatenates all files
+		together without compression (like tar) while having random access
+		support.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">electron/asar</remote-id>
+		<bugs-to>https://github.com/electron/asar/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

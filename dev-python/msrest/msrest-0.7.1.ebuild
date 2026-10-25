@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_12 )
+PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE="xml(+)"
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature pypi
@@ -35,6 +35,8 @@ BDEPEND="
 		dev-python/trio[${PYTHON_USEDEP}]
 	)
 "
+
+EPYTEST_PLUGINS=()
 
 distutils_enable_tests pytest
 

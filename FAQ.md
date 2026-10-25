@@ -8,9 +8,9 @@
 
 See [wiki.gentoo.org/wiki/Project:GURU/Information_for_Contributors](https://wiki.gentoo.org/wiki/Project:GURU/Information_for_Contributors)
 
-- #### What are the rules and regulations?
+- #### What are the rules?
 
-See [wiki.gentoo.org/wiki/Project:GURU#The_regulations](https://wiki.gentoo.org/wiki/Project:GURU#The_regulations)
+See [wiki.gentoo.org/wiki/Project:GURU#Rules](https://wiki.gentoo.org/wiki/Project:GURU#Rules)
 
 - #### What does GURU stand for?
 
@@ -40,11 +40,11 @@ You can either contact the GURU contributors using one of the options in the pre
 
 - #### I found a bug in a package that I do not maintain, and I know how to fix it, can I fix it myself?
 
-As per [the regulations](https://wiki.gentoo.org/wiki/Project:GURU#The_regulations), yes, you can! Just be sure to maintain respectful and professional behaviour.
+As per [the rules](https://wiki.gentoo.org/wiki/Project:GURU#Rules), yes, you can! Just be sure to maintain respectful and professional behaviour.
 
 - #### Can I commit a package without listing myself as explicit maintainer?
 
-As per [the regulations](https://wiki.gentoo.org/wiki/Project:GURU#The_regulations), yes, you can.
+As per [the rules](https://wiki.gentoo.org/wiki/Project:GURU#Rules), yes, you can.
 
 - #### I want to make changes to this document, can I?
 

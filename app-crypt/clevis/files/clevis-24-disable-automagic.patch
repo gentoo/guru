@@ -1,0 +1,231 @@
+diff --git a/meson_options.txt b/meson_options.txt
+index 11e3bbf..ab72ab5 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -2,3 +2,7 @@ option('user', type: 'string', value: 'clevis', description: 'Unprivileged user
+ option('group', type: 'string', value: 'clevis', description: 'Unprivileged group for secure clevis operations')
+ option('tpm1', type: 'feature', value: 'auto', description: 'Enable TPM 1.2 pin support')
+ option('pkcs11', type: 'feature', value: 'auto', description: 'Enable PKCS11 pin support')
++option('dracut', type: 'feature', value: 'auto', description: 'Enable dracut support for clevis')
++option('udisks', type: 'feature', value: 'auto', description: 'Enable udisks2 support for clevis')
++option('bashcompdir', type: 'string', value: '', description: 'Directory for bash completion files')
++option('initramfs_tools', type: 'feature', value: 'auto', description: 'Enable initramfs-tools support in clevis')
+diff --git a/src/bash/meson.build b/src/bash/meson.build
+index e9e597a..6262e6a 100644
+--- a/src/bash/meson.build
++++ b/src/bash/meson.build
+@@ -1,7 +1,11 @@
+ bashcomp = dependency('bash-completion', required: false)
+ 
+-if bashcomp.found()
+-  bashcompdir = bashcomp.get_variable(pkgconfig : 'completionsdir')
++if get_option('bashcompdir') != '' or bashcomp.found()
++  if get_option('bashcompdir') != ''
++    bashcompdir = get_option('bashcompdir')
++  else
++    bashcompdir = bashcomp.get_variable(pkgconfig: 'completionsdir')
++  endif
+   install_data('clevis', install_dir: bashcompdir)
+ else
+   warning('Will not install bash completion due to missing dependencies!')
+diff --git a/src/initramfs-tools/meson.build b/src/initramfs-tools/meson.build
+index a4661c9..fd5408e 100644
+--- a/src/initramfs-tools/meson.build
++++ b/src/initramfs-tools/meson.build
+@@ -1,4 +1,4 @@
+-initramfs_tools = find_program('update-initramfs', required: false)
++initramfs_tools = find_program('update-initramfs', required: get_option('initramfs_tools'))
+ 
+ if initramfs_tools.found()
+   initramfstools_dir = '/usr/share/initramfs-tools'
+@@ -11,6 +11,6 @@ if initramfs_tools.found()
+   initramfs_data.set('libdir', libdir)
+   subdir('hooks')
+   subdir('scripts')
+-else
++elif get_option('initramfs_tools').auto()
+   warning('Will not install initramfs-tools module due to missing dependencies!')
+ endif
+diff --git a/src/luks/dracut/clevis-pin-null/meson.build b/src/luks/dracut/clevis-pin-null/meson.build
+index 0c7e172..120a91c 100644
+--- a/src/luks/dracut/clevis-pin-null/meson.build
++++ b/src/luks/dracut/clevis-pin-null/meson.build
+@@ -9,6 +9,6 @@ if dracut.found()
+     install_dir: dracutdir,
+     configuration: data,
+   )
+-else
++elif get_option('dracut').auto()
+   warning('Will not install dracut module clevis-pin-null due to missing dependencies!')
+ endif
+diff --git a/src/luks/dracut/clevis-pin-pkcs11/meson.build b/src/luks/dracut/clevis-pin-pkcs11/meson.build
+index ecd1421..6395db6 100644
+--- a/src/luks/dracut/clevis-pin-pkcs11/meson.build
++++ b/src/luks/dracut/clevis-pin-pkcs11/meson.build
+@@ -18,6 +18,6 @@ if dracut.found()
+     )
+   install_data('clevis-pkcs11-prehook.sh', install_dir: dracutdir)
+ 
+-else
++elif get_option('dracut').auto()
+   warning('Will not install dracut module clevis-pin-pkcs11 due to missing dependencies!')
+ endif
+diff --git a/src/luks/dracut/clevis-pin-sss/meson.build b/src/luks/dracut/clevis-pin-sss/meson.build
+index 34a7345..17f7f05 100644
+--- a/src/luks/dracut/clevis-pin-sss/meson.build
++++ b/src/luks/dracut/clevis-pin-sss/meson.build
+@@ -9,6 +9,6 @@ if dracut.found()
+     install_dir: dracutdir,
+     configuration: data,
+   )
+-else
++elif get_option('dracut').auto()
+   warning('Will not install dracut module clevis-pin-sss due to missing dependencies!')
+ endif
+diff --git a/src/luks/dracut/clevis-pin-tang/meson.build b/src/luks/dracut/clevis-pin-tang/meson.build
+index 92af675..fd79cb9 100644
+--- a/src/luks/dracut/clevis-pin-tang/meson.build
++++ b/src/luks/dracut/clevis-pin-tang/meson.build
+@@ -9,6 +9,6 @@ if dracut.found()
+     install_dir: dracutdir,
+     configuration: data,
+   )
+-else
++elif get_option('dracut').auto()
+   warning('Will not install dracut module clevis-pin-tang due to missing dependencies!')
+ endif
+diff --git a/src/luks/dracut/clevis-pin-tpm1/meson.build b/src/luks/dracut/clevis-pin-tpm1/meson.build
+index 6515b6a..9ec9233 100644
+--- a/src/luks/dracut/clevis-pin-tpm1/meson.build
++++ b/src/luks/dracut/clevis-pin-tpm1/meson.build
+@@ -9,6 +9,6 @@ if dracut.found()
+     install_dir: dracutdir,
+     configuration: data,
+   )
+-else
++elif get_option('dracut').auto()
+   warning('Will not install dracut module clevis-pin-tpm1 due to missing dependencies!')
+ endif
+diff --git a/src/luks/dracut/clevis-pin-tpm2/meson.build b/src/luks/dracut/clevis-pin-tpm2/meson.build
+index 58990e7..fe1f2c9 100644
+--- a/src/luks/dracut/clevis-pin-tpm2/meson.build
++++ b/src/luks/dracut/clevis-pin-tpm2/meson.build
+@@ -9,6 +9,6 @@ if dracut.found()
+     install_dir: dracutdir,
+     configuration: data,
+   )
+-else
++elif get_option('dracut').auto()
+   warning('Will not install dracut module clevis-pin-tpm2 due to missing dependencies!')
+ endif
+diff --git a/src/luks/dracut/clevis/meson.build b/src/luks/dracut/clevis/meson.build
+index 8a6821e..378b852 100644
+--- a/src/luks/dracut/clevis/meson.build
++++ b/src/luks/dracut/clevis/meson.build
+@@ -38,6 +38,6 @@ if dracut.found()
+   install_data('clevis-cleanup-hook.sh', install_dir: dracutdir)
+   install_data('clevis-password-unlocker-hook.sh', install_dir: dracutdir)
+   install_data('clevis-online-hook.sh', install_dir: dracutdir)
+-else
++elif get_option('dracut').auto()
+   warning('Will not install dracut module due to missing dependencies!')
+ endif
+diff --git a/src/luks/dracut/meson.build b/src/luks/dracut/meson.build
+index d78af7d..fb61872 100644
+--- a/src/luks/dracut/meson.build
++++ b/src/luks/dracut/meson.build
+@@ -1,9 +1,12 @@
+-subdir('clevis')
+-subdir('clevis-pin-tang')
+-if not get_option('tpm1').disabled()
+-  subdir('clevis-pin-tpm1')
++dracut = dependency('dracut', required: get_option('dracut'))
++if dracut.found()
++  subdir('clevis')
++  subdir('clevis-pin-tang')
++  if not get_option('tpm1').disabled()
++    subdir('clevis-pin-tpm1')
++  endif
++  subdir('clevis-pin-tpm2')
++  subdir('clevis-pin-sss')
++  subdir('clevis-pin-null')
++  subdir('clevis-pin-pkcs11')
+ endif
+-subdir('clevis-pin-tpm2')
+-subdir('clevis-pin-sss')
+-subdir('clevis-pin-null')
+-subdir('clevis-pin-pkcs11')
+diff --git a/src/luks/udisks2/meson.build b/src/luks/udisks2/meson.build
+index 866055b..8bf4a2d 100644
+--- a/src/luks/udisks2/meson.build
++++ b/src/luks/udisks2/meson.build
+@@ -1,6 +1,6 @@
+-audit = dependency('audit', version: '>=2.7.8', required: false)
+-udisks2 = dependency('udisks2', required: false)
+-gio = dependency('gio-2.0', required: false)
++udisks2 = dependency('udisks2', required: get_option('udisks'))
++audit = dependency('audit', version: '>=2.7.8', required: get_option('udisks'))
++gio = dependency('gio-2.0', required: get_option('udisks'))
+ 
+ if udisks2.found() and audit.found() and gio.found()
+   autostartdir = join_paths(sysconfdir, 'xdg', 'autostart')
+@@ -18,7 +18,7 @@ if udisks2.found() and audit.found() and gio.found()
+     install_dir: libexecdir,
+     install: true,
+   )
+-else
++elif get_option('udisks').auto()
+   warning('Will not build udisks2 support due to missing dependencies!')
+ endif
+ 
+diff --git a/src/pins/file/meson.build b/src/pins/file/meson.build
+index fd43e14..fc27f9d 100644
+--- a/src/pins/file/meson.build
++++ b/src/pins/file/meson.build
+@@ -25,7 +25,7 @@ if dracut.found()
+     install_dir: dracutdir,
+     configuration: data,
+   )
+-else
++elif get_option('dracut').auto()
+   warning('Will not install dracut module clevis-pin-file due to missing dependencies!')
+ endif
+ 
+@@ -41,6 +41,6 @@ if initramfs_tools.found()
+     install_dir: initramfs_hooks_dir,
+     configuration: initramfs_data,
+   )
+-else
++elif get_option('initramfs_tools').auto()
+   warning('Will not install initramfs module clevis-pin-file due to missing dependencies!')
+ endif
+diff --git a/src/pins/template/meson.build b/src/pins/template/meson.build
+index 5a84aa9..807914a 100644
+--- a/src/pins/template/meson.build
++++ b/src/pins/template/meson.build
+@@ -29,7 +29,7 @@ if curl.found()
+ 
+ #%# Run the test.
+   test('pin-@pin@', find_program('./pin-@pin@'), env: env)
+-else
++elif get_option('dracut').auto()
+   warning('Will not install @pin@ pin due to missing dependencies!')
+ endif
+ 
+@@ -44,7 +44,7 @@ if dracut.found()
+     install_dir: dracutdir,
+     configuration: data,
+   )
+-else
++elif get_option('initramfs_tools').auto()
+   warning('Will not install dracut module clevis-pin-@pin@ due to missing dependencies!')
+ endif
+ 
+@@ -61,6 +61,6 @@ if initramfs_tools.found()
+     install_dir: initramfs_hooks_dir,
+     configuration: initramfs_data,
+   )
+-else
++elif get_option('initramfs_tools').auto()
+   warning('Will not install initramfs module clevis-pin-@pin@ due to missing dependencies!')
+ endif

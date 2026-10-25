@@ -1,0 +1,282 @@
+.TH PASSAGE 1 "2026 September 5" "Gentoo Maintainers" "Password Store"
+
+.SH NAME
+passage - stores, retrieves, generates, and synchronizes passwords securely
+
+.SH SYNOPSIS
+.B passage
+[ 
+.I COMMAND
+] [ 
+.I OPTIONS
+]... [ 
+.I ARGS
+]...
+
+.SH DESCRIPTION
+
+.B passage
+is a fork of password-store that uses
+.BR age (1)
+as a backend instead of 
+.BR gpg2 (1) .
+
+.B passage 
+stores passwords inside
+.BR age (1)
+encrypted files inside a simple directory tree residing at 
+.IR ~/.passage/store .
+The
+.B passage
+utility provides a series of commands for manipulating the password store,
+allowing the user to add, remove, edit, synchronize, generate, and manipulate
+passwords.
+
+If no COMMAND is specified, COMMAND defaults to either
+.B show
+or
+.BR ls ,
+depending on the type of specifier in ARGS. Alternatively, if \fIPASSWORD_STORE_ENABLE_EXTENSIONS\fP
+is set to "true", and the file \fI~/.passage/extensions/COMMAND.bash\fP exists inside the
+password store and is executable, then it is sourced into the environment,
+passing any arguments and environment variables. Extensions existing in a
+system-wide directory, only installable by the administrator, are always enabled.
+
+Otherwise COMMAND must be one of the valid commands listed below.
+
+Several of the commands below rely on or provide additional functionality if
+the password store directory is also a git repository. If the password store
+directory is a git repository, all password store modification commands will
+cause a corresponding git commit. Sub-directories may be separate nested git
+repositories, and passage will use the inner-most directory relative to the
+current password.
+
+There is a corresponding bash completion script for use with tab completing
+password names in
+.BR bash (1)
+as well as completions scripts for
+.BR zsh (1)
+and
+.BR fish (1).
+
+For setting up
+.B passage ,
+all one needs to do is to create the \fI~/.passage/identities\fP file:
+
+.B $ age-keygen >> $HOME/.passage/identities
+
+.SH COMMANDS
+
+.TP
+\fBls\fP \fIsubfolder\fP
+List names of passwords inside the tree at
+.I subfolder
+by using the
+.BR tree (1)
+program. This command is alternatively named \fBlist\fP.
+.TP
+\fBgrep\fP [\fIGREPOPTIONS\fP] \fIsearch-string\fP
+Searches inside each decrypted password file for \fIsearch-string\fP, and displays line
+containing matched string along with filename. Uses
+.BR grep (1)
+for matching. \fIGREPOPTIONS\fP are passed to
+.BR grep (1)
+as-is. (Note: the \fIGREP_OPTIONS\fP environment variable functions as well.)
+.TP
+\fBfind\fP \fIpass-names\fP...
+List names of passwords inside the tree that match \fIpass-names\fP by using the
+.BR tree (1)
+program. This command is alternatively named \fBsearch\fP.
+.TP
+\fBshow\fP [ \fI--clip\fP[=\fIline-number\fP], \fI-c\fP[\fIline-number\fP] ] [ \fI--qrcode\fP[=\fIline-number\fP], \fI-q\fP[\fIline-number\fP] ] \fIpass-name\fP
+Decrypt and print a password named \fIpass-name\fP. If \fI--clip\fP or \fI-c\fP
+is specified, do not print the password but instead copy the first (or otherwise specified)
+line to the clipboard using
+.BR xclip (1)
+or
+.BR wl-clipboard(1)
+and then restore the clipboard after 45 (or \fIPASSWORD_STORE_CLIP_TIME\fP) seconds. If \fI--qrcode\fP
+or \fI-q\fP is specified, do not print the password but instead display a QR code using
+.BR qrencode (1)
+either to the terminal or graphically if supported.
+.TP
+\fBinsert\fP [ \fI--echo\fP, \fI-e\fP | \fI--multiline\fP, \fI-m\fP ] [ \fI--force\fP, \fI-f\fP ] \fIpass-name\fP
+Insert a new password into the password store called \fIpass-name\fP. This will
+read the new password from standard in. If \fI--echo\fP or \fI-e\fP is \fInot\fP specified,
+disable keyboard echo when the password is entered and confirm the password by asking
+for it twice. If \fI--multiline\fP or \fI-m\fP is specified, lines will be read until
+EOF or Ctrl+D is reached. Otherwise, only a single line from standard in is read. Prompt
+before overwriting an existing password, unless \fI--force\fP or \fI-f\fP is specified. This
+command is alternatively named \fBadd\fP.
+.TP
+\fBedit\fP \fIpass-name\fP
+Insert a new password or edit an existing password using the default text editor specified
+by the environment variable \fIEDITOR\fP or using
+.BR vi (1)
+as a fallback. This mode makes use of temporary files for editing, but care is taken to
+ensure that temporary files are created in \fI/dev/shm\fP in order to avoid writing to
+difficult-to-erase disk sectors. If \fI/dev/shm\fP is not accessible, fallback to
+the ordinary \fITMPDIR\fP location, and print a warning.
+.TP
+\fBgenerate\fP [ \fI--no-symbols\fP, \fI-n\fP ] [ \fI--clip\fP, \fI-c\fP ] [ \fI--in-place\fP, \fI-i\fP | \fI--force\fP, \fI-f\fP ] \fIpass-name [pass-length]\fP
+Generate a new password using \fB/dev/urandom\fP of length \fIpass-length\fP
+(or \fIPASSWORD_STORE_GENERATED_LENGTH\fP if unspecified) and insert into
+\fIpass-name\fP. If \fI--no-symbols\fP or \fI-n\fP is specified, do not use
+any non-alphanumeric characters in the generated password. The character sets used
+in generating passwords can be changed with the \fIPASSWORD_STORE_CHARACTER_SET\fP and
+\fIPASSWORD_STORE_CHARACTER_SET_NO_SYMBOLS\fP environment variables, described below.
+If \fI--clip\fP or \fI-c\fP is specified, do not print the password but instead copy
+it to the clipboard using
+.BR xclip (1)
+or
+.BR wl-clipboard(1)
+and then restore the clipboard after 45 (or \fIPASSWORD_STORE_CLIP_TIME\fP) seconds. If \fI--qrcode\fP
+or \fI-q\fP is specified, do not print the password but instead display a QR code using
+.BR qrencode (1)
+either to the terminal or graphically if supported. Prompt before overwriting an existing password,
+unless \fI--force\fP or \fI-f\fP is specified. If \fI--in-place\fP or \fI-i\fP is
+specified, do not interactively prompt, and only replace the first line of the password
+file with the new generated password, keeping the remainder of the file intact.
+.TP
+\fBrm\fP [ \fI--recursive\fP, \fI-r\fP ] [ \fI--force\fP, \fI-f\fP ] \fIpass-name\fP
+Remove the password named \fIpass-name\fP from the password store. This command is
+alternatively named \fBremove\fP or \fBdelete\fP. If \fI--recursive\fP or \fI-r\fP
+is specified, delete pass-name recursively if it is a directory. If \fI--force\fP
+or \fI-f\fP is specified, do not interactively prompt before removal.
+.TP
+\fBmv\fP [ \fI--force\fP, \fI-f\fP ] \fIold-path\fP \fInew-path\fP
+Renames the password or directory named \fIold-path\fP to \fInew-path\fP. This
+command is alternatively named \fBrename\fP. If \fI--force\fP is specified,
+silently overwrite \fInew-path\fP if it exists. If \fInew-path\fP ends in a
+trailing \fI/\fP, it is always treated as a directory. Passwords are selectively
+reencrypted to the corresponding keys of their new destination.
+.TP
+\fBcp\fP [ \fI--force\fP, \fI-f\fP ] \fIold-path\fP \fInew-path\fP
+Copies the password or directory named \fIold-path\fP to \fInew-path\fP. This
+command is alternatively named \fBcopy\fP. If \fI--force\fP is specified,
+silently overwrite \fInew-path\fP if it exists. If \fInew-path\fP ends in a
+trailing \fI/\fP, it is always treated as a directory. Passwords are selectively
+reencrypted to the corresponding keys of their new destination.
+.TP
+\fBgit\fP \fIgit-command-args\fP...
+If the password store is a git repository, pass \fIgit-command-args\fP as arguments to
+.BR git (1)
+using the password store as the git repository. If \fIgit-command-args\fP is \fBinit\fP,
+in addition to initializing the git repository, add the current contents of the password
+store to the repository in an initial commit. If the git config key \fIpass.signcommits\fP
+is set to \fItrue\fP, then all commits will be signed using \fIuser.signingkey\fP or the
+default git signing key. This config key may be turned on using:
+.B `pass git config --bool --add pass.signcommits true`
+.TP
+\fBhelp\fP
+Show usage message.
+.TP
+\fBversion\fP
+Show version information.
+
+.SH FILES
+
+.TP
+.B ~/.passage/store
+The default password storage directory.
+.TP
+.B ~/.passage/identities
+Contains the default age key used for encryption and decryption. Multiple age
+keys may be specified in this file, one per line. If
+.B .age-recipients
+exists in any subdirectories, passwords inside those subdirectories are
+encrypted using the keys specified in this file instead.
+.TP
+.B ~/.passage/extensions
+The directory containing extension files.
+
+.SH ENVIRONMENT VARIABLES
+
+.TP
+.I PASSAGE_DIR
+Overrides the default password storage directory.
+.TP
+.I PASSAGE_IDENTITIES_FILE
+Overrides the identities file location.
+.TP
+.I PASSAGE_AGE
+Overrides the
+.BR age (1)
+binary.
+.TP
+.I PASSAGE_RECIPIENTS_FILE
+Override recipients for encryption operations. Passed to
+.BR age (1)
+with \fI-R\fP.
+.I PASSAGE_RECIPIENTS
+Override recipients for encryption operations. Space separated, each passed to
+.BR age (1)
+with \fI-r\fP.
+.TP
+.I PASSWORD_STORE_X_SELECTION
+Overrides the selection passed to \fBxclip\fP, by default \fIclipboard\fP. See
+.BR xclip (1)
+for more info.
+.TP
+.I PASSWORD_STORE_CLIP_TIME
+Specifies the number of seconds to wait before restoring the clipboard, by default
+\fI45\fP seconds.
+.TP
+.I PASSWORD_STORE_UMASK
+Sets the umask of all files modified by pass, by default \fI077\fP.
+.TP
+.I PASSWORD_STORE_GENERATED_LENGTH
+The default password length if the \fIpass-length\fP parameter to \fBgenerate\fP
+is unspecified.
+.TP
+.I PASSWORD_STORE_CHARACTER_SET
+The character set to be used in password generation for \fBgenerate\fP. This value
+is to be interpreted by \fBtr\fP. See
+.BR tr (1)
+for more info.
+.TP
+.I PASSWORD_STORE_CHARACTER_SET_NO_SYMBOLS
+The character set to be used in no-symbol password generation for \fBgenerate\fP,
+when \fI--no-symbols\fP, \fI-n\fP is specified. This value is to be interpreted
+by \fBtr\fP. See
+.BR tr (1)
+for more info.
+.TP
+.I PASSWORD_STORE_ENABLE_EXTENSIONS
+This environment variable must be set to "true" for extensions to be enabled.
+.TP
+.I PASSWORD_STORE_EXTENSIONS_DIR
+The location to look for executable extension files, by default
+\fIPASSWORD_STORE_DIR/.extensions\fP.
+.TP
+.I EDITOR
+The location of the text editor used by \fBedit\fP.
+.SH SEE ALSO
+.BR age (1),
+.BR tr (1),
+.BR git (1),
+.BR xclip (1),
+.BR wl-clipboard (1),
+.BR qrencode (1).
+
+.SH AUTHOR
+.B passage
+was written by Filippo Valsorda, based on work from
+.MT Jason@zx2c4.com
+Jason A. Donenfeld
+.ME .
+
+.SH COPYING
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.

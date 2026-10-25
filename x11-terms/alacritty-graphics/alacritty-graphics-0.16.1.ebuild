@@ -300,7 +300,7 @@ inherit cargo desktop shell-completion eapi9-ver
 DESCRIPTION="GPU-accelerated terminal emulator with sixel support"
 HOMEPAGE="https://alacritty.org"
 
-if [ ${PV} == "9999" ] ; then
+if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/ayosec/alacritty/archive/refs/tags/v${PV}-graphics.tar.gz -> ${P}.tar.gz

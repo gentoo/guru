@@ -3,7 +3,7 @@
 # Distributed under the terms of the GNU GPL version 2 or later
 
 DESCRIPTION="Manage the Swift symlink"
-MAINTAINER="itai@itaiferber.net"
+MAINTAINER=""
 VERSION="1.0"
 
 inherit path-manipulation

@@ -1,0 +1,88 @@
+--- a/Ghidra/Extensions/SymbolicSummaryZ3/build.gradle
++++ b/Ghidra/Extensions/SymbolicSummaryZ3/build.gradle
+@@ -26,3 +26,3 @@
+ 	api project(':SystemEmulation')
+-	api ":com.microsoft.z3:"
++	api files(System.getenv("GENTOO_Z3_JAR"))
+ 
+@@ -36,7 +36,5 @@
+ 
+-CopySpec z3LibsCopySpec = copySpec {
+-	File depsDir = file("${DEPS_DIR}/SymbolicSummaryZ3/os")
+-	File binRepoDir = file("${BIN_REPO}/Ghidra/Extensions/SymbolicSummaryZ3/os")
+-	from(depsDir.exists() ? depsDir : binRepoDir) {
+-		into("os")
++jar {
++	manifest {
++		attributes("Class-Path": file(System.getenv("GENTOO_Z3_JAR")).toURI().toString())
+ 	}
+@@ -44,19 +42,3 @@
+ 
+-task z3DevLibsCopy(type: Copy) {
+-	description = "Unpack Z3 archives for development use"
+-	group = "Development Preparation"
+-	
+-	onlyIf {
+-		// Only need to do this if using dependencies directory
+-		file("${DEPS_DIR}/SymbolicSummaryZ3/os").exists()
+-	}
+-	
+-	with z3LibsCopySpec
+-	destinationDir = file("build")
+-}
+-
+ zipExtensions {
+-	into(getBaseProjectName(this.project)) {
+-		with z3LibsCopySpec
+-	}
+ 	into(getBaseProjectName(this.project)) {
+@@ -67,3 +49 @@
+ }
+-
+-rootProject.prepDev.dependsOn(z3DevLibsCopy)
+--- a/Ghidra/Extensions/SymbolicSummaryZ3/src/main/java/ghidra/pcode/emu/symz3/SymZ3.java
++++ b/Ghidra/Extensions/SymbolicSummaryZ3/src/main/java/ghidra/pcode/emu/symz3/SymZ3.java
+@@ -17,15 +17,5 @@
+ 
+-import ghidra.framework.*;
+-
+ public class SymZ3 {
+ 	public static void loadZ3Libs() {
+-		// Load the libraries using a custom search path before the system tries
+-		String ext = Platform.CURRENT_PLATFORM.getLibraryExtension();
+-		try {
+-			System.load(Application.getOSFile("libz3" + ext).getPath());
+-			System.load(Application.getOSFile("libz3java" + ext).getPath());
+-		}
+-		catch (OSFileNotFoundException e) {
+-			throw new UnsatisfiedLinkError("Z3 libs not found: " + e);
+-		}
++		System.loadLibrary("z3java");
+ 		System.setProperty("z3.skipLibraryLoad", Boolean.toString(true));
+--- a/Ghidra/Extensions/SymbolicSummaryZ3/src/test/java/ghidra/pcode/emu/symz3/bugTest/SymZ3PcodeEmulatorBugTest.java
++++ b/Ghidra/Extensions/SymbolicSummaryZ3/src/test/java/ghidra/pcode/emu/symz3/bugTest/SymZ3PcodeEmulatorBugTest.java
+@@ -18,2 +18,4 @@
+ import static org.junit.Assert.*;
++
++import java.util.Set;
+ 
+@@ -138,3 +140,5 @@
+ 		assertEquals(raxcompare.getLeft(), "0");
+-		assertEquals(raxcompare.getRight(), "(RAX + RCX + RBX)");
++		assertTrue(raxcompare.getRight(),
++			Set.of("(RAX + RCX + RBX)", "(RAX + RBX + RCX)")
++					.contains(raxcompare.getRight()));
+ 	}
+--- a/Ghidra/Extensions/SymbolicSummaryZ3/src/test/java/ghidra/pcode/emu/symz3/plain/SymZ3PcodeEmulatorTest.java
++++ b/Ghidra/Extensions/SymbolicSummaryZ3/src/test/java/ghidra/pcode/emu/symz3/plain/SymZ3PcodeEmulatorTest.java
+@@ -20,2 +20,3 @@
+ import java.math.BigInteger;
++import java.util.Set;
+ 
+@@ -194,3 +195,5 @@
+ 		ImmutablePair<String, String> comparison = thread.registerComparison("RAX");
+-		assertEquals(comparison.getRight(), "(RAX + RCX + RBX)");
++		assertTrue(comparison.getRight(),
++			Set.of("(RAX + RCX + RBX)", "(RAX + RBX + RCX)")
++					.contains(comparison.getRight()));
+ 		Msg.info(this, "Z3 Version: " + com.microsoft.z3.Version.getFullVersion());

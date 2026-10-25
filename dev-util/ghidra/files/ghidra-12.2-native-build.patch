@@ -1,0 +1,56 @@
+--- a/GPL/nativeBuildProperties.gradle
++++ b/GPL/nativeBuildProperties.gradle
+@@ -40,2 +40,11 @@
+ 	toolChains {
++		withType(GccCompatibleToolChain) {
++			if (System.getenv("GENTOO_CC")) {
++				eachPlatform {
++					cCompiler.executable = System.getenv("GENTOO_CC")
++					cppCompiler.executable = System.getenv("GENTOO_CXX")
++					linker.executable = System.getenv("GENTOO_CXX")
++				}
++			}
++		}
+ 		def current = getCurrentPlatformName()
+--- a/GPL/DemanglerGnu/build.gradle
++++ b/GPL/DemanglerGnu/build.gradle
+@@ -176,2 +176,5 @@
+ 			
++			b.cCompiler.args(*(System.getenv("CPPFLAGS") ?: "").tokenize())
++			b.cCompiler.args(*(System.getenv("CFLAGS") ?: "").tokenize())
++			b.linker.args(*(System.getenv("LDFLAGS") ?: "").tokenize())
+ 		}
+--- a/Ghidra/Features/Decompiler/buildNatives.gradle
++++ b/Ghidra/Features/Decompiler/buildNatives.gradle
+@@ -204,8 +204,2 @@
+ 				
+-				c {
+-					source {
+-						srcDir "src/decompile/zlib"
+-						include "*.c"
+-					}
+-				}
+ 			} // end sources (sleigh)
+@@ -214,4 +208,4 @@
+ 				all{ b ->
+-					b.cppCompiler.define "LOCAL_ZLIB"
+-					b.cCompiler.define "NO_GZIP"
++					b.cppCompiler.args(*(System.getenv("ZLIB_CFLAGS") ?: "").tokenize())
++					b.linker.args(*(System.getenv("ZLIB_LIBS") ?: "").tokenize())
+ 				}
+@@ -277,2 +271,7 @@
+ 			}
++			b.cCompiler.args(*(System.getenv("CPPFLAGS") ?: "").tokenize())
++			b.cCompiler.args(*(System.getenv("CFLAGS") ?: "").tokenize())
++			b.cppCompiler.args(*(System.getenv("CPPFLAGS") ?: "").tokenize())
++			b.cppCompiler.args(*(System.getenv("CXXFLAGS") ?: "").tokenize())
++			b.linker.args(*(System.getenv("LDFLAGS") ?: "").tokenize())
+ 		}
+--- a/Ghidra/Features/FileFormats/buildNatives.gradle
++++ b/Ghidra/Features/FileFormats/buildNatives.gradle
+@@ -91,2 +91,5 @@
+ 			}
++			b.cCompiler.args(*(System.getenv("CPPFLAGS") ?: "").tokenize())
++			b.cCompiler.args(*(System.getenv("CFLAGS") ?: "").tokenize())
++			b.linker.args(*(System.getenv("LDFLAGS") ?: "").tokenize())
+ 		}

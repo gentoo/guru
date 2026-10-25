@@ -13,12 +13,15 @@ SRC_URI="
 	amd64? (
 		https://github.com/pear-devs/pear-desktop/releases/download/v${PV}/${MY_PN}_${PV}_amd64.deb
 	)
+	arm64? (
+		https://github.com/pear-devs/pear-desktop/releases/download/v${PV}/${MY_PN}_${PV}_arm64.deb
+	)
 "
 S="${WORKDIR}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="-* ~amd64"
+KEYWORDS="-* ~amd64 ~arm64"
 
 RDEPEND="
 	app-accessibility/at-spi2-core:2

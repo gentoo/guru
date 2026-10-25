@@ -1,0 +1,21 @@
+diff --git a/Makefile b/Makefile
+index cad9b95..f8175a0 100644
+--- a/Makefile
++++ b/Makefile
+@@ -7,7 +7,6 @@ PREFIX ?= /usr/local
+ INSTALL_DIR=$(PREFIX)/bin
+ 
+ GO=go
+-GOFLAGS=-ldflags="-s -w"
+ 
+ # Version and build info
+ BASE_VERSION=$(shell git describe --tags --abbrev=0 2>/dev/null | sed 's/^v//' || echo "0.0.0")
+@@ -17,7 +16,7 @@ VERSION?=$(BASE_VERSION)+git$(COMMIT_COUNT).$(COMMIT_HASH)
+ BUILD_TIME?=$(shell date -u '+%Y-%m-%d_%H:%M:%S')
+ COMMIT?=$(COMMIT_HASH)
+ 
+-BUILD_LDFLAGS=-ldflags='-s -w -X main.Version=$(VERSION) -X main.buildTime=$(BUILD_TIME) -X main.commit=$(COMMIT)'
++BUILD_LDFLAGS=-ldflags='-X main.Version=$(VERSION) -X main.buildTime=$(BUILD_TIME) -X main.commit=$(COMMIT)'
+ 
+ # Architecture to build for dist target (amd64, arm64, or all)
+ ARCH ?= all

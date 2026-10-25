@@ -6,7 +6,7 @@ EAPI=8
 inherit desktop wrapper xdg
 
 MY_PN="doublecmd"
-DESCRIPTION="Free cross platform open source file manager with two panels side by side."
+DESCRIPTION="Free cross platform open source file manager with two panels side by side"
 HOMEPAGE="https://doublecmd.sourceforge.io/"
 
 SRC_URI="

@@ -28,6 +28,14 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_configure() {
+	  # bug #979661
+	  # don't overwrite upstream flags
+	  export CXXFLAGS_EXTRA=${CXXFLAGS}
+	  unset CXXFLAGS
+	  export LDFLAGS_EXTRA=${LDFLAGS}
+	  unset LDFLAGS
+
+	  # Build system is not a normal autotools package
 	  econf \
 		$(use_enable sysv-utils shutdown) \
 		$(use_enable cgroups) \

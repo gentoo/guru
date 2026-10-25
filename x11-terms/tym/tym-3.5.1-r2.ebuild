@@ -22,6 +22,7 @@ SLOT="0"
 IUSE="test"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	${LUA_DEPS}

@@ -2,7 +2,7 @@ EAPI=8
 
 inherit desktop linux-info unpacker xdg
 
-DESCRIPTION="Morgen simplifies time management by consolidating all your calendars."
+DESCRIPTION="Morgen simplifies time management by consolidating all your calendars"
 
 HOMEPAGE="https://www.morgen.so/"
 

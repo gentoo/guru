@@ -12,7 +12,7 @@ inherit cargo shell-completion
 DESCRIPTION="Unofficial Bitwarden CLI"
 HOMEPAGE="https://github.com/doy/rbw"
 
-if [[ ${PV} = *9999* ]]; then
+if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/doy/rbw.git"
 else
@@ -38,7 +38,7 @@ QA_FLAGS_IGNORED="
 "
 
 src_unpack() {
-	if [[ ${PV} = *9999* ]]; then
+	if [[ ${PV} == *9999* ]]; then
 		git-r3_src_unpack
 		cargo_live_src_unpack
 	else

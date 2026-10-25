@@ -7,11 +7,11 @@ inherit cmake flag-o-matic xdg optfeature
 
 ASMJIT_COMMIT="416f7356967c1f66784dc1580fe157f9406d8bff" # master~71
 GLSLANG_COMMIT="f0bd0257c308b9a26562c1a30c4748a0219cc951" # tags/16.2.0
-WOLFSSL_COMMIT="1d363f3adceba9d1478230ede476a37b0dcdef24" # tags/5.9.1-stable
-SOUNDTOUCH_COMMIT="a0fba77b6f9cfbdb71f8bbec58b6ac4e5e3b1097" # master
+WOLFSSL_COMMIT="3c5eead44904df64e6a5a1f4ebdce377d35a849a" # tags/5.9.4-stable
+SOUNDTOUCH_COMMIT="a0fba77b6f9cfbdb71f8bbec58b6ac4e5e3b1097" # head
 YAMLCPP_COMMIT="51a5d623e3fde1f58829a56ba910f1cb33596222" # master
-FUSION_COMMIT="008e03eac0ac1d5f85e16f5fcaefdda3fee75cb8" # tags/1.2.11
-VULKANMEMORYALLOCATOR_COMMIT="1d8f600fd424278486eade7ed3e877c99f0846b1" # tags/3.3.0
+FUSION_COMMIT="9325424011892abacc0ce42b8bb1a8ae20264b9b" # tags/1.3.3
+VULKANMEMORYALLOCATOR_COMMIT="3aa921224c154a0d2c43912bc88e1c42ce1f7607" # tags/3.4.0
 GAMEMODE_COMMIT="c54d6d4243b0dd0afcb49f2c9836d432da171a2b" # tags/1.8.2
 
 DESCRIPTION="PS3 emulator/debugger"
@@ -43,7 +43,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="discord faudio +llvm opencv vulkan wayland"
+IUSE="discord faudio +llvm opencv vulkan X wayland"
 
 DEPEND="
 	app-arch/7zip
@@ -63,6 +63,7 @@ DEPEND="
 	media-libs/libpng:=
 	media-libs/openal
 	media-libs/rtmidi
+	media-libs/libsdl3[opengl,vulkan?,X?,wayland?]
 	media-video/ffmpeg:=
 	net-libs/miniupnpc:=
 	net-misc/curl
@@ -81,7 +82,7 @@ QA_PREBUILT="usr/share/rpcs3/test/.*"
 QA_WX_LOAD="usr/share/rpcs3/test/*"
 
 PATCHES=(
-	"${FILESDIR}/${P}-system-stb.patch"
+	"${FILESDIR}/${PN}-system-stb.patch"
 )
 
 src_prepare() {
@@ -121,6 +122,11 @@ src_prepare() {
 
 	# Disable automagic ccache
 	sed -i -e '/find_program(CCACHE_PATH ccache .*)/d' CMakeLists.txt || die
+
+	# QA Notice: Compatibility with CMake < 3.5 has been removed from CMake 4
+	find . -maxdepth 9 -type f -name CMakeLists.txt \
+	-exec sed -i -e '/cmake_minimum_required/c\cmake_minimum_required(VERSION 4.0)' {} \; \
+	|| die "Could not update cmake_minimum_required"
 
 	# Unbundle yaml-cpp: system yaml-cpp should be compiled with -fexceptions
 	# sed -i -e '/yaml-cpp/d' 3rdparty/CMakeLists.txt || die

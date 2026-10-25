@@ -17,7 +17,7 @@ inherit xdg zig
 DESCRIPTION="A window manager based on River Wayland compositor"
 HOMEPAGE="https://github.com/kewuaa/kwm"
 
-if [[ "${PV}" = "9999" ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/kewuaa/kwm.git"
 else
@@ -43,7 +43,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_unpack() {
-	if [[ "${PV}" = "9999" ]]; then
+	if [[ "${PV}" == "9999" ]]; then
 		git-r3_src_unpack
 		zig_live_src_unpack
 	else

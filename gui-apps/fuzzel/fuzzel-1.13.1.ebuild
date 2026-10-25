@@ -14,7 +14,7 @@ else
 	S="${WORKDIR}/${PN}"
 fi
 
-DESCRIPTION="Application launcher for wlroots based Wayland compositors."
+DESCRIPTION="Application launcher for wlroots based Wayland compositors"
 HOMEPAGE="https://codeberg.org/dnkl/fuzzel"
 LICENSE="MIT"
 SLOT="0"

@@ -45,8 +45,7 @@ if [[ "${PV}" != 9999 ]]; then
 		mkdir "${WORKDIR}/${P}" || die
 		cd "${WORKDIR}/${P}"
 		default
-}
-
+	}
 fi
 
 src_compile() {
@@ -57,8 +56,7 @@ src_compile() {
 src_install(){
 	dobin "${S}/nyxt"
 
-	if [ "$(use doc)" ]
-	then
+	if use doc; then
 		docinto "/usr/share/doc/${P}"
 		dodoc "${S}/manual.html"
 	fi

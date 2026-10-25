@@ -2,9 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
 <pkgmetadata>
 	<maintainer type="person">
-        <email>benoit.dufour@mail.com</email>
-        <name>Benoît Dufour</name>
-    </maintainer>
+		<email>benoit.dufour@mail.com</email>
+		<name>Benoît Dufour</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">fraunhoferhhi/vvdec</remote-id>
 	</upstream>

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<maintainer type="person">
+		<email>bakedsnake@vagrantz.xyz</email>
+		<name>bakedsnake</name>
+	</maintainer>
 	<maintainer type="person" proxied="yes">
 		<email>oz.tiram@gmail.com</email>
 		<name>Oz Tiram</name>
 	</maintainer>
-	<stabilize-allarches/>
 	<upstream>
 		<remote-id type="github">tox-dev/pipdeptree</remote-id>
 		<remote-id type="pypi">pipdeptree</remote-id>

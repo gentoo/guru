@@ -1,0 +1,35 @@
+upstream fix to libnyquist being allowed to build as shared while
+being unconditionally excluded from the build output.
+
+fixes bug 981262
+
+https://codeberg.org/tenacityteam/tenacity/commit/6fee80b90244c06cff2a2d3b14d3a7bb20476482
+
+CMake: Override BUILD_SHARED_LIBS for libnyquist
+
+Always ensure that libnyquist is built as a static library as we
+currently assume it is. Otherwise, the resulting binary will fail to
+start.
+
+(cherry picked from commit aa0ec65c19)
+Reference-to: #781
+Signed-off-by: Avery King <gperson@disroot.org>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b333f0ac2..f16f27838 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -672,7 +672,13 @@ if(NOT TARGET wxWidgets::wxWidgets)
+   target_compile_definitions(wxWidgets::wxWidgets INTERFACE ${wxWidgets_DEFINITIONS} ${wxWidgets_DEFINITIONS_DEBUG})
+ endif()
+ 
++# Force libnyquist to be built as a static library by temporarily setting
++# BUILD_SHARED_LIBS to OFF and restoring its value afterwards. Fixes bug
++# 781.
++set(SAVED_VALUE ${BUILD_SHARED_LIBS})
++set(BUILD_SHARED_LIBS OFF)
+ add_subdirectory(lib-src/libnyquist EXCLUDE_FROM_ALL)
++set(BUILD_SHARED_LIBS ${SAVED_VALUE})
+ set(USE_NYQUIST ON)
+ 
+ # Manual Packaging

@@ -7,9 +7,9 @@ CRATES=" "
 
 inherit cargo flag-o-matic shell-completion
 
-DESCRIPTION="A very fast implementation of tldr in Rust."
+DESCRIPTION="A very fast implementation of tldr in Rust"
 HOMEPAGE="https://github.com/tldr-pages/tldr
-	https://github.com/dbrgn/tealdeer"
+	https://github.com/tealdeer-rs/tealdeer"
 
 if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
@@ -19,7 +19,7 @@ if [[ "${PV}" == *9999* ]]; then
 		cargo_live_src_unpack
 	}
 else
-	SRC_URI="https://github.com/dbrgn/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/tealdeer-rs/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	SRC_URI+=" ${CARGO_CRATE_URIS}"
 	KEYWORDS="~amd64"
 fi

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mit.mis@gmail.com</email>
+		<name>Michal Andrzejczak</name>
+	</maintainer>
+	<longdescription lang="en">
+		Ghidra is a software reverse engineering (SRE) framework developed by
+		the National Security Agency's Research Directorate. It includes a
+		disassembler, a decompiler for many processor architectures, a
+		graphing and scripting engine, and a debugger, and it can be extended
+		with plugins and scripts written in Java or Python.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">NationalSecurityAgency/ghidra</remote-id>
+		<bugs-to>https://github.com/NationalSecurityAgency/ghidra/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

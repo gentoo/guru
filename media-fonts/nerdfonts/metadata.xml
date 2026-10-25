@@ -19,6 +19,7 @@
 		<flag name="3270">Installs 3270 Nerd Font</flag>
 		<flag name="adwaitamono">Installs AdwaitaMono Nerd Font</flag>
 		<flag name="agave">Installs Agave Nerd Font</flag>
+		<flag name="annotationmono">Installs Annotation Mono Font</flag>
 		<flag name="anonymouspro">Installs AnonymicePro Nerd Font</flag>
 		<flag name="arimo">Installs Arimo Nerd Font</flag>
 		<flag name="atkinsonhyperlegiblemono">Installs AtkynsonMono Nerd Font</flag>
@@ -43,6 +44,7 @@
 		<flag name="geistmono">Installs GeistMono Nerd Font</flag>
 		<flag name="gohu">Installs Gohu Nerd Font</flag>
 		<flag name="gomono">Installs GoMono Nerd Font</flag>
+		<flag name="googlesanscode">Installs Google Sans Code Font</flag>
 		<flag name="hack">Installs Hack Nerd Font</flag>
 		<flag name="hasklig">Installs Hasklug Nerd Font</flag>
 		<flag name="heavydata">Installs HeavyDataMono Nerd Font</flag>

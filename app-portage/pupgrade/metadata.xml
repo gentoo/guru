@@ -5,6 +5,9 @@
                 <email>shimontrolles@gmail.com</email>
                 <name>Shimon Trolles</name>
         </maintainer>
+        <use>
+                <flag name="tui">Installs tuipupgrade, the tui frontend for pupgrade</flag>
+        </use>
         <upstream>
                 <remote-id type="gitlab">masterwolf/pupgrade</remote-id>
         </upstream>

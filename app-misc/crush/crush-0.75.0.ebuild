@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,7 +29,7 @@ src_compile() {
 src_install() {
 	# generate shell completion scripts
 	for sh in bash fish zsh; do
-	        ./${PN} completion ${sh} > "completion.${sh}"
+		./${PN} completion ${sh} > "completion.${sh}" || die
 	done
 
 	dobin ${PN}

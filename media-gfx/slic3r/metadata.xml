@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>bakedsnake@vagrantz.xyz</email>
+		<name>bakedsnake</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">slic3r/slic3r</remote-id>
+	</upstream>
+	<use>
+		<flag name="gui">Build with GUI.</flag>
+		<flag name="xs">Build with XS only.</flag>
+	</use>
+</pkgmetadata>

@@ -95,17 +95,17 @@ src_install() {
 	# Install zwcad wrapper
 	cat >> "${S}/opt/apps/${PKG_NAME}/zwcad" <<- EOF || die
 #!/bin/sh
-if [ -z "\${QT_IM_MODULE}" ]
+if [[ -z "\${QT_IM_MODULE}" ]]
 then
-	if [ -n "\$(pidof fcitx5)" ]
+	if [[ -n "\$(pidof fcitx5)" ]]
 	then
 		export XMODIFIERS="@im=fcitx"
 		export QT_IM_MODULE=fcitx
-	elif [ -n "\$(pidof ibus-daemon)" ]
+	elif [[ -n "\$(pidof ibus-daemon)" ]]
 	then
 		export XMODIFIERS="@im=ibus"
 		export QT_IM_MODULE=ibus
-	elif [ -n "\$(pidof fcitx)" ]
+	elif [[ -n "\$(pidof fcitx)" ]]
 	then
 		export XMODIFIERS="@im=fcitx"
 		export QT_IM_MODULE=fcitx

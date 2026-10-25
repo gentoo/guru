@@ -5,7 +5,18 @@
 		<email>sm+gentoo@skym.fi</email>
 		<name>Skyler Mäntysaari</name>
 	</maintainer>
-	<longdescription>
-		1Password remembers all your passwords for you. It keeps your digital life secure and always available, safe behind the one password that only you know.
+	<maintainer type="person">
+		<email>mit.mis@gmail.com</email>
+		<name>Michal Andrzejczak</name>
+	</maintainer>
+	<longdescription lang="en">
+		1Password remembers all your passwords for you. It keeps your digital
+		life secure and always available, safe behind the one password that
+		only you know.
 	</longdescription>
+	<upstream>
+		<bugs-to>https://www.1password.community/</bugs-to>
+		<doc>https://support.1password.com/</doc>
+		<changelog>https://releases.1password.com/linux/stable/</changelog>
+	</upstream>
 </pkgmetadata>

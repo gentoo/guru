@@ -4,6 +4,7 @@ dev-elixir
 dev-hare
 dev-nim
 dev-zig
+dux-desktop
 mpv-plugin
 net-client
 phosh-base

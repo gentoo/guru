@@ -44,17 +44,14 @@ DOCS=( {CHANGELOG,SECURITY,README}.md )
 src_prepare() {
 	default
 
-	python_fix_shebang run0edit_main.py.in run0edit_inner.py
+	python_fix_shebang run0edit_main.py run0edit_inner.py
 
-	local b2=$(b2sum "${S}"/run0edit_inner.py | cut -d' ' -f1)
+	local b2=$(b2sum -l 256 "${S}"/run0edit_inner.py | cut -d' ' -f1)
 
 	# patch hard-coded variables to work
 	sed -i \
-		-e "/^INNER_SCRIPT_B2:/{
-			N
-			s|^.*|INNER_SCRIPT_B2: Final[str] = \"${b2}\"|
-		}" \
-		run0edit_main.py.in || die
+		-e "s|^INNER_SCRIPT_B2:.*|INNER_SCRIPT_B2: Final[str] = \"${b2}\"|" \
+		run0edit_main.py || die
 }
 
 src_configure() {

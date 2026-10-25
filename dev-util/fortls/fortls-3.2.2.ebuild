@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -19,6 +19,7 @@ RDEPEND="
 	dev-python/json5[${PYTHON_USEDEP}]
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 # Disable test that requires pypi.org connection
@@ -31,6 +32,10 @@ src_prepare() {
 	sed -i -e 's/ --cov=fortls --cov-report=html --cov-report=xml --cov-context=test//' pyproject.toml || die
 	# Disable autoupdate check during tests run
 	sed -i -e 's/"--incremental_sync",/"--incremental_sync", "--disable_autoupdate",/' test/setup_tests.py || die
+
+	# Fail tests with py3.14: https://github.com/fortran-lang/fortls/issues/499
+	# Fix: see https://github.com/fortran-lang/fortls/pull/520
+	sed -i -e 's/levels = 2000/levels = 20000/' test/test_server_init.py || die
 
 	distutils-r1_src_prepare
 }

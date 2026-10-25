@@ -46,5 +46,7 @@ src_install() {
 	dobin ipv4-heatmap
 	doman ipv4-heatmap.1
 
-	dodoc labels/iana/iana-labels.txt
+	elog "iana-labels.txt moved to /usr/share/ipv4-heatmap/iana-labels.txt"
+	insinto "/usr/share/ipv4-heatmap/"
+	doins labels/iana/iana-labels.txt
 }

@@ -1,0 +1,128 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Parse this file according to systemd.exec(5), EnvironmentFile=
+exec 3< /etc/default/lasuite-meet
+
+nl='
+'
+
+feed() {
+    if [[ "${quote}" != no && "$value" = "" ]]; then
+        IFS= read -r value <&3 && value="${nl}${value}" || return 1
+    fi
+}
+
+peek_next() {
+    next=
+    feed || return
+    next="${value:0:1}"
+    return $(( ${#next} == 0 ))
+}
+
+consume() {
+    value="${value:${#next}}"
+    local n="${#next}"
+    next=""
+    return $(( n == 0 ))
+}
+
+get_next() {
+    peek_next
+    value="${value:1}"
+    return $(( ${#next} == 0 ))
+}
+
+get_next_until() {
+    next=
+    feed || return
+    next="${value%%["$1"]*}"
+    value="${value:${#next}}"
+    return $(( ${#next} == 0 ))
+}
+
+while true; do
+    IFS= read -r line <&3 || break
+
+    if ! [[ "$line" =~ ^[^#\;].*= ]]; then
+        continue
+    fi
+
+    key="${line%%=*}"
+    value="${line#*=}"
+    parsed_value=
+
+    quote=no
+
+    while true; do
+        peek_next || break
+        case "$quote" in
+            no)
+                case "$next" in
+                    \')
+                        quote=single
+                        consume
+                    ;;
+                    \")
+                        quote=double
+                        consume
+                    ;;
+                    \\)
+                        consume
+                        get_next || :
+                        parsed_value+="$next"
+                    ;;
+                    *)
+                        get_next_until \'\"\\
+                        parsed_value+="$next"
+                    ;;
+                esac
+            ;;
+            single)
+                case "$next" in
+                    \')
+                        quote=no
+                        consume
+                    ;;
+                    *)
+                        get_next_until \'
+                        parsed_value+="$next"
+                    ;;
+                esac
+            ;;
+            double)
+                case "$next" in
+                    \")
+                        quote=no
+                        consume
+                    ;;
+                    \\)
+                        consume
+                        get_next
+                        case "$next" in
+                            \"|\\|\'|\$)
+                                parsed_value+="$next"
+                            ;;
+                            "$nl")
+                            ;;
+                            *)
+                                parsed_value+="\\$next"
+                            ;;
+                        esac
+                    ;;
+                    *)
+                        get_next_until \"\\
+                        parsed_value+="$next"
+                    ;;
+                esac
+            ;;
+        esac
+    done
+
+    export "${key}=${parsed_value}"
+done
+
+exec 3<&-
+
+exec /usr/libexec/lasuite-meet/manage.py "${@}"

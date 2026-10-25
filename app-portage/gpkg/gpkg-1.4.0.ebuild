@@ -536,9 +536,7 @@ src_install() {
 	# would fail because gpkg-daemon doesn't define the GUI features).
 	# cargo.eclass honors USE=debug: target/debug/ when debug is set,
 	# target/release/ otherwise — see bug 975866.
-	local target_dir="target/$(usex debug debug release)"
-	dobin "${target_dir}/gpkg-daemon"
-	dobin "${target_dir}/gpkg"
+	dobin "$(cargo_target_dir)/"gpkg{,-daemon}
 
 	# D-Bus system bus configuration
 	insinto /etc/dbus-1/system.d

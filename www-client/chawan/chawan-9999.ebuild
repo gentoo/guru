@@ -21,8 +21,6 @@ LICENSE="Unlicense"
 
 SLOT="0"
 
-IUSE="lto"
-
 DEPEND="
 	app-arch/brotli
 	dev-libs/openssl
@@ -35,12 +33,12 @@ BDEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/makefile-35940f0f.patch"
+	"${FILESDIR}/makefile-20310c68dfce11a77244663e348db5bc37ea4b7c.patch"
 )
 
 src_prepare(){
 	default
-	if use lto; then
+	if tc-is-lto; then
 		sed -i -E 's|^FLAGS\s+\+=.+|& -d:lto|' Makefile ||
 		die "Trying to sed the Makefile for lto failed!"
 	fi

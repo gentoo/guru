@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dim.trivizakis@yandex.com</email>
+		<name>Dimitris Trivizakis</name>
+	</maintainer>
+	<longdescription lang="en">
+		ncursys is an interactive terminal application for visualizing disk usage as a navigable tree. It scans a given directory, builds a hierarchical representation of file and folder sizes, and displays it through an ncurses-based interface, allowing users to drill down into subdirectories and identify large files or folders at a glance.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">JimiGR1/ncursys</remote-id>
+		<bugs-to>https://github.com/JimiGR1/ncursys/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

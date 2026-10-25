@@ -9,7 +9,7 @@ RUST_MIN_VER="1.88.0"
 
 inherit cargo systemd shell-completion
 
-DESCRIPTION="A cli tool for managing long running shell commands."
+DESCRIPTION="A cli tool for managing long running shell commands"
 HOMEPAGE="https://github.com/nukesor/pueue"
 
 SRC_URI="https://github.com/Nukesor/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"

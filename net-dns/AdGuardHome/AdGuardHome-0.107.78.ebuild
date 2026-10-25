@@ -20,8 +20,7 @@ LICENSE="GPL-3"
 LICENSE+=" Apache-2.0 BSD BSD-2 MIT ZLIB"
 
 SLOT="0"
-#KEYWORDS="~amd64 ~arm64"
-KEYWORDS="" # Masked until dev-lang/go-1.26.5 is available
+KEYWORDS="~amd64 ~arm64"
 
 IUSE="+web"
 # RESTRICT="test"
@@ -60,10 +59,10 @@ src_compile() {
 	local MY_LDFLAGS="-X github.com/AdguardTeam/AdGuardHome/internal/version.version=${PV}"
 	MY_LDFLAGS+=" -X github.com/AdguardTeam/AdGuardHome/internal/version.channel=release"
 	MY_LDFLAGS+=" -X github.com/AdguardTeam/AdGuardHome/internal/version.committime=$(date +%s)"
-	if [ "$(go env GOARM)" != '' ]
+	if [[ -n "$(go env GOARM)" ]]
 	then
 		MY_LDFLAGS+=" -X github.com/AdguardTeam/AdGuardHome/internal/version.goarm=$(go env GOARM)"
-	elif [ "$(go env GOMIPS)" != '' ]
+	elif [[ -n "$(go env GOMIPS)" ]]
 	then
 		MY_LDFLAGS+=" -X github.com/AdguardTeam/AdGuardHome/internal/version.gomips=$(go env GOMIPS)"
 	fi

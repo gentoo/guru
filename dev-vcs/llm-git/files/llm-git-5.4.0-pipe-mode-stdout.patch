@@ -1,0 +1,58 @@
+From https://github.com/can1357/llm-git/pull/40
+
+Keep pipe-mode stdout to the commit message only: the LLM spend line and the
+smart-truncation notice are status output, so they go to stderr when stdout is
+not a terminal.
+
+diff --git a/lgit/cli.py b/lgit/cli.py
+--- a/lgit/cli.py
++++ b/lgit/cli.py
+@@ -383,7 +383,7 @@ def _print_llm_spend() -> None:
+         line = f"LLM cost: ${spend.cost_usd:.4f} ({tokens})"
+         if spend.saved_usd > 0:
+             line += f", saved ${spend.saved_usd:.4f} via cache"
+-    print(style.dim(line))
++    style.status(style.dim(line))
+ 
+ 
+ def _compact_count(count: int) -> str:
+@@ -585,7 +585,7 @@ async def _generate_standard_workflow(
+         if use_map_reduce:
+             analysis_diff = diff
+         elif len(diff) > int(config.max_diff_length):
+-            print(style.warning(f"Applying smart truncation (diff size: {len(diff)} characters)"))
++            style.status(style.warning(f"Applying smart truncation (diff size: {len(diff)} characters)"))
+             analysis_diff = smart_truncate_diff(diff, int(config.max_diff_length), config, token_counter)
+         else:
+             analysis_diff = diff
+diff --git a/tests/test_cli.py b/tests/test_cli.py
+--- a/tests/test_cli.py
++++ b/tests/test_cli.py
+@@ -97,6 +97,28 @@ def test_emit_commit_hash_only_prints_to_stdout_when_piped(
+     assert capsys.readouterr().out == ""
+ 
+ 
++def test_dry_run_pipe_stdout_carries_only_the_commit_message(
++    capsys: pytest.CaptureFixture[str], monkeypatch: pytest.MonkeyPatch
++) -> None:
++    """Pipe-mode stdout must be the commit message only; LLM spend goes to stderr."""
++    from lgit import pricing, style
++    from lgit.models import ConventionalCommit
++
++    monkeypatch.setattr(style, "_PIPE_MODE", True)
++    pricing.reset_session()
++    pricing.record_usage("claude-haiku-4-5", pricing.TokenUsage(input_tokens=100, output_tokens=20))
++
++    message = ConventionalCommit.from_raw(
++        commit_type="feat", scope="sandbox", summary="added mock feature", body=["Added a sample feature."]
++    )
++    cli._print_message(message, title="Generated Commit Message")
++    cli._print_llm_spend()
++
++    captured = capsys.readouterr()
++    assert captured.out == message.format_commit_message()
++    assert "LLM cost" in captured.err
++
++
+ def test_trace_output_flag_enables_file_profiling() -> None:
+     args = _args("--trace-output", "profile.jsonl", "--dry-run")

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>zyx@envs.net</email>
+    <name>zyxhere💭</name>
+  </maintainer>
+  <longdescription>
+    BuildBox is a suite of tools for remote build execution, conforming to the
+    Remote Execution API and the Remote Workers API.
+
+    BuildBox works as the worker implementation for remote execution services
+    such as BuildGrid, and integrates with clients such as BuildStream for local
+    builds and caching.
+  </longdescription>
+  <use>
+    <flag name="casd">Add support and tools for accessing cache from CAS</flag>
+    <flag name="fuse">Enable fuse support via <pkg>sys-fs/fuse</pkg></flag>
+    <flag name="oci">Enable OCI container support</flag>
+    <flag name="recc">Build the recc compiler cache tool</flag>
+    <flag name="tools">Build miscellaneouse tools</flag>
+  </use>
+  <upstream>
+    <remote-id type="gitlab">BuildGrid/buildbox/buildbox</remote-id>
+  </upstream>
+</pkgmetadata>

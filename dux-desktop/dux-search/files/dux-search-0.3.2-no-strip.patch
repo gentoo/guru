@@ -1,0 +1,19 @@
+diff --git a/Makefile b/Makefile
+index d258a8a..84b64af 100644
+--- a/Makefile
++++ b/Makefile
+@@ -9,13 +9,12 @@ SYSTEMD_USER_DIR=$(HOME)/.config/systemd/user
+ SERVICE_NAME=dsearch
+ 
+ GO=go
+-GOFLAGS=-ldflags="-s -w"
+ 
+ VERSION=$(shell git describe --tags --always 2>/dev/null || echo "dev")
+ BUILD_TIME=$(shell date -u '+%Y-%m-%d_%H:%M:%S')
+ COMMIT=$(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
+ 
+-BUILD_LDFLAGS=-ldflags="-s -w -X main.Version=$(VERSION) -X main.buildTime=$(BUILD_TIME) -X main.commit=$(COMMIT)"
++BUILD_LDFLAGS=-ldflags="-X main.Version=$(VERSION) -X main.buildTime=$(BUILD_TIME) -X main.commit=$(COMMIT)"
+ 
+ .PHONY: all build clean install uninstall test fmt vet deps help install-service uninstall-service
+ 

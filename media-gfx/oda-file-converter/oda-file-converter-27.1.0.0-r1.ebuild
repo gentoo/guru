@@ -16,6 +16,7 @@ S="${WORKDIR}"
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="-* ~amd64"
+RESTRICT="mirror bindist"
 
 RDEPEND="
 	dev-qt/qtbase:6[gui,widgets]

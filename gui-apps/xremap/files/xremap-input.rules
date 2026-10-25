@@ -1,1 +1,1 @@
-KERNEL=="uinput", GROUP="input", TAG+="uaccess"
+KERNEL=="uinput", GROUP="input", TAG+="uaccess", MODE:="0660", OPTIONS+="static_node=uinput"

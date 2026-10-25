@@ -1,0 +1,22 @@
+From: https://github.com/google/python-fire/commit/716bbc23d7eca949fdb682172283c8d18f742cb6
+From: David Bieber <david810@gmail.com>
+Subject: [PATCH] Add Python 3.13 and 3.14 checking in build workflow (#623)
+* Add Python 3.13 and 3.14 checking in build workflow
+
+--- a/fire/core.py	2024-09-22 18:14:50.000000000 +0200
++++ b/fire/core.py	2026-08-13 23:36:49.448259702 +0200
+@@ -678,8 +678,12 @@
+ 
+   # Call the function.
+   if inspectutils.IsCoroutineFunction(fn):
+-    loop = asyncio.get_event_loop()
+-    component = loop.run_until_complete(fn(*varargs, **kwargs))
++    try:
++      loop = asyncio.get_running_loop()
++    except RuntimeError:
++      component = asyncio.run(fn(*varargs, **kwargs))
++    else:
++      component = loop.run_until_complete(fn(*varargs, **kwargs))
+   else:
+     component = fn(*varargs, **kwargs)
+ 

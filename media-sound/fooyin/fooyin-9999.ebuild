@@ -5,8 +5,8 @@ EAPI=8
 
 inherit cmake xdg
 
-DESCRIPTION="A customizable music player, Qt clone of foobar2000"
-HOMEPAGE="https://www.fooyin.org/"
+DESCRIPTION="Play and manage your music with a powerful, highly customisable player"
+HOMEPAGE="https://fooyin.org/"
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
@@ -19,51 +19,58 @@ else
 	KEYWORDS="~amd64"
 fi
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
 
-IUSE="alsa +archive gme openmpt +pipewire projectm pulseaudio +replaygain sdl sndfile soundtouch soxr test"
+IUSE="alsa flac gme jack mp3 openmpt opus +pipewire projectm pulseaudio +replaygain sdl sndfile soundtouch soxr test vorbis"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
-	|| ( alsa pipewire pulseaudio sdl )
+	|| ( alsa jack pipewire pulseaudio sdl )
 "
 
 RDEPEND="
+	app-arch/libarchive:=
 	dev-libs/icu:=
 	dev-libs/kdsingleapplication
+	dev-libs/libcdio-paranoia:=
+	dev-libs/libcdio:=
 	dev-libs/qcoro[network]
-	dev-qt/qtbase:6[concurrent,dbus,gui,network,sql,widgets]
+	dev-qt/qtbase:6[concurrent,dbus,gui,icu,network,opengl,sql,widgets]
 	dev-qt/qtimageformats:6
 	dev-qt/qtsvg:6
 	media-libs/taglib:=
 	media-video/ffmpeg:=
 	virtual/zlib:=
+	x11-libs/libX11
 	alsa? ( media-libs/alsa-lib )
-	archive? ( app-arch/libarchive:= )
+	flac? ( media-libs/flac:=[cxx] )
 	gme? ( media-libs/game-music-emu )
+	jack? ( virtual/jack )
+	mp3? ( media-sound/mpg123-base )
 	openmpt? ( media-libs/libopenmpt )
+	opus? ( media-libs/opusfile )
 	pipewire? ( media-video/pipewire:= )
-	projectm? (
-		dev-qt/qtbase:6[opengl]
-		media-libs/libprojectm:4=
-	)
+	projectm? ( media-libs/libprojectm:4= )
 	pulseaudio? ( media-libs/libpulse )
 	replaygain? ( media-libs/libebur128:= )
 	sdl? ( media-libs/libsdl2 )
 	sndfile? ( media-libs/libsndfile )
 	soundtouch? ( media-libs/libsoundtouch:= )
 	soxr? ( media-libs/soxr )
+	vorbis? ( media-libs/libvorbis )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	dev-qt/qttools:6[linguist]
-	test? ( dev-cpp/gtest )
+	dev-qt/qttools:6[linguist,opengl]
+	test? (
+		dev-cpp/gtest
+		media-video/ffmpeg:=[opus]
+	)
 "
 
 src_prepare() {
 	sed -i CMakeLists.txt \
 		-e "s|/doc/${PN}|/doc/${PF}|g" \
-		-e '/option(BUILD_TESTING/aenable_testing()' \
 		|| die
 
 	cmake_src_prepare
@@ -72,20 +79,26 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_ALSA=$(usex alsa)
-		-DBUILD_TESTING=$(usex test)
 		-DBUILD_CCACHE=OFF
+		-DBUILD_SENSITIVE_TESTING=OFF
+		-DBUILD_TESTING=$(usex test)
+		-DFETCH_PROJECTM=OFF
 		-DINSTALL_HEADERS=ON
-		$(cmake_use_find_package archive LibArchive)
+		$(cmake_use_find_package flac FLAC)
 		$(cmake_use_find_package gme LIBGME)
+		$(cmake_use_find_package jack Jack)
+		$(cmake_use_find_package mp3 Mpg123)
 		$(cmake_use_find_package openmpt OpenMpt)
+		$(cmake_use_find_package opus OpusFile)
 		$(cmake_use_find_package pipewire PipeWire)
-		$(cmake_use_find_package pulseaudio PulseAudio)
 		$(cmake_use_find_package projectm projectM4)
+		$(cmake_use_find_package pulseaudio PulseAudio)
 		$(cmake_use_find_package replaygain Ebur128)
 		$(cmake_use_find_package sdl SDL2)
 		$(cmake_use_find_package sndfile SndFile)
 		$(cmake_use_find_package soundtouch SoundTouch)
 		$(cmake_use_find_package soxr SoXR)
+		$(cmake_use_find_package vorbis Vorbis)
 	)
 
 	cmake_src_configure

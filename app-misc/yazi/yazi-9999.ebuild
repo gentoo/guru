@@ -1,58 +1,107 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cargo git-r3 desktop shell-completion xdg
+CRATES=" "
 
-DESCRIPTION="Blazing fast terminal file manager written in Rust, based on async I/O."
+RUST_MIN_VER="1.95.0"
+
+inherit cargo desktop optfeature shell-completion xdg
+
+DESCRIPTION="Blazing fast terminal file manager written in Rust, based on async I/O"
 HOMEPAGE="https://yazi-rs.github.io"
-EGIT_REPO_URI="https://github.com/sxyazi/yazi.git"
+if [[ "${PV}" == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/sxyazi/yazi.git"
+else
+	SRC_URI="https://github.com/sxyazi/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/gentoo-crate-dist/${PN}/releases/download/v${PV}/${P}-crates.tar.xz
+	${CARGO_CRATE_URIS}
+"
+	KEYWORDS="~amd64 ~arm64"
+fi
 
+# both the LICENSE file and LICENSE-ICONS are MIT
 LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
-Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD Boost-1.0
-CC0-1.0 ISC MIT MPL-2.0 UoI-NCSA Unicode-3.0 ZLIB
+	Apache-2.0 BSD Boost-1.0 BlueOak-1.0.0 CC0-1.0 CDLA-Permissive-2.0
+	ISC MIT MPL-2.0 Unicode-3.0 ZLIB
 "
-
 SLOT="0"
+
 IUSE="+cli"
 
-QA_FLAGS_IGNORED="
-usr/bin/ya.*
+DEPEND="
+	dev-libs/oniguruma:=
 "
+# apply-crates-fixes start
+DEPEND+="
+	>=dev-libs/jemalloc-5.3.1:=
+"
+BDEPEND="
+	virtual/pkgconfig
+"
+# apply-crates-fixes end
 
 RDEPEND="
-dev-libs/oniguruma
+	${DEPEND}
+	cli? ( dev-vcs/git )
 "
-DEPEND="${RDEPEND}"
 
 DOCS=(
+	"CHANGELOG.md"
 	"README.md"
-	"yazi-config/preset/keymap-default.toml"
-	"yazi-config/preset/theme-dark.toml"
-	"yazi-config/preset/theme-light.toml"
-	"yazi-config/preset/yazi-default.toml"
+	yazi-config/preset/
 )
 
+QA_FLAGS_IGNORED="
+	usr/bin/ya.*
+"
+
 src_unpack() {
-	git-r3_src_unpack
-	cargo_live_src_unpack
+	if [[ "${PV}" == 9999 ]]; then
+		git-r3_src_unpack
+		cargo_live_src_unpack
+	else
+		cargo_src_unpack
+	fi
 }
 
 src_prepare() {
-	export YAZI_GEN_COMPLETIONS=true
 	sed -i -r 's/strip\s+= true/strip = false/' Cargo.toml || die "Sed failed!"
 	eapply_user
 }
 
 src_compile() {
+	# apply-crates-fixes start
+	# unvendoring for tikv-jemalloc-sys crate
+	export JEMALLOC_OVERRIDE="${ESYSROOT}/usr/$(get_libdir)/libjemalloc.so"
+	# https://github.com/tikv/jemallocator/issues/19
+	export CARGO_FEATURE_UNPREFIXED_MALLOC_ON_SUPPORTED_PLATFORMS=1
+	# apply-crates-fixes end
+
 	# workaround for GCC 15 issues:
 	# unvendor libonig from rust-onig. see bugs 943785, 945008
 	export RUSTONIG_SYSTEM_LIBONIG=1
-	cargo_src_compile
-	use cli && cargo_src_compile -p "${PN}-cli"
+	# generate shell completions from the actual CLI definitions
+	export YAZI_GEN_COMPLETIONS=true
+	# silences vergen
+	export YAZI_NO_GITCL=1
+
+	local myargs=(
+		--package yazi-fm
+	)
+
+	use cli && myargs+=( --package yazi-cli )
+
+	cargo_src_compile "${myargs[@]}"
+}
+
+src_test() {
+	export RUSTONIG_SYSTEM_LIBONIG=1
+	cargo_src_test --workspace
 }
 
 src_install() {
@@ -70,5 +119,25 @@ src_install() {
 	fi
 
 	domenu "assets/${PN}.desktop"
+	newicon assets/logo.png yazi.png
 	einstalldocs
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+
+	optfeature "Nerd Font icons" media-fonts/symbols-nerd-font
+	optfeature "video thumbnails" media-video/ffmpeg
+	optfeature "archive extraction and preview" app-arch/7zip
+	optfeature "JSON preview" app-misc/jq
+	optfeature "PDF preview" app-text/poppler
+	optfeature "file searching" sys-apps/fd
+	optfeature "file content searching" sys-apps/ripgrep
+	optfeature "quick file subtree navigation" ">=app-shells/fzf-0.53.0"
+	optfeature "historical directory navigation" "app-shells/zoxide >=app-shells/fzf-0.53.0"
+	optfeature "Font, HEIC and JPEG XL preview" ">=media-gfx/imagemagick-7.1.1"
+
+	optfeature_header "Install one of these for clipboard support:"
+	optfeature "Wayland clipboard support" gui-apps/wl-clipboard
+	optfeature "X11 clipboard support" x11-misc/xclip x11-misc/xsel
 }

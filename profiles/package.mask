@@ -18,48 +18,91 @@
 
 # New entries go on top.
 
-# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-07-04)
-# C++26 reflection has been available in GCC 16 for a few months.
-# This package has served its purpose and may be removed.
-# Removal after 2026-09-04
-sys-devel/clang-bloomberg-p2996
+# David Roman <stkw0@disroot.org> (2026-10-23)i
+# Unmaintained. Not compatible with py.13
+# Removal after 2026-11-23
+app-crypt/certbot-dns-desec
 
-# Paul Zander <negril.nx+gentoo@gmail.com> (2026-06-30)
-# https://bugs.gentoo.org/932824
-# https://bugs.gentoo.org/933208
-# outdated - maintainer-needed
-# Removal after 2026-07-30
-sys-boot/ventoy-bin
+# David Roman <stkw0@disroot.org> (2026-10-23)
+# Live ebuild only. Unmaintained
+# Removal after 2026-11-23
+net-misc/commons-downloader
+net-vpn/gp-saml-gui
+x11-themes/hackerer
+x11-themes/juno
+x11-themes/midnight
+x11-themes/razor-sharp-gtk
 
-# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-06-25)
-# Moved to media-video/lossless-cut-bin in ::gentoo
-media-video/lossless-cut
+# David Roman <stkw0@disroot.org> (2026-10-23)
+# Live ebuild only. Unmaintained
+# Removal after 2026-11-23
+net-im/gajim-plugins
 
-# Florian Albrechtskirchinger <falbrechtskirchinger@gmail.com> (2026-06-24)
-# Moved to www-client/opera-gx in ::gentoo
-www-client/opera-gx-bin
+# David Roman <stkw0@disroot.org> (2026-10-21)
+# Live ebuild only. Unmaintained
+# Removal after 2026-11-21
+dev-ruby/rbenv
+
+# David Roman <stkw0@disroot.org> (2026-10-21)
+# Live ebuild only. Without meaningful activity since 2022
+# Removal after 2026-11-21
+media-plugins/qt-jpegxl-image-plugin
+
+# David Roman <stkw0@disroot.org> (2026-10-20)
+# Live ebuild only which installed a Github wiki offline.
+# Removal after 2026-11-20
+app-doc/sway-wiki
+
+# David Roman <stkw0@disroot.org> (2026-10-20)
+# Abandoned upstream and downstream, live ebuild only.
+# Removal after 2026-11-20
+app-portage/quantum-resolver
+
+# Paul Zander <negril.nx+gentoo@gmail.com> (2026-10-19)
+# Hard depend on systemd
+# archived by the owner on May 3, 2026
+# Removal after 2026-11-19
+sys-power/envycontrol
+
+# David Roman <stkw0@disroot.org> (2026-10-17)
+# No maintainer downstream, upstream is also not very active
+# Bad quality ebuild (use EGIT instead of a proper release tarball).
+# Removal after 2026-11-17
+games-misc/varlpenis
+
+# Paul Zander <negril.nx+gentoo@gmail.com> (2026-10-03)
+# Unmaintained
+# Doesn't build with dev-libs/libcsv::gentoo (requires pkgconfig)
+# Doesn't fetch because it was renamed upstream #975791
+# Removal after 2026-11-03
+dev-db/psequel
+
+# David Roman <stkw0@disroot.org> (2026-09-29)
+# Unmaintained since 2024, multiple bugs open (#935329, #935330, #935331)
+# Removal after 2026-10-29
+net-im/manyverse-bin
+
+# David Roman <stkw0@disroot.org> (2026-09-29)
+# Unmaintained since 2024, multiple bugs open (#928323, #928322, #928321)
+# Removal after 2026-10-29
+media-gfx/gephi-bin
+
+# David Roman <stkw0@disroot.org> (2026-09-28)
+# Unmaintained, multiple bugs open (#921886, #921887, #921888)
+# Removal after 2026-10-28
+dev-util/insomnia-bin
+
+# dsaf <ghostyn678+git@gmail.com> (2026-09-26)
+# No longer FOSS. Won't be maintaining it anymore.
+# Removal after 2026-10-26
+net-im/endcord
+net-im/endcord-bin
 
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
+# Removal after 2026-10-29
 media-sound/noson-app
 net-p2p/dogecoin-qt
-
-# David Roman <stkw0@disroot.org> (2026-05-21)
-# Not updated since 2024, depends on masked Qt5
-# Removal after 2026-06-21
-x11-drivers/xf86-input-xppen
-
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/939886
-# https://bugs.gentoo.org/974570
-# Removal after 2026-06-18
-app-containers/slim
-
-# Alexey Zapparov <alexey@zapparov.com> (2026-05-18)
-# https://bugs.gentoo.org/975050
-# https://bugs.gentoo.org/975051
-# Removal after 2026-06-18
-dev-util/trivy
 
 # Takuya Wakazono <pastalian46@gmail.com> (2026-05-17)
 # Depends on Qt5. Qt6 port is supposedly coming soon.
@@ -67,15 +110,15 @@ dev-util/trivy
 # Bug #948836.
 net-misc/megasync
 
+# Shaumyadeep Chaudhuri <shaumya@gmail.com> (2026-04-30)
+# Requires systemd. Cannot be masked per profile (see top comment)
+sys-apps/dmemcg-booster
+
 # Joe Kappus <joe@wt.gd) (2026-04-23)
 # Depends on masked dev-python/pyqt5.
 # Progress getting made, unmask when done.
 # https://github.com/autokey/autokey/pull/1104
 x11-apps/autokey
-
-# Matt Jolly <kangie@gentoo.org> (2026-03-31)
-# Replaced by sys-fs/bcachefs-tools[modules] in ::gentoo.
-sys-fs/bcachefs-kmod
 
 # Lucio Sauer <watermanpaint@posteo.net> (2026-02-10)
 # The hyprland suite is moving to the unofficial 'hyproverlay' repository at
@@ -111,17 +154,3 @@ sys-libs/gcompat
 # (See also top comment)
 # Sorry for the inconvenience.
 app-office/lotus123r3
-
-# Shaumyadeep Chaudhuri <shaumya@gmail.com> (2026-04-30)
-# Requires systemd. Cannot be masked per profile (see top comment)
-sys-apps/dmemcg-booster
-
-# Dale Sweeney <agooglygooglr@gmail.com> (2026-05-08)
-# Won't build until bugs.gentoo.org/974338 is resolved
->=net-misc/wlvncc-20260429
-
-# Bjorn <bjorn.megaflow@gmail.com> (2026-06-23)
-# Requires gui-libs/libadwaita >= 1.9, which is currently not in
-# the main Gentoo repository.
->=gnome-extra/Refine-0.8.0
-

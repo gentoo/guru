@@ -1,0 +1,36 @@
+#!/sbin/openrc-run
+# Copyright 1999-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+depend() {
+	need net
+}
+
+description="SearXNG metasearch engine"
+
+: ${SEARXNG_USER:=searxng}
+: ${SEARXNG_GROUP:=searxng}
+: ${SEARXNG_HOME:=/var/lib/searxng}
+: ${SEARXNG_LOG:=/var/log/searxng/searxng.log}
+
+command="/usr/bin/searxng-run"
+pidfile="/run/searxng/searxng.pid"
+retry="TERM/5/KILL/5"
+
+start_pre() {
+	checkpath -d -m 0755 -o "${SEARXNG_USER}:${SEARXNG_GROUP}" /run/searxng
+	checkpath -d -m 0750 -o "${SEARXNG_USER}:${SEARXNG_GROUP}" /var/log/searxng
+	checkpath -f -m 0640 -o "${SEARXNG_USER}:${SEARXNG_GROUP}" "${SEARXNG_LOG}"
+}
+
+start() {
+	ebegin "Starting SearXNG"
+	start-stop-daemon --start \
+		--pidfile "${pidfile}" \
+		--user "${SEARXNG_USER}:${SEARXNG_GROUP}" \
+		--background \
+		--make-pidfile \
+		--exec "${command}" \
+		--stderr "${SEARXNG_LOG}"
+	eend $?
+}

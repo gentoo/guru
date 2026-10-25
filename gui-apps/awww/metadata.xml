@@ -5,6 +5,10 @@
 		<email>pinguinlars1105+gentoo@gmail.com</email>
 		<name>AshyPinguin</name>
 	</maintainer>
+	<use>
+		<flag name="avif">Enable avif support.</flag>
+		<flag name="jpegxl">Enable static jpegxl/jxl support.</flag>
+	</use>
 	<upstream>
 		<remote-id type="codeberg">LGFae/awww</remote-id>
 		<bugs-to>https://codeberg.org/LGFae/awww/issues</bugs-to>

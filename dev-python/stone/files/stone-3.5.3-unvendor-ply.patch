@@ -1,0 +1,53 @@
+Upstream vendored dev-python/ply, but we can keep using the one in ::gentoo
+
+--- a/setup.py
++++ b/setup.py
+@@ -20,8 +20,6 @@
+     },
+     packages=[
+         'stone',
+-        'stone._vendor',
+-        'stone._vendor.ply',
+         'stone.backends',
+         'stone.backends.python_rsrc',
+         'stone.frontend',
+@@ -29,7 +27,6 @@
+     ],
+     package_data={
+         'stone': ['py.typed'],
+-        'stone._vendor.ply': ['LICENSE', 'README.md'],
+     },
+     zip_safe=False,
+     author_email='kelkabany@dropbox.com',
+--- a/stone/cli_helpers.py
++++ b/stone/cli_helpers.py
+@@ -1,6 +1,6 @@
+ import abc
+ 
+-from stone._vendor.ply import lex, yacc
++from ply import lex, yacc
+ 
+ _MYPY = False
+ if _MYPY:
+--- a/stone/frontend/lexer.py
++++ b/stone/frontend/lexer.py
+@@ -1,7 +1,7 @@
+ import logging
+ import os
+ 
+-from stone._vendor.ply import lex
++from ply import lex
+ 
+ _MYPY = False
+ if _MYPY:
+--- a/stone/frontend/parser.py
++++ b/stone/frontend/parser.py
+@@ -1,7 +1,7 @@
+ import logging
+ from collections import OrderedDict
+ 
+-from stone._vendor.ply import yacc
++from ply import yacc
+ 
+ from .ast import (
+     AstAlias,

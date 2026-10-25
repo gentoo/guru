@@ -1,11 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit meson optfeature
 
-DESCRIPTION="i3-gaps fork with rounded corners support."
+DESCRIPTION="i3-gaps fork with rounded corners support"
 HOMEPAGE="https://github.com/LinoBigatti/i3-rounded"
 SRC_URI="https://github.com/LinoBigatti/i3-rounded/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 

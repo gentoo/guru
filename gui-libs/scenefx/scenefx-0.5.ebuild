@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU Public License v2
 
 EAPI=8
@@ -45,6 +45,14 @@ BDEPEND="
 	dev-build/ninja
 	dev-util/wayland-scanner
 "
+
+src_prepare() {
+	if use elibc_musl; then
+		eapply "${FILESDIR}"/${P}-musl.patch
+	fi
+
+	default
+}
 
 src_configure() {
 	local emesonargs=(

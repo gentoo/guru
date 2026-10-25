@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{{11..13},13t} )
 
 inherit distutils-r1 pypi
 
-DESCRIPTION="A pass extension for auditing your password repository. "
+DESCRIPTION="A pass extension for auditing your password repository"
 HOMEPAGE="https://github.com/roddhjav/pass-audit"
 
 LICENSE="GPL-3"

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_14 )
 
 inherit meson python-any-r1 xdg
 
@@ -16,7 +16,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-DESCRIPTION="Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL."
+DESCRIPTION="Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL"
 HOMEPAGE="https://taisei-project.org/"
 LICENSE="MIT CC-BY-4.0 CC0-1.0 public-domain"
 SLOT="0"
@@ -43,14 +43,10 @@ DEPEND="
 	>=dev-libs/cglm-0.7.8
 	!!~dev-libs/cglm-0.9.3
 "
-# dev-python/backports-zstd only required for <3.14 but python-any-r1 doesn't have python_gen_cond_dep
 BDEPEND="
 	>=dev-build/meson-1.8.0
 	sys-devel/gettext
 	${PYTHON_DEPS}
-	$(python_gen_any_dep '
-		dev-python/backports-zstd
-	')
 	doc? ( dev-python/docutils )
 "
 

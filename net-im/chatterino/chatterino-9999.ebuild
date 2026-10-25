@@ -7,8 +7,10 @@ DESCRIPTION="Chat client for https://twitch.tv"
 HOMEPAGE="https://chatterino.com/"
 
 CERTIFY_COMMIT="a448a3915ddac716ce76e4b8cbf0e7f4153ed1e2"
-EXPECTED_COMMIT="df5814711f5f9111a2515a181bde67f22f2fe716"
-LIBCOMMUNI_COMMIT="ac0e713e5a904b6f3231c70e076f6fd67a78455e"
+DATE_COMMIT="179a6b921ccd6179b5b04dce812a89f71a51b4df"
+EXPECTED_COMMIT="622f7c263958f92ee33428599317b061dde278c3"
+FMT_COMMIT="123913715afeb8a437e6388b4473fcc4753e1c9a"
+LIBCOMMUNI_COMMIT="9dc0de7c91d362abc431f680dd94e81eadf41622"
 LUA_COMMIT="1ab3208a1fceb12fca8f24ba57d6e13c5bff15e3"
 MAGIC_COMMIT="1384769c66bd16ec9bb1353f45fe8ec8ccc12dbd"
 MINIAUDIO_COMMIT="9634bedb5b5a2ca38c1ee7108a9358a4e233f14d"
@@ -21,8 +23,12 @@ SOL2_COMMIT="2b0d2fe8ba0074e16b499940c4f3126b9c7d3471"
 SRC_URI="
 	https://github.com/Chatterino/certify/archive/${CERTIFY_COMMIT}.tar.gz
 		-> ${PN}-certify-${CERTIFY_COMMIT}.tar.gz
+	https://github.com/HowardHinnant/date/archive/${DATE_COMMIT}.tar.gz
+		-> ${PN}-date-${DATE_COMMIT}.tar.gz
 	https://github.com/nonstd-lite/expected-lite/archive/${EXPECTED_COMMIT}.tar.gz
 		-> ${PN}-expected-${EXPECTED_COMMIT}.tar.gz
+	https://github.com/fmtlib/fmt/archive/${FMT_COMMIT}.tar.gz
+		-> ${PN}-fmt-${FMT_COMMIT}.tar.gz
 	https://github.com/Chatterino/libcommuni/archive/${LIBCOMMUNI_COMMIT}.tar.gz
 		-> ${PN}-libcommuni-${LIBCOMMUNI_COMMIT}.tar.gz
 	https://github.com/lua/lua/archive/${LUA_COMMIT}.tar.gz
@@ -43,7 +49,7 @@ SRC_URI="
 		-> ${PN}-sol2-${SOL2_COMMIT}.tar.gz
 "
 
-if [[ "${PV}" = "9999" ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/Chatterino/chatterino2.git/"
 	EGIT_BRANCH="master"
 	EGIT_SUBMODULES=() # disable submodules
@@ -93,12 +99,14 @@ pkg_pretend() {
 	fi
 }
 
-if [[ "${PV}" = "9999" ]]; then
+if [[ "${PV}" == "9999" ]]; then
 src_unpack() {
 	local pkg
 	local -a pkgs=(
 		certify-${CERTIFY_COMMIT}
+		date-${DATE_COMMIT}
 		expected-${EXPECTED_COMMIT}
+		fmt-${FMT_COMMIT}
 		libcommuni-${LIBCOMMUNI_COMMIT}
 		lua-${LUA_COMMIT}
 		magic-${MAGIC_COMMIT}
@@ -119,7 +127,7 @@ src_unpack() {
 fi
 
 src_prepare() {
-	local lib
+	local lib sublib
 	local -a libs=(
 		certify
 		expected-lite
@@ -134,9 +142,22 @@ src_prepare() {
 	)
 
 	for lib in "${libs[@]}"; do
-		rmdir lib/"${lib}" || die "can't remove stubbed libdirs"
+		rmdir lib/"${lib}" || die "can't remove stubbed libdir: ${lib}"
 		ln -sr ../"${lib}"-* ./lib/"${lib}" || die "failed to create symlink for ${lib}"
 	done
+
+	# bundled sublibs for twitch-eventsub-ws lib
+	libs=(
+		date
+		fmt
+	)
+
+	for lib in "${libs[@]}"; do
+		sublib=lib/twitch-eventsub-ws/lib/"${lib}"
+		rmdir "${sublib}" || die "can't remove stubbed libdir: ${lib}"
+		ln -sr ../"${lib}"-* ./"${sublib}" || die "failed to create symlink for ${lib}"
+	done
+	# --
 
 	# bundled lua -- see chatterino2/pull/6495
 	rmdir lib/lua/src || die

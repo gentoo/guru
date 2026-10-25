@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,6 +20,9 @@ DEPEND="
 	sys-libs/ncurses:=
 	dev-libs/inih
 	virtual/zlib:=
+	elibc_musl? (
+		dev-libs/libbsd
+	)
 "
 BDEPEND="
 	dev-python/cogapp
@@ -33,6 +36,7 @@ src_configure() {
 	local emesonargs=(
 		$(meson_feature doc docs)
 		$(meson_feature test tests)
+		$(meson_feature elibc_musl libbsd)
 		-Ddocdir="/usr/share/doc/${PF}"
 	)
 	meson_src_configure

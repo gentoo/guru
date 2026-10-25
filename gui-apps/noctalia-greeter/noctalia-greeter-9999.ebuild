@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson tmpfiles
+inherit meson optfeature tmpfiles
 
 DESCRIPTION="A minimal login greeter for greetd that matches Noctalia Shell"
 HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia-greeter"
@@ -20,16 +20,20 @@ LICENSE="MIT"
 SLOT="0"
 
 DEPEND="
-	dev-libs/glib:2
-	dev-libs/libinput
 	dev-cpp/tomlplusplus
+	dev-cpp/nlohmann_json
+	dev-libs/glib:2
+	dev-libs/libxml2:2=
+	dev-libs/libinput:0=
 	dev-libs/wayland
+	dev-libs/stb
 	gnome-base/librsvg:2
 	gui-libs/greetd
-	gui-libs/wlroots:0.20=
+	gui-libs/wlroots:0.20
 	media-libs/fontconfig
 	media-libs/freetype
-	media-libs/libwebp
+	media-libs/libjxl:0=
+	media-libs/libwebp:0=
 	media-libs/mesa
 	sys-apps/dbus
 	virtual/opengl
@@ -46,19 +50,13 @@ BDEPEND="
 	dev-libs/wayland-protocols
 "
 
+# TODO: unbundle tabler fonts
+
 src_prepare() {
 	default
 
 	# replace greetd user
 	sed -E -i 's/^(\S+\s+\S+\s+\S+\s+)greeter(\s+)greeter(\s+)/\1greetd\2greetd\3/' data/tmpfiles.d/${PN}.conf
-}
-
-src_configure() {
-	local emesonargs=(
-		-Dsystem_tomlplusplus=true
-	)
-
-	meson_src_configure
 }
 
 src_install() {
@@ -70,6 +68,12 @@ src_install() {
 	dotmpfiles data/tmpfiles.d/${PN}.conf
 }
 
+src_test() {
+	LIBGL_ALWAYS_SOFTWARE=1 meson_src_test
+}
+
 pkg_postinst() {
 	tmpfiles_process ${PN}.conf
+
+	optfeature "avatars" sys-apps/accountsservice
 }

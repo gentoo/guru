@@ -1,0 +1,7 @@
+--- a/Ghidra/Features/Base/src/main/java/ghidra/app/util/cparser/C/CParserUtils.java
++++ b/Ghidra/Features/Base/src/main/java/ghidra/app/util/cparser/C/CParserUtils.java
+@@ -642,3 +642,3 @@
+ 	private static int getTokenMgrErrorIndexOfInvalidText(String message, String functionString) {
+-		String invalidCharMarker = "after : ";
++		String invalidCharMarker = "after prefix ";
+ 		int index = message.indexOf(invalidCharMarker);

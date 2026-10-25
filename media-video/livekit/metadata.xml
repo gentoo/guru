@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>kat@knifepoint.net</email>
+		<name>Katalin Rebhan</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">livekit/livekit</remote-id>
+	</upstream>
+	<use>
+		<flag name="test-server">Build and install the LiveKit mock server.</flag>
+	</use>
+</pkgmetadata>

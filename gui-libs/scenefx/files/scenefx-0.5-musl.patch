@@ -1,0 +1,19 @@
+From dba53481d7b031ca04fd5a0297c4018a10b815a1 Mon Sep 17 00:00:00 2001
+From: Dustin Smith <d.usty360@gmail.com>
+Date: Wed, 16 Sep 2026 16:41:19 -0400
+Subject: [PATCH] Include stddef.h for musl systems, defines __always_inline
+
+Inspired by a similar patch for =sys-kernel/linux-headers-5.10.
+--- a/include/scenefx/types/fx/clipped_region.h
++++ b/include/scenefx/types/fx/clipped_region.h
+@@ -2,6 +2,7 @@
+ #define SCENEFX_TYPES_FX_CLIPPED_REGION_H
+ 
+ #include <wlr/util/box.h>
++#include <linux/stddef.h>
+ 
+ // uint16_t is a reasonable enough range for corner radius
+ // and makes it 8 bytes wide, making it cheap with optimisations
+-- 
+2.55.0
+

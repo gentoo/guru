@@ -1,0 +1,293 @@
+From 767a105f1f361abe082662435ab90d8bea984a0f Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Ond=C5=99ej=20Golasowski?= <golasowski.o@gmail.com>
+Date: Fri, 24 Jun 2022 17:15:06 +0200
+Subject: [PATCH] Added const qualifier to read-only strings
+
+Fixes https://github.com/admesh/admesh/issues/51
+---
+--- a/src/shared.c
++++ b/src/shared.c
+@@ -141,7 +141,7 @@ stl_generate_shared_vertices(stl_file *stl) {
+ }
+
+ void
+-stl_write_off(stl_file *stl, char *file) {
++stl_write_off(stl_file *stl, const char *file) {
+   int i;
+   FILE      *fp;
+   char      *error_msg;
+@@ -177,7 +177,7 @@ stl_write_off(stl_file *stl, char *file) {
+ }
+
+ void
+-stl_write_vrml(stl_file *stl, char *file) {
++stl_write_vrml(stl_file *stl, const char *file) {
+   int i;
+   FILE      *fp;
+   char      *error_msg;
+@@ -234,7 +234,7 @@ stl_write_vrml(stl_file *stl, char *file) {
+   fclose(fp);
+ }
+
+-void stl_write_obj (stl_file *stl, char *file) {
++void stl_write_obj (stl_file *stl, const char *file) {
+   int i;
+   FILE* fp;
+
+--- a/src/stl.h
++++ b/src/stl.h
+@@ -136,11 +136,11 @@ typedef struct {
+ } stl_file;
+
+
+-extern void stl_open(stl_file *stl, char *file);
++extern void stl_open(stl_file *stl, const char *file);
+ extern void stl_close(stl_file *stl);
+-extern void stl_stats_out(stl_file *stl, FILE *file, char *input_file);
++extern void stl_stats_out(stl_file *stl, FILE *file, const char *input_file);
+ extern void stl_print_edges(stl_file *stl, FILE *file);
+-extern void stl_print_neighbors(stl_file *stl, char *file);
++extern void stl_print_neighbors(stl_file *stl, const char *file);
+ extern void stl_put_little_int(FILE *fp, int value_in);
+ extern void stl_put_little_float(FILE *fp, float value_in);
+ extern void stl_write_ascii(stl_file *stl, const char *file, const char *label);
+@@ -150,10 +150,10 @@ extern void stl_check_facets_exact(stl_file *stl);
+ extern void stl_check_facets_nearby(stl_file *stl, float tolerance);
+ extern void stl_remove_unconnected_facets(stl_file *stl);
+ extern void stl_write_vertex(stl_file *stl, int facet, int vertex);
+-extern void stl_write_facet(stl_file *stl, char *label, int facet);
+-extern void stl_write_edge(stl_file *stl, char *label, stl_hash_edge edge);
++extern void stl_write_facet(stl_file *stl, const char *label, int facet);
++extern void stl_write_edge(stl_file *stl, const char *label, stl_hash_edge edge);
+ extern void stl_write_neighbor(stl_file *stl, int facet);
+-extern void stl_write_quad_object(stl_file *stl, char *file);
++extern void stl_write_quad_object(stl_file *stl, const char *file);
+ extern void stl_verify_neighbors(stl_file *stl);
+ extern void stl_fill_holes(stl_file *stl);
+ extern void stl_fix_normal_directions(stl_file *stl);
+@@ -170,13 +170,13 @@ extern void stl_rotate_z(stl_file *stl, float angle);
+ extern void stl_mirror_xy(stl_file *stl);
+ extern void stl_mirror_yz(stl_file *stl);
+ extern void stl_mirror_xz(stl_file *stl);
+-extern void stl_open_merge(stl_file *stl, char *file);
++extern void stl_open_merge(stl_file *stl, const char *file);
+ extern void stl_invalidate_shared_vertices(stl_file *stl);
+ extern void stl_generate_shared_vertices(stl_file *stl);
+-extern void stl_write_obj(stl_file *stl, char *file);
+-extern void stl_write_off(stl_file *stl, char *file);
+-extern void stl_write_dxf(stl_file *stl, char *file, char *label);
+-extern void stl_write_vrml(stl_file *stl, char *file);
++extern void stl_write_obj(stl_file *stl, const char *file);
++extern void stl_write_off(stl_file *stl, const char *file);
++extern void stl_write_dxf(stl_file *stl, const char *file, const char *label);
++extern void stl_write_vrml(stl_file *stl, const char *file);
+ extern void stl_calculate_normal(float normal[], stl_facet *facet);
+ extern void stl_normalize_vector(float v[]);
+ extern void stl_calculate_volume(stl_file *stl);
+@@ -185,7 +185,7 @@ extern void stl_calculate_surface_area(stl_file *stl);
+ extern void stl_repair(stl_file *stl, int fixall_flag, int exact_flag, int tolerance_flag, float tolerance, int increment_flag, float increment, int nearby_flag, int iterations, int remove_unconnected_flag, int fill_holes_flag, int normal_directions_flag, int normal_values_flag, int reverse_all_flag, int verbose_flag);
+
+ extern void stl_initialize(stl_file *stl);
+-extern void stl_count_facets(stl_file *stl, char *file);
++extern void stl_count_facets(stl_file *stl, const char *file);
+ extern void stl_allocate(stl_file *stl);
+ extern void stl_read(stl_file *stl, int first_facet, int first);
+ extern void stl_facet_stats(stl_file *stl, stl_facet facet, int first);
+--- a/src/stl_io.c
++++ b/src/stl_io.c
+@@ -49,7 +49,7 @@ stl_print_edges(stl_file *stl, FILE *file) {
+
+
+ void
+-stl_stats_out(stl_file *stl, FILE *file, char *input_file) {
++stl_stats_out(stl_file *stl, FILE *file, const char *input_file) {
+   if (stl->error) return;
+
+   /* this is here for Slic3r, without our config.h
+@@ -169,7 +169,7 @@ stl_write_ascii(stl_file *stl, const char *file, const char *label) {
+ }
+
+ void
+-stl_print_neighbors(stl_file *stl, char *file) {
++stl_print_neighbors(stl_file *stl, const char *file) {
+   int i;
+   FILE *fp;
+   char *error_msg;
+@@ -302,7 +302,7 @@ stl_write_vertex(stl_file *stl, int facet, int vertex) {
+ }
+
+ void
+-stl_write_facet(stl_file *stl, char *label, int facet) {
++stl_write_facet(stl_file *stl, const char *label, int facet) {
+   if (stl->error) return;
+   printf("facet (%d)/ %s\n", facet, label);
+   stl_write_vertex(stl, facet, 0);
+@@ -311,7 +311,7 @@ stl_write_facet(stl_file *stl, char *label, int facet) {
+ }
+
+ void
+-stl_write_edge(stl_file *stl, char *label, stl_hash_edge edge) {
++stl_write_edge(stl_file *stl, const char *label, stl_hash_edge edge) {
+   if (stl->error) return;
+   printf("edge (%d)/(%d) %s\n", edge.facet_number, edge.which_edge, label);
+   if(edge.which_edge < 3) {
+@@ -336,7 +336,7 @@ stl_write_neighbor(stl_file *stl, int facet) {
+ }
+
+ void
+-stl_write_quad_object(stl_file *stl, char *file) {
++stl_write_quad_object(stl_file *stl, const char *file) {
+   FILE      *fp;
+   int       i;
+   int       j;
+@@ -410,7 +410,7 @@ stl_write_quad_object(stl_file *stl, char *file) {
+ }
+
+ void
+-stl_write_dxf(stl_file *stl, char *file, char *label) {
++stl_write_dxf(stl_file *stl, const char *file, const char *label) {
+   int       i;
+   FILE      *fp;
+   char      *error_msg;
+--- a/src/stlinit.c
++++ b/src/stlinit.c
+@@ -36,7 +36,7 @@
+ #endif
+
+ void
+-stl_open(stl_file *stl, char *file) {
++stl_open(stl_file *stl, const char *file) {
+   stl_initialize(stl);
+   stl_count_facets(stl, file);
+   stl_allocate(stl);
+@@ -69,7 +69,7 @@ stl_initialize(stl_file *stl) {
+ }
+
+ void
+-stl_count_facets(stl_file *stl, char *file) {
++stl_count_facets(stl_file *stl, const char *file) {
+   long           file_size;
+   uint32_t       header_num_facets;
+   int            num_facets;
+@@ -187,7 +187,7 @@ stl_allocate(stl_file *stl) {
+ }
+
+ void
+-stl_open_merge(stl_file *stl, char *file_to_merge) {
++stl_open_merge(stl_file *stl, const char *file_to_merge) {
+   int num_facets_so_far;
+   stl_type origStlType;
+   FILE *origFp;
+
+# Backported from -9999 patch,	please	see
+# -9999   patch  for  the	full   history.
+# Patches taken from slic3r that were never
+# added into admesh upstream.
+#
+# bakedsnake 2026
+--- a/src/stl.h
++++ b/src/stl.h
+@@ -46,11 +46,7 @@ typedef struct {
+   float z;
+ } stl_vertex;
+
+-typedef struct {
+-  float x;
+-  float y;
+-  float z;
+-} stl_normal;
++typedef stl_vertex stl_normal;
+
+ typedef char stl_extra[2];
+
+@@ -162,12 +158,15 @@ extern void stl_translate(stl_file *stl, float x, float y, float z);
+ extern void stl_translate_relative(stl_file *stl, float x, float y, float z);
+ extern void stl_scale_versor(stl_file *stl, float versor[3]);
+ extern void stl_scale(stl_file *stl, float factor);
++extern void calculate_normals(stl_file *stl);
+ extern void stl_rotate_x(stl_file *stl, float angle);
+ extern void stl_rotate_y(stl_file *stl, float angle);
+ extern void stl_rotate_z(stl_file *stl, float angle);
+ extern void stl_mirror_xy(stl_file *stl);
+ extern void stl_mirror_yz(stl_file *stl);
+ extern void stl_mirror_xz(stl_file *stl);
++extern void stl_transform(stl_file *stl, double const *trafo3x4);
++extern void stl_get_transform(stl_file const *stl_src, stl_file *stl_dst, double const *trafo3x4);
+ extern void stl_open_merge(stl_file *stl, const char *file);
+ extern void stl_invalidate_shared_vertices(stl_file *stl);
+ extern void stl_generate_shared_vertices(stl_file *stl);
+--- a/src/util.c
++++ b/src/util.c
+@@ -170,7 +170,7 @@ stl_scale(stl_file *stl, float factor) {
+   stl_scale_versor(stl, versor);
+ }
+
+-static void calculate_normals(stl_file *stl) {
++void calculate_normals(stl_file *stl) {
+   long i;
+   float normal[3];
+
+@@ -185,6 +185,63 @@ static void calculate_normals(stl_file *stl) {
+   }
+ }
+
++void stl_transform(stl_file *stl, double const *trafo3x4) {
++  int i_face, i_vertex, i, j;
++  if (stl->error)
++    return;
++  for (i_face = 0; i_face < stl->stats.number_of_facets; ++ i_face) {
++    stl_vertex *vertices = stl->facet_start[i_face].vertex;
++    for (i_vertex = 0; i_vertex < 3; ++ i_vertex) {
++      stl_vertex *v_dst = &vertices[i_vertex];
++      double v_src_x = (double)(v_dst->x);
++      double v_src_y = (double)(v_dst->y);
++      double v_src_z = (double)(v_dst->z);
++      v_dst->x = (float)(trafo3x4[0] * v_src_x + trafo3x4[1] * v_src_y + trafo3x4[2]  * v_src_z + trafo3x4[3]);
++      v_dst->y = (float)(trafo3x4[4] * v_src_x + trafo3x4[5] * v_src_y + trafo3x4[6]  * v_src_z + trafo3x4[7]);
++      v_dst->z = (float)(trafo3x4[8] * v_src_x + trafo3x4[9] * v_src_y + trafo3x4[10] * v_src_z + trafo3x4[11]);
++
++    }
++  }
++  double det = trafo3x4[0]*trafo3x4[5]*trafo3x4[10] + trafo3x4[4]*trafo3x4[9]*trafo3x4[2] + trafo3x4[8]*trafo3x4[1]*trafo3x4[6]
++              - trafo3x4[0]*trafo3x4[9]*trafo3x4[6] - trafo3x4[4]*trafo3x4[1]*trafo3x4[10] - trafo3x4[8]*trafo3x4[5]*trafo3x4[2];
++  if(det < 0)
++    stl_reverse_all_facets(stl);
++  stl_get_size(stl);
++  if(det - 1.0 > 1e-04)
++    stl_calculate_volume(stl);
++  calculate_normals(stl);
++}
++
++void stl_get_transform(stl_file const *stl_src, stl_file *stl_dst, double const *trafo3x4) {
++  int i_face, i_vertex, i, j;
++  if (stl_src->error || stl_dst->error)
++    return;
++  stl_dst->stats.number_of_facets = stl_src->stats.number_of_facets;
++  stl_allocate(stl_dst);
++  for (i_face = 0; i_face < stl_src->stats.number_of_facets; ++ i_face) {
++    stl_vertex const *vertices_src = stl_src->facet_start[i_face].vertex;
++    stl_vertex *vertices_dst = stl_dst->facet_start[i_face].vertex;
++    for (i_vertex = 0; i_vertex < 3; ++ i_vertex) {
++      stl_vertex* v_dst = &vertices_dst[i_vertex];
++      stl_vertex const * v_src = &vertices_src[i_vertex];
++      double v_src_x = (double)(v_src->x);
++      double v_src_y = (double)(v_src->y);
++      double v_src_z = (double)(v_src->z);
++      v_dst->x = (float)(trafo3x4[0] * v_src_x + trafo3x4[1] * v_src_y + trafo3x4[2]  * v_src_z + trafo3x4[3]);
++      v_dst->y = (float)(trafo3x4[4] * v_src_x + trafo3x4[5] * v_src_y + trafo3x4[6]  * v_src_z + trafo3x4[7]);
++      v_dst->z = (float)(trafo3x4[8] * v_src_x + trafo3x4[9] * v_src_y + trafo3x4[10] * v_src_z + trafo3x4[11]);
++    }
++  }
++  double det = trafo3x4[0]*trafo3x4[5]*trafo3x4[10] + trafo3x4[4]*trafo3x4[9]*trafo3x4[2] + trafo3x4[8]*trafo3x4[1]*trafo3x4[6]
++              - trafo3x4[0]*trafo3x4[9]*trafo3x4[6] - trafo3x4[4]*trafo3x4[1]*trafo3x4[10] - trafo3x4[8]*trafo3x4[5]*trafo3x4[2];
++  if(det < 0)
++    stl_reverse_all_facets(stl_dst);
++  stl_get_size(stl_dst);
++  if(det - 1.0 > 1e-04)
++    stl_calculate_volume(stl_dst);
++  calculate_normals(stl_dst);
++}
++
+ void
+ stl_rotate_x(stl_file *stl, float angle) {
+   int i;

@@ -43,10 +43,16 @@ src_configure() {
 	meson_src_configure
 }
 
+src_install() {
+	meson_src_install
+
+	doinitd "${FILESDIR}"/${PN}d
+}
+
 pkg_postinst() {
 	elog "For Turnstile to work you will have to add the following to /etc/pam.d/system-login"
 	elog ""
 	elog "-session        optional        pam_turnstile.so"
 	elog ""
-	elog "You will also need to enable the turnstiled service on dinit or runit"
+	elog "You will also need to enable the turnstiled service"
 }

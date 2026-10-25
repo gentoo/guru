@@ -3,12 +3,18 @@
 
 EAPI=8
 
-inherit meson optfeature git-r3 xdg
+inherit meson optfeature shell-completion toolchain-funcs xdg
 
 DESCRIPTION="A lightweight Wayland shell and bar built directly on Wayland + OpenGL ES"
 HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia"
 
-EGIT_REPO_URI="https://github.com/noctalia-dev/noctalia.git"
+if [[ ${PV} == *9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/noctalia-dev/noctalia.git"
+else
+	SRC_URI="https://github.com/noctalia-dev/noctalia/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="MIT"
 SLOT="0"
@@ -24,10 +30,16 @@ DEPEND="
 	dev-libs/libxml2
 	dev-libs/md4c
 	dev-libs/stb
+	dev-libs/libical
+	dev-libs/libsodium
 	dev-libs/wayland
+	app-crypt/libsecret
 	gnome-base/librsvg:2
 	media-libs/fontconfig
 	media-libs/freetype
+	media-libs/harfbuzz
+	media-libs/libjxl
+	media-libs/libsndfile
 	media-libs/libwebp
 	media-libs/mesa
 	media-video/pipewire
@@ -40,6 +52,7 @@ DEPEND="
 	x11-libs/cairo[glib]
 	x11-libs/libxkbcommon
 	x11-libs/pango
+	x11-themes/sound-theme-freedesktop
 "
 
 RDEPEND="
@@ -62,9 +75,34 @@ src_configure() {
 	meson_src_configure
 }
 
+src_compile() {
+	meson_src_compile
+
+	if ! tc-is-cross-compiler; then
+		"${BUILD_DIR}"/${PN} completions bash > ${PN}.bash || die
+		"${BUILD_DIR}"/${PN} completions zsh  > ${PN}.zsh  || die
+		"${BUILD_DIR}"/${PN} completions fish > ${PN}.fish || die
+	else
+		ewarn "Cross-compiling: shell completion files are not generated."
+		ewarn "Generate them on the target with '${PN} completions --help'."
+	fi
+}
+
+src_install() {
+	meson_src_install
+
+	if ! tc-is-cross-compiler; then
+		newbashcomp "${PN}.bash" "${PN}"
+		dofishcomp "${PN}.fish"
+		newzshcomp "${PN}.zsh" "_${PN}"
+	fi
+}
+
 pkg_postinst() {
 	xdg_pkg_postinst
 
 	optfeature "external display brightness control" app-misc/ddcutil
+	optfeature "battery and power device integration" sys-power/upower
+	optfeature "clipboard auto-paste" gui-apps/wtype
 	optfeature "hardware-accelerated screen recording" media-video/gpu-screen-recorder
 }

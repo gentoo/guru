@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Rafostar/clapper-enhancers</remote-id>
+	</upstream>
+	<use>
+		<flag name="control-hub">Build the Clapper Enhancer Control Hub plugin</flag>
+		<flag name="http">Enable plugins that use network</flag>
+		<flag name="mpris">Build the Clapper Enhancer MPRIS plugin</flag>
+		<flag name="sqlite3">Build the Clapper Enhancer Recall plugin</flag>
+		<flag name="youtube">Enable YouTube support via <pkg>net-misc/yt-dlp</pkg></flag>
+	</use>
+</pkgmetadata>

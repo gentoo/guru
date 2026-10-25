@@ -16,7 +16,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-DESCRIPTION="Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL."
+DESCRIPTION="Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL"
 HOMEPAGE="https://taisei-project.org/"
 LICENSE="MIT CC-BY-4.0 CC0-1.0 public-domain"
 SLOT="0"

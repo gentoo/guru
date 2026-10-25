@@ -17,6 +17,7 @@ S="${WORKDIR}"
 LICENSE="all-rights-reserved"
 SLOT="0/${PV}"
 KEYWORDS="-* ~amd64"
+RESTRICT="mirror bindist"
 
 BDEPEND="
 	app-arch/unzip

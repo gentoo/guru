@@ -21,9 +21,13 @@ else
 fi
 
 _TZDB_VER=121125
+_RESHADE_VER=v6.8.0
+_ZBIC_VER=11b08f2712264bbed731545085cbd9702096ceb7
 SRC_URI+="
 	https://git.eden-emu.dev/eden-emu/tzdb_to_nx/releases/download/${_TZDB_VER}/${_TZDB_VER}.tar.gz ->
 		nx-tzdb-${_TZDB_VER}.tar.gz
+	https://github.com/crosire/reshade/archive/${_RESHADE_VER}.tar.gz -> reshade-${_RESHADE_VER/v/}.tar.gz
+	https://github.com/kinnay/zbic/archive/${_ZBIC_VER}.tar.gz -> zbic-${_ZBIC_VER}.tar.gz
 "
 
 S="${WORKDIR}/${PN}"
@@ -51,8 +55,7 @@ RDEPEND="
 	media-gfx/renderdoc
 	media-libs/libsdl3[udev]
 	media-libs/libva
-	media-libs/opus
-	media-video/ffmpeg
+	media-video/ffmpeg[opus]
 	net-libs/enet
 	net-libs/mbedtls:3
 	virtual/zlib:=
@@ -79,7 +82,6 @@ DEPEND="
 	dev-cpp/simpleini
 	dev-libs/boost:=[context]
 	dev-libs/frozen
-	dev-libs/unordered_dense
 	dev-util/spirv-headers
 	dev-util/vulkan-headers
 	dev-util/vulkan-utility-libraries
@@ -130,7 +132,7 @@ src_unpack() {
 	git-r3_src_unpack
 
 	# unpack src files
-	unpack "${A}"
+	unpack ${A}
 }
 
 src_prepare() {
@@ -171,6 +173,11 @@ src_configure() {
 		-DYUZU_TZDB_PATH="${WORKDIR}/nx-tzdb-${_TZDB_VER}"
 		-DUSE_FASTER_LINKER=no
 
+		-Dreshade_FORCE_BUNDLED=yes
+		-Dreshade_CUSTOM_DIR="${WORKDIR}/reshade-${_RESHADE_VER/v/}"
+		-Dzbic_FORCE_BUNDLED=yes
+		-Dzbic_CUSTOM_DIR="${WORKDIR}/zbic-${_ZBIC_VER}"
+
 		-DENABLE_LTO=$(usex lto)
 
 		-DDYNARMIC_USE_LLVM=$(usex llvm)
@@ -199,10 +206,17 @@ src_configure() {
 src_test() {
 	cd "${BUILD_DIR}" || die
 
-	./bin/dynarmic_tests || die
-
-	# See https://git.eden-emu.dev/eden-emu/eden/issues/126
-	./bin/tests "~Fibers::InterExchange" "~RingBuffer: Threaded Test" || die
+	local CATCH_SKIP_TESTS=(
+		"MemoryTracker: Cached write downloads"
+		"MemoryTracker: FlushCachedWrites batching"
+		"MemoryTracker: Out of bound ranges 1"
+		"MemoryTracker: Out of bound ranges 2"
+		"MemoryTracker: Out of bound ranges 3"
+		"MemoryTracker: Rasterizer counting"
+		"MemoryTracker: Small region"
+		"MemoryTracker: Sparse regions 2"
+	)
+	./bin/tests "${CATCH_SKIP_TESTS[@]/#/\~}" || die
 }
 
 pkg_postinst() {

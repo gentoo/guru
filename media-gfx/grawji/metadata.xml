@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>patrick@p5k.org</email>
+		<name>Patrick Zwerschke</name>
+	</maintainer>
+	<use>
+		<flag name="heif">Export and display HEIF through <pkg>media-libs/libheif</pkg></flag>
+		<flag name="jxl">Export JPEG XL through <pkg>media-libs/libjxl</pkg></flag>
+	</use>
+	<upstream>
+		<remote-id type="github">p5k369/grawji</remote-id>
+	</upstream>
+</pkgmetadata>

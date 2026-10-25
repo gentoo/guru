@@ -32,7 +32,7 @@ DEPEND="
 			app-text/ford[${PYTHON_USEDEP}]
 		')
 	)
-	test? ( ~dev-util/fortran-test-drive-0.4.0 )
+	test? ( dev-util/fortran-test-drive:0/0.4 )
 "
 
 pkg_setup() {

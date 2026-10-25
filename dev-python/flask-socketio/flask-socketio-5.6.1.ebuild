@@ -4,10 +4,10 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..13})
+PYTHON_COMPAT=( python3_{12..14})
 inherit distutils-r1 pypi
 
-DESCRIPTION="Socket.IO integration for Flask applications."
+DESCRIPTION="Socket.IO integration for Flask applications"
 HOMEPAGE="https://flask-socketio.readthedocs.io https://github.com/miguelgrinberg/flask-socketio"
 
 LICENSE="MIT"

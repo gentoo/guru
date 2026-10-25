@@ -11,14 +11,6 @@ HOMEPAGE="https://github.com/Xilinx/XRT"
 
 if [[ ${PV} == 999999 ]] ; then
 	EGIT_REPO_URI="https://github.com/Xilinx/XRT.git"
-	EGIT_SUBMODULES=(
-		src/runtime_src/aie-codegen
-		src/runtime_src/aie-codegen/aie-regdb
-		src/runtime_src/core/common/aiebu
-		src/runtime_src/core/common/aiebu/src/cpp/ELFIO
-		src/runtime_src/core/common/elf
-		src/runtime_src/xdp
-	)
 	inherit git-r3
 else
 	declare -Ag submodules

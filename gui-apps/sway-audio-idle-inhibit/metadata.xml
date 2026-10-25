@@ -2,11 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
 <pkgmetadata>
 	<maintainer type="person">
-		<email>brettalcox@proton.me</email>
-	</maintainer>
-	<maintainer type="person">
-		<email>ghostyn678+git@gmail.com</email>
-		<name>dsaf</name>
+		<email>gentoo.usable109@simplelogin.com</email>
 	</maintainer>
 	<upstream>
 		<remote-id type="github">ErikReider/SwayAudioIdleInhibit</remote-id>

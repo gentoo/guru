@@ -23,7 +23,7 @@ DEPEND="
 	media-video/ffmpeg
 "
 RDEPEND="
-	dev-libs/aml:0
+	dev-libs/aml:0/1
 	x11-libs/libxkbcommon
 	x11-libs/pixman
 	dev-libs/wayland

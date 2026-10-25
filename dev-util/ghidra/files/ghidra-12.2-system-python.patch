@@ -1,0 +1,14 @@
+--- a/gradle/hasPythonPackage.gradle
++++ b/gradle/hasPythonPackage.gradle
+@@ -82,3 +82,3 @@
+ 			commandLine rootProject.PYTHON3
+-			args "-m", "pip", "wheel", "-w", "dist/", "--no-index", "--no-deps", "-f", setuptools, "."
++			args "-m", "pip", "wheel", "-w", "dist/", "--no-index", "--no-build-isolation", "--no-deps", "-f", setuptools, "."
+ 		}
+--- a/gradle/root/distribution.gradle
++++ b/gradle/root/distribution.gradle
+@@ -307,3 +307,3 @@
+ 			commandLine PYTHON3
+-			args "-m", "pip", "wheel", "-w", distDir, "--no-index", "-f", setuptools, "."
++			args "-m", "pip", "wheel", "-w", distDir, "--no-index", "--no-build-isolation", "-f", setuptools, "."
+ 		}

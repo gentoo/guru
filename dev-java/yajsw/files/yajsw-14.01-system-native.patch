@@ -1,0 +1,26 @@
+# Use Gentoo's JNA native library
+
+--- a/src/app/src/main/java/org/rzo/yajsw/boot/WrapperLoader.java
++++ b/src/app/src/main/java/org/rzo/yajsw/boot/WrapperLoader.java
+@@ -34,6 +34,11 @@ import com.nqzero.permit.Permit;
+ 
+ public class WrapperLoader
+ {
++	static
++	{
++		System.setProperty("jna.boot.library.path", "@GENTOO_LIBDIR@/jna");
++	}
++
+ 
+ 	private static boolean checkPath(String path)
+ 	{
+--- a/src/yajsw/src/main/java/org/rzo/yajsw/os/posix/PosixProcess.java
++++ b/src/yajsw/src/main/java/org/rzo/yajsw/os/posix/PosixProcess.java
+@@ -1252,6 +1252,7 @@ public class PosixProcess extends AbstractProcess {
+ 	private String[] getSpawnCmdLine() {
+ 		ArrayList<String> cmdList = new ArrayList();
+ 		cmdList.add(getCurrentJava());
++		cmdList.add("-Djna.boot.library.path=" + System.getProperty("jna.boot.library.path"));
+ 		String tmpDir = _tmpPath;
+ 		if (tmpDir == null)
+ 			tmpDir = System.getProperty("jna_tmpdir", null);

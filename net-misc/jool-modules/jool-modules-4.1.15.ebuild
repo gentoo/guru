@@ -15,6 +15,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="iptables"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.1.15-fix_kernel_72.patch
+)
+
 src_configure() {
 	true
 }

@@ -29,7 +29,7 @@ RDEPEND="
 	dev-libs/expat
 	dev-libs/glib
 	dev-libs/nss
-	dev-libs/openssl-compat
+	dev-libs/wayland
 	dev-vcs/git
 	media-libs/alsa-lib
 	media-libs/mesa
@@ -38,7 +38,6 @@ RDEPEND="
 	sys-apps/dbus
 	virtual/zlib
 	x11-libs/cairo
-	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:3[X]
 	x11-libs/libdrm
 	x11-libs/libX11
@@ -49,7 +48,6 @@ RDEPEND="
 	x11-libs/libXfixes
 	x11-libs/libxkbcommon
 	x11-libs/libxkbfile
-	x11-libs/libxshmfence
 	x11-libs/libXrandr
 	x11-libs/pango
 "
@@ -79,10 +77,8 @@ src_install(){
 	dosym -r /opt/Pulsar/resources/pulsar.sh /usr/bin/pulsar
 
 	# Bug #906939
-	if use amd64; then
-		rm "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/tree-sitter-bash/build/node_gyp_bins/python3 || die
-		rmdir "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/tree-sitter-bash/build/node_gyp_bins || die
-	fi
+	find "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/ -type l -name python3 -delete || die
+	find "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/ -type d -name node_gyp_bins -delete || die
 
 	doicon "${ED}"/opt/Pulsar/resources/pulsar.png
 	make_desktop_entry "/usr/bin/pulsar %F" "Pulsar" "pulsar" \

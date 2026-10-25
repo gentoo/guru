@@ -81,7 +81,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	optfeature "Prometheus statistics support" dev-python/prometheus_client
+	optfeature "Prometheus statistics support" dev-python/prometheus-client
 
 	if [[ ! ${REPLACING_VERSIONS} ]]; then
 		einfo

@@ -267,7 +267,7 @@ SRC_URI="
 	https://github.com/elkowar/yolk/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 "
 
-QA_FLAGS_IGNORE="
+QA_FLAGS_IGNORED="
 	usr/bin/yolk
 "
 

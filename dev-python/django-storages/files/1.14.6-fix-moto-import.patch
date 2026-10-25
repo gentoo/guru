@@ -1,0 +1,13 @@
+diff --git a/tests/test_s3.py b/tests/test_s3.py
+index c131b89..944cbe5 100644
+--- a/tests/test_s3.py
++++ b/tests/test_s3.py
+@@ -21,7 +21,7 @@ from django.core.files.base import File
+ from django.test import TestCase
+ from django.test import override_settings
+ from django.utils.timezone import is_aware
+-from moto import mock_s3
++from moto import mock_aws as mock_s3
+ 
+ from storages.backends import s3
+ from tests.utils import NonSeekableContentFile

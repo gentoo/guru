@@ -133,6 +133,14 @@ if allegro5_dep.found() and allegro5_primitives_dep.found()
   headers+= files('backends/imgui_impl_allegro5.h')
 endif
 
+# freetype
+freetype_dep = dependency('freetype2', required: get_option('freetype'))
+if freetype_dep.found()
+  sources += 'misc/freetype/imgui_freetype.cpp'
+  dependencies += freetype_dep
+  headers += files('misc/freetype/imgui_freetype.h')
+endif
+
 api = '-DIMGUI_API=__attribute__((visibility("default")))'
 if host_machine.system() == 'windows'
   api = '-DIMGUI_API=@0@'.format(get_option('default_library') != 'static' ? '__declspec(dllexport)' : '')

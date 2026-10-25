@@ -1,0 +1,9 @@
+--- a/tests/test_core.py
++++ b/tests/test_core.py
+@@ -194,4 +194,4 @@
+ 
+-    # Test to ensure _PyGhidraImportLoader is last loader
+-    assert isinstance(sys.meta_path[-1], pyghidra.launcher._PyGhidraImportLoader)
++    assert isinstance(sys.meta_path[-2], pyghidra.launcher._PyGhidraImportLoader)
++    assert isinstance(sys.meta_path[-1], pyghidra.launcher._GhidraBundleFinder)
+ 

@@ -3,8 +3,11 @@
 <pkgmetadata>
 	<maintainer type="person">
 		<name>Jonas Frei</name>
-		<email>freijon@pm.me</email>
+		<email>freijon@kagimail.com</email>
 	</maintainer>
+	<use>
+		<flag name="systemd">Send a state change notification when Xwayland has been initialized, allowing for services to depend on satellite's startup</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">Supreeeme/xwayland-satellite</remote-id>
 		<bugs-to>https://github.com/Supreeeme/xwayland-satellite/issues</bugs-to>

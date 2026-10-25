@@ -1,0 +1,132 @@
+From: bakedsnake <bakedsnake@vagrantz.xyz>
+Date: Thu, 24 Sep 2026 20:40:55 +0200
+Subject: [PATCH] Use system libs instead of vendored code
+
+* admesh
+* expat
+* exprtk
+* miniz
+---
+--- a/Build.PL
++++ b/Build.PL
+@@ -166,6 +166,23 @@ if (! $mswin) {
+         );
+ }
+
++if (! $mswin) {
++#    die <<'EOF' unless check_lib(lib => "admesh");
++#Could not find admesh. Plase install.
++#EOF
++    push @LIBS, "-lm -ladmesh";
++
++    die <<'EOF' unless check_lib(lib => "expat");
++Could not find expat. Plase install.
++EOF
++    push @LIBS, "-lexpat";
++
++    die <<'EOF' unless check_lib(lib => "miniz");
++Could not find libexpat. Plase install.
++EOF
++    push @LIBS, "-lminiz";
++}
++
+ if (!$ENV{SLIC3R_STATIC} && $have_boost) {
+     # The boost library was detected by check_lib on Linux.
+     push @LIBS, map "-lboost_${_}", @boost_libraries;
+--- a/MANIFEST
++++ b/MANIFEST
+@@ -2,14 +2,6 @@ Build.PL
+ lib/Slic3r/XS.pm
+ libslic3r.doxygen
+ MANIFEST			This list of files
+-src/admesh/connect.c
+-src/admesh/normals.c
+-src/admesh/portable_endian.h
+-src/admesh/shared.c
+-src/admesh/stl_io.c
+-src/admesh/stl.h
+-src/admesh/stlinit.c
+-src/admesh/util.c
+ src/boost/nowide/args.hpp
+ src/boost/nowide/cenv.hpp
+ src/boost/nowide/config.hpp
+@@ -31,27 +23,6 @@ src/BSpline/BSpline.h
+ src/BSpline/COPYRIGHT
+ src/clipper.cpp
+ src/clipper.hpp
+-src/expat/ascii.h
+-src/expat/asciitab.h
+-src/expat/COPYING
+-src/expat/expat_config.h
+-src/expat/expat_external.h
+-src/expat/expat.h
+-src/expat/iasciitab.h
+-src/expat/internal.h
+-src/expat/latin1tab.h
+-src/expat/nametab.h
+-src/expat/README
+-src/expat/utf8tab.h
+-src/expat/xmlparse.c
+-src/expat/xmlrole.c
+-src/expat/xmlrole.h
+-src/expat/xmltok_impl.h
+-src/expat/xmltok_impl.inc
+-src/expat/xmltok_ns.inc
+-src/expat/xmltok.c
+-src/expat/xmltok.h
+-src/exprtk/exprtk.hpp
+ src/libslic3r/BoundingBox.cpp
+ src/libslic3r/BoundingBox.hpp
+ src/libslic3r/BridgeDetector.cpp
+@@ -167,7 +138,6 @@ src/libslic3r/TriangleMesh.cpp
+ src/libslic3r/TriangleMesh.hpp
+ src/libslic3r/utils.cpp
+ src/libslic3r/utils.hpp
+-src/miniz/miniz.h
+ src/perlglue.cpp
+ src/poly2tri/common/shapes.cc
+ src/poly2tri/common/shapes.h
+--- a/src/libslic3r/SlicingAdaptive.hpp
++++ b/src/libslic3r/SlicingAdaptive.hpp
+@@ -1,7 +1,7 @@
+ #ifndef slic3r_SlicingAdaptive_hpp_
+ #define slic3r_SlicingAdaptive_hpp_
+
+-#include "admesh/stl.h"
++#include <admesh/stl.h>
+
+ namespace Slic3r
+ {
+--- a/src/libslic3r/IO/AMF.cpp
++++ b/src/libslic3r/IO/AMF.cpp
+@@ -9,7 +9,7 @@
+ #include <boost/filesystem/operations.hpp>
+ #include <boost/nowide/iostream.hpp>
+ #include <boost/algorithm/string.hpp>
+-#include <expat/expat.h>
++#include <expat.h>
+ #include <miniz/miniz.h>
+ #include "../Exception.hpp"
+ #include "miniz_extension.hpp"
+--- a/src/libslic3r/IO/TMF.hpp
++++ b/src/libslic3r/IO/TMF.hpp
+@@ -14,7 +14,7 @@
+ #include <boost/move/move.hpp>
+ #include <boost/nowide/fstream.hpp>
+ #include <boost/nowide/iostream.hpp>
+-#include <expat/expat.h>
++#include <expat.h>
+
+ #define PI 3.141592653589793238
+
+--- a/src/libslic3r/ConditionalGCode.cpp
++++ b/src/libslic3r/ConditionalGCode.cpp
+@@ -1,7 +1,7 @@
+ #include <string>
+
+ #include <sstream>
+-#include <exprtk/exprtk.hpp>
++#include <exprtk.hpp>
+ #include "ConditionalGCode.hpp"
+ namespace Slic3r {
+

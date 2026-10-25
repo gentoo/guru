@@ -1,0 +1,7 @@
+# Full documentation: https://docs.searxng.org/admin/settings/settings.html
+
+use_default_settings: true
+server:
+  secret_key: "ultrasecretkey"   # change this!
+  bind_address: "127.0.0.1"
+  port: 8888

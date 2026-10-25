@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>david-gentoo@reedfam.email</email>
+		<name>David Reed</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Stremio/stremio-linux-shell</remote-id>
+		<bugs-to>https://github.com/Stremio/stremio-linux-shell/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

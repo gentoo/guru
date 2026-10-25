@@ -1,0 +1,19 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Look up `playwright` from the `PATH`
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/playwright/_impl/_transport.py
++++ b/playwright/_impl/_transport.py
+@@ -121,10 +121,8 @@ class PipeTransport(Transport):
+                 startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+                 startupinfo.wShowWindow = subprocess.SW_HIDE
+ 
+-            executable_path, entrypoint_path = compute_driver_executable()
+             self._proc = await asyncio.create_subprocess_exec(
+-                executable_path,
+-                entrypoint_path,
++                "playwright",
+                 "run-driver",
+                 stdin=asyncio.subprocess.PIPE,
+                 stdout=asyncio.subprocess.PIPE,

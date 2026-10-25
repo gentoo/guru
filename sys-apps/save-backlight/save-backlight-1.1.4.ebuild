@@ -8,7 +8,7 @@ inherit prefix
 DESCRIPTION="An OpenRC service for restoring the last brightness level on reboot"
 HOMEPAGE="https://github.com/beatussum/save-backlight/"
 
-if [[ "${PV}" = 9999 ]]; then
+if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/beatussum/save-backlight.git"
 else

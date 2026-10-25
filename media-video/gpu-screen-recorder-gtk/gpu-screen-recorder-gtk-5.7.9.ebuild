@@ -15,16 +15,18 @@ else
 fi
 
 DESCRIPTION="GTK frontend for gpu-screen-recorder"
-HOMEPAGE="https://git.dec05eba.com/gpu-screen-recorder-gtk/about"
+HOMEPAGE="https://git.dec05eba.com/gpu-screen-recorder-gtk/about/"
 LICENSE="GPL-3"
 SLOT="0"
 
 DEPEND="
 	dev-libs/libayatana-appindicator
-	media-video/gpu-screen-recorder
 	x11-libs/gtk+:3
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	media-video/gpu-screen-recorder
+	${DEPEND}
+"
 
 pkg_postinst() {
 	xdg_pkg_postinst

@@ -5,10 +5,6 @@
         <email>saigon-tech@tuta.io</email>
         <name>Michal Vu</name>
     </maintainer>
-    <maintainer type="person">
-        <email>ghostyn678+git@gmail.com</email>
-        <name>dsaf</name>
-    </maintainer>
     <longdescription>
         Ly is a lightweight TUI (Terminal User Interface) display manager for Linux.
         It aims to be simple, fast, and easily configurable. Ly supports various

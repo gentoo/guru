@@ -8,7 +8,7 @@ inherit cmake flag-o-matic
 DESCRIPTION="The open source OpenXR runtime."
 HOMEPAGE="https://monado.dev"
 
-if [[ "${PV}" = *9999* ]]; then
+if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.freedesktop.org/monado/monado.git"
 else

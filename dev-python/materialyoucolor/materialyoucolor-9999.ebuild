@@ -16,7 +16,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
 
-if [[ "${PV}" = *9999 ]]; then
+if [[ "${PV}" == *9999 ]]; then
 	inherit git-r3
 	BDEPEND="dev-vcs/git"
 	EGIT_REPO_URI="https://github.com/T-Dynamos/materialyoucolor-python.git"

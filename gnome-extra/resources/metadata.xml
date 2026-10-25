@@ -3,9 +3,9 @@
 <pkgmetadata>
 	<maintainer type="person">
 		<email>bjorn.megaflow@gmail.com</email>
-		<name>Björn</name>
+		<name>Björn Ferson</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">nokyan/resources</remote-id>
+		<remote-id type="gnome-gitlab">GNOME/Incubator/resources</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -1,0 +1,37 @@
+# Keep config in /etc and runtime files outside /usr
+
+--- a/bin/setenv.sh
++++ b/bin/setenv.sh
+@@ -33,7 +33,7 @@
+ wrapper_app_jar="$wrapper_home"/wrapperApp.jar
+ export wrapper_app_jar
+ 
+-wrapper_java_sys_options=-Djna_tmpdir="$wrapper_home"/tmp
++wrapper_java_sys_options=-Djna_tmpdir="${TMPDIR:-/tmp}"
+ export wrapper_java_sys_options
+ 
+ wrapper_java_options=-Xmx30m
+@@ -45,10 +45,10 @@
+ # show java version
+ "$java_exe" -version
+ 
+-conf_file="$wrapper_home"/conf/wrapper.conf
++conf_file="@GENTOO_PORTAGE_EPREFIX@/etc/yajsw/wrapper.conf"
+ export conf_file
+ 
+-conf_default_file="$wrapper_home"/conf/wrapper.conf.default
++conf_default_file="@GENTOO_PORTAGE_EPREFIX@/etc/yajsw/wrapper.conf.default"
+ export conf_default_file
+ 
+ echo "wrapper home : $wrapper_home"
+--- a/conf/wrapper.conf.default
++++ b/conf/wrapper.conf.default
+@@ -128,7 +128,7 @@
+ wrapper.console.loglevel=INFO
+ 
+ # Log file to use for wrapper output logging.
+-wrapper.logfile=${wrapper_home}/log/wrapper.log
++wrapper.logfile=wrapper.log
+ 
+ # Format of output for the log file.  (See docs for formats)
+ #wrapper.logfile.format=LPTM

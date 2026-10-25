@@ -12,7 +12,7 @@ inherit eapi9-ver zig
 DESCRIPTION="A dynamic tiling Wayland compositor"
 HOMEPAGE="https://isaacfreund.com/software/river/ https://codeberg.org/river/river"
 
-if [[ "${PV}" = "9999" ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://codeberg.org/river/river.git"
 else
@@ -56,7 +56,7 @@ PATCHES=(
 )
 
 src_unpack() {
-	if [[ "${PV}" = "9999" ]]; then
+	if [[ "${PV}" == "9999" ]]; then
 		git-r3_src_unpack
 		zig_live_src_unpack
 	else

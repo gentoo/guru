@@ -5,7 +5,7 @@ EAPI=8
 
 inherit toolchain-funcs
 
-if [ "${PV}" != "9999" ]; then
+if [[ "${PV}" != "9999" ]]; then
 	VERIFY_SIG_METHOD=signify
 	inherit verify-sig
 
@@ -31,7 +31,7 @@ PATCHES=(
 	"${FILESDIR}/cmd-timer-2.1.0-Makefile-add-lrt.patch"
 )
 
-if [ "${PV}" != "9999" ]; then
+if [[ "${PV}" != "9999" ]]; then
 	BDEPEND="${BDEPEND} verify-sig? ( sec-keys/signify-keys-lanodan:2025 )"
 
 	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/signify-keys/signify-keys-lanodan-2025.pub"

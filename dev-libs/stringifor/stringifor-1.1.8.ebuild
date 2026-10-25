@@ -74,7 +74,7 @@ src_compile() {
 src_test() {
 	${EPYTHON} FoBiS.py build -compiler custom -fc $(tc-getFC) ${BUILD_MODE_TESTS} || die
 	for e in $( find ./exe/ -type f -executable -print ); do
-		if [ "$e" != "./exe/stringifor_test_parse_large_csv" ] ; then
+		if [[ "$e" != "./exe/stringifor_test_parse_large_csv" ]] ; then
 			echo "  run test $e :" && { $e || die; }
 		else
 			# The output of this test is too huge so it's cutted here

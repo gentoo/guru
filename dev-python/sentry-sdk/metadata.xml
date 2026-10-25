@@ -2,7 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<name>Katalin Rebhan</name>
+		<email>kat@knifepoint.net</email>
+	</maintainer>
 
 	<stabilize-allarches/>
 

@@ -5,7 +5,7 @@ EAPI=8
 
 inherit unpacker xdg
 
-DESCRIPTION="Flash OS images to SD cards & USB drives, safely and easily."
+DESCRIPTION="Flash OS images to SD cards & USB drives, safely and easily"
 HOMEPAGE="https://etcher.balena.io"
 SRC_URI="https://github.com/balena-io/etcher/releases/download/v${PV}/balena-etcher_${PV}_amd64.deb"
 S="${WORKDIR}"

@@ -7,7 +7,7 @@ inherit optfeature xdg
 
 DESCRIPTION="Wrapper script for Steam custom launch options"
 HOMEPAGE="https://github.com/sonic2kk/steamtinkerlaunch"
-if [ "${PV}" == 9999 ] ; then
+if [[ "${PV}" == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/sonic2kk/${PN}"
 else

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>zyx@envs.net</email>
+    <name>zyxhere💭</name>
+  </maintainer>
+  <longdescription>
+    Roaring bitmaps are compressed bitmaps that combine the speed of
+    uncompressed bitsets with the memory efficiency of compression — often
+    hundreds of times faster than older formats.
+
+    Roaring bitmaps in C (and C++), with SIMD (AVX2, AVX-512 and NEON)
+    optimizations: used by Apache Doris, ClickHouse, Alibaba Tair, Redpanda, YDB
+    and StarRocks.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">RoaringBitmap/CRoaring</remote-id>
+  </upstream>
+</pkgmetadata>

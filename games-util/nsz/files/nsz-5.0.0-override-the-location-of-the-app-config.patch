@@ -1,0 +1,32 @@
+From: Pavel Sobolev <contact@paveloom.dev>
+Subject: [PATCH] Override the location of the app config
+
+Signed-off-by: Pavel Sobolev <contact@paveloom.dev>
+
+--- a/nsz/gui/NSZ_GUI.py
++++ b/nsz/gui/NSZ_GUI.py
+@@ -19,6 +19,8 @@ import sys
+ import subprocess
+ import ctypes
+ 
++import os
++
+ def apply_dpi_scaling(config):
+     enable = int(config.get("DPI", "dpi_enable"))
+     auto = int(config.get("DPI", "dpi_auto"))
+@@ -118,6 +120,15 @@ def launchGui():
+ class GUI(App):
+     rootWidget = None
+ 
++    def get_application_config(self):
++        xdg = os.environ.get("XDG_CONFIG_HOME")
++        if xdg:
++            cfg_dir = Path(xdg) / "nsz"
++        else:
++            cfg_dir = Path.home() / ".config" / "nsz"
++        cfg_dir.mkdir(parents=True, exist_ok=True)
++        cfg_file = cfg_dir / '%(appname)s.ini'
++        return super(GUI, self).get_application_config(cfg_file)
+     def run(self):
+         patchKivyOpenGlExtensionDecode()
+         LabelBase.register(DEFAULT_FONT, getGuiPath("fonts/MPLUS1p-Medium.ttf"))

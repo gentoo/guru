@@ -4,11 +4,11 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
-DESCRIPTION="Client library for Barbican API."
+DESCRIPTION="Client library for Barbican API"
 HOMEPAGE="
 	https://opendev.org/openstack/python-barbicanclient
 	https://github.com/openstack/python-barbicanclient/

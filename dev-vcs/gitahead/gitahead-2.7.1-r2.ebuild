@@ -59,7 +59,7 @@ src_unpack() {
 	)
 	use gnome-keyring && list+=( dep_git_git )
 	for i in "${list[@]}"; do
-		[ ! -f "${DISTDIR}/${P}-${i}.tar.gz" ] && die "The file ${DISTDIR}/${P}-${i}.tar.gz doesn't exist"
+		[[ ! -f "${DISTDIR}/${P}-${i}.tar.gz" ]] && die "The file ${DISTDIR}/${P}-${i}.tar.gz doesn't exist"
 		tar xf "${DISTDIR}/${P}-${i}.tar.gz" --strip-components 1 -C "${i//_//}" || die "Failed to unpack ${P}-${i}.tar.gz"
 	done
 }

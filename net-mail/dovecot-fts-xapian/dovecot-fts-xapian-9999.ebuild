@@ -8,7 +8,7 @@ inherit autotools
 DESCRIPTION="Dovecot FTS plugin backed by Xapian"
 HOMEPAGE="https://github.com/grosjo/fts-xapian"
 
-if [ "$PV" = 9999 ] ; then
+if [[ "$PV" == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/grosjo/fts-xapian/"
 else
@@ -30,7 +30,7 @@ RDEPEND="
 	"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
-if [ "$PV" = 9999 ] ; then
+if [[ "$PV" == 9999 ]] ; then
 	BDPEND="${BDEPEND}
 		dev-build/automake
 		dev-build/automake-archive

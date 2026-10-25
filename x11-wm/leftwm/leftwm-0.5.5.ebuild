@@ -1,0 +1,171 @@
+# Copyright 2023-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+CRATES="
+	aho-corasick@1.1.5
+	anstyle@1.0.14
+	anyhow@1.0.104
+	anymap2@0.13.0
+	bitflags@2.13.2
+	bstr@1.13.1
+	bytes@1.12.1
+	cfg-if@1.0.5
+	cfg_aliases@0.2.2
+	clap@4.6.7
+	clap_builder@4.6.7
+	clap_lex@1.1.1
+	crossbeam-channel@0.5.17
+	crossbeam-utils@0.8.23
+	deranged@0.5.8
+	dirs-sys@0.5.0
+	dirs@6.0.0
+	dirs@7.0.0
+	either@1.18.0
+	errno@0.3.14
+	fastrand@2.5.0
+	futures-channel@0.3.34
+	futures-core@0.3.34
+	futures-io@0.3.34
+	futures-sink@0.3.34
+	futures-task@0.3.34
+	futures-util@0.3.34
+	futures@0.3.34
+	gethostname@1.1.0
+	git-version-macro@0.3.9
+	git-version@0.3.9
+	inventory@0.3.24
+	itertools@0.14.0
+	itoa@1.0.18
+	kstring@2.0.2
+	lazy_static@1.5.0
+	lefthk-core@0.3.2
+	leftwm-layouts@0.9.1
+	libc@0.2.189
+	libredox@0.1.24
+	linux-raw-sys@0.12.1
+	liquid-core@0.26.11
+	liquid-derive@0.26.10
+	liquid-lib@0.26.11
+	liquid@0.26.11
+	log@0.4.34
+	matchers@0.2.0
+	memchr@2.8.3
+	mio@1.2.3
+	nix@0.31.3
+	num-conv@0.2.2
+	once_cell@1.21.4
+	option-ext@0.2.0
+	os_str_bytes@6.6.1
+	percent-encoding@2.3.2
+	pest@2.9.1
+	pest_derive@2.9.1
+	pest_generator@2.9.1
+	pest_meta@2.9.1
+	pin-project-lite@0.2.17
+	pkg-config@0.3.34
+	powerfmt@0.2.0
+	proc-macro2@1.0.107
+	quote@1.0.47
+	redox_users@0.5.3
+	regex-automata@0.4.18
+	regex-syntax@0.8.11
+	regex@1.13.1
+	ron@0.12.2
+	rustix@1.1.5
+	rustversion@1.0.23
+	serde@1.0.229
+	serde_core@1.0.229
+	serde_derive@1.0.229
+	serde_json@1.0.151
+	sharded-slab@0.1.7
+	shellexpand@3.1.2
+	signal-hook-registry@1.4.8
+	signal-hook@0.4.4
+	socket2@0.6.5
+	static_assertions@1.1.0
+	symlink@0.1.0
+	syn@2.0.119
+	syn@3.0.6
+	syslog-tracing@0.3.1
+	tempfile@3.27.0
+	thiserror-impl@2.0.20
+	thiserror@2.0.20
+	thread_local@1.1.10
+	time-core@0.1.9
+	time-macros@0.2.32
+	time@0.3.55
+	tokio-macros@2.7.2
+	tokio@1.53.1
+	tracing-appender@0.2.5
+	tracing-attributes@0.1.31
+	tracing-core@0.1.36
+	tracing-journald@0.3.2
+	tracing-subscriber@0.3.23
+	tracing@0.1.44
+	typeid@1.0.3
+	ucd-trie@0.1.7
+	unicode-ident@1.0.26
+	unicode-segmentation@1.13.3
+	valuable@0.1.1
+	wasi@0.11.1+wasi-snapshot-preview1
+	windows-link@0.2.1
+	windows-sys@0.61.2
+	x11-dl@2.21.0
+	x11rb-protocol@0.14.0
+	x11rb@0.14.0
+	xcursor@0.3.11
+	xdg@3.0.0
+	zmij@1.0.23
+"
+
+RUST_MIN_VER="1.88.0"
+
+inherit cargo
+
+DESCRIPTION="A window manager for Adventurers"
+HOMEPAGE="https://github.com/leftwm/leftwm"
+SRC_URI="
+	https://github.com/leftwm/leftwm/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	${CARGO_CRATE_URIS}
+"
+
+LICENSE="MIT"
+# Dependent crate licenses
+LICENSE+=" Apache-2.0 BSD-2 BSD MIT MPL-2.0 Unicode-3.0"
+SLOT="0"
+KEYWORDS="~amd64"
+IUSE="+lefthk syslog systemd x11rb"
+
+DEPEND="
+	x11-apps/xrandr
+	x11-libs/libX11
+	x11-libs/libXinerama
+"
+RDEPEND="${DEPEND}"
+
+QA_FLAGS_IGNORED="usr/bin/.*"
+
+src_configure() {
+	local myfeatures=(
+		$(usev lefthk)
+		$(usev systemd journald-log)
+		$(usev syslog sys-log)
+		$(usev x11rb)
+		leftwm-watchdog
+		xlib
+	)
+	cargo_src_configure --no-default-features
+}
+
+src_install() {
+	dodoc -r README.md CHANGELOG.md
+	doman leftwm/doc/leftwm.1
+
+	insinto /usr/share/xsessions
+	doins leftwm.desktop
+
+	dobin "$(cargo_target_dir)"/leftwm{,-log,-worker,-state,-check,-command}
+	use lefthk && dobin "$(cargo_target_dir)"/lefthk-worker
+}

@@ -1,0 +1,42 @@
+diff --git a/Makefile b/Makefile
+index ee11d400..78d0be71 100644
+--- a/Makefile
++++ b/Makefile
+@@ -4,7 +4,7 @@ NIMC ?= $(NIM) c
+ OBJDIR ?= .obj
+ OUTDIR ?= target
+ # These paths are quoted in recipes.
+-PREFIX ?= /usr/local
++PREFIX ?= /usr
+ MANPREFIX ?= $(PREFIX)/share/man
+ MANPREFIX1 ?= $(MANPREFIX)/man1
+ MANPREFIX5 ?= $(MANPREFIX)/man5
+@@ -55,27 +55,7 @@ chac_flags =
+ embed_startup = 0
+ 
+ # Nim compiler flags
+-ifeq ($(TARGET),debug)
+-FLAGS += -d:debug --debugger:native
+-CFLAGS += -DDUMP_LEAKS=1
+-else ifeq ($(TARGET),release)
+-embed_startup = 1
+-chac_flags = -s
+-FLAGS += -d:release -d:strip -d:lto
+-else ifeq ($(TARGET),release-nolto)
+-embed_startup = 1
+-chac_flags = -s
+-FLAGS += -d:release -d:strip
+-else ifeq ($(TARGET),release0)
+-FLAGS += -d:release --stacktrace:on
+-else ifeq ($(TARGET),release1)
+-FLAGS += -d:release --debugger:native
+-else ifeq ($(TARGET),asan)
+-CFLAGS += -fsanitize=address -DDUMP_LEAKS=1
+-LDFLAGS += -fsanitize=address
+-FLAGS += -d:debug --debugger:native -d:useMalloc
+-DANGER_DISABLE_SANDBOX = 1
+-endif
++FLAGS += -d:release
+ 
+ ifeq ($(embed_startup),1)
+ embed_script = $(OBJDIR)/init.jsb

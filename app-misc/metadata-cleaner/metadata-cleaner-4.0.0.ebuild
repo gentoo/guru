@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit gnome2-utils meson python-single-r1
 
-DESCRIPTION="Python GTK application to view and clean metadata in files, using mat2."
+DESCRIPTION="Python GTK application to view and clean metadata in files, using mat2"
 HOMEPAGE="https://gitlab.com/metadatacleaner/metadatacleaner"
 SRC_URI="https://gitlab.com/metadatacleaner/metadatacleaner/-/archive/v${PV}/metadatacleaner-v${PV}.tar.bz2"
 S=${WORKDIR}/metadatacleaner-v${PV}

@@ -16,7 +16,7 @@ SRC_URI="https://github.com/fortran-lang/${MY_PN}/archive/refs/tags/v${PV}.tar.g
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="MIT Apache-2.0"
-SLOT="0"
+SLOT="0/0.5"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="test"

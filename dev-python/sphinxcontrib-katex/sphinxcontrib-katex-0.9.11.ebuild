@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,8 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
 PYPI_PN=${PN/-/_}
-PYTHON_COMPAT=( python3_{12..13} )
+PYPI_VERIFY_REPO=https://github.com/hagenw/sphinxcontrib-katex
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -21,15 +22,16 @@ RDEPEND=">=dev-python/sphinx-4.5.0-r1[${PYTHON_USEDEP}]"
 
 DOCS=()
 
-PATCHES="
-	${FILESDIR}/${P}_fix_install.patch
-	${FILESDIR}/${PN}-0.9.10_fix_use_tomli.patch
-"
+PATCHES=(
+	"${FILESDIR}/${P}_fix_install.patch"
+	"${FILESDIR}/${PN}-0.9.10_fix_use_tomli.patch"
+)
 
 distutils_enable_sphinx docs \
 	dev-python/insipid-sphinx-theme \
 	dev-python/tomli
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 src_prepare() {

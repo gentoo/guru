@@ -1,0 +1,35 @@
+From 8cce7f0d19e6378f652aa75dcaac348a869f6ece Mon Sep 17 00:00:00 2001
+From: noup <mail@pedrocastro.org>
+Date: Thu, 2 Jun 2022 23:45:55 +0100
+Subject: [PATCH] Add cairo-sharp.dll.config
+
+---
+ Source/cairo/cairo-sharp.dll.config.in | 3 +++
+ Source/cairo/meson.build               | 4 ++++
+ 2 files changed, 7 insertions(+)
+ create mode 100644 Source/cairo/cairo-sharp.dll.config.in
+
+diff --git a/Source/cairo/cairo-sharp.dll.config.in b/Source/cairo/cairo-sharp.dll.config.in
+new file mode 100644
+index 000000000..a92bcfbd9
+--- /dev/null
++++ b/Source/cairo/cairo-sharp.dll.config.in
+@@ -0,0 +1,3 @@
++<configuration>
++  <dllmap dll="cairo-2.dll" target="libcairo@LIB_PREFIX@.2@LIB_SUFFIX@"/>
++</configuration>
+diff --git a/Source/cairo/meson.build b/Source/cairo/meson.build
+index 032e899d8..04e1edd56 100644
+--- a/Source/cairo/meson.build
++++ b/Source/cairo/meson.build
+@@ -3,6 +3,10 @@ assembly_name = 'cairo-sharp'
+ raw_api_fname = join_paths(meson.current_source_dir(), 'cairo-api.raw')
+ metadata_fname = join_paths(meson.current_source_dir(), 'cairo.metadata')
+ 
++configure_file(input: assembly_name + '.dll.config.in',
++        output: assembly_name + '.dll.config',
++        configuration : remap_dl_data)
++
+ sources = [
+     'Antialias.cs',
+     'Cairo.cs',

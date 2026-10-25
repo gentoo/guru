@@ -6,6 +6,6 @@
     <name>Petrus Zhao</name>
   </maintainer>
   <upstream>
-    <remote-id type="github">dbrgn/tealdeer</remote-id>
+    <remote-id type="github">tealdeer-rs/tealdeer</remote-id>
   </upstream>
 </pkgmetadata>

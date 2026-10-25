@@ -7,7 +7,7 @@ CRATES=" "
 
 inherit cargo
 
-DESCRIPTION="A simple, secure, and modern encryption tool."
+DESCRIPTION="A simple, secure, and modern encryption tool"
 HOMEPAGE="https://github.com/str4d/rage"
 SRC_URI="
 	https://github.com/str4d/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.xz

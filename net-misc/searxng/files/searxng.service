@@ -1,0 +1,15 @@
+[Unit]
+Description=SearXNG metasearch engine
+After=network.target
+
+[Service]
+Type=simple
+User=searxng
+Group=searxng
+WorkingDirectory=/var/lib/searxng
+ExecStart=/usr/bin/searxng-run
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

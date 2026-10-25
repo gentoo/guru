@@ -1,0 +1,13 @@
+This package does not install a matching D-Bus activation service. Disable
+D-Bus activation so desktop launchers use the Exec entry to start Stremio.
+
+diff --git a/data/com.stremio.Stremio.desktop b/data/com.stremio.Stremio.desktop
+--- a/data/com.stremio.Stremio.desktop
++++ b/data/com.stremio.Stremio.desktop
+@@ -9,4 +9,4 @@
+ MimeType=x-scheme-handler/stremio;
+ Terminal=false
+ StartupNotify=true
+-DBusActivatable=true
+\ No newline at end of file
++DBusActivatable=false

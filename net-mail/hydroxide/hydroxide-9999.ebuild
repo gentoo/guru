@@ -7,11 +7,11 @@ inherit go-module multiprocessing
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/emersion/hydroxide.git"
+	EGIT_REPO_URI="https://codeberg.org/emersion/${PN}.git"
 else
 	inherit verify-sig
-	SRC_URI="https://github.com/emersion/${PN}/releases/download/v${PV}/${P}.tar.gz
-		verify-sig? ( https://github.com/emersion/${PN}/releases/download/v${PV}/${P}.tar.gz.sig )
+	SRC_URI="https://codeberg.org/emersion/${PN}/releases/download/v${PV}/${P}.tar.gz
+		verify-sig? ( https://codeberg.org/emersion/${PN}/releases/download/v${PV}/${P}.tar.gz.sig )
 		https://github.com/ingenarel/guru-depfiles/releases/download/${P}-deps.tar.xz/${P}-go-mod-deps.tar.xz ->
 		${P}-deps.tar.xz
 	"
@@ -24,7 +24,7 @@ else
 fi
 
 DESCRIPTION="A third-party, open-source ProtonMail CardDAV, IMAP and SMTP bridge"
-HOMEPAGE="https://github.com/emersion/hydroxide"
+HOMEPAGE="https://codeberg.org/emersion/hydroxide"
 
 LICENSE="MIT"
 #gentoo-go-license hydroxide-9999.ebuild
@@ -47,6 +47,10 @@ src_unpack() {
 
 src_compile() {
 	ego build -v -x -p "$(get_makeopts_jobs)" ./cmd/hydroxide
+}
+
+src_test() {
+	ego test ./...
 }
 
 src_install() {

@@ -1,8 +1,8 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 EAPI=8
 
-DESCRIPTION="Launch waydroid in an X11 session, using weston as a nested compositor."
+DESCRIPTION="Launch waydroid in an X11 session, using weston as a nested compositor"
 HOMEPAGE="https://github.com/mid-kid/waydroid-x11"
 
 SRC_URI="https://github.com/mid-kid/$PN/releases/download/$PV/$P.tar.gz"

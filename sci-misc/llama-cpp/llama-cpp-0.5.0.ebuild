@@ -1,0 +1,248 @@
+# Copyright 2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+ROCM_VERSION="6.1"
+
+inherit cmake cuda rocm linux-info toolchain-funcs
+
+MY_PN="${PN/-/.}"
+TINY_LLAMAS_COMMIT="99dd1a73db5a37100bd4ae633f4cfce6560e1567"
+
+DESCRIPTION="Port of Facebook's LLaMA model in C/C++"
+HOMEPAGE="https://github.com/ggml-org/llama.cpp"
+
+if [[ ${PV} == *9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/ggml-org/llama.cpp.git"
+	LLAMA_BUILD_IS_DEV=ON
+	LLAMA_BUILD_NUMBER="b0000"
+	LLAMA_UI_VERSION="b11146"
+	MY_PV="${PV}"
+else
+	if [[ $(ver_cut 4) == "p" ]]; then
+		LLAMA_BUILD_IS_DEV=ON
+		LLAMA_BUILD_NUMBER="b$(ver_cut 5)"
+		MY_PV="${LLAMA_BUILD_NUMBER}"
+		S="${WORKDIR}/${MY_PN}-${MY_PV}"
+	else
+		LLAMA_BUILD_IS_DEV=OFF
+		# Set from https://github.com/ggml-org/llama.cpp/releases/download/v${PV}/nightly-tag.txt
+		LLAMA_BUILD_NUMBER="b11146"
+		MY_PV="v${PV}"
+		S="${WORKDIR}/${MY_PN}-${PV}"
+	fi
+	LLAMA_UI_VERSION="${LLAMA_BUILD_NUMBER}"
+	SRC_URI="https://github.com/ggml-org/llama.cpp/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
+
+MODEL_STORIES15M_URI="
+	https://huggingface.co/ggml-org/tiny-llamas/resolve/${TINY_LLAMAS_COMMIT}/stories15M-q4_0.gguf
+		-> ggml-org_models_tinyllamas_stories15M-q4_0-${TINY_LLAMAS_COMMIT}.gguf
+"
+
+SRC_URI+="
+	https://github.com/ggml-org/llama.cpp/releases/download/${LLAMA_UI_VERSION}/llama-${LLAMA_UI_VERSION}-ui.tar.gz
+	examples? ( ${MODEL_STORIES15M_URI} )
+	test? ( ${MODEL_STORIES15M_URI} )
+"
+
+LICENSE="MIT"
+SLOT="0"
+
+# GGML CPU flags
+X86_CPU_FLAGS=(
+	amx_bf16
+	amx_int8
+	amx_tile
+	avx
+	avx2
+	avx512_bf16
+	avx512_vnni
+	avx512f
+	avx512vbmi
+	avx_vnni
+	bmi2
+	f16c
+	fma3
+	sse4_2
+)
+CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
+GGML_IUSE="${CPU_FLAGS[*]} blis cuda flexiblas openblas opencl +openmp rocm vulkan"
+unset X86_CPU_FLAGS CPU_FLAGS
+
+IUSE="${GGML_IUSE} curl examples openssl test"
+unset GGML_IUSE
+REQUIRED_USE="
+	?? (
+		openblas
+		blis
+		flexiblas
+	)
+	rocm? ( ${ROCM_REQUIRED_USE} )
+"
+RESTRICT="!test? ( test )"
+
+# curl is needed for pulling models from huggingface
+# numpy is used by convert_hf_to_gguf.py
+COMMON_DEPEND="
+	curl? ( net-misc/curl:= )
+	openblas? ( sci-libs/openblas:= )
+	openmp? ( llvm-runtimes/openmp:= )
+	blis? ( sci-libs/blis:= )
+	flexiblas? ( sci-libs/flexiblas:= )
+	rocm? (
+		>=dev-util/hip-${ROCM_VERSION}:=
+		>=sci-libs/hipBLAS-${ROCM_VERSION}:=
+	)
+	cuda? ( dev-util/nvidia-cuda-toolkit:= )
+	openssl? ( dev-libs/openssl:= )
+"
+DEPEND="${COMMON_DEPEND}
+	opencl? ( dev-util/opencl-headers )
+	vulkan? (
+		dev-util/spirv-headers
+		dev-util/vulkan-headers
+	)
+"
+RDEPEND="${COMMON_DEPEND}
+	>=dev-python/numpy-2.2.6
+	opencl? ( dev-libs/opencl-icd-loader )
+	vulkan? ( media-libs/vulkan-loader )
+"
+BDEPEND="vulkan? ( media-libs/shaderc )"
+
+pkg_pretend() {
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
+}
+
+pkg_setup() {
+	if use rocm; then
+		linux-info_pkg_setup
+		if linux-info_get_any_version && linux_config_exists; then
+			if ! linux_chkconfig_present HSA_AMD_SVM; then
+				ewarn "To use ROCm/HIP, you need to have HSA_AMD_SVM option enabled in your kernel."
+			fi
+		fi
+	fi
+
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
+}
+
+src_unpack() {
+	[[ ${PV} == *9999* ]] && git-r3_src_unpack
+	default
+}
+
+src_prepare() {
+	use cuda && cuda_src_prepare
+	cmake_src_prepare
+	if use examples || use test; then
+		mkdir -p "${BUILD_DIR}/tinyllamas" || die
+		cp "${DISTDIR}/ggml-org_models_tinyllamas_stories15M-q4_0-${TINY_LLAMAS_COMMIT}.gguf" \
+			"${BUILD_DIR}/tinyllamas/stories15M-q4_0.gguf" || die
+	fi
+
+	# Move web UI assets where they belong, bug #979245
+	mkdir -p "${S}"/tools/ui || die
+	cp -a "${WORKDIR}"/llama-${LLAMA_UI_VERSION} "${S}"/tools/ui/dist || die
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DLLAMA_BUILD_IS_DEV=${LLAMA_BUILD_IS_DEV}
+		-DLLAMA_BUILD_TESTS=$(usex test)
+		-DLLAMA_BUILD_EXAMPLES=$(usex examples)
+		-DLLAMA_BUILD_SERVER=ON
+		-DLLAMA_TESTS_INSTALL=OFF
+		-DBUILD_NUMBER="${LLAMA_BUILD_NUMBER}"
+		-DLLAMA_CURL=$(usex curl)
+		-DLLAMA_OPENSSL=$(usex openssl)
+
+		# avoid clashing with sci-ml/ggml
+		-DCMAKE_INSTALL_INCLUDEDIR="include/${MY_PN}"
+		-DCMAKE_INSTALL_LIBDIR="$(get_libdir)/${MY_PN}"
+		-DCMAKE_INSTALL_RPATH="\$ORIGIN/../$(get_libdir)/${MY_PN};\$ORIGIN"
+	)
+
+	# GGML backends
+	mycmakeargs+=(
+		-DGGML_NATIVE=OFF	# don't set march
+		-DGGML_CCACHE=OFF
+		-DGGML_LTO="$(tc-is-lto)"
+
+		# CPU Flags
+		-DGGML_SSE42=$(usex cpu_flags_x86_sse4_2)
+		-DGGML_AVX=$(usex cpu_flags_x86_avx)
+		-DGGML_AVX_VNNI=$(usex cpu_flags_x86_avx_vnni)
+		-DGGML_AVX2=$(usex cpu_flags_x86_avx2)
+		-DGGML_BMI2=$(usex cpu_flags_x86_bmi2)
+		-DGGML_AVX512=$(usex cpu_flags_x86_avx512f)
+		-DGGML_AVX512_VBMI=$(usex cpu_flags_x86_avx512vbmi)
+		-DGGML_AVX512_VNNI=$(usex cpu_flags_x86_avx512_vnni)
+		-DGGML_AVX512_BF16=$(usex cpu_flags_x86_avx512_bf16)
+		-DGGML_FMA=$(usex cpu_flags_x86_fma3)
+		-DGGML_F16C=$(usex cpu_flags_x86_f16c)
+		-DGGML_AMX_TILE=$(usex cpu_flags_x86_amx_tile)
+		-DGGML_AMX_INT8=$(usex cpu_flags_x86_amx_int8)
+		-DGGML_AMX_BF16=$(usex cpu_flags_x86_amx_bf16)
+
+		-DGGML_CUDA=$(usex cuda)
+		-DGGML_VULKAN=$(usex vulkan)
+		-DGGML_OPENMP=$(usex openmp)
+		-DGGML_RPC=ON
+		-DGGML_OPENCL=$(usex opencl)
+	)
+
+	if use openblas ; then
+		mycmakeargs+=(
+			-DGGML_BLAS=ON -DGGML_BLAS_VENDOR=OpenBLAS
+		)
+	fi
+
+	if use blis ; then
+		mycmakeargs+=(
+			-DGGML_BLAS=ON -DGGML_BLAS_VENDOR=FLAME
+		)
+	fi
+
+	if use flexiblas; then
+		mycmakeargs+=(
+			-DGGML_BLAS=ON -DGGML_BLAS_VENDOR=FlexiBLAS
+		)
+	fi
+
+	if use cuda; then
+		local -x CUDAHOSTCXX="$(cuda_gccdir)"
+		# tries to recreate dev symlinks
+		cuda_add_sandbox
+		addpredict "/dev/char/"
+	fi
+
+	if use rocm; then
+		rocm_use_hipcc
+		mycmakeargs+=(
+			-DGGML_HIP=ON
+			-DGPU_TARGETS=$(get_amdgpu_flags)
+		)
+	fi
+
+	cmake_src_configure
+}
+
+src_test() {
+	local CMAKE_SKIP_TESTS=(
+		test-download-model  # due to network sandbox
+		test-arg-parser  # due to network sandbox in download functions test
+	)
+	cmake_src_test
+}
+
+src_install() {
+	cmake_src_install
+
+	dodoc -r "${S}"/docs
+	dodoc "${S}"/tools/*/README.md
+}

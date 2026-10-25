@@ -10,8 +10,8 @@ FONT_SUFFIX=otf
 inherit font
 
 DESCRIPTION="A continuation of FiraSans"
-HOMEPAGE="https://bboxtype.com/typefaces/FiraGO"
-SRC_URI="https://bboxtype.com/downloads/${MY_PN}/${MY_P}.zip"
+HOMEPAGE="https://carrois.com/fira/"
+SRC_URI="https://carrois.com/downloads/${MY_PN}/${MY_P}.zip"
 
 S="${WORKDIR}/${MY_P}/Fonts"
 
