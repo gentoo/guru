@@ -74,7 +74,7 @@ BDEPEND="
 
 DOCS=( README.md changelog/ )
 
-PATCHES=( "${FILESDIR}/strict-aliasing.patch" )
+PATCHES=( "${FILESDIR}/${PN}-0.3.0-strict-aliasing.patch" )
 
 src_configure() {
 	# hyprland controls all Hyprland sub-features as a group.
