@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,8 +16,8 @@ IUSE="+daemon hw-wallet readline +tools +wallet-cli +wallet-rpc cpu_flags_x86_ae
 REQUIRED_USE="|| ( daemon tools wallet-cli wallet-rpc )"
 RESTRICT="test"
 
-SOURCE_NAME="${PN}-source-v${PV}"
-SOURCE_ARCHIVE="${SOURCE_NAME}.tar.bz2"
+MY_P="${PN}-source-v${PV}"
+SOURCE_ARCHIVE="${MY_P}.tar.bz2"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -29,6 +29,7 @@ else
 		https://downloads.getmonero.org/cli/source/${SOURCE_ARCHIVE}
 		verify-sig? ( https://raw.githubusercontent.com/monero-project/monero-site/6ab1cb954411abffa21004d664e5c3fa755922f3/downloads/hashes.txt -> ${P}-release-hashes.txt )
 	"
+	S="${WORKDIR}/${MY_P}"
 	# Todo: replace this hashes.txt URL with one based on ${P} (See https://github.com/monero-project/monero/issues/10760)
 	KEYWORDS="~amd64"
 fi
@@ -77,7 +78,6 @@ src_unpack() {
 		popd || die
 	fi
 	unpack "${SOURCE_ARCHIVE}" || die
-	mv "${SOURCE_NAME}" "${S}" || die
 	# The previous github source archive didn't have these external directories,
 	# I will just remove them here in case they interfere with dependency de-vendorization:
 	rm -r "${S}"/external/{randomx,rapidjson,supercop,trezor-common} || die
