@@ -12,12 +12,14 @@ inherit distutils-r1 systemd
 DESCRIPTION="Open source video conferencing app powered by LiveKit"
 HOMEPAGE="
 	https://visio.numerique.gouv.fr/
-	https://github.com/suitenumerique/meet/"
+	https://github.com/suitenumerique/meet/
+"
 # Deps tarballs generated with app-portage/nodebuild::2xsaiko.
 SRC_URI="
 	https://github.com/suitenumerique/meet/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://dblsaiko.net/pub/dist/${P}-frontend-deps.tar.xz
-	https://dblsaiko.net/pub/dist/${P}-mail-deps.tar.xz"
+	https://dblsaiko.net/pub/dist/${P}-mail-deps.tar.xz
+"
 
 PATCHES=( "${FILESDIR}"/unrestrict-uv-version.patch )
 
@@ -82,14 +84,18 @@ RDEPEND="
 		>=dev-python/django-extensions-4.2_pre20261031[${PYTHON_USEDEP}]
 		>=dev-python/drf-spectacular-sidecar-2026.9.1[${PYTHON_USEDEP}]
 		>=dev-python/freezegun-1.5.5[${PYTHON_USEDEP}]
-		>=dev-python/joserfc-1.7.5[${PYTHON_USEDEP}]')"
+		>=dev-python/joserfc-1.7.5[${PYTHON_USEDEP}]
+	')
+"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	net-libs/nodejs[npm]
 	test? (
 		${RDEPEND}
 		dev-db/redis
-		dev-db/postgresql )"
+		dev-db/postgresql
+	)
+"
 
 EPYTEST_PLUGINS=( pytest-{django,cov} )
 EPYTEST_DESELECT=(
@@ -117,33 +123,34 @@ EPYTEST_DESELECT=(
 	core/tests/recording/event/test_notification.py::test_notify_summary_service_post_args_with_metadata
 	core/tests/test_external_api_rooms.py::test_api_rooms_list_with_invalid_rs_token
 	core/tests/test_external_api_rooms.py::test_api_rooms_retrieve_with_invalid_rs_token
-	core/tests/test_external_api_rooms.py::test_api_rooms_create_with_invalid_rs_token )
+	core/tests/test_external_api_rooms.py::test_api_rooms_create_with_invalid_rs_token
+)
 distutils_enable_tests pytest
 
 src_unpack() {
 	unpack "${P}.tar.gz"
-	cd "${S}"/src/frontend
+	cd "${S}"/src/frontend || die
 	unpack "${P}-frontend-deps.tar.xz"
-	cd "${S}"/src/mail
+	cd "${S}"/src/mail || die
 	unpack "${P}-mail-deps.tar.xz"
 }
 
 src_compile() {
-	cd "${S}"/src/frontend
+	cd "${S}"/src/frontend || die
 	npm --offline --verbose run build || die "npm build failed"
-	cd "${S}"/src/mail
+	cd "${S}"/src/mail || die
 	npm --offline --verbose run build || die "npm build failed"
-	cd "${S}"/src/backend
+	cd "${S}"/src/backend || die
 	distutils-r1_src_compile
 	export DJANGO_DATA_DIR="${WORKDIR}"/data
 	"${EPYTHON}" manage.py collectstatic --noinput --clear || die
 }
 
 python_test() {
-	cd "${S}"/src/backend
+	cd "${S}"/src/backend || die
 
 	# Tests expect a running redis server, so let's provide it
-	exec 3< <(redis-server /dev/null)
+	exec 3< <(redis-server /dev/null || die 'failed to run redis server')
 	local redis_pid=$!
 
 	# Wait until it's ready
@@ -155,7 +162,7 @@ python_test() {
 
 	# Same for postgres
 	initdb -D "${WORKDIR}/pgdata" --username=dinum --pwfile=<(echo 'pass') --auth=trust --locale=C.UTF-8 || die
-	printf "unix_socket_directories = '%s'\n" "${WORKDIR}" >> "${WORKDIR}"/pgdata/postgresql.conf
+	printf "unix_socket_directories = '%s'\n" "${WORKDIR}" >> "${WORKDIR}"/pgdata/postgresql.conf || die
 	pg_ctl -D "${WORKDIR}/pgdata" start || die
 
 	local -x DJANGO_SETTINGS_MODULE=meet.settings
@@ -185,14 +192,14 @@ python_test() {
 
 src_install() {
 	dodir /usr/share/"${PN}"
-	cp -r src/frontend/dist "${ED}"/usr/share/"${PN}"/www
-	cp -r "${WORKDIR}"/data/static "${ED}"/usr/share/"${PN}"/www/static
+	cp -r src/frontend/dist "${ED}"/usr/share/"${PN}"/www || die
+	cp -r "${WORKDIR}"/data/static "${ED}"/usr/share/"${PN}"/www/static || die
 
-	chmod +x src/backend/manage.py
+	chmod +x src/backend/manage.py || die
 	python_fix_shebang src/backend/manage.py
 
 	dodir /usr/libexec
-	cp -r src/backend "${ED}"/usr/libexec/"${PN}"
+	cp -r src/backend "${ED}"/usr/libexec/"${PN}" || die
 	python_optimize "${ED}"/usr/libexec/"${PN}"
 
 	dobin "${FILESDIR}/${PN}-manage"
