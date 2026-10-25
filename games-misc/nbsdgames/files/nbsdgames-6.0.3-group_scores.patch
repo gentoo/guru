@@ -1,0 +1,33 @@
+rebased PR merged https://github.com/abakh/nbsdgames/pull/64.patch
+Allow group read/write access while preventing the owner from modifying score files.
+Useful when setgid is used with a dedicated group for game scores (e.g. gamestat).
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -2,6 +2,7 @@
+ 
+ #-O3 --std=c99 -lcurses -DNO_MOUSE for NetBSD curses
+ #adding --std=c99 makes warnings in GNU, and the blame is upon glibc feature test macros. my code is correct.
++#-DSCORES_GW to allow group access to score files
+ GAMES_DIR?=$(PREFIX)/usr/bin
+ SCORES_DIR?=$(PREFIX)/var/games
+ MAN_DIR?=$(PREFIX)/usr/share/man/man6
+--- a/src/common.h
++++ b/src/common.h
+@@ -17,6 +17,7 @@ You should have received a copy of the CC0 Public Domain Dedication along with t
+ #include <time.h>
+ #include <signal.h>
+ #include <math.h>
++#include <sys/stat.h>
+ #include "config.h"
+ #define FOPEN_FAIL -10
+ #define ENV_VAR_OR_USERNAME (getenv("NB_PLAYER")?getenv("NB_PLAYER"):getenv("USER"))
+@@ -73,6 +74,9 @@ byte score_write(const char* path, long wscore, byte save_to_num){// only saves
+ 			fprintf(tmp_score_file,"%s : %ld\n",name_buff[i],score_buff[i]);
+ 		}
+ 	}
++	#ifdef SCORES_GW
++		fchmod(fileno(tmp_score_file), 0460);
++	#endif
+ 	fflush(tmp_score_file);
+ 	fclose(score_file);
+ 	if (rename(tmp_path, path) < 0) {
