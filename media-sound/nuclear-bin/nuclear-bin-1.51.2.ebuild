@@ -9,7 +9,7 @@ MY_P="nuclear-v${PV}"
 
 DESCRIPTION="Streaming music player that finds free music for you"
 HOMEPAGE="https://nuclearplayer.com"
-SRC_URI="https://github.com/nukeop/nuclear/releases/download/player@${PV}/Nuclear_${PV}_amd64.deb -> ${P}.deb"
+SRC_URI="amd64? ( https://github.com/nukeop/nuclear/releases/download/player@${PV}/Nuclear_${PV}_amd64.deb -> ${P}-amd64.deb )"
 
 S="${WORKDIR}"
 
