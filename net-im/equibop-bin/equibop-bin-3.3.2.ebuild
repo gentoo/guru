@@ -53,11 +53,6 @@ RDEPEND="
 
 QA_PREBUILT="*"
 
-src_unpack() {
-	use amd64 && unpack_deb "equibop_${PV}_amd64.deb"
-	use arm64 && unpack_deb "equibop_${PV}_arm64.deb"
-}
-
 src_prepare() {
 	default
 
