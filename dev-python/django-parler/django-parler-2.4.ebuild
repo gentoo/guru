@@ -11,7 +11,8 @@ inherit distutils-r1
 DESCRIPTION="Simple Django model translations without nasty hacks"
 HOMEPAGE="
 	https://github.com/django-parler/django-parler
-	https://pypi.org/project/django-parler/"
+	https://pypi.org/project/django-parler/
+"
 SRC_URI="https://github.com/django-parler/django-parler/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 PATCHES=( "${FILESDIR}"/2.4-disable-failing-tests.patch )
@@ -21,9 +22,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-python/django-5.2[${PYTHON_USEDEP}]"
+	>=dev-python/django-5.2[${PYTHON_USEDEP}
+"
 BDEPEND="
-	test? ( ${RDEPEND} )"
+	test? ( ${RDEPEND} )
+"
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
