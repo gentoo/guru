@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	dev-qt/qtbase:6[widgets]
 	sys-auth/polkit
-	x11-misc/sddm
+	gui-apps/sddm
 "
 DEPEND="${RDEPEND}"
 BDEPEND="

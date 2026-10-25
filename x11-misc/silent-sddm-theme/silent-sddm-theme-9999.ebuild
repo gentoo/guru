@@ -19,7 +19,7 @@ LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="
-	x11-misc/sddm
+	gui-apps/sddm
 	media-fonts/redhat[otf,variable,redhatmono,redhatdisplay,redhattext]
 	>=dev-qt/qtsvg-6.10.1
 	>=dev-qt/qtvirtualkeyboard-6.10.1
