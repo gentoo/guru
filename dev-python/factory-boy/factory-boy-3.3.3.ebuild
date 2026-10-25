@@ -11,7 +11,8 @@ inherit distutils-r1
 DESCRIPTION="Versatile test fixtures replacement based on thoughtbot's factory_bot"
 HOMEPAGE="
 	https://github.com/FactoryBoy/factory_boy
-	https://pypi.org/project/factory-boy/"
+	https://pypi.org/project/factory-boy/
+"
 SRC_URI="https://github.com/FactoryBoy/factory_boy/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 S="${WORKDIR}/factory_boy-${PV}"
@@ -28,16 +29,20 @@ BDEPEND="
 		dev-python/coverage[${PYTHON_USEDEP}]
 		dev-python/django[${PYTHON_USEDEP}]
 		dev-python/pillow[${PYTHON_USEDEP}]
-		dev-python/sqlalchemy[${PYTHON_USEDEP}] )"
+		dev-python/sqlalchemy[${PYTHON_USEDEP}]
+	)
+"
 
 EPYTEST_PLUGINS=( pytest-django )
 EPYTEST_IGNORE=(
 	# flask_sqlalchemy not packaged
-	examples/flask_alchemy/test_demoapp.py )
+	examples/flask_alchemy/test_demoapp.py
+)
 EPYTEST_DESELECT=(
 	# completely broken ("setup_test_environment() was already called and can't
 	# be called again without first calling teardown_test_environment().")
-	tests/test_django.py )
+	tests/test_django.py
+)
 distutils_enable_tests pytest
 
 src_install() {
