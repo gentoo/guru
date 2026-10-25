@@ -15,6 +15,7 @@ SRC_URI="
 	https://github.com/SChernykh/p2pool/releases/download/v${PV}/p2pool_source-v${PV}.tar.xz -> ${P}.tar.xz
 	verify-sig? ( https://github.com/SChernykh/p2pool/releases/download/v${PV}/sha256sums.txt.asc -> ${P}_shasums.asc )
 "
+S="${WORKDIR}/${PN}"
 
 LICENSE="BSD GPL-3+ ISC LGPL-3+ MIT"
 SLOT="0"
@@ -54,7 +55,6 @@ src_unpack() {
 		popd || die
 	fi
 	unpack ${P}.tar.xz
-	mv -T "${WORKDIR}"/{${PN},${P}} || die
 }
 
 src_prepare() {
