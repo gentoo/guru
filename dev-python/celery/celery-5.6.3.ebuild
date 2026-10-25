@@ -17,6 +17,9 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# Eventually depends on woefully outdated dev-python/docker.
+RESTRICT="test"
+
 RDEPEND="
 	>=dev-python/billiard-4.2.1[${PYTHON_USEDEP}]
 	>=dev-python/kombu-5.6.0[${PYTHON_USEDEP}]
@@ -26,7 +29,5 @@ RDEPEND="
 	>=dev-python/click-repl-0.2.0[${PYTHON_USEDEP}]
 	>=dev-python/click-plugins-1.1.1[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-2.8.2[${PYTHON_USEDEP}]
-	>=dev-python/tzlocal-5.4.4[${PYTHON_USEDEP}]"
-
-# Eventually depends on woefully outdated dev-python/docker.
-RESTRICT="test"
+	>=dev-python/tzlocal-5.4.4[${PYTHON_USEDEP}]
+"
