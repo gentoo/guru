@@ -28,5 +28,7 @@ RDEPEND="
 distutils_enable_tests pytest
 
 python_test() {
-	GHIDRA_INSTALL_DIR="${EPREFIX}/opt/ghidra" epytest
+	XDG_CONFIG_HOME="${T}" \
+		XDG_STATE_HOME="${T}" \
+		GHIDRA_INSTALL_DIR="${EPREFIX}/opt/ghidra" epytest
 }
