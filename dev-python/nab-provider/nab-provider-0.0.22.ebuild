@@ -25,6 +25,9 @@ RDEPEND="
 
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
+	test? (
+		dev-python/nab-markersets[${PYTHON_USEDEP}]
+	)
 "
 
 EPYTEST_PLUGINS=( pytest )
@@ -33,6 +36,10 @@ distutils_enable_tests pytest
 
 python_test() {
 	# skip test that expects monorepo
-	epytest --deselect tests/test_pep508.py::TestParseRequirement::test_over_nested_marker_raises_invalid_requirement \
-		--deselect tests/test_pep508.py::TestRequirementParsingIsRouted::test_no_shipped_module_constructs_a_requirement
+	local EPYTEST_DESELECT=(
+		tests/test_pep508.py::TestParseRequirement::test_over_nested_marker_raises_invalid_requirement
+		tests/test_pep508.py::TestRequirementParsingIsRouted::test_no_shipped_module_constructs_a_requirement
+	)
+
+	epytest
 }
