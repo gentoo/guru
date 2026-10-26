@@ -19,7 +19,7 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-libs/toml-f:0/4
+	dev-libs/toml-f:0=
 "
 
 DEPEND="
