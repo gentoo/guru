@@ -12,7 +12,7 @@ SRC_URI="https://github.com/Rafostar/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="+control-hub +http +mpris +sqlite3 +youtube"
 REQUIRED_USE="youtube? ( ${PYTHON_REQUIRED_USE} )"
 
