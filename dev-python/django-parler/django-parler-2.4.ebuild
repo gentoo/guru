@@ -22,7 +22,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-python/django-5.2[${PYTHON_USEDEP}
+	>=dev-python/django-5.2[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? ( ${RDEPEND} )
