@@ -14,7 +14,7 @@ SRC_URI="https://github.com/Rafostar/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.g
 
 LICENSE="|| ( GPL-3 LGPL-2.1 )"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="X graphviz +egl +gtk gtk-doc gui +introspection opengl +plugins vala wayland"
 REQUIRED_USE="
 	gtk-doc? ( introspection )
