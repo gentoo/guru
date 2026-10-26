@@ -25,9 +25,12 @@ RDEPEND="
 
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
+	test? (
+		dev-python/nab-markersets[${PYTHON_USEDEP}]
+	)
 "
 
-EPYTEST_PLUGINS=( pytest )
+EPYTEST_PLUGINS=( pytest truststore )
 
 distutils_enable_tests pytest
 
