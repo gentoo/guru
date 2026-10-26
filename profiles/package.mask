@@ -92,12 +92,6 @@ media-gfx/gephi-bin
 # Removal after 2026-10-28
 dev-util/insomnia-bin
 
-# dsaf <ghostyn678+git@gmail.com> (2026-09-26)
-# No longer FOSS. Won't be maintaining it anymore.
-# Removal after 2026-10-26
-net-im/endcord
-net-im/endcord-bin
-
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
 # Removal after 2026-10-29
