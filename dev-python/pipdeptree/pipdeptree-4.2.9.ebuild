@@ -206,12 +206,21 @@ KEYWORDS="~amd64"
 RDEPEND="
 	>=dev-python/packaging-23.1[${PYTHON_USEDEP}]
 	>=dev-python/nab-0.0.22[${PYTHON_USEDEP}]
+	>=dev-python/tomli-2.5.0[${PYTHON_USEDEP}]
+	>=dev-python/tomli-w-1.2.0[${PYTHON_USEDEP}]
 "
+
 BDEPEND="
 	test? (
 		dev-python/graphviz[${PYTHON_USEDEP}]
 		>=dev-python/virtualenv-20.31.1[${PYTHON_USEDEP}]
 	)
+"
+
+QA_FLAGS_IGNORED="
+	/usr/lib/python3.13/site-packages/pipdeptree/_rust.cpython-313-x86_64-linux-gnu.so
+	/usr/lib/python3.14/site-packages/pipdeptree/_rust.cpython-314-x86_64-linux-gnu.so
+	/usr/lib/python3.12/site-packages/pipdeptree/_rust.cpython-312-x86_64-linux-gnu.so
 "
 
 EPYTEST_PLUGINS=( pytest-{mock,rerunfailures,subprocess,xdist} )
