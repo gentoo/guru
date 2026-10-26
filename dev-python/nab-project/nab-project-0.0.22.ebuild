@@ -19,24 +19,28 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# Many tests not working when not in monorepo
+# in this  case it is better to just restrict
+RESTRICT="test"
+
 RDEPEND="
+	dev-python/installer[${PYTHON_USEDEP}]
 	dev-python/nab-index[${PYTHON_USEDEP}]
+	dev-python/nab-markersets[${PYTHON_USEDEP}]
+	dev-python/packaging[${PYTHON_USEDEP}]
+	dev-python/pyproject-hooks[${PYTHON_USEDEP}]
+	>=dev-python/tomli-2.5.0[${PYTHON_USEDEP}]
+	>=dev-python/tomli-w-1.2.0[${PYTHON_USEDEP}]
+	dev-python/typing-extensions[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
+	test? (
+		dev-python/build[${PYTHON_USEDEP}]
+	)
 "
 
-EPYTEST_PLUGINS=( pytest build httpx2 hypothesis respx )
+EPYTEST_PLUGINS=( pytest httpx2 hypothesis respx )
 
 distutils_enable_tests pytest
-
-src_prepare() {
-	rm tests/test_pylock.py || die
-	eapply_user
-}
-
-python_test() {
-	epytest -m "not benchmark" \
-		--deselect tests/benchmark/test_benchmark_import_path.py::test_siblings_resolve_to_the_benchmark_scripts
-}
