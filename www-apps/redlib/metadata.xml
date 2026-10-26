@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<name>Julien Roy</name>
-		<email>julien@jroy.ca</email>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription>
 10-second pitch: Redlib is a private front-end like Invidious but for Reddit. Browse the coldest takes of r/unpopularopinion without being tracked.
 

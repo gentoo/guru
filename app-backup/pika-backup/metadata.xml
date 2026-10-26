@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<name>Julien Roy</name>
-		<email>julien@jroy.ca</email>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription>
 		Pika Backup is designed to save your personal data and does not support complete system recovery. Pika Backup is powered by the well-tested BorgBackup software.
 	</longdescription>

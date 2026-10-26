@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<name>Julien Roy</name>
-		<email>julien@jroy.ca</email>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription>
 Commit is an editor that helps you write better Git and Mercurial commit messages.
 

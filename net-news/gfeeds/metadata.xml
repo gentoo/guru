@@ -4,10 +4,6 @@
 	<maintainer type="person">
 		<email>gentoo.usable109@simplelogin.com</email>
 	</maintainer>
-	<maintainer type="person">
-		<name>Julien Roy</name>
-		<email>julien@jroy.ca</email>
-	</maintainer>
 	<upstream>
 		<remote-id type="gnome-gitlab">World/gfeeds</remote-id>
 	</upstream>
