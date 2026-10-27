@@ -12,7 +12,7 @@ DESCRIPTION="A TUI for managing and connecting to SSH hosts"
 HOMEPAGE="https://github.com/max-rh/sshelf"
 SRC_URI="
 https://github.com/max-rh/sshelf/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-https://github.com/masterwolf-git/sshelf/raw/refs/heads/master/${PN}-0.14.0-crates.tar.xz
+https://github.com/masterwolf-git/sshelf/raw/refs/heads/master/${PN}-0.16.1-crates.tar.xz
 "
 
 LICENSE="|| ( Apache-2.0 MIT )"
