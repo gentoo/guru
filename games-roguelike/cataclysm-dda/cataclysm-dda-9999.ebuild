@@ -46,12 +46,16 @@ RDEPEND="
 			   media-libs/libsdl2[sound]
 			   media-libs/sdl2-mixer[vorbis]
 		)
-	)"
+	)
+"
 DEPEND="${RDEPEND}"
 BDEPEND="
-	doc? ( app-text/doxygen[dot] )
+	doc? (
+		app-text/doxygen
+		media-gfx/graphviz
+	)
 	nls? ( sys-devel/gettext )
-	"
+"
 
 [[ ${PV} != 9999 ]] && BDEPEND+=" soundpack? ( app-arch/unzip )"
 
