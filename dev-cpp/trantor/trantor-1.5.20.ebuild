@@ -27,7 +27,12 @@ DEPEND="
 	${RDEPEND}
 	test? ( dev-cpp/gtest )
 "
-BDEPEND="doc? ( app-text/doxygen[dot] )"
+BDEPEND="
+	doc? (
+		app-text/doxygen
+		media-gfx/graphviz
+	)
+"
 
 src_prepare() {
 	sed -i 's/ -Werror)$/)/' CMakeLists.txt || die "could not remove -Werror"
