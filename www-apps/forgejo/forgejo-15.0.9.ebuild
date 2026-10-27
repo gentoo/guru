@@ -101,7 +101,7 @@ src_install() {
 	einstalldocs
 
 	newconfd "${FILESDIR}/forgejo.confd-r1" forgejo
-	newinitd "${FILESDIR}/forgejo.initd-r3" forgejo
+	newinitd "${FILESDIR}/forgejo.initd-r4" forgejo
 	newtmpfiles - forgejo.conf <<-EOF
 		d /run/forgejo 0755 git git
 	EOF
