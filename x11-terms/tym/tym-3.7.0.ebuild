@@ -42,13 +42,13 @@ src_prepare() {
 	# the categories provided by eclass do a better job than upstream, and
 	# having duplicate list of categories fails on QA
 	sed -i '/^Categories=.*$/d' "${S}"/tym-daemon.desktop "${S}"/tym.desktop || die
+
+	eautoreconf
 }
 
 src_configure() {
-	eautoreconf
 	econf \
-		--enable-luajit=$(usex lua_single_target_luajit yes no) \
-		--enable-debug=$(usex test yes no)
+		--enable-luajit=$(usex lua_single_target_luajit yes no)
 }
 
 src_install() {
