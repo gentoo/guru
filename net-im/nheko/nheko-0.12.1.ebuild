@@ -86,7 +86,10 @@ RDEPEND="
 BDEPEND="
 	>=dev-qt/qttools-${QTMIN}:6[linguist]
 	virtual/pkgconfig
-	doc? ( app-text/doxygen[dot] )
+	doc? (
+		app-text/doxygen
+		media-gfx/graphviz
+	)
 	man? (
 		|| (
 			app-text/asciidoc
