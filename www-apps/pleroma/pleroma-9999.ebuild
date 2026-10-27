@@ -25,15 +25,16 @@ IUSE="+system-lexbor +system-vips"
 RESTRICT="network-sandbox"
 
 BDEPEND="
-	<dev-lang/erlang-27:=
-	>=dev-lang/elixir-1.14:=
-	<dev-lang/elixir-1.18
 	dev-build/cmake
 	>=dev-util/rebar-3.20.0-r1
 	dev-elixir/hex
 	dev-vcs/git
 "
 DEPEND="
+	>=dev-lang/erlang-27:=
+	<dev-lang/erlang-29
+	>=dev-lang/elixir-1.17:=
+	<dev-lang/elixir-1.20
 	dev-libs/glib
 	sys-apps/file
 	sys-libs/ncurses:=
@@ -125,7 +126,7 @@ src_install() {
 	fperms 0750 /var/lib/pleroma
 	fowners pleroma:pleroma /var/lib/pleroma
 
-	# So that www-apps/pleroma-fe (optional) doesn't ends up creating namespace conflicts
+	# So that www-apps/pleroma-fe (optional) doesn't end up creating namespace conflicts
 	dosym /opt/pleroma-fe/dist /var/lib/pleroma/static/frontends/pleroma-fe/gentoo
 }
 
