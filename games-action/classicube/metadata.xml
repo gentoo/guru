@@ -5,6 +5,10 @@
 		<name>Seth M. Price</name>
 		<email>sprice623@aol.com</email>
 	</maintainer>
+	<maintainer type="person">
+		<name>Esteve Varela Colominas</name>
+		<email>esteve.varela@gmail.com</email>
+	</maintainer>
 	<longdescription lang="en">
 		ClassiCube is a clean-room reverse-engineered Minecraft Classic
 		client with optional additional features such as noclip and fly.
