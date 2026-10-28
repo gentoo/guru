@@ -1,0 +1,13 @@
+diff --git a/src/backend/pyproject.toml b/src/backend/pyproject.toml
+index 328d843..f0b3421 100644
+--- a/src/backend/pyproject.toml
++++ b/src/backend/pyproject.toml
+@@ -2,7 +2,7 @@
+ # Meet package
+ #
+ [build-system]
+-requires = ["uv_build>=0.12.6,<0.13.0"]
++requires = ["uv_build>=0.12.6"]
+ build-backend = "uv_build"
+ 
+ [project]
