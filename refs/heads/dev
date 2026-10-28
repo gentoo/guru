@@ -1,14 +1,14 @@
 certificate version 0.1
-pusher kat@knifepoint.net 1793212964 +0100
+pusher kat@knifepoint.net 1793213245 +0100
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1793212964-76a45f84bac90aa4c4398cd818d2af7284c54c7d
+nonce 1793213245-999bcf608896faf4c5fa705b5bd9dc9e6329b4ec
 
-7088e41d13f0c318b531e9a82a372698505f97ae f319fe6342869ef4b1fb67834b969ea31e8fcfae refs/heads/dev
+f319fe6342869ef4b1fb67834b969ea31e8fcfae 2c95ea8326c9a3f0bc53142ca24503de608a56b3 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iKUEABYKAE0WIQSxlzvP+h9XBXhlOiewj5NT4/HLGgUCauJCJBsUgAAAAAAEAA5t
+iKUEABYKAE0WIQSxlzvP+h9XBXhlOiewj5NT4/HLGgUCauJDPRsUgAAAAAAEAA5t
 YW51MiwyLjUrMS4xMiwyLDITHGthdEBrbmlmZXBvaW50Lm5ldAAKCRCwj5NT4/HL
-GtxzAP9q/TwFdyauMcQGpqtY8lWulY5nS7smdOl9JnIp8/ar9AEA60nZVLz9J7hY
-S2GZeWsSk9X1/+Wwj2pjdREztkgp8Qw=
-=tic/
+GoWqAQDAn7l8qii7ALEEp1BQAQvUIQ1lf3MX+l7JS76t+sxFJwEArk3s81AG12Ka
+TphtVaCoDLlehQoptUtmVhJ0WNzv4AM=
+=l910
 -----END PGP SIGNATURE-----
