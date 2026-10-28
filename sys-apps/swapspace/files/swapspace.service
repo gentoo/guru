@@ -1,0 +1,40 @@
+[Unit]
+Description=Swapspace, a dynamic swap space manager
+Documentation=man:swapspace(8)
+After=local-fs.target
+Requires=local-fs.target
+After=swap.target
+Requires=swap.target
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/swapspace -s %S/swapspace
+Restart=always
+RestartSec=30
+StateDirectory=swapspace
+StateDirectoryMode=700
+
+DynamicUser=no
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+NoNewPrivileges=yes
+PrivateDevices=yes
+PrivateNetwork=yes
+PrivateTmp=yes
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectHome=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectSystem=yes
+RestrictAddressFamilies=none
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service @swap
+
+[Install]
+WantedBy=multi-user.target
