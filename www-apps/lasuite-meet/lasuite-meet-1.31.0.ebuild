@@ -150,7 +150,8 @@ python_test() {
 	cd "${S}"/src/backend || die
 
 	# Tests expect a running redis server, so let's provide it
-	exec 3< <(redis-server /dev/null || die 'failed to run redis server')
+	einfo 'starting Redis...'
+	exec 3< <(redis-server /dev/null)
 	local redis_pid=$!
 
 	# Wait until it's ready
@@ -161,6 +162,7 @@ python_test() {
 	cat <&3 &
 
 	# Same for postgres
+	einfo 'starting PostgreSQL...'
 	initdb -D "${WORKDIR}/pgdata" --username=dinum --pwfile=<(echo 'pass') --auth=trust --locale=C.UTF-8 || die
 	printf "unix_socket_directories = '%s'\n" "${WORKDIR}" >> "${WORKDIR}"/pgdata/postgresql.conf || die
 	pg_ctl -D "${WORKDIR}/pgdata" start || die
@@ -182,9 +184,11 @@ python_test() {
 	nonfatal epytest
 	local epytest_result=$?
 
+	einfo 'stopping Redis...'
 	kill -INT $redis_pid
 	wait $redis_pid
 
+	einfo 'stopping PostgreSQL...'
 	pg_ctl -D "${WORKDIR}/pgdata" stop || die
 
 	(( epytest_result == 0 )) || die "pytest failed with ${EPYTHON}"
