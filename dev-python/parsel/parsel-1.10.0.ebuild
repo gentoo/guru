@@ -32,6 +32,8 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
+
 distutils_enable_tests pytest
 
 distutils_enable_sphinx docs \
