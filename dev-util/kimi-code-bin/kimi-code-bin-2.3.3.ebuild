@@ -16,7 +16,7 @@ S="${WORKDIR}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm64"
-RESTRICT="strip"
+RESTRICT="mirror strip"
 
 BDEPEND="app-arch/unzip"
 
