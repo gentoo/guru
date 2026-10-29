@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson xdg-utils
+inherit gnome2-utils meson
 
 DESCRIPTION="Small text editor by the Linux Mint developers"
 HOMEPAGE="https://github.com/linuxmint/xed"
@@ -24,6 +24,7 @@ RDEPEND="
 	x11-libs/pango
 	x11-libs/libxklavier
 	>=x11-libs/xapp-1.9.0
+	x11-themes/xapp-symbolic-icon-theme
 	spell? ( >=app-text/gspell-0.2.5 )
 	gtk-doc? ( dev-util/gtk-doc )
 "
@@ -32,6 +33,8 @@ BDEPEND="
 	virtual/pkgconfig
 	dev-util/itstool
 "
+
+RESTRICT="test"
 
 src_configure() {
 	local emesonargs=(
@@ -46,11 +49,13 @@ src_install() {
 }
 
 pkg_postinst() {
+	gnome2_schemas_update
 	xdg_desktop_database_update
 	xdg_icon_cache_update
 }
 
 pkg_postrm() {
+	gnome2_schemas_update
 	xdg_desktop_database_update
 	xdg_icon_cache_update
 }
