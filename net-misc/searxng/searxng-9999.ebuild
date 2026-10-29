@@ -73,7 +73,7 @@ src_install() {
 	keepdir /var/lib/searxng
 	keepdir /var/log/searxng
 
-	fowners searxng:searxng /etc/searxng
+	fowners -R root:searxng /etc/searxng
 	fowners searxng:searxng /var/lib/searxng
 	fowners searxng:searxng /var/log/searxng
 
