@@ -87,11 +87,6 @@ dev-db/psequel
 # Removal after 2026-10-29
 net-im/manyverse-bin
 
-# David Roman <stkw0@disroot.org> (2026-09-29)
-# Unmaintained since 2024, multiple bugs open (#928323, #928322, #928321)
-# Removal after 2026-10-29
-media-gfx/gephi-bin
-
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
 # Removal after 2026-10-29
