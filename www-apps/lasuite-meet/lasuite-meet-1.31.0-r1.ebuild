@@ -21,7 +21,7 @@ SRC_URI="
 	https://dblsaiko.net/pub/dist/${P}-mail-deps.tar.xz
 "
 
-PATCHES=( "${FILESDIR}"/1.31.0-unrestrict-uv-version.patch )
+PATCHES=( "${FILESDIR}"/unrestrict-uv-version.patch )
 
 S="${WORKDIR}/meet-${PV}"
 
