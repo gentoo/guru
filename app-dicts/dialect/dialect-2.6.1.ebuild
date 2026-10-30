@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{13..15} )
 inherit meson xdg python-single-r1
 
 DESCRIPTION="A translation app for GNOME"

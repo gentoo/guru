@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_12 )
+PYTHON_COMPAT=( python3_{13..14} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1
@@ -21,4 +21,5 @@ RDEPEND="
 	dev-python/xmltodict[${PYTHON_USEDEP}]
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
