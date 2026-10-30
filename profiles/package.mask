@@ -82,11 +82,6 @@ games-misc/varlpenis
 # Removal after 2026-11-03
 dev-db/psequel
 
-# David Roman <stkw0@disroot.org> (2026-09-29)
-# Unmaintained since 2024, multiple bugs open (#935329, #935330, #935331)
-# Removal after 2026-10-29
-net-im/manyverse-bin
-
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
 # Removal after 2026-10-29
