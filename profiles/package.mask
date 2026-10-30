@@ -18,7 +18,12 @@
 
 # New entries go on top.
 
-# David Roman <stkw0@disroot.org> (2026-10-23)i
+# David Roman <stkw0@disroot.org> (2026-10-30)
+# Unmaintained. Not compatible with py.13
+# Removal after 2026-11-30
+sci-mathematics/pyromaths
+
+# David Roman <stkw0@disroot.org> (2026-10-23)
 # Unmaintained. Not compatible with py.13
 # Removal after 2026-11-23
 app-crypt/certbot-dns-desec
