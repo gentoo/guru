@@ -184,14 +184,11 @@ HOMEPAGE="https://github.com/tldr-pages/tldr
 if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/tealdeer-rs/tealdeer.git"
-	src_unpack() {
-		git-r3_src_unpack
-		cargo_live_src_unpack
-	}
 else
 	SRC_URI="https://github.com/tealdeer-rs/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	SRC_URI+=" ${CARGO_CRATE_URIS}"
 	KEYWORDS="~amd64"
+	RESTRICT="mirror"
 fi
 
 LICENSE="Apache-2.0 ISC MIT MPL-2.0"
@@ -203,12 +200,20 @@ RDEPEND="!app-text/tldr"
 
 QA_FLAGS_IGNORED="usr/bin/tldr"
 
-RESTRICT="mirror"
 # apply-crates-fixes start
 DEPEND="
 	dev-libs/openssl
 "
 # apply-crates-fixes end
+
+src_unpack() {
+	if [[ "${PV}" == *9999* ]]; then
+		git-r3_src_unpack
+		cargo_live_src_unpack
+	else
+		cargo_src_unpack
+	fi
+}
 
 src_configure() {
 	filter-flags '-flto*' # ring crate fails compile with lto
