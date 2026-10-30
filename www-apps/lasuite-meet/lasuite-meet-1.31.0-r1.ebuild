@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{13..15} )
+PYTHON_COMPAT=( python3_{13..14} )
 DISTUTILS_USE_PEP517=uv-build
 DISTUTILS_SINGLE_IMPL=yes
 
