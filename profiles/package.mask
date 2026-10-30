@@ -100,7 +100,6 @@ dev-util/insomnia-bin
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
 # Removal after 2026-10-29
-media-sound/noson-app
 net-p2p/dogecoin-qt
 
 # Takuya Wakazono <pastalian46@gmail.com> (2026-05-17)
