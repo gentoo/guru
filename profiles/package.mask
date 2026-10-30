@@ -92,11 +92,6 @@ net-im/manyverse-bin
 # Removal after 2026-10-29
 media-gfx/gephi-bin
 
-# David Roman <stkw0@disroot.org> (2026-09-28)
-# Unmaintained, multiple bugs open (#921886, #921887, #921888)
-# Removal after 2026-10-28
-dev-util/insomnia-bin
-
 # David Roman <stkw0@disroot.org> (2026-05-21)
 # Depends on masked Qt5
 # Removal after 2026-10-29
