@@ -99,7 +99,7 @@ src_configure() {
 }
 
 src_install() {
-	cargo_src_install
+	cargo_src_install --path ./conduit
 
 	keepdir /var/lib/matrix-conduit
 	fowners conduit:conduit /var/lib/matrix-conduit
