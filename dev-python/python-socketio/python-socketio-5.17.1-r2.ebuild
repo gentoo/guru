@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{13..14} )
 inherit distutils-r1 pypi
 
 DESCRIPTION="Python implementation of the Socket.IO realtime server"
@@ -20,7 +20,7 @@ KEYWORDS="~amd64"
 
 IUSE="client asyncio-client"
 
-RDEPEND="dev-python/bidict[${PYTHON_USEDEP}]
+RDEPEND=">=dev-python/bidict-0.24.1[${PYTHON_USEDEP}]
 	>=dev-python/python-engineio-4.15.1[${PYTHON_USEDEP}]
 	client? (
 		dev-python/requests[${PYTHON_USEDEP}]
