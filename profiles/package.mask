@@ -39,8 +39,22 @@ dev-python/sphinx-paramlinks
 net-misc/maestral
 net-misc/maestral-qt
 
+# David Roman <stkw0@disroot.org> (2026-10-31)
+# Unmaintained and/or abandoned. Not compatible with py3.13 or higher
+# Removal after 2026-11-31
+dev-libs/zfp
+dev-python/ascim
+dev-python/asyncinotify
+dev-python/devtools
+dev-python/graphql-relay
+dev-python/pyqtdarktheme
+media-gfx/superpaper
+net-news/gfeeds
+x11-misc/i3-restore
+x11-misc/picom-jonaburg
+
 # David Roman <stkw0@disroot.org> (2026-10-30)
-# Unmaintained. Not compatible with py.13
+# Unmaintained. Not compatible with py3.13
 # Removal after 2026-11-30
 sci-mathematics/pyromaths
 
