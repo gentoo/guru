@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 IUSE="client asyncio-client"
 
 RDEPEND="dev-python/bidict[${PYTHON_USEDEP}]
-	>=dev-python/python-engineio-4.0.0[${PYTHON_USEDEP}]
+	>=dev-python/python-engineio-4.15.1[${PYTHON_USEDEP}]
 	client? (
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/websocket-client[${PYTHON_USEDEP}]
