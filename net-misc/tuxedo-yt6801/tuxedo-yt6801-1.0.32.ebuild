@@ -1,0 +1,48 @@
+# Copyright 1999-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+DESCRIPTION="Motorcomm YT6801 Ethernet driver for TUXEDO Computers"
+HOMEPAGE="https://gitlab.com/tuxedocomputers/development/packages/tuxedo-yt6801"
+SRC_PV="v${PV}"
+SRC_URI="
+		https://en.motor-comm.com/En/Skippower/downloadFile.html?id=607 -> yt6801-linux-driver-1.0.31.zip
+		https://gitlab.com/tuxedocomputers/development/packages/tuxedo-yt6801/-/archive/${SRC_PV}/tuxedo-yt6801-${SRC_PV}.tar.bz2"
+
+LICENSE="GPL-2"
+SLOT="0"
+KEYWORDS="~amd64"
+
+RDEPEND="virtual/linux-sources"
+BDEPEND="app-arch/unzip"
+DEPEND="${RDEPEND}"
+
+inherit linux-mod-r1
+
+src_unpack() {
+	unpack tuxedo-yt6801-${SRC_PV}.tar.bz2 || die
+	mkdir yt6801-driver || die
+	cd yt6801-driver || die
+	unpack yt6801-linux-driver-1.0.31.zip || die
+	unpack ./yt6801-1.0.31.tar.gz || die
+	cd .. || die
+	mv "${WORKDIR}/tuxedo-yt6801-${SRC_PV}" "${WORKDIR}/${P}" || die
+	cp "${WORKDIR}/yt6801-driver/Makefile" "${WORKDIR}/${P}/src/" || die
+	S="${WORKDIR}/${P}"
+}
+
+src_compile() {
+	cd "${S}/src" || die
+
+	local modlist=( yt6801=net/ethernet/motorcomm:"${S}/src"::all )
+	local modargs=( KVER=${KV_FULL} BASEDIR=/lib/modules/${KV_FULL} moderation_en=1 )
+
+	linux-mod-r1_src_compile
+}
+
+src_install() {
+	cd "${S}/src" || die
+
+	linux-mod-r1_src_install
+}
