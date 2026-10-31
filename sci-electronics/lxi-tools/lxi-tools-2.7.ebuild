@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python{3_12,3_13} )
+PYTHON_COMPAT=( python3_13 )
 LUA_COMPAT=( lua5-{1..4} )
 inherit meson python-any-r1 lua-single gnome2-utils bash-completion-r1
 

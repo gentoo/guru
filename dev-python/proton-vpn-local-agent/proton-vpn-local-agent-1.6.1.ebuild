@@ -180,7 +180,7 @@ CRATES="
 "
 
 RUST_MIN_VER="1.81.0"
-PYTHON_COMPAT=( python3_{11..14}  )
+PYTHON_COMPAT=( python3_{13,14}  )
 
 inherit cargo python-r1
 

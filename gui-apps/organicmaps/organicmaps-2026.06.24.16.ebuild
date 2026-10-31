@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_12 python3_13 python3_14 )
+PYTHON_COMPAT=( python3_13 python3_14 )
 inherit python-r1 xdg cmake
 
 JUST_GTFS_COMMIT="7516753825500f90ac2de6f18c256d5abec1ff33"

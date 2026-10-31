@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_SINGLE_IMPL=true
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_13 )
 
 inherit desktop distutils-r1 xdg
 

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 DISTUTILS_USE_PEP517=flit-core
 PYPI_VERIFY_REPO="stiermid/nnote"
 inherit distutils-r1 pypi

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{13..15} )
 inherit cmake python-any-r1 linux-info
 
 DESCRIPTION="Runtime for AIE and FPGA based platforms"

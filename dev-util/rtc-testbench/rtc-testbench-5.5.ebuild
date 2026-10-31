@@ -4,7 +4,7 @@
 EAPI=8
 
 LLVM_COMPAT=( {16..22} )
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{13..15} )
 
 inherit cmake python-single-r1 llvm-r2
 

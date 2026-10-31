@@ -7,7 +7,7 @@ EAPI=8
 PYPI_PN="PlexAPI"
 PYPI_NO_NORMALIZE=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{13..15} )
 
 inherit distutils-r1
 

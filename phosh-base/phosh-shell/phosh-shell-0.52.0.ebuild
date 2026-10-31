@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 
 inherit gnome2-utils meson pam python-any-r1 systemd toolchain-funcs vala verify-sig virtualx xdg
 

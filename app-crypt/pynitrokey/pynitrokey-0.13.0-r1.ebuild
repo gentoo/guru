@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 inherit distutils-r1 optfeature shell-completion
 
 DESCRIPTION="A command line interface for the Nitrokey FIDO2, Start, 3 and NetHSM"

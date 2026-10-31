@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=maturin
 PYPI_VERIFY_REPO=https://github.com/prefectlabs/burner-redis
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 
 RUST_MIN_VER="1.85.0"
 CRATES="

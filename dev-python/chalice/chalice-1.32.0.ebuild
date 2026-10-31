@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 # py3.14: https://github.com/aws/chalice/issues/2150
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_13 )
 
 inherit distutils-r1 #pypi
 

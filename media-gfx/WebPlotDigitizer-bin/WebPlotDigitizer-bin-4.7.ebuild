@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 MY_PN=${PN%-*}
 
 inherit desktop python-single-r1 xdg

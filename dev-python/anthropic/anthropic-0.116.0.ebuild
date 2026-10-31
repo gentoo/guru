@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 
 # See https://github.com/anthropics/anthropic-sdk-python/blob/main/.stats.yml
 STAINLESS_SPEC_PATH=${PN}/${PN}-506a5ad71d522b4ae56ac3429380486647af1f92eddde80603480fb592d62b54.yml

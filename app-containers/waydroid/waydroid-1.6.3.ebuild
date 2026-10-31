@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 PYTHON_REQ_USE="ssl"
 inherit linux-info optfeature python-single-r1 systemd xdg
 

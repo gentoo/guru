@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..15} )
+PYTHON_COMPAT=( python3_{13..15} )
 inherit python-single-r1 xdg
 
 DESCRIPTION="A libre menu editor for desktop entries"

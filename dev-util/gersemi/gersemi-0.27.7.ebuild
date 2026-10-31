@@ -6,7 +6,7 @@ EAPI=8
 CARGO_OPTIONAL=1
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 
 CRATES="
 	aho-corasick@1.1.4

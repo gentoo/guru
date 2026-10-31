@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{13..15} )
 ROCM_VERSION="6.1"
 
 inherit cmake cuda rocm linux-info python-any-r1 toolchain-funcs

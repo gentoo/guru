@@ -3,7 +3,7 @@
 
 EAPI=8
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{13..15} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit gnome.org gnome2-utils meson xdg python-single-r1

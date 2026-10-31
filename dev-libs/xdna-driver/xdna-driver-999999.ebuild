@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..15} )
+PYTHON_COMPAT=( python3_{13..15} )
 
 inherit linux-mod-r1 multiprocessing optfeature python-any-r1 toolchain-funcs
 

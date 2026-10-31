@@ -5,7 +5,7 @@ EAPI=8
 
 MY_LLVM_PV="040a641988f6ed6f4fab250706ca2b620c1de2d8"
 CMAKE_BUILD_TYPE="Release"
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 inherit cmake python-r1
 
 DESCRIPTION="Circuit IR Compilers and Tools"

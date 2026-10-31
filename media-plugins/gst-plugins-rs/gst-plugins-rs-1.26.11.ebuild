@@ -823,7 +823,7 @@ declare -A GIT_CRATES=(
 )
 
 RUST_MIN_VER="1.97.1"
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 
 inherit cargo meson python-any-r1
 

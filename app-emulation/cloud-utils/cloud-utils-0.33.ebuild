@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{13..15} )
 inherit python-single-r1
 
 DESCRIPTION="Useful set of utilities for interacting with a cloud"

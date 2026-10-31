@@ -180,7 +180,7 @@ CRATES="
 DISTUTILS_USE_PEP517=meson-python
 DISTUTILS_EXT=1
 RUST_MIN_VER=1.99.0
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{13..15} )
 
 inherit cargo distutils-r1 optfeature
 

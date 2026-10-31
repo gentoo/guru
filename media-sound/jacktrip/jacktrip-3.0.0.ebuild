@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 inherit python-any-r1 meson xdg
 
 DESCRIPTION="Send JACK audio over a network"

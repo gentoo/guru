@@ -323,7 +323,7 @@ CRATES="
 	zxcvbn@2.2.2
 "
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_13 )
 RUST_MIN_VER="1.75.0"
 
 inherit cargo gnome2-utils meson python-single-r1 xdg

@@ -6,7 +6,7 @@ EAPI=8
 
 GENTOO_DEPEND_ON_PERL=no
 LUA_COMPAT=( lua5-{1..5} luajit )
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{13..15} )
 
 inherit lua-single perl-module python-single-r1 xdg
 # Intentionally called last because ther other inherit clobber exported phases

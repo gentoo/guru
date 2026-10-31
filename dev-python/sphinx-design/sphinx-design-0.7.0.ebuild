@@ -8,7 +8,7 @@ DOCS_BUILDER="sphinx"
 DOCS_DIR="docs"
 
 DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 
 inherit distutils-r1 docs
 

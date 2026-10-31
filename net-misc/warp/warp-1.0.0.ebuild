@@ -6,7 +6,7 @@ EAPI=8
 CRATES="
 "
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 RUST_MIN_VER="1.92.0"
 inherit cargo flag-o-matic gnome2-utils meson python-any-r1 xdg
 

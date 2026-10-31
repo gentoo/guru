@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_13 )
 DISTUTILS_USE_PEP517=hatchling
 
 inherit distutils-r1

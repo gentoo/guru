@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{13..15} )
 PYPI_VERIFY_REPO=https://github.com/bigcat88/pillow_heif
 inherit distutils-r1 pypi
 

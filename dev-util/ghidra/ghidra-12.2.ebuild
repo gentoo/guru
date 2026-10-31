@@ -5,7 +5,7 @@ EAPI=8
 
 JAVA_PKG_IUSE="doc"
 
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{13..15} )
 
 inherit check-reqs desktop edo flag-o-matic java-pkg-2 multiprocessing python-single-r1 toolchain-funcs virtualx xdg
 
