@@ -229,7 +229,7 @@ src_compile() {
 
 	# Building swift-driver writes to this directory for some reason, but the
 	# contents are irrelevant.
-	addpredict /var/lib/portage/home/.swiftpm
+	addpredict "${HOME}/.swiftpm"
 
 	# Setting `-j<n>`/`--jobs=<n>` in MAKEOPTS needs to be manually exposed to
 	# the Swift build system.

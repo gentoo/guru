@@ -295,7 +295,7 @@ src_configure() {
 src_compile() {
 	# Building swift-driver writes to this directory for some reason, but the
 	# contents are irrelevant.
-	addpredict /var/lib/portage/home/.swiftpm
+	addpredict "${HOME}/.swiftpm"
 
 	# Versions of Swift 6.0 and later require an existing Swift compiler to
 	# bootstrap from. We can use any version from 5.10.1 and on.
