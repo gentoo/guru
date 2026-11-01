@@ -18,6 +18,13 @@
 
 # New entries go on top.
 
+# Viorel Munteanu <ceamac@gentoo.org> (2026-11-01)
+# Maestral is archived upstream, does not work with
+# >=dev-python/dropbox-dev-python/dropbox-12.2.2
+# Removal on 2026-12-01.
+net-misc/maestral
+net-misc/maestral-qt
+
 # David Roman <stkw0@disroot.org> (2026-10-30)
 # Unmaintained. Not compatible with py.13
 # Removal after 2026-11-30
@@ -97,7 +104,7 @@ net-misc/megasync
 # Requires systemd. Cannot be masked per profile (see top comment)
 sys-apps/dmemcg-booster
 
-# Joe Kappus <joe@wt.gd) (2026-04-23)
+# Joe Kappus <joe@wt.gd> (2026-04-23)
 # Depends on masked dev-python/pyqt5.
 # Progress getting made, unmask when done.
 # https://github.com/autokey/autokey/pull/1104
