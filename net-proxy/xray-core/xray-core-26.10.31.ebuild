@@ -23,7 +23,7 @@ fi
 # main
 LICENSE="MPL-2.0"
 # deps
-LICENSE+=" Apache-2.0 BSD BSD-2 ISC LGPL-3 MIT"
+LICENSE+=" Apache-2.0 BSD-2 BSD LGPL-3 MIT"
 SLOT="0"
 
 RESTRICT="test"
@@ -32,15 +32,12 @@ RDEPEND="
 	acct-user/xray
 	acct-group/xray"
 DEPEND="${RDEPEND}"
-BDEPEND=">=dev-lang/go-1.25.5:="
+BDEPEND=">=dev-lang/go-1.27:="
 
 src_unpack() {
 	if [[ "${PV}" == 9999* ]]; then
 		git-r3_src_unpack
 		pushd "${S}" || die
-		# upstream bumped required go version to 1.25.7 for no particular reason
-		# gvisor.dev/gvisor requires 1.25.5
-		sed -E -i'' 's/^go 1\.25\..*/go 1.25.5/' go.mod || die
 		ego mod tidy
 		popd || die
 		go-module_live_vendor
@@ -50,9 +47,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	# upstream bumped required go version to 1.25.7 for no particular reason
-	# gvisor.dev/gvisor requires 1.25.5
-	sed -E -i'' 's/^go 1\.25\..*/go 1.25.5/' go.mod || die
 	default
 }
 
