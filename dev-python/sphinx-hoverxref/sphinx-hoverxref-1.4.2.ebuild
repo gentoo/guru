@@ -35,6 +35,7 @@ EPYTEST_DESELECT=(
 	tests/test_htmltag.py::test_intersphinx_all_mappings
 )
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 # Bug #883189

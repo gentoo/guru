@@ -31,6 +31,8 @@ DOCS=( {CHANGELOG,README,SECURITY}.rst )
 
 EPYTEST_IGNORE=( tests/test_microbenchmarks.py )
 
+EPYTEST_PLUGINS=()
+
 distutils_enable_tests pytest
 
 distutils_enable_sphinx docs \

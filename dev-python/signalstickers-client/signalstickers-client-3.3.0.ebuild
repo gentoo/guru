@@ -18,6 +18,7 @@ KEYWORDS="~amd64"
 # https://github.com/signalstickers/signalstickers-client/issues/22
 RESTRICT="test"
 
+EPYTEST_PLUGINS=( pytest-{httpx,mock} )
 distutils_enable_tests pytest
 
 RDEPEND="
@@ -25,9 +26,5 @@ RDEPEND="
 	dev-python/httpx[${PYTHON_USEDEP}]
 	dev-python/cryptography[${PYTHON_USEDEP}]
 	dev-python/protobuf[${PYTHON_USEDEP}]
-	test? (
-		dev-python/pytest-httpx[${PYTHON_USEDEP}]
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
-	)
 "
 DEPEND="${RDEPEND}"
