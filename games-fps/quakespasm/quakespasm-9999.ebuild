@@ -1,7 +1,7 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
@@ -11,7 +11,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-inherit desktop eapi9-ver
+inherit desktop
 
 DESCRIPTION="A modern, cross-platform Quake game engine based on FitzQuake"
 HOMEPAGE="https://quakespasm.sourceforge.net/"
@@ -66,7 +66,7 @@ src_install() {
 	doins Misc/qs_pak/quakespasm.pak
 
 	insinto /usr/share/metainfo
-	doins Linux/net.sourceforge.quakespasm.Quakespasm.appdata.xml
+	doins Linux/net.sourceforge.quakespasm.Quakespasm.metainfo.xml
 
 	domenu Linux/net.sourceforge.quakespasm.Quakespasm.desktop
 
@@ -76,7 +76,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	if [[ -z ${REPLACING_VERSIONS} ]] || ver_replacing -lt 0.96.3; then
+	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		elog
 		elog "Please note that quakespasm doesn't support system-wide game data."
 		elog "In order to play, you must copy game data files into"
