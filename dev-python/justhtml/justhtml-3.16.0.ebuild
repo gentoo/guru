@@ -15,3 +15,13 @@ SRC_URI="https://github.com/EmilStenstrom/justhtml/archive/refs/tags/v${PV}.tar.
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+
+IUSE="test"
+
+distutils_enable_tests unittest
+
+BDEPEND+="
+    test? (
+        dev-python/coverage[${PYTHON_USEDEP}]
+    )
+"
