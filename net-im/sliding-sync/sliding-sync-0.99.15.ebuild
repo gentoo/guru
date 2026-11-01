@@ -5,7 +5,7 @@ EAPI=8
 
 inherit go-module systemd
 
-DESCRIPTION="Proxy implementation of MSC3575's sync protocol."
+DESCRIPTION="Proxy implementation of MSC3575's sync protocol"
 HOMEPAGE="https://github.com/matrix-org/sliding-sync"
 SRC_URI="
 	https://github.com/matrix-org/sliding-sync/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz

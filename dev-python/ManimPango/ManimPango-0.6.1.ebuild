@@ -23,7 +23,7 @@ PYTHON_COMPAT=( python3_{13..14} )
 
 inherit distutils-r1 docs
 
-DESCRIPTION="Binding for Pango, to use with Manim."
+DESCRIPTION="Binding for Pango, to use with Manim"
 HOMEPAGE="https://github.com/ManimCommunity/ManimPango https://pypi.org/project/manimpango"
 SRC_URI="https://github.com/ManimCommunity/ManimPango/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
