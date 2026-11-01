@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# dsaf <ghostyn678+git@gmail.com> (2026-11-01)
+# Archived upstream.
+# No reverse dependencies.
+# Removal on 2026-12-01.
+gui-apps/labwc-tweaks-gtk
+
 # Viorel Munteanu <ceamac@gentoo.org> (2026-11-01)
 # Dependencies of net-misc/maestral, marked for removal.
 # Not used by anything else.
