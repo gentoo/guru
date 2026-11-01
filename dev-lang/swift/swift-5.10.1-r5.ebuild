@@ -146,12 +146,11 @@ src_unpack() {
 		|| die
 
 	# Some one-off fixups:
-	pushd "${S}" \
-		&& mv 'swift-cmark' 'cmark' \
-		&& mv 'swift-llbuild' 'llbuild' \
-		&& mv 'swift-package-manager' 'swiftpm' \
-		&& popd \
-		|| die
+	pushd "${S}" >/dev/null || die
+	mv 'swift-cmark' 'cmark' || die
+	mv 'swift-llbuild' 'llbuild' || die
+	mv 'swift-package-manager' 'swiftpm' || die
+	popd >/dev/null || die
 }
 
 src_configure() {
