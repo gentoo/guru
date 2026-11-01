@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -57,14 +57,14 @@ SRC_URI="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PF}/backtracing-noexecstack.patch"
-	"${FILESDIR}/${PF}/disable-libdispatch-private-header-check.patch"
-	"${FILESDIR}/${PF}/disable-libdispatch-werror.patch"
-	"${FILESDIR}/${PF}/fix-issues-caused-by-build-system-updates.patch"
-	"${FILESDIR}/${PF}/link-ncurses-tinfo.patch"
-	"${FILESDIR}/${PF}/link-with-lld.patch"
-	"${FILESDIR}/${PF}/remove-linux-scc_h.patch"
-	"${FILESDIR}/${PF}/respect-c-cxx-flags.patch"
+	"${FILESDIR}/${PN}-6.2-backtracing-noexecstack.patch"
+	"${FILESDIR}/${PN}-6.2-disable-libdispatch-private-header-check.patch"
+	"${FILESDIR}/${PN}-6.2-disable-libdispatch-werror.patch"
+	"${FILESDIR}/${PN}-6.3-fix-issues-caused-by-build-system-updates.patch"
+	"${FILESDIR}/${PN}-6.3-link-ncurses-tinfo.patch"
+	"${FILESDIR}/${PN}-6.2-link-with-lld.patch"
+	"${FILESDIR}/${PN}-6.1-remove-linux-scc_h.patch"
+	"${FILESDIR}/${PN}-6.1-respect-c-cxx-flags.patch"
 )
 
 S="${WORKDIR}"
@@ -214,7 +214,7 @@ src_configure() {
 
 	# Extend the 'gentoo' build preset with user-specified flags and flags for
 	# libc++ systems.
-	cp "${FILESDIR}/${PF}/gentoo.ini" "${SWIFT_BUILD_PRESETS_INI_PATH}"
+	cp "${FILESDIR}/${PN}-6.1-gentoo.ini" "${SWIFT_BUILD_PRESETS_INI_PATH}" || die
 	local extra_build_flags=()
 
 	# Setting `-j<n>`/`--jobs=<n>` in MAKEOPTS needs to be manually exposed to

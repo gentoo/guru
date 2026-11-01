@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -50,16 +50,16 @@ SRC_URI="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PF}/backport-swift-75662.patch"
-	"${FILESDIR}/${PF}/backtracing-noexecstack.patch"
-	"${FILESDIR}/${PF}/clang-indexstore-exports.patch"
-	"${FILESDIR}/${PF}/disable-libdispatch-werror.patch"
-	"${FILESDIR}/${PF}/fix-issues-caused-by-build-system-updates.patch"
-	"${FILESDIR}/${PF}/link-ncurses-tinfo.patch"
-	"${FILESDIR}/${PF}/link-with-lld.patch"
-	"${FILESDIR}/${PF}/lldb-cmake-minimum-version.patch"
-	"${FILESDIR}/${PF}/remove-linux-scc_h.patch"
-	"${FILESDIR}/${PF}/respect-c-cxx-flags.patch"
+	"${FILESDIR}/${PN}-5.10-backport-swift-75662.patch"
+	"${FILESDIR}/${PN}-5.10-backtracing-noexecstack.patch"
+	"${FILESDIR}/${PN}-5.10-clang-indexstore-exports.patch"
+	"${FILESDIR}/${PN}-5.10-disable-libdispatch-werror.patch"
+	"${FILESDIR}/${PN}-5.10-fix-issues-caused-by-build-system-updates.patch"
+	"${FILESDIR}/${PN}-5.10-link-ncurses-tinfo.patch"
+	"${FILESDIR}/${PN}-5.10-link-with-lld.patch"
+	"${FILESDIR}/${PN}-5.10-lldb-cmake-minimum-version.patch"
+	"${FILESDIR}/${PN}-5.10-remove-linux-scc_h.patch"
+	"${FILESDIR}/${PN}-5.10-respect-c-cxx-flags.patch"
 )
 
 S="${WORKDIR}"
