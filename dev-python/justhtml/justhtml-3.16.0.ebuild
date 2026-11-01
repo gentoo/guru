@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
 
-DESCRIPTION="A pure Python HTML5 parser that just works."
+DESCRIPTION="A pure Python HTML5 parser that just works"
 HOMEPAGE="https://github.com/EmilStenstrom/justhtml"
 SRC_URI="https://github.com/EmilStenstrom/justhtml/archive/refs/tags/v${PV}.tar.gz -> justhtml-${PV}.tar.gz"
 
@@ -17,11 +17,12 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE="test"
+RESTRICT="!test? ( test )"
 
 distutils_enable_tests unittest
 
 BDEPEND+="
-    test? (
-        dev-python/coverage[${PYTHON_USEDEP}]
-    )
+	test? (
+		dev-python/coverage[${PYTHON_USEDEP}]
+	)
 "
