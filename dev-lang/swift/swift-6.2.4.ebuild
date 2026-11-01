@@ -67,7 +67,7 @@ PATCHES=(
 
 S="${WORKDIR}"
 LICENSE="Apache-2.0"
-SLOT="6/2"
+SLOT="$(ver_cut 1)/$(ver_cut 2)"
 KEYWORDS="~amd64"
 IUSE="libcxx"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
