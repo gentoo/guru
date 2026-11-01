@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1
 
-DESCRIPTION="Generate a JSON file from an OpenDocument Format .ods file."
+DESCRIPTION="Generate a JSON file from an OpenDocument Format .ods file"
 HOMEPAGE="https://github.com/jdum/odsparsator"
 SRC_URI="https://github.com/jdum/odsparsator/archive/refs/tags/v${PV}.tar.gz -> odsparsator-${PV}.tar.gz"
 
@@ -17,6 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc test"
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 RDEPEND="

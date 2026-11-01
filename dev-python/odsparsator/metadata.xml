@@ -5,7 +5,7 @@
 		<email>ivan.lloro.boada@gmail.com</email>
 		<name>Ivan Lloro</name>
 	</maintainer>
- 	<stabilize-allarches/>
+	<stabilize-allarches/>
 	<upstream>
 		<changelog>https://github.com/jdum/odsparsator/releases</changelog>
 		<maintainer>
