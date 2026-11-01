@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=QtSoundModem
+Comment=
+Exec=QtSoundModem
+Icon=/usr/share/pixmaps/QtSoundModem_icon.png
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Categories=AudioVideo;Audio;HamRadio;
+StartupNotify=true
