@@ -9,7 +9,7 @@ EAPI=8
 
 inherit font
 
-DESCRIPTION="Current generation of Google’s brand typeface."
+DESCRIPTION="Current generation of Google’s brand typeface"
 HOMEPAGE="https://fonts.google.com/specimen/Google+Sans"
 
 SRC_URI="

@@ -4,7 +4,7 @@
 EAPI=8
 inherit cmake
 
-DESCRIPTION="2D vector graphics library powered by a JIT compiler."
+DESCRIPTION="2D vector graphics library powered by a JIT compiler"
 HOMEPAGE="https://blend2d.com/"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3

@@ -706,7 +706,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="spotify_player is a fast, easy to use, and configurable terminal music player."
+DESCRIPTION="spotify_player is a fast, easy to use, and configurable terminal music player"
 HOMEPAGE="https://github.com/aome510/spotify-player"
 SRC_URI="
 	https://github.com/aome510/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz

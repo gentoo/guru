@@ -270,7 +270,7 @@ CRATES="
 
 inherit cargo toolchain-funcs
 
-DESCRIPTION="Accessible image processing and conversion from the terminal tool."
+DESCRIPTION="Accessible image processing and conversion from the terminal tool"
 HOMEPAGE="https://github.com/foresterre/sic"
 SRC_URI="https://www.github.com/foresterre/sic/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"

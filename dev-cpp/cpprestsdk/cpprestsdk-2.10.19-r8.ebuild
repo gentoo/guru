@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="A Microsoft project for cloud-based client-server communication."
+DESCRIPTION="A Microsoft project for cloud-based client-server communication"
 HOMEPAGE="https://github.com/microsoft/cpprestsdk"
 SRC_URI="https://github.com/microsoft/cpprestsdk/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"

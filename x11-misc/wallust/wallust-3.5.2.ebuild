@@ -11,7 +11,7 @@ RUST_MIN_VER="1.88.0"
 
 inherit cargo
 
-DESCRIPTION="Generate a 16 color scheme based on an image."
+DESCRIPTION="Generate a 16 color scheme based on an image"
 HOMEPAGE="https://explosion-mental.codeberg.page/wallust"
 SRC_URI="
 	https://codeberg.org/explosion-mental/wallust/archive/${PV}.tar.gz -> ${P}.tar.gz

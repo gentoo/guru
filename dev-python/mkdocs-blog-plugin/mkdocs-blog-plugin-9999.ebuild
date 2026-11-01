@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_12 )
 
 inherit distutils-r1 git-r3
 
-DESCRIPTION="Plugin for MkDocs to keep a simple blog section inside your documentation."
+DESCRIPTION="Plugin for MkDocs to keep a simple blog section inside your documentation"
 HOMEPAGE="https://github.com/fmaida/mkdocs-blog-plugin https://pypi.org/project/mkdocs-blog-plugin"
 EGIT_REPO_URI="https://github.com/fmaida/mkdocs-blog-plugin.git"
 

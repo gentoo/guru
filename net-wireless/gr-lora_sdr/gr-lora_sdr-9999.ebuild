@@ -5,7 +5,7 @@ EAPI=8
 
 inherit git-r3 cmake
 
-DESCRIPTION="GNU Radio SRT implementation of a LoRa transceiver."
+DESCRIPTION="GNU Radio SRT implementation of a LoRa transceiver"
 HOMEPAGE="https://github.com/tapparelj/gr-lora_sdr"
 EGIT_REPO_URI="https://github.com/tapparelj/${PN}"
 

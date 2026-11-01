@@ -5,7 +5,7 @@ EAPI=8
 
 inherit toolchain-funcs multilib-build
 
-DESCRIPTION="CLI program for playing back and rendering SPC files."
+DESCRIPTION="CLI program for playing back and rendering SPC files"
 HOMEPAGE="https://codeberg.org/jneen/spct"
 SRC_URI="https://codeberg.org/jneen/spct/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}"

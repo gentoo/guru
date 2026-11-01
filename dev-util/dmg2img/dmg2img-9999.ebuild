@@ -7,7 +7,7 @@ inherit git-r3 toolchain-funcs
 
 EGIT_REPO_URI="https://github.com/Lekensteyn/dmg2img"
 
-DESCRIPTION="Convert Apple disk images to IMG format."
+DESCRIPTION="Convert Apple disk images to IMG format"
 HOMEPAGE="https://github.com/Lekensteyn/dmg2img"
 LICENSE="GPL-2"
 SLOT="0"

@@ -30,7 +30,7 @@ xmlparser@0.1.2
 
 inherit cargo
 
-DESCRIPTION="svgcleaner could help you to clean up your SVG files from the unnecessary data."
+DESCRIPTION="svgcleaner could help you to clean up your SVG files from the unnecessary data"
 HOMEPAGE="https://github.com/RazrFalcon/svgcleaner"
 SRC_URI="https://github.com/RazrFalcon/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"

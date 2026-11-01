@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="Utility to write Portage config files in an easy manner."
+DESCRIPTION="Utility to write Portage config files in an easy manner"
 HOMEPAGE="https://github.com/brookiestein/portagecfg"
 SRC_URI="https://github.com/brookiestein/portagecfg/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 

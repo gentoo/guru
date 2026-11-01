@@ -4,7 +4,7 @@
 EAPI=8
 WANT_AUTOCONF="2.71"
 inherit autotools desktop git-r3 xdg-utils
-DESCRIPTION="Dogecoin Core Qt for desktop. Downloaded blockchain is under 2.2GB. Much secure."
+DESCRIPTION="Dogecoin Core Qt for desktop. Downloaded blockchain is under 2.2GB. Much secure"
 HOMEPAGE="https://github.com/dogecoin"
 EGIT_REPO_URI="https://github.com/dogecoin/dogecoin.git"
 

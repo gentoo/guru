@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode."
+DESCRIPTION="HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode"
 HOMEPAGE="https://github.com/hrsh7th/vscode-langservers-extracted"
 SRC_URI="
 	mirror://npm/${PN}/-/${P}.tgz

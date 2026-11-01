@@ -5,7 +5,7 @@ EAPI=8
 
 inherit toolchain-funcs xdg-utils desktop
 
-DESCRIPTION="A list based tiling window manager in the vein of dwm, bspwm, and xmonad."
+DESCRIPTION="A list based tiling window manager in the vein of dwm, bspwm, and xmonad"
 HOMEPAGE="https://bitbucket.org/natemaia/dk/src/master/"
 SRC_URI="https://bitbucket.org/natemaia/dk/get/bc9bd6349321c27ddb2dd7a9cb7630e2f1794c85.tar.gz -> ${P}.tar.gz"
 

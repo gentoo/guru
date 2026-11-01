@@ -5,7 +5,7 @@ EAPI=8
 
 inherit go-module bash-completion-r1
 
-DESCRIPTION="A fast and powerful alternative to grep."
+DESCRIPTION="A fast and powerful alternative to grep"
 HOMEPAGE="https://github.com/svent/sift"
 SRC_URI="https://github.com/svent/sift/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://codeberg.org/brtz/guru-distfiles/releases/download/${P}-deps.tar.xz/${P}-deps.tar.xz"

@@ -45,7 +45,7 @@ CRATES="
 RUST_MIN_VER="1.88.0"
 inherit cargo systemd
 
-DESCRIPTION="Linux version for the DeepCool Digital Windows software."
+DESCRIPTION="Linux version for the DeepCool Digital Windows software"
 HOMEPAGE="https://github.com/Nortank12/deepcool-digital-linux"
 SRC_URI="
 	https://github.com/Nortank12/${PN}/archive/v${PV}-alpha.tar.gz -> ${PN}-${PV}-alpha.tar.gz

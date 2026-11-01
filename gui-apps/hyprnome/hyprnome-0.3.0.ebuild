@@ -107,7 +107,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="GNOME-like workspace switching in Hyprland."
+DESCRIPTION="GNOME-like workspace switching in Hyprland"
 HOMEPAGE="https://github.com/donovanglover/hyprnome"
 SRC_URI="
 	https://github.com/donovanglover/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz

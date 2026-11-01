@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="Excellent terminal music player, support almost every known sound system."
+DESCRIPTION="Excellent terminal music player, support almost every known sound system"
 HOMEPAGE="https://github.com/clangen/musikcube"
 SRC_URI="https://github.com/clangen/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 

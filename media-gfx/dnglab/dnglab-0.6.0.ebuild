@@ -252,7 +252,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="Command line tool to convert camera RAW files to Digital Negative Format (DNG)."
+DESCRIPTION="Command line tool to convert camera RAW files to Digital Negative Format (DNG)"
 HOMEPAGE="https://github.com/dnglab/dnglab"
 SRC_URI="
 	https://github.com/dnglab/dnglab/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz

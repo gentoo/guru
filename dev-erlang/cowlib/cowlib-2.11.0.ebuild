@@ -5,7 +5,7 @@ EAPI=7
 
 inherit rebar
 
-DESCRIPTION="Support library for manipulating Web protocols."
+DESCRIPTION="Support library for manipulating Web protocols"
 HOMEPAGE="https://github.com/ninenines/cowlib"
 SRC_URI="https://github.com/ninenines/${PN}/archive/${PV}.tar.gz
 	-> ${P}.tar.gz"

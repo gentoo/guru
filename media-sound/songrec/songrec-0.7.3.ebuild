@@ -14,7 +14,7 @@ RUST_MIN_VER="1.88.0"
 
 inherit cargo desktop xdg
 
-DESCRIPTION="An open-source Shazam client for Linux, written in Rust."
+DESCRIPTION="An open-source Shazam client for Linux, written in Rust"
 HOMEPAGE="https://github.com/marin-m/SongRec"
 SRC_URI="
 	${CARGO_CRATE_URIS}

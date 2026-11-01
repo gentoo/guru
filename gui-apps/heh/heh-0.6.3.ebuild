@@ -220,7 +220,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="A cross-platform terminal UI used for modifying file data in hex or ASCII."
+DESCRIPTION="A cross-platform terminal UI used for modifying file data in hex or ASCII"
 HOMEPAGE="https://github.com/ndd7xv/heh"
 SRC_URI="https://github.com/ndd7xv/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}

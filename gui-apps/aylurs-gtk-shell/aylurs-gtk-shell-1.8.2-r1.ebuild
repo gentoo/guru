@@ -5,7 +5,7 @@ EAPI=8
 
 inherit meson optfeature
 
-DESCRIPTION="Aylurs's Gtk Shell (AGS), An eww inspired gtk widget system."
+DESCRIPTION="Aylurs's Gtk Shell (AGS), An eww inspired gtk widget system"
 HOMEPAGE="https://github.com/Aylur/ags"
 SRC_URI="
 	https://github.com/Aylur/ags/releases/download/v${PV}/ags-v${PV}.tar.gz -> ${P}.tar.gz

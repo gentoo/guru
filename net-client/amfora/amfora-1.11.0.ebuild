@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop go-module xdg
 
-DESCRIPTION="A fancy terminal browser for the Gemini protocol."
+DESCRIPTION="A fancy terminal browser for the Gemini protocol"
 HOMEPAGE="https://github.com/makew0rld/amfora"
 SRC_URI="https://github.com/makew0rld/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/${P}-vendor.tar.xz"

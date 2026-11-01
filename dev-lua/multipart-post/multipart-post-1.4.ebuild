@@ -7,7 +7,7 @@ LUA_COMPAT=( lua5-{1..4} luajit )
 
 inherit lua
 
-DESCRIPTION="HTTP Multipart Post helper that does just that."
+DESCRIPTION="HTTP Multipart Post helper that does just that"
 HOMEPAGE="https://github.com/catwell/lua-multipart-post"
 SRC_URI="https://github.com/catwell/lua-$PN/archive/refs/tags/v$PV.tar.gz -> lua-${P}.tar.gz"
 S="$WORKDIR/lua-$P"

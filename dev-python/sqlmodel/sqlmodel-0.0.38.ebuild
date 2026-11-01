@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
-DESCRIPTION="SQL databases in Python, designed for simplicity, compatibility, and robustness."
+DESCRIPTION="SQL databases in Python, designed for simplicity, compatibility, and robustness"
 HOMEPAGE="
 	https://sqlmodel.tiangolo.com/
 	https://github.com/fastapi/sqlmodel/

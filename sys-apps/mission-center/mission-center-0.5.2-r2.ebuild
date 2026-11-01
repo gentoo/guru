@@ -242,7 +242,7 @@ NVTOP_COMMIT=45a1796375cd617d16167869bb88e5e69c809468
 
 inherit cargo gnome2-utils meson python-any-r1 xdg flag-o-matic
 
-DESCRIPTION="Monitor your CPU, Memory, Disk, Network and GPU usage."
+DESCRIPTION="Monitor your CPU, Memory, Disk, Network and GPU usage"
 HOMEPAGE="https://missioncenter.io/"
 
 SRC_URI="

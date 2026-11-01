@@ -9,7 +9,7 @@ inherit cuda rocm
 inherit cmake
 inherit flag-o-matic go-module linux-info systemd toolchain-funcs
 
-DESCRIPTION="Get up and running with Llama 3, Mistral, Gemma, and other language models."
+DESCRIPTION="Get up and running with Llama 3, Mistral, Gemma, and other language models"
 HOMEPAGE="https://ollama.com"
 
 if [[ ${PV} == *9999* ]]; then

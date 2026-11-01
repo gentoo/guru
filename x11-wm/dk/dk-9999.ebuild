@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="A list based tiling window manager in the vein of dwm, bspwm, and xmonad."
+DESCRIPTION="A list based tiling window manager in the vein of dwm, bspwm, and xmonad"
 HOMEPAGE="https://bitbucket.org/natemaia/dk/src/master/"
 EGIT_REPO_URI="https://bitbucket.org/natemaia/dk.git"
 

@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_12 )
 
 inherit distutils-r1
 
-DESCRIPTION="An easy-to-use Python library for accessing the Twitter API."
+DESCRIPTION="An easy-to-use Python library for accessing the Twitter API"
 HOMEPAGE="https://www.tweepy.org/"
 SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 

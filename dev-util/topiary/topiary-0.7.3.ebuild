@@ -7,7 +7,7 @@ RUST_MIN_VER="1.88.0"
 
 inherit cargo shell-completion
 
-DESCRIPTION="CLI app for Topiary, the universal code formatter."
+DESCRIPTION="CLI app for Topiary, the universal code formatter"
 HOMEPAGE="https://topiary.tweag.io"
 SRC_URI="https://github.com/tweag/topiary/releases/download/v${PV}/source.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://github.com/gentoo-crate-dist/${PN}/releases/download/v${PV}/${P}-crates.tar.xz"

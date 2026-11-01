@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="LYGIA is a shader library of reusable functions."
+DESCRIPTION="LYGIA is a shader library of reusable functions"
 
 HOMEPAGE="
 https://lygia.xyz

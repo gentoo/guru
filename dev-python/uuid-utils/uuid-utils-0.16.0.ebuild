@@ -12,7 +12,7 @@ DISTUTILS_USE_PEP517=maturin
 PYTHON_COMPAT=( python3_{12..15} )
 inherit cargo distutils-r1 pypi
 
-DESCRIPTION="Fast, drop-in replacement for Python's uuid module, powered by Rust."
+DESCRIPTION="Fast, drop-in replacement for Python's uuid module, powered by Rust"
 HOMEPAGE="
 	https://aminalaee.github.io/uuid-utils/
 	https://github.com/aminalaee/uuid-utils

@@ -5,7 +5,7 @@ EAPI=8
 
 inherit xdg
 
-DESCRIPTION="Graphical UI to help manage Linux game overlays (MangoHud)."
+DESCRIPTION="Graphical UI to help manage Linux game overlays (MangoHud)"
 HOMEPAGE="https://github.com/benjamimgois/goverlay"
 
 if [[ ${PV} == *9999 ]]; then

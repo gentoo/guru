@@ -12,7 +12,7 @@ inherit font
 
 COMMIT_HASH="43590e625ab1b07f6a5809287ce16f7e61d9e165"
 
-DESCRIPTION="Current generation of Google’s brand typeface."
+DESCRIPTION="Current generation of Google’s brand typeface"
 HOMEPAGE="https://fonts.google.com/specimen/Google+Sans"
 # SRC_URI revbump caused per https://bugs.gentoo.org/969377
 SRC_URI="https://flutter.googlesource.com/gallery-assets/+archive/${COMMIT_HASH}/lib/fonts.tar.gz  -> ${P}-1.tar.gz"

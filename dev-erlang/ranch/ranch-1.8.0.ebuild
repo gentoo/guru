@@ -5,7 +5,7 @@ EAPI=7
 
 inherit rebar
 
-DESCRIPTION="Socket acceptor pool for TCP protocols."
+DESCRIPTION="Socket acceptor pool for TCP protocols"
 HOMEPAGE="https://github.com/ninenines/ranch"
 SRC_URI="https://github.com/ninenines/${PN}/archive/${PV}.tar.gz
 	-> ${P}.tar.gz"

@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
 
-DESCRIPTION="Lightweight package to seamlessly call OpenAI, Azure, Cohere, Anthropic, etc."
+DESCRIPTION="Lightweight package to seamlessly call OpenAI, Azure, Cohere, Anthropic, etc"
 HOMEPAGE="
 	https://github.com/BerriAI/litellm
 	https://pypi.org/project/litellm/

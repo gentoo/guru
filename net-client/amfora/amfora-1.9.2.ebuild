@@ -411,7 +411,7 @@ EGO_SUM=(
 
 go-module_set_globals
 
-DESCRIPTION="A fancy terminal browser for the Gemini protocol."
+DESCRIPTION="A fancy terminal browser for the Gemini protocol"
 HOMEPAGE="https://github.com/makeworld-the-better-one/amfora"
 SRC_URI="https://github.com/makeworld-the-better-one/amfora/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}"

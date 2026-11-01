@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{12..14} )
 inherit meson python-single-r1 optfeature xdg
 
-DESCRIPTION="Persepolis is a download manager written in Python."
+DESCRIPTION="Persepolis is a download manager written in Python"
 HOMEPAGE="https://github.com/persepolisdm/persepolis"
 
 if [[ ${PV} == "9999" ]] ; then

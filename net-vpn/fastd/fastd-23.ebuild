@@ -5,7 +5,7 @@
 EAPI=8
 inherit linux-info meson systemd
 
-DESCRIPTION="A very small VPN daemon which tunnels IP packets and Ethernet frames over UDP."
+DESCRIPTION="A very small VPN daemon which tunnels IP packets and Ethernet frames over UDP"
 HOMEPAGE="https://fastd.readthedocs.io/"
 SRC_URI="https://github.com/neocturne/fastd/releases/download/v${PV}/${P}.tar.xz"
 

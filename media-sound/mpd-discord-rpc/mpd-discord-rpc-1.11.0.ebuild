@@ -262,7 +262,7 @@ CRATES="
 
 inherit cargo systemd
 
-DESCRIPTION="Displays your currently playing data from MPD in Discord using Rich Presence."
+DESCRIPTION="Displays your currently playing data from MPD in Discord using Rich Presence"
 HOMEPAGE="https://github.com/JakeStanger/mpd-discord-rpc"
 SRC_URI="
 	https://github.com/JakeStanger/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz

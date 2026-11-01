@@ -9,7 +9,7 @@ MY_PV="v${PV}"
 MY_P="HackGen_${MY_PV}"
 MY_P_NF="HackGen_NF_${MY_PV}"
 
-DESCRIPTION="HackGen is a composite font of Hack and GenJyuu-Gothic."
+DESCRIPTION="HackGen is a composite font of Hack and GenJyuu-Gothic"
 HOMEPAGE="https://github.com/yuru7/HackGen"
 SRC_URI="
 	https://github.com/yuru7/HackGen/releases/download/${MY_PV}/${MY_P}.zip

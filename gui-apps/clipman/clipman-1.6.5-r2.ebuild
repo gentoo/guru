@@ -5,7 +5,7 @@ EAPI=8
 
 inherit go-module
 
-DESCRIPTION="A basic clipboard manager for Wayland."
+DESCRIPTION="A basic clipboard manager for Wayland"
 HOMEPAGE="https://github.com/chmouel/clipman/"
 SRC_URI="https://github.com/chmouel/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/${P}-vendor.tar.xz"

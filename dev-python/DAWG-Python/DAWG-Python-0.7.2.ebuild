@@ -8,7 +8,7 @@ DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
 inherit distutils-r1 pypi
 
-DESCRIPTION="Pure-python reader for DAWGs (DAFSAs) created by dawgdic C++ library."
+DESCRIPTION="Pure-python reader for DAWGs (DAFSAs) created by dawgdic C++ library"
 HOMEPAGE="
 	https://github.com/pytries/DAWG-Python
 	https://pypi.org/project/DAWG-Python/

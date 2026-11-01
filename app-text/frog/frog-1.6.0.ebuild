@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{13..14} )
 
 inherit distutils-r1 gnome2-utils meson xdg
 
-DESCRIPTION="Extract text from any image, video, QR Code and etc."
+DESCRIPTION="Extract text from any image, video, QR Code and etc"
 HOMEPAGE="https://github.com/TenderOwl/Frog"
 SRC_URI="https://github.com/TenderOwl/Frog/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 

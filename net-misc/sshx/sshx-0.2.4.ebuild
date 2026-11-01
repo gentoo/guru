@@ -261,7 +261,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="A secure web-based, collaborative terminal."
+DESCRIPTION="A secure web-based, collaborative terminal"
 HOMEPAGE="https://github.com/ekzhang/sshx"
 SRC_URI="
 	${CARGO_CRATE_URIS}

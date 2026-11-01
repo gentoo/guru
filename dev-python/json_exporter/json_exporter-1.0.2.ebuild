@@ -7,7 +7,7 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{12..14} )
 inherit distutils-r1
 
-DESCRIPTION="Python-based library for exporting JSON data as metrics for Prometheus."
+DESCRIPTION="Python-based library for exporting JSON data as metrics for Prometheus"
 HOMEPAGE="https://github.com/desultory/json_exporter"
 SRC_URI="https://github.com/desultory/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 

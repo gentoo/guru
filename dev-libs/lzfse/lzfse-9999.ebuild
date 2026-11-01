@@ -7,7 +7,7 @@ inherit git-r3
 
 EGIT_REPO_URI="https://github.com/lzfse/lzfse"
 
-DESCRIPTION="LZFSE compression library and command line tool."
+DESCRIPTION="LZFSE compression library and command line tool"
 HOMEPAGE="https://github.com/lzfse/lzfse"
 LICENSE="BSD"
 SLOT="0"

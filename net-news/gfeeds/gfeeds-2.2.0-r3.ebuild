@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_12 )
 
 inherit gnome2-utils meson python-single-r1
 
-DESCRIPTION="An RSS/Atom feed reader for GNOME."
+DESCRIPTION="An RSS/Atom feed reader for GNOME"
 HOMEPAGE="https://gitlab.gnome.org/World/gfeeds"
 SRC_URI="https://gitlab.gnome.org/World/gfeeds/-/archive/${PV}/${P}.tar.bz2"
 

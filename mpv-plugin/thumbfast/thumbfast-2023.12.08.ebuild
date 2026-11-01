@@ -8,7 +8,7 @@ MPV_REQ_USE="lua"
 inherit mpv-plugin
 
 COMMIT="03e93feee5a85bf7c65db953ada41b4826e9f905"
-DESCRIPTION="High-performance on-the-fly thumbnailer script for mpv."
+DESCRIPTION="High-performance on-the-fly thumbnailer script for mpv"
 HOMEPAGE="https://github.com/po5/thumbfast"
 SRC_URI="https://github.com/po5/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"

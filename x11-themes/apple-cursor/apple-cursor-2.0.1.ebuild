@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Free & Open source macOS Cursors."
+DESCRIPTION="Free & Open source macOS Cursors"
 HOMEPAGE="https://github.com/ful1e5/apple_cursor"
 SRC_URI="https://github.com/ful1e5/apple_cursor/releases/download/v${PV}/macOS.tar.xz -> ${P}.tar.xz"
 

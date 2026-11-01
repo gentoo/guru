@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="An automation tool for building Gentoo release stages and binhost packages."
+DESCRIPTION="An automation tool for building Gentoo release stages and binhost packages"
 HOMEPAGE="https://github.com/damiandudycz/catalyst-lab"
 SRC_URI="https://github.com/damiandudycz/catalyst-lab/archive/refs/tags/catalyst-lab-v${PV}.tar.gz"
 S="${WORKDIR}/${PN}-${PN}-v${PV}"

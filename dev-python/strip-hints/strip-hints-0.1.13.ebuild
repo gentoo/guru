@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 edo
 
-DESCRIPTION="Function and command-line program to strip Python type hints."
+DESCRIPTION="Function and command-line program to strip Python type hints"
 HOMEPAGE="https://pypi.org/project/strip-hints
 	https://github.com/abarker/strip-hints"
 

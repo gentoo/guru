@@ -7,7 +7,7 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_12 )
 inherit desktop distutils-r1 xdg
 
-DESCRIPTION="A cross platform front-end GUI of the popular youtube-dl written in wxPython."
+DESCRIPTION="A cross platform front-end GUI of the popular youtube-dl written in wxPython"
 HOMEPAGE="https://yt-dlg.github.io/yt-dlg/"
 # Using latest commit from Mars 19, 2024 as of August 5, 2024.
 # Latest releases and tags are from 2021 and are probably deprecated and incompatible with current Python versions.

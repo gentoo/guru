@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake xdg
 
-DESCRIPTION="Music Player written in C++ & Qt."
+DESCRIPTION="Music Player written in C++ & Qt"
 HOMEPAGE="https://github.com/brookiestein/QBitMPlayer"
 SRC_URI="https://github.com/brookiestein/QBitMPlayer/archive/refs/tags/${PV}.tar.gz -> QBitMPlayer-${PV}.tar.gz"
 S="${WORKDIR}/QBitMPlayer-${PV}"

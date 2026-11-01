@@ -5,7 +5,7 @@ EAPI=8
 
 inherit savedconfig
 
-DESCRIPTION="Modular status bar for somebar written in c."
+DESCRIPTION="Modular status bar for somebar written in c"
 HOMEPAGE="https://git.sr.ht/~raphi/someblocks"
 SRC_URI="https://git.sr.ht/~raphi/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 

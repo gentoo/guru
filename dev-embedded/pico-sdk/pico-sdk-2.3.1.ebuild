@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Libraries and tools for C/C++ development on RP2040 and RP2350 microcontrollers."
+DESCRIPTION="Libraries and tools for C/C++ development on RP2040 and RP2350 microcontrollers"
 HOMEPAGE="https://github.com/raspberrypi/pico-sdk"
 
 SRC_URI="

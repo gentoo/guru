@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_12 )
 
 inherit meson python-single-r1
 
-DESCRIPTION="An RSS/Atom parser, because there's nothing else out there."
+DESCRIPTION="An RSS/Atom parser, because there's nothing else out there"
 HOMEPAGE="https://gitlab.com/gabmus/syndication-domination"
 
 if [[ ${PV} == 9999 ]]; then

@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake edo
 
-DESCRIPTION="R6RS/R7RS Scheme system."
+DESCRIPTION="R6RS/R7RS Scheme system"
 HOMEPAGE="https://github.com/ktakashi/sagittarius-scheme"
 SRC_URI="https://github.com/ktakashi/sagittarius-scheme/releases/download/v${PV}/${P}.tar.gz"
 PATCHES=( "${FILESDIR}/${PN}-0.9.14-compiler-flags.patch" )

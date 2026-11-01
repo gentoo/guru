@@ -8,7 +8,7 @@ DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1
 
-DESCRIPTION="Python package to handle tiles and points of different projections."
+DESCRIPTION="Python package to handle tiles and points of different projections"
 HOMEPAGE="https://github.com/geometalab/pyGeoTile"
 
 MY_PN="pyGeoTile"

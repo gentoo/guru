@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake xdg
 
-DESCRIPTION="Daemon to lock your screen when Bluetooth trusted devices go away."
+DESCRIPTION="Daemon to lock your screen when Bluetooth trusted devices go away"
 HOMEPAGE="https://github.com/brookiestein/BtScreenLocker"
 SRC_URI="https://github.com/brookiestein/BtScreenLocker/archive/refs/tags/${PV}.tar.gz -> BtScreenLocker-${PV}.tar.gz"
 S="${WORKDIR}/BtScreenLocker-${PV}"

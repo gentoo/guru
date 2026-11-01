@@ -11,7 +11,7 @@ CHROMIUM_LANGS="
 
 inherit chromium-2 desktop unpacker xdg
 
-DESCRIPTION="Organized chat for distributed teams."
+DESCRIPTION="Organized chat for distributed teams"
 HOMEPAGE="https://zulip.com/"
 SRC_URI="
 	amd64? ( https://download.zulip.com/desktop/apt/pool/main/z/zulip/Zulip-${PV}-amd64.deb )

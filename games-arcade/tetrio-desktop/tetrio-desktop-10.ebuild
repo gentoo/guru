@@ -5,7 +5,7 @@ EAPI=8
 
 inherit unpacker desktop xdg
 
-DESCRIPTION="TETR.IO desktop client."
+DESCRIPTION="TETR.IO desktop client"
 HOMEPAGE="https://tetr.io/"
 
 SRC_URI="https://tetr.io/about/desktop/builds/${PV}/TETR.IO%20Setup.deb -> ${P}.deb

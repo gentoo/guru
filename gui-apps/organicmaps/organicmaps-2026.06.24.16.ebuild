@@ -10,7 +10,7 @@ JUST_GTFS_COMMIT="7516753825500f90ac2de6f18c256d5abec1ff33"
 FAST_OBJ_COMMIT="d620667f10a548dee94dbc8c144bb22f79162176"
 
 IUSE="test"
-DESCRIPTION="A privacy-first offline maps & GPS app for hiking, cycling, biking, and driving."
+DESCRIPTION="A privacy-first offline maps & GPS app for hiking, cycling, biking, and driving"
 HOMEPAGE="https://organicmaps.app"
 
 SLOT="0"

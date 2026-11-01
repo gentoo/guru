@@ -5,7 +5,7 @@ EAPI=8
 
 inherit go-module
 
-DESCRIPTION="A powerline like prompt for Bash, Zsh, Fish written in Go lang."
+DESCRIPTION="A powerline like prompt for Bash, Zsh, Fish written in Go lang"
 HOMEPAGE="https://github.com/justjanne/powerline-go"
 SRC_URI="https://github.com/justjanne/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://github.com/Tapchicoma/ebuild-deps/raw/refs/heads/main/go-deps/${PN}-${PV}-deps.tar.xz"

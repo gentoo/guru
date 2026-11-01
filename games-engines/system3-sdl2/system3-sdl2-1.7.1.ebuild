@@ -4,7 +4,7 @@ inherit cmake
 
 YMFM_COMMIT="10c72f79bea3e0ab66af32d4295519aa17e6ea0f"  # Check if this needs updating on xsystem35 updates
 
-DESCRIPTION="SDL2 port of AliceSoft's System3 for Win32 by Takeda Toshiya."
+DESCRIPTION="SDL2 port of AliceSoft's System3 for Win32 by Takeda Toshiya"
 HOMEPAGE="https://github.com/kichikuou/system3-sdl2"
 SRC_URI="
 	https://github.com/kichikuou/system3-sdl2/archive/v${PV}.tar.gz -> ${P}.tar.gz

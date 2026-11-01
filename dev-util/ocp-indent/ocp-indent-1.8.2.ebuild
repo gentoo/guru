@@ -5,7 +5,7 @@ EAPI=8
 
 inherit dune
 
-DESCRIPTION="Indentation tool for OCaml, to be used from editors like Emacs and Vim."
+DESCRIPTION="Indentation tool for OCaml, to be used from editors like Emacs and Vim"
 HOMEPAGE="
 	http://www.typerex.org/ocp-indent.html
 	https://github.com/OCamlPro/ocp-indent

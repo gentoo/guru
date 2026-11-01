@@ -3,7 +3,7 @@
 
 EAPI=8
 inherit cmake
-DESCRIPTION="An integration of the Ghidra decompiler and Sleigh Disassembler for Rizin."
+DESCRIPTION="An integration of the Ghidra decompiler and Sleigh Disassembler for Rizin"
 HOMEPAGE="https://github.com/rizinorg/rz-ghidra"
 SRC_URI="https://github.com/rizinorg/rz-ghidra/releases/download/v${PV}/rz-ghidra-src-v${PV}.tar.gz -> ${P}.tar.gz"
 

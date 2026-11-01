@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cargo git-r3
 
-DESCRIPTION="spotify_player is a fast, easy to use, and configurable terminal music player."
+DESCRIPTION="spotify_player is a fast, easy to use, and configurable terminal music player"
 HOMEPAGE="https://github.com/aome510/spotify-player"
 EGIT_REPO_URI="https://github.com/aome510/spotify-player.git"
 

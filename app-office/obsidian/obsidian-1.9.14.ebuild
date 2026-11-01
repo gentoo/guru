@@ -11,7 +11,7 @@ CHROMIUM_LANGS="
 "
 inherit chromium-2 desktop linux-info unpacker xdg
 
-DESCRIPTION="A second brain, for you, forever."
+DESCRIPTION="A second brain, for you, forever"
 HOMEPAGE="https://obsidian.md/"
 
 # For some reason, the main binary tarballs don't include the .desktop file or

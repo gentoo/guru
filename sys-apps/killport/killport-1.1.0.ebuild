@@ -195,7 +195,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="A command-line tool to easily kill processes on a specified port."
+DESCRIPTION="A command-line tool to easily kill processes on a specified port"
 HOMEPAGE="https://github.com/jkfran/killport"
 SRC_URI="
 	https://github.com/jkfran/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz

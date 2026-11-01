@@ -5,7 +5,7 @@ EAPI=7
 
 inherit git-r3
 
-DESCRIPTION="A framework for managing your zsh configuration."
+DESCRIPTION="A framework for managing your zsh configuration"
 HOMEPAGE="https://ohmyz.sh"
 EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 

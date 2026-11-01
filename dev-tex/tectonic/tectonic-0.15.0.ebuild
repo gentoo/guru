@@ -344,7 +344,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="A modernized, complete, embeddable TeX/LaTeX engine."
+DESCRIPTION="A modernized, complete, embeddable TeX/LaTeX engine"
 HOMEPAGE="https://github.com/tectonic-typesetting/tectonic/"
 SRC_URI="
 	https://github.com/tectonic-typesetting/tectonic/archive/refs/tags/tectonic@${PV}.tar.gz -> ${P}.tar.gz

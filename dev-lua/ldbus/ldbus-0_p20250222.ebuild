@@ -6,7 +6,7 @@ EAPI=8
 LUA_COMPAT=( lua5-{1..4} luajit )
 inherit lua toolchain-funcs
 
-DESCRIPTION="Lua library to access dbus."
+DESCRIPTION="Lua library to access dbus"
 HOMEPAGE="https://github.com/daurnimator/ldbus"
 EGIT_COMMIT="2571a9ba15d03bc40ac2e406f42ef14b322e1c01"
 SRC_URI="https://github.com/daurnimator/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"

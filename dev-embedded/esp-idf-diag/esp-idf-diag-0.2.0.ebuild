@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
-DESCRIPTION="A tool to gather diagnostic information about the ESP-IDF environment."
+DESCRIPTION="A tool to gather diagnostic information about the ESP-IDF environment"
 HOMEPAGE="https://github.com/espressif/esp-idf-diag"
 
 LICENSE="Apache-2.0"

@@ -5,7 +5,7 @@ EAPI=8
 
 inherit gnome2 meson
 
-DESCRIPTION="Show keys you typed on screen."
+DESCRIPTION="Show keys you typed on screen"
 HOMEPAGE="https://showmethekey.alynx.one/"
 SRC_URI="https://github.com/AlynxZhou/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 

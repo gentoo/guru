@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_12  )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 pypi
 
-DESCRIPTION="Morphological analyzer (POS tagger + inflection engine) for Russian language."
+DESCRIPTION="Morphological analyzer (POS tagger + inflection engine) for Russian language"
 HOMEPAGE="https://github.com/no-plagiarism/pymorphy3 https://pypi.org/project/pymorphy3/"
 DEPEND="
 	dev-python/docopt[${PYTHON_USEDEP}]

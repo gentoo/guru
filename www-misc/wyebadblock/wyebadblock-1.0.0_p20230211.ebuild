@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="An adblock extension for wyeb, also webkit2gtk browsers."
+DESCRIPTION="An adblock extension for wyeb, also webkit2gtk browsers"
 HOMEPAGE="https://github.com/jun7/wyebadblock"
 MY_COMMIT="529a5eedafacca9cd4ba78bf15d3a2bb565b821a"
 SRC_URI="https://github.com/jun7/wyebadblock/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"

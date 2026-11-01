@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop go-module systemd xdg
 
-DESCRIPTION="An implementation of the MPRIS protocol for MPD."
+DESCRIPTION="An implementation of the MPRIS protocol for MPD"
 HOMEPAGE="https://github.com/natsukagami/mpd-mpris"
 SRC_URI="https://github.com/natsukagami/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/pastalian/distfiles/releases/download/${P}/${P}-deps.tar.xz"

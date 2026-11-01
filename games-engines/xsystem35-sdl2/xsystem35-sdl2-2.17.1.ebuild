@@ -2,7 +2,7 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="Port of xsystem35, a free implementation of AliceSoft's System 3.x game engine."
+DESCRIPTION="Port of xsystem35, a free implementation of AliceSoft's System 3.x game engine"
 HOMEPAGE="https://github.com/kichikuou/xsystem35-sdl2"
 SRC_URI="https://github.com/kichikuou/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 

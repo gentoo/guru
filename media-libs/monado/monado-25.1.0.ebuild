@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake flag-o-matic
 
-DESCRIPTION="The open source OpenXR runtime."
+DESCRIPTION="The open source OpenXR runtime"
 HOMEPAGE="https://monado.dev"
 
 if [[ "${PV}" == *9999* ]]; then

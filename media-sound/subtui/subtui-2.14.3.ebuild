@@ -5,7 +5,7 @@ EAPI=8
 
 inherit go-module
 
-DESCRIPTION="A lightweight Subsonic TUI music player built in Go with scrobbling support."
+DESCRIPTION="A lightweight Subsonic TUI music player built in Go with scrobbling support"
 HOMEPAGE="https://github.com/MattiaPun/SubTUI"
 SRC_URI="https://github.com/MattiaPun/SubTUI/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://codeberg.org/ceres-sees-all/guru-distfiles/releases/download/${P}-deps.tar.xz/${P}-deps.tar.xz"

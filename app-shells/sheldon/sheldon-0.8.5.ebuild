@@ -156,7 +156,7 @@ RUST_MIN_VER="1.82.0"
 
 inherit cargo
 
-DESCRIPTION="Fast, configurable, shell plugin manager."
+DESCRIPTION="Fast, configurable, shell plugin manager"
 # Double check the homepage as the cargo_metadata crate
 # does not provide this value so instead repository is used
 HOMEPAGE="https://sheldon.cli.rs/"

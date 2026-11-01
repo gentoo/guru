@@ -8,7 +8,7 @@ inherit vim-plugin
 
 SHA="1261f851e5fb2192b3a5e1691650597c71dfce2f"
 
-DESCRIPTION="Kotlin plugin for Vim."
+DESCRIPTION="Kotlin plugin for Vim"
 HOMEPAGE="https://github.com/udalov/kotlin-vim"
 SRC_URI="https://github.com/udalov/kotlin-vim/archive/${SHA}.tar.gz -> ${P}.tar.gz"
 

@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{12..13} )
 
 inherit desktop distutils-r1 xdg
 
-DESCRIPTION="Install and manage GE-Proton, Luxtorpeda & more for Steam Lutris and Heroic."
+DESCRIPTION="Install and manage GE-Proton, Luxtorpeda & more for Steam Lutris and Heroic"
 HOMEPAGE="https://davidotek.github.io/protonup-qt/"
 
 SRC_URI="

@@ -305,7 +305,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="Generate a 16 color scheme based on an image."
+DESCRIPTION="Generate a 16 color scheme based on an image"
 HOMEPAGE="https://explosion-mental.codeberg.page/wallust"
 SRC_URI="
 	${CARGO_CRATE_URIS}

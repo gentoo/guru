@@ -9,7 +9,7 @@ MY_PV="v${PV}"
 MY_P="Firge_${MY_PV}"
 MY_P_NF="FirgeNerd_${MY_PV}"
 
-DESCRIPTION="Firge is a composite font of Fira Mono and GenShin-Gothic."
+DESCRIPTION="Firge is a composite font of Fira Mono and GenShin-Gothic"
 HOMEPAGE="https://github.com/yuru7/Firge"
 SRC_URI="
 	https://github.com/yuru7/Firge/releases/download/${MY_PV}/${MY_P}.zip

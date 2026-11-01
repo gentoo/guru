@@ -10,7 +10,7 @@ MY_P="UDEVGothic_${MY_PV}"
 MY_P_NF="UDEVGothic_NF_${MY_PV}"
 MY_P_HS="UDEVGothic_HS_${MY_PV}"
 
-DESCRIPTION="UDEV Gothic is a composite font of BIZ UD Gothic and JetBrains Mono."
+DESCRIPTION="UDEV Gothic is a composite font of BIZ UD Gothic and JetBrains Mono"
 HOMEPAGE="https://github.com/yuru7/udev-gothic"
 SRC_URI="
 	https://github.com/yuru7/udev-gothic/releases/download/${MY_PV}/${MY_P}.zip

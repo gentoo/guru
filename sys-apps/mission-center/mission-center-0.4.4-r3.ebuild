@@ -299,7 +299,7 @@ declare -A GIT_CRATES=(
 
 inherit cargo gnome2-utils meson python-any-r1 xdg
 
-DESCRIPTION="Monitor your CPU, Memory, Disk, Network and GPU usage."
+DESCRIPTION="Monitor your CPU, Memory, Disk, Network and GPU usage"
 HOMEPAGE="https://missioncenter.io/"
 
 SRC_URI="

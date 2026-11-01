@@ -5,7 +5,7 @@ EAPI=8
 
 inherit readme.gentoo-r1
 
-DESCRIPTION="Real-time type-ahead completion for Zsh."
+DESCRIPTION="Real-time type-ahead completion for Zsh"
 HOMEPAGE="https://github.com/marlonrichert/zsh-autocomplete"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3

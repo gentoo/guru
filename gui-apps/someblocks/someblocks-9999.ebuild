@@ -5,7 +5,7 @@ EAPI=8
 
 inherit savedconfig git-r3
 
-DESCRIPTION="Modular status bar for somebar written in c."
+DESCRIPTION="Modular status bar for somebar written in c"
 HOMEPAGE="https://git.sr.ht/~raphi/someblocks"
 EGIT_REPO_URI="https://git.sr.ht/~raphi/someblocks"
 

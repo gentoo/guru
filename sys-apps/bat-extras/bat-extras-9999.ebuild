@@ -5,7 +5,7 @@ EAPI=8
 
 inherit optfeature
 
-DESCRIPTION="Bash scripts that integrate bat with various command line tools."
+DESCRIPTION="Bash scripts that integrate bat with various command line tools"
 HOMEPAGE="https://github.com/eth-p/bat-extras"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3

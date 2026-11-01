@@ -10,7 +10,7 @@ HTML_DOCS=( docs )
 
 inherit distutils-r1
 
-DESCRIPTION="Python package for parsing and generating JSON feeds."
+DESCRIPTION="Python package for parsing and generating JSON feeds"
 HOMEPAGE="https://github.com/lukasschwab/jsonfeed"
 SRC_URI="https://github.com/lukasschwab/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 

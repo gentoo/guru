@@ -5,7 +5,7 @@ EAPI=8
 
 inherit font
 
-DESCRIPTION="Braille Institute's Atkinson Hyperlegible font."
+DESCRIPTION="Braille Institute's Atkinson Hyperlegible font"
 HOMEPAGE="https://www.brailleinstitute.org/freefont/"
 
 MY_PV="2020-0514"

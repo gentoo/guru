@@ -7,7 +7,7 @@ PYTHON_REQ_USE="xml(+)"
 
 inherit python-r1 systemd
 
-DESCRIPTION="A Web Service Discovery host daemon."
+DESCRIPTION="A Web Service Discovery host daemon"
 HOMEPAGE="https://github.com/christgau/wsdd"
 SRC_URI="https://github.com/christgau/wsdd/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 

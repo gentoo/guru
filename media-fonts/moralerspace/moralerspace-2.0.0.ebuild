@@ -7,7 +7,7 @@ inherit font
 
 MY_PV="v${PV}"
 
-DESCRIPTION="moralerspace is a composite font of Monaspace and IBM Plex Sans JP."
+DESCRIPTION="moralerspace is a composite font of Monaspace and IBM Plex Sans JP"
 HOMEPAGE="https://github.com/yuru7/moralerspace"
 SRC_URI="
 	https://github.com/yuru7/moralerspace/releases/download/${MY_PV}/${PN^}_${MY_PV}.zip

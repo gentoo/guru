@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
 
-DESCRIPTION="Python Finite State Machines made easy."
+DESCRIPTION="Python Finite State Machines made easy"
 HOMEPAGE="
 	https://pypi.org/project/python-statemachine/
 	https://github.com/fgmacedo/python-statemachine

@@ -6,7 +6,7 @@ COMMIT="a3e413489ccdd05431401357bf21690536425012"
 
 inherit toolchain-funcs
 
-DESCRIPTION="Convert Apple disk images to IMG format."
+DESCRIPTION="Convert Apple disk images to IMG format"
 HOMEPAGE="https://github.com/Lekensteyn/dmg2img"
 SRC_URI="https://github.com/Lekensteyn/dmg2img/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"

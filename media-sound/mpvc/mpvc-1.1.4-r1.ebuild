@@ -52,7 +52,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="mpc-like tool which connects to existing mpv instances through sockets."
+DESCRIPTION="mpc-like tool which connects to existing mpv instances through sockets"
 HOMEPAGE="https://gitlab.com/mpv-ipc/mpvc"
 SRC_URI="
 ${CARGO_CRATE_URIS}

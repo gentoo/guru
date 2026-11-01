@@ -7,7 +7,7 @@ JAVA_PKG_WANT_TARGET=1.8
 
 inherit desktop java-pkg-2
 
-DESCRIPTION="Editor of multiple sequence alignments."
+DESCRIPTION="Editor of multiple sequence alignments"
 HOMEPAGE="https://www.jalview.org/"
 SRC_URI="https://www.jalview.org/getdown/release/jalview-all-${PV}-j1.8.jar"
 

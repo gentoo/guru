@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Pulseaudio command line mixer."
+DESCRIPTION="Pulseaudio command line mixer"
 HOMEPAGE="https://github.com/cdemoulins/pamixer"
 
 inherit meson

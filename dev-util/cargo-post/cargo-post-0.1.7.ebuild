@@ -25,7 +25,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="A cargo wrapper that executes a post build script after a successful build."
+DESCRIPTION="A cargo wrapper that executes a post build script after a successful build"
 HOMEPAGE="https://github.com/phil-opp/cargo-post"
 SRC_URI="
 	https://github.com/phil-opp/cargo-post/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
