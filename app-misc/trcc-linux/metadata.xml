@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>siembabdavid@gmail.com</email>
+    <name>David Siemba</name>
+  </maintainer>
+  <longdescription>
+    Linux implementation of the Thermalright LCD Control Center.
+    Controls LCD displays and LED segment displays on Thermalright
+    CPU coolers and AIO liquid coolers. Supports SCSI, HID, Bulk,
+    and LY USB protocols. GUI, CLI, and REST API interfaces.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">Lexonight1/thermalright-trcc-linux</remote-id>
+    <bugs-to>https://github.com/Lexonight1/thermalright-trcc-linux/issues</bugs-to>
+  </upstream>
+</pkgmetadata>
