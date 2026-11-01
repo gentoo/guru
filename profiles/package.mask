@@ -19,6 +19,14 @@
 # New entries go on top.
 
 # Viorel Munteanu <ceamac@gentoo.org> (2026-11-01)
+# Dependencies of net-misc/maestral, marked for removal.
+# Not used by anything else.
+# Removal on 2026-12-01.
+dev-python/desktop-notifier
+dev-python/survey
+dev-python/sphinx-paramlinks
+
+# Viorel Munteanu <ceamac@gentoo.org> (2026-11-01)
 # Maestral is archived upstream, does not work with
 # >=dev-python/dropbox-dev-python/dropbox-12.2.2
 # Removal on 2026-12-01.
