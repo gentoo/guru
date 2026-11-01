@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <!-- maintainer needed -->
+  <maintainer type="person">
+    <name>Katalin Rebhan</name>
+    <email>kat@knifepoint.net</email>
+  </maintainer>
   <longdescription>
     A virtual package which provides a base version of Swift to bootstrap
     ">=dev-lang/swift-6*" with. Swift 6 and later require an earlier Swift
