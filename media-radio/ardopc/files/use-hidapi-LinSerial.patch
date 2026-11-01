@@ -1,0 +1,26 @@
+--- ARDOPCommonCode/LinSerial.c.orig	2025-09-09 13:04:01.154856669 +0200
++++ ARDOPCommonCode/LinSerial.c	2025-09-09 13:04:01.154856669 +0200
+@@ -19,6 +19,16 @@
+ #include <errno.h>
+ #include <stdio.h>
+ #include <unistd.h>
++#include <string.h>  // fülen()
++
++#ifndef Debugprintf
++#define Debugprintf printf
++#endif
++
++#ifndef WriteDebugLog
++#define WriteDebugLog(level, fmt, ...) do {} while(0)
++#endif
++
+ 
+ //#include "ARDOPC.h"
+ 
+@@ -328,4 +338,4 @@
+ 	WriteDebugLog(5, "CAT Write Len %d %s", Len, Buffer);
+ 	if (hCATDevice)
+ 		WriteCOMBlock(hCATDevice, Buffer, Len);
+-}
+\ Kein Zeilenumbruch am Dateiende.
++}
