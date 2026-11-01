@@ -15,7 +15,9 @@ SRC_URI="https://github.com/jdum/odsgenerator/archive/refs/tags/v${PV}.tar.gz ->
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc"
+IUSE="doc test"
+
+distutils_enable_tests pytest
 
 RDEPEND="
 	>=dev-python/odfdo-3.7.7[${PYTHON_USEDEP}]
