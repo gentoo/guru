@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
@@ -21,6 +21,8 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 RDEPEND="dev-python/sortedcontainers[${PYTHON_USEDEP}]"
 BDEPEND="doc? ( ${RDEPEND} )"
+
+PATCHES=( "${FILESDIR}/python-update.patch" )
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs
