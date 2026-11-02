@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{13..14} )
+PYTHON_COMPAT=( python3_{13..15} )
 DISTUTILS_USE_PEP517=uv-build
 inherit distutils-r1
 
@@ -18,20 +18,18 @@ LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND="
-	test? (
-		dev-python/hypothesis[${PYTHON_USEDEP}]
-		dev-python/sortedcontainers[${PYTHON_USEDEP}]
-		dev-python/sortedcollections[${PYTHON_USEDEP}]
-		dev-python/typing-extensions[${PYTHON_USEDEP}]
-	)
-"
-
 DOCS=( {CHANGELOG,README,SECURITY}.rst )
 
 EPYTEST_IGNORE=( tests/test_microbenchmarks.py )
 
-EPYTEST_PLUGINS=()
+EPYTEST_PLUGINS=(
+	hypothesis
+	pytest
+	pytest-xdist
+	sortedcontainers
+	sortedcollections
+	typing-extensions
+)
 
 distutils_enable_tests pytest
 
