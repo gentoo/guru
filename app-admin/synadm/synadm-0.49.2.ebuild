@@ -3,24 +3,26 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_12 )
+PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 pypi
 
 DESCRIPTION="Command line admin tool for Synapse"
-HOMEPAGE="https://github.com/JOJ0/synadm"
+HOMEPAGE="https://codeberg.org/synadm/synadm"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	${PYTHON_DEP}
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/click-option-group[${PYTHON_USEDEP}]
 	dev-python/dnspython[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/requests-unixsocket[${PYTHON_USEDEP}]
 	dev-python/tabulate[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
