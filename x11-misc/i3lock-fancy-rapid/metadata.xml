@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>jlin.gentoo@outlook.com</email>
-		<name>Jian Lin</name>
-	</maintainer>
+	<!-- maintainer needed -->
 	<upstream>
 		<maintainer status="active">
 			<name>yvbbrjdr</name>
