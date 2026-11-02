@@ -63,9 +63,12 @@ python_test() {
 
 	EPYTEST_DESELECT=(
 		# tests using network
+		tests/sources/bazel.py::test_basic
+		tests/sources/bazel.py::test_multi_url
 		tests/sources/bazel_file.py::test_basic
 		tests/sources/bazel_file.py::test_multi_url
 		source_determinism.py::test_deterministic_source_umask[git_tag]
+		source_determinism.py::test_deterministic_source_umask[ostree]
 		source_determinism.py::test_deterministic_source_umask[zip]
 	)
 
