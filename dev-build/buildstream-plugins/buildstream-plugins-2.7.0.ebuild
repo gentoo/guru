@@ -27,6 +27,7 @@ RDEPEND="
 BDEPEND="
 	virtual/pkgconfig
 	test? (
+		dev-python/pip[${PYTHON_USEDEP}]
 		dev-python/pycodestyle[${PYTHON_USEDEP}]
 		dev-python/pyftpdlib[${PYTHON_USEDEP}]
 		dev-python/pylint[${PYTHON_USEDEP}]
