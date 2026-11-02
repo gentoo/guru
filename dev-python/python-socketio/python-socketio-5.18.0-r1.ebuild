@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{13..14} )
+PYTHON_COMPAT=( python3_{13..15} )
 inherit distutils-r1 pypi
 
 DESCRIPTION="Python implementation of the Socket.IO realtime server"
@@ -36,10 +36,3 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # pypi tarball does not contain tests
 RESTRICT="test"
-
-src_prepare() {
-	# `project.license` as a TOML table is deprecated, so we remove it
-	sed -ie "/license =/d" pyproject.toml \
-		|| die "Failed to remove deprecated project.license"
-	eapply_user
-}
