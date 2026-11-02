@@ -2,10 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>petrus.zy.07@gmail.com</email>
-		<name>Petrus Zhao</name>
-	</maintainer>
-	<maintainer type="person">
 		<email>vowstar@gmail.com</email>
 		<name>Huang Rui</name>
 	</maintainer>
