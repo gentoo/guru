@@ -1,0 +1,38 @@
+From 9c34ffcb6433d1f892d54ddd8fef6afdd73cb4a0 Mon Sep 17 00:00:00 2001
+From: bakedsnake <bakedsnake@vagrantz.xyz>
+Date: Wed, 28 Oct 2026 00:35:09 +0100
+Subject: [PATCH] Fix: don't force -fPIE globally
+
+Keep -fPIC for the vvdec lib, but don't force it on
+vvdecapp. This should allow  vvdecapp  to  use  the
+defaults from the toolchain.
+---
+ CMakeLists.txt                  | 3 ---
+ source/Lib/vvdec/CMakeLists.txt | 4 ++++
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b3c5c9b1..6dddcc78 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -337,9 +337,6 @@ set( CMAKE_CXX_STANDARD 14 )
+ set( CMAKE_CXX_EXTENSIONS OFF )
+ set( CMAKE_CXX_STANDARD_REQUIRED ON )
+ 
+-# compile everything position independent (even static libraries)
+-set( CMAKE_POSITION_INDEPENDENT_CODE TRUE )
+-
+ # set verbose compile options
+ #set( CMAKE_VERBOSE_MAKEFILE ON )
+ 
+diff --git a/source/Lib/vvdec/CMakeLists.txt b/source/Lib/vvdec/CMakeLists.txt
+index a7af9316..dfb47b1c 100644
+--- a/source/Lib/vvdec/CMakeLists.txt
++++ b/source/Lib/vvdec/CMakeLists.txt
+@@ -1,3 +1,7 @@
++# compile position independent, so the static library can be linked into shared objects.
++# not set globally, so executables keep the toolchain's PIE default instead of getting -fPIE forced.
++set( CMAKE_POSITION_INDEPENDENT_CODE TRUE )
++
+ # library
+ set( LIB_NAME vvdec )

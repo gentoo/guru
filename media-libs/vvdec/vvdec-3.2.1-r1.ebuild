@@ -16,6 +16,8 @@ KEYWORDS="~amd64"
 # Tests seem to be missing
 RESTRICT="test"
 
+PATCHES=( "${FILESDIR}/position-independent.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DVVDEC_INSTALL_VVDECAPP="ON"
