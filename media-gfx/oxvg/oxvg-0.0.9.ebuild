@@ -457,6 +457,8 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
+QA_FLAGS_IGNORED="usr/bin/oxvg"
+
 src_configure() {
 	cargo_src_configure --bin oxvg
 }
