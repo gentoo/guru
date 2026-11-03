@@ -3,17 +3,24 @@
 
 EAPI=8
 
-inherit systemd
+inherit autotools systemd
 
 DESCRIPTION="A fork of Jeroen T. Vermeulen's excellent dynamic swap space manager"
 HOMEPAGE="https://github.com/Tookmund/Swapspace"
 SRC_URI="https://github.com/Tookmund/Swapspace/releases/download/v${PV}/swapspace-${PV}.tar.gz"
+
+PATCHES=("${FILESDIR}/swapspace-1.18.1-dont-install-empty-dir.patch")
 
 LICENSE="GPL-2"
 
 SLOT="0"
 
 KEYWORDS="~amd64"
+
+src_prepare() {
+	default
+	eautoreconf
+}
 
 src_configure() {
 	econf --localstatedir="${EPREFIX}"/var
