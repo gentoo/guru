@@ -4,7 +4,7 @@
 EAPI=8
 
 CRATES="
-	why2@1.5.3
+	why2@1.6.0
 	ab_glyph@0.2.32
 	ab_glyph_rasterizer@0.1.10
 	adler2@2.0.1
