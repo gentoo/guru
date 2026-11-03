@@ -20,16 +20,16 @@ KEYWORDS="~amd64"
 
 DOCS=( {CHANGELOG,README,SECURITY}.rst )
 
+BDEPEND="
+	test? (
+		dev-python/sortedcollections[${PYTHON_USEDEP}]
+		dev-python/typing-extensions[${PYTHON_USEDEP}]
+	)
+"
+
 EPYTEST_IGNORE=( tests/test_microbenchmarks.py )
 
-EPYTEST_PLUGINS=(
-	hypothesis
-	pytest
-	pytest-xdist
-	sortedcontainers
-	sortedcollections
-	typing-extensions
-)
+EPYTEST_PLUGINS=( hypothesis pytest-xdist )
 
 distutils_enable_tests pytest
 
