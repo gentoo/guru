@@ -32,6 +32,7 @@ CRATES="
 	deranged@0.5.9
 	displaydoc@0.2.7
 	downcast@0.11.0
+	dunce@1.0.5
 	either@1.18.0
 	equivalent@1.0.2
 	errno@0.3.14
@@ -70,7 +71,6 @@ CRATES="
 	memchr@2.8.3
 	mockall@0.15.0
 	mockall_derive@0.15.0
-	nab@0.12.4
 	num-conv@0.2.2
 	num-traits@0.2.19
 	once_cell@1.21.4
@@ -107,8 +107,8 @@ CRATES="
 	regex-syntax@0.8.11
 	regex@1.13.1
 	relative-path@1.9.3
-	rstest@0.27.0
-	rstest_macros@0.27.0
+	rstest@0.28.0
+	rstest_macros@0.28.0
 	rustc-hash@2.1.3
 	rustc_version@0.4.1
 	rustix@1.1.5
@@ -220,7 +220,7 @@ BDEPEND="
 QA_FLAGS_IGNORED="
 	/usr/lib/python3.13/site-packages/pipdeptree/_rust.cpython-313-x86_64-linux-gnu.so
 	/usr/lib/python3.14/site-packages/pipdeptree/_rust.cpython-314-x86_64-linux-gnu.so
-	/usr/lib/python3.12/site-packages/pipdeptree/_rust.cpython-312-x86_64-linux-gnu.so
+	/usr/lib/python3.15/site-packages/pipdeptree/_rust.cpython-315-x86_64-linux-gnu.so
 "
 
 EPYTEST_PLUGINS=( pytest-{mock,rerunfailures,subprocess,xdist} )
