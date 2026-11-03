@@ -1,0 +1,5 @@
+#!/sbin/openrc-run
+name="Touchégg"
+supervisor=supervise-daemon
+command="/usr/bin/touchegg"
+command_args="--daemon"
