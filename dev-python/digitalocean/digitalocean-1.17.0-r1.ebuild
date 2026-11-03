@@ -22,7 +22,8 @@ RDEPEND="
 "
 BDEPEND="test? ( dev-python/responses[${PYTHON_USEDEP}] )"
 
-distutils_enable_sphinx docs dev-python/alabaster
+# sphinx does not support python3_12
+# distutils_enable_sphinx docs dev-python/alabaster
 
 EPYTEST_DESELECT=(
 	# Needs net
