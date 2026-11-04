@@ -9,14 +9,14 @@ PYTHON_COMPAT=( python3_{13..14} )
 inherit cmake python-single-r1 xdg
 
 DESCRIPTION="Client for PlayStation 4 and PlayStation 5 Remote Play"
-HOMEPAGE="https://github.com/streetpea/chiaki-ng"
+HOMEPAGE="https://github.com/chiaki-ng/chiaki-ng"
 
 if [[ "${PV}" == "9999" ]] ; then
-	EGIT_REPO_URI="https://github.com/streetpea/${PN}.git"
+	EGIT_REPO_URI="https://github.com/chiaki-ng/${PN}.git"
 	inherit git-r3
 else
 	SRC_URI="
-		https://github.com/streetpea/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/chiaki-ng/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 		test? ( https://github.com/nemequ/munit/archive/${VER_MUNIT}.tar.gz -> munit-${VER_MUNIT}.tar.gz )
 	"
 	KEYWORDS="~amd64"
