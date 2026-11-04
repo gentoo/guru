@@ -1,0 +1,5 @@
+/var/log/copyparty/*.log {
+    missingok
+    notifempty
+    copytruncate
+}

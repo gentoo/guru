@@ -1,0 +1,46 @@
+#!/sbin/openrc-run
+COPYPARTY_USER="${COPYPARTY_USER:-copyparty}"
+COPYPARTY_CONFIG="${COPYPARTY_CONFIG:-/etc/copyparty.conf}"
+COPYPARTY_LOGFILE="${COPYPARTY_LOGFILE:-/var/log/copyparty/${RC_SVCNAME}.log}"
+
+supervisor=supervise-daemon
+command="/usr/bin/copyparty"
+command_args="-c ${COPYPARTY_CONFIG} -lo ${COPYPARTY_LOGFILE}"
+command_user="${COPYPARTY_USER}"
+directory="/var/lib/copyparty"
+extra_commands="checkconfig reload"
+
+depend() {
+    need net
+}
+
+checkconfig() {
+    "${command}" -c ${COPYPARTY_CONFIG} --exit cfg
+}
+
+_checkconfig() {
+    if ! checkconfig > /dev/null 2>&1; then
+        eerror "Invalid configuration. Use the checkconfig command for details."
+        return 1
+    fi
+}
+
+start_pre() {
+    if [ "${RC_CMD}" != "restart" ] ; then
+        _checkconfig || return $?
+    fi
+    checkpath -q -f -m 640 -o "${COPYPARTY_USER}" "${COPYPARTY_LOGFILE}"
+}
+
+stop_pre() {
+    if [ "${RC_CMD}" = "restart" ] ; then
+        _checkconfig || return $?
+    fi
+}
+
+reload() {
+    ebegin "Reloading ${RC_SVCNAME}"
+    _checkconfig && \
+    supervise-daemon "${RC_SVCNAME}" -s USR1
+    eend $? "Failed to reload ${RC_SVCNAME}"
+}

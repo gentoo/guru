@@ -1,0 +1,20 @@
+# /etc/conf.d/copyparty: config file for /etc/init.d/copyparty
+
+# User and group as which to run
+#COPYPARTY_USER="copyparty:copyparty"
+
+# Configuration file
+#COPYPARTY_CONFIG="/etc/copyparty.conf"
+
+# Log file location
+#COPYPARTY_LOGFILE="/var/log/copyparty/copyparty.log"
+
+# If copyparty is configured to serve network filesystems, uncomment:
+#rc_use="netdev"
+# You can use this mechanism to depend on other services which might mount
+# filesystems or configure specific network interfaces.
+
+# To run multiple instances of copyparty under different users, make a copy of
+# this file to /etc/conf.d/copyparty.usernamehere, and symlink
+# /etc/init.d/copyparty to /etc/init.d/copyparty.usernamehere
+# Then, configure the variables accordingly.

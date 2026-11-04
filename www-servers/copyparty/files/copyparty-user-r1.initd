@@ -1,0 +1,41 @@
+#!/sbin/openrc-run
+RUNTIME="${XDG_RUNTIME_DIR}/${RC_SVCNAME}"
+CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/copyparty"
+COPYPARTY_CONFIG="${COPYPARTY_CONFIG:-${CONFIG}/copyparty.conf}"
+COPYPARTY_LOGFILE="${COPYPARTY_LOGFILE:-${RUNTIME}/copyparty.log}"
+
+supervisor=supervise-daemon
+command="/usr/bin/copyparty"
+command_args="-c ${COPYPARTY_CONFIG} -lo ${COPYPARTY_LOGFILE}"
+extra_commands="checkconfig reload"
+
+checkconfig() {
+    "${command}" -c ${COPYPARTY_CONFIG} --exit cfg
+}
+
+_checkconfig() {
+    if ! checkconfig > /dev/null 2>&1; then
+        eerror "Invalid configuration. Use the checkconfig command for details."
+        return 1
+    fi
+}
+
+start_pre() {
+    if [ "${RC_CMD}" != "restart" ] ; then
+        _checkconfig || return $?
+    fi
+    checkpath -d "${RUNTIME}"
+}
+
+stop_pre() {
+    if [ "${RC_CMD}" = "restart" ] ; then
+        _checkconfig || return $?
+    fi
+}
+
+reload() {
+    ebegin "Reloading ${RC_SVCNAME}"
+    _checkconfig && \
+    supervise-daemon "${RC_SVCNAME}" -s USR1
+    eend $? "Failed to reload ${RC_SVCNAME}"
+}
