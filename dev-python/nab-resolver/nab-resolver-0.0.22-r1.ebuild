@@ -23,7 +23,7 @@ BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 "
 
-EPYTEST_PLUGINS=( pytest pytest-timeout hypothesis )
+EPYTEST_PLUGINS=( pytest-timeout hypothesis )
 
 distutils_enable_tests pytest
 
