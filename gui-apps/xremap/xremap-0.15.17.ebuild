@@ -8,7 +8,7 @@ EAPI=8
 CRATES="
 "
 
-RUST_MIN_VER="1.87"
+RUST_MIN_VER="1.89.0"
 
 inherit cargo systemd udev
 
