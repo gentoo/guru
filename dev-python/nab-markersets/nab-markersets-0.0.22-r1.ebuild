@@ -19,11 +19,16 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RDEPEND="
+	dev-python/nab-resolver[${PYTHON_USEDEP}]
+"
+
 BDEPEND="
+	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 "
 
-EPYTEST_PLUGINS=( pytest )
+EPYTEST_PLUGINS=( )
 
 distutils_enable_tests pytest
 
