@@ -25,6 +25,7 @@ RESTRICT="test"
 
 RDEPEND="
 	dev-python/installer[${PYTHON_USEDEP}]
+	dev-python/httpx2[${PYTHON_USEDEP}]
 	dev-python/nab-index[${PYTHON_USEDEP}]
 	dev-python/nab-markersets[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
@@ -35,12 +36,10 @@ RDEPEND="
 "
 
 BDEPEND="
+	dev-python/build[${PYTHON_USEDEP}]
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
-	test? (
-		dev-python/build[${PYTHON_USEDEP}]
-	)
 "
 
-EPYTEST_PLUGINS=( pytest httpx2 hypothesis respx )
+EPYTEST_PLUGINS=( hypothesis respx )
 
 distutils_enable_tests pytest
