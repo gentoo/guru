@@ -84,9 +84,11 @@ src_configure() {
 src_compile() {
 	# https://github.com/verilator/verilator/issues/3352
 	export VERILATOR_SRC_VERSION="(Gentoo ${PVR})"
-	default
+	# src/Makefile.in wraps the obj_dbg build with bear when it is in PATH,
+	# and bear-driver creates cgroups that the portage sandbox denies.
+	emake BEAR=
 }
 
 src_test() {
-	emake test
+	emake test BEAR=
 }
