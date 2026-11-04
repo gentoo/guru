@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{13..15} )
+PYTHON_COMPAT=( python3_{13..14} )
 
 inherit desktop distutils-r1 virtualx xdg
 
@@ -18,14 +18,16 @@ KEYWORDS="~amd64"
 IUSE="heif jxl"
 
 RDEPEND="
-	>=dev-python/lsdetect-0.3.0[${PYTHON_USEDEP}]
+	>=dev-python/lsdetect-0.4.0[${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]
+	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	dev-python/pyusb[${PYTHON_USEDEP}]
 	>=dev-python/rawji-0.1.0_p20260920[${PYTHON_USEDEP}]
+	dev-python/rawpy[${PYTHON_USEDEP}]
 	gui-libs/gtk:4[introspection]
 	gui-libs/libadwaita:1[introspection]
-	media-libs/gexiv2[introspection]
+	media-libs/gexiv2:*[introspection]
 	x11-libs/gdk-pixbuf[jpeg]
 	heif? ( media-libs/libheif[gdk-pixbuf,x265] )
 	jxl? ( media-libs/libjxl )
@@ -54,6 +56,7 @@ python_install_all() {
 	distutils-r1_python_install_all
 	domenu data/io.github.p5k369.grawji.desktop
 	doicon -s scalable data/io.github.p5k369.grawji.svg
+	doicon -s symbolic data/io.github.p5k369.grawji-symbolic.svg
 	insinto /usr/share/metainfo
 	doins data/io.github.p5k369.grawji.metainfo.xml
 }
