@@ -26,6 +26,8 @@ RDEPEND="
 	dev-python/nab-project[${PYTHON_USEDEP}]
 	dev-python/nab-provider[${PYTHON_USEDEP}]
 	dev-python/nab-resolver[${PYTHON_USEDEP}]
+	>=dev-python/tomli-2.5.0[${PYTHON_USEDEP}]
+	dev-python/typing-extensions[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
