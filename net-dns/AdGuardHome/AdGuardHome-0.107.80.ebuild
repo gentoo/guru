@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/AdguardTeam/AdGuardHome/"
 
 SRC_URI="
 	https://github.com/AdguardTeam/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/deps.tar.xz -> ${P}-deps.tar.xz
+	https://github.com/gentoo-golang-dist/AdGuardHome/releases/download/v${PV}/${P}-vendor.tar.xz
 	web? ( https://github.com/AdguardTeam/AdGuardHome/releases/download/v${PV}/AdGuardHome_frontend.tar.gz -> ${P}-web.tar.gz )
 "
 
@@ -25,7 +25,7 @@ KEYWORDS="~amd64 ~arm64"
 IUSE="+web"
 # RESTRICT="test"
 
-BDEPEND=">=dev-lang/go-1.26.3"
+BDEPEND=">=dev-lang/go-1.27.3"
 FILECAPS=(
 	-m 755 'cap_net_bind_service=+eip cap_net_raw=+eip' usr/bin/${PN}
 )
@@ -33,10 +33,6 @@ FILECAPS=(
 PATCHES=(
 	"${FILESDIR}"/disable-update-cmd-opt.patch
 )
-
-DOCS="
-	${PN}.wiki/*
-"
 
 DOC_CONTENTS="\n
 User is advised to not run binary directly instead use systemd service\n\n
