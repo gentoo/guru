@@ -25,11 +25,8 @@ IUSE="doc graphviz"
 RESTRICT="mirror"
 
 RDEPEND="
-	${PYTHON_DEPS}
-	$(python_gen_any_dep '
-		dev-python/typer[${PYTHON_USEDEP}]
-		graphviz? ( dev-python/graphviz[${PYTHON_USEDEP}] )
-	')
+	dev-python/typer[${PYTHON_USEDEP}]
+	graphviz? ( dev-python/graphviz[${PYTHON_USEDEP}] )
 "
 
 EPYTEST_PLUGINS=( pytest-cov )
