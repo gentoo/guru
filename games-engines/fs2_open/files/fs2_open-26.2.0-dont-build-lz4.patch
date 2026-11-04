@@ -1,0 +1,11 @@
+--- a/lib/CMakeLists.txt
++++ b/lib/CMakeLists.txt
+@@ -49,8 +49,6 @@
+ 
+ add_subdirectory(accidental-noise)
+ 
+-ADD_SUBDIRECTORY(lz4)
+-
+ ADD_SUBDIRECTORY(imgui)
+ 
+ if(FSO_BUILD_WITH_OPENXR)
