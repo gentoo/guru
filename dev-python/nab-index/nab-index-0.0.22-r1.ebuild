@@ -20,17 +20,19 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	dev-python/nab-markersets[${PYTHON_USEDEP}]
 	dev-python/nab-provider[${PYTHON_USEDEP}]
+	dev-python/nab-resolver[${PYTHON_USEDEP}]
+	dev-python/truststore[${PYTHON_USEDEP}]
+	dev-python/typing-extensions[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
-	test? (
-		dev-python/nab-markersets[${PYTHON_USEDEP}]
-	)
+	dev-python/packaging[${PYTHON_USEDEP}]
 "
 
-EPYTEST_PLUGINS=( pytest truststore )
+EPYTEST_PLUGINS=( )
 
 distutils_enable_tests pytest
 
