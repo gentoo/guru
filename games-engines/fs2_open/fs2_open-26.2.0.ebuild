@@ -26,7 +26,7 @@ LICENSE="Unlicense MIT Boost-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="clang debug discord"
+IUSE="clang debug discord vulkan"
 
 DEPEND="
 	app-arch/lz4:=
@@ -41,6 +41,7 @@ DEPEND="
 	media-libs/libvorbis
 	media-libs/mesa
 	media-libs/openal
+	vulkan? ( media-libs/vulkan-loader )
 	media-video/ffmpeg:=
 	x11-libs/libX11
 "
@@ -58,7 +59,6 @@ PATCHES=(
 src_unpack() {
 	unpack ${A}
 	mv libRocket-${HASH_LIBROCKET}/* "${S}/lib/libRocket/" || die
-	# mv cmake-modules-${HASH_CMAKE_MODULES}/* "${S}/cmake/external/rpavlik-cmake-modules/" || die
 }
 
 src_prepare() {
@@ -83,6 +83,7 @@ src_configure() {
 
 	local mycmakeargs=(
 		"-DFSO_BUILD_WITH_DISCORD=$(usex discord ON OFF)"
+		"-DFSO_BUILD_WITH_VULKAN=$(usex vulkan ON OFF)"
 		"-DFSO_BUILD_QTFRED=OFF"
 		"-DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON"
 	)
