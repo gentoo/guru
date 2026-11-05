@@ -3,13 +3,20 @@
 
 EAPI=8
 
-inherit optfeature systemd xdg go-module
+inherit optfeature systemd xdg
 
 DESCRIPTION="File manager from Dux Labs"
 HOMEPAGE="https://github.com/duxlabs-dev/dux-files"
 
-inherit git-r3
-EGIT_REPO_URI="https://github.com/duxlabs-dev/${PN}.git"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3 go-module
+	EGIT_REPO_URI="https://github.com/duxlabs-dev/${PN}.git"
+else
+	SRC_URI="https://github.com/duxlabs-dev/${PN}/releases/download/v${PV}/dfiles-${PV}.tar.gz"
+	S="${WORKDIR}/dfiles-${PV}"
+
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="MIT"
 SLOT="0"
@@ -23,10 +30,14 @@ BDEPEND="
 "
 
 src_unpack() {
-	git-r3_src_unpack
-	pushd "${S}/core" >& /dev/null || die
-		ego mod vendor
-	popd >& /dev/null || die
+	if [[ ${PV} == 9999 ]]; then
+		git-r3_src_unpack
+		pushd "${S}/core" >& /dev/null || die
+			ego mod vendor
+		popd >& /dev/null || die
+	else
+		default
+	fi
 }
 
 src_prepare(){
