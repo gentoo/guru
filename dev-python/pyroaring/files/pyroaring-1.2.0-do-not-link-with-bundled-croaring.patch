@@ -1,0 +1,31 @@
+Only in b: '#setup.py#'
+diff '--color=auto' -u a/setup.py b/setup.py
+--- a/setup.py	2026-10-02 20:45:52.000000000 -0000
++++ b/setup.py	2026-11-05 18:14:29.913404558 -0000
+@@ -63,24 +63,14 @@
+ pyroaring_module = Extension(
+     'pyroaring',
+     sources=[os.path.join(PKG_DIR, 'pyroaring.pyx')],
+-    extra_compile_args=ext_compile_args,
+     language='c++',
++    libraries=['roaring'],
+ )
+ 
+-# roaring.c is compiled as a separate static library because it must be compiled
+-# as C (not C++), with a C11 standard flag.
+-libraries = [(
+-    'croaring',
+-    {
+-        'sources': [os.path.join(PKG_DIR, 'roaring.c')],
+-        'cflags': c_compile_args,
+-    },
+-)]
+-
+ setup(
+     name='pyroaring',
+     ext_modules=[pyroaring_module],
+-    libraries=libraries,
++    libraries=None,
+     package_data={'pyroaring': ['py.typed', '__init__.pyi']},
+     packages=['pyroaring'],
+     version=VERSION,

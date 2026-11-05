@@ -1,0 +1,14 @@
+diff '--color=auto' -u a/setup.py b/setup.py
+--- a/setup.py	2026-10-02 20:45:52.000000000 -0000
++++ b/setup.py	2026-11-05 13:42:31.892155504 -0000
+@@ -43,10 +43,6 @@
+     c_compile_args = ['-D__STDC_LIMIT_MACROS', '-D__STDC_CONSTANT_MACROS', '-D _GLIBCXX_ASSERTIONS']
+     if PLATFORM_MACOSX:
+         c_compile_args.append('-mmacosx-version-min=10.14')
+-    if 'DEBUG' in os.environ:
+-        c_compile_args.extend(['-O0', '-g'])
+-    else:
+-        c_compile_args.append('-O3')
+     if 'ARCHI' in os.environ:
+         if os.environ['ARCHI'] != "generic":
+             c_compile_args.append('-march=%s' % os.environ['ARCHI'])
