@@ -3,13 +3,21 @@
 
 EAPI=8
 
-inherit desktop optfeature shell-completion systemd go-module xdg
+inherit desktop optfeature shell-completion systemd xdg
 
 DESCRIPTION="Desktop shell for wayland compositors built with Quickshell"
 HOMEPAGE="https://github.com/duxlabs-dev/dux-shell"
 
-inherit git-r3
-EGIT_REPO_URI="https://github.com/duxlabs-dev/dux-shell.git"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3 go-module
+	EGIT_REPO_URI="https://github.com/duxlabs-dev/dux-shell.git"
+else
+	SRC_URI="https://github.com/duxlabs-dev/${PN}/releases/download/v${PV}/dms-source.tar.gz -> dms-source-${PV}.tar.gz
+		https://github.com/duxlabs-dev/dux-shell/releases/download/v${PV}/dms-cli-${PV}.tar.gz"
+	S="${WORKDIR}/DankMaterialShell-${PV}"
+
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="MIT"
 SLOT="0"
@@ -41,10 +49,16 @@ BDEPEND="
 PATCHES=("${FILESDIR}"/"${PN}-2.0.0-no-strip.patch")
 
 src_unpack() {
-	git-r3_src_unpack
-	pushd "${S}/core" >& /dev/null || die
-		ego mod vendor
-	popd >& /dev/null || die
+	if [[ ${PV} == 9999 ]]; then
+		git-r3_src_unpack
+		pushd "${S}/core" >& /dev/null || die
+			ego mod vendor
+		popd >& /dev/null || die
+	else
+		unpack dms-source-${PV}.tar.gz
+		unpack dms-cli-"${PV}".tar.gz
+		mv "${WORKDIR}/dms-cli-${PV}/vendor" "${S}/core" || die "Failed to move in go vendored dependencies"
+	fi
 }
 
 src_compile() {
