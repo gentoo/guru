@@ -14,12 +14,11 @@ if [[ "${PV}" == 9999 ]]; then
 else
 	SRC_URI="
 		https://github.com/x-motemen/ghq/archive/v${PV}.tar.gz -> ${P}.tar.gz
-		https://github.com/ingenarel/guru-depfiles/releases/download/${P}-deps.tar.xz/${P}-go-mod-deps.tar.xz ->
-		${P}-deps.tar.xz
+		https://github.com/ingenarel/${PN}/releases/download/v${PV}/${P}-deps.tar.xz
 	"
 	KEYWORDS="~amd64"
 	#bump the CURRENT_REVISION on the next release
-	MY_GIT_REV="39ead65"
+	MY_GIT_REV="f265a9e"
 fi
 
 LICENSE="MIT"
