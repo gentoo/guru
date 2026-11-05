@@ -20,12 +20,11 @@ SRC_URI="
 	)
 "
 
-
+S="${WORKDIR}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 RESTRICT="strip"
-S="${WORKDIR}"
 DOCS=( README.md )
 
 QA_PREBUILT="usr/bin/${PN}"
