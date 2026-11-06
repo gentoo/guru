@@ -12,10 +12,11 @@ SRC_URI="https://github.com/libcpr/cpr/archive/${PV}.tar.gz
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc ppc64 x86"
+KEYWORDS="~amd64"
+IUSE="+ssl"
 
 # tests disabled for now, as it tries to fetch mongoose
-IUSE="+ssl"
+RESTRICT="test"
 
 RDEPEND="
 	net-misc/curl
