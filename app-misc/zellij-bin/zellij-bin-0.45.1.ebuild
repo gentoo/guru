@@ -41,6 +41,7 @@ src_compile() {
 }
 
 src_install() {
+	into /opt
 	dobin ${PN%-bin}
 
 	newbashcomp zellij.bash zellij
