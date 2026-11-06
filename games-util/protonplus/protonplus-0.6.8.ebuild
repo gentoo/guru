@@ -30,7 +30,7 @@ DEPEND="
 	dev-libs/json-glib
 	dev-libs/libgee:0.8
 	gui-libs/gtk:4
-	net-libs/libsoup:3.0
+	net-libs/libsoup:3.0[vala]
 	x11-libs/libnotify
 	x11-libs/cairo
 	media-libs/libsdl3
