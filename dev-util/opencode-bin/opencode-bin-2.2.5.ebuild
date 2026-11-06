@@ -3,6 +3,10 @@
 
 EAPI=8
 
+inherit shell-completion
+
+MY_PN=${PN%%-bin}
+
 DESCRIPTION="The open source coding agent"
 HOMEPAGE="https://opencode.ai"
 
@@ -24,5 +28,14 @@ RESTRICT="mirror strip"
 QA_PREBUILT="usr/bin/opencode"
 
 src_install() {
-	dobin opencode
+	dobin ${MY_PN}
+	dosym ${MY_PN} /usr/bin/${MY_PN}2
+
+	for shell in bash fish zsh; do
+		${MY_PN} --completions ${shell} > "${MY_PN}.${shell}" || die
+	done
+
+	newbashcomp ${MY_PN}.bash ${MY_PN}
+	dofishcomp ${MY_PN}.fish
+	newzshcomp ${MY_PN}.zsh _${MY_PN}
 }
