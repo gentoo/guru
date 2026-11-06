@@ -100,8 +100,7 @@ pkg_postinst() {
 	optfeature "jq source" "dev-python/jq[${PYTHON_USEDEP}]"
 	optfeature "httpheader source" "dev-python/lxml[${PYTHON_USEDEP}]"
 	optfeature "pypi source" "dev-python/packaging[${PYTHON_USEDEP}]"
-	if use python_targets_python3_12 || \
-		use python_targets_python3_13; then
+	if use python_targets_python3_13; then
 		optfeature "rpmrepo source" "dev-python/zstandard[${PYTHON_USEDEP}]"
 	fi
 	optfeature "git source" dev-vcs/git
