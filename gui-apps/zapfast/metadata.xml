@@ -1,0 +1,17 @@
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ghostyn678+git@gmail.com</email>
+		<name>dsaf</name>
+	</maintainer>
+	<upstream>
+		<doc>https://zapfast.rocks/</doc>
+		<remote-id type="github">crmne/zapfast</remote-id>
+	</upstream>
+	<longdescription>
+		ZapFast is a WhatsApp client written in Rust with egui and fastframe,
+		the framework behind a family of native desktop apps.
+		It links to your phone as a companion device through whatsapp-rust
+		and has no browser engine.
+	</longdescription>
+</pkgmetadata>
