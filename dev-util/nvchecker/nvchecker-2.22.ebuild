@@ -15,8 +15,8 @@ SRC_URI="https://github.com/lilydjwg/nvchecker/archive/refs/tags/v${PV}.tar.gz -
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-PROPERTIES="test_network"
 RESTRICT="test"
+PROPERTIES="test_network"
 
 RDEPEND="
 	dev-python/structlog[${PYTHON_USEDEP}]
