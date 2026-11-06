@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <name>crueter</name>
+    <email>crueter@crueter.xyz</email>
+  </maintainer>
+  <upstream>
+    <doc>https://github.com/crueter/jacinth/blob/master/USAGE.md</doc>
+    <bugs-to>https://github.com/crueter/jacinth/issues</bugs-to>
+    <remote-id type="github">crueter/jacinth</remote-id>
+  </upstream>
+</pkgmetadata>
