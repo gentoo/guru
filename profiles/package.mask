@@ -28,7 +28,6 @@ gui-apps/labwc-tweaks-gtk
 # Dependencies of net-misc/maestral, marked for removal.
 # Not used by anything else.
 # Removal on 2026-12-01.
-dev-python/desktop-notifier
 dev-python/survey
 dev-python/sphinx-paramlinks
 
