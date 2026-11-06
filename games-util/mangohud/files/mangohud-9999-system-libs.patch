@@ -175,12 +175,16 @@ diff --git a/mangohud-next/server/metrics/metrics.cpp b/mangohud-next/server/met
 index 90fd381..1339058 100644
 --- a/mangohud-next/server/metrics/metrics.cpp
 +++ b/mangohud-next/server/metrics/metrics.cpp
-@@ -5,7 +5,7 @@
+@@ -5,9 +5,9 @@
  #include <cctype>
  #include <algorithm>
  #include <sys/stat.h>
 -#include <spdlog/fmt/bundled/format.h>
+-#include <spdlog/fmt/bundled/args.h>
+-#include <spdlog/fmt/bundled/printf.h>
 +#include <fmt/format.h>
++#include <fmt/args.h>
++#include <fmt/printf.h>
  #include "../common/json.h"
  #include "../common/table_structs.h"
  #include "../common/helpers.hpp"
