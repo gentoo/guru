@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 pypi
@@ -16,7 +16,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	${PYTHON_DEP}
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/click-option-group[${PYTHON_USEDEP}]
 	dev-python/dnspython[${PYTHON_USEDEP}]
