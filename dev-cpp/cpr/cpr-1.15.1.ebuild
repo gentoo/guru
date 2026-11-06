@@ -19,7 +19,7 @@ IUSE="+ssl"
 RESTRICT="test"
 
 RDEPEND="
-	net-misc/curl
+	net-misc/curl[ssl?]
 "
 DEPEND="
 	${RDEPEND}
