@@ -33,7 +33,7 @@ RDEPEND="
 	!!net-mail/mox
 "
 
-QA_PREBUILT="usr/bin/mox"
+QA_PREBUILT="opt/bin/mox"
 
 src_install() {
 	into /opt
