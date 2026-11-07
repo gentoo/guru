@@ -19,8 +19,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
-	>=app-crypt/certbot-5.1.0[${PYTHON_USEDEP}]
-	>=dev-python/requests-2.33.1[${PYTHON_USEDEP}]
+	>=app-crypt/certbot-5.9.0[${PYTHON_USEDEP}]
+	>=dev-python/requests-2.34.2[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
