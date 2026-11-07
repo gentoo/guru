@@ -31,7 +31,7 @@ RDEPEND="
 
 RESTRICT="strip"
 
-QA_PREBUILT="usr/bin/${PN%-bin}"
+QA_PREBUILT="opt/bin/${PN%-bin}"
 
 src_compile() {
 	einfo "Generating shell completion files"
