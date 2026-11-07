@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <name>crueter</name>
+    <email>crueter@crueter.xyz</email>
+  </maintainer>
+  <upstream>
+    <doc>https://github.com/crueter/hydrocarbon/blob/master/README.md#usage</doc>
+    <bugs-to>https://github.com/crueter/hydrocarbon/issues</bugs-to>
+    <remote-id type="github">crueter/hydrocarbon</remote-id>
+  </upstream>
+</pkgmetadata>
