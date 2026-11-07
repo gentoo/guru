@@ -1,0 +1,101 @@
+Fix CMake developer policy warnings (CMP0077, CMP0148, CMP0167).
+
+* CMP0148 (FindPythonInterp/FindPythonLibs removed): port monero's
+  find_package(PythonInterp) calls and PYTHONINTERP_FOUND/PYTHON_EXECUTABLE
+  usages to the modern FindPython module (Python_Interpreter_FOUND /
+  Python_EXECUTABLE), and drop the redundant early include(FindPythonInterp).
+  Pinning the policy OLD is not an option: CMake >= 4.3 deprecates the OLD
+  behaviour itself.
+
+* CMP0167 (FindBoost removed): enable CMP0167 NEW so find_package(Boost)
+  uses Boost's own config-package files (Boost >= 1.69; Gentoo ships much
+  newer) instead of the removed FindBoost module, and drop
+  set(Boost_NO_BOOST_CMAKE ON) which forced the legacy module. The
+  Boost_FOUND / Boost_INCLUDE_DIRS / Boost_VERSION_STRING variables monero
+  consumes are all provided by BoostConfig.
+
+* CMP0077 (option() honors normal variables): Feather's top-level
+  CMakeLists.txt set normal variables BUILD_GUI_DEPS/BUILD_64 that monero's
+  option() calls then cleared (OLD behaviour), so they had no effect.
+  Removing them keeps the effective values identical (BUILD_64 comes from
+  the cache/-DBUILD_64, BUILD_GUI_DEPS stays OFF) and eliminates the
+  option()-vs-normal-variable collision that produced the warnings.
+--- a/monero/CMakeLists.txt
++++ b/monero/CMakeLists.txt
+@@ -37,7 +37,6 @@
+ include(CheckLinkerFlag)
+ include(CheckLibraryExists)
+ include(CheckFunctionExists)
+-include(FindPythonInterp)
+ 
+ if (IOS)
+     INCLUDE(CmakeLists_IOS.txt)
+@@ -47,6 +46,12 @@
+ message(STATUS "CMake version ${CMAKE_VERSION}")
+ 
+ cmake_policy(SET CMP0074 NEW)
++
++# CMP0167 NEW: the FindBoost module is removed in CMake >= 3.30/4.x; use
++# Boost's own config-package files (provided by Boost >= 1.69) instead.
++if(POLICY CMP0167)
++  cmake_policy(SET CMP0167 NEW)
++endif()
+ 
+ project(monero)
+ 
+@@ -1073,7 +1078,6 @@
+ endif()
+ 
+ set(OLD_LIB_SUFFIXES ${CMAKE_FIND_LIBRARY_SUFFIXES})
+-set(Boost_NO_BOOST_CMAKE ON)
+ if(STATIC)
+   if(MINGW)
+     set(CMAKE_FIND_LIBRARY_SUFFIXES .a)
+@@ -1197,7 +1201,7 @@
+ add_subdirectory(contrib)
+ add_subdirectory(src)
+ 
+-find_package(PythonInterp)
++find_package(Python COMPONENTS Interpreter)
+ if(BUILD_TESTS)
+   message(STATUS "Building tests")
+   add_subdirectory(tests)
+@@ -1236,11 +1240,11 @@
+ # when ON - will install libwallet_merged into "lib"
+ option(BUILD_GUI_DEPS "Build GUI dependencies." OFF)
+ 
+-find_package(PythonInterp)
++find_package(Python COMPONENTS Interpreter)
+ find_program(iwyu_tool_path NAMES iwyu_tool.py iwyu_tool)
+-if (iwyu_tool_path AND PYTHONINTERP_FOUND)
++if (iwyu_tool_path AND Python_Interpreter_FOUND)
+   add_custom_target(iwyu
+-    COMMAND "${PYTHON_EXECUTABLE}" "${iwyu_tool_path}" -p "${CMAKE_BINARY_DIR}" -- --no_fwd_decls
++    COMMAND "${Python_EXECUTABLE}" "${iwyu_tool_path}" -p "${CMAKE_BINARY_DIR}" -- --no_fwd_decls
+     COMMENT "Running include-what-you-use tool"
+     VERBATIM
+   )
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -16,6 +16,12 @@
+ set(COPYRIGHT_HOLDERS "The Monero Project")
+ 
+ cmake_policy(SET CMP0074 NEW)
++
++# FindBoost is removed in CMake >= 3.30/4.x (CMP0167 NEW); the STACK_TRACE
++# find_package(Boost) below uses Boost's config-package files instead.
++if(POLICY CMP0167)
++  cmake_policy(SET CMP0167 NEW)
++endif()
+ 
+ # Configurable options
+ option(STATIC "Link libraries statically, requires static Qt" OFF)
+@@ -49,8 +55,6 @@
+ endif()
+ 
+ # Monero configuration
+-set(BUILD_GUI_DEPS ON)
+-set(BUILD_64 ON)
+ set(USE_SINGLE_BUILDDIR ON)
+ 
+ if(STATIC)

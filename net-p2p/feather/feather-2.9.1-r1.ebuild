@@ -1,6 +1,5 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# RavFX (2025) Bump version and remove deprecated plugins
 
 EAPI=8
 
@@ -57,6 +56,9 @@ src_prepare() {
 	if ! use wayland; then
 		eapply "${FILESDIR}/feather-no-wayland.patch"
 	fi
+	eapply "${FILESDIR}/feather-cmake-minimum-3.10.patch"
+	eapply "${FILESDIR}/feather-cmake-policies.patch"
+	eapply "${FILESDIR}/feather-git-version-tarball.patch"
 	cmake_src_prepare
 }
 
@@ -75,6 +77,7 @@ src_configure() {
 		-DWITH_PLUGIN_REVUO=$(usex revuo)
 		-DWITH_PLUGIN_CALC=$(usex calc)
 		-DWITH_PLUGIN_XMRIG=$(usex xmrig)
+		-DMANUAL_SUBMODULES=ON
 		-DCHECK_UPDATES=OFF
 		-DPLATFORM_INSTALLER=OFF
 		-DUSE_DEVICE_TREZOR=OFF

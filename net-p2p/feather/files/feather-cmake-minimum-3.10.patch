@@ -1,0 +1,129 @@
+Fix CMake compatibility warnings with CMake >= 3.31 / 4.x.
+
+The vendored monero tree declares cmake_minimum_required() with versions
+as old as 2.6.2. Under modern CMake this triggers "Compatibility with
+CMake < 3.10 will be removed" deprecation warnings, and under CMake 4 it
+makes portage's cmake eclass fall back to -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+plus a QA notice. Bump all minimum required versions to 3.10.
+
+--- a/monero/CMakeLists.txt
++++ b/monero/CMakeLists.txt
+@@ -43,7 +43,7 @@
+     INCLUDE(CmakeLists_IOS.txt)
+ endif()
+ 
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.10)
+ message(STATUS "CMake version ${CMAKE_VERSION}")
+ 
+ cmake_policy(SET CMP0074 NEW)
+@@ -221,7 +221,7 @@
+     file(MAKE_DIRECTORY "${TEST_PROJECT}")
+     file(WRITE "${TEST_PROJECT}/CMakeLists.txt"
+       [=[
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.10)
+ project(test)
+ option(EXPECT_SUCCESS "" ON)
+ file(WRITE "${CMAKE_SOURCE_DIR}/incorrect_source.cpp" "void undefined_symbol(); void symbol() { undefined_symbol(); }")
+--- a/monero/external/easylogging++/CMakeLists.txt
++++ b/monero/external/easylogging++/CMakeLists.txt
+@@ -26,7 +26,7 @@
+ # STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+ # THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ 
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.10)
+ 
+ project(easylogging CXX)
+ 
+--- a/monero/external/randomx/CMakeLists.txt
++++ b/monero/external/randomx/CMakeLists.txt
+@@ -26,7 +26,7 @@
+ # STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+ # THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ 
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.10)
+ 
+ project(RandomX)
+ 
+--- a/monero/tests/gtest/CMakeLists.txt
++++ b/monero/tests/gtest/CMakeLists.txt
+@@ -45,7 +45,7 @@
+ # ${gtest_BINARY_DIR}.
+ # Language "C" is required for find_package(Threads).
+ project(gtest CXX C)
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.10)
+ 
+ if (COMMAND set_up_hermetic_build)
+   set_up_hermetic_build()
+--- a/monero/translations/CMakeLists.txt
++++ b/monero/translations/CMakeLists.txt
+@@ -26,7 +26,7 @@
+ # STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+ # THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ 
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.10)
+ 
+ project(translations)
+ 
+--- a/monero/external/rapidjson/CMakeLists.txt
++++ b/monero/external/rapidjson/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
++cmake_minimum_required(VERSION 3.10)
+ if(POLICY CMP0025)
+   # detect Apple's Clang
+   cmake_policy(SET CMP0025 NEW)
+--- a/monero/external/rapidjson/thirdparty/gtest/CMakeLists.txt
++++ b/monero/external/rapidjson/thirdparty/gtest/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.6.2)
++cmake_minimum_required(VERSION 3.10)
+ 
+ project( googletest-distribution )
+ 
+--- a/monero/external/rapidjson/thirdparty/gtest/googlemock/CMakeLists.txt
++++ b/monero/external/rapidjson/thirdparty/gtest/googlemock/CMakeLists.txt
+@@ -38,7 +38,7 @@
+ # ${gmock_BINARY_DIR}.
+ # Language "C" is required for find_package(Threads).
+ project(gmock CXX C)
+-cmake_minimum_required(VERSION 2.6.2)
++cmake_minimum_required(VERSION 3.10)
+ 
+ if (COMMAND set_up_hermetic_build)
+   set_up_hermetic_build()
+--- a/monero/external/rapidjson/thirdparty/gtest/googletest/CMakeLists.txt
++++ b/monero/external/rapidjson/thirdparty/gtest/googletest/CMakeLists.txt
+@@ -45,7 +45,7 @@
+ # ${gtest_BINARY_DIR}.
+ # Language "C" is required for find_package(Threads).
+ project(gtest CXX C)
+-cmake_minimum_required(VERSION 2.6.2)
++cmake_minimum_required(VERSION 3.10)
+ 
+ if (COMMAND set_up_hermetic_build)
+   set_up_hermetic_build()
+--- a/monero/external/rapidjson/example/CMakeLists.txt
++++ b/monero/external/rapidjson/example/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.10)
+ 
+ if(POLICY CMP0054)
+   cmake_policy(SET CMP0054 NEW)
+--- a/monero/external/supercop/CMakeLists.txt
++++ b/monero/external/supercop/CMakeLists.txt
+@@ -26,7 +26,7 @@
+ # STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+ # THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ 
+-cmake_minimum_required(VERSION 2.8.7)
++cmake_minimum_required(VERSION 3.10)
+ project(monero-crypto)
+ enable_language(ASM C)
+ include(intree.cmake)

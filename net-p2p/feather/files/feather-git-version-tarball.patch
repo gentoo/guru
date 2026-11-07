@@ -1,0 +1,30 @@
+Treat release tarballs as tagged releases in Version.cmake.
+
+monero/cmake/Version.cmake only takes its "we're in a tarball" branch for
+git-archive tarballs with expanded $Format:$ keywords. Feather's release
+tarball has no .git directory, so the build fell into the git branch,
+"git rev-parse HEAD" failed, and CMake printed:
+
+  CMake Warning at monero/cmake/GitVersion.cmake:43 (message):
+    Cannot determine current commit. ...
+
+and set VERSIONTAG to "unknown". Also treat the absence of a git working
+tree (no .git in monero/ or the project root) as a release tarball: the
+warning disappears and VERSIONTAG becomes "release", matching upstream
+release builds.
+--- a/monero/cmake/Version.cmake
++++ b/monero/cmake/Version.cmake
+@@ -32,8 +32,11 @@
+ endfunction ()
+ 
+ find_package(Git QUIET)
+-if ("$Format:$" STREQUAL "")
+-  # We're in a tarball; use hard-coded variables.
++if ("$Format:$" STREQUAL "" OR
++    (NOT EXISTS "${CMAKE_CURRENT_LIST_DIR}/../.git" AND
++     NOT EXISTS "${CMAKE_CURRENT_LIST_DIR}/../../.git"))
++  # We're in a tarball or otherwise not in a git working tree; use
++  # hard-coded variables.
+   set(VERSION_IS_RELEASE "true")
+   write_version("release")
+ elseif (GIT_FOUND OR Git_FOUND)
