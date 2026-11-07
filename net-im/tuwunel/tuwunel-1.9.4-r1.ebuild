@@ -112,7 +112,7 @@ QA_FLAGS_IGNORED="usr/bin/${PN}"
 DOCS=( ../../{README,RELEASE,CONTRIBUTING,CODE_OF_CONDUCT}.md )
 
 # Building the tests uses an excessive amount of disk space.
-CHECKREQS_DISK_BUILD="23G"
+CHECKREQS_DISK_BUILD="41G"
 
 pkg_pretend() {
 	use test && check-reqs_pkg_pretend
