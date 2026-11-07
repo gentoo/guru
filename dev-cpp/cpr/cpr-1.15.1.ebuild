@@ -20,6 +20,7 @@ RESTRICT="test"
 
 RDEPEND="
 	net-misc/curl[ssl?]
+	ssl? ( dev-libs/openssl )
 "
 DEPEND="
 	${RDEPEND}
