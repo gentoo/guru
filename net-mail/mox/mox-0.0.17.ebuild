@@ -37,6 +37,10 @@ src_prepare() {
 		${PN}.service
 }
 
+DOCS=(
+	README.md
+)
+
 src_compile() {
 	ego build
 }
@@ -51,6 +55,8 @@ src_install() {
 	doinitd "${FILESDIR}"/${PN%-bin}
 	systemd_dounit ${PN}.service
 	newconfd "${FILESDIR}"/${PN%-bin}.confd ${PN%-bin}
+
+	einstalldocs
 }
 
 pkg_postinst() {
