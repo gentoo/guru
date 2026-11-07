@@ -14,7 +14,7 @@ HOMEPAGE="
 # See https://bugs.gentoo.org/981253
 SRC_URI="
 	https://codefloe.com/pat-s/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://vimja.cloud/public.php/dav/files/z59eKDyLFokW2KK/${CATEGORY}/${PN}/${P}-vendor.tar.xz
+	https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/${P}-vendor.tar.xz
 "
 
 S="${WORKDIR}/${PN}"
@@ -35,6 +35,12 @@ RDEPEND="
 	acct-user/zendrite
 	acct-group/zendrite
 "
+
+src_unpack() {
+	mkdir "${PN}" || die
+	ln --symbolic "../${P}/vendor" "${S}/vendor" || die
+	go-module_src_unpack
+}
 
 src_compile() {
 	ego build ./...
