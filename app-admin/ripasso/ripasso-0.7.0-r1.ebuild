@@ -1,0 +1,576 @@
+# Copyright 2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+CRATES="
+	addr2line@0.22.0
+	adler2@2.0.0
+	adler@1.0.2
+	ahash@0.8.11
+	aho-corasick@1.1.3
+	android-tzdata@0.1.1
+	android_system_properties@0.1.5
+	anes@0.1.6
+	anstyle@1.0.8
+	anyhow@1.0.87
+	arboard@3.4.0
+	arrayvec@0.5.2
+	ascii-canvas@3.0.0
+	atomic-waker@1.1.2
+	autocfg@1.3.0
+	backtrace@0.3.73
+	base32@0.4.0
+	base64@0.22.1
+	bindgen@0.72.1
+	bit-set@0.5.3
+	bit-vec@0.6.3
+	bitflags@1.3.2
+	bitflags@2.6.0
+	block-buffer@0.10.4
+	block2@0.5.1
+	block@0.1.6
+	buffered-reader@1.3.1
+	build-rs@0.1.2
+	bumpalo@3.16.0
+	bytemuck@1.18.0
+	byteorder-lite@0.1.0
+	byteorder@1.5.0
+	bytes@1.7.1
+	bzip2-sys@0.1.11+1.0.8
+	bzip2@0.4.4
+	cairo-rs@0.19.4
+	cairo-sys-rs@0.19.2
+	capnp-futures@0.19.0
+	capnp-rpc@0.19.4
+	capnp@0.19.6
+	cast@0.3.0
+	castaway@0.2.3
+	cc@1.1.18
+	cexpr@0.6.0
+	cfg-expr@0.15.8
+	cfg-if@1.0.0
+	cfg_aliases@0.1.1
+	chrono@0.4.38
+	ciborium-io@0.2.2
+	ciborium-ll@0.2.2
+	ciborium@0.2.2
+	clang-sys@1.8.1
+	clap@4.5.17
+	clap_builder@4.5.17
+	clap_lex@0.7.2
+	clipboard-win@5.4.0
+	compact_str@0.8.0
+	config@0.11.0
+	constant_time_eq@0.2.6
+	conv@0.3.3
+	core-foundation-sys@0.8.7
+	core-foundation@0.9.4
+	core-graphics-types@0.1.3
+	core-graphics@0.23.2
+	cpufeatures@0.2.14
+	crc32fast@1.4.2
+	criterion-plot@0.5.0
+	criterion@0.5.1
+	crossbeam-channel@0.5.13
+	crossbeam-deque@0.8.5
+	crossbeam-epoch@0.9.18
+	crossbeam-utils@0.8.20
+	crossterm@0.28.1
+	crossterm_winapi@0.9.1
+	crunchy@0.2.2
+	crypto-common@0.1.6
+	cstr-argument@0.1.2
+	ctor@0.2.8
+	cursive-macros@0.1.0
+	cursive@0.21.1
+	cursive_core@0.4.6
+	custom_derive@0.1.7
+	darling@0.20.10
+	darling_core@0.20.10
+	darling_macro@0.20.10
+	deranged@0.3.11
+	derive-new@0.6.0
+	digest@0.10.7
+	dirs-next@2.0.0
+	dirs-sys-next@0.1.2
+	dirs-sys@0.4.1
+	dirs@5.0.1
+	displaydoc@0.2.5
+	dlib@0.5.2
+	downcast-rs@1.2.1
+	dyn-clone@1.0.17
+	either@1.13.0
+	embedded-io@0.6.1
+	ena@0.14.3
+	encoding-index-japanese@1.20141219.5
+	encoding-index-korean@1.20141219.5
+	encoding-index-simpchinese@1.20141219.5
+	encoding-index-singlebyte@1.20141219.5
+	encoding-index-tradchinese@1.20141219.5
+	encoding@0.2.33
+	encoding_index_tests@0.1.4
+	encoding_rs@0.8.34
+	enum-map-derive@0.17.0
+	enum-map@2.7.3
+	enumset@1.1.5
+	enumset_derive@0.10.0
+	equivalent@1.0.1
+	errno@0.3.9
+	error-code@3.2.0
+	fastrand@2.1.1
+	fdeflate@0.3.4
+	field-offset@0.3.6
+	filetime@0.2.25
+	fixedbitset@0.4.2
+	flate2@1.0.33
+	fnv@1.0.7
+	foreign-types-macros@0.2.3
+	foreign-types-shared@0.1.1
+	foreign-types-shared@0.3.1
+	foreign-types@0.3.2
+	foreign-types@0.5.0
+	form_urlencoded@1.2.1
+	fs2@0.4.3
+	futures-channel@0.3.30
+	futures-core@0.3.30
+	futures-executor@0.3.30
+	futures-io@0.3.30
+	futures-macro@0.3.30
+	futures-sink@0.3.30
+	futures-task@0.3.30
+	futures-util@0.3.30
+	futures@0.3.30
+	gdk-pixbuf-sys@0.19.8
+	gdk-pixbuf@0.19.8
+	gdk4-sys@0.8.2
+	gdk4@0.8.2
+	generic-array@0.14.7
+	generic-array@1.1.0
+	gethostname@0.4.3
+	getrandom@0.2.15
+	getrandom@0.3.0
+	gettext@0.4.0
+	gimli@0.29.0
+	gio-sys@0.19.8
+	gio@0.19.8
+	git2@0.19.0
+	glib-build-tools@0.19.0
+	glib-macros@0.19.9
+	glib-sys@0.19.8
+	glib@0.19.9
+	glob@0.3.1
+	gobject-sys@0.19.8
+	gpg-error@0.6.1
+	gpgme-sys@0.11.0
+	gpgme@0.11.0
+	graphene-rs@0.19.8
+	graphene-sys@0.19.8
+	gsk4-sys@0.8.2
+	gsk4@0.8.2
+	gtk4-macros@0.8.2
+	gtk4-sys@0.8.2
+	gtk4@0.8.2
+	h2@0.4.6
+	half@2.4.1
+	hashbrown@0.14.5
+	heck@0.5.0
+	hermit-abi@0.3.9
+	hermit-abi@0.4.0
+	hex@0.4.3
+	hmac@0.12.1
+	home@0.5.9
+	http-body-util@0.1.2
+	http-body@1.0.1
+	http@1.1.0
+	httparse@1.9.4
+	hyper-rustls@0.27.3
+	hyper-tls@0.6.0
+	hyper-util@0.1.7
+	hyper@1.4.1
+	iana-time-zone-haiku@0.1.2
+	iana-time-zone@0.1.60
+	icu_collections@1.5.0
+	icu_locid@1.5.0
+	icu_locid_transform@1.5.0
+	icu_locid_transform_data@1.5.0
+	icu_normalizer@1.5.0
+	icu_normalizer_data@1.5.0
+	icu_properties@1.5.1
+	icu_properties_data@1.5.0
+	icu_provider@1.5.0
+	icu_provider_macros@1.5.0
+	ident_case@1.0.1
+	idna@0.5.0
+	idna@1.0.2
+	image@0.25.2
+	indexmap@2.5.0
+	ipnet@2.9.0
+	is-terminal@0.4.13
+	itertools@0.10.5
+	itertools@0.11.0
+	itoa@1.0.11
+	jobserver@0.1.32
+	jpeg-decoder@0.3.1
+	js-sys@0.3.70
+	lalrpop-util@0.20.2
+	lalrpop@0.20.2
+	lazy_static@1.5.0
+	lazycell@1.3.0
+	lexical-core@0.7.6
+	libadwaita-sys@0.6.0
+	libadwaita@0.6.0
+	libc@0.2.158
+	libgit2-sys@0.17.0+1.8.1
+	libgpg-error-sys@0.6.1
+	libloading@0.8.5
+	libredox@0.1.3
+	libssh2-sys@0.3.0
+	libz-sys@1.1.20
+	linked-hash-map@0.5.6
+	linux-raw-sys@0.4.14
+	litemap@0.7.3
+	locale_config@0.3.0
+	lock_api@0.4.12
+	log@0.4.22
+	malloc_buf@0.0.6
+	man@0.3.0
+	memchr@2.7.4
+	memoffset@0.7.1
+	memoffset@0.9.1
+	memsec@0.7.0
+	mime@0.3.17
+	minimal-lexical@0.2.1
+	miniz_oxide@0.7.4
+	miniz_oxide@0.8.0
+	mio@1.0.2
+	native-tls@0.2.12
+	nettle-sys@2.3.2
+	nettle@7.5.0
+	new_debug_unreachable@1.0.6
+	nix@0.28.0
+	nom@5.1.3
+	nom@7.1.3
+	num-complex@0.4.6
+	num-conv@0.1.0
+	num-integer@0.1.46
+	num-iter@0.1.45
+	num-rational@0.4.2
+	num-traits@0.1.43
+	num-traits@0.2.19
+	num@0.4.3
+	num_threads@0.1.7
+	objc-foundation@0.1.1
+	objc-sys@0.3.5
+	objc2-app-kit@0.2.2
+	objc2-core-data@0.2.2
+	objc2-core-image@0.2.2
+	objc2-encode@4.0.3
+	objc2-foundation@0.2.2
+	objc2-metal@0.2.2
+	objc2-quartz-core@0.2.2
+	objc2@0.5.2
+	objc@0.2.7
+	objc_id@0.1.1
+	object@0.36.4
+	once_cell@1.19.0
+	oorandom@11.1.4
+	openssl-macros@0.1.1
+	openssl-probe@0.1.5
+	openssl-sys@0.9.103
+	openssl@0.10.66
+	option-ext@0.2.0
+	os_pipe@1.2.1
+	pango-sys@0.19.8
+	pango@0.19.8
+	parking_lot@0.12.3
+	parking_lot_core@0.9.10
+	peeking_take_while@0.1.2
+	percent-encoding@2.3.1
+	petgraph@0.6.5
+	phf_shared@0.10.0
+	pin-project-internal@1.1.5
+	pin-project-lite@0.2.14
+	pin-project@1.1.5
+	pin-utils@0.1.0
+	pkg-config@0.3.30
+	plotters-backend@0.3.6
+	plotters-svg@0.3.6
+	plotters@0.3.6
+	png@0.17.13
+	powerfmt@0.2.0
+	ppv-lite86@0.2.20
+	precomputed-hash@0.1.1
+	proc-macro-crate@3.2.0
+	proc-macro2@1.0.86
+	quick-xml@0.36.1
+	quote@1.0.37
+	rand@0.8.5
+	rand_chacha@0.3.1
+	rand_core@0.6.4
+	rayon-core@1.12.1
+	rayon@1.10.0
+	redox_syscall@0.5.3
+	redox_users@0.4.6
+	regex-automata@0.4.7
+	regex-syntax@0.8.4
+	regex@1.10.6
+	reqwest@0.12.7
+	ring@0.17.8
+	roff@0.1.0
+	rust-ini@0.13.0
+	rustc-demangle@0.1.24
+	rustc-hash@2.1.0
+	rustc_version@0.4.1
+	rustix@0.38.36
+	rustls-pemfile@2.1.3
+	rustls-pki-types@1.8.0
+	rustls-webpki@0.102.7
+	rustls@0.23.12
+	rustversion@1.0.17
+	ryu@1.0.18
+	same-file@1.0.6
+	schannel@0.1.24
+	scoped-tls@1.0.1
+	scopeguard@1.2.0
+	security-framework-sys@2.11.1
+	security-framework@2.11.1
+	semver@1.0.23
+	sequoia-gpg-agent@0.4.2
+	sequoia-ipc@0.35.1
+	sequoia-openpgp@1.21.2
+	serde-hjson@0.9.1
+	serde@0.8.23
+	serde@1.0.210
+	serde_derive@1.0.210
+	serde_json@1.0.128
+	serde_spanned@0.6.7
+	serde_urlencoded@0.7.1
+	sha1@0.10.6
+	sha1collisiondetection@0.3.4
+	sha2@0.10.8
+	shlex@1.3.0
+	signal-hook-mio@0.2.4
+	signal-hook-registry@1.4.2
+	signal-hook@0.3.17
+	simd-adler32@0.3.7
+	siphasher@0.3.11
+	slab@0.4.9
+	smallvec@1.13.2
+	socket2@0.5.7
+	spin@0.9.8
+	stable_deref_trait@1.2.0
+	static_assertions@1.1.0
+	stfu8@0.2.7
+	string_cache@0.8.7
+	subtle@2.6.1
+	syn@2.0.77
+	sync_wrapper@1.0.1
+	synstructure@0.13.1
+	system-configuration-sys@0.6.0
+	system-configuration@0.6.1
+	system-deps@6.2.2
+	tar@0.4.41
+	target-lexicon@0.12.16
+	tempfile@3.12.0
+	term@0.7.0
+	terminal_size@0.3.0
+	thiserror-impl@1.0.63
+	thiserror@1.0.63
+	tiff@0.9.1
+	time-core@0.1.2
+	time-macros@0.2.18
+	time@0.3.36
+	tiny-keccak@2.0.2
+	tinystr@0.7.6
+	tinytemplate@1.2.1
+	tinyvec@1.8.0
+	tinyvec_macros@0.1.1
+	tokio-native-tls@0.3.1
+	tokio-rustls@0.26.0
+	tokio-util@0.7.12
+	tokio@1.40.0
+	toml@0.5.11
+	toml@0.8.19
+	toml_datetime@0.6.8
+	toml_edit@0.22.20
+	totp-rs@5.6.0
+	tower-layer@0.3.3
+	tower-service@0.3.3
+	tower@0.4.13
+	tracing-core@0.1.32
+	tracing@0.1.40
+	tree_magic_mini@3.1.5
+	try-lock@0.2.5
+	typenum@1.17.0
+	unic-langid-impl@0.9.5
+	unic-langid@0.9.5
+	unicode-bidi@0.3.15
+	unicode-ident@1.0.12
+	unicode-normalization@0.1.23
+	unicode-segmentation@1.11.0
+	unicode-width@0.1.13
+	unicode-xid@0.2.5
+	untrusted@0.9.0
+	url@2.5.2
+	urlencoding@2.1.3
+	utf16_iter@1.0.5
+	utf8_iter@1.0.4
+	vcpkg@0.2.15
+	version-compare@0.2.0
+	version_check@0.9.5
+	walkdir@2.5.0
+	want@0.3.1
+	wasi@0.11.0+wasi-snapshot-preview1
+	wasi@0.13.0+wasi-0.2.0
+	wasite@0.1.0
+	wasm-bindgen-backend@0.2.93
+	wasm-bindgen-futures@0.4.43
+	wasm-bindgen-macro-support@0.2.93
+	wasm-bindgen-macro@0.2.93
+	wasm-bindgen-shared@0.2.93
+	wasm-bindgen@0.2.93
+	wayland-backend@0.3.7
+	wayland-client@0.31.6
+	wayland-protocols-wlr@0.2.0
+	wayland-protocols@0.31.2
+	wayland-scanner@0.31.5
+	wayland-sys@0.31.5
+	web-sys@0.3.70
+	weezl@0.1.8
+	whoami@1.5.2
+	winapi-i686-pc-windows-gnu@0.4.0
+	winapi-util@0.1.9
+	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9
+	windows-core@0.52.0
+	windows-registry@0.2.0
+	windows-result@0.2.0
+	windows-strings@0.1.0
+	windows-sys@0.48.0
+	windows-sys@0.52.0
+	windows-sys@0.59.0
+	windows-targets@0.48.5
+	windows-targets@0.52.6
+	windows_aarch64_gnullvm@0.48.5
+	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_msvc@0.48.5
+	windows_aarch64_msvc@0.52.6
+	windows_i686_gnu@0.48.5
+	windows_i686_gnu@0.52.6
+	windows_i686_gnullvm@0.52.6
+	windows_i686_msvc@0.48.5
+	windows_i686_msvc@0.52.6
+	windows_x86_64_gnu@0.48.5
+	windows_x86_64_gnu@0.52.6
+	windows_x86_64_gnullvm@0.48.5
+	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_msvc@0.48.5
+	windows_x86_64_msvc@0.52.6
+	winnow@0.6.18
+	winreg@0.10.1
+	winreg@0.52.0
+	wit-bindgen-rt@0.21.0
+	wl-clipboard-rs@0.8.1
+	write16@1.0.0
+	writeable@0.5.5
+	x11rb-protocol@0.13.1
+	x11rb@0.13.1
+	xattr@1.3.1
+	xi-unicode@0.3.0
+	xxhash-rust@0.8.12
+	yaml-rust@0.4.5
+	yoke-derive@0.7.4
+	yoke@0.7.4
+	zerocopy-derive@0.7.35
+	zerocopy@0.7.35
+	zerofrom-derive@0.1.4
+	zerofrom@0.1.4
+	zeroize@1.8.1
+	zeroize_derive@1.4.2
+	zerovec-derive@0.10.3
+	zerovec@0.10.4
+"
+
+LLVM_COMPAT=( 21 22 )
+RUST_MIN_VER=1.90.1
+RUST_NEEDS_LLVM=1
+
+inherit llvm-r1 cargo plocale
+
+PLOCALES="de fr it nb nn ru sv"
+
+DESCRIPTION="A password manager that uses the file format of 'pass'"
+HOMEPAGE="https://github.com/cortex/ripasso"
+SRC_URI="
+	https://github.com/cortex/${PN}/archive/refs/tags/release-${PV}.tar.gz -> ${P}.tar.gz
+	${CARGO_CRATE_URIS}
+"
+
+S="${WORKDIR}/${PN}-release-${PV}"
+
+LICENSE="GPL-3"
+# Dependent crate licenses
+LICENSE+="
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 CC0-1.0 ISC
+	LGPL-2+ LGPL-2.1 MIT MPL-2.0 Unicode-3.0 Unicode-DFS-2016 Unlicense
+	|| ( GPL-2 GPL-3 LGPL-3 )
+"
+SLOT="0"
+KEYWORDS="~amd64"
+IUSE="gtk"
+
+DEPEND="
+	app-crypt/gpgme:1=
+	dev-libs/capnproto
+	dev-libs/glib:2
+	dev-libs/gmp:=
+	dev-libs/libgit2:=
+	dev-libs/libgpg-error
+	dev-libs/nettle:=
+	dev-libs/openssl:0=
+	gui-libs/libadwaita:1
+	virtual/zlib:=
+	x11-libs/pango
+	gtk? (
+		gui-libs/gtk:4
+	)
+"
+RDEPEND="${DEPEND}"
+BDEPEND="
+	virtual/pkgconfig
+	$(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}=')
+"
+
+# See https://github.com/cortex/ripasso/issues/348
+RESTRICT+=" test"
+
+PATCHES=( "${FILESDIR}/unlock-nettle.patch" )
+
+QA_FLAGS_IGNORED="usr/bin/${PN}.*"
+
+src_configure() {
+	# high magic to allow system-libs
+	export OPENSSL_NO_VENDOR=true
+	export LIBGIT2_SYS_USE_PKG_CONFIG=1
+	export PKG_CONFIG_ALLOW_CROSS=1
+
+	cargo_src_configure
+}
+
+src_install() {
+	cargo_src_install --path "cursive"
+	use gtk && cargo_src_install --path "gtk"
+
+	dosym "${PN}-cursive" "/usr/bin/${PN}"
+
+	mv "target/man-page/cursive/${PN}-cursive.1" "target/man-page/cursive/${PN}.1" || die
+	doman "target/man-page/cursive/${PN}.1"
+
+	plocale_for_each_locale install_translations
+}
+
+install_translations() {
+	insinto "/usr/share/locale/${1}/LC_MESSAGES/"
+	newins "target/translations/cursive/${1}.mo" "${PN}-cursive.mo"
+}

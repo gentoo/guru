@@ -1,0 +1,38 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index 08aba30..e328635 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -2432,33 +2432,6 @@ dependencies = [
+  "tempfile",
+ ]
+
+-[[package]]
+-name = "nettle"
+-version = "7.4.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "44e6ff4a94e5d34a1fd5abbd39418074646e2fa51b257198701330f22fcd6936"
+-dependencies = [
+- "getrandom",
+- "libc",
+- "nettle-sys",
+- "thiserror",
+- "typenum",
+-]
+-
+-[[package]]
+-name = "nettle-sys"
+-version = "2.3.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "b495053a10a19a80e3a26bf1212e92e29350797b5f5bdc58268c3f3f818e66ec"
+-dependencies = [
+- "bindgen",
+- "cc",
+- "libc",
+- "pkg-config",
+- "tempfile",
+- "vcpkg",
+-]
+-
+ [[package]]
+ name = "new_debug_unreachable"
+ version = "1.0.6"
