@@ -33,6 +33,8 @@ RDEPEND="
 	!!net-mail/mox
 "
 
+QA_PREBUILT="usr/bin/mox"
+
 src_install() {
 	into /opt
 	newbin ${PN}-${ARCH}-${PV} ${PN%-bin}
