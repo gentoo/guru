@@ -16,7 +16,10 @@ EAPI=8
 #   https://github.com/gentoo-zh-drafts/codex/blob/crate-dist/.github/workflows/crates.yml
 # This allows anyone to review and verify the crate packaging process.
 
+# vendored openssl-0.10.75 and openssl-sys-0.9.111 don't support openssl-4
 CRATES="
+	openssl@0.10.82
+	openssl-sys@0.9.118
 "
 
 declare -A GIT_CRATES=(
@@ -39,10 +42,6 @@ RUST_MIN_VER="1.95.0"
 # python3 .github/scripts/rusty_v8_bazel.py resolved-v8-crate-version
 RUSTY_V8_TAG="152.2.0"
 
-# Cargo.lock pins openssl 0.10.75 and openssl-sys 0.9.111, neither accepts OpenSSL 4.x
-OPENSSL_VER="0.10.82"
-OPENSSL_SYS_VER="0.9.118"
-
 inherit cargo check-reqs toolchain-funcs
 
 CHECKREQS_MEMORY="15G"
@@ -57,8 +56,6 @@ HOMEPAGE="https://github.com/openai/codex"
 SRC_URI="
 	https://github.com/openai/${PN}/archive/rust-v${PV}.tar.gz -> ${PN}-${PV}.tar.gz
 	https://github.com/gentoo-zh-drafts/codex/releases/download/rust-v${PV}/codex-rust-v${PV}-crates.tar.xz
-	https://static.crates.io/crates/openssl/openssl-${OPENSSL_VER}.crate
-	https://static.crates.io/crates/openssl-sys/openssl-sys-${OPENSSL_SYS_VER}.crate
 	amd64? (
 		https://github.com/openai/codex/releases/download/rusty-v8-v${RUSTY_V8_TAG}/librusty_v8_release_x86_64-unknown-linux-musl.a.gz
 			-> rusty_v8_${RUSTY_V8_TAG}_librusty_v8_release_x86_64-unknown-linux-musl.a.gz
@@ -84,7 +81,7 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm64"
-# Tests fail due to ring crate conflicts with system OpenSSL
+# Tests need GStreamer 1.28 and the upstream voice runtime fixtures
 RESTRICT="test"
 
 DEPEND="dev-libs/openssl:="
@@ -140,22 +137,16 @@ src_prepare() {
 	v8 = { path = "$(gen_git_crate_dir v8)" }
 	EOF
 
-	local openssl_sha openssl_sys_sha
-	openssl_sha=$(sha256sum "${DISTDIR}"/openssl-"${OPENSSL_VER}".crate)
-	openssl_sha=${openssl_sha%% *}
-	openssl_sys_sha=$(sha256sum "${DISTDIR}"/openssl-sys-"${OPENSSL_SYS_VER}".crate)
-	openssl_sys_sha=${openssl_sys_sha%% *}
-
-	sed -i \
-		-e '/^name = "openssl"$/,/^checksum = /{
-			s/^version = ".*"$/version = "'"${OPENSSL_VER}"'"/
-			s/^checksum = ".*"$/checksum = "'"${openssl_sha}"'"/
-		}' \
-		-e '/^name = "openssl-sys"$/,/^checksum = /{
-			s/^version = ".*"$/version = "'"${OPENSSL_SYS_VER}"'"/
-			s/^checksum = ".*"$/checksum = "'"${openssl_sys_sha}"'"/
-		}' \
-		"${S}"/Cargo.lock || die
+	local crate sum
+	for crate in openssl-0.10.82 openssl-sys-0.9.118; do
+		sum=$(sha256sum "${DISTDIR}"/${crate}.crate | cut -d' ' -f1)
+		sed -i -e "/^name = \"${crate%-*}\"$/,/^checksum/{" \
+			-e "s/^version = .*/version = \"${crate##*-}\"/" \
+			-e "s/^checksum = .*/checksum = \"${sum}\"/" \
+			-e "}" Cargo.lock || die
+	done
+	# openssl-0.10.82 no longer depends on once_cell
+	sed -i -e '/^name = "openssl"$/,/^]/{/"once_cell",/d}' Cargo.lock || die
 }
 
 src_compile() {
