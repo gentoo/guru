@@ -15,6 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-libs/yyjson-0.13.0
