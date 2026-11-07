@@ -28,6 +28,7 @@ DEPEND="
 
 src_configure() {
 	local mycmakeargs=(
+		-DCPR_WARNINGS_AS_ERRORS=OFF
 		-DCPR_USE_SYSTEM_CURL=ON
 		-DCPR_ENABLE_SSL=$(usex ssl)
 	)
