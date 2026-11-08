@@ -75,7 +75,7 @@ CRATES="
 	calloop-wayland-source@0.3.0
 	cast@0.3.0
 	castaway@0.2.4
-	cc@1.11.0
+	cc@1.11.1
 	cexpr@0.6.0
 	cfg_aliases@0.2.2
 	cfg-expr@0.20.10
@@ -166,6 +166,7 @@ CRATES="
 	euclid@0.22.14
 	event-listener@5.4.2
 	event-listener-strategy@0.5.4
+	extended@0.1.0
 	fancy-regex@0.11.0
 	fastrand@2.5.0
 	fdeflate@0.3.7
@@ -174,7 +175,7 @@ CRATES="
 	find-msvc-tools@0.1.15
 	finl_unicode@1.5.1
 	fixedbitset@0.4.2
-	flate2@1.1.10
+	flate2@1.1.11
 	fnv@1.0.7
 	foldhash@0.2.0
 	foreign-types@0.5.0
@@ -263,7 +264,7 @@ CRATES="
 	libredox@0.1.25
 	libspa@0.10.1
 	libspa-sys@0.10.1
-	libwayshot@0.9.0
+	libwayshot@0.10.0
 	libwayshot-xcap@0.3.3
 	line-clipping@0.3.8
 	linux-raw-sys@0.12.1
@@ -287,6 +288,7 @@ CRATES="
 	ml-kem@0.3.4
 	module-lattice@0.2.4
 	moxcms@0.8.1
+	mp4@0.14.0
 	naga@30.0.1
 	naga-types@30.0.1
 	nasm-rs@0.3.2
@@ -298,12 +300,14 @@ CRATES="
 	nnnoiseless@0.5.2
 	nom@7.1.3
 	nom@8.0.0
+	num-bigint@0.4.8
 	num-complex@0.4.6
 	num-conv@0.2.2
 	num-derive@0.4.2
 	num_enum@0.7.6
 	num_enum_derive@0.7.6
 	num-integer@0.1.47
+	num-rational@0.4.2
 	num_threads@0.1.8
 	num-traits@0.2.19
 	objc2@0.5.3
@@ -447,6 +451,7 @@ CRATES="
 	r-efi@6.0.0
 	regex@1.13.1
 	regex-automata@0.4.18
+	regex-lite@0.1.9
 	regex-syntax@0.8.11
 	renderdoc-sys@1.1.0
 	rfc6979@0.6.0
@@ -456,6 +461,7 @@ CRATES="
 	rustc-hash@2.1.3
 	rustc_version@0.4.1
 	rustfft@6.4.1
+	rust_h265@0.4.1
 	rustix@0.38.44
 	rustix@1.1.6
 	rustls@0.23.46
@@ -477,7 +483,7 @@ CRATES="
 	serde_derive@1.0.229
 	serde_json@1.0.154
 	serde_repr@0.1.21
-	serde_spanned@1.1.2
+	serde_spanned@1.1.3
 	sha2@0.10.9
 	sha2@0.11.1
 	sha3@0.12.0
@@ -495,7 +501,7 @@ CRATES="
 	siphasher@1.0.4
 	slab@0.4.12
 	slotmap@1.1.1
-	smallvec@1.16.4
+	smallvec@1.16.5
 	smithay-client-toolkit@0.19.2
 	smol_str@0.2.2
 	socket2@0.6.5
@@ -511,6 +517,20 @@ CRATES="
 	strum@0.28.0
 	strum_macros@0.28.0
 	subtle@2.6.1
+	symphonia@0.6.1
+	symphonia-bundle-flac@0.6.1
+	symphonia-bundle-mp3@0.6.1
+	symphonia-codec-aac@0.6.1
+	symphonia-codec-alac@0.6.1
+	symphonia-codec-pcm@0.6.1
+	symphonia-codec-vorbis@0.6.1
+	symphonia-common@0.6.1
+	symphonia-core@0.6.1
+	symphonia-format-isomp4@0.6.1
+	symphonia-format-mkv@0.6.1
+	symphonia-format-ogg@0.6.1
+	symphonia-format-riff@0.6.1
+	symphonia-metadata@0.6.1
 	syn@1.0.109
 	syn@2.0.119
 	syn@3.0.9
@@ -540,9 +560,9 @@ CRATES="
 	tokio-macros@2.7.2
 	tokio-socks@0.5.3
 	tokio-stream@0.1.19
-	toml@1.2.0+spec-1.1.0
-	toml_datetime@1.1.2+spec-1.1.0
-	toml_edit@0.25.18+spec-1.1.0
+	toml@1.2.1+spec-1.1.0
+	toml_datetime@1.1.3+spec-1.1.0
+	toml_edit@0.25.19+spec-1.1.0
 	toml_parser@1.1.5+spec-1.1.0
 	toml_writer@1.2.0+spec-1.1.0
 	tracing@0.1.44
@@ -565,9 +585,10 @@ CRATES="
 	utf8parse@0.2.2
 	utf8-zero@0.8.1
 	utf_types@1.0.0
-	uuid@1.29.0
+	uuid@1.29.1
 	version_check@0.9.5
 	version-compare@0.2.1
+	vp9-mt@0.1.1
 	vsimd@0.8.0
 	vtparse@0.6.2
 	walkdir@2.5.0
