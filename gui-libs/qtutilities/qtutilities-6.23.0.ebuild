@@ -26,6 +26,11 @@ pkg_setup() {
 	MULTIBUILD_VARIANTS=( qt6 )
 }
 
+src_prepare() {
+	cmake_comment_add_subdirectory icontool
+	cmake_src_prepare
+}
+
 multibuild_src_configure() {
 	local mycmakeargs=(
 		-DCONFIGURATION_NAME="${MULTIBUILD_VARIANT}"
