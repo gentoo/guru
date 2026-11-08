@@ -48,6 +48,8 @@ BDEPEND="
 	)
 "
 
+PATCHES=( "${FILESDIR}/${PN}-5.054-disable-bear.patch" )
+
 src_prepare() {
 	default
 	# https://bugs.gentoo.org/785151 and https://bugs.gentoo.org/975566
@@ -84,11 +86,9 @@ src_configure() {
 src_compile() {
 	# https://github.com/verilator/verilator/issues/3352
 	export VERILATOR_SRC_VERSION="(Gentoo ${PVR})"
-	# src/Makefile.in wraps the obj_dbg build with bear when it is in PATH,
-	# and bear-driver creates cgroups that the portage sandbox denies.
-	emake BEAR=
+	emake
 }
 
 src_test() {
-	emake test BEAR=
+	emake test
 }
