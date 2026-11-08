@@ -34,6 +34,7 @@ DEPEND="
 	media-libs/harfbuzz:=
 	virtual/zlib:=
 "
+RDEPEND="${DEPEND}"
 
 src_compile() {
 	eqmake6 pdf_viewer_build_config.pro
