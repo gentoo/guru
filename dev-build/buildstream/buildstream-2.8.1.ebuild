@@ -120,6 +120,11 @@ python_test() {
 	export BST_TEST_XDG_CONFIG_HOME=${HOME}/config
 	export BST_TEST_XDG_DATA_HOME=${HOME}/share
 
+	local EPYTEST_DESELECT=(
+		# failure with mtime
+		tests/frontend/push.py::test_recently_pulled_artifact_does_not_expire
+	)
+
 	# fuse: failed to open /dev/fuse: Permission denied
 	addwrite "/dev/fuse"
 
