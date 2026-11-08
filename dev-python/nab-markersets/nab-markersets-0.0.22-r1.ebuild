@@ -1,4 +1,4 @@
-# Copyright 2022-2026 Gentoo Authors
+# Copyright 2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,10 +17,10 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
-	dev-python/nab-resolver[${PYTHON_USEDEP}]
+	~dev-python/nab-resolver-0.0.22[${PYTHON_USEDEP}]
 "
 
 BDEPEND="

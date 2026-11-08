@@ -1,4 +1,4 @@
-# Copyright 2022-2026 Gentoo Authors
+# Copyright 2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 # Many tests not working when not in monorepo
 # in this  case it is better to just restrict
@@ -26,8 +26,8 @@ RESTRICT="test"
 RDEPEND="
 	dev-python/installer[${PYTHON_USEDEP}]
 	dev-python/httpx2[${PYTHON_USEDEP}]
-	dev-python/nab-index[${PYTHON_USEDEP}]
-	dev-python/nab-markersets[${PYTHON_USEDEP}]
+	~dev-python/nab-index-0.0.22[${PYTHON_USEDEP}]
+	~dev-python/nab-markersets-0.0.22[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/pyproject-hooks[${PYTHON_USEDEP}]
 	>=dev-python/tomli-2.5.0[${PYTHON_USEDEP}]
