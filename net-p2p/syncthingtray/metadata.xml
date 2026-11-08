@@ -11,5 +11,6 @@
   <use>
     <flag name="kio">Enable file item action plugin in <pkg>kde-apps/dolphin</pkg></flag>
     <flag name="plasmoid">Enable plasmoid for KDE Plasma</flag>
+    <flag name="webengine">Use <pkg>dev-qt/qtwebengine</pkg> to configure syncthing (opens in your normal browser if unset)</flag>
   </use>
 </pkgmetadata>
