@@ -73,6 +73,7 @@ BDEPEND+="
 	$(python_gen_any_dep "
 		dev-python/pybind11[\${PYTHON_USEDEP}]
 	")
+	sys-apps/grep[pcre]
 "
 
 PATCHES=(
