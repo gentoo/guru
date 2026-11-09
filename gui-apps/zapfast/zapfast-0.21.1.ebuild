@@ -873,7 +873,7 @@ declare -A GIT_CRATES=(
 	[winit]='https://github.com/crmne/winit;59ebfb727b8c83fcd28f8ca59c3733e32b4b4e9b;winit-%commit%'
 )
 
-inherit cargo desktop xdg
+inherit cargo desktop optfeature xdg
 
 DESCRIPTION="A native WhatsApp client built with Rust and egui"
 HOMEPAGE="https://zapfast.rocks"
@@ -892,7 +892,29 @@ LICENSE+="
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND="virtual/pkgconfig"
+IUSE="test"
+RESTRICT="!test? ( test )"
+
+BDEPEND="
+	dev-build/cmake
+	dev-lang/perl
+	llvm-core/clang
+	test? ( media-fonts/liberation-fonts )
+	virtual/pkgconfig
+"
+DEPEND="
+	dev-libs/wayland
+	media-libs/alsa-lib
+	media-libs/libglvnd
+	media-video/pipewire:=
+	x11-libs/libX11
+	x11-libs/libXcursor
+	x11-libs/libXi
+	x11-libs/libXrandr
+	x11-libs/libxcb
+	x11-libs/libxkbcommon[X]
+"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	export PKG_CONFIG_ALLOW_CROSS=1
@@ -917,4 +939,14 @@ src_install() {
 
 	domenu packaging/applications/${PN}.desktop
 	newicon docs/assets/images/logo.svg ${PN}.svg
+
+	dodoc THIRD-PARTY-NOTICES.md README.md
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+
+	optfeature "archive encryption key storage via Secret Service" virtual/secret-service
+	optfeature "colour emoji in messages and reactions" media-fonts/noto-emoji
+	optfeature "file picker for attachments" sys-apps/xdg-desktop-portal
 }
