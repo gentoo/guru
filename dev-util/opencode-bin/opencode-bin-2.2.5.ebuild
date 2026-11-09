@@ -32,7 +32,7 @@ src_install() {
 	dosym ${MY_PN} /usr/bin/${MY_PN}2
 
 	for shell in bash fish zsh; do
-		${MY_PN} --completions ${shell} > "${MY_PN}.${shell}" || die
+		"${S}/${MY_PN}"  --completions ${shell} > "${MY_PN}.${shell}" || die
 	done
 
 	newbashcomp ${MY_PN}.bash ${MY_PN}
