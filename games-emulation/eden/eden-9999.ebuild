@@ -45,7 +45,8 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	app-arch/lz4
 	app-arch/zstd
-	dev-cpp/cpp-httplib:=[ssl]
+	dev-cpp/hydrocarbon
+	dev-cpp/jacinth
 	dev-libs/libfmt:=
 	dev-libs/mcl
 	dev-libs/openssl:=
@@ -73,13 +74,11 @@ RDEPEND="
 	)
 	usb? ( dev-libs/libusb )
 	web-applet? ( dev-qt/qtwebengine:6[widgets] )
-	web-service? ( dev-cpp/cpp-httplib:=[ssl] )
 	wifi? ( net-wireless/wireless-tools )
 	llvm? ( llvm-core/llvm )
 "
 DEPEND="
 	${RDEPEND}
-	dev-cpp/nlohmann_json
 	dev-cpp/simpleini
 	dev-libs/boost:=[context]
 	dev-libs/frozen
