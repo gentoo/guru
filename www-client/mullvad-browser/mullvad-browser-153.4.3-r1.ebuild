@@ -35,7 +35,7 @@ ESR_PV="16.0-1-build3"
 DESCRIPTION="The Mullvad Browser is developed to minimize tracking and fingerprinting"
 HOMEPAGE="https://github.com/mullvad/mullvad-browser/ https://mullvad.net/"
 
-inherit check-reqs desktop flag-o-matic gnome2-utils linux-info llvm-r1 multiprocessing \
+inherit check-reqs desktop flag-o-matic gnome2-utils linux-info llvm-r2 multiprocessing \
 	optfeature pax-utils python-any-r1 readme.gentoo-r1 rust toolchain-funcs virtualx xdg
 
 MULLVAD_BASE_URI="https://gitlab.torproject.org/tpo/applications/${PN}"
@@ -471,7 +471,7 @@ pkg_setup() {
 		fi
 
 		check-reqs_pkg_setup
-		llvm-r1_pkg_setup
+		llvm-r2_pkg_setup
 		rust_pkg_setup
 		python-any-r1_pkg_setup
 

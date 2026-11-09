@@ -496,7 +496,7 @@ LLVM_COMPAT=( 21 22 )
 RUST_MIN_VER=1.90.1
 RUST_NEEDS_LLVM=1
 
-inherit llvm-r1 cargo plocale
+inherit llvm-r2 cargo plocale
 
 PLOCALES="de fr it nb nn ru sv"
 

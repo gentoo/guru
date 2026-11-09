@@ -9,7 +9,7 @@ LLVM_COMPAT=( {17..21} )
 # RUST_MIN_VER="1.83.0"
 RUST_NEEDS_LLVM=1
 
-inherit llvm-r1 cargo
+inherit llvm-r2 cargo
 
 DESCRIPTION="Xwayland outside your Wayland"
 HOMEPAGE="https://github.com/Supreeeme/xwayland-satellite"
@@ -41,7 +41,7 @@ QA_FLAGS_IGNORED="usr/bin/${PN}"
 DOCS=( README.md )
 
 pkg_setup() {
-	llvm-r1_pkg_setup
+	llvm-r2_pkg_setup
 	rust_pkg_setup
 }
 

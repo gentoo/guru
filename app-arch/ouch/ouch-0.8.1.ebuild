@@ -9,7 +9,7 @@ LLVM_COMPAT=( {21..22} )
 RUST_NEEDS_LLVM=1
 RUST_MIN_VER="1.93.0"
 
-inherit llvm-r1 cargo shell-completion
+inherit llvm-r2 cargo shell-completion
 
 DESCRIPTION="A cli utility for easily compressing and decompressing files and directories"
 HOMEPAGE="https://github.com/ouch-org/ouch"

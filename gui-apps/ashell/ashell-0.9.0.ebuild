@@ -637,7 +637,7 @@ LLVM_COMPAT=( 22 )
 RUST_MIN_VER="1.95.0"
 RUST_NEEDS_LLVM=1
 
-inherit cargo llvm-r1 systemd
+inherit cargo llvm-r2 systemd
 
 DESCRIPTION="A ready to go Wayland status bar for Hyprland and Niri"
 HOMEPAGE="https://malpenzibo.github.io/ashell/"
@@ -669,7 +669,7 @@ BDEPEND="
 "
 
 pkg_setup() {
-	llvm-r1_pkg_setup
+	llvm-r2_pkg_setup
 	rust_pkg_setup
 }
 
