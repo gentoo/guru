@@ -3,22 +3,21 @@
 
 EAPI=8
 
-ZIG_SLOT="0.16"
+ZIG_SLOT="0.17"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://codeberg.org/beansprout/beansprout.git"
 	inherit git-r3
 else
 	declare -g -r -A ZBS_DEPENDENCIES=(
-		[args-0.0.0-CiLiqojRAACGzDRO7A9dw7kWSchNk29caJZkXuMCb0Cn.tar.gz]='https://github.com/ikskuh/zig-args/archive/8ae26b44a884ff20dca98ee84c098e8f8e94902f.tar.gz'
-		[fcft-3.0.0-zcx6CxQfAADhnwm8SjyCkQF-VFHGiVarigc2de3ciInC.tar.gz]='https://git.sr.ht/~novakane/zig-fcft/archive/4bf5be61c869d08d5bcb0306049c63a9cb0795a7.tar.gz'
-		[kdl-0.0.0-8rilEKdHAQC_NOLDNu3Ts6kJT8uqqJvrPduFScEjSm_g.tar.gz]='https://codeberg.org/bwbuhse/zig-kdl/archive/13d9d247324f79b854187d6becc47fffdf7fea3b.tar.gz'
-		[known_folders-0.0.0-Fy-PJv3LAAABBRVoZWVrKZdyLoUfl5VRY5fqRRRdnF5L.tar.gz]='https://github.com/ziglibs/known-folders/archive/83d39161eac2ed6f37ad3cb4d9dd518696ce90bb.tar.gz'
-		[pixman-0.3.0-LClMnz2VAAAs7QSCGwLimV5VUYx0JFnX5xWU6HwtMuDX.tar.gz]='https://codeberg.org/ifreund/zig-pixman/archive/v0.3.0.tar.gz'
-		[wayland-0.5.0-dev-lQa1kv_ZAQCZfnVZMocokZ78QJbH6NaM5RUC9ODQPhx5.tar.gz]='https://codeberg.org/ifreund/zig-wayland/archive/e57368ecbda85d564362779b253b744260a4b053.tar.gz'
-		[xkbcommon-0.4.0-dev-VDqIe0y2AgCNeWLthDZ3MUcUYzhyKXjK85ISm_zxk9Nk.tar.gz]='https://codeberg.org/ifreund/zig-xkbcommon/archive/6786ca619bb442c3f523b5bb894e6a1e48d7e897.tar.gz'
-		[zeit-0.6.0-5I6bk36tAgATpSl9wjFmRPMqYN2Mn0JQHgIcRNcqDpJA.tar.gz]='https://github.com/rockorager/zeit/archive/7ac64d72dbfb1a4ad549102e7d4e232a687d32d8.tar.gz'
-		[zigimg-0.1.0-8_eo2kSGFwADIkeZYTgfnLOV-khh6ZRoGmK6F2-s_QbY.tar.gz]='https://github.com/zigimg/zigimg/archive/fb74dfb7c6d83f2bd01a229826669451525a4ba8.tar.gz'
+		[fcft-3.0.0-zcx6CxQfAABhvjr94DLJpHKt0UEOpTBXVYQyeySRuaVv.tar.gz]='https://codeberg.org/bwbuhse/zig-fcft/archive/58e215cd67928e22856625615ad9aff457b7fdf4.tar.gz'
+		[kdl-0.0.0-8rilELEEAgDpp4K7_p6ZmM5DJ9-c9I9j6APAI4SGQKuN.tar.gz]='https://codeberg.org/bwbuhse/zig-kdl/archive/c13744e24d8b347935ec2caa251f8dedf1dde0c8.tar.gz'
+		[known_folders-0.0.0-Fy-PJiDLAAB98m3uYUzatrTb2mO2fpvwx2zpSroEtfbO.tar.gz]='https://github.com/ziglibs/known-folders/archive/6da0d0c41b78b9ed2d34fa364fcb81b5ebece6c4.tar.gz'
+		[pixman-0.4.0-LClMn_eWAAAa2zACATDpPwjuI5fWlO5cBp_F_M33hnNZ.tar.gz]='https://codeberg.org/ifreund/zig-pixman/archive/v0.4.0.tar.gz'
+		[translate_c-2.0.2-Q_BUWvBNBwDnyehSiuAJmdFcMYHYGA-Jc3KiYdrV2Dqx.tar.gz]='https://codeberg.org/ziglang/translate-c/archive/cfac21f3199b2b02ce3fd7db652aa456421fe4ab.tar.gz'
+		[wayland-0.7.0-lQa1kuP8AQD5dW7_o-VKLVD_QbqXe7Zob78r2su7Pyex.tar.gz]='https://codeberg.org/ifreund/zig-wayland/archive/v0.7.0.tar.gz'
+		[xkbcommon-0.5.0-VDqIe8y3AgDU-cGL02xZplwABH3WbpTimrrgbgTgD_3g.tar.gz]='https://codeberg.org/ifreund/zig-xkbcommon/archive/v0.5.0.tar.gz'
+		[aro-0.0.0-JSD1QvCRNwC2O1Jkop9TO6sXb1U1vhrH8FnYK1VdEMKn.tar.gz]='https://codeberg.org/ziglang/arocc/archive/630d99ed60fe61ccabe721f1af60881f8b2adde3.tar.gz'
 	)
 	S="${WORKDIR}/${PN}"
 	KEYWORDS="~amd64"
@@ -55,8 +54,6 @@ src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
 		zig_live_src_unpack
-		# Workaround from vimproved until the eclass is updated
-		ln -s "${WORKDIR}/zig-pkg" "${S}/zig-pkg" || die
 	else
 		zig_src_unpack
 	fi
