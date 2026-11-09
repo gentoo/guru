@@ -41,6 +41,7 @@ RDEPEND="
 	media-libs/taglib:=
 	media-video/ffmpeg:=
 	virtual/zlib:=
+	x11-libs/libxcb:=
 	x11-libs/libX11
 	alsa? ( media-libs/alsa-lib )
 	flac? ( media-libs/flac:=[cxx] )
