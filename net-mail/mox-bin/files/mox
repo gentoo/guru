@@ -23,7 +23,7 @@ depend() {
 }
 
 checkconfig() {
-    for i in $directory/config/{mox,domains}.conf; do
+    for i in $directory/config/mox.conf $directory/config/domains.conf; do
         if ! [ -f $i ]; then
             eerror "No $i"
             eerror "Make sure to run quickstart first!"
