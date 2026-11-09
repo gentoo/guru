@@ -29,7 +29,7 @@ BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 "
 
-EPYTEST_PLUGINS=( )
+EPYTEST_PLUGINS=( hypothesis )
 
 distutils_enable_tests pytest
 
