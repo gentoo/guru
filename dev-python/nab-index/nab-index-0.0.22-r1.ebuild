@@ -30,9 +30,10 @@ RDEPEND="
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
+	test? ( dev-python/httpx2 )
 "
 
-EPYTEST_PLUGINS=( )
+EPYTEST_PLUGINS=( hypothesis )
 
 distutils_enable_tests pytest
 
