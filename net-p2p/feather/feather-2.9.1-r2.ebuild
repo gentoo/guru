@@ -1,5 +1,11 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+# RavFX (2025) Bump version and remove deprecated plugins
+# RavFX (2026) Bump revision: fix CMake < 3.10 deprecation warnings (CMake 4.x)
+# RavFX (2026) Bump revision: fix CMake policy warnings CMP0077/CMP0148/CMP0167
+# RavFX (2026) Silence GitVersion warning: treat release tarball as tagged release
+# RavFX (2026) Set MANUAL_SUBMODULES=ON: tarball vendors submodules, no git tree
+# RavFX (2026) Bump revision: port monero PR #10966 (epee: fix build with OpenSSL 4.0)
 
 EAPI=8
 
@@ -59,6 +65,7 @@ src_prepare() {
 	eapply "${FILESDIR}/feather-cmake-minimum-3.10.patch"
 	eapply "${FILESDIR}/feather-cmake-policies.patch"
 	eapply "${FILESDIR}/feather-git-version-tarball.patch"
+	eapply "${FILESDIR}/feather-monero-epee-openssl-4.0.patch"
 	cmake_src_prepare
 }
 

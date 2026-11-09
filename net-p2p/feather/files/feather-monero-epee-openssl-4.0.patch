@@ -1,0 +1,21 @@
+epee: fix build with OpenSSL 4.0 (port of monero PR #10966)
+
+OpenSSL 4.0 changed X509_get_subject_name() to return a const X509_NAME*
+and X509_set_issuer_name() to take one, so storing the result in a
+non-const X509_NAME* intermediate no longer compiles. Pass it directly,
+as create_ec_ssl_certificate() in the same file already does.
+
+Upstream: https://github.com/monero-project/monero/pull/10966
+(commit 0b67da411a5c0baf2f0631b311a3ec71467da1bc, "epee: fix build with openssl 4.0")
+--- a/monero/contrib/epee/src/net_ssl.cpp
++++ b/monero/contrib/epee/src/net_ssl.cpp
+@@ -197,8 +197,7 @@
+     X509_free(cert);
+     return false;
+   }
+-  X509_NAME *name = X509_get_subject_name(cert);
+-  X509_set_issuer_name(cert, name);
++  X509_set_issuer_name(cert, X509_get_subject_name(cert));
+ 
+   if (X509_sign(cert, pkey, EVP_sha256()) == 0)
+   {
