@@ -37,6 +37,7 @@ RDEPEND="
 	>=dev-python/click-8.1.0[${PYTHON_USEDEP}]
 	>=dev-python/python-mpv-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/pillow-10.0[${PYTHON_USEDEP}]
+	>=dev-python/secretstorage-3.3.0[${PYTHON_USEDEP}]
 	>=dev-python/textual-7.0.0[${PYTHON_USEDEP}]
 	>=dev-python/ytmusicapi-1.11.0[${PYTHON_USEDEP}]
 	>=dev-python/dbus-fast-5.0.0[${PYTHON_USEDEP}]
