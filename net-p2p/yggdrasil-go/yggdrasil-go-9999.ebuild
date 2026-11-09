@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="
-		https://github.com/yggdrasil-network/yggdrasil-go/releases/download/v${PV}/yggdrasil-${PV}-vendored.tar.gz
+		https://github.com/yggdrasil-network/yggdrasil-go/releases/download/v${PV}/yggdrasil-${PV}-vendored.tar
 	"
 	S="${WORKDIR}"
 	KEYWORDS="~amd64 ~arm64"
@@ -24,7 +24,7 @@ SLOT="0"
 
 RESTRICT="mirror"
 
-BDEPEND=">=dev-lang/go-1.24"
+BDEPEND=">=dev-lang/go-1.26.0"
 RDEPEND="
 	acct-user/yggdrasil
 	acct-group/yggdrasil
@@ -62,7 +62,7 @@ src_compile() {
 	fi
 	local custom_name_version_flags="-X ${src}.buildName=${name} -X ${src}.buildVersion=${version}"
 
-	local go_ldflags="-s -linkmode external -extldflags \"${LDFLAGS}\" ${custom_name_version_flags}"
+	local go_ldflags="-linkmode external -extldflags \"${LDFLAGS}\" ${custom_name_version_flags}"
 
 	for cmd in yggdrasil{,ctl} genkeys; do
 		ego build ${GOFLAGS} -ldflags="${go_ldflags}" ./cmd/${cmd}
