@@ -1,0 +1,23 @@
+diff --git a/pdf_viewer_build_config.pro b/pdf_viewer_build_config.pro
+index 8a480342..200f4d72 100644
+--- a/pdf_viewer_build_config.pro
++++ b/pdf_viewer_build_config.pro
+@@ -2,8 +2,7 @@ TEMPLATE = app
+ TARGET = sioyek
+ VERSION = 2.0.0
+ 
+-INCLUDEPATH += ./pdf_viewer \
+-               mupdf/include
++INCLUDEPATH += ./pdf_viewer
+ 
+ !android{
+     INCLUDEPATH += zlib
+@@ -179,7 +178,7 @@ unix:!mac:!android {
+     } else {
+         DEFINES += NON_PORTABLE
+         DEFINES += LINUX_STANDARD_PATHS
+-        LIBS += -ldl -lmupdf -lmupdf-third -lgumbo -lharfbuzz -lfreetype -ljbig2dec -ljpeg -lmujs -lopenjp2 -lz
++        LIBS += -ldl -lmupdf -lgumbo -lharfbuzz -lfreetype -ljbig2dec -ljpeg -lmujs -lopenjp2 -lz
+     }
+ 
+     isEmpty(PREFIX){
