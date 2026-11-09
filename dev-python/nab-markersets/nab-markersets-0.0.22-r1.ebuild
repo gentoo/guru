@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
-	~dev-python/nab-resolver-0.0.22[${PYTHON_USEDEP}]
+	~dev-python/nab-resolver-${PV}[${PYTHON_USEDEP}]
 "
 
 BDEPEND="

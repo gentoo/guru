@@ -20,9 +20,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
-	~dev-python/nab-markersets-0.0.25[${PYTHON_USEDEP}]
-	~dev-python/nab-provider-0.0.25[${PYTHON_USEDEP}]
-	~dev-python/nab-resolver-0.0.25[${PYTHON_USEDEP}]
+	~dev-python/nab-markersets-${PV}[${PYTHON_USEDEP}]
+	~dev-python/nab-provider-${PV}[${PYTHON_USEDEP}]
+	~dev-python/nab-resolver-${PV}[${PYTHON_USEDEP}]
 	dev-python/truststore[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 "

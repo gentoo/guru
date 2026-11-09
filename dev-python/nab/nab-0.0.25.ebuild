@@ -21,11 +21,11 @@ KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-python/httpx2[${PYTHON_USEDEP}]
-	~dev-python/nab-index-0.0.25[${PYTHON_USEDEP}]
-	~dev-python/nab-markersets-0.0.25[${PYTHON_USEDEP}]
-	~dev-python/nab-project-0.0.25[${PYTHON_USEDEP}]
-	~dev-python/nab-provider-0.0.25[${PYTHON_USEDEP}]
-	~dev-python/nab-resolver-0.0.25[${PYTHON_USEDEP}]
+	~dev-python/nab-index-${PV}[${PYTHON_USEDEP}]
+	~dev-python/nab-markersets-${PV}[${PYTHON_USEDEP}]
+	~dev-python/nab-project-${PV}[${PYTHON_USEDEP}]
+	~dev-python/nab-provider-${PV}[${PYTHON_USEDEP}]
+	~dev-python/nab-resolver-${PV}[${PYTHON_USEDEP}]
 	>=dev-python/tomli-2.5.0[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 "

@@ -26,8 +26,8 @@ RESTRICT="test"
 RDEPEND="
 	dev-python/httpx2[${PYTHON_USEDEP}]
 	dev-python/installer[${PYTHON_USEDEP}]
-	~dev-python/nab-index-0.0.23[${PYTHON_USEDEP}]
-	~dev-python/nab-markersets-0.0.23[${PYTHON_USEDEP}]
+	~dev-python/nab-index-${PV}[${PYTHON_USEDEP}]
+	~dev-python/nab-markersets-${PV}[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/pyproject-hooks[${PYTHON_USEDEP}]
 	>=dev-python/tomli-2.5.0[${PYTHON_USEDEP}]
