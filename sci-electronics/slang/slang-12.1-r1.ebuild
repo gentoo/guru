@@ -49,7 +49,7 @@ src_prepare() {
 src_configure() {
 	python_setup
 	local mycmakeargs=(
-		-D CMAKE_INSTALL_LIBDIR="${EPREFIX}/usr/$(get_libdir)"
+		-D CMAKE_INSTALL_LIBDIR="$(get_libdir)"
 		-D BUILD_SHARED_LIBS=ON
 		-D SLANG_INCLUDE_PYLIB=$(usex python)
 		-D SLANG_INCLUDE_TESTS=$(usex test)
@@ -63,6 +63,11 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
+
+	# pkg-config consumers do not inherit the CMake target's
+	# SLANG_USE_SYSTEM_BOOST definition.
+	sed -i 's|^Cflags: |Cflags: -DSLANG_USE_SYSTEM_BOOST |' \
+		"${ED}/usr/share/pkgconfig/sv-lang.pc" || die
 
 	if use python; then
 		# CMake installs pyslang files flat into /usr/; relocate them into
