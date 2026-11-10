@@ -1,0 +1,58 @@
+# Copyright 2023-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+inherit go-module systemd
+
+DESCRIPTION="Pluggable Transport using WebRTC, inspired by Flashproxy"
+HOMEPAGE="
+	https://snowflake.torproject.org
+	https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake
+"
+SRC_URI="https://dist.torproject.org/snowflake/${PV}/snowflake-v${PV}.tar.gz"
+S=${WORKDIR}/snowflake-v${PV}
+
+LICENSE="BSD Apache-2.0 BSD-2 CC0-1.0 MIT"
+SLOT="0"
+KEYWORDS="~amd64"
+IUSE="minimal"
+
+BDEPEND=">=dev-lang/go-1.26.10"
+
+src_configure() {
+	COMPONENTS=(
+		proxy
+		$(usev !minimal "broker client probetest server")
+	)
+	einfo "The following components will be built: ${COMPONENTS[@]}"
+}
+
+src_compile() {
+	local component
+	for component in "${COMPONENTS[@]}"; do
+		pushd ${component} || die
+		einfo "Building ${component}"
+		nonfatal ego build || die "${component}: build failed"
+		popd || die
+	done
+}
+
+src_test() {
+	ego test ./...
+}
+
+src_install() {
+	local component
+	for component in "${COMPONENTS[@]}"; do
+		newbin ${component}/${component} snowflake-${component}
+		newdoc ${component}/README.md README_${component}.md
+	done
+
+	systemd_dounit "${FILESDIR}"/snowflake-proxy.service
+	newinitd "${FILESDIR}"/snowflake-proxy.initd snowflake-proxy
+
+	einstalldocs
+	dodoc doc/*.txt doc/*.md
+	doman doc/*.1
+}

@@ -2,6 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<!-- maintainer-needed -->
+	<use>
+		<flag name="minimal">Build and install just the snowflake-proxy binary</flag>
+	</use>
 	<upstream>
 		<bugs-to>https://anonticket.torproject.org</bugs-to>
 		<changelog>https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/-/blob/main/ChangeLog</changelog>
