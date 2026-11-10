@@ -1,0 +1,12 @@
+diff -r slang-12.1/include/slang/numeric/SVInt.h slang-12.1-export/include/slang/numeric/SVInt.h
+--- slang-12.1/include/slang/numeric/SVInt.h	2026-10-25 05:33:23.000000000 -0700
++++ slang-12.1-export/include/slang/numeric/SVInt.h	2026-11-09 20:18:28.330345748 -0800
+@@ -32,7 +32,7 @@
+ SLANG_ENUM_SIZED(LiteralBase, uint8_t, LB)
+ #undef LB
+ 
+-bool literalBaseFromChar(char base, LiteralBase& result);
++SLANG_EXPORT bool literalBaseFromChar(char base, LiteralBase& result);
+ 
+ /// Represents a single 4-state bit. The usual bit values of 0 and 1 are
+ /// augmented with X (unknown) and Z (high impedance). Both X and Z are
