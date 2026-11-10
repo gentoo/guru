@@ -52,9 +52,9 @@ src_test() {
 src_install() {
 	dobin ${PN}
 
-	doinitd "${FILESDIR}"/${PN%-bin}
+	doinitd "${FILESDIR}"/${PN}
 	systemd_dounit ${PN}.service
-	newconfd "${FILESDIR}"/${PN%-bin}.confd ${PN%-bin}
+	newconfd "${FILESDIR}"/${PN}.confd ${PN}
 
 	einstalldocs
 }
