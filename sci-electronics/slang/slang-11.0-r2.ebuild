@@ -43,6 +43,7 @@ BDEPEND="
 PATCHES=(
 	# bug 975580
 	"${FILESDIR}/${PN}-11.0-catch2-3.13.patch"
+	"${FILESDIR}/${PN}-11.0-fmt-12.2.patch"
 )
 
 src_prepare() {

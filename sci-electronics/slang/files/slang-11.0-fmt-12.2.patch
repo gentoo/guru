@@ -1,0 +1,179 @@
+diff -r slang-11.0/bindings/python/pyslang.h slang-11.0-fix/bindings/python/pyslang.h
+--- slang-11.0/bindings/python/pyslang.h	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/bindings/python/pyslang.h	2026-11-09 19:52:28.424707467 -0800
+@@ -5,7 +5,7 @@
+ //------------------------------------------------------------------------------
+ #pragma once
+ 
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ #include <optional>
+ #include <pybind11/cast.h>
+ #include <pybind11/functional.h>
+diff -r slang-11.0/include/slang/util/CommandLine.h slang-11.0-fix/include/slang/util/CommandLine.h
+--- slang-11.0/include/slang/util/CommandLine.h	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/include/slang/util/CommandLine.h	2026-11-09 19:52:28.420346010 -0800
+@@ -9,7 +9,7 @@
+ 
+ #include <cctype>
+ #include <deque>
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ #include <functional>
+ #include <map>
+ #include <optional>
+diff -r slang-11.0/source/analysis/AbstractFlowAnalysis.cpp slang-11.0-fix/source/analysis/AbstractFlowAnalysis.cpp
+--- slang-11.0/source/analysis/AbstractFlowAnalysis.cpp	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/source/analysis/AbstractFlowAnalysis.cpp	2026-11-09 19:52:28.420674767 -0800
+@@ -7,7 +7,7 @@
+ //------------------------------------------------------------------------------
+ #include "slang/analysis/AbstractFlowAnalysis.h"
+ 
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ #include "slang/analysis/CaseDecisionDag.h"
+ #include "slang/diagnostics/AnalysisDiags.h"
+diff -r slang-11.0/source/ast/Compilation.cpp slang-11.0-fix/source/ast/Compilation.cpp
+--- slang-11.0/source/ast/Compilation.cpp	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/source/ast/Compilation.cpp	2026-11-09 19:52:28.421686207 -0800
+@@ -9,7 +9,7 @@
+ 
+ #include "ElabVisitors.h"
+ #include "builtins/Builtins.h"
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ #include <mutex>
+ 
+ #include "slang/ast/ScriptSession.h"
+diff -r slang-11.0/source/ast/statements/ConditionalStatements.cpp slang-11.0-fix/source/ast/statements/ConditionalStatements.cpp
+--- slang-11.0/source/ast/statements/ConditionalStatements.cpp	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/source/ast/statements/ConditionalStatements.cpp	2026-11-09 19:52:28.422025963 -0800
+@@ -7,7 +7,7 @@
+ //------------------------------------------------------------------------------
+ #include "slang/ast/statements/ConditionalStatements.h"
+ 
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ #include "slang/ast/ASTSerializer.h"
+ #include "slang/ast/ASTVisitor.h"
+diff -r slang-11.0/source/driver/SourceLoader.cpp slang-11.0-fix/source/driver/SourceLoader.cpp
+--- slang-11.0/source/driver/SourceLoader.cpp	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/source/driver/SourceLoader.cpp	2026-11-09 19:52:28.422287333 -0800
+@@ -7,7 +7,7 @@
+ //------------------------------------------------------------------------------
+ #include "slang/driver/SourceLoader.h"
+ 
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ #include "slang/parsing/Preprocessor.h"
+ #include "slang/syntax/AllSyntax.h"
+diff -r slang-11.0/source/numeric/SVInt.cpp slang-11.0-fix/source/numeric/SVInt.cpp
+--- slang-11.0/source/numeric/SVInt.cpp	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/source/numeric/SVInt.cpp	2026-11-09 19:52:28.423140189 -0800
+@@ -9,7 +9,7 @@
+ 
+ #include "SVIntHelpers.h"
+ #include <cmath>
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ #include <ostream>
+ #include <stdexcept>
+ 
+diff -r slang-11.0/source/numeric/Time.cpp slang-11.0-fix/source/numeric/Time.cpp
+--- slang-11.0/source/numeric/Time.cpp	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/source/numeric/Time.cpp	2026-11-09 19:52:28.423332472 -0800
+@@ -8,7 +8,7 @@
+ #include "slang/numeric/Time.h"
+ 
+ #include <cmath>
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ #include <ostream>
+ 
+ #include "slang/util/String.h"
+diff -r slang-11.0/source/parsing/Lexer.cpp slang-11.0-fix/source/parsing/Lexer.cpp
+--- slang-11.0/source/parsing/Lexer.cpp	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/source/parsing/Lexer.cpp	2026-11-09 19:52:28.423919198 -0800
+@@ -8,7 +8,7 @@
+ #include "slang/parsing/Lexer.h"
+ 
+ #include <cmath>
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ #include "slang/diagnostics/LexerDiags.h"
+ #include "slang/diagnostics/NumericDiags.h"
+diff -r slang-11.0/source/util/CommandLine.cpp slang-11.0-fix/source/util/CommandLine.cpp
+--- slang-11.0/source/util/CommandLine.cpp	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/source/util/CommandLine.cpp	2026-11-09 19:52:28.424316902 -0800
+@@ -9,7 +9,7 @@
+ 
+ #include <charconv>
+ #include <filesystem>
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ #include "slang/text/CharInfo.h"
+ #include "slang/util/OS.h"
+diff -r slang-11.0/source/util/TimeTrace.cpp slang-11.0-fix/source/util/TimeTrace.cpp
+--- slang-11.0/source/util/TimeTrace.cpp	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/source/util/TimeTrace.cpp	2026-11-09 19:52:28.424444537 -0800
+@@ -8,7 +8,7 @@
+ #include "slang/util/TimeTrace.h"
+ 
+ #include <chrono>
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ #include <mutex>
+ #include <ostream>
+ #include <thread>
+diff -r slang-11.0/source/util/Util.cpp slang-11.0-fix/source/util/Util.cpp
+--- slang-11.0/source/util/Util.cpp	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/source/util/Util.cpp	2026-11-09 19:52:28.424518724 -0800
+@@ -7,7 +7,7 @@
+ //------------------------------------------------------------------------------
+ #include "slang/util/Util.h"
+ 
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ namespace slang::assert {
+ 
+diff -r slang-11.0/tests/unittests/DriverTests.cpp slang-11.0-fix/tests/unittests/DriverTests.cpp
+--- slang-11.0/tests/unittests/DriverTests.cpp	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/tests/unittests/DriverTests.cpp	2026-11-09 19:52:28.424859261 -0800
+@@ -2,7 +2,7 @@
+ // SPDX-License-Identifier: MIT
+ 
+ #include "Test.h"
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ #include <fstream>
+ #include <regex>
+ 
+diff -r slang-11.0/tests/unittests/analysis/CaseAnalysisTests.cpp slang-11.0-fix/tests/unittests/analysis/CaseAnalysisTests.cpp
+--- slang-11.0/tests/unittests/analysis/CaseAnalysisTests.cpp	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/tests/unittests/analysis/CaseAnalysisTests.cpp	2026-11-09 19:52:28.425124960 -0800
+@@ -3,7 +3,7 @@
+ 
+ #include "AnalysisTests.h"
+ #include "Test.h"
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ #include "slang/analysis/CaseDecisionDag.h"
+ 
+diff -r slang-11.0/tests/unittests/parsing/VisitorTests.cpp slang-11.0-fix/tests/unittests/parsing/VisitorTests.cpp
+--- slang-11.0/tests/unittests/parsing/VisitorTests.cpp	2026-05-14 16:50:11.000000000 -0700
++++ slang-11.0-fix/tests/unittests/parsing/VisitorTests.cpp	2026-11-09 19:52:28.425570723 -0800
+@@ -3,7 +3,6 @@
+ 
+ #include "Test.h"
+ #include "catch2/catch_test_macros.hpp"
+-#include <fmt/core.h>
+ #include <fmt/format.h>
+ 
+ #include "slang/analysis/AnalysisManager.h"
