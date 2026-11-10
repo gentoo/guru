@@ -21,7 +21,7 @@ else
 		https://codeberg.org/river/river/releases/download/v${PV}/${P}.tar.gz
 		${ZBS_DEPENDENCIES_SRC_URI}
 	"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 # river: GPL-3-or-later
