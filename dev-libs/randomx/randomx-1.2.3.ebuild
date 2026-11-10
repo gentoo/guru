@@ -12,7 +12,7 @@ S="${WORKDIR}"/RandomX-${PV}
 
 LICENSE="BSD"
 SLOT="0/$(ver_cut 1)"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 PATCHES=( "${FILESDIR}"/${PN}-1.2.1_remove-fPIE.patch )
 
@@ -22,4 +22,12 @@ src_configure() {
 	append-ldflags -Wl,-z,noexecstack
 
 	cmake_src_configure
+}
+
+pkg_postinst() {
+	if $(use x86); then
+		ewarn "Upstream recommends mining on 64bit processor architectures. You are not"
+		ewarn "using one so expect the hashrate to be smaller. For more see the below link:"
+		ewarn "https://github.com/tevador/RandomX/#which-cpu-is-best-for-mining-randomx"
+	fi
 }
