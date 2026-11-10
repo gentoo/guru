@@ -1,14 +1,15 @@
 #!/sbin/openrc-run
 # Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-#
-# shellcheck shell=sh
 
 supervisor="supervise-daemon"
+name="Snowflake Proxy"
 command="/usr/bin/snowflake-proxy"
 command_args="${SNOWFLAKE_PROXY_OPTS}"
 command_user="nobody:nobody"
 
+error_log="/tmp/${RC_SVCNAME}.log"
+
 depend() {
-	after net
+	use net
 }

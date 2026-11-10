@@ -7,6 +7,8 @@ Wants=network-online.target
 
 [Service]
 ExecStart=/usr/bin/snowflake-proxy
+User=nobody
+Group=nobody
 Restart=on-failure
 
 DynamicUser=true
