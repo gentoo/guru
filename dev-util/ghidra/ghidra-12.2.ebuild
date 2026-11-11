@@ -7,7 +7,8 @@ JAVA_PKG_IUSE="doc"
 
 PYTHON_COMPAT=( python3_{13..15} )
 
-inherit check-reqs desktop edo flag-o-matic java-pkg-2 multiprocessing python-single-r1 toolchain-funcs virtualx xdg
+inherit check-reqs desktop edo flag-o-matic java-pkg-2 multiprocessing \
+	optfeature python-single-r1 toolchain-funcs virtualx xdg
 
 DESCRIPTION="Software reverse engineering (SRE) framework"
 HOMEPAGE="https://github.com/NationalSecurityAgency/ghidra"
@@ -219,4 +220,11 @@ src_install() {
 
 	doicon Ghidra/Framework/Gui/src/main/resources/images/GhidraIcon64.png
 	make_desktop_entry ghidra Ghidra GhidraIcon64 "Development;Security;"
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+
+	optfeature "GUI support on Wayland compositors without built-in XWayland (e.g. niri)" \
+		gui-apps/xwayland-satellite
 }
