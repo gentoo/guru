@@ -1,0 +1,18 @@
+#!/sbin/openrc-run
+command="/usr/sbin/mdevd"
+# -C    coldplug
+# -O 4  rebroadcast uevents, used by libudev-zero
+command_args="-C -O 4"
+command_background=yes
+pidfile="/run/${RC_SVCNAME}.pid"
+
+output_log="/var/log/mdev.log"
+error_log="/var/log/mdev.err.log"
+
+depend() {
+	need sysfs dev-mount
+}
+
+start_pre() {
+	echo >|/proc/sys/kernel/hotplug
+}

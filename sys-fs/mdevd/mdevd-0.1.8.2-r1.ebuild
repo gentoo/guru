@@ -41,6 +41,12 @@ src_compile() {
 	emake AR=$(tc-getAR) RANLIB=$(tc-getRANLIB)
 }
 
+src_install() {
+	default
+
+	doinitd "${FILESDIR}/mdevd"
+}
+
 pkg_postinst() {
 	optfeature "For +/-/& command directives in mdev.conf" dev-lang/execline
 }
