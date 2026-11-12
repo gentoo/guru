@@ -17,4 +17,9 @@
 	slang is the fastest and most compliant SystemVerilog frontend
 	(according to the open source chipsalliance test suite).
 	</longdescription>
+	<longdescription lang="zh">
+	slang 是一个 SystemVerilog 软件库，提供词法分析、语法分析、类型检查和设计展开功能。
+	它附带用于编译和检查 SystemVerilog 项目的命令行工具，也可作为综合工具、
+	仿真器、代码检查器、编辑器和重构工具的前端。
+	</longdescription>
 </pkgmetadata>

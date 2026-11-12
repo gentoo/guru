@@ -24,12 +24,11 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	${PYTHON_DEPS}
+	dev-cpp/tomlplusplus
 	>=dev-libs/boost-1.87
 	>=dev-libs/libfmt-12:=
 "
-DEPEND="${RDEPEND}
-	dev-cpp/tomlplusplus
-"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	test? ( >=dev-cpp/catch-3.16:0 )
 	$(python_gen_cond_dep '
