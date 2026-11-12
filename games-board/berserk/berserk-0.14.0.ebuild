@@ -16,8 +16,6 @@ LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="test"
-
 RDEPEND="
 	dev-python/deprecated[${PYTHON_USEDEP}]
 	dev-python/ndjson[${PYTHON_USEDEP}]
@@ -33,4 +31,4 @@ BDEPEND="
 	)
 "
 
-RESTRICT="test"
+distutils_enable_tests pytest
