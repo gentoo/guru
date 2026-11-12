@@ -81,7 +81,7 @@ src_install() {
 	domenu mullvad-browser/start-mullvad-browser.desktop
 	local x
 	for x in 16 32 48 64 128; do
-		newicon -s ${x} mullvad-browser/Browser/browser/chrome/icons/default/default${x}.png mullvad-browser.png
+		newicon -s ${x} mullvad-browser/Browser/browser/chrome/icons/default/default${x}.png mullvad-browser-bin.png
 	done
 
 	fperms 755 /opt/mullvad-browser/Browser/abicheck
