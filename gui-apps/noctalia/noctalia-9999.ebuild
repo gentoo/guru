@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson optfeature shell-completion toolchain-funcs xdg
+inherit meson optfeature shell-completion systemd toolchain-funcs xdg
 
 DESCRIPTION="A lightweight Wayland shell and bar built directly on Wayland + OpenGL ES"
 HOMEPAGE="https://noctalia.dev/ https://github.com/noctalia-dev/noctalia"
@@ -90,6 +90,8 @@ src_compile() {
 
 src_install() {
 	meson_src_install
+
+	systemd_douserunit "${ED}/usr/share/${PN}/assets/${PN}.service"
 
 	if ! tc-is-cross-compiler; then
 		newbashcomp "${PN}.bash" "${PN}"
