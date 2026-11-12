@@ -146,18 +146,18 @@ index ff08211..f796470 100644
  #include "imgui_ctx.h"
  #include "font/font.h"
 diff --git a/mangohud-next/render/imgui/imgui_ctx.cpp b/mangohud-next/render/imgui/imgui_ctx.cpp
-index 5bf29d6..b6688d9 100644
+index 0e6d7ee0..5274a9da 100644
 --- a/mangohud-next/render/imgui/imgui_ctx.cpp
 +++ b/mangohud-next/render/imgui/imgui_ctx.cpp
-@@ -1,7 +1,7 @@
- #include <deque>
- #include <unistd.h>
- #include <math.h>
+@@ -2,7 +2,7 @@
+ #include "imgui_ctx.h"
+ #include "hud_layout.h"
+ #include "imgui_internal.h"
 -#include "backends/imgui_impl_opengl3.h"
 +#include "imgui_impl_opengl3.h"
- #include "imgui_ctx.h"
- #include "imgui.h"
- #include "imgui_internal.h"
+ #include "vk.h"
+ #include "egl.h"
+
 diff --git a/mangohud-next/render/imgui/vk.h b/mangohud-next/render/imgui/vk.h
 index 81504b6..127d743 100644
 --- a/mangohud-next/render/imgui/vk.h
