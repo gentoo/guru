@@ -31,7 +31,7 @@ RDEPEND="
 	acct-user/blocky
 	acct-group/blocky
 "
-BDEPEND=">=dev-lang/go-1.26.2"
+BDEPEND=">=dev-lang/go-1.26.9"
 
 # PATCHES=(
 # 	"${FILESDIR}"/disable-failed-tests-0.22.patch

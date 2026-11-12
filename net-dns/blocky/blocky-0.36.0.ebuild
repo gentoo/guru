@@ -14,7 +14,7 @@ if [[ ${PV} == 9999* ]]; then
 else
 	SRC_URI="
 	https://github.com/0xERR0R/blocky/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/deps.tar.xz -> ${P}-deps.tar.xz
+	https://github.com/gentoo-golang-dist/blocky/releases/download/v${PV}/${P}-vendor.tar.xz -> ${P}-deps.tar.xz
 "
 	KEYWORDS="~amd64 ~arm64"
 fi
@@ -31,7 +31,7 @@ RDEPEND="
 	acct-user/blocky
 	acct-group/blocky
 "
-BDEPEND=">=dev-lang/go-1.26.2"
+BDEPEND=">=dev-lang/go-1.26.9"
 
 # PATCHES=(
 # 	"${FILESDIR}"/disable-failed-tests-0.22.patch
