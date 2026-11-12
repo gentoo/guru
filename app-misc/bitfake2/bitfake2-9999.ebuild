@@ -17,7 +17,8 @@ RDEPEND="
 	sci-libs/fftw:3.0
 	media-libs/libebur128
 	media-libs/libsndfile
-	media-video/ffmpeg:=
+	media-video/ffmpeg[lame(+),opus(+),vorbis(+)]
+	net-misc/curl
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
