@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>zyx@envs.net</email>
+    <name>M. Muddassar Sarfraz</name>
+  </maintainer>
+  <use>
+    <flag name="examples">Install the MiniBrowser example application</flag>
+    <flag name="gamepad">Enable gamepad input support via <pkg>dev-libs/libmanette</pkg></flag>
+    <flag name="legacy-wpe">Enable support for legacy <pkg>gui-libs/libwpe</pkg></flag>
+  </use>
+  <upstream>
+    <bugs-to>https://bugs.webkit.org</bugs-to>
+    <doc>https://wpewebkit.org/developers/</doc>
+    <remote-id type="github">WebKit/WebKit</remote-id>
+  </upstream>
+</pkgmetadata>
