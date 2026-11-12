@@ -23,7 +23,7 @@ fi
 # main
 LICENSE="MPL-2.0"
 # deps
-LICENSE+=" Apache-2.0 BSD BSD-2 ISC LGPL-3 MIT"
+LICENSE+=" Apache-2.0 BSD-2 BSD LGPL-3 MIT"
 SLOT="0"
 
 RESTRICT="test"
@@ -32,7 +32,7 @@ RDEPEND="
 	acct-user/xray
 	acct-group/xray"
 DEPEND="${RDEPEND}"
-BDEPEND=">=dev-lang/go-1.26:="
+BDEPEND=">=dev-lang/go-1.27:="
 
 src_unpack() {
 	if [[ "${PV}" == 9999* ]]; then
