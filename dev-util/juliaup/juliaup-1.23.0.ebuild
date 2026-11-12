@@ -33,23 +33,23 @@ DOCS=( CHANGELOG.md README.md )
 QA_FLAGS_IGNORED=".*"
 
 src_test() {
-	local mytestargs=(
+	local CARGO_SKIP_TESTS=(
 		# The following tests require network access.
-		--skip utils::channel_selection
-		--skip utils::auto_install_valid_channel
-		--skip utils::end_to_end_manifest_selection
-		--skip utils::command_add
-		--skip utils::api_getconfig1
-		--skip utils::command_default
-		--skip utils::command_gc
-		--skip utils::command_initial_setup
-		--skip utils::command_link
-		--skip utils::alias
-		--skip utils::command_override
-		--skip utils::command_remove
-		--skip utils::command_update
+		utils::channel_selection
+		utils::auto_install_valid_channel
+		utils::end_to_end_manifest_selection
+		utils::command_add
+		utils::api_getconfig1
+		utils::command_default
+		utils::command_gc
+		utils::command_initial_setup
+		utils::command_link
+		utils::alias
+		utils::command_override
+		utils::command_remove
+		utils::command_update
 	)
-	cargo_src_test -- "${mytestargs[@]}"
+	cargo_src_test
 }
 
 src_install() {
