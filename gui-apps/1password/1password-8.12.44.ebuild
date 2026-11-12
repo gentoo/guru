@@ -70,7 +70,6 @@ src_prepare() {
 	# remove the vendor installers
 	rm install.sh after-install.sh after-remove.sh \
 		install_biometrics_policy.sh || die
-
 }
 
 src_install() {
@@ -114,6 +113,7 @@ src_install() {
 	# preserve the vendor-supported path used by existing MCP clients
 	# source: after-install.sh
 	dosym 1password-mcp /opt/1Password/onepassword-mcp
+	dosym -r /opt/1Password/op-ssh-sign /usr/bin/op-ssh-sign
 
 	# https://github.com/electron/electron/issues/17972
 	fperms 4711 /opt/1Password/chrome-sandbox
@@ -132,11 +132,9 @@ pkg_postinst() {
 	elog "your user account must be part of the 'onepassword' group:"
 	elog "    usermod -aG onepassword \$USER"
 
-	if has_version "acct-group/onepassword-mcp"; then
-		elog ""
-		elog "To use the 1Password MCP integration, add your user to the 'onepassword-mcp' group:"
-		elog "    usermod -aG onepassword-mcp \$USER"
-	fi
+	elog "To use the 1Password MCP integration, add your user"
+	elog "to the 'onepassword-mcp' group:"
+	elog "    usermod -aG onepassword-mcp \$USER"
 
 	optfeature "1Password CLI" app-misc/1password-cli
 }
