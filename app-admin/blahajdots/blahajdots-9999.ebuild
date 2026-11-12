@@ -31,7 +31,9 @@ QA_FLAGS_IGNORED="usr/bin/blahajdots"
 src_unpack() {
 	if [[ "${PV}" == "9999" ]]; then
 		git-r3_src_unpack
+		pushd "${S}" &> /dev/null || die
 		cargo_live_src_unpack
+		popd &> /dev/null || die
 	else
 		cargo_src_unpack
 	fi
