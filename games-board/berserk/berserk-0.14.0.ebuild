@@ -16,19 +16,21 @@ LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
+IUSE="test"
+
 RDEPEND="
 	dev-python/deprecated[${PYTHON_USEDEP}]
-	dev-python/ndjson
+	dev-python/ndjson[${PYTHON_USEDEP}]
 	dev-python/pydantic[${PYTHON_USEDEP}]
-	dev-python/pyright
-	dev-python/pytest-recording[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
-	dev-python/requests-mock[${PYTHON_USEDEP}]
-	dev-python/ruff[${PYTHON_USEDEP}]
-	dev-python/sphinx[${PYTHON_USEDEP}]
-	dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]
-	dev-python/vcrpy[${PYTHON_USEDEP}]
-	dev-python/watchdog[${PYTHON_USEDEP}]
+"
+
+BDEPEND="
+	test? (
+		dev-python/pytest-recording[${PYTHON_USEDEP}]
+		dev-python/requests-mock[${PYTHON_USEDEP}]
+		dev-python/vcrpy[${PYTHON_USEDEP}]
+	)
 "
 
 RESTRICT="test"
