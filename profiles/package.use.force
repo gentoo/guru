@@ -1,0 +1,8 @@
+# Copyright 2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# New entries go on top.
+
+# M. Muddassar Sarfraz <zyx@envs.net> (2026-11-14)
+# security is not optional for a web engine
+net-libs/wpewebkit seccomp
