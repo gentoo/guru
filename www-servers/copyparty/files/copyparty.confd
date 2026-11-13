@@ -10,7 +10,7 @@
 #COPYPARTY_LOGFILE="/var/log/copyparty/copyparty.log"
 
 # If copyparty is configured to serve network filesystems, uncomment:
-#rc_use="netdev"
+#rc_use="netmount"
 # You can use this mechanism to depend on other services which might mount
 # filesystems or configure specific network interfaces.
 
