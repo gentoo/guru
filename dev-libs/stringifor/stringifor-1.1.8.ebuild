@@ -21,7 +21,7 @@ S="${WORKDIR}/${MY_PN}-v${PV}"
 # For closed source/commercial projects: BSD 2-Clause, BSD 3-Clause, MIT
 LICENSE="GPL-3 BSD-2 BSD MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 IUSE="static-libs test"
 RESTRICT="mirror !test? ( test )"
