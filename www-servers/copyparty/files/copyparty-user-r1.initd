@@ -24,7 +24,7 @@ start_pre() {
     if [ "${RC_CMD}" != "restart" ] ; then
         _checkconfig || return $?
     fi
-    checkpath -d "${RUNTIME}"
+    checkpath -q -d "${RUNTIME}"
 }
 
 stop_pre() {
