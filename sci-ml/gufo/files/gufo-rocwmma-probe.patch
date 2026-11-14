@@ -1,0 +1,30 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 63800b..7bfa55 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -130,7 +130,6 @@ if (ENGINE_ENABLE_HIP)
+   find_package(rocm-core CONFIG QUIET)
+   find_path(HIPCUB_INCLUDE_DIR hipcub/hipcub.hpp REQUIRED)
+   find_path(ROCPRIM_INCLUDE_DIR rocprim/rocprim.hpp REQUIRED)
+-  find_path(ROCWMMA_INCLUDE_DIR rocwmma/rocwmma.hpp REQUIRED)
+   message(STATUS "gufo: HIP target ${CMAKE_HIP_ARCHITECTURES}")
+   if (WIN32)
+     # The AMD driver installs an older amdhip64 into System32 that shadows
+diff --git a/src/models/deepseek_v4_flash/extension.cmake b/src/models/deepseek_v4_flash/extension.cmake
+index 149dba..a2cd73 100644
+--- a/src/models/deepseek_v4_flash/extension.cmake
++++ b/src/models/deepseek_v4_flash/extension.cmake
+@@ -1,5 +1,13 @@
+ # DeepSeek V4 Flash model extension.
+ 
++# rocWMMA is consumed only by this model's ROCm kernels (kernels/rocm/**), so
++# the header probe lives here rather than in the top-level CMakeLists: builds
++# that do not select the deepseek_v4_flash extension must not require the
++# package to be installed.
++if (ENGINE_ENABLE_HIP)
++  find_path(ROCWMMA_INCLUDE_DIR rocwmma/rocwmma.hpp REQUIRED)
++endif()
++
+ gufo_extension_target(
+   NAME gufo_deepseek_v4_flash
+   SOURCES

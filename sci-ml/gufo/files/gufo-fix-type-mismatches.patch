@@ -1,0 +1,130 @@
+diff --git a/src/models/qwen38_flash_next/kernels/rocm/mmq/mma.hpp b/src/models/qwen38_flash_next/kernels/rocm/mmq/mma.hpp
+index 8b08e6..5c8965 100644
+--- a/src/models/qwen38_flash_next/kernels/rocm/mmq/mma.hpp
++++ b/src/models/qwen38_flash_next/kernels/rocm/mmq/mma.hpp
+@@ -948,7 +948,7 @@ namespace ggml_hip_mma {
+         const bf16x8_t& b_frag = reinterpret_cast<const bf16x8_t&>(B.x[0]);
+         acc_frag = __builtin_amdgcn_wmma_f32_16x16x16_bf16_w32_gfx12(a_frag, b_frag, acc_frag);
+ #elif defined(RDNA3)
+-        using bf16x16_t = __attribute__((ext_vector_type(16))) __bf16;
++        using bf16x16_t = __attribute__((ext_vector_type(16))) short;
+         using floatx8_t = __attribute__((ext_vector_type(8))) float;
+         floatx8_t& acc_frag = reinterpret_cast<floatx8_t&>(D.x[0]);
+         const bf16x16_t& a_frag = reinterpret_cast<const bf16x16_t&>(A.x[0]);
+diff --git a/src/models/qwen38_flash_next/kernels/rocm/kernels.hip.cpp b/src/models/qwen38_flash_next/kernels/rocm/kernels.hip.cpp
+index 22060d..57e43e 100644
+--- a/src/models/qwen38_flash_next/kernels/rocm/kernels.hip.cpp
++++ b/src/models/qwen38_flash_next/kernels/rocm/kernels.hip.cpp
+@@ -2556,7 +2556,7 @@ __device__ __forceinline__ v8f Wmma(v16h a, v16h b, v8f c) {
+ }
+ 
+ // BF16 fragments carry the same sixteen 16-bit lanes.
+-using v16bf = __attribute__((ext_vector_type(16))) __bf16;
++using v16bf = __attribute__((ext_vector_type(16))) short;
+ 
+ __device__ __forceinline__ v8f WmmaBf16(v16h a, v16h b, v8f c) {
+   return __builtin_amdgcn_wmma_f32_16x16x16_bf16_w32(
+diff --git a/src/models/embedding_gemma2/hip/ops.hip b/src/models/embedding_gemma2/hip/ops.hip
+index 4fe2fb..2acf7e 100644
+--- a/src/models/embedding_gemma2/hip/ops.hip
++++ b/src/models/embedding_gemma2/hip/ops.hip
+@@ -182,7 +182,7 @@ __global__ void QkvNormRopeKernel(
+ }
+ 
+ using Vec16 = __attribute__((__vector_size__(16))) unsigned int;
+-using Fragment = __attribute__((ext_vector_type(16))) unsigned short;
++using Fragment = __attribute__((ext_vector_type(16))) short;
+ using Accumulator = __attribute__((ext_vector_type(8))) float;
+ 
+ // Loads 16 contiguous BF16 values. `source` must be 16-byte aligned.
+diff --git a/src/models/qwen_image_21/hip/attention.hip b/src/models/qwen_image_21/hip/attention.hip
+index 4c803c..b46a9d 100644
+--- a/src/models/qwen_image_21/hip/attention.hip
++++ b/src/models/qwen_image_21/hip/attention.hip
+@@ -7,7 +7,7 @@
+ namespace gufo::models::qwen_image_21::hip {
+ namespace {
+ 
+-using Fragment = __attribute__((ext_vector_type(16))) unsigned short;
++using Fragment = __attribute__((ext_vector_type(16))) short;
+ using Accumulator = __attribute__((ext_vector_type(8))) float;
+ 
+ __device__ Fragment Load(const std::uint16_t* x) {
+diff --git a/src/models/qwen_image_21/hip/dense.hip b/src/models/qwen_image_21/hip/dense.hip
+index 408738..8e2ea4 100644
+--- a/src/models/qwen_image_21/hip/dense.hip
++++ b/src/models/qwen_image_21/hip/dense.hip
+@@ -6,7 +6,7 @@
+ 
+ namespace gufo::models::qwen_image_21::hip {
+ namespace {
+-using Fragment = __attribute__((ext_vector_type(16))) unsigned short;
++using Fragment = __attribute__((ext_vector_type(16))) short;
+ using Accumulator = __attribute__((ext_vector_type(8))) float;
+ 
+ __device__ Fragment Load(const std::uint16_t* x) {
+diff --git a/src/models/qwen_image_21/hip/convolution.hip b/src/models/qwen_image_21/hip/convolution.hip
+index 935576..0b577b 100644
+--- a/src/models/qwen_image_21/hip/convolution.hip
++++ b/src/models/qwen_image_21/hip/convolution.hip
+@@ -48,7 +48,7 @@ __global__ void TiledIm2col(const std::uint16_t* x, std::uint16_t* y,
+ // Keep the im2col tile in LDS and consume packed weights with WMMA.
+ // Preserve channel/tap order and BF16 product rounding before bias.
+ using B = hip_bfloat16;
+-using Frag = __attribute__((ext_vector_type(16))) unsigned short;
++using Frag = __attribute__((ext_vector_type(16))) short;
+ using Acc = __attribute__((ext_vector_type(8))) float;
+ __device__ Frag Load(const unsigned short* p) {
+   union {
+diff --git a/src/models/minimax_h3/dense.hip b/src/models/minimax_h3/dense.hip
+index 5f2f1b..e81725 100644
+--- a/src/models/minimax_h3/dense.hip
++++ b/src/models/minimax_h3/dense.hip
+@@ -11,7 +11,7 @@ namespace {
+ __device__ hip_bfloat16 Bf16(float x) {
+   return hip_bfloat16(x);
+ }
+-using Fragment = __attribute__((ext_vector_type(16))) unsigned short;
++using Fragment = __attribute__((ext_vector_type(16))) short;
+ using Accumulator = __attribute__((ext_vector_type(8))) float;
+ 
+ __device__ Fragment Load(const std::uint16_t* x) {
+diff --git a/src/models/qwen3_asr/hip/convolution.hip b/src/models/qwen3_asr/hip/convolution.hip
+index b52b20..1cbc66 100644
+--- a/src/models/qwen3_asr/hip/convolution.hip
++++ b/src/models/qwen3_asr/hip/convolution.hip
+@@ -8,7 +8,7 @@
+ namespace gufo::models::qwen3_asr::hip {
+ namespace {
+ using B = hip_bfloat16;
+-using Fragment = __attribute__((ext_vector_type(16))) unsigned short;
++using Fragment = __attribute__((ext_vector_type(16))) short;
+ using Accumulator = __attribute__((ext_vector_type(8))) float;
+ 
+ __device__ Fragment LoadFragment(const unsigned short* source) {
+diff --git a/src/models/minimax_h3/attention.hip b/src/models/minimax_h3/attention.hip
+index b30096..21c04b 100644
+--- a/src/models/minimax_h3/attention.hip
++++ b/src/models/minimax_h3/attention.hip
+@@ -13,7 +13,7 @@ LoadBuffer(BufferResource, unsigned, unsigned,
+ 
+ namespace {
+ 
+-using Fragment = __attribute__((ext_vector_type(16))) unsigned short;
++using Fragment = __attribute__((ext_vector_type(16))) short;
+ using Accumulator = __attribute__((ext_vector_type(8))) float;
+ 
+ __device__ BufferResource MakeBuffer(const std::uint16_t* pointer,
+diff --git a/src/models/deepseek_v4_flash/kernels/rocm/mmq/mma.hip.hpp b/src/models/deepseek_v4_flash/kernels/rocm/mmq/mma.hip.hpp
+index 9f42e0..4b732d 100644
+--- a/src/models/deepseek_v4_flash/kernels/rocm/mmq/mma.hip.hpp
++++ b/src/models/deepseek_v4_flash/kernels/rocm/mmq/mma.hip.hpp
+@@ -968,7 +968,7 @@ namespace ds4_ggml_hip_mma {
+         const bf16x8_t& b_frag = reinterpret_cast<const bf16x8_t&>(B.x[0]);
+         acc_frag = __builtin_amdgcn_wmma_f32_16x16x16_bf16_w32_gfx12(a_frag, b_frag, acc_frag);
+ #elif defined(RDNA3)
+-        using bf16x16_t = __attribute__((ext_vector_type(16))) __bf16;
++        using bf16x16_t = __attribute__((ext_vector_type(16))) short;
+         using floatx8_t = __attribute__((ext_vector_type(8))) float;
+         floatx8_t& acc_frag = reinterpret_cast<floatx8_t&>(D.x[0]);
+         const bf16x16_t& a_frag = reinterpret_cast<const bf16x16_t&>(A.x[0]);

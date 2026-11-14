@@ -1,0 +1,38 @@
+From 61baee44b570da139b39f5fe95be27fd8a867e02 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Daniel=20M=C3=BCller?= <deso@posteo.net>
+Date: Fri, 13 Nov 2026 21:30:44 -0800
+Subject: [PATCH] fix(qwen): add missing 0 return in benchmark lambdas
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Two lambdas evaluate to int but only have a defined return value in case
+of error (1). Add the missing success path return value.
+
+Signed-off-by: Daniel Müller <deso@posteo.net>
+---
+ src/models/qwen/drivers.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/models/qwen/drivers.cpp b/src/models/qwen/drivers.cpp
+index 73b8db..d0c5f1 100644
+--- a/src/models/qwen/drivers.cpp
++++ b/src/models/qwen/drivers.cpp
+@@ -586,6 +586,7 @@ int RunQwenBenchmarkImpl(
+           dflash_verifier->RestoreSnapshot(*prepared_draft);
+       }
+       HIP_CHECK(hipDeviceSynchronize());
++      return 0;
+     };
+ 
+     for (const std::size_t p_len : opt.n_prompts) {
+@@ -604,6 +605,7 @@ int RunQwenBenchmarkImpl(
+                                              static_cast<std::uint32_t>(depth));
+         }
+         HIP_CHECK(hipDeviceSynchronize());
++        return 0;
+       };
+       restore_depth();
+       prefill();
+-- 
+2.56.1
