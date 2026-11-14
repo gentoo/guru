@@ -19,7 +19,6 @@ SLOT="0"
 KEYWORDS=""
 
 PATCHES=(
-	"${FILESDIR}/build-backend.patch"
 	"${FILESDIR}/mo-files.patch"
 )
 
