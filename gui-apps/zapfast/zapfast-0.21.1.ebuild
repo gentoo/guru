@@ -906,7 +906,7 @@ DEPEND="
 	dev-libs/wayland
 	media-libs/alsa-lib
 	media-libs/libglvnd
-	media-video/pipewire:=
+	>=media-video/pipewire-0.3.53:=
 	x11-libs/libX11
 	x11-libs/libXcursor
 	x11-libs/libXi
