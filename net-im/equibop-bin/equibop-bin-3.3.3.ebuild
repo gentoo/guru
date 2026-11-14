@@ -79,8 +79,6 @@ src_install() {
 	doins -r "opt/${MY_PN}/locales"
 	doins -r "opt/${MY_PN}/resources"
 
-	fperms +x "opt/${PN}/resources/arrpc/arrpc"
-
 	dosym ../../opt/"${PN}"/"${MY_PN,,}" /usr/bin/"${PN}"
 
 	doicon -s scalable usr/share/icons/hicolor/scalable/apps/"${MY_PN,,}".svg
