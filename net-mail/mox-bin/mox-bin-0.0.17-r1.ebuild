@@ -40,7 +40,7 @@ src_install() {
 	newbin ${PN}-${ARCH}-${PV} ${PN%-bin}
 
 	doinitd "${FILESDIR}"/${PN%-bin}
-	systemd_dounit "${FILESDIR}"/${PN%-bin}.service
+	systemd_newunit "${FILESDIR}"/${PN%-bin}-r1.service ${PN%-bin}.service
 	newconfd "${FILESDIR}"/${PN%-bin}.confd ${PN%-bin}
 }
 

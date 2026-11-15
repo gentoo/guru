@@ -12,7 +12,7 @@ WorkingDirectory=/var/lib/mox
 ExecStart=/opt/bin/mox serve
 RestartSec=5s
 Restart=always
-ExecStop=/usr/bin/mox stop
+ExecStop=/opt/bin/mox stop
 SyslogFacility=mail
 
 # Isolate process, reducing attack surface.
