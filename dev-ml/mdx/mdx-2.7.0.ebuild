@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,8 +16,7 @@ IUSE="+ocamlopt test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-ml/dune-3.5
-	>=dev-lang/ocaml-4.08.0
+	>=dev-ml/dune-3.21
 	dev-ml/findlib:=[ocamlopt?]
 	>=dev-ml/fmt-0.8.7:=[ocamlopt?]
 	>=dev-ml/csexp-1.3.2:=[ocamlopt?]
