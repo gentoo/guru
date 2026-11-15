@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit git-r3 meson
+inherit git-r3 meson udev
 
 DESCRIPTION="Tool to communicate with Qualcomm System On a Chip bootroms"
 HOMEPAGE="https://github.com/linux-msm/qdl"
@@ -24,7 +24,10 @@ DEPEND="
 		dev-util/cmocka
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	virtual/udev
+"
 
 BDEPEND="
 	sys-apps/help2man
@@ -38,6 +41,7 @@ src_prepare() {
 
 src_configure() {
 	local emesonargs=(
+		-Dudev=enabled
 		$(meson_feature nbd nbdkit)
 		$(meson_feature test tests)
 	)
@@ -45,5 +49,15 @@ src_configure() {
 }
 
 src_test() {
-	meson_src_test --no-suite hil
+	meson_src_test \
+		--no-suite hil \
+		--no-suite hil-vip
+}
+
+pkg_postinst() {
+	udev_reload
+}
+
+pkg_postrm() {
+	udev_reload
 }
