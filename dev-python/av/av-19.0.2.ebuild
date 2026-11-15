@@ -14,7 +14,7 @@ MY_P=${MY_PN}-${PV}
 
 DESCRIPTION="Pythonic bindings for FFmpeg's libraries"
 HOMEPAGE="
-	https://pyav.basswood-io.com/docs/stable/
+	https://pyav.basswood.io/docs/stable/
 	https://pypi.org/project/av/
 	https://github.com/PyAV-Org/PyAV/
 "

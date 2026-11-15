@@ -5,6 +5,6 @@
 	<upstream>
 		<remote-id type="github">PyAV-Org/PyAV</remote-id>
 		<remote-id type="pypi">av</remote-id>
-		<doc>https://pyav.basswood-io.com/docs/stable/</doc>
+		<doc>https://pyav.basswood.io/docs/stable/</doc>
 	</upstream>
 </pkgmetadata>
