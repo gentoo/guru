@@ -1,0 +1,6 @@
+#!/sbin/openrc-run
+
+description="Reverse tethering for Android"
+supervisor="supervise-daemon"
+command=/usr/bin/gnirehtet
+command_args=relay
