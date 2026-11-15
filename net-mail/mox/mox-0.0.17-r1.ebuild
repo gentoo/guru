@@ -28,17 +28,12 @@ BDEPEND="
 	>=dev-lang/go-1.25.0
 "
 
-src_prepare() {
-	default
-	sed -i \
-		-e 's/WorkingDirectory=\/home\/mox/WorkingDirectory=\/var\/lib\/mox/' \
-		-e 's/ExecStart=\/home\/mox\/mox/ExecStart=\/usr\/bin\/mox/' \
-		-e 's/ExecStop=\/home\/mox\/mox/ExecStop=\/usr\/bin\/mox/' \
-		${PN}.service
-}
-
 DOCS=(
 	README.md
+)
+
+PATCHES=(
+	"${FILESDIR}"/${P}-use-gentoo-paths-in-service.patch
 )
 
 src_compile() {

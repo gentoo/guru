@@ -1,0 +1,26 @@
+use /usr/bin for mox binary and /var/lib/mox for $HOME
+--- a/mox.service
++++ b/mox.service
+@@ -8,18 +8,18 @@
+ LimitNOFILE=65535
+ Type=simple
+ # Mox starts as root, but drops privileges after binding network addresses.
+-WorkingDirectory=/home/mox
+-ExecStart=/home/mox/mox serve
++WorkingDirectory=/var/lib/mox
++ExecStart=/usr/bin/mox serve
+ RestartSec=5s
+ Restart=always
+-ExecStop=/home/mox/mox stop
++ExecStop=/usr/bin/mox stop
+ SyslogFacility=mail
+ 
+ # Isolate process, reducing attack surface.
+ PrivateDevices=yes
+ PrivateTmp=yes
+ ProtectSystem=strict
+-ReadWritePaths=/home/mox/config /home/mox/data
++ReadWritePaths=/var/lib/mox/config /var/lib/mox/data
+ ProtectKernelTunables=yes
+ ProtectControlGroups=yes
+ AmbientCapabilities=
