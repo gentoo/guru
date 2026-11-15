@@ -5,6 +5,10 @@
     <email>contact@paveloom.dev</email>
     <name>Pavel Sobolev</name>
   </maintainer>
+  <maintainer type="person">
+    <email>stefan@sydow.emailv</email>
+    <name>Stefan Sydow</name>
+  </maintainer>
   <use>
     <flag name="server">Enable server support</flag>
   </use>
