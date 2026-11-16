@@ -18,8 +18,9 @@ SRC_URI="
 	https://github.com/getzola/zola/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 	https://envs.net/~zyx/files/distfiles/${CATEGORY}/${PN}/${P}-vendor.tar.xz
-" # make sure to update the webp crate like in commit 93fcc8668b0d before
-  # making the crates tarball!
+"
+# make sure to update the webp crate like in commit 93fcc8668b0d before
+# making the crates tarball!
 
 # Code prior to version 0.22 is MIT
 LICENSE="EUPL-1.2 MIT"
