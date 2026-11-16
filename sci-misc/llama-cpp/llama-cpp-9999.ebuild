@@ -20,7 +20,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/ggml-org/llama.cpp.git"
 	LLAMA_BUILD_IS_DEV=ON
 	LLAMA_BUILD_NUMBER="b0000"
-	LLAMA_UI_VERSION="b11960"
+	LLAMA_UI_VERSION="b12359"
 	MY_PV="${PV}"
 else
 	if [[ $(ver_cut 4) == "p" ]]; then
@@ -31,7 +31,7 @@ else
 	else
 		LLAMA_BUILD_IS_DEV=OFF
 		# Set from https://github.com/ggml-org/llama.cpp/releases/download/v${PV}/nightly-tag.txt
-		LLAMA_BUILD_NUMBER="b11960"
+		LLAMA_BUILD_NUMBER="b12359"
 		MY_PV="v${PV}"
 		S="${WORKDIR}/${MY_PN}-${PV}"
 	fi
@@ -151,7 +151,7 @@ src_prepare() {
 	if use examples || use test; then
 		mkdir -p "${BUILD_DIR}/tinyllamas" || die
 		cp "${DISTDIR}/ggml-org_models_tinyllamas_stories15M-q4_0-${TINY_LLAMAS_COMMIT}.gguf" \
-			"${BUILD_DIR}/tinyllamas/stories15M-q4_0.gguf" || die
+			"${BUILD_DIR}/stories15M-q4_0.gguf" || die
 	fi
 
 	# Move web UI assets where they belong, bug #979245
@@ -253,7 +253,9 @@ src_configure() {
 src_test() {
 	local CMAKE_SKIP_TESTS=(
 		test-download-model  # due to network sandbox
-		test-arg-parser  # due to network sandbox in download functions test
+		test-arg-parser      # due to network sandbox in download functions test
+		test-conversion-fp8  # requires installing llama-cpp-scripts project
+		test-kv-cache-scales # requires installing llama-cpp-scripts project
 	)
 	cmake_src_test
 }
