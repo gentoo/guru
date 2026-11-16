@@ -78,7 +78,7 @@ COMMON_DEPEND="
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 	ffmpeg? ( media-video/ffmpeg:= )
 	sdl2? (
-		>=sci-misc/llama-cpp-0.3.0:=
+		>=sci-ml/llama-cpp-0.3.0:=
 		media-libs/libsdl2:=
 	)
 "

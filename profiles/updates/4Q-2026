@@ -2,3 +2,4 @@ move app-misc/zcock app-misc/zclock
 move gui-apps/dankmaterialshell dux-desktop/dux-shell
 move gui-apps/dgop dux-desktop/dux-gop
 move gui-apps/danksearch dux-desktop/dux-search
+move sci-misc/llama-cpp sci-ml/llama-cpp
