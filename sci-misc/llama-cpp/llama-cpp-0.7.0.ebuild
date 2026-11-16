@@ -12,7 +12,7 @@ MY_PN="${PN/-/.}"
 TINY_LLAMAS_COMMIT="99dd1a73db5a37100bd4ae633f4cfce6560e1567"
 
 DESCRIPTION="Port of Facebook's LLaMA model in C/C++"
-HOMEPAGE="https://github.com/ggml-org/llama.cpp"
+HOMEPAGE="https://llama.app/"
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
