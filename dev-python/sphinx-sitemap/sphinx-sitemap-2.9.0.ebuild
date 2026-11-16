@@ -23,7 +23,7 @@ RDEPEND="
 	dev-python/sphinx-last-updated-by-git[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	test? ( dev-python/gitpython[${PYTHON_USEDEP}] )
+	test? ( <dev-python/gitpython-3.2.0[${PYTHON_USEDEP}] )
 "
 
 DOCS=( {CHANGELOG,README}.rst )
