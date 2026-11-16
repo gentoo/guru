@@ -261,6 +261,7 @@ src_test() {
 src_install() {
 	cmake_src_install
 
+	dodoc CODEOWNERS CONTRIBUTING.md SECURITY.md
 	dodoc -r "${S}"/docs
 	dodoc "${S}"/tools/*/README.md
 }
