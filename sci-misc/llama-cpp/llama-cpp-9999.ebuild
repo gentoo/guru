@@ -4,9 +4,10 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{13..15} )
-ROCM_VERSION="6.1"
+ROCM_VERSION=7.2  # controls AMDGPU_TARGETS
+ROCM_MIN_VERSION=6.1  # src/ggml-hip/CMakeList.txt
 
-inherit cmake cuda rocm linux-info python-any-r1 toolchain-funcs
+inherit cmake cuda flag-o-matic python-any-r1 rocm toolchain-funcs
 
 MY_PN="${PN/-/.}"
 TINY_LLAMAS_COMMIT="99dd1a73db5a37100bd4ae633f4cfce6560e1567"
@@ -75,7 +76,7 @@ CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
 # GGML BLAS backends
 BLAS_BACKENDS="blis openblas"
 
-GGML_IUSE="blas flexiblas ${BLAS_BACKENDS} ${CPU_FLAGS[*]} cuda opencl +openmp rocm vulkan"
+GGML_IUSE="blas flexiblas ${BLAS_BACKENDS} ${CPU_FLAGS[*]} cuda opencl openmp rocm vulkan"
 
 IUSE="${GGML_IUSE} examples openssl test"
 REQUIRED_USE="
@@ -88,7 +89,6 @@ unset BLAS_BACKENDS GGML_IUSE X86_CPU_FLAGS CPU_FLAGS
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
-	openmp? ( llvm-runtimes/openmp:= )
 	blas? (
 		virtual/blas[flexiblas=]
 		flexiblas? ( sci-libs/flexiblas:=[blis?,openblas?,openmp?] )
@@ -98,9 +98,9 @@ COMMON_DEPEND="
 		)
 	)
 	rocm? (
-		>=dev-util/hip-${ROCM_VERSION}:=
-		>=sci-libs/hipBLAS-${ROCM_VERSION}:=
-		>=sci-libs/rocBLAS-${ROCM_VERSION}:=
+		>=dev-util/hip-${ROCM_MIN_VERSION}:=
+		>=sci-libs/hipBLAS-${ROCM_MIN_VERSION}:=
+		>=sci-libs/rocBLAS-${ROCM_MIN_VERSION}:=
 	)
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 	openssl? ( dev-libs/openssl:= )
@@ -133,15 +133,6 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	if use rocm; then
-		linux-info_pkg_setup
-		if linux-info_get_any_version && linux_config_exists; then
-			if ! linux_chkconfig_present HSA_AMD_SVM; then
-				ewarn "To use ROCm/HIP, you need to have HSA_AMD_SVM option enabled in your kernel."
-			fi
-		fi
-	fi
-
 	if use opencl || use test; then
 		python-any-r1_pkg_setup
 	fi
@@ -208,6 +199,7 @@ src_configure() {
 
 		-DGGML_BLAS=$(usex blas)
 		-DGGML_CUDA=$(usex cuda)
+		-DGGML_HIP=$(usex rocm)
 		-DGGML_VULKAN=$(usex vulkan)
 		-DGGML_OPENMP=$(usex openmp)
 		-DGGML_RPC=ON
@@ -229,7 +221,10 @@ src_configure() {
 			)
 		else
 			mycmakeargs+=(
-				-DGGML_BLAS_VENDOR="Generic"
+				-DGGML_BLAS_VENDOR=Generic
+				# https://cmake.org/cmake/help/latest/module/FindBLAS.html
+				-DBLA_PREFER_PKGCONFIG=ON
+				-DBLA_PKGCONFIG_BLAS=cblas
 			)
 		fi
 	fi
@@ -242,13 +237,13 @@ src_configure() {
 	fi
 
 	if use rocm; then
-		rocm_use_clang
+		# Changing compiler with rocm_use_{hipcc,clang} is not necessary
+		# Pass HIP compatible flags using dedicated CMake variables
 		mycmakeargs+=(
-			-DGGML_HIP=ON
 			-DGPU_TARGETS=$(get_amdgpu_flags)
-			-DCMAKE_HIP_FLAGS="${CXXFLAGS}"
+			-DCMAKE_HIP_FLAGS="$(test-flags-HIPCXX ${CXXFLAGS})"
 			# cmake.eclass clears per-build-type flags for C/CXX only; drop CMake's "-O2 -g -DNDEBUG" for HIP
-			"-DCMAKE_HIP_FLAGS_${CMAKE_BUILD_TYPE^^}="
+			-DCMAKE_HIP_FLAGS_${CMAKE_BUILD_TYPE^^}=
 		)
 	fi
 
