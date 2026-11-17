@@ -48,7 +48,10 @@ fi
 src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
+		# cargo_live_src_unpack no longer cds into S
+		pushd ${S} >/dev/null || die
 		cargo_live_src_unpack
+		popd >/dev/null || die
 	else
 		cargo_src_unpack
 	fi
