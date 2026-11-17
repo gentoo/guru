@@ -1,0 +1,10 @@
+--- makefile	2025-09-09 09:42:38.993224201 +0200
++++ makefile	2025-09-09 09:42:52.990301981 +0200
+@@ -75,7 +75,6 @@
+ 
+ linbpq: $(OBJS)
+ 	cc $(OBJS) $(CFLAGS) $(LDFLAGS) $(LIBS) -o linbpq
+-	sudo setcap "CAP_NET_ADMIN=ep CAP_NET_RAW=ep CAP_NET_BIND_SERVICE=ep" linbpq		
+ 
+ -include *.d
+ 
