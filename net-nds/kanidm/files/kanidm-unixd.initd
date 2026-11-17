@@ -1,0 +1,20 @@
+#!/sbin/openrc-run
+# Copyright 2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# shellcheck shell=sh
+
+command="/usr/sbin/kanidm_unixd"
+command_user="kanidm:kanidm"
+command_background=1
+pidfile="/var/run/kanidm/${RC_SVCNAME}.pid"
+
+depend() {
+	need net nscd
+	use ntp-client ntpd
+	before sshd
+}
+
+start_pre() {
+	checkpath -do kanidm:kanidm /var/run/kanidm
+}
