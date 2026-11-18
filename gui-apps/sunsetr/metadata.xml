@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>aruhier@mailbox.org</email>
+		<name>Anthony Ruhier</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/psi4j/sunsetr/issues</bugs-to>
+		<changelog>https://github.com/psi4j/sunsetr/releases</changelog>
+		<doc>https://psi4j.github.io/sunsetr/</doc>
+		<remote-id type="github">psi4j/sunsetr</remote-id>
+	</upstream>
+</pkgmetadata>
