@@ -227,9 +227,13 @@ src_compile() {
 	# Build products will be intentionally shared between stages as much as
 	# possible to avoid unnecessary repeated compilation.
 
-	# Building swift-driver writes to this directory for some reason, but the
-	# contents are irrelevant.
-	addpredict "${HOME}/.swiftpm"
+	# FileManager.default.homeDirectoryForCurrentUser does not prioritize the
+	# value of $HOME over the directory stored in the user database. There is,
+	# however, the environment variable CFFIXED_USER_HOME which acts as an
+	# override. To prevent SwiftPM trying to write to ~portage/.swiftpm during
+	# the build and triggering a sandbox violation, set it here.
+	# See https://github.com/swiftlang/swift-foundation/blob/749a17d9220883db1237d09143160e06a9b64b66/Sources/FoundationEssentials/String/String%2BPath.swift#L390-L407.
+	local -x CFFIXED_USER_HOME="$HOME"
 
 	# Setting `-j<n>`/`--jobs=<n>` in MAKEOPTS needs to be manually exposed to
 	# the Swift build system.
