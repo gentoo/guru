@@ -31,7 +31,7 @@ src_prepare() {
 	# Fix setup.cfg
 	# Remove missing file from list and fix license list
 	sed -i \
-		-e "s/where = src/where = src\ninclude = sqlalchemy/" \
+		-e "s/packages = find:/packages = find_namespace:/" \
 		-e "/AUTHORS.rst/d" \
 		-e "s/- //g" \
 		setup.cfg \
