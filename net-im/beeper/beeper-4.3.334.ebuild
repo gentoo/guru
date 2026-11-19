@@ -33,9 +33,10 @@ KEYWORDS="-* ~amd64"
 
 RESTRICT="bindist mirror strip"
 
+# prebuilt sharp binaries are not compatible with libvips 8.18.0
+# https://github.com/lovell/sharp/issues/4502
 RDEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0:2
-	app-crypt/libsecret[crypt]
 	app-misc/ca-certificates
 	dev-libs/expat
 	dev-libs/glib:2
@@ -43,12 +44,10 @@ RDEPEND="
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/mesa
-	media-libs/vips:0/42
 	net-print/cups
 	sys-apps/dbus
 	>=sys-libs/glibc-2.26
 	virtual/udev
-	virtual/zlib
 	x11-libs/cairo
 	x11-libs/gtk+:3
 	x11-libs/libX11
@@ -113,7 +112,7 @@ src_install() {
 		LICENSES.chromium.html
 		beepertexts.png
 		resources/app.asar.unpacked/build/ff{mpeg,probe}
-		resources/app.asar.unpacked/node_modules/classic-level/prebuilds/linux-x64/classic-level.musl.node
+		resources/app.asar.unpacked/node_modules/better-sqlite3/prebuilds/linuxmusl-x64.node
 		usr
 	)
 	rm -r "${toremove[@]}" || die
@@ -125,17 +124,6 @@ src_install() {
 	mkdir -p "${ED}${apphome}" || die
 	cp -r . "${ED}${apphome}" || die
 	fperms 4711 "${apphome}"/chrome-sandbox
-
-	local shopt_save=$(shopt -p nullglob)
-	shopt -s nullglob
-	local libvips_dest=(
-		resources/app.asar.unpacked/node_modules/@img/sharp-libvips-linux-x64/lib/libvips-cpp.so.*
-	)
-	eval "${shopt_save}"
-
-	(( ${#libvips_dest[@]} == 1 )) ||
-		die "multiple or no libvips libraries found"
-	dosym -r /usr/$(get_libdir)/libvips-cpp.so.42 "${apphome}/${libvips_dest[0]}"
 
 	dosym -r "${apphome}"/beepertexts /usr/bin/beepertexts
 }
