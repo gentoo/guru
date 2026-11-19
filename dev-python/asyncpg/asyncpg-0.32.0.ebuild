@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 2020-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,6 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{13..14} )  # doesn't build with pypy3
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
+PYPI_VERIFY_REPO="https://github.com/MagicStack/asyncpg"
 inherit distutils-r1 pypi
 
 DESCRIPTION="An asyncio PostgreSQL driver"
@@ -23,7 +24,9 @@ RDEPEND="
 	kerberos? ( dev-python/gssapi[${PYTHON_USEDEP}] )
 "
 BDEPEND="
-	dev-python/cython[${PYTHON_USEDEP}]
+	>=dev-python/cython-3.2.1[${PYTHON_USEDEP}]
+	<dev-python/cython-4[${PYTHON_USEDEP}]
+	dev-python/packaging[${PYTHON_USEDEP}]
 	test? (
 		dev-db/postgresql[kerberos?,server,ssl]
 		dev-python/distro[${PYTHON_USEDEP}]
@@ -37,7 +40,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.30.0-cflags.patch
-	"${FILESDIR}"/${PN}-0.30.0-disable-broken-tests.patch
 )
 
 EPYTEST_PLUGINS=( )
@@ -46,6 +48,12 @@ EPYTEST_IGNORE=(
 	"${S}"/tests/test__environment.py
 	# runs flake8 (???)
 	"${S}"/tests/test__sourcecode.py
+)
+EPYTEST_DESELECT=(
+	# ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED]
+	# certificate verify failed: unable to get local issuer certificate
+	tests/test_connect.py::TestSSLConnection::test_direct_tls_connection
+	tests/test_connect.py::TestSSLConnection::test_direct_tls_native
 )
 
 distutils_enable_tests pytest
