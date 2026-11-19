@@ -32,3 +32,4 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
+RESTRICT=test #Tests do not work in sandbox
