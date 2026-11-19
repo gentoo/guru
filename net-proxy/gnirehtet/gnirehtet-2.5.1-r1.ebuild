@@ -30,6 +30,8 @@ DOCS=(
 	"${WORKDIR}/${P}/README.md"
 )
 
+QA_FLAGS_IGNORED="/usr/bin/${PN}"
+
 src_install(){
 	dobin "${S}/$(cargo_target_dir)/${PN}"
 	einstalldocs
