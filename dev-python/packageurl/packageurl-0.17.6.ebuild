@@ -7,7 +7,7 @@ PYPI_PN="packageurl-python"
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{13..15} )
 
-inherit distutils-r1 pypi
+inherit distutils-r1 pypi optfeature
 
 DESCRIPTION="Python library to parse and build “purl” aka. Package URLs"
 HOMEPAGE="
@@ -31,11 +31,15 @@ src_prepare() {
 	# Fix setup.cfg
 	# Remove missing file from list and fix license list
 	sed -i \
-		-e "s/where = src/where = src\ninclude = pkg*/" \
+		-e "s/where = src/where = src\ninclude = sqlalchemy/" \
 		-e "/AUTHORS.rst/d" \
 		-e "s/- //g" \
 		setup.cfg \
 		|| die "Failed to fix license list"
 
 	eapply_user
+}
+
+pkg_postinst() {
+	optfeature "SQLAlchemy models support" "dev-python/sqlalchemy"
 }
