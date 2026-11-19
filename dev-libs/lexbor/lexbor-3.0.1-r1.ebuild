@@ -1,4 +1,4 @@
-# Copyright 2023-2026 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/lexbor/lexbor/archive/refs/tags/v${PV}.tar.gz -> ${P
 LICENSE="Apache-2.0"
 SLOT="0/${PV/.*}"
 KEYWORDS="~amd64"
-IUSE="examples static-libs test"
+IUSE="test"
 
 RESTRICT="!test? ( test )"
 
@@ -22,11 +22,12 @@ src_prepare() {
 }
 
 src_configure() {
+	# -DLEXBOR_BUILD_UTILS seems to be just internal utilities, doesn't affects installed files
 	local mycmakeargs=(
-		-DLEXBOR_BUILD_EXAMPLES=$(usex examples)
-		-DLEXBOR_BUILD_UTILS=$(usex examples)
-		-DLEXBOR_BUILD_STATIC=$(usex static-libs)
+		-DLEXBOR_BUILD_STATIC=OFF # static-libs
 		-DLEXBOR_BUILD_TESTS=$(usex test)
+		-DLEXBOR_BUILD_TESTS_CPP=$(usex test)
+		-DLEXBOR_BUILD_EXAMPLES=$(usex test) # extra tests, doesn't affects installed files
 		-DLEXBOR_BUILD_WASM=OFF # requires emscripten
 	)
 
