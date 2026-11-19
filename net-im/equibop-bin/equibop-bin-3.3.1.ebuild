@@ -64,6 +64,9 @@ src_prepare() {
 	# match with symlink
 	sed -i "s|^Exec=.*|Exec=/usr/bin/${PN} %U|" \
 		"usr/share/applications/${MY_PN,,}.desktop" || die
+
+	sed -i "/^Keywords=/{s|equibop;*||g; s|;$||;}" \
+		"usr/share/applications/${MY_PN,,}.desktop" || die
 }
 
 src_install() {
