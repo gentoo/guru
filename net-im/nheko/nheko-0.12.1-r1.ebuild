@@ -1,4 +1,4 @@
-# Copyright 2020-2024 Gentoo Authors
+# Copyright 2020-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="GPL-3 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="X doc +pie man video voip wayland"
+IUSE="X +pie man video voip wayland"
 REQUIRED_USE="video? ( voip )"
 
 # Check WebRTCSession::havePlugins() in ./src/voip/WebRTCSession.cpp
@@ -25,13 +25,14 @@ QTMIN="6.5.0"
 COMMON_DEPEND="
 	app-text/cmark:=
 	>=dev-cpp/blurhash-0.2.0:=
+	>=dev-cpp/coeurl-0.3.0:=
 	dev-cpp/cpp-httplib:=
 	dev-db/lmdb:=
 	dev-libs/libfmt:=
-	>=dev-libs/kdsingleapplication-1.1.0
-	>=dev-libs/mtxclient-0.10.0:=
+	>=dev-libs/kdsingleapplication-1.1.0:=
+	>=dev-libs/mtxclient-0.10.1:=
 	dev-libs/olm
-	>=dev-libs/qtkeychain-0.14.1-r1:=
+	dev-libs/qtkeychain:=[qt6(+)]
 	dev-libs/spdlog:=
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6=
@@ -49,7 +50,6 @@ COMMON_DEPEND="
 "
 # Dependencies which are required by CMake but not linked with Nheko
 INDIRECT_DEPEND="
-	>=dev-cpp/coeurl-0.3.0
 	dev-libs/libevent
 	dev-libs/openssl
 	dev-libs/re2
@@ -86,10 +86,6 @@ RDEPEND="
 BDEPEND="
 	>=dev-qt/qttools-${QTMIN}:6[linguist]
 	virtual/pkgconfig
-	doc? (
-		app-text/doxygen
-		media-gfx/graphviz
-	)
 	man? (
 		|| (
 			app-text/asciidoc
@@ -98,11 +94,7 @@ BDEPEND="
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.12.0-disable-http3.patch
-	"${FILESDIR}"/${PN}-0.12.0-fmt11.patch
-	"${FILESDIR}"/${PN}-0.12.0-remove-wayland-dep-on-x11.patch
-)
+PATCHES=( "${FILESDIR}/${P}-qt610.patch" )
 
 src_configure() {
 	local -a mycmakeargs=(
@@ -111,8 +103,8 @@ src_configure() {
 
 		-DVOIP=$(usex voip)
 		-DX11=$(usex X)
-		-DBUILD_DOCS=$(usex doc)
 		-DMAN=$(usex man)
+		-DBUILD_DOCS=OFF  # Doxygen doesn't generate anything
 
 		# See #890903 and #911111
 		-DCMAKE_POSITION_INDEPENDENT_CODE=$(usex pie)
