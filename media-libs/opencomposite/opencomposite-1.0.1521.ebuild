@@ -55,7 +55,7 @@ multilib_src_configure()
 	# as it does for vulkan and other similar configuration files.
 	local mycmakeargs=(
 		"-DCMAKE_INSTALL_PREFIX=/opt"
-		# Required for Proton: https://gitlab.com/znixian/OpenOVR/-/issues/416
+		# Required for Proton: https://gitlab.com/znixian/OpenOVR/-/work_items/416
 		"-DUSE_SYSTEM_OPENXR=OFF"
 		"-DUSE_SYSTEM_GLM=ON"
 	)

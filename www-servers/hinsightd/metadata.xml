@@ -7,7 +7,7 @@
 	</maintainer>
 	<upstream>
 		<changelog>https://gitlab.com/tiotags/hin9/-/blob/master/docs/changes.md</changelog>
-		<bugs-to>https://gitlab.com/tiotags/hin9/-/issues</bugs-to>
+		<bugs-to>https://gitlab.com/tiotags/hin9/-/work_items</bugs-to>
 		<remote-id type="gitlab">tiotags/hin9</remote-id>
 	</upstream>
 	<longdescription lang="en">

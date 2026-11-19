@@ -4,6 +4,6 @@
 	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="gitlab">vitaly-zdanevich/commons-wikimedia-find-by-hash</remote-id>
-		<bugs-to>https://gitlab.com/vitaly-zdanevich/commons-wikimedia-find-by-hash/-/issues</bugs-to>
+		<bugs-to>https://gitlab.com/vitaly-zdanevich/commons-wikimedia-find-by-hash/-/work_items</bugs-to>
 	</upstream>
 </pkgmetadata>

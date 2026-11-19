@@ -3,7 +3,7 @@
 <pkgmetadata>
     <!-- maintainer-needed -->
     <upstream>
-        <bugs-to>https://gitlab.com/jschx/ufetch/-/issues</bugs-to>
+        <bugs-to>https://gitlab.com/jschx/ufetch/-/work_items</bugs-to>
         <remote-id type="gitlab">jschx/ufetch</remote-id>
     </upstream>
 </pkgmetadata>

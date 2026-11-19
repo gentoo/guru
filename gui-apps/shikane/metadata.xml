@@ -10,7 +10,7 @@
 			<name>Hendrik Wolff</name>
 			<email>hendrik.wolff@agdsn.me</email>
 		</maintainer>
-		<bugs-to>https://gitlab.com/w0lff/shikane/-/issues</bugs-to>
+		<bugs-to>https://gitlab.com/w0lff/shikane/-/work_items</bugs-to>
 		<remote-id type="gitlab">w0lff/shikane</remote-id>
 	</upstream>
 </pkgmetadata>

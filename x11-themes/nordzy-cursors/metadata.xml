@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
-		<bugs-to>https://gitlab.com/gboehm/Nordzy-cursors/issues</bugs-to>
+		<bugs-to>https://gitlab.com/gboehm/Nordzy-cursors/work_items</bugs-to>
 		<remote-id type="github">guillaumeboehm/Nordzy-cursors_Cursor</remote-id>
 		<remote-id type="gitlab">gboehm/Nordzy-cursors</remote-id>
 	</upstream>

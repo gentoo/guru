@@ -7,7 +7,7 @@
 	</maintainer>
 	<upstream>
 		<doc>https://gitlab.com/kop316/vvmplayer/</doc>
-		<bugs-to>https://gitlab.com/kop316/vvmplayer/-/issues</bugs-to>
+		<bugs-to>https://gitlab.com/kop316/vvmplayer/-/work_items</bugs-to>
 		<remote-id type="gitlab">kop316/vvmplayer</remote-id>
 	</upstream>
 </pkgmetadata>

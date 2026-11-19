@@ -9,7 +9,7 @@
 		<remote-id type="gitlab">kicad/code/kicad-python</remote-id>
 		<remote-id type="pypi">kicad-python</remote-id>
 		<doc>https://docs.kicad.org/kicad-python-main/</doc>
-		<bugs-to>https://gitlab.com/kicad/code/kicad-python/-/issues</bugs-to>
+		<bugs-to>https://gitlab.com/kicad/code/kicad-python/-/work_items</bugs-to>
 	</upstream>
 	<longdescription lang="en">
 		kicad-python is the official Python library for interacting with running

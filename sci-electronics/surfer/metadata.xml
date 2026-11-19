@@ -26,6 +26,6 @@
 	<upstream>
 		<remote-id type="gitlab">surfer-project/surfer</remote-id>
 		<remote-id type="github">jkarns275/f128</remote-id>
-		<bugs-to>https://gitlab.com/surfer-project/surfer/-/issues</bugs-to>
+		<bugs-to>https://gitlab.com/surfer-project/surfer/-/work_items</bugs-to>
 	</upstream>
 </pkgmetadata>

@@ -23,7 +23,7 @@ distutils_enable_tests pytest
 python_test() {
 	local EPYTEST_IGNORE=(
 		# broken test
-		# https://gitlab.com/dangass/plum/-/issues/150
+		# https://gitlab.com/dangass/plum/-/work_items/150
 		tests/flag/test_flag_invalid.py
 	)
 	epytest tests

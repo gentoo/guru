@@ -6,7 +6,7 @@
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>https://gitlab.com/kop316/vvmd/-/issues</bugs-to>
+		<bugs-to>https://gitlab.com/kop316/vvmd/-/work_items</bugs-to>
 		<remote-id type="gitlab">kop316/vvmd</remote-id>
 	</upstream>
 </pkgmetadata>
