@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>ingenarel_neojesus@disroot.org</email>
+    <name>ingenarel</name>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://git.sable.moe/SableClient/sable-next/issues</bugs-to>
+    <doc>https://docs.sable.moe</doc>
+  </upstream>
+  <longdescription lang="en">
+  A Matrix chat app using electron for friends and communities. Libre software, on your phone, your computer or in your
+  browser.
+  Trying to be feature-complete while enhancing the user experience with quality-of-life features, cosmetics, utilities
+  and sheer usability.
+  </longdescription>
+</pkgmetadata>
