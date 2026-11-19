@@ -946,6 +946,10 @@ src_install() {
 	dodoc THIRD-PARTY-NOTICES.md README.md
 }
 
+src_test() {
+	cargo_src_test -- --test-threads=2
+}
+
 pkg_postinst() {
 	xdg_pkg_postinst
 
