@@ -47,11 +47,8 @@ RDEPEND="
 	app-arch/zstd
 	dev-cpp/hydrocarbon
 	dev-cpp/jacinth
-	dev-libs/libfmt:=
-	dev-libs/mcl
 	dev-libs/openssl:=
 	>=dev-libs/sirit-1.0.1
-	dev-util/spirv-tools
 	games-util/gamemode
 	media-gfx/renderdoc
 	media-libs/libsdl3[udev]
@@ -59,7 +56,6 @@ RDEPEND="
 	media-libs/opus
 	media-video/ffmpeg
 	net-libs/enet
-	net-libs/mbedtls:3
 	virtual/zlib:=
 
 	camera? ( dev-qt/qtmultimedia:6 )
@@ -89,7 +85,6 @@ DEPEND="
 
 	amd64? ( dev-libs/xbyak )
 	arm64? ( dev-libs/oaknut )
-	x86? ( dev-libs/xbyak )
 
 	web-service? ( dev-cpp/cpp-jwt )
 
