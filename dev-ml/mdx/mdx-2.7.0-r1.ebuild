@@ -16,6 +16,7 @@ IUSE="+ocamlopt test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	app-arch/zstd:=
 	>=dev-ml/dune-3.21
 	dev-ml/findlib:=[ocamlopt?]
 	>=dev-ml/fmt-0.8.7:=[ocamlopt?]
@@ -32,6 +33,7 @@ DEPEND="
 	${RDEPEND}
 	>=dev-ml/cppo-1.1.0:=[ocamlopt?]
 	test? (
-		dev-ml/lwt:=[ocamlopt?]
+		dev-ml/alcotest
+		dev-ml/lwt
 	)
 "
