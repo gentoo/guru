@@ -22,6 +22,7 @@ S="${WORKDIR}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm64"
+RESTRICT="bindist mirror strip"
 
 RDEPEND="
 	app-accessibility/at-spi2-core:2
@@ -53,7 +54,7 @@ RDEPEND="
 	x11-libs/pango
 "
 
-QA_PREBUILT="/opt/${MY_PN}"
+QA_PREBUILT="opt/${MY_PN}/*"
 
 src_prepare() {
 	default
