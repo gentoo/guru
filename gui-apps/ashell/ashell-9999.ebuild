@@ -12,8 +12,8 @@ EAPI=8
 #	[softbuffer]='https://github.com/MalpenZibo/softbuffer;8791db4844f58036bd25934f8133e11c31877933;softbuffer-%commit%'
 #)
 
-LLVM_COMPAT=( 22 )
-RUST_MIN_VER="1.95.0"
+LLVM_COMPAT=( {22..23} )
+RUST_MIN_VER="1.98.0"
 RUST_NEEDS_LLVM=1
 
 inherit cargo llvm-r2 systemd git-r3
@@ -22,7 +22,7 @@ DESCRIPTION="A ready to go Wayland status bar for Hyprland and Niri"
 HOMEPAGE="https://malpenzibo.github.io/ashell/"
 EGIT_REPO_URI="https://github.com/MalpenZibo/ashell.git"
 
-LICENSE="MIT"
+LICENSE="GPL-3+"
 # Dependent crate licenses
 LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0
@@ -31,17 +31,19 @@ LICENSE+="
 SLOT="0"
 KEYWORDS=""
 
-RDEPEND="
+DEPEND="
 	dev-libs/wayland-protocols
-	media-fonts/symbols-nerd-font
 	media-libs/libpulse
 	media-video/pipewire:=
 	sys-apps/dbus
 	x11-libs/libxkbcommon
 "
+RDEPEND="
+	media-fonts/symbols-nerd-font
+"
 # libclang is required for bindgen
 BDEPEND="
-	$(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}')
+	$(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}=')
 "
 
 pkg_setup() {
