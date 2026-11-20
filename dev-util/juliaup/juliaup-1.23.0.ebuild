@@ -35,19 +35,16 @@ QA_FLAGS_IGNORED=".*"
 src_test() {
 	local CARGO_SKIP_TESTS=(
 		# The following tests require network access.
-		utils::channel_selection
-		utils::auto_install_valid_channel
-		utils::end_to_end_manifest_selection
-		utils::command_add
-		utils::api_getconfig1
-		utils::command_default
-		utils::command_gc
-		utils::command_initial_setup
-		utils::command_link
-		utils::alias
-		utils::command_override
-		utils::command_remove
-		utils::command_update
+		channel_selection auto_install_valid_channel end_to_end_manifest_selection manifest_reuses_version_from_other_channel
+		command_add
+		api_getconfig1
+		command_default
+		command_gc
+		command_initial_setup
+		command_link alias
+		command_override post_update_restores_julia_symlink
+		command_remove
+		command_update
 	)
 	cargo_src_test
 }
