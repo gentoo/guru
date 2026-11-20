@@ -6,6 +6,8 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{13..14} )
 PYPI_PN="Mastodon.py"
+PYPI_VERIFY_REPO="https://github.com/halcy/Mastodon.py"
+
 inherit distutils-r1 pypi
 
 DESCRIPTION="Python wrapper for the Mastodon API"
