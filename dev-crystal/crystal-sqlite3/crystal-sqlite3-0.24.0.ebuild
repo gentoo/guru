@@ -1,7 +1,7 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit shards
 
@@ -14,10 +14,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-crystal/crystal-db-0.13.0
-	<dev-crystal/crystal-db-0.15.0
+	>=dev-crystal/crystal-db-0.15.0
+	<dev-crystal/crystal-db-0.16.0
 "
-
-PATCHES=( "${FILESDIR}"/${PN}-0.22.0-fix-uri-parsing.patch )
 
 DOCS=( {CHANGELOG,README}.md )
