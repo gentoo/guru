@@ -17,7 +17,7 @@ HOMEPAGE="
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="blurhash crypt grapheme"
+IUSE="blurhash crypt grapheme websocket"
 
 RDEPEND="
 	>=dev-python/decorator-4.0.0[${PYTHON_USEDEP}]
@@ -29,14 +29,22 @@ RDEPEND="
 		>=dev-python/http-ece-1.0.5[${PYTHON_USEDEP}]
 	)
 	grapheme? (
-		dev-python/grapheme[${PYTHON_USEDEP}]
+		>=dev-python/grapheme-0.7.2[${PYTHON_USEDEP}]
+	)
+	websocket? (
+		dev-python/websocket-client[${PYTHON_USEDEP}]
 	)
 "
 BDEPEND="
 	test? (
+		>=dev-python/blurhash-1.1.4[${PYTHON_USEDEP}]
+		>=dev-python/cryptography-1.6.0[${PYTHON_USEDEP}]
+		>=dev-python/grapheme-0.7.2[${PYTHON_USEDEP}]
+		>=dev-python/http-ece-1.0.5[${PYTHON_USEDEP}]
 		dev-python/python-magic[${PYTHON_USEDEP}]
 		dev-python/pytz[${PYTHON_USEDEP}]
 		dev-python/vcrpy[${PYTHON_USEDEP}]
+		dev-python/websocket-client[${PYTHON_USEDEP}]
 	)
 "
 
@@ -46,10 +54,6 @@ EPYTEST_PLUGINS=(
 	requests-mock
 )
 EPYTEST_XDIST=1
-EPYTEST_DESELECT=(
-	# passes only with outdated 'grapheme'
-	tests/test_status_length.py::test_get_status_length_against_ground_truth
-)
 
 distutils_enable_tests pytest
 

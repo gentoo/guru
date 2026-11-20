@@ -10,7 +10,8 @@
 		<remote-id type="github">halcy/Mastodon.py</remote-id>
 	</upstream>
 	<use>
-		<flag name="blurhash">Install dependencies required for decoding blurhash strings to images</flag>
-		<flag name="grapheme">Install dependencies required for grapheme-aware string handling</flag>
+		<flag name="blurhash">Support decoding blurhash strings to images</flag>
+		<flag name="grapheme">Support grapheme-aware string handling</flag>
+		<flag name="websocket">Support the WebSocket streaming API</flag>
 	</use>
 </pkgmetadata>
