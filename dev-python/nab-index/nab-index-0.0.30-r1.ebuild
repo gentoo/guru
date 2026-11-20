@@ -31,8 +31,8 @@ BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	test? (
-		dev-python/httpx2
-		dev-python/respx
+		dev-python/httpx2[${PYTHON_USEDEP}]
+		dev-python/respx[${PYTHON_USEDEP}]
 	)
 "
 
