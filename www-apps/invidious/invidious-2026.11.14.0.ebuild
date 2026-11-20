@@ -6,8 +6,14 @@ EAPI=8
 inherit check-reqs shards systemd
 
 MY_PV="2.$(ver_rs 1-2 '')"
-MOCKS_COMMIT="b55d58dea94f7144ff0205857dfa70ec14eaa872"
+MOCKS_COMMIT="3dee503b6b14d79a594f329154c3bcddd589413a"
 MOCKS_P="${PN}-mocks-${MOCKS_COMMIT:0:7}"
+
+# git rev-list HEAD --max-count=1 --abbrev-commit
+CURRENT_COMMIT="4e9d20dd"
+# git rev-list HEAD --max-count=1 --abbrev-commit -- assets
+ASSET_COMMIT="4a618775"
+
 DESCRIPTION="Invidious is an alternative front-end to YouTube"
 HOMEPAGE="
 	https://invidious.io/
@@ -64,6 +70,8 @@ DEPEND="${COMMON_DEPEND}
 "
 
 DOCS=( {CHANGELOG,README}.md TRANSLATION )
+
+PATCHES=( "${FILESDIR}"/${PN}-2026.11.14.0-fix-targets.patch )
 
 CHECKREQS_MEMORY="2G"
 
@@ -126,10 +134,10 @@ src_prepare() {
 	local datadir="${EPREFIX}/usr/share/invidious"
 	sed -i src/invidious.cr \
 		-e 's/\(CURRENT_BRANCH \) *= .*/\1 = "master"/' \
-		-e "s/\(CURRENT_COMMIT \) *= .*/\1 = \"0bbbb5df\"/" \
+		-e "s/\(CURRENT_COMMIT \) *= .*/\1 = \"${CURRENT_COMMIT}\"/" \
 		-e "s/\(CURRENT_VERSION\) *= .*/\1 = \"$(ver_cut 1-3)\"/" \
 		-e "s/\(CURRENT_TAG\) *= .*/\1 = \"v${MY_PV}\"/" \
-		-e "s/\(ASSET_COMMIT\) *= .*/\1 = \"864893f4\"/" || die
+		-e "s/\(ASSET_COMMIT\) *= .*/\1 = \"${ASSET_COMMIT}\"/" || die
 
 	# fix paths
 	sed -i src/invidious.cr \

@@ -1,0 +1,11 @@
+--- a/shard.yml
++++ b/shard.yml
+@@ -8,8 +8,6 @@ authors:
+ targets:
+   invidious:
+     main: src/invidious.cr
+-  ameba:
+-    main: lib/ameba/bin/ameba.cr
+ 
+ description: |
+    Invidious is an alternative front-end to YouTube
