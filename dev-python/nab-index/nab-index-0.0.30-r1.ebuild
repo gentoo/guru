@@ -30,7 +30,10 @@ RDEPEND="
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
-	test? ( dev-python/httpx2 )
+	test? (
+		dev-python/httpx2
+		dev-python/respx
+	)
 "
 
 EPYTEST_PLUGINS=( pytest-httpx hypothesis )
