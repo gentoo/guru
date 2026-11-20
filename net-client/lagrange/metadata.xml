@@ -17,6 +17,7 @@
 	secure communications.
 </longdescription>
 <use>
+	<flag name="freetype">Use <pkg>media-libs/freetype</pkg> to render text</flag>
 	<flag name="harfbuzz">Use <pkg>media-libs/harfbuzz</pkg> to shape text</flag>
 </use>
 <upstream>
