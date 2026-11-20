@@ -5,7 +5,7 @@ EAPI=8
 
 ROCM_VERSION="6.1"
 
-inherit cmake cuda rocm linux-info toolchain-funcs
+inherit cmake cuda flag-o-matic rocm linux-info toolchain-funcs
 
 MY_PN="${PN/-/.}"
 MY_P="${MY_PN}-${PV}"
@@ -94,6 +94,10 @@ RDEPEND="${COMMON_DEPEND}
 	vulkan? ( media-libs/vulkan-loader )
 "
 BDEPEND="vulkan? ( media-libs/shaderc )"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-llvm-23.patch
+)
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -190,10 +194,14 @@ src_configure() {
 	fi
 
 	if use rocm; then
-		rocm_use_hipcc
+		# Don't use rocm_use_hipcc: with hipcc as C/C++ compiler FindOpenMP finds no
+		# libraries and libomp is not linked (bug 986882)
 		mycmakeargs+=(
 			-DGGML_HIP=ON
 			-DGPU_TARGETS=$(get_amdgpu_flags)
+			-DCMAKE_HIP_FLAGS="$(test-flags-HIPCXX ${CXXFLAGS})"
+			# cmake.eclass clears per-build-type flags for C/CXX only; drop CMake's "-O2 -g -DNDEBUG" for HIP
+			-DCMAKE_HIP_FLAGS_${CMAKE_BUILD_TYPE^^}=
 		)
 	fi
 
