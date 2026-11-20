@@ -270,6 +270,8 @@ LICENSE+=" Apache-2.0 CC0-1.0 ISC MIT MPL-2.0 ODbL-1.0 Unicode-3.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 
+QA_FLAGS_IGNORED="usr/bin/${PN}"
+
 src_compile() {
 	local -x SUNSETR_VERSION="${PV}"
 	cargo_src_compile
