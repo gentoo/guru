@@ -28,11 +28,6 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="
 	>=dev-lang/go-1.25.0
-	test? ( dev-libs/olm )
-"
-RDEPEND="
-	acct-user/zendrite
-	acct-group/zendrite
 "
 
 src_compile() {
