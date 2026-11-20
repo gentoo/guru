@@ -15,7 +15,7 @@ SRC_URI="https://codeberg.org/skyjake/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.cod
 S="${WORKDIR}/${MY_PN}"
 
 LICENSE="BSD-2"
-SLOT="0/1.11"
+SLOT="0/1.14"
 KEYWORDS="~amd64 ~x86"
 IUSE="cpu_flags_x86_sse4_1 curl debug ssl"
 
@@ -36,6 +36,8 @@ src_configure() {
 		-DTFDN_ENABLE_TESTS=OFF  # not actual tests
 		-DTFDN_ENABLE_TLSREQUEST=$(usex ssl)
 		-DTFDN_ENABLE_WEBREQUEST=$(usex curl)
+		-DTFDN_OUTPUT_NAME=tfdn
+		-DTFDN_OUTPUT_NAME_DEBUG=tfdnd
 	)
 
 	append-cppflags $(usex debug "-UNDEBUG" "-DNDEBUG")
