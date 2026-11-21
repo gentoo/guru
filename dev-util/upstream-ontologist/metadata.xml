@@ -5,6 +5,9 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
+	<use>
+		<flag name="bzr">Enable Bazaar (version control system) support via <pkg>dev-vcs/breezy</pkg></flag>
+	</use>
 	<upstream>
 		<maintainer>
 			<name>Jelmer Vernooij</name>
