@@ -3,11 +3,11 @@
 
 EAPI=8
 
-inherit desktop xdg
+inherit desktop optfeature xdg
 
 DESCRIPTION="Free version of the FlexBV boardview and schematic software"
-HOMEPAGE="https://pldaniels.com/flexbv5/"
-SRC_URI="https://pldaniels.com/flexbv5/releases/flexbv-free-${PV}-linux-x86_64.tar.gz"
+HOMEPAGE="https://pldaniels.com/flexbv6/"
+SRC_URI="https://pldaniels.com/flexbv6/releases/flexbv-free-${PV}-linux-x86_64.tar.gz"
 
 S="${WORKDIR}/flexbv-free-${PV}-linux-x86_64"
 
@@ -22,10 +22,8 @@ QA_PREBUILT="
 "
 
 RDEPEND="
-	media-libs/fontconfig
-	media-libs/libsdl2
-	sys-libs/zlib
 	virtual/opengl
+	virtual/zlib:0/1
 "
 
 src_install() {
@@ -48,6 +46,7 @@ src_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
+	optfeature "native file dialogs" gnome-extra/zenity kde-apps/kdialog sys-apps/xdg-desktop-portal
 }
 
 pkg_postrm() {
