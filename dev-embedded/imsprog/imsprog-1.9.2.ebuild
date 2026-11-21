@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake udev
+inherit cmake udev xdg-utils
 
 MY_PN="IMSProg"
 DESCRIPTION="I2C, MicroWire and SPI EEPROM/Flash chip Programmer"
@@ -43,8 +43,10 @@ src_install() {
 
 pkg_postrm() {
 	udev_reload
+	xdg_icon_cache_update
 }
 
 pkg_postinst() {
 	udev_reload
+	xdg_icon_cache_update
 }
