@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>yt+gentoo@sysv.in</email>
+		<name>tooknox</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">guiodic/appmenu-gtk-module-wayland</remote-id>
+		<bugs-to>https://github.com/guiodic/appmenu-gtk-module-wayland/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
