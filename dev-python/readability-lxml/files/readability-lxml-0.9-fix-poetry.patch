@@ -1,0 +1,16 @@
+From: "Anna @CyberTailor" <cyber@sysrq.in>
+Subject: [PATCH] Build: do not install NOTICE into site-packages
+
+https://github.com/buriy/python-readability/pull/202
+
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -9,7 +9,7 @@ packages = [
+     { include = "readability" },
+ ]
+ include = [
+-    { path = "NOTICE", format = ["sdist", "wheel"] },
++    { path = "NOTICE", format = ["sdist"] },
+ ]
+ 
+ [tool.poetry.dependencies]
