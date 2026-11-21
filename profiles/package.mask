@@ -77,11 +77,6 @@ x11-themes/razor-sharp-gtk
 # Removal after 2026-11-23
 net-im/gajim-plugins
 
-# David Roman <stkw0@disroot.org> (2026-10-21)
-# Live ebuild only. Unmaintained
-# Removal after 2026-11-21
-dev-ruby/rbenv
-
 # David Roman <stkw0@disroot.org> (2026-10-20)
 # Abandoned upstream and downstream, live ebuild only.
 # Removal after 2026-11-20
