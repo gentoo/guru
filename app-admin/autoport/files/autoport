@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Figure out what the command name is (paccept, puse, pmask, etc.)
+cmdname=$(basename "$0")
+
+# Map command to portage subfolder
+case "$cmdname" in
+  paccept) folder="package.accept_keywords" ;;
+  pmask) folder="package.mask" ;;
+  punmask) folder="package.unmask" ;;
+  puse) folder="package.use" ;;
+  *) echo "Unknown command: $cmdname" >&2; exit 1 ;;
+esac
+
+# The argument (can be multiple entries)
+for entry in "$@"; do
+  [ -z "$entry" ] && continue
+  category=$(echo "$entry" | cut -d'/' -f1)
+  target_dir="/etc/portage/$folder/$category"
+  target_file="$target_dir/$category"
+
+  mkdir -p "$target_dir"
+
+  # Append only if it's not already present
+  grep -Fxq "$entry" "$target_file" 2>/dev/null || echo "$entry" >> "$target_file"
+
+  echo "[$cmdname] Added '$entry' → $target_file"
+done
