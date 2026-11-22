@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>0xsat0x@waifu.club</email>
+    <name>sat0sh1c</name>
+  </maintainer>
+  <longdescription>
+        clipse is a configurable TUI clipboard manager for Unix systems,
+        built primarily for use with Wayland. It records clipboard history
+        and provides a terminal interface for browsing and reusing
+        previously copied text and images.
+  </longdescription>
+  <upstream>
+      <remote-id type="github">savedra1/clipse</remote-id>
+  </upstream>
+</pkgmetadata>
