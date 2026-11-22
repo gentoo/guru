@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{13..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit flag-o-matic python-single-r1 meson-multilib toolchain-funcs
 
@@ -133,14 +133,14 @@ src_prepare() {
 	mv "${WORKDIR}/Vulkan-Utility-Libraries-${VK_HEADERS_VER}" "${S}/subprojects/" || die
 	mv "${WORKDIR}/vkroots-${VKROOTS_COMMIT}" "${S}/subprojects/vkroots" || die
 	mv "${WORKDIR}/vk-bootstrap-${VK_BOOTSTRAP_VER}" "${S}/subprojects/vk-bootstrap" || die
-	mv "${WORKDIR}/wlr-protocols-${WLR_PROTOCOLS_COMMIT}" "${S}/subprojects/wlr-protocols" || die
+	mv "${WORKDIR}/wlr-protocols-${WLR_PROTOCOLS_COMMIT}" "${S}/subprojects/" || die
 
 	pushd subprojects || die
 	mv packagefiles/vulkan-headers/* Vulkan-Headers-${VK_HEADERS_VER} || die
 	mv packagefiles/vulkan-utility-libraries/* Vulkan-Utility-Libraries-${VK_HEADERS_VER} || die
 	mv packagefiles/vkroots/* vkroots || die
 	mv packagefiles/vk-bootstrap/* vk-bootstrap || die
-	mv packagefiles/wlr-protocols/* wlr-protocols || die
+	mv packagefiles/wlr-protocols/* wlr-protocols-${WLR_PROTOCOLS_COMMIT} || die
 
 	# save some space when using FEATURES=installsources
 	rm -rf "*.wrap" "{packagefiles/imgui-0.16}" || die
