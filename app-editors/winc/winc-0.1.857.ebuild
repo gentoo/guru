@@ -22,7 +22,7 @@ LICENSE+="
 	Apache-2.0 BSD-2 BSD Boost-1.0 CC0-1.0 ISC MIT Unicode-3.0 ZLIB
 "
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-libs/wayland
@@ -35,9 +35,6 @@ RDEPEND="
 	x11-libs/libxcb
 	x11-libs/libxkbcommon[X]
 	x11-misc/xdg-utils
-"
-DEPEND="
-	dev-libs/wayland
 "
 BDEPEND="virtual/pkgconfig"
 
@@ -107,7 +104,7 @@ src_install() {
 		release/linux/file-manager/winc-open-folder.nemo_action
 
 	einstalldocs
-	dodoc LICENSE NOTICE
+	dodoc NOTICE
 }
 
 pkg_postinst() {
@@ -116,8 +113,4 @@ pkg_postinst() {
 	optfeature "Git integration" dev-vcs/git
 	optfeature "SSH remote editing" net-misc/openssh
 	optfeature "desktop portal file dialogs" sys-apps/xdg-desktop-portal
-}
-
-pkg_postrm() {
-	xdg_pkg_postrm
 }
