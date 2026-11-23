@@ -78,7 +78,7 @@ src_install() {
 	newfishcomp fish.completion ${PN}.fish
 	newzshcomp zsh.completion _${PN}
 
-	doman "$(cargo_target_dir)/build/${PN}-"*/out/${PN}{,-build,-check,-init,-serve}.1
+	doman "$(cargo_target_dir)/build/${PN}"/*/out/${PN}{,-build,-check,-init,-serve}.1
 }
 
 pkg_postinst() {
