@@ -24,6 +24,7 @@ else
 	PATCHES=(
 		"${DISTDIR}/${PN}-0.2.1-fix-newer-httplib-compilation.patch"
 		"${DISTDIR}/${PN}-0.2.1-fix-wifi-scanner-compilation.patch"
+		"${FILESDIR}/${PN}-0.2.1-fix-compilation-with-fmt-12.2.patch"
 	)
 fi
 
