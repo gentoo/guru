@@ -9,10 +9,10 @@ PYTHON_COMPAT=( python3_{13..14} )
 inherit distutils-r1
 
 DESCRIPTION="Playwright wrapper for a patched Firefox"
-HOMEPAGE="https://github.com/feder-cr/invisible_playwright"
-SRC_URI="https://github.com/feder-cr/invisible_playwright/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/oss-invisible/playwright"
+SRC_URI="https://github.com/oss-invisible/playwright/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-S="${WORKDIR}/invisible_playwright-${PV}"
+S="${WORKDIR}/playwright-${PV}"
 
 # They ship some code from the Playwright's Python package
 LICENSE="Apache-2.0 MIT"

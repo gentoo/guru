@@ -6,7 +6,7 @@
     <email>contact@paveloom.dev</email>
   </maintainer>
   <upstream>
-    <bugs-to>https://github.com/feder-cr/invisible_playwright/issues</bugs-to>
-    <remote-id type="github">feder-cr/invisible_playwright</remote-id>
+    <bugs-to>https://github.com/oss-invisible/playwright/issues</bugs-to>
+    <remote-id type="github">oss-invisible/playwright</remote-id>
   </upstream>
 </pkgmetadata>
