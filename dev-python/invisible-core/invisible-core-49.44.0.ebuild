@@ -9,10 +9,10 @@ PYTHON_COMPAT=( python3_{13..15} )
 inherit distutils-r1
 
 DESCRIPTION="Pure config for a stealth Firefox profile"
-HOMEPAGE="https://github.com/feder-cr/invisible_core"
-SRC_URI="https://github.com/feder-cr/invisible_core/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/oss-invisible/core"
+SRC_URI="https://github.com/oss-invisible/core/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-S="${WORKDIR}/invisible_core-${PV}"
+S="${WORKDIR}/core-${PV}"
 
 # They ship some code from the Playwright's Python package
 LICENSE="Apache-2.0 MIT"
