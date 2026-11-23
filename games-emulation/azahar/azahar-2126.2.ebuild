@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake xdg
+inherit cmake ffmpeg-compat xdg
 
 DESCRIPTION="An open-source 3DS emulator project based on Citra"
 HOMEPAGE="https://azahar-emu.org"
@@ -42,7 +42,7 @@ RDEPEND="
 	media-libs/libsoundtouch:=
 	media-libs/openal
 	media-libs/vulkan-loader
-	media-video/ffmpeg
+	media-video/ffmpeg-compat:8
 	net-libs/enet
 	virtual/libusb
 "
@@ -110,6 +110,10 @@ src_prepare() {
 }
 
 src_configure() {
+	# See https://github.com/azahar-emu/azahar/issues/2818
+	ffmpeg_compat_setup 8
+	ffmpeg_compat_add_flags
+
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=no
 		-DCITRA_USE_PRECOMPILED_HEADERS=no
