@@ -106,9 +106,24 @@ src_configure() {
 }
 
 src_test() {
+	local CMAKE_SKIP_TESTS=(
+	)
+
 	if use fuse; then
 		# fuse: failed to open /dev/fuse: Permission denied
 		addwrite "/dev/fuse"
+
+		# fuse tests, bug #984109
+		CMAKE_SKIP_TESTS+=(
+			fuse_*
+			casd_local_service_static_instance_tests
+			casd_local_service_dynamic_instance_tests
+			casd_hybrid_fallback_execution_service_tests_*
+			casd_local_execution_service_tests
+			casd_hybrid_execution_service_tests
+			casd_local_service_remote_server_static_instance_tests
+			casd_local_service_remote_server_dynamic_instance_tests
+		)
 	fi
 
 	cmake_src_test
