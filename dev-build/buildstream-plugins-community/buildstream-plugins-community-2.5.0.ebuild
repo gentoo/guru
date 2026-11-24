@@ -40,8 +40,8 @@ BDEPEND="
 		dev-vcs/git-lfs
 	)
 "
-
-RESTRICT="!test? ( test )"
+# tests use fuse, bug #984109
+RESTRICT="test"
 
 EPYTEST_PLUGINS=( pytest-datafiles )
 
