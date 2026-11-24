@@ -3,9 +3,11 @@
 
 EAPI=8
 
-ROCM_VERSION="6.1"
+PYTHON_COMPAT=( python3_{13..15} )
+ROCM_VERSION=7.2  # controls AMDGPU_TARGETS
+ROCM_MIN_VERSION=6.1  # src/ggml-hip/CMakeList.txt
 
-inherit cmake cuda flag-o-matic rocm linux-info toolchain-funcs
+inherit cmake cuda flag-o-matic python-any-r1 rocm toolchain-funcs
 
 MY_PN="${PN/-/.}"
 MY_P="${MY_PN}-${PV}"
@@ -51,29 +53,35 @@ X86_CPU_FLAGS=(
 	sse4_2
 )
 CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
-GGML_IUSE="${CPU_FLAGS[*]} blis cuda flexiblas openblas opencl +openmp rocm vulkan"
-unset X86_CPU_FLAGS CPU_FLAGS
+
+# GGML BLAS backends
+BLAS_BACKENDS="blis openblas"
+
+GGML_IUSE="blas flexiblas ${BLAS_BACKENDS} ${CPU_FLAGS[*]} cuda opencl openmp rocm vulkan"
 
 IUSE="${GGML_IUSE} ffmpeg sdl2 test"
-unset GGML_IUSE
 REQUIRED_USE="
-	?? (
-		openblas
-		blis
-		flexiblas
-	)
+	blas? ( ?? ( ${BLAS_BACKENDS} ) )
 	rocm? ( ${ROCM_REQUIRED_USE} )
 "
+
+unset BLAS_BACKENDS GGML_IUSE X86_CPU_FLAGS CPU_FLAGS
+
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
-	openblas? ( sci-libs/openblas:= )
-	openmp? ( llvm-runtimes/openmp:= )
-	blis? ( sci-libs/blis:= )
-	flexiblas? ( sci-libs/flexiblas:= )
+	blas? (
+		virtual/blas[flexiblas=]
+		flexiblas? ( sci-libs/flexiblas:=[blis?,openblas?,openmp?] )
+		!flexiblas? (
+			blis? ( sci-libs/blis:=[openmp?] )
+			openblas? ( sci-libs/openblas:=[openmp?] )
+		)
+	)
 	rocm? (
-		>=dev-util/hip-${ROCM_VERSION}:=
-		>=sci-libs/hipBLAS-${ROCM_VERSION}:=
+		>=dev-util/hip-${ROCM_MIN_VERSION}:=
+		>=sci-libs/hipBLAS-${ROCM_MIN_VERSION}:=
+		>=sci-libs/rocBLAS-${ROCM_MIN_VERSION}:=
 	)
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 	ffmpeg? ( media-video/ffmpeg:= )
@@ -92,20 +100,18 @@ RDEPEND="${COMMON_DEPEND}
 	opencl? ( dev-libs/opencl-icd-loader )
 	vulkan? ( media-libs/vulkan-loader )
 "
-BDEPEND="vulkan? ( media-libs/shaderc )"
+BDEPEND="
+	opencl? ( ${PYTHON_DEPS} )
+	vulkan? ( media-libs/shaderc )
+"
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 }
 
 pkg_setup() {
-	if use rocm; then
-		linux-info_pkg_setup
-		if linux-info_get_any_version && linux_config_exists; then
-			if ! linux_chkconfig_present HSA_AMD_SVM; then
-				ewarn "To use ROCm/HIP, you need to have HSA_AMD_SVM option enabled in your kernel."
-			fi
-		fi
+	if use opencl; then
+		python-any-r1_pkg_setup
 	fi
 
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -156,29 +162,36 @@ src_configure() {
 		-DGGML_AMX_INT8=$(usex cpu_flags_x86_amx_int8)
 		-DGGML_AMX_BF16=$(usex cpu_flags_x86_amx_bf16)
 
+		-DGGML_BLAS=$(usex blas)
 		-DGGML_CUDA=$(usex cuda)
+		-DGGML_HIP=$(usex rocm)
 		-DGGML_VULKAN=$(usex vulkan)
 		-DGGML_OPENMP=$(usex openmp)
 		-DGGML_RPC=ON
 		-DGGML_OPENCL=$(usex opencl)
 	)
 
-	if use openblas ; then
-		mycmakeargs+=(
-			-DGGML_BLAS=ON -DGGML_BLAS_VENDOR=OpenBLAS
-		)
-	fi
-
-	if use blis ; then
-		mycmakeargs+=(
-			-DGGML_BLAS=ON -DGGML_BLAS_VENDOR=FLAME
-		)
-	fi
-
-	if use flexiblas; then
-		mycmakeargs+=(
-			-DGGML_BLAS=ON -DGGML_BLAS_VENDOR=FlexiBLAS
-		)
+	if use blas; then
+		if use flexiblas ; then
+			mycmakeargs+=(
+				-DGGML_BLAS_VENDOR="FlexiBLAS"
+			)
+		elif use blis ; then
+			mycmakeargs+=(
+				-DGGML_BLAS_VENDOR="FLAME"
+			)
+		elif use openblas ; then
+			mycmakeargs+=(
+				-DGGML_BLAS_VENDOR="OpenBLAS"
+			)
+		else
+			mycmakeargs+=(
+				-DGGML_BLAS_VENDOR=Generic
+				# https://cmake.org/cmake/help/latest/module/FindBLAS.html
+				-DBLA_PREFER_PKGCONFIG=ON
+				-DBLA_PKGCONFIG_BLAS=cblas
+			)
+		fi
 	fi
 
 	if use cuda; then
@@ -189,10 +202,9 @@ src_configure() {
 	fi
 
 	if use rocm; then
-		# Don't use rocm_use_hipcc: with hipcc as C/C++ compiler FindOpenMP finds no
-		# libraries and libomp is not linked (bug 986882)
+		# Changing compiler with rocm_use_{hipcc,clang} is not necessary
+		# Pass HIP compatible flags using dedicated CMake variables
 		mycmakeargs+=(
-			-DGGML_HIP=ON
 			-DGPU_TARGETS=$(get_amdgpu_flags)
 			-DCMAKE_HIP_FLAGS="$(test-flags-HIPCXX ${CXXFLAGS})"
 			# cmake.eclass clears per-build-type flags for C/CXX only; drop CMake's "-O2 -g -DNDEBUG" for HIP
