@@ -3,25 +3,39 @@
 
 EAPI=8
 
-PYPI_PN="packageurl-python"
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{13..15} )
 
-inherit distutils-r1 pypi optfeature
+inherit distutils-r1 optfeature
 
+PURL_SPEC_PV="1.0.0"
 DESCRIPTION="Python library to parse and build “purl” aka. Package URLs"
-HOMEPAGE="
-	https://github.com/package-url/purl-spec
-	https://pypi.org/project/packageurl-python/
+HOMEPAGE="https://packageurl.org/"
+SRC_URI="
+	https://github.com/package-url/${PN}-python/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
+	test? (
+		https://github.com/package-url/purl-spec/archive/v${PURL_SPEC_PV}.tar.gz -> purl-spec-${PURL_SPEC_PV}.gh.tar.gz
+	)
 "
-
+S="${WORKDIR}/${PN}-python-${PV}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-# PYPI version does not provied required
-# specification json.
-RESTRICT="test"
+BDEPEND="
+	test? (
+		dev-python/pydantic[${PYTHON_USEDEP}]
+	)
+"
+
+PATCHES=(
+	"${FILESDIR}/safe-for-percent-encoding.patch"
+	"${FILESDIR}/spec-tests.patch"
+)
+
+EPYTEST_PLUGINS=( )
+
+distutils_enable_tests pytest
 
 src_prepare() {
 	# Remove deprecated license classifier
@@ -37,7 +51,13 @@ src_prepare() {
 		setup.cfg \
 		|| die "Failed to fix license list"
 
-	eapply_user
+	# Use purl-spec tests
+	if use test; then
+		rmdir spec || die
+		mv "${WORKDIR}"/purl-spec-"${PURL_SPEC_PV}" spec || die
+	fi
+
+	default
 }
 
 pkg_postinst() {
