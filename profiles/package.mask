@@ -18,6 +18,11 @@
 
 # New entries go on top.
 
+# M. Muddassar Sarfraz <zyx@envs.net> (2026-11-24)
+# Use net-mail/mox instead
+# Removal on 2026-12-24
+net-mail/mox-bin
+
 # dsaf <ghostyn678+git@gmail.com> (2026-11-01)
 # Archived upstream.
 # No reverse dependencies.
@@ -91,7 +96,7 @@ sys-power/envycontrol
 dev-db/psequel
 
 # David Roman <stkw0@disroot.org> (2026-05-21)
-# Depends on masked Qt5. Progress is being done, see #975836 
+# Depends on masked Qt5. Progress is being done, see #975836
 # Removal not before 2027-01-29
 net-p2p/dogecoin-qt
 
