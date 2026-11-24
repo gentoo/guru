@@ -5,6 +5,9 @@
     <email>zyx@envs.net</email>
     <name>M. Muddassar Sarfraz</name>
   </maintainer>
+  <use>
+    <flag name="terminal">Enable terminal support</flag>
+  </use>
   <upstream>
     <remote-id type="github">zellij-org/zellij</remote-id>
   </upstream>
