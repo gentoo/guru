@@ -78,7 +78,6 @@ COMMON_DEPEND="
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 	ffmpeg? ( media-video/ffmpeg:= )
 	sdl2? (
-		>=sci-ml/llama-cpp-0.3.0:=
 		media-libs/libsdl2:=
 	)
 "
@@ -123,7 +122,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DWHISPER_USE_SYSTEM_LLAMA=$(usex sdl2)
+		-DWHISPER_USE_SYSTEM_LLAMA=OFF # Requires system GGML $(usex sdl2)
 		-DWHISPER_BUILD_TESTS=$(usex test)
 		-DWHISPER_BUILD_EXAMPLES=ON
 		-DWHISPER_SDL2=$(usex sdl2)
