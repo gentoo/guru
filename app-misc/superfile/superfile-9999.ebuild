@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,16 +13,12 @@ if [[ "${PV}" == 9999 ]]; then
 else
 	KEYWORDS="~amd64"
 	SRC_URI="https://github.com/yorukot/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/ingenarel/guru-depfiles/releases/download/${P}-deps.tar.xz/${P}-go-mod-deps.tar.xz ->
-	${P}-deps.tar.xz
+	https://github.com/ingenarel/${PN}/releases/download/v${PV}/${P}-deps.tar.xz
 	"
-	# you can either use -go-mod-deps or -vendor-deps for the file
-	# vendor-deps are small, but may not work for some packages/version
-	# go-mod-deps are LARGE, but will most likely always work
 fi
 
 LICENSE="MIT"
-#gentoo-go-license superfile-1.6.0.ebuild
+#gentoo-go-license superfile-9999.ebuild
 LICENSE+=" Apache-2.0 BSD-2 BSD CC0-1.0 GPL-3 ISC MIT MPL-2.0 OFL-1.1 Unlicense "
 
 SLOT="0"
@@ -31,7 +27,7 @@ SLOT="0"
 # on top of that it has failed tests, tests depend on zoxide, tmux, python, a few python modules
 # the goal is to work on a src_test function slowly and bring back tests again
 RESTRICT="test"
-BDEPEND=">=dev-lang/go-1.25.7"
+BDEPEND=">=dev-lang/go-1.26.0"
 
 src_unpack() {
 	if [[ "${PV}" == 9999* ]];then
@@ -49,4 +45,7 @@ src_compile() {
 src_install() {
 	dobin bin/spf
 	domenu asset/spf.desktop
+	doicon -s scalable asset/spf.svg
+	insinto /usr/share/metainfo
+	doins asset/io.github.yorukot.superfile.metainfo.xml
 }
