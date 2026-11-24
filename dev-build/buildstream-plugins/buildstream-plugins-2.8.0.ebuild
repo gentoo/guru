@@ -38,7 +38,8 @@ BDEPEND="
 	)
 "
 
-RESTRICT="!test? ( test )"
+# tests use fuse, bug #984109
+RESTRICT="test"
 
 EPYTEST_PLUGINS=( pytest-datafiles )
 distutils_enable_tests pytest
