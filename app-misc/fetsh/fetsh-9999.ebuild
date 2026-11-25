@@ -4,13 +4,13 @@
 EAPI=9
 
 DESCRIPTION="A fetch written in POSIX shell without any external commands"
-HOMEPAGE="https://github.com/6gk/fet.sh"
+HOMEPAGE="https://github.com/sashadelioncourt/fet.sh"
 
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/6gk/fet.sh.git"
+	EGIT_REPO_URI="https://github.com/sashadelioncourt/fet.sh.git"
 else
-	SRC_URI="https://github.com/6gk/fet.sh/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/sashadelioncourt/fet.sh/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/fet.sh-${PV}"
 	KEYWORDS="~amd64"
 fi

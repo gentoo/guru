@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
-		<remote-id type="github">6gk/fet.sh</remote-id>
-		<bugs-to>https://github.com/6gk/fet.sh/issues</bugs-to>
+		<remote-id type="github">sashadelioncourt/fet.sh</remote-id>
+		<bugs-to>https://github.com/sashadelioncourt/fet.sh/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
