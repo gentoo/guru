@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,7 +19,7 @@ DEPEND="dev-libs/boost:=
 	dev-libs/openssl
 	dev-cpp/yaml-cpp:=
 	dev-cpp/eigen
-	dev-cpp/robotraconteur
+	>=dev-cpp/robotraconteur-1.3.0:=
 "
 RDEPEND="${DEPEND}"
 
