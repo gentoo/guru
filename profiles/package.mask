@@ -18,6 +18,12 @@
 
 # New entries go on top.
 
+# ingenarel (NeoJesus) <ingenarel_neojesus@disroot.org> (2026-11-25)
+# uses EAPI 7, was a dependency of www-apps/whoogle-search which got treecleaned in
+# cf834adc3ca8dc0c41c270133c63622960596f62
+# Removal on 2026-12-25
+acct-user/whoogle
+
 # M. Muddassar Sarfraz <zyx@envs.net> (2026-11-24)
 # Use net-mail/mox instead
 # Removal on 2026-12-24
