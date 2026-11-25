@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>bratishkaerik@landless-city.net</email>
+		<name>Eric Joldasov</name>
+	</maintainer>
+	<upstream>
+		<maintainer status="active">
+			<email>bratishkaerik@landless-city.net</email>
+			<name>Eric Joldasov</name>
+		</maintainer>
+		<remote-id type="github">BratishkaErik/natizon</remote-id>
+		<remote-id type="pypi">natizon</remote-id>
+		<bugs-to>https://github.com/BratishkaErik/natizon/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
