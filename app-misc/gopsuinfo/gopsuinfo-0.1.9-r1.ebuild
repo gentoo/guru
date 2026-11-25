@@ -1,7 +1,7 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=9
 
 inherit go-module
 
@@ -23,10 +23,14 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-DEPEND=">=dev-lang/go-1.20"
+DEPEND=">=dev-lang/go-1.23"
 
 src_compile() {
 	emake build
+}
+
+src_test(){
+	ego test -v ./...
 }
 
 src_install() {
