@@ -27,7 +27,10 @@ BDEPEND="$(vala_depend)
 	verify-sig? ( sec-keys/signify-keys-oriole-systems )"
 
 DEPEND="
-	>=x11-libs/vte-0.78.3:2.91[vala]"
+	>=x11-libs/vte-0.78.3:2.91[vala]
+	dev-libs/glib
+	x11-libs/gtk+:3
+	x11-libs/pango"
 RDEPEND="${DEPEND}"
 
 VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/signify-keys/oriole-systems-20240330.pub"
