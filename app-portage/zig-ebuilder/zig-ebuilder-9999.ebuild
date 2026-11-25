@@ -4,10 +4,10 @@
 EAPI=8
 
 DESCRIPTION="Semi-automatic generator for Zig ebuilds"
-HOMEPAGE="https://github.com/BratishkaErik/zig-recipe"
+HOMEPAGE="https://github.com/BratishkaErik/zig-ebuilder"
 
 ZIG_SLOT="0.14"
-EGIT_REPO_URI="https://github.com/BratishkaErik/zig-recipe"
+EGIT_REPO_URI="https://github.com/BratishkaErik/zig-ebuilder"
 inherit git-r3 zig
 
 LICENSE="EUPL-1.2 MIT 0BSD CC0-1.0"
