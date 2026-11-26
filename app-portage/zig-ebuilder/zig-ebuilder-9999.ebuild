@@ -4,10 +4,10 @@
 EAPI=8
 
 DESCRIPTION="Semi-automatic generator for Zig ebuilds"
-HOMEPAGE="https://github.com/BratishkaErik/zig-ebuilder"
+HOMEPAGE="https://github.com/BratishkaErik/zig-recipe"
 
 ZIG_SLOT="0.14"
-EGIT_REPO_URI="https://github.com/BratishkaErik/zig-ebuilder"
+EGIT_REPO_URI="https://github.com/BratishkaErik/zig-recipe"
 inherit git-r3 zig
 
 LICENSE="EUPL-1.2 MIT 0BSD CC0-1.0"
@@ -24,5 +24,5 @@ DOCS=( "README.md" )
 
 src_unpack() {
 	git-r3_src_unpack
-	zig_live_fetch
+	zig_live_fetch # zig_live_src_unpack requires >=zig-0.16
 }
