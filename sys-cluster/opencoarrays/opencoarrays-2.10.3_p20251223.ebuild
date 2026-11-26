@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,7 +25,7 @@ KEYWORDS="~amd64 ~x86"
 # "No network interfaces were found for out-of-band communications.
 #  We require at least one available network for out-of-band messaging."
 IUSE="static-libs test"
-PROPERTIES="test_network"
+PROPERTIES="test? ( test_network )"
 RESTRICT="!test? ( test )"
 
 # >=sys-cluster/openmpi-4.1.2[fortran] is dropped due to
