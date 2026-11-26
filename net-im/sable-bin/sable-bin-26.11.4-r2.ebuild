@@ -36,7 +36,10 @@ RDEPEND="
 	net-print/cups
 	sys-apps/util-linux
 	sys-apps/dbus
-	sys-apps/systemd-utils
+	|| (
+		sys-apps/systemd
+		sys-apps/systemd-utils
+	)
 	x11-libs/cairo
 	x11-libs/gtk+:3
 	x11-libs/libnotify
