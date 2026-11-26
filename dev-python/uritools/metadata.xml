@@ -6,7 +6,7 @@
 		<name>bakedsnake</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">spdx/tools-python</remote-id> 
-		<remote-id type="pypi">spdx-tools</remote-id> 
+		<remote-id type="github">tkem/uritools</remote-id> 
+		<remote-id type="pypi">uritools</remote-id> 
 	</upstream>
 </pkgmetadata>
