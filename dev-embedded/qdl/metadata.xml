@@ -9,9 +9,9 @@
     <flag name="nbd">Build the nbdkit plugin via <pkg>sys-block/nbdkit</pkg></flag>
   </use>
   <upstream>
-    <remote-id type="github">linux-msm/qdl</remote-id>
-    <doc lang="en">https://github.com/linux-msm/qdl</doc>
-    <bugs-to>https://github.com/linux-msm/qdl/issues</bugs-to>
+    <remote-id type="github">qualcomm/qdl</remote-id>
+    <doc lang="en">https://github.com/qualcomm/qdl</doc>
+    <bugs-to>https://github.com/qualcomm/qdl/issues</bugs-to>
   </upstream>
   <longdescription lang="en">
     This tool communicates with USB devices of id 05c6:9008 to upload a flash

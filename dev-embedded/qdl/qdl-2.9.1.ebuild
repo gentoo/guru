@@ -6,8 +6,8 @@ EAPI=8
 inherit meson udev
 
 DESCRIPTION="Tool to communicate with Qualcomm System On a Chip bootroms"
-HOMEPAGE="https://github.com/linux-msm/qdl"
-SRC_URI="https://github.com/linux-msm/qdl/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/qualcomm/qdl"
+SRC_URI="https://github.com/qualcomm/qdl/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"

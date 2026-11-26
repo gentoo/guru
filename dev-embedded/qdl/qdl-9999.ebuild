@@ -6,8 +6,8 @@ EAPI=8
 inherit git-r3 meson udev
 
 DESCRIPTION="Tool to communicate with Qualcomm System On a Chip bootroms"
-HOMEPAGE="https://github.com/linux-msm/qdl"
-EGIT_REPO_URI="https://github.com/linux-msm/qdl.git"
+HOMEPAGE="https://github.com/qualcomm/qdl"
+EGIT_REPO_URI="https://github.com/qualcomm/qdl.git"
 
 LICENSE="BSD"
 SLOT="0"
