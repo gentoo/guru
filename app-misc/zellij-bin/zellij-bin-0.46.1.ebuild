@@ -64,8 +64,10 @@ src_compile() {
 		fi
 
 	else
-		einfo "Generating desktop entries"
-		./${PN%-bin} setup --install-desktop-entry || die
+		if use terminal; then
+			einfo "Generating desktop entries"
+			./${PN%-bin} setup --install-desktop-entry || die
+		fi
 
 		einfo "Generating shell completion files"
 		for sh in bash zsh fish; do
