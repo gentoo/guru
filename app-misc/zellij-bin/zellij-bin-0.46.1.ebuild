@@ -41,10 +41,12 @@ IUSE="terminal"
 
 RDEPEND="
 	!!app-misc/zellij
-	dev-libs/wayland
-	media-libs/fontconfig
-	media-libs/mesa[wayland]
-	x11-libs/libxkbcommon[wayland]
+	terminal? (
+		dev-libs/wayland
+		media-libs/fontconfig
+		media-libs/mesa[wayland]
+		x11-libs/libxkbcommon[wayland]
+	)
 "
 
 RESTRICT="strip"
