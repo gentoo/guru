@@ -122,6 +122,10 @@ BDEPEND="
 	test? ( $(python_gen_any_dep 'dev-python/jinja2[${PYTHON_USEDEP}]') )
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-llvm-23.patch
+)
+
 python_check_deps() {
 	if use test; then
 		python_has_version "dev-python/jinja2[${PYTHON_USEDEP}]"
