@@ -25,7 +25,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 #RESTRICT="!test? ( test )"
 RESTRICT="test"
-PROPERTIES="test_network"
+PROPERTIES="test? ( test_network )"
 
 RDEPEND="
 	$(python_gen_cond_dep '
