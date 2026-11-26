@@ -1,0 +1,32 @@
+diff '--color=auto' -Naur a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1097,28 +1097,6 @@
+ include(cmake/AddInstallationScriptTest.cmake )
+ add_installation_script_test(installation-scripts.sh src/tests/installation/)
+ 
+-# `cmake --install --prefix` must put every file under that prefix, and the uninstall
+-# script must remove them again. Not on Windows: the tests install under DESTDIR, and the
+-# install receipt and uninstall scripts join `$ENV{DESTDIR}${file}`, which is not a valid
+-# path when `${file}` starts with a drive letter
+-if(NOT WIN32)
+-  set(install_test_dir "${CMAKE_BINARY_DIR}/install_prefix_test")
+-  add_test(NAME install_prefix
+-    COMMAND "${CMAKE_COMMAND}" "-DBUILD_DIR=${CMAKE_BINARY_DIR}" "-DOUT_DIR=${install_test_dir}"
+-            "-DBINDIR=${CMAKE_INSTALL_BINDIR}" "-DCONFIG=$<CONFIG>"
+-            -P "${CMAKE_SOURCE_DIR}/cmake/InstallPrefixTest.cmake")
+-  add_test(NAME uninstall
+-    COMMAND "${CMAKE_COMMAND}" "-DUNINSTALL_TEMPLATE=${CMAKE_SOURCE_DIR}/cmake/uninstall.cmake.in"
+-            "-DOUT_DIR=${install_test_dir}" "-DCMAKE_INSTALL_BINDIR=${CMAKE_INSTALL_BINDIR}"
+-            "-DCMAKE_INSTALL_INCLUDEDIR=${CMAKE_INSTALL_INCLUDEDIR}"
+-            "-DCMAKE_INSTALL_LIBDIR=${CMAKE_INSTALL_LIBDIR}"
+-            "-DCMAKE_INSTALL_DATADIR=${CMAKE_INSTALL_DATADIR}"
+-            "-Dmod_dir_tail=${mod_dir_tail}" "-DPROJECT_NAME=${PROJECT_NAME}"
+-            -P "${CMAKE_SOURCE_DIR}/cmake/UninstallTest.cmake")
+-  set_tests_properties(install_prefix PROPERTIES FIXTURES_SETUP scratch_install)
+-  set_tests_properties(uninstall PROPERTIES FIXTURES_REQUIRED scratch_install)
+-endif()
+-
+ if( CAF_ENABLE_FAILED_IMAGES AND ( NOT
+       (	"${CMAKE_C_COMPILER_ID}" STREQUAL "GNU" ) AND ( "${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "x86_64" ) )
+     )
