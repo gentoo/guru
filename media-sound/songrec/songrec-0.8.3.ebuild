@@ -6,13 +6,9 @@ EAPI=8
 CRATES="
 "
 
-declare -A GIT_CRATES=(
-	[cpal]='https://github.com/RustAudio/cpal;1c40a85e2e74b376c6b35eef8d111586d426a61f;cpal-%commit%'
-)
+RUST_MIN_VER="1.92.0"
 
-RUST_MIN_VER="1.88.0"
-
-inherit cargo desktop xdg
+inherit cargo meson xdg
 
 DESCRIPTION="An open-source Shazam client for Linux, written in Rust"
 HOMEPAGE="https://github.com/marin-m/SongRec"
@@ -42,11 +38,6 @@ DEPEND="
 	media-libs/libpulse
 	net-libs/libsoup
 	media-video/pipewire
-	dev-libs/glib
-	media-libs/graphene
-	x11-libs/cairo
-	x11-libs/gdk-pixbuf
-	x11-libs/pango
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -56,15 +47,10 @@ BDEPEND="
 src_configure() {
 	export PKG_CONFIG_ALLOW_CROSS=1
 
-	cargo_src_configure
+	meson_src_configure
+	ln -s "${CARGO_HOME}" "${BUILD_DIR}/cargo-home" || die
 }
 
 src_install() {
-	cargo_src_install
-	domenu packaging/rootfs/usr/share/applications/re.fossplant.songrec.desktop
-	doicon -s scalable packaging/rootfs/usr/share/icons/hicolor/scalable/apps/re.fossplant.songrec.svg
-	insinto /usr/share/metainfo
-	doins packaging/rootfs/usr/share/metainfo/re.fossplant.songrec.metainfo.xml
-	insinto /usr/share/
-	doins -r translations/locale
+	meson_src_install
 }
