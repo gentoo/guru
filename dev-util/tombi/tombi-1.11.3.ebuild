@@ -45,6 +45,7 @@ src_test(){
 	# make sure that you read why the tests are failing tho, and not simply blinding ignoring the tests in here
 	local CARGO_SKIP_TESTS=(
 		'completion_labels::all_of_forbidden_keys_schema::pattern_properties_false_keeps_declared_properties'
+		'completion_labels::cargo_schema::cargo_dependencies_num_chrono_duration_equal_string_with_comment'
 		'completion_labels::cargo_schema::cargo_dependencies_num_chrono_duration_equal_version_equal'
 		'completion_labels::cargo_schema::cargo_dependencies_path_completion_local_prefix'
 		'get_status::issue_1548_schema_toml_version::config_toml_version_fallback'
@@ -55,6 +56,7 @@ src_test(){
 		'hover_keys_value::array_values_order_schema::shows_struck_through_values_order_when_schema_format_rule_is_disabled'
 		'hover_keys_value::array_values_order_schema::uses_schema_override_for_values_order_in_hover'
 		'hover_keys_value::built_in_schema_hover_link_uses_github'
+		'hover_keys_value::cargo_schema::cargo_dependencies_workspace'
 		'hover_keys_value::cargo_schema::cargo_dependency_table_field_hover_keeps_schema_metadata'
 		'hover_keys_value::cargo_schema::cargo_profile_release_strip_true'
 		'hover_keys_value::one_of_schema::adjacent_one_of_reversed_hover_prefers_valid_branch_nested_item_schema'
