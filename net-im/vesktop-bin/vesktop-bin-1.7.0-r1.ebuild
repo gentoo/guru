@@ -26,10 +26,10 @@ SLOT="0"
 KEYWORDS="-* ~amd64 ~arm64"
 RESTRICT="bindist mirror strip test"
 
-DEPEND="
-	app-accessibility/at-spi2-core
+RDEPEND="
+	app-accessibility/at-spi2-core:2
 	dev-libs/expat
-	dev-libs/glib
+	dev-libs/glib:2
 	dev-libs/nspr
 	dev-libs/nss
 	media-libs/alsa-lib
@@ -37,11 +37,15 @@ DEPEND="
 	media-libs/mesa[gbm(+)]
 	net-print/cups
 	sys-apps/dbus
+	|| (
+		sys-apps/systemd
+		sys-apps/systemd-utils
+	)
 	sys-libs/glibc
 	x11-libs/cairo
-	x11-libs/libdrm
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
+	x11-libs/libX11
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
 	x11-libs/libXext
