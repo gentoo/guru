@@ -139,6 +139,10 @@ src_prepare() {
 	mv packagefiles/vulkan-headers/* Vulkan-Headers-${VK_HEADERS_VER} || die
 	mv packagefiles/vulkan-utility-libraries/* Vulkan-Utility-Libraries-${VK_HEADERS_VER} || die
 	mv packagefiles/vkroots/* vkroots || die
+	pushd vkroots || die
+	eapply ../packagefiles/vkroots-queue-flags.patch || die
+	eapply ../packagefiles/vkroots-shared-lock.patch || die
+	popd || die
 	mv packagefiles/vk-bootstrap/* vk-bootstrap || die
 	mv packagefiles/wlr-protocols/* wlr-protocols-${WLR_PROTOCOLS_COMMIT} || die
 
