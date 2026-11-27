@@ -39,7 +39,7 @@ RDEPEND="
 	>=gui-libs/scenefx-0.5:0.5
 
 	dev-libs/cJSON
-	dev-libs/glib
+	dev-libs/glib:2
 	dev-libs/libinput:=
 	dev-libs/libpcre2
 	dev-libs/wayland
@@ -62,7 +62,6 @@ DEPEND="
 "
 
 BDEPEND="
-	>=dev-build/meson-0.60.0
 	>=dev-libs/wayland-protocols-1.32
 	>=dev-util/wayland-scanner-1.23
 	virtual/pkgconfig
