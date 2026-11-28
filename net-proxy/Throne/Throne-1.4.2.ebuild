@@ -24,6 +24,7 @@ RDEPEND="
 	dev-libs/protobuf:=
 	dev-qt/qtbase:6[dbus,network,widgets]
 	media-libs/quirc:=
+	x11-libs/libxcb
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
