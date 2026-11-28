@@ -47,6 +47,10 @@ pkg_setup() {
 src_prepare() {
 	default
 	xdg_environment_reset
+
+# Remove keywords identical to Name[lang] to satisfy desktop-file-validate (bug #987269)
+	sed -i 's/Redare;Spectacol;/Redare;/' po/ro.po || die
+	sed -i 's/Відэапрайгравальнік;Плэер;/Плэер;/' po/be.po || die
 }
 
 src_configure() {
