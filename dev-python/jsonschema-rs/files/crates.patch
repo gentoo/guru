@@ -1,0 +1,14 @@
+# Only build jsonschema-py
+diff --git a/Cargo.toml b/Cargo.toml
+index 86bc8ad0..6d4b91ab 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -2,6 +2,6 @@
+ [workspace]
+-members = ["crates/*", "examples/*"]
++members = ["crates/jsonschema-py"]
+-exclude = ["crates/jsonschema-unified-serde-json"]
++exclude = ["crates/jsonschema-unified-serde-json", "crates/jsonschema-testsuite-magnus", "crates/jsonschema-testsuite-pyo3"]
+ resolver = "3"
+
+ [workspace.package]

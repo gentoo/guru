@@ -1,0 +1,464 @@
+# Copyright 2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+CRATES="
+	addr@0.15.6
+	adler2@2.0.1
+	ahash@0.8.12
+	aho-corasick@1.1.5
+	alloca@0.4.0
+	allocator-api2@0.2.21
+	android_system_properties@0.1.6
+	anes@0.1.6
+	annotate-snippets@0.12.13
+	anstream@1.0.0
+	anstyle-parse@1.0.0
+	anstyle-query@1.1.5
+	anstyle-wincon@3.0.11
+	anstyle@1.0.14
+	anyhow@1.0.104
+	appendlist@1.4.0
+	approx@0.5.1
+	arraydeque@0.5.1
+	assert_cmd@2.1.2
+	async-trait@0.1.92
+	atomic-waker@1.1.2
+	autocfg@1.5.1
+	aws-lc-rs@1.19.0
+	aws-lc-sys@0.47.0
+	base64@0.21.7
+	base64@0.22.1
+	bindgen@0.72.1
+	bit-set@0.5.3
+	bit-set@0.8.0
+	bit-vec@0.6.3
+	bit-vec@0.8.0
+	bitflags@2.13.2
+	boon@0.6.1
+	borrow-or-share@0.2.4
+	bstr@1.14.0
+	built@0.8.1
+	bumpalo@3.20.4
+	bytecount@0.6.9
+	bytes@1.12.2
+	cargo-lock@11.1.0
+	cast@0.3.0
+	cc@1.11.2
+	cesu8@1.1.0
+	cexpr@0.6.0
+	cfg-if@1.0.5
+	cfg_aliases@0.2.2
+	chrono@0.4.45
+	ciborium-io@0.2.2
+	ciborium-ll@0.2.2
+	ciborium@0.2.2
+	clang-sys@1.9.1
+	clap@4.5.61
+	clap_builder@4.5.61
+	clap_derive@4.5.61
+	clap_lex@1.0.1
+	cmake@0.1.58
+	codspeed-criterion-compat-walltime@5.0.3
+	codspeed-criterion-compat@5.0.3
+	codspeed@5.0.3
+	colorchoice@1.0.5
+	colored@3.1.1
+	combine@4.6.9
+	console@0.16.6
+	core-foundation-sys@0.8.7
+	core-foundation@0.10.1
+	criterion-plot@0.5.0
+	criterion-plot@0.8.2
+	criterion@0.8.2
+	crunchy@0.2.4
+	dashu-base@0.6.1
+	dashu-int@0.6.1
+	data-encoding@2.11.1
+	difflib@0.4.0
+	displaydoc@0.2.7
+	downcast-rs@1.2.1
+	dunce@1.0.5
+	either@1.19.0
+	email_address@0.2.10
+	encode_unicode@1.0.0
+	encoding_rs@0.8.35
+	encoding_rs_io@0.1.8
+	equivalent@1.0.3
+	erased-serde@0.3.31
+	errno@0.3.15
+	fancy-regex@0.11.0
+	fancy-regex@0.20.2
+	fastrand@2.5.0
+	find-msvc-tools@0.1.15
+	fluent-uri@0.3.2
+	fluent-uri@0.4.1
+	fnv@1.0.7
+	foldhash@0.2.0
+	form_urlencoded@1.2.2
+	fraction@0.17.0
+	fs_extra@1.3.0
+	futures-channel@0.3.34
+	futures-core@0.3.34
+	futures-executor@0.3.34
+	futures-io@0.3.34
+	futures-macro@0.3.34
+	futures-sink@0.3.34
+	futures-task@0.3.34
+	futures-util@0.3.34
+	futures@0.3.34
+	getrandom@0.2.17
+	getrandom@0.3.4
+	getrandom@0.4.3
+	glob@0.3.4
+	granit-parser@1.3.0
+	h2@0.4.20
+	half@2.4.1
+	hashbrown@0.16.1
+	hashbrown@0.17.1
+	heck@0.5.0
+	hegeltest-macros@0.52.7
+	hegeltest@0.52.7
+	hegeltest-c@0.51.6
+	hermit-abi@0.5.3
+	http-body-util@0.1.5
+	http-body@1.1.0
+	http@1.5.0
+	httparse@1.10.1
+	hyper-rustls@0.27.7
+	hyper-util@0.1.20
+	hyper@1.12.0
+	iana-time-zone-haiku@0.1.2
+	iana-time-zone@0.1.65
+	icu_collections@1.5.0
+	icu_locid@1.5.0
+	icu_locid_transform@1.5.0
+	icu_locid_transform_data@1.5.1
+	icu_normalizer@1.5.0
+	icu_normalizer_data@1.5.1
+	icu_properties@1.5.1
+	icu_properties_data@1.5.1
+	icu_provider@1.5.0
+	icu_provider_macros@1.5.0
+	idna@1.1.0
+	idna_adapter@1.2.0
+	indexmap@2.11.4
+	insta@1.49.0
+	ipnet@2.12.2
+	iri-string@0.5.6
+	is-terminal@0.4.17
+	is_terminal_polyfill@1.70.2
+	itertools@0.10.5
+	itertools@0.13.0
+	itoa@1.0.19
+	jni-sys-macros@0.4.1
+	jni-sys@0.3.1
+	jni-sys@0.4.1
+	jni@0.21.1
+	jobserver@0.1.34
+	js-sys@0.3.106
+	json-pointer@0.3.4
+	jsonschema-valid@0.5.2
+	jsonway@2.0.0
+	lazy_static@1.5.1
+	libc@0.2.191
+	libloading@0.8.9
+	libm@0.2.16
+	linux-raw-sys@0.12.1
+	litemap@0.7.4
+	lock_api@0.4.14
+	log@0.4.35
+	magnus-macros@0.9.1
+	magnus@0.9.4
+	memchr@2.8.3
+	micromap@0.3.0
+	minicov@0.3.8
+	minimal-lexical@0.2.1
+	miniz_oxide@0.8.9
+	mio@1.2.5
+	nix@0.31.4
+	nom@7.1.3
+	nu-ansi-term@0.50.3
+	num-bigint@0.4.8
+	num-cmp@0.1.0
+	num-complex@0.4.6
+	num-integer@0.1.47
+	num-iter@0.1.46
+	num-modular@0.6.5
+	num-rational@0.4.2
+	num-traits@0.2.19
+	num@0.4.3
+	once_cell@1.21.4
+	once_cell_polyfill@1.70.2
+	oorandom@11.1.5
+	openssl-probe@0.2.2
+	outref@0.5.2
+	page_size@0.6.0
+	parking_lot@0.12.5
+	parking_lot_core@0.9.12
+	percent-encoding@2.3.2
+	phf@0.11.3
+	phf_codegen@0.11.3
+	phf_generator@0.11.3
+	phf_shared@0.11.3
+	pin-project-lite@0.2.18
+	pkg-config@0.3.34
+	portable-atomic@1.15.0
+	predicates-core@1.0.10
+	predicates-tree@1.0.13
+	predicates@3.1.4
+	prettyplease@0.3.0
+	proc-macro-crate@3.4.0
+	proc-macro2@1.0.107
+	psl-types@2.0.11
+	psl@2.1.258
+	pyo3-build-config@0.30.1
+	pyo3-built@0.6.0
+	pyo3-ffi@0.30.1
+	pyo3-macros-backend@0.30.1
+	pyo3-macros@0.30.1
+	pyo3@0.30.1
+	quote@1.0.47
+	r-efi@5.3.0
+	r-efi@6.0.0
+	rand@0.10.4
+	rand_core@0.10.0
+	rb-sys-build@0.9.130
+	rb-sys-env@0.2.3
+	rb-sys@0.9.130
+	redox_syscall@0.5.18
+	ref-cast-impl@1.0.27
+	ref-cast@1.0.27
+	regex-automata@0.4.19
+	regex-syntax@0.8.12
+	regex@1.13.2
+	reqwest@0.13.3
+	ring@0.17.14
+	rustc-hash@2.1.3
+	rustix@1.1.6
+	rustls-native-certs@0.8.5
+	rustls-pki-types@1.16.0
+	rustls-platform-verifier-android@0.1.1
+	rustls-platform-verifier@0.6.2
+	rustls-webpki@0.103.17
+	rustls@0.23.46
+	rustversion@1.0.23
+	same-file@1.0.6
+	schannel@0.1.30
+	scopeguard@1.2.0
+	security-framework-sys@2.17.0
+	security-framework@3.6.0
+	semver@1.0.28
+	seq-macro@0.3.6
+	serde-saphyr@1.1.0
+	serde-wasm-bindgen@0.6.5
+	serde@1.0.229
+	serde_core@1.0.229
+	serde_derive@1.0.229
+	serde_json@1.0.154
+	serde_spanned@1.1.1
+	shell-words@1.1.1
+	shlex@1.3.0
+	shlex@2.0.1
+	similar@2.7.0
+	siphasher@1.0.4
+	slab@0.4.12
+	smallvec@1.16.6
+	socket2@0.6.5
+	stable_deref_trait@1.2.1
+	static_assertions@1.1.0
+	statrs@0.18.0
+	strsim@0.11.1
+	strum@0.28.0
+	strum_macros@0.28.0
+	subtle@2.6.1
+	syn@2.0.119
+	syn@3.0.10
+	sync_wrapper@1.0.2
+	synstructure@0.13.2
+	synstructure@0.14.0
+	target-lexicon@0.13.6
+	target-triple@1.0.1
+	tempfile@3.27.0
+	termcolor@1.4.1
+	termtree@0.5.1
+	test-case-core@3.4.1
+	test-case-macros@3.4.1
+	test-case@3.3.1
+	textwrap@0.16.2
+	thiserror-impl@1.0.69
+	thiserror@1.0.69
+	tinystr@0.7.6
+	tinytemplate@1.2.1
+	tokio-macros@2.7.2
+	tokio-rustls@0.26.6
+	tokio-util@0.7.19
+	tokio@1.53.3
+	toml@1.0.7+spec-1.1.0
+	toml@1.1.6+spec-1.1.0
+	toml_datetime@0.7.5+spec-1.1.0
+	toml_datetime@1.1.1+spec-1.1.0
+	toml_edit@0.23.10+spec-1.0.0
+	toml_parser@1.1.3+spec-1.1.0
+	toml_writer@1.0.7+spec-1.1.0
+	tower-http@0.6.11
+	tower-layer@0.3.3
+	tower-service@0.3.3
+	tower@0.5.3
+	tracing-core@0.1.36
+	tracing@0.1.44
+	try-lock@0.2.5
+	trybuild@1.0.116
+	unicode-general-category@1.1.0
+	unicode-ident@1.0.27
+	unicode-width@0.2.3
+	untrusted@0.9.0
+	uritemplate-next@0.2.0
+	url@2.5.8
+	utf16_iter@1.0.5
+	utf8_iter@1.0.4
+	utf8parse@0.2.2
+	uuid-simd@0.8.0
+	uuid@1.20.0
+	valico@4.0.0
+	version_check@0.9.5
+	vsimd@0.8.0
+	wait-timeout@0.2.1
+	walkdir@2.5.0
+	want@0.3.2
+	wasi@0.11.1+wasi-snapshot-preview1
+	wasip2@1.0.1+wasi-0.2.4
+	wasm-bindgen-futures@0.4.79
+	wasm-bindgen-macro-support@0.2.129
+	wasm-bindgen-macro@0.2.129
+	wasm-bindgen-shared@0.2.129
+	wasm-bindgen-test-macro@0.3.79
+	wasm-bindgen-test-shared@0.2.129
+	wasm-bindgen-test@0.3.79
+	wasm-bindgen@0.2.129
+	web-sys@0.3.72
+	webpki-root-certs@1.0.12
+	winapi-i686-pc-windows-gnu@0.4.0
+	winapi-util@0.1.11
+	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9
+	windows-core@0.61.2
+	windows-implement@0.60.2
+	windows-interface@0.59.3
+	windows-link@0.1.3
+	windows-link@0.2.1
+	windows-result@0.3.4
+	windows-strings@0.4.2
+	windows-sys@0.45.0
+	windows-sys@0.52.0
+	windows-sys@0.61.2
+	windows-targets@0.42.2
+	windows-targets@0.52.6
+	windows_aarch64_gnullvm@0.42.2
+	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_msvc@0.42.2
+	windows_aarch64_msvc@0.52.6
+	windows_i686_gnu@0.42.2
+	windows_i686_gnu@0.52.6
+	windows_i686_gnullvm@0.52.6
+	windows_i686_msvc@0.42.2
+	windows_i686_msvc@0.52.6
+	windows_x86_64_gnu@0.42.2
+	windows_x86_64_gnu@0.52.6
+	windows_x86_64_gnullvm@0.42.2
+	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_msvc@0.42.2
+	windows_x86_64_msvc@0.52.6
+	winnow@0.7.15
+	winnow@1.0.5
+	wit-bindgen@0.46.0
+	write16@1.0.0
+	writeable@0.5.5
+	yoke-derive@0.7.5
+	yoke@0.7.5
+	zerocopy-derive@0.8.63
+	zerocopy@0.8.63
+	zerofrom-derive@0.1.8
+	zerofrom@0.1.8
+	zeroize@1.8.2
+	zerovec-derive@0.10.4
+	zerovec@0.10.4
+	zmij@1.0.23
+"
+
+RUST_MIN_VER=1.87.0
+DISTUTILS_EXT=1
+DISTUTILS_USE_PEP517=maturin
+PYTHON_COMPAT=( python3_{13..15} )
+
+inherit cargo distutils-r1
+
+TEST_SUITE_COMMIT="e2a68a15cd490750fd6b95e604e4054d7d978d1f"
+TEST_SUITE_PN="JSON-Schema-Test-Suite"
+REFER_SUITE_COMMIT="a13bcf6495e8e4d2f33f136c50d914021995eafa"
+REFER_SUITE_PN="referencing-suite"
+
+DESCRIPTION="A high-performance JSON Schema validator for Rust"
+HOMEPAGE="https://github.com/Stranger6667/jsonschema"
+SRC_URI="
+	https://github.com/Stranger6667/jsonschema/archive/refs/tags/python-v${PV}.tar.gz -> ${P}.gh.tar.gz
+	test? (
+		https://github.com/json-schema-org/${TEST_SUITE_PN}/archive/${TEST_SUITE_COMMIT}.tar.gz
+		-> ${TEST_SUITE_PN}.tar.gz
+		https://github.com/python-jsonschema/${REFER_SUITE_PN}/archive/${REFER_SUITE_COMMIT}.tar.gz
+		-> ${REFER_SUITE_PN}.tar.gz
+	)
+	${CARGO_CRATE_URIS}
+"
+S="${WORKDIR}/${PN%-*}-rust-v${PV}"
+
+LICENSE="MIT"
+# Dependent crate licenses
+LICENSE+="
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD CDLA-Permissive-2.0
+	ISC MIT MIT-0 MPL-2.0 Unicode-3.0 ZLIB
+"
+SLOT="0"
+KEYWORDS="~amd64"
+
+PATCHES=( "${FILESDIR}"/crates.patch )
+
+BDEPEND="
+	test? (
+		dev-python/flask[${PYTHON_USEDEP}]
+	)
+"
+
+EPYTEST_PLUGINS=( hypothesis )
+
+distutils_enable_tests pytest
+
+python_compile() {
+	pushd crates/"${PN/rs/py/}" > /dev/null || die
+	distutils-r1_python_compile
+}
+
+src_test() {
+	local CARGO_SKIP_TESTS=( )
+	cargo_src_test
+}
+
+# Upstream pins specific commits for test suites
+src_prepare() {
+	rmdir "crates/${PN%-*}/tests/suite" \
+		"crates/${PN/rs/referencing/}/tests/suite" \
+		|| die "Failed to remove empty suites"
+
+	if use test; then
+		# test suite is a git submodule in this directory
+		mv "${WORKDIR}/${TEST_SUITE_PN}-${TEST_SUITE_COMMIT}" \
+			"crates/${PN%-*}/tests/suite/" || die
+
+		# reference suite is a git submodule in this directory
+		mv "${WORKDIR}/${REFER_SUITE_PN}-${REFER_SUITE_COMMIT}" \
+			"crates/${PN/rs/referencing/}/tests/suite/" || die
+	fi
+
+	distutils-r1_src_prepare
+}
