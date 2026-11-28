@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/WiVRn/WiVRn"
 
 LICENSE="GPL-3 Apache-2.0 MIT"
 SLOT="0"
-IUSE="debug gui nvenc +pipewire pulseaudio systemd vaapi wireshark-plugins x264"
+IUSE="debug gui nvenc +pipewire vaapi wireshark-plugins x264"
 REQUIRED_USE="|| ( nvenc vaapi x264 )"
 
 if [[ ${PV} == 9999 ]]; then
@@ -50,12 +50,6 @@ RDEPEND="
 	)
 	pipewire? (
 		media-video/pipewire
-	)
-	pulseaudio? (
-		media-libs/libpulse
-	)
-	systemd? (
-		sys-apps/systemd
 	)
 	vaapi? (
 		media-video/ffmpeg[drm(-),vaapi]
@@ -115,10 +109,14 @@ multilib_src_configure() {
 	use debug || append-cflags "-DNDEBUG"
 	use debug || append-cxxflags "-DNDEBUG"
 	if [[ ${PV} != 9999 ]]; then
-		GIT_DESC=v${PV}
-		GIT_COMMIT=v${PV}
+		GIT_TAG=v${PV}
+		GIT_DESC=""
+		GIT_COMMIT=""
+	else
+		GIT_TAG=""
 	fi
 	local mycmakeargs=(
+		-DGIT_TAG=${GIT_TAG}
 		-DGIT_DESC=${GIT_DESC}
 		-DGIT_COMMIT=${GIT_COMMIT}
 		-DWIVRN_BUILD_CLIENT=OFF
@@ -131,12 +129,10 @@ multilib_src_configure() {
 		-DWIVRN_BUILD_WIVRNCTL=$(multilib_is_native_abi && echo ON || echo OFF)
 		-DWIVRN_FEATURE_STEAMVR_LIGHTHOUSE=ON
 		-DWIVRN_USE_PIPEWIRE=$(multilib_native_usex pipewire)
-		-DWIVRN_USE_PULSEAUDIO=$(multilib_native_usex pulseaudio)
 		-DWIVRN_USE_NVENC=$(multilib_native_usex nvenc)
 		-DWIVRN_USE_VAAPI=$(multilib_native_usex vaapi)
 		-DWIVRN_USE_VULKAN_ENCODE=ON
 		-DWIVRN_USE_X264=$(multilib_native_usex x264)
-		-DWIVRN_USE_SYSTEMD=$(multilib_native_usex systemd)
 		-DWIVRN_USE_SYSTEM_OPENXR=ON
 		-DWIVRN_USE_SYSTEM_BOOST=ON
 		-DFETCHCONTENT_FULLY_DISCONNECTED=ON
