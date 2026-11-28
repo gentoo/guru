@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/WiVRn/WiVRn"
 
 LICENSE="GPL-3 Apache-2.0 MIT"
 SLOT="0"
-IUSE="debug gui nvenc +pipewire pulseaudio vaapi wireshark-plugins x264"
+IUSE="debug gui nvenc +pipewire vaapi wireshark-plugins x264"
 REQUIRED_USE="|| ( nvenc vaapi x264 )"
 
 if [[ ${PV} == 9999 ]]; then
@@ -50,9 +50,6 @@ RDEPEND="
 	)
 	pipewire? (
 		media-video/pipewire
-	)
-	pulseaudio? (
-		media-libs/libpulse
 	)
 	vaapi? (
 		media-video/ffmpeg[drm(-),vaapi]
@@ -132,7 +129,6 @@ multilib_src_configure() {
 		-DWIVRN_BUILD_WIVRNCTL=$(multilib_is_native_abi && echo ON || echo OFF)
 		-DWIVRN_FEATURE_STEAMVR_LIGHTHOUSE=ON
 		-DWIVRN_USE_PIPEWIRE=$(multilib_native_usex pipewire)
-		-DWIVRN_USE_PULSEAUDIO=$(multilib_native_usex pulseaudio)
 		-DWIVRN_USE_NVENC=$(multilib_native_usex nvenc)
 		-DWIVRN_USE_VAAPI=$(multilib_native_usex vaapi)
 		-DWIVRN_USE_VULKAN_ENCODE=ON
